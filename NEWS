@@ -41,6 +41,8 @@ empty fields.
 
 MySQL MessageStore will properly reset sequence numbers
 
+Java field classes have final integers which identify the tag number of the field.
+
 1.3.2
 -----
 More portable file copies during build process on unix
