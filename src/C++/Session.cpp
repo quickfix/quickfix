@@ -873,8 +873,12 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     m_state.lastReceivedTime( now );
     m_state.testRequest( 0 );
   }
-  catch ( std::exception& )
-  { disconnect(); return false; }
+  catch ( std::exception& e )
+  {
+    m_state.onEvent( e.what() );
+    disconnect(); 
+    return false; 
+  }
 
   fromCallback( msgType, msg, m_sessionID );
   return true;
@@ -1057,7 +1061,10 @@ void Session::next( const std::string& msg )
     try
     {
       if( identifyType(msg) == MsgType_Logon )
+      {
+        m_state.onEvent( "Logon message is not valid" );
         disconnect();
+      }
     } catch( MessageParseError& ) {}
     throw e;
   }
@@ -1118,7 +1125,10 @@ void Session::next( const Message& message )
   {
     generateReject( message, 1, e.field );
     if ( msgType == MsgType_Logon )
+    {
+      m_state.onEvent( "Required field missing from logon" );
       disconnect();
+    }
   }
   catch ( InvalidTagNumber & e )
   { generateReject( message, 0, e.field ); }
