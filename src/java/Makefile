@@ -1,0 +1,596 @@
+# Generated automatically from Makefile.in by configure.
+# Makefile.in generated automatically by automake 1.4-p5 from Makefile.am
+
+# Copyright (C) 1994, 1995-8, 1999, 2001 Free Software Foundation, Inc.
+# This Makefile.in is free software; the Free Software Foundation
+# gives unlimited permission to copy and/or distribute it,
+# with or without modifications, as long as this notice is preserved.
+
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY, to the extent permitted by law; without
+# even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+# PARTICULAR PURPOSE.
+
+
+SHELL = /bin/sh
+
+srcdir = .
+top_srcdir = ../..
+prefix = /usr/local
+exec_prefix = ${prefix}
+
+bindir = ${exec_prefix}/bin
+sbindir = ${exec_prefix}/sbin
+libexecdir = ${exec_prefix}/libexec
+datadir = ${prefix}/share
+sysconfdir = ${prefix}/etc
+sharedstatedir = ${prefix}/com
+localstatedir = ${prefix}/var
+libdir = ${exec_prefix}/lib
+infodir = ${prefix}/info
+mandir = ${prefix}/man
+includedir = ${prefix}/include
+oldincludedir = /usr/include
+
+DESTDIR =
+
+pkgdatadir = $(datadir)/quickfix
+pkglibdir = $(libdir)/quickfix
+pkgincludedir = $(includedir)/quickfix
+
+top_builddir = ../..
+
+ACLOCAL = aclocal
+AUTOCONF = autoconf
+AUTOMAKE = automake
+AUTOHEADER = autoheader
+
+INSTALL = /usr/bin/install -c
+INSTALL_PROGRAM = ${INSTALL} $(AM_INSTALL_PROGRAM_FLAGS)
+INSTALL_DATA = ${INSTALL} -m 644
+INSTALL_SCRIPT = ${INSTALL_PROGRAM}
+transform = s,x,x,
+
+NORMAL_INSTALL = :
+PRE_INSTALL = :
+POST_INSTALL = :
+NORMAL_UNINSTALL = :
+PRE_UNINSTALL = :
+POST_UNINSTALL = :
+host_alias = i686-pc-linux-gnu
+host_triplet = i686-pc-linux-gnu
+AS = as
+CC = gcc
+CFLAGS = -g -O2 -Wall -I/usr/local/include/stlport  -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux
+CXX = c++
+CXXFLAGS = -O0 -Wall -I/usr/local/include/stlport  -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux -Wall -I/usr/local/include/stlport  -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux
+DLLTOOL = dlltool
+ECHO = echo
+EXEEXT = 
+JNI_CFLAGS = -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux
+LEX = flex
+LIBTOOL = $(SHELL) $(top_builddir)/libtool
+LN_S = ln -s
+MAKEINFO = makeinfo
+MYSQL_CFLAGS = 
+MYSQL_LIBS = 
+MYSQL_PREFIX = 
+OBJDUMP = objdump
+OBJEXT = o
+PACKAGE = quickfix
+RANLIB = ranlib
+RUBYDIR = /usr/lib/ruby/1.6/i386-linux
+STLPORT_CFLAGS = -I/usr/local/include/stlport
+STLPORT_LIBS = -L/usr/local/lib -lstlport_gcc
+STLPORT_PREFIX = /usr/local
+STRIP = strip
+VERSION = 1.6.0
+XML2_CONFIG = /usr/bin/xml2-config
+XML_CFLAGS = -I/usr/include/libxml2
+XML_CONFIG = @XML_CONFIG@
+XML_LIBS = -L/usr/lib -lxml2 -lz -lm
+
+SUBDIRS = cfg src
+EXTRA_DIST = *.h *.cpp *.bat *.xml *.properties *.dsp *.dsw
+
+lib_LTLIBRARIES = libquickfix_jni.la
+
+jardir = $(libdir)
+jar_DATA = ../../lib/quickfix.jar
+
+libquickfix_jni_la_SOURCES = \
+	JVM.h \
+	JVM.cpp \
+	Conversions.h \
+	Conversions.cpp \
+	JavaApplication.h \
+	JavaApplication.cpp \
+	JavaLog.h \
+	JavaLog.cpp \
+	JavaLogFactory.h \
+	JavaLogFactory.cpp \
+	JavaMessageStore.h \
+	JavaMessageStore.cpp \
+	JavaMessageStoreFactory.h \
+	JavaMessageStoreFactory.cpp \
+	org_quickfix_DataDictionary.h \
+	org_quickfix_DataDictionary.cpp \
+	org_quickfix_FileStore.h \
+	org_quickfix_FileStore.cpp \
+	org_quickfix_FileStoreFactory.h \
+	org_quickfix_FileStoreFactory.cpp \
+	org_quickfix_FileLog.h \
+	org_quickfix_FileLog.cpp \
+	org_quickfix_FileLogFactory.h \
+	org_quickfix_FileLogFactory.cpp \
+	org_quickfix_Group.h \
+	org_quickfix_Group.cpp \
+	org_quickfix_MemoryStore.h \
+	org_quickfix_MemoryStore.cpp \
+	org_quickfix_Message.h \
+	org_quickfix_Message.cpp \
+	org_quickfix_MySQLStore.h \
+	org_quickfix_MySQLStore.cpp \
+	org_quickfix_MySQLStoreFactory.h \
+	org_quickfix_MySQLStoreFactory.cpp \
+	org_quickfix_MySQLLog.h \
+	org_quickfix_MySQLLog.cpp \
+	org_quickfix_MySQLLogFactory.h \
+	org_quickfix_MySQLLogFactory.cpp \
+	org_quickfix_ScreenLog.h \
+	org_quickfix_ScreenLog.cpp \
+	org_quickfix_ScreenLogFactory.h \
+	org_quickfix_ScreenLogFactory.cpp \
+	org_quickfix_Session.h \
+	org_quickfix_Session.cpp \
+	org_quickfix_SessionID.h \
+	org_quickfix_SessionID.cpp \
+	org_quickfix_SessionSettings.h \
+	org_quickfix_SessionSettings.cpp \
+	org_quickfix_SocketAcceptor.h \
+	org_quickfix_SocketAcceptor.cpp \
+	org_quickfix_SocketInitiator.h \
+	org_quickfix_SocketInitiator.cpp \
+	org_quickfix_ThreadedSocketAcceptor.h \
+	org_quickfix_ThreadedSocketAcceptor.cpp \
+	org_quickfix_ThreadedSocketInitiator.h \
+	org_quickfix_ThreadedSocketInitiator.cpp
+
+
+libquickfix_jni_la_LDFLAGS = -version-info 4:0:1
+libquickfix_jni_la_LIBADD = -L../../src/C++ -lquickfix -lstdc++
+
+INCLUDES = -I../../include
+mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
+CONFIG_HEADER = ../../config.h
+CONFIG_CLEAN_FILES = 
+LTLIBRARIES =  $(lib_LTLIBRARIES)
+
+
+DEFS = -DHAVE_CONFIG_H -I. -I$(srcdir) -I../..
+CPPFLAGS = 
+LDFLAGS = -L/export/usr/lib
+LIBS = -lpthread  -L/usr/local/lib -lstlport_gcc -L/usr/lib -lxml2 -lz -lm 
+libquickfix_jni_la_DEPENDENCIES = 
+libquickfix_jni_la_OBJECTS =  JVM.lo Conversions.lo JavaApplication.lo \
+JavaLog.lo JavaLogFactory.lo JavaMessageStore.lo \
+JavaMessageStoreFactory.lo org_quickfix_DataDictionary.lo \
+org_quickfix_FileStore.lo org_quickfix_FileStoreFactory.lo \
+org_quickfix_FileLog.lo org_quickfix_FileLogFactory.lo \
+org_quickfix_Group.lo org_quickfix_MemoryStore.lo \
+org_quickfix_Message.lo org_quickfix_MySQLStore.lo \
+org_quickfix_MySQLStoreFactory.lo org_quickfix_MySQLLog.lo \
+org_quickfix_MySQLLogFactory.lo org_quickfix_ScreenLog.lo \
+org_quickfix_ScreenLogFactory.lo org_quickfix_Session.lo \
+org_quickfix_SessionID.lo org_quickfix_SessionSettings.lo \
+org_quickfix_SocketAcceptor.lo org_quickfix_SocketInitiator.lo \
+org_quickfix_ThreadedSocketAcceptor.lo \
+org_quickfix_ThreadedSocketInitiator.lo
+CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
+CXXLD = $(CXX)
+CXXLINK = $(LIBTOOL) --mode=link $(CXXLD) $(AM_CXXFLAGS) $(CXXFLAGS) $(LDFLAGS) -o $@
+COMPILE = $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+LTCOMPILE = $(LIBTOOL) --mode=compile $(CC) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
+CCLD = $(CC)
+LINK = $(LIBTOOL) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) $(LDFLAGS) -o $@
+DATA =  $(jar_DATA)
+
+DIST_COMMON =  Makefile.am Makefile.in
+
+
+DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
+
+TAR = gtar
+GZIP_ENV = --best
+DEP_FILES =  .deps/Conversions.P .deps/JVM.P .deps/JavaApplication.P \
+.deps/JavaLog.P .deps/JavaLogFactory.P .deps/JavaMessageStore.P \
+.deps/JavaMessageStoreFactory.P .deps/org_quickfix_DataDictionary.P \
+.deps/org_quickfix_FileLog.P .deps/org_quickfix_FileLogFactory.P \
+.deps/org_quickfix_FileStore.P .deps/org_quickfix_FileStoreFactory.P \
+.deps/org_quickfix_Group.P .deps/org_quickfix_MemoryStore.P \
+.deps/org_quickfix_Message.P .deps/org_quickfix_MySQLLog.P \
+.deps/org_quickfix_MySQLLogFactory.P .deps/org_quickfix_MySQLStore.P \
+.deps/org_quickfix_MySQLStoreFactory.P .deps/org_quickfix_ScreenLog.P \
+.deps/org_quickfix_ScreenLogFactory.P .deps/org_quickfix_Session.P \
+.deps/org_quickfix_SessionID.P .deps/org_quickfix_SessionSettings.P \
+.deps/org_quickfix_SocketAcceptor.P \
+.deps/org_quickfix_SocketInitiator.P \
+.deps/org_quickfix_ThreadedSocketAcceptor.P \
+.deps/org_quickfix_ThreadedSocketInitiator.P
+SOURCES = $(libquickfix_jni_la_SOURCES)
+OBJECTS = $(libquickfix_jni_la_OBJECTS)
+
+all: all-redirect
+.SUFFIXES:
+.SUFFIXES: .S .c .cpp .lo .o .obj .s
+$(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
+	cd $(top_srcdir) && $(AUTOMAKE) --foreign src/java/Makefile
+
+Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
+	cd $(top_builddir) \
+	  && CONFIG_FILES=$(subdir)/$@ CONFIG_HEADERS= $(SHELL) ./config.status
+
+
+mostlyclean-libLTLIBRARIES:
+
+clean-libLTLIBRARIES:
+	-test -z "$(lib_LTLIBRARIES)" || rm -f $(lib_LTLIBRARIES)
+
+distclean-libLTLIBRARIES:
+
+maintainer-clean-libLTLIBRARIES:
+
+install-libLTLIBRARIES: $(lib_LTLIBRARIES)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(libdir)
+	@list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  if test -f $$p; then \
+	    echo "$(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p"; \
+	    $(LIBTOOL)  --mode=install $(INSTALL) $$p $(DESTDIR)$(libdir)/$$p; \
+	  else :; fi; \
+	done
+
+uninstall-libLTLIBRARIES:
+	@$(NORMAL_UNINSTALL)
+	list='$(lib_LTLIBRARIES)'; for p in $$list; do \
+	  $(LIBTOOL)  --mode=uninstall rm -f $(DESTDIR)$(libdir)/$$p; \
+	done
+
+# FIXME: We should only use cygpath when building on Windows,
+# and only if it is available.
+.c.obj:
+	$(COMPILE) -c `cygpath -w $<`
+
+.s.o:
+	$(COMPILE) -c $<
+
+.S.o:
+	$(COMPILE) -c $<
+
+mostlyclean-compile:
+	-rm -f *.o core *.core
+	-rm -f *.$(OBJEXT)
+
+clean-compile:
+
+distclean-compile:
+	-rm -f *.tab.c
+
+maintainer-clean-compile:
+
+.s.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+.S.lo:
+	$(LIBTOOL) --mode=compile $(COMPILE) -c $<
+
+mostlyclean-libtool:
+	-rm -f *.lo
+
+clean-libtool:
+	-rm -rf .libs _libs
+
+distclean-libtool:
+
+maintainer-clean-libtool:
+
+libquickfix_jni.la: $(libquickfix_jni_la_OBJECTS) $(libquickfix_jni_la_DEPENDENCIES)
+	$(CXXLINK) -rpath $(libdir) $(libquickfix_jni_la_LDFLAGS) $(libquickfix_jni_la_OBJECTS) $(libquickfix_jni_la_LIBADD) $(LIBS)
+.cpp.o:
+	$(CXXCOMPILE) -c $<
+.cpp.obj:
+	$(CXXCOMPILE) -c `cygpath -w $<`
+.cpp.lo:
+	$(LTCXXCOMPILE) -c $<
+
+install-jarDATA: $(jar_DATA)
+	@$(NORMAL_INSTALL)
+	$(mkinstalldirs) $(DESTDIR)$(jardir)
+	@list='$(jar_DATA)'; for p in $$list; do \
+	  if test -f $(srcdir)/$$p; then \
+	    echo " $(INSTALL_DATA) $(srcdir)/$$p $(DESTDIR)$(jardir)/$$p"; \
+	    $(INSTALL_DATA) $(srcdir)/$$p $(DESTDIR)$(jardir)/$$p; \
+	  else if test -f $$p; then \
+	    echo " $(INSTALL_DATA) $$p $(DESTDIR)$(jardir)/$$p"; \
+	    $(INSTALL_DATA) $$p $(DESTDIR)$(jardir)/$$p; \
+	  fi; fi; \
+	done
+
+uninstall-jarDATA:
+	@$(NORMAL_UNINSTALL)
+	list='$(jar_DATA)'; for p in $$list; do \
+	  rm -f $(DESTDIR)$(jardir)/$$p; \
+	done
+
+# This directory's subdirectories are mostly independent; you can cd
+# into them and run `make' without going through this Makefile.
+# To change the values of `make' variables: instead of editing Makefiles,
+# (1) if the variable is set in `config.status', edit `config.status'
+#     (which will cause the Makefiles to be regenerated when you run `make');
+# (2) otherwise, pass the desired values on the `make' command line.
+
+
+
+all-recursive install-data-recursive install-exec-recursive \
+installdirs-recursive install-recursive uninstall-recursive  \
+check-recursive installcheck-recursive info-recursive dvi-recursive:
+	@set fnord $(MAKEFLAGS); amf=$$2; \
+	dot_seen=no; \
+	target=`echo $@ | sed s/-recursive//`; \
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  echo "Making $$target in $$subdir"; \
+	  if test "$$subdir" = "."; then \
+	    dot_seen=yes; \
+	    local_target="$$target-am"; \
+	  else \
+	    local_target="$$target"; \
+	  fi; \
+	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
+	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+	done; \
+	if test "$$dot_seen" = "no"; then \
+	  $(MAKE) $(AM_MAKEFLAGS) "$$target-am" || exit 1; \
+	fi; test -z "$$fail"
+
+mostlyclean-recursive clean-recursive distclean-recursive \
+maintainer-clean-recursive:
+	@set fnord $(MAKEFLAGS); amf=$$2; \
+	dot_seen=no; \
+	rev=''; list='$(SUBDIRS)'; for subdir in $$list; do \
+	  rev="$$subdir $$rev"; \
+	  test "$$subdir" != "." || dot_seen=yes; \
+	done; \
+	test "$$dot_seen" = "no" && rev=". $$rev"; \
+	target=`echo $@ | sed s/-recursive//`; \
+	for subdir in $$rev; do \
+	  echo "Making $$target in $$subdir"; \
+	  if test "$$subdir" = "."; then \
+	    local_target="$$target-am"; \
+	  else \
+	    local_target="$$target"; \
+	  fi; \
+	  (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) $$local_target) \
+	   || case "$$amf" in *=*) exit 1;; *k*) fail=yes;; *) exit 1;; esac; \
+	done && test -z "$$fail"
+tags-recursive:
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+	  test "$$subdir" = . || (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) tags); \
+	done
+
+tags: TAGS
+
+ID: $(HEADERS) $(SOURCES) $(LISP)
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	here=`pwd` && cd $(srcdir) \
+	  && mkid -f$$here/ID $$unique $(LISP)
+
+TAGS: tags-recursive $(HEADERS) $(SOURCES)  $(TAGS_DEPENDENCIES) $(LISP)
+	tags=; \
+	here=`pwd`; \
+	list='$(SUBDIRS)'; for subdir in $$list; do \
+   if test "$$subdir" = .; then :; else \
+	    test -f $$subdir/TAGS && tags="$$tags -i $$here/$$subdir/TAGS"; \
+   fi; \
+	done; \
+	list='$(SOURCES) $(HEADERS)'; \
+	unique=`for i in $$list; do echo $$i; done | \
+	  awk '    { files[$$0] = 1; } \
+	       END { for (i in files) print i; }'`; \
+	test -z "$(ETAGS_ARGS)$$unique$(LISP)$$tags" \
+	  || (cd $(srcdir) && etags $(ETAGS_ARGS) $$tags  $$unique $(LISP) -o $$here/TAGS)
+
+mostlyclean-tags:
+
+clean-tags:
+
+distclean-tags:
+	-rm -f TAGS ID
+
+maintainer-clean-tags:
+
+distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
+
+subdir = src/java
+
+distdir: $(DISTFILES)
+	here=`cd $(top_builddir) && pwd`; \
+	top_distdir=`cd $(top_distdir) && pwd`; \
+	distdir=`cd $(distdir) && pwd`; \
+	cd $(top_srcdir) \
+	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --foreign src/java/Makefile
+	@for file in $(DISTFILES); do \
+	  d=$(srcdir); \
+	  if test -d $$d/$$file; then \
+	    cp -pr $$d/$$file $(distdir)/$$file; \
+	  else \
+	    test -f $(distdir)/$$file \
+	    || ln $$d/$$file $(distdir)/$$file 2> /dev/null \
+	    || cp -p $$d/$$file $(distdir)/$$file || :; \
+	  fi; \
+	done
+	for subdir in $(SUBDIRS); do \
+	  if test "$$subdir" = .; then :; else \
+	    test -d $(distdir)/$$subdir \
+	    || mkdir $(distdir)/$$subdir \
+	    || exit 1; \
+	    chmod 777 $(distdir)/$$subdir; \
+	    (cd $$subdir && $(MAKE) $(AM_MAKEFLAGS) top_distdir=../$(top_distdir) distdir=../$(distdir)/$$subdir distdir) \
+	      || exit 1; \
+	  fi; \
+	done
+
+DEPS_MAGIC := $(shell mkdir .deps > /dev/null 2>&1 || :)
+
+-include $(DEP_FILES)
+
+mostlyclean-depend:
+
+clean-depend:
+
+distclean-depend:
+	-rm -rf .deps
+
+maintainer-clean-depend:
+
+%.o: %.c
+	@echo '$(COMPILE) -c $<'; \
+	$(COMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
+
+%.lo: %.c
+	@echo '$(LTCOMPILE) -c $<'; \
+	$(LTCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-sed -e 's/^\([^:]*\)\.o[ 	]*:/\1.lo \1.o :/' \
+	  < .deps/$(*F).pp > .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm -f .deps/$(*F).pp
+
+%.o: %.cpp
+	@echo '$(CXXCOMPILE) -c $<'; \
+	$(CXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-cp .deps/$(*F).pp .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm .deps/$(*F).pp
+
+%.lo: %.cpp
+	@echo '$(LTCXXCOMPILE) -c $<'; \
+	$(LTCXXCOMPILE) -Wp,-MD,.deps/$(*F).pp -c $<
+	@-sed -e 's/^\([^:]*\)\.o[ 	]*:/\1.lo \1.o :/' \
+	  < .deps/$(*F).pp > .deps/$(*F).P; \
+	tr ' ' '\012' < .deps/$(*F).pp \
+	  | sed -e 's/^\\$$//' -e '/^$$/ d' -e '/:$$/ d' -e 's/$$/ :/' \
+	    >> .deps/$(*F).P; \
+	rm -f .deps/$(*F).pp
+info-am:
+info: info-recursive
+dvi-am:
+dvi: dvi-recursive
+check-am: all-am
+check: check-recursive
+installcheck-am:
+installcheck: installcheck-recursive
+install-exec-am: install-libLTLIBRARIES
+install-exec: install-exec-recursive
+
+install-data-am: install-jarDATA
+install-data: install-data-recursive
+
+install-am: all-am
+	@$(MAKE) $(AM_MAKEFLAGS) install-exec-am install-data-am
+install: install-recursive
+uninstall-am: uninstall-libLTLIBRARIES uninstall-jarDATA
+uninstall: uninstall-recursive
+all-am: Makefile $(LTLIBRARIES) $(DATA) all-local
+all-redirect: all-recursive
+install-strip:
+	$(MAKE) $(AM_MAKEFLAGS) AM_INSTALL_PROGRAM_FLAGS=-s install
+installdirs: installdirs-recursive
+installdirs-am:
+	$(mkinstalldirs)  $(DESTDIR)$(libdir) $(DESTDIR)$(jardir)
+
+
+mostlyclean-generic:
+
+clean-generic:
+
+distclean-generic:
+	-rm -f Makefile $(CONFIG_CLEAN_FILES)
+	-rm -f config.cache config.log stamp-h stamp-h[0-9]*
+
+maintainer-clean-generic:
+mostlyclean-am:  mostlyclean-libLTLIBRARIES mostlyclean-compile \
+		mostlyclean-libtool mostlyclean-tags mostlyclean-depend \
+		mostlyclean-generic
+
+mostlyclean: mostlyclean-recursive
+
+clean-am:  clean-libLTLIBRARIES clean-compile clean-libtool clean-tags \
+		clean-depend clean-generic mostlyclean-am clean-local
+
+clean: clean-recursive
+
+distclean-am:  distclean-libLTLIBRARIES distclean-compile \
+		distclean-libtool distclean-tags distclean-depend \
+		distclean-generic clean-am
+	-rm -f libtool
+
+distclean: distclean-recursive
+
+maintainer-clean-am:  maintainer-clean-libLTLIBRARIES \
+		maintainer-clean-compile maintainer-clean-libtool \
+		maintainer-clean-tags maintainer-clean-depend \
+		maintainer-clean-generic distclean-am
+	@echo "This command is intended for maintainers to use;"
+	@echo "it deletes files that may require special tools to rebuild."
+
+maintainer-clean: maintainer-clean-recursive
+
+.PHONY: mostlyclean-libLTLIBRARIES distclean-libLTLIBRARIES \
+clean-libLTLIBRARIES maintainer-clean-libLTLIBRARIES \
+uninstall-libLTLIBRARIES install-libLTLIBRARIES mostlyclean-compile \
+distclean-compile clean-compile maintainer-clean-compile \
+mostlyclean-libtool distclean-libtool clean-libtool \
+maintainer-clean-libtool uninstall-jarDATA install-jarDATA \
+install-data-recursive uninstall-data-recursive install-exec-recursive \
+uninstall-exec-recursive installdirs-recursive uninstalldirs-recursive \
+all-recursive check-recursive installcheck-recursive info-recursive \
+dvi-recursive mostlyclean-recursive distclean-recursive clean-recursive \
+maintainer-clean-recursive tags tags-recursive mostlyclean-tags \
+distclean-tags clean-tags maintainer-clean-tags distdir \
+mostlyclean-depend distclean-depend clean-depend \
+maintainer-clean-depend info-am info dvi-am dvi check check-am \
+installcheck-am installcheck install-exec-am install-exec \
+install-data-am install-data install-am install uninstall-am uninstall \
+all-local all-redirect all-am all installdirs-am installdirs \
+mostlyclean-generic distclean-generic clean-generic \
+maintainer-clean-generic clean mostlyclean distclean maintainer-clean
+
+
+ant-all:
+	./build.sh
+
+../../lib/quickfix.jar: ant-all
+
+all-local: ant-all
+	rm -f ../../lib/libquickfix_jni.so
+	ln -s ../src/java/.libs/libquickfix_jni.so ../../lib/libquickfix_jni.so
+
+clean-local:
+	rm -f ../../lib/libquickfix_jni.so
+	./build.sh clean
+
+# Tell versions [3.59,3.63) of GNU make to not export all variables.
+# Otherwise a system limit (for SysV at least) may be exceeded.
+.NOEXPORT:
