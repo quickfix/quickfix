@@ -2356,12 +2356,12 @@
     <component name="YieldData" required="N" />
     <field name="TotNoAllocs" required="N" />
     <field name="LastFragment" required="N" />
-    <group name="NoAllocs" required="Y">**
-      <field name="AllocAccount" required="Y" />**
+    <group name="NoAllocs" required="Y">
+      <field name="AllocAccount" required="Y" />
       <field name="AllocAcctIDSource" required="N" />
       <field name="MatchStatus" required="N" />
       <field name="AllocPrice" required="N" />
-      <field name="AllocQty" required="Y" />**
+      <field name="AllocQty" required="Y" />
       <field name="IndividualAllocID" required="N" />
       <field name="ProcessCode" required="N" />
       <component name="NestedParties" required="N" />
@@ -2511,12 +2511,12 @@
     <component name="YieldData" required="N" />
     <field name="TotNoAllocs" required="N" />
     <field name="LastFragment" required="N" />
-    <group name="NoAllocs" required="Y">**
-      <field name="AllocAccount" required="Y" />**
+    <group name="NoAllocs" required="Y">
+      <field name="AllocAccount" required="Y" />
       <field name="AllocAcctIDSource" required="N" />
       <field name="MatchStatus" required="N" />
       <field name="AllocPrice" required="N" />
-      <field name="AllocQty" required="Y" />**
+      <field name="AllocQty" required="Y" />
       <field name="IndividualAllocID" required="N" />
       <field name="ProcessCode" required="N" />
       <component name="NestedParties" required="N" />
@@ -3251,7 +3251,7 @@
     <field name="Currency" required="N" />
     <field name="NoLegs" required="N" />
     <component name="InstrumentLeg" required="N" />
-    <group name="NoUnderlyings" required="N"> Number of legs that make up the Security
+    <group name="NoUnderlyings" required="N">
       <component name="UnderlyingInstrument" required="N" />
     </group>
     <component name="PositionQty" required="Y" />
@@ -3414,7 +3414,7 @@
       <field name="ExecID" required="N" />
     </group>
     <group name="NoTrades" required="N">
-      <field name="TradeReportID" required="N" /> Required if NoTrades > 0
+      <field name="TradeReportID" required="N" />
       <field name="SecondaryTradeReportID" required="N" /> 
     </group>
     <component name="Instrument" required="N" />
@@ -3435,9 +3435,9 @@
     <component name="TrdRegTimestamps" required="N" />            
     <field name="Side" required="N" />               
     <group name="NoMiscFees" required="N">
-      <field name="MiscFeeAmt" required="N" /> Required if NoMiscFees > 0
+      <field name="MiscFeeAmt" required="N" />
       <field name="MiscFeeCurr" required="N" /> 
-      <field name="MiscFeeType" required="N" /> Required if NoMiscFees > 0 
+      <field name="MiscFeeType" required="N" />
       <field name="MiscFeeBasis" required="N" /> 
     </group>
     <field name="Price" required="N" />   
@@ -3587,7 +3587,7 @@
       <field name="ExecID" required="N" />
     </group>
     <group name="NoTrades" required="N">
-      <field name="TradeReportID" required="N" /> Required if NoTrades > 0
+      <field name="TradeReportID" required="N" />
       <field name="SecondaryTradeReportID" required="N" /> 
     </group>
     <component name="Instrument" required="N" />
@@ -4168,19 +4168,20 @@
     <field number="38" name="OrderQty" type="QTY" />
     <field number="39" name="OrdStatus" type="CHAR">
       <value enum="0" description="NEW" />
-      <value enum="1" description="PARTIAL" />
+      <value enum="1" description="PARTIALLY_FILLED" />
       <value enum="2" description="FILLED" />
-      <value enum="3" description="DONE" />
+      <value enum="3" description="DONE_FOR_DAY" />
       <value enum="4" description="CANCELED" />
-      <value enum="6" description="PENDING_CR" />
+      <value enum="5" description="REPLACED" />
+      <value enum="6" description="PENDING_CANCEL" />
       <value enum="7" description="STOPPED" />
       <value enum="8" description="REJECTED" />
       <value enum="9" description="SUSPENDED" />
-      <value description="PENDING_NEW" enum="A"/>
-      <value description="CALCULATED" enum="B"/>
-      <value description="EXPIRED" enum="C"/>
-      <value description="ACCEPT_BIDDING" enum="D"/>
-      <value description="PENDING_REP" enum="E"/>
+      <value enum="A" description="PENDING_NEW" />
+      <value enum="B" description="CALCULATED" />
+      <value enum="C" description="EXPIRED" />
+      <value enum="D" description="ACCEPTED_FOR_BIDDING" />
+      <value enum="E" description="PENDING_REPLACE" />
     </field>
     <field number="40" name="OrdType" type="CHAR">
       <value enum="1" description="MARKET" />
@@ -5245,9 +5246,9 @@
     <field number="407" name="OutsideIndexPct" type="PERCENTAGE" />
     <field number="408" name="ValueOfFutures" type="AMT" />
     <field number="409" name="LiquidityIndType" type="INT">
-      <value enum="1" description="5DAY" />
-      <value enum="2" description="20DAY" />
-      <value enum="3" description="NORMAL" />
+      <value enum="1" description="FIVEDAY_MOVING_AVERAGE" />
+      <value enum="2" description="TWENTYDAY_MOVING_AVERAGE" />
+      <value enum="3" description="NORMAL_MARKET_SIZE" />
       <value enum="4" description="OTHER" />
     </field>
     <field number="410" name="WtAverageLiquidity" type="PERCENTAGE" />
@@ -5565,10 +5566,10 @@
       <value enum="17" description="INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER_US" />
       <value enum="18" description="KEOGHUS" />
       <value enum="19" description="PROFIT_SHARING_PLAN_US" />
-      <value enum="20" description="401KUS" />
+      <value enum="20" description="US_401K" />
       <value enum="21" description="SELF_DIRECTED_IRAUS" />
-      <value enum="22" description="403B_US" />
-      <value enum="23" description="457US" />
+      <value enum="22" description="US_403B" />
+      <value enum="23" description="US_457" />
       <value enum="24" description="ROTH_IRAFUND_PROTOTYPE_US" />
       <value enum="25" description="ROTH_IRANONPROTOTYPE_US" />
       <value enum="26" description="ROTH_CONVERSION_IRAFUND_PROTOTYPE_US" />
@@ -6103,16 +6104,16 @@
       <value description="NON_MEMBER_CUSTOMER" enum="C"/>
       <value description="EQUITY_CLEARING_MEMBER" enum="E"/>
       <value description="FULL_ASSOCIATE_MEMBER" enum="F"/>
-      <value description="106H106J" enum="H"/>
+      <value description="_106H106J" enum="H"/>
       <value description="GIMIDEMCOMMEMBERSHIP" enum="I"/>
       <value description="LESSEE106F" enum="L"/>
       <value description="ALL_OTHERS" enum="M"/>
-      <value enum="1" description="1ST_YEAR_DELEGATE" />
-      <value enum="2" description="2ND_YEAR_DELEGATE" />
-      <value enum="3" description="3RD_YEAR_DELEGATE" />
-      <value enum="4" description="4TH_YEAR_DELEGATE" />
-      <value enum="5" description="5TH_YEAR_DELEGATE" />
-      <value enum="9" description="6TH_YEAR_DELEGATE" />
+      <value enum="1" description="FIRST_YEAR_DELEGATE" />
+      <value enum="2" description="SECOND_YEAR_DELEGATE" />
+      <value enum="3" description="THIRD_YEAR_DELEGATE" />
+      <value enum="4" description="FOURTH_YEAR_DELEGATE" />
+      <value enum="5" description="FIFTH_YEAR_DELEGATE" />
+      <value enum="9" description="SIXTH_YEAR_DELEGATE" />
     </field>
     <field number="636" name="WorkingIndicator" type="BOOLEAN" />
     <field number="637" name="LegLastPx" type="PRICE" />
@@ -6887,8 +6888,8 @@
     <field number="873" name="DatedDate" type="LOCALMKTDATE" />
     <field number="874" name="InterestAccrualDate" type="LOCALMKTDATE" />
     <field number="875" name="CPProgram" type="INT">
-      <value enum="1" description="3A3" />
-      <value enum="2" description="42" />
+      <value enum="1" description="_3A3" />
+      <value enum="2" description="_42" />
       <value enum="99" description="OTHER" />
     </field>
     <field number="876" name="CPRegType" type="STRING" />
