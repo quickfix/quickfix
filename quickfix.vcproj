@@ -157,6 +157,9 @@ del /F EXCLUDE
 				RelativePath=".\src\C++\SessionSettings.cpp">
 			</File>
 			<File
+				RelativePath="src\C++\SessionTime.cpp">
+			</File>
+			<File
 				RelativePath=".\src\C++\Settings.cpp">
 			</File>
 			<File
@@ -514,6 +517,9 @@ del /F EXCLUDE
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="src\C++\SessionTime.h">
 			</File>
 			<File
 				RelativePath=".\src\C++\Settings.h">

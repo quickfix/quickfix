@@ -69,7 +69,7 @@ PostBuild_Cmds=echo test > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "../" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "../" /D "_LIB" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /GZ /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -136,6 +136,10 @@ SOURCE=".\src\C++\SessionFactory.cpp"
 # Begin Source File
 
 SOURCE=".\src\C++\SessionSettings.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\SessionTime.cpp"
 # End Source File
 # Begin Source File
 
@@ -244,6 +248,10 @@ SOURCE=".\src\C++\SessionSettings.h"
 # Begin Source File
 
 SOURCE=".\src\C++\SessionState.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\SessionTime.h"
 # End Source File
 # Begin Source File
 
