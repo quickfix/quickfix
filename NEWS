@@ -1,3 +1,55 @@
+1.6.0
+-----
+FIX 4.4 support for C++ and Java APIs, with .NET on the way.  You can
+technically use 4.4 with .NET now, but the generated message classes
+are not yet available.
+
+Messages with repeating groups will no longer be silenty ignored when 
+no data dictionary is available.  QuickFIX will accept the message and 
+send a proper reject message at validation.  Reject message will be
+supplied for unspecified repeating tags, and count mismatches for
+repeating groups.
+
+ResendRequests are now done to INFINITY to reduce race condition
+scenarios.
+
+Out of sequence ResendRequest don't alter sequence numbers which
+would cause race conditions during simultaneous ResendRequests.
+
+Each C++ message is placed in its own file. This separation repairs
+issues with Visual Studio running out of heap space.  This does mean,
+however, that you will need to include the header for each individual
+you intend on using instead of just including Messages.h
+
+Fields of type MultipleValueString that have enumerations will check
+each individual value instead of checking the string as a whole. For
+instance if you are sent a MVS containing "A C 5", the validator will
+verify that A C and 5 are all valid enumerations.
+
+More descriptive error messages when reading invalid DataDictionary
+files.  QuickFIX will no longer crash when givin a badly formatted
+XML document, instead a ConfigError is thrown.
+
+Repeating groups within Component are now read correctly from the
+DataDictionary file.
+
+Fixed a bug where messages sent while logged off were not stored in
+the MessageStore, causing them to never be resent.
+
+By popular demand, the .NET API now exposes the isSetField call. This
+allows .NET users to check for the presence of a field in a message.
+
+Fixed bug where re-used Field classes would not recalculate their
+length and checksum when their values changes, causing messages to
+be sent out with incorrect lenths or checksums.
+
+Fixed bug that cause the sendToTarget( Message, String, String )
+signature would always fail from the Java API.
+
+ScreenLog now displays proper timestamps.
+
+Banzai should load correctly with the supplied configuration file.
+
 1.5.0
 -----
 Support for DATA fields. This will allow to safely send encrypted and
