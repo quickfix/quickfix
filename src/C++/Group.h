@@ -38,14 +38,17 @@ class Group : public FieldMap
 {
 public:
   Group( int field, int delim )
-: FieldMap( message_order( delim, 0 ) ),
-  m_field( field ), m_delim( delim ) {}
+  : FieldMap( message_order( delim, 0 ) ),
+    m_field( field ), m_delim( delim ) {}
 
   Group( int field, int delim, const int order[] )
-: FieldMap( order ), m_field( field ), m_delim( delim ) {}
+  : FieldMap( order ), m_field( field ), m_delim( delim ) {}
 
   Group( int field, int delim, const message_order& order )
-: FieldMap( order ), m_field( field ), m_delim( delim ) {} 
+  : FieldMap( order ), m_field( field ), m_delim( delim ) {} 
+
+  Group( const Group& copy ) 
+  : FieldMap( copy ), m_field( copy.m_field ), m_delim( copy.m_delim ) {}
 
   int field() const { return m_field; }
   int delim() const { return m_delim; }
