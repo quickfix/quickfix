@@ -180,16 +180,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate
  * Method:    isSetField
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField__I
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField
   (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_Group
- * Method:    isSetField
- * Signature: (Lquickfix/Field;)Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField__Lquickfix_Field_2
-  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Group

@@ -119,7 +119,9 @@ public class Group extends FieldMap {
     }
 
     public native boolean isSetField(int field);
-    public native boolean isSetField(Field field);
+    public boolean isSetField(Field field) {
+        return isSetField( field.getField() );
+    }
     public native void removeField(int field);
 
     public java.util.Iterator iterator() {
