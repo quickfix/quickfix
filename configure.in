@@ -277,7 +277,6 @@ AC_OUTPUT(
 	src/C++/test/Makefile
 	src/java/Makefile
 	src/java/cfg/Makefile
-	src/java/test/Makefile
 	src/java/src/Makefile
 	src/java/src/org/Makefile
 	src/java/src/org/quickfix/Makefile
