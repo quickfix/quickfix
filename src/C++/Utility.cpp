@@ -353,7 +353,8 @@ void thread_detach( unsigned thread )
 { QF_STACK_PUSH(thread_detach)
 
 #ifndef _MSC_VER
-  pthread_detach( (pthread*)thread );
+  pthread_t t = (pthread_t)thread;
+  pthread_detach( t );
 #endif
 
   QF_STACK_POP
