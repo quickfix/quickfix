@@ -106,7 +106,7 @@ void Application::onMessage( const FIX42::NewOrderSingle& message, const FIX::Se
 
     Order order( clOrdID, symbol, senderCompID, targetCompID,
                  convert( side ), convert( ordType ),
-                 price, orderQty );
+                 price, (long)orderQty );
 
     processOrder( order );
   }
