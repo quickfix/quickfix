@@ -1225,7 +1225,7 @@ throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   message.setSessionID( sessionID );
-  return sendToTarget( message );
+  return sendToTarget( message, sessionID.getSessionQualifier() );
 
   QF_STACK_POP
 }
