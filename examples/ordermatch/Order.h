@@ -24,6 +24,7 @@
 
 #include <string>
 #include <iomanip>
+#include <ostream>
 
 class Order
 {
