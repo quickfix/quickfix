@@ -63,7 +63,7 @@ class Reflector < Array
       lineNum += 1
       line.chomp!
       if line.empty? then
-      elsif (/^[IEie]\d{1},/ === line) != nil then
+      elsif (/^[IEie]\d{1},/ === line) then
 	cid = line[1].to_i - 48
 	body = fixify!(timify!(line[3, line.length]))
       else
@@ -91,8 +91,8 @@ class Reflector < Array
         connectAction(cid)
       elsif body == "DISCONNECT"
         disconnectAction(cid)
-      else 
-        raise "Syntax error"
+      else
+        raise "Syntax error: " + body
       end
     elsif identifyMessage(line) == ?e
       if body == "CONNECT"
@@ -100,10 +100,10 @@ class Reflector < Array
       elsif body == "DISCONNECT"
         waitDisconnectAction(cid)
       else
-        raise "Syntax error"
+        raise "Syntax error: " + body
       end
     else
-      raise "Syntax error"
+        raise "Syntax error: " + body
     end
   end
 
@@ -159,7 +159,7 @@ class Reflector < Array
       end
 
       strtime = t.strftime("%Y%m%d-%H:%M:%S")
-      exp = "<TIME[" + op.chr + "]" + num + ">"
+      exp = Regexp.compile("<TIME[" + op.chr + "]" + num + ">")
       message.sub!(exp, strtime)
       if( message != copy )
 	return timify!(message)

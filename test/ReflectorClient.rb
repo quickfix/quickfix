@@ -81,7 +81,7 @@ class ReflectorClient
     def @reflector.connectAction(cid)
       socket = TCPSocket.open(@address, @port)
       if socket == nil
-	    raise IOError "failed to connect"
+	    raise IOError("failed to connect")
       end
       @sockets[cid] = socket
       @parsers[cid] = FixParser.new(socket)

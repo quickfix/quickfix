@@ -193,6 +193,8 @@ class ReflectorTestCase < RUNIT::TestCase
 
     reflector.processFile(messages)
 
+    #messages = "E8=1\nI8=2\n\nI8=3\nE8=4\n#foo\nE8=5\nE8=6\nI8=7\niCONNECT\neDISCONNECT\neCONNECT\niDISCONNECT\nE2,8=8\n"
+
     assert_equals("1,8=1|1,8=2|1,8=3|1,8=4|1,8=5|1,8=6|1,8=7|" +
                   "1,iCONNECT|1,eDISCONNECT|1,eCONNECT|1,iDISCONNECT|2,8=8|", 
                    reflector.cum)

@@ -148,7 +148,7 @@ begin
     file.rewind
     extendProcess(process)
 
-  sleep(.1)
+  sleep(0.1)
     total += 1
     begin
       process.start
