@@ -15,6 +15,9 @@ When receiving a resend request for a larger than expected sequence number,
 QF will treat this like an INFINITE request.  This alleviates problems from
 receiving requests for extremely large numbers which cause a lot of lookups.
 
+When receiving a SequenceReset and GapFill flag set to N, the message will
+be processed even if the MsgSeqNum field is completely absent.
+
 Included message stores will now load up start times with the correct day
 of the year so week long sessions can safely be taken down and brought back
 up.
