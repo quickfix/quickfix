@@ -54,9 +54,14 @@
 #endif
 
 #include "DataDictionary.h"
-#include "MSXML_DOMDocument.h"
 #include "Message.h"
 #include <fstream>
+
+#ifdef _MSC_VER
+#include "MSXML_DOMDocument.h"
+#else
+#include "LIBXML_DOMDocument.h"
+#endif
 
 namespace FIX
 {
@@ -155,7 +160,11 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
 
 void DataDictionary::readFromURL( const std::string& url )
 {
+#ifdef _MSC_VER
   DOMDocumentPtr pDoc = DOMDocumentPtr(new MSXML_DOMDocument());
+#else
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
+#endif
 
   std::ifstream file(url.c_str());
   if(!pDoc->load(file))
@@ -216,10 +225,10 @@ void DataDictionary::readFromURL( const std::string& url )
         i = attrs.find("description");
         if( i != attrs.end() )
           addValueName(number, enumeration, i->second);
-        pFieldValueNode = pFieldValueNode->getNextSiblingNode();
+        pFieldValueNode.reset(pFieldValueNode->getNextSiblingNode().release());
       }
     }
-    pFieldNode = pFieldNode->getNextSiblingNode();
+    pFieldNode.reset(pFieldNode->getNextSiblingNode().release());
   }
 
   // HEADER
@@ -241,7 +250,7 @@ void DataDictionary::readFromURL( const std::string& url )
         throw ConfigError("Field does not have a name attribute");
       addHeaderField(lookupXMLFieldNumber(pDoc.get(), i->second));
     }
-    pHeaderFieldNode = pHeaderFieldNode->getNextSiblingNode();
+    pHeaderFieldNode.reset(pHeaderFieldNode->getNextSiblingNode().release());
   }
 
   // TRAILER
@@ -263,7 +272,7 @@ void DataDictionary::readFromURL( const std::string& url )
         throw ConfigError("Field does not have a name attribute");
       addTrailerField(lookupXMLFieldNumber(pDoc.get(), i->second));
     }
-    pTrailerFieldNode = pTrailerFieldNode->getNextSiblingNode();
+    pTrailerFieldNode.reset(pTrailerFieldNode->getNextSiblingNode().release());
   }
   
   // MSGTYPE
@@ -314,10 +323,10 @@ void DataDictionary::readFromURL( const std::string& url )
         {
           addXMLGroup(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
         }
-        pMessageFieldNode = pMessageFieldNode->getNextSiblingNode();
+        pMessageFieldNode.reset(pMessageFieldNode->getNextSiblingNode().release());
       }
     }
-    pMessageNode = pMessageNode->getNextSiblingNode();
+    pMessageNode.reset(pMessageNode->getNextSiblingNode().release());
   } 
 }
 
@@ -362,7 +371,7 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       DD.addField(field);
       DD.addMsgField(msgtype, field);
     }
-    pComponentFieldNode = pComponentFieldNode->getNextSiblingNode();
+    pComponentFieldNode.reset(pComponentFieldNode->getNextSiblingNode().release());
   }
 }
 
@@ -399,7 +408,7 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
     {
       addXMLGroup( pDoc, node.get(), msgtype, groupDD );
     }
-    node = node->getNextSiblingNode();
+    node.reset(node->getNextSiblingNode().release());
   }
 
   if( delim ) DD.addGroup( msgtype, group, delim, groupDD );
