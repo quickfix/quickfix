@@ -34,7 +34,7 @@
 namespace FIX
 {
 template<class T>
-static inline char * integer_to_string (char * buf, const size_t len, T t)
+inline char * integer_to_string (char * buf, const size_t len, T t)
 {
   const bool isNegative = t < 0;
   char* p = buf + len;
@@ -68,7 +68,7 @@ static inline char * integer_to_string (char * buf, const size_t len, T t)
 }
 
 template<class T>
-static inline char * integer_to_string_padded 
+inline char * integer_to_string_padded 
 ( char * buf, const size_t len, T t,
   const size_t width = 0,
   const char paddingChar = '0')
