@@ -101,10 +101,11 @@ throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
   jstring jstr = newString( message );
+  Exceptions e;
   bool result = pEnv->CallBooleanMethod( messageStore, setId,
                                          seq, jstr ) != 0;  
   pEnv->DeleteLocalRef( jstr );
-  handleException( pEnv );
+  handleException( pEnv, e );
   return result;
 }
 
@@ -113,6 +114,7 @@ throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
   jstring string = newString( "" );
+  Exceptions e;
   bool result = pEnv->CallBooleanMethod( messageStore, getId,
                                          seq, string ) != 0;
 
@@ -121,7 +123,7 @@ throw ( FIX::IOException& )
   pEnv->ReleaseStringUTFChars( string, ustring );
   pEnv->DeleteLocalRef( string );
 
-  handleException( pEnv );
+  handleException( pEnv, e );
   return result;
 }
 
@@ -132,9 +134,10 @@ throw ( FIX::IOException& )
   JNIEnv * pEnv = ENV::get();
   JVMObject collection( newCollection() );
 
+  Exceptions e;
   pEnv->CallVoidMethod( messageStore, getRangeId,
                         start, end, ( jobject ) collection );
-  handleException( pEnv );
+  handleException( pEnv, e );
 
   jint size = collection.callIntMethod( "size" );
   jmethodID methodID = collection.getClass()
@@ -154,53 +157,60 @@ throw ( FIX::IOException& )
 int JavaMessageStore::getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   int result = pEnv->CallIntMethod( messageStore, getNextSenderMsgSeqNumId );
-  handleException( pEnv );
+  handleException( pEnv, e );
   return result;
 }
 
 int JavaMessageStore::getNextTargetMsgSeqNum() const throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   int result = pEnv->CallIntMethod( messageStore, getNextTargetMsgSeqNumId );
-  handleException( pEnv );
+  handleException( pEnv, e );
   return result;
 }
 
 void JavaMessageStore::setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   pEnv->CallVoidMethod( messageStore, setNextSenderMsgSeqNumId, seq );
-  handleException( pEnv );
+  handleException( pEnv, e );
 }
 
 void JavaMessageStore::setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   pEnv->CallVoidMethod( messageStore, setNextTargetMsgSeqNumId, seq );
-  handleException( pEnv );
+  handleException( pEnv, e );
 }
 
 void JavaMessageStore::incrNextSenderMsgSeqNum() throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   pEnv->CallVoidMethod( messageStore, incrNextSenderMsgSeqNumId );
-  handleException( pEnv );
+  handleException( pEnv, e );
 }
 
 void JavaMessageStore::incrNextTargetMsgSeqNum() throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   pEnv->CallVoidMethod( messageStore, incrNextTargetMsgSeqNumId );
-  handleException( pEnv );
+  handleException( pEnv, e );
 }
 
 FIX::UtcTimeStamp JavaMessageStore::getCreationTime() const
 throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   JVMObject date( pEnv->CallObjectMethod( messageStore, getCreationTimeId ) );
-  handleException( pEnv );
+  handleException( pEnv, e );
   long longTime = date.callLongMethod( "getTime" ) / 1000;
   date.deleteLocalRef();
   return FIX::UtcTimeStamp( longTime );
@@ -209,8 +219,9 @@ throw ( FIX::IOException& )
 void JavaMessageStore::reset() throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   pEnv->CallVoidMethod( messageStore, resetId );
-  handleException( pEnv );
+  handleException( pEnv, e );
 }
 
 jobject JavaMessageStore::newCollection() const
@@ -222,12 +233,12 @@ jobject JavaMessageStore::newCollection() const
   return result;
 }
 
-void JavaMessageStore::handleException( JNIEnv* env ) const
+void JavaMessageStore::handleException( JNIEnv* env, Exceptions& e ) const
 {
   jthrowable exception = env->ExceptionOccurred();
   if ( exception )
   {
-    if ( JVMClass( "Ljava/io/IOException;" ).IsInstanceOf( exception ) )
+    if ( e.ioException.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::IOException();

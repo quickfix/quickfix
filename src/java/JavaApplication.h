@@ -54,6 +54,7 @@
 #include "quickfix/include/Application.h"
 #include "quickfix/include/Mutex.h"
 #include "JVM.h"
+#include <memory>
 
 class JavaApplication : public FIX::Application
 {
@@ -74,7 +75,22 @@ public:
   void onRun();
 
 private:
-  void handleException( JNIEnv* ) const;
+  struct Exceptions
+  {
+    Exceptions() : 
+      doNotSend("Lorg/quickfix/DoNotSend;"),
+      rejectLogon("Lorg/quickfix/RejectLogon;"),
+      unsupportedMessageType("Lorg/quickfix/UnsupportedMessageType;"),
+      fieldNotFound("Lorg/quickfix/FieldNotFound;"),
+      incorrectTagValue("Lorg/quickfix/IncorrectTagValue;") {}
+
+    JVMClass doNotSend;
+    JVMClass rejectLogon;
+    JVMClass unsupportedMessageType;
+    JVMClass fieldNotFound;
+    JVMClass incorrectTagValue;
+  };
+  void handleException( JNIEnv*, Exceptions& e ) const;
 
   JVMObject m_object;
 
@@ -87,7 +103,7 @@ private:
   jmethodID notifyToAppId;
   jmethodID notifyFromAdminId;
   jmethodID notifyFromAppId;
-  jmethodID onRunId;
+  jmethodID onRunId;  
 
   FIX::Mutex m_mutex;
 };

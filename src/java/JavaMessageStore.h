@@ -76,7 +76,12 @@ public:
   virtual void reset() throw ( FIX::IOException& );
 
 private:
-  void handleException( JNIEnv* ) const;
+  struct Exceptions
+  {
+    Exceptions() : ioException("Ljava/io/IOException;") {}
+    JVMClass ioException;
+  };
+  void handleException( JNIEnv*, Exceptions& e ) const;
 
   jobject newCollection() const;
 
@@ -92,7 +97,7 @@ private:
   jmethodID incrNextSenderMsgSeqNumId;
   jmethodID incrNextTargetMsgSeqNumId;
   jmethodID getCreationTimeId;
-  jmethodID resetId;
+  jmethodID resetId;  
 };
 
 void JNICALL JavaMessageStore_create

@@ -131,11 +131,12 @@ throw( FIX::DoNotSend& )
   JNIEnv* pEnv = ENV::get();
   JVMObject jmsg = newMessage( msg, m_factory );
   JVMObject jsessionid = newSessionID( sessionID );
+  Exceptions e;
   pEnv->CallVoidMethod( m_object, notifyToAppId, jmsg, jsessionid );
   msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
   jsessionid.deleteLocalRef();
   jmsg.deleteLocalRef();
-  handleException( pEnv );
+  handleException( pEnv, e );
 }
 
 void JavaApplication::fromAdmin( const FIX::Message& msg, const FIX::SessionID& sessionID )
@@ -145,11 +146,12 @@ throw( FIX::FieldNotFound&, FIX::RejectLogon& )
   JNIEnv* pEnv = ENV::get();
   jobject jmessage = newMessage( msg, m_factory );
   jobject jsessionid = newSessionID( sessionID );
+  Exceptions e;
   pEnv->CallVoidMethod
   ( m_object, notifyFromAdminId, jmessage, jsessionid );
   pEnv->DeleteLocalRef(jsessionid);
   pEnv->DeleteLocalRef(jmessage);
-  handleException( pEnv );
+  handleException( pEnv, e );
 }
 
 void JavaApplication::fromApp( const FIX::Message& msg, const FIX::SessionID& sessionID )
@@ -159,11 +161,12 @@ throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue
   JNIEnv* pEnv = ENV::get();
   jobject jmessage = newMessage( msg, m_factory );
   jobject jsessionid = newSessionID( sessionID );
+  Exceptions e;
   pEnv->CallVoidMethod
   ( m_object, notifyFromAppId, jmessage, jsessionid );
   pEnv->DeleteLocalRef(jsessionid);
   pEnv->DeleteLocalRef(jmessage);
-  handleException( pEnv );
+  handleException( pEnv, e );
 };
 
 void JavaApplication::onRun()
@@ -173,32 +176,32 @@ void JavaApplication::onRun()
   JVM::get() ->DetachCurrentThread();
 };
 
-void JavaApplication::handleException( JNIEnv* env ) const
+void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
 {
   jthrowable exception = env->ExceptionOccurred();
   if ( exception )
   {
-    if ( JVMClass( "Lorg/quickfix/DoNotSend;" ).IsInstanceOf( exception ) )
+    if ( e.doNotSend.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::DoNotSend();
     }
-    else if ( JVMClass( "Lorg/quickfix/RejectLogon;" ).IsInstanceOf( exception ) )
+    else if ( e.rejectLogon.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::RejectLogon();
     }
-    else if ( JVMClass( "Lorg/quickfix/UnsupportedMessageType;" ).IsInstanceOf( exception ) )
+    else if ( e.unsupportedMessageType.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::UnsupportedMessageType();
     }
-    else if ( JVMClass( "Lorg/quickfix/FieldNotFound;" ).IsInstanceOf( exception ) )
+    else if ( e.fieldNotFound.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::FieldNotFound( 0 );
     }
-    else if ( JVMClass( "Lorg/quickfix/IncorrectTagValue;" ).IsInstanceOf( exception ) )
+    else if ( e.incorrectTagValue.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::IncorrectTagValue( 0 );
