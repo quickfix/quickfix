@@ -2333,7 +2333,6 @@
       <value enum="G" description="COMMON" />
     </field>
     <field number="23" name="IOIid" type="STRING" />
-    <field number="24" name="IOIOthSvc" type="CHAR" />
     <field number="25" name="IOIQltyInd" type="CHAR">
       <value enum="L" description="LOW" />
       <value enum="M" description="MEDIUM" />
