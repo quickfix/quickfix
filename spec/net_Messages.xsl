@@ -189,6 +189,7 @@ namespace Fix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
      <xsl:call-template name="group"/>
    </xsl:for-each>
  </xsl:template>
+ <xsl:template match="component/group"></xsl:template>
  <xsl:template match="group">
      <xsl:call-template name="group"/>
  </xsl:template>

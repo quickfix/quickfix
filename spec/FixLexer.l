@@ -11,6 +11,7 @@ char lastNum[5];
 char ver[12];
 int hasValues = 0;
 int repeating = 0;
+int required = 0;
 
 enum closeTag { fields, message, header, trailer } clTag;
 enum messageCat { admin, app } msgCat;
@@ -342,7 +343,7 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
          || !strcmp(lastName, "LinesOfText"))
       {
         printTabs(); tabs++;
-        printf("<group name=\"%s\">\n", lastName);
+        printf("<group name=\"%s\" required=\"%s\">\n", lastName, required ? "Y" : "N");
       }
       else
       {
@@ -381,11 +382,14 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
 <html_fname>{HTML_FIELDTYPE}|{HTML_FIELDTYPE2}|{HTML_FIELDTYPE4}|{HTML_FIELDTYPE5}|{HTML_FIELDTYPE6}|{HTML_FIELDTYPE7} {
   static char t[5] = "type";
   static char r[9] = "required";
+  char* value = type(up(condense(stripName(yytext, "<")," *")));
 
   if(!ignorePass)
     printf("%s=\"%s\"",
       (clTag == message) || (clTag == header) || (clTag == trailer) ? r : t, 
-      type(up(condense(stripName(yytext, "<")," *"))));
+      value);
+
+  required = value[0]=='Y';
   
   if(repeating) printf(" repeating=\"Y\"");
 

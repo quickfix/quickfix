@@ -698,6 +698,7 @@ char lastNum[5];
 char ver[12];
 int hasValues = 0;
 int repeating = 0;
+int required = 0;
 
 enum closeTag { fields, message, header, trailer } clTag;
 enum messageCat { admin, app } msgCat;
@@ -898,7 +899,7 @@ void printTabs()
 {
   int i;
   for( i = 0; i < tabs; ++i )
-    printf("   ");
+    printf("  ");
 }
 
 int skip( char* str )
@@ -980,7 +981,7 @@ void fieldsEnd()
 
 #define html_msgtype 8
 
-#line 984 "lex.yy.c"
+#line 985 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -1131,10 +1132,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 330 "FixLexer.l"
+#line 331 "FixLexer.l"
 
 
-#line 1138 "lex.yy.c"
+#line 1139 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -1219,12 +1220,12 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 332 "FixLexer.l"
+#line 333 "FixLexer.l"
 level++;
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 333 "FixLexer.l"
+#line 334 "FixLexer.l"
 {
   stripName(yytext, "<");
   if(!skip(yytext))
@@ -1237,7 +1238,7 @@ YY_RULE_SETUP
          || !strcmp(lastName, "LinesOfText"))
       {
         printTabs(); tabs++;
-        printf("<group name=\"%s\">\n", lastName);
+        printf("<group name=\"%s\" required=\"%s\">\n", lastName, required ? "Y" : "N");
       }
       else
       {
@@ -1264,12 +1265,12 @@ YY_RULE_SETUP
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 370 "FixLexer.l"
+#line 371 "FixLexer.l"
 BEGIN(html_fname);
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 371 "FixLexer.l"
+#line 372 "FixLexer.l"
 {
   if(!ignorePass)
   {
@@ -1282,15 +1283,18 @@ YY_RULE_SETUP
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 381 "FixLexer.l"
+#line 382 "FixLexer.l"
 {
   static char t[5] = "type";
   static char r[9] = "required";
+  char* value = type(up(condense(stripName(yytext, "<")," *")));
 
   if(!ignorePass)
     printf("%s=\"%s\"",
       (clTag == message) || (clTag == header) || (clTag == trailer) ? r : t, 
-      type(up(condense(stripName(yytext, "<")," *"))));
+      value);
+
+  required = value[0]=='Y';
   
   if(repeating) printf(" repeating=\"Y\"");
 
@@ -1302,19 +1306,19 @@ YY_RULE_SETUP
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 398 "FixLexer.l"
+#line 402 "FixLexer.l"
 {
   if(isFieldStart) BEGIN(html_values);
 }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 401 "FixLexer.l"
+#line 405 "FixLexer.l"
 printf("/>\n"); BEGIN(html_fs);
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 403 "FixLexer.l"
+#line 407 "FixLexer.l"
 {
   if(strcmp(lastNum,"35"))
   {
@@ -1363,7 +1367,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 448 "FixLexer.l"
+#line 452 "FixLexer.l"
 {
   if(hasValues)
   {
@@ -1378,14 +1382,14 @@ YY_RULE_SETUP
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 460 "FixLexer.l"
+#line 464 "FixLexer.l"
 {
   msgCat = app;
 }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 464 "FixLexer.l"
+#line 468 "FixLexer.l"
 {
   printTabs(); tabs++;
   printf("<message name=\"%s\" ", msg(stripName(yytext, " (")));
@@ -1394,7 +1398,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 470 "FixLexer.l"
+#line 474 "FixLexer.l"
 {
   yytext = stripName(yytext+27, "<");
   if(strcmp("ResponsebyMessageType",yytext) == 0)
@@ -1409,7 +1413,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 482 "FixLexer.l"
+#line 486 "FixLexer.l"
 {
   yytext = stripName(yytext, "<");
   if(strcmp("ResponsebyMessageType",yytext) == 0)
@@ -1424,7 +1428,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 494 "FixLexer.l"
+#line 498 "FixLexer.l"
 {
   printf("msgtype=\"%c\" msgcat=\"%s\">\n", yytext[10], msgCat == admin ? "admin" : "app");
   BEGIN(html_fs);
@@ -1432,7 +1436,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 499 "FixLexer.l"
+#line 503 "FixLexer.l"
 {
   char* verStr;
   strcpy(ver, yytext);
@@ -1444,7 +1448,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 508 "FixLexer.l"
+#line 512 "FixLexer.l"
 {
   clTag = header;
   tabs++; printTabs(); tabs++;
@@ -1454,7 +1458,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 17:
 YY_RULE_SETUP
-#line 515 "FixLexer.l"
+#line 519 "FixLexer.l"
 {
   clTag = trailer;
   tabs++; printTabs(); tabs++;
@@ -1464,7 +1468,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 18:
 YY_RULE_SETUP
-#line 522 "FixLexer.l"
+#line 526 "FixLexer.l"
 {
   msgCat = admin;
   clTag = message; 
@@ -1473,7 +1477,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 19:
 YY_RULE_SETUP
-#line 528 "FixLexer.l"
+#line 532 "FixLexer.l"
 {
   fieldsStart();
   BEGIN(html_fs);
@@ -1481,7 +1485,7 @@ YY_RULE_SETUP
 	YY_BREAK
 case 20:
 YY_RULE_SETUP
-#line 533 "FixLexer.l"
+#line 537 "FixLexer.l"
 {
   switch(clTag)
   {
@@ -1497,11 +1501,11 @@ YY_RULE_SETUP
 	YY_BREAK
 case 21:
 YY_RULE_SETUP
-#line 546 "FixLexer.l"
+#line 550 "FixLexer.l"
 BEGIN(HTML);
 	YY_BREAK
 case YY_STATE_EOF(INITIAL):
-#line 547 "FixLexer.l"
+#line 551 "FixLexer.l"
 return 1;
 	YY_BREAK
 case YY_STATE_EOF(HTML):
@@ -1512,15 +1516,15 @@ case YY_STATE_EOF(html_fend):
 case YY_STATE_EOF(html_values):
 case YY_STATE_EOF(html_msgcat):
 case YY_STATE_EOF(html_msgtype):
-#line 548 "FixLexer.l"
+#line 552 "FixLexer.l"
 printf("</fix>\n"); return 0;
 	YY_BREAK
 case 22:
 YY_RULE_SETUP
-#line 550 "FixLexer.l"
+#line 554 "FixLexer.l"
 ECHO;
 	YY_BREAK
-#line 1524 "lex.yy.c"
+#line 1528 "lex.yy.c"
 
 	case YY_END_OF_BUFFER:
 		{
@@ -2404,7 +2408,7 @@ int main()
 	return 0;
 	}
 #endif
-#line 550 "FixLexer.l"
+#line 554 "FixLexer.l"
 
 
 int main( int argc, char** argv )
