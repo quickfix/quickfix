@@ -120,3 +120,171 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_destroy
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getVersion
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+  
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  jstring result = newString( pDataDictionary->getVersion() );
+  return result;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getFieldName
+( JNIEnv *pEnv, jobject obj, jint field ) 
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  std::string nameString;
+  bool result = pDataDictionary->getFieldName(field, nameString);
+  return result ? newString(nameString) : 0;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getValueName
+( JNIEnv *pEnv, jobject obj, jint field, jstring value )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  const char* uvalue = pEnv->GetStringUTFChars( value, 0 );
+  std::string valueString( uvalue );
+  pEnv->ReleaseStringUTFChars( value, uvalue );
+  std::string nameString;
+  bool result = pDataDictionary->getValueName( field, valueString, nameString );
+  return result ? newString(nameString) : 0;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isField
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  return pDataDictionary->isField( field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgType
+( JNIEnv *pEnv, jobject obj, jstring msgType )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  const char* umsgType = pEnv->GetStringUTFChars( msgType, 0 );
+  std::string msgTypeString( umsgType );
+  pEnv->ReleaseStringUTFChars( msgType, umsgType );
+  return pDataDictionary->isMsgType( msgTypeString );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgField
+( JNIEnv *pEnv, jobject obj, jstring msgType, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  const char* umsgType = pEnv->GetStringUTFChars( msgType, 0 );
+  std::string msgTypeString( umsgType );
+  pEnv->ReleaseStringUTFChars( msgType, umsgType );
+  return pDataDictionary->isMsgField( msgTypeString, field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isHeaderField
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  return pDataDictionary->isHeaderField( field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isTrailerField
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  return pDataDictionary->isTrailerField( field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isRequiredField
+( JNIEnv *pEnv, jobject obj, jstring msgType, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  const char* umsgType = pEnv->GetStringUTFChars( msgType, 0 );
+  std::string msgTypeString( umsgType );
+  pEnv->ReleaseStringUTFChars( msgType, umsgType );
+  return pDataDictionary->isRequiredField( msgTypeString, field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_hasFieldValue
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  return pDataDictionary->hasFieldValue( field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isFieldValue
+( JNIEnv *pEnv, jobject obj, jint field, jstring value )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  const char* uvalue = pEnv->GetStringUTFChars( value, 0 );
+  std::string valueString( uvalue );
+  pEnv->ReleaseStringUTFChars( value, uvalue );
+  return pDataDictionary->isFieldValue( field, valueString );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isGroup
+( JNIEnv *pEnv, jobject obj, jstring msg, jint group )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  const char* umsg = pEnv->GetStringUTFChars( msg, 0 );
+  std::string msgString( umsg );
+  pEnv->ReleaseStringUTFChars( msg, umsg );
+  return pDataDictionary->isGroup( msgString, group );
+
+  QF_STACK_CATCH
+}
+

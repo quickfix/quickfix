@@ -39,6 +39,102 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_lang_String_2
 JNIEXPORT void JNICALL Java_quickfix_DataDictionary_destroy
   (JNIEnv *, jobject);
 
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    getVersion
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getVersion
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    getFieldName
+ * Signature: (I)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getFieldName
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    getValueName
+ * Signature: (ILjava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getValueName
+  (JNIEnv *, jobject, jint, jstring);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isField
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isField
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isMsgType
+ * Signature: (Ljava/lang/String;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgType
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isMsgField
+ * Signature: (Ljava/lang/String;I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgField
+  (JNIEnv *, jobject, jstring, jint);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isHeaderField
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isHeaderField
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isTrailerField
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isTrailerField
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isRequiredField
+ * Signature: (Ljava/lang/String;I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isRequiredField
+  (JNIEnv *, jobject, jstring, jint);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    hasFieldValue
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_hasFieldValue
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isFieldValue
+ * Signature: (ILjava/lang/String;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isFieldValue
+  (JNIEnv *, jobject, jint, jstring);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    isGroup
+ * Signature: (Ljava/lang/String;I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isGroup
+  (JNIEnv *, jobject, jstring, jint);
+
 #ifdef __cplusplus
 }
 #endif

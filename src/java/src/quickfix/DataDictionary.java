@@ -51,19 +51,19 @@ package quickfix;
 
 public class DataDictionary {
     private int cppPointer;
-
+    
     public DataDictionary() {
         create();
     }
-
+    
     public DataDictionary( DataDictionary dd ) {
-		create( dd );
-	}
-
-	public DataDictionary( String url ) {
-		create( url );
-	}
-
+	create( dd );
+    }
+    
+    public DataDictionary( String url ) {
+	create( url );
+    }
+    
     protected void finalize() {
         destroy();
     }
@@ -72,4 +72,17 @@ public class DataDictionary {
     private native void create( DataDictionary dd );
     private native void create( String url );
     private native void destroy();
+
+    public native String getVersion();
+    public native String getFieldName( int field );
+    public native String getValueName( int field, String value );
+    public native boolean isField( int field );
+    public native boolean isMsgType( String msgType );
+    public native boolean isMsgField( String msgType, int field );
+    public native boolean isHeaderField( int field );
+    public native boolean isTrailerField( int field );
+    public native boolean isRequiredField( String msgType, int field );
+    public native boolean hasFieldValue( int field );
+    public native boolean isFieldValue( int field, String value );
+    public native boolean isGroup( String msg, int field );
 }
