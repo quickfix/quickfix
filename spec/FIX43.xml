@@ -48,7 +48,8 @@
       <field name="RawData" required="N" />
       <field name="ResetSeqNumFlag" required="N" />
       <field name="MaxMessageSize" required="N" />
-      <group name="NoMsgTypes" number="384">
+      <field name="NoMsgTypes" required="N" />
+      <group name="NoMsgTypes">
         <field name="RefMsgType" required="N" />
         <field name="MsgDirection" required="N" />
       </group>
@@ -123,18 +124,17 @@
       <field name="ValidUntilTime" required="N" />
       <field name="IOIQltyInd" required="N" />
       <field name="IOINaturalFlag" required="N" />
-      <group name="NoIOIQualifiers" number="199">
+      <field name="NoIOIQualifiers" required="N" />
+      <group name="NoIOIQualifiers">
         <field name="IOIQualifier" required="N" />
-        <field name="RoutingType" required="N" />
-        <field name="RoutingID" required="N" />
       </group>
       <field name="Text" required="N" />
       <field name="EncodedTextLen" required="N" />
       <field name="EncodedText" required="N" />
       <field name="TransactTime" required="N" />
       <field name="URLLink" required="N" />
-      <group name="NoRoutingIDs" number="215">
-        <field name="IOIQualifier" required="N" />
+      <field name="NoRoutingIDs" required="N" />
+      <group name="NoRoutingIDs">
         <field name="RoutingType" required="N" />
         <field name="RoutingID" required="N" />
       </group>
@@ -147,23 +147,21 @@
       <field name="Headline" required="Y" />
       <field name="EncodedHeadlineLen" required="N" />
       <field name="EncodedHeadline" required="N" />
-      <group name="NoRoutingIDs" number="215">
+      <field name="NoRoutingIDs" required="N" />
+      <group name="NoRoutingIDs">
         <field name="RoutingType" required="N" />
         <field name="RoutingID" required="N" />
-        <component name="Instrument" required="N" />
-        <field name="Text" required="Y" />
-        <field name="EncodedTextLen" required="N" />
-        <field name="EncodedText" required="N" />
       </group>
-      <group name="NoRelatedSym" number="146">
-        <field name="RoutingType" required="N" />
-        <field name="RoutingID" required="N" />
+      <field name="NoRelatedSym" required="N" />
+      <group name="NoRelatedSym">
         <component name="Instrument" required="N" />
-        <field name="Text" required="Y" />
-        <field name="EncodedTextLen" required="N" />
-        <field name="EncodedText" required="N" />
       </group>
       <field name="LinesOfText" required="Y" />
+      <group name="LinesOfText">
+        <field name="Text" required="Y" />
+        <field name="EncodedTextLen" required="N" />
+        <field name="EncodedText" required="N" />
+      </group>
       <field name="URLLink" required="N" />
       <field name="RawDataLength" required="N" />
       <field name="RawData" required="N" />
@@ -175,32 +173,31 @@
       <field name="Subject" required="Y" />
       <field name="EncodedSubjectLen" required="N" />
       <field name="EncodedSubject" required="N" />
-      <group name="NoRoutingIDs" number="215">
+      <field name="NoRoutingIDs" required="N" />
+      <group name="NoRoutingIDs">
         <field name="RoutingType" required="N" />
         <field name="RoutingID" required="N" />
-        <component name="Instrument" required="N" />
-        <field name="Text" required="Y" />
-        <field name="EncodedTextLen" required="N" />
-        <field name="EncodedText" required="N" />
       </group>
-      <group name="NoRelatedSym" number="146">
-        <field name="RoutingType" required="N" />
-        <field name="RoutingID" required="N" />
+      <field name="NoRelatedSym" required="N" />
+      <group name="NoRelatedSym">
         <component name="Instrument" required="N" />
-        <field name="Text" required="Y" />
-        <field name="EncodedTextLen" required="N" />
-        <field name="EncodedText" required="N" />
       </group>
       <field name="OrderID" required="N" />
       <field name="ClOrdID" required="N" />
       <field name="LinesOfText" required="Y" />
+      <group name="LinesOfText">
+        <field name="Text" required="Y" />
+        <field name="EncodedTextLen" required="N" />
+        <field name="EncodedText" required="N" />
+      </group>
       <field name="RawDataLength" required="N" />
       <field name="RawData" required="N" />
     </message>
     <message name="QuoteRequest" msgtype="R" msgcat="app">
       <field name="QuoteReqID" required="Y" />
       <field name="RFQReqID" required="N" />
-      <group name="NoRelatedSym" number="146">
+      <field name="NoRelatedSym" required="Y" />
+      <group name="NoRelatedSym">
         <component name="Instrument" required="Y" />
         <field name="PrevClosePx" required="N" />
         <field name="QuoteRequestType" required="N" />
@@ -233,7 +230,8 @@
     </message>
     <message name="RFQRequest" msgtype="AH" msgcat="app">
       <field name="RFQReqID" required="Y" />
-      <group name="NoRelatedSym" number="146">
+      <field name="NoRelatedSym" required="Y" />
+      <group name="NoRelatedSym">
         <component name="Instrument" required="Y" />
         <field name="PrevClosePx" required="N" />
         <field name="QuoteRequestType" required="N" />
@@ -301,7 +299,8 @@
       <field name="AccountType" required="N" />
       <field name="TradingSessionID" required="N" />
       <field name="TradingSessionSubID" required="N" />
-      <group name="NoQuoteEntries" number="295">
+      <field name="NoQuoteEntries" required="N" />
+      <group name="NoQuoteEntries">
         <component name="Instrument" required="N" />
       </group>
     </message>
@@ -371,12 +370,14 @@
       <field name="AccountType" required="N" />
       <field name="DefBidSize" required="N" />
       <field name="DefOfferSize" required="N" />
-      <group name="NoQuoteSets" number="296">
+      <field name="NoQuoteSets" required="Y" />
+      <group name="NoQuoteSets">
         <field name="QuoteSetID" required="Y" />
         <component name="UnderlyingInstrument" required="N" />
         <field name="QuoteSetValidUntilTime" required="N" />
         <field name="TotQuoteEntries" required="Y" />
-        <group name="NoQuoteEntries" number="295">
+        <field name="NoQuoteEntries" required="N" />
+        <group name="NoQuoteEntries">
           <field name="QuoteEntryID" required="Y" />
           <component name="Instrument" required="N" />
           <field name="BidPx" required="N" />
@@ -418,11 +419,13 @@
       <field name="TradingSessionID" required="N" />
       <field name="TradingSessionSubID" required="N" />
       <field name="Text" required="N" />
-      <group name="NoQuoteSets" number="296">
+      <field name="NoQuoteSets" required="N" />
+      <group name="NoQuoteSets">
         <field name="QuoteSetID" required="N" />
         <component name="UnderlyingInstrument" required="N" />
         <field name="TotQuoteEntries" required="N" />
-        <group name="NoQuoteEntries" number="295">
+        <field name="NoQuoteEntries" required="N" />
+        <group name="NoQuoteEntries">
           <field name="QuoteEntryID" required="N" />
           <component name="Instrument" required="N" />
           <field name="BidPx" required="N" />
@@ -461,21 +464,16 @@
       <field name="OpenCloseSettleFlag" required="N" />
       <field name="Scope" required="N" />
       <field name="MDImplicitDelete" required="N" />
-      <group name="NoMDEntryTypes" number="267">
+      <field name="NoMDEntryTypes" required="Y" />
+      <group name="NoMDEntryTypes">
         <field name="MDEntryType" required="Y" />
-        <component name="Instrument" required="Y" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
       </group>
-      <group name="NoRelatedSym" number="146">
-        <field name="MDEntryType" required="Y" />
+      <field name="NoRelatedSym" required="Y" />
+      <group name="NoRelatedSym">
         <component name="Instrument" required="Y" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
       </group>
-      <group name="NoTradingSessions" number="386">
-        <field name="MDEntryType" required="Y" />
-        <component name="Instrument" required="Y" />
+      <field name="NoTradingSessions" required="Y" />
+      <group name="NoTradingSessions">
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
       </group>
@@ -489,7 +487,8 @@
       <field name="TotalVolumeTradedDate" required="N" />
       <field name="TotalVolumeTradedTime" required="N" />
       <field name="NetChgPrevDay" required="N" />
-      <group name="NoMDEntries" number="268">
+      <field name="NoMDEntries" required="Y" />
+      <group name="NoMDEntries">
         <field name="MDEntryType" required="Y" />
         <field name="MDEntryPx" required="N" />
         <field name="Currency" required="N" />
@@ -526,7 +525,8 @@
     </message>
     <message name="MarketDataIncrementalRefresh" msgtype="X" msgcat="app">
       <field name="MDReqID" required="N" />
-      <group name="NoMDEntries" number="268">
+      <field name="NoMDEntries" required="Y" />
+      <group name="NoMDEntries">
         <field name="MDUpdateAction" required="Y" />
         <field name="DeleteReason" required="N" />
         <field name="MDEntryType" required="N" />
@@ -589,7 +589,8 @@
       <field name="EncodedText" required="N" />
       <field name="TradingSessionID" required="N" />
       <field name="TradingSessionSubID" required="N" />
-      <group name="NoLegs" number="555">
+      <field name="NoLegs" required="N" />
+      <group name="NoLegs">
         <component name="InstrumentLeg" required="N" />
         <field name="LegCurrency" required="N" />
       </group>
@@ -606,7 +607,8 @@
       <field name="Text" required="N" />
       <field name="EncodedTextLen" required="N" />
       <field name="EncodedText" required="N" />
-      <group name="NoLegs" number="555">
+      <field name="NoLegs" required="N" />
+      <group name="NoLegs">
         <component name="InstrumentLeg" required="N" />
         <field name="LegCurrency" required="N" />
       </group>
@@ -626,7 +628,8 @@
       <field name="SecurityResponseID" required="Y" />
       <field name="SecurityResponseType" required="Y" />
       <field name="TotalNumSecurityTypes" required="N" />
-      <group name="NoSecurityTypes" number="558">
+      <field name="NoSecurityTypes" required="N" />
+      <group name="NoSecurityTypes">
         <field name="SecurityType" required="N" />
         <field name="Product" required="N" />
         <field name="CFICode" required="N" />
@@ -655,10 +658,12 @@
       <field name="SecurityResponseID" required="Y" />
       <field name="SecurityRequestResult" required="Y" />
       <field name="TotalNumSecurities" required="N" />
-      <group name="NoRelatedSym" number="146">
+      <field name="NoRelatedSym" required="N" />
+      <group name="NoRelatedSym">
         <component name="Instrument" required="N" />
         <field name="Currency" required="N" />
-        <group name="NoLegs" number="555">
+        <field name="NoLegs" required="N" />
+        <group name="NoLegs">
           <component name="InstrumentLeg" required="N" />
           <field name="LegCurrency" required="N" />
         </group>
@@ -689,10 +694,12 @@
       <field name="SecurityRequestResult" required="Y" />
       <component name="UnderlyingInstrument" required="N" />
       <field name="TotalNumSecurities" required="N" />
-      <group name="NoRelatedSym" number="146">
+      <field name="NoRelatedSym" required="N" />
+      <group name="NoRelatedSym">
         <component name="Instrument" required="N" />
         <field name="Currency" required="N" />
-        <group name="NoLegs" number="555">
+        <field name="NoLegs" required="N" />
+        <group name="NoLegs">
           <component name="InstrumentLeg" required="N" />
           <field name="LegCurrency" required="N" />
         </group>
@@ -773,13 +780,12 @@
       <field name="DayBookingInst" required="N" />
       <field name="BookingUnit" required="N" />
       <field name="PreallocMethod" required="N" />
-      <group name="NoAllocs" number="78">
+      <field name="NoAllocs" required="N" />
+      <group name="NoAllocs">
         <field name="AllocAccount" required="N" />
         <field name="IndividualAllocID" required="N" />
         <component name="NestedParties" required="N" />
         <field name="AllocQty" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
       </group>
       <field name="SettlmntTyp" required="N" />
       <field name="FutSettDate" required="N" />
@@ -790,11 +796,8 @@
       <field name="MinQty" required="N" />
       <field name="MaxFloor" required="N" />
       <field name="ExDestination" required="N" />
-      <group name="NoTradingSessions" number="386">
-        <field name="AllocAccount" required="N" />
-        <field name="IndividualAllocID" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="AllocQty" required="N" />
+      <field name="NoTradingSessions" required="N" />
+      <group name="NoTradingSessions">
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
       </group>
@@ -860,24 +863,13 @@
       <field name="ClOrdLinkID" required="N" />
       <component name="Parties" required="N" />
       <field name="TradeOriginationDate" required="N" />
-      <group name="NoContraBrokers" number="382">
+      <field name="NoContraBrokers" required="N" />
+      <group name="NoContraBrokers">
         <field name="ContraBroker" required="N" />
         <field name="ContraTrader" required="N" />
         <field name="ContraTradeQty" required="N" />
         <field name="ContraTradeTime" required="N" />
         <field name="ContraLegRefID" required="N" />
-        <field name="ContAmtType" required="N" />
-        <field name="ContAmtValue" required="N" />
-        <field name="ContAmtCurr" required="N" />
-        <component name="InstrumentLeg" required="N" />
-        <field name="LegPositionEffect" required="N" />
-        <field name="LegCoveredOrUncovered" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="LegRefID" required="N" />
-        <field name="LegPrice" required="N" />
-        <field name="LegSettlmntTyp" required="N" />
-        <field name="LegFutSettDate" required="N" />
-        <field name="LegLastPx" required="N" />
       </group>
       <field name="ListID" required="N" />
       <field name="CrossID" required="N" />
@@ -983,34 +975,14 @@
       <field name="ExecPriceAdjustment" required="N" />
       <field name="PriorityIndicator" required="N" />
       <field name="PriceImprovement" required="N" />
-      <group name="NoContAmts" number="518">
-        <field name="ContraBroker" required="N" />
-        <field name="ContraTrader" required="N" />
-        <field name="ContraTradeQty" required="N" />
-        <field name="ContraTradeTime" required="N" />
-        <field name="ContraLegRefID" required="N" />
+      <field name="NoContAmts" required="N" />
+      <group name="NoContAmts">
         <field name="ContAmtType" required="N" />
         <field name="ContAmtValue" required="N" />
         <field name="ContAmtCurr" required="N" />
-        <component name="InstrumentLeg" required="N" />
-        <field name="LegPositionEffect" required="N" />
-        <field name="LegCoveredOrUncovered" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="LegRefID" required="N" />
-        <field name="LegPrice" required="N" />
-        <field name="LegSettlmntTyp" required="N" />
-        <field name="LegFutSettDate" required="N" />
-        <field name="LegLastPx" required="N" />
       </group>
-      <group name="NoLegs" number="555">
-        <field name="ContraBroker" required="N" />
-        <field name="ContraTrader" required="N" />
-        <field name="ContraTradeQty" required="N" />
-        <field name="ContraTradeTime" required="N" />
-        <field name="ContraLegRefID" required="N" />
-        <field name="ContAmtType" required="N" />
-        <field name="ContAmtValue" required="N" />
-        <field name="ContAmtCurr" required="N" />
+      <field name="NoLegs" required="Y" />
+      <group name="NoLegs">
         <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
@@ -1050,13 +1022,12 @@
       <field name="DayBookingInst" required="N" />
       <field name="BookingUnit" required="N" />
       <field name="PreallocMethod" required="N" />
-      <group name="NoAllocs" number="78">
+      <field name="NoAllocs" required="N" />
+      <group name="NoAllocs">
         <field name="AllocAccount" required="N" />
         <field name="IndividualAllocID" required="N" />
         <component name="NestedParties" required="N" />
         <field name="AllocQty" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
       </group>
       <field name="SettlmntTyp" required="N" />
       <field name="FutSettDate" required="N" />
@@ -1067,11 +1038,8 @@
       <field name="MinQty" required="N" />
       <field name="MaxFloor" required="N" />
       <field name="ExDestination" required="N" />
-      <group name="NoTradingSessions" number="386">
-        <field name="AllocAccount" required="N" />
-        <field name="IndividualAllocID" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="AllocQty" required="N" />
+      <field name="NoTradingSessions" required="N" />
+      <group name="NoTradingSessions">
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
       </group>
@@ -1196,7 +1164,8 @@
       <field name="MassCancelResponse" required="Y" />
       <field name="MassCancelRejectReason" required="N" />
       <field name="TotalAffectedOrders" required="N" />
-      <group name="NoAffectedOrders" number="534">
+      <field name="NoAffectedOrders" required="N" />
+      <group name="NoAffectedOrders">
         <field name="OrigClOrdID" required="N" />
         <field name="AffectedOrderID" required="N" />
         <field name="AffectedSecondaryOrderID" required="N" />
@@ -1226,7 +1195,8 @@
       <field name="CrossID" required="Y" />
       <field name="CrossType" required="Y" />
       <field name="CrossPrioritization" required="Y" />
-      <group name="NoSides" number="552">
+      <field name="NoSides" required="Y" />
+      <group name="NoSides">
         <field name="Side" required="Y" />
         <field name="ClOrdID" required="Y" />
         <field name="SecondaryClOrdID" required="N" />
@@ -1238,7 +1208,8 @@
         <field name="DayBookingInst" required="N" />
         <field name="BookingUnit" required="N" />
         <field name="PreallocMethod" required="N" />
-        <group name="NoAllocs" number="78">
+        <field name="NoAllocs" required="N" />
+        <group name="NoAllocs">
           <field name="AllocAccount" required="N" />
           <field name="IndividualAllocID" required="N" />
           <component name="NestedParties" required="N" />
@@ -1261,8 +1232,6 @@
         <field name="ClearingFeeIndicator" required="N" />
         <field name="SolicitedFlag" required="N" />
         <field name="SideComplianceID" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
       </group>
       <component name="Instrument" required="Y" />
       <field name="SettlmntTyp" required="N" />
@@ -1272,41 +1241,8 @@
       <field name="MinQty" required="N" />
       <field name="MaxFloor" required="N" />
       <field name="ExDestination" required="N" />
-      <group name="NoTradingSessions" number="386">
-        <field name="Side" required="Y" />
-        <field name="ClOrdID" required="Y" />
-        <field name="SecondaryClOrdID" required="N" />
-        <field name="ClOrdLinkID" required="N" />
-        <component name="Parties" required="N" />
-        <field name="TradeOriginationDate" required="N" />
-        <field name="Account" required="N" />
-        <field name="AccountType" required="N" />
-        <field name="DayBookingInst" required="N" />
-        <field name="BookingUnit" required="N" />
-        <field name="PreallocMethod" required="N" />
-        <group name="NoAllocs" number="78">
-          <field name="AllocAccount" required="N" />
-          <field name="IndividualAllocID" required="N" />
-          <component name="NestedParties" required="N" />
-          <field name="AllocQty" required="N" />
-        </group>
-        <field name="QuantityType" required="N" />
-        <component name="OrderQtyData" required="Y" />
-        <component name="CommissionData" required="N" />
-        <field name="OrderCapacity" required="N" />
-        <field name="OrderRestrictions" required="N" />
-        <field name="CustOrderCapacity" required="N" />
-        <field name="ForexReq" required="N" />
-        <field name="SettlCurrency" required="N" />
-        <field name="Text" required="N" />
-        <field name="EncodedTextLen" required="N" />
-        <field name="EncodedText" required="N" />
-        <field name="PositionEffect" required="N" />
-        <field name="CoveredOrUncovered" required="N" />
-        <field name="CashMargin" required="N" />
-        <field name="ClearingFeeIndicator" required="N" />
-        <field name="SolicitedFlag" required="N" />
-        <field name="SideComplianceID" required="N" />
+      <field name="NoTradingSessions" required="N" />
+      <group name="NoTradingSessions">
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
       </group>
@@ -1348,7 +1284,8 @@
       <field name="OrigCrossID" required="Y" />
       <field name="CrossType" required="Y" />
       <field name="CrossPrioritization" required="Y" />
-      <group name="NoSides" number="552">
+      <field name="NoSides" required="Y" />
+      <group name="NoSides">
         <field name="Side" required="Y" />
         <field name="OrigClOrdID" required="N" />
         <field name="ClOrdID" required="Y" />
@@ -1362,7 +1299,8 @@
         <field name="DayBookingInst" required="N" />
         <field name="BookingUnit" required="N" />
         <field name="PreallocMethod" required="N" />
-        <group name="NoAllocs" number="78">
+        <field name="NoAllocs" required="N" />
+        <group name="NoAllocs">
           <field name="AllocAccount" required="N" />
           <field name="IndividualAllocID" required="N" />
           <component name="NestedParties" required="N" />
@@ -1385,8 +1323,6 @@
         <field name="ClearingFeeIndicator" required="N" />
         <field name="SolicitedFlag" required="N" />
         <field name="SideComplianceID" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
       </group>
       <component name="Instrument" required="Y" />
       <field name="SettlmntTyp" required="N" />
@@ -1396,43 +1332,8 @@
       <field name="MinQty" required="N" />
       <field name="MaxFloor" required="N" />
       <field name="ExDestination" required="N" />
-      <group name="NoTradingSessions" number="386">
-        <field name="Side" required="Y" />
-        <field name="OrigClOrdID" required="N" />
-        <field name="ClOrdID" required="Y" />
-        <field name="SecondaryClOrdID" required="N" />
-        <field name="ClOrdLinkID" required="N" />
-        <field name="OrigOrdModTime" required="N" />
-        <component name="Parties" required="N" />
-        <field name="TradeOriginationDate" required="N" />
-        <field name="Account" required="N" />
-        <field name="AccountType" required="N" />
-        <field name="DayBookingInst" required="N" />
-        <field name="BookingUnit" required="N" />
-        <field name="PreallocMethod" required="N" />
-        <group name="NoAllocs" number="78">
-          <field name="AllocAccount" required="N" />
-          <field name="IndividualAllocID" required="N" />
-          <component name="NestedParties" required="N" />
-          <field name="AllocQty" required="N" />
-        </group>
-        <field name="QuantityType" required="N" />
-        <component name="OrderQtyData" required="Y" />
-        <component name="CommissionData" required="N" />
-        <field name="OrderCapacity" required="N" />
-        <field name="OrderRestrictions" required="N" />
-        <field name="CustOrderCapacity" required="N" />
-        <field name="ForexReq" required="N" />
-        <field name="SettlCurrency" required="N" />
-        <field name="Text" required="N" />
-        <field name="EncodedTextLen" required="N" />
-        <field name="EncodedText" required="N" />
-        <field name="PositionEffect" required="N" />
-        <field name="CoveredOrUncovered" required="N" />
-        <field name="CashMargin" required="N" />
-        <field name="ClearingFeeIndicator" required="N" />
-        <field name="SolicitedFlag" required="N" />
-        <field name="SideComplianceID" required="N" />
+      <field name="NoTradingSessions" required="N" />
+      <group name="NoTradingSessions">
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
       </group>
@@ -1474,7 +1375,8 @@
       <field name="OrigCrossID" required="Y" />
       <field name="CrossType" required="Y" />
       <field name="CrossPrioritization" required="Y" />
-      <group name="NoSides" number="552">
+      <field name="NoSides" required="Y" />
+      <group name="NoSides">
         <field name="Side" required="Y" />
         <field name="OrigClOrdID" required="N" />
         <field name="ClOrdID" required="Y" />
@@ -1502,20 +1404,11 @@
       <field name="DayBookingInst" required="N" />
       <field name="BookingUnit" required="N" />
       <field name="PreallocMethod" required="N" />
-      <group name="NoAllocs" number="78">
+      <field name="NoAllocs" required="N" />
+      <group name="NoAllocs">
         <field name="AllocAccount" required="N" />
         <field name="IndividualAllocID" required="N" />
         <field name="AllocQty" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
-        <component name="InstrumentLeg" required="N" />
-        <field name="LegPositionEffect" required="N" />
-        <field name="LegCoveredOrUncovered" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="LegRefID" required="N" />
-        <field name="LegPrice" required="N" />
-        <field name="LegSettlmntTyp" required="N" />
-        <field name="LegFutSettDate" required="N" />
       </group>
       <field name="SettlmntTyp" required="N" />
       <field name="FutSettDate" required="N" />
@@ -1526,31 +1419,17 @@
       <field name="MinQty" required="N" />
       <field name="MaxFloor" required="N" />
       <field name="ExDestination" required="N" />
-      <group name="NoTradingSessions" number="386">
-        <field name="AllocAccount" required="N" />
-        <field name="IndividualAllocID" required="N" />
-        <field name="AllocQty" required="N" />
+      <field name="NoTradingSessions" required="N" />
+      <group name="NoTradingSessions">
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="InstrumentLeg" required="N" />
-        <field name="LegPositionEffect" required="N" />
-        <field name="LegCoveredOrUncovered" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="LegRefID" required="N" />
-        <field name="LegPrice" required="N" />
-        <field name="LegSettlmntTyp" required="N" />
-        <field name="LegFutSettDate" required="N" />
       </group>
       <field name="ProcessCode" required="N" />
       <field name="Side" required="Y" />
       <component name="Instrument" required="Y" />
       <field name="PrevClosePx" required="N" />
-      <group name="NoLegs" number="555">
-        <field name="AllocAccount" required="N" />
-        <field name="IndividualAllocID" required="N" />
-        <field name="AllocQty" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
+      <field name="NoLegs" required="N" />
+      <group name="NoLegs">
         <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
@@ -1613,20 +1492,11 @@
       <field name="DayBookingInst" required="N" />
       <field name="BookingUnit" required="N" />
       <field name="PreallocMethod" required="N" />
-      <group name="NoAllocs" number="78">
+      <field name="NoAllocs" required="N" />
+      <group name="NoAllocs">
         <field name="AllocAccount" required="N" />
         <field name="IndividualAllocID" required="N" />
         <field name="AllocQty" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
-        <component name="InstrumentLeg" required="N" />
-        <field name="LegPositionEffect" required="N" />
-        <field name="LegCoveredOrUncovered" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="LegRefID" required="N" />
-        <field name="LegPrice" required="N" />
-        <field name="LegSettlmntTyp" required="N" />
-        <field name="LegFutSettDate" required="N" />
       </group>
       <field name="SettlmntTyp" required="N" />
       <field name="FutSettDate" required="N" />
@@ -1637,31 +1507,17 @@
       <field name="MinQty" required="N" />
       <field name="MaxFloor" required="N" />
       <field name="ExDestination" required="N" />
-      <group name="NoTradingSessions" number="386">
-        <field name="AllocAccount" required="N" />
-        <field name="IndividualAllocID" required="N" />
-        <field name="AllocQty" required="N" />
+      <field name="NoTradingSessions" required="N" />
+      <group name="NoTradingSessions">
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="InstrumentLeg" required="N" />
-        <field name="LegPositionEffect" required="N" />
-        <field name="LegCoveredOrUncovered" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="LegRefID" required="N" />
-        <field name="LegPrice" required="N" />
-        <field name="LegSettlmntTyp" required="N" />
-        <field name="LegFutSettDate" required="N" />
       </group>
       <field name="ProcessCode" required="N" />
       <field name="Side" required="Y" />
       <component name="Instrument" required="Y" />
       <field name="PrevClosePx" required="N" />
-      <group name="NoLegs" number="555">
-        <field name="AllocAccount" required="N" />
-        <field name="IndividualAllocID" required="N" />
-        <field name="AllocQty" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
+      <field name="NoLegs" required="N" />
+      <group name="NoLegs">
         <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
@@ -1722,7 +1578,8 @@
       <field name="Currency" required="N" />
       <field name="SideValue1" required="N" />
       <field name="SideValue2" required="N" />
-      <group name="NoBidDescriptors" number="398">
+      <field name="NoBidDescriptors" required="N" />
+      <group name="NoBidDescriptors">
         <field name="BidDescriptorType" required="N" />
         <field name="BidDescriptor" required="N" />
         <field name="SideValueInd" required="N" />
@@ -1734,27 +1591,9 @@
         <field name="FairValue" required="N" />
         <field name="OutsideIndexPct" required="N" />
         <field name="ValueOfFutures" required="N" />
-        <field name="ListID" required="N" />
-        <field name="Side" required="N" />
-        <field name="TradingSessionID" required="N" />
-        <field name="TradingSessionSubID" required="N" />
-        <field name="NetGrossInd" required="N" />
-        <field name="SettlmntTyp" required="N" />
-        <field name="FutSettDate" required="N" />
-        <field name="Account" required="N" />
       </group>
-      <group name="NoBidComponents" number="420">
-        <field name="BidDescriptorType" required="N" />
-        <field name="BidDescriptor" required="N" />
-        <field name="SideValueInd" required="N" />
-        <field name="LiquidityValue" required="N" />
-        <field name="LiquidityNumSecurities" required="N" />
-        <field name="LiquidityPctLow" required="N" />
-        <field name="LiquidityPctHigh" required="N" />
-        <field name="EFPTrackingError" required="N" />
-        <field name="FairValue" required="N" />
-        <field name="OutsideIndexPct" required="N" />
-        <field name="ValueOfFutures" required="N" />
+      <field name="NoBidComponents" required="N" />
+      <group name="NoBidComponents">
         <field name="ListID" required="N" />
         <field name="Side" required="N" />
         <field name="TradingSessionID" required="N" />
@@ -1785,7 +1624,8 @@
     <message name="BidResponse" msgtype="l" msgcat="app">
       <field name="BidID" required="N" />
       <field name="ClientBidID" required="N" />
-      <group name="NoBidComponents" number="420">
+      <field name="NoBidComponents" required="Y" />
+      <group name="NoBidComponents">
         <component name="CommissionData" required="Y" />
         <field name="ListID" required="N" />
         <field name="Country" required="N" />
@@ -1818,7 +1658,8 @@
       <field name="EncodedListExecInstLen" required="N" />
       <field name="EncodedListExecInst" required="N" />
       <field name="TotNoOrders" required="Y" />
-      <group name="NoOrders" number="73">
+      <field name="NoOrders" required="Y" />
+      <group name="NoOrders">
         <field name="ClOrdID" required="Y" />
         <field name="SecondaryClOrdID" required="N" />
         <field name="ListSeqNo" required="Y" />
@@ -1831,13 +1672,12 @@
         <field name="DayBookingInst" required="N" />
         <field name="BookingUnit" required="N" />
         <field name="PreallocMethod" required="N" />
-        <group name="NoAllocs" number="78">
+        <field name="NoAllocs" required="N" />
+        <group name="NoAllocs">
           <field name="AllocAccount" required="N" />
           <field name="IndividualAllocID" required="N" />
           <component name="NestedParties" required="N" />
           <field name="AllocQty" required="N" />
-          <field name="TradingSessionID" required="N" />
-          <field name="TradingSessionSubID" required="N" />
         </group>
         <field name="SettlmntTyp" required="N" />
         <field name="FutSettDate" required="N" />
@@ -1848,11 +1688,8 @@
         <field name="MinQty" required="N" />
         <field name="MaxFloor" required="N" />
         <field name="ExDestination" required="N" />
-        <group name="NoTradingSessions" number="386">
-          <field name="AllocAccount" required="N" />
-          <field name="IndividualAllocID" required="N" />
-          <component name="NestedParties" required="N" />
-          <field name="AllocQty" required="N" />
+        <field name="NoTradingSessions" required="N" />
+        <group name="NoTradingSessions">
           <field name="TradingSessionID" required="N" />
           <field name="TradingSessionSubID" required="N" />
         </group>
@@ -1910,7 +1747,8 @@
     <message name="ListStrikePrice" msgtype="m" msgcat="app">
       <field name="ListID" required="Y" />
       <field name="TotNoStrikes" required="Y" />
-      <group name="NoStrikes" number="428">
+      <field name="NoStrikes" required="Y" />
+      <group name="NoStrikes">
         <component name="Instrument" required="Y" />
         <field name="PrevClosePx" required="N" />
         <field name="ClOrdID" required="N" />
@@ -1949,20 +1787,7 @@
     <message name="ListStatus" msgtype="N" msgcat="app">
       <field name="ListID" required="Y" />
       <field name="ListStatusType" required="Y" />
-      <group name="NoRpts" number="82">
-        <field name="ClOrdID" required="Y" />
-        <field name="SecondaryClOrdID" required="N" />
-        <field name="CumQty" required="Y" />
-        <field name="OrdStatus" required="Y" />
-        <field name="WorkingIndicator" required="N" />
-        <field name="LeavesQty" required="Y" />
-        <field name="CxlQty" required="Y" />
-        <field name="AvgPx" required="Y" />
-        <field name="OrdRejReason" required="N" />
-        <field name="Text" required="N" />
-        <field name="EncodedTextLen" required="N" />
-        <field name="EncodedText" required="N" />
-      </group>
+      <field name="NoRpts" required="Y" />
       <field name="ListOrderStatus" required="Y" />
       <field name="RptSeq" required="Y" />
       <field name="ListStatusText" required="N" />
@@ -1970,7 +1795,8 @@
       <field name="EncodedListStatusText" required="N" />
       <field name="TransactTime" required="N" />
       <field name="TotNoOrders" required="Y" />
-      <group name="NoOrders" number="73">
+      <field name="NoOrders" required="Y" />
+      <group name="NoOrders">
         <field name="ClOrdID" required="Y" />
         <field name="SecondaryClOrdID" required="N" />
         <field name="CumQty" required="Y" />
@@ -1993,89 +1819,22 @@
       <field name="AllocLinkID" required="N" />
       <field name="AllocLinkType" required="N" />
       <field name="BookingRefID" required="N" />
-      <group name="NoOrders" number="73">
+      <field name="NoOrders" required="Y" />
+      <group name="NoOrders">
         <field name="ClOrdID" required="Y" />
         <field name="OrderID" required="N" />
         <field name="SecondaryOrderID" required="N" />
-        <field name="SecondaryClOrdID" required="" />
+        <field name="SecondaryClOrdID" required="N" />
         <field name="ListID" required="N" />
         <field name="WaveNo" required="N" />
-        <field name="LastQty" required="N" />
-        <field name="ExecID" required="N" />
-        <field name="SecondaryExecID" required="" />
-        <field name="LastPx" required="N" />
-        <field name="LastCapacity" required="N" />
-        <field name="AllocAccount" required="Y" />
-        <field name="AllocPrice" required="N" />
-        <field name="AllocQty" required="Y" />
-        <field name="IndividualAllocID" required="N" />
-        <field name="ProcessCode" required="N" />
-        <component name="NestedParties" required="N" />
-        <group name="NotifyBrokerOfCredit" number="208">
-          <field name="MiscFeeAmt" required="N" />
-          <field name="MiscFeeCurr" required="N" />
-          <field name="MiscFeeType" required="N" />
-        </group>
-        <field name="AllocHandlInst" required="N" />
-        <field name="AllocText" required="N" />
-        <field name="EncodedAllocTextLen" required="N" />
-        <field name="EncodedAllocText" required="N" />
-        <component name="CommissionData" required="N" />
-        <field name="AllocAvgPx" required="N" />
-        <field name="AllocNetMoney" required="N" />
-        <field name="SettlCurrAmt" required="N" />
-        <field name="SettlCurrency" required="N" />
-        <field name="SettlCurrFxRate" required="N" />
-        <field name="SettlCurrFxRateCalc" required="N" />
-        <field name="AccruedInterestAmt" required="N" />
-        <field name="SettlInstMode" required="N" />
-        <group name="NoMiscFees" number="136">
-          <field name="MiscFeeAmt" required="N" />
-          <field name="MiscFeeCurr" required="N" />
-          <field name="MiscFeeType" required="N" />
-        </group>
       </group>
-      <group name="NoExecs" number="124">
-        <field name="ClOrdID" required="Y" />
-        <field name="OrderID" required="N" />
-        <field name="SecondaryOrderID" required="N" />
-        <field name="SecondaryClOrdID" required="" />
-        <field name="ListID" required="N" />
-        <field name="WaveNo" required="N" />
-        <field name="LastQty" required="N" />
+      <field name="NoExecs" required="N" />
+      <group name="NoExecs">
+        <field name="LastQty" required="N" />      
         <field name="ExecID" required="N" />
-        <field name="SecondaryExecID" required="" />
+        <field name="SecondaryExecID" required="N" />
         <field name="LastPx" required="N" />
         <field name="LastCapacity" required="N" />
-        <field name="AllocAccount" required="Y" />
-        <field name="AllocPrice" required="N" />
-        <field name="AllocQty" required="Y" />
-        <field name="IndividualAllocID" required="N" />
-        <field name="ProcessCode" required="N" />
-        <component name="NestedParties" required="N" />
-        <group name="NotifyBrokerOfCredit" number="208">
-          <field name="MiscFeeAmt" required="N" />
-          <field name="MiscFeeCurr" required="N" />
-          <field name="MiscFeeType" required="N" />
-        </group>
-        <field name="AllocHandlInst" required="N" />
-        <field name="AllocText" required="N" />
-        <field name="EncodedAllocTextLen" required="N" />
-        <field name="EncodedAllocText" required="N" />
-        <component name="CommissionData" required="N" />
-        <field name="AllocAvgPx" required="N" />
-        <field name="AllocNetMoney" required="N" />
-        <field name="SettlCurrAmt" required="N" />
-        <field name="SettlCurrency" required="N" />
-        <field name="SettlCurrFxRate" required="N" />
-        <field name="SettlCurrFxRateCalc" required="N" />
-        <field name="AccruedInterestAmt" required="N" />
-        <field name="SettlInstMode" required="N" />
-        <group name="NoMiscFees" number="136">
-          <field name="MiscFeeAmt" required="N" />
-          <field name="MiscFeeCurr" required="N" />
-          <field name="MiscFeeType" required="N" />
-        </group>
       </group>
       <field name="Side" required="Y" />
       <component name="Instrument" required="Y" />
@@ -2105,29 +1864,15 @@
       <field name="AccruedInterestRate" required="N" />
       <field name="TotalAccruedInterestAmt" required="N" />
       <field name="LegalConfirm" required="N" />
-      <group name="NoAllocs" number="78">
-        <field name="ClOrdID" required="Y" />
-        <field name="OrderID" required="N" />
-        <field name="SecondaryOrderID" required="N" />
-        <field name="SecondaryClOrdID" required="" />
-        <field name="ListID" required="N" />
-        <field name="WaveNo" required="N" />
-        <field name="LastQty" required="N" />
-        <field name="ExecID" required="N" />
-        <field name="SecondaryExecID" required="" />
-        <field name="LastPx" required="N" />
-        <field name="LastCapacity" required="N" />
+      <field name="NoAllocs" required="Y" />
+      <group name="NoAllocs">
         <field name="AllocAccount" required="Y" />
         <field name="AllocPrice" required="N" />
         <field name="AllocQty" required="Y" />
         <field name="IndividualAllocID" required="N" />
         <field name="ProcessCode" required="N" />
         <component name="NestedParties" required="N" />
-        <group name="NotifyBrokerOfCredit" number="208">
-          <field name="MiscFeeAmt" required="N" />
-          <field name="MiscFeeCurr" required="N" />
-          <field name="MiscFeeType" required="N" />
-        </group>
+        <field name="NotifyBrokerOfCredit" required="N" />
         <field name="AllocHandlInst" required="N" />
         <field name="AllocText" required="N" />
         <field name="EncodedAllocTextLen" required="N" />
@@ -2141,7 +1886,8 @@
         <field name="SettlCurrFxRateCalc" required="N" />
         <field name="AccruedInterestAmt" required="N" />
         <field name="SettlInstMode" required="N" />
-        <group name="NoMiscFees" number="136">
+        <field name="NoMiscFees" required="N" />
+        <group name="NoMiscFees">
           <field name="MiscFeeAmt" required="N" />
           <field name="MiscFeeCurr" required="N" />
           <field name="MiscFeeType" required="N" />
@@ -2218,7 +1964,8 @@
       <field name="MatchStatus" required="N" />
       <component name="Parties" required="N" />
       <component name="Instrument" required="N" />
-      <group name="NoDates" number="580">
+      <field name="NoDates" required="N" />
+      <group name="NoDates">
         <field name="TradeDate" required="N" />
         <field name="TransactTime" required="N" />
       </group>
@@ -2252,7 +1999,8 @@
       <field name="FutSettDate" required="N" />
       <field name="MatchStatus" required="N" />
       <field name="MatchType" required="N" />
-      <group name="NoSides" number="552">
+      <field name="NoSides" required="Y" />
+      <group name="NoSides">
         <field name="Side" required="Y" />
         <field name="OrderID" required="Y" />
         <field name="SecondaryOrderID" required="N" />
@@ -2264,14 +2012,9 @@
         <field name="FutSettDate" required="N" />
         <field name="ProcessCode" required="N" />
         <field name="OddLot" required="N" />
-        <group name="NoClearingInstructions" number="576">
+        <field name="NoClearingInstructions" required="N" />
+        <group name="NoClearingInstructions">
           <field name="ClearingInstruction" required="N" />
-          <field name="ContAmtType" required="N" />
-          <field name="ContAmtValue" required="N" />
-          <field name="ContAmtCurr" required="N" />
-          <field name="MiscFeeAmt" required="N" />
-          <field name="MiscFeeCurr" required="N" />
-          <field name="MiscFeeType" required="N" />
         </group>
         <field name="ClearingFeeIndicator" required="N" />
         <field name="TradeInputSource" required="N" />
@@ -2303,20 +2046,14 @@
         <field name="EncodedTextLen" required="N" />
         <field name="EncodedText" required="N" />
         <field name="MultiLegReportingType" required="N" />
-        <group name="NoContAmts" number="518">
-          <field name="ClearingInstruction" required="N" />
+        <field name="NoContAmts" required="N" />
+        <group name="NoContAmts">
           <field name="ContAmtType" required="N" />
           <field name="ContAmtValue" required="N" />
-          <field name="ContAmtCurr" required="N" />
-          <field name="MiscFeeAmt" required="N" />
-          <field name="MiscFeeCurr" required="N" />
-          <field name="MiscFeeType" required="N" />
+          <field name="ContAmtCurr" required="N" />        
         </group>
-        <group name="NoMiscFees" number="136">
-          <field name="ClearingInstruction" required="N" />
-          <field name="ContAmtType" required="N" />
-          <field name="ContAmtValue" required="N" />
-          <field name="ContAmtCurr" required="N" />
+        <field name="NoMiscFees" required="N" />
+        <group name="NoMiscFees">
           <field name="MiscFeeAmt" required="N" />
           <field name="MiscFeeCurr" required="N" />
           <field name="MiscFeeType" required="N" />
@@ -2333,7 +2070,8 @@
       <field name="RegistAcctType" required="N" />
       <field name="TaxAdvantageType" required="N" />
       <field name="OwnershipType" required="N" />
-      <group name="NoRegistDtls" number="473">
+      <field name="NoRegistDtls" required="N" />
+      <group name="NoRegistDtls">
         <field name="RegistDetls" required="N" />
         <field name="RegistEmail" required="N" />
         <field name="MailingDtls" required="N" />
@@ -2342,24 +2080,9 @@
         <field name="OwnerType" required="N" />
         <field name="DateOfBirth" required="N" />
         <field name="InvestorCountryOfResidence" required="N" />
-        <field name="DistribPaymentMethod" required="N" />
-        <field name="DistribPercentage" required="N" />
-        <field name="CashDistribCurr" required="N" />
-        <field name="CashDistribAgentName" required="N" />
-        <field name="CashDistribAgentCode" required="N" />
-        <field name="CashDistribAgentAcctNumber" required="N" />
-        <field name="CashDistribPayRef" required="N" />
-        <field name="CashDistribAgentAcctName" required="N" />
       </group>
-      <group name="NoDistribInsts" number="510">
-        <field name="RegistDetls" required="N" />
-        <field name="RegistEmail" required="N" />
-        <field name="MailingDtls" required="N" />
-        <field name="MailingInst" required="N" />
-        <component name="NestedParties" required="N" />
-        <field name="OwnerType" required="N" />
-        <field name="DateOfBirth" required="N" />
-        <field name="InvestorCountryOfResidence" required="N" />
+      <field name="NoDistribInsts" required="N" />
+      <group name="NoDistribInsts">
         <field name="DistribPaymentMethod" required="N" />
         <field name="DistribPercentage" required="N" />
         <field name="CashDistribCurr" required="N" />
