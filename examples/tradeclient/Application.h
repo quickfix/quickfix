@@ -88,6 +88,9 @@ private:
   void queryEnterOrder();
   void queryCancelOrder();
   void queryReplaceOrder();
+  void queryMarketDataRequest();
+
+  FIX43::MarketDataRequest queryMarketDataRequest43();
 
   FIX40::NewOrderSingle queryNewOrderSingle40();
   FIX41::NewOrderSingle queryNewOrderSingle41();

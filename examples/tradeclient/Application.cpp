@@ -118,6 +118,8 @@ void Application::run()
       else if ( action == '3' )
         queryReplaceOrder();
       else if ( action == '4' )
+        queryMarketDataRequest();
+      else if ( action == '5' )
         break;
     }
     catch ( std::exception & e )
@@ -133,12 +135,20 @@ void Application::queryEnterOrder()
   std::cout << "\nNewOrderSingle\n";
   FIX::Message order;
 
-  if ( version == 40 )
+  switch ( version ) {
+  case 40:
     order = queryNewOrderSingle40();
-  else if ( version == 41 )
+    break;
+  case 41:
     order = queryNewOrderSingle41();
-  else if ( version == 42 )
+    break;
+  case 42:
     order = queryNewOrderSingle42();
+    break;
+  default:
+    std::cerr << "No test for version " << version << std::endl;
+    break;
+  }
 
   if ( queryConfirm( "Send order" ) )
     FIX::Session::sendToTarget( order );
@@ -150,12 +160,20 @@ void Application::queryCancelOrder()
   std::cout << "\nOrderCancelRequest\n";
   FIX::Message cancel;
 
-  if ( version == 40 )
+  switch ( version ) {
+  case 40:
     cancel = queryOrderCancelRequest40();
-  else if ( version == 41 )
+    break;
+  case 41:
     cancel = queryOrderCancelRequest41();
-  else if ( version == 42 )
+    break;
+  case 42:
     cancel = queryOrderCancelRequest42();
+    break;
+  default:
+    std::cerr << "No test for version " << version << std::endl;
+    break;
+  }
 
   if ( queryConfirm( "Send cancel" ) )
     FIX::Session::sendToTarget( cancel );
@@ -167,16 +185,71 @@ void Application::queryReplaceOrder()
   std::cout << "\nCancelReplaceRequest\n";
   FIX::Message replace;
 
-  if ( version == 40 )
+  switch ( version ) {
+  case 40:
     replace = queryCancelReplaceRequest40();
-  else if ( version == 41 )
+    break;
+  case 41:
     replace = queryCancelReplaceRequest41();
-  else if ( version == 42 )
+    break;
+  case 42:
     replace = queryCancelReplaceRequest42();
+    break;
+  default:
+    std::cerr << "No test for version " << version << std::endl;
+    break;
+  }
 
   if ( queryConfirm( "Send replace" ) )
     FIX::Session::sendToTarget( replace );
 }
+
+
+void Application::queryMarketDataRequest()
+{
+  int version = queryVersion();
+  std::cout << "\nMarketDataRequest\n";
+  FIX::Message md;
+  switch (version) {
+  case 43:
+      md = queryMarketDataRequest43();
+      break;
+  default:
+      std::cerr << "No test for version " << version << std::endl;
+      break;
+  }
+
+  FIX::Session::sendToTarget( md );
+}
+
+
+FIX43::MarketDataRequest Application::queryMarketDataRequest43()
+{
+  FIX::MDReqID mdReqID( "MARKETDATAID" );
+  FIX::SubscriptionRequestType subType( FIX::SubscriptionRequestType_SNAPSHOT );
+  FIX::MarketDepth marketDepth( FIX::MarketDepth_TOP_OF_BOOK );
+
+  FIX43::MarketDataRequest::NoMDEntryTypes marketDataEntryGroup;
+  FIX::MDEntryType mdEntryType( FIX::MDEntryType_BID );
+  marketDataEntryGroup.set( mdEntryType );
+
+  FIX43::MarketDataRequest::NoRelatedSym symbolGroup;
+  FIX::Symbol symbol( "LNUX" );
+  symbolGroup.set( symbol );
+
+  FIX43::MarketDataRequest message( mdReqID, subType, marketDepth );
+  message.addGroup( marketDataEntryGroup );
+  message.addGroup( symbolGroup );
+
+  queryHeader( message.getHeader() );
+
+  std::cout << message.toXML() << std::endl;
+  std::cout << message.toString() << std::endl;
+
+  return message;
+}
+
+
 
 FIX40::NewOrderSingle Application::queryNewOrderSingle40()
 {
@@ -325,12 +398,13 @@ char Application::queryAction()
   << "1) Enter Order" << std::endl
   << "2) Cancel Order" << std::endl
   << "3) Replace Order" << std::endl
-  << "4) Quit" << std::endl
+  << "4) Market data test" << std::endl
+  << "5) Quit" << std::endl
   << "Action: ";
   std::cin >> value;
   switch ( value )
   {
-    case '1': case '2': case '3': case '4': break;
+    case '1': case '2': case '3': case '4': case '5': break;
     default: throw std::exception();
   }
   return value;
@@ -343,6 +417,7 @@ int Application::queryVersion()
   << "1) FIX.4.0" << std::endl
   << "2) FIX.4.1" << std::endl
   << "3) FIX.4.2" << std::endl
+  << "4) FIX.4.3" << std::endl
   << "BeginString: ";
   std::cin >> value;
   switch ( value )
@@ -350,6 +425,7 @@ int Application::queryVersion()
     case '1': return 40;
     case '2': return 41;
     case '3': return 42;
+    case '4': return 43;
     default: throw std::exception();
   }
 }
