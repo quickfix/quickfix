@@ -7,7 +7,6 @@ ordermatch_ut_SOURCES = \
 	TestSuite.h \
 	Market.cpp
 
-ordermatch_ut_LDADD = -lpthread
-ordermatch_ut_LDADD = ../../../src/C++/libquickfix.la
+ordermatch_ut_LDADD = -lquickfix -lpthread
 
-INCLUDES = -I..
+INCLUDES = -I.. -I../../..
