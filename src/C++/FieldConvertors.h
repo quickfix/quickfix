@@ -179,9 +179,7 @@ struct DoubleConvertor
     if ( stripped.size() != converted.size() ) return false;
 
     // strcmp is being used because == operator is funky under linux
-    if ( strcmp( stripped.c_str(), converted.c_str() ) != 0 )
-    return false;
-    return true;
+    return ( strcmp( stripped.c_str(), converted.c_str() ) == 0 );
   }
 
   static double convert( const std::string& value )
