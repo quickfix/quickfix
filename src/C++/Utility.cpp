@@ -183,15 +183,8 @@ bool socket_fionread( int s, int& bytes )
 bool socket_disconnected( int s )
 { QF_STACK_PUSH(socket_disconnected)
 
-  unsigned long read;
-#ifdef _MSC_VER
-  ioctlsocket( s, FIONREAD, &read );
-#elif defined(USING_STREAMS)
-  ioctl( s, I_NREAD, &read );
-#else
-  ioctl( s, FIONREAD, &read );
-#endif 
-  return read == 0;
+  char byte;
+  return ::recv (s, &byte, sizeof (byte), MSG_PEEK) <= 0;
 
   QF_STACK_POP
 } 
