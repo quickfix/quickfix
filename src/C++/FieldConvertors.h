@@ -311,26 +311,15 @@ struct UtcTimeStampConvertor
   throw( FieldConvertError )
   {
     char result[ 18+4 ];
-    integer_to_string_padded
-      ( result, 5, 
-	static_cast<const tm*>(value)->tm_year + 1900, 4, '0');
-    integer_to_string_padded
-      ( result + 4, 3, 
-	static_cast<const tm*>(value)->tm_mon + 1, 2, '0');
-    integer_to_string_padded
-      ( result + 6, 3, 
-	static_cast<const tm*>(value)->tm_mday, 2, '0'); 
+    integer_to_string_padded( result, 5, value.getYear(), 4, '0');
+    integer_to_string_padded( result + 4, 3, value.getMonth(), 2, '0');
+    integer_to_string_padded( result + 6, 3, value.getDate(), 2, '0'); 
     result[8]  = '-';
-    integer_to_string_padded
-      ( result + 9, 3, 
-	static_cast<const tm*>(value)->tm_hour, 2, '0'); 
+    integer_to_string_padded( result + 9, 3, value.getHour(), 2, '0'); 
     result[11] = ':';
-    integer_to_string_padded
-      ( result + 12, 3, 
-	static_cast<const tm*>(value)->tm_min, 2, '0'); 
+    integer_to_string_padded( result + 12, 3, value.getMinute(), 2, '0'); 
     result[14] = ':';
-    integer_to_string_padded
-      ( result + 15, 3, static_cast<const tm*>(value)->tm_sec, 2, '0');
+    integer_to_string_padded( result + 15, 3, value.getSecond(), 2, '0');
 
     if( showMilliseconds )
     {
