@@ -210,8 +210,11 @@ public:
   CharField( int field )
 : FieldBase( field, "" ) {}
 
-  const char getValue() const
-    { return CharConvertor::convert( getString() ); }
+  const char getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return CharConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const char() const
     { return getValue(); }
 };
@@ -224,8 +227,11 @@ public:
   DoubleField( int field )
 : FieldBase( field, "" ) {}
 
-  const double getValue() const
-    { return DoubleConvertor::convert( getString() ); }
+  const double getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return DoubleConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const double() const
     { return getValue(); }
 };
@@ -238,8 +244,11 @@ public:
   IntField( int field )
 : FieldBase( field, "" ) {}
 
-  const int getValue() const
-    { return IntConvertor::convert( getString() ); }
+  const int getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return IntConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const int() const
     { return getValue(); }
 };
@@ -252,8 +261,11 @@ public:
   BoolField( int field )
 : FieldBase( field, "" ) {}
 
-  const bool getValue() const
-    { return BoolConvertor::convert( getString() ); }
+  const bool getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return BoolConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const bool() const
     { return getValue(); }
 };
@@ -266,8 +278,11 @@ public:
   UtcTimeStampField( int field )
 : FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp() ) ) {}
 
-  const UtcTimeStamp getValue() const
-    { return UtcTimeStampConvertor::convert( getString() ); }
+  const UtcTimeStamp getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return UtcTimeStampConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const UtcTimeStamp() const
     { return getValue(); }
 
@@ -287,8 +302,11 @@ public:
   UtcDateField( int field )
 : FieldBase( field, UtcDateConvertor::convert( UtcDate() ) ) {}
 
-  const UtcDate getValue() const
-    { return UtcDateConvertor::convert( getString() ); }
+  const UtcDate getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return UtcDateConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const UtcDate() const
     { return getValue(); }
 
@@ -308,8 +326,11 @@ public:
   UtcTimeOnlyField( int field )
 : FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly() ) ) {}
 
-  const UtcTimeOnly getValue() const
-    { return UtcTimeOnlyConvertor::convert( getString() ); }
+  const UtcTimeOnly getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return UtcTimeOnlyConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const UtcTimeOnly() const
     { return getValue(); }
 
@@ -329,8 +350,11 @@ public:
   CheckSumField( int field )
 : FieldBase( field, "" ) {}
 
-  const int getValue() const
-    { return CheckSumConvertor::convert( getString() ); }
+  const int getValue() const throw ( IncorrectDataFormat& )
+    { try 
+      { return CheckSumConvertor::convert( getString() ); }
+      catch( FieldConvertError& ) 
+      { throw IncorrectDataFormat( getField() ); } }
   operator const int() const
     { return getValue(); }
 };
