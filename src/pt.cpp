@@ -74,6 +74,10 @@ int testSerializeFromStringHeartbeat( int );
 int testCreateNewOrderSingle( int );
 int testSerializeToStringNewOrderSingle( int );
 int testSerializeFromStringNewOrderSingle( int );
+int testCreateQuoteRequest( int );
+int testReadFromQuoteRequest( int );
+int testSerializeToStringQuoteRequest( int );
+int testSerializeFromStringQuoteRequest( int );
 int testFileStoreNewOrderSingle( int );
 int testValidateNewOrderSingle( int );
 int testValidateDictNewOrderSingle( int );
@@ -133,6 +137,18 @@ int main( int argc, char** argv )
 
   std::cout << "Serializing NewOrderSingle messages from strings: ";
   report( testSerializeFromStringNewOrderSingle( count ), count );
+
+  std::cout << "Creating QuoteRequest messages: ";
+  report( testCreateQuoteRequest( count ), count );
+
+  std::cout << "Serializing QuoteRequest messages to strings: ";
+  report( testSerializeToStringQuoteRequest( count ), count );
+
+  std::cout << "Serializing QuoteRequest messages from strings: ";
+  report( testSerializeFromStringQuoteRequest( count ), count );
+
+  std::cout << "Reading fields from QuoteRequest message: ";
+  report( testReadFromQuoteRequest( count ), count );
 
   std::cout << "Storing NewOrderSingle messages: ";
   report( testFileStoreNewOrderSingle( count ), count );
@@ -208,6 +224,7 @@ int testStringToDouble( int count )
 int testCreateHeartbeat( int count )
 {
   std::vector < FIX42::Heartbeat* > vector;
+  vector.reserve( count );
   count = count - 1;
 
   int start = GetTickCount();
@@ -239,6 +256,7 @@ int testSerializeToStringHeartbeat( int count )
 int testSerializeFromStringHeartbeat( int count )
 {
   std::vector < FIX42::Heartbeat > vector;
+  vector.reserve( count );
   FIX42::Heartbeat message;
   std::string string = message.toString();
   count = count - 1;
@@ -260,6 +278,7 @@ int testSerializeFromStringHeartbeat( int count )
 int testCreateNewOrderSingle( int count )
 {
   std::vector < FIX42::NewOrderSingle* > vector;
+  vector.reserve( count );
   count = count - 1;
 
   int start = GetTickCount();
@@ -322,6 +341,169 @@ int testSerializeFromStringNewOrderSingle( int count )
   {
     message.setString( string );
   }
+  return GetTickCount() - start;
+}
+
+int testCreateQuoteRequest( int count )
+{
+  count = count - 1;
+
+  int start = GetTickCount();
+  FIX::Symbol symbol;
+  FIX::MaturityMonthYear maturityMonthYear;
+  FIX::PutOrCall putOrCall;
+  FIX::StrikePrice strikePrice;
+  FIX::Side side;
+  FIX::OrderQty orderQty;
+  FIX::Currency currency;
+  FIX::OrdType ordType;
+
+  for ( int i = 0; i <= count; ++i )
+  {
+    FIX42::QuoteRequest massQuote( FIX::QuoteReqID("1") );
+    FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+
+    for( int i = 1; i <= 10; ++i )
+    {
+      symbol.setValue( "IBM" );
+      maturityMonthYear.setValue( "022003" );
+      putOrCall.setValue( FIX::PutOrCall_PUT );
+      strikePrice.setValue( 120 );
+      side.setValue( FIX::Side_BUY );
+      orderQty.setValue( 100 );
+      currency.setValue( "USD" );
+      ordType.setValue( FIX::OrdType_MARKET );
+      noRelatedSym.set( symbol );
+      noRelatedSym.set( maturityMonthYear );
+      noRelatedSym.set( putOrCall );
+      noRelatedSym.set( strikePrice );
+      noRelatedSym.set( side );
+      noRelatedSym.set( orderQty );
+      noRelatedSym.set( currency );
+      noRelatedSym.set( ordType );
+      massQuote.addGroup( noRelatedSym );
+      noRelatedSym.clear();
+    }
+  }
+
+  return GetTickCount() - start;
+}
+
+int testSerializeToStringQuoteRequest( int count )
+{
+  FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
+  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+
+  for( int i = 1; i <= 10; ++i )
+  {
+    noRelatedSym.set( FIX::Symbol("IBM") );
+    noRelatedSym.set( FIX::MaturityMonthYear() );
+    noRelatedSym.set( FIX::PutOrCall(FIX::PutOrCall_PUT) );
+    noRelatedSym.set( FIX::StrikePrice(120) );
+    noRelatedSym.set( FIX::Side(FIX::Side_BUY) );
+    noRelatedSym.set( FIX::OrderQty(100) );
+    noRelatedSym.set( FIX::Currency("USD") );
+    noRelatedSym.set( FIX::OrdType(FIX::OrdType_MARKET) );
+    message.addGroup( noRelatedSym );
+  }
+
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int j = 0; j <= count; ++j )
+  {
+    message.toString();
+  }
+  return GetTickCount() - start;
+}
+
+int testSerializeFromStringQuoteRequest( int count )
+{
+  FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
+  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+
+  for( int i = 1; i <= 10; ++i )
+  {
+    noRelatedSym.set( FIX::Symbol("IBM") );
+    noRelatedSym.set( FIX::MaturityMonthYear() );
+    noRelatedSym.set( FIX::PutOrCall(FIX::PutOrCall_PUT) );
+    noRelatedSym.set( FIX::StrikePrice(120) );
+    noRelatedSym.set( FIX::Side(FIX::Side_BUY) );
+    noRelatedSym.set( FIX::OrderQty(100) );
+    noRelatedSym.set( FIX::Currency("USD") );
+    noRelatedSym.set( FIX::OrdType(FIX::OrdType_MARKET) );
+    message.addGroup( noRelatedSym );
+  }
+  std::string string = message.toString();
+
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int j = 0; j <= count; ++j )
+  {
+    message.setString( string );
+  }
+  return GetTickCount() - start;
+}
+
+int testReadFromQuoteRequest( int count )
+{
+  count = count - 1;
+
+  FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
+  FIX42::QuoteRequest::NoRelatedSym group;
+
+  for( int i = 1; i <= 10; ++i )
+  {
+    group.set( FIX::Symbol("IBM") );
+    group.set( FIX::MaturityMonthYear() );
+    group.set( FIX::PutOrCall(FIX::PutOrCall_PUT) );
+    group.set( FIX::StrikePrice(120) );
+    group.set( FIX::Side(FIX::Side_BUY) );
+    group.set( FIX::OrderQty(100) );
+    group.set( FIX::Currency("USD") );
+    group.set( FIX::OrdType(FIX::OrdType_MARKET) );
+    message.addGroup( group );
+  }
+  group.clear();
+
+  int start = GetTickCount();
+  for ( int j = 0; j <= count; ++j )
+  {
+    FIX::QuoteReqID quoteReqID;
+    FIX::Symbol symbol;
+    FIX::MaturityMonthYear maturityMonthYear;
+    FIX::PutOrCall putOrCall;
+    FIX::StrikePrice strikePrice;
+    FIX::Side side;
+    FIX::OrderQty orderQty;
+    FIX::Currency currency;
+    FIX::OrdType ordType;
+
+    FIX::NoRelatedSym noRelatedSym;
+    message.get( noRelatedSym );
+    int end = noRelatedSym;
+    for( int k = 1; k <= end; ++k )
+    {
+      message.getGroup( k, group );
+      group.get( symbol );
+      group.get( maturityMonthYear );
+      group.get( putOrCall);
+      group.get( strikePrice );
+      group.get( side );
+      group.get( orderQty );
+      group.get( currency );
+      group.get( ordType );
+      maturityMonthYear.getValue();
+      putOrCall.getValue();
+      strikePrice.getValue();
+      side.getValue();
+      orderQty.getValue();
+      currency.getValue();
+      ordType.getValue();
+    }
+  }
+
   return GetTickCount() - start;
 }
 
