@@ -28,7 +28,6 @@
 
 #include "Utility.h"
 #include <string>
-#include "strptime.h"
 #include <time.h>
 #include <sys/timeb.h>
 
