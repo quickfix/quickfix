@@ -345,7 +345,11 @@ void DataDictionary::readFromURL( const std::string& url )
         }
         if(pMessageFieldNode->getName() == "group")
         {
-          addXMLGroup(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
+          DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();
+          std::string required;
+          attrs->get("required", required);
+          bool isRequired = (required == "Y" || required == "y");
+          addXMLGroup(pDoc.get(), pMessageFieldNode.get(), msgtype, *this, isRequired);
         }
         RESET_AUTO_PTR(pMessageFieldNode,
                        pMessageFieldNode->getNextSiblingNode());
@@ -440,7 +444,11 @@ int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
     }
     if(pComponentFieldNode->getName() == "group")
     {
-      addXMLGroup(pDoc, pComponentFieldNode.get(), msgtype, DD);
+      DOMAttributesPtr attrs = pComponentFieldNode->getAttributes();
+      std::string required;
+      attrs->get("required", required);
+      bool isRequired = (required == "Y" || required == "y");
+      addXMLGroup(pDoc, pComponentFieldNode.get(), msgtype, DD, isRequired);
     }
     RESET_AUTO_PTR(pComponentFieldNode,
       pComponentFieldNode->getNextSiblingNode());
@@ -452,7 +460,7 @@ int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
 
 void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
                                   const std::string& msgtype,
-                                  DataDictionary& DD )
+                                  DataDictionary& DD, bool groupRequired  )
 { QF_STACK_PUSH(DataDictionary::addXMLGroup)
 
   DOMAttributesPtr attrs = pNode->getAttributes();
@@ -470,6 +478,15 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
     {
       field = lookupXMLFieldNumber( pDoc, node.get() );
       groupDD.addField( field );
+
+      DOMAttributesPtr attrs = node->getAttributes();
+      std::string required;
+      if( attrs->get("required", required)
+         && ( required == "Y" || required =="y" )
+         && groupRequired )
+      {
+        addRequiredField(msgtype, field);
+      }
     }
     else if( node->getName() == "component" )
     {
@@ -479,7 +496,18 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
     {
       field = lookupXMLFieldNumber( pDoc, node.get() ); 
       groupDD.addField( field );
-      addXMLGroup( pDoc, node.get(), msgtype, groupDD );
+      DOMAttributesPtr attrs = node->getAttributes();
+      std::string required;
+      if( attrs->get("required", required )
+         && ( required == "Y" || required =="y" )
+         && groupRequired)
+      {
+        addRequiredField(msgtype, field);
+      }
+	    bool isRequired = false;
+	    if( attrs->get("required", required) )
+		  isRequired = (required == "Y" || required == "y");
+      addXMLGroup( pDoc, node.get(), msgtype, groupDD, isRequired );
     }
     if( delim == 0 ) delim = field;
     RESET_AUTO_PTR(node, node->getNextSiblingNode());

@@ -50,6 +50,7 @@ public:
     add( &m_checkValue );
     add( &m_checkRepeatedTag );
     add( &m_checkGroupCount );
+    add( &m_checkGroupRequiredFields );
     add( &m_readFromFile );
     add( &m_copy );
   }
@@ -58,67 +59,67 @@ private:
   typedef CPPTest::SimpleTest < DataDictionary > SimpleTest;
   typedef CPPTest::Test < DataDictionary > Test;
 
-class addMsgType : public SimpleTest
+  class addMsgType : public SimpleTest
   {
     void onRun( DataDictionary& object );
-  }
+  } 
   m_addMsgType;
 
-class addMsgField : public SimpleTest
+  class addMsgField : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addMsgField;
 
-class addHeaderField : public SimpleTest
+  class addHeaderField : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addHeaderField;
 
-class addTrailerField : public SimpleTest
+  class addTrailerField : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addTrailerField;
 
-class addFieldType : public SimpleTest
+  class addFieldType : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addFieldType;
 
-class addRequiredField : public SimpleTest
+  class addRequiredField : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addRequiredField;
 
-class addFieldValue : public SimpleTest
+  class addFieldValue : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addFieldValue;
 
-class addGroup : public SimpleTest
+  class addGroup : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addGroup;
 
-class addFieldName : public SimpleTest
+  class addFieldName : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addFieldName;
 
-class addValueName : public SimpleTest
+  class addValueName : public SimpleTest
   {
     void onRun( DataDictionary& object );
   }
   m_addValueName;
 
-class checkValidTagNumber : public Test
+  class checkValidTagNumber : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -127,7 +128,7 @@ class checkValidTagNumber : public Test
   }
   m_checkValidTagNumber;
 
-class checkHasValue : public Test
+  class checkHasValue : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -135,7 +136,7 @@ class checkHasValue : public Test
   }
   m_checkHasValue;
 
-class checkIsInMessage : public Test
+  class checkIsInMessage : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -144,7 +145,7 @@ class checkIsInMessage : public Test
   }
   m_checkIsInMessage;
 
-class checkHasRequired : public Test
+  class checkHasRequired : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -153,7 +154,7 @@ class checkHasRequired : public Test
   }
   m_checkHasRequired;
 
-class checkValidFormat : public Test
+  class checkValidFormat : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -162,7 +163,7 @@ class checkValidFormat : public Test
   }
   m_checkValidFormat;
 
-class checkValue : public Test
+  class checkValue : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -171,7 +172,7 @@ class checkValue : public Test
   }
   m_checkValue;
 
-class checkRepeatedTag : public Test
+  class checkRepeatedTag : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -180,7 +181,7 @@ class checkRepeatedTag : public Test
   }
   m_checkRepeatedTag;
 
-class checkGroupCount : public Test
+  class checkGroupCount : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -189,7 +190,16 @@ class checkGroupCount : public Test
   }
   m_checkGroupCount;
 
-class readFromFile : public Test
+  class checkGroupRequiredFields : public Test
+  {
+    bool onSetup( DataDictionary*& pObject );
+    void onRun( DataDictionary& object );
+    void onTeardown( DataDictionary* pObject ) { delete pObject; }
+    DataDictionary* m_pObject;
+  }
+  m_checkGroupRequiredFields;
+
+  class readFromFile : public Test
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
@@ -198,7 +208,7 @@ class readFromFile : public Test
   }
   m_readFromFile;
 
-class copy : public SimpleTest
+  class copy : public SimpleTest
   {
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );

@@ -398,6 +398,29 @@ private:
     }
   }
 
+  /// Check to see if a required field is in the body or repeating group
+  bool checkRequiredField( const FieldMap& fieldMap, int field ) const
+  {
+	  if( fieldMap.isSetField(field) )
+		  return true;
+
+	  FieldMap::g_iterator j;
+	  bool hasGroups = false;
+
+	  for( j = fieldMap.g_begin(); j != fieldMap.g_end(); ++j )
+	  {
+      hasGroups = true;
+		  std::vector<FieldMap*>::const_iterator k;
+		  for(k = j->second.begin(); k != j->second.end(); ++k)
+		  {
+			  if( !checkRequiredField(*(*k), field) )
+				  return false;
+		  }  
+	  }
+
+    return hasGroups;
+  }
+
   /// Check if a message has all required fields.
   void checkHasRequired
   ( const FieldMap& header, const FieldMap& body, const FieldMap& trailer,
@@ -425,7 +448,7 @@ private:
     MsgFields::const_iterator iF;
     for( iF = fields.begin(); iF != fields.end(); ++iF )
     {
-      if( !body.isSetField( *iF ) )
+      if( !checkRequiredField(body, *iF) )
         throw RequiredTagMissing( *iF );
     }
   }
@@ -439,7 +462,7 @@ private:
   int lookupXMLFieldNumber( DOMDocument*, DOMNode* ) const;
   int lookupXMLFieldNumber( DOMDocument*, const std::string& name ) const;
   int addXMLComponentFields( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary&, bool );
-  void addXMLGroup( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary& );
+  void addXMLGroup( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary&, bool );
   TYPE::Type XMLTypeToType( const std::string& xmlType ) const;
 
   bool m_hasVersion;
