@@ -660,7 +660,6 @@ void SessionTestCase::nextResendRequest::onRun( Session& object )
   object.next( createTestRequest( "ISLD", "TW", 2, "HELLO" ) );
   object.next( createTestRequest( "ISLD", "TW", 3, "HELLO" ) );
   object.next( createTestRequest( "ISLD", "TW", 4, "HELLO" ) );
-
   object.next( createResendRequest( "ISLD", "TW", 5, 1, 4 ) );
   assert( m_toSequenceReset == 1 );
 
@@ -670,9 +669,22 @@ void SessionTestCase::nextResendRequest::onRun( Session& object )
   assert( object.send( message ) );
   message = createNewOrderSingle( "ISLD", "TW", 8 );
   assert( object.send( message ) );
-
   object.next( createResendRequest( "ISLD", "TW", 6, 5, 7 ) );
   assert( m_toSequenceReset == 1 );
+
+  object.setNextSenderMsgSeqNum(15);
+  object.next( createResendRequest( "ISLD", "TW", 7, 8, 15 ) );
+  assert( m_toSequenceReset == 2 );
+
+  object.next( createResendRequest( "ISLD", "TW", 8, 1, 15 ) );
+  assert( m_toSequenceReset == 4 );
+
+  message = createNewOrderSingle( "ISLD", "TW", 16 );
+  assert( object.send( message ) );
+  message = createNewOrderSingle( "ISLD", "TW", 17 );
+  assert( object.send( message ) );
+  object.next( createResendRequest( "ISLD", "TW", 8, 1, 20 ) );
+  assert( m_toSequenceReset == 7 );
 }
 
 void SessionTestCase::badBeginString::onRun( Session& object )

@@ -312,15 +312,20 @@ void Session::nextResendRequest( const Message& resendRequest )
   m_state.get( beginSeqNo, endSeqNo, messages );
 
   std::vector < std::string > ::iterator i;
-  MsgSeqNum msgSeqNum;
+  MsgSeqNum msgSeqNum(0);
   MsgType msgType;
   int begin = 0;
+  int current = beginSeqNo;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
     Message msg( *i, m_dataDictionary );
     msg.getHeader().getField( msgSeqNum );
     msg.getHeader().getField( msgType );
+
+    if( (current != msgSeqNum) && !begin )
+      begin = current;      
+
     if ( Message::isAdminMsgType( msgType ) )
     {
       if ( !begin ) begin = msgSeqNum;
@@ -337,8 +342,21 @@ void Session::nextResendRequest( const Message& resendRequest )
       else
       { if ( !begin ) begin = msgSeqNum; }
     }
+    current = msgSeqNum + 1;
   }
-  if ( begin ) generateSequenceReset( begin, msgSeqNum + 1 );
+  if ( begin ) 
+  {
+    generateSequenceReset( begin, msgSeqNum + 1 );
+  }
+
+  if ( endSeqNo > msgSeqNum ) 
+  {
+    endSeqNo = EndSeqNo(endSeqNo + 1);
+    int next = m_state.getNextSenderMsgSeqNum();
+    if( endSeqNo > next )
+      endSeqNo = EndSeqNo(next);
+    generateSequenceReset( beginSeqNo, endSeqNo );
+  }
 
   m_state.incrNextTargetMsgSeqNum();
 }
