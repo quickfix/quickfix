@@ -78,6 +78,8 @@ JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
 ( JNIEnv *pEnv, jobject obj, jobject group )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(group) ) return;
+
   JVM::set( pEnv );
   FIX::Group* pThis = getCPPGroup( obj );
   FIX::Group* pGroup = getCPPGroup( group );
@@ -89,6 +91,8 @@ JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
 JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
 ( JNIEnv *pEnv, jobject obj, jint num, jobject group )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return 0;
 
   JVM::set( pEnv );
   FIX::Group* pThis = getCPPGroup( obj );
@@ -111,6 +115,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
 JNIEXPORT void JNICALL Java_quickfix_Group_setString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
 
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
@@ -163,6 +169,8 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
   setUtcTimeStamp( *pGroup, field, value );
@@ -174,6 +182,8 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
   setUtcTimeOnly( *pGroup, field, value );
@@ -184,6 +194,8 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
 JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
 
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
@@ -309,6 +321,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorCreate
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return 0;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jgroup = jiterator.getObject( "group", "Lquickfix/Group;" );
@@ -323,6 +337,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_groupIteratorHasNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return false;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jgroup = jiterator.getObject( "group", "Lquickfix/Group;" );
@@ -336,6 +352,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_groupIteratorHasNext
 JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(iterator) ) return 0;
 
   JVM::set( pEnv );
   JVMObject jiterator( iterator );

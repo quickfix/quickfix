@@ -48,6 +48,8 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Lquickfix_DataDictio
 ( JNIEnv *pEnv, jobject obj, jobject dd )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(dd) ) return;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jdd( dd );
@@ -64,6 +66,8 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Lquickfix_DataDictio
 JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_lang_String_2
 ( JNIEnv *pEnv, jobject obj, jstring url )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(url) ) return;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
@@ -122,6 +126,8 @@ JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getValueName
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return 0;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
@@ -151,6 +157,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgType
 ( JNIEnv *pEnv, jobject obj, jstring msgType )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(msgType) ) return false;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
@@ -165,6 +173,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgType
 JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgField
 ( JNIEnv *pEnv, jobject obj, jstring msgType, jint field )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(msgType) ) return false;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
@@ -205,6 +215,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isRequiredField
 ( JNIEnv *pEnv, jobject obj, jstring msgType, jint field )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(msgType) ) return false;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
@@ -232,6 +244,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isFieldValue
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return false;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
@@ -246,6 +260,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isFieldValue
 JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isGroup
 ( JNIEnv *pEnv, jobject obj, jstring msg, jint group )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(msg) ) return false;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );

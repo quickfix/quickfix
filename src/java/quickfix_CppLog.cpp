@@ -33,6 +33,8 @@ JNIEXPORT void JNICALL Java_quickfix_CppLog_onIncoming
 ( JNIEnv * pEnv, jobject obj, jstring string )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(string) ) return;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
@@ -48,6 +50,8 @@ JNIEXPORT void JNICALL Java_quickfix_CppLog_onOutgoing
 ( JNIEnv * pEnv, jobject obj, jstring string )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(string) ) return;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
@@ -62,6 +66,8 @@ JNIEXPORT void JNICALL Java_quickfix_CppLog_onOutgoing
 JNIEXPORT void JNICALL Java_quickfix_CppLog_onEvent
 ( JNIEnv * pEnv, jobject obj, jstring string )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(string) ) return;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );

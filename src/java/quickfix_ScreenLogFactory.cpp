@@ -60,6 +60,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_Sessi
 ( JNIEnv * pEnv, jobject obj, jobject sessionID )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionID) ) return 0;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jsession( sessionID );

@@ -50,6 +50,19 @@ inline jstring newString( const std::string string )
   return result;
 }
 
+inline bool isNull( jobject obj )
+{
+  return obj == 0;
+}
+
+inline bool isNullAndThrow( jobject obj )
+{
+  bool result = isNull( obj );
+  if( result )
+    throwNew( "Ljava/lang/NullPointerException;", "" );
+  return result;
+}
+
 jobject newDate( const FIX::UtcTimeStamp& date );
 
 inline jobject newSessionID( const FIX::SessionID& sessionID )

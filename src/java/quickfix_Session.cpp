@@ -39,6 +39,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 ( JNIEnv *pEnv, jclass cls, jobject msg )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(msg) ) return false;
+
   JVM::set( pEnv );
   JVMObject jmessage( msg );
   FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
@@ -64,6 +66,9 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 ( JNIEnv *pEnv, jclass cls, jobject msg, jobject sID )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(msg) ) return false;
+  if( isNullAndThrow(sID) ) return false;
+
   JVM::set( pEnv );
   JVMObject jmessage( msg );
   JVMObject jsessionid( sID );
@@ -87,6 +92,10 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2
 ( JNIEnv *pEnv, jclass cls, jobject msg, jstring sender, jstring target )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(msg) ) return false;
+  if( isNullAndThrow(sender) ) return false;
+  if( isNullAndThrow(target) ) return false;
 
   JVM::set( pEnv );
   JVMObject jmessage( msg );
@@ -118,6 +127,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 JNIEXPORT jobject JNICALL Java_quickfix_Session_lookupSession
 (JNIEnv *pEnv, jclass cls, jobject sID)
 { QF_STACK_TRY
+
+  if( isNullAndThrow(sID) ) return 0;
 
   JVM::set( pEnv );
   JVMObject jsessionid( sID );

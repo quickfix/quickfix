@@ -34,6 +34,8 @@ JNIEXPORT void JNICALL Java_quickfix_FileStore_create
 ( JNIEnv *pEnv, jobject obj, jstring path, jobject sessionID )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionID) ) return;
+
   JVM::set( pEnv );
   JVMObject jsession( obj );
 

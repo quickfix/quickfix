@@ -34,6 +34,10 @@ JNIEXPORT void JNICALL Java_quickfix_SessionID_create
 ( JNIEnv *pEnv, jobject obj, jstring begin, jstring sender, jstring target, jstring qualifier )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(begin) ) return;
+  if( isNullAndThrow(sender) ) return;
+  if( isNullAndThrow(target) ) return;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
@@ -49,9 +53,13 @@ JNIEXPORT void JNICALL Java_quickfix_SessionID_create
   std::string targetCompID( utarget );
   pEnv->ReleaseStringUTFChars( target, utarget );
 
-  const char* uqualifier = pEnv->GetStringUTFChars( qualifier, 0 );
-  std::string sessionQualifier( uqualifier );
-  pEnv->ReleaseStringUTFChars( qualifier, uqualifier );
+  std::string sessionQualifier = "";
+  if( !isNull(qualifier) )
+  {
+    const char* uqualifier = pEnv->GetStringUTFChars( qualifier, 0 );
+    sessionQualifier = uqualifier;
+    pEnv->ReleaseStringUTFChars( qualifier, uqualifier );
+  }
 
   FIX::SessionID* pSessionID = new FIX::SessionID
                              ( FIX::BeginString( beginString ),
@@ -132,7 +140,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SessionID_equals
 ( JNIEnv *pEnv, jobject obj, jobject obj2 )
 { QF_STACK_TRY
 
-  if( obj2 == 0 ) return false;
+  if( isNull(obj2) ) return false;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );

@@ -34,6 +34,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_CppMessageStore_set
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(message) ) return false;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
@@ -59,6 +61,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_CppMessageStore_set
 JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_get__IILjava_util_Collection_2
 ( JNIEnv *pEnv, jobject obj, jint start, jint end, jobject array )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(array) ) return;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );

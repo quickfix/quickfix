@@ -41,6 +41,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_InitializeXML
 ( JNIEnv *pEnv, jclass type, jstring url )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(url) ) return false;
+
   JVM::set( pEnv );
   const char* uurl = ENV::get()->GetStringUTFChars( url, 0 );
   return FIX::Message::InitializeXML( uurl );
@@ -88,6 +90,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
 ( JNIEnv *pEnv, jobject obj, jobject group )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(group) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   JVMObject jgroup( group );
@@ -100,6 +104,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
 JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
 ( JNIEnv *pEnv, jobject obj, jint num, jobject group )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return 0;
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
@@ -123,6 +129,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
 JNIEXPORT void JNICALL Java_quickfix_Message_setString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
@@ -175,6 +183,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeStamp
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   setUtcTimeStamp( *pMessage, field, value );
@@ -186,6 +196,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   setUtcTimeOnly( *pMessage, field, value );
@@ -196,6 +208,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeOnly
 JNIEXPORT void JNICALL Java_quickfix_Message_setUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
@@ -323,6 +337,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   setString( pMessage->getHeader(), field, value );
@@ -374,6 +390,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcTimeStamp
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   setUtcTimeStamp( pMessage->getHeader(), field, value );
@@ -385,6 +403,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcTimeOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   setUtcTimeOnly( pMessage->getHeader(), field, value );
@@ -395,6 +415,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcTimeOnly
 JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
@@ -520,6 +542,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorCreate
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return 0;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
@@ -534,6 +558,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return false;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
@@ -547,6 +573,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
 JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(iterator) ) return 0;
 
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
@@ -573,6 +601,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
 JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
@@ -625,6 +655,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcTimeStamp
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   setUtcTimeStamp( pMessage->getTrailer(), field, value );
@@ -636,6 +668,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcTimeOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   setUtcTimeOnly( pMessage->getTrailer(), field, value );
@@ -646,6 +680,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcTimeOnly
 JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
@@ -771,6 +807,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return 0;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
@@ -785,6 +823,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return false;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
@@ -798,6 +838,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
 JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(iterator) ) return 0;
 
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
@@ -850,6 +892,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Z
 ( JNIEnv *pEnv, jobject obj, jstring value, jboolean validate )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
@@ -872,6 +916,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorCreate
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return 0;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
@@ -886,6 +932,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_messageIteratorHasNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(iterator) ) return false;
+
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
@@ -899,6 +947,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_messageIteratorHasNext
 JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorNext
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(iterator) ) return 0;
 
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
@@ -924,6 +974,9 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
 ( JNIEnv *pEnv, jobject obj, jstring value, jobject dd )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(value) ) return;
+  if( isNullAndThrow(dd) ) return;
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jdd( dd );
@@ -948,6 +1001,9 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
 JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lquickfix_DataDictionary_2Z
 ( JNIEnv *pEnv, jobject obj, jstring value, jobject dd, jboolean validate )
 { QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
+  if( isNullAndThrow(dd) ) return;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );

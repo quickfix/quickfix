@@ -97,6 +97,12 @@ public class MessageTest extends TestCase {
         try {
             assertEquals("string5", message.getString(5));
         } catch(FieldNotFound e) { assertTrue("exception thrown", false); }
+
+        try {
+            message.setString(100, null);
+            assertTrue("exception not thrown", false);
+        } catch(NullPointerException e) {            
+        }
     }
 
     public void testMessagesetGetBoolean() {

@@ -67,6 +67,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_MySQLLogFactory_create__Lquickfix_Sessio
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionID) ) return;
+
   JVM::set( pEnv );
   JVMObject jobj( obj );
   JVMObject jsession( sessionID );

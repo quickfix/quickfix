@@ -39,6 +39,8 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create
 ( JNIEnv *pEnv, jobject obj, jobject stream )
 { QF_STACK_TRY
 
+  if( isNullAndThrow(stream) ) return;
+
   JVM::set( pEnv );
 
   JVMObject jobject( obj );
@@ -70,6 +72,9 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_getString
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionid) ) return 0;
+  if( isNullAndThrow(key) ) return 0;
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -97,6 +102,9 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_getString
 JNIEXPORT jlong JNICALL Java_quickfix_SessionSettings_getLong
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
 { QF_STACK_TRY
+
+  if( isNullAndThrow(sessionid) ) return 0;
+  if( isNullAndThrow(key) ) return 0;
 
   JVM::set( pEnv );
 
@@ -126,6 +134,9 @@ JNIEXPORT jdouble JNICALL Java_quickfix_SessionSettings_getDouble
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionid) ) return 0.0;
+  if( isNullAndThrow(key) ) return 0.0;
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -153,6 +164,9 @@ JNIEXPORT jdouble JNICALL Java_quickfix_SessionSettings_getDouble
 JNIEXPORT jboolean JNICALL Java_quickfix_SessionSettings_getBool
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
 { QF_STACK_TRY
+
+  if( isNullAndThrow(sessionid) ) return false;
+  if( isNullAndThrow(key) ) return false;
 
   JVM::set( pEnv );
 
@@ -182,6 +196,10 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setString
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jstring value)
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionid) ) return;
+  if( isNullAndThrow(key) ) return;
+  if( isNullAndThrow(value) ) return;
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -208,6 +226,9 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setLong
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jlong value)
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionid) ) return;
+  if( isNullAndThrow(key) ) return;
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -232,6 +253,9 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setDouble
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jdouble value)
 { QF_STACK_TRY
 
+  if( isNullAndThrow(sessionid) ) return;
+  if( isNullAndThrow(key) ) return;
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -255,6 +279,9 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setDouble
 JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setBool
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jboolean value)
 { QF_STACK_TRY
+
+  if( isNullAndThrow(sessionid) ) return;
+  if( isNullAndThrow(key) ) return;
 
   JVM::set( pEnv );
 
