@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/bash
 
 if [ -e $2 ]; then
   exit 0
