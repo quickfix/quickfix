@@ -168,11 +168,11 @@ namespace Fix
     CumQty(double data) : DoubleField(14, data) {}
   };
   
-  public __gc class Currency : public DoubleField
+  public __gc class Currency : public StringField
   {
   public:
-  Currency() : DoubleField(15) {}
-    Currency(double data) : DoubleField(15, data) {}
+  Currency() : StringField(15) {}
+    Currency(String* data) : StringField(15, data) {}
   };
   
   public __gc class EndSeqNo : public IntField
@@ -1216,11 +1216,11 @@ namespace Fix
     SettlCurrAmt(double data) : DoubleField(119, data) {}
   };
   
-  public __gc class SettlCurrency : public DoubleField
+  public __gc class SettlCurrency : public StringField
   {
   public:
-  SettlCurrency() : DoubleField(120) {}
-    SettlCurrency(double data) : DoubleField(120, data) {}
+  SettlCurrency() : StringField(120) {}
+    SettlCurrency(String* data) : StringField(120, data) {}
   };
   
   public __gc class ForexReq : public StringField
@@ -1354,11 +1354,11 @@ namespace Fix
     MiscFeeAmt(double data) : DoubleField(137, data) {}
   };
   
-  public __gc class MiscFeeCurr : public DoubleField
+  public __gc class MiscFeeCurr : public StringField
   {
   public:
-  MiscFeeCurr() : DoubleField(138) {}
-    MiscFeeCurr(double data) : DoubleField(138, data) {}
+  MiscFeeCurr() : StringField(138) {}
+    MiscFeeCurr(String* data) : StringField(138, data) {}
   };
   
   public __gc class MiscFeeType : public CharField
@@ -2083,11 +2083,11 @@ namespace Fix
     Benchmark(__wchar_t data) : CharField(219, data) {}
   };
   
-  public __gc class BenchmarkCurveCurrency : public DoubleField
+  public __gc class BenchmarkCurveCurrency : public StringField
   {
   public:
-  BenchmarkCurveCurrency() : DoubleField(220) {}
-    BenchmarkCurveCurrency(double data) : DoubleField(220, data) {}
+  BenchmarkCurveCurrency() : StringField(220) {}
+    BenchmarkCurveCurrency(String* data) : StringField(220, data) {}
   };
   
   public __gc class BenchmarkCurveName : public StringField
@@ -2891,11 +2891,11 @@ namespace Fix
     UnderlyingOptAttribute(__wchar_t data) : CharField(317, data) {}
   };
   
-  public __gc class UnderlyingCurrency : public DoubleField
+  public __gc class UnderlyingCurrency : public StringField
   {
   public:
-  UnderlyingCurrency() : DoubleField(318) {}
-    UnderlyingCurrency(double data) : DoubleField(318, data) {}
+  UnderlyingCurrency() : StringField(318) {}
+    UnderlyingCurrency(String* data) : StringField(318, data) {}
   };
   
   public __gc class RatioQty : public DoubleField
@@ -4250,18 +4250,18 @@ namespace Fix
     DistribPaymentMethod(int data) : IntField(477, data) {}
   };
   
-  public __gc class CashDistribCurr : public DoubleField
+  public __gc class CashDistribCurr : public StringField
   {
   public:
-  CashDistribCurr() : DoubleField(478) {}
-    CashDistribCurr(double data) : DoubleField(478, data) {}
+  CashDistribCurr() : StringField(478) {}
+    CashDistribCurr(String* data) : StringField(478, data) {}
   };
   
-  public __gc class CommCurrency : public DoubleField
+  public __gc class CommCurrency : public StringField
   {
   public:
-  CommCurrency() : DoubleField(479) {}
-    CommCurrency(double data) : DoubleField(479, data) {}
+  CommCurrency() : StringField(479) {}
+    CommCurrency(String* data) : StringField(479, data) {}
   };
   
   public __gc class CancellationRights : public CharField
@@ -4562,11 +4562,11 @@ namespace Fix
     ContAmtValue(double data) : DoubleField(520, data) {}
   };
   
-  public __gc class ContAmtCurr : public DoubleField
+  public __gc class ContAmtCurr : public StringField
   {
   public:
-  ContAmtCurr() : DoubleField(521) {}
-    ContAmtCurr(double data) : DoubleField(521, data) {}
+  ContAmtCurr() : StringField(521) {}
+    ContAmtCurr(String* data) : StringField(521, data) {}
   };
   
   public __gc class OwnerType : public IntField
@@ -4870,11 +4870,11 @@ namespace Fix
     NoLegs(int data) : IntField(555, data) {}
   };
   
-  public __gc class LegCurrency : public DoubleField
+  public __gc class LegCurrency : public StringField
   {
   public:
-  LegCurrency() : DoubleField(556) {}
-    LegCurrency(double data) : DoubleField(556, data) {}
+  LegCurrency() : StringField(556) {}
+    LegCurrency(String* data) : StringField(556, data) {}
   };
   
   public __gc class TotalNumSecurityTypes : public IntField

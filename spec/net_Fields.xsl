@@ -96,7 +96,7 @@ namespace Fix
      <xsl:when test="@type='INT'">int</xsl:when>
      <xsl:when test="@type='AMT'">double</xsl:when>
      <xsl:when test="@type='QTY'">double</xsl:when>
-     <xsl:when test="@type='CURRENCY'">double</xsl:when>
+     <xsl:when test="@type='CURRENCY'">String*</xsl:when>
      <xsl:when test="@type='UTCTIMESTAMP'">DateTime</xsl:when>
      <xsl:when test="@type='UTCTIMEONLY'">DateTime</xsl:when>
      <xsl:when test="@type='UTCDATE'">DateTime</xsl:when>
@@ -121,7 +121,7 @@ namespace Fix
      <xsl:when test="@type='INT'">Int</xsl:when>
      <xsl:when test="@type='AMT'">Double</xsl:when>
      <xsl:when test="@type='QTY'">Double</xsl:when>
-     <xsl:when test="@type='CURRENCY'">Double</xsl:when>
+     <xsl:when test="@type='CURRENCY'">String</xsl:when>
      <xsl:when test="@type='UTCTIMESTAMP'">UtcTimeStamp</xsl:when>
      <xsl:when test="@type='UTCTIMEONLY'">UtcTimeOnly</xsl:when>
      <xsl:when test="@type='UTCDATE'">UtcDate</xsl:when>
