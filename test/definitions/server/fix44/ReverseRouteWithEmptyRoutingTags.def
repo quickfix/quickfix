@@ -1,4 +1,4 @@
-# Reverse routing fields on rejects
+# Do not reverse routing field if it is empty
 
 iCONNECT
 #Logon

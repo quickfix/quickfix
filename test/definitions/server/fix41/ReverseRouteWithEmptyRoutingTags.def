@@ -1,0 +1,42 @@
+# Do not reverse routing field if it is empty
+
+iCONNECT
+#Logon
+I8=FIX.4.135=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.19=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# Send an order with OnBehalfOfCompID (115) empty 
+I8=FIX.4.135=D34=249=TW52=<TIME>56=ISLD115=11=ID21=338=10040=154=155=INTC60=<TIME>
+# Expect to see a reject with reverse route DeliverToCompID (128) not present
+E8=FIX.4.19=8935=334=249=ISLD52=00000000-00:00:0056=TW45=258=Tag specified without a value (115)10=0
+
+# Send an order with DeliverToCompID (128) empty
+I8=FIX.4.135=D34=349=TW52=<TIME>56=ISLD128=11=ID21=338=10040=154=155=INTC60=<TIME>
+# Expect to see a reject with reverse route OnBehalfOfCompID (115) not present
+E8=FIX.4.19=8935=334=349=ISLD52=00000000-00:00:0056=TW45=358=Tag specified without a value (128)10=0
+
+# Send an order with OnBehalfOfCompID (115) and OnBehalfOfSubID (116) empty
+I8=FIX.4.135=D34=449=TW52=<TIME>56=ISLD115=JCD116=11=ID21=338=10040=154=155=INTC60=<TIME>
+# Expect to see a reject with reverse route DeliverToCompID (128) set and DeliverToSubID (129) not present
+E8=FIX.4.19=9735=334=449=ISLD52=00000000-00:00:0056=TW128=JCD45=458=Tag specified without a value (116)10=0
+
+# Send an order with DeliverToCompID (128) and DeliverToSubID (129) empty 
+I8=FIX.4.135=D34=549=TW52=<TIME>56=ISLD128=JCD129=11=ID21=338=10040=154=155=INTC60=<TIME>
+# Expect to see reverse route OnBehalfOfCompID (115) and OnBehalfOfSubID (116) not present
+E8=FIX.4.19=9735=334=549=ISLD52=00000000-00:00:00.00056=TW115=JCD45=558=Tag specified without a value (129)10=0
+
+# Send an order with OnBehalfOfCompID (115) and OnBehalfOfSubID (116) set and OnBehalfOfLocationID (144) empty
+I8=FIX.4.135=D34=649=TW52=<TIME>56=ISLD115=JCD116=CS144=11=ID21=338=10040=154=155=INTC60=<TIME>
+# Expect to see reverse route DeliverToCompID (128) and DeliverToSubID (129) set and DeliverToLocationID (145) not present
+E8=FIX.4.19=10435=334=649=ISLD52=00000000-00:00:0056=TW128=JCD129=CS45=658=Tag specified without a value (144)10=0
+
+# Send an order with DeliverToCompID (128) and DeliverToSubID (129) set and DeliverToLocationID (145) empty
+I8=FIX.4.135=D34=749=TW52=<TIME>56=ISLD128=JCD129=CS145=11=ID21=338=10040=w54=155=INTC60=<TIME>
+# Expect to see reverse route OnBehalfOfCompID (115) and OnBeHalfOfSubID (116) set and OnBehalfOfLocationID (144) not present
+E8=FIX.4.19=10435=334=749=ISLD52=00000000-00:00:0056=TW115=JCD116=CS45=758=Tag specified without a value (145)10=0
+
+# logout message and response
+I8=FIX.4.135=534=849=TW52=<TIME>56=ISLD
+E8=FIX.4.19=4535=534=849=ISLD52=00000000-00:00:0056=TW10=0
+
+eDISCONNECT
