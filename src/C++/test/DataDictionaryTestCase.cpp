@@ -204,13 +204,25 @@ void DataDictionaryTestCase::checkValidTagNumber::onRun
 ( DataDictionary& object )
 {
   TestReqID testReqID( "1" );
-
   FIX40::TestRequest message( testReqID );
-
   message.setField( TooHigh( "value" ) );
 
   try{ object.validate( message ); assert( false ); }
   catch ( InvalidTagNumber& ) {}
+
+  object.addField( 501 );
+  object.addMsgField( MsgType_TestRequest, 501 );
+  try{ object.validate( message ); }
+  catch ( InvalidTagNumber& ) { assert( false ); }
+
+  message.setField( FIELD::UserMin, "value" );
+  try{ object.validate( message ); assert( false ); }
+  catch ( InvalidTagNumber& ) {}
+
+  object.checkUserDefinedFields( false );
+  try{ object.validate( message ); }
+  catch ( InvalidTagNumber& ) { assert( false ); }
+
 }
 
 bool DataDictionaryTestCase::checkHasValue::onSetup
@@ -257,7 +269,8 @@ void DataDictionaryTestCase::checkIsInMessage::onRun
 
   message.setField( Symbol( "MSFT" ) );
   try{ object.validate( message ); assert( false ); }
-  catch ( TagNotDefinedForMessage& ) {}}
+  catch ( TagNotDefinedForMessage& ) {}
+}
 
 bool DataDictionaryTestCase::checkHasRequired::onSetup
 ( DataDictionary*& pObject )

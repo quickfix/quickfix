@@ -47,11 +47,13 @@ namespace FIX
 {
 DataDictionary::DataDictionary()
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_orderedFieldsArray(0) {}
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
+  m_orderedFieldsArray(0) {}
 
 DataDictionary::DataDictionary( const std::string& url )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ), m_orderedFieldsArray(0)
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
+  m_orderedFieldsArray(0)
 {
   readFromURL( url );
 }
@@ -151,7 +153,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
       checkValue( field );
     }
 
-    if ( m_beginString.getValue().length() )
+    if ( m_beginString.getValue().length() && shouldCheckTag(field) )
     {
       checkValidTagNumber( field );
       if ( !Message::isHeaderField( field, this )

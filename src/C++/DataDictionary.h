@@ -258,6 +258,8 @@ public:
   { m_checkFieldsOutOfOrder = value; }
   void checkFieldsHaveValues( bool value )
   { m_checkFieldsHaveValues = value; }
+  void checkUserDefinedFields( bool value )
+  { m_checkUserDefinedFields = value; }
 
   /// Validate a message.
   void validate( const Message& message ) throw( std::exception );
@@ -272,6 +274,15 @@ private:
   {
     if ( !isMsgType( msgType.getValue() ) )
       throw InvalidMessageType();
+  }
+
+  /// If we need to check for the tag in the dictionary
+  bool shouldCheckTag( const FieldBase& field ) const
+  {
+    if( !m_checkUserDefinedFields && field.getField() >= FIELD::UserMin )
+      return false;
+    else
+      return true;
   }
 
   /// Check if field tag number is defined in spec.
@@ -434,6 +445,7 @@ private:
   bool m_hasVersion;
   bool m_checkFieldsOutOfOrder;
   bool m_checkFieldsHaveValues;
+  bool m_checkUserDefinedFields;
   BeginString m_beginString;
   MsgTypeToField m_messageFields;
   MsgTypeToField m_requiredFields;

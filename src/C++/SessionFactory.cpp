@@ -78,6 +78,11 @@ Session* SessionFactory::create( const SessionID& sessionID,
     dataDictionary.checkFieldsHaveValues
     ( settings.getBool( VALIDATE_FIELDS_HAVE_VALUES ) );
   }
+  if( settings.has( VALIDATE_USER_DEFINED_FIELDS ) )
+  {
+    dataDictionary.checkUserDefinedFields
+    ( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
+  }
 
   UtcTimeOnly startTime;
   UtcTimeOnly endTime;
