@@ -84,8 +84,7 @@ namespace QuickFix41
   public virtual void onMessage( ListStatusRequest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
  
-
-  public new void crack( QuickFix.Message message, 
+  public new void crack( QuickFix.Message message,
                      QuickFix.SessionID sessionID )
   {
     QuickFix.MsgType msgType = new QuickFix.MsgType();

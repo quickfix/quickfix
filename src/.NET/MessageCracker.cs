@@ -25,7 +25,7 @@ namespace QuickFix
 {
   public class MessageCracker : QuickFix44.MessageCracker
   {
-    public void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
+    public new void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
     {
       BeginString beginString = new BeginString();
       message.getHeader().getField( beginString );

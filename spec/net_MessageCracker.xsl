@@ -31,7 +31,7 @@ namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//f
 {
   public class MessageCracker <xsl:call-template name="base-class"/>
   {
-  public new void onMessage( QuickFix.Message message, QuickFix.SessionID session )
+  public <xsl:if test="//fix/@minor!='0'">new</xsl:if> void onMessage( QuickFix.Message message, QuickFix.SessionID session )
     { throw new QuickFix.UnsupportedMessageType(); }
 <xsl:call-template name="virtual-functions"/>
 <xsl:call-template name="switch-statement"/>
@@ -50,8 +50,7 @@ namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//f
 </xsl:template>
 
 <xsl:template name="switch-statement">
-
-  public new void crack( QuickFix.Message message, 
+  public <xsl:if test="//fix/@minor!='0'">new</xsl:if> void crack( QuickFix.Message message,
                      QuickFix.SessionID sessionID )
   {
     QuickFix.MsgType msgType = new QuickFix.MsgType();

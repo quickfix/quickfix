@@ -34,7 +34,7 @@ namespace QuickFix
       fix44Factory = new QuickFix44.MessageFactory();
     }
 
-    public new QuickFix.Message create( String beginString, String msgType )
+    public QuickFix.Message create( String beginString, String msgType )
     {
       if ( beginString.Equals( "FIX.4.0" ) )
         return fix40Factory.create( beginString, msgType );
