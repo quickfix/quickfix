@@ -41,19 +41,6 @@ AC_SUBST(RUBYDIR)
 ########################################
 
 ########################################
-# JNI
-########################################
-jni_mt=$build_os
-case $build_os in
-linux-*) jni_mt=linux;;
-solaris*.*) jni_mt=solaris;;
-esac
-
-JNI_CFLAGS="-I$JAVA_HOME/include -I$JAVA_HOME/include/$jni_mt"
-AC_SUBST(JNI_CFLAGS)
-########################################
-
-########################################
 # MYSQL
 ########################################
 has_mysql=false
@@ -99,6 +86,34 @@ AM_CONDITIONAL(HAVE_PYTHON, $has_python)
 ########################################
 
 ########################################
+# JAVA
+########################################
+has_python=false
+AC_ARG_WITH(java,
+    [  --with-java     will use JAVA_HOME settings to find jni.h and javac],
+    [has_java=true],
+    has_java=false
+)
+
+JAVA_PREFIX=$with_python
+AC_SUBST(JAVA_PREFIX)
+
+if test $has_java = true
+then
+  jni_mt=$build_os
+  case $build_os in
+    linux-*) jni_mt=linux;;
+    solaris*.*) jni_mt=solaris;;
+  esac
+
+  JAVA_CFLAGS="-I$JAVA_HOME/include -I$JAVA_HOME/include/$jni_mt"
+  AC_SUBST(JAVA_CFLAGS)
+  AC_DEFINE(HAVE_JAVA, 1, Define if you have java)
+fi
+AM_CONDITIONAL(HAVE_JAVA, $has_java)
+########################################
+
+########################################
 # STLport
 ########################################
 has_stlport=false
@@ -129,7 +144,7 @@ AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 # libs
 LIBS="$LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS"
 # gcc flags
-SHAREDFLAGS="$STLPORT_CFLAGS $MYSQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JNI_CFLAGS $PYTHON_CFLAGS"
+SHAREDFLAGS="$STLPORT_CFLAGS $MYSQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS"
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
@@ -261,18 +276,6 @@ else AC_MSG_RESULT(no)
     AC_MSG_RESULT(no)
     AC_MSG_ERROR(type_info is required by the test library))
 fi
-
-# check for JNI
-AC_MSG_CHECKING(for JNI)
-AC_TRY_COMPILE(
-	[#include "jni.h"],
-	[return 0;],
-	has_jni=true, has_jni=false)
-if test $has_jni = true
-then AC_MSG_RESULT(yes)
-else AC_MSG_RESULT(no)
-fi
-AM_CONDITIONAL(HAVE_JNI, $has_jni)
 
 # check for gethostbyname_r
 AC_MSG_CHECKING(for gethostbyname_r with input result)

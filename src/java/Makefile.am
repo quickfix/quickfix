@@ -4,7 +4,7 @@ EXTRA_DIST = *.h *.cpp *.bat *.xml *.properties *.dsp *.dsw
 lib_LTLIBRARIES = libquickfix_jni.la
 
 jardir = $(libdir)
-jar_DATA = $(top_builddir)/lib/quickfix.jar
+jar_DATA = $(top_builddir)/lib/quickfix.jar $(top_builddir)/lib/libquickfix_jni.jnilib
 
 libquickfix_jni_la_SOURCES = \
 	JVM.h \

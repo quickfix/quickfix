@@ -1,3 +1,3 @@
-if HAVE_JNI
+if HAVE_JAVA
 SUBDIRS = banzai
 endif

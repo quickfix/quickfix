@@ -1,4 +1,4 @@
-if HAVE_JNI
+if HAVE_JAVA
 JAVA_DIR = java
 endif
 
@@ -27,11 +27,11 @@ all-local:
 	ln -s ../src/ut ../bin/ut
 	ln -s ../src/pt ../bin/pt
 	ln -s ../src/at ../bin/at
-if HAVE_JNI
+if HAVE_JAVA
 	bash ./build.sh
 endif
 
 clean-local:
-if HAVE_JNI
+if HAVE_JAVA
 	bash ./build.sh clean
 endif
