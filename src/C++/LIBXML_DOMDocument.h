@@ -48,8 +48,13 @@
  * ====================================================================
  */
 
+#if (HAVE_LIBXML > 0 || _MSC_VER == 0)
 #ifndef FIX_LIBXMLDOMDOCUMENT_H
 #define FIX_LIBXMLDOMDOCUMENT_H
+
+#ifdef _MSC_VER
+#pragma comment( lib, "libxml2" )
+#endif
 
 #include "DOMDocument.h"
 #include "Exceptions.h"
@@ -105,4 +110,5 @@ namespace FIX
   };
 }
 
+#endif
 #endif

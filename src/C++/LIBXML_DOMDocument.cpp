@@ -56,6 +56,7 @@
 #endif
 #include "CallStack.h"
 
+#if (HAVE_LIBXML > 0 || _MSC_VER == 0)
 #include "LIBXML_DOMDocument.h"
 #include <libxml/xpath.h>
 #include <sstream>
@@ -197,3 +198,5 @@ namespace FIX
     QF_STACK_POP
   }
 }
+
+#endif

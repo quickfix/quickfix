@@ -59,7 +59,9 @@
 #include <fstream>
 #include <memory>
 
-#ifdef _MSC_VER
+#ifdef HAVE_LIBXML
+#include "LIBXML_DOMDocument.h"
+#elif _MSC_VER
 #include "MSXML_DOMDocument.h"
 #else
 #include "LIBXML_DOMDocument.h"
@@ -112,6 +114,9 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   m_fields = rhs.m_fields;
   m_fieldTypes = rhs.m_fieldTypes;
   m_fieldValues = rhs.m_fieldValues;
+  m_fieldNames = rhs.m_fieldNames;
+  m_names = rhs.m_names;
+  m_valueNames = rhs.m_valueNames;
 
   FieldToGroup::const_iterator i = rhs.m_groups.begin();
   for ( ; i != rhs.m_groups.end(); ++i )
@@ -192,7 +197,9 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
 void DataDictionary::readFromURL( const std::string& url )
 { QF_STACK_PUSH(DataDictionary::readFromURL)
 
-#ifdef _MSC_VER
+#ifdef HAVE_LIBXML
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
+#elif _MSC_VER
   DOMDocumentPtr pDoc = DOMDocumentPtr(new MSXML_DOMDocument());
 #else
   DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
@@ -368,7 +375,7 @@ void DataDictionary::readFromURL( const std::string& url )
   QF_STACK_POP
 }
 
-int DataDictionary::lookupXMLFieldNumber( DOMDocument* pDoc, DOMNode* pNode )
+int DataDictionary::lookupXMLFieldNumber( DOMDocument* pDoc, DOMNode* pNode ) const
 { QF_STACK_PUSH(DataDictionary::lookupXMLFieldNumber)
 
   DOMAttributesPtr attrs = pNode->getAttributes();
@@ -381,10 +388,10 @@ int DataDictionary::lookupXMLFieldNumber( DOMDocument* pDoc, DOMNode* pNode )
 }
 
 int DataDictionary::lookupXMLFieldNumber
-( DOMDocument* pDoc, const std::string& name )
+( DOMDocument* pDoc, const std::string& name ) const
 { QF_STACK_PUSH(DataDictionary::lookupXMLFieldNumber)
 
-  NameToField::iterator i = m_names.find(name);
+  NameToField::const_iterator i = m_names.find(name);
   if( i == m_names.end() )
     throw ConfigError("Field " + name + " not defined in fields section");
   return i->second;
@@ -486,7 +493,7 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
   QF_STACK_POP
 }
 
-TYPE::Type DataDictionary::XMLTypeToType( const std::string& type )
+TYPE::Type DataDictionary::XMLTypeToType( const std::string& type ) const
 { QF_STACK_PUSH(DataDictionary::XMLTypeToType)
 
   if ( m_beginString < "FIX.4.2" && type == "CHAR" )

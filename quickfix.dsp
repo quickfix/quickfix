@@ -115,6 +115,10 @@ SOURCE=".\src\C++\Initiator.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\LIBXML_DOMDocument.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\MSXML_DOMDocument.cpp"
 # End Source File
 # Begin Source File
@@ -196,6 +200,10 @@ SOURCE=".\src\C++\index.h"
 # Begin Source File
 
 SOURCE=".\src\C++\Initiator.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\LIBXML_DOMDocument.h"
 # End Source File
 # Begin Source File
 

@@ -96,6 +96,7 @@ del /F EXCLUDE
 			<Tool
 				Name="VCLibrarianTool"
 				OutputFile="lib\quickfix.lib"
+				AdditionalLibraryDirectories=""
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -136,6 +137,9 @@ del /F EXCLUDE
 			</File>
 			<File
 				RelativePath=".\src\C++\Initiator.cpp">
+			</File>
+			<File
+				RelativePath="src\C++\LIBXML_DOMDocument.cpp">
 			</File>
 			<File
 				RelativePath="src\C++\MSXML_DOMDocument.cpp">
@@ -337,6 +341,9 @@ del /F EXCLUDE
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="src\C++\LIBXML_DOMDocument.h">
 			</File>
 			<File
 				RelativePath="src\C++\MSXML_DOMDocument.h">
