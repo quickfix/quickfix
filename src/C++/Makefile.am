@@ -101,8 +101,10 @@ libquickfix_la_SOURCES = \
 all-local:
 	rm -rf ../../lib/libquickfix.a
 	rm -rf ../../lib/libquickfix.la
+	rm -rf ../../lib/libquickfix.so
 	ln -s ../src/C++/.libs/libquickfix.a ../../lib/libquickfix.a
 	ln -s ../src/C++/.libs/libquickfix.la ../../lib/libquickfix.la
+	ln -s ../src/C++/.libs/libquickfix.so ../../lib/libquickfix.so
 	bash ./copy.sh *.h
 
 clean-local:
@@ -120,6 +122,6 @@ uninstall-local:
 
 EXTRA_DIST = strptime.c strptime.h
 
-libquickfix_la_LDFLAGS = -static
+libquickfix_la_LDFLAGS = -version-info 0:0:0
 
 INCLUDES =-I. -I.. -I../.. -I../../..
