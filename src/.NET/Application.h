@@ -35,18 +35,18 @@ namespace QuickFix
 {
 public __gc __interface Application
 {
-  virtual void onCreate( const SessionID* ) = 0;
-  virtual void onLogon( const SessionID* ) = 0;
-  virtual void onLogout( const SessionID* ) = 0;
-  virtual void toAdmin( Message*, const SessionID* ) = 0;
-  virtual void toApp( Message*, const SessionID* )
+  virtual void onCreate( SessionID* ) = 0;
+  virtual void onLogon( SessionID* ) = 0;
+  virtual void onLogout( SessionID* ) = 0;
+  virtual void toAdmin( Message*, SessionID* ) = 0;
+  virtual void toApp( Message*, SessionID* )
   throw( DoNotSend* ) = 0;
-  virtual void fromAdmin( const Message*, const SessionID* )
+  virtual void fromAdmin( Message*, SessionID* )
   throw( FieldNotFound*, 
 	 IncorrectDataFormat*, 
 	 IncorrectTagValue*, 
 	 RejectLogon* ) = 0;
-  virtual void fromApp( const Message*, const SessionID* )
+  virtual void fromApp( Message*, SessionID* )
   throw( FieldNotFound*, 
 	 IncorrectDataFormat*, 
 	 IncorrectTagValue*, 
