@@ -58,6 +58,18 @@
 
 namespace FIX
 {
+  class LIBXML_DOMAttributes : public DOMAttributes
+  {
+  public:
+    LIBXML_DOMAttributes( xmlNodePtr pNode )
+    : m_pNode(pNode) {}
+
+    bool get( const std::string&, std::string& );
+
+  private:
+    xmlNodePtr m_pNode;
+  };
+
   class LIBXML_DOMNode : public DOMNode
   {
   public:
@@ -67,7 +79,7 @@ namespace FIX
 
     DOMNodePtr getFirstChildNode();
     DOMNodePtr getNextSiblingNode();
-    bool getAttributes( std::map<std::string, std::string>& );
+    DOMAttributesPtr getAttributes();
     std::string getName();
     std::string getText();
 

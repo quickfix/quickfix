@@ -56,27 +56,38 @@
 #endif
 
 #include "LIBXML_DOMDocument.h"
+#include <libxml/xpath.h>
 #include <sstream>
 
 namespace FIX
 {
+  bool LIBXML_DOMAttributes::get( const std::string& name, std::string& value )
+  {
+    xmlChar* result = xmlGetProp(m_pNode, (const xmlChar*)name.c_str());
+    if(result == NULL) return false;
+    value = (char*)result;
+    return true;
+  }
+
   DOMNodePtr LIBXML_DOMNode::getFirstChildNode()
   {
-    xmlNodePtr pNode = m_pNode->children;
+    if( !m_pNode->children ) return DOMNodePtr();
+    xmlNodePtr pNode = m_pNode->children->next;
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new LIBXML_DOMNode(pNode));
   }
 
   DOMNodePtr LIBXML_DOMNode::getNextSiblingNode()
   {
-    xmlNodePtr pNode = m_pNode->next;
+    if( !m_pNode->next ) return DOMNodePtr();
+    xmlNodePtr pNode = m_pNode->next->next;
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new LIBXML_DOMNode(pNode));
   }
 
-  bool LIBXML_DOMNode::getAttributes( std::map<std::string, std::string>& attrs )
+  DOMAttributesPtr LIBXML_DOMNode::getAttributes()
   {
-    return false;
+    return DOMAttributesPtr(new LIBXML_DOMAttributes(m_pNode));
   }
 
   std::string LIBXML_DOMNode::getName()
@@ -105,7 +116,6 @@ namespace FIX
     {
       std::stringstream sstream;
       sstream << stream.rdbuf();
-
       m_pDoc = xmlParseDoc((xmlChar*)sstream.str().c_str());
       return m_pDoc != NULL;
     }
@@ -119,8 +129,20 @@ namespace FIX
 
   DOMNodePtr LIBXML_DOMDocument::getNode( const std::string& XPath )
   {
-    xmlNodePtr pNode = xmlNewDocNode(m_pDoc,NULL,(xmlChar*)XPath.c_str(), NULL);
-    if( pNode == NULL ) return DOMNodePtr();
-    return DOMNodePtr(new LIBXML_DOMNode(pNode));
+    xmlXPathContextPtr context = xmlXPathNewContext(m_pDoc);
+    xmlXPathObjectPtr xpathObject = xmlXPathEval((xmlChar*)XPath.c_str(), context);
+
+    if( xpathObject == NULL 
+	|| xpathObject->nodesetval == NULL 
+	|| xpathObject->nodesetval->nodeNr != 1 )
+    {
+      xmlXPathFreeContext(context);
+      return DOMNodePtr();
+    }
+
+    DOMNodePtr result(new LIBXML_DOMNode(xpathObject->nodesetval->nodeTab[0]));
+    xmlXPathFreeContext(context);
+    xmlXPathFreeObject(xpathObject);
+    return result;
   }
 }
