@@ -1,3 +1,9 @@
+1.3.1
+-----
+Fixed memory leak in repeating groups caused by FieldMap not calling clear() in destructor.
+
+Corrected some minor errors building sample applications on some systems.
+
 1.3.0
 -----
 Support for java on linux and solaris! Note some compilers/linux distributions
