@@ -289,12 +289,20 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     FieldBase field = extractField( string, pos, &dataDictionary, pGroup );
     if ( field.getField() == delim )
     {
-      if ( pGroup ) { map.addGroup( group, *pGroup ); delete pGroup; }
+      if ( pGroup ) 
+      { 
+        map.addGroup( group, *pGroup ); 
+        delete pGroup; pGroup = 0;
+      }
       pGroup = new Group( field.getField(), delim );
     }
     else if ( !pDD->isField( field.getField() ) )
     {
-      map.addGroup( group, *pGroup ); delete pGroup;
+      if ( pGroup )
+      { 
+        map.addGroup( group, *pGroup ); 
+        delete pGroup; pGroup = 0;
+      }
       pos = oldPos;
       return ;
     }
