@@ -68,7 +68,7 @@ def extendProcess(c)
     if( !@comp.compare(e,a) )
        e.tr!("\001", "*")
        a.tr!("\001", "*")
-       report =  "@comp.reason\n"
+       report =  @comp.reason + "\n"
        report += "    <expected><![CDATA[" + e + "]]></expected>\n"
        report += "    <received><![CDATA[" + a + "]]></received>"
        raise report
