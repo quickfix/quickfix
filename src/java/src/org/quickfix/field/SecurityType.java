@@ -82,6 +82,8 @@ public static final String MUTUAL_FUND = "MF";
 public static final String MULTI_LEG_INSTRUMENT = "MLEG"; 
 public static final String NO_SECURITY_TYPE = "NONE"; 
 public static final String WILDCARD = "?"; 
+public static final String OPTION = "OPT";  
+public static final String FUTURE = "FUT"; 
 
   public SecurityType() 
   { 
