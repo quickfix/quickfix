@@ -1,10 +1,21 @@
 # We should expect heartbeats if we wait around
 
 iCONNECT
+# ------ Logon ----
 I8=FIX.4.435=A34=149=TW52=<TIME>56=ISLD98=0108=2
-E8=FIX.4.49=5635=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=210=0
-E8=FIX.4.49=4535=034=249=ISLD52=00000000-00:00:0056=TW10=0
-I8=FIX.4.49=4535=034=249=TW52=<TIME>56=ISLD
-E8=FIX.4.49=4535=034=349=ISLD52=00000000-00:00:0056=TW10=0
-I8=FIX.4.49=4535=034=349=TW52=<TIME>56=ISLD
+E8=FIX.4.49=6035=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=210=0
+# ------------------
+
+# Wait for quickfix to send a heartbeat to us
+E8=FIX.4.49=4935=034=249=ISLD52=00000000-00:00:00.00056=TW10=0
+
+# we respond with a heartbeat
+I8=FIX.4.435=034=249=TW52=<TIME>56=ISLD
+
+# we should get a heartbeat back
+E8=FIX.4.49=4935=034=349=ISLD52=00000000-00:00:00.00056=TW10=0
+
+# we will send one more for good measure
+I8=FIX.4.435=034=349=TW52=<TIME>56=ISLD
+
 iDISCONNECT

@@ -5,7 +5,7 @@
 iCONNECT
 # logon message and response
 I8=FIX.4.435=A34=149=TW52=<TIME>56=ISLD98=0108=2
-E8=FIX.4.49=5635=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=210=0
+E8=FIX.4.49=6035=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=210=0
 
 #------------------------
 # begin message exchange
@@ -14,22 +14,22 @@ E8=FIX.4.49=5635=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=210=0
 # heartbeat message with a field that is not in the specification, but is in the correct range
 I8=FIX.4.435=034=249=TW52=<TIME>56=ISLD999=HI
 # expect a reject
-E8=FIX.4.49=9235=334=249=ISLD52=00000000-00:00:0056=TW45=258=Invalid tag number371=999372=0373=010=0
+E8=FIX.4.49=9635=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Invalid tag number371=999372=0373=010=0
 
 # heartbeat message with a field that is below the valid range for fields
 I8=FIX.4.435=034=349=TW52=<TIME>56=ISLD0=HI
 # expect a reject
-E8=FIX.4.49=9035=334=349=ISLD52=00000000-00:00:0056=TW45=358=Invalid tag number371=0372=0373=010=0
+E8=FIX.4.49=9435=334=349=ISLD52=00000000-00:00:00.00056=TW45=358=Invalid tag number371=0372=0373=010=0
 
 # heartbeat message with a field that is negative
 I8=FIX.4.435=034=449=TW52=<TIME>56=ISLD-1=HI
 # expect a reject
-E8=FIX.4.49=9135=334=449=ISLD52=00000000-00:00:0056=TW45=458=Invalid tag number371=-1372=0373=010=0
+E8=FIX.4.49=9535=334=449=ISLD52=00000000-00:00:00.00056=TW45=458=Invalid tag number371=-1372=0373=010=0
 
 # heartbeat message with a field that is above the valid range for specification defined fields (user defined is not implemented yet)
 I8=FIX.4.435=034=549=TW52=<TIME>56=ISLD5000=HI
 # expect a reject
-E8=FIX.4.49=9335=334=549=ISLD52=00000000-00:00:0056=TW45=558=Invalid tag number371=5000372=0373=010=0
+E8=FIX.4.49=9735=334=549=ISLD52=00000000-00:00:00.00056=TW45=558=Invalid tag number371=5000372=0373=010=0
 
 #------------------------
 # end message exchange
@@ -37,6 +37,6 @@ E8=FIX.4.49=9335=334=549=ISLD52=00000000-00:00:0056=TW45=558=Invalid tag
 
 # logout message and response
 I8=FIX.4.435=534=649=TW52=<TIME>56=ISLD
-E8=FIX.4.49=4535=534=649=ISLD52=00000000-00:00:0056=TW10=0
+E8=FIX.4.49=4935=534=649=ISLD52=00000000-00:00:00.00056=TW10=0
 
 eDISCONNECT

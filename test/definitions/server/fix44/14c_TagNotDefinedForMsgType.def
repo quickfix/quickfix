@@ -5,7 +5,7 @@
 iCONNECT
 # logon message and response
 I8=FIX.4.435=A34=149=TW52=<TIME>56=ISLD98=0108=2
-E8=FIX.4.49=5635=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=210=0
+E8=FIX.4.49=6035=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=210=0
 
 #------------------------
 # begin message exchange
@@ -14,14 +14,14 @@ E8=FIX.4.49=5635=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=210=0
 # heartbeat message with a field identified that isn't for this message type
 I8=FIX.4.435=034=249=TW52=<TIME>56=ISLD55=MSFT
 # expect a reject
-E8=FIX.4.49=11035=334=249=ISLD52=00000000-00:00:0056=TW45=258=Tag not defined for this message type371=55372=0373=210=0
+E8=FIX.4.49=11435=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Tag not defined for this message type371=55372=0373=210=0
 
-#------------------------
+#-----------------------
 # end message exchange
 #------------------------
 
 # logout message and response
 I8=FIX.4.435=534=349=TW52=<TIME>56=ISLD
-E8=FIX.4.49=4535=534=349=ISLD52=00000000-00:00:0056=TW10=0
+E8=FIX.4.49=4935=534=349=ISLD52=00000000-00:00:00.00056=TW10=0
 
 eDISCONNECT

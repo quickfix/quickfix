@@ -1,8 +1,9 @@
-# if the message sequence number is too high, respond with long and send
+# if the message sequence number is too high, respond with logon and send
 # resend request
 
 iCONNECT
 I8=FIX.4.235=A34=549=TW52=<TIME>56=ISLD98=0108=30
-E8=FIX.4.29=5735=A34=149=ISLD52=<TIME>56=TW98=0108=3010=0
-E8=FIX.4.29=5435=234=249=ISLD52=00000000-00:00:0056=TW7=116=010=0
+#E8=FIX.4.29=6135=A34=149=ISLD52=<TIME>56=TW98=0108=3010=0
+E8=FIX.4.29=6135=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=3010=0
+E8=FIX.4.29=5835=234=249=ISLD52=00000000-00:00:00.00056=TW7=116=010=0
 iDISCONNECT
