@@ -69,9 +69,11 @@ throw ( RuntimeError )
 void ThreadedSocketInitiator::onStart()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStart)
 
-  connect();
   while ( !m_stop )
+  {
+    connect();
     process_sleep( 1 );
+  }
 
   QF_STACK_POP
 }
