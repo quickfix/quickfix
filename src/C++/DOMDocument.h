@@ -58,6 +58,15 @@
 
 namespace FIX
 {
+  class DOMAttributes
+  {
+  public:
+    virtual ~DOMAttributes() {}
+
+    virtual bool get( const std::string&, std::string& ) = 0;
+  };
+  typedef std::auto_ptr<DOMAttributes> DOMAttributesPtr;
+
   class DOMNode
   {
   public:
@@ -67,7 +76,7 @@ namespace FIX
 
     virtual std::auto_ptr<DOMNode> getFirstChildNode() = 0;
     virtual std::auto_ptr<DOMNode> getNextSiblingNode() = 0;
-    virtual bool getAttributes( std::map<std::string, std::string>& ) = 0;
+    virtual std::auto_ptr<DOMAttributes> getAttributes() = 0;
     virtual std::string getName() = 0;
     virtual std::string getText() = 0;
   };

@@ -172,16 +172,13 @@ void DataDictionary::readFromURL( const std::string& url )
 
   // VERSION
   DOMNodePtr pFixNode = pDoc->getNode("/fix");
-  DOMNode::attributes attrs;
-  pFixNode->getAttributes(attrs);
-  DOMNode::attributes::iterator i = attrs.find("major");
-  if( i == attrs.end() )
+  DOMAttributesPtr attrs = pFixNode->getAttributes();
+  std::string major;
+  if(!attrs->get("major", major))
     throw ConfigError("Major attribute not found");
-  std::string major = i->second;
-  i = attrs.find("minor");
-  if( i == attrs.end() )
+  std::string minor;
+  if(!attrs->get("minor", minor))
     throw ConfigError("Minor attribute not found");
-  std::string minor = i->second;
   setVersion("FIX." + major + "." + minor);
 
   // FIELDS
@@ -196,35 +193,32 @@ void DataDictionary::readFromURL( const std::string& url )
   {
     if(pFieldNode->getName() == "field")
     {
-      DOMNode::attributes attrs;
-      pFieldNode->getAttributes(attrs);
-      DOMNode::attributes::iterator i = attrs.find("number");
-      if( i == attrs.end() )
+      DOMAttributesPtr attrs = pFieldNode->getAttributes();
+      std::string number;
+      if(!attrs->get("number", number))
         throw ConfigError("Field does not have a number attribute");
-      int number = atol(i->second.c_str());
-      i = attrs.find("type");
-      if( i == attrs.end() )
+      int num = atol(number.c_str());
+      std::string type;
+      if(!attrs->get("type", type))
         throw ConfigError("Field does not have a type attribute");
-      addField(number);
-      addFieldType(number, XMLTypeToType(i->second));
-      i = attrs.find("name");
-      if( i == attrs.end() )
+      addField(num);
+      addFieldType(num, XMLTypeToType(type));
+      std::string name;
+      if(!attrs->get("name", name))
         throw ConfigError("Field does not have a name attribute");
-      addFieldName(number, i->second);
+      addFieldName(num, name);
       
       DOMNodePtr pFieldValueNode = pFieldNode->getFirstChildNode();
       while(pFieldValueNode.get())
       {
-        DOMNode::attributes attrs;
-        pFieldValueNode->getAttributes(attrs);
-        DOMNode::attributes::iterator i = attrs.find("enum");
-        std::string enumeration = i->second;
-        addFieldValue(number, enumeration);
-        if( i == attrs.end() )
+        DOMAttributesPtr attrs = pFieldValueNode->getAttributes();
+        std::string enumeration;
+        if(!attrs->get("enum", enumeration))
           throw ConfigError("Value does not have enum attribute");
-        i = attrs.find("description");
-        if( i != attrs.end() )
-          addValueName(number, enumeration, i->second);
+        addFieldValue(num, enumeration);
+        std::string description;
+        if(attrs->get("description", description))
+          addValueName(num, enumeration, description);
         pFieldValueNode.reset(pFieldValueNode->getNextSiblingNode().release());
       }
     }
@@ -243,12 +237,11 @@ void DataDictionary::readFromURL( const std::string& url )
   {
     if(pHeaderFieldNode->getName() == "field")
     {
-      DOMNode::attributes attrs;
-      pHeaderFieldNode->getAttributes(attrs);
-      DOMNode::attributes::iterator i = attrs.find("name");
-      if(i == attrs.end())
+      DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
+      std::string name;
+      if(!attrs->get("name", name))
         throw ConfigError("Field does not have a name attribute");
-      addHeaderField(lookupXMLFieldNumber(pDoc.get(), i->second));
+      addHeaderField(lookupXMLFieldNumber(pDoc.get(), name));
     }
     pHeaderFieldNode.reset(pHeaderFieldNode->getNextSiblingNode().release());
   }
@@ -265,12 +258,11 @@ void DataDictionary::readFromURL( const std::string& url )
   {
     if(pTrailerFieldNode->getName() == "field")
     {
-      DOMNode::attributes attrs;
-      pTrailerFieldNode->getAttributes(attrs);
-      DOMNode::attributes::iterator i = attrs.find("name");
-      if(i == attrs.end())
+      DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
+      std::string name;
+      if(!attrs->get("name", name))
         throw ConfigError("Field does not have a name attribute");
-      addTrailerField(lookupXMLFieldNumber(pDoc.get(), i->second));
+      addTrailerField(lookupXMLFieldNumber(pDoc.get(), name));
     }
     pTrailerFieldNode.reset(pTrailerFieldNode->getNextSiblingNode().release());
   }
@@ -287,17 +279,15 @@ void DataDictionary::readFromURL( const std::string& url )
   {
     if(pMessageNode->getName() == "message")
     {
-      DOMNode::attributes attrs;
-      pMessageNode->getAttributes(attrs);
-      DOMNode::attributes::iterator i = attrs.find("msgtype");
-      if(i == attrs.end())
+      DOMAttributesPtr attrs = pMessageNode->getAttributes();
+      std::string msgtype;
+      if(!attrs->get("msgtype", msgtype))
         throw ConfigError("Field does not have a name attribute");
-      std::string msgtype = i->second;
       addMsgType(msgtype);
 
-      i = attrs.find("name");
-      if(i != attrs.end())
-        addValueName( 35, msgtype, i->second );
+      std::string name;
+      if(attrs->get("name", name))
+        addValueName( 35, msgtype, name );
 
       DOMNodePtr pMessageFieldNode = pMessageNode->getFirstChildNode();
       if( !pMessageFieldNode.get() ) throw ConfigError("Message contains no fields");
@@ -305,15 +295,16 @@ void DataDictionary::readFromURL( const std::string& url )
       {
         if(pMessageFieldNode->getName() == "field")
         {
-          pMessageFieldNode->getAttributes(attrs);
-          i = attrs.find("name");
-          if(i == attrs.end()) 
-            throw ConfigError("Field does not have a number attribute");
-          int number = lookupXMLFieldNumber(pDoc.get(), i->second);
-          addMsgField(msgtype, number);
-          i = attrs.find("required");
-          if(i != attrs.end() && (i->second == "Y" || i->second == "y"))
-            addRequiredField(msgtype, number);
+          DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();  
+          std::string name;
+          if(!attrs->get("name", name))
+            throw ConfigError("Field does not have a name attribute");
+          int num = lookupXMLFieldNumber(pDoc.get(), name);
+          addMsgField(msgtype, num);
+          
+          std::string required;
+          if(attrs->get("required", required) && (required == "Y" || required == "y"))
+            addRequiredField(msgtype, num);
         }
         else if(pMessageFieldNode->getName() == "component")
         {
@@ -333,28 +324,24 @@ void DataDictionary::readFromURL( const std::string& url )
 int DataDictionary::lookupXMLFieldNumber
   ( DOMDocument* pDoc, const std::string& name )
 {
-  DOMNode::attributes attrs;
-  DOMNode::attributes::iterator i;
   DOMNodePtr pFieldNode =
     pDoc->getNode("/fix/fields/field[@name='" + name + "']");
   if(!pFieldNode.get())
     throw ConfigError("Trailer field not defined in fields section");
-  pFieldNode->getAttributes(attrs);
-  i = attrs.find("number");
-  if(i == attrs.end())
+  DOMAttributesPtr attrs = pFieldNode->getAttributes();
+  std::string number;
+  if(!attrs->get("number", number))
     throw ConfigError("Field does not have a number attribute");
-  return atol(i->second.c_str());
+  return atol(number.c_str());
 }
 
 void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode, 
                                             const std::string& msgtype, DataDictionary& DD )
 {
-  DOMNode::attributes attrs;
-  DOMNode::attributes::iterator i;
-  pNode->getAttributes(attrs);
-  i = attrs.find("name");
-  if( i == attrs.end() ) throw ConfigError("No name given to component");
-  std::string name = i->second;
+  DOMAttributesPtr attrs = pNode->getAttributes();
+  std::string name;
+  if(!attrs->get("name", name)) 
+    throw ConfigError("No name given to component");
 
   DOMNodePtr pComponentNode =
     pDoc->getNode("/fix/components/component[@name='" + name + "']");
@@ -364,10 +351,11 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
   {
     if(pComponentFieldNode->getName() == "field")
     {
-      pComponentFieldNode->getAttributes(attrs);
-      i = attrs.find("name");
-      if( i == attrs.end() ) throw ConfigError("No name given to field");      
-      int field = lookupXMLFieldNumber(pDoc, i->second);
+      DOMAttributesPtr attrs = pComponentFieldNode->getAttributes();
+      std::string name;
+      if(!attrs->get("name", name)) 
+        throw ConfigError("No name given to field");      
+      int field = lookupXMLFieldNumber(pDoc, name);
       DD.addField(field);
       DD.addMsgField(msgtype, field);
     }
@@ -378,12 +366,10 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
 void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode, 
                                   const std::string& msgtype, DataDictionary& DD )
 {
-  DOMNode::attributes attrs;
-  DOMNode::attributes::iterator i;
-  pNode->getAttributes(attrs);
-  i = attrs.find("name");
-  if( i == attrs.end() ) throw ConfigError("No name given to group");
-  std::string name = i->second;
+  DOMAttributesPtr attrs = pNode->getAttributes();
+  std::string name;
+  if(!attrs->get("name", name)) 
+    throw ConfigError("No name given to group");
 
   int group = lookupXMLFieldNumber( pDoc, name );
   int delim = 0;
@@ -393,10 +379,11 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
   {
     if( node->getName() == "field" )
     {
-      node->getAttributes(attrs);
-      i = attrs.find("name");
-      if( i == attrs.end() ) throw ConfigError("No name given to field");
-      int field = lookupXMLFieldNumber( pDoc, i->second );
+      DOMAttributesPtr attrs = node->getAttributes();
+      std::string name;
+      if(!attrs->get("name", name)) 
+        throw ConfigError("No name given to field");
+      int field = lookupXMLFieldNumber( pDoc, name );
       if( delim == 0 ) delim = field;
       groupDD.addField( field );
     }

@@ -60,6 +60,20 @@
 
 namespace FIX
 {
+  bool MSXML_DOMAttributes::get( const std::string& name, std::string& value )
+  {
+    if(!m_pNodeMap) return false;
+    MSXML2::IXMLDOMNode* pNode = NULL;
+    m_pNodeMap->getNamedItem(_bstr_t(name.c_str()), &pNode);
+    if( pNode == NULL ) return false;
+    
+    BSTR result;
+    pNode->get_text(&result);
+    value = (char*)_bstr_t(result);
+    pNode->Release();
+    return true;
+  }
+
   DOMNodePtr MSXML_DOMNode::getFirstChildNode()
   {
     MSXML2::IXMLDOMNode* pNode = NULL;
@@ -76,28 +90,9 @@ namespace FIX
     return DOMNodePtr(new MSXML_DOMNode(pNode));
   }
 
-  bool MSXML_DOMNode::getAttributes( std::map<std::string, std::string>& attrs )
+  DOMAttributesPtr MSXML_DOMNode::getAttributes()
   {
-    attrs.clear();
-    MSXML2::IXMLDOMNamedNodeMap* pNodeMap = NULL;
-    m_pNode->get_attributes(&pNodeMap);
-    if( !pNodeMap ) return false;
-
-    BSTR name;
-    BSTR text;
-
-    MSXML2::IXMLDOMNode* pNode = NULL;
-    pNodeMap->nextNode( &pNode );
-    while( pNode != NULL )
-    {
-      pNode->get_nodeName(&name);
-      pNode->get_text(&text);
-      attrs[(char*)_bstr_t(name)] = (char*)_bstr_t(text);
-      pNode->Release();
-      pNodeMap->nextNode( &pNode );
-    }
-    pNodeMap->Release();
-    return attrs.size() > 0;
+    return DOMAttributesPtr(new MSXML_DOMAttributes(m_pNode));
   }
 
   std::string MSXML_DOMNode::getName()

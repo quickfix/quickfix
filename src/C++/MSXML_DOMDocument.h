@@ -56,6 +56,25 @@
 
 namespace FIX
 {
+  class MSXML_DOMAttributes : public DOMAttributes
+  {
+  public:
+    MSXML_DOMAttributes( MSXML2::IXMLDOMNode* pNode )
+    {
+      pNode->get_attributes(&m_pNodeMap);
+    }
+
+    ~MSXML_DOMAttributes()
+    {
+      if(m_pNodeMap) m_pNodeMap->Release();
+    }
+
+    bool get( const std::string&, std::string& );
+
+  private:
+    MSXML2::IXMLDOMNamedNodeMap* m_pNodeMap;
+  };
+
   class MSXML_DOMNode : public DOMNode
   {
   public:
@@ -66,7 +85,7 @@ namespace FIX
 
     DOMNodePtr getFirstChildNode();
     DOMNodePtr getNextSiblingNode();
-    bool getAttributes( std::map<std::string, std::string>& );
+    DOMAttributesPtr getAttributes();
     std::string getName();
     std::string getText();
 
