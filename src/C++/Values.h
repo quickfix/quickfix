@@ -323,19 +323,20 @@ namespace FIX
  const std::string MsgType_COLLATERAL_INQUIRY = "BB";
  const std::string MsgType_COLLATERAL_INQUIRY_ACK = "BB";
  const char OrdStatus_NEW = '0';
- const char OrdStatus_PARTIAL = '1';
+ const char OrdStatus_PARTIALLY_FILLED = '1';
  const char OrdStatus_FILLED = '2';
- const char OrdStatus_DONE = '3';
+ const char OrdStatus_DONE_FOR_DAY = '3';
  const char OrdStatus_CANCELED = '4';
- const char OrdStatus_PENDING_CR = '6';
+ const char OrdStatus_REPLACED = '5';
+ const char OrdStatus_PENDING_CANCEL = '6';
  const char OrdStatus_STOPPED = '7';
  const char OrdStatus_REJECTED = '8';
  const char OrdStatus_SUSPENDED = '9';
  const char OrdStatus_PENDING_NEW = 'A';
  const char OrdStatus_CALCULATED = 'B';
  const char OrdStatus_EXPIRED = 'C';
- const char OrdStatus_ACCEPT_BIDDING = 'D';
- const char OrdStatus_PENDING_REP = 'E';
+ const char OrdStatus_ACCEPTED_FOR_BIDDING = 'D';
+ const char OrdStatus_PENDING_REPLACE = 'E';
  const char OrdType_MARKET = '1';
  const char OrdType_LIMIT = '2';
  const char OrdType_STOP = '3';
@@ -997,9 +998,9 @@ namespace FIX
  const int BidDescriptorType_INDEX = 3;
  const int SideValueInd_SIDE_VALUE1 = 1;
  const int SideValueInd_SIDE_VALUE2 = 2;
- const int LiquidityIndType_5DAY = 1;
- const int LiquidityIndType_20DAY = 2;
- const int LiquidityIndType_NORMAL = 3;
+ const int LiquidityIndType_FIVEDAY_MOVING_AVERAGE = 1;
+ const int LiquidityIndType_TWENTYDAY_MOVING_AVERAGE = 2;
+ const int LiquidityIndType_NORMAL_MARKET_SIZE = 3;
  const int LiquidityIndType_OTHER = 4;
  const int ProgRptReqs_BUY_SIDE = 1;
  const int ProgRptReqs_SELL_SIDE = 2;
@@ -1211,10 +1212,10 @@ namespace FIX
  const int TaxAdvantageType_INDIVIDUAL_RETIREMENT_ACCOUNT_ROLLOVER_US = 17;
  const int TaxAdvantageType_KEOGHUS = 18;
  const int TaxAdvantageType_PROFIT_SHARING_PLAN_US = 19;
- const int TaxAdvantageType_401KUS = 20;
+ const int TaxAdvantageType_US_401K = 20;
  const int TaxAdvantageType_SELF_DIRECTED_IRAUS = 21;
- const int TaxAdvantageType_403B_US = 22;
- const int TaxAdvantageType_457US = 23;
+ const int TaxAdvantageType_US_403B = 22;
+ const int TaxAdvantageType_US_457 = 23;
  const int TaxAdvantageType_ROTH_IRAFUND_PROTOTYPE_US = 24;
  const int TaxAdvantageType_ROTH_IRANONPROTOTYPE_US = 25;
  const int TaxAdvantageType_ROTH_CONVERSION_IRAFUND_PROTOTYPE_US = 26;
@@ -1573,16 +1574,16 @@ namespace FIX
  const std::string ClearingFeeIndicator_NON_MEMBER_CUSTOMER = "C";
  const std::string ClearingFeeIndicator_EQUITY_CLEARING_MEMBER = "E";
  const std::string ClearingFeeIndicator_FULL_ASSOCIATE_MEMBER = "F";
- const std::string ClearingFeeIndicator_106H106J = "H";
+ const std::string ClearingFeeIndicator__106H106J = "H";
  const std::string ClearingFeeIndicator_GIMIDEMCOMMEMBERSHIP = "I";
  const std::string ClearingFeeIndicator_LESSEE106F = "L";
  const std::string ClearingFeeIndicator_ALL_OTHERS = "M";
- const std::string ClearingFeeIndicator_1ST_YEAR_DELEGATE = "1";
- const std::string ClearingFeeIndicator_2ND_YEAR_DELEGATE = "2";
- const std::string ClearingFeeIndicator_3RD_YEAR_DELEGATE = "3";
- const std::string ClearingFeeIndicator_4TH_YEAR_DELEGATE = "4";
- const std::string ClearingFeeIndicator_5TH_YEAR_DELEGATE = "5";
- const std::string ClearingFeeIndicator_6TH_YEAR_DELEGATE = "9";
+ const std::string ClearingFeeIndicator_FIRST_YEAR_DELEGATE = "1";
+ const std::string ClearingFeeIndicator_SECOND_YEAR_DELEGATE = "2";
+ const std::string ClearingFeeIndicator_THIRD_YEAR_DELEGATE = "3";
+ const std::string ClearingFeeIndicator_FOURTH_YEAR_DELEGATE = "4";
+ const std::string ClearingFeeIndicator_FIFTH_YEAR_DELEGATE = "5";
+ const std::string ClearingFeeIndicator_SIXTH_YEAR_DELEGATE = "9";
  const int PriorityIndicator_PRIORITY_UNCHANGED = 0;
  const int PriorityIndicator_LOST_PRIORITY = 1;
  const int QuoteRequestRejectReason_UNKNOWN_SYM = 1;
@@ -2044,8 +2045,8 @@ namespace FIX
  const int InstrAttribType_CALLABLE_BELOW_MATURITY_VALUE = 21;
  const int InstrAttribType_CALLABLE_WITHOUT_NOTICE_BY_MAIL_TO_HOLDER_UNLESS_REGISTERED = 22;
  const int InstrAttribType_TEXT = 99;
- const int CPProgram_3A3 = 1;
- const int CPProgram_42 = 2;
+ const int CPProgram__3A3 = 1;
+ const int CPProgram__42 = 2;
  const int CPProgram_OTHER = 99;
  const int MiscFeeBasis_ABSOLUTE = 0;
  const int MiscFeeBasis_PER_UNIT = 1;
@@ -2233,3 +2234,4 @@ namespace FIX
   const std::string SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT = "Tag specified out of required order";
 }
 #endif //FIX_VALUES_H
+
