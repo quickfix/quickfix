@@ -425,7 +425,7 @@ struct UtcTimeStampConvertor
     if( calculateDays )
     {
       time_t t = mktime( &result_tm );
-      localtime_r( &t, &result_tm );
+      result_tm = time_localtime( &t );
       result_tm.tm_isdst = -1;
     }
 
