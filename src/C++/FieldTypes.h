@@ -132,14 +132,7 @@ public:
   friend bool operator<=( const UtcTimeStamp&, const UtcTimeStamp& );
   friend bool operator>=( const UtcTimeStamp&, const UtcTimeStamp& );
   friend long operator-( const UtcTimeStamp&, const UtcTimeStamp& );
-  void operator+=( long seconds )
-  {
-    tm copy = *this;
-    time_t time = mktime( const_cast < tm* > ( &copy ) );
-    time += ( seconds - ( copy.tm_isdst * 3600 ) );
-    *static_cast < tm* > ( this ) = time_localtime( &time );
-    tm_isdst = 0;
-  }
+  void operator+=( long seconds );
 
   /// Set to the current date and time.
   void setCurrent()

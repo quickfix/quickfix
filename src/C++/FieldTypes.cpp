@@ -67,4 +67,17 @@ void UtcTimeStamp::setTime( const UtcTimeOnly& time )
 
   QF_STACK_POP
 }
+
+void UtcTimeStamp::operator+=( long seconds )
+{
+  tm copy = *this;
+  time_t time = mktime( const_cast < tm* > ( &copy ) );
+#ifdef __FreeBSD__
+  time += seconds;
+#else
+  time += ( seconds - ( copy.tm_isdst * 3600 ) );
+#endif
+  *static_cast < tm* > ( this ) = time_localtime( &time );
+  tm_isdst = 0;
+}
 }
