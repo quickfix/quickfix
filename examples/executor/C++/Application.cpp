@@ -80,6 +80,94 @@ void Application::onRun()
   while ( true ) FIX::process_sleep( 1 );
 }
 
+void Application::onMessage( const FIX40::NewOrderSingle& message,
+                             const FIX::SessionID& sessionID )
+{
+  FIX::Symbol symbol;
+  FIX::Side side;
+  FIX::OrdType ordType;
+  FIX::OrderQty orderQty;
+  FIX::Price price;
+  FIX::ClOrdID clOrdID;
+
+  message.get( ordType );
+
+  if ( ordType != FIX::OrdType_LIMIT )
+    throw FIX::IncorrectTagValue( ordType.getField() );
+
+  message.get( symbol );
+  message.get( side );
+  message.get( orderQty );
+  message.get( price );
+  message.get( clOrdID );
+
+  FIX40::ExecutionReport executionReport = FIX40::ExecutionReport
+      ( FIX::OrderID( genOrderID() ),
+        FIX::ExecID( genExecID() ),
+        FIX::ExecTransType( FIX::ExecTransType_NEW ),
+        FIX::OrdStatus( FIX::OrdStatus_FILLED ),
+        symbol,
+        side,
+        orderQty,
+        FIX::LastShares( orderQty ),
+        FIX::LastPx( price ),
+        FIX::CumQty( orderQty ),
+        FIX::AvgPx( price ) );
+
+  executionReport.set( clOrdID );
+
+  try
+  {
+    FIX::Session::sendToTarget( executionReport, sessionID );
+  }
+  catch ( FIX::SessionNotFound& ) {}
+}
+
+void Application::onMessage( const FIX41::NewOrderSingle& message,
+                             const FIX::SessionID& sessionID )
+{
+  FIX::Symbol symbol;
+  FIX::Side side;
+  FIX::OrdType ordType;
+  FIX::OrderQty orderQty;
+  FIX::Price price;
+  FIX::ClOrdID clOrdID;
+
+  message.get( ordType );
+
+  if ( ordType != FIX::OrdType_LIMIT )
+    throw FIX::IncorrectTagValue( ordType.getField() );
+
+  message.get( symbol );
+  message.get( side );
+  message.get( orderQty );
+  message.get( price );
+  message.get( clOrdID );
+
+  FIX41::ExecutionReport executionReport = FIX41::ExecutionReport
+      ( FIX::OrderID( genOrderID() ),
+        FIX::ExecID( genExecID() ),
+        FIX::ExecTransType( FIX::ExecTransType_NEW ),
+        FIX::ExecType( FIX::OrdStatus_FILLED ),
+        FIX::OrdStatus( FIX::OrdStatus_FILLED ),
+        symbol,
+        side,
+        orderQty,
+        FIX::LastShares( orderQty ),
+        FIX::LastPx( price ),
+        FIX::LeavesQty( 0 ),
+        FIX::CumQty( orderQty ),
+        FIX::AvgPx( price ) );
+
+  executionReport.set( clOrdID );
+
+  try
+  {
+    FIX::Session::sendToTarget( executionReport, sessionID );
+  }
+  catch ( FIX::SessionNotFound& ) {}
+}
+
 void Application::onMessage( const FIX42::NewOrderSingle& message,
                              const FIX::SessionID& sessionID )
 {
@@ -110,8 +198,8 @@ void Application::onMessage( const FIX42::NewOrderSingle& message,
         symbol,
         side,
         FIX::LeavesQty( 0 ),
-        FIX::CumQty( orderQty.getValue() ),
-        FIX::AvgPx( price.getValue() ) );
+        FIX::CumQty( orderQty ),
+        FIX::AvgPx( price ) );
 
   executionReport.set( clOrdID );
   executionReport.set( orderQty );
@@ -122,4 +210,50 @@ void Application::onMessage( const FIX42::NewOrderSingle& message,
   {
     FIX::Session::sendToTarget( executionReport, sessionID );
   }
-  catch ( FIX::SessionNotFound& ) {}}
+  catch ( FIX::SessionNotFound& ) {}
+}
+
+void Application::onMessage( const FIX43::NewOrderSingle& message,
+                             const FIX::SessionID& sessionID )
+{
+  FIX::Symbol symbol;
+  FIX::Side side;
+  FIX::OrdType ordType;
+  FIX::OrderQty orderQty;
+  FIX::Price price;
+  FIX::ClOrdID clOrdID;
+
+  message.get( ordType );
+
+  if ( ordType != FIX::OrdType_LIMIT )
+    throw FIX::IncorrectTagValue( ordType.getField() );
+
+  message.get( symbol );
+  message.get( side );
+  message.get( orderQty );
+  message.get( price );
+  message.get( clOrdID );
+
+  FIX43::ExecutionReport executionReport = FIX43::ExecutionReport
+      ( FIX::OrderID( genOrderID() ),
+        FIX::ExecID( genExecID() ),
+        FIX::ExecType( FIX::OrdStatus_FILLED ),
+        FIX::OrdStatus( FIX::OrdStatus_FILLED ),
+        side,
+        FIX::LeavesQty( 0 ),
+        FIX::CumQty( orderQty ),
+        FIX::AvgPx( price ) );
+
+  executionReport.set( clOrdID );
+  executionReport.set( symbol );
+  executionReport.set( orderQty );
+  executionReport.set( FIX::LastQty( orderQty ) );
+  executionReport.set( FIX::LastPx( price ) );
+
+  try
+  {
+    FIX::Session::sendToTarget( executionReport, sessionID );
+  }
+  catch ( FIX::SessionNotFound& ) {}
+}
+

@@ -77,7 +77,10 @@ public:
   void onRun();
 
   // MessageCracker overloads
+  void onMessage( const FIX40::NewOrderSingle&, const FIX::SessionID& );
+  void onMessage( const FIX41::NewOrderSingle&, const FIX::SessionID& );
   void onMessage( const FIX42::NewOrderSingle&, const FIX::SessionID& );
+  void onMessage( const FIX43::NewOrderSingle&, const FIX::SessionID& );
 
   std::string genOrderID() { 
     std::stringstream stream;
