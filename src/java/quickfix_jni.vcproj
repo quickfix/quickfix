@@ -176,6 +176,12 @@
 				RelativePath=".\org_quickfix_Message.cpp">
 			</File>
 			<File
+				RelativePath="org_quickfix_MySQLLog.cpp">
+			</File>
+			<File
+				RelativePath="org_quickfix_MySQLLogFactory.cpp">
+			</File>
+			<File
 				RelativePath="org_quickfix_MySQLStore.cpp">
 			</File>
 			<File
@@ -256,6 +262,12 @@
 			</File>
 			<File
 				RelativePath=".\org_quickfix_Message.h">
+			</File>
+			<File
+				RelativePath="org_quickfix_MySQLLog.h">
+			</File>
+			<File
+				RelativePath="org_quickfix_MySQLLogFactory.h">
 			</File>
 			<File
 				RelativePath="org_quickfix_MySQLStore.h">

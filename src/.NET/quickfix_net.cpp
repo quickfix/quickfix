@@ -56,6 +56,7 @@
 #include "MessageStoreFactory.h"
 #include "MemoryMessageStore.h"
 #include "FileMessageStore.h"
+#include "MySQLMessageStore.h"
 #include "ScreenLog.h"
 #include "SocketInitiator.h"
 #include "SocketAcceptor.h"
@@ -66,6 +67,7 @@
 #include "Group.h"
 #include "ScreenLog.h"
 #include "FileLog.h"
+#include "MySQLLog.h"
 
 namespace Fix
 {

@@ -217,6 +217,12 @@
 				RelativePath="Messages.h">
 			</File>
 			<File
+				RelativePath="MySQLLog.h">
+			</File>
+			<File
+				RelativePath="MySQLMessageStore.h">
+			</File>
+			<File
 				RelativePath="ScreenLog.h">
 			</File>
 			<File
