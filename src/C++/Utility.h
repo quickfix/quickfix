@@ -65,11 +65,11 @@ typedef int socklen_t;
 /////////////////////////////////////////////
 #else 
 /////////////////////////////////////////////
+#include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/ioctl.h>
 #include <sys/time.h>
 #include <sys/stat.h>
-#include <sys/types.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <netdb.h>

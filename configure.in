@@ -102,7 +102,7 @@ AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
 # libs
-LIBS="-lpthread $LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS"
+LIBS="$LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS"
 # gcc flags
 SHAREDFLAGS="-Wall $STLPORT_CFLAGS $MYSQL_CFLAGS $XML_CFLAGS $JNI_CFLAGS"
 CFLAGS="$CFLAGS $SHAREDFLAGS"
@@ -113,8 +113,35 @@ AC_SUBST(CXXFLAGS)
 # Checks for libraries.
 AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
 AC_CHECK_LIB(c,inet_addr,true,AC_CHECK_LIB(nsl,inet_addr))
-AC_CHECK_LIB(pthread, pthread_create)
-AC_CHECK_LIB(c_r, pthread_create)
+AC_CHECK_LIB(compat,ftime)
+
+
+AC_MSG_CHECKING([which threading environment to use])
+# each host OS needs special threading flags
+case $build_os in
+	freebsd2*|freebsd3*|freebsd4*)
+		LIBS="-pthread $LIBS"
+		AC_MSG_RESULT([-pthread])
+		;;
+	freebsdelf4*)
+		LIBS="-pthread $LIBS"
+		AC_MSG_RESULT([-pthread])
+		;;
+	linux-*) 
+		AC_MSG_RESULT([-lpthread])
+		AC_CHECK_LIB(pthread, pthread_create)
+		;;
+	solaris*) 
+		AC_MSG_RESULT([-lpthread])
+		AC_CHECK_LIB(pthread, pthread_create)
+		;;
+	*)
+		# maybe we have a usable libc for other OSes
+		AC_MSG_RESULT([-lc_r])
+		AC_CHECK_LIB(c_r, pthread_create)
+		;;
+esac
+
 # Checks for header files.
 AC_CHECK_HEADERS(stdio.h)
 
@@ -137,7 +164,9 @@ AC_TRY_COMPILE(
 
 AC_MSG_CHECKING(for socklen_t)
 AC_TRY_COMPILE(
-	[#include <unistd.h>],
+	[#include <unistd.h>
+         #include <sys/types.h>
+         #include <sys/socket.h>],
 	[socklen_t t = 1;],
 	AC_MSG_RESULT(yes),
 	AC_MSG_RESULT(no)

@@ -59,6 +59,7 @@
 #include <Winsock2.h>
 typedef int socklen_t;
 #else
+#include <sys/types.h>
 #include <sys/socket.h>
 #include <sys/time.h>
 #include <netinet/in.h>
