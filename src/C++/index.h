@@ -1,4 +1,4 @@
-/*! \mainpage Index
+/*! \mainpage QuickFIX Documentation
 * <hr>
 * \section about About
 * <a href="license.html">License</a><br>
