@@ -35,7 +35,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   MessageStoreFactory& factory,
   const SessionSettings& settings ) throw( ConfigError )
 : Acceptor( application, factory, settings ),
-  m_port( 0 ), m_socket( 0 ), m_stop( false )
+  m_port( 0 ), m_reuseAddress( true ), m_noDelay( false ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
@@ -44,7 +44,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   const SessionSettings& settings,
   LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
-    m_port( 0 ), m_socket( 0 ), m_stop( false )
+  m_port( 0 ), m_reuseAddress( true ), m_noDelay( false ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
@@ -57,6 +57,8 @@ throw ( ConfigError )
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
     m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+  if( s.get().has( SOCKET_NODELAY ) )
+    m_noDelay = ( bool ) s.get().getBool( SOCKET_NODELAY );
 
   QF_STACK_POP
 }
@@ -66,8 +68,11 @@ throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
 
   m_socket = socket_createAcceptor( m_port, m_reuseAddress );
+  
   if( m_socket < 0 )
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+  if( m_noDelay )
+    socket_setsockopt( m_socket, TCP_NODELAY );
 
   QF_STACK_POP
 }
@@ -78,6 +83,9 @@ void ThreadedSocketAcceptor::onStart()
   int socket = 0;
   while ( ( !m_stop && ( socket = socket_accept( m_socket ) ) >= 0 ) )
   {
+    if( m_noDelay )
+      socket_setsockopt( socket, TCP_NODELAY );
+
     ThreadedSocketConnection * pConnection =
       new ThreadedSocketConnection( socket, getApplication() );
 

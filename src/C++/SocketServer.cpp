@@ -88,19 +88,25 @@ private:
   SocketServer::Strategy& m_strategy;
 };
 
-SocketServer::SocketServer( int port, int timeout, bool reuse )
-: m_port( port ), m_monitor( timeout )
+SocketServer::SocketServer( int port, int timeout, bool reuse, bool noDelay )
+: m_port( port ), m_monitor( timeout ), m_noDelay( noDelay )
 {
-  m_socket = socket_createAcceptor( port, reuse ); 
-  if ( m_socket < 0 ) throw std::exception();
+  m_socket = socket_createAcceptor( port, reuse );
+  if ( m_socket < 0 ) 
+    throw std::exception();
+  if( m_noDelay )
+    socket_setsockopt( m_socket, TCP_NODELAY );
   m_monitor.add( m_socket );
 }
 
 int SocketServer::accept()
 { QF_STACK_PUSH(SocketServer::accept)
 
-  int result = ::accept( m_socket, 0, 0 );
-  if ( result >= 0 ) m_monitor.add( result );
+  int result = socket_accept( m_socket );
+  if( m_noDelay ) 
+    socket_setsockopt( result, TCP_NODELAY );
+  if ( result >= 0 ) 
+    m_monitor.add( result );
   return result;
 
   QF_STACK_POP

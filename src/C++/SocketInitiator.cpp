@@ -36,7 +36,7 @@ SocketInitiator::SocketInitiator( Application& application,
 throw( ConfigError ) 
 : Initiator( application, factory, settings ),
   m_connector( 1 ), m_lastConnect( 0 ),
-  m_reconnectInterval( 30 ), m_stop( false ) {}
+  m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false ) {}
 
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
@@ -45,7 +45,7 @@ SocketInitiator::SocketInitiator( Application& application,
 throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_connector( 1 ), m_lastConnect( 0 ),
-  m_reconnectInterval( 30 ), m_stop( false ) {}
+  m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false ) {}
 
 SocketInitiator::~SocketInitiator() {}
 
@@ -55,6 +55,8 @@ throw ( ConfigError )
 
   try { m_reconnectInterval = s.get().getLong( RECONNECT_INTERVAL ); }
   catch ( std::exception& ) {}
+  if( s.get().has( SOCKET_NODELAY ) )
+    m_noDelay = s.get().getBool( SOCKET_NODELAY );
 
   QF_STACK_POP
 }
@@ -126,7 +128,7 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     getHost( s, d, address, port );
     
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
-    int result = m_connector.connect( address, port );
+    int result = m_connector.connect( address, port, m_noDelay );
 
     if ( !result ) 
     { 

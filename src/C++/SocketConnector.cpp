@@ -85,13 +85,15 @@ private:
 SocketConnector::SocketConnector( int timeout )
 : m_monitor( timeout ) {}
 
-int SocketConnector::connect( const std::string& address, int port )
+int SocketConnector::connect( const std::string& address, int port, bool noDelay )
 { QF_STACK_PUSH(SocketConnector::connect)
 
   int socket = socket_createConnector( address.c_str(), port );
 
   if ( socket != -1 )
   {
+    if( noDelay ) 
+      socket_setsockopt( socket, TCP_NODELAY );
     m_monitor.add( socket );
     return socket;
   }
@@ -104,14 +106,15 @@ int SocketConnector::connect( const std::string& address, int port )
   QF_STACK_POP
 }
 
-int SocketConnector::connect( const std::string& address, int port,
+int SocketConnector::connect( const std::string& address, int port, bool noDelay,
                               Strategy& strategy )
 { QF_STACK_PUSH(SocketConnector::connect)
 
-  int sock = connect( address, port );
-  if ( sock )
-    strategy.onConnect( *this, sock );
-  return sock;
+  int socket = connect( address, port, noDelay );
+
+  if( socket )
+    strategy.onConnect( *this, socket );
+  return socket;
 
   QF_STACK_POP
 }

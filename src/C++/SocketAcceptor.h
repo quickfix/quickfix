@@ -69,6 +69,7 @@ private:
 
   short m_port;
   bool m_reuseAddress;
+  bool m_noDelay;
   SocketServer* m_pServer;
   SocketConnections m_connections;
   bool m_stop;

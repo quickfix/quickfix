@@ -35,14 +35,14 @@ SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings ) throw( ConfigError )
 : Acceptor( application, factory, settings ),
-  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
+  m_port( 0 ), m_reuseAddress(true), m_noDelay(false), m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings,
                                 LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
-  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
+  m_port( 0 ), m_reuseAddress(true), m_noDelay(false), m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::~SocketAcceptor()
 {
@@ -57,8 +57,9 @@ throw ( ConfigError )
 
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
-  m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
-
+    m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+  if( s.get().has( SOCKET_NODELAY ) )
+    m_noDelay = ( bool ) s.get().getBool( SOCKET_NODELAY );
   QF_STACK_POP
 }
 
@@ -68,7 +69,7 @@ throw ( RuntimeError )
 
   try
   {
-    m_pServer = new SocketServer( m_port, 1, m_reuseAddress );
+    m_pServer = new SocketServer( m_port, 1, m_reuseAddress, m_noDelay );
   }
   catch( std::exception& )
   {

@@ -52,6 +52,7 @@ static const std::string SOCKET_ACCEPT_PORT = "SocketAcceptPort";
 static const std::string SOCKET_REUSE_ADDRESS = "SocketReuseAddress";
 static const std::string SOCKET_CONNECT_HOST = "SocketConnectHost";
 static const std::string SOCKET_CONNECT_PORT = "SocketConnectPort";
+static const std::string SOCKET_NODELAY = "SocketNodelay";
 static const std::string RECONNECT_INTERVAL = "ReconnectInterval";
 static const std::string VALIDATE_FIELDS_OUT_OF_ORDER = "ValidateFieldsOutOfOrder";
 static const std::string VALIDATE_FIELDS_HAVE_VALUES = "ValidateFieldsHaveValues";

@@ -39,8 +39,8 @@ public:
 
   SocketConnector( int timeout = 0 );
 
-  int connect( const std::string& address, int port );
-  int connect( const std::string& address, int port, Strategy& );
+  int connect( const std::string& address, int port, bool noDelay );
+  int connect( const std::string& address, int port, bool noDelay, Strategy& );
   void block( Strategy& strategy, bool poll = 0 );
   SocketMonitor& getMonitor() { return m_monitor; }
 

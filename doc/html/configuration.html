@@ -208,6 +208,13 @@
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> </TD>
   </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>SocketNodelay</I> </TD>
+    <TD> Indicates a socket should be created with TCP_NODELAY. Currently, this must be defined in the [DEFAULT]
+         section. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N</TD>
+  </TR>
 
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Acceptor">Acceptor</A></TD>
@@ -223,7 +230,14 @@
     <TD> <I>SocketReuseAddress</I> </TD>
     <TD> Indicates a socket should be created with SO_REUSADDR, Only used with a SocketAcceptor </TD>
     <TD> Y<br>N</TD>
-    <TD> </TD>
+    <TD> Y</TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>SocketNodelay</I> </TD>
+    <TD> Indicates a socket should be created with TCP_NODELAY. Currently, this must be defined in the [DEFAULT]
+         section. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N</TD>
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">

@@ -127,7 +127,7 @@ bool ParserTestCase::readFromSocket::onSetup( Parser*& pObject )
 
   m_pServer = new SocketServer( m_port, 0, true );
   m_pConnector = new SocketConnector;
-  int connSocket = m_pConnector->connect( "127.0.0.1", m_port );
+  int connSocket = m_pConnector->connect( "127.0.0.1", m_port, false );
   assert( connSocket > 0 );
   int recvSocket = m_pServer->accept();
 

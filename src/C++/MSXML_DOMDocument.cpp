@@ -117,8 +117,9 @@ namespace FIX
   MSXML_DOMDocument::MSXML_DOMDocument() throw( ConfigError )
   : m_pDoc(NULL)
   {
-    if(FAILED(CoInitialize(NULL)))
-      throw ConfigError("Could not initialize COM");
+    if(FAILED(CoInitializeEx( 0, COINIT_MULTITHREADED )))
+      if(FAILED(CoInitializeEx( 0, COINIT_APARTMENTTHREADED )))
+        throw ConfigError("Could not initialize COM");
 
     HRESULT hr = CoCreateInstance(
       MSXML2::CLSID_DOMDocument, NULL, CLSCTX_ALL, __uuidof( MSXML2::IXMLDOMDocument2 ),

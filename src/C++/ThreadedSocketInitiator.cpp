@@ -177,6 +177,10 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   delete threadStruct;
   Log* log = Session::lookupSession( sessionID )->getLog();
 
+  bool noDelay = false;
+  if( dictionary.has( SOCKET_NODELAY ) )
+    noDelay = dictionary.getBool( SOCKET_NODELAY );
+
   while ( !pInitiator->m_stop )
   {
     std::string address;

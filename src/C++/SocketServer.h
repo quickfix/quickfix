@@ -38,7 +38,7 @@ class SocketServer
 public:
   class Strategy;
 
-  SocketServer( int port, int timeout = 0, bool reuse = false );
+  SocketServer( int port, int timeout = 0, bool reuse = false, bool noDelay = false );
 
   int accept();
   void close();
@@ -50,6 +50,7 @@ public:
 private:
   int m_port;
   int m_socket;
+  bool m_noDelay;
   sockaddr_in m_address;
   socklen_t m_socklen;
   SocketMonitor m_monitor;

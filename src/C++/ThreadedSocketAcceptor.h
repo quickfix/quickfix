@@ -69,6 +69,7 @@ private:
 
   short m_port;
   bool m_reuseAddress;
+  bool m_noDelay;
   int m_socket;
   SocketToThread m_threads;
   Mutex m_mutex;

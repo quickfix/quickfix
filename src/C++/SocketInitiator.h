@@ -72,6 +72,7 @@ private:
   SocketConnections m_connections;
   time_t m_lastConnect;
   int m_reconnectInterval;
+  bool m_noDelay;
   bool m_stop;
 };
 /*! @} */

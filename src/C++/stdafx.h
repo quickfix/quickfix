@@ -23,6 +23,8 @@
   #define TERMINATE_IN_STD 1
 #endif
 
+#define _WIN32_DCOM
+
 #import <msxml3.dll> raw_interfaces_only named_guids
 using namespace MSXML2;
 
