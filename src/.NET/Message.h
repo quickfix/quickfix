@@ -25,6 +25,7 @@ using namespace System;
 using namespace System::Collections;
 
 #include "quickfix_net.h"
+#include "FieldMap.h"
 #include "Field.h"
 #include "Exceptions.h"
 #include "Group.h"
@@ -38,7 +39,7 @@ namespace QuickFix
 public __gc class BeginString;
 public __gc class MsgType;
 
-public __gc class Message : public IDisposable
+public __gc class Message : public FieldMap, public IDisposable
 {
 public:
   Message() : disposed( false )
@@ -137,6 +138,24 @@ public:
   void setUnmanaged( const FIX::Message& message )
   { delete m_pUnmanaged; m_pUnmanaged = new FIX::Message(); *m_pUnmanaged = message; }
 
+  void setString(int field, String* value);
+  void setBoolean(int field, bool value);
+  void setChar(int field, char value);
+  void setInt(int field, int value);
+  void setDouble(int field, double value);
+  void setUtcTimeStamp(int field, DateTime value);
+  void setUtcDateOnly(int field, DateTime value);
+  void setUtcTimeOnly(int field, DateTime value);
+
+  String* getString(int field) throw ( FieldNotFound* );
+  bool getBoolean(int field) throw ( FieldNotFound* );
+  char getChar(int field) throw ( FieldNotFound* );
+  int getInt(int field) throw ( FieldNotFound* );
+  double getDouble(int field) throw ( FieldNotFound* );
+  DateTime getUtcTimeStamp(int field) throw ( FieldNotFound* );
+  DateTime getUtcDateOnly(int field) throw ( FieldNotFound* );
+  DateTime getUtcTimeOnly(int field) throw ( FieldNotFound* );
+
   String* ToString()
   { QF_STACK_TRY
     return m_pUnmanaged->toString().c_str();
@@ -198,10 +217,29 @@ public:
     QF_STACK_CATCH
   }
 
-  __gc class Header : public IDisposable
+  __gc class Header : public FieldMap, public IDisposable
   {
   public:
-  Header( Message* message ) : m_message( message ), disposed( false ) {}
+    Header( Message* message ) : m_message( message ), disposed( false ) {}
+
+    void setString(int field, String* value);
+    void setBoolean(int field, bool value);
+    void setChar(int field, char value);
+    void setInt(int field, int value);
+    void setDouble(int field, double value);
+    void setUtcTimeStamp(int field, DateTime value);
+    void setUtcDateOnly(int field, DateTime value);
+    void setUtcTimeOnly(int field, DateTime value);
+
+    String* getString(int field) throw ( FieldNotFound* );
+    bool getBoolean(int field) throw ( FieldNotFound* );
+    char getChar(int field) throw ( FieldNotFound* );
+    int getInt(int field) throw ( FieldNotFound* );
+    double getDouble(int field) throw ( FieldNotFound* );
+    DateTime getUtcTimeStamp(int field) throw ( FieldNotFound* );
+    DateTime getUtcDateOnly(int field) throw ( FieldNotFound* );
+    DateTime getUtcTimeOnly(int field) throw ( FieldNotFound* );
+
     void setField( StringField* field );
     void setField( BooleanField* field );
     void setField( CharField* field );
@@ -243,16 +281,89 @@ public:
       if ( disposed )
         throw new System::ObjectDisposedException( this->ToString() );
     }
+
+    IEnumerator* GetEnumerator()
+    {
+      return new Enumerator( m_message );
+    }
+
+    __gc class Enumerator : public IEnumerator
+    {
+    public:
+      Enumerator( Message* message )
+        : m_message( message ), m_iterator(0) {}
+
+      ~Enumerator()
+      {
+        if( m_iterator )
+          delete m_iterator;
+      }
+
+      __property Object* get_Current()
+      {
+        if( m_iterator == 0 )
+          return 0;
+        if( *m_iterator == m_message->unmanaged().getHeader().end() )
+          return 0;
+        FIX::FieldBase field = (*m_iterator)->second;
+        return new StringField( field.getField(), field.getString().c_str() );
+      }
+
+      bool MoveNext()
+      {
+        if( m_iterator == 0 )
+        {
+          m_iterator = new FIX::Message::iterator();
+          *m_iterator = m_message->unmanaged().getHeader().begin();
+        }
+        else
+        {
+          (*m_iterator)++;
+        }
+
+        return *m_iterator != m_message->unmanaged().getHeader().end();
+      }
+
+      void Reset()
+      {
+        if( m_iterator )
+          delete m_iterator;
+        m_iterator = 0;
+      }
+
+    private:
+      Message* m_message;
+      FIX::Message::iterator* m_iterator;
+    };
 
   private:
     Message* m_message;
     bool disposed;
   };
 
-  __gc class Trailer : public IDisposable
+  __gc class Trailer : public FieldMap, public IDisposable
   {
   public:
     Trailer( Message* message ) : m_message( message ), disposed( false ) {}
+    
+    void setString(int field, String* value);
+    void setBoolean(int field, bool value);
+    void setChar(int field, char value);
+    void setInt(int field, int value);
+    void setDouble(int field, double value);
+    void setUtcTimeStamp(int field, DateTime value);
+    void setUtcDateOnly(int field, DateTime value);
+    void setUtcTimeOnly(int field, DateTime value);
+
+    String* getString(int field) throw ( FieldNotFound* );
+    bool getBoolean(int field) throw ( FieldNotFound* );
+    char getChar(int field) throw ( FieldNotFound* );
+    int getInt(int field) throw ( FieldNotFound* );
+    double getDouble(int field) throw ( FieldNotFound* );
+    DateTime getUtcTimeStamp(int field) throw ( FieldNotFound* );
+    DateTime getUtcDateOnly(int field) throw ( FieldNotFound* );
+    DateTime getUtcTimeOnly(int field) throw ( FieldNotFound* );
+
     void setField( StringField* field );
     void setField( BooleanField* field );
     void setField( CharField* field );
@@ -294,6 +405,60 @@ public:
       if ( disposed )
         throw new System::ObjectDisposedException( this->ToString() );
     }
+
+    IEnumerator* GetEnumerator()
+    {
+      return new Enumerator( m_message );
+    }
+
+    __gc class Enumerator : public IEnumerator
+    {
+    public:
+      Enumerator( Message* message )
+        : m_message( message ), m_iterator(0) {}
+
+      ~Enumerator()
+      {
+        if( m_iterator )
+          delete m_iterator;
+      }
+
+      __property Object* get_Current()
+      {
+        if( m_iterator == 0 )
+          return 0;
+        if( *m_iterator == m_message->unmanaged().getTrailer().end() )
+          return 0;
+        FIX::FieldBase field = (*m_iterator)->second;
+        return new StringField( field.getField(), field.getString().c_str() );
+      }
+
+      bool MoveNext()
+      {
+        if( m_iterator == 0 )
+        {
+          m_iterator = new FIX::Message::iterator();
+          *m_iterator = m_message->unmanaged().getTrailer().begin();
+        }
+        else
+        {
+          (*m_iterator)++;
+        }
+
+        return *m_iterator != m_message->unmanaged().getTrailer().end();
+      }
+
+      void Reset()
+      {
+        if( m_iterator )
+          delete m_iterator;
+        m_iterator = 0;
+      }
+
+    private:
+      Message* m_message;
+      FIX::Message::iterator* m_iterator;
+    };
 
   private:
     Message* m_message;
@@ -363,6 +528,24 @@ public:
   };
 
 private:
+  void mapSetString(int field, String* value, FIX::FieldMap& map);
+  void mapSetBoolean(int field, bool value, FIX::FieldMap& map);
+  void mapSetChar(int field, char value, FIX::FieldMap& map);
+  void mapSetInt(int field, int value, FIX::FieldMap& map);
+  void mapSetDouble(int field, double value, FIX::FieldMap& map);
+  void mapSetUtcTimeStamp(int field, DateTime value, FIX::FieldMap& map);
+  void mapSetUtcTimeOnly(int field, DateTime value, FIX::FieldMap& map);
+  void mapSetUtcDateOnly(int field, DateTime value, FIX::FieldMap& map);
+
+  String* mapGetString(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  bool mapGetBoolean(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  char mapGetChar(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  int mapGetInt(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  double mapGetDouble(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  DateTime mapGetUtcTimeStamp(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  DateTime mapGetUtcDateOnly(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  DateTime mapGetUtcTimeOnly(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+
   void mapSetField( StringField* field, FIX::FieldMap& map );
   void mapSetField( BooleanField* field, FIX::FieldMap& map );
   void mapSetField( CharField* field, FIX::FieldMap& map );
