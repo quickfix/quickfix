@@ -27,3 +27,7 @@ all-local:
 	ln -s ../src/ut ../bin/ut
 	ln -s ../src/pt ../bin/pt
 	ln -s ../src/at ../bin/at
+	./build.sh
+
+clean-local:
+	rm -f *.class
