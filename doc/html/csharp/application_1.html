@@ -1,4 +1,5 @@
-<B><CODE><PRE>
+<B><CODE>
+		<PRE>
 namespace QuickFix
 {
   public interface Application
@@ -6,10 +7,11 @@ namespace QuickFix
     public void onCreate(SessionID sessionID);
     public void onLogon(SessionID sessionID);
     public void onLogout(SessionID sessionID);
-    public void toAdmin(Message message, essionID sessionID);
+    public void toAdmin(Message message, SessionID sessionID);
     public void toApp(Message message, SessionID sessionID);
     public void fromAdmin(Message message, SessionID sessionID);
     public void fromApp(Message message, SessionID sessionID);
   }
 }
-</PRE></CODE></B>
+</PRE>
+	</CODE></B>

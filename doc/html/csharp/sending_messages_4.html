@@ -3,7 +3,7 @@ using QuickFix;
 
 void sendOrderCancelRequest()
 {
-  Fix41.OrderCancelRequest message(
+  QuickFix41.OrderCancelRequest message(
 	new OrigClOrdID("123"),
 	new ClOrdID("321"),
 	new Symbol("LNUX"),

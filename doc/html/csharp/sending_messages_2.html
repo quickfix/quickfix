@@ -19,7 +19,7 @@ public void sendOrderCancelRequest()
   // Symbol
   message.setField(new StringField(55, "LNUX"));
   // Side, with value enumeration
-  message.setField(new CharField(54, FIX::Side_BUY));
+  message.setField(new CharField(54, QuickFix.Side_BUY));
   // Text
   message.setField(new StringField(58, "Cancel My Order!"));
 

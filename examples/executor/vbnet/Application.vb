@@ -46,7 +46,19 @@ Public Class Application
         order.get(price)
         order.get(clOrdID)
 
-        Dim executionReport As New QuickFix40.ExecutionReport(genOrderID(), genExecID(), New ExecTransType(ExecTransType.[NEW]), New OrdStatus(OrdStatus.FILLED), symbol, side, orderQty, New LastShares(orderQty.getValue()), New LastPx(price.getValue()), New CumQty(orderQty.getValue()), New AvgPx(price.getValue()))
+        Dim executionReport As New QuickFix40.ExecutionReport( _
+            genOrderID(), _
+            genExecID(), _
+            New ExecTransType(ExecTransType.[NEW]), _
+            New OrdStatus(OrdStatus.FILLED), _
+            symbol, _
+            side, _
+            orderQty, _
+            New LastShares(orderQty.getValue()), _
+            New LastPx(price.getValue()), _
+            New CumQty(orderQty.getValue()), _
+            New AvgPx(price.getValue()))
+
         order.set(clOrdID)
 
         Try
@@ -75,7 +87,19 @@ Public Class Application
         order.get(price)
         order.get(clOrdID)
 
-        Dim executionReport As New QuickFix41.ExecutionReport(genOrderID(), genExecID(), New ExecTransType(ExecTransType.[NEW]), New ExecType(ExecType.FILL), New OrdStatus(OrdStatus.FILLED), symbol, side, orderQty, New LastShares(orderQty.getValue()), New LastPx(price.getValue()), New LeavesQty(0), New CumQty(orderQty.getValue()), New AvgPx(price.getValue()))
+        Dim executionReport As New QuickFix41.ExecutionReport( _
+            genOrderID(), _
+            genExecID(), _
+            New ExecTransType(ExecTransType.[NEW]), _
+            New ExecType(ExecType.FILL), _
+            New OrdStatus(OrdStatus.FILLED), _
+            symbol, side, orderQty, _
+            New LastShares(orderQty.getValue()), _
+            New LastPx(price.getValue()), _
+            New LeavesQty(0), _
+            New CumQty(orderQty.getValue()), _
+            New AvgPx(price.getValue()))
+
         order.set(clOrdID)
 
         Try
@@ -104,7 +128,18 @@ Public Class Application
         order.get(price)
         order.get(clOrdID)
 
-        Dim executionReport As New QuickFix42.ExecutionReport(genOrderID(), genExecID(), New ExecTransType(ExecTransType.[NEW]), New ExecType(ExecType.FILL), New OrdStatus(OrdStatus.FILLED), symbol, side, New LeavesQty(0), New CumQty(orderQty.getValue()), New AvgPx(price.getValue()))
+        Dim executionReport As New QuickFix42.ExecutionReport( _
+            genOrderID(), _
+            genExecID(), _
+            New ExecTransType(ExecTransType.[NEW]), _
+            New ExecType(ExecType.FILL), _
+            New OrdStatus(OrdStatus.FILLED), _
+            symbol, _
+            side, _
+            New LeavesQty(0), _
+            New CumQty(orderQty.getValue()), _
+            New AvgPx(price.getValue()))
+
         executionReport.set(clOrdID)
         executionReport.set(orderQty)
         executionReport.set(New LastShares(orderQty.getValue()))
@@ -136,7 +171,16 @@ Public Class Application
         order.get(price)
         order.get(clOrdID)
 
-        Dim executionReport As New QuickFix43.ExecutionReport(genOrderID(), genExecID(), New ExecType(ExecType.FILL), New OrdStatus(OrdStatus.FILLED), side, New LeavesQty(0), New CumQty(orderQty.getValue()), New AvgPx(price.getValue()))
+        Dim executionReport As New QuickFix43.ExecutionReport( _
+            genOrderID(), _
+            genExecID(), _
+            New ExecType(ExecType.FILL), _
+            New OrdStatus(OrdStatus.FILLED), _
+            side, _
+            New LeavesQty(0), _
+            New CumQty(orderQty.getValue()), _
+            New AvgPx(price.getValue()))
+
         executionReport.set(clOrdID)
         executionReport.set(orderQty)
         executionReport.set(New LastQty(orderQty.getValue()))

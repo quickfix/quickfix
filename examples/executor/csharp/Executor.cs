@@ -41,7 +41,7 @@ class Executor
       ScreenLogFactory logFactory = new ScreenLogFactory( true, true, true );
       MessageFactory messageFactory = new DefaultMessageFactory();
       SocketAcceptor acceptor
-      = new SocketAcceptor( application, factory, settings, logFactory, messageFactory );
+        = new SocketAcceptor( application, factory, settings, logFactory, messageFactory );
 
       acceptor.start();
       Console.WriteLine("press <enter> to quit");
