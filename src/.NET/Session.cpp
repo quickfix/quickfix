@@ -125,6 +125,21 @@ throw( SessionNotFound* )
   QF_STACK_CATCH
 }
 
+bool Session::sendToTarget( Message* message, String* qualifier )
+throw( SessionNotFound* )
+{ QF_STACK_TRY
+
+  try
+  {
+    Message __pin * pMessage = message;
+    return FIX::Session::sendToTarget( pMessage->unmanaged(), 
+                                       convertString( qualifier ) );
+  }
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }; 
+
+  QF_STACK_CATCH
+}
+
 bool Session::sendToTarget( Message* message, SessionID* sessionID )
 throw( SessionNotFound* )
 { QF_STACK_TRY
@@ -152,6 +167,25 @@ throw( SessionNotFound* )
            ( pMessage->unmanaged(),
              FIX::SenderCompID( convertString( senderCompID ) ),
              FIX::TargetCompID( convertString( targetCompID ) ) );
+  }
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
+
+  QF_STACK_CATCH
+}
+
+bool Session::sendToTarget
+( Message* message, String* senderCompID, String* targetCompID, String* qualifier )
+throw( SessionNotFound* )
+{ QF_STACK_TRY
+
+  try
+  {
+    Message __pin * pMessage = message;
+    return FIX::Session::sendToTarget
+           ( pMessage->unmanaged(),
+             FIX::SenderCompID( convertString( senderCompID ) ),
+             FIX::TargetCompID( convertString( targetCompID ) ),
+             convertString( qualifier ) );
   }
   catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
 

@@ -57,10 +57,15 @@ public:
 
   static bool sendToTarget( Message* message )
   throw( SessionNotFound* );
+  static bool sendToTarget( Message* message, String* qualifier )
+  throw( SessionNotFound* );
   static bool sendToTarget( Message* message, SessionID* sessionID )
   throw( SessionNotFound* );
   static bool sendToTarget
   ( Message* message, String* senderCompID, String* targetCompID )
+  throw( SessionNotFound* );
+  static bool sendToTarget
+  ( Message* message, String* senderCompID, String* targetCompID, String* qualifier )
   throw( SessionNotFound* );
 
   static bool doesSessionExist( SessionID* sessionID );
