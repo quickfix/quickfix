@@ -222,14 +222,17 @@ void DataDictionary::readFromURL( const std::string& url )
       DOMNodePtr pFieldValueNode = pFieldNode->getFirstChildNode();
       while(pFieldValueNode.get())
       {
-        DOMAttributesPtr attrs = pFieldValueNode->getAttributes();
-        std::string enumeration;
-        if(!attrs->get("enum", enumeration))
-          throw ConfigError(url + ": <value> does not have enum attribute in field " + name);
-        addFieldValue(num, enumeration);
-        std::string description;
-        if(attrs->get("description", description))
-          addValueName(num, enumeration, description);
+        if(pFieldValueNode->getName() == "value")
+        {
+          DOMAttributesPtr attrs = pFieldValueNode->getAttributes();
+          std::string enumeration;
+          if(!attrs->get("enum", enumeration))
+            throw ConfigError(url + ": <value> does not have enum attribute in field " + name);
+          addFieldValue(num, enumeration);
+          std::string description;
+          if(attrs->get("description", description))
+            addValueName(num, enumeration, description);
+        }
         RESET_AUTO_PTR(pFieldValueNode, pFieldValueNode->getNextSiblingNode());
       }
     }
