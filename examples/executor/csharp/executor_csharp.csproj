@@ -73,14 +73,14 @@
                     HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.XML.dll"
                 />
                 <Reference
-                    Name = "quickfix_net"
-                    AssemblyName = "quickfix_net"
-                    HintPath = "..\..\..\lib\quickfix_net.dll"
-                />
-                <Reference
                     Name = "quickfix_net_messages"
                     AssemblyName = "quickfix_net_messages"
                     HintPath = "..\..\..\lib\quickfix_net_messages.dll"
+                />
+                <Reference
+                    Name = "quickfix_net"
+                    AssemblyName = "quickfix_net"
+                    HintPath = "..\..\..\lib\quickfix_net.dll"
                 />
             </References>
         </Build>

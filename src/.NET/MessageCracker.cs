@@ -62,13 +62,13 @@ namespace QuickFix
       if( value.Equals("FIX.4.0") )
         ((QuickFix40.MessageCracker)this).crack( message, sessionID );
       else if( value.Equals("FIX.4.1") )
-        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+        ((QuickFix41.MessageCracker)this).crack( message, sessionID );
       else if( value.Equals("FIX.4.2") )
-        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+        ((QuickFix42.MessageCracker)this).crack( message, sessionID );
       else if( value.Equals("FIX.4.3") )
-        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+        ((QuickFix43.MessageCracker)this).crack( message, sessionID );
       else if( value.Equals("FIX.4.4") )
-        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+        ((QuickFix44.MessageCracker)this).crack( message, sessionID );
       else
         onMessage( message, sessionID );
     }
