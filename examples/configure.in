@@ -42,6 +42,18 @@ fi
 AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
+# check for JNI
+AC_MSG_CHECKING(for JNI)
+AC_TRY_COMPILE(
+	[#include "jni.h"],
+	[return 0;],
+	has_jni=true, has_jni=false)
+if test $has_jni = true
+then AC_MSG_RESULT(yes)
+else AC_MSG_RESULT(no)
+fi
+AM_CONDITIONAL(HAS_JNI, $has_jni)
+
 LIBS="$LIBS $XML_LIBS $STLPORT_LIBS"
 CXXFLAGS="$CXXFLAGS -I${prefix}/include -Wall $XML_CFLAGS $STLPORT_CFLAGS"
 AC_SUBST(CXXFLAGS)
