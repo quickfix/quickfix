@@ -685,7 +685,8 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  jstring result = newString( pMessage->toString() );
+  std::string messageString;
+  jstring result = newString( pMessage->toString(messageString) );
   return result;
 
   QF_STACK_CATCH
