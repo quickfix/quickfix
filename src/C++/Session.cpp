@@ -563,7 +563,11 @@ void Session::generateReject( const Message& message, int err, int field )
   if ( beginString >= FIX::BeginString_FIX42 )
   {
     reject.setField( RefMsgType( msgType ) );
-    reject.setField( SessionRejectReason( err ) );
+    if ( (beginString == FIX::BeginString_FIX42 && err <= SessionRejectReason_INVALID_MSGTYPE)
+       || beginString > FIX::BeginString_FIX42 )
+    {
+      reject.setField( SessionRejectReason( err ) );
+    }
   }
   if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset
        && !possDupFlag )
@@ -599,6 +603,9 @@ void Session::generateReject( const Message& message, int err, int field )
     break;
     case SessionRejectReason_INVALID_MSGTYPE:
     reason = &SessionRejectReason_INVALID_MSGTYPE_TEXT;
+    break;
+    case SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER:
+    reason = &SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT;
   };
 
   if ( reason && ( field || err == SessionRejectReason_INVALID_TAG_NUMBER ) )
@@ -933,8 +940,8 @@ catch ( MessageParseError& ) {}
     else
       generateReject( message, "Unsupported message type" );
   }
-  catch ( FieldsOutOfOrder & e )
-  { generateReject( message, e.what() ); }
+  catch ( TagOutOfOrder & e )
+  { generateReject( message, 14, e.field ); }
   catch ( IncorrectDataFormat & e )
   { generateReject( message, 6, e.field ); }
   catch ( IncorrectTagValue & e )
