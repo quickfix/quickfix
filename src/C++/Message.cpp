@@ -122,16 +122,16 @@ std::string Message::toXML() const
 { QF_STACK_PUSH(Message::toXML)
 
   std::stringstream stream;
-  stream << "<message>"                         << EOL
-         << std::setw(2) << " " << "<header>"   << EOL
+  stream << "<message>"                         << std::endl
+         << std::setw(2) << " " << "<header>"   << std::endl
          << toXMLFields(getHeader(), 4)
-         << std::setw(2) << " " << "</header>"  << EOL
-         << std::setw(2) << " " << "<body>"     << EOL
+         << std::setw(2) << " " << "</header>"  << std::endl
+         << std::setw(2) << " " << "<body>"     << std::endl
          << toXMLFields(*this, 4)
-         << std::setw(2) << " " << "</body>"    << EOL
-         << std::setw(2) << " " << "<trailer>"  << EOL
+         << std::setw(2) << " " << "</body>"    << std::endl
+         << std::setw(2) << " " << "<trailer>"  << std::endl
          << toXMLFields(getTrailer(), 4)
-         << std::setw(2) << " " << "</trailer>" << EOL
+         << std::setw(2) << " " << "</trailer>" << std::endl
          << "</message>";
 
   return stream.str();
@@ -161,7 +161,7 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     {
       stream << " enum=\"" << name << "\"";
     }
-    stream << "/>" << EOL;
+    stream << "/>" << std::endl;
   }
 
   FieldMap::g_iterator j;
@@ -170,9 +170,9 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     std::vector<FieldMap*>::const_iterator k;
     for(k = j->second.begin(); k != j->second.end(); ++k)
     {
-      stream << std::setw(space) << " " << "<group>" << EOL
+      stream << std::setw(space) << " " << "<group>" << std::endl
              << toXMLFields(*(*k), space+2)
-             << std::setw(space) << " " << "</group>" << EOL;
+             << std::setw(space) << " " << "</group>" << std::endl;
     }
   }
 

@@ -79,11 +79,11 @@ void ParserTestCase::extractLength::onRun( Parser& object )
 
   try { object.extractLength(length, pos, m_badLength);
         assert(false); }
-  catch( MessageParseError& e ) {}
+  catch( MessageParseError& ) {}
 
   try { object.extractLength(length, pos, m_negativeLength);
         assert(false); }
-  catch( MessageParseError& e ) {}
+  catch( MessageParseError& ) {}
 
   assert( !object.extractLength(length, pos, "") );
 }
