@@ -111,99 +111,89 @@ public:
   {
     Fix::MsgType* msgType = new Fix::MsgType();
     message->getHeader()->getField(msgType);
-    std::string msgTypeString = Fix::convertString(msgType->getValue());
-    if(msgTypeString.size() > 1)
-    {
-      onMessage( message, sessionID );
-      return;
-    }
+    std::string msgTypeValue = Fix::convertString(msgType->getValue());
 
-    switch(msgTypeString[0])
-    {
-      case '0':
-        onMessage( dynamic_cast<Heartbeat*>(message), sessionID );
-	      break;
-      case 'A':
-        onMessage( dynamic_cast<Logon*>(message), sessionID );
-	      break;
-      case '1':
-        onMessage( dynamic_cast<TestRequest*>(message), sessionID );
-	      break;
-      case '2':
-        onMessage( dynamic_cast<ResendRequest*>(message), sessionID );
-	      break;
-      case '3':
-        onMessage( dynamic_cast<Reject*>(message), sessionID );
-	      break;
-      case '4':
-        onMessage( dynamic_cast<SequenceReset*>(message), sessionID );
-	      break;
-      case '5':
-        onMessage( dynamic_cast<Logout*>(message), sessionID );
-	      break;
-      case '7':
-        onMessage( dynamic_cast<Advertisement*>(message), sessionID );
-	      break;
-      case '6':
-        onMessage( dynamic_cast<IndicationofInterest*>(message), sessionID );
-	      break;
-      case 'B':
-        onMessage( dynamic_cast<News*>(message), sessionID );
-	      break;
-      case 'C':
-        onMessage( dynamic_cast<Email*>(message), sessionID );
-	      break;
-      case 'R':
-        onMessage( dynamic_cast<QuoteRequest*>(message), sessionID );
-	      break;
-      case 'S':
-        onMessage( dynamic_cast<Quote*>(message), sessionID );
-	      break;
-      case 'D':
-        onMessage( dynamic_cast<NewOrderSingle*>(message), sessionID );
-	      break;
-      case '8':
-        onMessage( dynamic_cast<ExecutionReport*>(message), sessionID );
-	      break;
-      case 'Q':
-        onMessage( dynamic_cast<DontKnowTrade*>(message), sessionID );
-	      break;
-      case 'G':
-        onMessage( dynamic_cast<OrderCancelReplaceRequest*>(message), sessionID );
-	      break;
-      case 'F':
-        onMessage( dynamic_cast<OrderCancelRequest*>(message), sessionID );
-	      break;
-      case '9':
-        onMessage( dynamic_cast<OrderCancelReject*>(message), sessionID );
-	      break;
-      case 'H':
-        onMessage( dynamic_cast<OrderStatusRequest*>(message), sessionID );
-	      break;
-      case 'J':
-        onMessage( dynamic_cast<Allocation*>(message), sessionID );
-	      break;
-      case 'P':
-        onMessage( dynamic_cast<AllocationACK*>(message), sessionID );
-	      break;
-      case 'E':
-        onMessage( dynamic_cast<NewOrderList*>(message), sessionID );
-	      break;
-      case 'N':
-        onMessage( dynamic_cast<ListStatus*>(message), sessionID );
-	      break;
-      case 'L':
-        onMessage( dynamic_cast<ListExecute*>(message), sessionID );
-	      break;
-      case 'K':
-        onMessage( dynamic_cast<ListCancelRequest*>(message), sessionID );
-	      break;
-      case 'M':
-        onMessage( dynamic_cast<ListStatusRequest*>(message), sessionID );
-	      break;
-      default:
-        onMessage( message, sessionID );
-    }
+    if( msgTypeValue == "0" )
+      onMessage( dynamic_cast<Heartbeat*>(message), sessionID );
+    else
+    if( msgTypeValue == "A" )
+      onMessage( dynamic_cast<Logon*>(message), sessionID );
+    else
+    if( msgTypeValue == "1" )
+      onMessage( dynamic_cast<TestRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "2" )
+      onMessage( dynamic_cast<ResendRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "3" )
+      onMessage( dynamic_cast<Reject*>(message), sessionID );
+    else
+    if( msgTypeValue == "4" )
+      onMessage( dynamic_cast<SequenceReset*>(message), sessionID );
+    else
+    if( msgTypeValue == "5" )
+      onMessage( dynamic_cast<Logout*>(message), sessionID );
+    else
+    if( msgTypeValue == "7" )
+      onMessage( dynamic_cast<Advertisement*>(message), sessionID );
+    else
+    if( msgTypeValue == "6" )
+      onMessage( dynamic_cast<IndicationofInterest*>(message), sessionID );
+    else
+    if( msgTypeValue == "B" )
+      onMessage( dynamic_cast<News*>(message), sessionID );
+    else
+    if( msgTypeValue == "C" )
+      onMessage( dynamic_cast<Email*>(message), sessionID );
+    else
+    if( msgTypeValue == "R" )
+      onMessage( dynamic_cast<QuoteRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "S" )
+      onMessage( dynamic_cast<Quote*>(message), sessionID );
+    else
+    if( msgTypeValue == "D" )
+      onMessage( dynamic_cast<NewOrderSingle*>(message), sessionID );
+    else
+    if( msgTypeValue == "8" )
+      onMessage( dynamic_cast<ExecutionReport*>(message), sessionID );
+    else
+    if( msgTypeValue == "Q" )
+      onMessage( dynamic_cast<DontKnowTrade*>(message), sessionID );
+    else
+    if( msgTypeValue == "G" )
+      onMessage( dynamic_cast<OrderCancelReplaceRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "F" )
+      onMessage( dynamic_cast<OrderCancelRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "9" )
+      onMessage( dynamic_cast<OrderCancelReject*>(message), sessionID );
+    else
+    if( msgTypeValue == "H" )
+      onMessage( dynamic_cast<OrderStatusRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "J" )
+      onMessage( dynamic_cast<Allocation*>(message), sessionID );
+    else
+    if( msgTypeValue == "P" )
+      onMessage( dynamic_cast<AllocationACK*>(message), sessionID );
+    else
+    if( msgTypeValue == "E" )
+      onMessage( dynamic_cast<NewOrderList*>(message), sessionID );
+    else
+    if( msgTypeValue == "N" )
+      onMessage( dynamic_cast<ListStatus*>(message), sessionID );
+    else
+    if( msgTypeValue == "L" )
+      onMessage( dynamic_cast<ListExecute*>(message), sessionID );
+    else
+    if( msgTypeValue == "K" )
+      onMessage( dynamic_cast<ListCancelRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "M" )
+      onMessage( dynamic_cast<ListStatusRequest*>(message), sessionID );
+    else onMessage( message, sessionID );    
   }
 
   };
