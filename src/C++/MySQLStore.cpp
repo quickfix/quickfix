@@ -321,6 +321,7 @@ void MySQLStore::reset() throw ( IOException& )
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw IOException();
 
+  m_cache.reset();
   UtcTimeStamp time = m_cache.getCreationTime();
   char sqlTime[ 20 ];
   strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
