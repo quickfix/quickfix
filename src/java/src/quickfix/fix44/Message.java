@@ -6,11 +6,14 @@ import quickfix.field.*;
 public class Message extends quickfix.Message {
   public Message() {
     super();
-    header = new Header();
-    trailer = new Trailer();
+    header = new Header( this );
+    trailer = new Trailer( this );
     getHeader().setField(new BeginString("FIX.4.4"));
   }
   public class Header extends quickfix.Message.Header {
+    public Header( Message message ) {
+      super( message );
+    }
       public void set(quickfix.field.BeginString value)
       { setField(value); }
       public quickfix.field.BeginString get(quickfix.field.BeginString  value)

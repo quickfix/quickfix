@@ -37,8 +37,8 @@ class GeneratorJava
     @f.puts "public class Message extends quickfix.Message {"
     @f.puts "  public Message() {"
     @f.puts "    super();"
-    @f.puts "    header = new Header();"
-    @f.puts "    trailer = new Trailer();"
+    @f.puts "    header = new Header( this );"
+    @f.puts "    trailer = new Trailer( this );"
     @f.puts "    getHeader().setField(new BeginString(\"" + @beginstring + "\"));"
     @f.puts "  }"
   end
@@ -63,6 +63,9 @@ class GeneratorJava
   def headerStart
     @depth += 1
     @f.puts tabs + "public class Header extends quickfix.Message.Header {"
+    @f.puts tabs + "  public Header( Message message ) {"
+    @f.puts tabs + "    super( message );"
+    @f.puts tabs + "  }"
   end
 
   def headerEnd
