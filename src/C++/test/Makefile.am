@@ -24,6 +24,8 @@ libquickfixcpptest_la_SOURCES = \
 	UtcTimeOnlyTestCase.h \
 	AcceptorTestCase.cpp \
 	AcceptorTestCase.h \
+	SocketAcceptorTestCase.cpp \
+	SocketAcceptorTestCase.h \
 	SocketUtilitiesTestCase.cpp \
 	SocketUtilitiesTestCase.h \
 	FileUtilitiesTestCase.cpp \
