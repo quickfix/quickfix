@@ -63,6 +63,92 @@ public class Application: Fix.MessageCracker, Fix.Application
   public void fromApp( Fix.Message message, Fix.SessionID sessionID )
   { crack( message, sessionID ); }
 
+  public override void onMessage( Fix40.NewOrderSingle order, Fix.SessionID sessionID )
+  {
+    Fix.Symbol symbol = new Fix.Symbol();
+    Fix.Side side = new Fix.Side();
+    Fix.OrdType ordType = new Fix.OrdType();
+    Fix.OrderQty orderQty = new Fix.OrderQty();
+    Fix.Price price = new Fix.Price();
+    Fix.ClOrdID clOrdID = new Fix.ClOrdID();
+
+    order.get( ordType );
+
+    if ( ordType.getValue() != Fix.OrdType.LIMIT )
+      throw new Fix.IncorrectTagValue( ordType.getField() );
+
+    order.get( symbol );
+    order.get( side );
+    order.get( orderQty );
+    order.get( price );
+    order.get( clOrdID );
+
+    Fix40.ExecutionReport executionReport = new Fix40.ExecutionReport
+        ( genOrderID(),
+          genExecID(),
+          new Fix.ExecTransType( Fix.ExecTransType.NEW ),
+          new Fix.OrdStatus ( Fix.OrdStatus.FILLED ),
+          symbol,
+          side,
+          orderQty,
+          new Fix.LastShares ( orderQty.getValue() ),
+          new Fix.LastPx ( price.getValue() ),
+          new Fix.CumQty ( orderQty.getValue() ),
+          new Fix.AvgPx ( price.getValue() ) );
+
+    executionReport.set( clOrdID );
+
+    try
+    {
+      Fix.Session.sendToTarget( executionReport, sessionID );
+    }
+    catch ( Fix.SessionNotFound ) {}
+  }
+
+  public override void onMessage( Fix41.NewOrderSingle order, Fix.SessionID sessionID )
+  {
+    Fix.Symbol symbol = new Fix.Symbol();
+    Fix.Side side = new Fix.Side();
+    Fix.OrdType ordType = new Fix.OrdType();
+    Fix.OrderQty orderQty = new Fix.OrderQty();
+    Fix.Price price = new Fix.Price();
+    Fix.ClOrdID clOrdID = new Fix.ClOrdID();
+
+    order.get( ordType );
+
+    if ( ordType.getValue() != Fix.OrdType.LIMIT )
+      throw new Fix.IncorrectTagValue( ordType.getField() );
+
+    order.get( symbol );
+    order.get( side );
+    order.get( orderQty );
+    order.get( price );
+    order.get( clOrdID );
+
+    Fix41.ExecutionReport executionReport = new Fix41.ExecutionReport
+        ( genOrderID(),
+          genExecID(),
+          new Fix.ExecTransType( Fix.ExecTransType.NEW ),
+          new Fix.ExecType( Fix.ExecType.NEW ),
+          new Fix.OrdStatus ( Fix.OrdStatus.NEW ),
+          symbol,
+          side,
+          orderQty,
+          new Fix.LastShares ( orderQty.getValue() ),
+          new Fix.LastPx ( price.getValue() ),
+          new Fix.LeavesQty( 0 ),
+          new Fix.CumQty ( orderQty.getValue() ),
+          new Fix.AvgPx ( price.getValue() ) );
+
+    executionReport.set( clOrdID );
+
+    try
+    {
+      Fix.Session.sendToTarget( executionReport, sessionID );
+    }
+    catch ( Fix.SessionNotFound ) {}
+  }
+
   public override void onMessage( Fix42.NewOrderSingle order, Fix.SessionID sessionID )
   {
     Fix.Symbol symbol = new Fix.Symbol();
@@ -86,9 +172,9 @@ public class Application: Fix.MessageCracker, Fix.Application
     Fix42.ExecutionReport executionReport = new Fix42.ExecutionReport
                                             ( genOrderID(),
                                               genExecID(),
-                                              new Fix.ExecTransType( '0' ),
-                                              new Fix.ExecType ( Fix.ExecType.NEW ),
-                                              new Fix.OrdStatus ( Fix.OrdStatus.NEW ),
+                                              new Fix.ExecTransType( Fix.ExecTransType.NEW ),
+                                              new Fix.ExecType ( Fix.ExecType.FILL ),
+                                              new Fix.OrdStatus ( Fix.OrdStatus.FILLED ),
                                               symbol,
                                               side,
                                               new Fix.LeavesQty ( 0 ),
@@ -104,7 +190,51 @@ public class Application: Fix.MessageCracker, Fix.Application
     {
       Fix.Session.sendToTarget( executionReport, sessionID );
     }
-    catch ( Fix.SessionNotFound ) {}}
+    catch ( Fix.SessionNotFound ) {}
+  }
+
+  public override void onMessage( Fix43.NewOrderSingle order, Fix.SessionID sessionID )
+  {
+    Fix.Symbol symbol = new Fix.Symbol();
+    Fix.Side side = new Fix.Side();
+    Fix.OrdType ordType = new Fix.OrdType();
+    Fix.OrderQty orderQty = new Fix.OrderQty();
+    Fix.Price price = new Fix.Price();
+    Fix.ClOrdID clOrdID = new Fix.ClOrdID();
+
+    order.get( ordType );
+
+    if ( ordType.getValue() != Fix.OrdType.LIMIT )
+      throw new Fix.IncorrectTagValue( ordType.getField() );
+
+    order.get( symbol );
+    order.get( side );
+    order.get( orderQty );
+    order.get( price );
+    order.get( clOrdID );
+
+    Fix43.ExecutionReport executionReport = new Fix43.ExecutionReport
+                                            ( genOrderID(),
+                                              genExecID(),
+                                              new Fix.ExecType ( Fix.ExecType.FILL ),
+                                              new Fix.OrdStatus ( Fix.OrdStatus.FILLED ),
+                                              side,
+                                              new Fix.LeavesQty ( 0 ),
+                                              new Fix.CumQty ( orderQty.getValue() ),
+                                              new Fix.AvgPx ( price.getValue() ) );
+
+    executionReport.set( clOrdID );
+    executionReport.set( symbol );
+    executionReport.set( orderQty );
+    executionReport.set( new Fix.LastQty( orderQty.getValue() ) );
+    executionReport.set( new Fix.LastPx( price.getValue() ) );
+
+    try
+    {
+      Fix.Session.sendToTarget( executionReport, sessionID );
+    }
+    catch ( Fix.SessionNotFound ) {}
+  }
 
   public void onRun() { while ( true ) Thread.Sleep( 1000 ); }
 
