@@ -823,6 +823,15 @@ void SessionTestCase::isSameSession::onRun( Session& object )
   time2 = UtcTimeStamp( 20, 0, 0, 10, 10, 2000 );
   assert( !Session::isSameSession( start, end, time1, time2 ) );
   assert( !Session::isSameSession( start, end, time2, time1 ) );
+
+  // start time is greater than end time
+  start = UtcTimeOnly( 6, 0, 0 );
+  end = UtcTimeOnly( 6, 0, 0 );
+  time1 = UtcTimeStamp( 19, 10, 0, 1, 13, 2004 );
+  time2 = UtcTimeStamp( 19, 06, 0, 1, 14, 2004 );
+  assert( !Session::isSameSession( start, end, time1, time2 ) );
+  assert( !Session::isSameSession( start, end, time2, time1 ) );
+
 }
 
 bool SessionTestCase::resetOnEndTime::onSetup( Session*& pObject )
