@@ -32,6 +32,7 @@
 #include <quickfix/Session.h>
 #include <quickfix/CallStack.h>
 #include "Conversions.h"
+#include "JavaMessageStore.h"
 #include <iostream>
 
 JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2
@@ -327,8 +328,9 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getStore
   JVMObject jobject( obj );
   FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
   JVMClass type( "Lquickfix/CppMessageStore;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-  JVMObject result = pEnv->NewObject( type, method, ( jint ) pSession->getStore() );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
+  JVMObject result = pEnv->NewObject( type, method );
+  JavaMessageStore_create( pEnv, result, pSession->getStore() );
   return result;
 
   QF_STACK_CATCH
