@@ -135,6 +135,8 @@ int FieldMap::groupCount( int field ) const
   if( i == m_groups.end() )
     return 0;
   return i->second.size();
+
+  QF_STACK_POP
 }
 
 void FieldMap::clear()
