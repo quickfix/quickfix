@@ -102,6 +102,10 @@ SOURCE=".\src\C++\Test\DictionaryTestCase.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\test\FieldBaseTestCase.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\Test\FieldConvertorsTestCase.cpp"
 # End Source File
 # Begin Source File
