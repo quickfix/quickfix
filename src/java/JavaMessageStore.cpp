@@ -247,6 +247,7 @@ void JavaMessageStore::handleException( JNIEnv* env, Exceptions& e ) const
     {
       env->ExceptionDescribe();
       env->ExceptionClear();
+      exit(1);
     }
   }
 }

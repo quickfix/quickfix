@@ -90,8 +90,10 @@ void JavaApplication::onCreate( const FIX::SessionID& sessionID )
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jsessionid = newSessionID( sessionID );
+  Exceptions e;
   pEnv->CallVoidMethod( m_object, onCreateId, jsessionid );
   pEnv->DeleteLocalRef( jsessionid );
+  handleException( pEnv, e );
 };
 
 void JavaApplication::onLogon( const FIX::SessionID& sessionID )
@@ -99,8 +101,10 @@ void JavaApplication::onLogon( const FIX::SessionID& sessionID )
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jsessionid = newSessionID( sessionID );
+  Exceptions e;
   pEnv->CallVoidMethod( m_object, onLogonId, jsessionid );
   pEnv->DeleteLocalRef( jsessionid );
+  handleException( pEnv, e );
 };
 
 void JavaApplication::onLogout( const FIX::SessionID& sessionID )
@@ -108,8 +112,10 @@ void JavaApplication::onLogout( const FIX::SessionID& sessionID )
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jsessionid = newSessionID( sessionID );
+  Exceptions e;
   pEnv->CallVoidMethod( m_object, onLogoutId, jsessionid );
   pEnv->DeleteLocalRef( jsessionid );
+  handleException( pEnv, e );
 };
 
 void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionID )
@@ -118,10 +124,12 @@ void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionI
   JNIEnv* pEnv = ENV::get();
   JVMObject jmsg = newMessage( msg, m_factory );
   JVMObject jsessionid = newSessionID( sessionID );
+  Exceptions e;
   pEnv->CallVoidMethod( m_object, notifyToAdminId, (jobject)jmsg, (jobject)jsessionid );
   msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
   jsessionid.deleteLocalRef();
   jmsg.deleteLocalRef();
+  handleException( pEnv, e );
 }
 
 void JavaApplication::toApp( FIX::Message& msg, const FIX::SessionID& sessionID )
@@ -178,8 +186,10 @@ throw( FIX::FieldNotFound&,
 void JavaApplication::onRun()
 {
   JNIEnv * pEnv = ENV::get();
+  Exceptions e;
   pEnv->CallVoidMethod( m_object, onRunId );
   JVM::get() ->DetachCurrentThread();
+  handleException( pEnv, e );
 };
 
 void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
@@ -221,6 +231,7 @@ void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
     {
       env->ExceptionDescribe();
       env->ExceptionClear();
+      exit(1);
     }
   }
 }
