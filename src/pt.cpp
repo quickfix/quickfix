@@ -107,7 +107,7 @@ int main( int argc, char** argv )
   report( testCreateNewOrderSingle( count ), count );
 
   std::cout << "Serializing NewOrderSingle messages to strings: ";
-  report( testCreateNewOrderSingle( count ), count );
+  report( testSerializeToStringNewOrderSingle( count ), count );
 
   std::cout << "Serializing NewOrderSingle messages from strings: ";
   report( testSerializeFromStringNewOrderSingle( count ), count );
