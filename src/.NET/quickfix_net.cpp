@@ -50,24 +50,14 @@
 #include "stdafx.h"
 
 #include "quickfix_net.h"
-#include "Fields.h"
 #include "Application.h"
-#include "MessageStore.h"
-#include "MessageStoreFactory.h"
-#include "MemoryMessageStore.h"
-#include "FileMessageStore.h"
-#include "MySQLMessageStore.h"
-#include "ScreenLog.h"
 #include "SocketInitiator.h"
 #include "SocketAcceptor.h"
 #include "ThreadedSocketInitiator.h"
 #include "ThreadedSocketAcceptor.h"
 #include "DefaultMessageFactory.h"
+#include "MessageFactory.h"
 #include "MessageCracker.h"
-#include "Group.h"
-#include "ScreenLog.h"
-#include "FileLog.h"
-#include "MySQLLog.h"
 
 namespace Fix
 {
