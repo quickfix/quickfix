@@ -2094,6 +2094,7 @@ namespace QuickFix
   static const String* TAX_EQUIVALENT_YIELD = "TAXEQUIV";
   static const String* YIELD_TO_TENDER_DATE = "TENDER";
   static const String* TRUE_YIELD = "TRUE";
+  static const String* YIELD_VALUE_OF_1_32 = "VALUE1_32";
   static const String* YIELD_TO_WORST = "WORST";
   YieldType() : StringField(235) {}
     YieldType(String* data) : StringField(235, data) {}

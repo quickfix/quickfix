@@ -55,18 +55,16 @@
 
  <xsl:template match="/">/* -*- C++ -*- */<xsl:copy-of select=
    "document('../LICENSE.xml')"/>
-#include "Message.h"
-#include "MessageFactory.h"
+using System;
 
 namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
 {
 
-  public __gc class MessageFactory : public QuickFix::MessageFactory
+  public class MessageFactory : QuickFix.MessageFactory
   {
-  public:
-    QuickFix::Message* create( String* beginString, String* msgType ) {
+    public QuickFix.Message create( String beginString, String msgType ) {
     <xsl:call-template name="if-statement"/>
-    return new QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>::Message();
+    return new QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.Message();
     }
   };
 }
@@ -74,8 +72,8 @@ namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//f
 
   <xsl:template name="if-statement">
    <xsl:for-each select="//fix/messages/message">
-     if(msgType->Equals("<xsl:value-of select="@msgtype"/>")) {
-       return new QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>::<xsl:value-of select="@name"/>();
+     if(msgType.Equals("<xsl:value-of select="@msgtype"/>")) {
+       return new QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.<xsl:value-of select="@name"/>();
      }
    </xsl:for-each>
   </xsl:template>

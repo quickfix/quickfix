@@ -55,9 +55,7 @@
 #include "SocketAcceptor.h"
 #include "ThreadedSocketInitiator.h"
 #include "ThreadedSocketAcceptor.h"
-#include "DefaultMessageFactory.h"
 #include "MessageFactory.h"
-#include "MessageCracker.h"
 
 namespace QuickFix
 {

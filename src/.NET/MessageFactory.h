@@ -54,16 +54,10 @@ using namespace System;
 
 #include "quickfix_net.h"
 
-#include "FIX40_Messages.h"
-#include "FIX41_Messages.h"
-#include "FIX42_Messages.h"
-#include "FIX43_Messages.h"
-
 namespace QuickFix
 {
 public __gc __interface MessageFactory
 {
-  virtual QuickFix::Message* create( String* beginString, 
-				     String* msgType ) = 0;
+  virtual QuickFix::Message* create( String* beginString,  String* msgType ) = 0;
 };
 }

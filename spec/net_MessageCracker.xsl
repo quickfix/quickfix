@@ -55,22 +55,14 @@
 
  <xsl:template match="/">/* -*- C++ -*- */<xsl:copy-of select=
    "document('../LICENSE.xml')"/>
-#pragma once
-
-#include "quickfix_net.h"
-#include "Messages.h"
-#include "SessionID.h"
-#include "Exceptions.h"
-<xsl:call-template name="includes"/>
+using System;
 
 namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
 {
-  public __gc class MessageCracker <xsl:call-template name="base-class"/>
+  public class MessageCracker <xsl:call-template name="base-class"/>
   {
-  public:
-  virtual ~MessageCracker() {}
-  virtual void onMessage( QuickFix::Message*, QuickFix::SessionID* )
-    { throw new QuickFix::UnsupportedMessageType(); }
+  public new void onMessage( QuickFix.Message message, QuickFix.SessionID session )
+    { throw new QuickFix.UnsupportedMessageType(); }
 <xsl:call-template name="virtual-functions"/>
 <xsl:call-template name="switch-statement"/>
   };
@@ -79,8 +71,8 @@ namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//f
 </xsl:template>
 
 <xsl:template name="virtual-functions">
- <xsl:for-each select="//fix/messages/message[@msgcat='app']"> virtual void onMessage( <xsl:value-of select="@name"/>*, QuickFix::SessionID* ) 
- <xsl:if test="@name!='BusinessMessageReject'">   { throw new QuickFix::UnsupportedMessageType(); }
+ <xsl:for-each select="//fix/messages/message"> public virtual void onMessage( <xsl:value-of select="@name"/> message, QuickFix.SessionID session ) 
+ <xsl:if test="@name!='BusinessMessageReject'">   { throw new QuickFix.UnsupportedMessageType(); }
  </xsl:if>
  <xsl:if test="@name='BusinessMessageReject'">   {}
  </xsl:if>
@@ -88,36 +80,29 @@ namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//f
 </xsl:template>
 
 <xsl:template name="switch-statement">
-public:
-  void crack( QuickFix::Message* message, 
-              QuickFix::SessionID* sessionID )
+
+  public new void crack( QuickFix.Message message, 
+                     QuickFix.SessionID sessionID )
   {
-    QuickFix::MsgType* msgType = new QuickFix::MsgType();
-    message->getHeader()->getField(msgType);
-    std::string msgTypeValue = QuickFix::convertString(msgType->getValue());
+    QuickFix.MsgType msgType = new QuickFix.MsgType();
+    message.getHeader().getField(msgType);
+    String msgTypeValue = msgType.getValue();
 
     <xsl:for-each select="//fix/messages/message">
     <xsl:if test="position()!=1">
     else
     </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
-      onMessage( dynamic_cast&lt;<xsl:value-of select="@name"/>*&gt;(message), sessionID );</xsl:for-each>
+      onMessage( (<xsl:value-of select="@name"/>)(message), sessionID );</xsl:for-each>
     else onMessage( message, sessionID );    
   }
 </xsl:template>
 
-<xsl:template name="includes">
- <xsl:if test="//fix/@major='4'">
-   <xsl:if test="//fix/@minor='1'">#include "FIX40_MessageCracker.h"</xsl:if>
-   <xsl:if test="//fix/@minor='2'">#include "FIX41_MessageCracker.h"</xsl:if>
-   <xsl:if test="//fix/@minor='3'">#include "FIX42_MessageCracker.h"</xsl:if>
- </xsl:if>
-</xsl:template>
-
 <xsl:template name="base-class">
  <xsl:if test="//fix/@major='4'">
-   <xsl:if test="//fix/@minor='1'">: public QuickFix40::MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='2'">: public QuickFix41::MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='3'">: public QuickFix42::MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='1'">: QuickFix40.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='2'">: QuickFix41.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='3'">: QuickFix42.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='4'">: QuickFix43.MessageCracker</xsl:if>
  </xsl:if>
 </xsl:template>
 

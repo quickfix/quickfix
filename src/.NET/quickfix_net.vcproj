@@ -12,7 +12,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\..\lib"
+			OutputDirectory="..\..\lib\debug"
 			IntermediateDirectory="Debug"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -33,10 +33,10 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="quickfix_debug.lib ws2_32.lib"
-				OutputFile="$(OutDir)/quickfix_net_debug.dll"
+				AdditionalDependencies="quickfix.lib ws2_32.lib"
+				OutputFile="$(OutDir)/quickfix_net.dll"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\lib"
+				AdditionalLibraryDirectories="..\..\lib\debug"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -168,58 +168,10 @@
 				RelativePath="Application.h">
 			</File>
 			<File
-				RelativePath="DefaultMessageFactory.h">
-			</File>
-			<File
 				RelativePath="DeprecatedFields.h">
 			</File>
 			<File
 				RelativePath="Exceptions.h">
-			</File>
-			<File
-				RelativePath="FIX40_MessageCracker.h">
-			</File>
-			<File
-				RelativePath="FIX40_MessageFactory.h">
-			</File>
-			<File
-				RelativePath="FIX40_Messages.h">
-			</File>
-			<File
-				RelativePath="FIX41_MessageCracker.h">
-			</File>
-			<File
-				RelativePath="FIX41_MessageFactory.h">
-			</File>
-			<File
-				RelativePath="FIX41_Messages.h">
-			</File>
-			<File
-				RelativePath="FIX42_MessageCracker.h">
-			</File>
-			<File
-				RelativePath="FIX42_MessageFactory.h">
-			</File>
-			<File
-				RelativePath="FIX42_Messages.h">
-			</File>
-			<File
-				RelativePath="FIX43_MessageCracker.h">
-			</File>
-			<File
-				RelativePath="FIX43_MessageFactory.h">
-			</File>
-			<File
-				RelativePath="FIX43_Messages.h">
-			</File>
-			<File
-				RelativePath="FIX44_MessageCracker.h">
-			</File>
-			<File
-				RelativePath="FIX44_MessageFactory.h">
-			</File>
-			<File
-				RelativePath="FIX44_Messages.h">
 			</File>
 			<File
 				RelativePath="Field.h">
