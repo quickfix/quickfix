@@ -680,7 +680,7 @@ void Session::generateReject( const Message& message, int err, int field )
 
   if ( beginString >= FIX::BeginString_FIX42 )
   {
-    if( msgType.getString() == "" )
+    if( msgType.getString() != "" )
       reject.setField( RefMsgType( msgType ) );
     if ( (beginString == FIX::BeginString_FIX42
           && err <= SessionRejectReason_INVALID_MSGTYPE)
