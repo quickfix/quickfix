@@ -171,7 +171,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doStart
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlokcingStart
+JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlockingStart
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 

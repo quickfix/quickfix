@@ -1,3 +1,8 @@
+2003-10-01 11:37  alexhornby
+
+	* src/java/org_quickfix/SocketInitiator.cpp: fix typo of
+	doBlockingStart
+
 2003-08-27 14:07  orenmnero
 
 	* NEWS: [no log message]
