@@ -414,6 +414,18 @@ void DataDictionaryTestCase::readFromFile::onRun
   assert( name == "WORK" );
   assert( object.getValueName( 18, "W", name ) );
   assert( name == "PEG_TO_VWAP" );
+
+  DataDictionary* pDD = 0;
+  int delim = 0;
+  assert( object.getGroup( "b", 296, delim, pDD ) );
+  assert( delim == 302 );
+  assert( pDD->isField( 295 ) );
+  assert( pDD->isField( 310 ) );
+  assert( !pDD->isField( 55 ) );
+  assert( pDD->getGroup( "b", 295, delim, pDD ) );
+  assert( delim == 299 );
+  assert( pDD->isField( 55 ) );
+  assert( !pDD->isField( 310 ) );
 }
 
 bool DataDictionaryTestCase::copy::onSetup

@@ -449,6 +449,12 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
     }
     else if( node->getName() == "group" )
     {
+      DOMAttributesPtr attrs = node->getAttributes();
+      std::string name;
+      if(!attrs->get("name", name))
+        throw ConfigError("No name given to group");
+      int field = lookupXMLFieldNumber( pDoc, name );
+      groupDD.addField( field );
       addXMLGroup( pDoc, node.get(), msgtype, groupDD );
     }
     RESET_AUTO_PTR(node, node->getNextSiblingNode());
