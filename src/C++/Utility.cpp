@@ -59,8 +59,10 @@ void socket_init()
   WSADATA data;
   WSAStartup( version, &data );
 #else
-struct sigaction sa;
+  struct sigaction sa;
   sa.sa_handler = SIG_IGN;
+  sigemptyset( &sa.sa_mask );
+  sa.sa_flags = 0;
   sigaction( SIGPIPE, &sa, 0 );
 #endif
 
