@@ -1,2 +1,2 @@
-SUBDIRS = quickfix
+SUBDIRS = ui
 EXTRA_DIST = *.java
