@@ -101,11 +101,11 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="quickfix_debug.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="bin\ut_debug.exe"
+				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				OutputFile="bin\debug\ut.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="lib"
+				AdditionalLibraryDirectories="lib\debug"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile=".\Debug/ut_debug.pdb"
 				SubSystem="1"/>
@@ -224,6 +224,9 @@
 						Name="VCCLCompilerTool"
 						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="src\C++\test\FileUtilitiesTestCase.cpp">
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\MessageStoreTestCase.cpp">
@@ -447,6 +450,9 @@
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\FileStoreTestCase.h">
+			</File>
+			<File
+				RelativePath="src\C++\test\FileUtilitiesTestCase.h">
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\MemoryStoreTestCase.h">

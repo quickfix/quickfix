@@ -1,1 +1,1 @@
-executor_cpp_debug cfg\executor.cfg
+debug\executor_cpp cfg\executor.cfg
