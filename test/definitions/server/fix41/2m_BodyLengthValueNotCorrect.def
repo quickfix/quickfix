@@ -17,17 +17,18 @@ I8=FIX.4.135=D34=249=TW52=<TIME>56=ISLD122=<TIME>11=ID21=338=10040=15
 E8=FIX.4.19=8135=D34=349=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
 E8=FIX.4.19=8135=D34=449=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
 
-# Send a message with a length that is too long, it should be rejected
-# since it will combine with the next message
+# Send a message with a length that is too long, it will combine with the next message
+# and be ignored
 I8=FIX.4.19=11135=D34=449=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
 I8=FIX.4.135=D34=549=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
-E8=FIX.4.19=9335=334=549=ISLD52=00000000-00:00:1856=TW45=558=Tag specified out of required order (8)10=0
 
 # sending the last bad message correctly
+I8=FIX.4.135=D34=449=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
 I8=FIX.4.135=D34=549=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+E8=FIX.4.19=8135=D34=549=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
 E8=FIX.4.19=8135=D34=649=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
 
 # logout message and response
-I8=FIX.4.135=534=649=TW52=<TIME>56=ISLD
+I8=FIX.4.135=534=749=TW52=<TIME>56=ISLD
 E8=FIX.4.19=4535=534=749=ISLD52=00000000-00:00:0056=TW10=0
 eDISCONNECT
