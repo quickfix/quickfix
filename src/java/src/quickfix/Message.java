@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 import java.util.Date;
 
 public class Message extends FieldMap {

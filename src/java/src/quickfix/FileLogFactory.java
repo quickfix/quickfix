@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public class FileLogFactory implements LogFactory {
     private int cppPointer;

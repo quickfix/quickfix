@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public class MySQLStoreFactory implements MessageStoreFactory {
     private int cppPointer;

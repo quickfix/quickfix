@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public interface Log {
     void onIncoming( String string );

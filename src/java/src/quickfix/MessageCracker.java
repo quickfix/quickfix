@@ -47,13 +47,13 @@
 * ====================================================================
 */
 
-package org.quickfix;
+package quickfix;
 
-import org.quickfix.field.*;
+import quickfix.field.*;
 
-public class MessageCracker extends org.quickfix.fix44.MessageCracker {
+public class MessageCracker extends quickfix.fix44.MessageCracker {
 
-    public void crack( org.quickfix.Message message, SessionID sessionID )
+    public void crack( quickfix.Message message, SessionID sessionID )
     throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue {
 
         BeginString beginString = new BeginString();
@@ -61,15 +61,15 @@ public class MessageCracker extends org.quickfix.fix44.MessageCracker {
         String value = beginString.getValue();
 
         if(value.equals("FIX.4.0"))
-            crack40((org.quickfix.fix40.Message)message, sessionID);
+            crack40((quickfix.fix40.Message)message, sessionID);
         else if(value.equals("FIX.4.1"))
-            crack41((org.quickfix.fix41.Message)message, sessionID);
+            crack41((quickfix.fix41.Message)message, sessionID);
         else if(value.equals("FIX.4.2"))
-            crack42((org.quickfix.fix42.Message)message, sessionID);
+            crack42((quickfix.fix42.Message)message, sessionID);
         else if(value.equals("FIX.4.3"))
-            crack43((org.quickfix.fix43.Message)message, sessionID);
+            crack43((quickfix.fix43.Message)message, sessionID);
         else if(value.equals("FIX.4.4"))
-            crack44((org.quickfix.fix44.Message)message, sessionID);
+            crack44((quickfix.fix44.Message)message, sessionID);
         else
             onMessage(message, sessionID);
     }

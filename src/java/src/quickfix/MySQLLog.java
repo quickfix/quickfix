@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public class MySQLLog implements Log {
     private int cppPointer;

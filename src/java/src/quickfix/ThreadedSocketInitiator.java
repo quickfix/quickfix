@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 import java.io.InputStream;
 
 public class ThreadedSocketInitiator implements Initiator {

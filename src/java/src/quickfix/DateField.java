@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 import java.util.Date;
 import java.util.TimeZone;
 import java.util.Calendar;

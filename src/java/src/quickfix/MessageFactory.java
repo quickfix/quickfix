@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public interface MessageFactory {
     Message create(String beginString, String msgType);

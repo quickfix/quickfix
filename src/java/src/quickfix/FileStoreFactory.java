@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public class FileStoreFactory implements MessageStoreFactory {
     private int cppPointer;

@@ -47,19 +47,19 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
-public class DefaultMessageFactory implements org.quickfix.MessageFactory {
-    private org.quickfix.fix40.MessageFactory fix40Factory =
-        new org.quickfix.fix40.MessageFactory();
-    private org.quickfix.fix41.MessageFactory fix41Factory =
-        new org.quickfix.fix41.MessageFactory();
-    private org.quickfix.fix42.MessageFactory fix42Factory =
-        new org.quickfix.fix42.MessageFactory();
-    private org.quickfix.fix43.MessageFactory fix43Factory =
-        new org.quickfix.fix43.MessageFactory();
-    private org.quickfix.fix44.MessageFactory fix44Factory =
-    	new org.quickfix.fix44.MessageFactory();
+public class DefaultMessageFactory implements quickfix.MessageFactory {
+    private quickfix.fix40.MessageFactory fix40Factory =
+        new quickfix.fix40.MessageFactory();
+    private quickfix.fix41.MessageFactory fix41Factory =
+        new quickfix.fix41.MessageFactory();
+    private quickfix.fix42.MessageFactory fix42Factory =
+        new quickfix.fix42.MessageFactory();
+    private quickfix.fix43.MessageFactory fix43Factory =
+        new quickfix.fix43.MessageFactory();
+    private quickfix.fix44.MessageFactory fix44Factory =
+    	new quickfix.fix44.MessageFactory();
 
     public Message create(String beginString, String msgType) {
         if("FIX.4.0".equals(beginString)) {

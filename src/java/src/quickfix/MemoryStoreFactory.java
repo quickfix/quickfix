@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public class MemoryStoreFactory implements MessageStoreFactory {
 

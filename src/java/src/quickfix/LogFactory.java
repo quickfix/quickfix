@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public interface LogFactory {
     Log create( SessionID sessionID );

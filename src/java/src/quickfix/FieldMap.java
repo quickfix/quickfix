@@ -1,4 +1,4 @@
-package org.quickfix;
+package quickfix;
 
 import java.util.Date;
 

@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix;
+package quickfix;
 
 public class ScreenLogFactory implements LogFactory {
     private int cppPointer;
