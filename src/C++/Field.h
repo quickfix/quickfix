@@ -122,9 +122,7 @@ private:
     }
 
     const char* iter = m_data.c_str();
-    for( iter = m_data.c_str(); iter <= m_data.c_str() + m_length; ++iter )
-      m_total += *iter;
-    //m_total = std::accumulate( iter, iter + m_length, 0 );
+    m_total = std::accumulate( iter, iter + m_length, 0 );
 
     m_calculated = true;
   }
