@@ -50,34 +50,42 @@
 #include "stdafx.h"
 
 #include "Session.h"
+#include "quickfix/include/CallStack.h"
 
 namespace QuickFix
 {
 bool Session::sendToTarget( Message* message )
 throw( SessionNotFound* )
-{
+{ QF_STACK_TRY
+
   try
   {
     return FIX::Session::sendToTarget( message->unmanaged() );
   }
-  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); };
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }; 
+
+  QF_STACK_CATCH
 }
 
 bool Session::sendToTarget( Message* message, SessionID* sessionID )
 throw( SessionNotFound* )
-{
+{ QF_STACK_TRY
+
   try
   {
     return FIX::Session::sendToTarget( message->unmanaged(),
                                        sessionID->unmanaged() );
   }
   catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
+
+  QF_STACK_CATCH
 }
 
 bool Session::sendToTarget
 ( Message* message, String* senderCompID, String* targetCompID )
 throw( SessionNotFound* )
-{
+{ QF_STACK_TRY
+
   try
   {
     return FIX::Session::sendToTarget
@@ -86,17 +94,23 @@ throw( SessionNotFound* )
              FIX::TargetCompID( convertString( targetCompID ) ) );
   }
   catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
+
+  QF_STACK_CATCH
 }
 
 Session* Session::lookupSession( SessionID* sessionID )
-{
+{ QF_STACK_TRY
+
   FIX::Session* pSession = FIX::Session::lookupSession(sessionID->unmanaged());
   if( !pSession ) return 0;
   return new Session(pSession);
+
+  QF_STACK_CATCH
 }
 
 void Session::reset() throw( IOException* )
-{
+{ QF_STACK_TRY
+
   try
   {
     unmanaged().reset();
@@ -105,10 +119,13 @@ void Session::reset() throw( IOException* )
   {
     throw new IOException();
   }
+
+  QF_STACK_CATCH
 }
 
 void Session::setNextSenderMsgSeqNum( int num ) throw( IOException* )
-{
+{ QF_STACK_TRY
+
   try
   {
     unmanaged().setNextSenderMsgSeqNum( num );
@@ -117,10 +134,13 @@ void Session::setNextSenderMsgSeqNum( int num ) throw( IOException* )
   {
     throw new IOException();
   }
+
+  QF_STACK_CATCH
 }
 
 void Session::setNextTargetMsgSeqNum( int num ) throw( IOException* )
-{
+{ QF_STACK_TRY
+
   try
   {
     unmanaged().setNextTargetMsgSeqNum( num );
@@ -129,6 +149,7 @@ void Session::setNextTargetMsgSeqNum( int num ) throw( IOException* )
   {
     throw new IOException();
   }
-}
 
+  QF_STACK_CATCH
+}
 }

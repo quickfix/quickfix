@@ -51,206 +51,406 @@
 
 #include "Message.h"
 #include "Fields.h"
+#include "quickfix/include/CallStack.h"
 
 namespace QuickFix
 {
 Message::Message( BeginString* beginString ) : disposed( false )
-{
+{ QF_STACK_TRY
+
   m_pUnmanaged = new FIX::Message();
   m_header = new Header( this );
   m_trailer = new Trailer( this );
   setField( beginString, m_pUnmanaged->getHeader() );
+
+  QF_STACK_CATCH
 }
 
-Message::Message( BeginString* beginString, MsgType* msgType ) : disposed( false )
+Message::Message( BeginString* beginString, MsgType* msgType ) 
+: disposed( false )
 {
+  QF_STACK_TRY
+
   m_pUnmanaged = new FIX::Message();
   m_header = new Header( this );
   m_trailer = new Trailer( this );
   setField( beginString, m_pUnmanaged->getHeader() );
   setField( msgType, m_pUnmanaged->getHeader() );
+
+  QF_STACK_CATCH
 }
 
 void Message::setField( StringField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 void Message::setField( BooleanField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 void Message::setField( CharField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged );
+  QF_STACK_CATCH 
+}
 void Message::setField( IntField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 void Message::setField( DoubleField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 void Message::setField( UtcTimeStampField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 void Message::setField( UtcDateField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 void Message::setField( UtcTimeOnlyField* field )
-{ checkDisposed(); setField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); setField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 
 StringField* Message::getField( StringField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 BooleanField* Message::getField( BooleanField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 CharField* Message::getField( CharField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 IntField* Message::getField( IntField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 DoubleField* Message::getField( DoubleField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 UtcTimeStampField* Message::getField( UtcTimeStampField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 UtcDateField* Message::getField( UtcDateField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return getField( field, *m_pUnmanaged ); }
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged ); 
+  QF_STACK_CATCH 
+}
 
 void Message::Header::setField( StringField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY 
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 void Message::Header::setField( BooleanField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 void Message::Header::setField( CharField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 void Message::Header::setField( IntField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 void Message::Header::setField( DoubleField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 void Message::Header::setField( UtcTimeStampField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 void Message::Header::setField( UtcDateField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 void Message::Header::setField( UtcTimeOnlyField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 
 StringField* Message::Header::getField( StringField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 BooleanField* Message::Header::getField( BooleanField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 CharField* Message::Header::getField( CharField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 IntField* Message::Header::getField( IntField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 DoubleField* Message::Header::getField( DoubleField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 UtcTimeStampField* Message::Header::getField( UtcTimeStampField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 UtcDateField* Message::Header::getField( UtcDateField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 UtcTimeOnlyField* Message::Header::getField( UtcTimeOnlyField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
+  QF_STACK_CATCH
+}
 
 void Message::Trailer::setField( StringField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 void Message::Trailer::setField( BooleanField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 void Message::Trailer::setField( CharField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 void Message::Trailer::setField( IntField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 void Message::Trailer::setField( DoubleField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 void Message::Trailer::setField( UtcTimeStampField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 void Message::Trailer::setField( UtcDateField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 void Message::Trailer::setField( UtcTimeOnlyField* field )
-{ checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 
 StringField* Message::Trailer::getField( StringField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 BooleanField* Message::Trailer::getField( BooleanField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 CharField* Message::Trailer::getField( CharField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 IntField* Message::Trailer::getField( IntField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 DoubleField* Message::Trailer::getField( DoubleField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 UtcTimeStampField* Message::Trailer::getField( UtcTimeStampField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 UtcDateField* Message::Trailer::getField( UtcDateField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 UtcTimeOnlyField* Message::Trailer::getField( UtcTimeOnlyField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{ checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
 
 void Message::setField( StringField* field, FIX::FieldMap& map )
-{
-  map.setField( FIX::StringField( field->getField(), convertString( field->getValue() ) ) );
+{ QF_STACK_TRY
+  map.setField( FIX::StringField( field->getField(), 
+				  convertString( field->getValue() ) ) );
+  QF_STACK_CATCH
 }
 
 void Message::setField( BooleanField* field, FIX::FieldMap& map )
-{
+{ QF_STACK_TRY
   map.setField( FIX::BoolField( field->getField(), field->getValue() ) );
+  QF_STACK_CATCH
 }
 
 void Message::setField( CharField* field, FIX::FieldMap& map )
-{
+{ QF_STACK_TRY
   map.setField( FIX::CharField( field->getField(), field->getValue() ) );
+  QF_STACK_CATCH
 }
 
 void Message::setField( IntField* field, FIX::FieldMap& map )
-{
+{ QF_STACK_TRY
   map.setField( FIX::IntField( field->getField(), field->getValue() ) );
+  QF_STACK_CATCH
 }
 
 void Message::setField( DoubleField* field, FIX::FieldMap& map )
-{
+{ QF_STACK_TRY
   map.setField( FIX::DoubleField( field->getField(), field->getValue() ) );
+  QF_STACK_CATCH
 }
 
 void Message::setField( UtcTimeStampField* field, FIX::FieldMap& map )
-{
+{ QF_STACK_TRY
+
   DateTime value = field->getValue();
   map.setField( FIX::UtcTimeStampField(
                   field->getField(),
                   FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second,
                                      value.Day, value.Month, value.Year ) ) );
 
+  QF_STACK_CATCH
 }
 
 void Message::setField( UtcDateField* field, FIX::FieldMap& map )
-{
+{ QF_STACK_TRY
+
   DateTime value = field->getValue();
   map.setField( FIX::UtcDateField(
                   field->getField(),
                   FIX::UtcDate( value.Day, value.Month, value.Year ) ) );
+  QF_STACK_CATCH
 }
 
 void Message::setField( UtcTimeOnlyField* field, FIX::FieldMap& map )
-{
+{ QF_STACK_TRY
+
   DateTime value = field->getValue();
-  map.setField( FIX::UtcTimeOnlyField(
-                  field->getField(),
-                  FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ) ) );
+  map.setField
+    ( FIX::UtcTimeOnlyField
+      ( field->getField(),
+	FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ) ) );
+
+  QF_STACK_CATCH
 }
 
 StringField* Message::getField( StringField* field, FIX::FieldMap& map ) 
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
     field->setValue( map.getField( field->getField() ).c_str() );
@@ -258,71 +458,92 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+
+  QF_STACK_CATCH
 }
 
 BooleanField* Message::getField( BooleanField* field, FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
-    field->setValue( FIX::BoolConvertor::convert( map.getField( field->getField() ) ) );
+    field->setValue
+      ( FIX::BoolConvertor::convert( map.getField( field->getField() ) ) );
     return field;
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
   catch ( FIX::FieldConvertError & e )
   { throw new IncorrectDataFormat( field->getField() ); }
+
+  QF_STACK_CATCH
 }
 
 CharField* Message::getField( CharField* field, FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
-    field->setValue( FIX::CharConvertor::convert( map.getField( field->getField() ) ) );
+    field->setValue
+      ( FIX::CharConvertor::convert( map.getField( field->getField() ) ) );
     return field;
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
   catch ( FIX::FieldConvertError & e )
   { throw new IncorrectDataFormat( field->getField() ); }
+
+  QF_STACK_CATCH
 }
 
 IntField* Message::getField( IntField* field, FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
-    field->setValue( FIX::IntConvertor::convert( map.getField( field->getField() ) ) );
+    field->setValue
+      ( FIX::IntConvertor::convert( map.getField( field->getField() ) ) );
     return field;
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
   catch ( FIX::FieldConvertError & e )
   { throw new IncorrectDataFormat( field->getField() ); }
+
+  QF_STACK_CATCH
 }
 
 DoubleField* Message::getField( DoubleField* field, FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
-    field->setValue( FIX::DoubleConvertor::convert( map.getField( field->getField() ) ) );
+    field->setValue
+      ( FIX::DoubleConvertor::convert( map.getField( field->getField() ) ) );
     return field;
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
   catch ( FIX::FieldConvertError & e )
   { throw new IncorrectDataFormat( field->getField() ); }
+
+  QF_STACK_CATCH
 }
 
-UtcTimeStampField* Message::getField( UtcTimeStampField* field, FIX::FieldMap& map )
+UtcTimeStampField* Message::getField( UtcTimeStampField* field, 
+				      FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
     FIX::UtcTimeStamp fixd;
-    fixd = FIX::UtcTimeStampConvertor::convert( map.getField( field->getField() ) );
+    fixd = FIX::UtcTimeStampConvertor::convert
+      ( map.getField( field->getField() ) );
     DateTime d( fixd.getYear(), fixd.getMonth(), fixd.getDate(),
                 fixd.getHour(), fixd.getMinute(), fixd.getSecond() );
     field->setValue( d );
@@ -332,11 +553,14 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   { throw new FieldNotFound( e.field ); }
   catch ( FIX::FieldConvertError & e )
   { throw new IncorrectDataFormat( field->getField() ); }
+
+  QF_STACK_CATCH
 }
 
 UtcDateField* Message::getField( UtcDateField* field, FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
     FIX::UtcDate fixd;
@@ -349,15 +573,20 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   { throw new FieldNotFound( e.field ); }
   catch ( FIX::FieldConvertError & e )
   { throw new IncorrectDataFormat( field->getField() ); }
+
+  QF_STACK_CATCH
 }
 
-UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field, FIX::FieldMap& map )
+UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field,
+				     FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
-{
+{ QF_STACK_TRY
+
   try
   {
     FIX::UtcTimeOnly fixd;
-    fixd = FIX::UtcTimeOnlyConvertor::convert( map.getField( field->getField() ) );
+    fixd = FIX::UtcTimeOnlyConvertor::convert
+      ( map.getField( field->getField() ) );
     DateTime d( 0, 0, 0, fixd.getHour(), fixd.getMinute(), fixd.getSecond() );
     field->setValue( d );
     return field;
@@ -366,5 +595,7 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   { throw new FieldNotFound( e.field ); }
   catch ( FIX::FieldConvertError & e )
   { throw new IncorrectDataFormat( field->getField() ); }
+
+  QF_STACK_CATCH
 }
 }
