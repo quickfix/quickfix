@@ -65,6 +65,7 @@ public class Executor {
         }
 
         try {
+
             Application application = new Application();
             SessionSettings settings =
                 new SessionSettings(new FileInputStream(args[0]));
