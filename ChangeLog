@@ -1,3 +1,13 @@
+2004-11-08 08:23  orenmnero
+
+	* src/: C++/MySQLStore.cpp, C++/test/MySQLStoreTestCase.h,
+	  java/quickfix_MySQLLogFactory.cpp,
+	  java/quickfix_MySQLStoreFactory.cpp: fixed broken MySQL code
+
+2004-11-07 23:20  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-07 23:13  orenmnero
 
 	* src/C++/test/: MySQLStoreTestCase.cpp, MySQLStoreTestCase.h:
