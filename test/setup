@@ -23,3 +23,6 @@ echo DataDictionary=../spec/FIX42.xml >> cfg/at.cfg
 echo [SESSION] >> cfg/at.cfg
 echo BeginString=FIX.4.3 >> cfg/at.cfg
 echo DataDictionary=../spec/FIX43.xml >> cfg/at.cfg
+echo [SESSION] >> cfg/at.cfg
+echo BeginString=FIX.4.4 >> cfg/at.cfg
+echo DataDictionary=../spec/FIX44.xml >> cfg/at.cfg
