@@ -35,6 +35,7 @@ public:
   {
     add( &m_nextLogon );
     add( &m_nextLogonNoEncryptMethod );
+    add( &m_nextLogonResetSeqNumFlag );
     add( &m_notifyResendRequest );
     add( &m_incrMsgSeqNum );
     add( &m_callDisconnect );
@@ -43,7 +44,7 @@ public:
     add( &m_registerSession );
     add( &m_nextTestRequest );
     add( &m_outOfOrder );
-    add( &m_logout );
+    add( &m_nextLogout );
     add( &m_logoutInitiator );
     add( &m_badOrigSendingTime );
     add( &m_noOrigSendingTime );
@@ -211,8 +212,8 @@ class Test : public CPPTest::Test < Session > ,
   class EmptyTest : public AcceptorTest
   {
     bool onSetup( Session*& pObject ) { return true; }
-    void onTeardown( Session* pObject ) {}}
-  ;
+    void onTeardown( Session* pObject ) {}
+  };
 
   class nextLogon : public AcceptorTest
   {
@@ -225,6 +226,12 @@ class Test : public CPPTest::Test < Session > ,
     void onRun( Session& object );
   }
   m_nextLogonNoEncryptMethod;
+
+  class nextLogonResetSeqNumFlag : public AcceptorTest
+  {
+    void onRun( Session& object );
+  }
+  m_nextLogonResetSeqNumFlag;
 
   class notifyResendRequest : public AcceptorTest
   {
@@ -280,11 +287,11 @@ class Test : public CPPTest::Test < Session > ,
   }
   m_outOfOrder;
 
-  class logout : public AcceptorTest
+  class nextLogout : public AcceptorTest
   {
     void onRun( Session& object );
   }
-  m_logout;
+  m_nextLogout;
 
   class logoutInitiator : public InitiatorTest
   {

@@ -201,10 +201,21 @@ void Session::nextLogon( const Message& logon )
   logon.getHeader().getField( senderCompID );
   logon.getHeader().getField( targetCompID );
 
-  bool verified = verify( logon, false, true );
-  if ( isCorrectCompID( senderCompID, targetCompID ) )
-    m_state.receivedLogon( true );
-  if ( !verified ) return ;
+  if( !verify( logon, false, false ) )
+    return;
+
+  ResetSeqNumFlag resetSeqNumFlag(false);
+  if( logon.isSetField(resetSeqNumFlag) )
+  logon.getField( resetSeqNumFlag );
+  if( resetSeqNumFlag )
+  {
+    m_state.onEvent( "Logon contains ResetSeqNumFlag=Y, reseting sequence numbers to 1" );
+    m_state.reset();
+  }
+
+  if( !verify( logon, false, true ) )
+    return;  
+  m_state.receivedLogon( true );
 
   if ( !m_state.initiate() )
   {

@@ -163,6 +163,7 @@ void SessionTestCase::nextLogon::onRun( Session& object )
   assert( targetCompID == "ISLD" );
   assert( heartBtInt == 30 );
   assert( encryptMethod == 0 );
+  
 }
 
 void SessionTestCase::nextLogonNoEncryptMethod::onRun( Session& object )
@@ -194,6 +195,26 @@ void SessionTestCase::nextLogonNoEncryptMethod::onRun( Session& object )
   assert( targetCompID == "ISLD" );
   assert( heartBtInt == 30 );
   assert( encryptMethod == 0 );
+}
+
+void SessionTestCase::nextLogonResetSeqNumFlag::onRun( Session& object )
+{
+  object.setResponder( this );
+  object.next( createLogon( "ISLD", "TW", 1 ) );
+
+  object.next( createLogout( "ISLD", "TW", 2 ) );
+  assert( !object.receivedLogon() );
+  assert( m_disconnect == 1 );
+  assert( m_toLogout == 1 );
+  assert( m_fromLogout == 1 );
+  assert( object.getExpectedSenderNum() == 3 );
+  assert( object.getExpectedTargetNum() == 3 );
+
+  Logon logon = createLogon( "ISLD", "TW", 1 );
+  logon.set( FIX::ResetSeqNumFlag(true) );
+  object.next( logon );
+  assert( object.getExpectedSenderNum() == 2 );
+  assert( object.getExpectedTargetNum() == 2 );
 }
 
 void SessionTestCase::notifyResendRequest::onRun( Session& object )
@@ -444,7 +465,7 @@ void SessionTestCase::outOfOrder::onRun( Session& object )
   assert( m_fromHeartbeat == 2 );
 }
 
-void SessionTestCase::logout::onRun( Session& object )
+void SessionTestCase::nextLogout::onRun( Session& object )
 {
   object.setResponder( this );
   object.next( createLogon( "ISLD", "TW", 1 ) );
