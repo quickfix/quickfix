@@ -90,6 +90,19 @@ JNIEXPORT void JNICALL Java_org_quickfix_Message_destroy
   delete getCPPMessage( obj );
 }
 
+JNIEXPORT jobject JNICALL Java_org_quickfix_Message_clone
+( JNIEnv *pEnv, jobject obj )
+{
+  JVM::set( pEnv );
+  JVMObject jobj( obj );
+
+  JVMClass type = jobj.getClass();
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
+  jobject clone = pEnv->NewObject( type, method );
+  *getCPPMessage( clone ) = *getCPPMessage( obj );
+  return clone;
+}
+
 JNIEXPORT void JNICALL Java_org_quickfix_Message_addGroup0
 ( JNIEnv *pEnv, jobject obj, jobject group )
 {

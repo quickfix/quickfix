@@ -33,6 +33,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_Message_destroy
 
 /*
  * Class:     org_quickfix_Message
+ * Method:    clone
+ * Signature: ()Ljava/lang/Object;
+ */
+JNIEXPORT jobject JNICALL Java_org_quickfix_Message_clone
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_Message
  * Method:    toString
  * Signature: ()Ljava/lang/String;
  */
