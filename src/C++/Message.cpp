@@ -211,11 +211,11 @@ bool Message::setString( const std::string& string,
   std::string msg;
 
   static FIELD::Field const headerOrder[] =
-    {
-      FIELD::BeginString,
-      FIELD::BodyLength,
-      FIELD::MsgType
-    };
+  {
+    FIELD::BeginString,
+    FIELD::BodyLength,
+    FIELD::MsgType
+  };
 
   field_type type = header;
 
@@ -237,12 +237,12 @@ bool Message::setString( const std::string& string,
         }
         if ( field.getField() == FIELD::MsgType )
           msg = field.getString();
-        m_header.setField( field );
+        m_header.setField( field, false );
       }
       else if ( isTrailerField( field, pDataDictionary ) )
       {
         type = trailer;
-        m_trailer.setField( field );
+        m_trailer.setField( field, false );
       }
       else
       {
@@ -252,7 +252,7 @@ bool Message::setString( const std::string& string,
           m_validStructure = false;
         }
         type = body;
-        setField( field );
+        setField( field, false );
         if ( pDataDictionary )
         {
           setGroup( msg, field, string, pos, *this, *pDataDictionary );
@@ -264,7 +264,8 @@ bool Message::setString( const std::string& string,
       return false;
     }
   }
-  if ( doValidation ) return validate();
+  if ( doValidation ) 
+    return validate();
   return true;
 
   QF_STACK_POP
@@ -291,7 +292,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     {
       if ( pGroup ) 
       { 
-        map.addGroup( group, *pGroup ); 
+        map.addGroup( group, *pGroup, false ); 
         delete pGroup; pGroup = 0;
       }
       pGroup = new Group( field.getField(), delim );
@@ -300,7 +301,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     {
       if ( pGroup )
       { 
-        map.addGroup( group, *pGroup ); 
+        map.addGroup( group, *pGroup, false ); 
         delete pGroup; pGroup = 0;
       }
       pos = oldPos;
@@ -308,7 +309,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     }
 
     if ( !pGroup ) return ;
-    pGroup->setField( field );
+    pGroup->setField( field, false );
     setGroup( msg, field, string, pos, *pGroup, *pDD );
   }
 
@@ -330,7 +331,7 @@ bool Message::setStringHeader( const std::string& string )
       return false;
 
     if ( isHeaderField( field ) )
-      m_header.setField( field );
+      m_header.setField( field, false );
     else break;
   }
   return true;
