@@ -64,7 +64,8 @@ public:
   SessionIDTestCase()
   {
     add( &m_lessThan );
-    add( &m_stream );
+    add( &m_streamOut );
+    add( &m_streamIn );
   }
 
 private:
@@ -81,15 +82,25 @@ class lessThan : public EmptyTest
   }
   m_lessThan;
 
-class stream : public Test
+class streamOut : public Test
   {
   public:
-    stream();
+    streamOut();
     bool onSetup( SessionID*& pObject );
     void onRun( SessionID& object );
     SessionID m_object;
   }
-  m_stream;
+  m_streamOut;
+
+class streamIn : public Test
+  {
+  public:
+    streamIn();
+    bool onSetup( SessionID*& pObject );
+    void onRun( SessionID& object );
+    SessionID m_object;
+  }
+  m_streamIn;
 };
 }
 

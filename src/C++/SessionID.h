@@ -62,6 +62,8 @@ namespace FIX
 class SessionID
 {
 public:
+  SessionID() {}
+
   SessionID( const BeginString& beginString,
              const SenderCompID& senderCompID,
              const TargetCompID& targetCompID )
@@ -80,25 +82,45 @@ public:
   const SenderCompID& getSenderCompID() const { return m_senderCompID; }
   const TargetCompID& getTargetCompID() const { return m_targetCompID; }
 
-  /// Get a string representation of the message
+  /// Get a string representation of the SessionID
   std::string toString() const
   { 
       std::string str;
       return toString( str );
   }
 
+  /// Build from string representation of SessionID
+  void fromString( const std::string& str )
+  {
+    std::string::size_type first =
+      str.find_first_of(':');
+    std::string::size_type second =
+      str.find_first_of('-');
+    if( first == std::string::npos )
+      return;
+    if( second == std::string::npos )
+      return;
+    m_beginString = 
+      str.substr(0, first);
+    m_senderCompID = 
+      str.substr(first+1, second - first - 1);
+    m_targetCompID =
+      str.substr(second + 2);
+  }
+
   /// Get a string representation without making a copy
   std::string& toString( std::string& str ) const 
   {
-	  return str = getBeginString().getValue() + ":" +
-		  getSenderCompID().getValue() + "->" +
-		  getTargetCompID().getValue(); 
+    return str = getBeginString().getValue() + ":" +
+                 getSenderCompID().getValue() + "->" +
+                 getTargetCompID().getValue(); 
   }
 
   friend bool operator<( const SessionID&, const SessionID& );
   friend bool operator==( const SessionID&, const SessionID& );
   friend bool operator!=( const SessionID&, const SessionID& );
   friend std::ostream& operator<<( std::ostream&, const SessionID& );
+  friend std::ostream& operator>>( std::ostream&, const SessionID& );
 
   SessionID operator~()
   {
@@ -148,5 +170,15 @@ inline std::ostream& operator<<
   stream << sessionID.toString( str );
   return stream;
 }
+
+inline std::istream& operator>>
+( std::istream& stream, SessionID& sessionID )
+{
+  std::string str;
+  stream >> str;
+  sessionID.fromString( str );
+  return stream;
+}
+
 }
 #endif //FIX_SESSIONID_H

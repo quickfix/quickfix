@@ -115,22 +115,41 @@ void SessionIDTestCase::lessThan::onRun( SessionID& object )
   assert( !( m_less6 < m_less6 ) );
 }
 
-SessionIDTestCase::stream::stream()
+SessionIDTestCase::streamOut::streamOut()
     : m_object( BeginString( "FIX.4.2" ),
                 SenderCompID( "SENDER" ),
                 TargetCompID( "TARGET" ) )
 {}
 
-bool SessionIDTestCase::stream::onSetup( SessionID*& pObject )
+bool SessionIDTestCase::streamOut::onSetup( SessionID*& pObject )
 {
   pObject = &m_object;
   return true;
 }
 
-void SessionIDTestCase::stream::onRun( SessionID& object )
+void SessionIDTestCase::streamOut::onRun( SessionID& object )
 {
   std::stringstream strstream;
   strstream << object;
   assert( strstream.str() == "FIX.4.2:SENDER->TARGET" );
 }
+
+SessionIDTestCase::streamIn::streamIn()
+    : m_object()
+{}
+
+bool SessionIDTestCase::streamIn::onSetup( SessionID*& pObject )
+{
+  pObject = &m_object;
+  return true;
+}
+
+void SessionIDTestCase::streamIn::onRun( SessionID& object )
+{  
+  std::stringstream strstream;
+  strstream << "FIX.4.2:SENDER->TARGET";
+  strstream >> object;
+  assert( object.toString() == "FIX.4.2:SENDER->TARGET" );
+}
+
 }
