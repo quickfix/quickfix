@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 #ifndef FIX_VALUES_H
 #define FIX_VALUES_H
 
@@ -1655,3 +1655,4 @@ namespace FIX
   const std::string SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT = "Incorrect NumInGroup count for repeating group";
 }
 #endif //FIX_VALUES_H
+
