@@ -15,7 +15,13 @@ public static final int DECRYPTION_PROBLEM = 7;
 public static final int SIGNATURE_PROBLEM = 8; 
 public static final int COMPID_PROBLEM = 9; 
 public static final int SENDINGTIME_ACCURACY_PROBLEM = 10; 
-public static final int E = 11; 
+public static final int INVALID_MSGTYPE = 11; 
+public static final int XML_VALIDATION_ERROR = 12; 
+public static final int TAG_APPEARS_MORE_THAN_ONCE = 13; 
+public static final int TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER = 14; 
+public static final int REPEATING_GROUP_FIELDS_OUT_OF_ORDER = 15; 
+public static final int INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP = 16; 
+public static final int NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER = 17; 
 
   public SessionRejectReason() 
   { 

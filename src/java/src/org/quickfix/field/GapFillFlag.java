@@ -4,8 +4,8 @@ import java.util.Date;
 
 public class GapFillFlag extends BooleanField 
 { 
-public static final boolean GAP_FILL_MESSAGE_MSGSEQNUM_FIELD_VALID = true; 
-public static final boolean SEQUENCE_RESET_IGNORE_MSGSEQNUM = false; 
+public static final boolean GAP_FILL_MESSAGE = true; 
+public static final boolean SEQUENCE_RESET = false; 
 
   public GapFillFlag() 
   { 

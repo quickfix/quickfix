@@ -11,6 +11,7 @@ public static final char IMMEDIATE_OR_CANCEL = '3';
 public static final char FILL_OR_KILL = '4'; 
 public static final char GOOD_TILL_CROSSING = '5'; 
 public static final char GOOD_TILL_DATE = '6'; 
+public static final char AT_THE_CLOSE = '7'; 
 
   public TimeInForce() 
   { 

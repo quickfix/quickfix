@@ -4,6 +4,8 @@ import java.util.Date;
 
 public class QuoteRequestType extends IntField 
 { 
+public static final int MANUAL = 1; 
+public static final int AUTOMATIC = 2; 
 
   public QuoteRequestType() 
   { 

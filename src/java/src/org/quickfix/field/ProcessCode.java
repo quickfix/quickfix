@@ -6,10 +6,10 @@ public class ProcessCode extends CharField
 { 
 public static final char REGULAR = '0'; 
 public static final char SOFT_DOLLAR = '1'; 
-public static final char STEPIN = '2'; 
-public static final char STEPOUT = '3'; 
-public static final char SOFTDOLLAR_STEPIN = '4'; 
-public static final char SOFTDOLLAR_STEPOUT = '5'; 
+public static final char STEP_IN = '2'; 
+public static final char STEP_OUT = '3'; 
+public static final char SOFT_DOLLAR_STEP_IN = '4'; 
+public static final char SOFT_DOLLAR_STEP_OUT = '5'; 
 public static final char PLAN_SPONSOR = '6'; 
 
   public ProcessCode() 

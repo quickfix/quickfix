@@ -19,6 +19,10 @@ public static final char CALCULATED = 'B';
 public static final char EXPIRED = 'C'; 
 public static final char RESTATED = 'D'; 
 public static final char PENDING_REPLACE = 'E'; 
+public static final char TRADE = 'F'; 
+public static final char TRADE_CORRECT = 'G'; 
+public static final char TRADE_CANCEL = 'H'; 
+public static final char ORDER_STATUS = 'I'; 
 
   public ExecType() 
   { 

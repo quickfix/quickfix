@@ -18,20 +18,27 @@ public static final char NO_CROSS = 'A';
 public static final char OK_TO_CROSS = 'B'; 
 public static final char CALL_FIRST = 'C'; 
 public static final char PERCENT_OF_VOLUME = 'D'; 
-public static final char DO_NOT_INCREASE_DNI = 'E'; 
-public static final char DO_NOT_REDUCE_DNR = 'F'; 
-public static final char ALL_OR_NONE_AON = 'G'; 
+public static final char DO_NOT_INCREASE = 'E'; 
+public static final char DO_NOT_REDUCE = 'F'; 
+public static final char ALL_OR_NONE = 'G'; 
+public static final char REINSTATE_ON_SYSTEM_FAILURE = 'H'; 
 public static final char INSTITUTIONS_ONLY = 'I'; 
+public static final char REINSTATE_ON_TRADING_HALT = 'J'; 
+public static final char CANCEL_ON_TRADING_HALT = 'K'; 
 public static final char LAST_PEG = 'L'; 
-public static final char MIDPRICE_PEG = 'M'; 
-public static final char NONNEGOTIABLE = 'N'; 
+public static final char MID_PRICE_PEG = 'M'; 
+public static final char NON_NEGOTIABLE = 'N'; 
 public static final char OPENING_PEG = 'O'; 
+public static final char MARKET_PEG = 'P'; 
+public static final char CANCEL_ON_SYSTEM_FAILURE = 'Q'; 
 public static final char PRIMARY_PEG = 'R'; 
 public static final char SUSPEND = 'S'; 
 public static final char FIXED_PEG = 'T'; 
 public static final char CUSTOMER_DISPLAY_INSTRUCTION = 'U'; 
 public static final char NETTING = 'V'; 
 public static final char PEG_TO_VWAP = 'W'; 
+public static final char TRADE_ALONG = 'X'; 
+public static final char TRY_TO_STOP = 'Y'; 
 
   public ExecInst() 
   { 

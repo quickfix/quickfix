@@ -14,6 +14,7 @@ public static final char SETTLEMENT_PRICE = '6';
 public static final char TRADING_SESSION_HIGH_PRICE = '7'; 
 public static final char TRADING_SESSION_LOW_PRICE = '8'; 
 public static final char TRADING_SESSION_VWAP_PRICE = '9'; 
+public static final char IMBALANCE = 'A'; 
 
   public MDEntryType() 
   { 
