@@ -1336,6 +1336,7 @@ Session* Session::registerSession( const SessionID& sessionID )
 
 void Session::unregisterSession( const SessionID& sessionID )
 { QF_STACK_PUSH(Session::unregisterSession)
+  Locker locker( s_mutex );
   s_registered.erase( sessionID );
   QF_STACK_POP
 }
