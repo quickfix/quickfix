@@ -75,7 +75,7 @@ public:
   const std::string& getString() const
     { return m_string; }
 
-  /// Get the string representation of the Field (i.e.) 55=MSFT<SOH>
+  /// Get the string representation of the Field (i.e.) 55=MSFT[SOH]
   const std::string& getValue() const
   {
     const_cast<FieldBase*>(this)->calculate();

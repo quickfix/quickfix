@@ -64,13 +64,13 @@ private:
  *
  * The formats of the files are:<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.body<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].body<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.header<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].header<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.seqnums<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].seqnums<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.session<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].session<br>
  *
  *
  * The messages file is a pure stream of %FIX messages.<br><br>

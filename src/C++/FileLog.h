@@ -62,11 +62,11 @@ private:
  *
  * The formats of the files are:<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.incoming<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].incoming<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.outgoing<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].outgoing<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.event<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].event<br>
  *
  */
 class FileLog : public Log
