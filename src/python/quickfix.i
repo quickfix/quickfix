@@ -1,6 +1,5 @@
 %module(directors="1") quickfix
 
-%include python.swg
 %include typemaps.i
 %include std_string.i
 %include exception.i
