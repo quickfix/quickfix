@@ -92,7 +92,7 @@ void MessageTestCase::setString::onRun( Message& object )
     "52=20000426-12:05:06\00156=ISLD\00110=218\001";
   static const char* strNull =
     "8=FIX.4.2\0019=46\00135=0\00134=3\00149=TW\001"
-    "52=20000426-12:05:06\00156=ISLD\000\00110=218\001";
+    "52=20000426-12:05:06\00156=ISLD\000\00110=219\001";
   static const char* strTrailingCharacter =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\00110=218\001 ";
@@ -122,7 +122,7 @@ void MessageTestCase::setString::onRun( Message& object )
     object.setString( strGood );
     object.setString( std::string(strNull, 68) );
     object.setString( strNoLengthAndChk, false );
-  } catch( InvalidMessage& e ) { std::cout << e.what() << std::endl; assert(false); }
+  } catch( InvalidMessage& e ) { assert(false); }
 
   try{ object.setString( strTrailingCharacter ); assert(false) }
   catch( InvalidMessage& ) {}
