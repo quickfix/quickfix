@@ -2583,6 +2583,12 @@ namespace QuickFix
   static const int EXPIRED = 7;
   static const int QUERY = 8;
   static const int QUOTE_NOT_FOUND = 9;
+  static const int PENDING = 10;
+  static const int PASS = 11;
+  static const int LOCKED_MARKET_WARNING = 12;
+  static const int CROSS_MARKET_WARNING = 13;
+  static const int CANCELED_DUE_TO_LOCK_MARKET = 14;
+  static const int CANCELED_DUE_TO_CROSS_MARKET = 15;
   QuoteStatus() : IntField(297) {}
     QuoteStatus(int data) : IntField(297, data) {}
   };

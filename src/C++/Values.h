@@ -816,6 +816,12 @@ namespace FIX
  const int QuoteStatus_EXPIRED = 7;
  const int QuoteStatus_QUERY = 8;
  const int QuoteStatus_QUOTE_NOT_FOUND = 9;
+ const int QuoteStatus_PENDING = 10;
+ const int QuoteStatus_PASS = 11;
+ const int QuoteStatus_LOCKED_MARKET_WARNING = 12;
+ const int QuoteStatus_CROSS_MARKET_WARNING = 13;
+ const int QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET = 14;
+ const int QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET = 15;
  const int QuoteCancelType_CANCEL_FOR_SYMBOL = 1;
  const int QuoteCancelType_CANCEL_FOR_SECURITY_TYPE = 2;
  const int QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL = 3;
