@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 if [ $1 -nt $2 ]; then
   cp -f $1 $2

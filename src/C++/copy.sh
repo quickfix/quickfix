@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 until [ -z "$1" ]
 do
