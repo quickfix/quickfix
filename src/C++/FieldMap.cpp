@@ -41,6 +41,9 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
 
   clear();
 
+  std::copy( rhs.m_fields.begin (), rhs.m_fields.end(),
+             std::inserter(m_fields, m_fields.begin()) );
+
   Groups::const_iterator i;
   for ( i = rhs.m_groups.begin(); i != rhs.m_groups.end(); ++i )
   {
@@ -48,8 +51,6 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
     for ( j = i->second.begin(); j != i->second.end(); ++j )
       addGroup( i->first, **j );
   }
-  std::copy( rhs.m_fields.begin (), rhs.m_fields.end(),
-             std::inserter(m_fields, m_fields.begin()) );
 
   return *this;
 
