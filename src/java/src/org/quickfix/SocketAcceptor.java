@@ -93,12 +93,18 @@ public class SocketAcceptor implements Acceptor {
     public void start() throws RuntimeError, ConfigError {
         doStart();
     }
+    
+    public void blockingStart() throws RuntimeError, ConfigError {
+        doBlockingStart();
+    }
 
     public void stop() {
         doStop();
     }
 
     private native void doStart() throws RuntimeError, ConfigError;
+
+    private native void doBlockingStart() throws RuntimeError, ConfigError;
 
     private native void doStop();
 }

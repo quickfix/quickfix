@@ -1,5 +1,13 @@
 2003-05-06 Alex Hornby <alex@anvil.com>
 
+	* src/java/org_quickfix_SocketAcceptor.cpp: add blockingStart
+
+	* src/java/org_quickfix_SocketAcceptor.h: add blockingStart
+
+	* src/java/src/org/quickfix/SocketAcceptor.java: add blockingStart
+
+2003-05-06 Alex Hornby <alex@anvil.com>
+
 	* quickfix.pc.in: add pkg-config support
 
 2003-05-06 Alex Hornby <alex@anvil.com>
