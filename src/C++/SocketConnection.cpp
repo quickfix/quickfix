@@ -34,13 +34,12 @@
 namespace FIX
 {
 SocketConnection::SocketConnection( int s, SocketMonitor* pMonitor )
-: m_socket( s ), m_parser( s ),
-  m_pSession( 0 ), m_pMonitor( pMonitor ) {}
+: m_socket( s ), m_pSession( 0 ), m_pMonitor( pMonitor ) {}
 
 SocketConnection::SocketConnection( SocketInitiator& i,
                                     const SessionID& sessionID, int s,
                                     SocketMonitor* pMonitor )
-: m_socket( s ), m_parser( s ),
+: m_socket( s ),
   m_pSession( i.getSession( sessionID, *this ) ),
   m_pMonitor( pMonitor ) {}
 
@@ -132,8 +131,20 @@ bool SocketConnection::readMessage( std::string& msg )
 throw( SocketRecvFailed )
 { QF_STACK_PUSH(SocketConnection::readMessage)
 
+  int bytes = 0;
+  if ( !socket_fionread( m_socket, bytes ) )
+    return false;
+  if ( bytes == 0 )
+    return false;
+
+  char buffer[4097];
+  int size = recv( m_socket, buffer, 4096, 0 );
+  if( size <= 0 ) throw SocketRecvFailed();
+  buffer[ size ] = '\0';
+
   try
   {
+    m_parser.addToStream( buffer, size );
     return m_parser.readFixMessage( msg );
   }
   catch ( MessageParseError& ) {}

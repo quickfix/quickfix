@@ -102,7 +102,8 @@ bool ThreadedSocketConnection::read()
   }
   catch ( SocketRecvFailed& e )
   {
-    m_pSession->getLog()->onEvent( e.what() );
+    if( m_pSession )
+      m_pSession->getLog()->onEvent( e.what() );
     delete [] buffer;
     m_queue.push( std::make_pair((size_t)0, (char*)0) );
     return false;
@@ -139,26 +140,24 @@ void ThreadedSocketConnection::readQueue()
       std::pair<size_t, char*> entry;
       while( m_queue.pop(entry) )
       {
-        if( !entry.second ) throw std::exception();
+        if( !entry.second ) throw SocketRecvFailed();
         m_parser.addToStream( entry.second, entry.first );
         processStream();
         delete [] entry.second;
       }
     }
-    catch ( SocketRecvFailed& )
-    {
-      m_pSession->disconnect();
-    }
     catch ( InvalidMessage& )
     {
-      if ( !m_pSession->isLoggedOn() )
+      if( m_pSession && !m_pSession->isLoggedOn() )
         m_pSession->disconnect();
     }
+    catch ( SocketRecvFailed& )
+    { break; }
     catch ( std::exception& )
     { break; }
   }
 
-  if ( m_pSession )
+  if( m_pSession )
     m_pSession->disconnect();
   else
     disconnect();

@@ -31,23 +31,6 @@
 
 namespace FIX
 {
-void Parser::allocate( int length )
-{ QF_STACK_PUSH(Parser::allocate)
-
-  char* newBuffer = new char[length+1];
-  if( m_readBuffer && m_bufferSize )
-  {
-    memcpy( newBuffer, m_readBuffer, m_bufferSize + 1 );
-    delete [] m_readBuffer;
-  }
-  m_readBuffer = newBuffer;
-  m_bufferSize = length;
-  m_readBuffer[m_bufferSize] = '\0';
-  m_buffer.reserve( length + 1 );
-
-  QF_STACK_POP
-}
-
 bool Parser::extractLength( int& length, std::string::size_type& pos,
                             const std::string& buffer )
 throw( MessageParseError )
@@ -80,8 +63,6 @@ throw( MessageParseError )
 bool Parser::readFixMessage( std::string& str )
 throw( MessageParseError, SocketRecvFailed )
 { QF_STACK_PUSH(Parser::readFixMessage)
-
-  readFromStream();
 
   std::string::size_type pos = 0;
 
@@ -122,40 +103,7 @@ throw( MessageParseError, SocketRecvFailed )
     throw e;
   }
 
-  readFromStream();
   return false;
-
-  QF_STACK_POP
-}
-
-bool Parser::readFromStream() throw( SocketRecvFailed )
-{ QF_STACK_PUSH(Parser::readFromStream)
-
-  int size = 0;
-  if ( m_pStream )
-  {
-    m_pStream->read( m_readBuffer, m_bufferSize );
-    size = m_pStream->gcount();
-    if ( size == 0 ) return false;
-  }
-  else if ( m_socket )
-  {
-    int bytes = 0;
-    if ( !socket_fionread( m_socket, bytes ) )
-      return false;
-    if ( bytes == 0 )
-      return false;
-
-    size = recv( m_socket, m_readBuffer, m_bufferSize, 0 );
-    if( size <= 0 ) throw SocketRecvFailed();
-    if( size == m_bufferSize ) allocate( m_bufferSize * 2 );
-  }
-  else return true;
-
-  m_readBuffer[ size ] = '\0';
-  m_buffer.append( m_readBuffer, size );
-
-  return true;
 
   QF_STACK_POP
 }

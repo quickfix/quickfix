@@ -36,39 +36,24 @@ namespace FIX
 class Parser
 {
 public:
-  Parser( std::istream& stream ) 
-  : m_pStream( &stream ), m_socket( 0 ), 
-    m_bufferSize( 0 ), m_readBuffer( 0 ) 
-  { allocate( 4096 ); }
-  Parser( int socket ) 
-  : m_pStream( 0 ), m_socket( socket ), 
-    m_bufferSize( 0 ), m_readBuffer( 0 ) 
-  { allocate( 4096 ); }
   Parser() 
-  : m_pStream( 0 ), m_socket( 0 ), 
-    m_bufferSize( 0 ), m_readBuffer( 0 ) 
-  { allocate( 4096 ); }
+  : m_bufferSize( 0 ) {}
+  ~Parser() {}
 
-  ~Parser() { delete [] m_readBuffer; }
-
-  void allocate( int ); 
   bool extractLength( int& length, std::string::size_type& pos,
                       const std::string& buffer )
   throw ( MessageParseError );
   bool readFixMessage( std::string& str )
-  throw ( MessageParseError, SocketRecvFailed );
-  bool readFromStream() throw ( SocketRecvFailed );
+  throw ( MessageParseError );
 
-  void setStream( std::istream& stream ) { m_pStream = &stream; }
   void addToStream( const char* str, size_t len ) 
   { m_buffer.append( str, len ); }
+  void addToStream( const std::string& str ) 
+  { m_buffer.append( str ); }
 
 private:
-  std::istream* m_pStream;
-  int m_socket;
   std::string m_buffer;
   int m_bufferSize;
-  char* m_readBuffer;
 };
 }
 #endif //FIX_PARSER_H

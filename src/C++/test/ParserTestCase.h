@@ -28,7 +28,6 @@
 #include "SocketServer.h"
 #include "SocketConnector.h"
 #include <string>
-#include <sstream>
 
 namespace FIX
 {
@@ -36,13 +35,11 @@ class ParserTestCase : public CPPTest::TestCase < Parser >
 {
 public:
   ParserTestCase( short m_port )
-  : m_readFromSocket( m_port )
   {
     add( &m_extractLength );
     add( &m_readFixMessage );
     add( &m_readPartialFixMessage );
     add( &m_readMessageWithBadLength );
-    add( &m_readFromSocket );
   }
 
 private:
@@ -66,10 +63,9 @@ private:
     bool onSetup( Parser*& pObject );
     void onRun( Parser& object );
     void onTeardown( Parser* pObject )
-    { delete pObject; delete m_pStream; }
+    { delete pObject; }
 
     std::string m_fixMsg1, m_fixMsg2, m_fixMsg3;
-    std::stringstream* m_pStream;
   }
   m_readFixMessage;
 
@@ -78,10 +74,9 @@ private:
     bool onSetup( Parser*& pObject );
     void onRun( Parser& object );
     void onTeardown( Parser* pObject )
-    { delete pObject; delete m_pStream; }
+    { delete pObject; }
 
     std::string m_partFixMsg1, m_partFixMsg2;
-    std::stringstream* m_pStream;
   }
   m_readPartialFixMessage;
 
@@ -90,34 +85,12 @@ private:
     bool onSetup( Parser*& pObject );
     void onRun( Parser& object );
     void onTeardown( Parser* pObject )
-    { delete pObject; delete m_pStream; }
+    { delete pObject; }
 
     std::string m_fixMsg;
-    std::stringstream* m_pStream;
   }
   m_readMessageWithBadLength;
 
-  class readFromSocket : public Test
-  {
-  public:
-  readFromSocket( short port ) : m_port( port ) {}
-    bool onSetup( Parser*& pObject );
-    void onRun( Parser& object );
-    void onTeardown( Parser* pObject )
-    {
-      delete pObject;
-      delete m_pServer; delete m_pConnector;
-    }
-
-    std::string m_fixMsg1, m_fixMsg2;
-    std::string m_partFixMsg1, m_partFixMsg2;
-    std::string m_fixMsg3;
-    std::string m_fixMsgWithNull;
-    short m_port;
-    SocketServer* m_pServer;
-    SocketConnector* m_pConnector;
-  }
-  m_readFromSocket;
 };
 }
 
