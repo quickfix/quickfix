@@ -84,7 +84,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_getString
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
   {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
+    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
     std::string result = dict.getString( ukey );
     pEnv->ReleaseStringUTFChars( key, ukey );
     return newString( result );
@@ -115,7 +115,7 @@ JNIEXPORT jlong JNICALL Java_quickfix_SessionSettings_getLong
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
   {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
+    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
     long result = dict.getLong( ukey );
     pEnv->ReleaseStringUTFChars( key, ukey );
     return result;
@@ -146,7 +146,7 @@ JNIEXPORT jdouble JNICALL Java_quickfix_SessionSettings_getDouble
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
   {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
+    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
     double result = dict.getDouble( ukey );
     pEnv->ReleaseStringUTFChars( key, ukey );
     return result;
@@ -177,7 +177,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SessionSettings_getBool
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
   {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
+    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
     bool result = dict.getBool( ukey );
     pEnv->ReleaseStringUTFChars( key, ukey );
     return result;
@@ -212,6 +212,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setString
   {
     FIX::Dictionary dict = pSettings->get( *pSessionID );
     dict.setString( ukey, uvalue );
+    pSettings->set( *pSessionID, dict );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
@@ -240,6 +241,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setLong
   {
     FIX::Dictionary dict = pSettings->get( *pSessionID );
     dict.setLong( ukey, value );
+    pSettings->set( *pSessionID, dict );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
@@ -267,6 +269,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setDouble
   {
     FIX::Dictionary dict = pSettings->get( *pSessionID );
     dict.setDouble( ukey, value );
+    pSettings->set( *pSessionID, dict );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
@@ -294,6 +297,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setBool
   {
     FIX::Dictionary dict = pSettings->get( *pSessionID );
     dict.setBool( ukey, value );
+    pSettings->set( *pSessionID, dict );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
