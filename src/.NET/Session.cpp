@@ -24,60 +24,6 @@
 
 namespace QuickFix
 {
-bool Session::sendToTarget( Message* message )
-throw( SessionNotFound* )
-{ QF_STACK_TRY
-
-  try
-  {
-    return FIX::Session::sendToTarget( message->unmanaged() );
-  }
-  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }; 
-
-  QF_STACK_CATCH
-}
-
-bool Session::sendToTarget( Message* message, SessionID* sessionID )
-throw( SessionNotFound* )
-{ QF_STACK_TRY
-
-  try
-  {
-    return FIX::Session::sendToTarget( message->unmanaged(),
-                                       sessionID->unmanaged() );
-  }
-  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
-
-  QF_STACK_CATCH
-}
-
-bool Session::sendToTarget
-( Message* message, String* senderCompID, String* targetCompID )
-throw( SessionNotFound* )
-{ QF_STACK_TRY
-
-  try
-  {
-    return FIX::Session::sendToTarget
-           ( message->unmanaged(),
-             FIX::SenderCompID( convertString( senderCompID ) ),
-             FIX::TargetCompID( convertString( targetCompID ) ) );
-  }
-  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
-
-  QF_STACK_CATCH
-}
-
-Session* Session::lookupSession( SessionID* sessionID )
-{ QF_STACK_TRY
-
-  FIX::Session* pSession = FIX::Session::lookupSession(sessionID->unmanaged());
-  if( !pSession ) return 0;
-  return new Session(pSession);
-
-  QF_STACK_CATCH
-}
-
 void Session::logon()
 { QF_STACK_TRY
   unmanaged().logon();
@@ -162,6 +108,72 @@ void Session::setNextTargetMsgSeqNum( int num ) throw( IOException* )
     throw new IOException();
   }
 
+  QF_STACK_CATCH
+}
+
+bool Session::sendToTarget( Message* message )
+throw( SessionNotFound* )
+{ QF_STACK_TRY
+
+  try
+  {
+    return FIX::Session::sendToTarget( message->unmanaged() );
+  }
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }; 
+
+  QF_STACK_CATCH
+}
+
+bool Session::sendToTarget( Message* message, SessionID* sessionID )
+throw( SessionNotFound* )
+{ QF_STACK_TRY
+
+  try
+  {
+    return FIX::Session::sendToTarget( message->unmanaged(),
+                                       sessionID->unmanaged() );
+  }
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
+
+  QF_STACK_CATCH
+}
+
+bool Session::sendToTarget
+( Message* message, String* senderCompID, String* targetCompID )
+throw( SessionNotFound* )
+{ QF_STACK_TRY
+
+  try
+  {
+    return FIX::Session::sendToTarget
+           ( message->unmanaged(),
+             FIX::SenderCompID( convertString( senderCompID ) ),
+             FIX::TargetCompID( convertString( targetCompID ) ) );
+  }
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
+
+  QF_STACK_CATCH
+}
+
+bool Session::doesSessionExist( SessionID* sessionID )
+{ QF_STACK_TRY
+  return FIX::Session::doesSessionExist(sessionID->unmanaged());
+  QF_STACK_CATCH
+}
+
+Session* Session::lookupSession( SessionID* sessionID )
+{ QF_STACK_TRY
+
+  FIX::Session* pSession = FIX::Session::lookupSession(sessionID->unmanaged());
+  if( !pSession ) return 0;
+  return new Session(pSession);
+
+  QF_STACK_CATCH
+}
+
+int Session::numSessions()
+{ QF_STACK_TRY
+  return FIX::Session::numSessions();
   QF_STACK_CATCH
 }
 

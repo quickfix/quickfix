@@ -38,16 +38,6 @@ namespace QuickFix
 public __gc class Session
 {
 public:
-  static bool sendToTarget( Message* message )
-  throw( SessionNotFound* );
-  static bool sendToTarget( Message* message, SessionID* sessionID )
-  throw( SessionNotFound* );
-  static bool sendToTarget
-  ( Message* message, String* senderCompID, String* targetCompID )
-  throw( SessionNotFound* );
-
-  static Session* lookupSession( SessionID* sessionID );
-
   void logon();
   void logout();
   bool isEnabled();
@@ -59,6 +49,24 @@ public:
   void reset() throw( IOException* );
   void setNextSenderMsgSeqNum( int num ) throw( IOException* );
   void setNextTargetMsgSeqNum( int num ) throw( IOException* );
+
+  SessionID* getSessionID()
+  { return new SessionID(unmanaged().getSessionID()); }
+  DataDictionary* getDataDictionary()
+  { return new DataDictionary(unmanaged().getDataDictionary()); }
+
+  static bool sendToTarget( Message* message )
+  throw( SessionNotFound* );
+  static bool sendToTarget( Message* message, SessionID* sessionID )
+  throw( SessionNotFound* );
+  static bool sendToTarget
+  ( Message* message, String* senderCompID, String* targetCompID )
+  throw( SessionNotFound* );
+
+  static bool doesSessionExist( SessionID* sessionID );
+  static Session* lookupSession( SessionID* sessionID );
+  
+  static int numSessions();
 
   int getExpectedSenderNum();
   int getExpectedTargetNum();

@@ -57,6 +57,14 @@ public:
     QF_STACK_CATCH
   }
 
+  DataDictionary( const FIX::DataDictionary& dataDictionary )
+  { QF_STACK_TRY
+
+    m_pUnmanaged = new FIX::DataDictionary( dataDictionary );
+
+    QF_STACK_CATCH
+  }
+
   ~DataDictionary()
   {
     delete m_pUnmanaged;
