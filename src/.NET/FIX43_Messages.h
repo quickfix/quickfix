@@ -88,10 +88,20 @@ namespace Fix43
     NET_FIELD_SET(MessageEncoding);
     NET_FIELD_SET(LastMsgSeqNumProcessed);
     NET_FIELD_SET(OnBehalfOfSendingTime);
-    NET_FIELD_SET(NoHops);
-    NET_FIELD_SET(HopCompID);
-    NET_FIELD_SET(HopSendingTime);
-    NET_FIELD_SET(HopRefID);
+  
+    __gc class NoHops : public Fix::Group
+    {
+    public:
+      NoHops() : Group(627, 628, message_order ) {}
+        static int message_order __gc[] = {
+      628,
+      629,    
+      630,
+    0};
+      NET_FIELD_SET(HopCompID);
+      NET_FIELD_SET(HopSendingTime);
+      NET_FIELD_SET(HopRefID);
+    };
   };
   
   public __gc class Trailer : public Fix::Message::Trailer
@@ -313,9 +323,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -344,6 +351,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(AdvSide);
     NET_FIELD_SET(Quantity);
     NET_FIELD_SET(Price);
@@ -386,9 +405,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -417,6 +433,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);
     NET_FIELD_SET(QuantityType);
     NET_FIELD_SET(IOIQty);
@@ -433,12 +461,8 @@ namespace Fix43
       NoIOIQualifiers() : Group(199, 104, message_order ) {}
         static int message_order __gc[] = {
         104,
-        216,
-        217,
       0};
       NET_FIELD_SET(IOIQualifier);
-      NET_FIELD_SET(RoutingType);
-      NET_FIELD_SET(RoutingID);
     };
     NET_FIELD_SET(Text);
     NET_FIELD_SET(EncodedTextLen);
@@ -449,13 +473,11 @@ namespace Fix43
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
-      NoRoutingIDs() : Group(215, 104, message_order ) {}
+      NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
-        104,
         216,
         217,
       0};
-      NET_FIELD_SET(IOIQualifier);
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };   
@@ -473,13 +495,11 @@ namespace Fix43
     static Fix::MsgType* MsgType() { return new Fix::MsgType("B"); }
     //
     News(
-      Fix::Headline* aHeadline,
-      Fix::LinesOfText* aLinesOfText )
+      Fix::Headline* aHeadline )
     : Message(MsgType())
     
     {
       set(aHeadline);
-      set(aLinesOfText);
     }
   
     NET_FIELD_SET(OrigTime);
@@ -491,27 +511,26 @@ namespace Fix43
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
-      NoRoutingIDs() : Group(215, 58, message_order ) {}
+      NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
         216,
         217,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
-        58,
-        354,
-        355,
       0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
-      NET_FIELD_SET(Text);
-      NET_FIELD_SET(EncodedTextLen);
-      NET_FIELD_SET(EncodedText);
+    };
+  
+    __gc class NoRelatedSym : public Fix::Group
+    {
+    public:
+      NoRelatedSym() : Group(146, 55, message_order ) {}
+        static int message_order __gc[] = {
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+      0};
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -542,60 +561,19 @@ namespace Fix43
           NET_FIELD_SET(EncodedSecurityDesc);
     };
   
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class LinesOfText : public Fix::Group
     {
     public:
-      NoRelatedSym() : Group(146, 58, message_order ) {}
+      LinesOfText() : Group(33, 58, message_order ) {}
         static int message_order __gc[] = {
-        216,
-        217,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         58,
         354,
         355,
       0};
-      NET_FIELD_SET(RoutingType);
-      NET_FIELD_SET(RoutingID);
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
-          NET_FIELD_SET(Symbol);
-          NET_FIELD_SET(SymbolSfx);
-          NET_FIELD_SET(SecurityID);
-          NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
-          NET_FIELD_SET(Product);
-          NET_FIELD_SET(CFICode);
-          NET_FIELD_SET(SecurityType);
-          NET_FIELD_SET(MaturityMonthYear);
-          NET_FIELD_SET(MaturityDate);
-          NET_FIELD_SET(CouponPaymentDate);
-          NET_FIELD_SET(IssueDate);
-          NET_FIELD_SET(RepoCollateralSecurityType);
-          NET_FIELD_SET(RepurchaseTerm);
-          NET_FIELD_SET(RepurchaseRate);
-          NET_FIELD_SET(Factor);
-          NET_FIELD_SET(CreditRating);
-          NET_FIELD_SET(InstrRegistry);
-          NET_FIELD_SET(CountryOfIssue);
-          NET_FIELD_SET(StateOrProvinceOfIssue);
-          NET_FIELD_SET(LocaleOfIssue);
-          NET_FIELD_SET(RedemptionDate);
-          NET_FIELD_SET(StrikePrice);
-          NET_FIELD_SET(OptAttribute);
-          NET_FIELD_SET(ContractMultiplier);
-          NET_FIELD_SET(CouponRate);
-          NET_FIELD_SET(SecurityExchange);
-          NET_FIELD_SET(Issuer);
-          NET_FIELD_SET(EncodedIssuerLen);
-          NET_FIELD_SET(EncodedIssuer);
-          NET_FIELD_SET(SecurityDesc);
-          NET_FIELD_SET(EncodedSecurityDescLen);
-          NET_FIELD_SET(EncodedSecurityDesc);
     };
-    NET_FIELD_SET(LinesOfText);
     NET_FIELD_SET(URLLink);
     NET_FIELD_SET(RawDataLength);
     NET_FIELD_SET(RawData);
@@ -610,15 +588,13 @@ namespace Fix43
     Email(
       Fix::EmailThreadID* aEmailThreadID,
       Fix::EmailType* aEmailType,
-      Fix::Subject* aSubject,
-      Fix::LinesOfText* aLinesOfText )
+      Fix::Subject* aSubject )
     : Message(MsgType())
     
     {
       set(aEmailThreadID);
       set(aEmailType);
       set(aSubject);
-      set(aLinesOfText);
     }
   
     NET_FIELD_SET(EmailThreadID);
@@ -631,81 +607,26 @@ namespace Fix43
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
-      NoRoutingIDs() : Group(215, 58, message_order ) {}
+      NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
         216,
         217,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
-        58,
-        354,
-        355,
       0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
-      NET_FIELD_SET(Text);
-      NET_FIELD_SET(EncodedTextLen);
-      NET_FIELD_SET(EncodedText);
-          NET_FIELD_SET(Symbol);
-          NET_FIELD_SET(SymbolSfx);
-          NET_FIELD_SET(SecurityID);
-          NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
-          NET_FIELD_SET(Product);
-          NET_FIELD_SET(CFICode);
-          NET_FIELD_SET(SecurityType);
-          NET_FIELD_SET(MaturityMonthYear);
-          NET_FIELD_SET(MaturityDate);
-          NET_FIELD_SET(CouponPaymentDate);
-          NET_FIELD_SET(IssueDate);
-          NET_FIELD_SET(RepoCollateralSecurityType);
-          NET_FIELD_SET(RepurchaseTerm);
-          NET_FIELD_SET(RepurchaseRate);
-          NET_FIELD_SET(Factor);
-          NET_FIELD_SET(CreditRating);
-          NET_FIELD_SET(InstrRegistry);
-          NET_FIELD_SET(CountryOfIssue);
-          NET_FIELD_SET(StateOrProvinceOfIssue);
-          NET_FIELD_SET(LocaleOfIssue);
-          NET_FIELD_SET(RedemptionDate);
-          NET_FIELD_SET(StrikePrice);
-          NET_FIELD_SET(OptAttribute);
-          NET_FIELD_SET(ContractMultiplier);
-          NET_FIELD_SET(CouponRate);
-          NET_FIELD_SET(SecurityExchange);
-          NET_FIELD_SET(Issuer);
-          NET_FIELD_SET(EncodedIssuerLen);
-          NET_FIELD_SET(EncodedIssuer);
-          NET_FIELD_SET(SecurityDesc);
-          NET_FIELD_SET(EncodedSecurityDescLen);
-          NET_FIELD_SET(EncodedSecurityDesc);
     };
   
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
-      NoRelatedSym() : Group(146, 58, message_order ) {}
+      NoRelatedSym() : Group(146, 55, message_order ) {}
         static int message_order __gc[] = {
-        216,
-        217,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
-        58,
-        354,
-        355,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
       0};
-      NET_FIELD_SET(RoutingType);
-      NET_FIELD_SET(RoutingID);
-      NET_FIELD_SET(Text);
-      NET_FIELD_SET(EncodedTextLen);
-      NET_FIELD_SET(EncodedText);
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -737,7 +658,20 @@ namespace Fix43
     };
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
-    NET_FIELD_SET(LinesOfText);
+  
+    __gc class LinesOfText : public Fix::Group
+    {
+    public:
+      LinesOfText() : Group(33, 58, message_order ) {}
+        static int message_order __gc[] = {
+        58,
+        354,
+        355,
+      0};
+      NET_FIELD_SET(Text);
+      NET_FIELD_SET(EncodedTextLen);
+      NET_FIELD_SET(EncodedText);
+    };
     NET_FIELD_SET(RawDataLength);
     NET_FIELD_SET(RawData);
   };
@@ -764,14 +698,14 @@ namespace Fix43
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
         static int message_order __gc[] = {
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         140,
         303,
         537,
         336,
         625,
         229,
-        232,233,234,
+        
         54,
         465,
         38,
@@ -815,9 +749,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -846,9 +777,89 @@ namespace Fix43
           NET_FIELD_SET(SecurityDesc);
           NET_FIELD_SET(EncodedSecurityDescLen);
           NET_FIELD_SET(EncodedSecurityDesc);
-          NET_FIELD_SET(NoStipulations);
-          NET_FIELD_SET(StipulationType);
-          NET_FIELD_SET(StipulationValue);
+          NET_FIELD_SET(Spread);
+          NET_FIELD_SET(BenchmarkCurveCurrency);
+          NET_FIELD_SET(BenchmarkCurveName);
+          NET_FIELD_SET(BenchmarkCurvePoint);
+          NET_FIELD_SET(YieldType);
+          NET_FIELD_SET(Yield);
+    };
+    NET_FIELD_SET(Text);
+    NET_FIELD_SET(EncodedTextLen);
+    NET_FIELD_SET(EncodedText);
+  };
+
+  public __gc class QuoteRequestReject : public Message
+  {
+  public: 
+    QuoteRequestReject() : Message(MsgType()) {}
+    static Fix::MsgType* MsgType() { return new Fix::MsgType("AG"); }
+    //
+    QuoteRequestReject(
+      Fix::QuoteReqID* aQuoteReqID,
+      Fix::QuoteRequestRejectReason* aQuoteRequestRejectReason )
+    : Message(MsgType())
+    
+    {
+      set(aQuoteReqID);
+      set(aQuoteRequestRejectReason);
+    }
+  
+    NET_FIELD_SET(QuoteReqID);
+    NET_FIELD_SET(RFQReqID);
+    NET_FIELD_SET(QuoteRequestRejectReason);
+  
+    __gc class NoRelatedSym : public Fix::Group
+    {
+    public:
+      NoRelatedSym() : Group(146, 15, message_order ) {}
+        static int message_order __gc[] = {
+        140,
+        303,
+        537,
+        336,
+        625,
+        229,
+        
+        54,
+        465,
+        38,
+        152,
+        63,
+        64,
+        40,
+        193,
+        192,
+        126,
+        60,
+        15,
+        218,220,221,222,
+        423,
+        44,
+        640,
+        235,236,
+      0};
+      NET_FIELD_SET(PrevClosePx);
+      NET_FIELD_SET(QuoteRequestType);
+      NET_FIELD_SET(QuoteType);
+      NET_FIELD_SET(TradingSessionID);
+      NET_FIELD_SET(TradingSessionSubID);
+      NET_FIELD_SET(TradeOriginationDate);
+      NET_FIELD_SET(Side);
+      NET_FIELD_SET(QuantityType);
+      NET_FIELD_SET(OrderQty);
+      NET_FIELD_SET(CashOrderQty);
+      NET_FIELD_SET(SettlmntTyp);
+      NET_FIELD_SET(FutSettDate);
+      NET_FIELD_SET(OrdType);
+      NET_FIELD_SET(FutSettDate2);
+      NET_FIELD_SET(OrderQty2);
+      NET_FIELD_SET(ExpireTime);
+      NET_FIELD_SET(TransactTime);
+      NET_FIELD_SET(Currency);
+      NET_FIELD_SET(PriceType);
+      NET_FIELD_SET(Price);
+      NET_FIELD_SET(Price2);
           NET_FIELD_SET(Spread);
           NET_FIELD_SET(BenchmarkCurveCurrency);
           NET_FIELD_SET(BenchmarkCurveName);
@@ -882,7 +893,7 @@ namespace Fix43
     public:
       NoRelatedSym() : Group(146, 140, message_order ) {}
         static int message_order __gc[] = {
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         140,
         303,
         537,
@@ -898,9 +909,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -950,12 +958,23 @@ namespace Fix43
     NET_FIELD_SET(QuoteReqID);
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteType);
-    NET_FIELD_SET(QuoteResponseLevel);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(QuoteResponseLevel);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(TradingSessionID);
@@ -964,9 +983,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -995,6 +1011,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(BidPx);
     NET_FIELD_SET(OfferPx);
     NET_FIELD_SET(MktBidPx);
@@ -1052,12 +1080,23 @@ namespace Fix43
     NET_FIELD_SET(QuoteReqID);
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteCancelType);
-    NET_FIELD_SET(QuoteResponseLevel);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(QuoteResponseLevel);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(TradingSessionID);
@@ -1068,15 +1107,12 @@ namespace Fix43
     public:
       NoQuoteEntries() : Group(295, 55, message_order ) {}
         static int message_order __gc[] = {
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
       0};
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -1120,83 +1156,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
-    NET_FIELD_SET(Product);   
-    NET_FIELD_SET(CFICode);   
-    NET_FIELD_SET(SecurityType);   
-    NET_FIELD_SET(MaturityMonthYear);   
-    NET_FIELD_SET(MaturityDate);   
-    NET_FIELD_SET(CouponPaymentDate);   
-    NET_FIELD_SET(IssueDate);   
-    NET_FIELD_SET(RepoCollateralSecurityType);   
-    NET_FIELD_SET(RepurchaseTerm);   
-    NET_FIELD_SET(RepurchaseRate);   
-    NET_FIELD_SET(Factor);   
-    NET_FIELD_SET(CreditRating);   
-    NET_FIELD_SET(InstrRegistry);   
-    NET_FIELD_SET(CountryOfIssue);   
-    NET_FIELD_SET(StateOrProvinceOfIssue);   
-    NET_FIELD_SET(LocaleOfIssue);   
-    NET_FIELD_SET(RedemptionDate);   
-    NET_FIELD_SET(StrikePrice);   
-    NET_FIELD_SET(OptAttribute);   
-    NET_FIELD_SET(ContractMultiplier);   
-    NET_FIELD_SET(CouponRate);   
-    NET_FIELD_SET(SecurityExchange);   
-    NET_FIELD_SET(Issuer);   
-    NET_FIELD_SET(EncodedIssuerLen);   
-    NET_FIELD_SET(EncodedIssuer);   
-    NET_FIELD_SET(SecurityDesc);   
-    NET_FIELD_SET(EncodedSecurityDescLen);   
-    NET_FIELD_SET(EncodedSecurityDesc);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
-    NET_FIELD_SET(Account);
-    NET_FIELD_SET(AccountType);
-    NET_FIELD_SET(TradingSessionID);
-    NET_FIELD_SET(TradingSessionSubID);
-    NET_FIELD_SET(SubscriptionRequestType);
-  };
-
-  public __gc class QuoteStatusReport : public Message
-  {
-  public: 
-    QuoteStatusReport() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AI"); }
-    //
-    QuoteStatusReport(
-      Fix::QuoteID* aQuoteID )
-    : Message(MsgType())
-    
-    {
-      set(aQuoteID);
-    }
-  
-    NET_FIELD_SET(QuoteStatusReqID);
-    NET_FIELD_SET(QuoteReqID);
-    NET_FIELD_SET(QuoteID);
-    NET_FIELD_SET(QuoteType);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
-    NET_FIELD_SET(Account);
-    NET_FIELD_SET(AccountType);
-    NET_FIELD_SET(TradingSessionID);
-    NET_FIELD_SET(TradingSessionSubID);   
-    NET_FIELD_SET(Symbol);   
-    NET_FIELD_SET(SymbolSfx);   
-    NET_FIELD_SET(SecurityID);   
-    NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -1225,6 +1184,123 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
+    NET_FIELD_SET(Account);
+    NET_FIELD_SET(AccountType);
+    NET_FIELD_SET(TradingSessionID);
+    NET_FIELD_SET(TradingSessionSubID);
+    NET_FIELD_SET(SubscriptionRequestType);
+  };
+
+  public __gc class QuoteStatusReport : public Message
+  {
+  public: 
+    QuoteStatusReport() : Message(MsgType()) {}
+    static Fix::MsgType* MsgType() { return new Fix::MsgType("AI"); }
+    //
+    QuoteStatusReport(
+      Fix::QuoteID* aQuoteID )
+    : Message(MsgType())
+    
+    {
+      set(aQuoteID);
+    }
+  
+    NET_FIELD_SET(QuoteStatusReqID);
+    NET_FIELD_SET(QuoteReqID);
+    NET_FIELD_SET(QuoteID);
+    NET_FIELD_SET(QuoteType);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
+    NET_FIELD_SET(Account);
+    NET_FIELD_SET(AccountType);
+    NET_FIELD_SET(TradingSessionID);
+    NET_FIELD_SET(TradingSessionSubID);   
+    NET_FIELD_SET(Symbol);   
+    NET_FIELD_SET(SymbolSfx);   
+    NET_FIELD_SET(SecurityID);   
+    NET_FIELD_SET(SecurityIDSource);   
+    NET_FIELD_SET(Product);   
+    NET_FIELD_SET(CFICode);   
+    NET_FIELD_SET(SecurityType);   
+    NET_FIELD_SET(MaturityMonthYear);   
+    NET_FIELD_SET(MaturityDate);   
+    NET_FIELD_SET(CouponPaymentDate);   
+    NET_FIELD_SET(IssueDate);   
+    NET_FIELD_SET(RepoCollateralSecurityType);   
+    NET_FIELD_SET(RepurchaseTerm);   
+    NET_FIELD_SET(RepurchaseRate);   
+    NET_FIELD_SET(Factor);   
+    NET_FIELD_SET(CreditRating);   
+    NET_FIELD_SET(InstrRegistry);   
+    NET_FIELD_SET(CountryOfIssue);   
+    NET_FIELD_SET(StateOrProvinceOfIssue);   
+    NET_FIELD_SET(LocaleOfIssue);   
+    NET_FIELD_SET(RedemptionDate);   
+    NET_FIELD_SET(StrikePrice);   
+    NET_FIELD_SET(OptAttribute);   
+    NET_FIELD_SET(ContractMultiplier);   
+    NET_FIELD_SET(CouponRate);   
+    NET_FIELD_SET(SecurityExchange);   
+    NET_FIELD_SET(Issuer);   
+    NET_FIELD_SET(EncodedIssuerLen);   
+    NET_FIELD_SET(EncodedIssuer);   
+    NET_FIELD_SET(SecurityDesc);   
+    NET_FIELD_SET(EncodedSecurityDescLen);   
+    NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(BidPx);
     NET_FIELD_SET(OfferPx);
     NET_FIELD_SET(MktBidPx);
@@ -1277,12 +1353,23 @@ namespace Fix43
     NET_FIELD_SET(QuoteReqID);
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteType);
-    NET_FIELD_SET(QuoteResponseLevel);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(QuoteResponseLevel);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(DefBidSize);
@@ -1294,12 +1381,12 @@ namespace Fix43
       NoQuoteSets() : Group(296, 302, message_order ) {}
         static int message_order __gc[] = {
         302,
-        311,312,309,305,457,458,459,462,463,310,313,542,241,242,243,244,245,246,256,595,592,593,594,247,315,316,317,436,435,308,306,362,363,307,364,365,
+        311,312,309,305,462,463,310,313,542,241,242,243,244,245,246,256,595,592,593,594,247,315,316,317,436,435,308,306,362,363,307,364,365,
         367,
         304,
         
           299,
-          55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+          55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
           132,
           133,
           134,
@@ -1335,7 +1422,7 @@ namespace Fix43
       NoQuoteEntries() : Group(295, 15, message_order ) {}
         static int message_order __gc[] = {
           299,
-          55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+          55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
           132,
           133,
           134,
@@ -1388,9 +1475,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -1424,9 +1508,6 @@ namespace Fix43
           NET_FIELD_SET(UnderlyingSymbolSfx);
           NET_FIELD_SET(UnderlyingSecurityID);
           NET_FIELD_SET(UnderlyingSecurityIDSource);
-          NET_FIELD_SET(NoUnderlyingSecurityAltID);
-          NET_FIELD_SET(UnderlyingSecurityAltID);
-          NET_FIELD_SET(UnderlyingSecurityAltIDSource);
           NET_FIELD_SET(UnderlyingProduct);
           NET_FIELD_SET(UnderlyingCFICode);
           NET_FIELD_SET(UnderlyingSecurityType);
@@ -1478,16 +1559,25 @@ namespace Fix43
     NET_FIELD_SET(QuoteStatus);
     NET_FIELD_SET(QuoteRejectReason);
     NET_FIELD_SET(QuoteResponseLevel);
-    NET_FIELD_SET(QuoteType);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(QuoteType);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
-    NET_FIELD_SET(TradingSessionID);
-    NET_FIELD_SET(TradingSessionSubID);
     NET_FIELD_SET(Text);
   
     __gc class NoQuoteSets : public Fix::Group
@@ -1496,11 +1586,11 @@ namespace Fix43
       NoQuoteSets() : Group(296, 302, message_order ) {}
         static int message_order __gc[] = {
         302,
-        311,312,309,305,457,458,459,462,463,310,313,542,241,242,243,244,245,246,256,595,592,593,594,247,315,316,317,436,435,308,306,362,363,307,364,365,
+        311,312,309,305,462,463,310,313,542,241,242,243,244,245,246,256,595,592,593,594,247,315,316,317,436,435,308,306,362,363,307,364,365,
         304,
         
           299,
-          55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+          55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
           132,
           133,
           134,
@@ -1536,7 +1626,7 @@ namespace Fix43
       NoQuoteEntries() : Group(295, 15, message_order ) {}
         static int message_order __gc[] = {
           299,
-          55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+          55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
           132,
           133,
           134,
@@ -1591,9 +1681,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -1627,9 +1714,6 @@ namespace Fix43
           NET_FIELD_SET(UnderlyingSymbolSfx);
           NET_FIELD_SET(UnderlyingSecurityID);
           NET_FIELD_SET(UnderlyingSecurityIDSource);
-          NET_FIELD_SET(NoUnderlyingSecurityAltID);
-          NET_FIELD_SET(UnderlyingSecurityAltID);
-          NET_FIELD_SET(UnderlyingSecurityAltIDSource);
           NET_FIELD_SET(UnderlyingProduct);
           NET_FIELD_SET(UnderlyingCFICode);
           NET_FIELD_SET(UnderlyingSecurityType);
@@ -1695,70 +1779,21 @@ namespace Fix43
       NoMDEntryTypes() : Group(267, 269, message_order ) {}
         static int message_order __gc[] = {
         269,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
-        336,
-        625,
       0};
       NET_FIELD_SET(MDEntryType);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(Symbol);
-          NET_FIELD_SET(SymbolSfx);
-          NET_FIELD_SET(SecurityID);
-          NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
-          NET_FIELD_SET(Product);
-          NET_FIELD_SET(CFICode);
-          NET_FIELD_SET(SecurityType);
-          NET_FIELD_SET(MaturityMonthYear);
-          NET_FIELD_SET(MaturityDate);
-          NET_FIELD_SET(CouponPaymentDate);
-          NET_FIELD_SET(IssueDate);
-          NET_FIELD_SET(RepoCollateralSecurityType);
-          NET_FIELD_SET(RepurchaseTerm);
-          NET_FIELD_SET(RepurchaseRate);
-          NET_FIELD_SET(Factor);
-          NET_FIELD_SET(CreditRating);
-          NET_FIELD_SET(InstrRegistry);
-          NET_FIELD_SET(CountryOfIssue);
-          NET_FIELD_SET(StateOrProvinceOfIssue);
-          NET_FIELD_SET(LocaleOfIssue);
-          NET_FIELD_SET(RedemptionDate);
-          NET_FIELD_SET(StrikePrice);
-          NET_FIELD_SET(OptAttribute);
-          NET_FIELD_SET(ContractMultiplier);
-          NET_FIELD_SET(CouponRate);
-          NET_FIELD_SET(SecurityExchange);
-          NET_FIELD_SET(Issuer);
-          NET_FIELD_SET(EncodedIssuerLen);
-          NET_FIELD_SET(EncodedIssuer);
-          NET_FIELD_SET(SecurityDesc);
-          NET_FIELD_SET(EncodedSecurityDescLen);
-          NET_FIELD_SET(EncodedSecurityDesc);
     };
   
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
-      NoRelatedSym() : Group(146, 269, message_order ) {}
+      NoRelatedSym() : Group(146, 55, message_order ) {}
         static int message_order __gc[] = {
-        269,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
-        336,
-        625,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
       0};
-      NET_FIELD_SET(MDEntryType);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -1792,51 +1827,13 @@ namespace Fix43
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 269, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-        269,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         336,
         625,
       0};
-      NET_FIELD_SET(MDEntryType);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(Symbol);
-          NET_FIELD_SET(SymbolSfx);
-          NET_FIELD_SET(SecurityID);
-          NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
-          NET_FIELD_SET(Product);
-          NET_FIELD_SET(CFICode);
-          NET_FIELD_SET(SecurityType);
-          NET_FIELD_SET(MaturityMonthYear);
-          NET_FIELD_SET(MaturityDate);
-          NET_FIELD_SET(CouponPaymentDate);
-          NET_FIELD_SET(IssueDate);
-          NET_FIELD_SET(RepoCollateralSecurityType);
-          NET_FIELD_SET(RepurchaseTerm);
-          NET_FIELD_SET(RepurchaseRate);
-          NET_FIELD_SET(Factor);
-          NET_FIELD_SET(CreditRating);
-          NET_FIELD_SET(InstrRegistry);
-          NET_FIELD_SET(CountryOfIssue);
-          NET_FIELD_SET(StateOrProvinceOfIssue);
-          NET_FIELD_SET(LocaleOfIssue);
-          NET_FIELD_SET(RedemptionDate);
-          NET_FIELD_SET(StrikePrice);
-          NET_FIELD_SET(OptAttribute);
-          NET_FIELD_SET(ContractMultiplier);
-          NET_FIELD_SET(CouponRate);
-          NET_FIELD_SET(SecurityExchange);
-          NET_FIELD_SET(Issuer);
-          NET_FIELD_SET(EncodedIssuerLen);
-          NET_FIELD_SET(EncodedIssuer);
-          NET_FIELD_SET(SecurityDesc);
-          NET_FIELD_SET(EncodedSecurityDescLen);
-          NET_FIELD_SET(EncodedSecurityDesc);
     };
   };
 
@@ -1851,9 +1848,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -1882,6 +1876,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(FinancialStatus);
     NET_FIELD_SET(CorporateAction);
     NET_FIELD_SET(TotalVolumeTraded);
@@ -1980,7 +1986,7 @@ namespace Fix43
         269,
         278,
         280,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         291,
         292,
         270,
@@ -2065,9 +2071,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -2142,9 +2145,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -2173,6 +2173,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(Text);
     NET_FIELD_SET(EncodedTextLen);
@@ -2185,7 +2197,7 @@ namespace Fix43
     public:
       NoLegs() : Group(555, 556, message_order ) {}
         static int message_order __gc[] = {
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+        600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         556,
       0};
       NET_FIELD_SET(LegCurrency);
@@ -2193,9 +2205,6 @@ namespace Fix43
           NET_FIELD_SET(LegSymbolSfx);
           NET_FIELD_SET(LegSecurityID);
           NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
           NET_FIELD_SET(LegProduct);
           NET_FIELD_SET(LegCFICode);
           NET_FIELD_SET(LegSecurityType);
@@ -2255,9 +2264,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -2286,6 +2292,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(TradingSessionSubID);
@@ -2298,7 +2316,7 @@ namespace Fix43
     public:
       NoLegs() : Group(555, 556, message_order ) {}
         static int message_order __gc[] = {
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+        600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         556,
       0};
       NET_FIELD_SET(LegCurrency);
@@ -2306,9 +2324,6 @@ namespace Fix43
           NET_FIELD_SET(LegSymbolSfx);
           NET_FIELD_SET(LegSecurityID);
           NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
           NET_FIELD_SET(LegProduct);
           NET_FIELD_SET(LegCFICode);
           NET_FIELD_SET(LegSecurityType);
@@ -2432,9 +2447,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -2463,6 +2475,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(Text);
     NET_FIELD_SET(EncodedTextLen);
@@ -2500,10 +2524,10 @@ namespace Fix43
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
         static int message_order __gc[] = {
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         15,
         
-          600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+          600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
           556,
         
         561,
@@ -2528,7 +2552,7 @@ namespace Fix43
     public:
       NoLegs() : Group(555, 556, message_order ) {}
         static int message_order __gc[] = {
-          600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+          600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
           556,
         0};
       NET_FIELD_SET(LegCurrency);
@@ -2536,9 +2560,6 @@ namespace Fix43
           NET_FIELD_SET(LegSymbolSfx);
           NET_FIELD_SET(LegSecurityID);
           NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
           NET_FIELD_SET(LegProduct);
           NET_FIELD_SET(LegCFICode);
           NET_FIELD_SET(LegSecurityType);
@@ -2574,9 +2595,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -2630,9 +2648,6 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSymbolSfx);   
     NET_FIELD_SET(UnderlyingSecurityID);   
     NET_FIELD_SET(UnderlyingSecurityIDSource);   
-    NET_FIELD_SET(NoUnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltIDSource);   
     NET_FIELD_SET(UnderlyingProduct);   
     NET_FIELD_SET(UnderlyingCFICode);   
     NET_FIELD_SET(UnderlyingSecurityType);   
@@ -2662,6 +2677,18 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
+  
+    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    {
+    public:
+      NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
+        static int message_order __gc[] = {
+        458,
+        459,
+      0};
+      NET_FIELD_SET(UnderlyingSecurityAltID);
+      NET_FIELD_SET(UnderlyingSecurityAltIDSource);
+    };
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(Text);
     NET_FIELD_SET(EncodedTextLen);
@@ -2696,9 +2723,6 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSymbolSfx);   
     NET_FIELD_SET(UnderlyingSecurityID);   
     NET_FIELD_SET(UnderlyingSecurityIDSource);   
-    NET_FIELD_SET(NoUnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltIDSource);   
     NET_FIELD_SET(UnderlyingProduct);   
     NET_FIELD_SET(UnderlyingCFICode);   
     NET_FIELD_SET(UnderlyingSecurityType);   
@@ -2728,6 +2752,18 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
+  
+    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    {
+    public:
+      NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
+        static int message_order __gc[] = {
+        458,
+        459,
+      0};
+      NET_FIELD_SET(UnderlyingSecurityAltID);
+      NET_FIELD_SET(UnderlyingSecurityAltIDSource);
+    };
     NET_FIELD_SET(TotalNumSecurities);
   
     __gc class NoRelatedSym : public Fix::Group
@@ -2735,10 +2771,10 @@ namespace Fix43
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
         static int message_order __gc[] = {
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         15,
         
-          600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+          600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
           556,
         
         336,
@@ -2759,7 +2795,7 @@ namespace Fix43
     public:
       NoLegs() : Group(555, 556, message_order ) {}
         static int message_order __gc[] = {
-          600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+          600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
           556,
         0};
       NET_FIELD_SET(LegCurrency);
@@ -2767,9 +2803,6 @@ namespace Fix43
           NET_FIELD_SET(LegSymbolSfx);
           NET_FIELD_SET(LegSecurityID);
           NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
           NET_FIELD_SET(LegProduct);
           NET_FIELD_SET(LegCFICode);
           NET_FIELD_SET(LegSecurityType);
@@ -2805,9 +2838,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -2860,9 +2890,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -2891,6 +2918,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(SubscriptionRequestType);
     NET_FIELD_SET(TradingSessionID);
@@ -2908,9 +2947,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -2939,6 +2975,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(TradingSessionSubID);
@@ -3044,12 +3092,23 @@ namespace Fix43
   
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(SecondaryClOrdID);
-    NET_FIELD_SET(ClOrdLinkID);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(ClOrdLinkID);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(TradeOriginationDate);
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
@@ -3064,21 +3123,12 @@ namespace Fix43
         static int message_order __gc[] = {
         79,
         467,
-        539,524,525,538,545,
+        
         80,
-        336,
-        625,
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
@@ -3093,34 +3143,19 @@ namespace Fix43
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 79, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-        79,
-        467,
-        539,524,525,538,545,
-        80,
         336,
         625,
       0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(ProcessCode);   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -3149,13 +3184,34 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(PrevClosePx);
     NET_FIELD_SET(Side);
     NET_FIELD_SET(LocateReqd);
-    NET_FIELD_SET(TransactTime);   
-    NET_FIELD_SET(NoStipulations);   
-    NET_FIELD_SET(StipulationType);   
-    NET_FIELD_SET(StipulationValue);
+    NET_FIELD_SET(TransactTime);
+  
+    __gc class NoStipulations : public Fix::Group
+    {
+    public:
+      NoStipulations() : Group(232, 233, message_order ) {}
+        static int message_order __gc[] = {
+        233,
+        234,
+      0};
+      NET_FIELD_SET(StipulationType);
+      NET_FIELD_SET(StipulationValue);
+    };
     NET_FIELD_SET(QuantityType);   
     NET_FIELD_SET(OrderQty);   
     NET_FIELD_SET(CashOrderQty);   
@@ -3247,12 +3303,23 @@ namespace Fix43
     NET_FIELD_SET(SecondaryExecID);
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(OrigClOrdID);
-    NET_FIELD_SET(ClOrdLinkID);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(ClOrdLinkID);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(TradeOriginationDate);
   
     __gc class NoContraBrokers : public Fix::Group
@@ -3265,76 +3332,12 @@ namespace Fix43
         437,
         438,
         655,
-        519,
-        520,
-        521,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
-        564,
-        565,
-        539,524,525,538,545,
-        654,
-        566,
-        587,
-        588,
-        637,
       0};
       NET_FIELD_SET(ContraBroker);
       NET_FIELD_SET(ContraTrader);
       NET_FIELD_SET(ContraTradeQty);
       NET_FIELD_SET(ContraTradeTime);
       NET_FIELD_SET(ContraLegRefID);
-      NET_FIELD_SET(ContAmtType);
-      NET_FIELD_SET(ContAmtValue);
-      NET_FIELD_SET(ContAmtCurr);
-      NET_FIELD_SET(LegPositionEffect);
-      NET_FIELD_SET(LegCoveredOrUncovered);
-      NET_FIELD_SET(LegRefID);
-      NET_FIELD_SET(LegPrice);
-      NET_FIELD_SET(LegSettlmntTyp);
-      NET_FIELD_SET(LegFutSettDate);
-      NET_FIELD_SET(LegLastPx);
-          NET_FIELD_SET(LegSymbol);
-          NET_FIELD_SET(LegSymbolSfx);
-          NET_FIELD_SET(LegSecurityID);
-          NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
-          NET_FIELD_SET(LegProduct);
-          NET_FIELD_SET(LegCFICode);
-          NET_FIELD_SET(LegSecurityType);
-          NET_FIELD_SET(LegMaturityMonthYear);
-          NET_FIELD_SET(LegMaturityDate);
-          NET_FIELD_SET(LegCouponPaymentDate);
-          NET_FIELD_SET(LegIssueDate);
-          NET_FIELD_SET(LegRepoCollateralSecurityType);
-          NET_FIELD_SET(LegRepurchaseTerm);
-          NET_FIELD_SET(LegRepurchaseRate);
-          NET_FIELD_SET(LegFactor);
-          NET_FIELD_SET(LegCreditRating);
-          NET_FIELD_SET(LegInstrRegistry);
-          NET_FIELD_SET(LegCountryOfIssue);
-          NET_FIELD_SET(LegStateOrProvinceOfIssue);
-          NET_FIELD_SET(LegLocaleOfIssue);
-          NET_FIELD_SET(LegRedemptionDate);
-          NET_FIELD_SET(LegStrikePrice);
-          NET_FIELD_SET(LegOptAttribute);
-          NET_FIELD_SET(LegContractMultiplier);
-          NET_FIELD_SET(LegCouponRate);
-          NET_FIELD_SET(LegSecurityExchange);
-          NET_FIELD_SET(LegIssuer);
-          NET_FIELD_SET(EncodedLegIssuerLen);
-          NET_FIELD_SET(EncodedLegIssuer);
-          NET_FIELD_SET(LegSecurityDesc);
-          NET_FIELD_SET(EncodedLegSecurityDescLen);
-          NET_FIELD_SET(EncodedLegSecurityDesc);
-          NET_FIELD_SET(LegRatioQty);
-          NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(ListID);
     NET_FIELD_SET(CrossID);
@@ -3360,9 +3363,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -3391,10 +3391,31 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-    NET_FIELD_SET(Side);   
-    NET_FIELD_SET(NoStipulations);   
-    NET_FIELD_SET(StipulationType);   
-    NET_FIELD_SET(StipulationValue);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
+    NET_FIELD_SET(Side);
+  
+    __gc class NoStipulations : public Fix::Group
+    {
+    public:
+      NoStipulations() : Group(232, 233, message_order ) {}
+        static int message_order __gc[] = {
+        233,
+        234,
+      0};
+      NET_FIELD_SET(StipulationType);
+      NET_FIELD_SET(StipulationValue);
+    };
     NET_FIELD_SET(QuantityType);   
     NET_FIELD_SET(OrderQty);   
     NET_FIELD_SET(CashOrderQty);   
@@ -3491,116 +3512,32 @@ namespace Fix43
     __gc class NoContAmts : public Fix::Group
     {
     public:
-      NoContAmts() : Group(518, 337, message_order ) {}
+      NoContAmts() : Group(518, 519, message_order ) {}
         static int message_order __gc[] = {
-        375,
-        337,
-        437,
-        438,
-        655,
         519,
         520,
         521,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
-        564,
-        565,
-        539,524,525,538,545,
-        654,
-        566,
-        587,
-        588,
-        637,
       0};
-      NET_FIELD_SET(ContraBroker);
-      NET_FIELD_SET(ContraTrader);
-      NET_FIELD_SET(ContraTradeQty);
-      NET_FIELD_SET(ContraTradeTime);
-      NET_FIELD_SET(ContraLegRefID);
       NET_FIELD_SET(ContAmtType);
       NET_FIELD_SET(ContAmtValue);
       NET_FIELD_SET(ContAmtCurr);
-      NET_FIELD_SET(LegPositionEffect);
-      NET_FIELD_SET(LegCoveredOrUncovered);
-      NET_FIELD_SET(LegRefID);
-      NET_FIELD_SET(LegPrice);
-      NET_FIELD_SET(LegSettlmntTyp);
-      NET_FIELD_SET(LegFutSettDate);
-      NET_FIELD_SET(LegLastPx);
-          NET_FIELD_SET(LegSymbol);
-          NET_FIELD_SET(LegSymbolSfx);
-          NET_FIELD_SET(LegSecurityID);
-          NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
-          NET_FIELD_SET(LegProduct);
-          NET_FIELD_SET(LegCFICode);
-          NET_FIELD_SET(LegSecurityType);
-          NET_FIELD_SET(LegMaturityMonthYear);
-          NET_FIELD_SET(LegMaturityDate);
-          NET_FIELD_SET(LegCouponPaymentDate);
-          NET_FIELD_SET(LegIssueDate);
-          NET_FIELD_SET(LegRepoCollateralSecurityType);
-          NET_FIELD_SET(LegRepurchaseTerm);
-          NET_FIELD_SET(LegRepurchaseRate);
-          NET_FIELD_SET(LegFactor);
-          NET_FIELD_SET(LegCreditRating);
-          NET_FIELD_SET(LegInstrRegistry);
-          NET_FIELD_SET(LegCountryOfIssue);
-          NET_FIELD_SET(LegStateOrProvinceOfIssue);
-          NET_FIELD_SET(LegLocaleOfIssue);
-          NET_FIELD_SET(LegRedemptionDate);
-          NET_FIELD_SET(LegStrikePrice);
-          NET_FIELD_SET(LegOptAttribute);
-          NET_FIELD_SET(LegContractMultiplier);
-          NET_FIELD_SET(LegCouponRate);
-          NET_FIELD_SET(LegSecurityExchange);
-          NET_FIELD_SET(LegIssuer);
-          NET_FIELD_SET(EncodedLegIssuerLen);
-          NET_FIELD_SET(EncodedLegIssuer);
-          NET_FIELD_SET(LegSecurityDesc);
-          NET_FIELD_SET(EncodedLegSecurityDescLen);
-          NET_FIELD_SET(EncodedLegSecurityDesc);
-          NET_FIELD_SET(LegRatioQty);
-          NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
   
     __gc class NoLegs : public Fix::Group
     {
     public:
-      NoLegs() : Group(555, 337, message_order ) {}
+      NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-        375,
-        337,
-        437,
-        438,
-        655,
-        519,
-        520,
-        521,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+        600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
-        539,524,525,538,545,
+        
         654,
         566,
         587,
         588,
         637,
       0};
-      NET_FIELD_SET(ContraBroker);
-      NET_FIELD_SET(ContraTrader);
-      NET_FIELD_SET(ContraTradeQty);
-      NET_FIELD_SET(ContraTradeTime);
-      NET_FIELD_SET(ContraLegRefID);
-      NET_FIELD_SET(ContAmtType);
-      NET_FIELD_SET(ContAmtValue);
-      NET_FIELD_SET(ContAmtCurr);
       NET_FIELD_SET(LegPositionEffect);
       NET_FIELD_SET(LegCoveredOrUncovered);
       NET_FIELD_SET(LegRefID);
@@ -3612,9 +3549,6 @@ namespace Fix43
           NET_FIELD_SET(LegSymbolSfx);
           NET_FIELD_SET(LegSecurityID);
           NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
           NET_FIELD_SET(LegProduct);
           NET_FIELD_SET(LegCFICode);
           NET_FIELD_SET(LegSecurityType);
@@ -3645,11 +3579,6 @@ namespace Fix43
           NET_FIELD_SET(EncodedLegSecurityDesc);
           NET_FIELD_SET(LegRatioQty);
           NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
   };
 
@@ -3680,9 +3609,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -3711,6 +3637,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);   
     NET_FIELD_SET(OrderQty);   
     NET_FIELD_SET(CashOrderQty);   
@@ -3748,12 +3686,23 @@ namespace Fix43
       set(aOrdType);
     }
   
-    NET_FIELD_SET(OrderID);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(OrderID);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(TradeOriginationDate);
     NET_FIELD_SET(OrigClOrdID);
     NET_FIELD_SET(ClOrdID);
@@ -3774,21 +3723,12 @@ namespace Fix43
         static int message_order __gc[] = {
         79,
         467,
-        539,524,525,538,545,
+        
         80,
-        336,
-        625,
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
@@ -3803,33 +3743,18 @@ namespace Fix43
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 79, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-        79,
-        467,
-        539,524,525,538,545,
-        80,
         336,
         625,
       0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -3858,6 +3783,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(QuantityType);   
@@ -3944,19 +3881,27 @@ namespace Fix43
     NET_FIELD_SET(ListID);
     NET_FIELD_SET(OrigOrdModTime);
     NET_FIELD_SET(Account);
-    NET_FIELD_SET(AccountType);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);   
+    NET_FIELD_SET(AccountType);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -3985,6 +3930,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);
     NET_FIELD_SET(TransactTime);   
     NET_FIELD_SET(OrderQty);   
@@ -4060,20 +4017,28 @@ namespace Fix43
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(SecondaryClOrdID);
-    NET_FIELD_SET(ClOrdLinkID);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(ClOrdLinkID);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -4102,6 +4067,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);
   };
 
@@ -4132,9 +4109,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -4162,14 +4136,23 @@ namespace Fix43
     NET_FIELD_SET(EncodedIssuer);   
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
-    NET_FIELD_SET(EncodedSecurityDesc);   
+    NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };   
     NET_FIELD_SET(UnderlyingSymbol);   
     NET_FIELD_SET(UnderlyingSymbolSfx);   
     NET_FIELD_SET(UnderlyingSecurityID);   
     NET_FIELD_SET(UnderlyingSecurityIDSource);   
-    NET_FIELD_SET(NoUnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltIDSource);   
     NET_FIELD_SET(UnderlyingProduct);   
     NET_FIELD_SET(UnderlyingCFICode);   
     NET_FIELD_SET(UnderlyingSecurityType);   
@@ -4199,6 +4182,18 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
+  
+    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    {
+    public:
+      NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
+        static int message_order __gc[] = {
+        458,
+        459,
+      0};
+      NET_FIELD_SET(UnderlyingSecurityAltID);
+      NET_FIELD_SET(UnderlyingSecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(Text);
@@ -4252,9 +4247,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -4282,14 +4274,23 @@ namespace Fix43
     NET_FIELD_SET(EncodedIssuer);   
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
-    NET_FIELD_SET(EncodedSecurityDesc);   
+    NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };   
     NET_FIELD_SET(UnderlyingSymbol);   
     NET_FIELD_SET(UnderlyingSymbolSfx);   
     NET_FIELD_SET(UnderlyingSecurityID);   
     NET_FIELD_SET(UnderlyingSecurityIDSource);   
-    NET_FIELD_SET(NoUnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltIDSource);   
     NET_FIELD_SET(UnderlyingProduct);   
     NET_FIELD_SET(UnderlyingCFICode);   
     NET_FIELD_SET(UnderlyingSecurityType);   
@@ -4319,6 +4320,18 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
+  
+    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    {
+    public:
+      NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
+        static int message_order __gc[] = {
+        458,
+        459,
+      0};
+      NET_FIELD_SET(UnderlyingSecurityAltID);
+      NET_FIELD_SET(UnderlyingSecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(Text);
@@ -4343,12 +4356,23 @@ namespace Fix43
     }
   
     NET_FIELD_SET(MassStatusReqID);
-    NET_FIELD_SET(MassStatusReqType);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(MassStatusReqType);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(TradingSessionSubID);   
@@ -4356,9 +4380,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -4386,14 +4407,23 @@ namespace Fix43
     NET_FIELD_SET(EncodedIssuer);   
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
-    NET_FIELD_SET(EncodedSecurityDesc);   
+    NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };   
     NET_FIELD_SET(UnderlyingSymbol);   
     NET_FIELD_SET(UnderlyingSymbolSfx);   
     NET_FIELD_SET(UnderlyingSecurityID);   
     NET_FIELD_SET(UnderlyingSecurityIDSource);   
-    NET_FIELD_SET(NoUnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltID);   
-    NET_FIELD_SET(UnderlyingSecurityAltIDSource);   
     NET_FIELD_SET(UnderlyingProduct);   
     NET_FIELD_SET(UnderlyingCFICode);   
     NET_FIELD_SET(UnderlyingSecurityType);   
@@ -4423,6 +4453,18 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
+  
+    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    {
+    public:
+      NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
+        static int message_order __gc[] = {
+        458,
+        459,
+      0};
+      NET_FIELD_SET(UnderlyingSecurityAltID);
+      NET_FIELD_SET(UnderlyingSecurityAltIDSource);
+    };
     NET_FIELD_SET(Side);
   };
 
@@ -4463,7 +4505,7 @@ namespace Fix43
         11,
         526,
         583,
-        453,448,447,452,523,
+        
         229,
         1,
         581,
@@ -4473,7 +4515,7 @@ namespace Fix43
         
           79,
           467,
-          539,524,525,538,545,
+          
           80,
         
         465,
@@ -4493,8 +4535,6 @@ namespace Fix43
         635,
         377,
         659,
-        336,
-        625,
       0};
       NET_FIELD_SET(Side);
       NET_FIELD_SET(ClOrdID);
@@ -4521,8 +4561,6 @@ namespace Fix43
       NET_FIELD_SET(ClearingFeeIndicator);
       NET_FIELD_SET(SolicitedFlag);
       NET_FIELD_SET(SideComplianceID);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
   
     __gc class NoAllocs : public Fix::Group
     {
@@ -4531,23 +4569,13 @@ namespace Fix43
         static int message_order __gc[] = {
           79,
           467,
-          539,524,525,538,545,
+          
           80,
         0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
-          NET_FIELD_SET(NoPartyIDs);
-          NET_FIELD_SET(PartyID);
-          NET_FIELD_SET(PartyIDSource);
-          NET_FIELD_SET(PartyRole);
-          NET_FIELD_SET(PartySubID);
           NET_FIELD_SET(OrderQty);
           NET_FIELD_SET(CashOrderQty);
           NET_FIELD_SET(OrderPercent);
@@ -4562,9 +4590,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -4593,6 +4618,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
     NET_FIELD_SET(HandlInst);
@@ -4604,114 +4641,30 @@ namespace Fix43
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 1, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-        54,
-        11,
-        526,
-        583,
-        453,448,447,452,523,
-        229,
-        1,
-        581,
-        589,
-        590,
-        591,
-        
-          79,
-          467,
-          539,524,525,538,545,
-          80,
-        
-        465,
-        38,152,516,468,469,
-        12,13,479,497,
-        528,
-        529,
-        582,
-        121,
-        120,
-        58,
-        354,
-        355,
-        77,
-        203,
-        544,
-        635,
-        377,
-        659,
         336,
         625,
       0};
-      NET_FIELD_SET(Side);
-      NET_FIELD_SET(ClOrdID);
-      NET_FIELD_SET(SecondaryClOrdID);
-      NET_FIELD_SET(ClOrdLinkID);
-      NET_FIELD_SET(TradeOriginationDate);
-      NET_FIELD_SET(Account);
-      NET_FIELD_SET(AccountType);
-      NET_FIELD_SET(DayBookingInst);
-      NET_FIELD_SET(BookingUnit);
-      NET_FIELD_SET(PreallocMethod);
-      NET_FIELD_SET(QuantityType);
-      NET_FIELD_SET(OrderCapacity);
-      NET_FIELD_SET(OrderRestrictions);
-      NET_FIELD_SET(CustOrderCapacity);
-      NET_FIELD_SET(ForexReq);
-      NET_FIELD_SET(SettlCurrency);
-      NET_FIELD_SET(Text);
-      NET_FIELD_SET(EncodedTextLen);
-      NET_FIELD_SET(EncodedText);
-      NET_FIELD_SET(PositionEffect);
-      NET_FIELD_SET(CoveredOrUncovered);
-      NET_FIELD_SET(CashMargin);
-      NET_FIELD_SET(ClearingFeeIndicator);
-      NET_FIELD_SET(SolicitedFlag);
-      NET_FIELD_SET(SideComplianceID);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-  
-    __gc class NoAllocs : public Fix::Group
-    {
-    public:
-      NoAllocs() : Group(78, 79, message_order ) {}
-        static int message_order __gc[] = {
-          79,
-          467,
-          539,524,525,538,545,
-          80,
-        0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
-    };
-          NET_FIELD_SET(NoPartyIDs);
-          NET_FIELD_SET(PartyID);
-          NET_FIELD_SET(PartyIDSource);
-          NET_FIELD_SET(PartyRole);
-          NET_FIELD_SET(PartySubID);
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
-          NET_FIELD_SET(Commission);
-          NET_FIELD_SET(CommType);
-          NET_FIELD_SET(CommCurrency);
-          NET_FIELD_SET(FundRenewWaiv);
     };
     NET_FIELD_SET(ProcessCode);
     NET_FIELD_SET(PrevClosePx);
     NET_FIELD_SET(LocateReqd);
-    NET_FIELD_SET(TransactTime);   
-    NET_FIELD_SET(NoStipulations);   
-    NET_FIELD_SET(StipulationType);   
-    NET_FIELD_SET(StipulationValue);
+    NET_FIELD_SET(TransactTime);
+  
+    __gc class NoStipulations : public Fix::Group
+    {
+    public:
+      NoStipulations() : Group(232, 233, message_order ) {}
+        static int message_order __gc[] = {
+        233,
+        234,
+      0};
+      NET_FIELD_SET(StipulationType);
+      NET_FIELD_SET(StipulationValue);
+    };
     NET_FIELD_SET(OrdType);
     NET_FIELD_SET(PriceType);
     NET_FIELD_SET(Price);
@@ -4787,7 +4740,7 @@ namespace Fix43
         526,
         583,
         586,
-        453,448,447,452,523,
+        
         229,
         1,
         581,
@@ -4797,7 +4750,7 @@ namespace Fix43
         
           79,
           467,
-          539,524,525,538,545,
+          
           80,
         
         465,
@@ -4817,8 +4770,6 @@ namespace Fix43
         635,
         377,
         659,
-        336,
-        625,
       0};
       NET_FIELD_SET(Side);
       NET_FIELD_SET(OrigClOrdID);
@@ -4847,8 +4798,6 @@ namespace Fix43
       NET_FIELD_SET(ClearingFeeIndicator);
       NET_FIELD_SET(SolicitedFlag);
       NET_FIELD_SET(SideComplianceID);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
   
     __gc class NoAllocs : public Fix::Group
     {
@@ -4857,23 +4806,13 @@ namespace Fix43
         static int message_order __gc[] = {
           79,
           467,
-          539,524,525,538,545,
+          
           80,
         0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
-          NET_FIELD_SET(NoPartyIDs);
-          NET_FIELD_SET(PartyID);
-          NET_FIELD_SET(PartyIDSource);
-          NET_FIELD_SET(PartyRole);
-          NET_FIELD_SET(PartySubID);
           NET_FIELD_SET(OrderQty);
           NET_FIELD_SET(CashOrderQty);
           NET_FIELD_SET(OrderPercent);
@@ -4888,9 +4827,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -4919,6 +4855,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
     NET_FIELD_SET(HandlInst);
@@ -4930,118 +4878,30 @@ namespace Fix43
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 1, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-        54,
-        41,
-        11,
-        526,
-        583,
-        586,
-        453,448,447,452,523,
-        229,
-        1,
-        581,
-        589,
-        590,
-        591,
-        
-          79,
-          467,
-          539,524,525,538,545,
-          80,
-        
-        465,
-        38,152,516,468,469,
-        12,13,479,497,
-        528,
-        529,
-        582,
-        121,
-        120,
-        58,
-        354,
-        355,
-        77,
-        203,
-        544,
-        635,
-        377,
-        659,
         336,
         625,
       0};
-      NET_FIELD_SET(Side);
-      NET_FIELD_SET(OrigClOrdID);
-      NET_FIELD_SET(ClOrdID);
-      NET_FIELD_SET(SecondaryClOrdID);
-      NET_FIELD_SET(ClOrdLinkID);
-      NET_FIELD_SET(OrigOrdModTime);
-      NET_FIELD_SET(TradeOriginationDate);
-      NET_FIELD_SET(Account);
-      NET_FIELD_SET(AccountType);
-      NET_FIELD_SET(DayBookingInst);
-      NET_FIELD_SET(BookingUnit);
-      NET_FIELD_SET(PreallocMethod);
-      NET_FIELD_SET(QuantityType);
-      NET_FIELD_SET(OrderCapacity);
-      NET_FIELD_SET(OrderRestrictions);
-      NET_FIELD_SET(CustOrderCapacity);
-      NET_FIELD_SET(ForexReq);
-      NET_FIELD_SET(SettlCurrency);
-      NET_FIELD_SET(Text);
-      NET_FIELD_SET(EncodedTextLen);
-      NET_FIELD_SET(EncodedText);
-      NET_FIELD_SET(PositionEffect);
-      NET_FIELD_SET(CoveredOrUncovered);
-      NET_FIELD_SET(CashMargin);
-      NET_FIELD_SET(ClearingFeeIndicator);
-      NET_FIELD_SET(SolicitedFlag);
-      NET_FIELD_SET(SideComplianceID);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-  
-    __gc class NoAllocs : public Fix::Group
-    {
-    public:
-      NoAllocs() : Group(78, 79, message_order ) {}
-        static int message_order __gc[] = {
-          79,
-          467,
-          539,524,525,538,545,
-          80,
-        0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
-    };
-          NET_FIELD_SET(NoPartyIDs);
-          NET_FIELD_SET(PartyID);
-          NET_FIELD_SET(PartyIDSource);
-          NET_FIELD_SET(PartyRole);
-          NET_FIELD_SET(PartySubID);
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
-          NET_FIELD_SET(Commission);
-          NET_FIELD_SET(CommType);
-          NET_FIELD_SET(CommCurrency);
-          NET_FIELD_SET(FundRenewWaiv);
     };
     NET_FIELD_SET(ProcessCode);
     NET_FIELD_SET(PrevClosePx);
     NET_FIELD_SET(LocateReqd);
-    NET_FIELD_SET(TransactTime);   
-    NET_FIELD_SET(NoStipulations);   
-    NET_FIELD_SET(StipulationType);   
-    NET_FIELD_SET(StipulationValue);
+    NET_FIELD_SET(TransactTime);
+  
+    __gc class NoStipulations : public Fix::Group
+    {
+    public:
+      NoStipulations() : Group(232, 233, message_order ) {}
+        static int message_order __gc[] = {
+        233,
+        234,
+      0};
+      NET_FIELD_SET(StipulationType);
+      NET_FIELD_SET(StipulationValue);
+    };
     NET_FIELD_SET(OrdType);
     NET_FIELD_SET(PriceType);
     NET_FIELD_SET(Price);
@@ -5113,7 +4973,7 @@ namespace Fix43
         526,
         583,
         586,
-        453,448,447,452,523,
+        
         229,
         38,152,516,468,469,
         376,
@@ -5132,11 +4992,6 @@ namespace Fix43
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
-          NET_FIELD_SET(NoPartyIDs);
-          NET_FIELD_SET(PartyID);
-          NET_FIELD_SET(PartyIDSource);
-          NET_FIELD_SET(PartyRole);
-          NET_FIELD_SET(PartySubID);
           NET_FIELD_SET(OrderQty);
           NET_FIELD_SET(CashOrderQty);
           NET_FIELD_SET(OrderPercent);
@@ -5147,9 +5002,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -5178,6 +5030,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(TransactTime);
   };
 
@@ -5205,12 +5069,23 @@ namespace Fix43
   
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(SecondaryClOrdID);
-    NET_FIELD_SET(ClOrdLinkID);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(ClOrdLinkID);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(DayBookingInst);
@@ -5225,70 +5100,10 @@ namespace Fix43
         79,
         467,
         80,
-        336,
-        625,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
-        564,
-        565,
-        539,524,525,538,545,
-        654,
-        566,
-        587,
-        588,
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
-      NET_FIELD_SET(LegPositionEffect);
-      NET_FIELD_SET(LegCoveredOrUncovered);
-      NET_FIELD_SET(LegRefID);
-      NET_FIELD_SET(LegPrice);
-      NET_FIELD_SET(LegSettlmntTyp);
-      NET_FIELD_SET(LegFutSettDate);
-          NET_FIELD_SET(LegSymbol);
-          NET_FIELD_SET(LegSymbolSfx);
-          NET_FIELD_SET(LegSecurityID);
-          NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
-          NET_FIELD_SET(LegProduct);
-          NET_FIELD_SET(LegCFICode);
-          NET_FIELD_SET(LegSecurityType);
-          NET_FIELD_SET(LegMaturityMonthYear);
-          NET_FIELD_SET(LegMaturityDate);
-          NET_FIELD_SET(LegCouponPaymentDate);
-          NET_FIELD_SET(LegIssueDate);
-          NET_FIELD_SET(LegRepoCollateralSecurityType);
-          NET_FIELD_SET(LegRepurchaseTerm);
-          NET_FIELD_SET(LegRepurchaseRate);
-          NET_FIELD_SET(LegFactor);
-          NET_FIELD_SET(LegCreditRating);
-          NET_FIELD_SET(LegInstrRegistry);
-          NET_FIELD_SET(LegCountryOfIssue);
-          NET_FIELD_SET(LegStateOrProvinceOfIssue);
-          NET_FIELD_SET(LegLocaleOfIssue);
-          NET_FIELD_SET(LegRedemptionDate);
-          NET_FIELD_SET(LegStrikePrice);
-          NET_FIELD_SET(LegOptAttribute);
-          NET_FIELD_SET(LegContractMultiplier);
-          NET_FIELD_SET(LegCouponRate);
-          NET_FIELD_SET(LegSecurityExchange);
-          NET_FIELD_SET(LegIssuer);
-          NET_FIELD_SET(EncodedLegIssuerLen);
-          NET_FIELD_SET(EncodedLegIssuer);
-          NET_FIELD_SET(LegSecurityDesc);
-          NET_FIELD_SET(EncodedLegSecurityDescLen);
-          NET_FIELD_SET(EncodedLegSecurityDesc);
-          NET_FIELD_SET(LegRatioQty);
-          NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
@@ -5303,75 +5118,13 @@ namespace Fix43
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 79, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-        79,
-        467,
-        80,
         336,
         625,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
-        564,
-        565,
-        539,524,525,538,545,
-        654,
-        566,
-        587,
-        588,
       0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-      NET_FIELD_SET(LegPositionEffect);
-      NET_FIELD_SET(LegCoveredOrUncovered);
-      NET_FIELD_SET(LegRefID);
-      NET_FIELD_SET(LegPrice);
-      NET_FIELD_SET(LegSettlmntTyp);
-      NET_FIELD_SET(LegFutSettDate);
-          NET_FIELD_SET(LegSymbol);
-          NET_FIELD_SET(LegSymbolSfx);
-          NET_FIELD_SET(LegSecurityID);
-          NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
-          NET_FIELD_SET(LegProduct);
-          NET_FIELD_SET(LegCFICode);
-          NET_FIELD_SET(LegSecurityType);
-          NET_FIELD_SET(LegMaturityMonthYear);
-          NET_FIELD_SET(LegMaturityDate);
-          NET_FIELD_SET(LegCouponPaymentDate);
-          NET_FIELD_SET(LegIssueDate);
-          NET_FIELD_SET(LegRepoCollateralSecurityType);
-          NET_FIELD_SET(LegRepurchaseTerm);
-          NET_FIELD_SET(LegRepurchaseRate);
-          NET_FIELD_SET(LegFactor);
-          NET_FIELD_SET(LegCreditRating);
-          NET_FIELD_SET(LegInstrRegistry);
-          NET_FIELD_SET(LegCountryOfIssue);
-          NET_FIELD_SET(LegStateOrProvinceOfIssue);
-          NET_FIELD_SET(LegLocaleOfIssue);
-          NET_FIELD_SET(LegRedemptionDate);
-          NET_FIELD_SET(LegStrikePrice);
-          NET_FIELD_SET(LegOptAttribute);
-          NET_FIELD_SET(LegContractMultiplier);
-          NET_FIELD_SET(LegCouponRate);
-          NET_FIELD_SET(LegSecurityExchange);
-          NET_FIELD_SET(LegIssuer);
-          NET_FIELD_SET(EncodedLegIssuerLen);
-          NET_FIELD_SET(EncodedLegIssuer);
-          NET_FIELD_SET(LegSecurityDesc);
-          NET_FIELD_SET(EncodedLegSecurityDescLen);
-          NET_FIELD_SET(EncodedLegSecurityDesc);
-          NET_FIELD_SET(LegRatioQty);
-          NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(ProcessCode);
     NET_FIELD_SET(Side);   
@@ -5379,9 +5132,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -5410,32 +5160,34 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(PrevClosePx);
   
     __gc class NoLegs : public Fix::Group
     {
     public:
-      NoLegs() : Group(555, 79, message_order ) {}
+      NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-        79,
-        467,
-        80,
-        336,
-        625,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+        600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
-        539,524,525,538,545,
+        
         654,
         566,
         587,
         588,
       0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
       NET_FIELD_SET(LegPositionEffect);
       NET_FIELD_SET(LegCoveredOrUncovered);
       NET_FIELD_SET(LegRefID);
@@ -5446,9 +5198,6 @@ namespace Fix43
           NET_FIELD_SET(LegSymbolSfx);
           NET_FIELD_SET(LegSecurityID);
           NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
           NET_FIELD_SET(LegProduct);
           NET_FIELD_SET(LegCFICode);
           NET_FIELD_SET(LegSecurityType);
@@ -5479,11 +5228,6 @@ namespace Fix43
           NET_FIELD_SET(EncodedLegSecurityDesc);
           NET_FIELD_SET(LegRatioQty);
           NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
@@ -5562,12 +5306,23 @@ namespace Fix43
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
-    NET_FIELD_SET(OrigOrdModTime);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(OrigOrdModTime);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(DayBookingInst);
@@ -5582,70 +5337,10 @@ namespace Fix43
         79,
         467,
         80,
-        336,
-        625,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
-        564,
-        565,
-        539,524,525,538,545,
-        654,
-        566,
-        587,
-        588,
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
-      NET_FIELD_SET(LegPositionEffect);
-      NET_FIELD_SET(LegCoveredOrUncovered);
-      NET_FIELD_SET(LegRefID);
-      NET_FIELD_SET(LegPrice);
-      NET_FIELD_SET(LegSettlmntTyp);
-      NET_FIELD_SET(LegFutSettDate);
-          NET_FIELD_SET(LegSymbol);
-          NET_FIELD_SET(LegSymbolSfx);
-          NET_FIELD_SET(LegSecurityID);
-          NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
-          NET_FIELD_SET(LegProduct);
-          NET_FIELD_SET(LegCFICode);
-          NET_FIELD_SET(LegSecurityType);
-          NET_FIELD_SET(LegMaturityMonthYear);
-          NET_FIELD_SET(LegMaturityDate);
-          NET_FIELD_SET(LegCouponPaymentDate);
-          NET_FIELD_SET(LegIssueDate);
-          NET_FIELD_SET(LegRepoCollateralSecurityType);
-          NET_FIELD_SET(LegRepurchaseTerm);
-          NET_FIELD_SET(LegRepurchaseRate);
-          NET_FIELD_SET(LegFactor);
-          NET_FIELD_SET(LegCreditRating);
-          NET_FIELD_SET(LegInstrRegistry);
-          NET_FIELD_SET(LegCountryOfIssue);
-          NET_FIELD_SET(LegStateOrProvinceOfIssue);
-          NET_FIELD_SET(LegLocaleOfIssue);
-          NET_FIELD_SET(LegRedemptionDate);
-          NET_FIELD_SET(LegStrikePrice);
-          NET_FIELD_SET(LegOptAttribute);
-          NET_FIELD_SET(LegContractMultiplier);
-          NET_FIELD_SET(LegCouponRate);
-          NET_FIELD_SET(LegSecurityExchange);
-          NET_FIELD_SET(LegIssuer);
-          NET_FIELD_SET(EncodedLegIssuerLen);
-          NET_FIELD_SET(EncodedLegIssuer);
-          NET_FIELD_SET(LegSecurityDesc);
-          NET_FIELD_SET(EncodedLegSecurityDescLen);
-          NET_FIELD_SET(EncodedLegSecurityDesc);
-          NET_FIELD_SET(LegRatioQty);
-          NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
@@ -5660,75 +5355,13 @@ namespace Fix43
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 79, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-        79,
-        467,
-        80,
         336,
         625,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
-        564,
-        565,
-        539,524,525,538,545,
-        654,
-        566,
-        587,
-        588,
       0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-      NET_FIELD_SET(LegPositionEffect);
-      NET_FIELD_SET(LegCoveredOrUncovered);
-      NET_FIELD_SET(LegRefID);
-      NET_FIELD_SET(LegPrice);
-      NET_FIELD_SET(LegSettlmntTyp);
-      NET_FIELD_SET(LegFutSettDate);
-          NET_FIELD_SET(LegSymbol);
-          NET_FIELD_SET(LegSymbolSfx);
-          NET_FIELD_SET(LegSecurityID);
-          NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
-          NET_FIELD_SET(LegProduct);
-          NET_FIELD_SET(LegCFICode);
-          NET_FIELD_SET(LegSecurityType);
-          NET_FIELD_SET(LegMaturityMonthYear);
-          NET_FIELD_SET(LegMaturityDate);
-          NET_FIELD_SET(LegCouponPaymentDate);
-          NET_FIELD_SET(LegIssueDate);
-          NET_FIELD_SET(LegRepoCollateralSecurityType);
-          NET_FIELD_SET(LegRepurchaseTerm);
-          NET_FIELD_SET(LegRepurchaseRate);
-          NET_FIELD_SET(LegFactor);
-          NET_FIELD_SET(LegCreditRating);
-          NET_FIELD_SET(LegInstrRegistry);
-          NET_FIELD_SET(LegCountryOfIssue);
-          NET_FIELD_SET(LegStateOrProvinceOfIssue);
-          NET_FIELD_SET(LegLocaleOfIssue);
-          NET_FIELD_SET(LegRedemptionDate);
-          NET_FIELD_SET(LegStrikePrice);
-          NET_FIELD_SET(LegOptAttribute);
-          NET_FIELD_SET(LegContractMultiplier);
-          NET_FIELD_SET(LegCouponRate);
-          NET_FIELD_SET(LegSecurityExchange);
-          NET_FIELD_SET(LegIssuer);
-          NET_FIELD_SET(EncodedLegIssuerLen);
-          NET_FIELD_SET(EncodedLegIssuer);
-          NET_FIELD_SET(LegSecurityDesc);
-          NET_FIELD_SET(EncodedLegSecurityDescLen);
-          NET_FIELD_SET(EncodedLegSecurityDesc);
-          NET_FIELD_SET(LegRatioQty);
-          NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(ProcessCode);
     NET_FIELD_SET(Side);   
@@ -5736,9 +5369,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -5767,32 +5397,34 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(PrevClosePx);
   
     __gc class NoLegs : public Fix::Group
     {
     public:
-      NoLegs() : Group(555, 79, message_order ) {}
+      NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-        79,
-        467,
-        80,
-        336,
-        625,
-        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
+        600,601,602,603,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
-        539,524,525,538,545,
+        
         654,
         566,
         587,
         588,
       0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
       NET_FIELD_SET(LegPositionEffect);
       NET_FIELD_SET(LegCoveredOrUncovered);
       NET_FIELD_SET(LegRefID);
@@ -5803,9 +5435,6 @@ namespace Fix43
           NET_FIELD_SET(LegSymbolSfx);
           NET_FIELD_SET(LegSecurityID);
           NET_FIELD_SET(LegSecurityIDSource);
-          NET_FIELD_SET(NoLegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltID);
-          NET_FIELD_SET(LegSecurityAltIDSource);
           NET_FIELD_SET(LegProduct);
           NET_FIELD_SET(LegCFICode);
           NET_FIELD_SET(LegSecurityType);
@@ -5836,11 +5465,6 @@ namespace Fix43
           NET_FIELD_SET(EncodedLegSecurityDesc);
           NET_FIELD_SET(LegRatioQty);
           NET_FIELD_SET(LegSide);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
@@ -5928,7 +5552,7 @@ namespace Fix43
     __gc class NoBidDescriptors : public Fix::Group
     {
     public:
-      NoBidDescriptors() : Group(398, 1, message_order ) {}
+      NoBidDescriptors() : Group(398, 399, message_order ) {}
         static int message_order __gc[] = {
         399,
         400,
@@ -5941,14 +5565,6 @@ namespace Fix43
         406,
         407,
         408,
-        66,
-        54,
-        336,
-        625,
-        430,
-        63,
-        64,
-        1,
       0};
       NET_FIELD_SET(BidDescriptorType);
       NET_FIELD_SET(BidDescriptor);
@@ -5961,14 +5577,6 @@ namespace Fix43
       NET_FIELD_SET(FairValue);
       NET_FIELD_SET(OutsideIndexPct);
       NET_FIELD_SET(ValueOfFutures);
-      NET_FIELD_SET(ListID);
-      NET_FIELD_SET(Side);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
-      NET_FIELD_SET(NetGrossInd);
-      NET_FIELD_SET(SettlmntTyp);
-      NET_FIELD_SET(FutSettDate);
-      NET_FIELD_SET(Account);
     };
   
     __gc class NoBidComponents : public Fix::Group
@@ -5976,17 +5584,6 @@ namespace Fix43
     public:
       NoBidComponents() : Group(420, 1, message_order ) {}
         static int message_order __gc[] = {
-        399,
-        400,
-        401,
-        404,
-        441,
-        402,
-        403,
-        405,
-        406,
-        407,
-        408,
         66,
         54,
         336,
@@ -5996,17 +5593,6 @@ namespace Fix43
         64,
         1,
       0};
-      NET_FIELD_SET(BidDescriptorType);
-      NET_FIELD_SET(BidDescriptor);
-      NET_FIELD_SET(SideValueInd);
-      NET_FIELD_SET(LiquidityValue);
-      NET_FIELD_SET(LiquidityNumSecurities);
-      NET_FIELD_SET(LiquidityPctLow);
-      NET_FIELD_SET(LiquidityPctHigh);
-      NET_FIELD_SET(EFPTrackingError);
-      NET_FIELD_SET(FairValue);
-      NET_FIELD_SET(OutsideIndexPct);
-      NET_FIELD_SET(ValueOfFutures);
       NET_FIELD_SET(ListID);
       NET_FIELD_SET(Side);
       NET_FIELD_SET(TradingSessionID);
@@ -6129,7 +5715,7 @@ namespace Fix43
         67,
         583,
         160,
-        453,448,447,452,523,
+        
         229,
         1,
         581,
@@ -6139,10 +5725,8 @@ namespace Fix43
         
           79,
           467,
-          539,524,525,538,545,
+          
           80,
-          336,
-          625,
         
         63,
         64,
@@ -6154,21 +5738,17 @@ namespace Fix43
         111,
         100,
         
-          79,
-          467,
-          539,524,525,538,545,
-          80,
           336,
           625,
         
         81,
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         140,
         54,
         401,
         114,
         60,
-        232,233,234,
+        
         465,
         38,152,516,468,469,
         40,
@@ -6282,58 +5862,29 @@ namespace Fix43
         static int message_order __gc[] = {
           79,
           467,
-          539,524,525,538,545,
+          
           80,
-          336,
-          625,
         0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(TradingSessionID);
-      NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
   
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
-      NoTradingSessions() : Group(386, 79, message_order ) {}
+      NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-          79,
-          467,
-          539,524,525,538,545,
-          80,
           336,
           625,
         0};
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(AllocQty);
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
-          NET_FIELD_SET(NoPartyIDs);
-          NET_FIELD_SET(PartyID);
-          NET_FIELD_SET(PartyIDSource);
-          NET_FIELD_SET(PartyRole);
-          NET_FIELD_SET(PartySubID);
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -6362,9 +5913,6 @@ namespace Fix43
           NET_FIELD_SET(SecurityDesc);
           NET_FIELD_SET(EncodedSecurityDescLen);
           NET_FIELD_SET(EncodedSecurityDesc);
-          NET_FIELD_SET(NoStipulations);
-          NET_FIELD_SET(StipulationType);
-          NET_FIELD_SET(StipulationValue);
           NET_FIELD_SET(OrderQty);
           NET_FIELD_SET(CashOrderQty);
           NET_FIELD_SET(OrderPercent);
@@ -6407,7 +5955,7 @@ namespace Fix43
     public:
       NoStrikes() : Group(428, 11, message_order ) {}
         static int message_order __gc[] = {
-        55,65,48,22,454,455,456,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
+        55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,
         140,
         11,
         526,
@@ -6431,9 +5979,6 @@ namespace Fix43
           NET_FIELD_SET(SymbolSfx);
           NET_FIELD_SET(SecurityID);
           NET_FIELD_SET(SecurityIDSource);
-          NET_FIELD_SET(NoSecurityAltID);
-          NET_FIELD_SET(SecurityAltID);
-          NET_FIELD_SET(SecurityAltIDSource);
           NET_FIELD_SET(Product);
           NET_FIELD_SET(CFICode);
           NET_FIELD_SET(SecurityType);
@@ -6543,6 +6088,7 @@ namespace Fix43
     ListStatus(
       Fix::ListID* aListID,
       Fix::ListStatusType* aListStatusType,
+      Fix::NoRpts* aNoRpts,
       Fix::ListOrderStatus* aListOrderStatus,
       Fix::RptSeq* aRptSeq,
       Fix::TotNoOrders* aTotNoOrders )
@@ -6551,6 +6097,7 @@ namespace Fix43
     {
       set(aListID);
       set(aListStatusType);
+      set(aNoRpts);
       set(aListOrderStatus);
       set(aRptSeq);
       set(aTotNoOrders);
@@ -6558,38 +6105,7 @@ namespace Fix43
   
     NET_FIELD_SET(ListID);
     NET_FIELD_SET(ListStatusType);
-  
-    __gc class NoRpts : public Fix::Group
-    {
-    public:
-      NoRpts() : Group(82, 6, message_order ) {}
-        static int message_order __gc[] = {
-        11,
-        526,
-        14,
-        39,
-        636,
-        151,
-        84,
-        6,
-        103,
-        58,
-        354,
-        355,
-      0};
-      NET_FIELD_SET(ClOrdID);
-      NET_FIELD_SET(SecondaryClOrdID);
-      NET_FIELD_SET(CumQty);
-      NET_FIELD_SET(OrdStatus);
-      NET_FIELD_SET(WorkingIndicator);
-      NET_FIELD_SET(LeavesQty);
-      NET_FIELD_SET(CxlQty);
-      NET_FIELD_SET(AvgPx);
-      NET_FIELD_SET(OrdRejReason);
-      NET_FIELD_SET(Text);
-      NET_FIELD_SET(EncodedTextLen);
-      NET_FIELD_SET(EncodedText);
-    };
+    NET_FIELD_SET(NoRpts);
     NET_FIELD_SET(ListOrderStatus);
     NET_FIELD_SET(RptSeq);
     NET_FIELD_SET(ListStatusText);
@@ -6675,229 +6191,36 @@ namespace Fix43
         198,
         526,
         66,
-        105,
-        32,
-        17,
-        527,
-        31,
-        29,
-        79,
-        366,
-        80,
-        467,
-        81,
-        539,524,525,538,545,
-        
-          137,
-          138,
-          139,
-        
-        209,
-        161,
-        360,
-        361,
-        12,13,479,497,
-        153,
-        154,
-        119,
-        120,
-        155,
-        156,
-        159,
-        160,
-        
-          137,
-          138,
-          139,
-        
       0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(OrderID);
       NET_FIELD_SET(SecondaryOrderID);
       NET_FIELD_SET(SecondaryClOrdID);
       NET_FIELD_SET(ListID);
-      NET_FIELD_SET(WaveNo);
-      NET_FIELD_SET(LastQty);
-      NET_FIELD_SET(ExecID);
-      NET_FIELD_SET(SecondaryExecID);
-      NET_FIELD_SET(LastPx);
-      NET_FIELD_SET(LastCapacity);
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(AllocPrice);
-      NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(ProcessCode);
-      NET_FIELD_SET(AllocHandlInst);
-      NET_FIELD_SET(AllocText);
-      NET_FIELD_SET(EncodedAllocTextLen);
-      NET_FIELD_SET(EncodedAllocText);
-      NET_FIELD_SET(AllocAvgPx);
-      NET_FIELD_SET(AllocNetMoney);
-      NET_FIELD_SET(SettlCurrAmt);
-      NET_FIELD_SET(SettlCurrency);
-      NET_FIELD_SET(SettlCurrFxRate);
-      NET_FIELD_SET(SettlCurrFxRateCalc);
-      NET_FIELD_SET(AccruedInterestAmt);
-      NET_FIELD_SET(SettlInstMode);
-  
-    __gc class NotifyBrokerOfCredit : public Fix::Group
-    {
-    public:
-      NotifyBrokerOfCredit() : Group(208, 137, message_order ) {}
-        static int message_order __gc[] = {
-          137,
-          138,
-          139,
-        0};
-      NET_FIELD_SET(MiscFeeAmt);
-      NET_FIELD_SET(MiscFeeCurr);
-      NET_FIELD_SET(MiscFeeType);
-    };
-  
-    __gc class NoMiscFees : public Fix::Group
-    {
-    public:
-      NoMiscFees() : Group(136, 137, message_order ) {}
-        static int message_order __gc[] = {
-          137,
-          138,
-          139,
-        0};
-      NET_FIELD_SET(MiscFeeAmt);
-      NET_FIELD_SET(MiscFeeCurr);
-      NET_FIELD_SET(MiscFeeType);
-    };
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
-          NET_FIELD_SET(Commission);
-          NET_FIELD_SET(CommType);
-          NET_FIELD_SET(CommCurrency);
-          NET_FIELD_SET(FundRenewWaiv);
     };
   
     __gc class NoExecs : public Fix::Group
     {
     public:
-      NoExecs() : Group(124, 11, message_order ) {}
+      NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-        11,
-        37,
-        198,
-        526,
-        66,
-        105,
-        32,
+        32,      
         17,
         527,
         31,
         29,
-        79,
-        366,
-        80,
-        467,
-        81,
-        539,524,525,538,545,
-        
-          137,
-          138,
-          139,
-        
-        209,
-        161,
-        360,
-        361,
-        12,13,479,497,
-        153,
-        154,
-        119,
-        120,
-        155,
-        156,
-        159,
-        160,
-        
-          137,
-          138,
-          139,
-        
       0};
-      NET_FIELD_SET(ClOrdID);
-      NET_FIELD_SET(OrderID);
-      NET_FIELD_SET(SecondaryOrderID);
-      NET_FIELD_SET(SecondaryClOrdID);
-      NET_FIELD_SET(ListID);
-      NET_FIELD_SET(WaveNo);
       NET_FIELD_SET(LastQty);
       NET_FIELD_SET(ExecID);
       NET_FIELD_SET(SecondaryExecID);
       NET_FIELD_SET(LastPx);
       NET_FIELD_SET(LastCapacity);
-      NET_FIELD_SET(AllocAccount);
-      NET_FIELD_SET(AllocPrice);
-      NET_FIELD_SET(AllocQty);
-      NET_FIELD_SET(IndividualAllocID);
-      NET_FIELD_SET(ProcessCode);
-      NET_FIELD_SET(AllocHandlInst);
-      NET_FIELD_SET(AllocText);
-      NET_FIELD_SET(EncodedAllocTextLen);
-      NET_FIELD_SET(EncodedAllocText);
-      NET_FIELD_SET(AllocAvgPx);
-      NET_FIELD_SET(AllocNetMoney);
-      NET_FIELD_SET(SettlCurrAmt);
-      NET_FIELD_SET(SettlCurrency);
-      NET_FIELD_SET(SettlCurrFxRate);
-      NET_FIELD_SET(SettlCurrFxRateCalc);
-      NET_FIELD_SET(AccruedInterestAmt);
-      NET_FIELD_SET(SettlInstMode);
-  
-    __gc class NotifyBrokerOfCredit : public Fix::Group
-    {
-    public:
-      NotifyBrokerOfCredit() : Group(208, 137, message_order ) {}
-        static int message_order __gc[] = {
-          137,
-          138,
-          139,
-        0};
-      NET_FIELD_SET(MiscFeeAmt);
-      NET_FIELD_SET(MiscFeeCurr);
-      NET_FIELD_SET(MiscFeeType);
-    };
-  
-    __gc class NoMiscFees : public Fix::Group
-    {
-    public:
-      NoMiscFees() : Group(136, 137, message_order ) {}
-        static int message_order __gc[] = {
-          137,
-          138,
-          139,
-        0};
-      NET_FIELD_SET(MiscFeeAmt);
-      NET_FIELD_SET(MiscFeeCurr);
-      NET_FIELD_SET(MiscFeeType);
-    };
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
-          NET_FIELD_SET(Commission);
-          NET_FIELD_SET(CommType);
-          NET_FIELD_SET(CommCurrency);
-          NET_FIELD_SET(FundRenewWaiv);
     };
     NET_FIELD_SET(Side);   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -6926,6 +6249,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
     NET_FIELD_SET(Quantity);
     NET_FIELD_SET(LastMkt);
     NET_FIELD_SET(TradeOriginationDate);
@@ -6934,12 +6269,23 @@ namespace Fix43
     NET_FIELD_SET(PriceType);
     NET_FIELD_SET(AvgPx);
     NET_FIELD_SET(Currency);
-    NET_FIELD_SET(AvgPrxPrecision);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(AvgPrxPrecision);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(TradeDate);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(SettlmntTyp);
@@ -6960,30 +6306,15 @@ namespace Fix43
     __gc class NoAllocs : public Fix::Group
     {
     public:
-      NoAllocs() : Group(78, 11, message_order ) {}
+      NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-        11,
-        37,
-        198,
-        526,
-        66,
-        105,
-        32,
-        17,
-        527,
-        31,
-        29,
         79,
         366,
         80,
         467,
         81,
-        539,524,525,538,545,
         
-          137,
-          138,
-          139,
-        
+        208,
         209,
         161,
         360,
@@ -7003,22 +6334,12 @@ namespace Fix43
           139,
         
       0};
-      NET_FIELD_SET(ClOrdID);
-      NET_FIELD_SET(OrderID);
-      NET_FIELD_SET(SecondaryOrderID);
-      NET_FIELD_SET(SecondaryClOrdID);
-      NET_FIELD_SET(ListID);
-      NET_FIELD_SET(WaveNo);
-      NET_FIELD_SET(LastQty);
-      NET_FIELD_SET(ExecID);
-      NET_FIELD_SET(SecondaryExecID);
-      NET_FIELD_SET(LastPx);
-      NET_FIELD_SET(LastCapacity);
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocPrice);
       NET_FIELD_SET(AllocQty);
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(ProcessCode);
+      NET_FIELD_SET(NotifyBrokerOfCredit);
       NET_FIELD_SET(AllocHandlInst);
       NET_FIELD_SET(AllocText);
       NET_FIELD_SET(EncodedAllocTextLen);
@@ -7031,20 +6352,6 @@ namespace Fix43
       NET_FIELD_SET(SettlCurrFxRateCalc);
       NET_FIELD_SET(AccruedInterestAmt);
       NET_FIELD_SET(SettlInstMode);
-  
-    __gc class NotifyBrokerOfCredit : public Fix::Group
-    {
-    public:
-      NotifyBrokerOfCredit() : Group(208, 137, message_order ) {}
-        static int message_order __gc[] = {
-          137,
-          138,
-          139,
-        0};
-      NET_FIELD_SET(MiscFeeAmt);
-      NET_FIELD_SET(MiscFeeCurr);
-      NET_FIELD_SET(MiscFeeType);
-    };
   
     __gc class NoMiscFees : public Fix::Group
     {
@@ -7059,11 +6366,6 @@ namespace Fix43
       NET_FIELD_SET(MiscFeeCurr);
       NET_FIELD_SET(MiscFeeType);
     };
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
           NET_FIELD_SET(Commission);
           NET_FIELD_SET(CommType);
           NET_FIELD_SET(CommCurrency);
@@ -7088,12 +6390,23 @@ namespace Fix43
       set(aTradeDate);
       set(aAllocStatus);
     }
-     
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+  
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(AllocID);
     NET_FIELD_SET(TradeDate);
     NET_FIELD_SET(TransactTime);
@@ -7147,12 +6460,23 @@ namespace Fix43
     NET_FIELD_SET(Side);
     NET_FIELD_SET(SecurityType);
     NET_FIELD_SET(EffectiveTime);
-    NET_FIELD_SET(TransactTime);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(TransactTime);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(StandInstDbType);
     NET_FIELD_SET(StandInstDbName);
     NET_FIELD_SET(StandInstDbID);
@@ -7205,19 +6529,27 @@ namespace Fix43
     NET_FIELD_SET(ExecID);
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
-    NET_FIELD_SET(MatchStatus);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);   
+    NET_FIELD_SET(MatchStatus);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -7246,6 +6578,18 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };
   
     __gc class NoDates : public Fix::Group
     {
@@ -7305,9 +6649,6 @@ namespace Fix43
     NET_FIELD_SET(SymbolSfx);   
     NET_FIELD_SET(SecurityID);   
     NET_FIELD_SET(SecurityIDSource);   
-    NET_FIELD_SET(NoSecurityAltID);   
-    NET_FIELD_SET(SecurityAltID);   
-    NET_FIELD_SET(SecurityAltIDSource);   
     NET_FIELD_SET(Product);   
     NET_FIELD_SET(CFICode);   
     NET_FIELD_SET(SecurityType);   
@@ -7335,7 +6676,19 @@ namespace Fix43
     NET_FIELD_SET(EncodedIssuer);   
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
-    NET_FIELD_SET(EncodedSecurityDesc);   
+    NET_FIELD_SET(EncodedSecurityDesc);
+  
+    __gc class NoSecurityAltID : public Fix::Group
+    {
+    public:
+      NoSecurityAltID() : Group(454, 455, message_order ) {}
+        static int message_order __gc[] = {
+        455,
+        456,
+      0};
+      NET_FIELD_SET(SecurityAltID);
+      NET_FIELD_SET(SecurityAltIDSource);
+    };   
     NET_FIELD_SET(OrderQty);   
     NET_FIELD_SET(CashOrderQty);   
     NET_FIELD_SET(OrderPercent);   
@@ -7362,21 +6715,13 @@ namespace Fix43
         37,
         198,
         11,
-        453,448,447,452,523,
+        
         1,
         581,
-        63,
-        64,
         81,
         575,
         
           577,
-          519,
-          520,
-          521,
-          137,
-          138,
-          139,
         
         635,
         578,
@@ -7409,19 +6754,11 @@ namespace Fix43
         355,
         442,
         
-          577,
           519,
           520,
-          521,
-          137,
-          138,
-          139,
+          521,        
         
         
-          577,
-          519,
-          520,
-          521,
           137,
           138,
           139,
@@ -7433,8 +6770,6 @@ namespace Fix43
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(Account);
       NET_FIELD_SET(AccountType);
-      NET_FIELD_SET(SettlmntTyp);
-      NET_FIELD_SET(FutSettDate);
       NET_FIELD_SET(ProcessCode);
       NET_FIELD_SET(OddLot);
       NET_FIELD_SET(ClearingFeeIndicator);
@@ -7470,45 +6805,25 @@ namespace Fix43
     __gc class NoClearingInstructions : public Fix::Group
     {
     public:
-      NoClearingInstructions() : Group(576, 137, message_order ) {}
+      NoClearingInstructions() : Group(576, 577, message_order ) {}
         static int message_order __gc[] = {
           577,
-          519,
-          520,
-          521,
-          137,
-          138,
-          139,
         0};
       NET_FIELD_SET(ClearingInstruction);
-      NET_FIELD_SET(ContAmtType);
-      NET_FIELD_SET(ContAmtValue);
-      NET_FIELD_SET(ContAmtCurr);
-      NET_FIELD_SET(MiscFeeAmt);
-      NET_FIELD_SET(MiscFeeCurr);
-      NET_FIELD_SET(MiscFeeType);
     };
   
     __gc class NoContAmts : public Fix::Group
     {
     public:
-      NoContAmts() : Group(518, 137, message_order ) {}
+      NoContAmts() : Group(518, 519, message_order ) {}
         static int message_order __gc[] = {
-          577,
           519,
           520,
-          521,
-          137,
-          138,
-          139,
+          521,        
         0};
-      NET_FIELD_SET(ClearingInstruction);
       NET_FIELD_SET(ContAmtType);
       NET_FIELD_SET(ContAmtValue);
       NET_FIELD_SET(ContAmtCurr);
-      NET_FIELD_SET(MiscFeeAmt);
-      NET_FIELD_SET(MiscFeeCurr);
-      NET_FIELD_SET(MiscFeeType);
     };
   
     __gc class NoMiscFees : public Fix::Group
@@ -7516,27 +6831,14 @@ namespace Fix43
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-          577,
-          519,
-          520,
-          521,
           137,
           138,
           139,
         0};
-      NET_FIELD_SET(ClearingInstruction);
-      NET_FIELD_SET(ContAmtType);
-      NET_FIELD_SET(ContAmtValue);
-      NET_FIELD_SET(ContAmtCurr);
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
       NET_FIELD_SET(MiscFeeType);
     };
-          NET_FIELD_SET(NoPartyIDs);
-          NET_FIELD_SET(PartyID);
-          NET_FIELD_SET(PartyIDSource);
-          NET_FIELD_SET(PartyRole);
-          NET_FIELD_SET(PartySubID);
           NET_FIELD_SET(Commission);
           NET_FIELD_SET(CommType);
           NET_FIELD_SET(CommCurrency);
@@ -7565,12 +6867,23 @@ namespace Fix43
     NET_FIELD_SET(RegistID);
     NET_FIELD_SET(RegistTransType);
     NET_FIELD_SET(RegistRefID);
-    NET_FIELD_SET(ClOrdID);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(ClOrdID);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(RegistAcctType);
     NET_FIELD_SET(TaxAdvantageType);
@@ -7585,18 +6898,10 @@ namespace Fix43
         511,
         474,
         482,
-        539,524,525,538,545,
+        
         522,
         486,
         475,
-        477,
-        512,
-        478,
-        498,
-        499,
-        500,
-        501,
-        502,
       0};
       NET_FIELD_SET(RegistDetls);
       NET_FIELD_SET(RegistEmail);
@@ -7605,34 +6910,13 @@ namespace Fix43
       NET_FIELD_SET(OwnerType);
       NET_FIELD_SET(DateOfBirth);
       NET_FIELD_SET(InvestorCountryOfResidence);
-      NET_FIELD_SET(DistribPaymentMethod);
-      NET_FIELD_SET(DistribPercentage);
-      NET_FIELD_SET(CashDistribCurr);
-      NET_FIELD_SET(CashDistribAgentName);
-      NET_FIELD_SET(CashDistribAgentCode);
-      NET_FIELD_SET(CashDistribAgentAcctNumber);
-      NET_FIELD_SET(CashDistribPayRef);
-      NET_FIELD_SET(CashDistribAgentAcctName);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
   
     __gc class NoDistribInsts : public Fix::Group
     {
     public:
-      NoDistribInsts() : Group(510, 474, message_order ) {}
+      NoDistribInsts() : Group(510, 477, message_order ) {}
         static int message_order __gc[] = {
-        509,
-        511,
-        474,
-        482,
-        539,524,525,538,545,
-        522,
-        486,
-        475,
         477,
         512,
         478,
@@ -7642,13 +6926,6 @@ namespace Fix43
         501,
         502,
       0};
-      NET_FIELD_SET(RegistDetls);
-      NET_FIELD_SET(RegistEmail);
-      NET_FIELD_SET(MailingDtls);
-      NET_FIELD_SET(MailingInst);
-      NET_FIELD_SET(OwnerType);
-      NET_FIELD_SET(DateOfBirth);
-      NET_FIELD_SET(InvestorCountryOfResidence);
       NET_FIELD_SET(DistribPaymentMethod);
       NET_FIELD_SET(DistribPercentage);
       NET_FIELD_SET(CashDistribCurr);
@@ -7657,11 +6934,6 @@ namespace Fix43
       NET_FIELD_SET(CashDistribAgentAcctNumber);
       NET_FIELD_SET(CashDistribPayRef);
       NET_FIELD_SET(CashDistribAgentAcctName);
-          NET_FIELD_SET(NoNestedPartyIDs);
-          NET_FIELD_SET(NestedPartyID);
-          NET_FIELD_SET(NestedPartyIDSource);
-          NET_FIELD_SET(NestedPartyRole);
-          NET_FIELD_SET(NestedPartySubID);
     };
   };
 
@@ -7688,12 +6960,23 @@ namespace Fix43
     NET_FIELD_SET(RegistID);
     NET_FIELD_SET(RegistTransType);
     NET_FIELD_SET(RegistRefID);
-    NET_FIELD_SET(ClOrdID);   
-    NET_FIELD_SET(NoPartyIDs);   
-    NET_FIELD_SET(PartyID);   
-    NET_FIELD_SET(PartyIDSource);   
-    NET_FIELD_SET(PartyRole);   
-    NET_FIELD_SET(PartySubID);
+    NET_FIELD_SET(ClOrdID);
+  
+    __gc class NoPartyIDs : public Fix::Group
+    {
+    public:
+      NoPartyIDs() : Group(453, 447, message_order ) {}
+        static int message_order __gc[] = {
+        448,
+        447,
+        452,
+        523,
+      0};
+      NET_FIELD_SET(PartyID);
+      NET_FIELD_SET(PartyIDSource);
+      NET_FIELD_SET(PartyRole);
+      NET_FIELD_SET(PartySubID);
+    };
     NET_FIELD_SET(Account);
     NET_FIELD_SET(RegistStatus);
     NET_FIELD_SET(RegistRejReasonCode);

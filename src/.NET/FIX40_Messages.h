@@ -311,19 +311,10 @@ namespace Fix40
   public: 
     News() : Message(MsgType()) {}
     static Fix::MsgType* MsgType() { return new Fix::MsgType("B"); }
-    //
-    News(
-      Fix::LinesOfText* aLinesOfText )
-    : Message(MsgType())
-    
-    {
-      set(aLinesOfText);
-    }
   
     NET_FIELD_SET(OrigTime);
     NET_FIELD_SET(Urgency);
     NET_FIELD_SET(RelatdSym);
-    NET_FIELD_SET(LinesOfText);
   
     __gc class LinesOfText : public Fix::Group
     {
@@ -345,13 +336,11 @@ namespace Fix40
     static Fix::MsgType* MsgType() { return new Fix::MsgType("C"); }
     //
     Email(
-      Fix::EmailType* aEmailType,
-      Fix::LinesOfText* aLinesOfText )
+      Fix::EmailType* aEmailType )
     : Message(MsgType())
     
     {
       set(aEmailType);
-      set(aLinesOfText);
     }
   
     NET_FIELD_SET(EmailType);
@@ -359,7 +348,6 @@ namespace Fix40
     NET_FIELD_SET(RelatdSym);
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
-    NET_FIELD_SET(LinesOfText);
   
     __gc class LinesOfText : public Fix::Group
     {
@@ -571,7 +559,6 @@ namespace Fix40
     NET_FIELD_SET(ReportToExch);
     NET_FIELD_SET(Commission);
     NET_FIELD_SET(CommType);
-    NET_FIELD_SET(NoMiscFees);
   
     __gc class NoMiscFees : public Fix::Group
     {
@@ -794,31 +781,26 @@ namespace Fix40
     Allocation(
       Fix::AllocID* aAllocID,
       Fix::AllocTransType* aAllocTransType,
-      Fix::NoOrders* aNoOrders,
       Fix::Side* aSide,
       Fix::Symbol* aSymbol,
       Fix::Shares* aShares,
       Fix::AvgPx* aAvgPx,
-      Fix::TradeDate* aTradeDate,
-      Fix::NoAllocs* aNoAllocs )
+      Fix::TradeDate* aTradeDate )
     : Message(MsgType())
     
     {
       set(aAllocID);
       set(aAllocTransType);
-      set(aNoOrders);
       set(aSide);
       set(aSymbol);
       set(aShares);
       set(aAvgPx);
       set(aTradeDate);
-      set(aNoAllocs);
     }
   
     NET_FIELD_SET(AllocID);
     NET_FIELD_SET(AllocTransType);
     NET_FIELD_SET(RefAllocID);
-    NET_FIELD_SET(NoOrders);
   
     __gc class NoOrders : public Fix::Group
     {
@@ -835,7 +817,6 @@ namespace Fix40
       NET_FIELD_SET(ListID);
       NET_FIELD_SET(WaveNo);
     };
-    NET_FIELD_SET(NoExecs);
   
     __gc class NoExecs : public Fix::Group
     {
@@ -868,7 +849,6 @@ namespace Fix40
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
     NET_FIELD_SET(NetMoney);
-    NET_FIELD_SET(NoMiscFees);
   
     __gc class NoMiscFees : public Fix::Group
     {
@@ -887,7 +867,6 @@ namespace Fix40
     NET_FIELD_SET(SettlCurrency);
     NET_FIELD_SET(OpenClose);
     NET_FIELD_SET(Text);
-    NET_FIELD_SET(NoAllocs);
   
     __gc class NoAllocs : public Fix::Group
     {
@@ -901,7 +880,6 @@ namespace Fix40
             109,
             12,
             13,
-            85,
             
                92,
                86,
@@ -914,7 +892,6 @@ namespace Fix40
       NET_FIELD_SET(ClientID);
       NET_FIELD_SET(Commission);
       NET_FIELD_SET(CommType);
-      NET_FIELD_SET(NoDlvyInst);
   
     __gc class NoDlvyInst : public Fix::Group
     {
@@ -1038,22 +1015,19 @@ namespace Fix40
     ListStatus(
       Fix::ListID* aListID,
       Fix::NoRpts* aNoRpts,
-      Fix::RptSeq* aRptSeq,
-      Fix::NoOrders* aNoOrders )
+      Fix::RptSeq* aRptSeq )
     : Message(MsgType())
     
     {
       set(aListID);
       set(aNoRpts);
       set(aRptSeq);
-      set(aNoOrders);
     }
   
     NET_FIELD_SET(ListID);
     NET_FIELD_SET(WaveNo);
     NET_FIELD_SET(NoRpts);
     NET_FIELD_SET(RptSeq);
-    NET_FIELD_SET(NoOrders);
   
     __gc class NoOrders : public Fix::Group
     {

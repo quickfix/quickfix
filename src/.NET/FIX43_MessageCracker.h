@@ -74,6 +74,8 @@ namespace Fix43
     { throw new Fix::UnsupportedMessageType(); }
   virtual void onMessage( QuoteRequest*, Fix::SessionID* ) 
     { throw new Fix::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteRequestReject*, Fix::SessionID* ) 
+    { throw new Fix::UnsupportedMessageType(); }
   virtual void onMessage( RFQRequest*, Fix::SessionID* ) 
     { throw new Fix::UnsupportedMessageType(); }
   virtual void onMessage( Quote*, Fix::SessionID* ) 
@@ -227,6 +229,9 @@ public:
     else
     if( msgTypeValue == "R" )
       onMessage( dynamic_cast<QuoteRequest*>(message), sessionID );
+    else
+    if( msgTypeValue == "AG" )
+      onMessage( dynamic_cast<QuoteRequestReject*>(message), sessionID );
     else
     if( msgTypeValue == "AH" )
       onMessage( dynamic_cast<RFQRequest*>(message), sessionID );

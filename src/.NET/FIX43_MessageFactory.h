@@ -111,6 +111,10 @@ namespace Fix43
        return new Fix43::QuoteRequest();
      }
    
+     if(msgType->Equals("AG")) {
+       return new Fix43::QuoteRequestReject();
+     }
+   
      if(msgType->Equals("AH")) {
        return new Fix43::RFQRequest();
      }
