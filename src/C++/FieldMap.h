@@ -73,7 +73,7 @@ public:
   FieldMap& operator=( const FieldMap& rhs );
 
   /// Set a field without type checking
-  void FieldMap::setField( const FieldBase& field, bool overwrite = true )
+  void setField( const FieldBase& field, bool overwrite = true )
   throw( RepeatedTag& )
   {
     Fields::iterator i = m_fields.find( field.getField() );
@@ -88,14 +88,14 @@ public:
     }
   }
   /// Set a field without a field class
-  void FieldMap::setField( int field, const std::string& value )
+  void setField( int field, const std::string& value )
   {
     FieldBase fieldBase( field, value );
     setField( fieldBase );
   }
 
   /// Get a field without type checking
-  FieldBase& FieldMap::getField( FieldBase& field )
+  FieldBase& getField( FieldBase& field )
   const throw( FieldNotFound& )
   {
     Fields::const_iterator iter = m_fields.find( field.getField() );
@@ -105,7 +105,7 @@ public:
     return field;
   }
   /// Get a field without a field class
-  std::string FieldMap::getField( int field )
+  std::string getField( int field )
   const throw( FieldNotFound& )
   {
     FieldBase fieldBase( field, "" );
@@ -116,12 +116,12 @@ public:
   /**
    * Check to see if a field is set
    */
-  bool FieldMap::isSetField( const FieldBase& field ) const
+  bool isSetField( const FieldBase& field ) const
   { return m_fields.find( field.getField() ) != m_fields.end(); }
   /**
    * Check to see if a field is set by referencing its number
    */
-  bool FieldMap::isSetField( int field ) const
+  bool isSetField( int field ) const
   { return m_fields.find( field ) != m_fields.end(); }
 
   void addGroup( int field, const FieldMap& group, bool setCount = true );
