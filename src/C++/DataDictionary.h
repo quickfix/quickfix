@@ -43,6 +43,7 @@ class DataDictionary
   typedef std::map < std::string, MsgFields > MsgTypeToField;
   typedef std::set < std::string > MsgTypes;
   typedef std::set < int > Fields;
+  typedef std::map < int, bool > NonBodyFields;
   typedef std::vector< int > OrderedFields;
   typedef int* OrderedFieldsArray;
   typedef std::map < int, TYPE::Type > FieldTypes;
@@ -136,9 +137,9 @@ public:
     return i->second.find( field ) != i->second.end();
   }
 
-  void addHeaderField( int field )
+  void addHeaderField( int field, bool required )
   {
-    m_headerFields.insert( field );
+    m_headerFields[ field ] = required;
   }
 
   bool isHeaderField( int field ) const
@@ -146,9 +147,9 @@ public:
     return m_headerFields.find( field ) != m_headerFields.end();
   }
 
-  void addTrailerField( int field )
+  void addTrailerField( int field, bool required )
   {
-    m_trailerFields.insert( field );
+    m_trailerFields[ field ] = required;
   }
 
   bool isTrailerField( int field ) const
@@ -388,18 +389,32 @@ private:
 
   /// Check if a message has all required fields.
   void checkHasRequired
-  ( const FieldMap& fieldMap, const MsgType& msgType ) const
+  ( const FieldMap& header, const FieldMap& body, const FieldMap& trailer,
+    const MsgType& msgType ) const
   throw( RequiredTagMissing )
   {
+    NonBodyFields::const_iterator iNBF;
+    for( iNBF = m_headerFields.begin(); iNBF != m_headerFields.end(); ++iNBF )
+    {
+      if( iNBF->second == true && !header.isSetField(iNBF->first) )
+        throw RequiredTagMissing( iNBF->first );
+    }
+
+    for( iNBF = m_trailerFields.begin(); iNBF != m_trailerFields.end(); ++iNBF )
+    {
+      if( iNBF->second == true && !trailer.isSetField(iNBF->first) )
+        throw RequiredTagMissing( iNBF->first );
+    }
+
     MsgTypeToField::const_iterator iM
-    = m_requiredFields.find( msgType.getValue() );
+      = m_requiredFields.find( msgType.getValue() );
     if ( iM == m_requiredFields.end() ) return ;
 
     const MsgFields& fields = iM->second;
     MsgFields::const_iterator iF;
-    for ( iF = fields.begin(); iF != fields.end(); ++iF )
+    for( iF = fields.begin(); iF != fields.end(); ++iF )
     {
-      if ( !fieldMap.isSetField( *iF ) )
+      if( !body.isSetField( *iF ) )
         throw RequiredTagMissing( *iF );
     }
   }
@@ -426,8 +441,8 @@ private:
   Fields m_fields;
   OrderedFields m_orderedFields;
   mutable OrderedFieldsArray m_orderedFieldsArray;
-  Fields m_headerFields;
-  Fields m_trailerFields;
+  NonBodyFields m_headerFields;
+  NonBodyFields m_trailerFields;
   FieldTypes m_fieldTypes;
   FieldToValue m_fieldValues;
   FieldToName m_fieldNames;

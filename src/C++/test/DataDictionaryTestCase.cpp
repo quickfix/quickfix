@@ -59,8 +59,8 @@ void DataDictionaryTestCase::addHeaderField::onRun( DataDictionary& object )
 {
   assert( !object.isHeaderField( 56 ) );
   assert( !object.isHeaderField( 49 ) );
-  object.addHeaderField( 56 );
-  object.addHeaderField( 49 );
+  object.addHeaderField( 56, true );
+  object.addHeaderField( 49, true );
   assert( object.isHeaderField( 56 ) );
   assert( object.isHeaderField( 49 ) );
 }
@@ -68,7 +68,7 @@ void DataDictionaryTestCase::addHeaderField::onRun( DataDictionary& object )
 void DataDictionaryTestCase::addTrailerField::onRun( DataDictionary& object )
 {
   assert( !object.isTrailerField( 10 ) );
-  object.addTrailerField( 10 );
+  object.addTrailerField( 10, true );
   assert( object.isTrailerField( 10 ) );
 }
 
@@ -267,6 +267,10 @@ bool DataDictionaryTestCase::checkHasRequired::onSetup
   pObject->addField( FIELD::BeginString );
   pObject->addField( FIELD::BodyLength );
   pObject->addField( FIELD::MsgType );
+  pObject->addField( FIELD::SenderCompID );
+  pObject->addField( FIELD::TargetCompID );
+  pObject->addHeaderField( FIELD::SenderCompID, true );
+  pObject->addHeaderField( FIELD::TargetCompID, false );
   pObject->addField( FIELD::CheckSum );
   pObject->addField( FIELD::TestReqID );
   pObject->addMsgType( MsgType_TestRequest );
@@ -282,9 +286,18 @@ void DataDictionaryTestCase::checkHasRequired::onRun
   try{ object.validate( message ); assert( false ); }
   catch ( RequiredTagMissing& ) {}
 
+  message.getHeader().setField( SenderCompID( "SENDER" ) );
+  try{ object.validate( message ); assert( false ); }
+  catch ( RequiredTagMissing& ) {}
+
   message.setField( TestReqID( "1" ) );
   try{ object.validate( message ); }
   catch ( TagNotDefinedForMessage& ) { assert( false ); }
+
+  message.getHeader().removeField( FIELD::SenderCompID );
+  message.setField( SenderCompID( "SENDER" ) );
+  try{ object.validate( message ); assert( false ); }
+  catch ( RequiredTagMissing& ) {}
 }
 
 bool DataDictionaryTestCase::checkValidFormat::onSetup

@@ -140,8 +140,8 @@ void MessageTestCase::setString::onRun( Message& object )
   catch( InvalidMessage& ) {}
 
   DataDictionary dataDictionary;
-  dataDictionary.addHeaderField( 11 );
-  dataDictionary.addTrailerField( 60 );
+  dataDictionary.addHeaderField( 11, false );
+  dataDictionary.addTrailerField( 60, false );
 
   ClOrdID clOrdID;
   TransactTime transactTime;

@@ -122,7 +122,7 @@ throw( std::exception )
   if ( m_hasVersion )
   {
     checkMsgType( msgType );
-    checkHasRequired( message, msgType );
+    checkHasRequired( message.getHeader(), message, message.getTrailer(), msgType );
   }
 
   iterate( message.getHeader(), msgType );
@@ -258,7 +258,9 @@ void DataDictionary::readFromURL( const std::string& url )
       std::string name;
       if(!attrs->get("name", name))
         throw ConfigError(url + ": <field> does not have a name attribute");
-      addHeaderField(lookupXMLFieldNumber(pDoc.get(), name));
+      std::string required = "false";
+      attrs->get("required", required);
+      addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
     }
     RESET_AUTO_PTR(pHeaderFieldNode, pHeaderFieldNode->getNextSiblingNode());
   }
@@ -279,7 +281,9 @@ void DataDictionary::readFromURL( const std::string& url )
       std::string name;
       if(!attrs->get("name", name))
         throw ConfigError(url + ": <field> does not have a name attribute");
-      addTrailerField(lookupXMLFieldNumber(pDoc.get(), name));
+      std::string required = "false";
+      attrs->get("required", required);
+      addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
     }
     RESET_AUTO_PTR(pTrailerFieldNode, pTrailerFieldNode->getNextSiblingNode());
   }
