@@ -68,6 +68,18 @@ Group( int field, int delim ) : disposed( false )
     m_pUnmanaged = new FIX::Group( field, delim );
   }
 
+Group( int field, int delim, int message_order __gc[] ) : disposed( false )
+  {
+    int size = message_order->get_Length();
+    int* order = new int[ size ];
+    order[ 0 ] = size;
+    for ( int i = 0; i < size; ++i )
+      order[ i ] = message_order[ i ];
+
+    m_pUnmanaged = new FIX::Group( field, delim, size, order );
+    delete [] order;
+  }
+
 Group( const FIX::Group& group ) : disposed( false )
   {
     m_pUnmanaged = new FIX::Group( group.field(), group.delim() );

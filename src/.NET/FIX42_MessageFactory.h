@@ -54,229 +54,185 @@
 namespace Fix42
 {
 
-public __gc class MessageFactory : public Fix::MessageFactory
-{
-public:
-  Fix::Message* create( String* beginString, String* msgType )
+  public __gc class MessageFactory : public Fix::MessageFactory
   {
-
-    if ( msgType->Equals( "0" ) )
-    {
-      return new Fix42::Heartbeat();
-    }
-
-    if ( msgType->Equals( "A" ) )
-    {
-      return new Fix42::Logon();
-    }
-
-    if ( msgType->Equals( "1" ) )
-    {
-      return new Fix42::TestRequest();
-    }
-
-    if ( msgType->Equals( "2" ) )
-    {
-      return new Fix42::ResendRequest();
-    }
-
-    if ( msgType->Equals( "3" ) )
-    {
-      return new Fix42::Reject();
-    }
-
-    if ( msgType->Equals( "4" ) )
-    {
-      return new Fix42::SequenceReset();
-    }
-
-    if ( msgType->Equals( "5" ) )
-    {
-      return new Fix42::Logout();
-    }
-
-    if ( msgType->Equals( "7" ) )
-    {
-      return new Fix42::Advertisement();
-    }
-
-    if ( msgType->Equals( "6" ) )
-    {
-      return new Fix42::IndicationofInterest();
-    }
-
-    if ( msgType->Equals( "B" ) )
-    {
-      return new Fix42::News();
-    }
-
-    if ( msgType->Equals( "C" ) )
-    {
-      return new Fix42::Email();
-    }
-
-    if ( msgType->Equals( "R" ) )
-    {
-      return new Fix42::QuoteRequest();
-    }
-
-    if ( msgType->Equals( "S" ) )
-    {
-      return new Fix42::Quote();
-    }
-
-    if ( msgType->Equals( "i" ) )
-    {
-      return new Fix42::MassQuote();
-    }
-
-    if ( msgType->Equals( "Z" ) )
-    {
-      return new Fix42::QuoteCancel();
-    }
-
-    if ( msgType->Equals( "a" ) )
-    {
-      return new Fix42::QuoteStatusRequest();
-    }
-
-    if ( msgType->Equals( "b" ) )
-    {
-      return new Fix42::QuoteAcknowledgement();
-    }
-
-    if ( msgType->Equals( "V" ) )
-    {
-      return new Fix42::MarketDataRequest();
-    }
-
-    if ( msgType->Equals( "W" ) )
-    {
-      return new Fix42::MarketDataSnapshotFullRefresh();
-    }
-
-    if ( msgType->Equals( "X" ) )
-    {
-      return new Fix42::MarketDataIncrementalRefresh();
-    }
-
-    if ( msgType->Equals( "Y" ) )
-    {
-      return new Fix42::MarketDataRequestReject();
-    }
-
-    if ( msgType->Equals( "c" ) )
-    {
-      return new Fix42::SecurityDefinitionRequest();
-    }
-
-    if ( msgType->Equals( "d" ) )
-    {
-      return new Fix42::SecurityDefinition();
-    }
-
-    if ( msgType->Equals( "e" ) )
-    {
-      return new Fix42::SecurityStatusRequest();
-    }
-
-    if ( msgType->Equals( "f" ) )
-    {
-      return new Fix42::SecurityStatus();
-    }
-
-    if ( msgType->Equals( "g" ) )
-    {
-      return new Fix42::TradingSessionStatusRequest();
-    }
-
-    if ( msgType->Equals( "h" ) )
-    {
-      return new Fix42::TradingSessionStatus();
-    }
-
-    if ( msgType->Equals( "D" ) )
-    {
-      return new Fix42::NewOrderSingle();
-    }
-
-    if ( msgType->Equals( "8" ) )
-    {
-      return new Fix42::ExecutionReport();
-    }
-
-    if ( msgType->Equals( "Q" ) )
-    {
-      return new Fix42::DontKnowTrade();
-    }
-
-    if ( msgType->Equals( "G" ) )
-    {
-      return new Fix42::OrderCancelReplaceRequest();
-    }
-
-    if ( msgType->Equals( "F" ) )
-    {
-      return new Fix42::OrderCancelRequest();
-    }
-
-    if ( msgType->Equals( "9" ) )
-    {
-      return new Fix42::OrderCancelReject();
-    }
-
-    if ( msgType->Equals( "H" ) )
-    {
-      return new Fix42::OrderStatusRequest();
-    }
-
-    if ( msgType->Equals( "J" ) )
-    {
-      return new Fix42::Allocation();
-    }
-
-    if ( msgType->Equals( "P" ) )
-    {
-      return new Fix42::AllocationACK();
-    }
-
-    if ( msgType->Equals( "T" ) )
-    {
-      return new Fix42::SettlementInstructions();
-    }
-
-    if ( msgType->Equals( "E" ) )
-    {
-      return new Fix42::NewOrderList();
-    }
-
-    if ( msgType->Equals( "N" ) )
-    {
-      return new Fix42::ListStatus();
-    }
-
-    if ( msgType->Equals( "L" ) )
-    {
-      return new Fix42::ListExecute();
-    }
-
-    if ( msgType->Equals( "K" ) )
-    {
-      return new Fix42::ListCancelRequest();
-    }
-
-    if ( msgType->Equals( "M" ) )
-    {
-      return new Fix42::ListStatusRequest();
-    }
-
-    if ( msgType->Equals( "j" ) )
-    {
-      return new Fix42::BusinessMessageReject();
-    }
-
+  public:
+    Fix::Message* create( String* beginString, String* msgType ) {
+    
+     if(msgType->Equals("0")) {
+       return new Fix42::Heartbeat();
+     }
+   
+     if(msgType->Equals("A")) {
+       return new Fix42::Logon();
+     }
+   
+     if(msgType->Equals("1")) {
+       return new Fix42::TestRequest();
+     }
+   
+     if(msgType->Equals("2")) {
+       return new Fix42::ResendRequest();
+     }
+   
+     if(msgType->Equals("3")) {
+       return new Fix42::Reject();
+     }
+   
+     if(msgType->Equals("4")) {
+       return new Fix42::SequenceReset();
+     }
+   
+     if(msgType->Equals("5")) {
+       return new Fix42::Logout();
+     }
+   
+     if(msgType->Equals("7")) {
+       return new Fix42::Advertisement();
+     }
+   
+     if(msgType->Equals("6")) {
+       return new Fix42::IndicationofInterest();
+     }
+   
+     if(msgType->Equals("B")) {
+       return new Fix42::News();
+     }
+   
+     if(msgType->Equals("C")) {
+       return new Fix42::Email();
+     }
+   
+     if(msgType->Equals("R")) {
+       return new Fix42::QuoteRequest();
+     }
+   
+     if(msgType->Equals("S")) {
+       return new Fix42::Quote();
+     }
+   
+     if(msgType->Equals("i")) {
+       return new Fix42::MassQuote();
+     }
+   
+     if(msgType->Equals("Z")) {
+       return new Fix42::QuoteCancel();
+     }
+   
+     if(msgType->Equals("a")) {
+       return new Fix42::QuoteStatusRequest();
+     }
+   
+     if(msgType->Equals("b")) {
+       return new Fix42::QuoteAcknowledgement();
+     }
+   
+     if(msgType->Equals("V")) {
+       return new Fix42::MarketDataRequest();
+     }
+   
+     if(msgType->Equals("W")) {
+       return new Fix42::MarketDataSnapshotFullRefresh();
+     }
+   
+     if(msgType->Equals("X")) {
+       return new Fix42::MarketDataIncrementalRefresh();
+     }
+   
+     if(msgType->Equals("Y")) {
+       return new Fix42::MarketDataRequestReject();
+     }
+   
+     if(msgType->Equals("c")) {
+       return new Fix42::SecurityDefinitionRequest();
+     }
+   
+     if(msgType->Equals("d")) {
+       return new Fix42::SecurityDefinition();
+     }
+   
+     if(msgType->Equals("e")) {
+       return new Fix42::SecurityStatusRequest();
+     }
+   
+     if(msgType->Equals("f")) {
+       return new Fix42::SecurityStatus();
+     }
+   
+     if(msgType->Equals("g")) {
+       return new Fix42::TradingSessionStatusRequest();
+     }
+   
+     if(msgType->Equals("h")) {
+       return new Fix42::TradingSessionStatus();
+     }
+   
+     if(msgType->Equals("D")) {
+       return new Fix42::NewOrderSingle();
+     }
+   
+     if(msgType->Equals("8")) {
+       return new Fix42::ExecutionReport();
+     }
+   
+     if(msgType->Equals("Q")) {
+       return new Fix42::DontKnowTrade();
+     }
+   
+     if(msgType->Equals("G")) {
+       return new Fix42::OrderCancelReplaceRequest();
+     }
+   
+     if(msgType->Equals("F")) {
+       return new Fix42::OrderCancelRequest();
+     }
+   
+     if(msgType->Equals("9")) {
+       return new Fix42::OrderCancelReject();
+     }
+   
+     if(msgType->Equals("H")) {
+       return new Fix42::OrderStatusRequest();
+     }
+   
+     if(msgType->Equals("J")) {
+       return new Fix42::Allocation();
+     }
+   
+     if(msgType->Equals("P")) {
+       return new Fix42::AllocationACK();
+     }
+   
+     if(msgType->Equals("T")) {
+       return new Fix42::SettlementInstructions();
+     }
+   
+     if(msgType->Equals("E")) {
+       return new Fix42::NewOrderList();
+     }
+   
+     if(msgType->Equals("N")) {
+       return new Fix42::ListStatus();
+     }
+   
+     if(msgType->Equals("L")) {
+       return new Fix42::ListExecute();
+     }
+   
+     if(msgType->Equals("K")) {
+       return new Fix42::ListCancelRequest();
+     }
+   
+     if(msgType->Equals("M")) {
+       return new Fix42::ListStatusRequest();
+     }
+   
+     if(msgType->Equals("j")) {
+       return new Fix42::BusinessMessageReject();
+     }
+   
     return new Fix42::Message();
-  }
-};
+    }
+  };
 }
-
+  

@@ -54,154 +54,125 @@
 namespace Fix41
 {
 
-public __gc class MessageFactory : public Fix::MessageFactory
-{
-public:
-  Fix::Message* create( String* beginString, String* msgType )
+  public __gc class MessageFactory : public Fix::MessageFactory
   {
-
-    if ( msgType->Equals( "0" ) )
-    {
-      return new Fix41::Heartbeat();
-    }
-
-    if ( msgType->Equals( "A" ) )
-    {
-      return new Fix41::Logon();
-    }
-
-    if ( msgType->Equals( "1" ) )
-    {
-      return new Fix41::TestRequest();
-    }
-
-    if ( msgType->Equals( "2" ) )
-    {
-      return new Fix41::ResendRequest();
-    }
-
-    if ( msgType->Equals( "3" ) )
-    {
-      return new Fix41::Reject();
-    }
-
-    if ( msgType->Equals( "4" ) )
-    {
-      return new Fix41::SequenceReset();
-    }
-
-    if ( msgType->Equals( "5" ) )
-    {
-      return new Fix41::Logout();
-    }
-
-    if ( msgType->Equals( "7" ) )
-    {
-      return new Fix41::Advertisement();
-    }
-
-    if ( msgType->Equals( "6" ) )
-    {
-      return new Fix41::IndicationofInterest();
-    }
-
-    if ( msgType->Equals( "B" ) )
-    {
-      return new Fix41::News();
-    }
-
-    if ( msgType->Equals( "C" ) )
-    {
-      return new Fix41::Email();
-    }
-
-    if ( msgType->Equals( "R" ) )
-    {
-      return new Fix41::QuoteRequest();
-    }
-
-    if ( msgType->Equals( "S" ) )
-    {
-      return new Fix41::Quote();
-    }
-
-    if ( msgType->Equals( "D" ) )
-    {
-      return new Fix41::NewOrderSingle();
-    }
-
-    if ( msgType->Equals( "8" ) )
-    {
-      return new Fix41::ExecutionReport();
-    }
-
-    if ( msgType->Equals( "Q" ) )
-    {
-      return new Fix41::DontKnowTrade();
-    }
-
-    if ( msgType->Equals( "G" ) )
-    {
-      return new Fix41::OrderCancelReplaceRequest();
-    }
-
-    if ( msgType->Equals( "F" ) )
-    {
-      return new Fix41::OrderCancelRequest();
-    }
-
-    if ( msgType->Equals( "9" ) )
-    {
-      return new Fix41::OrderCancelReject();
-    }
-
-    if ( msgType->Equals( "H" ) )
-    {
-      return new Fix41::OrderStatusRequest();
-    }
-
-    if ( msgType->Equals( "J" ) )
-    {
-      return new Fix41::Allocation();
-    }
-
-    if ( msgType->Equals( "P" ) )
-    {
-      return new Fix41::AllocationACK();
-    }
-
-    if ( msgType->Equals( "T" ) )
-    {
-      return new Fix41::SettlementInstructions();
-    }
-
-    if ( msgType->Equals( "E" ) )
-    {
-      return new Fix41::NewOrderList();
-    }
-
-    if ( msgType->Equals( "N" ) )
-    {
-      return new Fix41::ListStatus();
-    }
-
-    if ( msgType->Equals( "L" ) )
-    {
-      return new Fix41::ListExecute();
-    }
-
-    if ( msgType->Equals( "K" ) )
-    {
-      return new Fix41::ListCancelRequest();
-    }
-
-    if ( msgType->Equals( "M" ) )
-    {
-      return new Fix41::ListStatusRequest();
-    }
-
+  public:
+    Fix::Message* create( String* beginString, String* msgType ) {
+    
+     if(msgType->Equals("0")) {
+       return new Fix41::Heartbeat();
+     }
+   
+     if(msgType->Equals("A")) {
+       return new Fix41::Logon();
+     }
+   
+     if(msgType->Equals("1")) {
+       return new Fix41::TestRequest();
+     }
+   
+     if(msgType->Equals("2")) {
+       return new Fix41::ResendRequest();
+     }
+   
+     if(msgType->Equals("3")) {
+       return new Fix41::Reject();
+     }
+   
+     if(msgType->Equals("4")) {
+       return new Fix41::SequenceReset();
+     }
+   
+     if(msgType->Equals("5")) {
+       return new Fix41::Logout();
+     }
+   
+     if(msgType->Equals("7")) {
+       return new Fix41::Advertisement();
+     }
+   
+     if(msgType->Equals("6")) {
+       return new Fix41::IndicationofInterest();
+     }
+   
+     if(msgType->Equals("B")) {
+       return new Fix41::News();
+     }
+   
+     if(msgType->Equals("C")) {
+       return new Fix41::Email();
+     }
+   
+     if(msgType->Equals("R")) {
+       return new Fix41::QuoteRequest();
+     }
+   
+     if(msgType->Equals("S")) {
+       return new Fix41::Quote();
+     }
+   
+     if(msgType->Equals("D")) {
+       return new Fix41::NewOrderSingle();
+     }
+   
+     if(msgType->Equals("8")) {
+       return new Fix41::ExecutionReport();
+     }
+   
+     if(msgType->Equals("Q")) {
+       return new Fix41::DontKnowTrade();
+     }
+   
+     if(msgType->Equals("G")) {
+       return new Fix41::OrderCancelReplaceRequest();
+     }
+   
+     if(msgType->Equals("F")) {
+       return new Fix41::OrderCancelRequest();
+     }
+   
+     if(msgType->Equals("9")) {
+       return new Fix41::OrderCancelReject();
+     }
+   
+     if(msgType->Equals("H")) {
+       return new Fix41::OrderStatusRequest();
+     }
+   
+     if(msgType->Equals("J")) {
+       return new Fix41::Allocation();
+     }
+   
+     if(msgType->Equals("P")) {
+       return new Fix41::AllocationACK();
+     }
+   
+     if(msgType->Equals("T")) {
+       return new Fix41::SettlementInstructions();
+     }
+   
+     if(msgType->Equals("E")) {
+       return new Fix41::NewOrderList();
+     }
+   
+     if(msgType->Equals("N")) {
+       return new Fix41::ListStatus();
+     }
+   
+     if(msgType->Equals("L")) {
+       return new Fix41::ListExecute();
+     }
+   
+     if(msgType->Equals("K")) {
+       return new Fix41::ListCancelRequest();
+     }
+   
+     if(msgType->Equals("M")) {
+       return new Fix41::ListStatusRequest();
+     }
+   
     return new Fix41::Message();
-  }
-};
+    }
+  };
 }
-
+  

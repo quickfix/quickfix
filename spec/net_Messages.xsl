@@ -148,12 +148,15 @@ namespace Fix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
     __gc class <xsl:value-of select="@name"/> : public Fix::Group
     {
     public:
-      <xsl:value-of select="@name"/>() : Group(<xsl:value-of select="@number"/>, <xsl:value-of select="field/@number"/>) {}
+      <xsl:value-of select="@name"/>() : Group(<xsl:value-of select="@number"/>, <xsl:value-of select="field/@number"/>, message_order ) {}
+      static <xsl:value-of select="@name"/>()
+      { message_order = new int __gc [<xsl:value-of select="count(field)"/>];
+        <xsl:for-each select="field">
+        message_order[<xsl:value-of select="position()-1"/>] = <xsl:value-of select="@number"/>;</xsl:for-each> }
+      static int message_order __gc[];
       <xsl:for-each select="field">
-      void set(Fix::<xsl:value-of select="@name"/>* value)
-      { setField(value); }
-      Fix::<xsl:value-of select="@name"/>* get(Fix::<xsl:value-of select="@name"/>* value) throw(Fix::FieldNotFound*)
-      { getField(value); return value; }
+      void set(Fix::<xsl:value-of select="@name"/>* value){ setField(value); }
+      Fix::<xsl:value-of select="@name"/>* get(Fix::<xsl:value-of select="@name"/>* value) throw(Fix::FieldNotFound*){ getField(value); return value; }
       Fix::<xsl:value-of select="@name"/>* get<xsl:value-of select="@name"/>() throw(Fix::FieldNotFound*)
       { Fix::<xsl:value-of select="@name"/>* value = new Fix::<xsl:value-of select="@name"/>();
         getField(value); return value; }
