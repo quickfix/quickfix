@@ -55,6 +55,8 @@ int testSerializeFromStringQuoteRequest( int );
 int testFileStoreNewOrderSingle( int );
 int testValidateNewOrderSingle( int );
 int testValidateDictNewOrderSingle( int );
+int testValidateQuoteRequest( int );
+int testValidateDictQuoteRequest( int );
 void report( int, int );
 
 #ifndef _MSC_VER
@@ -132,6 +134,12 @@ int main( int argc, char** argv )
 
   std::cout << "Validating NewOrderSingle messages with data dictionary: ";
   report( testValidateDictNewOrderSingle( count ), count );
+
+  std::cout << "Validating QuoteRequest messages with no data dictionary: ";
+  report( testValidateQuoteRequest( count ), count );
+
+  std::cout << "Validating QuoteRequest messages with data dictionary: ";
+  report( testValidateDictQuoteRequest( count ), count );
 
   return 0;
 }
@@ -551,6 +559,64 @@ int testValidateDictNewOrderSingle( int count )
   message.getHeader().set( FIX::SenderCompID( "SENDER" ) );
   message.getHeader().set( FIX::TargetCompID( "TARGET" ) );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
+
+  FIX::DataDictionary dataDictionary( "../spec/FIX42.xml" );
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int i = 0; i <= count; ++i )
+  {
+    dataDictionary.validate( message );
+  }
+  return GetTickCount() - start;
+}
+
+int testValidateQuoteRequest( int count )
+{
+  FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
+  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+
+  for( int i = 1; i <= 10; ++i )
+  {
+    noRelatedSym.set( FIX::Symbol("IBM") );
+    noRelatedSym.set( FIX::MaturityMonthYear() );
+    noRelatedSym.set( FIX::PutOrCall(FIX::PutOrCall_PUT) );
+    noRelatedSym.set( FIX::StrikePrice(120) );
+    noRelatedSym.set( FIX::Side(FIX::Side_BUY) );
+    noRelatedSym.set( FIX::OrderQty(100) );
+    noRelatedSym.set( FIX::Currency("USD") );
+    noRelatedSym.set( FIX::OrdType(FIX::OrdType_MARKET) );
+    message.addGroup( noRelatedSym );
+  }
+
+  FIX::DataDictionary dataDictionary;
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int i = 0; i <= count; ++i )
+  {
+    dataDictionary.validate( message );
+  }
+  return GetTickCount() - start;
+}
+
+int testValidateDictQuoteRequest( int count )
+{
+  FIX42::QuoteRequest message( FIX::QuoteReqID("1") );
+  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+
+  for( int i = 1; i <= 10; ++i )
+  {
+    noRelatedSym.set( FIX::Symbol("IBM") );
+    noRelatedSym.set( FIX::MaturityMonthYear() );
+    noRelatedSym.set( FIX::PutOrCall(FIX::PutOrCall_PUT) );
+    noRelatedSym.set( FIX::StrikePrice(120) );
+    noRelatedSym.set( FIX::Side(FIX::Side_BUY) );
+    noRelatedSym.set( FIX::OrderQty(100) );
+    noRelatedSym.set( FIX::Currency("USD") );
+    noRelatedSym.set( FIX::OrdType(FIX::OrdType_MARKET) );
+    message.addGroup( noRelatedSym );
+  }
 
   FIX::DataDictionary dataDictionary( "../spec/FIX42.xml" );
   count = count - 1;
