@@ -92,6 +92,8 @@ public class Message extends FieldMap {
     private native void create();
     private native void destroy();
 
+    public native Object clone();
+
     public void addGroup(Group group) {
         addGroup0(group);
     }
