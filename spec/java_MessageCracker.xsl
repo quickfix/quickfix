@@ -43,10 +43,12 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
 
 <xsl:template name="virtual-functions">
  <xsl:for-each select="//fix/messages/message[@msgcat='app']"> public void onMessage( <xsl:value-of select="@name"/> message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
- <xsl:if test="@name!='BusinessMessageReject'">   { throw new UnsupportedMessageType(); }
+ <xsl:if test="@name!='BusinessMessageReject' and @msgcat='app'">   { throw new UnsupportedMessageType(); }
  </xsl:if>
  <xsl:if test="@name='BusinessMessageReject'">   {}
  </xsl:if>
+<xsl:if test="@msgcat='admin'">   {}
+</xsl:if>
 </xsl:for-each>
 </xsl:template>
 
