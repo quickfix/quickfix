@@ -1025,6 +1025,18 @@ xcopy  &quot;$(InputPath)&quot; include
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="src\C++\FIX43_MessageCracker.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="src\C++\FIX43_Messages.h">
 				<FileConfiguration
 					Name="Debug|Win32">
