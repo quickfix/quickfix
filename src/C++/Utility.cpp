@@ -121,11 +121,13 @@ int socket_createConnector( const char* address, int port )
 { QF_STACK_PUSH(socket_createConnector)
 
   int socket = ::socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
+  const char* hostname = socket_hostname( address ); 
+  if( hostname == 0 ) return -1;
 
   sockaddr_in addr;
   addr.sin_family = PF_INET;
   addr.sin_port = htons( port );
-  addr.sin_addr.s_addr = inet_addr( socket_hostname( address ) );
+  addr.sin_addr.s_addr = inet_addr( hostname );
 
   int result = connect( socket, reinterpret_cast < sockaddr* > ( &addr ),
                         sizeof( addr ) );

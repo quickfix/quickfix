@@ -118,23 +118,16 @@ SocketConnector::SocketConnector( int timeout )
 int SocketConnector::connect( const std::string& address, int port )
 { QF_STACK_PUSH(SocketConnector::connect)
 
-  int sock = socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
+  int socket = socket_createConnector( address.c_str(), port );
 
-  sockaddr_in addr;
-  addr.sin_family = PF_INET;
-  addr.sin_port = htons( port );
-  addr.sin_addr.s_addr = inet_addr( socket_hostname( address.c_str() ) );
-
-  int result = ::connect( sock, reinterpret_cast < sockaddr* > ( &addr ),
-                          sizeof( addr ) );
-  if ( result == 0 )
+  if ( socket != -1 )
   {
-    m_monitor.add( sock );
-    return sock;
+    m_monitor.add( socket );
+    return socket;
   }
   else
   {
-    socket_close( sock );
+    socket_close( socket );
     return 0;
   }
 
