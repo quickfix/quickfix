@@ -91,6 +91,7 @@ void MySQLStore::populateCache()
       UtcTimeStamp time;
       std::string sqlTime = row[ 3 ];
       strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
+      static_cast<tm*>(time)->tm_dst = -1;
       m_cache.setCreationTime( time );
       m_cache.setNextTargetMsgSeqNum( atol( row[ 4 ] ) );
       m_cache.setNextSenderMsgSeqNum( atol( row[ 5 ] ) );
