@@ -37,6 +37,7 @@ public static final String SIMPLE_YIELD = "SIMPLE";
 public static final String TAX_EQUIVALENT_YIELD = "TAXEQUIV"; 
 public static final String YIELD_TO_TENDER_DATE = "TENDER"; 
 public static final String TRUE_YIELD = "TRUE"; 
+public static final String YIELD_VALUE_OF_1_32 = "VALUE1_32"; 
 public static final String YIELD_TO_WORST = "WORST"; 
 
   public YieldType() 

@@ -51,28 +51,34 @@
 #include <quickfix/FileStore.h>
 #include <vector>
 
-int fix_FileStore_set(fix_MessageStore* store, const fix_Message message)
+int fix_FileStore_set(fix_MessageStore* store, int seq, char* message)
 {
   FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
   FIX::Message* pMessage = (FIX::Message*)message;
-  return pStore->set(*pMessage);
+  return pStore->set(seq, message);
 }
 
-int fix_FileStore_get(fix_MessageStore* store, int seq, fix_Message message)
+int fix_FileStore_get(fix_MessageStore* store, int seq, char* message, int* size)
 {
   FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
-  FIX::Message* pMessage = (FIX::Message*)message;
-  return pStore->get(seq, *pMessage);
+  std::string stored;
+  bool result = pStore->get(seq, stored);
+  if( result )
+  {
+    *size = stored.size() + 1;
+    message = (char*)calloc(*size + 1, sizeof(char));
+    strcpy( message, stored.c_str() );
+  }
+  return result;
 }
 
-int fix_FileStore_getRange(fix_MessageStore* store, int begin, int end,
-                             fix_Message messages[], int* size)
+void fix_FileStore_getRange(fix_MessageStore* store, int begin, int end,
+                            char* messages[], int* size)
 {
   FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
-  std::vector<FIX::Message> vmessages;
-  bool result = pStore->get(begin, end, vmessages);
+  std::vector<std::string> vmessages;
+  pStore->get(begin, end, vmessages);
   *size = vmessages.size();
-  messages = (fix_Message*)calloc(*size, sizeof(fix_Message));
   return result;
 }
 
