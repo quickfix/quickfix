@@ -123,7 +123,7 @@ public:
     if ( !cls ) throw JVMException( "Class not found" );
   }
 
-  JVMClass( JVMClass& copy ) : m_cls( copy.m_cls ) 
+  JVMClass( const JVMClass& copy ) : m_cls( copy.m_cls ) 
   {
     ENV::get()->NewLocalRef( m_cls );
   }
