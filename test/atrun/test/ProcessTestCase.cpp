@@ -147,6 +147,4 @@ namespace ATRUN
     //could also assert that the waitFor() call holds for 5 seconds
     //because of the sleep call
   }
-
-  
 } //namespcae ATRUN
