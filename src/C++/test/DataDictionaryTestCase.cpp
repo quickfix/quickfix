@@ -60,6 +60,7 @@
 #include "Values.h"
 #include "fix40/TestRequest.h"
 #include "fix42/TestRequest.h"
+#include "fix42/NewOrderSingle.h"
 #include "fix40/NewOrderSingle.h"
 
 namespace FIX
@@ -385,6 +386,54 @@ void DataDictionaryTestCase::checkValue::onRun
   try{ object.validate( message ); assert(false); }
   catch ( IncorrectTagValue& ) {}
 }
+
+bool DataDictionaryTestCase::checkRepeatedTag::onSetup
+( DataDictionary*& pObject )
+{
+  pObject = new DataDictionary;
+  return true;
+}
+
+void DataDictionaryTestCase::checkRepeatedTag::onRun
+( DataDictionary& object )
+{
+  FIX40::NewOrderSingle message;
+  message.setField( OrdType('1') );
+  message.setField( OrdType('1'), false );
+  try{ object.validate( message ); assert(false); }
+  catch ( RepeatedTag& ) {}
+}
+
+bool DataDictionaryTestCase::checkGroupCount::onSetup
+( DataDictionary*& pObject )
+{
+  pObject = new DataDictionary;
+  pObject->setVersion( BeginString_FIX42 );  
+  pObject->addField( FIELD::BeginString );
+  pObject->addField( FIELD::BodyLength );
+  pObject->addField( FIELD::MsgType );
+  pObject->addField( FIELD::CheckSum );
+  pObject->addField( FIELD::NoAllocs );
+  DataDictionary groupDD;
+  groupDD.addField( FIELD::AllocAccount );
+  pObject->addGroup( "D", FIELD::NoAllocs, FIELD::AllocAccount, groupDD );
+  pObject->addMsgType( MsgType_NewOrderSingle );
+  pObject->addMsgField( MsgType_NewOrderSingle, FIELD::NoAllocs );
+  return true;
+}
+
+void DataDictionaryTestCase::checkGroupCount::onRun
+( DataDictionary& object )
+{
+  FIX42::NewOrderSingle message;
+  FIX42::NewOrderSingle::NoAllocs group;
+  group.setField( AllocAccount("account") );
+  message.addGroup( group );
+  message.set( NoAllocs(2) );
+  try{ object.validate( message ); assert(false); }
+  catch ( RepeatingGroupCountMismatch& ) {}
+}
+
 
 bool DataDictionaryTestCase::readFromFile::onSetup
 ( DataDictionary*& pObject )

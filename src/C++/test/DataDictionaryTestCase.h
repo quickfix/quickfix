@@ -77,6 +77,8 @@ public:
     add( &m_checkHasRequired );
     add( &m_checkValidFormat );
     add( &m_checkValue );
+    add( &m_checkRepeatedTag );
+    add( &m_checkGroupCount );
     add( &m_readFromFile );
     add( &m_copy );
   }
@@ -197,6 +199,24 @@ class checkValue : public Test
     DataDictionary* m_pObject;
   }
   m_checkValue;
+
+class checkRepeatedTag : public Test
+  {
+    bool onSetup( DataDictionary*& pObject );
+    void onRun( DataDictionary& object );
+    void onTeardown( DataDictionary* pObject ) { delete pObject; }
+    DataDictionary* m_pObject;
+  }
+  m_checkRepeatedTag;
+
+class checkGroupCount : public Test
+  {
+    bool onSetup( DataDictionary*& pObject );
+    void onRun( DataDictionary& object );
+    void onTeardown( DataDictionary* pObject ) { delete pObject; }
+    DataDictionary* m_pObject;
+  }
+  m_checkGroupCount;
 
 class readFromFile : public Test
   {
