@@ -107,99 +107,89 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
   {
     MsgType msgType = new MsgType();
     message.getHeader().getField(msgType);
-    String msgTypeString = msgType.getValue();
-    if(msgTypeString.length() > 1)
-    {
-      onMessage( message, sessionID );
-      return;
-    }
+    String msgTypeValue = msgType.getValue();
 
-    switch(msgTypeString.charAt(0))
-    {
-      case '0':
-        onMessage( (Heartbeat)message, sessionID );
-	      break;
-      case 'A':
-        onMessage( (Logon)message, sessionID );
-	      break;
-      case '1':
-        onMessage( (TestRequest)message, sessionID );
-	      break;
-      case '2':
-        onMessage( (ResendRequest)message, sessionID );
-	      break;
-      case '3':
-        onMessage( (Reject)message, sessionID );
-	      break;
-      case '4':
-        onMessage( (SequenceReset)message, sessionID );
-	      break;
-      case '5':
-        onMessage( (Logout)message, sessionID );
-	      break;
-      case '7':
-        onMessage( (Advertisement)message, sessionID );
-	      break;
-      case '6':
-        onMessage( (IndicationofInterest)message, sessionID );
-	      break;
-      case 'B':
-        onMessage( (News)message, sessionID );
-	      break;
-      case 'C':
-        onMessage( (Email)message, sessionID );
-	      break;
-      case 'R':
-        onMessage( (QuoteRequest)message, sessionID );
-	      break;
-      case 'S':
-        onMessage( (Quote)message, sessionID );
-	      break;
-      case 'D':
-        onMessage( (NewOrderSingle)message, sessionID );
-	      break;
-      case '8':
-        onMessage( (ExecutionReport)message, sessionID );
-	      break;
-      case 'Q':
-        onMessage( (DontKnowTrade)message, sessionID );
-	      break;
-      case 'G':
-        onMessage( (OrderCancelReplaceRequest)message, sessionID );
-	      break;
-      case 'F':
-        onMessage( (OrderCancelRequest)message, sessionID );
-	      break;
-      case '9':
-        onMessage( (OrderCancelReject)message, sessionID );
-	      break;
-      case 'H':
-        onMessage( (OrderStatusRequest)message, sessionID );
-	      break;
-      case 'J':
-        onMessage( (Allocation)message, sessionID );
-	      break;
-      case 'P':
-        onMessage( (AllocationACK)message, sessionID );
-	      break;
-      case 'E':
-        onMessage( (NewOrderList)message, sessionID );
-	      break;
-      case 'N':
-        onMessage( (ListStatus)message, sessionID );
-	      break;
-      case 'L':
-        onMessage( (ListExecute)message, sessionID );
-	      break;
-      case 'K':
-        onMessage( (ListCancelRequest)message, sessionID );
-	      break;
-      case 'M':
-        onMessage( (ListStatusRequest)message, sessionID );
-	      break;
-      default:
-        onMessage( message, sessionID );
-    }
+    if( msgTypeValue.equals("0") )
+      onMessage( (Heartbeat)message, sessionID );
+    else
+    if( msgTypeValue.equals("A") )
+      onMessage( (Logon)message, sessionID );
+    else
+    if( msgTypeValue.equals("1") )
+      onMessage( (TestRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("2") )
+      onMessage( (ResendRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("3") )
+      onMessage( (Reject)message, sessionID );
+    else
+    if( msgTypeValue.equals("4") )
+      onMessage( (SequenceReset)message, sessionID );
+    else
+    if( msgTypeValue.equals("5") )
+      onMessage( (Logout)message, sessionID );
+    else
+    if( msgTypeValue.equals("7") )
+      onMessage( (Advertisement)message, sessionID );
+    else
+    if( msgTypeValue.equals("6") )
+      onMessage( (IndicationofInterest)message, sessionID );
+    else
+    if( msgTypeValue.equals("B") )
+      onMessage( (News)message, sessionID );
+    else
+    if( msgTypeValue.equals("C") )
+      onMessage( (Email)message, sessionID );
+    else
+    if( msgTypeValue.equals("R") )
+      onMessage( (QuoteRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("S") )
+      onMessage( (Quote)message, sessionID );
+    else
+    if( msgTypeValue.equals("D") )
+      onMessage( (NewOrderSingle)message, sessionID );
+    else
+    if( msgTypeValue.equals("8") )
+      onMessage( (ExecutionReport)message, sessionID );
+    else
+    if( msgTypeValue.equals("Q") )
+      onMessage( (DontKnowTrade)message, sessionID );
+    else
+    if( msgTypeValue.equals("G") )
+      onMessage( (OrderCancelReplaceRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("F") )
+      onMessage( (OrderCancelRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("9") )
+      onMessage( (OrderCancelReject)message, sessionID );
+    else
+    if( msgTypeValue.equals("H") )
+      onMessage( (OrderStatusRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("J") )
+      onMessage( (Allocation)message, sessionID );
+    else
+    if( msgTypeValue.equals("P") )
+      onMessage( (AllocationACK)message, sessionID );
+    else
+    if( msgTypeValue.equals("E") )
+      onMessage( (NewOrderList)message, sessionID );
+    else
+    if( msgTypeValue.equals("N") )
+      onMessage( (ListStatus)message, sessionID );
+    else
+    if( msgTypeValue.equals("L") )
+      onMessage( (ListExecute)message, sessionID );
+    else
+    if( msgTypeValue.equals("K") )
+      onMessage( (ListCancelRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("M") )
+      onMessage( (ListStatusRequest)message, sessionID );
+    else onMessage( message, sessionID );
   }
 
   };

@@ -18,18 +18,10 @@ public class TestRequest extends Message
   } 
 
   public void set(org.quickfix.field.TestReqID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.TestReqID get(org.quickfix.field.TestReqID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.TestReqID getTestReqID() throws FieldNotFound
-  { 
-    org.quickfix.field.TestReqID value = new org.quickfix.field.TestReqID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.TestReqID get(org.quickfix.field.TestReqID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.TestReqID getTestReqID() throws FieldNotFound 
+  { org.quickfix.field.TestReqID value = new org.quickfix.field.TestReqID(); 
+    getField(value); return value; } 
 } 
