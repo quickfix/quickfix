@@ -66,7 +66,6 @@ public:
     fix41Factory = new QuickFix41::MessageFactory();
     fix42Factory = new QuickFix42::MessageFactory();
     fix43Factory = new QuickFix43::MessageFactory();
-    fix44Factory = new QuickFix44::MessageFactory();
   }
 
   QuickFix::Message* create( String* beginString, String* msgType )
@@ -80,7 +79,7 @@ public:
     if ( beginString->Equals( "FIX.4.3" ) )
       return fix43Factory->create( beginString, msgType );
     if ( beginString->Equals( "FIX.4.4" ) )
-      return fix44Factory->create( beginString, msgType );
+      return new Message();
     return new Message();
   }
 
@@ -89,6 +88,5 @@ private:
   QuickFix41::MessageFactory* fix41Factory;
   QuickFix42::MessageFactory* fix42Factory;
   QuickFix43::MessageFactory* fix43Factory;
-  QuickFix44::MessageFactory* fix44Factory;
 };
 }
