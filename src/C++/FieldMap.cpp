@@ -134,7 +134,7 @@ std::string& FieldMap::calculateString( std::string& result, bool clear ) const
 { QF_STACK_PUSH(FieldMap::calculateString)
 
 #if defined(_MSC_VER) && _MSC_VER < 1300
-  result == "";
+  if( clear ) result = "";
 #else
   if( clear ) result.clear();
 #endif
