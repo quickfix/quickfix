@@ -51,6 +51,10 @@
 #ifndef FIX_MSXMLDOMDOCUMENT_H
 #define FIX_MSXMLDOMDOCUMENT_H
 
+#ifdef _MSC_VER
+#pragma warning( disable : 4503 4355 4786 4290 )
+#endif
+
 #include "DOMDocument.h"
 #include "Exceptions.h"
 
