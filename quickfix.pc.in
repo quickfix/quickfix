@@ -6,6 +6,6 @@ includedir=@prefix@/include
 Name: QuickFIX
 Description: FIX Engine
 Version: @VERSION@
-Requires: libxml
+Requires: libxml-2.0
 Libs: -L${libdir} -lquickfix
 Cflags: -I${includedir}
