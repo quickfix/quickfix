@@ -26,5 +26,5 @@
 * <a href="unit_tests.html">Unit Tests</a><br>
 * <a href="acceptance_tests.html">Acceptance Tests</a><br>
 *
-* \author Oren Miller omiller@thoughtworks.com
+* \author Oren Miller orenmnero@users.sourceforge.net
 */
