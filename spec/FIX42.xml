@@ -44,8 +44,7 @@
          <field name="RawData" required="N"/>
          <field name="ResetSeqNumFlag" required="N"/>
          <field name="MaxMessageSize" required="N"/>
-         <field name="NoMsgTypes" required="N"/>
-         <group name="NoMsgTypes">
+         <group name="NoMsgTypes" required="N">
             <field name="RefMsgType" required="N"/>
             <field name="MsgDirection" required="N"/>
          </group>
@@ -141,8 +140,7 @@
          <field name="ValidUntilTime" required="N"/>
          <field name="IOIQltyInd" required="N"/>
          <field name="IOINaturalFlag" required="N"/>
-         <field name="NoIOIQualifiers" required="N"/>
-         <group name="NoIOIQualifiers">
+         <group name="NoIOIQualifiers" required="N">
             <field name="IOIQualifier" required="N"/>
          </group>
          <field name="Text" required="N"/>
@@ -150,8 +148,7 @@
          <field name="EncodedText" required="N"/>
          <field name="TransactTime" required="N"/>
          <field name="URLLink" required="N"/>
-         <field name="NoRoutingIDs" required="N"/>
-         <group name="NoRoutingIDs">
+         <group name="NoRoutingIDs" required="N">
             <field name="RoutingType" required="N"/>
             <field name="RoutingID" required="N"/>
          </group>
@@ -164,13 +161,11 @@
          <field name="Headline" required="Y"/>
          <field name="EncodedHeadlineLen" required="N"/>
          <field name="EncodedHeadline" required="N"/>
-         <field name="NoRoutingIDs" required="N"/>
-         <group name="NoRoutingIDs">
+         <group name="NoRoutingIDs" required="N">
             <field name="RoutingType" required="N"/>
             <field name="RoutingID" required="N"/>
          </group>
-         <field name="NoRelatedSym" required="N"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="N">
             <field name="RelatdSym" required="N"/>
             <field name="SymbolSfx" required="N"/>
             <field name="SecurityID" required="N"/>
@@ -191,8 +186,7 @@
             <field name="EncodedSecurityDescLen" required="N"/>
             <field name="EncodedSecurityDesc" required="N"/>
          </group>
-         <field name="LinesOfText" required="Y"/>
-         <group name="LinesOfText">
+         <group name="LinesOfText" required="Y">
             <field name="Text" required="Y"/>
             <field name="EncodedTextLen" required="N"/>
             <field name="EncodedText" required="N"/>
@@ -208,13 +202,11 @@
          <field name="Subject" required="Y"/>
          <field name="EncodedSubjectLen" required="N"/>
          <field name="EncodedSubject" required="N"/>
-         <field name="NoRoutingIDs" required="N"/>
-         <group name="NoRoutingIDs">
+         <group name="NoRoutingIDs" required="N">
             <field name="RoutingType" required="N"/>
             <field name="RoutingID" required="N"/>
          </group>
-         <field name="NoRelatedSym" required="N"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="N">
             <field name="RelatdSym" required="N"/>
             <field name="SymbolSfx" required="N"/>
             <field name="SecurityID" required="N"/>
@@ -237,8 +229,7 @@
          </group>
          <field name="OrderID" required="N"/>
          <field name="ClOrdID" required="N"/>
-         <field name="LinesOfText" required="Y"/>
-         <group name="LinesOfText">
+         <group name="LinesOfText" required="Y">
             <field name="Text" required="Y"/>
             <field name="EncodedTextLen" required="N"/>
             <field name="EncodedText" required="N"/>
@@ -248,8 +239,7 @@
       </message>
       <message name="QuoteRequest" msgtype="R" msgcat="app">
          <field name="QuoteReqID" required="Y"/>
-         <field name="NoRelatedSym" required="Y"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="Y">
             <field name="Symbol" required="Y"/>
             <field name="SymbolSfx" required="N"/>
             <field name="SecurityID" required="N"/>
@@ -329,8 +319,7 @@
          <field name="QuoteResponseLevel" required="N"/>
          <field name="DefBidSize" required="N"/>
          <field name="DefOfferSize" required="N"/>
-         <field name="NoQuoteSets" required="Y"/>
-         <group name="NoQuoteSets">
+         <group name="NoQuoteSets" required="Y">
             <field name="QuoteSetID" required="Y"/>
             <field name="UnderlyingSymbol" required="Y"/>
             <field name="UnderlyingSymbolSfx" required="N"/>
@@ -353,8 +342,7 @@
             <field name="EncodedUnderlyingSecurityDesc" required="N"/>
             <field name="QuoteSetValidUntilTime" required="N"/>
             <field name="TotQuoteEntries" required="Y"/>
-            <field name="NoQuoteEntries" required="Y"/>
-            <group name="NoQuoteEntries">
+            <group name="NoQuoteEntries" required="Y">
                <field name="QuoteEntryID" required="Y"/>
                <field name="Symbol" required="N"/>
                <field name="SymbolSfx" required="N"/>
@@ -400,8 +388,7 @@
          <field name="QuoteCancelType" required="Y"/>
          <field name="QuoteResponseLevel" required="N"/>
          <field name="TradingSessionID" required="N"/>
-         <field name="NoQuoteEntries" required="Y"/>
-         <group name="NoQuoteEntries">
+         <group name="NoQuoteEntries" required="Y">
             <field name="Symbol" required="Y"/>
             <field name="SymbolSfx" required="N"/>
             <field name="SecurityID" required="N"/>
@@ -456,8 +443,7 @@
          <field name="QuoteResponseLevel" required="N"/>
          <field name="TradingSessionID" required="N"/>
          <field name="Text" required="N"/>
-         <field name="NoQuoteSets" required="N"/>
-         <group name="NoQuoteSets">
+         <group name="NoQuoteSets" required="N">
             <field name="QuoteSetID" required="N"/>
             <field name="UnderlyingSymbol" required="N"/>
             <field name="UnderlyingSymbolSfx" required="N"/>
@@ -479,8 +465,7 @@
             <field name="EncodedUnderlyingSecurityDescLen" required="N"/>
             <field name="EncodedUnderlyingSecurityDesc" required="N"/>
             <field name="TotQuoteEntries" required="N"/>
-            <field name="NoQuoteEntries" required="N"/>
-            <group name="NoQuoteEntries">
+            <group name="NoQuoteEntries" required="N">
                <field name="QuoteEntryID" required="N"/>
                <field name="Symbol" required="N"/>
                <field name="SymbolSfx" required="N"/>
@@ -511,12 +496,10 @@
          <field name="MarketDepth" required="Y"/>
          <field name="MDUpdateType" required="N"/>
          <field name="AggregatedBook" required="N"/>
-         <field name="NoMDEntryTypes" required="Y"/>
-         <group name="NoMDEntryTypes">
+         <group name="NoMDEntryTypes" required="Y">
             <field name="MDEntryType" required="Y"/>
          </group>
-         <field name="NoRelatedSym" required="Y"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="Y">
             <field name="Symbol" required="Y"/>
             <field name="SymbolSfx" required="N"/>
             <field name="SecurityID" required="N"/>
@@ -563,8 +546,7 @@
          <field name="FinancialStatus" required="N"/>
          <field name="CorporateAction" required="N"/>
          <field name="TotalVolumeTraded" required="N"/>
-         <field name="NoMDEntries" required="Y"/>
-         <group name="NoMDEntries">
+         <group name="NoMDEntries" required="Y">
             <field name="MDEntryType" required="Y"/>
             <field name="MDEntryPx" required="Y"/>
             <field name="Currency" required="N"/>
@@ -599,8 +581,7 @@
       </message>
       <message name="MarketDataIncrementalRefresh" msgtype="X" msgcat="app">
          <field name="MDReqID" required="N"/>
-         <field name="NoMDEntries" required="Y"/>
-         <group name="NoMDEntries">
+         <group name="NoMDEntries" required="Y">
             <field name="MDUpdateAction" required="Y"/>
             <field name="DeleteReason" required="N"/>
             <field name="MDEntryType" required="N"/>
@@ -693,8 +674,7 @@
          <field name="EncodedTextLen" required="N"/>
          <field name="EncodedText" required="N"/>
          <field name="TradingSessionID" required="N"/>
-         <field name="NoRelatedSym" required="N"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="N">
             <field name="UnderlyingSymbol" required="N"/>
             <field name="UnderlyingSymbolSfx" required="N"/>
             <field name="UnderlyingSecurityID" required="N"/>
@@ -748,8 +728,7 @@
          <field name="Text" required="N"/>
          <field name="EncodedTextLen" required="N"/>
          <field name="EncodedText" required="N"/>
-         <field name="NoRelatedSym" required="N"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="N">
             <field name="UnderlyingSymbol" required="N"/>
             <field name="UnderlyingSymbolSfx" required="N"/>
             <field name="UnderlyingSecurityID" required="N"/>
@@ -866,8 +845,7 @@
          <field name="ClientID" required="N"/>
          <field name="ExecBroker" required="N"/>
          <field name="Account" required="N"/>
-         <field name="NoAllocs" required="N"/>
-         <group name="NoAllocs">
+         <group name="NoAllocs" required="N">
             <field name="AllocAccount" required="N"/>
             <field name="AllocShares" required="N"/>
          </group>
@@ -878,8 +856,7 @@
          <field name="MinQty" required="N"/>
          <field name="MaxFloor" required="N"/>
          <field name="ExDestination" required="N"/>
-         <field name="NoTradingSessions" required="N"/>
-         <group name="NoTradingSessions">
+         <group name="NoTradingSessions" required="N">
             <field name="TradingSessionID" required="N"/>
          </group>
          <field name="ProcessCode" required="N"/>
@@ -948,8 +925,7 @@
          <field name="OrigClOrdID" required="N"/>
          <field name="ClientID" required="N"/>
          <field name="ExecBroker" required="N"/>
-         <field name="NoContraBrokers" required="N"/>
-         <group name="NoContraBrokers">
+         <group name="NoContraBrokers" required="N">
             <field name="ContraBroker" required="N"/>
             <field name="ContraTrader" required="N"/>
             <field name="ContraTradeQty" required="N"/>
@@ -1079,8 +1055,7 @@
          <field name="ClOrdID" required="Y"/>
          <field name="ListID" required="N"/>
          <field name="Account" required="N"/>
-         <field name="NoAllocs" required="N"/>
-         <group name="NoAllocs">
+         <group name="NoAllocs" required="N">
             <field name="AllocAccount" required="N"/>
             <field name="AllocShares" required="N"/>
          </group>
@@ -1091,8 +1066,7 @@
          <field name="MinQty" required="N"/>
          <field name="MaxFloor" required="N"/>
          <field name="ExDestination" required="N"/>
-         <field name="NoTradingSessions" required="N"/>
-         <group name="NoTradingSessions">
+         <group name="NoTradingSessions" required="N">
             <field name="TradingSessionID" required="N"/>
          </group>
          <field name="Symbol" required="Y"/>
@@ -1237,16 +1211,14 @@
          <field name="RefAllocID" required="N"/>
          <field name="AllocLinkID" required="N"/>
          <field name="AllocLinkType" required="N"/>
-         <field name="NoOrders" required="Y"/>
-         <group name="NoOrders">
+         <group name="NoOrders" required="Y">
             <field name="ClOrdID" required="Y"/>
             <field name="OrderID" required="N"/>
             <field name="SecondaryOrderID" required="N"/>
             <field name="ListID" required="N"/>
             <field name="WaveNo" required="N"/>
          </group>
-         <field name="NoExecs" required="N"/>
-         <group name="NoExecs">
+         <group name="NoExecs" required="N">
             <field name="LastShares" required="N"/>
             <field name="ExecID" required="N"/>
             <field name="LastPx" required="N"/>
@@ -1290,8 +1262,7 @@
          <field name="EncodedText" required="N"/>
          <field name="NumDaysInterest" required="N"/>
          <field name="AccruedInterestRate" required="N"/>
-         <field name="NoAllocs" required="Y"/>
-         <group name="NoAllocs">
+         <group name="NoAllocs" required="Y">
             <field name="AllocAccount" required="Y"/>
             <field name="AllocPrice" required="N"/>
             <field name="AllocShares" required="Y"/>
@@ -1314,8 +1285,7 @@
             <field name="SettlCurrFxRateCalc" required="N"/>
             <field name="AccruedInterestAmt" required="N"/>
             <field name="SettlInstMode" required="N"/>
-            <field name="NoMiscFees" required="N"/>
-            <group name="NoMiscFees">
+            <group name="NoMiscFees" required="N">
                <field name="MiscFeeAmt" required="N"/>
                <field name="MiscFeeCurr" required="N"/>
                <field name="MiscFeeType" required="N"/>
@@ -1384,16 +1354,14 @@
          <field name="EncodedListExecInstLen" required="N"/>
          <field name="EncodedListExecInst" required="N"/>
          <field name="TotNoOrders" required="Y"/>
-         <field name="NoOrders" required="Y"/>
-         <group name="NoOrders">
+         <group name="NoOrders" required="Y">
             <field name="ClOrdID" required="Y"/>
             <field name="ListSeqNo" required="Y"/>
             <field name="SettlInstMode" required="N"/>
             <field name="ClientID" required="N"/>
             <field name="ExecBroker" required="N"/>
             <field name="Account" required="N"/>
-            <field name="NoAllocs" required="N"/>
-            <group name="NoAllocs">
+            <group name="NoAllocs" required="N">
                <field name="AllocAccount" required="N"/>
                <field name="AllocShares" required="N"/>
             </group>
@@ -1404,8 +1372,7 @@
             <field name="MinQty" required="N"/>
             <field name="MaxFloor" required="N"/>
             <field name="ExDestination" required="N"/>
-            <field name="NoTradingSessions" required="N"/>
-            <group name="NoTradingSessions">
+            <group name="NoTradingSessions" required="N">
                <field name="TradingSessionID" required="N"/>
             </group>
             <field name="ProcessCode" required="N"/>
@@ -1480,8 +1447,7 @@
          <field name="EncodedListStatusText" required="N"/>
          <field name="TransactTime" required="N"/>
          <field name="TotNoOrders" required="Y"/>
-         <field name="NoOrders" required="Y"/>
-         <group name="NoOrders">
+         <group name="NoOrders" required="Y">
             <field name="ClOrdID" required="Y"/>
             <field name="CumQty" required="Y"/>
             <field name="OrdStatus" required="Y"/>

@@ -94,8 +94,7 @@
          <field name="OrigTime" required="N"/>
          <field name="Urgency" required="N"/>
          <field name="RelatdSym" required="N" repeating="Y"/>
-         <field name="LinesOfText" required="Y"/>
-         <group name="LinesOfText">
+         <group name="LinesOfText" required="Y">
             <field name="Text" required="Y"/>
          </group>
          <field name="RawDataLength" required="N"/>
@@ -107,8 +106,7 @@
          <field name="RelatdSym" required="N" repeating="Y"/>
          <field name="OrderID" required="N"/>
          <field name="ClOrdID" required="N"/>
-         <field name="LinesOfText" required="Y"/>
-         <group name="LinesOfText">
+         <group name="LinesOfText" required="Y">
             <field name="Text" required="Y"/>
          </group>
          <field name="RawDataLength" required="N"/>
@@ -220,8 +218,7 @@
          <field name="ReportToExch" required="N"/>
          <field name="Commission" required="N"/>
          <field name="CommType" required="N"/>
-         <field name="NoMiscFees" required="N"/>
-         <group name="NoMiscFees">
+         <group name="NoMiscFees" required="N">
             <field name="MiscFeeAmt" required="N"/>
             <field name="MiscFeeCurr" required="N"/>
             <field name="MiscFeeType" required="N"/>
@@ -320,15 +317,13 @@
          <field name="AllocID" required="Y"/>
          <field name="AllocTransType" required="Y"/>
          <field name="RefAllocID" required="N"/>
-         <field name="NoOrders" required="Y"/>
-         <group name="NoOrders">
+         <group name="NoOrders" required="Y">
             <field name="ClOrdID" required="Y"/>
             <field name="OrderID" required="N"/>
             <field name="ListID" required="N"/>
             <field name="WaveNo" required="N"/>
          </group>
-         <field name="NoExecs" required="N"/>
-         <group name="NoExecs">
+         <group name="NoExecs" required="N">
             <field name="ExecID" required="N"/>
             <field name="LastShares" required="N"/>
             <field name="LastPx" required="N"/>
@@ -350,8 +345,7 @@
          <field name="SettlmntTyp" required="N"/>
          <field name="FutSettDate" required="N"/>
          <field name="NetMoney" required="N"/>
-         <field name="NoMiscFees" required="N"/>
-         <group name="NoMiscFees">
+         <group name="NoMiscFees" required="N">
             <field name="MiscFeeAmt" required="N"/>
             <field name="MiscFeeCurr" required="N"/>
             <field name="MiscFeeType" required="N"/>
@@ -360,8 +354,7 @@
          <field name="SettlCurrency" required="N"/>
          <field name="OpenClose" required="N"/>
          <field name="Text" required="N"/>
-         <field name="NoAllocs" required="Y"/>
-         <group name="NoAllocs">
+         <group name="NoAllocs" required="Y">
             <field name="AllocAccount" required="Y"/>
             <field name="AllocShares" required="Y"/>
             <field name="ProcessCode" required="N"/>
@@ -369,8 +362,7 @@
             <field name="ClientID" required="N"/>
             <field name="Commission" required="N"/>
             <field name="CommType" required="N"/>
-            <field name="NoDlvyInst" required="N"/>
-            <group name="NoDlvyInst">
+            <group name="NoDlvyInst" required="N">
                <field name="BrokerOfCredit" required="N"/>
                <field name="DlvyInst" required="N"/>
             </group>
@@ -432,8 +424,7 @@
          <field name="WaveNo" required="N"/>
          <field name="NoRpts" required="Y"/>
          <field name="RptSeq" required="Y"/>
-         <field name="NoOrders" required="Y"/>
-         <group name="NoOrders">
+         <group name="NoOrders" required="Y">
             <field name="ClOrdID" required="Y"/>
             <field name="CumQty" required="Y"/>
             <field name="CxlQty" required="Y"/>

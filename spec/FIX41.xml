@@ -109,8 +109,7 @@
          <field name="IOIQltyInd" required="N"/>
          <field name="IOIOthSvc" type="CHAR"/>
          <field name="IOINaturalFlag" required="N"/>
-         <field name="NoIOIQualifiers" required="N"/>
-         <group name="NoIOIQualifiers">
+         <group name="NoIOIQualifiers" required="N">
             <field name="IOIQualifier" required="N"/>
          </group>
          <field name="Text" required="N"/>
@@ -121,8 +120,7 @@
          <field name="OrigTime" required="N"/>
          <field name="Urgency" required="N"/>
          <field name="Headline" required="Y"/>
-         <field name="NoRelatedSym" required="N"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="N">
             <field name="RelatdSym" required="N"/>
             <field name="SymbolSfx" required="N"/>
             <field name="SecurityID" required="N"/>
@@ -137,8 +135,7 @@
             <field name="Issuer" required="N"/>
             <field name="SecurityDesc" required="N"/>
          </group>
-         <field name="LinesOfText" required="Y"/>
-         <group name="LinesOfText">
+         <group name="LinesOfText" required="Y">
             <field name="Text" required="Y"/>
          </group>
          <field name="URLLink" required="N"/>
@@ -150,8 +147,7 @@
          <field name="EmailType" required="Y"/>
          <field name="OrigTime" required="N"/>
          <field name="Subject" required="Y"/>
-         <field name="NoRelatedSym" required="N"/>
-         <group name="NoRelatedSym">
+         <group name="NoRelatedSym" required="N">
             <field name="RelatdSym" required="N"/>
             <field name="SymbolSfx" required="N"/>
             <field name="SecurityID" required="N"/>
@@ -168,8 +164,7 @@
          </group>
          <field name="OrderID" required="N"/>
          <field name="ClOrdID" required="N"/>
-         <field name="LinesOfText" required="Y"/>
-         <group name="LinesOfText">
+         <group name="LinesOfText" required="Y">
             <field name="Text" required="Y"/>
          </group>
          <field name="RawDataLength" required="N"/>
@@ -480,16 +475,14 @@
          <field name="RefAllocID" required="N"/>
          <field name="AllocLinkID" required="N"/>
          <field name="AllocLinkType" required="N"/>
-         <field name="NoOrders" required="Y"/>
-         <group name="NoOrders">
+         <group name="NoOrders" required="Y">
             <field name="ClOrdID" required="Y"/>
             <field name="OrderID" required="N"/>
             <field name="SecondaryOrderID" required="N"/>
             <field name="ListID" required="N"/>
             <field name="WaveNo" required="N"/>
          </group>
-         <field name="NoExecs" required="N"/>
-         <group name="NoExecs">
+         <group name="NoExecs" required="N">
             <field name="LastShares" required="N"/>
             <field name="ExecID" required="N"/>
             <field name="LastPx" required="N"/>
@@ -523,8 +516,7 @@
          <field name="Text" required="N"/>
          <field name="NumDaysInterest" required="N"/>
          <field name="AccruedInterestRate" required="N"/>
-         <field name="NoAllocs" required="Y"/>
-         <group name="NoAllocs">
+         <group name="NoAllocs" required="Y">
             <field name="AllocAccount" required="Y"/>
             <field name="AllocShares" required="Y"/>
             <field name="ProcessCode" required="N"/>
@@ -544,8 +536,7 @@
             <field name="SettlCurrFxRateCalc" required="N"/>
             <field name="AccruedInterestAmt" required="N"/>
             <field name="SettlInstMode" required="N"/>
-            <field name="NoMiscFees" required="N"/>
-            <group name="NoMiscFees">
+            <group name="NoMiscFees" required="N">
                <field name="MiscFeeAmt" required="N"/>
                <field name="MiscFeeCurr" required="N"/>
                <field name="MiscFeeType" required="N"/>
@@ -658,8 +649,7 @@
          <field name="WaveNo" required="N"/>
          <field name="NoRpts" required="Y"/>
          <field name="RptSeq" required="Y"/>
-         <field name="NoOrders" required="Y"/>
-         <group name="NoOrders">
+         <group name="NoOrders" required="Y">
             <field name="ClOrdID" required="Y"/>
             <field name="CumQty" required="Y"/>
             <field name="LeavesQty" required="Y"/>
