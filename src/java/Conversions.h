@@ -69,16 +69,18 @@ inline jobject newSessionID( const FIX::SessionID& sessionID )
 {
   JNIEnv * pEnv = ENV::get();
   JVMClass type( "Lquickfix/SessionID;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" );
   
   jstring beginString = newString( sessionID.getBeginString().getValue() );
   jstring senderCompID = newString( sessionID.getSenderCompID().getValue() );
   jstring targetCompID = newString( sessionID.getTargetCompID().getValue() );
-  jobject result = pEnv->NewObject( type, method, beginString, senderCompID, targetCompID );
+  jstring qualifier = newString( sessionID.getSessionQualifier() );
+  jobject result = pEnv->NewObject( type, method, beginString, senderCompID, targetCompID, qualifier );
 
   pEnv->DeleteLocalRef( beginString );
   pEnv->DeleteLocalRef( senderCompID );
   pEnv->DeleteLocalRef( targetCompID );
+  pEnv->DeleteLocalRef( qualifier );
   return result;
 }
 
