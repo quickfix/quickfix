@@ -51,7 +51,7 @@ public:
   bool read();
 
 private:
-  bool readMessage( std::string& msg ) throw( RecvFailed );
+  bool readMessage( std::string& msg ) throw( SocketRecvFailed );
   void readQueue();
   void processStream();
   bool send( const std::string& );

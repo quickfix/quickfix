@@ -77,7 +77,7 @@ bool SocketConnection::read( SocketConnector& s )
 
     m_pSession->next( msg );
   } 
-  catch( RecvFailed& )
+  catch( SocketRecvFailed& )
   {
     s.getMonitor().drop( m_socket );
   }
@@ -114,7 +114,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       s.getMonitor().drop( m_socket );
     return true;
   }
-  catch ( RecvFailed& )
+  catch ( SocketRecvFailed& )
   {
     s.getMonitor().drop( m_socket );
   }
@@ -129,7 +129,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
 }
 
 bool SocketConnection::readMessage( std::string& msg )
-throw( RecvFailed )
+throw( SocketRecvFailed )
 { QF_STACK_PUSH(SocketConnection::readMessage)
 
   try

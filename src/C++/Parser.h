@@ -29,12 +29,9 @@
 #include "Exceptions.h"
 #include <iostream>
 #include <string>
-#include <stdexcept>
 
 namespace FIX
 {
-class RecvFailed : public std::exception {};
-
 /// Parses %FIX messages off an input stream.
 class Parser
 {
@@ -59,8 +56,8 @@ public:
                       const std::string& buffer )
   throw ( MessageParseError );
   bool readFixMessage( std::string& str )
-  throw ( MessageParseError, RecvFailed );
-  bool readFromStream() throw ( RecvFailed );
+  throw ( MessageParseError, SocketRecvFailed );
+  bool readFromStream() throw ( SocketRecvFailed );
 
   void setStream( std::istream& stream ) { m_pStream = &stream; }
   void addToStream( const char* str, size_t len ) 

@@ -95,13 +95,14 @@ bool ThreadedSocketConnection::read()
     if ( bytes == 0 ) bytes = 4096;
     buffer = new char[ bytes + 1 ];
     int result = recv( m_socket, buffer, bytes, 0 );
-    if ( result <= 0 ) { throw std::exception(); }
+    if ( result <= 0 ) { throw SocketRecvFailed(); }
     buffer[ result ] = '\0';
     m_queue.push( std::make_pair((size_t)result, buffer) );
     return true;
   }
-  catch ( std::exception& )
+  catch ( SocketRecvFailed& e )
   {
+    m_pSession->getLog()->onEvent( e.what() );
     delete [] buffer;
     m_queue.push( std::make_pair((size_t)0, (char*)0) );
     return false;
@@ -111,7 +112,7 @@ bool ThreadedSocketConnection::read()
 }
 
 bool ThreadedSocketConnection::readMessage( std::string& msg )
-throw( RecvFailed )
+throw( SocketRecvFailed )
 { QF_STACK_PUSH(ThreadedSocketConnection::readMessage)
 
   try
@@ -138,13 +139,13 @@ void ThreadedSocketConnection::readQueue()
       std::pair<size_t, char*> entry;
       while( m_queue.pop(entry) )
       {
-	if( !entry.second ) throw std::exception();
-	m_parser.addToStream( entry.second, entry.first );
+        if( !entry.second ) throw std::exception();
+        m_parser.addToStream( entry.second, entry.first );
         processStream();
         delete [] entry.second;
       }
     }
-    catch ( RecvFailed& )
+    catch ( SocketRecvFailed& )
     {
       m_pSession->disconnect();
     }
@@ -181,7 +182,7 @@ void ThreadedSocketConnection::processStream()
       m_pSession->next( msg );
     }
   }
-  catch( RecvFailed& )
+  catch( SocketRecvFailed& )
   { disconnect(); }
 
   if ( m_pSession )

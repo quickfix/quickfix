@@ -78,7 +78,7 @@ throw( MessageParseError )
 }
 
 bool Parser::readFixMessage( std::string& str )
-throw( MessageParseError, RecvFailed )
+throw( MessageParseError, SocketRecvFailed )
 { QF_STACK_PUSH(Parser::readFixMessage)
 
   readFromStream();
@@ -124,7 +124,7 @@ throw( MessageParseError, RecvFailed )
   QF_STACK_POP
 }
 
-bool Parser::readFromStream() throw( RecvFailed )
+bool Parser::readFromStream() throw( SocketRecvFailed )
 { QF_STACK_PUSH(Parser::readFromStream)
 
   int size = 0;
@@ -143,7 +143,7 @@ bool Parser::readFromStream() throw( RecvFailed )
       return false;
 
     size = recv( m_socket, m_readBuffer, m_bufferSize, 0 );
-    if ( size <= 0 ) throw RecvFailed();
+    if( size <= 0 ) throw SocketRecvFailed();
     if( size == m_bufferSize ) allocate( m_bufferSize * 2 );
   }
   else return true;
