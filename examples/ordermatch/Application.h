@@ -74,9 +74,9 @@ class Application
   void toApp( FIX::Message&, const FIX::SessionID& )
   throw( FIX::DoNotSend& ) {}
   void fromAdmin( const FIX::Message&, const FIX::SessionID& )
-  throw( FIX::FieldNotFound&, FIX::RejectLogon& ) {}
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& ) {}
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue& );
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& );
   void onRun();
 
   // MessageCracker overloads

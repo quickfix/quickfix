@@ -140,7 +140,10 @@ throw( FIX::DoNotSend& )
 }
 
 void JavaApplication::fromAdmin( const FIX::Message& msg, const FIX::SessionID& sessionID )
-throw( FIX::FieldNotFound&, FIX::RejectLogon& )
+  throw( FIX::FieldNotFound&, 
+         FIX::IncorrectDataFormat&,
+         FIX::IncorrectTagValue&,
+         FIX::RejectLogon& )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
@@ -155,7 +158,10 @@ throw( FIX::FieldNotFound&, FIX::RejectLogon& )
 }
 
 void JavaApplication::fromApp( const FIX::Message& msg, const FIX::SessionID& sessionID )
-throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue& )
+throw( FIX::FieldNotFound&, 
+       FIX::IncorrectDataFormat&,
+       FIX::IncorrectTagValue&,
+       FIX::UnsupportedMessageType& )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
@@ -205,6 +211,11 @@ void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
     {
       env->ExceptionClear();
       throw FIX::IncorrectTagValue( 0 );
+    }
+    else if ( e.incorrectDataFormat.IsInstanceOf( exception ) )
+    {
+      env->ExceptionClear();
+      throw FIX::IncorrectDataFormat( 0 );
     }
     else
     {

@@ -143,11 +143,9 @@ class Application : public FIX::Application
   throw( FIX::DoNotSend& )
   {}
   void fromAdmin( const FIX::Message& message, const FIX::SessionID& )
-  throw( FIX::FieldNotFound&, FIX::RejectLogon& )
-  {}
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& ) {}  
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&,
-         FIX::IncorrectTagValue& )
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
   {
     m_cracker.crack( message, sessionID );
   }

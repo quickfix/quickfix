@@ -57,7 +57,7 @@
 #include "quickfix/include/Utility.h"
 #include "quickfix/include/Mutex.h"
 
-class Application 
+class Application
 : public FIX::Application, public FIX::MessageCracker
 {
 public:
@@ -71,9 +71,9 @@ public:
   void toApp( FIX::Message&, const FIX::SessionID& )
     throw(FIX::DoNotSend&);
   void fromAdmin( const FIX::Message&, const FIX::SessionID& )
-    throw(FIX::FieldNotFound&, FIX::RejectLogon&);
+    throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& );
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-    throw(FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue&);
+    throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& );
   void onRun();
 
   // MessageCracker overloads
@@ -82,15 +82,15 @@ public:
   void onMessage( const FIX42::NewOrderSingle&, const FIX::SessionID& );
   void onMessage( const FIX43::NewOrderSingle&, const FIX::SessionID& );
 
-  std::string genOrderID() { 
+  std::string genOrderID() {
     std::stringstream stream;
     stream << ++m_orderID;
-    return stream.str(); 
+    return stream.str();
   }
-  std::string genExecID() { 
+  std::string genExecID() {
     std::stringstream stream;
     stream << ++m_execID;
-    return stream.str(); 
+    return stream.str();
   }
 private:
   int m_orderID, m_execID;

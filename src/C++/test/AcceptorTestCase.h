@@ -59,7 +59,7 @@ namespace FIX
 class TestApplication : public NullApplication
 {
   void fromApp( const Message&, const SessionID& )
-  throw( FieldNotFound&, UnsupportedMessageType&, IncorrectTagValue& ) {}
+  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) {}
   void onRun() {}}
 ;
 

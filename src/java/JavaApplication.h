@@ -69,9 +69,15 @@ public:
   void toApp( FIX::Message&, const FIX::SessionID& )
   throw( FIX::DoNotSend& );
   void fromAdmin( const FIX::Message&, const FIX::SessionID& )
-  throw( FIX::FieldNotFound&, FIX::RejectLogon& );
-  void fromApp( const FIX::Message&, const FIX::SessionID& )
-  throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue& );
+  throw( FIX::FieldNotFound&, 
+         FIX::IncorrectDataFormat&,
+         FIX::IncorrectTagValue&,
+         FIX::RejectLogon& );
+  void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
+  throw( FIX::FieldNotFound&, 
+         FIX::IncorrectDataFormat&,
+         FIX::IncorrectTagValue&,
+         FIX::UnsupportedMessageType& );  
   void onRun();
 
 private:
@@ -82,13 +88,15 @@ private:
       rejectLogon("Lorg/quickfix/RejectLogon;"),
       unsupportedMessageType("Lorg/quickfix/UnsupportedMessageType;"),
       fieldNotFound("Lorg/quickfix/FieldNotFound;"),
-      incorrectTagValue("Lorg/quickfix/IncorrectTagValue;") {}
+      incorrectTagValue("Lorg/quickfix/IncorrectTagValue;"),
+      incorrectDataFormat("Lorg/quickfix/IncorrectDataFormat;") {}
 
     JVMClass doNotSend;
     JVMClass rejectLogon;
     JVMClass unsupportedMessageType;
     JVMClass fieldNotFound;
     JVMClass incorrectTagValue;
+    JVMClass incorrectDataFormat;
   };
   void handleException( JNIEnv*, Exceptions& e ) const;
 

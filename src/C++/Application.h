@@ -94,10 +94,10 @@ public:
   throw( DoNotSend& ) = 0;
   /// Notification of admin message being received from target
   virtual void fromAdmin( const Message&, const SessionID& )
-  throw( FieldNotFound&, RejectLogon& ) = 0;
+  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, RejectLogon& ) = 0;
   /// Notification of app message being received from target
   virtual void fromApp( const Message&, const SessionID& )
-  throw( FieldNotFound&, UnsupportedMessageType&, IncorrectTagValue& ) = 0;
+  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) = 0;
   /// Implmentation of application loop
   virtual void onRun() = 0;
 };
@@ -115,7 +115,7 @@ public:
 class SynchronizedApplication : public Application
 {
 public:
-SynchronizedApplication( Application& app ) : m_app( app ) {}
+  SynchronizedApplication( Application& app ) : m_app( app ) {}
 
   void onCreate( const SessionID& sessionID )
   { Locker l( m_mutex ); app().onCreate( sessionID ); }
@@ -129,10 +129,10 @@ SynchronizedApplication( Application& app ) : m_app( app ) {}
   throw( DoNotSend& )
   { Locker l( m_mutex ); app().toApp( message, sessionID ); }
   void fromAdmin( const Message& message, const SessionID& sessionID )
-  throw( FieldNotFound&, RejectLogon& )
+  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, RejectLogon& )
   { Locker l( m_mutex ); app().fromAdmin( message, sessionID ); }
   void fromApp( const Message& message, const SessionID& sessionID )
-  throw( FieldNotFound&, UnsupportedMessageType&, IncorrectTagValue& )
+  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& )
   { Locker l( m_mutex ); app().fromApp( message, sessionID ); }
   void onRun() { app().onRun(); }
 
@@ -151,9 +151,9 @@ class NullApplication : public Application
   void toApp( Message&, const SessionID& )
   throw( DoNotSend& ) {}
   void fromAdmin( const Message&, const SessionID& )
-  throw( FieldNotFound&, RejectLogon& ) {}
+  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, RejectLogon& ) {}
   void fromApp( const Message&, const SessionID& )
-  throw( FieldNotFound&, UnsupportedMessageType&, IncorrectTagValue& ) {}
+  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) {}
   void onRun() = 0;
 };
 /*! @} */

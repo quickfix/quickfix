@@ -185,7 +185,7 @@ void* ThreadedSocketInitiator::socketThread( void* p )
     short port = 0;
     pInitiator->getHost( sessionID, dictionary, address, port );
 
-    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert(port) );
+    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int socket = socket_createConnector( address.c_str(), port );    
     if ( socket < 0 )
     {

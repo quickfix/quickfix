@@ -64,11 +64,11 @@ public class Application extends MessageCracker implements org.quickfix.Applicat
     public void toApp(org.quickfix.Message message,
                       SessionID sessionID) throws DoNotSend {}
 
-    public void fromAdmin(org.quickfix.Message message,
-                          SessionID sessionID) throws FieldNotFound, RejectLogon {}
+    public void fromAdmin(org.quickfix.Message message, SessionID sessionID)
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {}
 
-    public void fromApp(org.quickfix.Message message,
-                        SessionID sessionID) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+    public void fromApp(org.quickfix.Message message, SessionID sessionID)
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
         crack(message, sessionID);
     }
 

@@ -71,9 +71,9 @@ public __gc __interface Application
   virtual void toApp( Message*, const SessionID* )
   throw( DoNotSend* ) = 0;
   virtual void fromAdmin( const Message*, const SessionID* )
-  throw( FieldNotFound*, RejectLogon* ) = 0;
+  throw( FieldNotFound*, IncorrectDataFormat*, IncorrectTagValue*, RejectLogon* ) = 0;
   virtual void fromApp( const Message*, const SessionID* )
-  throw( FieldNotFound*, UnsupportedMessageType*, IncorrectTagValue* ) = 0;
+  throw( FieldNotFound*, IncorrectDataFormat*, IncorrectTagValue*, UnsupportedMessageType* ) = 0;
   virtual void onRun() = 0;
 };
 }
@@ -112,7 +112,7 @@ public:
   }
 
   void fromAdmin( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, FIX::RejectLogon& )
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& )
   {
     QuickFix::Message * toMessage = create( message );
     try
@@ -123,11 +123,19 @@ public:
     {
       throw FIX::FieldNotFound( e->field );
     }
+    catch ( QuickFix::IncorrectDataFormat * e )
+    {
+      throw FIX::IncorrectDataFormat( e->field );
+    }
+    catch ( QuickFix::IncorrectTagValue * e )
+    {
+      throw FIX::IncorrectTagValue( e->field );
+    }
     catch ( QuickFix::RejectLogon* ) { throw FIX::RejectLogon(); }
   }
 
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue& )
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
   {
     QuickFix::Message * toMessage = create( message );
     try
@@ -138,11 +146,18 @@ public:
     {
       throw FIX::FieldNotFound( e->field );
     }
+    catch ( QuickFix::IncorrectDataFormat * e )
+    {
+      throw FIX::IncorrectDataFormat( e->field );
+    }
+    catch ( QuickFix::IncorrectTagValue * e ) 
+    { 
+      throw FIX::IncorrectTagValue( e->field ); 
+    }
     catch ( QuickFix::UnsupportedMessageType* )
     {
       throw FIX::UnsupportedMessageType();
-    }
-    catch ( QuickFix::IncorrectTagValue * e ) { throw FIX::IncorrectTagValue( e->field ); }
+    }    
   }
 
   void onRun() { m_application->onRun(); }

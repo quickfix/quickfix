@@ -91,11 +91,11 @@ public class BanzaiApplication implements Application {
     public void toApp(org.quickfix.Message message,
                       SessionID sessionID) throws DoNotSend {}
 
-    public void fromAdmin(org.quickfix.Message message,
-                          SessionID sessionID) throws RejectLogon {}
+    public void fromAdmin(org.quickfix.Message message,SessionID sessionID)
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {}
 
-    public void fromApp(org.quickfix.Message message,
-                        SessionID sessionID) throws UnsupportedMessageType {
+    public void fromApp(org.quickfix.Message message, SessionID sessionID)
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
         try {
             SwingUtilities.invokeLater(new doFromApp(message, sessionID));
         } catch(Exception e) {}

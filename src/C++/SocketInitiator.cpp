@@ -122,7 +122,7 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 
     getHost( s, d, address, port );
     
-    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert(port) );
+    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int result = m_connector.connect( address, port );
     if ( !result ) 
     { 

@@ -69,11 +69,11 @@ public interface Application {
 
     /// Notification of admin message being received from target
     void fromAdmin(Message message, SessionID sessionId)
-    throws FieldNotFound, RejectLogon;
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon;
 
     /// Notification of app message being received from target
     void fromApp(Message message, SessionID sessionId)
-    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue;
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType;
 
     /// Implmentation of application loop
     void onRun();

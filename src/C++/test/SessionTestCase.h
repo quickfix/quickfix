@@ -143,7 +143,7 @@ class Test : public CPPTest::Test < Session > ,
     }
 
     void fromAdmin( const Message& message, const SessionID& )
-    throw( FieldNotFound&, RejectLogon& )
+    throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, RejectLogon& )
     {
       MsgType msgType;
       message.getHeader().getField( msgType );
@@ -163,7 +163,7 @@ class Test : public CPPTest::Test < Session > ,
     }
 
     void fromApp( const Message& message, const SessionID& )
-    throw( FieldNotFound&, UnsupportedMessageType&, IncorrectTagValue& )
+    throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& )
     {
       MsgType msgType;
       message.getHeader().getField( msgType );

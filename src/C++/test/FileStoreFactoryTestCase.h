@@ -79,7 +79,7 @@ class callCreate : public Test, FIX::NullApplication, FIX::Session::Responder
     void onTeardown( FileStoreFactory* pObject );
 
     void fromApp( const Message&, const SessionID& )
-    throw( FieldNotFound&, UnsupportedMessageType&, IncorrectTagValue& ) {}
+    throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) {}
     void onRun() {}
 
     bool send( const std::string& ) { return true; }
