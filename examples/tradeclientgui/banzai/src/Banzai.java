@@ -84,8 +84,8 @@ public class Banzai {
 
         BanzaiApplication application =
             new BanzaiApplication(orderTableModel, executionTableModel);
-        Settings settings =
-            new Settings(new FileInputStream("cfg/banzai.cfg"));
+        SessionSettings settings =
+            new SessionSettings(new FileInputStream("cfg/banzai.cfg"));
         MessageStoreFactory messageStoreFactory =
             new FileStoreFactory(settings);
         LogFactory logFactory =

@@ -66,7 +66,8 @@ public class Executor {
 
         try {
             Application application = new Application();
-            Settings settings = new Settings(new FileInputStream(args[0]));
+            SessionSettings settings = 
+                new SessionSettings(new FileInputStream(args[0]));
             MessageStoreFactory messageStoreFactory =
                 new FileStoreFactory(settings);
             LogFactory logFactory = new ScreenLogFactory(true, true, true);
