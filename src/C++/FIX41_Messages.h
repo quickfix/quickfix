@@ -348,8 +348,8 @@ namespace FIX41
     {
     public:
     NoIOIQualifiers() : FIX::Group(199, 104, FIX::message_order(
-            104,
-         0)){}
+        104,
+      0)){}
       FIELD_SET(*this, FIX::IOIQualifier);
     };
     FIELD_SET(*this, FIX::Text);
@@ -380,20 +380,20 @@ namespace FIX41
     {
     public:
     NoRelatedSym() : FIX::Group(146, 22, FIX::message_order(
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            207,
-            106,
-            107,
-         0)){}
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        207,
+        106,
+        107,
+      0)){}
       FIELD_SET(*this, FIX::RelatdSym);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -413,8 +413,8 @@ namespace FIX41
     {
     public:
     LinesOfText() : FIX::Group(33, 58, FIX::message_order(
-            58,
-         0)){}
+        58,
+      0)){}
       FIELD_SET(*this, FIX::Text);
     };
     FIELD_SET(*this, FIX::URLLink);
@@ -450,20 +450,20 @@ namespace FIX41
     {
     public:
     NoRelatedSym() : FIX::Group(146, 22, FIX::message_order(
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            207,
-            106,
-            107,
-         0)){}
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        207,
+        106,
+        107,
+      0)){}
       FIELD_SET(*this, FIX::RelatdSym);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -485,8 +485,8 @@ namespace FIX41
     {
     public:
     LinesOfText() : FIX::Group(33, 58, FIX::message_order(
-            58,
-         0)){}
+        58,
+      0)){}
       FIELD_SET(*this, FIX::Text);
     };
     FIELD_SET(*this, FIX::RawDataLength);
@@ -1030,12 +1030,12 @@ namespace FIX41
     {
     public:
     NoOrders() : FIX::Group(73, 11, FIX::message_order(
-            11,
-            37,
-            198,
-            66,
-            105,
-         0)){}
+        11,
+        37,
+        198,
+        66,
+        105,
+      0)){}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::SecondaryOrderID);
@@ -1047,11 +1047,11 @@ namespace FIX41
     {
     public:
     NoExecs() : FIX::Group(124, 17, FIX::message_order(
-            32,
-            17,
-            31,
-            29,
-         0)){}
+        32,
+        17,
+        31,
+        29,
+      0)){}
       FIELD_SET(*this, FIX::LastShares);
       FIELD_SET(*this, FIX::ExecID);
       FIELD_SET(*this, FIX::LastPx);
@@ -1090,31 +1090,31 @@ namespace FIX41
     {
     public:
     NoAllocs() : FIX::Group(78, 12, FIX::message_order(
-            79,
-            80,
-            81,
-            92,
-            208,
-            209,
-            161,
-            76,
-            109,
-            12,
-            13,
-            153,
-            154,
-            119,
-            120,
-            155,
-            156,
-            159,
-            160,
-            
-               137,
-               138,
-               139,
-            
-         0)){}
+        79,
+        80,
+        81,
+        92,
+        208,
+        209,
+        161,
+        76,
+        109,
+        12,
+        13,
+        153,
+        154,
+        119,
+        120,
+        155,
+        156,
+        159,
+        160,
+        
+          137,
+          138,
+          139,
+        
+      0)){}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
       FIELD_SET(*this, FIX::ProcessCode);
@@ -1139,10 +1139,10 @@ namespace FIX41
     {
     public:
     NoMiscFees() : FIX::Group(136, 137, FIX::message_order(
-               137,
-               138,
-               139,
-            0)){}
+          137,
+          138,
+          139,
+        0)){}
       FIELD_SET(*this, FIX::MiscFeeAmt);
       FIELD_SET(*this, FIX::MiscFeeCurr);
       FIELD_SET(*this, FIX::MiscFeeType);
@@ -1354,12 +1354,12 @@ namespace FIX41
     {
     public:
     NoOrders() : FIX::Group(73, 6, FIX::message_order(
-            11,
-            14,
-            151,
-            84,
-            6,
-         0)){}
+        11,
+        14,
+        151,
+        84,
+        6,
+      0)){}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::CumQty);
       FIELD_SET(*this, FIX::LeavesQty);

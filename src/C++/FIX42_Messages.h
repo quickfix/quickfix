@@ -173,9 +173,9 @@ namespace FIX42
     {
     public:
     NoMsgTypes() : FIX::Group(384, 372, FIX::message_order(
-            372,
-            385,
-         0)){}
+        372,
+        385,
+      0)){}
       FIELD_SET(*this, FIX::RefMsgType);
       FIELD_SET(*this, FIX::MsgDirection);
     };
@@ -391,8 +391,8 @@ namespace FIX42
     {
     public:
     NoIOIQualifiers() : FIX::Group(199, 104, FIX::message_order(
-            104,
-         0)){}
+        104,
+      0)){}
       FIELD_SET(*this, FIX::IOIQualifier);
     };
     FIELD_SET(*this, FIX::Text);
@@ -405,9 +405,9 @@ namespace FIX42
     {
     public:
     NoRoutingIDs() : FIX::Group(215, 216, FIX::message_order(
-            216,
-            217,
-         0)){}
+        216,
+        217,
+      0)){}
       FIELD_SET(*this, FIX::RoutingType);
       FIELD_SET(*this, FIX::RoutingID);
     };
@@ -440,9 +440,9 @@ namespace FIX42
     {
     public:
     NoRoutingIDs() : FIX::Group(215, 216, FIX::message_order(
-            216,
-            217,
-         0)){}
+        216,
+        217,
+      0)){}
       FIELD_SET(*this, FIX::RoutingType);
       FIELD_SET(*this, FIX::RoutingID);
     };
@@ -451,26 +451,26 @@ namespace FIX42
     {
     public:
     NoRelatedSym() : FIX::Group(146, 22, FIX::message_order(
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-         0)){}
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+      0)){}
       FIELD_SET(*this, FIX::RelatdSym);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -496,10 +496,10 @@ namespace FIX42
     {
     public:
     LinesOfText() : FIX::Group(33, 58, FIX::message_order(
-            58,
-            354,
-            355,
-         0)){}
+        58,
+        354,
+        355,
+      0)){}
       FIELD_SET(*this, FIX::Text);
       FIELD_SET(*this, FIX::EncodedTextLen);
       FIELD_SET(*this, FIX::EncodedText);
@@ -539,9 +539,9 @@ namespace FIX42
     {
     public:
     NoRoutingIDs() : FIX::Group(215, 216, FIX::message_order(
-            216,
-            217,
-         0)){}
+        216,
+        217,
+      0)){}
       FIELD_SET(*this, FIX::RoutingType);
       FIELD_SET(*this, FIX::RoutingID);
     };
@@ -550,26 +550,26 @@ namespace FIX42
     {
     public:
     NoRelatedSym() : FIX::Group(146, 22, FIX::message_order(
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-         0)){}
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+      0)){}
       FIELD_SET(*this, FIX::RelatdSym);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -597,10 +597,10 @@ namespace FIX42
     {
     public:
     LinesOfText() : FIX::Group(33, 58, FIX::message_order(
-            58,
-            354,
-            355,
-         0)){}
+        58,
+        354,
+        355,
+      0)){}
       FIELD_SET(*this, FIX::Text);
       FIELD_SET(*this, FIX::EncodedTextLen);
       FIELD_SET(*this, FIX::EncodedText);
@@ -630,38 +630,38 @@ namespace FIX42
     {
     public:
     NoRelatedSym() : FIX::Group(146, 15, FIX::message_order(
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            140,
-            303,
-            336,
-            54,
-            38,
-            64,
-            40,
-            193,
-            192,
-            126,
-            60,
-            15,
-         0)){}
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        140,
+        303,
+        336,
+        54,
+        38,
+        64,
+        40,
+        193,
+        192,
+        126,
+        60,
+        15,
+      0)){}
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -778,67 +778,67 @@ namespace FIX42
     {
     public:
     NoQuoteSets() : FIX::Group(296, 302, FIX::message_order(
-            302,
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            367,
-            304,
-            
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               132,
-               133,
-               134,
-               135,
-               62,
-               188,
-               190,
-               189,
-               191,
-               60,
-               336,
-               64,
-               40,
-               193,
-               192,
-               15,
-            
-         0)){}
+        302,
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        367,
+        304,
+        
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          132,
+          133,
+          134,
+          135,
+          62,
+          188,
+          190,
+          189,
+          191,
+          60,
+          336,
+          64,
+          40,
+          193,
+          192,
+          15,
+        
+      0)){}
       FIELD_SET(*this, FIX::QuoteSetID);
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
@@ -866,43 +866,43 @@ namespace FIX42
     {
     public:
     NoQuoteEntries() : FIX::Group(295, 15, FIX::message_order(
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               132,
-               133,
-               134,
-               135,
-               62,
-               188,
-               190,
-               189,
-               191,
-               60,
-               336,
-               64,
-               40,
-               193,
-               192,
-               15,
-            0)){}
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          132,
+          133,
+          134,
+          135,
+          62,
+          188,
+          190,
+          189,
+          191,
+          60,
+          336,
+          64,
+          40,
+          193,
+          192,
+          15,
+        0)){}
       FIELD_SET(*this, FIX::QuoteEntryID);
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
@@ -970,27 +970,27 @@ namespace FIX42
     {
     public:
     NoQuoteEntries() : FIX::Group(295, 22, FIX::message_order(
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            311,
-         0)){}
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        311,
+      0)){}
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -1080,51 +1080,51 @@ namespace FIX42
     {
     public:
     NoQuoteSets() : FIX::Group(296, 302, FIX::message_order(
-            302,
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            304,
-            
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               368,
-            
-         0)){}
+        302,
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        304,
+        
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          368,
+        
+      0)){}
       FIELD_SET(*this, FIX::QuoteSetID);
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
@@ -1151,28 +1151,28 @@ namespace FIX42
     {
     public:
     NoQuoteEntries() : FIX::Group(295, 22, FIX::message_order(
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               368,
-            0)){}
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          368,
+        0)){}
       FIELD_SET(*this, FIX::QuoteEntryID);
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
@@ -1227,8 +1227,8 @@ namespace FIX42
     {
     public:
     NoMDEntryTypes() : FIX::Group(267, 269, FIX::message_order(
-            269,
-         0)){}
+        269,
+      0)){}
       FIELD_SET(*this, FIX::MDEntryType);
     };
     FIELD_SET(*this, FIX::NoRelatedSym);
@@ -1236,27 +1236,27 @@ namespace FIX42
     {
     public:
     NoRelatedSym() : FIX::Group(146, 22, FIX::message_order(
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            336,
-         0)){}
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        336,
+      0)){}
       FIELD_SET(*this, FIX::Symbol);
       FIELD_SET(*this, FIX::SymbolSfx);
       FIELD_SET(*this, FIX::SecurityID);
@@ -1323,37 +1323,37 @@ namespace FIX42
     {
     public:
     NoMDEntries() : FIX::Group(268, 15, FIX::message_order(
-            269,
-            270,
-            15,
-            271,
-            272,
-            273,
-            274,
-            275,
-            336,
-            276,
-            277,
-            282,
-            283,
-            284,
-            286,
-            59,
-            432,
-            126,
-            110,
-            18,
-            287,
-            37,
-            299,
-            288,
-            289,
-            346,
-            290,
-            58,
-            354,
-            355,
-         0)){}
+        269,
+        270,
+        15,
+        271,
+        272,
+        273,
+        274,
+        275,
+        336,
+        276,
+        277,
+        282,
+        283,
+        284,
+        286,
+        59,
+        432,
+        126,
+        110,
+        18,
+        287,
+        37,
+        299,
+        288,
+        289,
+        346,
+        290,
+        58,
+        354,
+        355,
+      0)){}
       FIELD_SET(*this, FIX::MDEntryType);
       FIELD_SET(*this, FIX::MDEntryPx);
       FIELD_SET(*this, FIX::Currency);
@@ -1400,63 +1400,63 @@ namespace FIX42
     {
     public:
     NoMDEntries() : FIX::Group(268, 15, FIX::message_order(
-            279,
-            285,
-            269,
-            278,
-            280,
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            291,
-            292,
-            270,
-            15,
-            271,
-            272,
-            273,
-            274,
-            275,
-            336,
-            276,
-            277,
-            282,
-            283,
-            284,
-            286,
-            59,
-            432,
-            126,
-            110,
-            18,
-            287,
-            37,
-            299,
-            288,
-            289,
-            346,
-            290,
-            387,
-            58,
-            354,
-            355,
-         0)){}
+        279,
+        285,
+        269,
+        278,
+        280,
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        291,
+        292,
+        270,
+        15,
+        271,
+        272,
+        273,
+        274,
+        275,
+        336,
+        276,
+        277,
+        282,
+        283,
+        284,
+        286,
+        59,
+        432,
+        126,
+        110,
+        18,
+        287,
+        37,
+        299,
+        288,
+        289,
+        346,
+        290,
+        387,
+        58,
+        354,
+        355,
+      0)){}
       FIELD_SET(*this, FIX::MDUpdateAction);
       FIELD_SET(*this, FIX::DeleteReason);
       FIELD_SET(*this, FIX::MDEntryType);
@@ -1586,29 +1586,29 @@ namespace FIX42
     {
     public:
     NoRelatedSym() : FIX::Group(146, 54, FIX::message_order(
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            319,
-            54,
-            318,
-         0)){}
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        319,
+        54,
+        318,
+      0)){}
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
       FIELD_SET(*this, FIX::UnderlyingSecurityID);
@@ -1686,29 +1686,29 @@ namespace FIX42
     {
     public:
     NoRelatedSym() : FIX::Group(146, 54, FIX::message_order(
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            319,
-            54,
-            318,
-         0)){}
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        319,
+        54,
+        318,
+      0)){}
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
       FIELD_SET(*this, FIX::UnderlyingSecurityID);
@@ -1923,9 +1923,9 @@ namespace FIX42
     {
     public:
     NoAllocs() : FIX::Group(78, 79, FIX::message_order(
-            79,
-            80,
-         0)){}
+        79,
+        80,
+      0)){}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
     };
@@ -1941,8 +1941,8 @@ namespace FIX42
     {
     public:
     NoTradingSessions() : FIX::Group(386, 336, FIX::message_order(
-            336,
-         0)){}
+        336,
+      0)){}
       FIELD_SET(*this, FIX::TradingSessionID);
     };
     FIELD_SET(*this, FIX::ProcessCode);
@@ -2049,11 +2049,11 @@ namespace FIX42
     {
     public:
     NoContraBrokers() : FIX::Group(382, 337, FIX::message_order(
-            375,
-            337,
-            437,
-            438,
-         0)){}
+        375,
+        337,
+        437,
+        438,
+      0)){}
       FIELD_SET(*this, FIX::ContraBroker);
       FIELD_SET(*this, FIX::ContraTrader);
       FIELD_SET(*this, FIX::ContraTradeQty);
@@ -2238,9 +2238,9 @@ namespace FIX42
     {
     public:
     NoAllocs() : FIX::Group(78, 79, FIX::message_order(
-            79,
-            80,
-         0)){}
+        79,
+        80,
+      0)){}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
     };
@@ -2256,8 +2256,8 @@ namespace FIX42
     {
     public:
     NoTradingSessions() : FIX::Group(386, 336, FIX::message_order(
-            336,
-         0)){}
+        336,
+      0)){}
       FIELD_SET(*this, FIX::TradingSessionID);
     };
     FIELD_SET(*this, FIX::Symbol);
@@ -2499,12 +2499,12 @@ namespace FIX42
     {
     public:
     NoOrders() : FIX::Group(73, 11, FIX::message_order(
-            11,
-            37,
-            198,
-            66,
-            105,
-         0)){}
+        11,
+        37,
+        198,
+        66,
+        105,
+      0)){}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::SecondaryOrderID);
@@ -2516,11 +2516,11 @@ namespace FIX42
     {
     public:
     NoExecs() : FIX::Group(124, 17, FIX::message_order(
-            32,
-            17,
-            31,
-            29,
-         0)){}
+        32,
+        17,
+        31,
+        29,
+      0)){}
       FIELD_SET(*this, FIX::LastShares);
       FIELD_SET(*this, FIX::ExecID);
       FIELD_SET(*this, FIX::LastPx);
@@ -2569,34 +2569,34 @@ namespace FIX42
     {
     public:
     NoAllocs() : FIX::Group(78, 12, FIX::message_order(
-            79,
-            366,
-            80,
-            81,
-            92,
-            208,
-            209,
-            161,
-            360,
-            361,
-            76,
-            109,
-            12,
-            13,
-            153,
-            154,
-            119,
-            120,
-            155,
-            156,
-            159,
-            160,
-            
-               137,
-               138,
-               139,
-            
-         0)){}
+        79,
+        366,
+        80,
+        81,
+        92,
+        208,
+        209,
+        161,
+        360,
+        361,
+        76,
+        109,
+        12,
+        13,
+        153,
+        154,
+        119,
+        120,
+        155,
+        156,
+        159,
+        160,
+        
+          137,
+          138,
+          139,
+        
+      0)){}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocPrice);
       FIELD_SET(*this, FIX::AllocShares);
@@ -2624,10 +2624,10 @@ namespace FIX42
     {
     public:
     NoMiscFees() : FIX::Group(136, 137, FIX::message_order(
-               137,
-               138,
-               139,
-            0)){}
+          137,
+          138,
+          139,
+        0)){}
       FIELD_SET(*this, FIX::MiscFeeAmt);
       FIELD_SET(*this, FIX::MiscFeeCurr);
       FIELD_SET(*this, FIX::MiscFeeType);
@@ -2766,86 +2766,86 @@ namespace FIX42
     {
     public:
     NoOrders() : FIX::Group(73, 1, FIX::message_order(
-            11,
-            67,
-            160,
-            109,
-            76,
-            1,
-            
-               79,
-               80,
-            
-            63,
-            64,
-            21,
-            18,
-            110,
-            111,
-            100,
-            
-               336,
-            
-            81,
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            140,
-            54,
-            401,
-            114,
-            60,
-            38,
-            152,
-            40,
-            44,
-            99,
-            15,
-            376,
-            377,
-            23,
-            117,
-            59,
-            168,
-            432,
-            126,
-            427,
-            12,
-            13,
-            47,
-            121,
-            120,
-            58,
-            354,
-            355,
-            193,
-            192,
-            77,
-            203,
-            204,
-            210,
-            211,
-            388,
-            389,
-            439,
-            440,
-         0)){}
+        11,
+        67,
+        160,
+        109,
+        76,
+        1,
+        
+          79,
+          80,
+        
+        63,
+        64,
+        21,
+        18,
+        110,
+        111,
+        100,
+        
+          336,
+        
+        81,
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        140,
+        54,
+        401,
+        114,
+        60,
+        38,
+        152,
+        40,
+        44,
+        99,
+        15,
+        376,
+        377,
+        23,
+        117,
+        59,
+        168,
+        432,
+        126,
+        427,
+        12,
+        13,
+        47,
+        121,
+        120,
+        58,
+        354,
+        355,
+        193,
+        192,
+        77,
+        203,
+        204,
+        210,
+        211,
+        388,
+        389,
+        439,
+        440,
+      0)){}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::ListSeqNo);
       FIELD_SET(*this, FIX::SettlInstMode);
@@ -2923,9 +2923,9 @@ namespace FIX42
     {
     public:
     NoAllocs() : FIX::Group(78, 79, FIX::message_order(
-               79,
-               80,
-            0)){}
+          79,
+          80,
+        0)){}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
     };
@@ -2934,8 +2934,8 @@ namespace FIX42
     {
     public:
     NoTradingSessions() : FIX::Group(386, 336, FIX::message_order(
-               336,
-            0)){}
+          336,
+        0)){}
       FIELD_SET(*this, FIX::TradingSessionID);
     };
     };
@@ -2981,17 +2981,17 @@ namespace FIX42
     {
     public:
     NoOrders() : FIX::Group(73, 6, FIX::message_order(
-            11,
-            14,
-            39,
-            151,
-            84,
-            6,
-            103,
-            58,
-            354,
-            355,
-         0)){}
+        11,
+        14,
+        39,
+        151,
+        84,
+        6,
+        103,
+        58,
+        354,
+        355,
+      0)){}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::CumQty);
       FIELD_SET(*this, FIX::OrdStatus);

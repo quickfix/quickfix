@@ -330,8 +330,8 @@ namespace Fix41
     public:
       NoIOIQualifiers() : Group(199, 104, message_order ) {}
         static int message_order __gc[] = {
-            104,
-         0};
+        104,
+      0};
       NET_FIELD_SET(IOIQualifier);
     };
     NET_FIELD_SET(Text);
@@ -362,20 +362,20 @@ namespace Fix41
     public:
       NoRelatedSym() : Group(146, 22, message_order ) {}
         static int message_order __gc[] = {
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            207,
-            106,
-            107,
-         0};
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        207,
+        106,
+        107,
+      0};
       NET_FIELD_SET(RelatdSym);
       NET_FIELD_SET(SymbolSfx);
       NET_FIELD_SET(SecurityID);
@@ -396,8 +396,8 @@ namespace Fix41
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
         static int message_order __gc[] = {
-            58,
-         0};
+        58,
+      0};
       NET_FIELD_SET(Text);
     };
     NET_FIELD_SET(URLLink);
@@ -433,20 +433,20 @@ namespace Fix41
     public:
       NoRelatedSym() : Group(146, 22, message_order ) {}
         static int message_order __gc[] = {
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            207,
-            106,
-            107,
-         0};
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        207,
+        106,
+        107,
+      0};
       NET_FIELD_SET(RelatdSym);
       NET_FIELD_SET(SymbolSfx);
       NET_FIELD_SET(SecurityID);
@@ -469,8 +469,8 @@ namespace Fix41
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
         static int message_order __gc[] = {
-            58,
-         0};
+        58,
+      0};
       NET_FIELD_SET(Text);
     };
     NET_FIELD_SET(RawDataLength);
@@ -1005,12 +1005,12 @@ namespace Fix41
     public:
       NoOrders() : Group(73, 11, message_order ) {}
         static int message_order __gc[] = {
-            11,
-            37,
-            198,
-            66,
-            105,
-         0};
+        11,
+        37,
+        198,
+        66,
+        105,
+      0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(OrderID);
       NET_FIELD_SET(SecondaryOrderID);
@@ -1023,11 +1023,11 @@ namespace Fix41
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-            32,
-            17,
-            31,
-            29,
-         0};
+        32,
+        17,
+        31,
+        29,
+      0};
       NET_FIELD_SET(LastShares);
       NET_FIELD_SET(ExecID);
       NET_FIELD_SET(LastPx);
@@ -1067,31 +1067,31 @@ namespace Fix41
     public:
       NoAllocs() : Group(78, 12, message_order ) {}
         static int message_order __gc[] = {
-            79,
-            80,
-            81,
-            92,
-            208,
-            209,
-            161,
-            76,
-            109,
-            12,
-            13,
-            153,
-            154,
-            119,
-            120,
-            155,
-            156,
-            159,
-            160,
-            
-               137,
-               138,
-               139,
-            
-         0};
+        79,
+        80,
+        81,
+        92,
+        208,
+        209,
+        161,
+        76,
+        109,
+        12,
+        13,
+        153,
+        154,
+        119,
+        120,
+        155,
+        156,
+        159,
+        160,
+        
+          137,
+          138,
+          139,
+        
+      0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocShares);
       NET_FIELD_SET(ProcessCode);
@@ -1117,10 +1117,10 @@ namespace Fix41
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-               137,
-               138,
-               139,
-            0};
+          137,
+          138,
+          139,
+        0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
       NET_FIELD_SET(MiscFeeType);
@@ -1329,12 +1329,12 @@ namespace Fix41
     public:
       NoOrders() : Group(73, 6, message_order ) {}
         static int message_order __gc[] = {
-            11,
-            14,
-            151,
-            84,
-            6,
-         0};
+        11,
+        14,
+        151,
+        84,
+        6,
+      0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(CumQty);
       NET_FIELD_SET(LeavesQty);

@@ -336,8 +336,8 @@ namespace FIX40
     {
     public:
     LinesOfText() : FIX::Group(33, 58, FIX::message_order(
-            58,
-         0)){}
+        58,
+      0)){}
       FIELD_SET(*this, FIX::Text);
     };
     FIELD_SET(*this, FIX::RawDataLength);
@@ -369,8 +369,8 @@ namespace FIX40
     {
     public:
     LinesOfText() : FIX::Group(33, 58, FIX::message_order(
-            58,
-         0)){}
+        58,
+      0)){}
       FIELD_SET(*this, FIX::Text);
     };
     FIELD_SET(*this, FIX::RawDataLength);
@@ -583,10 +583,10 @@ namespace FIX40
     {
     public:
     NoMiscFees() : FIX::Group(136, 137, FIX::message_order(
-            137,
-            138,
-            139,
-         0)){}
+        137,
+        138,
+        139,
+      0)){}
       FIELD_SET(*this, FIX::MiscFeeAmt);
       FIELD_SET(*this, FIX::MiscFeeCurr);
       FIELD_SET(*this, FIX::MiscFeeType);
@@ -830,11 +830,11 @@ namespace FIX40
     {
     public:
     NoOrders() : FIX::Group(73, 11, FIX::message_order(
-            11,
-            37,
-            66,
-            105,
-         0)){}
+        11,
+        37,
+        66,
+        105,
+      0)){}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::ListID);
@@ -845,11 +845,11 @@ namespace FIX40
     {
     public:
     NoExecs() : FIX::Group(124, 17, FIX::message_order(
-            17,
-            32,
-            31,
-            30,
-         0)){}
+        17,
+        32,
+        31,
+        30,
+      0)){}
       FIELD_SET(*this, FIX::ExecID);
       FIELD_SET(*this, FIX::LastShares);
       FIELD_SET(*this, FIX::LastPx);
@@ -876,10 +876,10 @@ namespace FIX40
     {
     public:
     NoMiscFees() : FIX::Group(136, 137, FIX::message_order(
-            137,
-            138,
-            139,
-         0)){}
+        137,
+        138,
+        139,
+      0)){}
       FIELD_SET(*this, FIX::MiscFeeAmt);
       FIELD_SET(*this, FIX::MiscFeeCurr);
       FIELD_SET(*this, FIX::MiscFeeType);
@@ -893,18 +893,18 @@ namespace FIX40
     {
     public:
     NoAllocs() : FIX::Group(78, 12, FIX::message_order(
-            79,
-            80,
-            81,
-            76,
-            109,
-            12,
-            13,
-            
-               92,
-               86,
-            
-         0)){}
+        79,
+        80,
+        81,
+        76,
+        109,
+        12,
+        13,
+        
+          92,
+          86,
+        
+      0)){}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
       FIELD_SET(*this, FIX::ProcessCode);
@@ -917,9 +917,9 @@ namespace FIX40
     {
     public:
     NoDlvyInst() : FIX::Group(85, 86, FIX::message_order(
-               92,
-               86,
-            0)){}
+          92,
+          86,
+        0)){}
       FIELD_SET(*this, FIX::BrokerOfCredit);
       FIELD_SET(*this, FIX::DlvyInst);
     };
@@ -1055,11 +1055,11 @@ namespace FIX40
     {
     public:
     NoOrders() : FIX::Group(73, 6, FIX::message_order(
-            11,
-            14,
-            84,
-            6,
-         0)){}
+        11,
+        14,
+        84,
+        6,
+      0)){}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::CumQty);
       FIELD_SET(*this, FIX::CxlQty);

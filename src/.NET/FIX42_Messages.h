@@ -157,9 +157,9 @@ namespace Fix42
     public:
       NoMsgTypes() : Group(384, 372, message_order ) {}
         static int message_order __gc[] = {
-            372,
-            385,
-         0};
+        372,
+        385,
+      0};
       NET_FIELD_SET(RefMsgType);
       NET_FIELD_SET(MsgDirection);
     };
@@ -369,8 +369,8 @@ namespace Fix42
     public:
       NoIOIQualifiers() : Group(199, 104, message_order ) {}
         static int message_order __gc[] = {
-            104,
-         0};
+        104,
+      0};
       NET_FIELD_SET(IOIQualifier);
     };
     NET_FIELD_SET(Text);
@@ -384,9 +384,9 @@ namespace Fix42
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
-            216,
-            217,
-         0};
+        216,
+        217,
+      0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };
@@ -419,9 +419,9 @@ namespace Fix42
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
-            216,
-            217,
-         0};
+        216,
+        217,
+      0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };
@@ -431,26 +431,26 @@ namespace Fix42
     public:
       NoRelatedSym() : Group(146, 22, message_order ) {}
         static int message_order __gc[] = {
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-         0};
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+      0};
       NET_FIELD_SET(RelatdSym);
       NET_FIELD_SET(SymbolSfx);
       NET_FIELD_SET(SecurityID);
@@ -477,10 +477,10 @@ namespace Fix42
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
         static int message_order __gc[] = {
-            58,
-            354,
-            355,
-         0};
+        58,
+        354,
+        355,
+      0};
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
@@ -520,9 +520,9 @@ namespace Fix42
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
-            216,
-            217,
-         0};
+        216,
+        217,
+      0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };
@@ -532,26 +532,26 @@ namespace Fix42
     public:
       NoRelatedSym() : Group(146, 22, message_order ) {}
         static int message_order __gc[] = {
-            46,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-         0};
+        46,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+      0};
       NET_FIELD_SET(RelatdSym);
       NET_FIELD_SET(SymbolSfx);
       NET_FIELD_SET(SecurityID);
@@ -580,10 +580,10 @@ namespace Fix42
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
         static int message_order __gc[] = {
-            58,
-            354,
-            355,
-         0};
+        58,
+        354,
+        355,
+      0};
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
@@ -613,38 +613,38 @@ namespace Fix42
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
         static int message_order __gc[] = {
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            140,
-            303,
-            336,
-            54,
-            38,
-            64,
-            40,
-            193,
-            192,
-            126,
-            60,
-            15,
-         0};
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        140,
+        303,
+        336,
+        54,
+        38,
+        64,
+        40,
+        193,
+        192,
+        126,
+        60,
+        15,
+      0};
       NET_FIELD_SET(Symbol);
       NET_FIELD_SET(SymbolSfx);
       NET_FIELD_SET(SecurityID);
@@ -760,67 +760,67 @@ namespace Fix42
     public:
       NoQuoteSets() : Group(296, 302, message_order ) {}
         static int message_order __gc[] = {
-            302,
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            367,
-            304,
-            
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               132,
-               133,
-               134,
-               135,
-               62,
-               188,
-               190,
-               189,
-               191,
-               60,
-               336,
-               64,
-               40,
-               193,
-               192,
-               15,
-            
-         0};
+        302,
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        367,
+        304,
+        
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          132,
+          133,
+          134,
+          135,
+          62,
+          188,
+          190,
+          189,
+          191,
+          60,
+          336,
+          64,
+          40,
+          193,
+          192,
+          15,
+        
+      0};
       NET_FIELD_SET(QuoteSetID);
       NET_FIELD_SET(UnderlyingSymbol);
       NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -849,43 +849,43 @@ namespace Fix42
     public:
       NoQuoteEntries() : Group(295, 15, message_order ) {}
         static int message_order __gc[] = {
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               132,
-               133,
-               134,
-               135,
-               62,
-               188,
-               190,
-               189,
-               191,
-               60,
-               336,
-               64,
-               40,
-               193,
-               192,
-               15,
-            0};
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          132,
+          133,
+          134,
+          135,
+          62,
+          188,
+          190,
+          189,
+          191,
+          60,
+          336,
+          64,
+          40,
+          193,
+          192,
+          15,
+        0};
       NET_FIELD_SET(QuoteEntryID);
       NET_FIELD_SET(Symbol);
       NET_FIELD_SET(SymbolSfx);
@@ -953,27 +953,27 @@ namespace Fix42
     public:
       NoQuoteEntries() : Group(295, 22, message_order ) {}
         static int message_order __gc[] = {
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            311,
-         0};
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        311,
+      0};
       NET_FIELD_SET(Symbol);
       NET_FIELD_SET(SymbolSfx);
       NET_FIELD_SET(SecurityID);
@@ -1062,51 +1062,51 @@ namespace Fix42
     public:
       NoQuoteSets() : Group(296, 302, message_order ) {}
         static int message_order __gc[] = {
-            302,
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            304,
-            
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               368,
-            
-         0};
+        302,
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        304,
+        
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          368,
+        
+      0};
       NET_FIELD_SET(QuoteSetID);
       NET_FIELD_SET(UnderlyingSymbol);
       NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -1134,28 +1134,28 @@ namespace Fix42
     public:
       NoQuoteEntries() : Group(295, 22, message_order ) {}
         static int message_order __gc[] = {
-               299,
-               55,
-               65,
-               48,
-               22,
-               167,
-               200,
-               205,
-               201,
-               202,
-               206,
-               231,
-               223,
-               207,
-               106,
-               348,
-               349,
-               107,
-               350,
-               351,
-               368,
-            0};
+          299,
+          55,
+          65,
+          48,
+          22,
+          167,
+          200,
+          205,
+          201,
+          202,
+          206,
+          231,
+          223,
+          207,
+          106,
+          348,
+          349,
+          107,
+          350,
+          351,
+          368,
+        0};
       NET_FIELD_SET(QuoteEntryID);
       NET_FIELD_SET(Symbol);
       NET_FIELD_SET(SymbolSfx);
@@ -1210,8 +1210,8 @@ namespace Fix42
     public:
       NoMDEntryTypes() : Group(267, 269, message_order ) {}
         static int message_order __gc[] = {
-            269,
-         0};
+        269,
+      0};
       NET_FIELD_SET(MDEntryType);
     };
     NET_FIELD_SET(NoRelatedSym);
@@ -1220,27 +1220,27 @@ namespace Fix42
     public:
       NoRelatedSym() : Group(146, 22, message_order ) {}
         static int message_order __gc[] = {
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            336,
-         0};
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        336,
+      0};
       NET_FIELD_SET(Symbol);
       NET_FIELD_SET(SymbolSfx);
       NET_FIELD_SET(SecurityID);
@@ -1307,37 +1307,37 @@ namespace Fix42
     public:
       NoMDEntries() : Group(268, 15, message_order ) {}
         static int message_order __gc[] = {
-            269,
-            270,
-            15,
-            271,
-            272,
-            273,
-            274,
-            275,
-            336,
-            276,
-            277,
-            282,
-            283,
-            284,
-            286,
-            59,
-            432,
-            126,
-            110,
-            18,
-            287,
-            37,
-            299,
-            288,
-            289,
-            346,
-            290,
-            58,
-            354,
-            355,
-         0};
+        269,
+        270,
+        15,
+        271,
+        272,
+        273,
+        274,
+        275,
+        336,
+        276,
+        277,
+        282,
+        283,
+        284,
+        286,
+        59,
+        432,
+        126,
+        110,
+        18,
+        287,
+        37,
+        299,
+        288,
+        289,
+        346,
+        290,
+        58,
+        354,
+        355,
+      0};
       NET_FIELD_SET(MDEntryType);
       NET_FIELD_SET(MDEntryPx);
       NET_FIELD_SET(Currency);
@@ -1384,63 +1384,63 @@ namespace Fix42
     public:
       NoMDEntries() : Group(268, 15, message_order ) {}
         static int message_order __gc[] = {
-            279,
-            285,
-            269,
-            278,
-            280,
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            291,
-            292,
-            270,
-            15,
-            271,
-            272,
-            273,
-            274,
-            275,
-            336,
-            276,
-            277,
-            282,
-            283,
-            284,
-            286,
-            59,
-            432,
-            126,
-            110,
-            18,
-            287,
-            37,
-            299,
-            288,
-            289,
-            346,
-            290,
-            387,
-            58,
-            354,
-            355,
-         0};
+        279,
+        285,
+        269,
+        278,
+        280,
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        291,
+        292,
+        270,
+        15,
+        271,
+        272,
+        273,
+        274,
+        275,
+        336,
+        276,
+        277,
+        282,
+        283,
+        284,
+        286,
+        59,
+        432,
+        126,
+        110,
+        18,
+        287,
+        37,
+        299,
+        288,
+        289,
+        346,
+        290,
+        387,
+        58,
+        354,
+        355,
+      0};
       NET_FIELD_SET(MDUpdateAction);
       NET_FIELD_SET(DeleteReason);
       NET_FIELD_SET(MDEntryType);
@@ -1569,29 +1569,29 @@ namespace Fix42
     public:
       NoRelatedSym() : Group(146, 54, message_order ) {}
         static int message_order __gc[] = {
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            319,
-            54,
-            318,
-         0};
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        319,
+        54,
+        318,
+      0};
       NET_FIELD_SET(UnderlyingSymbol);
       NET_FIELD_SET(UnderlyingSymbolSfx);
       NET_FIELD_SET(UnderlyingSecurityID);
@@ -1669,29 +1669,29 @@ namespace Fix42
     public:
       NoRelatedSym() : Group(146, 54, message_order ) {}
         static int message_order __gc[] = {
-            311,
-            312,
-            309,
-            305,
-            310,
-            313,
-            314,
-            315,
-            316,
-            317,
-            436,
-            435,
-            308,
-            306,
-            362,
-            363,
-            307,
-            364,
-            365,
-            319,
-            54,
-            318,
-         0};
+        311,
+        312,
+        309,
+        305,
+        310,
+        313,
+        314,
+        315,
+        316,
+        317,
+        436,
+        435,
+        308,
+        306,
+        362,
+        363,
+        307,
+        364,
+        365,
+        319,
+        54,
+        318,
+      0};
       NET_FIELD_SET(UnderlyingSymbol);
       NET_FIELD_SET(UnderlyingSymbolSfx);
       NET_FIELD_SET(UnderlyingSecurityID);
@@ -1902,9 +1902,9 @@ namespace Fix42
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-            79,
-            80,
-         0};
+        79,
+        80,
+      0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocShares);
     };
@@ -1921,8 +1921,8 @@ namespace Fix42
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-            336,
-         0};
+        336,
+      0};
       NET_FIELD_SET(TradingSessionID);
     };
     NET_FIELD_SET(ProcessCode);
@@ -2029,11 +2029,11 @@ namespace Fix42
     public:
       NoContraBrokers() : Group(382, 337, message_order ) {}
         static int message_order __gc[] = {
-            375,
-            337,
-            437,
-            438,
-         0};
+        375,
+        337,
+        437,
+        438,
+      0};
       NET_FIELD_SET(ContraBroker);
       NET_FIELD_SET(ContraTrader);
       NET_FIELD_SET(ContraTradeQty);
@@ -2217,9 +2217,9 @@ namespace Fix42
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-            79,
-            80,
-         0};
+        79,
+        80,
+      0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocShares);
     };
@@ -2236,8 +2236,8 @@ namespace Fix42
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-            336,
-         0};
+        336,
+      0};
       NET_FIELD_SET(TradingSessionID);
     };
     NET_FIELD_SET(Symbol);
@@ -2476,12 +2476,12 @@ namespace Fix42
     public:
       NoOrders() : Group(73, 11, message_order ) {}
         static int message_order __gc[] = {
-            11,
-            37,
-            198,
-            66,
-            105,
-         0};
+        11,
+        37,
+        198,
+        66,
+        105,
+      0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(OrderID);
       NET_FIELD_SET(SecondaryOrderID);
@@ -2494,11 +2494,11 @@ namespace Fix42
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-            32,
-            17,
-            31,
-            29,
-         0};
+        32,
+        17,
+        31,
+        29,
+      0};
       NET_FIELD_SET(LastShares);
       NET_FIELD_SET(ExecID);
       NET_FIELD_SET(LastPx);
@@ -2548,34 +2548,34 @@ namespace Fix42
     public:
       NoAllocs() : Group(78, 12, message_order ) {}
         static int message_order __gc[] = {
-            79,
-            366,
-            80,
-            81,
-            92,
-            208,
-            209,
-            161,
-            360,
-            361,
-            76,
-            109,
-            12,
-            13,
-            153,
-            154,
-            119,
-            120,
-            155,
-            156,
-            159,
-            160,
-            
-               137,
-               138,
-               139,
-            
-         0};
+        79,
+        366,
+        80,
+        81,
+        92,
+        208,
+        209,
+        161,
+        360,
+        361,
+        76,
+        109,
+        12,
+        13,
+        153,
+        154,
+        119,
+        120,
+        155,
+        156,
+        159,
+        160,
+        
+          137,
+          138,
+          139,
+        
+      0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocPrice);
       NET_FIELD_SET(AllocShares);
@@ -2604,10 +2604,10 @@ namespace Fix42
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-               137,
-               138,
-               139,
-            0};
+          137,
+          138,
+          139,
+        0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
       NET_FIELD_SET(MiscFeeType);
@@ -2744,86 +2744,86 @@ namespace Fix42
     public:
       NoOrders() : Group(73, 1, message_order ) {}
         static int message_order __gc[] = {
-            11,
-            67,
-            160,
-            109,
-            76,
-            1,
-            
-               79,
-               80,
-            
-            63,
-            64,
-            21,
-            18,
-            110,
-            111,
-            100,
-            
-               336,
-            
-            81,
-            55,
-            65,
-            48,
-            22,
-            167,
-            200,
-            205,
-            201,
-            202,
-            206,
-            231,
-            223,
-            207,
-            106,
-            348,
-            349,
-            107,
-            350,
-            351,
-            140,
-            54,
-            401,
-            114,
-            60,
-            38,
-            152,
-            40,
-            44,
-            99,
-            15,
-            376,
-            377,
-            23,
-            117,
-            59,
-            168,
-            432,
-            126,
-            427,
-            12,
-            13,
-            47,
-            121,
-            120,
-            58,
-            354,
-            355,
-            193,
-            192,
-            77,
-            203,
-            204,
-            210,
-            211,
-            388,
-            389,
-            439,
-            440,
-         0};
+        11,
+        67,
+        160,
+        109,
+        76,
+        1,
+        
+          79,
+          80,
+        
+        63,
+        64,
+        21,
+        18,
+        110,
+        111,
+        100,
+        
+          336,
+        
+        81,
+        55,
+        65,
+        48,
+        22,
+        167,
+        200,
+        205,
+        201,
+        202,
+        206,
+        231,
+        223,
+        207,
+        106,
+        348,
+        349,
+        107,
+        350,
+        351,
+        140,
+        54,
+        401,
+        114,
+        60,
+        38,
+        152,
+        40,
+        44,
+        99,
+        15,
+        376,
+        377,
+        23,
+        117,
+        59,
+        168,
+        432,
+        126,
+        427,
+        12,
+        13,
+        47,
+        121,
+        120,
+        58,
+        354,
+        355,
+        193,
+        192,
+        77,
+        203,
+        204,
+        210,
+        211,
+        388,
+        389,
+        439,
+        440,
+      0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(ListSeqNo);
       NET_FIELD_SET(SettlInstMode);
@@ -2902,9 +2902,9 @@ namespace Fix42
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-               79,
-               80,
-            0};
+          79,
+          80,
+        0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocShares);
     };
@@ -2914,8 +2914,8 @@ namespace Fix42
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-               336,
-            0};
+          336,
+        0};
       NET_FIELD_SET(TradingSessionID);
     };
     };
@@ -2961,17 +2961,17 @@ namespace Fix42
     public:
       NoOrders() : Group(73, 6, message_order ) {}
         static int message_order __gc[] = {
-            11,
-            14,
-            39,
-            151,
-            84,
-            6,
-            103,
-            58,
-            354,
-            355,
-         0};
+        11,
+        14,
+        39,
+        151,
+        84,
+        6,
+        103,
+        58,
+        354,
+        355,
+      0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(CumQty);
       NET_FIELD_SET(OrdStatus);
