@@ -85,7 +85,7 @@ void SocketUtilitiesTestCase::destroySocket( int s )
 
 bool SocketUtilitiesTestCase::Test::onSetup( int*& )
 {
-  pServer = new SocketServer( m_port );
+  pServer = new SocketServer( m_port, 0, true );
   s1 = createSocket( m_port, "127.0.0.1" );
   return s1 > 0;
 }

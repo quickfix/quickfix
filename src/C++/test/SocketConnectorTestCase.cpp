@@ -74,7 +74,7 @@ bool SocketConnectorTestCase::accept::onSetup( SocketConnector*& pObject )
 
 void SocketConnectorTestCase::accept::onRun( SocketConnector& object )
 {
-  SocketServer server( m_port );
+  SocketServer server( m_port, 0, true );
   assert( object.connect( "127.0.0.1", m_port ) );
   assert( server.accept() );
 }

@@ -84,13 +84,14 @@ namespace FIX
 {
 void socket_init();
 void socket_term();
-int socket_createAcceptor( int port );
+int socket_createAcceptor( int port, bool reuse = false );
 int socket_createConnector( const char* address, int port );
 int socket_accept( int s );
 bool socket_send( int s, const char* msg, int length );
 void socket_close( int s );
 bool socket_fionread( int s, int& bytes );
 bool socket_disconnected( int s );
+void socket_setsockopt( int s, int opt );
 bool socket_isValid( int socket );
 #ifndef _MSC_VER
 bool socket_isBad( int s );

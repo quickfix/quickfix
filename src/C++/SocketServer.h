@@ -67,7 +67,7 @@ class SocketServer
 public:
   class Strategy;
 
-  SocketServer( int port, int timeout = 0 );
+  SocketServer( int port, int timeout = 0, bool reuse = false );
 
   int accept();
   void close();

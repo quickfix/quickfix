@@ -66,7 +66,7 @@ bool SocketServerTestCase::accept::onSetup( SocketServer*& pObject )
 {
   try
   {
-    pObject = new SocketServer( m_port );
+    pObject = new SocketServer( m_port, 0, true );
     return true;
   }
   catch ( std::exception& ) { return false; }
@@ -108,7 +108,7 @@ bool SocketServerTestCase::block::onSetup( SocketServer*& pObject )
 {
   try
   {
-    pObject = new SocketServer( m_port );
+    pObject = new SocketServer( m_port, 0, true );
     return true;
   }
   catch ( std::exception& ) { return false; }
@@ -141,7 +141,7 @@ bool SocketServerTestCase::close::onSetup( SocketServer*& pObject )
 {
   try
   {
-    pObject = new SocketServer( m_port );
+    pObject = new SocketServer( m_port, 0, true );
     return true;
   }
   catch ( std::exception& ) { return false; }

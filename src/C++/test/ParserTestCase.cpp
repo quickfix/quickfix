@@ -113,7 +113,7 @@ bool ParserTestCase::readFromSocket::onSetup( Parser*& pObject )
   m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
   m_fixMsg3 = "8=FIX.4.2\0019=12\00135=A\001108=30\0019710=8\00110=31\001";
 
-  m_pServer = new SocketServer( m_port );
+  m_pServer = new SocketServer( m_port, 0, true );
   m_pConnector = new SocketConnector;
   int connSocket = m_pConnector->connect( "127.0.0.1", m_port );
   int recvSocket = m_pServer->accept();

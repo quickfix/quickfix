@@ -105,10 +105,10 @@ private:
   SocketServer::Strategy& m_strategy;
 };
 
-SocketServer::SocketServer( int port, int timeout )
+SocketServer::SocketServer( int port, int timeout, bool reuse )
 : m_port( port ), m_monitor( timeout )
 {
-  m_socket = socket_createAcceptor( port ); 
+  m_socket = socket_createAcceptor( port, reuse ); 
   if ( m_socket < 0 ) throw std::exception();
   m_monitor.add( m_socket );
 }

@@ -85,7 +85,7 @@ void socket_term()
 #endif
 }
 
-int socket_createAcceptor( int port )
+int socket_createAcceptor( int port, bool reuse = false )
 {
   int socket = ::socket( PF_INET, SOCK_STREAM, 0 );
   if ( socket < 0 ) return -1;
@@ -97,6 +97,8 @@ int socket_createAcceptor( int port )
   address.sin_port = htons( port );
   address.sin_addr.s_addr = INADDR_ANY;
   socklen = sizeof( address );
+  if( reuse )
+    socket_setsockopt( socket, SO_REUSEADDR );
 
   int result = bind( socket, reinterpret_cast < sockaddr* > ( &address ),
                      socklen );
@@ -175,6 +177,19 @@ bool socket_disconnected( int s )
   ioctl( s, FIONREAD, &read );
 #endif 
   return read == 0;
+}
+
+void socket_setsockopt( int s, int opt )
+{
+#ifdef _MSC_VER
+  BOOL optval = TRUE;
+  ::setsockopt( s, SOL_SOCKET, opt,
+                ( char* ) & optval, sizeof( optval ) );
+#else
+int optval = 1;
+  ::setsockopt( s, SOL_SOCKET, opt,
+                &optval, sizeof( optval ) );
+#endif
 }
 
 bool socket_isValid( int socket )
