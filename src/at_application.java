@@ -52,7 +52,7 @@ import org.quickfix.field.*;
 
 public class at_application implements Application
 {
-private MessageCracker cracker = new MessageCracker();
+private at_messagecracker cracker = new at_messagecracker();
 
 public void onCreate( SessionID sessionID ) {
   Session session = Session.lookupSession( sessionID );
