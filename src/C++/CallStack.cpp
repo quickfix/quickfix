@@ -17,6 +17,15 @@ namespace FIX
 
   CallStack::CallStack(const std::string& name, const std::string& file, int line)
   {
+    Locker locker(s_mutex);
+
+    #if TERMINATE_IN_STD
+      std::set_terminate(FIX::CallStack::terminate);  
+    #else
+      set_terminate(FIX::CallStack::terminate);  
+    #endif
+
+    std::set_terminate(FIX::CallStack::terminate);
     Context& c = getContext();
     if( !c.ignore )
     {
@@ -27,6 +36,7 @@ namespace FIX
 
   CallStack::~CallStack()
   { 
+    Locker locker(s_mutex);
     Context& c = getContext();
     if( !c.ignore )
       c.pop();
@@ -51,11 +61,13 @@ namespace FIX
 
   void CallStack::ignore(bool value)
   {
+    Locker locker(s_mutex);
     getContext().ignore = value;
   }
 
   void CallStack::caught( std::exception& e )
   {
+    Locker locker(s_mutex);
     Context& c = getErrorContext();
     if( c.ignore ) return;
     c.caught(e);
@@ -63,13 +75,14 @@ namespace FIX
 
   void CallStack::caught()
   {
+    Locker locker(s_mutex);
     Context& c = getErrorContext();
     if( c.ignore ) return;
     c.caught();
   }
 
   CallStack::Context& CallStack::getContext()
-  {
+  {    
     Locker locker(s_mutex);
     return s_stack[thread_self()];
   }
@@ -82,12 +95,14 @@ namespace FIX
 
   void CallStack::terminate()
   {
+    Locker locker(s_mutex);
     CallStack::output();
     abort();
   }
 
   void CallStack::Context::caught( std::exception& e )
-  {    
+  {
+    Locker locker(s_mutex);
 #if TYPEINFO_IN_STD
     const std::type_info&
 #else
@@ -102,6 +117,7 @@ namespace FIX
 
   void CallStack::Context::caught()
   {
+    Locker locker(s_mutex);
     exception = "unknown exception";
   }
 }

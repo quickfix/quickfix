@@ -151,15 +151,8 @@ inline bool operator==( const CallStack::Method& rhs, const CallStack::Method& l
 }
 
 #ifdef _MSC_VER
-  #if _MSC_VER >= 1300
-    #define QF_METHOD_EXISTS(name) \
-    std::set_terminate(FIX::CallStack::terminate); \
-    &name;
-  #else
-    #define QF_METHOD_EXISTS(name) \
-    set_terminate(FIX::CallStack::terminate); \
-	&name;
-  #endif
+  #define QF_METHOD_EXISTS(name) \
+  &name;
 #else
   #define QF_METHOD_EXISTS(name)
 #endif
