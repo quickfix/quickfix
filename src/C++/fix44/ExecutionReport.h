@@ -223,11 +223,10 @@ namespace FIX44
     FIELD_SET(*this, FIX::TradeDate);
     FIELD_SET(*this, FIX::TransactTime);
     FIELD_SET(*this, FIX::ReportToExch);
-    FIELD_SET(*this, FIX::OrderQty);
-    FIELD_SET(*this, FIX::CashOrderQty);
-    FIELD_SET(*this, FIX::OrderPercent);
-    FIELD_SET(*this, FIX::RoundingDirection);
-    FIELD_SET(*this, FIX::RoundingModulus);
+    FIELD_SET(*this, FIX::Commission);
+    FIELD_SET(*this, FIX::CommType);
+    FIELD_SET(*this, FIX::CommCurrency);
+    FIELD_SET(*this, FIX::FundRenewWaiv);
     FIELD_SET(*this, FIX::Spread);
     FIELD_SET(*this, FIX::BenchmarkCurveCurrency);
     FIELD_SET(*this, FIX::BenchmarkCurveName);

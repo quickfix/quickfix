@@ -326,7 +326,7 @@ namespace FIX44
     class NoSides: public FIX::Group
     {
     public:
-    NoSides() : FIX::Group(552,54,FIX::message_order(54,37,198,11,526,66,1,660,581,81,575,635,578,579,821,15,376,377,528,529,582,40,18,483,336,625,943,38,152,516,468,469,381,157,230,158,159,738,920,921,922,238,237,118,119,120,155,156,77,58,354,355,752,825,826,591,70,0)) {}
+    NoSides() : FIX::Group(552,54,FIX::message_order(54,37,198,11,526,66,1,660,581,81,575,635,578,579,821,15,376,377,528,529,582,40,18,483,336,625,943,12,13,479,497,381,157,230,158,159,738,920,921,922,238,237,118,119,120,155,156,77,58,354,355,752,825,826,591,70,0)) {}
       FIELD_SET(*this, FIX::Side);
       FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::SecondaryOrderID);
@@ -371,11 +371,10 @@ namespace FIX44
       FIELD_SET(*this, FIX::TradingSessionID);
       FIELD_SET(*this, FIX::TradingSessionSubID);
       FIELD_SET(*this, FIX::TimeBracket);
-      FIELD_SET(*this, FIX::OrderQty);
-      FIELD_SET(*this, FIX::CashOrderQty);
-      FIELD_SET(*this, FIX::OrderPercent);
-      FIELD_SET(*this, FIX::RoundingDirection);
-      FIELD_SET(*this, FIX::RoundingModulus);
+      FIELD_SET(*this, FIX::Commission);
+      FIELD_SET(*this, FIX::CommType);
+      FIELD_SET(*this, FIX::CommCurrency);
+      FIELD_SET(*this, FIX::FundRenewWaiv);
       FIELD_SET(*this, FIX::GrossTradeAmt);
       FIELD_SET(*this, FIX::NumDaysInterest);
       FIELD_SET(*this, FIX::ExDate);

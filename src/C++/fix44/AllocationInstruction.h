@@ -361,7 +361,7 @@ namespace FIX44
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,573,366,80,467,81,208,209,161,360,361,38,152,516,468,469,153,154,119,737,120,736,155,156,159,742,741,160,576,577,635,780,172,169,170,171,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,573,366,80,467,81,208,209,161,360,361,12,13,479,497,153,154,119,737,120,736,155,156,159,742,741,160,576,577,635,780,172,169,170,171,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocAcctIDSource);
       FIELD_SET(*this, FIX::MatchStatus);
@@ -391,11 +391,10 @@ namespace FIX44
       FIELD_SET(*this, FIX::AllocText);
       FIELD_SET(*this, FIX::EncodedAllocTextLen);
       FIELD_SET(*this, FIX::EncodedAllocText);
-      FIELD_SET(*this, FIX::OrderQty);
-      FIELD_SET(*this, FIX::CashOrderQty);
-      FIELD_SET(*this, FIX::OrderPercent);
-      FIELD_SET(*this, FIX::RoundingDirection);
-      FIELD_SET(*this, FIX::RoundingModulus);
+      FIELD_SET(*this, FIX::Commission);
+      FIELD_SET(*this, FIX::CommType);
+      FIELD_SET(*this, FIX::CommCurrency);
+      FIELD_SET(*this, FIX::FundRenewWaiv);
       FIELD_SET(*this, FIX::AllocAvgPx);
       FIELD_SET(*this, FIX::AllocNetMoney);
       FIELD_SET(*this, FIX::SettlCurrAmt);

@@ -19,12 +19,11 @@ namespace FIX44
     class NoBidComponents: public FIX::Group
     {
     public:
-    NoBidComponents() : FIX::Group(420,66,FIX::message_order(38,152,516,468,469,66,421,54,44,423,406,430,63,64,336,625,58,354,355,0)) {}
-      FIELD_SET(*this, FIX::OrderQty);
-      FIELD_SET(*this, FIX::CashOrderQty);
-      FIELD_SET(*this, FIX::OrderPercent);
-      FIELD_SET(*this, FIX::RoundingDirection);
-      FIELD_SET(*this, FIX::RoundingModulus);
+    NoBidComponents() : FIX::Group(420,66,FIX::message_order(12,13,479,497,66,421,54,44,423,406,430,63,64,336,625,58,354,355,0)) {}
+      FIELD_SET(*this, FIX::Commission);
+      FIELD_SET(*this, FIX::CommType);
+      FIELD_SET(*this, FIX::CommCurrency);
+      FIELD_SET(*this, FIX::FundRenewWaiv);
       FIELD_SET(*this, FIX::ListID);
       FIELD_SET(*this, FIX::Country);
       FIELD_SET(*this, FIX::Side);

@@ -164,7 +164,7 @@ namespace FIX44
     class NoSides: public FIX::Group
     {
     public:
-    NoSides() : FIX::Group(552,54,FIX::message_order(54,41,11,526,583,586,229,75,1,660,581,589,590,591,70,854,38,152,516,468,469,38,152,516,468,469,528,529,582,121,120,775,58,354,355,77,203,544,635,377,659,0)) {}
+    NoSides() : FIX::Group(552,54,FIX::message_order(54,41,11,526,583,586,229,75,1,660,581,589,590,591,70,854,38,152,516,468,469,12,13,479,497,528,529,582,121,120,775,58,354,355,77,203,544,635,377,659,0)) {}
       FIELD_SET(*this, FIX::Side);
       FIELD_SET(*this, FIX::OrigClOrdID);
       FIELD_SET(*this, FIX::ClOrdID);
@@ -203,11 +203,10 @@ namespace FIX44
       FIELD_SET(*this, FIX::OrderPercent);
       FIELD_SET(*this, FIX::RoundingDirection);
       FIELD_SET(*this, FIX::RoundingModulus);
-      FIELD_SET(*this, FIX::OrderQty);
-      FIELD_SET(*this, FIX::CashOrderQty);
-      FIELD_SET(*this, FIX::OrderPercent);
-      FIELD_SET(*this, FIX::RoundingDirection);
-      FIELD_SET(*this, FIX::RoundingModulus);
+      FIELD_SET(*this, FIX::Commission);
+      FIELD_SET(*this, FIX::CommType);
+      FIELD_SET(*this, FIX::CommCurrency);
+      FIELD_SET(*this, FIX::FundRenewWaiv);
       FIELD_SET(*this, FIX::OrderCapacity);
       FIELD_SET(*this, FIX::OrderRestrictions);
       FIELD_SET(*this, FIX::CustOrderCapacity);
