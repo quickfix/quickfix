@@ -13,7 +13,7 @@ E8=FIX.4.29=5635=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=210=0
 #New order message with incorrect value. Side (40) is repeated, not part of repeating group
 I8=FIX.4.235=D34=249=TW52=<TIME>56=ISLD11=ID21=140=140=254=138=200.0055=INTC60=<TIME>
 # expect a reject
-E8=FIX.4.29=10735=334=249=ISLD52=00000000-00:00:0056=TW45=258=Repeated tag not part of repeating group371=40372=D10=0
+E8=FIX.4.29=9335=334=249=ISLD52=00000000-00:00:0056=TW45=258=Tag appears more than once371=40372=D10=0
 
 #------------------------
 # end message exchange
