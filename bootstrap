@@ -1,7 +1,13 @@
 #!/bin/sh
 rm -f config.cache
-libtoolize --force --copy --automake \
-&& aclocal \
-&& autoheader \
-&& automake --foreign --add-missing --copy \
-&& autoconf
+echo autoheader...
+autoheader
+echo libtoolize...
+libtoolize --force --copy --automake
+echo aclocal...
+aclocal
+echo automake...
+automake --foreign --add-missing --copy
+echo autoconf...
+autoconf
+echo "Now run configure with any arguments necessary"
