@@ -1,3 +1,139 @@
+2004-06-29 03:15  orenmnero
+
+	* doc/html/install.html: warning about when to use callstack
+
+2004-06-29 03:13  orenmnero
+
+	* doc/html/install.html: fixed link to MSXML
+
+2004-06-29 03:04  orenmnero
+
+	* CONTRIBUTORS, NEWS: [no log message]
+
+2004-06-29 03:00  orenmnero
+
+	* configure.in: incremented version
+
+2004-06-29 02:58  orenmnero
+
+	* src/: C++/Makefile.am, java/Makefile.am: incremented library
+	  version
+
+2004-06-29 02:52  orenmnero
+
+	* src/C/: Makefile.am, fix_application.h, fix_filestore.cpp,
+	  fix_filestore.h, fix_memorystore.cpp, fix_memorystore.h,
+	  fix_message.h, fix_messagestore.h, fix_sessionid.h,
+	  quickfix_api.cpp, quickfix_api.dsp, quickfix_api.dsw,
+	  quickfix_api.h, .cvsignore: removed aborted C interface
+
+2004-06-29 02:41  orenmnero
+
+	* src/.NET/FileMessageStore.h: SessionSettings initialized to 0
+
+2004-06-29 02:39  orenmnero
+
+	* src/.NET/FileLog.h: added constructor that takes in
+	  SessionSettings
+
+2004-06-27 16:04  orenmnero
+
+	* src/C++/Session.cpp,
+	  test/definitions/server/fix40/10_MsgSeqNumLess.def,
+	  test/definitions/server/fix40/2c_MsgSeqNumTooLow.def,
+	  test/definitions/server/fix41/10_MsgSeqNumLess.def,
+	  test/definitions/server/fix41/2c_MsgSeqNumTooLow.def,
+	  test/definitions/server/fix42/10_MsgSeqNumLess.def,
+	  test/definitions/server/fix42/2c_MsgSeqNumTooLow.def,
+	  test/definitions/server/fix43/10_MsgSeqNumLess.def,
+	  test/definitions/server/fix43/2c_MsgSeqNumTooLow.def,
+	  test/definitions/server/fix44/10_MsgSeqNumLess.def,
+	  test/definitions/server/fix44/2c_MsgSeqNumTooLow.def: send logout
+	  with message after receiving MsgSeqNum too low
+
+2004-06-24 20:16  orenmnero
+
+	* src/C++/: MySQLLog.cpp, MySQLStore.cpp,
+	  test/MessageStoreTestCase.cpp: put mysql escape character in
+	  front of double quotes
+
+2004-06-24 20:06  orenmnero
+
+	* src/C++/: Utility.cpp, Utility.h, test/Makefile.am,
+	  test/StringUtilitiesTestCase.cpp, test/StringUtilitiesTestCase.h,
+	  test/TestSuite.h: added method to replace substrings
+
+2004-06-24 16:39  orenmnero
+
+	* ChangeLog, NEWS, src/C++/Dictionary.cpp, src/C++/Dictionary.h,
+	  src/C++/test/DictionaryTestCase.cpp: getString can return value
+	  in all capitals, useful for case insensitive values
+
+2004-06-24 05:07  orenmnero
+
+	* src/: C++/FieldConvertors.h, java/Conversions.h: replacing
+	  UtcDate with UtcDateOnly
+
+2004-06-24 03:39  orenmnero
+
+	* src/java/src/quickfix/UtcDateField.java: replacing UtcDate with
+	  UtcDateOnly
+
+2004-06-24 03:36  orenmnero
+
+	* src/java/: quickfix_Group.h, quickfix_Message.h,
+	  src/quickfix/Group.java: replacing UtcDate with UtcDateOnly
+
+2004-06-24 03:18  orenmnero
+
+	* src/java/: quickfix_Group.cpp, quickfix_Message.cpp,
+	  src/quickfix/FieldMap.java, src/quickfix/Group.java,
+	  src/quickfix/Message.java: replacing UtcDate with UtcDateOnly
+
+2004-06-23 14:30  orenmnero
+
+	* spec/FIX44.xml: added missing enumerations to QuoteStatus field
+
+2004-06-22 14:31  orenmnero
+
+	* src/C++/Utility.cpp: fixed and reinstated use of nanosleep
+
+2004-06-21 19:13  orenmnero
+
+	* spec/net_Fields.xsl, src/.NET/Field.h, src/.NET/Fields.h,
+	  src/.NET/Group.cpp, src/.NET/Group.h, src/.NET/Message.cpp,
+	  src/.NET/Message.h: UtcDateOnly replaces UtcDate in FIX 4.4
+
+2004-06-21 17:46  orenmnero
+
+	* src/java/src/quickfix/UtcDateField.java,
+	  src/java/src/quickfix/UtcDateOnlyField.java,
+	  src/java/src/quickfix/field/MDEntryDate.java,
+	  src/java/src/quickfix/field/TotalVolumeTradedDate.java,
+	  spec/generate_java_fields.xsl: UtcDateOnly replaces UtcDate in
+	  FIX 4.4
+
+2004-06-18 20:46  orenmnero
+
+	* src/C++/LIBXML_DOMDocument.cpp: fixed minor bugs
+
+2004-06-18 04:14  orenmnero
+
+	* src/: C++/Field.h, python/QuickfixPython.cpp, python/quickfix.i:
+	  typdefs for field definition macros reintroduced and added to
+	  SWIG
+
+2004-06-17 04:11  orenmnero
+
+	* src/java/: quickfix_MySQLLog.cpp, quickfix_MySQLLogFactory.cpp,
+	  quickfix_MySQLStore.cpp, quickfix_MySQLStoreFactory.cpp: using
+	  correct include path for quickfix C++ headers
+
+2004-06-17 04:08  orenmnero
+
+	* examples/ordermatch/test/Makefile.am: build tests with
+	  optimizations turned off
+
 2004-06-15 20:37  orenmnero
 
 	* src/C++/Session.cpp: first message received during session time
