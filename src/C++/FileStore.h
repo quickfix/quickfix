@@ -76,7 +76,7 @@ private:
  * The messages file is a pure stream of %FIX messages.<br><br>
  * The sequence number file is in the format of<br>
  * &nbsp;&nbsp;
- *   <SenderMsgSeqNum> : <TargetMsgSeqNum><br><br>
+ *   [SenderMsgSeqNum] : [TargetMsgSeqNum]<br><br>
  * The session file is a UTC timestamp in the format of<br>
  * &nbsp;&nbsp;
  *   YYYYMMDD-HH:MM:SS
