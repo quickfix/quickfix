@@ -257,8 +257,8 @@ struct UtcTimeStampConvertor
   {
     UtcTimeStamp result;
     const char* val = value.c_str();
-    const char* foo = strptime( val, "%Y%m%d-%H:%M:%S", result );
-    if ( foo - val != 17 ) throw FieldConvertError();
+    const char* len = strptime( val, "%Y%m%d-%H:%M:%S", result );
+    if ( len - val != 17 ) throw FieldConvertError();
     return result;
   }
 };
@@ -280,8 +280,8 @@ struct UtcTimeOnlyConvertor
   {
     UtcTimeOnly result;
     const char* val = value.c_str();
-    const char* foo = strptime( val, "%H:%M:%S", result );
-    if ( foo - val != 8 ) throw FieldConvertError();
+    const char* len = strptime( val, "%H:%M:%S", result );
+    if ( len - val != 8 ) throw FieldConvertError();
     return result;
   }
 };
@@ -303,8 +303,8 @@ struct UtcDateConvertor
   {
     UtcDate result;
     const char* val = value.c_str();
-    const char* foo = strptime( val, "%Y%m%d", result );
-    if ( foo - val != 8 ) throw FieldConvertError();
+    const char* len = strptime( val, "%Y%m%d", result );
+    if ( len - val != 8 ) throw FieldConvertError();
     return result;
   }
 };
