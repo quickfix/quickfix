@@ -12,3 +12,6 @@
 /* Define if you have stlport library (-lstlport_gcc) */
 #undef HAVE_STLPORT
 
+/* Whether or not we are using the new-style typeinfo header */
+#undef TYPEINFO_IN_STD
+

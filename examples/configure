@@ -2119,8 +2119,6 @@ fi
 ########################################
 
 ########################################
-
-########################################
 # LIBXML
 ########################################
  
@@ -2165,7 +2163,7 @@ fi
   # Extract the first word of "xml2-config", so it can be a program name with args.
 set dummy xml2-config; ac_word=$2
 echo $ac_n "checking for $ac_word""... $ac_c" 1>&6
-echo "configure:2169: checking for $ac_word" >&5
+echo "configure:2167: checking for $ac_word" >&5
 if eval "test \"`echo '$''{'ac_cv_path_XML2_CONFIG'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
 else
@@ -2200,7 +2198,7 @@ fi
 
   min_xml_version=2.0.0
   echo $ac_n "checking for libxml - version >= $min_xml_version""... $ac_c" 1>&6
-echo "configure:2204: checking for libxml - version >= $min_xml_version" >&5
+echo "configure:2202: checking for libxml - version >= $min_xml_version" >&5
   no_xml=""
   if test "$XML2_CONFIG" = "no" ; then
     no_xml=yes
@@ -2223,7 +2221,7 @@ echo "configure:2204: checking for libxml - version >= $min_xml_version" >&5
   echo $ac_n "cross compiling; assumed OK... $ac_c"
 else
   cat > conftest.$ac_ext <<EOF
-#line 2227 "configure"
+#line 2225 "configure"
 #include "confdefs.h"
 
 #include <stdlib.h>
@@ -2302,7 +2300,7 @@ main()
 }
 
 EOF
-if { (eval echo configure:2306: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+if { (eval echo configure:2304: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 then
   :
 else
@@ -2337,7 +2335,7 @@ fi
           CFLAGS="$CFLAGS $XML_CFLAGS"
           LIBS="$LIBS $XML_LIBS"
           cat > conftest.$ac_ext <<EOF
-#line 2341 "configure"
+#line 2339 "configure"
 #include "confdefs.h"
 
 #include <libxml/xmlversion.h>
@@ -2347,7 +2345,7 @@ int main() {
  LIBXML_TEST_VERSION; return 0;
 ; return 0; }
 EOF
-if { (eval echo configure:2351: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
+if { (eval echo configure:2349: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
   rm -rf conftest*
    echo "*** The test program compiled, but did not run. This usually means"
           echo "*** that the run-time linker is not finding LIBXML or finding the wrong"
@@ -2397,6 +2395,57 @@ ac_compile='${CXX-g++} -c $CXXFLAGS $CPPFLAGS conftest.$ac_ext 1>&5'
 ac_link='${CXX-g++} -o conftest${ac_exeext} $CXXFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $LIBS 1>&5'
 cross_compiling=$ac_cv_prog_cxx_cross
 
+
+echo $ac_n "checking for typeinfo in the global namespace""... $ac_c" 1>&6
+echo "configure:2401: checking for typeinfo in the global namespace" >&5
+cat > conftest.$ac_ext <<EOF
+#line 2403 "configure"
+#include "confdefs.h"
+#include <typeinfo>
+int main() {
+const typeinfo& ty = typeid(typeinfo);
+; return 0; }
+EOF
+if { (eval echo configure:2410: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+  rm -rf conftest*
+  typeinfo_is_global=true
+else
+  echo "configure: failed program was:" >&5
+  cat conftest.$ac_ext >&5
+  rm -rf conftest*
+  typeinfo_is_global=false
+fi
+rm -f conftest*
+
+if test $typeinfo_is_global = true
+then echo "$ac_t""yes" 1>&6
+else echo "$ac_t""no" 1>&6
+    echo $ac_n "checking for typeinfo in the std namespace""... $ac_c" 1>&6
+echo "configure:2425: checking for typeinfo in the std namespace" >&5
+    cat > conftest.$ac_ext <<EOF
+#line 2427 "configure"
+#include "confdefs.h"
+#include <typeinfo>
+int main() {
+const std::type_info& ty = typeid(std::type_info);
+; return 0; }
+EOF
+if { (eval echo configure:2434: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+  rm -rf conftest*
+  echo "$ac_t""yes" 1>&6
+    cat >> confdefs.h <<\EOF
+#define TYPEINFO_IN_STD 1
+EOF
+
+else
+  echo "configure: failed program was:" >&5
+  cat conftest.$ac_ext >&5
+  rm -rf conftest*
+  echo "$ac_t""no" 1>&6
+    { echo "configure: error: type_info is required by the test library" 1>&2; exit 1; }
+fi
+rm -f conftest*
+fi
 
 trap '' 1 2 15
 cat > confcache <<\EOF

@@ -37,8 +37,6 @@ fi
 ########################################
 
 ########################################
-
-########################################
 # LIBXML
 ########################################
 AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
@@ -52,6 +50,26 @@ AC_SUBST(CFLAGS)
 
 AC_LANG_SAVE
 AC_LANG_CPLUSPLUS
+
+AC_MSG_CHECKING(for typeinfo in the global namespace)
+AC_TRY_COMPILE(
+	[#include <typeinfo>],
+	[const typeinfo& ty = typeid(typeinfo);],
+	typeinfo_is_global=true, typeinfo_is_global=false)
+
+if test $typeinfo_is_global = true
+then AC_MSG_RESULT(yes)
+else AC_MSG_RESULT(no)
+    AC_MSG_CHECKING(for typeinfo in the std namespace)
+    AC_TRY_COMPILE(
+    [#include <typeinfo>],
+    [const std::type_info& ty = typeid(std::type_info);],
+    AC_MSG_RESULT(yes)
+    AC_DEFINE(TYPEINFO_IN_STD, 1, 
+    Whether or not we are using the new-style typeinfo header),
+    AC_MSG_RESULT(no)
+    AC_MSG_ERROR(type_info is required by the test library))
+fi
 
 AC_OUTPUT( 
 	Makefile
