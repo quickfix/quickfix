@@ -80,7 +80,6 @@ public:
     add( &m_isAdminMsgType );
     add( &m_setString );
     add( &m_checkSum );
-    add( &m_repeatingField );
     add( &m_headerFieldsFirst );
     add( &m_noEndingDelim );
     add( &m_outOfOrder );
@@ -113,12 +112,6 @@ class checkSum : public SimpleTest
     void onRun( Message& object );
   }
   m_checkSum;
-
-class repeatingField : public EmptyTest
-  {
-    void onRun( Message& object );
-  }
-  m_repeatingField;
 
 class headerFieldsFirst : public SimpleTest
   {

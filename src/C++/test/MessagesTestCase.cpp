@@ -163,20 +163,6 @@ void MessageTestCase::checkSum::onRun( Message& object )
   assert( object.checkSum() == chksum );
 }
 
-void MessageTestCase::repeatingField::onRun( Message& )
-{
-  /*Logout logout;
-    Text text;
-    std::vector<Text> texts;
-    logout.add(Text("TEXT1"));
-    logout.add(Text("TEXT2"));
-    assert(logout.count(text) == 2);
-    assert(logout.get(text) == "TEXT1");
-    assert(logout.get(texts) == 2);
-    assert(texts[0] == "TEXT1");
-    assert(texts[1] == "TEXT2");*/
-}
-
 void MessageTestCase::headerFieldsFirst::onRun( Message& object )
 {
   const std::string str =
