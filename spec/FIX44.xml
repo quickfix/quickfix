@@ -4396,7 +4396,7 @@
       <value enum="12" description="SURVEILLENCE_OPTION" />
       <value enum="13" description="INCORRECT_QUANTITY" />
       <value enum="14" description="INCORRECT_ALLOCATED_QUANTITY" />
-      <value enum="15" description="UNKNOWN_ACCOUNTS" />
+      <value enum="15" description="UNKNOWN_ACCOUNT" />
       <value enum="99" description="OTHER" />
     </field>
     <field number="104" name="IOIQualifier" type="CHAR">
