@@ -91,7 +91,6 @@ bool socket_send( int s, const char* msg, int length );
 void socket_close( int s );
 bool socket_fionread( int s, int& bytes );
 bool socket_disconnected( int s );
-void socket_setsockopt( int s );
 bool socket_isValid( int socket );
 #ifndef _MSC_VER
 bool socket_isBad( int s );

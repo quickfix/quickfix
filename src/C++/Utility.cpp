@@ -97,7 +97,6 @@ int socket_createAcceptor( int port )
   address.sin_port = htons( port );
   address.sin_addr.s_addr = INADDR_ANY;
   socklen = sizeof( address );
-  socket_setsockopt( socket );
 
   int result = bind( socket, reinterpret_cast < sockaddr* > ( &address ),
                      socklen );
@@ -176,19 +175,6 @@ bool socket_disconnected( int s )
   ioctl( s, FIONREAD, &read );
 #endif 
   return read == 0;
-}
-
-void socket_setsockopt( int s )
-{
-#ifdef _MSC_VER
-  BOOL optval = TRUE;
-  ::setsockopt( s, SOL_SOCKET, SO_REUSEADDR,
-                ( char* ) & optval, sizeof( optval ) );
-#else
-int optval = 1;
-  ::setsockopt( s, SOL_SOCKET, SO_REUSEADDR,
-                &optval, sizeof( optval ) );
-#endif
 }
 
 bool socket_isValid( int socket )
