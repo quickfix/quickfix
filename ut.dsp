@@ -126,6 +126,10 @@ SOURCE=.\src\getopt.c
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\test\MemoryStoreTestCase.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\Test\MessagesTestCase.cpp"
 # End Source File
 # Begin Source File
