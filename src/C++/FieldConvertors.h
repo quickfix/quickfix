@@ -202,8 +202,18 @@ struct DoubleConvertor
 {
   static std::string convert( double value )
   {
-    char result[ 32 ];
-    return std::string( result, sprintf( result, "%.15g", value ) );
+    char result[32];
+    if( value == 0 || value > 0.0001 )
+    {
+      return std::string( result, sprintf( result, "%.15g", value ) );
+    }
+    else
+    {
+      int size = sprintf( result, "%.15f", value );
+      for( char * i = result + size - 1; *i == '0'; *(i--) = 0, size-- ) {}
+      if( *i == '.' ) return "0";
+      return std::string( result, size );
+    }
   }
 
   static bool convert( const std::string& value, double& result )
