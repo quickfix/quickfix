@@ -48,19 +48,22 @@ class FieldBase
 {
   friend class Message;
 public:
-  FieldBase( int field, const std::string& string )
-  : m_field( field ), m_string(string), m_length( 0 ), m_total( 0 )
-    { calculate(); }
+  FieldBase( int field, const std::string& string, bool doCalculate = true )
+    : m_field( field ), m_string(string), m_length( 0 ), m_total( 0 ),
+      m_calculated( false )
+  {}
 
   void setField( int field )
   { 
     m_field = field; 
+    m_calculated = false;
     calculate();
   }
 
   void setString( const std::string& string )
   { 
     m_string = string;
+    m_calculated = false;
     calculate();
   }
 
@@ -74,15 +77,24 @@ public:
 
   /// Get the string representation of the Field (i.e.) 55=MSFT<SOH>
   const std::string& getValue() const
-    { return m_data; }
+  {
+    const_cast<FieldBase*>(this)->calculate();
+    return m_data; 
+  }
 
   /// Get the length of the fields string representation
   int getLength() const
-    { return m_length; }
+  {
+    const_cast<FieldBase*>(this)->calculate(); 
+    return m_length; 
+  }
 
   /// Get the total value the fields characters added together
   int getTotal() const
-    { return m_total; }
+  {
+    const_cast<FieldBase*>(this)->calculate(); 
+    return m_total; 
+  }
 
   /// Compares fields based on thier tag numbers
   bool operator < ( const FieldBase& field ) const
@@ -91,6 +103,8 @@ public:
 private:
   void calculate()
   {
+    if( m_calculated ) return;
+
     char buf[64];
 
     if( 13 + m_string.length() < sizeof(buf) )
@@ -108,6 +122,8 @@ private:
 
     const char* iter = m_data.c_str();
     m_total = std::accumulate( iter, iter + m_length, 0 );
+
+    m_calculated = true;
   }
 
   int m_field;
@@ -115,6 +131,7 @@ private:
   std::string m_string;
   int m_length;
   int m_total;
+  mutable bool m_calculated;
 };
 /*! @} */
 
