@@ -61,7 +61,7 @@ throw( MessageParseError )
 }
 
 bool Parser::readFixMessage( std::string& str )
-throw( MessageParseError, SocketRecvFailed )
+throw( MessageParseError )
 { QF_STACK_PUSH(Parser::readFixMessage)
 
   std::string::size_type pos = 0;
