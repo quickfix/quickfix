@@ -145,7 +145,18 @@ struct DoubleConvertor
 
     result = atof( const_cast < char* > ( value.c_str() ) );
     std::string stripped = value;
-    if ( *stripped.begin() == '.' ) stripped = '0' + stripped;
+
+    // add leading zero if none exists
+    if ( *stripped.begin() == '.' ) 
+      stripped = '0' + stripped;
+
+    // remove extra leading zeros
+    while ( stripped.size() > 1 
+            && *(stripped.begin()) == '0' 
+            && isdigit(*(stripped.begin()+1)) )
+    {
+      stripped.erase( stripped.begin() );
+    }
 
     if ( stripped.find( '.' ) != std::string::npos )
     {
@@ -169,7 +180,7 @@ struct DoubleConvertor
 
     // strcmp is being used because == operator is funky under linux
     if ( strcmp( stripped.c_str(), converted.c_str() ) != 0 )
-      return false;
+    return false;
     return true;
   }
 
