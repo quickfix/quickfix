@@ -1,0 +1,90 @@
+	dnl I got a big bag of -*- Sh -*- for you right here
+# Process this file with autoconf to produce a configure script.
+AC_INIT(ordermatch/Application.h)
+AM_INIT_AUTOMAKE(ordermatch, 1.0.0)
+AM_CONFIG_HEADER(config.h)
+# AM_DISABLE_SHARED
+
+# Checks for programs.
+AC_PROG_CXX()
+AC_PROG_CC()
+# AC_PROG_RANLIB
+AC_DISABLE_SHARED
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
+AM_PROG_LEX
+
+########################################
+# STLport
+########################################
+has_stlport=false
+AC_ARG_WITH(stlport,
+    [ --with-stlport=<path> prefix of stlport installation. e.g. /usr/local or /usr], 
+    [has_stlport=true],
+    has_stlport=false
+)
+STLPORT_PREFIX=$with_stlport
+AC_SUBST(STLPORT_PREFIX)
+
+if test $has_stlport = true
+then
+    STLPORT_CFLAGS="-I${STLPORT_PREFIX}/include/stlport"
+    AC_SUBST(STLPORT_CFLAGS)
+    STLPORT_LIBS="-L${STLPORT_PREFIX}/lib -lstlport_gcc"
+    AC_SUBST(STLPORT_LIBS)
+    AC_DEFINE(HAVE_STLPORT, 1, Define if you have stlport library (-lstlport_gcc))
+fi
+########################################
+
+########################################
+# LIBXML
+########################################
+AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
+########################################
+
+LIBS="$LIBS $XML_LIBS $STLPORT_LIBS"
+CXXFLAGS="$CXXFLAGS -I${prefix}/include -Wall $XML_CFLAGS $STLPORT_CFLAGS"
+AC_SUBST(CXXFLAGS)
+CFLAGS="$CFLAGS -I${prefix}/include -Wall $XML_CFLAGS $STLPORT_CFLAGS"
+AC_SUBST(CFLAGS)
+
+AC_LANG_SAVE
+AC_LANG_CPLUSPLUS
+
+AC_MSG_CHECKING(for typeinfo in the global namespace)
+AC_TRY_COMPILE(
+	[#include <typeinfo>],
+	[const typeinfo& ty = typeid(typeinfo);],
+	typeinfo_is_global=true, typeinfo_is_global=false)
+
+if test $typeinfo_is_global = true
+then AC_MSG_RESULT(yes)
+else AC_MSG_RESULT(no)
+    AC_MSG_CHECKING(for typeinfo in the std namespace)
+    AC_TRY_COMPILE(
+    [#include <typeinfo>],
+    [const std::type_info& ty = typeid(std::type_info);],
+    AC_MSG_RESULT(yes)
+    AC_DEFINE(TYPEINFO_IN_STD, 1, 
+    Whether or not we are using the new-style typeinfo header),
+    AC_MSG_RESULT(no)
+    AC_MSG_ERROR(type_info is required by the test library))
+fi
+
+AC_OUTPUT( 
+	Makefile
+	executor/Makefile
+	executor/C++/Makefile
+	executor/java/Makefile
+	executor/java/src/Makefile
+	ordermatch/Makefile
+	ordermatch/test/Makefile
+	tradeclient/Makefile
+	tradeclientgui/Makefile
+	tradeclientgui/banzai/Makefile
+	tradeclientgui/banzai/test/Makefile
+	tradeclientgui/banzai/src/Makefile
+	tradeclientgui/banzai/src/org/Makefile
+	tradeclientgui/banzai/src/org/quickfix/Makefile
+	tradeclientgui/banzai/src/org/quickfix/banzai/Makefile
+	tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile )
