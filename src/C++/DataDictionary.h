@@ -57,6 +57,7 @@
 
 #include "Fields.h"
 #include "FieldMap.h"
+#include "DOMDocument.h"
 #include <set>
 #include <map>
 
@@ -80,8 +81,7 @@ class DataDictionary
   std::pair < int, DataDictionary* > > FieldToGroup;
 
 public:
-DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_lastField( 0 ) {}
+  DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ) {}
   DataDictionary( const DataDictionary& );
   DataDictionary( const std::string& url );
   virtual ~DataDictionary();
@@ -96,17 +96,6 @@ DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
   std::string getVersion() const
   {
     return m_beginString;
-  }
-
-  void setLastField( int field )
-  {
-    if ( field > m_lastField )
-      m_lastField = field;
-  }
-
-  int getLastField() const
-  {
-    return m_lastField;
   }
 
   void addField( int field )
@@ -279,9 +268,8 @@ private:
   void checkValidTagNumber( const FieldBase& field )
   throw( InvalidTagNumber& )
   {
-    if ( field.getField() > getLastField()
-         || field.getField() <= 0 )
-    { throw InvalidTagNumber( field.getField() ); }
+    if( m_fields.find( field.getField() ) == m_fields.end() )
+      throw InvalidTagNumber( field.getField() );
   }
 
   void checkValidFormat( const FieldBase& field )
@@ -384,14 +372,19 @@ private:
   }
 
   /// Read XML file using MSXML.
+  void readMSXMLDOM( const std::string& );
   void readMSXML( const std::string& );
   /// Read XML file using libXML.
   void readLibXml( const std::string& );
 
+  int lookupXMLFieldNumber( DOMDocument*, const std::string& name );
+  void addXMLComponentFields( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary& );
+  void addXMLGroup( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary& );
+  TYPE::Type XMLTypeToType( const std::string& xmlType );
+
   bool m_hasVersion;
   bool m_checkFieldsOutOfOrder;
   BeginString m_beginString;
-  int m_lastField;
   MsgTypeToField m_messageFields;
   MsgTypeToField m_requiredFields;
   MsgTypes m_messages;

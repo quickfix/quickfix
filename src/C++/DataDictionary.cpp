@@ -54,134 +54,14 @@
 #endif
 
 #include "DataDictionary.h"
-#include "SAXContentHandler.h"
+#include "MSXML_DOMDocument.h"
 #include "Message.h"
-
-#ifdef _MSC_VER
-#include <atlbase.h>
-#include <atlconv.h>
-#else
-#include <unistd.h>
-#endif
+#include <fstream>
 
 namespace FIX
 {
-#ifdef _MSC_VER
-class FIXContent : public SAXContentHandlerImpl
-{
-public:
-FIXContent( DataDictionary& dataDictionary ) : m_state( dataDictionary ) {}
-
-private:
-  HRESULT STDMETHODCALLTYPE FIXContent::startElement
-  (
-    /* [in] */ wchar_t *,
-    /* [in] */ int,
-    /* [in] */ wchar_t *localName,
-    /* [in] */ int localNameLen,
-    /* [in] */ wchar_t *,
-    /* [in] */ int,
-    /* [in] */ ISAXAttributes *pAttr )
-  {
-    USES_CONVERSION;
-    std::string elemName =
-      W2A( std::wstring( localName, localNameLen ).c_str() );
-    std::map < std::string, std::string > attrs;
-    int length; pAttr->getLength( &length );
-
-    for ( int i = 0; i < length; ++i )
-    {
-      wchar_t* attrLocalName = 0;
-      int attrLocalNameLen = 0;
-      if ( pAttr->getLocalName( i, &attrLocalName, &attrLocalNameLen ) != S_OK )
-        return E_FAIL;
-
-      wchar_t* attrValue = 0;
-      int attrValueLen = 0;
-      if ( pAttr->getValue( i, &attrValue, &attrValueLen ) != S_OK )
-        return E_FAIL;
-
-      attrs[ W2A( std::wstring( attrLocalName, attrLocalNameLen ).c_str() ) ]
-      = W2A( std::wstring( attrValue, attrValueLen ).c_str() );
-    }
-
-    m_state.startElement( elemName, attrs );
-    return S_OK;
-  }
-
-  virtual HRESULT STDMETHODCALLTYPE endElement
-  (
-    /* [in] */ wchar_t *,
-    /* [in] */ int,
-    /* [in] */ wchar_t *localName,
-    /* [in] */ int localNameLen,
-    /* [in] */ wchar_t *,
-    /* [in] */ int )
-  {
-    USES_CONVERSION;
-    m_state.endElement( W2A( std::wstring( localName, localNameLen ).c_str() ) );
-    return S_OK;
-  }
-
-private:
-  ParserState m_state;
-};
-#else
-void fixStartElement( void* ctx, const xmlChar* name, const xmlChar** xmlAtts )
-{
-  ParserState * pState = static_cast < ParserState* > ( ctx );
-  std::map < std::string, std::string > attrs;
-  if ( xmlAtts != 0 )
-  {
-    while ( *xmlAtts != 0 )
-    {
-      attrs[ ( char* ) * xmlAtts ] = ( char* ) * ( xmlAtts + 1 );
-      xmlAtts += 2;
-    }
-  }
-
-  pState->startElement( ( char* ) name, attrs );
-}
-
-void fixEndElement( void* ctx, const xmlChar* name )
-{
-  ParserState * pState = static_cast < ParserState* > ( ctx );
-  pState->endElement( ( char* ) name );
-}
-
-xmlSAXHandler FIXContent = {
-                             0,                 //internalSubset;
-                             0,                 //isStandalone;
-                             0,                 //hasInternalSubset;
-                             0,                 //hasExternalSubset;
-                             0,                 //resolveEntity;
-                             0,                 //getEntity;
-                             0,                 //entityDecl;
-                             0,                 //notationDecl;
-                             0,                 //attributeDecl;
-                             0,                 // elementDecl;
-                             0,                 //unparsedEntityDecl;
-                             0,                 //setDocumentLocator;
-                             0,                 //startDocument;
-                             0,                 //endDocument;
-                             fixStartElement,                 //startElement;
-                             fixEndElement,                 //endElement;
-                             0,                 //reference;
-                             0,                 //characters;
-                             0,                 //ignorableWhitespace;
-                             0,                 //processingInstruction;
-                             0,                 //comment;
-                             0,                 //warning;
-                             0,                 //error;
-                             0,                 //fatalError;
-                             0,                 //getParameterEntity;
-                             0,                 //cdataBlock;
-                           };
-
-#endif
-
 DataDictionary::DataDictionary( const std::string& url )
-    : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ), m_lastField( 0 )
+    : m_hasVersion( false ), m_checkFieldsOutOfOrder( true )
 {
   readFromURL( url );
 }
@@ -203,7 +83,6 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   m_hasVersion = rhs.m_hasVersion;
   m_checkFieldsOutOfOrder = rhs.m_checkFieldsOutOfOrder;
   m_beginString = rhs.m_beginString;
-  m_lastField = rhs.m_lastField;
   m_messageFields = rhs.m_messageFields;
   m_requiredFields = rhs.m_requiredFields;
   m_messages = rhs.m_messages;
@@ -276,87 +155,284 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
 
 void DataDictionary::readFromURL( const std::string& url )
 {
-#ifdef _MSC_VER
-  readMSXML( url );
-#else
-readLibXml( url );
-#endif
-}
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new MSXML_DOMDocument());
 
-#ifdef _MSC_VER
-void DataDictionary::readMSXML( const std::string& url )
-{
-  CoInitialize( NULL );
-  ISAXXMLReader* pRdr = NULL;
+  std::ifstream file(url.c_str());
+  if(!pDoc->load(file))
+    throw ConfigError("Could not parse data dictionary file " + url);
 
-  HRESULT hr = CoCreateInstance(
-                 __uuidof( SAXXMLReader ),
-                 NULL,
-                 CLSCTX_ALL,
-                 __uuidof( ISAXXMLReader ),
-                 ( void ** ) & pRdr );
+  // VERSION
+  DOMNodePtr pFixNode = pDoc->getNode("/fix");
+  DOMNode::attributes attrs;
+  pFixNode->getAttributes(attrs);
+  DOMNode::attributes::iterator i = attrs.find("major");
+  if( i == attrs.end() )
+    throw ConfigError("Major attribute not found");
+  std::string major = i->second;
+  i = attrs.find("minor");
+  if( i == attrs.end() )
+    throw ConfigError("Minor attribute not found");
+  std::string minor = i->second;
+  setVersion("FIX." + major + "." + minor);
 
-  if ( hr == E_FAIL )
-    throw( ConfigError( "MSXML SAX Parser could not be created" ) );
+  // FIELDS
+  DOMNodePtr pFieldsNode = pDoc->getNode("/fix/fields");
+  if(!pFieldsNode.get()) 
+    throw ConfigError("Fields section not found in data dictionary");
 
-  DWORD bufferLen = 256;
-  char buffer[ 255 ];
-  std::string current;
-#ifdef _MSC_VER
-  if ( url.find( ':' ) == std::string::npos )
+  DOMNodePtr pFieldNode = pFieldsNode->getFirstChildNode();
+  if(!pFieldNode.get()) throw ConfigError("No fields defined");
+
+  while(pFieldNode.get())
   {
-#else
-if ( *url.begin() != '/' )
-  {
-#endif
-    GetCurrentDirectory( bufferLen, buffer );
-    current = buffer; current += "/";
-  }
-
-  USES_CONVERSION;
-  std::wstring wurl = A2W( ( current + url ).c_str() );
-
-  FIXContent* pContent = new FIXContent( *this );
-  hr = pRdr->putContentHandler( pContent );
-  hr = pRdr->parseURL( const_cast < wchar_t* > ( wurl.c_str() ) );
-  if ( FAILED( hr ) )
-    throw ConfigError( "Could not parse XML file " + current + url );
-  pRdr->Release();
-  CoUninitialize();
-}
-
-#else
-
-void DataDictionary::readLibXml( const std::string & url )
-{
-  char buffer[ PATH_MAX ];
-  getcwd( buffer, PATH_MAX );
-  std::string current( buffer );
-  current = current + "/" + url;
-
-  FILE* file = fopen( const_cast < char* > ( current.c_str() ), "r" );
-  if ( file != 0 )
-  {
-    int result;
-    char chars[ 10 ];
-    xmlParserCtxtPtr ctxt;
-    ParserState state( *this );
-
-    result = fread( chars, 1, 4, file );
-    if ( result > 0 )
+    if(pFieldNode->getName() == "field")
     {
-      ctxt = xmlCreatePushParserCtxt
-             ( &FIXContent, &state,
-               chars, result, const_cast < char* > ( current.c_str() ) );
-
-      while ( ( result = fread( chars, 1, 3, file ) ) > 0 )
-        xmlParseChunk( ctxt, chars, result, 0 );
-
-      xmlParseChunk( ctxt, chars, 0, 1 );
-      xmlFreeParserCtxt( ctxt );
+      DOMNode::attributes attrs;
+      pFieldNode->getAttributes(attrs);
+      DOMNode::attributes::iterator i = attrs.find("number");
+      if( i == attrs.end() )
+        throw ConfigError("Field does not have a number attribute");
+      int number = atol(i->second.c_str());
+      i = attrs.find("type");
+      if( i == attrs.end() )
+        throw ConfigError("Field does not have a type attribute");
+      addField(number);
+      addFieldType(number, XMLTypeToType(i->second));
+      i = attrs.find("name");
+      if( i == attrs.end() )
+        throw ConfigError("Field does not have a name attribute");
+      addFieldName(number, i->second);
+      
+      DOMNodePtr pFieldValueNode = pFieldNode->getFirstChildNode();
+      while(pFieldValueNode.get())
+      {
+        DOMNode::attributes attrs;
+        pFieldValueNode->getAttributes(attrs);
+        DOMNode::attributes::iterator i = attrs.find("enum");
+        std::string enumeration = i->second;
+        addFieldValue(number, enumeration);
+        if( i == attrs.end() )
+          throw ConfigError("Value does not have enum attribute");
+        i = attrs.find("description");
+        if( i != attrs.end() )
+          addValueName(number, enumeration, i->second);
+        pFieldValueNode = pFieldValueNode->getNextSiblingNode();
+      }
     }
-    fclose( file );
+    pFieldNode = pFieldNode->getNextSiblingNode();
+  }
+
+  // HEADER
+  DOMNodePtr pHeaderNode = pDoc->getNode("/fix/header");
+  if(!pHeaderNode.get()) 
+    throw ConfigError("Header section not found in data dictionary");
+
+  DOMNodePtr pHeaderFieldNode = pHeaderNode->getFirstChildNode();
+  if(!pHeaderFieldNode.get()) throw ConfigError("No header fields defined");  
+
+  while(pHeaderFieldNode.get())
+  {
+    if(pHeaderFieldNode->getName() == "field")
+    {
+      DOMNode::attributes attrs;
+      pHeaderFieldNode->getAttributes(attrs);
+      DOMNode::attributes::iterator i = attrs.find("name");
+      if(i == attrs.end())
+        throw ConfigError("Field does not have a name attribute");
+      addHeaderField(lookupXMLFieldNumber(pDoc.get(), i->second));
+    }
+    pHeaderFieldNode = pHeaderFieldNode->getNextSiblingNode();
+  }
+
+  // TRAILER
+  DOMNodePtr pTrailerNode = pDoc->getNode("/fix/trailer");
+  if(!pTrailerNode.get()) 
+    throw ConfigError("Trailer section not found in data dictionary");
+
+  DOMNodePtr pTrailerFieldNode = pTrailerNode->getFirstChildNode();
+  if(!pTrailerFieldNode.get()) throw ConfigError("No trailer fields defined");  
+
+  while(pTrailerFieldNode.get())
+  {
+    if(pTrailerFieldNode->getName() == "field")
+    {
+      DOMNode::attributes attrs;
+      pTrailerFieldNode->getAttributes(attrs);
+      DOMNode::attributes::iterator i = attrs.find("name");
+      if(i == attrs.end())
+        throw ConfigError("Field does not have a name attribute");
+      addTrailerField(lookupXMLFieldNumber(pDoc.get(), i->second));
+    }
+    pTrailerFieldNode = pTrailerFieldNode->getNextSiblingNode();
+  }
+  
+  // MSGTYPE
+  DOMNodePtr pMessagesNode = pDoc->getNode("/fix/messages");
+  if(!pMessagesNode.get()) 
+    throw ConfigError("Messages section not found in data dictionary");
+
+  DOMNodePtr pMessageNode = pMessagesNode->getFirstChildNode();
+  if(!pMessageNode.get()) throw ConfigError("No messages defined");  
+
+  while(pMessageNode.get())
+  {
+    if(pMessageNode->getName() == "message")
+    {
+      DOMNode::attributes attrs;
+      pMessageNode->getAttributes(attrs);
+      DOMNode::attributes::iterator i = attrs.find("msgtype");
+      if(i == attrs.end())
+        throw ConfigError("Field does not have a name attribute");
+      std::string msgtype = i->second;
+      addMsgType(msgtype);
+
+      i = attrs.find("name");
+      if(i != attrs.end())
+        addValueName( 35, msgtype, i->second );
+
+      DOMNodePtr pMessageFieldNode = pMessageNode->getFirstChildNode();
+      if( !pMessageFieldNode.get() ) throw ConfigError("Message contains no fields");
+      while( pMessageFieldNode.get() )
+      {
+        if(pMessageFieldNode->getName() == "field")
+        {
+          pMessageFieldNode->getAttributes(attrs);
+          i = attrs.find("name");
+          if(i == attrs.end()) 
+            throw ConfigError("Field does not have a number attribute");
+          int number = lookupXMLFieldNumber(pDoc.get(), i->second);
+          addMsgField(msgtype, number);
+          i = attrs.find("required");
+          if(i != attrs.end() && (i->second == "Y" || i->second == "y"))
+            addRequiredField(msgtype, number);
+        }
+        else if(pMessageFieldNode->getName() == "component")
+        {
+          addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
+        }
+        else if(pMessageFieldNode->getName() == "group")
+        {
+          addXMLGroup(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
+        }
+        pMessageFieldNode = pMessageFieldNode->getNextSiblingNode();
+      }
+    }
+    pMessageNode = pMessageNode->getNextSiblingNode();
+  } 
+}
+
+int DataDictionary::lookupXMLFieldNumber
+  ( DOMDocument* pDoc, const std::string& name )
+{
+  DOMNode::attributes attrs;
+  DOMNode::attributes::iterator i;
+  DOMNodePtr pFieldNode =
+    pDoc->getNode("/fix/fields/field[@name='" + name + "']");
+  if(!pFieldNode.get())
+    throw ConfigError("Trailer field not defined in fields section");
+  pFieldNode->getAttributes(attrs);
+  i = attrs.find("number");
+  if(i == attrs.end())
+    throw ConfigError("Field does not have a number attribute");
+  return atol(i->second.c_str());
+}
+
+void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode, 
+                                            const std::string& msgtype, DataDictionary& DD )
+{
+  DOMNode::attributes attrs;
+  DOMNode::attributes::iterator i;
+  pNode->getAttributes(attrs);
+  i = attrs.find("name");
+  if( i == attrs.end() ) throw ConfigError("No name given to component");
+  std::string name = i->second;
+
+  DOMNodePtr pComponentNode =
+    pDoc->getNode("/fix/components/component[@name='" + name + "']");
+  
+  DOMNodePtr pComponentFieldNode = pComponentNode->getFirstChildNode();
+  while(pComponentFieldNode.get())
+  {
+    if(pComponentFieldNode->getName() == "field")
+    {
+      pComponentFieldNode->getAttributes(attrs);
+      i = attrs.find("name");
+      if( i == attrs.end() ) throw ConfigError("No name given to field");      
+      int field = lookupXMLFieldNumber(pDoc, i->second);
+      DD.addField(field);
+      DD.addMsgField(msgtype, field);
+    }
+    pComponentFieldNode = pComponentFieldNode->getNextSiblingNode();
   }
 }
-#endif
+
+void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode, 
+                                  const std::string& msgtype, DataDictionary& DD )
+{
+  DOMNode::attributes attrs;
+  DOMNode::attributes::iterator i;
+  pNode->getAttributes(attrs);
+  i = attrs.find("name");
+  if( i == attrs.end() ) throw ConfigError("No name given to group");
+  std::string name = i->second;
+
+  int group = lookupXMLFieldNumber( pDoc, name );
+  int delim = 0;
+  DataDictionary groupDD;
+  DOMNodePtr node = pNode->getFirstChildNode();
+  while(node.get())
+  {
+    if( node->getName() == "field" )
+    {
+      node->getAttributes(attrs);
+      i = attrs.find("name");
+      if( i == attrs.end() ) throw ConfigError("No name given to field");
+      int field = lookupXMLFieldNumber( pDoc, i->second );
+      if( delim == 0 ) delim = field;
+      groupDD.addField( field );
+    }
+    else if( node->getName() == "component" )
+    {
+      addXMLComponentFields( pDoc, node.get(), msgtype, groupDD );
+    }
+    else if( node->getName() == "group" )
+    {
+      addXMLGroup( pDoc, node.get(), msgtype, groupDD );
+    }
+    node = node->getNextSiblingNode();
+  }
+
+  if( delim ) DD.addGroup( msgtype, group, delim, groupDD );
+}
+
+TYPE::Type DataDictionary::XMLTypeToType( const std::string& type )
+{
+  if ( m_beginString < "FIX.4.2" && type == "CHAR" )
+    return TYPE::String;
+
+  if ( type == "STRING" ) return TYPE::String;
+  if ( type == "CHAR" ) return TYPE::Char;
+  if ( type == "PRICE" ) return TYPE::Price;
+  if ( type == "INT" ) return TYPE::Int;
+  if ( type == "AMT" ) return TYPE::Amt;
+  if ( type == "QTY" ) return TYPE::Qty;
+  if ( type == "CURRENCY" ) return TYPE::Currency;
+  if ( type == "MULTIPLEVALUESTRING" ) return TYPE::MultipleValueString;
+  if ( type == "EXCHANGE" ) return TYPE::Exchange;
+  if ( type == "UTCTIMESTAMP" ) return TYPE::UtcTimeStamp;
+  if ( type == "BOOLEAN" ) return TYPE::Boolean;
+  if ( type == "LOCALMKTDATE" ) return TYPE::LocalMktDate;
+  if ( type == "DATA" ) return TYPE::Data;
+  if ( type == "FLOAT" ) return TYPE::Float;
+  if ( type == "PRICEOFFSET" ) return TYPE::PriceOffset;
+  if ( type == "MONTHYEAR" ) return TYPE::MonthYear;
+  if ( type == "DAYOFMONTH" ) return TYPE::DayOfMonth;
+  if ( type == "UTCDATE" ) return TYPE::UtcDate;
+  if ( type == "UTCTIMEONLY" ) return TYPE::UtcTimeOnly;
+  if ( type == "NUMINGROUP" ) return TYPE::NumInGroup;
+  if ( type == "COUNTRY" ) return TYPE::Country;
+  if ( type == "PERCENTAGE" ) return TYPE::Percentage;
+  if ( type == "LENGTH" ) return TYPE::Length;
+  return TYPE::Unknown;
+}
 }
