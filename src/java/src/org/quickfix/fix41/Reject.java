@@ -18,34 +18,18 @@ public class Reject extends Message
   } 
 
   public void set(org.quickfix.field.RefSeqNum value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.RefSeqNum get(org.quickfix.field.RefSeqNum value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.RefSeqNum getRefSeqNum() throws FieldNotFound
-  { 
-    org.quickfix.field.RefSeqNum value = new org.quickfix.field.RefSeqNum();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.RefSeqNum get(org.quickfix.field.RefSeqNum value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.RefSeqNum getRefSeqNum() throws FieldNotFound 
+  { org.quickfix.field.RefSeqNum value = new org.quickfix.field.RefSeqNum(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.Text value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.Text getText() throws FieldNotFound
-  { 
-    org.quickfix.field.Text value = new org.quickfix.field.Text();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.Text getText() throws FieldNotFound 
+  { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
+    getField(value); return value; } 
 } 

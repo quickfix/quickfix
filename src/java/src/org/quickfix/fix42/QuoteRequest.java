@@ -20,40 +20,58 @@ public class QuoteRequest extends Message
   } 
 
   public void set(org.quickfix.field.QuoteReqID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteReqID get(org.quickfix.field.QuoteReqID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteReqID get(org.quickfix.field.QuoteReqID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound 
+  { org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.NoRelatedSym value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound
-  { 
-    org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
+  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
+    getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
-    super(146,55, new int[]{55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,140,303,336,54,38,64,40,193,192,126,60,15,0}); 
+    super(146, 15, 
+    new int[] { 
+               55, 
+               65, 
+               48, 
+               22, 
+               167, 
+               200, 
+               205, 
+               201, 
+               202, 
+               206, 
+               231, 
+               223, 
+               207, 
+               106, 
+               348, 
+               349, 
+               107, 
+               350, 
+               351, 
+               140, 
+               303, 
+               336, 
+               54, 
+               38, 
+               64, 
+               40, 
+               193, 
+               192, 
+               126, 
+               60, 
+               15, 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.Symbol value) 
   { setField(value); } 

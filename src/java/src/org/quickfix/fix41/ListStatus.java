@@ -24,88 +24,56 @@ public class ListStatus extends Message
   } 
 
   public void set(org.quickfix.field.ListID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.ListID get(org.quickfix.field.ListID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.ListID getListID() throws FieldNotFound
-  { 
-    org.quickfix.field.ListID value = new org.quickfix.field.ListID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.ListID get(org.quickfix.field.ListID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.ListID getListID() throws FieldNotFound 
+  { org.quickfix.field.ListID value = new org.quickfix.field.ListID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.WaveNo value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.WaveNo get(org.quickfix.field.WaveNo value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.WaveNo getWaveNo() throws FieldNotFound
-  { 
-    org.quickfix.field.WaveNo value = new org.quickfix.field.WaveNo();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.WaveNo get(org.quickfix.field.WaveNo value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.WaveNo getWaveNo() throws FieldNotFound 
+  { org.quickfix.field.WaveNo value = new org.quickfix.field.WaveNo(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.NoRpts value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.NoRpts get(org.quickfix.field.NoRpts value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.NoRpts getNoRpts() throws FieldNotFound
-  { 
-    org.quickfix.field.NoRpts value = new org.quickfix.field.NoRpts();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.NoRpts get(org.quickfix.field.NoRpts value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoRpts getNoRpts() throws FieldNotFound 
+  { org.quickfix.field.NoRpts value = new org.quickfix.field.NoRpts(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.RptSeq value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.RptSeq get(org.quickfix.field.RptSeq value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.RptSeq getRptSeq() throws FieldNotFound
-  { 
-    org.quickfix.field.RptSeq value = new org.quickfix.field.RptSeq();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.RptSeq get(org.quickfix.field.RptSeq value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.RptSeq getRptSeq() throws FieldNotFound 
+  { org.quickfix.field.RptSeq value = new org.quickfix.field.RptSeq(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.NoOrders value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound
-  { 
-    org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
+  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
+    getField(value); return value; } 
 
 public static class NoOrders extends Group { 
   public NoOrders() { 
-    super(73,11, new int[]{11,14,151,84,6,0}); 
+    super(73, 6, 
+    new int[] { 
+               11, 
+               14, 
+               151, 
+               84, 
+               6, 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.ClOrdID value) 
   { setField(value); } 

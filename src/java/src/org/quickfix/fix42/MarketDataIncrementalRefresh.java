@@ -18,40 +18,83 @@ public class MarketDataIncrementalRefresh extends Message
   } 
 
   public void set(org.quickfix.field.MDReqID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.MDReqID get(org.quickfix.field.MDReqID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.MDReqID getMDReqID() throws FieldNotFound
-  { 
-    org.quickfix.field.MDReqID value = new org.quickfix.field.MDReqID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.MDReqID get(org.quickfix.field.MDReqID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.MDReqID getMDReqID() throws FieldNotFound 
+  { org.quickfix.field.MDReqID value = new org.quickfix.field.MDReqID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.NoMDEntries value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.NoMDEntries get(org.quickfix.field.NoMDEntries value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.NoMDEntries getNoMDEntries() throws FieldNotFound
-  { 
-    org.quickfix.field.NoMDEntries value = new org.quickfix.field.NoMDEntries();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.NoMDEntries get(org.quickfix.field.NoMDEntries value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoMDEntries getNoMDEntries() throws FieldNotFound 
+  { org.quickfix.field.NoMDEntries value = new org.quickfix.field.NoMDEntries(); 
+    getField(value); return value; } 
 
 public static class NoMDEntries extends Group { 
   public NoMDEntries() { 
-    super(268,279, new int[]{279,285,269,278,280,55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,291,292,270,15,271,272,273,274,275,336,276,277,282,283,284,286,59,432,126,110,18,287,37,299,288,289,346,290,387,58,354,355,0}); 
+    super(268, 15, 
+    new int[] { 
+               279, 
+               285, 
+               269, 
+               278, 
+               280, 
+               55, 
+               65, 
+               48, 
+               22, 
+               167, 
+               200, 
+               205, 
+               201, 
+               202, 
+               206, 
+               231, 
+               223, 
+               207, 
+               106, 
+               348, 
+               349, 
+               107, 
+               350, 
+               351, 
+               291, 
+               292, 
+               270, 
+               15, 
+               271, 
+               272, 
+               273, 
+               274, 
+               275, 
+               336, 
+               276, 
+               277, 
+               282, 
+               283, 
+               284, 
+               286, 
+               59, 
+               432, 
+               126, 
+               110, 
+               18, 
+               287, 
+               37, 
+               299, 
+               288, 
+               289, 
+               346, 
+               290, 
+               387, 
+               58, 
+               354, 
+               355, 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.MDUpdateAction value) 
   { setField(value); } 

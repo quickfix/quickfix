@@ -20,104 +20,82 @@ public class MassQuote extends Message
   } 
 
   public void set(org.quickfix.field.QuoteReqID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteReqID get(org.quickfix.field.QuoteReqID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteReqID get(org.quickfix.field.QuoteReqID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound 
+  { org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.QuoteID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteID get(org.quickfix.field.QuoteID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteID getQuoteID() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteID value = new org.quickfix.field.QuoteID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteID get(org.quickfix.field.QuoteID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteID getQuoteID() throws FieldNotFound 
+  { org.quickfix.field.QuoteID value = new org.quickfix.field.QuoteID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.QuoteResponseLevel value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteResponseLevel get(org.quickfix.field.QuoteResponseLevel value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteResponseLevel getQuoteResponseLevel() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteResponseLevel value = new org.quickfix.field.QuoteResponseLevel();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteResponseLevel get(org.quickfix.field.QuoteResponseLevel value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteResponseLevel getQuoteResponseLevel() throws FieldNotFound 
+  { org.quickfix.field.QuoteResponseLevel value = new org.quickfix.field.QuoteResponseLevel(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.DefBidSize value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.DefBidSize get(org.quickfix.field.DefBidSize value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.DefBidSize getDefBidSize() throws FieldNotFound
-  { 
-    org.quickfix.field.DefBidSize value = new org.quickfix.field.DefBidSize();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.DefBidSize get(org.quickfix.field.DefBidSize value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.DefBidSize getDefBidSize() throws FieldNotFound 
+  { org.quickfix.field.DefBidSize value = new org.quickfix.field.DefBidSize(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.DefOfferSize value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.DefOfferSize get(org.quickfix.field.DefOfferSize value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.DefOfferSize getDefOfferSize() throws FieldNotFound
-  { 
-    org.quickfix.field.DefOfferSize value = new org.quickfix.field.DefOfferSize();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.DefOfferSize get(org.quickfix.field.DefOfferSize value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.DefOfferSize getDefOfferSize() throws FieldNotFound 
+  { org.quickfix.field.DefOfferSize value = new org.quickfix.field.DefOfferSize(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.NoQuoteSets value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.NoQuoteSets get(org.quickfix.field.NoQuoteSets value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.NoQuoteSets getNoQuoteSets() throws FieldNotFound
-  { 
-    org.quickfix.field.NoQuoteSets value = new org.quickfix.field.NoQuoteSets();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.NoQuoteSets get(org.quickfix.field.NoQuoteSets value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoQuoteSets getNoQuoteSets() throws FieldNotFound 
+  { org.quickfix.field.NoQuoteSets value = new org.quickfix.field.NoQuoteSets(); 
+    getField(value); return value; } 
 
 public static class NoQuoteSets extends Group { 
   public NoQuoteSets() { 
-    super(296,302, new int[]{302,311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,367,304,295,0}); 
+    super(296, 295, 
+    new int[] { 
+               302, 
+               311, 
+               312, 
+               309, 
+               305, 
+               310, 
+               313, 
+               314, 
+               315, 
+               316, 
+               317, 
+               436, 
+               435, 
+               308, 
+               306, 
+               362, 
+               363, 
+               307, 
+               364, 
+               365, 
+               367, 
+               304, 
+               295, 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.QuoteSetID value) 
   { setField(value); } 
@@ -306,7 +284,10 @@ public static class NoQuoteSets extends Group {
 
 public static class NoQuoteEntries extends Group { 
   public NoQuoteEntries() { 
-    super(295,299, new int[]{299,55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,132,133,134,135,62,188,190,189,191,60,336,64,40,193,192,15,0}); 
+    super(295, 15, 
+    new int[] { 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.QuoteEntryID value) 
   { setField(value); } 

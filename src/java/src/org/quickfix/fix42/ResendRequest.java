@@ -20,34 +20,18 @@ public class ResendRequest extends Message
   } 
 
   public void set(org.quickfix.field.BeginSeqNo value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.BeginSeqNo get(org.quickfix.field.BeginSeqNo value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.BeginSeqNo getBeginSeqNo() throws FieldNotFound
-  { 
-    org.quickfix.field.BeginSeqNo value = new org.quickfix.field.BeginSeqNo();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.BeginSeqNo get(org.quickfix.field.BeginSeqNo value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.BeginSeqNo getBeginSeqNo() throws FieldNotFound 
+  { org.quickfix.field.BeginSeqNo value = new org.quickfix.field.BeginSeqNo(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.EndSeqNo value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.EndSeqNo get(org.quickfix.field.EndSeqNo value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.EndSeqNo getEndSeqNo() throws FieldNotFound
-  { 
-    org.quickfix.field.EndSeqNo value = new org.quickfix.field.EndSeqNo();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.EndSeqNo get(org.quickfix.field.EndSeqNo value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.EndSeqNo getEndSeqNo() throws FieldNotFound 
+  { org.quickfix.field.EndSeqNo value = new org.quickfix.field.EndSeqNo(); 
+    getField(value); return value; } 
 } 

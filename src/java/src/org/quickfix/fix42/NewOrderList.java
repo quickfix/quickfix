@@ -24,200 +24,181 @@ public class NewOrderList extends Message
   } 
 
   public void set(org.quickfix.field.ListID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.ListID get(org.quickfix.field.ListID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.ListID getListID() throws FieldNotFound
-  { 
-    org.quickfix.field.ListID value = new org.quickfix.field.ListID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.ListID get(org.quickfix.field.ListID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.ListID getListID() throws FieldNotFound 
+  { org.quickfix.field.ListID value = new org.quickfix.field.ListID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.BidID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.BidID get(org.quickfix.field.BidID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.BidID getBidID() throws FieldNotFound
-  { 
-    org.quickfix.field.BidID value = new org.quickfix.field.BidID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.BidID get(org.quickfix.field.BidID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.BidID getBidID() throws FieldNotFound 
+  { org.quickfix.field.BidID value = new org.quickfix.field.BidID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.ClientBidID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.ClientBidID get(org.quickfix.field.ClientBidID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.ClientBidID getClientBidID() throws FieldNotFound
-  { 
-    org.quickfix.field.ClientBidID value = new org.quickfix.field.ClientBidID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.ClientBidID get(org.quickfix.field.ClientBidID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.ClientBidID getClientBidID() throws FieldNotFound 
+  { org.quickfix.field.ClientBidID value = new org.quickfix.field.ClientBidID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.ProgRptReqs value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.ProgRptReqs get(org.quickfix.field.ProgRptReqs value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.ProgRptReqs getProgRptReqs() throws FieldNotFound
-  { 
-    org.quickfix.field.ProgRptReqs value = new org.quickfix.field.ProgRptReqs();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.ProgRptReqs get(org.quickfix.field.ProgRptReqs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.ProgRptReqs getProgRptReqs() throws FieldNotFound 
+  { org.quickfix.field.ProgRptReqs value = new org.quickfix.field.ProgRptReqs(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.BidType value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.BidType get(org.quickfix.field.BidType value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.BidType getBidType() throws FieldNotFound
-  { 
-    org.quickfix.field.BidType value = new org.quickfix.field.BidType();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.BidType get(org.quickfix.field.BidType value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.BidType getBidType() throws FieldNotFound 
+  { org.quickfix.field.BidType value = new org.quickfix.field.BidType(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.ProgPeriodInterval value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.ProgPeriodInterval get(org.quickfix.field.ProgPeriodInterval value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.ProgPeriodInterval getProgPeriodInterval() throws FieldNotFound
-  { 
-    org.quickfix.field.ProgPeriodInterval value = new org.quickfix.field.ProgPeriodInterval();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.ProgPeriodInterval get(org.quickfix.field.ProgPeriodInterval value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.ProgPeriodInterval getProgPeriodInterval() throws FieldNotFound 
+  { org.quickfix.field.ProgPeriodInterval value = new org.quickfix.field.ProgPeriodInterval(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.ListExecInstType value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.ListExecInstType get(org.quickfix.field.ListExecInstType value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.ListExecInstType getListExecInstType() throws FieldNotFound
-  { 
-    org.quickfix.field.ListExecInstType value = new org.quickfix.field.ListExecInstType();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.ListExecInstType get(org.quickfix.field.ListExecInstType value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.ListExecInstType getListExecInstType() throws FieldNotFound 
+  { org.quickfix.field.ListExecInstType value = new org.quickfix.field.ListExecInstType(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.ListExecInst value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.ListExecInst get(org.quickfix.field.ListExecInst value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.ListExecInst getListExecInst() throws FieldNotFound
-  { 
-    org.quickfix.field.ListExecInst value = new org.quickfix.field.ListExecInst();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.ListExecInst get(org.quickfix.field.ListExecInst value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.ListExecInst getListExecInst() throws FieldNotFound 
+  { org.quickfix.field.ListExecInst value = new org.quickfix.field.ListExecInst(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.EncodedListExecInstLen value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.EncodedListExecInstLen get(org.quickfix.field.EncodedListExecInstLen value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.EncodedListExecInstLen getEncodedListExecInstLen() throws FieldNotFound
-  { 
-    org.quickfix.field.EncodedListExecInstLen value = new org.quickfix.field.EncodedListExecInstLen();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.EncodedListExecInstLen get(org.quickfix.field.EncodedListExecInstLen value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.EncodedListExecInstLen getEncodedListExecInstLen() throws FieldNotFound 
+  { org.quickfix.field.EncodedListExecInstLen value = new org.quickfix.field.EncodedListExecInstLen(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.EncodedListExecInst value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.EncodedListExecInst get(org.quickfix.field.EncodedListExecInst value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.EncodedListExecInst getEncodedListExecInst() throws FieldNotFound
-  { 
-    org.quickfix.field.EncodedListExecInst value = new org.quickfix.field.EncodedListExecInst();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.EncodedListExecInst get(org.quickfix.field.EncodedListExecInst value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.EncodedListExecInst getEncodedListExecInst() throws FieldNotFound 
+  { org.quickfix.field.EncodedListExecInst value = new org.quickfix.field.EncodedListExecInst(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.TotNoOrders value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.TotNoOrders get(org.quickfix.field.TotNoOrders value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.TotNoOrders getTotNoOrders() throws FieldNotFound
-  { 
-    org.quickfix.field.TotNoOrders value = new org.quickfix.field.TotNoOrders();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.TotNoOrders get(org.quickfix.field.TotNoOrders value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.TotNoOrders getTotNoOrders() throws FieldNotFound 
+  { org.quickfix.field.TotNoOrders value = new org.quickfix.field.TotNoOrders(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.NoOrders value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound
-  { 
-    org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
+  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
+    getField(value); return value; } 
 
 public static class NoOrders extends Group { 
   public NoOrders() { 
-    super(73,11, new int[]{11,67,160,109,76,1,78,63,64,21,18,110,111,100,386,81,55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,140,54,401,114,60,38,152,40,44,99,15,376,377,23,117,59,168,432,126,427,12,13,47,121,120,58,354,355,193,192,77,203,204,210,211,388,389,439,440,0}); 
+    super(73, 1, 
+    new int[] { 
+               11, 
+               67, 
+               160, 
+               109, 
+               76, 
+               1, 
+               78, 
+               63, 
+               64, 
+               21, 
+               18, 
+               110, 
+               111, 
+               100, 
+               386, 
+               81, 
+               55, 
+               65, 
+               48, 
+               22, 
+               167, 
+               200, 
+               205, 
+               201, 
+               202, 
+               206, 
+               231, 
+               223, 
+               207, 
+               106, 
+               348, 
+               349, 
+               107, 
+               350, 
+               351, 
+               140, 
+               54, 
+               401, 
+               114, 
+               60, 
+               38, 
+               152, 
+               40, 
+               44, 
+               99, 
+               15, 
+               376, 
+               377, 
+               23, 
+               117, 
+               59, 
+               168, 
+               432, 
+               126, 
+               427, 
+               12, 
+               13, 
+               47, 
+               121, 
+               120, 
+               58, 
+               354, 
+               355, 
+               193, 
+               192, 
+               77, 
+               203, 
+               204, 
+               210, 
+               211, 
+               388, 
+               389, 
+               439, 
+               440, 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.ClOrdID value) 
   { setField(value); } 
@@ -814,7 +795,10 @@ public static class NoOrders extends Group {
 
 public static class NoAllocs extends Group { 
   public NoAllocs() { 
-    super(78,79, new int[]{79,80,0}); 
+    super(78, 79, 
+    new int[] { 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.AllocAccount value) 
   { setField(value); } 
@@ -836,7 +820,10 @@ public static class NoAllocs extends Group {
 
 public static class NoTradingSessions extends Group { 
   public NoTradingSessions() { 
-    super(386,336, new int[]{336,0}); 
+    super(386, 336, 
+    new int[] { 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.TradingSessionID value) 
   { setField(value); } 

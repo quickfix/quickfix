@@ -22,104 +22,79 @@ public class QuoteCancel extends Message
   } 
 
   public void set(org.quickfix.field.QuoteReqID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteReqID get(org.quickfix.field.QuoteReqID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteReqID get(org.quickfix.field.QuoteReqID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound 
+  { org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.QuoteID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteID get(org.quickfix.field.QuoteID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteID getQuoteID() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteID value = new org.quickfix.field.QuoteID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteID get(org.quickfix.field.QuoteID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteID getQuoteID() throws FieldNotFound 
+  { org.quickfix.field.QuoteID value = new org.quickfix.field.QuoteID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.QuoteCancelType value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteCancelType get(org.quickfix.field.QuoteCancelType value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteCancelType getQuoteCancelType() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteCancelType value = new org.quickfix.field.QuoteCancelType();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteCancelType get(org.quickfix.field.QuoteCancelType value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteCancelType getQuoteCancelType() throws FieldNotFound 
+  { org.quickfix.field.QuoteCancelType value = new org.quickfix.field.QuoteCancelType(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.QuoteResponseLevel value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.QuoteResponseLevel get(org.quickfix.field.QuoteResponseLevel value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.QuoteResponseLevel getQuoteResponseLevel() throws FieldNotFound
-  { 
-    org.quickfix.field.QuoteResponseLevel value = new org.quickfix.field.QuoteResponseLevel();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.QuoteResponseLevel get(org.quickfix.field.QuoteResponseLevel value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.QuoteResponseLevel getQuoteResponseLevel() throws FieldNotFound 
+  { org.quickfix.field.QuoteResponseLevel value = new org.quickfix.field.QuoteResponseLevel(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.TradingSessionID value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.TradingSessionID get(org.quickfix.field.TradingSessionID value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound
-  { 
-    org.quickfix.field.TradingSessionID value = new org.quickfix.field.TradingSessionID();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.TradingSessionID get(org.quickfix.field.TradingSessionID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound 
+  { org.quickfix.field.TradingSessionID value = new org.quickfix.field.TradingSessionID(); 
+    getField(value); return value; } 
 
   public void set(org.quickfix.field.NoQuoteEntries value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.NoQuoteEntries get(org.quickfix.field.NoQuoteEntries value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.NoQuoteEntries getNoQuoteEntries() throws FieldNotFound
-  { 
-    org.quickfix.field.NoQuoteEntries value = new org.quickfix.field.NoQuoteEntries();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.NoQuoteEntries get(org.quickfix.field.NoQuoteEntries value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoQuoteEntries getNoQuoteEntries() throws FieldNotFound 
+  { org.quickfix.field.NoQuoteEntries value = new org.quickfix.field.NoQuoteEntries(); 
+    getField(value); return value; } 
 
 public static class NoQuoteEntries extends Group { 
   public NoQuoteEntries() { 
-    super(295,55, new int[]{55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,311,0}); 
+    super(295, 22, 
+    new int[] { 
+               55, 
+               65, 
+               48, 
+               22, 
+               167, 
+               200, 
+               205, 
+               201, 
+               202, 
+               206, 
+               231, 
+               223, 
+               207, 
+               106, 
+               348, 
+               349, 
+               107, 
+               350, 
+               351, 
+               311, 
+               0 } 
+); 
   } 
   public void set(org.quickfix.field.Symbol value) 
   { setField(value); } 

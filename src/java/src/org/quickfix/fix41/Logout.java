@@ -12,18 +12,10 @@ public class Logout extends Message
   } 
 
   public void set(org.quickfix.field.Text value) 
-  { 
-    setField(value); 
-  } 
-  public org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound
-  { 
-    getField(value); 
-    return value; 
-  } 
-  public org.quickfix.field.Text getText() throws FieldNotFound
-  { 
-    org.quickfix.field.Text value = new org.quickfix.field.Text();  
-    getField(value);  
-    return value;  
-  } 
+  { setField(value); } 
+  public org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.Text getText() throws FieldNotFound 
+  { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
+    getField(value); return value; } 
 } 
