@@ -47,6 +47,22 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Session_lookupSession
 JNIEXPORT void JNICALL Java_org_quickfix_Session_reset
   (JNIEnv *, jobject);
 
+/*
+ * Class:     org_quickfix_Session
+ * Method:    setNextSenderMsgSeqNum
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextSenderMsgSeqNum
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     org_quickfix_Session
+ * Method:    setNextTargetMsgSeqNum
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextTargetMsgSeqNum
+  (JNIEnv *, jobject, jint);
+
 #ifdef __cplusplus
 }
 #endif

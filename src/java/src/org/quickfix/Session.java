@@ -49,6 +49,8 @@
 
 package org.quickfix;
 
+import java.io.IOException;
+
 public class Session {
 	private int cppPointer;
 	private Session(int cppPointer) {
@@ -67,5 +69,7 @@ public class Session {
 
     public static native Session lookupSession(SessionID sessionID);
 
-    public native void reset();
+    public native void reset() throws IOException;
+    public native void setNextSenderMsgSeqNum( int num ) throws IOException;
+    public native void setNextTargetMsgSeqNum( int num ) throws IOException;
 }

@@ -85,7 +85,11 @@ public:
   bool sentLogout() { return m_state.sentLogout(); }
   bool receivedLogon() { return m_state.receivedLogon(); }
   bool isLoggedOn() { return receivedLogon() && sentLogon(); }
-  void reset() { disconnect(); m_state.reset(); }
+  void reset() throw( IOException& ) { disconnect(); m_state.reset(); }
+  void setNextSenderMsgSeqNum( int num ) throw( IOException& )
+  { m_state.setNextSenderMsgSeqNum( num ); }
+  void setNextTargetMsgSeqNum( int num ) throw( IOException& )
+  { m_state.setNextTargetMsgSeqNum( num ); }
 
   const SessionID& getSessionID() const { return m_sessionID; }
 

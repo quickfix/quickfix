@@ -51,6 +51,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::IO;
 
 #include "quickfix_net.h"
 
@@ -71,5 +72,18 @@ public:
   static bool sendToTarget
   ( Message* message, String* senderCompID, String* targetCompID )
   throw( SessionNotFound* );
+
+  static Session* lookupSession( SessionID* sessionID );
+
+  void reset() throw( IOException* );
+  void setNextSenderMsgSeqNum( int num ) throw( IOException* );
+  void setNextTargetMsgSeqNum( int num ) throw( IOException* );
+
+private:
+  Session(FIX::Session* unmanaged) : m_pUnmanaged(unmanaged) {}
+
+  FIX::Session& unmanaged()
+  { return * m_pUnmanaged; }
+  FIX::Session* m_pUnmanaged;
 };
 }

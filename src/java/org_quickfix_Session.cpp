@@ -165,5 +165,46 @@ JNIEXPORT void JNICALL Java_org_quickfix_Session_reset
   JVMObject jobject( obj );
 
   FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
-  pSession->reset();
+  try
+  {
+    pSession->reset();
+  }
+  catch( FIX::IOException& )
+  {
+    throwNew( "Ljava/io/IOException;", "" );
+  }
+}
+
+JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextSenderMsgSeqNum
+(JNIEnv *pEnv, jobject obj, jint num)
+{
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  try
+  {
+    pSession->setNextSenderMsgSeqNum( num );
+  }
+  catch( FIX::IOException& )
+  {
+    throwNew( "Ljava/io/IOException;", "" );
+  }
+}
+
+JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextTargetMsgSeqNum
+(JNIEnv *pEnv, jobject obj, jint num)
+{
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  try
+  {
+    pSession->setNextTargetMsgSeqNum( num );
+  }
+  catch( FIX::IOException& )
+  {
+    throwNew( "Ljava/io/IOException;", "" );
+  }
 }

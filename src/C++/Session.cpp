@@ -795,20 +795,26 @@ bool Session::doPossDup( const Message& msg )
   const Header & header = msg.getHeader();
   OrigSendingTime origSendingTime;
   SendingTime sendingTime;
+  MsgType msgType;
 
-  if ( !header.isSetField( origSendingTime ) )
-  {
-    generateReject( msg, 1, origSendingTime.getField() );
-    return false;
-  }
-  header.getField( origSendingTime );
+  header.getField( msgType );
   header.getField( sendingTime );
-
-  if ( origSendingTime > sendingTime )
+  
+  if ( msgType != MsgType_SequenceReset )
   {
-    generateReject( msg, 10 );
-    generateLogout();
-    return false;
+    if ( !header.isSetField( origSendingTime ) )
+    {
+      generateReject( msg, 1, origSendingTime.getField() );
+      return false;
+    }
+    header.getField( origSendingTime );
+
+    if ( origSendingTime > sendingTime )
+    {
+      generateReject( msg, 10 );
+      generateLogout();
+      return false;
+    }
   }
   return true;
 }

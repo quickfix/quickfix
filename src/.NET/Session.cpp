@@ -87,4 +87,48 @@ throw( SessionNotFound* )
   }
   catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
 }
+
+Session* Session::lookupSession( SessionID* sessionID )
+{
+  FIX::Session* pSession = FIX::Session::lookupSession(sessionID->unmanaged());
+  if( !pSession ) return 0;
+  return new Session(pSession);
+}
+
+void Session::reset() throw( IOException* )
+{
+  try
+  {
+    unmanaged().reset();
+  }
+  catch( FIX::IOException& )
+  {
+    throw new IOException();
+  }
+}
+
+void Session::setNextSenderMsgSeqNum( int num ) throw( IOException* )
+{
+  try
+  {
+    unmanaged().setNextSenderMsgSeqNum( num );
+  }
+  catch( FIX::IOException& )
+  {
+    throw new IOException();
+  }
+}
+
+void Session::setNextTargetMsgSeqNum( int num ) throw( IOException* )
+{
+  try
+  {
+    unmanaged().setNextTargetMsgSeqNum( num );
+  }
+  catch( FIX::IOException& )
+  {
+    throw new IOException();
+  }
+}
+
 }
