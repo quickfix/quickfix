@@ -82,7 +82,7 @@ throw( MessageParseError& )
     length = IntConvertor::convert( strLength );
     if( length < 0 ) throw MessageParseError();
   }
-  catch( FieldConvertError& e )
+  catch( FieldConvertError& )
   { throw MessageParseError(); }
 
   return true;
