@@ -1,3 +1,46 @@
+1.9.0
+-----
+Session time logic pulled out into new SessionTime class.  Now supports 
+weeklong sessions!  CME conterparties, start your engines!  Use the
+StartDay and EndDay configuration settings.
+
+Massive performance improvements.  Receiving and Sending message rates are
+dramatically improved.
+
+SessionQualifier added which allows you to uniquely identify a session with
+otherwise identical characteristics. You can now have multiple sessions
+which share the same BeginString, SenderCompID, and TargetCompID. Use the
+SessionQualifier configuration setting. *NOTE* this necessitated a change in 
+the MySQL schema.  Regenerate your databases.
+
+Fixed some compilation problems which manifested themselves under VB.NET
+
+Administrative processing will be done after receiving a message if necessary.
+This prevents dropping of heartbeats when a session is pegged with
+traffic, causing the session to terminate.
+
+Some improvement in compilation times.  I'd like to see more work done to
+bring them down.
+
+Made several updates and corrections to the data dictionary.
+
+Made compatible with SubPRO compiler. We do not own this compiler so users
+who do will need to keep us up to date on compatability issues.
+
+Fixed some potential memory leaks in the python API.
+
+If a message store cannot be created under java, a proper java exception will
+be thrown.
+
+SessionSettings will throw ConfigError as java exception.
+
+JavaLogFactory throw ConfigError if log cannot be created.
+
+Connection classes correctly propogate RecvFailed exception.
+
+getFieldType exposed in java DataDictionary, although the enumerations are not
+yet exposed.  You need to test against their integer values.
+
 1.8.0
 -----
 Completed python API. Now QuickFIX can be used to FIX enable python scripts. 
