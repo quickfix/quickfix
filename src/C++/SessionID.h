@@ -80,6 +80,21 @@ public:
   const SenderCompID& getSenderCompID() const { return m_senderCompID; }
   const TargetCompID& getTargetCompID() const { return m_targetCompID; }
 
+  /// Get a string representation of the message
+  std::string toString() const
+  { 
+      std::string str;
+      return toString( str );
+  }
+
+  /// Get a string representation without making a copy
+  std::string& toString( std::string& str ) const 
+  {
+	  return str = getBeginString().getValue() + ":" +
+		  getSenderCompID().getValue() + "->" +
+		  getTargetCompID().getValue(); 
+  }
+
   friend bool operator<( const SessionID&, const SessionID& );
   friend bool operator==( const SessionID&, const SessionID& );
   friend bool operator!=( const SessionID&, const SessionID& );
@@ -127,13 +142,11 @@ inline bool operator!=( const SessionID& lhs, const SessionID& rhs )
 }
 
 inline std::ostream& operator<<
-( std::ostream& ostream, const SessionID& sessionID )
+( std::ostream& stream, const SessionID& sessionID )
 {
-  return ostream
-         << sessionID.getBeginString().getValue() << ":"
-         << sessionID.getSenderCompID().getValue() << "->"
-         << sessionID.getTargetCompID().getValue();
+  std::string str;
+  stream << sessionID.toString( str );
+  return stream;
 }
 }
-
 #endif //FIX_SESSIONID_H
