@@ -109,9 +109,10 @@ private:
 
     if( 13 + m_string.length() < sizeof(buf) )
     {
-      m_length = sprintf( buf, "%d=%*.*s\001", m_field,
-                          (int)m_string.length(), (int)m_string.length(),
-                          m_string.data() );
+      int tagLength = sprintf( buf, "%d=", m_field );
+      m_length = tagLength + m_string.length() + 1;
+      memcpy( buf + tagLength, m_string.data(), m_string.length() );
+      buf[m_length - 1] = '\001';
       m_data.assign( buf, m_length );
     }
     else
@@ -121,7 +122,9 @@ private:
     }
 
     const char* iter = m_data.c_str();
-    m_total = std::accumulate( iter, iter + m_length, 0 );
+    for( iter = m_data.c_str(); iter <= m_data.c_str() + m_length; ++iter )
+      m_total += *iter;
+    //m_total = std::accumulate( iter, iter + m_length, 0 );
 
     m_calculated = true;
   }

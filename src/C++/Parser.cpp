@@ -37,12 +37,12 @@ void Parser::allocate( int length )
   char* newBuffer = new char[length+1];
   if( m_readBuffer && m_bufferSize )
   {
-    strncpy(newBuffer, m_readBuffer, length);
-    newBuffer[length] = '\0';
+    memcpy( newBuffer, m_readBuffer, m_bufferSize + 1 );
     delete [] m_readBuffer;
   }
   m_readBuffer = newBuffer;
   m_bufferSize = length;
+  m_readBuffer[m_bufferSize] = '\0';
   m_buffer.reserve( length + 1 );
 
   QF_STACK_POP
@@ -149,7 +149,7 @@ bool Parser::readFromStream() throw( RecvFailed )
   else return true;
 
   m_readBuffer[ size ] = '\0';
-  m_buffer += m_readBuffer;
+  m_buffer.append( m_readBuffer, size );
 
   return true;
 

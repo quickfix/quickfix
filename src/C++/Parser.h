@@ -63,7 +63,8 @@ public:
   bool readFromStream() throw ( RecvFailed );
 
   void setStream( std::istream& stream ) { m_pStream = &stream; }
-  void addToStream( const char* str ) { m_buffer += str; }
+  void addToStream( const char* str, size_t len ) 
+  { m_buffer.append( str, len ); }
 
 private:
   std::istream* m_pStream;

@@ -297,7 +297,7 @@ throw( InvalidMessage )
   {
     FieldBase field = extractField( string, pos, pDataDictionary );
     if ( count < 3 && headerOrder[ count++ ] != field.getField() )
-      if ( doValidation ) throw InvalidMessage();
+      if ( doValidation ) throw InvalidMessage("Header fields out of order");
 
     if ( isHeaderField( field, pDataDictionary ) )
     {
@@ -560,14 +560,14 @@ FieldBase Message::extractField
   std::string::size_type equalSign 
     = string.find_first_of( '=', pos );
   if( equalSign == std::string::npos) 
-    throw InvalidMessage();
+    throw InvalidMessage("Equal sign not found in field");
 
   int field = atol(string.substr( pos, equalSign - pos ).c_str());
 
   std::string::size_type soh =
     string.find_first_of( '\001', equalSign + 1 );
   if ( soh == std::string::npos )
-    throw InvalidMessage();
+    throw InvalidMessage("SOH not found at end of field");
 
   if ( pDD && pDD->isDataField(field) )
   {

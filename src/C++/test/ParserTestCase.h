@@ -47,7 +47,7 @@ public:
 private:
   typedef CPPTest::Test < Parser > Test;
 
-class extractLength : public Test
+  class extractLength : public Test
   {
     bool onSetup( Parser*& pObject );
     void onRun( Parser& object );
@@ -60,7 +60,7 @@ class extractLength : public Test
   }
   m_extractLength;
 
-class readFixMessage : public Test
+  class readFixMessage : public Test
   {
     bool onSetup( Parser*& pObject );
     void onRun( Parser& object );
@@ -72,7 +72,7 @@ class readFixMessage : public Test
   }
   m_readFixMessage;
 
-class readPartialFixMessage : public Test
+  class readPartialFixMessage : public Test
   {
     bool onSetup( Parser*& pObject );
     void onRun( Parser& object );
@@ -84,7 +84,7 @@ class readPartialFixMessage : public Test
   }
   m_readPartialFixMessage;
 
-class readFromSocket : public Test
+  class readFromSocket : public Test
   {
   public:
   readFromSocket( short port ) : m_port( port ) {}
@@ -99,6 +99,7 @@ class readFromSocket : public Test
     std::string m_fixMsg1, m_fixMsg2;
     std::string m_partFixMsg1, m_partFixMsg2;
     std::string m_fixMsg3;
+    std::string m_fixMsgWithNull;
     short m_port;
     SocketServer* m_pServer;
     SocketConnector* m_pConnector;

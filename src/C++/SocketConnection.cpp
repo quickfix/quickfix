@@ -103,9 +103,9 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
     {
       m_pSession = Session::lookupSession( msg, true );
       if ( m_pSession ) 
-	      m_pSession = Session::registerSession( m_pSession->getSessionID() );
+        m_pSession = Session::registerSession( m_pSession->getSessionID() );
       if ( m_pSession ) 
-	      m_pSession = a.getSession( msg, *this );
+        m_pSession = a.getSession( msg, *this );
     }
 
     if ( m_pSession )

@@ -55,9 +55,9 @@ ThreadedSocketConnection::~ThreadedSocketConnection()
   if ( m_queueThreadSpawned == true )
     thread_join( m_queueThread );
 
-  char * buffer = 0;
-  while ( m_queue.pop( buffer ) )
-    if ( buffer ) delete [] buffer;
+  std::pair<size_t, char*> entry;
+  while( m_queue.pop(entry) )
+    delete [] entry.second;
 
   if ( m_pSession )
   {
@@ -81,7 +81,6 @@ void ThreadedSocketConnection::disconnect()
 bool ThreadedSocketConnection::read()
 { QF_STACK_PUSH(ThreadedSocketConnection::read)
 
-  std::string msg;
   int bytes = 0;
   char* buffer = 0;
   try
@@ -96,15 +95,15 @@ bool ThreadedSocketConnection::read()
     if ( bytes == 0 ) bytes = 4096;
     buffer = new char[ bytes + 1 ];
     int result = recv( m_socket, buffer, bytes, 0 );
-  if ( result <= 0 ) { throw std::exception(); }
+    if ( result <= 0 ) { throw std::exception(); }
     buffer[ result ] = '\0';
-    m_queue.push( buffer );
+    m_queue.push( std::make_pair((size_t)result, buffer) );
     return true;
   }
   catch ( std::exception& )
   {
     delete [] buffer;
-    m_queue.push( 0 );
+    m_queue.push( std::make_pair((size_t)0, (char*)0) );
     return false;
   }
 
@@ -136,13 +135,13 @@ void ThreadedSocketConnection::readQueue()
       if ( !m_queue.size() )
         m_queue.wait();
 
-      char* buffer = 0;
-      while ( m_queue.pop( buffer ) )
+      std::pair<size_t, char*> entry;
+      while( m_queue.pop(entry) )
       {
-        if ( buffer == 0 ) throw std::exception();
-        m_parser.addToStream( buffer );
+	if( !entry.second ) throw std::exception();
+	m_parser.addToStream( entry.second, entry.first );
         processStream();
-        delete [] buffer;
+        delete [] entry.second;
       }
     }
     catch ( RecvFailed& )

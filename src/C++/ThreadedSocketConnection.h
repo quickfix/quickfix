@@ -29,6 +29,7 @@
 #include "Parser.h"
 #include "Responder.h"
 #include "Queue.h"
+#include <map>
 
 namespace FIX
 {
@@ -64,7 +65,7 @@ private:
   Parser m_parser;
   Session* m_pSession;
   bool m_deleted;
-  Queue < char* > m_queue;
+  Queue< std::pair<size_t, char*> > m_queue;
   bool m_queueThreadSpawned;
   unsigned m_queueThread;
 };

@@ -123,6 +123,7 @@ bool ParserTestCase::readFromSocket::onSetup( Parser*& pObject )
   m_fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
   m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
   m_fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
+  m_fixMsgWithNull.append("8=FIX.4.2\0019=13\00135=A\000\001108=30\00110=31\001",34);
 
   m_pServer = new SocketServer( m_port, 0, true );
   m_pConnector = new SocketConnector;
@@ -131,6 +132,7 @@ bool ParserTestCase::readFromSocket::onSetup( Parser*& pObject )
   int recvSocket = m_pServer->accept();
 
   std::string buffer = m_fixMsg1 + m_fixMsg2 + m_fixMsg3;
+  buffer.append( m_fixMsgWithNull );
   if ( !socket_send( connSocket, buffer.c_str(), buffer.length() ) )
     return false;
 
@@ -151,6 +153,10 @@ void ParserTestCase::readFromSocket::onRun( Parser& object )
   std::string fixMsg3;
   assert( object.readFixMessage( fixMsg3 ) );
   assert( fixMsg3 == m_fixMsg3 );
+
+  std::string fixMsgWithNull;
+  assert( object.readFixMessage( fixMsgWithNull ) );
+  assert( fixMsgWithNull == m_fixMsgWithNull );
 }
 
 }
