@@ -53,7 +53,7 @@
 using namespace System;
 
 #include "quickfix_net.h"
-#include "Fields.h"
+#include "Field.h"
 #include "Exceptions.h"
 
 #include "quickfix/include/Group.h"
@@ -71,12 +71,14 @@ Group( int field, int delim ) : disposed( false )
 Group( int field, int delim, int message_order __gc[] ) : disposed( false )
   {
     int size = message_order->get_Length();
-    int* order = new int[ size ];
-    order[ 0 ] = size;
+    int* order = new int[ size + 1 ];
+    order[ size ] = 0;
     for ( int i = 0; i < size; ++i )
+    {
       order[ i ] = message_order[ i ];
+    }
 
-    m_pUnmanaged = new FIX::Group( field, delim, size, order );
+    m_pUnmanaged = new FIX::Group( field, delim, order );
     delete [] order;
   }
 
