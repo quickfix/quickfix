@@ -41,7 +41,8 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I "../" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX"stdafx.h" /FD /Zm1000 /c
+# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I "../" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /FD /c
+# SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -50,6 +51,10 @@ BSC32=bscmake.exe
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo /out:"lib\quickfix.lib"
+# Begin Special Build Tool
+SOURCE="$(InputPath)"
+PostBuild_Cmds=echo test > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
+# End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
 
@@ -64,7 +69,8 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "../" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX"stdafx.h" /FD /Zm1000 /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "../" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /FD /GZ /c
+# SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -73,6 +79,10 @@ BSC32=bscmake.exe
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
 # ADD LIB32 /nologo /out:"lib\quickfix_debug.lib"
+# Begin Special Build Tool
+SOURCE="$(InputPath)"
+PostBuild_Cmds=echo test > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
+# End Special Build Tool
 
 !ENDIF 
 
@@ -146,794 +156,98 @@ SOURCE=".\src\C++\Utility.cpp"
 # Begin Source File
 
 SOURCE=".\src\C++\Acceptor.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Acceptor.h"
-InputName=Acceptor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Acceptor.h"
-InputName=Acceptor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Application.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Application.h"
-InputName=Application
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Application.h"
-InputName=Application
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\CallStack.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\CallStack.h"
-InputName=CallStack
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\CallStack.h"
-InputName=CallStack
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\ConfigLexer.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\ConfigLexer.h"
-InputName=ConfigLexer
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\ConfigLexer.h"
-InputName=ConfigLexer
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Dictionary.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Dictionary.h"
-InputName=Dictionary
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Dictionary.h"
-InputName=Dictionary
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\DOMDocument.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\DOMDocument.h"
-InputName=DOMDocument
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\DOMDocument.h"
-InputName=DOMDocument
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Event.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Event.h"
-InputName=Event
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Event.h"
-InputName=Event
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Exceptions.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Exceptions.h"
-InputName=Exceptions
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Exceptions.h"
-InputName=Exceptions
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\FlexLexer.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FlexLexer.h"
-InputName=FlexLexer
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FlexLexer.h"
-InputName=FlexLexer
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\index.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\index.h"
-InputName=index
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\index.h"
-InputName=index
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Initiator.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Initiator.h"
-InputName=Initiator
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Initiator.h"
-InputName=Initiator
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\MSXML_DOMDocument.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\MSXML_DOMDocument.h"
-InputName=MSXML_DOMDocument
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\MSXML_DOMDocument.h"
-InputName=MSXML_DOMDocument
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Mutex.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Mutex.h"
-InputName=Mutex
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Mutex.h"
-InputName=Mutex
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Parser.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Parser.h"
-InputName=Parser
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Parser.h"
-InputName=Parser
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Queue.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Queue.h"
-InputName=Queue
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Queue.h"
-InputName=Queue
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Responder.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=.\src\C++\Responder.h
-InputName=Responder
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=.\src\C++\Responder.h
-InputName=Responder
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Session.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Session.h"
-InputName=Session
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Session.h"
-InputName=Session
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SessionFactory.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionFactory.h"
-InputName=SessionFactory
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionFactory.h"
-InputName=SessionFactory
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SessionID.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionID.h"
-InputName=SessionID
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionID.h"
-InputName=SessionID
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SessionSettings.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionSettings.h"
-InputName=SessionSettings
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionSettings.h"
-InputName=SessionSettings
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SessionState.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionState.h"
-InputName=SessionState
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SessionState.h"
-InputName=SessionState
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Settings.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Settings.h"
-InputName=Settings
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Settings.h"
-InputName=Settings
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\strptime.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\strptime.h"
-InputName=strptime
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\strptime.h"
-InputName=strptime
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Utility.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Utility.h"
-InputName=Utility
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Utility.h"
-InputName=Utility
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # End Group
 # Begin Group "Field"
@@ -957,332 +271,42 @@ SOURCE=".\src\C++\FieldTypes.cpp"
 # Begin Source File
 
 SOURCE=".\src\C++\DeprecatedFieldNumbers.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\DeprecatedFieldNumbers.h"
-InputName=DeprecatedFieldNumbers
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\DeprecatedFieldNumbers.h"
-InputName=DeprecatedFieldNumbers
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\DeprecatedFields.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\DeprecatedFields.h"
-InputName=DeprecatedFields
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\DeprecatedFields.h"
-InputName=DeprecatedFields
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\DeprecatedValues.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\DeprecatedValues.h"
-InputName=DeprecatedValues
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\DeprecatedValues.h"
-InputName=DeprecatedValues
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Field.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Field.h"
-InputName=Field
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Field.h"
-InputName=Field
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\FieldConvertors.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldConvertors.h"
-InputName=FieldConvertors
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldConvertors.h"
-InputName=FieldConvertors
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\FieldMap.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldMap.h"
-InputName=FieldMap
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldMap.h"
-InputName=FieldMap
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\FieldNumbers.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldNumbers.h"
-InputName=FieldNumbers
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldNumbers.h"
-InputName=FieldNumbers
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Fields.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Fields.h"
-InputName=Fields
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Fields.h"
-InputName=Fields
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\FieldTypes.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldTypes.h"
-InputName=FieldTypes
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FieldTypes.h"
-InputName=FieldTypes
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Values.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Values.h"
-InputName=Values
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Values.h"
-InputName=Values
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # End Group
 # End Group
@@ -1292,467 +316,737 @@ InputName=Values
 # Begin Group "Message Header Files"
 
 # PROP Default_Filter ""
+# Begin Group "Fix40"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Advertisement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Allocation.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\AllocationACK.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\DontKnowTrade.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Email.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\ExecutionReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Heartbeat.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\IndicationofInterest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\ListCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\ListExecute.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\ListStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\ListStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Logon.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Logout.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Message.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\MessageCracker.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\NewOrderList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\NewOrderSingle.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\News.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\OrderCancelReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\OrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\OrderCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\OrderStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Quote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\QuoteRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\Reject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\ResendRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\SequenceReset.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix40\TestRequest.h"
+# End Source File
+# End Group
+# Begin Group "Fix41"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Advertisement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Allocation.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\AllocationACK.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\DontKnowTrade.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Email.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\ExecutionReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Heartbeat.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\IndicationofInterest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\ListCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\ListExecute.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\ListStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\ListStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Logon.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Logout.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Message.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\MessageCracker.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\NewOrderList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\NewOrderSingle.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\News.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\OrderCancelReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\OrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\OrderCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\OrderStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Quote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\QuoteRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\Reject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\ResendRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\SequenceReset.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\SettlementInstructions.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix41\TestRequest.h"
+# End Source File
+# End Group
+# Begin Group "Fix42"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Advertisement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Allocation.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\AllocationACK.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\BusinessMessageReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\DontKnowTrade.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Email.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\ExecutionReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Heartbeat.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\IndicationofInterest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\ListCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\ListExecute.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\ListStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\ListStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Logon.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Logout.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\MarketDataIncrementalRefresh.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\MarketDataRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\MarketDataRequestReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\MarketDataSnapshotFullRefresh.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\MassQuote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Message.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\MessageCracker.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\NewOrderList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\NewOrderSingle.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\News.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\OrderCancelReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\OrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\OrderCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\OrderStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Quote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\QuoteAcknowledgement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\QuoteCancel.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\QuoteRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\QuoteStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\Reject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\ResendRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\SecurityDefinition.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\SecurityDefinitionRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\SecurityStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\SecurityStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\SequenceReset.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\SettlementInstructions.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\TestRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\TradingSessionStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\TradingSessionStatusRequest.h"
+# End Source File
+# End Group
+# Begin Group "Fix43"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Advertisement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Allocation.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\AllocationACK.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\BidRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\BidResponse.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\BusinessMessageReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\CrossOrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\CrossOrderCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\DerivativeSecurityList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\DerivativeSecurityListRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\DontKnowTrade.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Email.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\ExecutionReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Heartbeat.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\IndicationOfInterest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\ListCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\ListExecute.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\ListStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\ListStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\ListStrikePrice.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Logon.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Logout.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MarketDataIncrementalRefresh.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MarketDataRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MarketDataRequestReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MarketDataSnapshotFullRefresh.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MassQuote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MassQuoteAcknowledgement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Message.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MessageCracker.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\MultilegOrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\NewOrderCross.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\NewOrderList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\NewOrderMultileg.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\NewOrderSingle.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\News.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\OrderCancelReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\OrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\OrderCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\OrderMassCancelReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\OrderMassCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\OrderMassStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\OrderStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Quote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\QuoteCancel.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\QuoteRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\QuoteRequestReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\QuoteStatusReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\QuoteStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\RegistrationInstructions.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\RegistrationInstructionsResponse.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\Reject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\ResendRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\RFQRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityDefinition.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityDefinitionRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityListRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityTypeRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SecurityTypes.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SequenceReset.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\SettlementInstructions.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\TestRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\TradeCaptureReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\TradeCaptureReportRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\TradingSessionStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix43\TradingSessionStatusRequest.h"
+# End Source File
+# End Group
 # Begin Source File
 
 SOURCE=".\src\C++\DataDictionary.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\DataDictionary.h"
-InputName=DataDictionary
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\DataDictionary.h"
-InputName=DataDictionary
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX40_MessageCracker.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX40_MessageCracker.h"
-InputName=FIX40_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX40_MessageCracker.h"
-InputName=FIX40_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX40_Messages.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX40_Messages.h"
-InputName=FIX40_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX40_Messages.h"
-InputName=FIX40_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX41_MessageCracker.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX41_MessageCracker.h"
-InputName=FIX41_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX41_MessageCracker.h"
-InputName=FIX41_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX41_Messages.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX41_Messages.h"
-InputName=FIX41_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX41_Messages.h"
-InputName=FIX41_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX42_MessageCracker.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX42_MessageCracker.h"
-InputName=FIX42_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX42_MessageCracker.h"
-InputName=FIX42_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX42_Messages.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX42_Messages.h"
-InputName=FIX42_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX42_Messages.h"
-InputName=FIX42_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX43_MessageCracker.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX43_MessageCracker.h"
-InputName=FIX43_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX43_MessageCracker.h"
-InputName=FIX43_MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\FIX43_Messages.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX43_Messages.h"
-InputName=FIX43_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FIX43_Messages.h"
-InputName=FIX43_Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Group.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Group.h"
-InputName=Group
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Group.h"
-InputName=Group
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Message.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Message.h"
-InputName=Message
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Message.h"
-InputName=Message
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\MessageCracker.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\MessageCracker.h"
-InputName=MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\MessageCracker.h"
-InputName=MessageCracker
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Messages.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Messages.h"
-InputName=Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Messages.h"
-InputName=Messages
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\MessageSorters.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\MessageSorters.h"
-InputName=MessageSorters
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\MessageSorters.h"
-InputName=MessageSorters
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # End Group
 # Begin Group "Message Source Files"
@@ -1825,299 +1119,38 @@ SOURCE=".\src\C++\ThreadedSocketInitiator.cpp"
 # Begin Source File
 
 SOURCE=".\src\C++\SocketAcceptor.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketAcceptor.h"
-InputName=SocketAcceptor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketAcceptor.h"
-InputName=SocketAcceptor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SocketConnection.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketConnection.h"
-InputName=SocketConnection
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketConnection.h"
-InputName=SocketConnection
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SocketConnector.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketConnector.h"
-InputName=SocketConnector
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketConnector.h"
-InputName=SocketConnector
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SocketInitiator.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketInitiator.h"
-InputName=SocketInitiator
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketInitiator.h"
-InputName=SocketInitiator
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SocketMonitor.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketMonitor.h"
-InputName=SocketMonitor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketMonitor.h"
-InputName=SocketMonitor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\SocketServer.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketServer.h"
-InputName=SocketServer
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SocketServer.h"
-InputName=SocketServer
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\ThreadedSocketAcceptor.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\ThreadedSocketAcceptor.h"
-InputName=ThreadedSocketAcceptor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\ThreadedSocketAcceptor.h"
-InputName=ThreadedSocketAcceptor
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\ThreadedSocketConnection.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\ThreadedSocketConnection.h"
-InputName=ThreadedSocketConnection
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\ThreadedSocketConnection.h"
-InputName=ThreadedSocketConnection
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\ThreadedSocketInitiator.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\ThreadedSocketInitiator.h"
-InputName=ThreadedSocketInitiator
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\ThreadedSocketInitiator.h"
-InputName=ThreadedSocketInitiator
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # End Group
 # End Group
@@ -2158,200 +1191,26 @@ SOURCE=".\src\C++\MySQLStore.cpp"
 # Begin Source File
 
 SOURCE=".\src\C++\FileLog.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FileLog.h"
-InputName=FileLog
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FileLog.h"
-InputName=FileLog
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\FileStore.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\FileStore.h"
-InputName=FileStore
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\FileStore.h"
-InputName=FileStore
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Log.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\Log.h"
-InputName=Log
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\Log.h"
-InputName=Log
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\MessageStore.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\MessageStore.h"
-InputName=MessageStore
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\MessageStore.h"
-InputName=MessageStore
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\MySQLLog.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\MySQLLog.h"
-InputName=MySQLLog
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\MySQLLog.h"
-InputName=MySQLLog
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\MySQLStore.h"
-
-!IF  "$(CFG)" == "quickfix - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\MySQLStore.h"
-InputName=MySQLStore
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\MySQLStore.h"
-InputName=MySQLStore
-
-"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
-	xcopy "$(InputPath)" include\quickfix 
-	
-# End Custom Build
-
-!ENDIF 
-
 # End Source File
 # End Group
 # End Group

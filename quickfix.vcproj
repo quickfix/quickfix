@@ -21,7 +21,6 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/Zm300"
 				Optimization="0"
 				FavorSizeOrSpeed="0"
 				OptimizeForWindowsApplication="FALSE"
@@ -49,7 +48,11 @@
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				CommandLine="echo test &gt; EXCLUDE
+echo stdafx.h &gt;&gt; EXCLUDE
+xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix
+del /F EXCLUDE"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool
@@ -71,7 +74,6 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/Zm300"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="0"
 				AdditionalIncludeDirectories="../"
@@ -97,7 +99,11 @@
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				CommandLine="echo test &gt; EXCLUDE
+echo stdafx.h &gt;&gt; EXCLUDE
+xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix
+del /F EXCLUDE"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool
@@ -166,21 +172,15 @@
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -189,21 +189,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -212,21 +206,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -235,21 +223,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -258,21 +240,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -281,21 +257,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -304,21 +274,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -327,21 +291,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -350,21 +308,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -373,21 +325,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -396,21 +342,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -419,21 +359,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -442,21 +376,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -465,21 +393,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -488,21 +410,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -511,21 +427,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -534,21 +444,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -557,21 +461,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -580,21 +478,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -603,21 +495,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -626,21 +512,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -649,21 +529,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -672,21 +546,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 			<File
@@ -695,21 +563,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 					Name="Debug|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\quickfix\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
 						Name="VCCustomBuildTool"
-						CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-						Outputs="include\$(InputName).h"/>
+						CommandLine=""
+						Outputs=""/>
 				</FileConfiguration>
 			</File>
 		</Filter>
@@ -735,21 +597,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -758,21 +614,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -781,21 +631,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -804,21 +648,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -827,21 +665,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -850,21 +682,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -873,21 +699,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -896,21 +716,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -919,21 +733,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -942,21 +750,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 			</Filter>
@@ -973,205 +775,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\src\C++\FIX40_MessageCracker.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\src\C++\FIX40_Messages.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\src\C++\FIX41_MessageCracker.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\src\C++\FIX41_Messages.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\src\C++\FIX42_MessageCracker.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\src\C++\FIX42_Messages.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="src\C++\FIX43_MessageCracker.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
-					</FileConfiguration>
-				</File>
-				<File
-					RelativePath="src\C++\FIX43_Messages.h">
-					<FileConfiguration
-						Name="Debug|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
-					</FileConfiguration>
-					<FileConfiguration
-						Name="Release|Win32">
-						<Tool
-							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1180,21 +792,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1203,21 +809,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1226,21 +826,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1249,21 +843,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1272,23 +860,552 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
+				<Filter
+					Name="fix40"
+					Filter="">
+					<File
+						RelativePath="src\C++\fix40\Advertisement.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Allocation.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\AllocationACK.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\DontKnowTrade.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Email.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\ExecutionReport.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Heartbeat.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\IndicationofInterest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\ListCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\ListExecute.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\ListStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\ListStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Logon.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Logout.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Message.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\MessageCracker.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\NewOrderList.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\NewOrderSingle.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\News.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\OrderCancelReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\OrderCancelReplaceRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\OrderCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\OrderStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Quote.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\QuoteRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\Reject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\ResendRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\SequenceReset.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix40\TestRequest.h">
+					</File>
+				</Filter>
+				<Filter
+					Name="fix41"
+					Filter="">
+					<File
+						RelativePath="src\C++\fix41\Advertisement.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Allocation.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\AllocationACK.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\DontKnowTrade.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Email.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\ExecutionReport.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Heartbeat.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\IndicationofInterest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\ListCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\ListExecute.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\ListStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\ListStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Logon.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Logout.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Message.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\MessageCracker.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\NewOrderList.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\NewOrderSingle.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\News.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\OrderCancelReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\OrderCancelReplaceRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\OrderCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\OrderStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Quote.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\QuoteRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\Reject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\ResendRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\SequenceReset.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\SettlementInstructions.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix41\TestRequest.h">
+					</File>
+				</Filter>
+				<Filter
+					Name="fix42"
+					Filter="">
+					<File
+						RelativePath="src\C++\fix42\Advertisement.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Allocation.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\AllocationACK.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\BusinessMessageReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\DontKnowTrade.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Email.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\ExecutionReport.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Heartbeat.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\IndicationofInterest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\ListCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\ListExecute.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\ListStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\ListStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Logon.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Logout.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\MarketDataIncrementalRefresh.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\MarketDataRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\MarketDataRequestReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\MarketDataSnapshotFullRefresh.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\MassQuote.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Message.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\MessageCracker.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\NewOrderList.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\NewOrderSingle.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\News.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\OrderCancelReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\OrderCancelReplaceRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\OrderCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\OrderStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Quote.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\QuoteAcknowledgement.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\QuoteCancel.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\QuoteRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\QuoteStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\Reject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\ResendRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\SecurityDefinition.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\SecurityDefinitionRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\SecurityStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\SecurityStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\SequenceReset.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\SettlementInstructions.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\TestRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\TradingSessionStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\TradingSessionStatusRequest.h">
+					</File>
+				</Filter>
+				<Filter
+					Name="fix43"
+					Filter="">
+					<File
+						RelativePath="src\C++\fix43\Advertisement.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Allocation.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\AllocationACK.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\BidRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\BidResponse.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\BusinessMessageReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\CrossOrderCancelReplaceRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\CrossOrderCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\DerivativeSecurityList.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\DerivativeSecurityListRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\DontKnowTrade.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Email.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\ExecutionReport.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Heartbeat.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\IndicationOfInterest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\ListCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\ListExecute.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\ListStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\ListStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\ListStrikePrice.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Logon.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Logout.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MarketDataIncrementalRefresh.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MarketDataRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MarketDataRequestReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MarketDataSnapshotFullRefresh.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MassQuote.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MassQuoteAcknowledgement.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Message.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MessageCracker.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\MultilegOrderCancelReplaceRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\NewOrderCross.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\NewOrderList.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\NewOrderMultileg.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\NewOrderSingle.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\News.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\OrderCancelReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\OrderCancelReplaceRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\OrderCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\OrderMassCancelReport.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\OrderMassCancelRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\OrderMassStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\OrderStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Quote.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\QuoteCancel.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\QuoteRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\QuoteRequestReject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\QuoteStatusReport.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\QuoteStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\RFQRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\RegistrationInstructions.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\RegistrationInstructionsResponse.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\Reject.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\ResendRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityDefinition.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityDefinitionRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityList.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityListRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityTypeRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SecurityTypes.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SequenceReset.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\SettlementInstructions.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\TestRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\TradeCaptureReport.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\TradeCaptureReportRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\TradingSessionStatus.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\TradingSessionStatusRequest.h">
+					</File>
+				</Filter>
 			</Filter>
 			<Filter
 				Name="Message Source Files"
@@ -1350,21 +1467,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1373,21 +1484,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1396,21 +1501,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1419,21 +1518,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1442,21 +1535,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1465,21 +1552,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1488,21 +1569,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1511,21 +1586,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1534,21 +1603,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 			</Filter>
@@ -1587,22 +1650,16 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
+							CommandLine=""
 							AdditionalDependencies=""
-							Outputs="include\quickfix\$(InputName).h"/>
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1611,21 +1668,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1634,21 +1685,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1657,21 +1702,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1680,21 +1719,15 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 				<File
@@ -1703,22 +1736,16 @@ xcopy  &quot;$(InputPath)&quot; include\quickfix
 						Name="Debug|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
-							Outputs="include\quickfix\$(InputName).h"/>
+							CommandLine=""
+							Outputs=""/>
 					</FileConfiguration>
 					<FileConfiguration
 						Name="Release|Win32">
 						<Tool
 							Name="VCCustomBuildTool"
-							CommandLine="echo off
-IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h)
-xcopy  &quot;$(InputPath)&quot; include\quickfix
-"
+							CommandLine=""
 							AdditionalDependencies=""
-							Outputs="include\quickfix\$(InputName).h"/>
+							Outputs=""/>
 					</FileConfiguration>
 				</File>
 			</Filter>
