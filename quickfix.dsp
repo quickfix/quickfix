@@ -151,10 +151,6 @@ SOURCE=".\src\C++\stdafx.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\strptime.c"
-# End Source File
-# Begin Source File
-
 SOURCE=".\src\C++\Utility.cpp"
 # End Source File
 # End Group
