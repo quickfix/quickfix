@@ -391,6 +391,18 @@ void process_sleep( double s )
   QF_STACK_POP
 }
 
+std::string file_separator()
+{ QF_STACK_PUSH(file_separator)
+
+#ifdef _MSC_VER
+  return "\\";
+#else
+  return "/";
+#endif
+
+  QF_STACK_POP
+}
+
 #ifdef _MSC_VER
 void file_mkdir( const char* path, int mode )
 { QF_STACK_PUSH(file_mkdir)
@@ -414,6 +426,18 @@ void file_unlink( const char* path )
   unlink( path );
 #endif
 
+  QF_STACK_POP
+}
+
+std::string file_appendpath( const std::string& path, const std::string& file )
+{ QF_STACK_PUSH(file_appendpath)
+
+  const char last = path[path.size()-1];
+  if( last == '/' || last == '\\' )
+    return std::string(path) + file;
+  else
+    return std::string(path) + file_separator() + file;
+   
   QF_STACK_POP
 }
 }

@@ -75,7 +75,8 @@ FileStore::FileStore( std::string path, const SessionID& s )
   const std::string& target =
     s.getTargetCompID().getString();
 
-  std::string prefix = path + "/" + begin + "-" + sender + "-" + target + ".";
+  std::string prefix 
+    = file_appendpath(path, begin + "-" + sender + "-" + target + ".");
 
   m_msgFileName = prefix + "body";
   m_headerFileName = prefix + "header";

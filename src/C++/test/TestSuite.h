@@ -64,6 +64,7 @@
 #include "C++/test/UtcTimeStampTestCase.h"
 #include "C++/test/UtcTimeOnlyTestCase.h"
 #include "C++/test/SocketUtilitiesTestCase.h"
+#include "C++/test/FileUtilitiesTestCase.h"
 #include "C++/test/SessionIDTestCase.h"
 #include "C++/test/DictionaryTestCase.h"
 #include "C++/test/DataDictionaryTestCase.h"
@@ -112,6 +113,7 @@ public:
     add( &m_utcTimeStamp );
     add( &m_utcTimeOnly );
     add( &m_socketUtilities );
+    add( &m_fileUtilities );
     add( &m_sessionID );
     add( &m_dictionary );
     add( &m_dataDictionary );
@@ -155,6 +157,7 @@ private:
   FIX::UtcTimeStampTestCase m_utcTimeStamp;
   FIX::UtcTimeOnlyTestCase m_utcTimeOnly;
   FIX::SocketUtilitiesTestCase m_socketUtilities;
+  FIX::FileUtilitiesTestCase m_fileUtilities;
   FIX::SocketConnectorTestCase m_socketConnector;
   FIX::SocketServerTestCase m_socketServer;
   FIX::SessionIDTestCase m_sessionID;

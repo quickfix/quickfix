@@ -89,7 +89,8 @@ FileLog::FileLog( std::string path, const SessionID& s )
   const std::string& target =
     s.getTargetCompID().getString();
 
-  std::string prefix = path + "/" + begin + "-" + sender + "-" + target + ".";
+  std::string prefix 
+    = file_appendpath(path, begin + "-" + sender + "-" + target + ".");
   std::string incomingFileName = prefix + "incoming";
   std::string outgoingFileName = prefix + "outgoing";
   std::string eventFileName = prefix + "event";

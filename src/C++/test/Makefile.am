@@ -22,6 +22,8 @@ libquickfixcpptest_la_SOURCES = \
 	AcceptorTestCase.h \
 	SocketUtilitiesTestCase.cpp \
 	SocketUtilitiesTestCase.h \
+	FileUtilitiesTestCase.cpp \
+	FileUtilitiesTestCase.h \
 	SocketServerTestCase.cpp \
 	SocketServerTestCase.h \
 	SocketConnectorTestCase.cpp \

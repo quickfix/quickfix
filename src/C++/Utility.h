@@ -81,6 +81,8 @@ typedef int socklen_t;
 /////////////////////////////////////////////
 #endif
 
+#include <string>
+
 namespace FIX
 {
 void socket_init();
@@ -119,13 +121,14 @@ unsigned thread_self();
 
 void process_sleep( double s );
 
+std::string file_separator();
 #ifdef _MSC_VER
 void file_mkdir( const char* path, int mode );
 #else
 void file_mkdir( const char* path, mode_t mode );
 #endif
-
 void file_unlink( const char* path );
+std::string file_appendpath( const std::string& path, const std::string& file );
 }
 
 #endif
