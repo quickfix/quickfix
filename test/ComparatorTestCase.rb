@@ -15,18 +15,23 @@ class ComparatorTestCase < RUNIT::TestCase
     comp = Comparator.new(patterns)
     # matching fields
     assert(comp.compare("1=hello\0012=goodbye\001", "1=hello\0012=goodbye\001"))
+    assert(comp.reason == nil)
     # non-matching field
     assert(!comp.compare("1=helloo\0012=goodbye\001", "1=hello\0012=goodbye\001"))
+    assert(comp.reason == "Value in field (1) should be (helloo) but was (hello)")
     # out of order fields
     assert(!comp.compare("2=hello\0011=goodbye\001", "1=hello\0012=goodbye\001"))
+    assert(comp.reason == "Expected field (2) but found field (1)")
     # different number of fields
     assert(!comp.compare("1=hello\001", "1=hello\0012=goodbye\001"))
+    assert(comp.reason == "Number of fields do no match")
     # mathing non-deterministic field
     assert(comp.compare(
 	"1=hello\0012=goodbye\00152=12345678-12:23:34\001", "1=hello\0012=goodbye\00152=87654321-98:87:76\001"))
     # non-matching non-deterministic field
     assert(!comp.compare(
 	"1=hello\0012=goodbye\00152=12345678-12:23:34\001", "1=hello\0012=goodbye\00152=7654321-98:87:76\001"))
+    assert(comp.reason == "Field (52) does not match pattern")
   end
 
 end

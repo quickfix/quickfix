@@ -61,7 +61,7 @@ def extendProcess(c)
     if( !@comp.compare(e,a) )
        e.tr!("\001", "*")
        a.tr!("\001", "*")
-       raise "\n<E>" + e + "</E>\n<A>" + a + "</A>"
+       raise "\t\t<E><![CDATA[" + e + "]]></E>\n\t\t<A><![CDATA[" + a + "]]></A>\n\t\t<R><![CDATA[" + @comp.reason + "]]></R>"
     end
   end
   
@@ -78,10 +78,10 @@ def printResult(test, exception)
     print "success'/>\n"
   else
     print "failure' >\n"
-    print "    <message>", $!, "</message>\n"
-    print "    <trace><![CDATA["
-    print $!.backtrace.join("]]></trace>\n    <trace><![CDATA[")
-    print "]]></trace>\n"
+    print "\t<message>\n", $!, "\n\t</message>\n"
+    #print "<trace><![CDATA["
+    #print $!.backtrace.join("]]></trace>\n<trace><![CDATA[")
+    #print "]]></trace>\n"
     print "  </test>\n"
   end
   STDOUT.flush

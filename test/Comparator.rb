@@ -60,10 +60,12 @@ class Comparator < Hash
   end
 
   def compare(left, right)
+    @reason = nil
     left_array = left.split("\001")
     right_array = right.split("\001")
     # check for number of fields
     if left_array.size != right_array.size
+      @reason = "Number of fields do no match"
       return false
     end
     left_array.each_index do
@@ -72,6 +74,7 @@ class Comparator < Hash
       right_field = right_array[index].split("=")
       # check if field is in same order
       if left_field[0] != right_field[0]
+        @reason = "Expected field (" + left_field[0] + ") but found field (" + right_field[0] + ")"
 	return false
       end
       
@@ -79,15 +82,21 @@ class Comparator < Hash
       # do a straight comparison or regex comparison
       if regexp == nil
 	if left_field[1] != right_field[1]
+	  @reason = "Value in field (" + left_field[0] + ") should be (" + left_field[1] + ") but was (" + right_field[1] + ")"
 	  return false
 	end
       else
 	if !(regexp === right_field[1])
+	  @reason = "Field (" + left_field[0] + ") does not match pattern"
 	  return false
 	end
       end
     end
     return true
+  end
+  
+  def reason()
+    return @reason
   end
 
 end
