@@ -90,7 +90,7 @@ public class SocketInitiator implements Initiator {
     private native void create();
     private native void destroy();
 
-    public void start() throws RuntimeError {
+    public void start() throws RuntimeError, ConfigError {
         doStart();
     }
 
@@ -98,7 +98,7 @@ public class SocketInitiator implements Initiator {
         doStop();
     }
 
-    private native void doStart() throws RuntimeError;
+    private native void doStart() throws RuntimeError, ConfigError;
 
     private native void doStop();
 }
