@@ -347,6 +347,11 @@ typedef DoubleField FloatField;
 typedef DoubleField PriceOffsetField;
 typedef StringField MonthYearField;
 typedef StringField DayOfMonthField;
+typedef IntField LengthField;
+typedef IntField NumInGroupField;
+typedef IntField SeqNumField;
+typedef DoubleField PercentageField;
+typedef StringField CountryField;
 }
 
 #define DEFINE_FIELD_CLASS_NUM( NAME, TOK, TYPE, NUM ) \
@@ -357,6 +362,9 @@ NAME(TYPE value) : TOK##Field(NUM, value) {} \
 
 #define DEFINE_FIELD_CLASS( NAME, TOK, TYPE ) \
 DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, FIELD::NAME)
+
+#define DEFINE_DEPRECATED_FIELD_CLASS( NAME, TOK, TYPE ) \
+DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 
 #define DEFINE_CHECKSUM( NAME ) \
 DEFINE_FIELD_CLASS(NAME, CheckSum, INT)
@@ -386,6 +394,11 @@ DEFINE_FIELD_CLASS(NAME, DayOfMonth, DAYOFMONTH)
 #define DEFINE_UTCDATE( NAME ) DEFINE_FIELD_CLASS(NAME, UtcDate, UTCDATE)
 #define DEFINE_UTCTIMEONLY( NAME ) \
 DEFINE_FIELD_CLASS(NAME, UtcTimeOnly, UTCTIMEONLY)
+#define DEFINE_NUMINGROUP( NAME ) DEFINE_FIELD_CLASS(NAME, NumInGroup, NUMINGROUP)
+#define DEFINE_SEQNUM( NAME ) DEFINE_FIELD_CLASS(NAME, SeqNum, SEQNUM)
+#define DEFINE_LENGTH( NAME ) DEFINE_FIELD_CLASS(NAME, Length, LENGTH)
+#define DEFINE_PERCENTAGE( NAME ) DEFINE_FIELD_CLASS(NAME, Percentage, PERCENTAGE)
+#define DEFINE_COUNTRY( NAME ) DEFINE_FIELD_CLASS(NAME, Country, COUNTRY)
 
 #define USER_DEFINE_STRING( NAME, NUM ) \
 DEFINE_FIELD_CLASS_NUM(NAME, String, STRING, NUM);
