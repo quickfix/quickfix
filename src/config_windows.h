@@ -8,3 +8,6 @@
 
 // Define if you have libxml library
 // #define HAVE_LIBXML 1
+
+// Define if you have ftime
+#define HAVE_FTIME 1
