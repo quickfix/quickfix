@@ -4391,6 +4391,13 @@
       <value enum="7" description="DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER" />
       <value enum="8" description="STALE_ORDER" />
       <value enum="9" description="TRADE_ALONG_REQUIRED" />
+      <value enum="10" description="INVALID_INVESTOR_ID" />
+      <value enum="11" description="UNSUPPORTED_ORDER_CHARACTERISTIC" />
+      <value enum="12" description="SURVEILLENCE_OPTION" />
+      <value enum="13" description="INCORRECT_QUANTITY" />
+      <value enum="14" description="INCORRECT_ALLOCATED_QUANTITY" />
+      <value enum="15" description="UNKNOWN_ACCOUNTS" />
+      <value enum="99" description="OTHER" />
     </field>
     <field number="104" name="IOIQualifier" type="CHAR">
       <value enum="A" description="ALL_OR_NONE" />
