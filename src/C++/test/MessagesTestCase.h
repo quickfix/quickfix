@@ -78,6 +78,8 @@ public:
   {
     add( &m_identifyType );
     add( &m_isAdminMsgType );
+    add( &m_isAdmin );
+    add( &m_isApp );
     add( &m_setString );
     add( &m_checkSum );
     add( &m_headerFieldsFirst );
@@ -90,59 +92,60 @@ public:
   typedef CPPTest::SimpleTest < Message > SimpleTest;
   typedef CPPTest::EmptyTest < Message > EmptyTest;
 
-class identifyType : public EmptyTest
+  class identifyType : public EmptyTest
   {
     void onRun( Message& object );
-  }
-  m_identifyType;
+  } m_identifyType;
+  
+  class isAdminMsgType : public EmptyTest
+  {
+    void onRun( Message& object );
+  } m_isAdminMsgType;
+  
+  class isAdmin : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_isAdmin;
 
-class isAdminMsgType : public EmptyTest
+  class isApp : public SimpleTest
   {
     void onRun( Message& object );
-  }
-  m_isAdminMsgType;
+  } m_isApp;
 
-class setString : public SimpleTest
+  class setString : public SimpleTest
   {
     void onRun( Message& object );
-  }
-  m_setString;
+  } m_setString;
 
-class checkSum : public SimpleTest
+  class checkSum : public SimpleTest
   {
     void onRun( Message& object );
-  }
-  m_checkSum;
+  } m_checkSum;
+  
+  class headerFieldsFirst : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_headerFieldsFirst;
+  
+  class noEndingDelim : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_noEndingDelim;
 
-class headerFieldsFirst : public SimpleTest
+  class outOfOrder : public SimpleTest
   {
     void onRun( Message& object );
-  }
-  m_headerFieldsFirst;
+  } m_outOfOrder;
 
-class noEndingDelim : public SimpleTest
+  class getXML : public SimpleTest
   {
     void onRun( Message& object );
-  }
-  m_noEndingDelim;
+  } m_getXML;
 
-class outOfOrder : public SimpleTest
+  class reverseRoute : public SimpleTest
   {
     void onRun( Message& object );
-  }
-  m_outOfOrder;
-
-class getXML : public SimpleTest
-  {
-    void onRun( Message& object );
-  }
-  m_getXML;
-
-class reverseRoute : public SimpleTest
-  {
-    void onRun( Message& object );
-  }
-  m_reverseRoute;
+  } m_reverseRoute;
 };
 
 template < typename T >
@@ -156,21 +159,19 @@ public:
   }
 
 private:
-class getString : public CPPTest::Test < T >
+  class getString : public CPPTest::Test < T >
   {
     bool onSetup( T*& pObject ) { pObject = &m_object; return true; }
     void onRun( T& object );
     T m_object;
-  }
-  m_getString;
+  } m_getString;
 
-class setString : public CPPTest::Test < T >
+  class setString : public CPPTest::Test < T >
   {
     bool onSetup( T*& pObject ) { pObject = &m_object; return true; }
     void onRun( T& object );
     T m_object;
-  }
-  m_setString;
+  } m_setString;
 };
 
 typedef MessageParseTestCase < FIX42::Logon >

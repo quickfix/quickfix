@@ -77,13 +77,14 @@ throw( InvalidMessage& )
 }
 
 Message::Message( const std::string& string,
-                  const DataDictionary& dataDictionary )
+                  const DataDictionary& dataDictionary,
+                  bool validate )
 throw( InvalidMessage& )
 : m_header( message_order( message_order::header ) ),
   m_trailer( message_order( message_order::trailer ) ),
   m_validStructure( true )
 {
-  setString( string, true, &dataDictionary );
+  setString( string, validate, &dataDictionary );
 }
 
 bool Message::InitializeXML( const std::string& url )

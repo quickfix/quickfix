@@ -96,6 +96,24 @@ void MessageTestCase::isAdminMsgType::onRun( Message& object )
   assert( !FIX::Message::isAdminMsgType( FIX::MsgType() ));
 }
 
+void MessageTestCase::isAdmin::onRun( Message& object )
+{
+  assert( !object.isAdmin() );
+  object.getHeader().setField( FIX::MsgType("A") );
+  assert( object.isAdmin() );
+  object.getHeader().setField( FIX::MsgType("D") );
+  assert( !object.isAdmin() );
+}
+
+void MessageTestCase::isApp::onRun( Message& object )
+{
+  assert( !object.isApp() );
+  object.getHeader().setField( FIX::MsgType("A") );
+  assert( !object.isApp() );
+  object.getHeader().setField( FIX::MsgType("D") );
+  assert( object.isApp() );
+}
+
 void MessageTestCase::setString::onRun( Message& object )
 {
   static const char * strGood =

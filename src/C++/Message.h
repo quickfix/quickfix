@@ -100,7 +100,8 @@ public:
   throw( InvalidMessage& );
 
   /// Construct a message from a string using a data dictionary
-  Message( const std::string& string, const DataDictionary& dataDictionary )
+  Message( const std::string& string, const DataDictionary& dataDictionary,
+           bool validate = true )
   throw( InvalidMessage& );
 
   /// Set global data dictionary for encoding messages into XML
@@ -194,6 +195,26 @@ public:
   { return ( m_header.calculateTotal()
              + calculateTotal()
              + m_trailer.calculateTotal() ) % 256;
+  }
+
+  bool isAdmin()
+  { MsgType msgType;
+    if( m_header.isSetField(msgType) )
+    {
+      m_header.getField( msgType );
+      return isAdminMsgType( msgType );
+    }
+    return false;
+  }
+
+  bool isApp()
+  { MsgType msgType;
+    if( m_header.isSetField(msgType) )
+    {
+      m_header.getField( msgType );
+      return !isAdminMsgType( msgType );
+    }
+    return false;
   }
 
   static bool isAdminMsgType( const MsgType& msgType )
