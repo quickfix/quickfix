@@ -25,7 +25,6 @@ namespace FIX
       set_terminate(FIX::CallStack::terminate);  
     #endif
 
-    std::set_terminate(FIX::CallStack::terminate);
     Context& c = getContext();
     if( !c.ignore )
     {
@@ -102,7 +101,6 @@ namespace FIX
 
   void CallStack::Context::caught( std::exception& e )
   {
-    Locker locker(s_mutex);
 #if TYPEINFO_IN_STD
     const std::type_info&
 #else
@@ -117,7 +115,6 @@ namespace FIX
 
   void CallStack::Context::caught()
   {
-    Locker locker(s_mutex);
     exception = "unknown exception";
   }
 }
