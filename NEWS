@@ -25,6 +25,12 @@ namespace allowing library to be used from VB.NET
 Messages with repeating groups no longer take in the number of repeating groups in the
 constructor.  This value was always overwritten when adding groups anyway.
 
+The start method in Initiator and Acceptor can throw an exception if a serious error
+occurs.
+
+SocketAcceptor and ThreadedSocketAcceptor will no longer allow you to silently takeover
+a used port.  An exception will be thrown instead.
+
 1.3.2
 -----
 More portable file copies during build process on unix
