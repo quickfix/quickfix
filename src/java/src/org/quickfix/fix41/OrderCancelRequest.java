@@ -30,6 +30,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.OrigClOrdID getOrigClOrdID() throws FieldNotFound 
   { org.quickfix.field.OrigClOrdID value = new org.quickfix.field.OrigClOrdID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OrigClOrdID field) 
+  { return isSetField(field); } 
+  public boolean isSetOrigClOrdID() 
+  { return isSetField(41); } 
 
   public void set(org.quickfix.field.OrderID value) 
   { setField(value); } 
@@ -38,6 +42,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.OrderID getOrderID() throws FieldNotFound 
   { org.quickfix.field.OrderID value = new org.quickfix.field.OrderID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OrderID field) 
+  { return isSetField(field); } 
+  public boolean isSetOrderID() 
+  { return isSetField(37); } 
 
   public void set(org.quickfix.field.ClOrdID value) 
   { setField(value); } 
@@ -46,6 +54,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ClOrdID field) 
+  { return isSetField(field); } 
+  public boolean isSetClOrdID() 
+  { return isSetField(11); } 
 
   public void set(org.quickfix.field.ListID value) 
   { setField(value); } 
@@ -54,6 +66,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.ListID getListID() throws FieldNotFound 
   { org.quickfix.field.ListID value = new org.quickfix.field.ListID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ListID field) 
+  { return isSetField(field); } 
+  public boolean isSetListID() 
+  { return isSetField(66); } 
 
   public void set(org.quickfix.field.ClientID value) 
   { setField(value); } 
@@ -62,6 +78,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.ClientID getClientID() throws FieldNotFound 
   { org.quickfix.field.ClientID value = new org.quickfix.field.ClientID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ClientID field) 
+  { return isSetField(field); } 
+  public boolean isSetClientID() 
+  { return isSetField(109); } 
 
   public void set(org.quickfix.field.ExecBroker value) 
   { setField(value); } 
@@ -70,6 +90,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.ExecBroker getExecBroker() throws FieldNotFound 
   { org.quickfix.field.ExecBroker value = new org.quickfix.field.ExecBroker(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ExecBroker field) 
+  { return isSetField(field); } 
+  public boolean isSetExecBroker() 
+  { return isSetField(76); } 
 
   public void set(org.quickfix.field.Symbol value) 
   { setField(value); } 
@@ -78,6 +102,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.Symbol getSymbol() throws FieldNotFound 
   { org.quickfix.field.Symbol value = new org.quickfix.field.Symbol(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Symbol field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbol() 
+  { return isSetField(55); } 
 
   public void set(org.quickfix.field.SymbolSfx value) 
   { setField(value); } 
@@ -86,6 +114,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.SymbolSfx getSymbolSfx() throws FieldNotFound 
   { org.quickfix.field.SymbolSfx value = new org.quickfix.field.SymbolSfx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SymbolSfx field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbolSfx() 
+  { return isSetField(65); } 
 
   public void set(org.quickfix.field.SecurityID value) 
   { setField(value); } 
@@ -94,6 +126,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.SecurityID getSecurityID() throws FieldNotFound 
   { org.quickfix.field.SecurityID value = new org.quickfix.field.SecurityID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityID field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityID() 
+  { return isSetField(48); } 
 
   public void set(org.quickfix.field.IDSource value) 
   { setField(value); } 
@@ -102,6 +138,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.IDSource getIDSource() throws FieldNotFound 
   { org.quickfix.field.IDSource value = new org.quickfix.field.IDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.IDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetIDSource() 
+  { return isSetField(22); } 
 
   public void set(org.quickfix.field.SecurityType value) 
   { setField(value); } 
@@ -110,6 +150,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.SecurityType getSecurityType() throws FieldNotFound 
   { org.quickfix.field.SecurityType value = new org.quickfix.field.SecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityType() 
+  { return isSetField(167); } 
 
   public void set(org.quickfix.field.MaturityMonthYear value) 
   { setField(value); } 
@@ -118,6 +162,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.MaturityMonthYear getMaturityMonthYear() throws FieldNotFound 
   { org.quickfix.field.MaturityMonthYear value = new org.quickfix.field.MaturityMonthYear(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MaturityMonthYear field) 
+  { return isSetField(field); } 
+  public boolean isSetMaturityMonthYear() 
+  { return isSetField(200); } 
 
   public void set(org.quickfix.field.MaturityDay value) 
   { setField(value); } 
@@ -126,6 +174,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.MaturityDay getMaturityDay() throws FieldNotFound 
   { org.quickfix.field.MaturityDay value = new org.quickfix.field.MaturityDay(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MaturityDay field) 
+  { return isSetField(field); } 
+  public boolean isSetMaturityDay() 
+  { return isSetField(205); } 
 
   public void set(org.quickfix.field.PutOrCall value) 
   { setField(value); } 
@@ -134,6 +186,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.PutOrCall getPutOrCall() throws FieldNotFound 
   { org.quickfix.field.PutOrCall value = new org.quickfix.field.PutOrCall(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.PutOrCall field) 
+  { return isSetField(field); } 
+  public boolean isSetPutOrCall() 
+  { return isSetField(201); } 
 
   public void set(org.quickfix.field.StrikePrice value) 
   { setField(value); } 
@@ -142,6 +198,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.StrikePrice getStrikePrice() throws FieldNotFound 
   { org.quickfix.field.StrikePrice value = new org.quickfix.field.StrikePrice(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.StrikePrice field) 
+  { return isSetField(field); } 
+  public boolean isSetStrikePrice() 
+  { return isSetField(202); } 
 
   public void set(org.quickfix.field.OptAttribute value) 
   { setField(value); } 
@@ -150,6 +210,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.OptAttribute getOptAttribute() throws FieldNotFound 
   { org.quickfix.field.OptAttribute value = new org.quickfix.field.OptAttribute(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OptAttribute field) 
+  { return isSetField(field); } 
+  public boolean isSetOptAttribute() 
+  { return isSetField(206); } 
 
   public void set(org.quickfix.field.SecurityExchange value) 
   { setField(value); } 
@@ -158,6 +222,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.SecurityExchange getSecurityExchange() throws FieldNotFound 
   { org.quickfix.field.SecurityExchange value = new org.quickfix.field.SecurityExchange(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityExchange field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityExchange() 
+  { return isSetField(207); } 
 
   public void set(org.quickfix.field.Issuer value) 
   { setField(value); } 
@@ -166,6 +234,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.Issuer getIssuer() throws FieldNotFound 
   { org.quickfix.field.Issuer value = new org.quickfix.field.Issuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Issuer field) 
+  { return isSetField(field); } 
+  public boolean isSetIssuer() 
+  { return isSetField(106); } 
 
   public void set(org.quickfix.field.SecurityDesc value) 
   { setField(value); } 
@@ -174,6 +246,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.SecurityDesc getSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.SecurityDesc value = new org.quickfix.field.SecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityDesc() 
+  { return isSetField(107); } 
 
   public void set(org.quickfix.field.Side value) 
   { setField(value); } 
@@ -182,6 +258,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.Side getSide() throws FieldNotFound 
   { org.quickfix.field.Side value = new org.quickfix.field.Side(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Side field) 
+  { return isSetField(field); } 
+  public boolean isSetSide() 
+  { return isSetField(54); } 
 
   public void set(org.quickfix.field.OrderQty value) 
   { setField(value); } 
@@ -190,6 +270,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.OrderQty getOrderQty() throws FieldNotFound 
   { org.quickfix.field.OrderQty value = new org.quickfix.field.OrderQty(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OrderQty field) 
+  { return isSetField(field); } 
+  public boolean isSetOrderQty() 
+  { return isSetField(38); } 
 
   public void set(org.quickfix.field.CashOrderQty value) 
   { setField(value); } 
@@ -198,6 +282,10 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.CashOrderQty getCashOrderQty() throws FieldNotFound 
   { org.quickfix.field.CashOrderQty value = new org.quickfix.field.CashOrderQty(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.CashOrderQty field) 
+  { return isSetField(field); } 
+  public boolean isSetCashOrderQty() 
+  { return isSetField(152); } 
 
   public void set(org.quickfix.field.Text value) 
   { setField(value); } 
@@ -206,4 +294,8 @@ public class OrderCancelRequest extends Message
   public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Text field) 
+  { return isSetField(field); } 
+  public boolean isSetText() 
+  { return isSetField(58); } 
 } 

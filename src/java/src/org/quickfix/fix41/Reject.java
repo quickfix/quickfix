@@ -24,6 +24,10 @@ public class Reject extends Message
   public org.quickfix.field.RefSeqNum getRefSeqNum() throws FieldNotFound 
   { org.quickfix.field.RefSeqNum value = new org.quickfix.field.RefSeqNum(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RefSeqNum field) 
+  { return isSetField(field); } 
+  public boolean isSetRefSeqNum() 
+  { return isSetField(45); } 
 
   public void set(org.quickfix.field.Text value) 
   { setField(value); } 
@@ -32,4 +36,8 @@ public class Reject extends Message
   public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Text field) 
+  { return isSetField(field); } 
+  public boolean isSetText() 
+  { return isSetField(58); } 
 } 

@@ -26,6 +26,10 @@ public class Logon extends Message
   public org.quickfix.field.EncryptMethod getEncryptMethod() throws FieldNotFound 
   { org.quickfix.field.EncryptMethod value = new org.quickfix.field.EncryptMethod(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncryptMethod field) 
+  { return isSetField(field); } 
+  public boolean isSetEncryptMethod() 
+  { return isSetField(98); } 
 
   public void set(org.quickfix.field.HeartBtInt value) 
   { setField(value); } 
@@ -34,6 +38,10 @@ public class Logon extends Message
   public org.quickfix.field.HeartBtInt getHeartBtInt() throws FieldNotFound 
   { org.quickfix.field.HeartBtInt value = new org.quickfix.field.HeartBtInt(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.HeartBtInt field) 
+  { return isSetField(field); } 
+  public boolean isSetHeartBtInt() 
+  { return isSetField(108); } 
 
   public void set(org.quickfix.field.RawDataLength value) 
   { setField(value); } 
@@ -42,6 +50,10 @@ public class Logon extends Message
   public org.quickfix.field.RawDataLength getRawDataLength() throws FieldNotFound 
   { org.quickfix.field.RawDataLength value = new org.quickfix.field.RawDataLength(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RawDataLength field) 
+  { return isSetField(field); } 
+  public boolean isSetRawDataLength() 
+  { return isSetField(95); } 
 
   public void set(org.quickfix.field.RawData value) 
   { setField(value); } 
@@ -50,6 +62,10 @@ public class Logon extends Message
   public org.quickfix.field.RawData getRawData() throws FieldNotFound 
   { org.quickfix.field.RawData value = new org.quickfix.field.RawData(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RawData field) 
+  { return isSetField(field); } 
+  public boolean isSetRawData() 
+  { return isSetField(96); } 
 
   public void set(org.quickfix.field.ResetSeqNumFlag value) 
   { setField(value); } 
@@ -58,6 +74,10 @@ public class Logon extends Message
   public org.quickfix.field.ResetSeqNumFlag getResetSeqNumFlag() throws FieldNotFound 
   { org.quickfix.field.ResetSeqNumFlag value = new org.quickfix.field.ResetSeqNumFlag(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ResetSeqNumFlag field) 
+  { return isSetField(field); } 
+  public boolean isSetResetSeqNumFlag() 
+  { return isSetField(141); } 
 
   public void set(org.quickfix.field.MaxMessageSize value) 
   { setField(value); } 
@@ -66,6 +86,10 @@ public class Logon extends Message
   public org.quickfix.field.MaxMessageSize getMaxMessageSize() throws FieldNotFound 
   { org.quickfix.field.MaxMessageSize value = new org.quickfix.field.MaxMessageSize(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MaxMessageSize field) 
+  { return isSetField(field); } 
+  public boolean isSetMaxMessageSize() 
+  { return isSetField(383); } 
   public void set(org.quickfix.field.NoMsgTypes value) 
   { setField(value); } 
   public org.quickfix.field.NoMsgTypes get(org.quickfix.field.NoMsgTypes value) throws FieldNotFound 
@@ -73,6 +97,10 @@ public class Logon extends Message
   public org.quickfix.field.NoMsgTypes getNoMsgTypes() throws FieldNotFound 
   { org.quickfix.field.NoMsgTypes value = new org.quickfix.field.NoMsgTypes(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.NoMsgTypes field) 
+  { return isSetField(field); } 
+  public boolean isSetNoMsgTypes() 
+  { return isSetField(384); } 
 
 public static class NoMsgTypes extends Group { 
   public NoMsgTypes() { 
@@ -90,6 +118,10 @@ public static class NoMsgTypes extends Group {
   public org.quickfix.field.RefMsgType getRefMsgType() throws FieldNotFound 
   { org.quickfix.field.RefMsgType value = new org.quickfix.field.RefMsgType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RefMsgType field) 
+  { return isSetField(field); } 
+  public boolean isSetRefMsgType() 
+  { return isSetField(372); } 
 
   public void set(org.quickfix.field.MsgDirection value) 
   { setField(value); } 
@@ -98,6 +130,10 @@ public static class NoMsgTypes extends Group {
   public org.quickfix.field.MsgDirection getMsgDirection() throws FieldNotFound 
   { org.quickfix.field.MsgDirection value = new org.quickfix.field.MsgDirection(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MsgDirection field) 
+  { return isSetField(field); } 
+  public boolean isSetMsgDirection() 
+  { return isSetField(385); } 
 
 } 
 } 

@@ -18,4 +18,8 @@ public class Heartbeat extends Message
   public org.quickfix.field.TestReqID getTestReqID() throws FieldNotFound 
   { org.quickfix.field.TestReqID value = new org.quickfix.field.TestReqID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.TestReqID field) 
+  { return isSetField(field); } 
+  public boolean isSetTestReqID() 
+  { return isSetField(112); } 
 } 

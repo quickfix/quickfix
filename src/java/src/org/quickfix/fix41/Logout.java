@@ -18,4 +18,8 @@ public class Logout extends Message
   public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Text field) 
+  { return isSetField(field); } 
+  public boolean isSetText() 
+  { return isSetField(58); } 
 } 

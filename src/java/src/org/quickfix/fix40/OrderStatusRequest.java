@@ -28,6 +28,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.OrderID getOrderID() throws FieldNotFound 
   { org.quickfix.field.OrderID value = new org.quickfix.field.OrderID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OrderID field) 
+  { return isSetField(field); } 
+  public boolean isSetOrderID() 
+  { return isSetField(37); } 
 
   public void set(org.quickfix.field.ClOrdID value) 
   { setField(value); } 
@@ -36,6 +40,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ClOrdID field) 
+  { return isSetField(field); } 
+  public boolean isSetClOrdID() 
+  { return isSetField(11); } 
 
   public void set(org.quickfix.field.ClientID value) 
   { setField(value); } 
@@ -44,6 +52,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.ClientID getClientID() throws FieldNotFound 
   { org.quickfix.field.ClientID value = new org.quickfix.field.ClientID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ClientID field) 
+  { return isSetField(field); } 
+  public boolean isSetClientID() 
+  { return isSetField(109); } 
 
   public void set(org.quickfix.field.ExecBroker value) 
   { setField(value); } 
@@ -52,6 +64,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.ExecBroker getExecBroker() throws FieldNotFound 
   { org.quickfix.field.ExecBroker value = new org.quickfix.field.ExecBroker(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ExecBroker field) 
+  { return isSetField(field); } 
+  public boolean isSetExecBroker() 
+  { return isSetField(76); } 
 
   public void set(org.quickfix.field.Symbol value) 
   { setField(value); } 
@@ -60,6 +76,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.Symbol getSymbol() throws FieldNotFound 
   { org.quickfix.field.Symbol value = new org.quickfix.field.Symbol(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Symbol field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbol() 
+  { return isSetField(55); } 
 
   public void set(org.quickfix.field.SymbolSfx value) 
   { setField(value); } 
@@ -68,6 +88,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.SymbolSfx getSymbolSfx() throws FieldNotFound 
   { org.quickfix.field.SymbolSfx value = new org.quickfix.field.SymbolSfx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SymbolSfx field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbolSfx() 
+  { return isSetField(65); } 
 
   public void set(org.quickfix.field.Issuer value) 
   { setField(value); } 
@@ -76,6 +100,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.Issuer getIssuer() throws FieldNotFound 
   { org.quickfix.field.Issuer value = new org.quickfix.field.Issuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Issuer field) 
+  { return isSetField(field); } 
+  public boolean isSetIssuer() 
+  { return isSetField(106); } 
 
   public void set(org.quickfix.field.SecurityDesc value) 
   { setField(value); } 
@@ -84,6 +112,10 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.SecurityDesc getSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.SecurityDesc value = new org.quickfix.field.SecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityDesc() 
+  { return isSetField(107); } 
 
   public void set(org.quickfix.field.Side value) 
   { setField(value); } 
@@ -92,4 +124,8 @@ public class OrderStatusRequest extends Message
   public org.quickfix.field.Side getSide() throws FieldNotFound 
   { org.quickfix.field.Side value = new org.quickfix.field.Side(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Side field) 
+  { return isSetField(field); } 
+  public boolean isSetSide() 
+  { return isSetField(54); } 
 } 

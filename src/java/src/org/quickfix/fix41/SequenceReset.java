@@ -24,6 +24,10 @@ public class SequenceReset extends Message
   public org.quickfix.field.GapFillFlag getGapFillFlag() throws FieldNotFound 
   { org.quickfix.field.GapFillFlag value = new org.quickfix.field.GapFillFlag(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.GapFillFlag field) 
+  { return isSetField(field); } 
+  public boolean isSetGapFillFlag() 
+  { return isSetField(123); } 
 
   public void set(org.quickfix.field.NewSeqNo value) 
   { setField(value); } 
@@ -32,4 +36,8 @@ public class SequenceReset extends Message
   public org.quickfix.field.NewSeqNo getNewSeqNo() throws FieldNotFound 
   { org.quickfix.field.NewSeqNo value = new org.quickfix.field.NewSeqNo(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.NewSeqNo field) 
+  { return isSetField(field); } 
+  public boolean isSetNewSeqNo() 
+  { return isSetField(36); } 
 } 

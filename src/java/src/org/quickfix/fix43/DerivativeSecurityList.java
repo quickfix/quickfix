@@ -28,6 +28,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.SecurityReqID getSecurityReqID() throws FieldNotFound 
   { org.quickfix.field.SecurityReqID value = new org.quickfix.field.SecurityReqID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityReqID field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityReqID() 
+  { return isSetField(320); } 
 
   public void set(org.quickfix.field.SecurityResponseID value) 
   { setField(value); } 
@@ -36,6 +40,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.SecurityResponseID getSecurityResponseID() throws FieldNotFound 
   { org.quickfix.field.SecurityResponseID value = new org.quickfix.field.SecurityResponseID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityResponseID field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityResponseID() 
+  { return isSetField(322); } 
 
   public void set(org.quickfix.field.SecurityRequestResult value) 
   { setField(value); } 
@@ -44,6 +52,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.SecurityRequestResult getSecurityRequestResult() throws FieldNotFound 
   { org.quickfix.field.SecurityRequestResult value = new org.quickfix.field.SecurityRequestResult(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityRequestResult field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityRequestResult() 
+  { return isSetField(560); } 
   public void set(org.quickfix.field.UnderlyingSymbol value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingSymbol get(org.quickfix.field.UnderlyingSymbol value) throws FieldNotFound 
@@ -51,6 +63,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingSymbol getUnderlyingSymbol() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSymbol value = new org.quickfix.field.UnderlyingSymbol(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSymbol field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSymbol() 
+  { return isSetField(311); } 
   public void set(org.quickfix.field.UnderlyingSymbolSfx value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingSymbolSfx get(org.quickfix.field.UnderlyingSymbolSfx value) throws FieldNotFound 
@@ -58,6 +74,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingSymbolSfx getUnderlyingSymbolSfx() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSymbolSfx value = new org.quickfix.field.UnderlyingSymbolSfx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSymbolSfx field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSymbolSfx() 
+  { return isSetField(312); } 
   public void set(org.quickfix.field.UnderlyingSecurityID value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingSecurityID get(org.quickfix.field.UnderlyingSecurityID value) throws FieldNotFound 
@@ -65,6 +85,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingSecurityID getUnderlyingSecurityID() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityID value = new org.quickfix.field.UnderlyingSecurityID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSecurityID field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSecurityID() 
+  { return isSetField(309); } 
   public void set(org.quickfix.field.UnderlyingSecurityIDSource value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingSecurityIDSource get(org.quickfix.field.UnderlyingSecurityIDSource value) throws FieldNotFound 
@@ -72,6 +96,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingSecurityIDSource getUnderlyingSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityIDSource value = new org.quickfix.field.UnderlyingSecurityIDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSecurityIDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSecurityIDSource() 
+  { return isSetField(305); } 
   public void set(org.quickfix.field.UnderlyingProduct value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingProduct get(org.quickfix.field.UnderlyingProduct value) throws FieldNotFound 
@@ -79,6 +107,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingProduct getUnderlyingProduct() throws FieldNotFound 
   { org.quickfix.field.UnderlyingProduct value = new org.quickfix.field.UnderlyingProduct(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingProduct field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingProduct() 
+  { return isSetField(462); } 
   public void set(org.quickfix.field.UnderlyingCFICode value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingCFICode get(org.quickfix.field.UnderlyingCFICode value) throws FieldNotFound 
@@ -86,6 +118,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingCFICode getUnderlyingCFICode() throws FieldNotFound 
   { org.quickfix.field.UnderlyingCFICode value = new org.quickfix.field.UnderlyingCFICode(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingCFICode field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingCFICode() 
+  { return isSetField(463); } 
   public void set(org.quickfix.field.UnderlyingSecurityType value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingSecurityType get(org.quickfix.field.UnderlyingSecurityType value) throws FieldNotFound 
@@ -93,6 +129,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingSecurityType getUnderlyingSecurityType() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityType value = new org.quickfix.field.UnderlyingSecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSecurityType() 
+  { return isSetField(310); } 
   public void set(org.quickfix.field.UnderlyingMaturityMonthYear value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingMaturityMonthYear get(org.quickfix.field.UnderlyingMaturityMonthYear value) throws FieldNotFound 
@@ -100,6 +140,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingMaturityMonthYear getUnderlyingMaturityMonthYear() throws FieldNotFound 
   { org.quickfix.field.UnderlyingMaturityMonthYear value = new org.quickfix.field.UnderlyingMaturityMonthYear(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingMaturityMonthYear field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingMaturityMonthYear() 
+  { return isSetField(313); } 
   public void set(org.quickfix.field.UnderlyingMaturityDate value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingMaturityDate get(org.quickfix.field.UnderlyingMaturityDate value) throws FieldNotFound 
@@ -107,6 +151,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingMaturityDate getUnderlyingMaturityDate() throws FieldNotFound 
   { org.quickfix.field.UnderlyingMaturityDate value = new org.quickfix.field.UnderlyingMaturityDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingMaturityDate field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingMaturityDate() 
+  { return isSetField(542); } 
   public void set(org.quickfix.field.UnderlyingCouponPaymentDate value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingCouponPaymentDate get(org.quickfix.field.UnderlyingCouponPaymentDate value) throws FieldNotFound 
@@ -114,6 +162,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingCouponPaymentDate getUnderlyingCouponPaymentDate() throws FieldNotFound 
   { org.quickfix.field.UnderlyingCouponPaymentDate value = new org.quickfix.field.UnderlyingCouponPaymentDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingCouponPaymentDate field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingCouponPaymentDate() 
+  { return isSetField(241); } 
   public void set(org.quickfix.field.UnderlyingIssueDate value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingIssueDate get(org.quickfix.field.UnderlyingIssueDate value) throws FieldNotFound 
@@ -121,6 +173,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingIssueDate getUnderlyingIssueDate() throws FieldNotFound 
   { org.quickfix.field.UnderlyingIssueDate value = new org.quickfix.field.UnderlyingIssueDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingIssueDate field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingIssueDate() 
+  { return isSetField(242); } 
   public void set(org.quickfix.field.UnderlyingRepoCollateralSecurityType value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingRepoCollateralSecurityType get(org.quickfix.field.UnderlyingRepoCollateralSecurityType value) throws FieldNotFound 
@@ -128,6 +184,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingRepoCollateralSecurityType getUnderlyingRepoCollateralSecurityType() throws FieldNotFound 
   { org.quickfix.field.UnderlyingRepoCollateralSecurityType value = new org.quickfix.field.UnderlyingRepoCollateralSecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingRepoCollateralSecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingRepoCollateralSecurityType() 
+  { return isSetField(243); } 
   public void set(org.quickfix.field.UnderlyingRepurchaseTerm value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingRepurchaseTerm get(org.quickfix.field.UnderlyingRepurchaseTerm value) throws FieldNotFound 
@@ -135,6 +195,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingRepurchaseTerm getUnderlyingRepurchaseTerm() throws FieldNotFound 
   { org.quickfix.field.UnderlyingRepurchaseTerm value = new org.quickfix.field.UnderlyingRepurchaseTerm(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingRepurchaseTerm field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingRepurchaseTerm() 
+  { return isSetField(244); } 
   public void set(org.quickfix.field.UnderlyingRepurchaseRate value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingRepurchaseRate get(org.quickfix.field.UnderlyingRepurchaseRate value) throws FieldNotFound 
@@ -142,6 +206,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingRepurchaseRate getUnderlyingRepurchaseRate() throws FieldNotFound 
   { org.quickfix.field.UnderlyingRepurchaseRate value = new org.quickfix.field.UnderlyingRepurchaseRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingRepurchaseRate field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingRepurchaseRate() 
+  { return isSetField(245); } 
   public void set(org.quickfix.field.UnderlyingFactor value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingFactor get(org.quickfix.field.UnderlyingFactor value) throws FieldNotFound 
@@ -149,6 +217,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingFactor getUnderlyingFactor() throws FieldNotFound 
   { org.quickfix.field.UnderlyingFactor value = new org.quickfix.field.UnderlyingFactor(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingFactor field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingFactor() 
+  { return isSetField(246); } 
   public void set(org.quickfix.field.UnderlyingCreditRating value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingCreditRating get(org.quickfix.field.UnderlyingCreditRating value) throws FieldNotFound 
@@ -156,6 +228,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingCreditRating getUnderlyingCreditRating() throws FieldNotFound 
   { org.quickfix.field.UnderlyingCreditRating value = new org.quickfix.field.UnderlyingCreditRating(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingCreditRating field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingCreditRating() 
+  { return isSetField(256); } 
   public void set(org.quickfix.field.UnderlyingInstrRegistry value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingInstrRegistry get(org.quickfix.field.UnderlyingInstrRegistry value) throws FieldNotFound 
@@ -163,6 +239,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingInstrRegistry getUnderlyingInstrRegistry() throws FieldNotFound 
   { org.quickfix.field.UnderlyingInstrRegistry value = new org.quickfix.field.UnderlyingInstrRegistry(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingInstrRegistry field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingInstrRegistry() 
+  { return isSetField(595); } 
   public void set(org.quickfix.field.UnderlyingCountryOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingCountryOfIssue get(org.quickfix.field.UnderlyingCountryOfIssue value) throws FieldNotFound 
@@ -170,6 +250,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingCountryOfIssue getUnderlyingCountryOfIssue() throws FieldNotFound 
   { org.quickfix.field.UnderlyingCountryOfIssue value = new org.quickfix.field.UnderlyingCountryOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingCountryOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingCountryOfIssue() 
+  { return isSetField(592); } 
   public void set(org.quickfix.field.UnderlyingStateOrProvinceOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingStateOrProvinceOfIssue get(org.quickfix.field.UnderlyingStateOrProvinceOfIssue value) throws FieldNotFound 
@@ -177,6 +261,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingStateOrProvinceOfIssue getUnderlyingStateOrProvinceOfIssue() throws FieldNotFound 
   { org.quickfix.field.UnderlyingStateOrProvinceOfIssue value = new org.quickfix.field.UnderlyingStateOrProvinceOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingStateOrProvinceOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingStateOrProvinceOfIssue() 
+  { return isSetField(593); } 
   public void set(org.quickfix.field.UnderlyingLocaleOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingLocaleOfIssue get(org.quickfix.field.UnderlyingLocaleOfIssue value) throws FieldNotFound 
@@ -184,6 +272,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingLocaleOfIssue getUnderlyingLocaleOfIssue() throws FieldNotFound 
   { org.quickfix.field.UnderlyingLocaleOfIssue value = new org.quickfix.field.UnderlyingLocaleOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingLocaleOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingLocaleOfIssue() 
+  { return isSetField(594); } 
   public void set(org.quickfix.field.UnderlyingRedemptionDate value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingRedemptionDate get(org.quickfix.field.UnderlyingRedemptionDate value) throws FieldNotFound 
@@ -191,6 +283,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingRedemptionDate getUnderlyingRedemptionDate() throws FieldNotFound 
   { org.quickfix.field.UnderlyingRedemptionDate value = new org.quickfix.field.UnderlyingRedemptionDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingRedemptionDate field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingRedemptionDate() 
+  { return isSetField(247); } 
   public void set(org.quickfix.field.UnderlyingPutOrCall value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingPutOrCall get(org.quickfix.field.UnderlyingPutOrCall value) throws FieldNotFound 
@@ -198,6 +294,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingPutOrCall getUnderlyingPutOrCall() throws FieldNotFound 
   { org.quickfix.field.UnderlyingPutOrCall value = new org.quickfix.field.UnderlyingPutOrCall(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingPutOrCall field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingPutOrCall() 
+  { return isSetField(315); } 
   public void set(org.quickfix.field.UnderlyingStrikePrice value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingStrikePrice get(org.quickfix.field.UnderlyingStrikePrice value) throws FieldNotFound 
@@ -205,6 +305,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingStrikePrice getUnderlyingStrikePrice() throws FieldNotFound 
   { org.quickfix.field.UnderlyingStrikePrice value = new org.quickfix.field.UnderlyingStrikePrice(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingStrikePrice field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingStrikePrice() 
+  { return isSetField(316); } 
   public void set(org.quickfix.field.UnderlyingOptAttribute value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingOptAttribute get(org.quickfix.field.UnderlyingOptAttribute value) throws FieldNotFound 
@@ -212,6 +316,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingOptAttribute getUnderlyingOptAttribute() throws FieldNotFound 
   { org.quickfix.field.UnderlyingOptAttribute value = new org.quickfix.field.UnderlyingOptAttribute(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingOptAttribute field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingOptAttribute() 
+  { return isSetField(317); } 
   public void set(org.quickfix.field.UnderlyingContractMultiplier value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingContractMultiplier get(org.quickfix.field.UnderlyingContractMultiplier value) throws FieldNotFound 
@@ -219,6 +327,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingContractMultiplier getUnderlyingContractMultiplier() throws FieldNotFound 
   { org.quickfix.field.UnderlyingContractMultiplier value = new org.quickfix.field.UnderlyingContractMultiplier(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingContractMultiplier field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingContractMultiplier() 
+  { return isSetField(436); } 
   public void set(org.quickfix.field.UnderlyingCouponRate value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingCouponRate get(org.quickfix.field.UnderlyingCouponRate value) throws FieldNotFound 
@@ -226,6 +338,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingCouponRate getUnderlyingCouponRate() throws FieldNotFound 
   { org.quickfix.field.UnderlyingCouponRate value = new org.quickfix.field.UnderlyingCouponRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingCouponRate field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingCouponRate() 
+  { return isSetField(435); } 
   public void set(org.quickfix.field.UnderlyingSecurityExchange value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingSecurityExchange get(org.quickfix.field.UnderlyingSecurityExchange value) throws FieldNotFound 
@@ -233,6 +349,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingSecurityExchange getUnderlyingSecurityExchange() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityExchange value = new org.quickfix.field.UnderlyingSecurityExchange(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSecurityExchange field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSecurityExchange() 
+  { return isSetField(308); } 
   public void set(org.quickfix.field.UnderlyingIssuer value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingIssuer get(org.quickfix.field.UnderlyingIssuer value) throws FieldNotFound 
@@ -240,6 +360,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingIssuer getUnderlyingIssuer() throws FieldNotFound 
   { org.quickfix.field.UnderlyingIssuer value = new org.quickfix.field.UnderlyingIssuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingIssuer field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingIssuer() 
+  { return isSetField(306); } 
   public void set(org.quickfix.field.EncodedUnderlyingIssuerLen value) 
   { setField(value); } 
   public org.quickfix.field.EncodedUnderlyingIssuerLen get(org.quickfix.field.EncodedUnderlyingIssuerLen value) throws FieldNotFound 
@@ -247,6 +371,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.EncodedUnderlyingIssuerLen getEncodedUnderlyingIssuerLen() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingIssuerLen value = new org.quickfix.field.EncodedUnderlyingIssuerLen(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedUnderlyingIssuerLen field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedUnderlyingIssuerLen() 
+  { return isSetField(362); } 
   public void set(org.quickfix.field.EncodedUnderlyingIssuer value) 
   { setField(value); } 
   public org.quickfix.field.EncodedUnderlyingIssuer get(org.quickfix.field.EncodedUnderlyingIssuer value) throws FieldNotFound 
@@ -254,6 +382,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.EncodedUnderlyingIssuer getEncodedUnderlyingIssuer() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingIssuer value = new org.quickfix.field.EncodedUnderlyingIssuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedUnderlyingIssuer field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedUnderlyingIssuer() 
+  { return isSetField(363); } 
   public void set(org.quickfix.field.UnderlyingSecurityDesc value) 
   { setField(value); } 
   public org.quickfix.field.UnderlyingSecurityDesc get(org.quickfix.field.UnderlyingSecurityDesc value) throws FieldNotFound 
@@ -261,6 +393,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.UnderlyingSecurityDesc getUnderlyingSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityDesc value = new org.quickfix.field.UnderlyingSecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSecurityDesc() 
+  { return isSetField(307); } 
   public void set(org.quickfix.field.EncodedUnderlyingSecurityDescLen value) 
   { setField(value); } 
   public org.quickfix.field.EncodedUnderlyingSecurityDescLen get(org.quickfix.field.EncodedUnderlyingSecurityDescLen value) throws FieldNotFound 
@@ -268,6 +404,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.EncodedUnderlyingSecurityDescLen getEncodedUnderlyingSecurityDescLen() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingSecurityDescLen value = new org.quickfix.field.EncodedUnderlyingSecurityDescLen(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedUnderlyingSecurityDescLen field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedUnderlyingSecurityDescLen() 
+  { return isSetField(364); } 
   public void set(org.quickfix.field.EncodedUnderlyingSecurityDesc value) 
   { setField(value); } 
   public org.quickfix.field.EncodedUnderlyingSecurityDesc get(org.quickfix.field.EncodedUnderlyingSecurityDesc value) throws FieldNotFound 
@@ -275,6 +415,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.EncodedUnderlyingSecurityDesc getEncodedUnderlyingSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingSecurityDesc value = new org.quickfix.field.EncodedUnderlyingSecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedUnderlyingSecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedUnderlyingSecurityDesc() 
+  { return isSetField(365); } 
   public void set(org.quickfix.field.NoUnderlyingSecurityAltID value) 
   { setField(value); } 
   public org.quickfix.field.NoUnderlyingSecurityAltID get(org.quickfix.field.NoUnderlyingSecurityAltID value) throws FieldNotFound 
@@ -282,6 +426,10 @@ public class DerivativeSecurityList extends Message
   public org.quickfix.field.NoUnderlyingSecurityAltID getNoUnderlyingSecurityAltID() throws FieldNotFound 
   { org.quickfix.field.NoUnderlyingSecurityAltID value = new org.quickfix.field.NoUnderlyingSecurityAltID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.NoUnderlyingSecurityAltID field) 
+  { return isSetField(field); } 
+  public boolean isSetNoUnderlyingSecurityAltID() 
+  { return isSetField(457); } 
 
 public static class NoUnderlyingSecurityAltID extends Group { 
   public NoUnderlyingSecurityAltID() { 
@@ -299,6 +447,10 @@ public static class NoUnderlyingSecurityAltID extends Group {
   public org.quickfix.field.UnderlyingSecurityAltID getUnderlyingSecurityAltID() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityAltID value = new org.quickfix.field.UnderlyingSecurityAltID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSecurityAltID field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSecurityAltID() 
+  { return isSetField(458); } 
 
   public void set(org.quickfix.field.UnderlyingSecurityAltIDSource value) 
   { setField(value); } 
@@ -307,6 +459,10 @@ public static class NoUnderlyingSecurityAltID extends Group {
   public org.quickfix.field.UnderlyingSecurityAltIDSource getUnderlyingSecurityAltIDSource() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityAltIDSource value = new org.quickfix.field.UnderlyingSecurityAltIDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.UnderlyingSecurityAltIDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetUnderlyingSecurityAltIDSource() 
+  { return isSetField(459); } 
 
 } 
 
@@ -317,6 +473,10 @@ public static class NoUnderlyingSecurityAltID extends Group {
   public org.quickfix.field.TotalNumSecurities getTotalNumSecurities() throws FieldNotFound 
   { org.quickfix.field.TotalNumSecurities value = new org.quickfix.field.TotalNumSecurities(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.TotalNumSecurities field) 
+  { return isSetField(field); } 
+  public boolean isSetTotalNumSecurities() 
+  { return isSetField(393); } 
   public void set(org.quickfix.field.NoRelatedSym value) 
   { setField(value); } 
   public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
@@ -324,6 +484,10 @@ public static class NoUnderlyingSecurityAltID extends Group {
   public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
   { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.NoRelatedSym field) 
+  { return isSetField(field); } 
+  public boolean isSetNoRelatedSym() 
+  { return isSetField(146); } 
 
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
@@ -377,6 +541,10 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.Currency getCurrency() throws FieldNotFound 
   { org.quickfix.field.Currency value = new org.quickfix.field.Currency(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Currency field) 
+  { return isSetField(field); } 
+  public boolean isSetCurrency() 
+  { return isSetField(15); } 
 
   public void set(org.quickfix.field.TradingSessionID value) 
   { setField(value); } 
@@ -385,6 +553,10 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound 
   { org.quickfix.field.TradingSessionID value = new org.quickfix.field.TradingSessionID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.TradingSessionID field) 
+  { return isSetField(field); } 
+  public boolean isSetTradingSessionID() 
+  { return isSetField(336); } 
 
   public void set(org.quickfix.field.TradingSessionSubID value) 
   { setField(value); } 
@@ -393,6 +565,10 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.TradingSessionSubID getTradingSessionSubID() throws FieldNotFound 
   { org.quickfix.field.TradingSessionSubID value = new org.quickfix.field.TradingSessionSubID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.TradingSessionSubID field) 
+  { return isSetField(field); } 
+  public boolean isSetTradingSessionSubID() 
+  { return isSetField(625); } 
 
   public void set(org.quickfix.field.Text value) 
   { setField(value); } 
@@ -401,6 +577,10 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Text field) 
+  { return isSetField(field); } 
+  public boolean isSetText() 
+  { return isSetField(58); } 
 
   public void set(org.quickfix.field.EncodedTextLen value) 
   { setField(value); } 
@@ -409,6 +589,10 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.EncodedTextLen getEncodedTextLen() throws FieldNotFound 
   { org.quickfix.field.EncodedTextLen value = new org.quickfix.field.EncodedTextLen(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedTextLen field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedTextLen() 
+  { return isSetField(354); } 
 
   public void set(org.quickfix.field.EncodedText value) 
   { setField(value); } 
@@ -417,6 +601,10 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.EncodedText getEncodedText() throws FieldNotFound 
   { org.quickfix.field.EncodedText value = new org.quickfix.field.EncodedText(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedText field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedText() 
+  { return isSetField(355); } 
 
   public void set(org.quickfix.field.NoLegs value) 
   { setField(value); } 
@@ -425,6 +613,10 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.NoLegs getNoLegs() throws FieldNotFound 
   { org.quickfix.field.NoLegs value = new org.quickfix.field.NoLegs(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.NoLegs field) 
+  { return isSetField(field); } 
+  public boolean isSetNoLegs() 
+  { return isSetField(555); } 
 
 public static class NoLegs extends Group { 
   public NoLegs() { 
@@ -475,6 +667,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegCurrency getLegCurrency() throws FieldNotFound 
   { org.quickfix.field.LegCurrency value = new org.quickfix.field.LegCurrency(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegCurrency field) 
+  { return isSetField(field); } 
+  public boolean isSetLegCurrency() 
+  { return isSetField(556); } 
 
   public void set(org.quickfix.field.LegSymbol value) 
   { setField(value); } 
@@ -483,6 +679,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSymbol getLegSymbol() throws FieldNotFound 
   { org.quickfix.field.LegSymbol value = new org.quickfix.field.LegSymbol(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSymbol field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSymbol() 
+  { return isSetField(600); } 
   public void set(org.quickfix.field.LegSymbolSfx value) 
   { setField(value); } 
   public org.quickfix.field.LegSymbolSfx get(org.quickfix.field.LegSymbolSfx value) throws FieldNotFound 
@@ -490,6 +690,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSymbolSfx getLegSymbolSfx() throws FieldNotFound 
   { org.quickfix.field.LegSymbolSfx value = new org.quickfix.field.LegSymbolSfx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSymbolSfx field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSymbolSfx() 
+  { return isSetField(601); } 
   public void set(org.quickfix.field.LegSecurityID value) 
   { setField(value); } 
   public org.quickfix.field.LegSecurityID get(org.quickfix.field.LegSecurityID value) throws FieldNotFound 
@@ -497,6 +701,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSecurityID getLegSecurityID() throws FieldNotFound 
   { org.quickfix.field.LegSecurityID value = new org.quickfix.field.LegSecurityID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSecurityID field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSecurityID() 
+  { return isSetField(602); } 
   public void set(org.quickfix.field.LegSecurityIDSource value) 
   { setField(value); } 
   public org.quickfix.field.LegSecurityIDSource get(org.quickfix.field.LegSecurityIDSource value) throws FieldNotFound 
@@ -504,6 +712,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSecurityIDSource getLegSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.LegSecurityIDSource value = new org.quickfix.field.LegSecurityIDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSecurityIDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSecurityIDSource() 
+  { return isSetField(603); } 
   public void set(org.quickfix.field.LegProduct value) 
   { setField(value); } 
   public org.quickfix.field.LegProduct get(org.quickfix.field.LegProduct value) throws FieldNotFound 
@@ -511,6 +723,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegProduct getLegProduct() throws FieldNotFound 
   { org.quickfix.field.LegProduct value = new org.quickfix.field.LegProduct(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegProduct field) 
+  { return isSetField(field); } 
+  public boolean isSetLegProduct() 
+  { return isSetField(607); } 
   public void set(org.quickfix.field.LegCFICode value) 
   { setField(value); } 
   public org.quickfix.field.LegCFICode get(org.quickfix.field.LegCFICode value) throws FieldNotFound 
@@ -518,6 +734,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegCFICode getLegCFICode() throws FieldNotFound 
   { org.quickfix.field.LegCFICode value = new org.quickfix.field.LegCFICode(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegCFICode field) 
+  { return isSetField(field); } 
+  public boolean isSetLegCFICode() 
+  { return isSetField(608); } 
   public void set(org.quickfix.field.LegSecurityType value) 
   { setField(value); } 
   public org.quickfix.field.LegSecurityType get(org.quickfix.field.LegSecurityType value) throws FieldNotFound 
@@ -525,6 +745,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSecurityType getLegSecurityType() throws FieldNotFound 
   { org.quickfix.field.LegSecurityType value = new org.quickfix.field.LegSecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSecurityType() 
+  { return isSetField(609); } 
   public void set(org.quickfix.field.LegMaturityMonthYear value) 
   { setField(value); } 
   public org.quickfix.field.LegMaturityMonthYear get(org.quickfix.field.LegMaturityMonthYear value) throws FieldNotFound 
@@ -532,6 +756,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegMaturityMonthYear getLegMaturityMonthYear() throws FieldNotFound 
   { org.quickfix.field.LegMaturityMonthYear value = new org.quickfix.field.LegMaturityMonthYear(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegMaturityMonthYear field) 
+  { return isSetField(field); } 
+  public boolean isSetLegMaturityMonthYear() 
+  { return isSetField(610); } 
   public void set(org.quickfix.field.LegMaturityDate value) 
   { setField(value); } 
   public org.quickfix.field.LegMaturityDate get(org.quickfix.field.LegMaturityDate value) throws FieldNotFound 
@@ -539,6 +767,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegMaturityDate getLegMaturityDate() throws FieldNotFound 
   { org.quickfix.field.LegMaturityDate value = new org.quickfix.field.LegMaturityDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegMaturityDate field) 
+  { return isSetField(field); } 
+  public boolean isSetLegMaturityDate() 
+  { return isSetField(611); } 
   public void set(org.quickfix.field.LegCouponPaymentDate value) 
   { setField(value); } 
   public org.quickfix.field.LegCouponPaymentDate get(org.quickfix.field.LegCouponPaymentDate value) throws FieldNotFound 
@@ -546,6 +778,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegCouponPaymentDate getLegCouponPaymentDate() throws FieldNotFound 
   { org.quickfix.field.LegCouponPaymentDate value = new org.quickfix.field.LegCouponPaymentDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegCouponPaymentDate field) 
+  { return isSetField(field); } 
+  public boolean isSetLegCouponPaymentDate() 
+  { return isSetField(248); } 
   public void set(org.quickfix.field.LegIssueDate value) 
   { setField(value); } 
   public org.quickfix.field.LegIssueDate get(org.quickfix.field.LegIssueDate value) throws FieldNotFound 
@@ -553,6 +789,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegIssueDate getLegIssueDate() throws FieldNotFound 
   { org.quickfix.field.LegIssueDate value = new org.quickfix.field.LegIssueDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegIssueDate field) 
+  { return isSetField(field); } 
+  public boolean isSetLegIssueDate() 
+  { return isSetField(249); } 
   public void set(org.quickfix.field.LegRepoCollateralSecurityType value) 
   { setField(value); } 
   public org.quickfix.field.LegRepoCollateralSecurityType get(org.quickfix.field.LegRepoCollateralSecurityType value) throws FieldNotFound 
@@ -560,6 +800,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegRepoCollateralSecurityType getLegRepoCollateralSecurityType() throws FieldNotFound 
   { org.quickfix.field.LegRepoCollateralSecurityType value = new org.quickfix.field.LegRepoCollateralSecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegRepoCollateralSecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetLegRepoCollateralSecurityType() 
+  { return isSetField(250); } 
   public void set(org.quickfix.field.LegRepurchaseTerm value) 
   { setField(value); } 
   public org.quickfix.field.LegRepurchaseTerm get(org.quickfix.field.LegRepurchaseTerm value) throws FieldNotFound 
@@ -567,6 +811,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegRepurchaseTerm getLegRepurchaseTerm() throws FieldNotFound 
   { org.quickfix.field.LegRepurchaseTerm value = new org.quickfix.field.LegRepurchaseTerm(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegRepurchaseTerm field) 
+  { return isSetField(field); } 
+  public boolean isSetLegRepurchaseTerm() 
+  { return isSetField(251); } 
   public void set(org.quickfix.field.LegRepurchaseRate value) 
   { setField(value); } 
   public org.quickfix.field.LegRepurchaseRate get(org.quickfix.field.LegRepurchaseRate value) throws FieldNotFound 
@@ -574,6 +822,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegRepurchaseRate getLegRepurchaseRate() throws FieldNotFound 
   { org.quickfix.field.LegRepurchaseRate value = new org.quickfix.field.LegRepurchaseRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegRepurchaseRate field) 
+  { return isSetField(field); } 
+  public boolean isSetLegRepurchaseRate() 
+  { return isSetField(252); } 
   public void set(org.quickfix.field.LegFactor value) 
   { setField(value); } 
   public org.quickfix.field.LegFactor get(org.quickfix.field.LegFactor value) throws FieldNotFound 
@@ -581,6 +833,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegFactor getLegFactor() throws FieldNotFound 
   { org.quickfix.field.LegFactor value = new org.quickfix.field.LegFactor(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegFactor field) 
+  { return isSetField(field); } 
+  public boolean isSetLegFactor() 
+  { return isSetField(253); } 
   public void set(org.quickfix.field.LegCreditRating value) 
   { setField(value); } 
   public org.quickfix.field.LegCreditRating get(org.quickfix.field.LegCreditRating value) throws FieldNotFound 
@@ -588,6 +844,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegCreditRating getLegCreditRating() throws FieldNotFound 
   { org.quickfix.field.LegCreditRating value = new org.quickfix.field.LegCreditRating(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegCreditRating field) 
+  { return isSetField(field); } 
+  public boolean isSetLegCreditRating() 
+  { return isSetField(257); } 
   public void set(org.quickfix.field.LegInstrRegistry value) 
   { setField(value); } 
   public org.quickfix.field.LegInstrRegistry get(org.quickfix.field.LegInstrRegistry value) throws FieldNotFound 
@@ -595,6 +855,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegInstrRegistry getLegInstrRegistry() throws FieldNotFound 
   { org.quickfix.field.LegInstrRegistry value = new org.quickfix.field.LegInstrRegistry(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegInstrRegistry field) 
+  { return isSetField(field); } 
+  public boolean isSetLegInstrRegistry() 
+  { return isSetField(599); } 
   public void set(org.quickfix.field.LegCountryOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.LegCountryOfIssue get(org.quickfix.field.LegCountryOfIssue value) throws FieldNotFound 
@@ -602,6 +866,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegCountryOfIssue getLegCountryOfIssue() throws FieldNotFound 
   { org.quickfix.field.LegCountryOfIssue value = new org.quickfix.field.LegCountryOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegCountryOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetLegCountryOfIssue() 
+  { return isSetField(596); } 
   public void set(org.quickfix.field.LegStateOrProvinceOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.LegStateOrProvinceOfIssue get(org.quickfix.field.LegStateOrProvinceOfIssue value) throws FieldNotFound 
@@ -609,6 +877,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegStateOrProvinceOfIssue getLegStateOrProvinceOfIssue() throws FieldNotFound 
   { org.quickfix.field.LegStateOrProvinceOfIssue value = new org.quickfix.field.LegStateOrProvinceOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegStateOrProvinceOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetLegStateOrProvinceOfIssue() 
+  { return isSetField(597); } 
   public void set(org.quickfix.field.LegLocaleOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.LegLocaleOfIssue get(org.quickfix.field.LegLocaleOfIssue value) throws FieldNotFound 
@@ -616,6 +888,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegLocaleOfIssue getLegLocaleOfIssue() throws FieldNotFound 
   { org.quickfix.field.LegLocaleOfIssue value = new org.quickfix.field.LegLocaleOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegLocaleOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetLegLocaleOfIssue() 
+  { return isSetField(598); } 
   public void set(org.quickfix.field.LegRedemptionDate value) 
   { setField(value); } 
   public org.quickfix.field.LegRedemptionDate get(org.quickfix.field.LegRedemptionDate value) throws FieldNotFound 
@@ -623,6 +899,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegRedemptionDate getLegRedemptionDate() throws FieldNotFound 
   { org.quickfix.field.LegRedemptionDate value = new org.quickfix.field.LegRedemptionDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegRedemptionDate field) 
+  { return isSetField(field); } 
+  public boolean isSetLegRedemptionDate() 
+  { return isSetField(254); } 
   public void set(org.quickfix.field.LegStrikePrice value) 
   { setField(value); } 
   public org.quickfix.field.LegStrikePrice get(org.quickfix.field.LegStrikePrice value) throws FieldNotFound 
@@ -630,6 +910,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegStrikePrice getLegStrikePrice() throws FieldNotFound 
   { org.quickfix.field.LegStrikePrice value = new org.quickfix.field.LegStrikePrice(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegStrikePrice field) 
+  { return isSetField(field); } 
+  public boolean isSetLegStrikePrice() 
+  { return isSetField(612); } 
   public void set(org.quickfix.field.LegOptAttribute value) 
   { setField(value); } 
   public org.quickfix.field.LegOptAttribute get(org.quickfix.field.LegOptAttribute value) throws FieldNotFound 
@@ -637,6 +921,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegOptAttribute getLegOptAttribute() throws FieldNotFound 
   { org.quickfix.field.LegOptAttribute value = new org.quickfix.field.LegOptAttribute(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegOptAttribute field) 
+  { return isSetField(field); } 
+  public boolean isSetLegOptAttribute() 
+  { return isSetField(613); } 
   public void set(org.quickfix.field.LegContractMultiplier value) 
   { setField(value); } 
   public org.quickfix.field.LegContractMultiplier get(org.quickfix.field.LegContractMultiplier value) throws FieldNotFound 
@@ -644,6 +932,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegContractMultiplier getLegContractMultiplier() throws FieldNotFound 
   { org.quickfix.field.LegContractMultiplier value = new org.quickfix.field.LegContractMultiplier(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegContractMultiplier field) 
+  { return isSetField(field); } 
+  public boolean isSetLegContractMultiplier() 
+  { return isSetField(614); } 
   public void set(org.quickfix.field.LegCouponRate value) 
   { setField(value); } 
   public org.quickfix.field.LegCouponRate get(org.quickfix.field.LegCouponRate value) throws FieldNotFound 
@@ -651,6 +943,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegCouponRate getLegCouponRate() throws FieldNotFound 
   { org.quickfix.field.LegCouponRate value = new org.quickfix.field.LegCouponRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegCouponRate field) 
+  { return isSetField(field); } 
+  public boolean isSetLegCouponRate() 
+  { return isSetField(615); } 
   public void set(org.quickfix.field.LegSecurityExchange value) 
   { setField(value); } 
   public org.quickfix.field.LegSecurityExchange get(org.quickfix.field.LegSecurityExchange value) throws FieldNotFound 
@@ -658,6 +954,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSecurityExchange getLegSecurityExchange() throws FieldNotFound 
   { org.quickfix.field.LegSecurityExchange value = new org.quickfix.field.LegSecurityExchange(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSecurityExchange field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSecurityExchange() 
+  { return isSetField(616); } 
   public void set(org.quickfix.field.LegIssuer value) 
   { setField(value); } 
   public org.quickfix.field.LegIssuer get(org.quickfix.field.LegIssuer value) throws FieldNotFound 
@@ -665,6 +965,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegIssuer getLegIssuer() throws FieldNotFound 
   { org.quickfix.field.LegIssuer value = new org.quickfix.field.LegIssuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegIssuer field) 
+  { return isSetField(field); } 
+  public boolean isSetLegIssuer() 
+  { return isSetField(617); } 
   public void set(org.quickfix.field.EncodedLegIssuerLen value) 
   { setField(value); } 
   public org.quickfix.field.EncodedLegIssuerLen get(org.quickfix.field.EncodedLegIssuerLen value) throws FieldNotFound 
@@ -672,6 +976,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.EncodedLegIssuerLen getEncodedLegIssuerLen() throws FieldNotFound 
   { org.quickfix.field.EncodedLegIssuerLen value = new org.quickfix.field.EncodedLegIssuerLen(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedLegIssuerLen field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedLegIssuerLen() 
+  { return isSetField(618); } 
   public void set(org.quickfix.field.EncodedLegIssuer value) 
   { setField(value); } 
   public org.quickfix.field.EncodedLegIssuer get(org.quickfix.field.EncodedLegIssuer value) throws FieldNotFound 
@@ -679,6 +987,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.EncodedLegIssuer getEncodedLegIssuer() throws FieldNotFound 
   { org.quickfix.field.EncodedLegIssuer value = new org.quickfix.field.EncodedLegIssuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedLegIssuer field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedLegIssuer() 
+  { return isSetField(619); } 
   public void set(org.quickfix.field.LegSecurityDesc value) 
   { setField(value); } 
   public org.quickfix.field.LegSecurityDesc get(org.quickfix.field.LegSecurityDesc value) throws FieldNotFound 
@@ -686,6 +998,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSecurityDesc getLegSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.LegSecurityDesc value = new org.quickfix.field.LegSecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSecurityDesc() 
+  { return isSetField(620); } 
   public void set(org.quickfix.field.EncodedLegSecurityDescLen value) 
   { setField(value); } 
   public org.quickfix.field.EncodedLegSecurityDescLen get(org.quickfix.field.EncodedLegSecurityDescLen value) throws FieldNotFound 
@@ -693,6 +1009,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.EncodedLegSecurityDescLen getEncodedLegSecurityDescLen() throws FieldNotFound 
   { org.quickfix.field.EncodedLegSecurityDescLen value = new org.quickfix.field.EncodedLegSecurityDescLen(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedLegSecurityDescLen field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedLegSecurityDescLen() 
+  { return isSetField(621); } 
   public void set(org.quickfix.field.EncodedLegSecurityDesc value) 
   { setField(value); } 
   public org.quickfix.field.EncodedLegSecurityDesc get(org.quickfix.field.EncodedLegSecurityDesc value) throws FieldNotFound 
@@ -700,6 +1020,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.EncodedLegSecurityDesc getEncodedLegSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedLegSecurityDesc value = new org.quickfix.field.EncodedLegSecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedLegSecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedLegSecurityDesc() 
+  { return isSetField(622); } 
   public void set(org.quickfix.field.LegRatioQty value) 
   { setField(value); } 
   public org.quickfix.field.LegRatioQty get(org.quickfix.field.LegRatioQty value) throws FieldNotFound 
@@ -707,6 +1031,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegRatioQty getLegRatioQty() throws FieldNotFound 
   { org.quickfix.field.LegRatioQty value = new org.quickfix.field.LegRatioQty(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegRatioQty field) 
+  { return isSetField(field); } 
+  public boolean isSetLegRatioQty() 
+  { return isSetField(623); } 
   public void set(org.quickfix.field.LegSide value) 
   { setField(value); } 
   public org.quickfix.field.LegSide get(org.quickfix.field.LegSide value) throws FieldNotFound 
@@ -714,6 +1042,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSide getLegSide() throws FieldNotFound 
   { org.quickfix.field.LegSide value = new org.quickfix.field.LegSide(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSide field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSide() 
+  { return isSetField(624); } 
   public void set(org.quickfix.field.NoLegSecurityAltID value) 
   { setField(value); } 
   public org.quickfix.field.NoLegSecurityAltID get(org.quickfix.field.NoLegSecurityAltID value) throws FieldNotFound 
@@ -721,6 +1053,10 @@ public static class NoLegs extends Group {
   public org.quickfix.field.NoLegSecurityAltID getNoLegSecurityAltID() throws FieldNotFound 
   { org.quickfix.field.NoLegSecurityAltID value = new org.quickfix.field.NoLegSecurityAltID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.NoLegSecurityAltID field) 
+  { return isSetField(field); } 
+  public boolean isSetNoLegSecurityAltID() 
+  { return isSetField(604); } 
 
 public static class NoLegSecurityAltID extends Group { 
   public NoLegSecurityAltID() { 
@@ -738,6 +1074,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.LegSecurityAltID getLegSecurityAltID() throws FieldNotFound 
   { org.quickfix.field.LegSecurityAltID value = new org.quickfix.field.LegSecurityAltID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSecurityAltID field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSecurityAltID() 
+  { return isSetField(605); } 
 
   public void set(org.quickfix.field.LegSecurityAltIDSource value) 
   { setField(value); } 
@@ -746,6 +1086,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.LegSecurityAltIDSource getLegSecurityAltIDSource() throws FieldNotFound 
   { org.quickfix.field.LegSecurityAltIDSource value = new org.quickfix.field.LegSecurityAltIDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LegSecurityAltIDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetLegSecurityAltIDSource() 
+  { return isSetField(606); } 
 
 } 
 } 
@@ -756,6 +1100,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.Symbol getSymbol() throws FieldNotFound 
   { org.quickfix.field.Symbol value = new org.quickfix.field.Symbol(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Symbol field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbol() 
+  { return isSetField(55); } 
   public void set(org.quickfix.field.SymbolSfx value) 
   { setField(value); } 
   public org.quickfix.field.SymbolSfx get(org.quickfix.field.SymbolSfx value) throws FieldNotFound 
@@ -763,6 +1111,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.SymbolSfx getSymbolSfx() throws FieldNotFound 
   { org.quickfix.field.SymbolSfx value = new org.quickfix.field.SymbolSfx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SymbolSfx field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbolSfx() 
+  { return isSetField(65); } 
   public void set(org.quickfix.field.SecurityID value) 
   { setField(value); } 
   public org.quickfix.field.SecurityID get(org.quickfix.field.SecurityID value) throws FieldNotFound 
@@ -770,6 +1122,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.SecurityID getSecurityID() throws FieldNotFound 
   { org.quickfix.field.SecurityID value = new org.quickfix.field.SecurityID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityID field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityID() 
+  { return isSetField(48); } 
   public void set(org.quickfix.field.SecurityIDSource value) 
   { setField(value); } 
   public org.quickfix.field.SecurityIDSource get(org.quickfix.field.SecurityIDSource value) throws FieldNotFound 
@@ -777,6 +1133,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.SecurityIDSource getSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.SecurityIDSource value = new org.quickfix.field.SecurityIDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityIDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityIDSource() 
+  { return isSetField(22); } 
   public void set(org.quickfix.field.Product value) 
   { setField(value); } 
   public org.quickfix.field.Product get(org.quickfix.field.Product value) throws FieldNotFound 
@@ -784,6 +1144,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.Product getProduct() throws FieldNotFound 
   { org.quickfix.field.Product value = new org.quickfix.field.Product(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Product field) 
+  { return isSetField(field); } 
+  public boolean isSetProduct() 
+  { return isSetField(460); } 
   public void set(org.quickfix.field.CFICode value) 
   { setField(value); } 
   public org.quickfix.field.CFICode get(org.quickfix.field.CFICode value) throws FieldNotFound 
@@ -791,6 +1155,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.CFICode getCFICode() throws FieldNotFound 
   { org.quickfix.field.CFICode value = new org.quickfix.field.CFICode(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.CFICode field) 
+  { return isSetField(field); } 
+  public boolean isSetCFICode() 
+  { return isSetField(461); } 
   public void set(org.quickfix.field.SecurityType value) 
   { setField(value); } 
   public org.quickfix.field.SecurityType get(org.quickfix.field.SecurityType value) throws FieldNotFound 
@@ -798,6 +1166,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.SecurityType getSecurityType() throws FieldNotFound 
   { org.quickfix.field.SecurityType value = new org.quickfix.field.SecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityType() 
+  { return isSetField(167); } 
   public void set(org.quickfix.field.MaturityMonthYear value) 
   { setField(value); } 
   public org.quickfix.field.MaturityMonthYear get(org.quickfix.field.MaturityMonthYear value) throws FieldNotFound 
@@ -805,6 +1177,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.MaturityMonthYear getMaturityMonthYear() throws FieldNotFound 
   { org.quickfix.field.MaturityMonthYear value = new org.quickfix.field.MaturityMonthYear(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MaturityMonthYear field) 
+  { return isSetField(field); } 
+  public boolean isSetMaturityMonthYear() 
+  { return isSetField(200); } 
   public void set(org.quickfix.field.MaturityDate value) 
   { setField(value); } 
   public org.quickfix.field.MaturityDate get(org.quickfix.field.MaturityDate value) throws FieldNotFound 
@@ -812,6 +1188,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.MaturityDate getMaturityDate() throws FieldNotFound 
   { org.quickfix.field.MaturityDate value = new org.quickfix.field.MaturityDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MaturityDate field) 
+  { return isSetField(field); } 
+  public boolean isSetMaturityDate() 
+  { return isSetField(541); } 
   public void set(org.quickfix.field.CouponPaymentDate value) 
   { setField(value); } 
   public org.quickfix.field.CouponPaymentDate get(org.quickfix.field.CouponPaymentDate value) throws FieldNotFound 
@@ -819,6 +1199,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.CouponPaymentDate getCouponPaymentDate() throws FieldNotFound 
   { org.quickfix.field.CouponPaymentDate value = new org.quickfix.field.CouponPaymentDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.CouponPaymentDate field) 
+  { return isSetField(field); } 
+  public boolean isSetCouponPaymentDate() 
+  { return isSetField(224); } 
   public void set(org.quickfix.field.IssueDate value) 
   { setField(value); } 
   public org.quickfix.field.IssueDate get(org.quickfix.field.IssueDate value) throws FieldNotFound 
@@ -826,6 +1210,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.IssueDate getIssueDate() throws FieldNotFound 
   { org.quickfix.field.IssueDate value = new org.quickfix.field.IssueDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.IssueDate field) 
+  { return isSetField(field); } 
+  public boolean isSetIssueDate() 
+  { return isSetField(225); } 
   public void set(org.quickfix.field.RepoCollateralSecurityType value) 
   { setField(value); } 
   public org.quickfix.field.RepoCollateralSecurityType get(org.quickfix.field.RepoCollateralSecurityType value) throws FieldNotFound 
@@ -833,6 +1221,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.RepoCollateralSecurityType getRepoCollateralSecurityType() throws FieldNotFound 
   { org.quickfix.field.RepoCollateralSecurityType value = new org.quickfix.field.RepoCollateralSecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RepoCollateralSecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetRepoCollateralSecurityType() 
+  { return isSetField(239); } 
   public void set(org.quickfix.field.RepurchaseTerm value) 
   { setField(value); } 
   public org.quickfix.field.RepurchaseTerm get(org.quickfix.field.RepurchaseTerm value) throws FieldNotFound 
@@ -840,6 +1232,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.RepurchaseTerm getRepurchaseTerm() throws FieldNotFound 
   { org.quickfix.field.RepurchaseTerm value = new org.quickfix.field.RepurchaseTerm(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RepurchaseTerm field) 
+  { return isSetField(field); } 
+  public boolean isSetRepurchaseTerm() 
+  { return isSetField(226); } 
   public void set(org.quickfix.field.RepurchaseRate value) 
   { setField(value); } 
   public org.quickfix.field.RepurchaseRate get(org.quickfix.field.RepurchaseRate value) throws FieldNotFound 
@@ -847,6 +1243,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.RepurchaseRate getRepurchaseRate() throws FieldNotFound 
   { org.quickfix.field.RepurchaseRate value = new org.quickfix.field.RepurchaseRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RepurchaseRate field) 
+  { return isSetField(field); } 
+  public boolean isSetRepurchaseRate() 
+  { return isSetField(227); } 
   public void set(org.quickfix.field.Factor value) 
   { setField(value); } 
   public org.quickfix.field.Factor get(org.quickfix.field.Factor value) throws FieldNotFound 
@@ -854,6 +1254,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.Factor getFactor() throws FieldNotFound 
   { org.quickfix.field.Factor value = new org.quickfix.field.Factor(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Factor field) 
+  { return isSetField(field); } 
+  public boolean isSetFactor() 
+  { return isSetField(228); } 
   public void set(org.quickfix.field.CreditRating value) 
   { setField(value); } 
   public org.quickfix.field.CreditRating get(org.quickfix.field.CreditRating value) throws FieldNotFound 
@@ -861,6 +1265,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.CreditRating getCreditRating() throws FieldNotFound 
   { org.quickfix.field.CreditRating value = new org.quickfix.field.CreditRating(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.CreditRating field) 
+  { return isSetField(field); } 
+  public boolean isSetCreditRating() 
+  { return isSetField(255); } 
   public void set(org.quickfix.field.InstrRegistry value) 
   { setField(value); } 
   public org.quickfix.field.InstrRegistry get(org.quickfix.field.InstrRegistry value) throws FieldNotFound 
@@ -868,6 +1276,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.InstrRegistry getInstrRegistry() throws FieldNotFound 
   { org.quickfix.field.InstrRegistry value = new org.quickfix.field.InstrRegistry(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.InstrRegistry field) 
+  { return isSetField(field); } 
+  public boolean isSetInstrRegistry() 
+  { return isSetField(543); } 
   public void set(org.quickfix.field.CountryOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.CountryOfIssue get(org.quickfix.field.CountryOfIssue value) throws FieldNotFound 
@@ -875,6 +1287,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.CountryOfIssue getCountryOfIssue() throws FieldNotFound 
   { org.quickfix.field.CountryOfIssue value = new org.quickfix.field.CountryOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.CountryOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetCountryOfIssue() 
+  { return isSetField(470); } 
   public void set(org.quickfix.field.StateOrProvinceOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.StateOrProvinceOfIssue get(org.quickfix.field.StateOrProvinceOfIssue value) throws FieldNotFound 
@@ -882,6 +1298,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.StateOrProvinceOfIssue getStateOrProvinceOfIssue() throws FieldNotFound 
   { org.quickfix.field.StateOrProvinceOfIssue value = new org.quickfix.field.StateOrProvinceOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.StateOrProvinceOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetStateOrProvinceOfIssue() 
+  { return isSetField(471); } 
   public void set(org.quickfix.field.LocaleOfIssue value) 
   { setField(value); } 
   public org.quickfix.field.LocaleOfIssue get(org.quickfix.field.LocaleOfIssue value) throws FieldNotFound 
@@ -889,6 +1309,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.LocaleOfIssue getLocaleOfIssue() throws FieldNotFound 
   { org.quickfix.field.LocaleOfIssue value = new org.quickfix.field.LocaleOfIssue(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.LocaleOfIssue field) 
+  { return isSetField(field); } 
+  public boolean isSetLocaleOfIssue() 
+  { return isSetField(472); } 
   public void set(org.quickfix.field.RedemptionDate value) 
   { setField(value); } 
   public org.quickfix.field.RedemptionDate get(org.quickfix.field.RedemptionDate value) throws FieldNotFound 
@@ -896,6 +1320,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.RedemptionDate getRedemptionDate() throws FieldNotFound 
   { org.quickfix.field.RedemptionDate value = new org.quickfix.field.RedemptionDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.RedemptionDate field) 
+  { return isSetField(field); } 
+  public boolean isSetRedemptionDate() 
+  { return isSetField(240); } 
   public void set(org.quickfix.field.StrikePrice value) 
   { setField(value); } 
   public org.quickfix.field.StrikePrice get(org.quickfix.field.StrikePrice value) throws FieldNotFound 
@@ -903,6 +1331,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.StrikePrice getStrikePrice() throws FieldNotFound 
   { org.quickfix.field.StrikePrice value = new org.quickfix.field.StrikePrice(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.StrikePrice field) 
+  { return isSetField(field); } 
+  public boolean isSetStrikePrice() 
+  { return isSetField(202); } 
   public void set(org.quickfix.field.OptAttribute value) 
   { setField(value); } 
   public org.quickfix.field.OptAttribute get(org.quickfix.field.OptAttribute value) throws FieldNotFound 
@@ -910,6 +1342,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.OptAttribute getOptAttribute() throws FieldNotFound 
   { org.quickfix.field.OptAttribute value = new org.quickfix.field.OptAttribute(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OptAttribute field) 
+  { return isSetField(field); } 
+  public boolean isSetOptAttribute() 
+  { return isSetField(206); } 
   public void set(org.quickfix.field.ContractMultiplier value) 
   { setField(value); } 
   public org.quickfix.field.ContractMultiplier get(org.quickfix.field.ContractMultiplier value) throws FieldNotFound 
@@ -917,6 +1353,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.ContractMultiplier getContractMultiplier() throws FieldNotFound 
   { org.quickfix.field.ContractMultiplier value = new org.quickfix.field.ContractMultiplier(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ContractMultiplier field) 
+  { return isSetField(field); } 
+  public boolean isSetContractMultiplier() 
+  { return isSetField(231); } 
   public void set(org.quickfix.field.CouponRate value) 
   { setField(value); } 
   public org.quickfix.field.CouponRate get(org.quickfix.field.CouponRate value) throws FieldNotFound 
@@ -924,6 +1364,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.CouponRate getCouponRate() throws FieldNotFound 
   { org.quickfix.field.CouponRate value = new org.quickfix.field.CouponRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.CouponRate field) 
+  { return isSetField(field); } 
+  public boolean isSetCouponRate() 
+  { return isSetField(223); } 
   public void set(org.quickfix.field.SecurityExchange value) 
   { setField(value); } 
   public org.quickfix.field.SecurityExchange get(org.quickfix.field.SecurityExchange value) throws FieldNotFound 
@@ -931,6 +1375,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.SecurityExchange getSecurityExchange() throws FieldNotFound 
   { org.quickfix.field.SecurityExchange value = new org.quickfix.field.SecurityExchange(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityExchange field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityExchange() 
+  { return isSetField(207); } 
   public void set(org.quickfix.field.Issuer value) 
   { setField(value); } 
   public org.quickfix.field.Issuer get(org.quickfix.field.Issuer value) throws FieldNotFound 
@@ -938,6 +1386,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.Issuer getIssuer() throws FieldNotFound 
   { org.quickfix.field.Issuer value = new org.quickfix.field.Issuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Issuer field) 
+  { return isSetField(field); } 
+  public boolean isSetIssuer() 
+  { return isSetField(106); } 
   public void set(org.quickfix.field.EncodedIssuerLen value) 
   { setField(value); } 
   public org.quickfix.field.EncodedIssuerLen get(org.quickfix.field.EncodedIssuerLen value) throws FieldNotFound 
@@ -945,6 +1397,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.EncodedIssuerLen getEncodedIssuerLen() throws FieldNotFound 
   { org.quickfix.field.EncodedIssuerLen value = new org.quickfix.field.EncodedIssuerLen(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedIssuerLen field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedIssuerLen() 
+  { return isSetField(348); } 
   public void set(org.quickfix.field.EncodedIssuer value) 
   { setField(value); } 
   public org.quickfix.field.EncodedIssuer get(org.quickfix.field.EncodedIssuer value) throws FieldNotFound 
@@ -952,6 +1408,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.EncodedIssuer getEncodedIssuer() throws FieldNotFound 
   { org.quickfix.field.EncodedIssuer value = new org.quickfix.field.EncodedIssuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedIssuer field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedIssuer() 
+  { return isSetField(349); } 
   public void set(org.quickfix.field.SecurityDesc value) 
   { setField(value); } 
   public org.quickfix.field.SecurityDesc get(org.quickfix.field.SecurityDesc value) throws FieldNotFound 
@@ -959,6 +1419,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.SecurityDesc getSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.SecurityDesc value = new org.quickfix.field.SecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityDesc() 
+  { return isSetField(107); } 
   public void set(org.quickfix.field.EncodedSecurityDescLen value) 
   { setField(value); } 
   public org.quickfix.field.EncodedSecurityDescLen get(org.quickfix.field.EncodedSecurityDescLen value) throws FieldNotFound 
@@ -966,6 +1430,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.EncodedSecurityDescLen getEncodedSecurityDescLen() throws FieldNotFound 
   { org.quickfix.field.EncodedSecurityDescLen value = new org.quickfix.field.EncodedSecurityDescLen(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedSecurityDescLen field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedSecurityDescLen() 
+  { return isSetField(350); } 
   public void set(org.quickfix.field.EncodedSecurityDesc value) 
   { setField(value); } 
   public org.quickfix.field.EncodedSecurityDesc get(org.quickfix.field.EncodedSecurityDesc value) throws FieldNotFound 
@@ -973,6 +1441,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.EncodedSecurityDesc getEncodedSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedSecurityDesc value = new org.quickfix.field.EncodedSecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EncodedSecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetEncodedSecurityDesc() 
+  { return isSetField(351); } 
   public void set(org.quickfix.field.NoSecurityAltID value) 
   { setField(value); } 
   public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
@@ -980,6 +1452,10 @@ public static class NoLegSecurityAltID extends Group {
   public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
   { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.NoSecurityAltID field) 
+  { return isSetField(field); } 
+  public boolean isSetNoSecurityAltID() 
+  { return isSetField(454); } 
 
 public static class NoSecurityAltID extends Group { 
   public NoSecurityAltID() { 
@@ -997,6 +1473,10 @@ public static class NoSecurityAltID extends Group {
   public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
   { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityAltID field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityAltID() 
+  { return isSetField(455); } 
 
   public void set(org.quickfix.field.SecurityAltIDSource value) 
   { setField(value); } 
@@ -1005,6 +1485,10 @@ public static class NoSecurityAltID extends Group {
   public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
   { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityAltIDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityAltIDSource() 
+  { return isSetField(456); } 
 
 } 
 } 

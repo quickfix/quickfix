@@ -26,6 +26,10 @@ public class Quote extends Message
   public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound 
   { org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.QuoteReqID field) 
+  { return isSetField(field); } 
+  public boolean isSetQuoteReqID() 
+  { return isSetField(131); } 
 
   public void set(org.quickfix.field.QuoteID value) 
   { setField(value); } 
@@ -34,6 +38,10 @@ public class Quote extends Message
   public org.quickfix.field.QuoteID getQuoteID() throws FieldNotFound 
   { org.quickfix.field.QuoteID value = new org.quickfix.field.QuoteID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.QuoteID field) 
+  { return isSetField(field); } 
+  public boolean isSetQuoteID() 
+  { return isSetField(117); } 
 
   public void set(org.quickfix.field.Symbol value) 
   { setField(value); } 
@@ -42,6 +50,10 @@ public class Quote extends Message
   public org.quickfix.field.Symbol getSymbol() throws FieldNotFound 
   { org.quickfix.field.Symbol value = new org.quickfix.field.Symbol(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Symbol field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbol() 
+  { return isSetField(55); } 
 
   public void set(org.quickfix.field.SymbolSfx value) 
   { setField(value); } 
@@ -50,6 +62,10 @@ public class Quote extends Message
   public org.quickfix.field.SymbolSfx getSymbolSfx() throws FieldNotFound 
   { org.quickfix.field.SymbolSfx value = new org.quickfix.field.SymbolSfx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SymbolSfx field) 
+  { return isSetField(field); } 
+  public boolean isSetSymbolSfx() 
+  { return isSetField(65); } 
 
   public void set(org.quickfix.field.SecurityID value) 
   { setField(value); } 
@@ -58,6 +74,10 @@ public class Quote extends Message
   public org.quickfix.field.SecurityID getSecurityID() throws FieldNotFound 
   { org.quickfix.field.SecurityID value = new org.quickfix.field.SecurityID(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityID field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityID() 
+  { return isSetField(48); } 
 
   public void set(org.quickfix.field.IDSource value) 
   { setField(value); } 
@@ -66,6 +86,10 @@ public class Quote extends Message
   public org.quickfix.field.IDSource getIDSource() throws FieldNotFound 
   { org.quickfix.field.IDSource value = new org.quickfix.field.IDSource(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.IDSource field) 
+  { return isSetField(field); } 
+  public boolean isSetIDSource() 
+  { return isSetField(22); } 
 
   public void set(org.quickfix.field.SecurityType value) 
   { setField(value); } 
@@ -74,6 +98,10 @@ public class Quote extends Message
   public org.quickfix.field.SecurityType getSecurityType() throws FieldNotFound 
   { org.quickfix.field.SecurityType value = new org.quickfix.field.SecurityType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityType field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityType() 
+  { return isSetField(167); } 
 
   public void set(org.quickfix.field.MaturityMonthYear value) 
   { setField(value); } 
@@ -82,6 +110,10 @@ public class Quote extends Message
   public org.quickfix.field.MaturityMonthYear getMaturityMonthYear() throws FieldNotFound 
   { org.quickfix.field.MaturityMonthYear value = new org.quickfix.field.MaturityMonthYear(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MaturityMonthYear field) 
+  { return isSetField(field); } 
+  public boolean isSetMaturityMonthYear() 
+  { return isSetField(200); } 
 
   public void set(org.quickfix.field.MaturityDay value) 
   { setField(value); } 
@@ -90,6 +122,10 @@ public class Quote extends Message
   public org.quickfix.field.MaturityDay getMaturityDay() throws FieldNotFound 
   { org.quickfix.field.MaturityDay value = new org.quickfix.field.MaturityDay(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.MaturityDay field) 
+  { return isSetField(field); } 
+  public boolean isSetMaturityDay() 
+  { return isSetField(205); } 
 
   public void set(org.quickfix.field.PutOrCall value) 
   { setField(value); } 
@@ -98,6 +134,10 @@ public class Quote extends Message
   public org.quickfix.field.PutOrCall getPutOrCall() throws FieldNotFound 
   { org.quickfix.field.PutOrCall value = new org.quickfix.field.PutOrCall(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.PutOrCall field) 
+  { return isSetField(field); } 
+  public boolean isSetPutOrCall() 
+  { return isSetField(201); } 
 
   public void set(org.quickfix.field.StrikePrice value) 
   { setField(value); } 
@@ -106,6 +146,10 @@ public class Quote extends Message
   public org.quickfix.field.StrikePrice getStrikePrice() throws FieldNotFound 
   { org.quickfix.field.StrikePrice value = new org.quickfix.field.StrikePrice(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.StrikePrice field) 
+  { return isSetField(field); } 
+  public boolean isSetStrikePrice() 
+  { return isSetField(202); } 
 
   public void set(org.quickfix.field.OptAttribute value) 
   { setField(value); } 
@@ -114,6 +158,10 @@ public class Quote extends Message
   public org.quickfix.field.OptAttribute getOptAttribute() throws FieldNotFound 
   { org.quickfix.field.OptAttribute value = new org.quickfix.field.OptAttribute(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OptAttribute field) 
+  { return isSetField(field); } 
+  public boolean isSetOptAttribute() 
+  { return isSetField(206); } 
 
   public void set(org.quickfix.field.SecurityExchange value) 
   { setField(value); } 
@@ -122,6 +170,10 @@ public class Quote extends Message
   public org.quickfix.field.SecurityExchange getSecurityExchange() throws FieldNotFound 
   { org.quickfix.field.SecurityExchange value = new org.quickfix.field.SecurityExchange(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityExchange field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityExchange() 
+  { return isSetField(207); } 
 
   public void set(org.quickfix.field.Issuer value) 
   { setField(value); } 
@@ -130,6 +182,10 @@ public class Quote extends Message
   public org.quickfix.field.Issuer getIssuer() throws FieldNotFound 
   { org.quickfix.field.Issuer value = new org.quickfix.field.Issuer(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.Issuer field) 
+  { return isSetField(field); } 
+  public boolean isSetIssuer() 
+  { return isSetField(106); } 
 
   public void set(org.quickfix.field.SecurityDesc value) 
   { setField(value); } 
@@ -138,6 +194,10 @@ public class Quote extends Message
   public org.quickfix.field.SecurityDesc getSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.SecurityDesc value = new org.quickfix.field.SecurityDesc(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.SecurityDesc field) 
+  { return isSetField(field); } 
+  public boolean isSetSecurityDesc() 
+  { return isSetField(107); } 
 
   public void set(org.quickfix.field.BidPx value) 
   { setField(value); } 
@@ -146,6 +206,10 @@ public class Quote extends Message
   public org.quickfix.field.BidPx getBidPx() throws FieldNotFound 
   { org.quickfix.field.BidPx value = new org.quickfix.field.BidPx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.BidPx field) 
+  { return isSetField(field); } 
+  public boolean isSetBidPx() 
+  { return isSetField(132); } 
 
   public void set(org.quickfix.field.OfferPx value) 
   { setField(value); } 
@@ -154,6 +218,10 @@ public class Quote extends Message
   public org.quickfix.field.OfferPx getOfferPx() throws FieldNotFound 
   { org.quickfix.field.OfferPx value = new org.quickfix.field.OfferPx(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OfferPx field) 
+  { return isSetField(field); } 
+  public boolean isSetOfferPx() 
+  { return isSetField(133); } 
 
   public void set(org.quickfix.field.BidSize value) 
   { setField(value); } 
@@ -162,6 +230,10 @@ public class Quote extends Message
   public org.quickfix.field.BidSize getBidSize() throws FieldNotFound 
   { org.quickfix.field.BidSize value = new org.quickfix.field.BidSize(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.BidSize field) 
+  { return isSetField(field); } 
+  public boolean isSetBidSize() 
+  { return isSetField(134); } 
 
   public void set(org.quickfix.field.OfferSize value) 
   { setField(value); } 
@@ -170,6 +242,10 @@ public class Quote extends Message
   public org.quickfix.field.OfferSize getOfferSize() throws FieldNotFound 
   { org.quickfix.field.OfferSize value = new org.quickfix.field.OfferSize(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OfferSize field) 
+  { return isSetField(field); } 
+  public boolean isSetOfferSize() 
+  { return isSetField(135); } 
 
   public void set(org.quickfix.field.ValidUntilTime value) 
   { setField(value); } 
@@ -178,6 +254,10 @@ public class Quote extends Message
   public org.quickfix.field.ValidUntilTime getValidUntilTime() throws FieldNotFound 
   { org.quickfix.field.ValidUntilTime value = new org.quickfix.field.ValidUntilTime(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.ValidUntilTime field) 
+  { return isSetField(field); } 
+  public boolean isSetValidUntilTime() 
+  { return isSetField(62); } 
 
   public void set(org.quickfix.field.BidSpotRate value) 
   { setField(value); } 
@@ -186,6 +266,10 @@ public class Quote extends Message
   public org.quickfix.field.BidSpotRate getBidSpotRate() throws FieldNotFound 
   { org.quickfix.field.BidSpotRate value = new org.quickfix.field.BidSpotRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.BidSpotRate field) 
+  { return isSetField(field); } 
+  public boolean isSetBidSpotRate() 
+  { return isSetField(188); } 
 
   public void set(org.quickfix.field.OfferSpotRate value) 
   { setField(value); } 
@@ -194,6 +278,10 @@ public class Quote extends Message
   public org.quickfix.field.OfferSpotRate getOfferSpotRate() throws FieldNotFound 
   { org.quickfix.field.OfferSpotRate value = new org.quickfix.field.OfferSpotRate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OfferSpotRate field) 
+  { return isSetField(field); } 
+  public boolean isSetOfferSpotRate() 
+  { return isSetField(190); } 
 
   public void set(org.quickfix.field.BidForwardPoints value) 
   { setField(value); } 
@@ -202,6 +290,10 @@ public class Quote extends Message
   public org.quickfix.field.BidForwardPoints getBidForwardPoints() throws FieldNotFound 
   { org.quickfix.field.BidForwardPoints value = new org.quickfix.field.BidForwardPoints(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.BidForwardPoints field) 
+  { return isSetField(field); } 
+  public boolean isSetBidForwardPoints() 
+  { return isSetField(189); } 
 
   public void set(org.quickfix.field.OfferForwardPoints value) 
   { setField(value); } 
@@ -210,6 +302,10 @@ public class Quote extends Message
   public org.quickfix.field.OfferForwardPoints getOfferForwardPoints() throws FieldNotFound 
   { org.quickfix.field.OfferForwardPoints value = new org.quickfix.field.OfferForwardPoints(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OfferForwardPoints field) 
+  { return isSetField(field); } 
+  public boolean isSetOfferForwardPoints() 
+  { return isSetField(191); } 
 
   public void set(org.quickfix.field.TransactTime value) 
   { setField(value); } 
@@ -218,6 +314,10 @@ public class Quote extends Message
   public org.quickfix.field.TransactTime getTransactTime() throws FieldNotFound 
   { org.quickfix.field.TransactTime value = new org.quickfix.field.TransactTime(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.TransactTime field) 
+  { return isSetField(field); } 
+  public boolean isSetTransactTime() 
+  { return isSetField(60); } 
 
   public void set(org.quickfix.field.FutSettDate value) 
   { setField(value); } 
@@ -226,6 +326,10 @@ public class Quote extends Message
   public org.quickfix.field.FutSettDate getFutSettDate() throws FieldNotFound 
   { org.quickfix.field.FutSettDate value = new org.quickfix.field.FutSettDate(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.FutSettDate field) 
+  { return isSetField(field); } 
+  public boolean isSetFutSettDate() 
+  { return isSetField(64); } 
 
   public void set(org.quickfix.field.OrdType value) 
   { setField(value); } 
@@ -234,6 +338,10 @@ public class Quote extends Message
   public org.quickfix.field.OrdType getOrdType() throws FieldNotFound 
   { org.quickfix.field.OrdType value = new org.quickfix.field.OrdType(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OrdType field) 
+  { return isSetField(field); } 
+  public boolean isSetOrdType() 
+  { return isSetField(40); } 
 
   public void set(org.quickfix.field.FutSettDate2 value) 
   { setField(value); } 
@@ -242,6 +350,10 @@ public class Quote extends Message
   public org.quickfix.field.FutSettDate2 getFutSettDate2() throws FieldNotFound 
   { org.quickfix.field.FutSettDate2 value = new org.quickfix.field.FutSettDate2(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.FutSettDate2 field) 
+  { return isSetField(field); } 
+  public boolean isSetFutSettDate2() 
+  { return isSetField(193); } 
 
   public void set(org.quickfix.field.OrderQty2 value) 
   { setField(value); } 
@@ -250,4 +362,8 @@ public class Quote extends Message
   public org.quickfix.field.OrderQty2 getOrderQty2() throws FieldNotFound 
   { org.quickfix.field.OrderQty2 value = new org.quickfix.field.OrderQty2(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.OrderQty2 field) 
+  { return isSetField(field); } 
+  public boolean isSetOrderQty2() 
+  { return isSetField(192); } 
 } 

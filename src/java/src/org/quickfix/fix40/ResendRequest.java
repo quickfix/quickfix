@@ -26,6 +26,10 @@ public class ResendRequest extends Message
   public org.quickfix.field.BeginSeqNo getBeginSeqNo() throws FieldNotFound 
   { org.quickfix.field.BeginSeqNo value = new org.quickfix.field.BeginSeqNo(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.BeginSeqNo field) 
+  { return isSetField(field); } 
+  public boolean isSetBeginSeqNo() 
+  { return isSetField(7); } 
 
   public void set(org.quickfix.field.EndSeqNo value) 
   { setField(value); } 
@@ -34,4 +38,8 @@ public class ResendRequest extends Message
   public org.quickfix.field.EndSeqNo getEndSeqNo() throws FieldNotFound 
   { org.quickfix.field.EndSeqNo value = new org.quickfix.field.EndSeqNo(); 
     getField(value); return value; } 
+  public boolean isSet(org.quickfix.field.EndSeqNo field) 
+  { return isSetField(field); } 
+  public boolean isSetEndSeqNo() 
+  { return isSetField(16); } 
 } 
