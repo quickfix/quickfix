@@ -1,17 +1,69 @@
-2003-10-01 11:37  alexhornby
+2003-11-07 12:11  thoennes
 
-	* src/java/org_quickfix/SocketInitiator.cpp: fix typo of
-	doBlockingStart
+	* test/setup: Disabled MillisecondsInTimeStamp since would break
+	  the current acceptance tests.
 
-2003-08-27 14:07  orenmnero
+2003-11-06 17:09  thoennes
+
+	* src/C++/: Parser.cpp, test/ParserTestCase.cpp,
+	  test/ParserTestCase.h: Fixed parsing of tag 9 (BodyLength): Now
+	  extractLength returns false if there is no (complete) tag 9 in
+	  the current buffer.  Submitted by Brian Egge
+	  <BrianE@mapleusa.com>.
+
+2003-11-06 15:32  thoennes
+
+	* src/C++/Session.cpp: Reordered initializers to match declaration
+	  order.
+
+2003-11-06 15:31  thoennes
+
+	* src/C++/: Session.h, SessionFactory.cpp: Renamed setter to
+	  setMillisecondsInTimeStamp() to match conventions.
+
+2003-11-06 14:32  thoennes
+
+	* test/: runat, runut: - Added missing newlines at the end.
+
+2003-11-06 02:03  danmay
+
+	* src/C++/: Session.cpp, Session.h, SessionFactory.cpp,
+	  SessionSettings.h: Added Config setting
+	  "MillisecondsInTimeStamp=Y", which defaults to true, meaning you
+	  want to add milliseconds to timestamps in FIX.4.2 or greater
+	  messages.
+
+2003-11-05 15:28  danmay
+
+	* src/C++/: FieldConvertors.h, FieldTypes.cpp, FieldTypes.h,
+	  Session.cpp, test/FieldConvertorsTestCase.cpp,
+	  test/SessionTestCase.cpp, test/UtcTimeOnlyTestCase.cpp,
+	  test/UtcTimeStampTestCase.cpp: Added millisecond time resolution
+	  to UtcTimeStamp
+
+2003-11-03 17:58  danmay
+
+	* src/C++/SessionID.h: Added toString() to SessionID in
+	  SessionID.h.
+
+2003-10-01 10:41  alexhornby
+
+	* ChangeLog, src/java/org_quickfix_SocketInitiator.cpp: fix typo of
+	  doBlockingStart
+
+2003-08-27 19:30  orenmnero
+
+	* ChangeLog: [no log message]
+
+2003-08-27 19:07  orenmnero
 
 	* NEWS: [no log message]
 
-2003-08-27 14:01  orenmnero
+2003-08-27 19:01  orenmnero
 
 	* NEWS: removed double negative
 
-2003-08-27 13:59  orenmnero
+2003-08-27 18:59  orenmnero
 
 	* src/java/: org_quickfix_SocketAcceptor.cpp,
 	  org_quickfix_SocketInitiator.cpp,
@@ -19,83 +71,83 @@
 	  org_quickfix_ThreadedSocketInitiator.cpp: trapping exceptions
 	  thrown when shutting down acceptor/initiator
 
-2003-08-26 15:40  orenmnero
+2003-08-26 20:40  orenmnero
 
 	* src/C++/FieldMap.cpp: throw exception when trying to pull out
 	  group <= 0
 
-2003-08-26 15:38  orenmnero
+2003-08-26 20:38  orenmnero
 
 	* src/C++/DataDictionary.h: ensures field names are unique
 
-2003-08-18 10:26  orenmnero
+2003-08-18 15:26  orenmnero
 
 	* ChangeLog, NEWS: [no log message]
 
-2003-08-18 10:11  orenmnero
+2003-08-18 15:11  orenmnero
 
 	* examples/: executor/C++/Application.cpp,
 	  ordermatch/Application.cpp, tradeclient/Application.cpp: moved
 	  pragmas up above includes to get rid of warnings
 
-2003-08-18 10:11  orenmnero
+2003-08-18 15:11  orenmnero
 
 	* examples/ordermatch/test/ordermatch_ut.cpp: removed extra
 	  linefeeds
 
-2003-08-18 10:10  orenmnero
+2003-08-18 15:10  orenmnero
 
 	* test/runat_threaded.bat: passes port to setup.bat, runs FIX4.4
 	  tests
 
-2003-08-17 22:55  orenmnero
+2003-08-18 03:55  orenmnero
 
 	* src/C++/: DataDictionary.cpp, LIBXML_DOMDocument.cpp,
 	  LIBXML_DOMDocument.h, MSXML_DOMDocument.cpp: added windows
 	  support for libxml
 
-2003-08-17 22:54  orenmnero
+2003-08-18 03:54  orenmnero
 
 	* src/C++/ThreadedSocketInitiator.cpp: corrected typo _MSV_VER
 
-2003-08-17 22:53  orenmnero
+2003-08-18 03:53  orenmnero
 
 	* src/C++/Session.h: added accessor for Datadictionary
 
-2003-08-17 22:52  orenmnero
+2003-08-18 03:52  orenmnero
 
 	* src/C++/DataDictionary.h: marked appropriate methods as const
 
-2003-08-17 22:50  orenmnero
+2003-08-18 03:50  orenmnero
 
 	* quickfix.dsp, quickfix.vcproj, src/config_windows.h: added
 	  windows support for libxml
 
-2003-08-15 01:44  orenmnero
+2003-08-15 06:44  orenmnero
 
 	* configure.in: define socklen_t as int if undefined
 
-2003-08-10 20:56  orenmnero
+2003-08-11 01:56  orenmnero
 
 	* ChangeLog, NEWS, configure.in, src/C++/Makefile.am,
 	  src/java/Makefile.am,
 	  test/definitions/server/future/14k_EmbeddedSOH.def: [no log
 	  message]
 
-2003-08-10 20:29  orenmnero
+2003-08-11 01:29  orenmnero
 
 	* doc/html/FAQ.html: [no log message]
 
-2003-08-10 20:29  orenmnero
+2003-08-11 01:29  orenmnero
 
 	* doc/html/install.html: corrected script to call for java
 	  acceptance tests
 
-2003-08-10 20:28  orenmnero
+2003-08-11 01:28  orenmnero
 
 	* doc/html/sending_messages.html: fixed typo
 
-2003-08-10 19:29  orenmnero
+2003-08-11 00:29  orenmnero
 
 	* bin/cfg/executor.cfg, bin/cfg/tradeclient.cfg,
 	  examples/executor/C++/Application.cpp,
@@ -104,7 +156,7 @@
 	  examples/tradeclient/Application.cpp,
 	  examples/tradeclient/Application.h: support for FIX 4.4
 
-2003-08-10 17:57  orenmnero
+2003-08-10 22:57  orenmnero
 
 	* test/definitions/server/: fix40/10_MsgSeqNumGreater.def,
 	  fix40/1a_ValidLogonMsgSeqNumTooHigh.def,
@@ -138,45 +190,45 @@
 	  fix44/3b_InvalidChecksum.def, fix44/3c_GarbledMessage.def: always
 	  expect resend requests to infinity
 
-2003-08-10 17:56  orenmnero
+2003-08-10 22:56  orenmnero
 
 	* src/C++/Message.cpp: make sure only group field is added if
 	  delimiter is absent
 
-2003-08-10 17:41  orenmnero
+2003-08-10 22:41  orenmnero
 
 	* src/C++/: Session.cpp, Session.h: always ResendRequest to
 	  infinity, don't increment TargetSeqNum when processing
 	  ResendRequest out of range
 
-2003-08-06 00:13  orenmnero
+2003-08-06 05:13  orenmnero
 
 	* src/C++/Session.cpp: roll back bad patch
 
-2003-08-06 00:12  orenmnero
+2003-08-06 05:12  orenmnero
 
 	* src/C++/Message.cpp: group will be created if delimiter not
 	  found, fixes problems with bodylength and checksum errors
 
-2003-08-06 00:11  orenmnero
+2003-08-06 05:11  orenmnero
 
 	* src/C++/: MSXML_DOMDocument.cpp, MSXML_DOMDocument.h: temporary
 	  blank implementation of toMap
 
-2003-08-06 00:10  orenmnero
+2003-08-06 05:10  orenmnero
 
 	* src/C++/Initiator.cpp: corrected method being pushed to stack
 
-2003-08-05 19:26  orenmnero
+2003-08-06 00:26  orenmnero
 
 	* src/C++/: DOMDocument.h, LIBXML_DOMDocument.cpp,
 	  LIBXML_DOMDocument.h: attributes can be converted to map
 
-2003-08-05 01:27  orenmnero
+2003-08-05 06:27  orenmnero
 
 	* src/C++/test/MessagesTestCase.cpp: setString throws exception
 
-2003-08-05 01:24  orenmnero
+2003-08-05 06:24  orenmnero
 
 	* src/C++/: fix43/BidResponse.h, fix43/DerivativeSecurityList.h,
 	  fix43/ExecutionReport.h, fix43/ListStrikePrice.h,
@@ -196,7 +248,7 @@
 	  fix44/TradeCaptureReport.h, fix44/TradeCaptureReportAck.h: uses
 	  correct delimiter on groups with component
 
-2003-08-05 01:21  orenmnero
+2003-08-05 06:21  orenmnero
 
 	* src/java/src/org/quickfix/: fix40/Advertisement.java,
 	  fix40/Allocation.java, fix40/AllocationACK.java,
@@ -348,57 +400,57 @@
 	  generator, groups with component in first field use correct
 	  delimiter
 
-2003-08-05 01:17  orenmnero
+2003-08-05 06:17  orenmnero
 
 	* src/java/org_quickfix_Message.cpp: traps C++ exception from
 	  setString
 
-2003-08-05 01:10  orenmnero
+2003-08-05 06:10  orenmnero
 
 	* spec/: Generator.rb, GeneratorCPP.rb, GeneratorJava.rb,
 	  Processor.rb: added support for generating java messages from
 	  ruby
 
-2003-08-05 01:09  orenmnero
+2003-08-05 06:09  orenmnero
 
 	* src/C++/Session.cpp: correctly displays expected checksum and
 	  bodylength
 
-2003-08-05 01:07  orenmnero
+2003-08-05 06:07  orenmnero
 
 	* src/C++/: Message.cpp, Message.h: setString throws InvalidMessage
 	  instead of returning bool
 
-2003-08-05 01:06  orenmnero
+2003-08-05 06:06  orenmnero
 
 	* src/C++/FieldMap.cpp: closed off open QF_STACK
 
-2003-08-05 01:04  orenmnero
+2003-08-05 06:04  orenmnero
 
 	* src/C++/Exceptions.h: added string constructor for InvalidMessage
 
-2003-08-04 04:54  orenmnero
+2003-08-04 09:54  orenmnero
 
 	* src/.NET/DefaultMessageFactory.h: removing FIX 4.4 messages until
 	  compiler heap issues resolved
 
-2003-08-04 04:52  orenmnero
+2003-08-04 09:52  orenmnero
 
 	* src/C++/Session.cpp: send resent message even if not logged on
 
-2003-08-04 03:50  orenmnero
+2003-08-04 08:50  orenmnero
 
 	* src/C++/Log.h: updating time for all logging methods
 
-2003-08-04 03:37  orenmnero
+2003-08-04 08:37  orenmnero
 
 	* src/java/Makefile.am: use files under include directory
 
-2003-08-04 03:08  orenmnero
+2003-08-04 08:08  orenmnero
 
 	* test/setup: added FIX 4.4
 
-2003-08-04 02:42  orenmnero
+2003-08-04 07:42  orenmnero
 
 	* test/definitions/server/fix44/: 10_MsgSeqNumEqual.def,
 	  10_MsgSeqNumGreater.def, 10_MsgSeqNumLess.def,
@@ -435,25 +487,25 @@
 	  8_AdminAndApplicationMessages.def, 8_OnlyAdminMessages.def,
 	  8_OnlyApplicationMessages.def: initial checkin
 
-2003-08-04 02:41  orenmnero
+2003-08-04 07:41  orenmnero
 
 	* test/runat_java.bat: added FIX 4.4
 
-2003-08-04 02:40  orenmnero
+2003-08-04 07:40  orenmnero
 
 	* src/java/src/org/quickfix/DefaultMessageFactory.java: support for
 	  FIX 4.4
 
-2003-08-04 02:37  orenmnero
+2003-08-04 07:37  orenmnero
 
 	* src/: at_messagecracker.java, .NET/DefaultMessageFactory.h:
 	  support for FIX 4.4
 
-2003-08-04 02:36  orenmnero
+2003-08-04 07:36  orenmnero
 
 	* src/at_application.java: removed commented out method
 
-2003-08-04 01:32  orenmnero
+2003-08-04 06:32  orenmnero
 
 	* spec/FIX44.xml, src/.NET/Fields.h, src/C++/FieldNumbers.h,
 	  src/C++/Values.h,
@@ -462,28 +514,28 @@
 	  src/java/src/org/quickfix/fix44/NewOrderList.java: corrected
 	  FIX44.xml
 
-2003-08-04 01:31  orenmnero
+2003-08-04 06:31  orenmnero
 
 	* spec/Values.xsl: added new reject reasons
 
-2003-08-04 01:30  orenmnero
+2003-08-04 06:30  orenmnero
 
 	* ut.dsp: [no log message]
 
-2003-08-04 01:29  orenmnero
+2003-08-04 06:29  orenmnero
 
 	* test/atrun/: Process.cpp, Process.h, TestSuite.h, main.cpp,
 	  test/ProcessTestCase.h: removed extra linefeeds
 
-2003-08-04 01:28  orenmnero
+2003-08-04 06:28  orenmnero
 
 	* test/runnewat.bat: passes port to setup batch file
 
-2003-08-04 01:26  orenmnero
+2003-08-04 06:26  orenmnero
 
 	* test/: setup.bat, runat.bat: added FIX 4.4
 
-2003-08-04 01:25  orenmnero
+2003-08-04 06:25  orenmnero
 
 	* test/definitions/server/: fix40/2m_BodyLengthValueNotCorrect.def,
 	  fix41/2m_BodyLengthValueNotCorrect.def,
@@ -491,69 +543,69 @@
 	  fix43/2m_BodyLengthValueNotCorrect.def: reflects new behavior for
 	  parsing messages with repeating tags
 
-2003-08-04 01:24  orenmnero
+2003-08-04 06:24  orenmnero
 
 	* test/definitions/server/future/: 14h_RepeatedTag.def,
 	  14i_RepeatingGroupCountNotEqual.def: updated reject messages
 
-2003-08-04 01:23  orenmnero
+2003-08-04 06:23  orenmnero
 
 	* src/C++/test/: DataDictionaryTestCase.cpp,
 	  DataDictionaryTestCase.h: checks for invalid repeating tags and
 	  incorrectly numbered repeating group counts
 
-2003-08-04 01:22  orenmnero
+2003-08-04 06:22  orenmnero
 
 	* src/C++/test/: MessagesTestCase.cpp, MessagesTestCase.h: removed
 	  unused test
 
-2003-08-04 01:21  orenmnero
+2003-08-04 06:21  orenmnero
 
 	* src/getopt.c: removed extra linefeeds
 
-2003-08-04 01:20  orenmnero
+2003-08-04 06:20  orenmnero
 
 	* src/at_application.h: support for FIX 4.4
 
-2003-08-04 01:15  orenmnero
+2003-08-04 06:15  orenmnero
 
 	* src/C++/Session.cpp: handles RepeatedTag and
 	  RepeatingGroupCountMismatch exceptions, reports InvalidMessages
 	  to event logger
 
-2003-08-04 01:14  orenmnero
+2003-08-04 06:14  orenmnero
 
 	* src/C++/SocketConnection.cpp: InvalidMessage handling delegated
 	  to session
 
-2003-08-04 01:13  orenmnero
+2003-08-04 06:13  orenmnero
 
 	* src/C++/: Group.cpp, Message.h: removed unnecesary parameters
 	  from hasGroup
 
-2003-08-04 01:12  orenmnero
+2003-08-04 06:12  orenmnero
 
 	* src/C++/Message.cpp: store repeating tags in message to be
 	  validated later
 
-2003-08-04 01:10  orenmnero
+2003-08-04 06:10  orenmnero
 
 	* src/C++/: FieldMap.h, FieldMap.cpp: FieldMap can store repeating
 	  tags, updating group count optional, added method that asks for
 	  group count
 
-2003-08-04 01:06  orenmnero
+2003-08-04 06:06  orenmnero
 
 	* src/C++/Exceptions.h: new exceptions for repeating tags and
 	  mismatched group count
 
-2003-08-04 01:05  orenmnero
+2003-08-04 06:05  orenmnero
 
 	* src/C++/: DataDictionary.cpp, DataDictionary.h: checks for
 	  invalid repeating tags and incorrectly numbered repeating group
 	  counts
 
-2003-08-04 01:03  orenmnero
+2003-08-04 06:03  orenmnero
 
 	* src/C++/fix44/: AllocationInstruction.h, AllocationReport.h,
 	  BidResponse.h, Confirmation.h, CrossOrderCancelReplaceRequest.h,
@@ -562,38 +614,38 @@
 	  NewOrderSingle.h, OrderCancelReplaceRequest.h,
 	  TradeCaptureReport.h: fixed components with duplicate fields
 
-2003-08-03 13:24  orenmnero
+2003-08-03 18:24  orenmnero
 
 	* src/java/build.sh: increased memory to java build
 
-2003-08-01 13:45  orenmnero
+2003-08-01 18:45  orenmnero
 
 	* examples/executor/java/src/Application.java: explicitly use
 	  orf.quickfix.MessageCracker
 
-2003-08-01 13:43  orenmnero
+2003-08-01 18:43  orenmnero
 
 	* src/C++/DataDictionary.cpp: ConfigError thrown with malformed
 	  document. Error messages more descriptive
 
-2003-08-01 13:42  orenmnero
+2003-08-01 18:42  orenmnero
 
 	* spec/java_MessageCracker.xsl,
 	  src/java/src/org/quickfix/MessageCracker.java,
 	  src/java/src/org/quickfix/fix44/MessageCracker.java: updated for
 	  FIX 4.4
 
-2003-08-01 11:39  orenmnero
+2003-08-01 16:39  orenmnero
 
 	* examples/ordermatch/Application.cpp: explicit cast to get rid of
 	  warning
 
-2003-08-01 11:35  orenmnero
+2003-08-01 16:35  orenmnero
 
 	* src/.NET/FIX44_Messages.h: fixed problem where two different
 	  components incorrectly shared the same field set
 
-2003-08-01 11:27  orenmnero
+2003-08-01 16:27  orenmnero
 
 	* src/java/: Conversions.h, JavaApplication.h, JavaLog.h,
 	  JavaLogFactory.h, JavaMessageStore.h, JavaMessageStoreFactory.h,
@@ -622,35 +674,35 @@
 	  src/org/quickfix/fix44/TradeCaptureReport.java: explicitly
 	  including quickfix files with path
 
-2003-08-01 11:25  orenmnero
+2003-08-01 16:25  orenmnero
 
 	* src/java/build.bat: increased heap size of java to accomodate
 	  compilation
 
-2003-08-01 11:23  orenmnero
+2003-08-01 16:23  orenmnero
 
 	* spec/Fields.xsl, src/C++/Fields.h: moved #undef Yield after file
 	  includes
 
-2003-08-01 11:22  orenmnero
+2003-08-01 16:22  orenmnero
 
 	* spec/FIX44.xml: fixed problem where two different components
 	  incorrectly shared the same field set
 
-2003-08-01 11:21  orenmnero
+2003-08-01 16:21  orenmnero
 
 	* bin/cfg/banzai.cfg: disable use of DataDictionary
 
-2003-07-28 11:36  orenmnero
+2003-07-28 16:36  orenmnero
 
 	* quickfix.dsp: [no log message]
 
-2003-07-28 11:32  orenmnero
+2003-07-28 16:32  orenmnero
 
 	* examples/tradeclient/Application.cpp, spec/FIX43.xml: can't use
 	  enumerations with mixed type
 
-2003-07-28 11:04  orenmnero
+2003-07-28 16:04  orenmnero
 
 	* src/: .NET/FIX44_Messages.h, .NET/Fields.h, C++/FieldNumbers.h,
 	  java/src/org/quickfix/field/LastQty.java,
@@ -661,17 +713,17 @@
 	  java/src/org/quickfix/fix44/TradeCaptureReport.java: corrected
 	  number for LastQty
 
-2003-07-28 09:48  orenmnero
+2003-07-28 14:48  orenmnero
 
 	* spec/FIX44.xml: corrected number for LastQty removed extra
 	  linefeeds
 
-2003-07-28 08:50  orenmnero
+2003-07-28 13:50  orenmnero
 
 	* src/.NET/: FIX44_MessageCracker.h, FIX44_MessageFactory.h,
 	  FIX44_Messages.h: initial checkin
 
-2003-07-28 08:49  orenmnero
+2003-07-28 13:49  orenmnero
 
 	* src/: .NET/Fields.h, C++/FieldNumbers.h, C++/Fields.h,
 	  java/src/org/quickfix/field/AllocType.java,
@@ -710,23 +762,23 @@
 	  java/src/org/quickfix/fix44/TradeCaptureReportAck.java: updated
 	  FIX44 fields and values
 
-2003-07-28 08:48  orenmnero
+2003-07-28 13:48  orenmnero
 
 	* spec/FIX44.xml: changed TotNoSecurityType to TotNoSecurityTypes
 
-2003-07-28 00:49  orenmnero
+2003-07-28 05:49  orenmnero
 
 	* quickfix.vcproj, ut.vcproj: [no log message]
 
-2003-07-28 00:47  orenmnero
+2003-07-28 05:47  orenmnero
 
 	* spec/FIX43.xml: removed redundant enumeration
 
-2003-07-28 00:46  orenmnero
+2003-07-28 05:46  orenmnero
 
 	* spec/FIX44.xml: recreated fields section for FIX 4.4
 
-2003-07-28 00:40  orenmnero
+2003-07-28 05:40  orenmnero
 
 	* src/: .NET/DeprecatedFields.h, .NET/FIX40_Messages.h,
 	  .NET/FIX41_Messages.h, .NET/FIX42_Messages.h,
@@ -934,47 +986,47 @@
 	  java/src/org/quickfix/fix44/TradeCaptureReportAck.java: recreated
 	  fields section for FIX 4.4
 
-2003-07-23 22:37  orenmnero
+2003-07-24 03:37  orenmnero
 
 	* src/.NET/DeprecatedFields.h: added additional fields deprecated
 	  by FIX 4.4
 
-2003-07-23 22:31  orenmnero
+2003-07-24 03:31  orenmnero
 
 	* src/C++/test/DataDictionaryTestCase.cpp: removed unused exception
 	  variable
 
-2003-07-23 22:29  orenmnero
+2003-07-24 03:29  orenmnero
 
 	* src/C++/Values.h: regenerated with repaired document
 
-2003-07-23 22:26  orenmnero
+2003-07-24 03:26  orenmnero
 
 	* src/C++/: DeprecatedFieldNumbers.h, DeprecatedFields.h,
 	  DeprecatedValues.h: added additional fields deprecated by FIX 4.4
 
-2003-07-23 22:20  orenmnero
+2003-07-24 03:20  orenmnero
 
 	* spec/FIX43.xml: removed unused field
 
-2003-07-23 22:15  orenmnero
+2003-07-24 03:15  orenmnero
 
 	* spec/FIX44.xml: fixed problems with document
 
-2003-07-23 22:09  orenmnero
+2003-07-24 03:09  orenmnero
 
 	* spec/: generate_c++.bat, generate_java.bat, generate_net.bat:
 	  added FIX 4.4
 
-2003-07-23 22:01  orenmnero
+2003-07-24 03:01  orenmnero
 
 	* spec/net_Fields.xsl: undefined macros that share names of values
 
-2003-07-23 22:00  orenmnero
+2003-07-24 03:00  orenmnero
 
 	* spec/net_Messages.xsl: includes DeprecatedFields.h
 
-2003-07-23 21:51  orenmnero
+2003-07-24 02:51  orenmnero
 
 	* src/java/src/org/quickfix/fix44/: Advertisement.java,
 	  AllocationInstruction.java, AllocationInstructionAck.java,
@@ -1019,7 +1071,7 @@
 	  TradeCaptureReportRequestAck.java, TradingSessionStatus.java,
 	  TradingSessionStatusRequest.java: initial checkin
 
-2003-07-23 21:03  orenmnero
+2003-07-24 02:03  orenmnero
 
 	* src/java/src/org/quickfix/field/: AccountType.java,
 	  AcctIDSource.java, AdjustmentType.java, AdvTransType.java,
@@ -1204,33 +1256,33 @@
 	  YieldRedemptionDate.java, YieldRedemptionPrice.java,
 	  YieldRedemptionPriceType.java, YieldType.java: FIX 4.4 fields
 
-2003-07-20 23:45  orenmnero
+2003-07-21 04:45  orenmnero
 
 	* include/quickfix/fix44/.cvsignore: initial checkin
 
-2003-07-20 23:42  orenmnero
+2003-07-21 04:42  orenmnero
 
 	* spec/FIX44.xml: initial checkin
 
-2003-07-20 23:41  orenmnero
+2003-07-21 04:41  orenmnero
 
 	* configure.in: added -lpthread
 
-2003-07-20 23:39  orenmnero
+2003-07-21 04:39  orenmnero
 
 	* spec/: FieldNumbers.xsl, Generator.rb, Values.xsl,
 	  generate_c++.sh: added support for FIX 4.4
 
-2003-07-20 23:38  orenmnero
+2003-07-21 04:38  orenmnero
 
 	* spec/GeneratorCPP.rb: close file after use
 
-2003-07-20 23:37  orenmnero
+2003-07-21 04:37  orenmnero
 
 	* spec/: FIX40.xml, FIX41.xml, FIX42.xml, FIX43.xml: removed
 	  enumeration from IOIShares
 
-2003-07-20 23:27  orenmnero
+2003-07-21 04:27  orenmnero
 
 	* src/C++/fix44/: Advertisement.h, AllocationInstruction.h,
 	  AllocationInstructionAck.h, AllocationReport.h,
@@ -1268,92 +1320,92 @@
 	  TradeCaptureReportRequestAck.h, TradingSessionStatus.h,
 	  TradingSessionStatusRequest.h: initial checkin
 
-2003-07-20 23:25  orenmnero
+2003-07-21 04:25  orenmnero
 
 	* src/C++/: Field.h, FieldNumbers.h, FieldTypes.h, Fields.h,
 	  Makefile.am, MessageCracker.h, Values.h: updated for FIX 4.4
 
-2003-07-20 23:23  orenmnero
+2003-07-21 04:23  orenmnero
 
 	* src/C++/: DeprecatedFieldNumbers.h, DeprecatedFields.h,
 	  DeprecatedValues.h: fields deprecated by FIX 4.4
 
-2003-07-20 23:23  orenmnero
+2003-07-21 04:23  orenmnero
 
 	* src/C++/DataDictionary.cpp: new field type UtcDateOnly
 
-2003-07-16 14:44  orenmnero
+2003-07-16 19:44  orenmnero
 
 	* src/C++/test/DataDictionaryTestCase.cpp: each value of a
 	  MultipleValueStrings with enumrations is seperately validated
 
-2003-07-16 14:43  orenmnero
+2003-07-16 19:43  orenmnero
 
 	* src/C++/Message.cpp: only add group if it is not null
 
-2003-07-16 14:41  orenmnero
+2003-07-16 19:41  orenmnero
 
 	* src/C++/DataDictionary.h: each value of a MultipleValueStrings
 	  with enumrations is seperately validated
 
-2003-07-16 14:39  orenmnero
+2003-07-16 19:39  orenmnero
 
 	* src/C++/DataDictionary.cpp: groups within components are read
 	  from file
 
-2003-07-16 00:32  orenmnero
+2003-07-16 05:32  orenmnero
 
 	* src/java/org_quickfix_Session.cpp: allow sendToTarget to throw
 	  exception, also fixes bug where sending to a target using strings
 	  always failed
 
-2003-07-06 13:49  orenmnero
+2003-07-06 18:49  orenmnero
 
 	* src/C++/: Field.h, test/FieldBaseTestCase.cpp,
 	  test/FieldBaseTestCase.h, test/Makefile.am, test/TestSuite.h:
 	  correctly recalculate values in setString and setField
 
-2003-07-01 23:12  orenmnero
+2003-07-02 04:12  orenmnero
 
 	* src/.NET/: Group.cpp, Group.h, Message.cpp, Message.h: added
 	  isSetField
 
-2003-07-01 21:38  orenmnero
+2003-07-02 02:38  orenmnero
 
 	* src/C++/FieldConvertors.h: renamed variable foo to len
 
-2003-06-19 08:37  orenmnero
+2003-06-19 13:37  orenmnero
 
 	* src/C++/Session.cpp: fixed bug where message string not stored
 	  while logged off
 
-2003-06-11 13:34  orenmnero
+2003-06-11 18:34  orenmnero
 
 	* spec/generate_c++.bat: uses new generator
 
-2003-06-11 13:29  orenmnero
+2003-06-11 18:29  orenmnero
 
 	* src/C++/.cvsignore: [no log message]
 
-2003-06-11 13:28  orenmnero
+2003-06-11 18:28  orenmnero
 
 	* include/quickfix/: fix40/.cvsignore, fix41/.cvsignore,
 	  fix42/.cvsignore, fix43/.cvsignore: initial checkin
 
-2003-06-11 13:26  orenmnero
+2003-06-11 18:26  orenmnero
 
 	* at.dsp, pt.dsp, quickfix.dsp, quickfix.vcproj, ut.dsp,
 	  src/.NET/quickfix_net.vcproj, test/atrun/atrun.dsp: split
 	  messages into seperate files
 
-2003-06-04 21:39  orenmnero
+2003-06-05 02:39  orenmnero
 
 	* examples/: executor/C++/Application.cpp,
 	  executor/C++/Application.h, ordermatch/Application.cpp,
 	  ordermatch/Application.h, tradeclient/Application.h: C++ FIX
 	  messages placed in separate files
 
-2003-06-04 21:34  orenmnero
+2003-06-05 02:34  orenmnero
 
 	* src/Makefile.am, src/at_application.h, src/pt.cpp,
 	  src/C++/FIX40_MessageCracker.h, src/C++/FIX40_Messages.h,
@@ -1528,24 +1580,24 @@
 	  spec/Processor.rb, spec/generate_c++.sh: C++ FIX messages placed
 	  in separate files
 
-2003-05-25 20:22  orenmnero
+2003-05-26 01:22  orenmnero
 
 	* AUTHORS, doc/html/about.html, src/C++/index.h: updated email
 	  address
 
-2003-05-23 13:39  orenmnero
+2003-05-23 18:39  orenmnero
 
 	* ChangeLog: [no log message]
 
-2003-05-23 13:35  orenmnero
+2003-05-23 18:35  orenmnero
 
 	* CONTRIBUTORS: [no log message]
 
-2003-05-23 13:31  orenmnero
+2003-05-23 18:31  orenmnero
 
 	* ChangeLog: [no log message]
 
-2003-05-23 13:21  orenmnero
+2003-05-23 18:21  orenmnero
 
 	* at.vcproj, pt.vcproj, quickfix.vcproj, ut.vcproj,
 	  examples/executor/C++/executor_cpp.vcproj,
@@ -1554,62 +1606,62 @@
 	  src/java/quickfix_jni.vcproj, test/atrun/atrun.vcproj: disable
 	  precompiled headers
 
-2003-05-22 23:23  orenmnero
+2003-05-23 04:23  orenmnero
 
 	* NEWS: updated for next version
 
-2003-05-22 23:22  orenmnero
+2003-05-23 04:22  orenmnero
 
 	* ChangeLog: generated with cvs2cl.pl
 
-2003-05-22 22:53  orenmnero
+2003-05-23 03:53  orenmnero
 
 	* doc/html/java/: receiving_messages_2.html,
 	  receiving_messages_3.html: change fields to correct value field
 
-2003-05-22 22:52  orenmnero
+2003-05-23 03:52  orenmnero
 
 	* doc/html/install.html: updated to reflect new options and build
 	  results
 
-2003-05-22 22:51  orenmnero
+2003-05-23 03:51  orenmnero
 
 	* doc/html/configuration.html: added UseDataDictionary setting
 
-2003-05-22 22:50  orenmnero
+2003-05-23 03:50  orenmnero
 
 	* doc/html/: application.html, java/application_1.html,
 	  java/application_2.html, csharp/application_1.html,
 	  csharp/application_2.html: replaced onRun with start/stop
 
-2003-05-22 22:21  orenmnero
+2003-05-23 03:21  orenmnero
 
 	* bootstrap: aclocal called before autoheader
 
-2003-05-22 20:47  orenmnero
+2003-05-23 01:47  orenmnero
 
 	* configure.in: incremented version, removed -pthread
 
-2003-05-18 21:32  orenmnero
+2003-05-19 02:32  orenmnero
 
 	* src/Makefile.am: build script called though bash
 
-2003-05-18 20:11  orenmnero
+2003-05-19 01:11  orenmnero
 
 	* quickfix.dsp, quickfix.vcproj: added Responder header file
 
-2003-05-18 19:45  orenmnero
+2003-05-19 00:45  orenmnero
 
 	* configure.in, examples/configure.in,
 	  examples/ordermatch/Makefile.am, src/Makefile.am,
 	  src/C/Makefile.am, src/C++/Makefile.am, src/C++/test/Makefile.am:
 	  no longer building static objects
 
-2003-05-18 19:41  orenmnero
+2003-05-19 00:41  orenmnero
 
 	* src/build.sh, test/runat_java: use ant to build at
 
-2003-05-18 19:38  orenmnero
+2003-05-19 00:38  orenmnero
 
 	* src/: C++/Acceptor.cpp, C++/Acceptor.h, C++/FileStore.cpp,
 	  C++/Initiator.cpp, C++/Initiator.h, C++/Responder.h,
@@ -1623,68 +1675,68 @@
 	  C++/test/SessionTestCase.cpp, C++/test/SessionTestCase.h,
 	  at_application.h: reduced header file dependencies
 
-2003-05-18 12:57  orenmnero
+2003-05-18 17:57  orenmnero
 
 	* lib/.cvsignore, src/.cvsignore, src/build.bat, src/build.xml,
 	  test/runat_java.bat: at build with ant
 
-2003-05-18 00:29  orenmnero
+2003-05-18 05:29  orenmnero
 
 	* src/build.bat: initial checkin
 
-2003-05-17 21:38  orenmnero
+2003-05-18 02:38  orenmnero
 
 	* build_java.bat, build_vc6.bat, test/runat_java.bat: added java at
 	  server
 
-2003-05-17 21:37  orenmnero
+2003-05-18 02:37  orenmnero
 
 	* test/: runat.bat, runat_threaded.bat, runnewat.bat: creates cfg
 	  with setup.bat
 
-2003-05-17 21:36  orenmnero
+2003-05-18 02:36  orenmnero
 
 	* test/setup.bat: initial checkin
 
-2003-05-17 21:34  orenmnero
+2003-05-18 02:34  orenmnero
 
 	* src/java/quickfix_jni.dsp: uses new directory structore
 
-2003-05-17 21:34  orenmnero
+2003-05-18 02:34  orenmnero
 
 	* quickfix.dsw: updated dependencies
 
-2003-05-17 16:41  orenmnero
+2003-05-17 21:41  orenmnero
 
 	* test/: check_java.sh, runat_java, setup: initial checkin
 
-2003-05-17 16:40  orenmnero
+2003-05-17 21:40  orenmnero
 
 	* test/: runat, runat_threaded, runnewat: create cfg file with
 	  setup script
 
-2003-05-17 16:37  orenmnero
+2003-05-17 21:37  orenmnero
 
 	* test/check.sh: check return values
 
-2003-05-17 16:36  orenmnero
+2003-05-17 21:36  orenmnero
 
 	* test/Makefile.am: run java tests
 
-2003-05-17 16:36  orenmnero
+2003-05-17 21:36  orenmnero
 
 	* src/: at.java, at_application.java, at_messagecracker.java,
 	  build.sh: initial checkin
 
-2003-05-17 16:36  orenmnero
+2003-05-17 21:36  orenmnero
 
 	* src/Makefile.am: build java at server
 
-2003-05-17 16:35  orenmnero
+2003-05-17 21:35  orenmnero
 
 	* src/.cvsignore: ignore .class files
 
-2003-05-17 00:04  orenmnero
+2003-05-17 05:04  orenmnero
 
 	* at.dsp, at.vcproj, at_client.dsp, at_client.vcproj,
 	  at_server.dsp, at_server.vcproj, quickfix.dsp, quickfix.dsw,
@@ -1693,40 +1745,40 @@
 	  test/runat_threaded.bat, test/runnewat, test/runnewat.bat:
 	  reorganizing test files
 
-2003-05-16 23:33  orenmnero
+2003-05-17 04:33  orenmnero
 
 	* test/cfg/.cvsignore, src/.cvsignore: reorganized test files
 
-2003-05-16 23:29  orenmnero
+2003-05-17 04:29  orenmnero
 
 	* src/Makefile.am, src/TestSuite.h, src/at.cpp, src/at_client.cpp,
 	  src/at_server.cpp, src/ut.cpp, src/C++/test/TestSuite.h,
 	  test/runat: reorganized test files
 
-2003-05-16 17:07  orenmnero
+2003-05-16 22:07  orenmnero
 
 	* src/C++/Makefile.am: compile libquickfix as a shared object
 
-2003-05-15 03:01  orenmnero
+2003-05-15 08:01  orenmnero
 
 	* src/: C++/Message.cpp, C++/Message.h, C++/DataDictionary.h,
 	  C++/test/MessagesTestCase.cpp, C++/test/MessagesTestCase.h,
 	  TestSuite.h: support for DATA field types
 
-2003-05-15 00:25  orenmnero
+2003-05-15 05:25  orenmnero
 
 	* src/C++/FileLog.h: writes to log files are flushed
 
-2003-05-15 00:24  orenmnero
+2003-05-15 05:24  orenmnero
 
 	* src/C++/FileLog.cpp: checking access to all log files instead of
 	  just the incoming
 
-2003-05-12 12:04  orenmnero
+2003-05-12 17:04  orenmnero
 
 	* quickfix_lib.dsp: removed reference to SmartPtr
 
-2003-05-12 08:12  alexhornby
+2003-05-12 13:12  alexhornby
 
 	* ChangeLog, src/C++/Initiator.cpp, src/C++/Initiator.h,
 	  src/java/org_quickfix_SocketInitiator.cpp,
@@ -1735,114 +1787,114 @@
 	  to the Initiator. Useful if your app only handles FIX, also handy
 	  if there are problems with Java thread attachment.
 
-2003-05-10 18:07  orenmnero
+2003-05-10 23:07  orenmnero
 
 	* configure.in: re-added STLPORT flags
 
-2003-05-10 16:17  orenmnero
+2003-05-10 21:17  orenmnero
 
 	* configure.in: re-added updated for FreeBSD compatibility
 
-2003-05-09 18:06  orenmnero
+2003-05-09 23:06  orenmnero
 
 	* quickfix_lib.dsp: header files copied into new directory
 	  structure
 
-2003-05-09 16:30  orenmnero
+2003-05-09 21:30  orenmnero
 
 	* src/java/org_quickfix_Message.cpp: uses more efficient toString
 	  call
 
-2003-05-09 16:29  orenmnero
+2003-05-09 21:29  orenmnero
 
 	* src/C++/Session.cpp: makes use of more efficient toString calls
 
-2003-05-09 16:28  orenmnero
+2003-05-09 21:28  orenmnero
 
 	* src/C++/: Message.cpp, Message.h: added more efficient toString
 	  and toXML
 
-2003-05-09 09:23  orenmnero
+2003-05-09 14:23  orenmnero
 
 	* src/C++/FieldMap.h: new FieldBase isn't constructed unless
 	  necessary, field is also not resorted when added twice
 
-2003-05-08 18:56  orenmnero
+2003-05-08 23:56  orenmnero
 
 	* src/pt.cpp: added tests for messages with repeating groups
 
-2003-05-08 18:28  orenmnero
+2003-05-08 23:28  orenmnero
 
 	* src/C++/Message.cpp: optimized extractField
 
-2003-05-08 18:25  orenmnero
+2003-05-08 23:25  orenmnero
 
 	* src/C++/FieldMap.h: removed unnecessary erase
 
-2003-05-08 18:24  orenmnero
+2003-05-08 23:24  orenmnero
 
 	* src/C++/Field.h: optimizations improve construction speed of
 	  FieldBase
 
-2003-05-07 20:50  orenmnero
+2003-05-08 01:50  orenmnero
 
 	* src/C++/copy.sh: copy adheres to new directory structure
 
-2003-05-07 20:39  orenmnero
+2003-05-08 01:39  orenmnero
 
 	* src/C++/Parser.h: reordered declarations to match initializer
 
-2003-05-07 20:00  orenmnero
+2003-05-08 01:00  orenmnero
 
 	* src/java/quickfix_jni.vcproj: uses new directory stucture for
 	  includes
 
-2003-05-07 19:52  orenmnero
+2003-05-08 00:52  orenmnero
 
 	* src/C++/: Parser.cpp, Parser.h: added more intelligent dynamic
 	  buffer
 
-2003-05-07 19:51  orenmnero
+2003-05-08 00:51  orenmnero
 
 	* test/runat_threaded.bat: added FIX4.3 tests
 
-2003-05-07 19:37  orenmnero
+2003-05-08 00:37  orenmnero
 
 	* src/C++/: Makefile.am, copy.sh, copyifnewer.sh,
 	  copyifnotexist.sh: explcitly call shell scripts with bash
 
-2003-05-07 19:21  orenmnero
+2003-05-08 00:21  orenmnero
 
 	* examples/: executor/C++/executor_cpp.vcproj,
 	  ordermatch/ordermatch.vcproj, tradeclient/tradeclient.vcproj:
 	  uses new directory stucture for includes
 
-2003-05-07 19:08  orenmnero
+2003-05-08 00:08  orenmnero
 
 	* examples/bootstrap: fixed errors with earlier versions of
 	  autotools
 
-2003-05-07 04:31  alexhornby
+2003-05-07 09:31  alexhornby
 
 	* src/java/Makefile.am: WP/Bug ID    : Description  : resolve jar
 	  dependencies Side Effects : Doc Impact   : Testing	  : Name
 	  : alex
 
-2003-05-07 04:27  alexhornby
+2003-05-07 09:27  alexhornby
 
 	* src/java/Makefile.am: WP/Bug ID    : Description  : build deps
 	  Side Effects : Doc Impact   : Testing      : Name	    : alex
 
-2003-05-07 04:16  alexhornby
+2003-05-07 09:16  alexhornby
 
 	* ChangeLog, src/java/Makefile.am: ant build order
 
-2003-05-07 04:06  alexhornby
+2003-05-07 09:06  alexhornby
 
 	* ChangeLog: WP/Bug ID	  : Description  : revert to configure.in
 	  Side Effects : Doc Impact   : Testing      : Name	    : alex
 
-2003-05-07 03:58  alexhornby
+2003-05-07 08:58  alexhornby
 
 	* CPPTest/.cvsignore, doc/.cvsignore, doc/html/.cvsignore,
 	  examples/.cvsignore, examples/executor/.cvsignore,
@@ -1866,25 +1918,25 @@
 	  test/atrun/.cvsignore, test/definitions/.cvsignore,
 	  test/definitions/server/.cvsignore: Fix line endings
 
-2003-05-06 17:19  orenmnero
+2003-05-06 22:19  orenmnero
 
 	* quickfix_lib.vcproj: custom build step reflects new directory
 	  structure
 
-2003-05-06 11:51  alexhornby
+2003-05-06 16:51  alexhornby
 
 	* configure.ac, configure.in, examples/configure.ac,
 	  examples/configure.in: Move back to configure.in
 
-2003-05-06 09:09  alexhornby
+2003-05-06 14:09  alexhornby
 
 	* src/.NET/quickfix_net.vcproj: Update include path
 
-2003-05-06 09:02  orenmnero
+2003-05-06 14:02  orenmnero
 
 	* examples/ordermatch/test/.cvsignore: [no log message]
 
-2003-05-06 09:00  orenmnero
+2003-05-06 14:00  orenmnero
 
 	* quickfix_lib.dsp, examples/executor/executor_cpp.dsp,
 	  examples/ordermatch/ordermatch.dsp,
@@ -1892,31 +1944,31 @@
 	  examples/tradeclient/tradeclient.dsp: include files copied to
 	  include/quickfix
 
-2003-05-06 08:59  orenmnero
+2003-05-06 13:59  orenmnero
 
 	* include/quickfix/.cvsignore: initial checkin
 
-2003-05-06 08:18  alexhornby
+2003-05-06 13:18  alexhornby
 
 	* quickfix.pc.in: link to correct libxml
 
-2003-05-06 08:03  alexhornby
+2003-05-06 13:03  alexhornby
 
 	* .cvsignore, ChangeLog, src/java/org_quickfix_SocketAcceptor.cpp,
 	  src/java/org_quickfix_SocketAcceptor.h,
 	  src/java/src/org/quickfix/SocketAcceptor.java: Add
 	  blockingStart()
 
-2003-05-06 06:59  alexhornby
+2003-05-06 11:59  alexhornby
 
 	* ChangeLog, Makefile.am, configure.ac, quickfix.pc.in: Add
 	  pkg-config support
 
-2003-05-06 05:34  alexhornby
+2003-05-06 10:34  alexhornby
 
 	* src/java/Makefile.am: Fix include paths
 
-2003-05-06 05:23  alexhornby
+2003-05-06 10:23  alexhornby
 
 	* ChangeLog, doc/html/application.html, doc/html/project.html,
 	  doc/html/receiving_messages.html, doc/html/user_defined.html,
@@ -1968,47 +2020,47 @@
 	  src/java/org_quickfix_ThreadedSocketInitiator.cpp: Fix include
 	  paths
 
-2003-05-06 05:12  alexhornby
+2003-05-06 10:12  alexhornby
 
 	* .cvsignore: ignore generated objects
 
-2003-05-06 04:45  alexhornby
+2003-05-06 09:45  alexhornby
 
 	* src/C++/: Acceptor.cpp, Acceptor.h: Add blockingStart() method so
 	  that an acceptor can be started without spawning threads.
 
-2003-05-06 04:43  alexhornby
+2003-05-06 09:43  alexhornby
 
 	* src/java/src/org/quickfix/: SocketAcceptor.java,
 	  SocketInitiator.java: Fix exception spec
 
-2003-05-06 04:41  alexhornby
+2003-05-06 09:41  alexhornby
 
 	* ChangeLog: Add changelog
 
-2003-05-06 04:37  alexhornby
+2003-05-06 09:37  alexhornby
 
 	* .cvsignore, bootstrap, configure.ac: Update autoconf
 
-2003-05-06 04:36  alexhornby
+2003-05-06 09:36  alexhornby
 
 	* Makefile.in: remove derived files
 
-2003-05-06 04:34  alexhornby
+2003-05-06 09:34  alexhornby
 
 	* examples/: bootstrap, configure.ac: Updated autoconf
 
-2003-05-06 04:31  alexhornby
+2003-05-06 09:31  alexhornby
 
 	* config.h.in, ltmain.sh, examples/config.h.in: Ignore generated
 	  files
 
-2003-05-06 04:28  alexhornby
+2003-05-06 09:28  alexhornby
 
 	* configure, configure.in, examples/configure,
 	  examples/configure.in: Update to configure.ac
 
-2003-05-06 04:26  alexhornby
+2003-05-06 09:26  alexhornby
 
 	* CPPTest/.cvsignore, bin/.cvsignore, bin/cfg/.cvsignore,
 	  cfg/.cvsignore, doc/.cvsignore, doc/html/.cvsignore,
@@ -2028,27 +2080,27 @@
 	  src/java/src/org/.cvsignore, config.guess, config.sub: Ignore
 	  generated files
 
-2003-05-06 04:21  alexhornby
+2003-05-06 09:21  alexhornby
 
 	* src/java/Makefile.am: Install the jar file
 
-2003-05-06 04:21  alexhornby
+2003-05-06 09:21  alexhornby
 
 	* spec/Makefile.am: WP/Bug ID	 : Description	: install package
 	  data Side Effects : Doc Impact   : Testing	  : Name	 :
 	  alex
 
-2003-05-06 04:20  alexhornby
+2003-05-06 09:20  alexhornby
 
 	* examples/ordermatch/: Application.cpp, Application.h: Show FIX 43
 	  market data requests
 
-2003-05-06 04:18  alexhornby
+2003-05-06 09:18  alexhornby
 
 	* examples/tradeclient/: Application.cpp, Application.h: Add first
 	  FIX 43 test
 
-2003-05-06 04:16  alexhornby
+2003-05-06 09:16  alexhornby
 
 	* examples/Makefile.in, examples/executor/Makefile.in,
 	  examples/executor/C++/Makefile.in,
@@ -2083,46 +2135,46 @@
 	  bin/Makefile.in, bin/cfg/Makefile.in, cfg/Makefile.in,
 	  doc/Makefile.in, doc/html/Makefile.in: Remove generated files
 
-2003-05-04 21:06  orenmnero
+2003-05-05 02:06  orenmnero
 
 	* configure, configure.in: flags can be pulled in from the
 	  environment
 
-2003-05-04 05:57  orenmnero
+2003-05-04 10:57  orenmnero
 
 	* configure, src/C++/Makefile.in: regenerated
 
-2003-05-04 05:56  orenmnero
+2003-05-04 10:56  orenmnero
 
 	* src/C++/Makefile.am: added FieldTypes source file
 
-2003-05-04 05:55  orenmnero
+2003-05-04 10:55  orenmnero
 
 	* src/C++/: FieldTypes.h, Utility.cpp: using typdef instead of
 	  pointer
 
-2003-05-04 04:36  orenmnero
+2003-05-04 09:36  orenmnero
 
 	* configure.in: added pthread option
 
-2003-05-04 04:35  orenmnero
+2003-05-04 09:35  orenmnero
 
 	* src/C++/: FieldTypes.h, FieldTypes.cpp: freebsd appears to take
 	  DST into account
 
-2003-05-04 02:02  orenmnero
+2003-05-04 07:02  orenmnero
 
 	* config.h.in, configure: regenerated
 
-2003-05-04 01:55  orenmnero
+2003-05-04 06:55  orenmnero
 
 	* src/C++/: FieldTypes.h, Utility.cpp: casting to proper type
 
-2003-05-04 01:54  orenmnero
+2003-05-04 06:54  orenmnero
 
 	* configure.in: pthread in libc_r in freebsd
 
-2003-05-04 00:46  orenmnero
+2003-05-04 05:46  orenmnero
 
 	* config.h.in, configure, configure.in, examples/config.h.in,
 	  examples/configure, examples/configure.in,
@@ -2134,74 +2186,74 @@
 	  src/Makefile.in, src/C++/Makefile.am, src/C++/Makefile.in: checks
 	  for existanct of libpthread
 
-2003-05-04 00:44  orenmnero
+2003-05-04 05:44  orenmnero
 
 	* test/runat_threaded: accept port is reused
 
-2003-05-04 00:43  orenmnero
+2003-05-04 05:43  orenmnero
 
 	* src/C++/: copy.sh, copyifnewer.sh, copyifnotexist.sh: uses more
 	  portable /bin/sh
 
-2003-05-03 21:11  orenmnero
+2003-05-04 02:11  orenmnero
 
 	* src/C++/: Acceptor.cpp, Initiator.cpp: reordered initialized
 	  variables
 
-2003-05-02 17:52  orenmnero
+2003-05-02 22:52  orenmnero
 
 	* src/C++/test/AcceptorTestCase.cpp: UseDataDictionary set to N
 
-2003-05-02 01:59  orenmnero
+2003-05-02 06:59  orenmnero
 
 	* examples/: configure, executor/C++/executor.cpp,
 	  ordermatch/test/Market.cpp: fixed build errors
 
-2003-05-02 01:58  orenmnero
+2003-05-02 06:58  orenmnero
 
 	* src/C++/SessionFactory.cpp, src/C++/SessionSettings.h,
 	  bin/cfg/tradeclient.cfg: DataDictionary required unless otherwise
 	  specified
 
-2003-05-01 15:29  orenmnero
+2003-05-01 20:29  orenmnero
 
 	* test/runat_threaded: added FIX 4.3 session
 
-2003-05-01 15:05  orenmnero
+2003-05-01 20:05  orenmnero
 
 	* src/C++/: ThreadedSocketAcceptor.cpp,
 	  ThreadedSocketInitiator.cpp, Utility.cpp, Utility.h: added
 	  thread_detach to resolve resource leack when shutting down a
 	  thread
 
-2003-04-15 10:25  orenmnero
+2003-04-15 15:25  orenmnero
 
 	* src/C++/: DataDictionary.cpp, DataDictionary.h,
 	  test/DataDictionaryTestCase.cpp: groups that begin with a
 	  component will pick up the correct delimiter
 
-2003-04-14 13:43  orenmnero
+2003-04-14 18:43  orenmnero
 
 	* src/C++/test/DataDictionaryTestCase.cpp: passing in const* to fix
 	  gcc build
 
-2003-04-10 18:09  orenmnero
+2003-04-10 23:09  orenmnero
 
 	* src/C++/: DataDictionary.cpp, test/DataDictionaryTestCase.cpp:
 	  fixed bug where group number was not added as part of a nested
 	  groups field set
 
-2003-04-10 01:53  orenmnero
+2003-04-10 06:53  orenmnero
 
 	* src/java/: JavaApplication.cpp, Makefile.am, Makefile.in: don't
 	  copy message if exception occured
 
-2003-04-10 01:52  orenmnero
+2003-04-10 06:52  orenmnero
 
 	* src/C++/Session.cpp: increment sequence number when encountering
 	  queued logon
 
-2003-04-10 00:13  orenmnero
+2003-04-10 05:13  orenmnero
 
 	* src/: at_application.h, at_server.cpp, .NET/Application.h,
 	  C/fix_application.h, C++/Acceptor.cpp, C++/Acceptor.h,
@@ -2210,28 +2262,28 @@
 	  java/src/org/quickfix/Application.java,
 	  java/test/ApplicationImpl.java: replaced onRun with start/stop
 
-2003-04-10 00:12  orenmnero
+2003-04-10 05:12  orenmnero
 
 	* test/atrun/test/ProcessTestCase.cpp: removed extra lines
 
-2003-04-10 00:11  orenmnero
+2003-04-10 05:11  orenmnero
 
 	* src/C++/test/ParserTestCase.cpp: replaced EOL with std::endl
 
-2003-04-10 00:10  orenmnero
+2003-04-10 05:10  orenmnero
 
 	* src/C++/Utility.cpp: unused fields conditionally removed
 
-2003-04-10 00:08  orenmnero
+2003-04-10 05:08  orenmnero
 
 	* src/C++/: Message.cpp, Utility.h, test/MessagesTestCase.cpp:
 	  replaced EOL with std::endl
 
-2003-04-10 00:07  orenmnero
+2003-04-10 05:07  orenmnero
 
 	* src/C++/Parser.cpp: removed unused variable name
 
-2003-04-10 00:05  orenmnero
+2003-04-10 05:05  orenmnero
 
 	* examples/: executor/C++/Application.cpp,
 	  executor/C++/Application.h, executor/C++/executor.cpp,
@@ -2246,7 +2298,7 @@
 	  tradeclientgui/banzai/src/org/quickfix/banzai/BanzaiApplication.java:
 	  replaced onRun with start/stop
 
-2003-04-08 19:33  orenmnero
+2003-04-09 00:33  orenmnero
 
 	* src/C++/Parser.cpp, src/C++/Parser.h,
 	  src/C++/test/ParserTestCase.cpp, src/C++/test/ParserTestCase.h,
@@ -2257,105 +2309,105 @@
 	  parser no longer relies on 10=SOH, this will allow for messages
 	  with encoded fields
 
-2003-04-08 17:54  orenmnero
+2003-04-08 22:54  orenmnero
 
 	* src/: config_windows.h, C++/CallStack.h: changed USING_CALLSTACK
 	  to correct ENABLE_CALLSTACK
 
-2003-04-08 17:53  orenmnero
+2003-04-08 22:53  orenmnero
 
 	* src/java/Makefile.in: updated generated file
 
-2003-04-07 12:55  orenmnero
+2003-04-07 17:55  orenmnero
 
 	* NEWS, src/java/Makefile.am: updated for next release
 
-2003-04-06 04:50  orenmnero
+2003-04-06 09:50  orenmnero
 
 	* src/C++/Fields.h: moved #undef Yield down
 
-2003-04-06 03:09  orenmnero
+2003-04-06 08:09  orenmnero
 
 	* src/java/JavaApplication.cpp: detach thread at the end of method
 
-2003-04-06 01:51  orenmnero
+2003-04-06 07:51  orenmnero
 
 	* config.h.in, configure, configure.in: defining _REENTRANT for
 	  systems that need it
 
-2003-04-05 22:54  orenmnero
+2003-04-06 04:54  orenmnero
 
 	* src/C++/Utility.h: included time.h for windows
 
-2003-04-05 17:45  orenmnero
+2003-04-05 23:45  orenmnero
 
 	* config.guess, config.h.in, config.sub, configure, configure.in,
 	  ltmain.sh: added tests for gethostbyname_r
 
-2003-04-05 17:43  orenmnero
+2003-04-05 23:43  orenmnero
 
 	* src/C++/: ThreadedSocketAcceptor.cpp,
 	  ThreadedSocketInitiator.cpp: using Locker and removed deadlock
 	  when shutting down
 
-2003-04-05 17:42  orenmnero
+2003-04-05 23:42  orenmnero
 
 	* src/C++/: Initiator.cpp, Acceptor.cpp: correctly assigning
 	  threadid instead of bool result
 
-2003-04-05 17:41  orenmnero
+2003-04-05 23:41  orenmnero
 
 	* src/C++/Session.cpp: synchronized disconnect method which shares
 	  resource
 
-2003-04-05 17:40  orenmnero
+2003-04-05 23:40  orenmnero
 
 	* src/C++/: FieldTypes.h, Utility.h, Utility.cpp: replaced system
 	  calls with reentrant versions
 
-2003-04-03 21:15  orenmnero
+2003-04-04 03:15  orenmnero
 
 	* src/C++/: DataDictionary.cpp, DataDictionary.h,
 	  LIBXML_DOMDocument.cpp, MSXML_DOMDocument.cpp,
 	  MSXML_DOMDocument.h, Message.cpp, Message.h, Session.cpp: removed
 	  tabs
 
-2003-04-03 12:33  orenmnero
+2003-04-03 18:33  orenmnero
 
 	* src/C++/FieldTypes.h: calling correct base constructor
 
-2003-04-03 12:18  orenmnero
+2003-04-03 18:18  orenmnero
 
 	* src/java/src/org/quickfix/MessageCracker.java,
 	  src/java/src/org/quickfix/fix43/MessageCracker.java,
 	  spec/java_MessageCracker.xsl: support for FIX 4.3
 
-2003-04-01 21:47  orenmnero
+2003-04-02 03:47  orenmnero
 
 	* NEWS: updated for next release
 
-2003-04-01 21:39  orenmnero
+2003-04-02 03:39  orenmnero
 
 	* src/C++/: SocketConnector.cpp, Utility.cpp: engine won't crash
 	  when connecting to an invalid address
 
-2003-04-01 20:00  orenmnero
+2003-04-02 02:00  orenmnero
 
 	* NEWS, configure, configure.in: updated for next release
 
-2003-04-01 18:57  orenmnero
+2003-04-02 00:57  orenmnero
 
 	* src/java/src/org/quickfix/DefaultMessageFactory.java: added test
 	  for fix43 messages
 
-2003-03-29 02:46  orenmnero
+2003-03-29 08:46  orenmnero
 
 	* src/.NET/: Acceptor.h, Initiator.h, SocketAcceptor.h,
 	  SocketInitiator.h, ThreadedSocketAcceptor.h,
 	  ThreadedSocketInitiator.h: added ConfigError throw specifier to
 	  start method
 
-2003-03-29 02:26  orenmnero
+2003-03-29 08:26  orenmnero
 
 	* src/: C++/Acceptor.cpp, C++/Acceptor.h, C++/Initiator.cpp,
 	  C++/Initiator.h, C++/SocketAcceptor.cpp,
@@ -2367,50 +2419,50 @@
 	  java/src/org/quickfix/Initiator.java, java/test/OrderTest.java:
 	  added ConfigError throw specifier to start method
 
-2003-03-29 02:24  orenmnero
+2003-03-29 08:24  orenmnero
 
 	* test/: runat, runat.bat, runat_threaded, runat_threaded.bat:
 	  force ruby to not use DNS by explicitly specifying 127.0.0.1
 
-2003-03-29 00:33  orenmnero
+2003-03-29 06:33  orenmnero
 
 	* src/C++/CallStack.cpp: removed extra call to set_terminate and
 	  illegal references to s_mutex
 
-2003-03-28 21:12  orenmnero
+2003-03-29 03:12  orenmnero
 
 	* config.h.in, configure, configure.in: add test to find
 	  set_terminate
 
-2003-03-28 21:12  orenmnero
+2003-03-29 03:12  orenmnero
 
 	* src/C++/ThreadedSocketInitiator.cpp: fixed throw specifier to
 	  match declaration
 
-2003-03-28 19:54  orenmnero
+2003-03-29 01:54  orenmnero
 
 	* src/: .NET/quickfix_net.vcproj, java/quickfix_jni.dsp: enabled
 	  RTTI
 
-2003-03-28 18:48  orenmnero
+2003-03-29 00:48  orenmnero
 
 	* src/C++/stdafx.h: added test for terminate methods scope
 
-2003-03-28 18:48  orenmnero
+2003-03-29 00:48  orenmnero
 
 	* src/C++/: CallStack.cpp, CallStack.h: fixed synchronization
 	  problems
 
-2003-03-28 18:45  orenmnero
+2003-03-29 00:45  orenmnero
 
 	* src/java/quickfix_jni.vcproj: RTTI enabled
 
-2003-03-28 18:45  orenmnero
+2003-03-29 00:45  orenmnero
 
 	* src/java/: JavaApplication.cpp, JavaMessageStore.cpp: runtime
 	  errors handled for all JVM calls
 
-2003-03-28 18:44  orenmnero
+2003-03-29 00:44  orenmnero
 
 	* src/java/: org_quickfix_SocketInitiator.cpp,
 	  org_quickfix_SocketAcceptor.cpp,
@@ -2418,11 +2470,11 @@
 	  org_quickfix_ThreadedSocketInitiator.cpp: exception properly
 	  trapped instead of using pseudo exception syntax
 
-2003-03-28 18:32  orenmnero
+2003-03-29 00:32  orenmnero
 
 	* src/C++/Session.cpp: corrected stack push for sendRaw
 
-2003-03-28 18:30  orenmnero
+2003-03-29 00:30  orenmnero
 
 	* src/C++/: Acceptor.cpp, Acceptor.h, SocketAcceptor.h,
 	  SocketAcceptor.cpp, ThreadedSocketAcceptor.h,
@@ -2431,21 +2483,21 @@
 	  ThreadedSocketInitiator.cpp: start will no longer throw
 	  unspecified ConfigError
 
-2003-03-28 12:24  orenmnero
+2003-03-28 18:24  orenmnero
 
 	* src/java/: org_quickfix_MySQLStore.cpp,
 	  org_quickfix_MySQLStoreFactory.cpp: fixed invalid macro calls
 
-2003-03-28 09:01  orenmnero
+2003-03-28 15:01  orenmnero
 
 	* quickfix_lib.dsp, quickfix_lib.vcproj: added C++ callstack
 
-2003-03-28 02:10  orenmnero
+2003-03-28 08:10  orenmnero
 
 	* src/java/src/org/quickfix/fix43/: .cvsignore, Makefile.in:
 	  initial checkin
 
-2003-03-28 02:05  orenmnero
+2003-03-28 08:05  orenmnero
 
 	* examples/Makefile.in, examples/config.h.in, examples/configure,
 	  examples/executor/Makefile.in, examples/executor/C++/Makefile.in,
@@ -2465,7 +2517,7 @@
 	  templates/Makefile.in, bin/cfg/Makefile.in: generated with newer
 	  autotools
 
-2003-03-28 01:59  orenmnero
+2003-03-28 07:59  orenmnero
 
 	* src/C++/test/Makefile.in, src/java/cfg/Makefile.in,
 	  src/java/src/Makefile.in, src/java/src/org/Makefile.in,
@@ -2482,7 +2534,7 @@
 	  test/definitions/server/future/Makefile.in: generated with newer
 	  autotools
 
-2003-03-28 01:55  orenmnero
+2003-03-28 07:55  orenmnero
 
 	* Makefile.in, config.guess, config.h.in, config.sub, configure,
 	  ltmain.sh, examples/ordermatch/Makefile.in,
@@ -2490,26 +2542,26 @@
 	  src/C++/Makefile.in, src/java/Makefile.in: generated with newer
 	  autotools
 
-2003-03-28 01:47  orenmnero
+2003-03-28 07:47  orenmnero
 
 	* configure.in: added C++ callstack
 
-2003-03-28 01:45  orenmnero
+2003-03-28 07:45  orenmnero
 
 	* examples/ordermatch/test/: OrderMatcherTestCase.cpp,
 	  ordermatch_ut.cpp: including config.h
 
-2003-03-28 01:44  orenmnero
+2003-03-28 07:44  orenmnero
 
 	* examples/ordermatch/IDGenerator.h: replaced obsolete strstream
 	  with sstream
 
-2003-03-28 01:39  orenmnero
+2003-03-28 07:39  orenmnero
 
 	* src/: .NET/Group.cpp, .NET/Message.cpp, .NET/Session.cpp,
 	  config_windows.h: added C++ callstack
 
-2003-03-28 01:33  orenmnero
+2003-03-28 07:33  orenmnero
 
 	* src/.NET/: Application.h, FileLog.h, FileMessageStore.h, Group.h,
 	  Log.h, LogFactory.h, MemoryMessageStore.h, Message.h,
@@ -2519,11 +2571,11 @@
 	  SocketInitiator.h, ThreadedSocketAcceptor.h,
 	  ThreadedSocketInitiator.h, quickfix_net.h: added C++ callstack
 
-2003-03-28 01:00  orenmnero
+2003-03-28 07:00  orenmnero
 
 	* src/java/src/org/quickfix/fix43/Makefile.am: initial checkin
 
-2003-03-28 00:56  orenmnero
+2003-03-28 06:56  orenmnero
 
 	* src/: C++/Acceptor.cpp, C++/CallStack.cpp, C++/CallStack.h,
 	  C++/DataDictionary.cpp, C++/Dictionary.cpp, C++/Event.h,
@@ -2562,25 +2614,25 @@
 	  java/org_quickfix_ThreadedSocketInitiator.cpp: added C++
 	  callstack
 
-2003-03-18 03:24  orenmnero
+2003-03-18 09:24  orenmnero
 
 	* CONTRIBUTORS, THANKS: initial checkin
 
-2003-03-18 03:23  orenmnero
+2003-03-18 09:23  orenmnero
 
 	* AUTHORS: using sourceforge email address
 
-2003-03-17 22:33  orenmnero
+2003-03-18 04:33  orenmnero
 
 	* src/java/: Makefile.am, Makefile.in: version reflects change in
 	  interface
 
-2003-03-17 22:28  orenmnero
+2003-03-18 04:28  orenmnero
 
 	* src/C++/test/AcceptorTestCase.h: throw specifier reflects
 	  orverloaded method
 
-2003-03-17 22:26  orenmnero
+2003-03-18 04:26  orenmnero
 
 	* spec/FieldNumbers.xsl, spec/Fields.xsl, spec/MessageCracker.xsl,
 	  spec/Messages.xsl, spec/Values.xsl,
@@ -2591,42 +2643,42 @@
 	  src/C++/Fields.h, src/C++/Values.h: adding line feed at end of
 	  files so gcc 3.2 will not display warnings
 
-2003-03-17 22:02  orenmnero
+2003-03-18 04:02  orenmnero
 
 	* src/java/Makefile.in: replaced Settings with SessionSettings
 
-2003-03-17 20:28  orenmnero
+2003-03-18 02:28  orenmnero
 
 	* examples/: executor/java/src/Executor.java,
 	  tradeclientgui/banzai/src/Banzai.java: uses new SessionSettings
 	  instead of Settings
 
-2003-03-17 18:37  orenmnero
+2003-03-18 00:37  orenmnero
 
 	* quickfix_lib.vcproj: lowered heap size
 
-2003-03-15 13:32  orenmnero
+2003-03-15 19:32  orenmnero
 
 	* src/C++/: Session.cpp, test/SessionTestCase.cpp: fixed bug where
 	  isSameSession returned true when start > end and time1 - time2 >
 	  UTC_DAY
 
-2003-03-15 13:31  orenmnero
+2003-03-15 19:31  orenmnero
 
 	* src/java/: JVM.h, JavaApplication.cpp: patch to compile without
 	  errors in gcc 3.2
 
-2003-03-15 12:36  orenmnero
+2003-03-15 18:36  orenmnero
 
 	* src/java/Makefile.am: changed Session to SessionSettings, to
 	  match C++ api
 
-2003-03-14 18:34  orenmnero
+2003-03-15 00:34  orenmnero
 
 	* src/java/: quickfix_jni.vcproj, test/OrderTest.java: changed
 	  Session to SessionSettings, to match C++ api
 
-2003-03-14 18:29  orenmnero
+2003-03-15 00:29  orenmnero
 
 	* src/java/: Conversions.h, org_quickfix_FileLogFactory.cpp,
 	  org_quickfix_FileStoreFactory.cpp,
@@ -2640,7 +2692,7 @@
 	  build.properties, quickfix_jni.dsp: changed Session to
 	  SessionSettings, to match C++ api
 
-2003-03-14 18:25  orenmnero
+2003-03-15 00:25  orenmnero
 
 	* src/java/src/org/quickfix/: FileLogFactory.java,
 	  FileStoreFactory.java, MySQLLogFactory.java,
@@ -2650,62 +2702,62 @@
 	  Settings.java: changed Session to SessionSettings, to match C++
 	  api
 
-2003-03-14 18:23  orenmnero
+2003-03-15 00:23  orenmnero
 
 	* src/java/src/org/quickfix/FieldConvertError.java: constructor
 	  takes a string
 
-2003-03-12 23:58  orenmnero
+2003-03-13 05:58  orenmnero
 
 	* quickfix_lib.vcproj, src/.NET/quickfix_net.vcproj: increased heap
 	  allocation size
 
-2003-03-12 23:57  orenmnero
+2003-03-13 05:57  orenmnero
 
 	* quickfix_lib.dsp: added include path
 
-2003-03-12 23:54  orenmnero
+2003-03-13 05:54  orenmnero
 
 	* build_vc6.bat: no longer building non-existant at_client project
 
-2003-03-12 16:18  orenmnero
+2003-03-12 22:18  orenmnero
 
 	* doc/html/java/application_2.html: corrected errors in example
 
-2003-03-12 16:18  orenmnero
+2003-03-12 22:18  orenmnero
 
 	* src/C++/DataDictionary.cpp: added missing SEQNUM type
 
-2003-03-12 16:17  orenmnero
+2003-03-12 22:17  orenmnero
 
 	* src/C++/FIX43_Messages.h, src/.NET/FIX43_Messages.h,
 	  spec/Messages.xsl, spec/net_Messages.xsl: correctly generating
 	  groups within components within groups
 
-2003-03-08 17:11  orenmnero
+2003-03-08 23:11  orenmnero
 
 	* install-sh: removed ^M at end of lines
 
-2003-03-08 16:00  orenmnero
+2003-03-08 22:00  orenmnero
 
 	* doc/html/: application.html, receiving_messages.html,
 	  java/application_1.html: changed throw specifiers for fromAdmin
 	  and fromApp
 
-2003-03-08 13:43  orenmnero
+2003-03-08 19:43  orenmnero
 
 	* NEWS: updated for next release
 
-2003-03-08 13:27  orenmnero
+2003-03-08 19:27  orenmnero
 
 	* src/.NET/Exceptions.h: Added IncorrectDataFormat exception
 
-2003-03-08 13:25  orenmnero
+2003-03-08 19:25  orenmnero
 
 	* src/java/src/org/quickfix/: FieldConvertError.java,
 	  IncorrectDataFormat.java: initial checkin
 
-2003-03-08 13:25  orenmnero
+2003-03-08 19:25  orenmnero
 
 	* src/java/JavaApplication.cpp, src/java/JavaApplication.h,
 	  src/java/src/org/quickfix/Application.java,
@@ -2720,62 +2772,62 @@
 	  src/at_application.h: changed throw specifier for fromApp and
 	  fromAdmin
 
-2003-03-08 13:24  orenmnero
+2003-03-08 19:24  orenmnero
 
 	* src/java/JVM.cpp: corrected error message
 
-2003-03-08 13:24  orenmnero
+2003-03-08 19:24  orenmnero
 
 	* src/: java/Conversions.h, .NET/Message.cpp: getValue throws an
 	  InvalidDataFormat instead of crashing
 
-2003-03-08 13:22  orenmnero
+2003-03-08 19:22  orenmnero
 
 	* src/C++/Field.h: getValue throws an InvalidDataFormat instead of
 	  FieldConvertError
 
-2003-03-08 13:21  orenmnero
+2003-03-08 19:21  orenmnero
 
 	* src/C++/: Application.h, SocketInitiator.cpp,
 	  ThreadedSocketInitiator.cpp, test/AcceptorTestCase.h,
 	  test/FileStoreFactoryTestCase.h, test/SessionTestCase.h: changed
 	  throw specifier for fromApp and fromAdmin
 
-2003-03-06 23:39  orenmnero
+2003-03-07 05:39  orenmnero
 
 	* doc/html/.cvsignore: [no log message]
 
-2003-03-06 23:36  orenmnero
+2003-03-07 05:36  orenmnero
 
 	* NEWS: updated for next release
 
-2003-03-06 23:36  orenmnero
+2003-03-07 05:36  orenmnero
 
 	* doc/html/xmlschema.html: updated for FIX 4.3
 
-2003-03-06 23:35  orenmnero
+2003-03-07 05:35  orenmnero
 
 	* doc/html/install.html: metions bootstrap and --prefix
 
-2003-03-06 23:35  orenmnero
+2003-03-07 05:35  orenmnero
 
 	* doc/html/FAQ.html: added new questions
 
-2003-03-06 23:34  orenmnero
+2003-03-07 05:34  orenmnero
 
 	* src/C++/Field.h, doc/html/user_defined.html: added new user
 	  defined macros for new field types
 
-2003-03-06 22:06  orenmnero
+2003-03-07 04:06  orenmnero
 
 	* examples/executor/.cvsignore: ignores generated files
 
-2003-03-06 22:04  orenmnero
+2003-03-07 04:04  orenmnero
 
 	* src/java/src/org/quickfix/fix40/Allocation.java: CVS sees this as
 	  different
 
-2003-03-06 20:15  orenmnero
+2003-03-07 02:15  orenmnero
 
 	* src/java/src/org/quickfix/field/Account.java,
 	  src/java/src/org/quickfix/field/AccountType.java,
@@ -3447,21 +3499,21 @@
 	  spec/generate_java_fields.xsl: added constant that represents the
 	  fields number
 
-2003-03-04 01:13  orenmnero
+2003-03-04 07:13  orenmnero
 
 	* src/java/: Conversions.cpp, JVM.cpp, JVM.h: replaced constants
 	  with macros
 
-2003-03-04 01:12  orenmnero
+2003-03-04 07:12  orenmnero
 
 	* src/.NET/MessageCracker.h: made crack a public method and check
 	  beginstring against its value
 
-2003-03-03 00:54  orenmnero
+2003-03-03 06:54  orenmnero
 
 	* NEWS: updated for next release
 
-2003-03-03 00:52  orenmnero
+2003-03-03 06:52  orenmnero
 
 	* src/java/src/org/quickfix/field/: AllocShares.java,
 	  IDSource.java, IOIShares.java, LastShares.java, ListNoOrds.java,
@@ -3475,21 +3527,21 @@
 	  deprecated/UnderlyingIDSource.java: moved deprecated fields up
 	  one directory
 
-2003-03-03 00:50  orenmnero
+2003-03-03 06:50  orenmnero
 
 	* src/java/src/org/quickfix/field/SecurityType.java: generated with
 	  OPTION and FUTURE enumerations
 
-2003-03-03 00:49  orenmnero
+2003-03-03 06:49  orenmnero
 
 	* src/java/src/org/quickfix/Group.java: extends from FieldMap
 
-2003-03-03 00:49  orenmnero
+2003-03-03 06:49  orenmnero
 
 	* src/java/src/org/quickfix/FieldMap.java: removed unecessary
 	  getField method and changed isSet to generic isSetField
 
-2003-03-03 00:41  orenmnero
+2003-03-03 06:41  orenmnero
 
 	* src/java/src/org/quickfix/: fix40/Advertisement.java,
 	  fix40/Allocation.java, fix40/AllocationACK.java,
@@ -3585,88 +3637,88 @@
 	  fix43/TradingSessionStatusRequest.java: generated with methods to
 	  check if fields are set
 
-2003-03-03 00:39  orenmnero
+2003-03-03 06:39  orenmnero
 
 	* src/: C++/Values.h, .NET/Fields.h: generated with SecurityType
 	  OPTION and FUTURE enumerations
 
-2003-03-03 00:35  orenmnero
+2003-03-03 06:35  orenmnero
 
 	* spec/.cvsignore: [no log message]
 
-2003-03-03 00:35  orenmnero
+2003-03-03 06:35  orenmnero
 
 	* spec/generate_java.bat: generates deprecated fields
 
-2003-03-03 00:34  orenmnero
+2003-03-03 06:34  orenmnero
 
 	* spec/generate_java_messages.xsl: generates methods to check if
 	  fields are set on a message
 
-2003-03-03 00:33  orenmnero
+2003-03-03 06:33  orenmnero
 
 	* spec/: Values.xsl, generate_java_fields.xsl, net_Fields.xsl: add
 	  enumerations for SecurityType OPTION and FUTURE if they do not
 	  exist
 
-2003-02-28 20:57  orenmnero
+2003-03-01 02:57  orenmnero
 
 	* test/Runner.rb: rescue from connection operation so script
 	  doesn't break
 
-2003-02-28 20:23  orenmnero
+2003-03-01 02:23  orenmnero
 
 	* test/Runner.rb: increased sleap time
 
-2003-02-28 20:06  orenmnero
+2003-03-01 02:06  orenmnero
 
 	* test/Runner.rb: printing out actual value of result
 
-2003-02-28 18:27  orenmnero
+2003-03-01 00:27  orenmnero
 
 	* test/: Reflector.rb, ReflectorClient.rb, Runner.rb: generates
 	  more detailed test results with specific failure reasons
 
-2003-02-27 16:20  orenmnero
+2003-02-27 22:20  orenmnero
 
 	* src/C++/DataDictionary.cpp, src/C++/DataDictionary.h,
 	  src/C++/SessionFactory.cpp, src/C++/SessionSettings.h,
 	  doc/html/configuration.html: new option ValidateFieldsHaveValues
 	  for preventing quickfix from rejecting empy fields
 
-2003-02-27 16:18  orenmnero
+2003-02-27 22:18  orenmnero
 
 	* src/C++/SessionID.h: new constructor takes strings instead of
 	  field objects
 
-2003-02-25 19:34  orenmnero
+2003-02-26 01:34  orenmnero
 
 	* src/C++/: Message.h, test/MessagesTestCase.cpp,
 	  test/MessagesTestCase.h: isAdminMsgType won't give false
 	  positives for some message types longer than 1 character
 
-2003-02-24 00:19  orenmnero
+2003-02-24 06:19  orenmnero
 
 	* test/: Comparator.rb, ComparatorTestCase.rb, Runner.rb: failed
 	  tests supply descriptive messages on why a comparison fails
 
-2003-02-20 19:32  orenmnero
+2003-02-21 01:32  orenmnero
 
 	* doc/html/configuration.html: added configuration setting for
 	  reusing a socket address
 
-2003-02-20 19:28  orenmnero
+2003-02-21 01:28  orenmnero
 
 	* src/C++/SessionSettings.h, src/C++/SocketAcceptor.cpp,
 	  src/C++/ThreadedSocketAcceptor.cpp, test/runat, test/runat.bat:
 	  added configuration setting for reusing a socket address
 
-2003-02-19 23:34  orenmnero
+2003-02-20 05:34  orenmnero
 
 	* src/C++/Utility.cpp: removed redifintion of default parameter for
 	  reuse
 
-2003-02-19 23:13  orenmnero
+2003-02-20 05:13  orenmnero
 
 	* src/C++/: SocketServer.cpp, SocketServer.h, Utility.cpp,
 	  Utility.h, test/ParserTestCase.cpp,
@@ -3674,12 +3726,12 @@
 	  test/SocketUtilitiesTestCase.cpp: support for reusing socket
 	  server address
 
-2003-02-19 20:46  orenmnero
+2003-02-20 02:46  orenmnero
 
 	* examples/: executor/C++/executor.cpp, ordermatch/ordermatch.cpp:
 	  newline printed so application will display line before exiting
 
-2003-02-19 20:44  orenmnero
+2003-02-20 02:44  orenmnero
 
 	* src/C++/: Acceptor.cpp, Acceptor.h, Initiator.cpp, Initiator.h,
 	  SocketAcceptor.cpp, SocketAcceptor.h, SocketInitiator.cpp,
@@ -3688,29 +3740,29 @@
 	  ThreadedSocketInitiator.h: throw specifier for start changed to
 	  RuntimeError
 
-2003-02-17 19:55  orenmnero
+2003-02-18 01:55  orenmnero
 
 	* configure: updated version for next release
 
-2003-02-17 19:54  orenmnero
+2003-02-18 01:54  orenmnero
 
 	* src/java/Makefile.in: updated major version reflect change in
 	  libraries interface
 
-2003-02-17 19:53  orenmnero
+2003-02-18 01:53  orenmnero
 
 	* src/java/test/OrderTest.java: uses OS independent path
 
-2003-02-17 19:53  orenmnero
+2003-02-18 01:53  orenmnero
 
 	* src/java/JVM.h: JVMClass constructor takes a const reference so
 	  it is recognized as a copy constructor
 
-2003-02-17 12:50  orenmnero
+2003-02-17 18:50  orenmnero
 
 	* src/java/src/org/quickfix/RuntimeError.java: initial checkin
 
-2003-02-17 11:24  orenmnero
+2003-02-17 17:24  orenmnero
 
 	* examples/executor/csharp/Executor.cs,
 	  examples/executor/java/src/Executor.java, src/.NET/Acceptor.h,
@@ -3735,16 +3787,16 @@
 	  src/java/test/OrderTest.java: replaced ConfigError thrown by
 	  start with RuntimeError
 
-2003-02-17 11:23  orenmnero
+2003-02-17 17:23  orenmnero
 
 	* bin/cfg/: executor.cfg, ordermatch.cfg, tradeclient.cfg: fixed
 	  strange formatting
 
-2003-02-12 18:10  orenmnero
+2003-02-13 00:10  orenmnero
 
 	* NEWS: updated for release
 
-2003-02-12 18:01  orenmnero
+2003-02-13 00:01  orenmnero
 
 	* src/: C++/Acceptor.cpp, C++/Acceptor.h, C++/Initiator.cpp,
 	  C++/Initiator.h, C++/SocketAcceptor.cpp, C++/SocketAcceptor.h,
@@ -3767,43 +3819,43 @@
 	  java/test/OrderTest.java: start throws an exception when a
 	  serious error occurs
 
-2003-02-12 17:59  orenmnero
+2003-02-12 23:59  orenmnero
 
 	* src/C++/: SocketServer.cpp, SocketServer.h: removed duplicate
 	  code that already exists in socket_createAcceptor
 
-2003-02-12 17:56  orenmnero
+2003-02-12 23:56  orenmnero
 
 	* src/C++/SessionState.h: added const specifiers
 
-2003-02-12 17:54  orenmnero
+2003-02-12 23:54  orenmnero
 
 	* src/C++/Session.h: added accessor for a session's log
 
-2003-02-12 17:53  orenmnero
+2003-02-12 23:53  orenmnero
 
 	* src/C++/: Utility.cpp, Utility.h: removed socket_setsockopt
 	  method
 
-2003-02-07 18:06  orenmnero
+2003-02-08 00:06  orenmnero
 
 	* NEWS: updated for new release
 
-2003-02-07 18:00  orenmnero
+2003-02-08 00:00  orenmnero
 
 	* bin/cfg/: executor.cfg, ordermatch.cfg, tradeclient.cfg: remove
 	  extra line feeds
 
-2003-02-07 18:00  orenmnero
+2003-02-08 00:00  orenmnero
 
 	* doc/html/xmlschema.html: reflects new XML DataDictionary format
 
-2003-02-07 17:59  orenmnero
+2003-02-07 23:59  orenmnero
 
 	* doc/html/: java/repeating_groups_1.html, repeating_groups.html:
 	  Number of repeating groups no longer required in constructor
 
-2003-02-07 17:55  orenmnero
+2003-02-07 23:55  orenmnero
 
 	* src/.NET/Acceptor.h, src/.NET/Application.h,
 	  src/.NET/DefaultMessageFactory.h, src/.NET/DeprecatedFields.h,
@@ -3846,30 +3898,30 @@
 	  it doesn't conflict with unmanaged namespace in VB.NET due to
 	  case insensitivity
 
-2003-02-07 17:52  orenmnero
+2003-02-07 23:52  orenmnero
 
 	* src/java/: JavaApplication.cpp, JavaApplication.h,
 	  JavaMessageStore.cpp, JavaMessageStore.h: creating exception
 	  classes before exception is thrown is nicer to the JVM
 
-2003-02-06 13:57  orenmnero
+2003-02-06 19:57  orenmnero
 
 	* src/C++/: Session.cpp, Session.h: updated algorithm for resetting
 	  sequence numbers during non-session times
 
-2003-02-06 13:54  orenmnero
+2003-02-06 19:54  orenmnero
 
 	* spec/net_Fields.xsl, src/.NET/Fields.h: changed currency type
 	  from double to string
 
-2003-02-06 10:11  orenmnero
+2003-02-06 16:11  orenmnero
 
 	* src/java/: JavaApplication.cpp, JavaApplication.h,
 	  JavaMessageStore.cpp, JavaMessageStore.h: exceptions are no
 	  longer copied which resulted in usage of underlying jclass after
 	  cleanup
 
-2003-01-27 20:16  orenmnero
+2003-01-28 02:16  orenmnero
 
 	* spec/FIX40.xml, spec/FIX41.xml, spec/FIX42.xml, spec/fix-40.html,
 	  spec/fix-41-with_errata_19990630.html,
@@ -3878,68 +3930,68 @@
 	  src/C++/FIX40_Messages.h, src/C++/FIX41_Messages.h,
 	  src/C++/FIX42_Messages.h: Added ExecInst value P=MARKET_PEG
 
-2003-01-24 18:51  orenmnero
+2003-01-25 00:51  orenmnero
 
 	* quickfix_lib.dsp: added custom build steps to header files in
 	  release version
 
-2003-01-24 18:47  orenmnero
+2003-01-25 00:47  orenmnero
 
 	* spec/FIX43.xml, src/.NET/Fields.h, src/C++/Values.h,
 	  src/java/src/org/quickfix/field/OrdRejReason.java: changed
 	  OrdRejectReason BROKER to BROKER_OPTION like in previous versions
 
-2003-01-17 14:59  orenmnero
+2003-01-17 20:59  orenmnero
 
 	* src/java/Makefile.am: updated version-info of jni library
 
-2003-01-17 14:52  orenmnero
+2003-01-17 20:52  orenmnero
 
 	* configure.in: updated version
 
-2003-01-16 20:39  orenmnero
+2003-01-17 02:39  orenmnero
 
 	* NEWS: updated for new release
 
-2003-01-16 20:39  orenmnero
+2003-01-17 02:39  orenmnero
 
 	* src/C++/: Session.cpp, test/SessionTestCase.cpp: messages missing
 	  from storage will be treated like admin messages
 
-2003-01-16 17:34  orenmnero
+2003-01-16 23:34  orenmnero
 
 	* src/C++/ThreadedSocketInitiator.cpp: connection deleted before
 	  sleeping, does not sleep if stopped
 
-2003-01-13 16:57  orenmnero
+2003-01-13 22:57  orenmnero
 
 	* src/C++/MSXML_DOMDocument.h: disabled warning in msdev
 
-2003-01-09 18:27  orenmnero
+2003-01-10 00:27  orenmnero
 
 	* test/runat: updated for FIX 4.3
 
-2003-01-09 16:12  orenmnero
+2003-01-09 22:12  orenmnero
 
 	* src/java/: org_quickfix_MySQLLogFactory.cpp,
 	  org_quickfix_MySQLStoreFactory.cpp: fixed compilation error
 
-2003-01-09 14:21  orenmnero
+2003-01-09 20:21  orenmnero
 
 	* src/C++/: ThreadedSocketConnection.cpp,
 	  ThreadedSocketConnection.h: if connection gets overloaded,
 	  messages will now be processed in a timely manner
 
-2003-01-09 14:20  orenmnero
+2003-01-09 20:20  orenmnero
 
 	* src/java/: Conversions.h, JVM.h: deleting references to classes
 
-2003-01-08 15:29  orenmnero
+2003-01-08 21:29  orenmnero
 
 	* src/C++/Session.cpp: moved mutex to sendRaw to avoid race
 	  condition between app and admin messages
 
-2003-01-08 10:01  orenmnero
+2003-01-08 16:01  orenmnero
 
 	* src/java/: Conversions.cpp, Conversions.h, JVM.h,
 	  JavaApplication.cpp, JavaLog.cpp, JavaLogFactory.cpp,
@@ -3952,24 +4004,24 @@
 	  org_quickfix_SessionID.cpp: makeing use of DeleteLocalRef to
 	  release allocated java objects
 
-2003-01-07 10:38  orenmnero
+2003-01-07 16:38  orenmnero
 
 	* src/: C++/Session.cpp, C++/Session.h, .NET/Session.cpp,
 	  .NET/Session.h, java/org_quickfix_Session.cpp,
 	  java/org_quickfix_Session.h, java/src/org/quickfix/Session.java:
 	  added methods for setting sequence numbers
 
-2003-01-03 18:19  orenmnero
+2003-01-04 00:19  orenmnero
 
 	* src/java/JavaApplication.cpp: messages can be modified before
 	  being sent out
 
-2003-01-02 19:21  orenmnero
+2003-01-03 01:21  orenmnero
 
 	* src/java/src/org/quickfix/fix43/QuoteRequestReject.java: initial
 	  checkin
 
-2003-01-02 19:18  orenmnero
+2003-01-03 01:18  orenmnero
 
 	* src/: .NET/FIX40_Messages.h, .NET/FIX41_Messages.h,
 	  .NET/FIX42_Messages.h, .NET/FIX43_Messages.h,
@@ -4057,21 +4109,21 @@
 	  java/src/org/quickfix/fix43/TradeCaptureReportRequest.java:
 	  correctly generated components
 
-2003-01-02 19:03  orenmnero
+2003-01-03 01:03  orenmnero
 
 	* src/.NET/Session.cpp: C++ exception trapped and .NET exception
 	  thrown in its place
 
-2003-01-02 18:24  orenmnero
+2003-01-03 00:24  orenmnero
 
 	* spec/generate_java_messages.xsl: fixed support for components
 
-2003-01-02 18:23  orenmnero
+2003-01-03 00:23  orenmnero
 
 	* spec/: Messages.xsl, net_Messages.xsl: creating setters/getters
 	  for component fields
 
-2002-12-27 13:32  orenmnero
+2002-12-27 19:32  orenmnero
 
 	* test/definitions/server/:
 	  fix40/14g_HeaderBodyTrailerFieldsOutOfOrder.def,
@@ -4080,7 +4132,7 @@
 	  fix43/14g_HeaderBodyTrailerFieldsOutOfOrder.def: tests for tag
 	  out of order message
 
-2002-12-27 13:29  orenmnero
+2002-12-27 19:29  orenmnero
 
 	* src/: C++/FIX40_Messages.h, C++/FIX41_Messages.h,
 	  C++/FIX42_Messages.h, C++/FIX43_MessageCracker.h,
@@ -4148,75 +4200,75 @@
 	  java/src/org/quickfix/fix43/TradeCaptureReport.java: regenerated
 	  from new xml
 
-2002-12-27 13:29  orenmnero
+2002-12-27 19:29  orenmnero
 
 	* src/C++/Exceptions.h: FieldsOutOfOrder exception replaced with
 	  TagOutOfOrder
 
-2002-12-27 13:27  orenmnero
+2002-12-27 19:27  orenmnero
 
 	* src/C++/: Message.cpp, Message.h, test/MessagesTestCase.cpp:
 	  field provided when structure is invalid
 
-2002-12-27 13:26  orenmnero
+2002-12-27 19:26  orenmnero
 
 	* src/C++/Session.cpp: supports new FIX 4.3 reject type when tag is
 	  out of order
 
-2002-12-27 13:25  orenmnero
+2002-12-27 19:25  orenmnero
 
 	* src/C++/DataDictionary.cpp: group field processed correctly,
 	  field provided when tag out of order
 
-2002-12-27 13:23  orenmnero
+2002-12-27 19:23  orenmnero
 
 	* src/.NET/: FIX40_Messages.h, FIX41_Messages.h, FIX42_Messages.h,
 	  FIX43_MessageCracker.h, FIX43_MessageFactory.h, FIX43_Messages.h:
 	  regenerated from new xml
 
-2002-12-27 13:21  orenmnero
+2002-12-27 19:21  orenmnero
 
 	* spec/: FixLexer.l, lex.yy.c, net_Messages.xsl: corrected template
 	  matching for component groups
 
-2002-12-27 13:20  orenmnero
+2002-12-27 19:20  orenmnero
 
 	* spec/Values.xsl: added SessionRejectReason
 
-2002-12-27 13:19  orenmnero
+2002-12-27 19:19  orenmnero
 
 	* spec/: FIX40.xml, FIX41.xml, FIX42.xml: consilidated group and
 	  counting field
 
-2002-12-27 13:18  orenmnero
+2002-12-27 19:18  orenmnero
 
 	* spec/FIX43.xml: fixed problems with repeating groups
 
-2002-12-23 10:12  orenmnero
+2002-12-23 16:12  orenmnero
 
 	* spec/FIX43.xml: fixed parsing error with repeating groups
 
-2002-12-20 11:50  orenmnero
+2002-12-20 17:50  orenmnero
 
 	* src/C++/DataDictionary.cpp: component fields only required in
 	  message when component is required
 
-2002-12-20 11:49  orenmnero
+2002-12-20 17:49  orenmnero
 
 	* spec/FIX43.xml: reordered attributes to match previous versions
 
-2002-12-18 18:31  orenmnero
+2002-12-19 00:31  orenmnero
 
 	* bin/cfg/executor.cfg: added sessions for multiple versions of FIX
 
-2002-12-18 18:29  orenmnero
+2002-12-19 00:29  orenmnero
 
 	* test/definitions/server/:
 	  fix40/1d_InvalidLogonWrongBeginString.def,
 	  fix41/1d_InvalidLogonWrongBeginString.def,
 	  fix42/1d_InvalidLogonWrongBeginString.def: fixed test comment
 
-2002-12-18 18:28  orenmnero
+2002-12-19 00:28  orenmnero
 
 	* test/definitions/server/fix43/: 10_MsgSeqNumEqual.def,
 	  10_MsgSeqNumGreater.def, 10_MsgSeqNumLess.def,
@@ -4253,21 +4305,21 @@
 	  8_AdminAndApplicationMessages.def, 8_OnlyAdminMessages.def,
 	  8_OnlyApplicationMessages.def: initial checkin
 
-2002-12-18 18:26  orenmnero
+2002-12-19 00:26  orenmnero
 
 	* test/runat.bat: runs tests against FIX 4.3
 
-2002-12-18 18:25  orenmnero
+2002-12-19 00:25  orenmnero
 
 	* src/at_application.h: all versions of FIX share code, supports
 	  FIX 4.3
 
-2002-12-18 18:23  orenmnero
+2002-12-19 00:23  orenmnero
 
 	* src/java/src/org/quickfix/field/SecurityType.java: added
 	  enumerations
 
-2002-12-18 18:22  orenmnero
+2002-12-19 00:22  orenmnero
 
 	* src/: .NET/FIX43_Messages.h, C++/FIX43_Messages.h,
 	  java/src/org/quickfix/fix43/ExecutionReport.java,
@@ -4275,84 +4327,84 @@
 	  java/src/org/quickfix/fix43/NewOrderMultileg.java: setters and
 	  getters added for component block fields
 
-2002-12-18 18:12  orenmnero
+2002-12-19 00:12  orenmnero
 
 	* src/.NET/Fields.h: added enums for SecurityType
 
-2002-12-18 18:09  orenmnero
+2002-12-19 00:09  orenmnero
 
 	* src/C++/: DataDictionary.h, DataDictionary.cpp,
 	  test/DataDictionaryTestCase.cpp: correctly validates messages
 	  with required fields imbedded in components
 
-2002-12-18 18:07  orenmnero
+2002-12-19 00:07  orenmnero
 
 	* src/C++/Values.h: added enums for SecurityType
 
-2002-12-18 17:59  orenmnero
+2002-12-18 23:59  orenmnero
 
 	* spec/FIX43.xml: added SecurityType enums, fixed required status
 	  on some fields
 
-2002-12-11 21:28  orenmnero
+2002-12-12 03:28  orenmnero
 
 	* spec/FIX43.xml: removed space from references to InstrumentLeg
 	  component
 
-2002-12-11 21:17  orenmnero
+2002-12-12 03:17  orenmnero
 
 	* src/C++/: LIBXML_DOMDocument.h, LIBXML_DOMDocument.cpp: support
 	  for loading a document with a filename
 
-2002-12-11 18:51  orenmnero
+2002-12-12 00:51  orenmnero
 
 	* src/C++/: DataDictionary.cpp, DataDictionary.h: optimizations to
 	  spead up reading data dictionary from file
 
-2002-12-11 18:49  orenmnero
+2002-12-12 00:49  orenmnero
 
 	* src/C++/: DOMDocument.h, MSXML_DOMDocument.cpp,
 	  MSXML_DOMDocument.h: support for loading document with a filename
 
-2002-12-10 20:58  orenmnero
+2002-12-11 02:58  orenmnero
 
 	* src/java/quickfix_jni.dsp: increased internal compiler heap limit
 
-2002-12-10 20:03  orenmnero
+2002-12-11 02:03  orenmnero
 
 	* src/C++/DataDictionary.h: formatted new fields like the others
 
-2002-12-10 20:01  orenmnero
+2002-12-11 02:01  orenmnero
 
 	* examples/ordermatch/ordermatch.dsp,
 	  examples/tradeclient/tradeclient.dsp, at_server.dsp, pt.dsp,
 	  quickfix_lib.dsp, ut.dsp: compile heap sized increased
 
-2002-12-10 19:59  orenmnero
+2002-12-11 01:59  orenmnero
 
 	* examples/: ordermatch/ordermatch.cpp,
 	  tradeclient/tradeclient.cpp: returns if config file not found
 
-2002-12-10 19:58  orenmnero
+2002-12-11 01:58  orenmnero
 
 	* examples/executor/: executor_cpp.dsp, C++/Application.cpp,
 	  csharp/Application.cs, csharp/executor_csharp.csproj: uses all
 	  supported versions of FIX
 
-2002-12-10 19:01  orenmnero
+2002-12-11 01:01  orenmnero
 
 	* examples/executor/C++/: Application.cpp, Application.h: supports
 	  for FIX 4.3
 
-2002-12-10 18:57  orenmnero
+2002-12-11 00:57  orenmnero
 
 	* examples/examples.dsw: added executor project
 
-2002-12-10 18:56  orenmnero
+2002-12-11 00:56  orenmnero
 
 	* examples/executor/executor_cpp.dsp: initial checkin
 
-2002-12-10 02:10  orenmnero
+2002-12-10 08:10  orenmnero
 
 	* src/java/src/org/quickfix/fix40/: Advertisement.java,
 	  Allocation.java, AllocationACK.java, DontKnowTrade.java,
@@ -4366,44 +4418,44 @@
 	  Reject.java, ResendRequest.java, SequenceReset.java,
 	  TestRequest.java: generated with new xsl
 
-2002-12-09 20:04  orenmnero
+2002-12-10 02:04  orenmnero
 
 	* quickfix_lib.vcproj: added file
 
-2002-12-09 19:39  orenmnero
+2002-12-10 01:39  orenmnero
 
 	* src/.NET/quickfix_net.vcproj: no longer using precompiled headers
 	  so heap will not overflow
 
-2002-12-09 19:38  orenmnero
+2002-12-10 01:38  orenmnero
 
 	* src/C++/DataDictionary.cpp: portable macro for copying auto
 	  pointers added
 
-2002-12-09 16:54  orenmnero
+2002-12-09 22:54  orenmnero
 
 	* spec/generate_java_messages.xsl: support for components and new
 	  data dictionary format
 
-2002-12-09 16:53  orenmnero
+2002-12-09 22:53  orenmnero
 
 	* spec/: net_Fields.xsl, generate_java_fields.xsl: updated for FIX
 	  4.3
 
-2002-12-09 16:48  orenmnero
+2002-12-09 22:48  orenmnero
 
 	* src/java/src/org/quickfix/Session.java: added lookupSession and
 	  reset methods
 
-2002-12-09 16:47  orenmnero
+2002-12-09 22:47  orenmnero
 
 	* src/java/src/org/quickfix/Message.java: added clone method
 
-2002-12-09 16:46  orenmnero
+2002-12-09 22:46  orenmnero
 
 	* src/java/src/org/quickfix/FieldMap.java: added isSet method
 
-2002-12-09 16:44  orenmnero
+2002-12-09 22:44  orenmnero
 
 	* src/java/src/org/quickfix/fix43/: Advertisement.java,
 	  Allocation.java, AllocationACK.java, BidRequest.java,
@@ -4439,7 +4491,7 @@
 	  TradingSessionStatus.java, TradingSessionStatusRequest.java:
 	  initial checkin
 
-2002-12-09 16:40  orenmnero
+2002-12-09 22:40  orenmnero
 
 	* src/java/src/org/quickfix/: fix42/Advertisement.java,
 	  fix42/Allocation.java, fix42/AllocationACK.java,
@@ -4482,7 +4534,7 @@
 	  fix41/SettlementInstructions.java, fix41/TestRequest.java:
 	  generated from new xsl
 
-2002-12-09 16:32  orenmnero
+2002-12-09 22:32  orenmnero
 
 	* src/java/src/org/quickfix/field/: AllocLinkType.java,
 	  BasisPxType.java, BidDescriptorType.java, BidType.java,
@@ -4506,7 +4558,7 @@
 	  TickDirection.java, TimeInForce.java, TradSesStatus.java,
 	  TradeCondition.java: updated for FIX 4.3
 
-2002-12-09 16:31  orenmnero
+2002-12-09 22:31  orenmnero
 
 	* src/: .NET/DeprecatedFields.h, .NET/FIX43_MessageCracker.h,
 	  .NET/FIX43_MessageFactory.h, .NET/FIX43_Messages.h,
@@ -4777,244 +4829,244 @@
 	  java/src/org/quickfix/field/Yield.java,
 	  java/src/org/quickfix/field/YieldType.java: initial checkin
 
-2002-12-09 16:30  orenmnero
+2002-12-09 22:30  orenmnero
 
 	* src/.NET/: FIX40_MessageCracker.h, FIX41_MessageCracker.h,
 	  FIX42_MessageCracker.h: supports msgtypes longer than one
 	  character
 
-2002-12-09 16:28  orenmnero
+2002-12-09 22:28  orenmnero
 
 	* src/.NET/quickfix_net.vcproj: added files, increased buffer size
 
-2002-12-09 16:27  orenmnero
+2002-12-09 22:27  orenmnero
 
 	* src/.NET/quickfix_net.cpp: moved includes to their own source
 	  files
 
-2002-12-09 16:25  orenmnero
+2002-12-09 22:25  orenmnero
 
 	* src/.NET/: MessageCracker.h, MessageFactory.h: updated for FIX
 	  4.3
 
-2002-12-09 16:25  orenmnero
+2002-12-09 22:25  orenmnero
 
 	* src/.NET/MemoryMessageStore.h: included dependant files
 
-2002-12-09 16:25  orenmnero
+2002-12-09 22:25  orenmnero
 
 	* src/.NET/: Message.cpp, Message.h: moved constructor to source
 	  file, added field macros
 
-2002-12-09 16:23  orenmnero
+2002-12-09 22:23  orenmnero
 
 	* src/.NET/Group.h: uses 0 delimited array for sorted field list
 
-2002-12-09 16:20  orenmnero
+2002-12-09 22:20  orenmnero
 
 	* src/.NET/: FileLog.h, MySQLLog.h, MySQLMessageStore.h,
 	  SessionSettings.h, FileMessageStore.h: included dependant files
 
-2002-12-09 16:19  orenmnero
+2002-12-09 22:19  orenmnero
 
 	* src/.NET/: Fields.h, Messages.h: updated for FIX 4.3
 
-2002-12-09 16:19  orenmnero
+2002-12-09 22:19  orenmnero
 
 	* src/.NET/: FIX40_Messages.h, FIX41_Messages.h, FIX42_Messages.h:
 	  using macros for field setters/getters
 
-2002-12-09 16:15  orenmnero
+2002-12-09 22:15  orenmnero
 
 	* src/.NET/DefaultMessageFactory.h: updated for FIX 4.3
 
-2002-12-08 17:41  orenmnero
+2002-12-08 23:41  orenmnero
 
 	* spec/: generate_c++.bat, generate_java.bat, generate_net.bat:
 	  added FIX 4.3
 
-2002-12-08 17:41  orenmnero
+2002-12-08 23:41  orenmnero
 
 	* spec/lex.yy.c: new data dictionary format
 
-2002-12-08 17:40  orenmnero
+2002-12-08 23:40  orenmnero
 
 	* spec/net_Messages.xsl: support for components and new XML
 	  structure
 
-2002-12-08 17:39  orenmnero
+2002-12-08 23:39  orenmnero
 
 	* spec/: java_MessageCracker.xsl, net_MessageCracker.xsl: supports
 	  message type longer than one character
 
-2002-12-08 17:38  orenmnero
+2002-12-08 23:38  orenmnero
 
 	* spec/net_Fields.xsl: includes deprecated fields
 
-2002-12-08 17:37  orenmnero
+2002-12-08 23:37  orenmnero
 
 	* spec/Values.xsl: updated for FIX 4.3
 
-2002-12-08 17:36  orenmnero
+2002-12-08 23:36  orenmnero
 
 	* spec/Messages.xsl: support for components
 
-2002-12-08 17:36  orenmnero
+2002-12-08 23:36  orenmnero
 
 	* spec/MessageCracker.xsl: supports message type longer than one
 	  character
 
-2002-12-08 17:35  orenmnero
+2002-12-08 23:35  orenmnero
 
 	* spec/FixLexer.l: new abbreviated data dictionary format, uses
 	  double quotes
 
-2002-12-08 17:34  orenmnero
+2002-12-08 23:34  orenmnero
 
 	* spec/Fields.xsl: includes deprecated fields
 
-2002-12-08 17:33  orenmnero
+2002-12-08 23:33  orenmnero
 
 	* spec/FieldNumbers.xsl: updated for FIX 4.3
 
-2002-12-08 17:32  orenmnero
+2002-12-08 23:32  orenmnero
 
 	* spec/: FIX40.xml, FIX41.xml, FIX42.xml: new abbreviated data
 	  dictionary format
 
-2002-12-08 17:32  orenmnero
+2002-12-08 23:32  orenmnero
 
 	* spec/FIX43.xml: initial checkin
 
-2002-12-08 17:23  orenmnero
+2002-12-08 23:23  orenmnero
 
 	* src/C++/: LIBXML_DOMDocument.h, LIBXML_DOMDocument.cpp: added
 	  support for XPath and attribute interface
 
-2002-12-06 19:23  orenmnero
+2002-12-07 01:23  orenmnero
 
 	* src/C++/: DOMDocument.h, DataDictionary.cpp,
 	  MSXML_DOMDocument.cpp, MSXML_DOMDocument.h: replaced string map
 	  with DOMAttributes interface
 
-2002-12-05 18:48  orenmnero
+2002-12-06 00:48  orenmnero
 
 	* src/C++/: Makefile.am, Makefile.in: added new source files
 
-2002-12-05 18:48  orenmnero
+2002-12-06 00:48  orenmnero
 
 	* src/C++/DataDictionary.cpp: using auto_ptr reset and release
 	  because linux is not liking the copy operator
 
-2002-12-05 18:46  orenmnero
+2002-12-06 00:46  orenmnero
 
 	* src/C++/: FieldConvertors.h, DataDictionary.h: added convertors
 	  for new FIX 4.3 field types
 
-2002-12-05 18:45  orenmnero
+2002-12-06 00:45  orenmnero
 
 	* src/C++/DOMDocument.h: added virtual destructors
 
-2002-12-05 18:44  orenmnero
+2002-12-06 00:44  orenmnero
 
 	* src/C++/: LIBXML_DOMDocument.cpp, LIBXML_DOMDocument.h: initial
 	  checkin
 
-2002-12-05 17:26  orenmnero
+2002-12-05 23:26  orenmnero
 
 	* src/java/: org_quickfix_Session.cpp, org_quickfix_Session.h:
 	  added lookupsession and reset methods
 
-2002-12-05 17:25  orenmnero
+2002-12-05 23:25  orenmnero
 
 	* src/java/: org_quickfix_Message.cpp, org_quickfix_Message.h:
 	  added clone method
 
-2002-12-05 17:25  orenmnero
+2002-12-05 23:25  orenmnero
 
 	* src/java/org_quickfix_Group.cpp: uses new constructor for C++
 	  group
 
-2002-12-04 13:46  orenmnero
+2002-12-04 19:46  orenmnero
 
 	* at_client.dsp, at_server.dsp, pt.dsp, quickfix_lib.dsp, ut.dsp,
 	  quickfix.dsw, quickfix.sln, quickfix_lib.vcproj: [no log message]
 
-2002-12-04 13:21  orenmnero
+2002-12-04 19:21  orenmnero
 
 	* src/C++/test/DataDictionaryTestCase.cpp: last field removed,
 	  fields must now be added explicitly
 
-2002-12-04 13:18  orenmnero
+2002-12-04 19:18  orenmnero
 
 	* src/C++/stdafx.h: added named_guids so DOMDocument constant is
 	  available in VC6
 
-2002-12-04 13:17  orenmnero
+2002-12-04 19:17  orenmnero
 
 	* src/C++/Values.h: updated for FIX 4.3
 
-2002-12-04 13:17  orenmnero
+2002-12-04 19:17  orenmnero
 
 	* src/C++/SAXContentHandler.h: no longer using SAX to parse data
 	  dictionary
 
-2002-12-04 13:13  orenmnero
+2002-12-04 19:13  orenmnero
 
 	* src/C++/Session.cpp: users more properly defined enums for
 	  invalid message type
 
-2002-12-04 13:12  orenmnero
+2002-12-04 19:12  orenmnero
 
 	* src/C++/MySQLStore.cpp: fixed bug so reset works
 
-2002-12-04 13:11  orenmnero
+2002-12-04 19:11  orenmnero
 
 	* src/C++/: MessageSorters.cpp, MessageSorters.h: sorter inputs are
 	  not 0 terminated
 
-2002-12-04 13:10  orenmnero
+2002-12-04 19:10  orenmnero
 
 	* src/C++/: MessageCracker.h, Messages.h: updated for FIX 4.3
 
-2002-12-04 13:10  orenmnero
+2002-12-04 19:10  orenmnero
 
 	* src/C++/Message.cpp: setString no longer throws undeclared
 	  exception
 
-2002-12-04 13:08  orenmnero
+2002-12-04 19:08  orenmnero
 
 	* src/C++/: FIX40_Messages.h, FIX41_Messages.h, FIX42_Messages.h,
 	  FieldNumbers.h, FieldTypes.h, Fields.h, Group.h: FieldNumbers.h
 
-2002-12-04 13:07  orenmnero
+2002-12-04 19:07  orenmnero
 
 	* src/C++/FieldMap.h: sorting array is now 0 terminated
 
-2002-12-04 13:04  orenmnero
+2002-12-04 19:04  orenmnero
 
 	* src/C++/Field.h: added macros and typedefs for new field types.
 	  added macro for deprecated fields
 
-2002-12-04 13:03  orenmnero
+2002-12-04 19:03  orenmnero
 
 	* src/C++/: FIX40_MessageCracker.h, FIX41_MessageCracker.h,
 	  FIX42_MessageCracker.h: Supports message types longer than 1
 	  character
 
-2002-12-04 13:00  orenmnero
+2002-12-04 19:00  orenmnero
 
 	* src/C++/: DOMDocument.h, DeprecatedFieldNumbers.h,
 	  DeprecatedFields.h, DeprecatedValues.h, FIX43_MessageCracker.h,
 	  FIX43_Messages.h, Group.cpp, MSXML_DOMDocument.cpp,
 	  MSXML_DOMDocument.h: initial checkin
 
-2002-12-04 12:56  orenmnero
+2002-12-04 18:56  orenmnero
 
 	* src/C++/: DataDictionary.cpp, DataDictionary.h: replaced SAX
 	  parser with DOM
 
-2002-12-01 23:21  orenmnero
+2002-12-02 05:21  orenmnero
 
 	* src/java/src/org/quickfix/field/: deprecated/AllocShares.java,
 	  deprecated/IDSource.java, deprecated/IOIShares.java,
@@ -5027,93 +5079,93 @@
 	  SpreadToBenchmark.java, UnderlyingIDSource.java: field deprecated
 	  in FIX 4.3
 
-2002-11-19 14:28  orenmnero
+2002-11-19 20:28  orenmnero
 
 	* src/java/Conversions.h: messages properly copied using operator
 	  instead of setString
 
-2002-10-30 17:41  orenmnero
+2002-10-30 23:41  orenmnero
 
 	* src/C++/: copy.sh, copyifnewer.sh, copyifnotexist.sh: using bash
 	  as shell
 
-2002-10-30 14:08  orenmnero
+2002-10-30 20:08  orenmnero
 
 	* NEWS, configure.in, configure: updated for new release
 
-2002-10-30 14:01  orenmnero
+2002-10-30 20:01  orenmnero
 
 	* src/C++/: Makefile.am, Makefile.in, copy.sh, copyifnewer.sh,
 	  copyifnotexist.sh: more portable solution to copy newer files to
 	  include directory
 
-2002-10-29 20:18  orenmnero
+2002-10-30 02:18  orenmnero
 
 	* NEWS: updated for new release
 
-2002-10-29 19:58  orenmnero
+2002-10-30 01:58  orenmnero
 
 	* src/C++/Makefile.in: changed -u to more portable -f
 
-2002-10-29 18:37  orenmnero
+2002-10-30 00:37  orenmnero
 
 	* src/C++/Makefile.am: changed -u to more portable -f
 
-2002-10-29 17:44  orenmnero
+2002-10-29 23:44  orenmnero
 
 	* configure, configure.in, src/java/Makefile.in: updated version
 
-2002-10-29 17:19  orenmnero
+2002-10-29 23:19  orenmnero
 
 	* src/java/Makefile.am: incrementing revision number on library
 
-2002-10-29 17:11  orenmnero
+2002-10-29 23:11  orenmnero
 
 	* src/C++/FieldMap.h: fixed memory leak for repeating groups
 
-2002-10-29 14:06  orenmnero
+2002-10-29 20:06  orenmnero
 
 	* examples/tradeclientgui/banzai/src/Banzai.java: use unix style
 	  paths for portability
 
-2002-10-29 14:06  orenmnero
+2002-10-29 20:06  orenmnero
 
 	* examples/: config.h.in, configure, configure.in: added test for
 	  type_info namespace
 
-2002-10-29 14:04  orenmnero
+2002-10-29 20:04  orenmnero
 
 	* bin/run_executor_java: explicitly specified as shell script
 
-2002-10-29 14:04  orenmnero
+2002-10-29 20:04  orenmnero
 
 	* bin/run_banzai: initial
 
-2002-10-29 14:03  orenmnero
+2002-10-29 20:03  orenmnero
 
 	* src/C++/: Message.cpp, test/MessagesTestCase.cpp: setString no
 	  longer throws undeclared InvalidMessage exception
 
-2002-10-28 15:52  orenmnero
+2002-10-28 21:52  orenmnero
 
 	* test/definitions/fields.fmt: removed extra fields
 
-2002-10-27 16:12  orenmnero
+2002-10-27 22:12  orenmnero
 
 	* src/C++/test/SessionTestCase.cpp: fixed test to work properly
 	  during time change
 
-2002-10-27 15:12  orenmnero
+2002-10-27 21:12  orenmnero
 
 	* src/config_windows.h: uncommented out HAVE_MYSQL
 
-2002-10-27 15:11  orenmnero
+2002-10-27 21:11  orenmnero
 
 	* doc/html/configuration.html, doc/html/install.html,
 	  doc/html/project.html, src/config_windows.h: updating
 	  documentation
 
-2002-10-26 17:07  orenmnero
+2002-10-26 22:07  orenmnero
 
 	* examples/Makefile.in, examples/config.h.in, examples/configure,
 	  examples/executor/Makefile.in, examples/executor/C++/Makefile.in,
@@ -5133,52 +5185,52 @@
 	  src/C++/Makefile.in, src/java/Makefile.am, src/java/Makefile.in:
 	  changes to autotools generated files
 
-2002-10-25 20:21  orenmnero
+2002-10-26 01:21  orenmnero
 
 	* src/config_windows.h: commented out optional setting, removed
 	  version
 
-2002-10-25 20:20  orenmnero
+2002-10-26 01:20  orenmnero
 
 	* test/definitions/server/:
 	  fix42/21_RepeatingGroupSpecifierWithValueOfZero.def,
 	  future/21_RepeatingGroupSpecifierWithValueOfZero.def: moved into
 	  regression
 
-2002-10-25 18:21  orenmnero
+2002-10-25 23:21  orenmnero
 
 	* src/: C++/Log.h, C++/MySQLLog.cpp, sql/event_log_table.sql,
 	  sql/incoming_log_table.sql, sql/outgoing_log_table.sql: added
 	  time to logging
 
-2002-10-25 15:32  orenmnero
+2002-10-25 20:32  orenmnero
 
 	* quickfix.sln, ut.vcproj: added ut back into workspace
 
-2002-10-25 15:31  orenmnero
+2002-10-25 20:31  orenmnero
 
 	* src/C++/: SAXContentHandler.h, test/MessagesTestCase.cpp: toXML
 	  will display enum for MsgType field
 
-2002-10-25 15:30  orenmnero
+2002-10-25 20:30  orenmnero
 
 	* spec/FixLexer.l: converted to unix format so c file is generated
 	  correctly
 
-2002-10-25 10:41  orenmnero
+2002-10-25 15:41  orenmnero
 
 	* quickfix.sln, quickfix_lib.dsp, quickfix_lib.vcproj,
 	  src/java/Makefile.am: added MySQLStore
 
-2002-10-25 10:37  orenmnero
+2002-10-25 15:37  orenmnero
 
 	* src/C++/Makefile.am: added MySQLLog
 
-2002-10-25 10:36  orenmnero
+2002-10-25 15:36  orenmnero
 
 	* src/C++/: MySQLLog.cpp, MySQLLog.h: initial
 
-2002-10-25 10:34  orenmnero
+2002-10-25 15:34  orenmnero
 
 	* src/java/: Conversions.h, JVM.cpp, JavaMessageStore.cpp,
 	  org_quickfix_FileLog.cpp, org_quickfix_FileLogFactory.cpp,
@@ -5191,86 +5243,86 @@
 	  org_quickfix_ThreadedSocketInitiator.cpp: releasing unmanaged
 	  strings that were created
 
-2002-10-25 10:32  orenmnero
+2002-10-25 15:32  orenmnero
 
 	* src/java/: quickfix_jni.dsp, build.properties: added MySQLLog
 
-2002-10-25 10:31  orenmnero
+2002-10-25 15:31  orenmnero
 
 	* src/java/.cvsignore: ignoring files generated by vc7
 
-2002-10-25 10:25  orenmnero
+2002-10-25 15:25  orenmnero
 
 	* src/java/quickfix_jni.vcproj: adding MySQLLog
 
-2002-10-25 10:23  orenmnero
+2002-10-25 15:23  orenmnero
 
 	* src/java/: org_quickfix_MySQLLog.cpp, org_quickfix_MySQLLog.h,
 	  org_quickfix_MySQLLogFactory.cpp, org_quickfix_MySQLLogFactory.h,
 	  src/org/quickfix/MySQLLog.java,
 	  src/org/quickfix/MySQLLogFactory.java: initial
 
-2002-10-25 10:20  orenmnero
+2002-10-25 15:20  orenmnero
 
 	* src/.NET/: quickfix_net.cpp, quickfix_net.vcproj: adding MySQLLog
 
-2002-10-25 10:19  orenmnero
+2002-10-25 15:19  orenmnero
 
 	* src/.NET/: FileLog.h, FileMessageStore.h, MemoryMessageStore.h,
 	  MessageStore.h, ScreenLog.h: destroying unmanaged strings that
 	  were created
 
-2002-10-25 10:19  orenmnero
+2002-10-25 15:19  orenmnero
 
 	* src/.NET/: MySQLLog.h, MySQLMessageStore.h: initial
 
-2002-10-25 10:16  orenmnero
+2002-10-25 15:16  orenmnero
 
 	* src/java/test/MessageTest.java: remove double spacing
 
-2002-10-25 10:15  orenmnero
+2002-10-25 15:15  orenmnero
 
 	* src/java/test/ApplicationImpl.java: removed debug statements
 
-2002-10-25 10:14  orenmnero
+2002-10-25 15:14  orenmnero
 
 	* src/sql/: event_log_table.sql, incoming_log_table.sql,
 	  outgoing_log_table.sql: added session information to tables
 
-2002-10-24 16:02  orenmnero
+2002-10-24 21:02  orenmnero
 
 	* NEWS: updated to reflect changes
 
-2002-10-24 16:01  orenmnero
+2002-10-24 21:01  orenmnero
 
 	* doc/html/: application.html, csharp/application_2.html,
 	  java/application_2.html: corrected code example and added log
 
-2002-10-24 15:59  orenmnero
+2002-10-24 20:59  orenmnero
 
 	* bin/cfg/: ordermatch.cfg, tradeclient.cfg: added FileLogPath
 	  configuration setting
 
-2002-10-24 15:58  orenmnero
+2002-10-24 20:58  orenmnero
 
 	* bin/.cvsignore: ignoring log directory
 
-2002-10-24 15:58  orenmnero
+2002-10-24 20:58  orenmnero
 
 	* bin/run_ordermatch_debug.bat: -f no longer required for passing
 	  in a file
 
-2002-10-24 15:57  orenmnero
+2002-10-24 20:57  orenmnero
 
 	* examples/tradeclient/Application.cpp: using conversion operator
 	  instead of explicit call to toString()
 
-2002-10-24 15:56  orenmnero
+2002-10-24 20:56  orenmnero
 
 	* examples/: ordermatch/ordermatch.cpp,
 	  tradeclient/tradeclient.cpp: demonstrated use of logger
 
-2002-10-24 15:55  orenmnero
+2002-10-24 20:55  orenmnero
 
 	* src/: java/Conversions.h, java/org_quickfix_Message.cpp, pt.cpp,
 	  .NET/Message.h, C++/FileLog.h, C++/FileStore.h, C++/Message.cpp,
@@ -5279,63 +5331,63 @@
 	  Message::getMessage() is deprecated in favor of
 	  Message::toString()
 
-2002-10-23 19:06  orenmnero
+2002-10-24 00:06  orenmnero
 
 	* src/java/build.sh: classpath use made more portable
 
-2002-10-23 18:31  orenmnero
+2002-10-23 23:31  orenmnero
 
 	* doc/html/: FAQ.html, install.html, project.html: reflects changes
 	  and additions to build environments
 
-2002-10-23 18:29  orenmnero
+2002-10-23 23:29  orenmnero
 
 	* doc/html/: configuration.html, xmlschema.html: preformatted code
 	  is now single spaced
 
-2002-10-23 18:26  orenmnero
+2002-10-23 23:26  orenmnero
 
 	* configure: generated from bootstrap
 
-2002-10-23 18:24  orenmnero
+2002-10-23 23:24  orenmnero
 
 	* examples/tradeclientgui/banzai/build.sh: classpath use made more
 	  portable
 
-2002-10-23 18:24  orenmnero
+2002-10-23 23:24  orenmnero
 
 	* examples/ordermatch/test/Makefile.am: links against installed
 	  quickfix library; removed redundant LDADD
 
-2002-10-23 18:22  orenmnero
+2002-10-23 23:22  orenmnero
 
 	* examples/: executor/C++/Makefile.am, tradeclient/Makefile.am:
 	  links against installed quickfix library
 
-2002-10-23 18:22  orenmnero
+2002-10-23 23:22  orenmnero
 
 	* examples/configure.in: added --with-stlport
 
-2002-10-23 18:21  orenmnero
+2002-10-23 23:21  orenmnero
 
 	* bin/run_executor_java, examples/executor/java/build.sh: classpath
 	  use made more portable
 
-2002-10-23 18:20  orenmnero
+2002-10-23 23:20  orenmnero
 
 	* configure.in: fixed java detection on solaris
 
-2002-10-22 21:22  orenmnero
+2002-10-23 02:22  orenmnero
 
 	* src/java/: org_quickfix_Group.cpp, test/MessageTest.java: fixed
 	  runtime exception when calling a method on a group
 
-2002-10-22 16:02  orenmnero
+2002-10-22 21:02  orenmnero
 
 	* src/C++/: Message.cpp, Utility.h, test/MessagesTestCase.cpp:
 	  getXML formats end of line depending on operating system
 
-2002-10-21 01:13  orenmnero
+2002-10-21 06:13  orenmnero
 
 	* NEWS, src/C++/DataDictionary.h, src/C++/Message.cpp,
 	  src/C++/SAXContentHandler.h,
@@ -5344,50 +5396,50 @@
 	  src/C++/test/MessagesTestCase.cpp: updated xml output of message
 	  to display enum descriptions
 
-2002-10-20 18:00  orenmnero
+2002-10-20 23:00  orenmnero
 
 	* bin/: .cvsignore, cfg/.cvsignore: ignoring makefiles
 
-2002-10-20 17:58  orenmnero
+2002-10-20 22:58  orenmnero
 
 	* configure.in: updated version in preparation for next public
 	  release
 
-2002-10-20 17:57  orenmnero
+2002-10-20 22:57  orenmnero
 
 	* src/java/: Makefile.am, Makefile.in: added placeholder for shared
 	  library versions
 
-2002-10-20 15:46  orenmnero
+2002-10-20 20:46  orenmnero
 
 	* src/C++/: Message.cpp, Message.h: changed use of auto_ptr for
 	  compatibility with gcc
 
-2002-10-20 01:56  orenmnero
+2002-10-20 06:56  orenmnero
 
 	* bin/.cvsignore: ignore store directory that gets created when
 	  running an application
 
-2002-10-20 01:53  orenmnero
+2002-10-20 06:53  orenmnero
 
 	* src/java/: org_quickfix_Message.cpp, org_quickfix_Message.h,
 	  src/org/quickfix/Message.java: added XML output support to java
 
-2002-10-20 01:53  orenmnero
+2002-10-20 06:53  orenmnero
 
 	* src/.NET/Message.h: added XML output support to .NET
 
-2002-10-20 01:51  orenmnero
+2002-10-20 06:51  orenmnero
 
 	* src/C++/Message.cpp: removed extra linefeeds before and after
 	  output
 
-2002-10-20 01:50  orenmnero
+2002-10-20 06:50  orenmnero
 
 	* src/C++/test/MessagesTestCase.cpp: changed escape sequence for
 	  double quotes for compatibility with vc6
 
-2002-10-18 18:06  orenmnero
+2002-10-18 23:06  orenmnero
 
 	* src/C++/: DataDictionary.h, FieldMap.h, Message.cpp, Message.h,
 	  SAXContentHandler.h, test/DataDictionaryTestCase.cpp,
@@ -5395,23 +5447,23 @@
 	  test/MessagesTestCase.h: getXML added to message which returns
 	  XML representation of FIX message
 
-2002-10-17 21:28  orenmnero
+2002-10-18 02:28  orenmnero
 
 	* missing: converted to unix file format
 
-2002-10-17 19:30  orenmnero
+2002-10-18 00:30  orenmnero
 
 	* doc/html/: repeating_groups.html, csharp/repeating_groups_1.html,
 	  csharp/repeating_groups_2.html, java/repeating_groups_1.html,
 	  java/repeating_groups_2.html: added documentation for C# and Java
 	  repeating groups
 
-2002-10-17 19:29  orenmnero
+2002-10-18 00:29  orenmnero
 
 	* examples/executor/csharp/: Application.cs, AssemblyInfo.cs,
 	  Executor.cs: no longer double spaced
 
-2002-10-17 19:28  orenmnero
+2002-10-18 00:28  orenmnero
 
 	* src/java/src/org/quickfix/fix40/Allocation.java,
 	  src/java/src/org/quickfix/fix40/Email.java,
@@ -5451,34 +5503,34 @@
 	  spec/generate_java_messages.xsl: accesors made public and group
 	  classes made static
 
-2002-10-17 18:14  orenmnero
+2002-10-17 23:14  orenmnero
 
 	* doc/html/images/QuickFIX.jpg: adding image as binary
 
-2002-10-17 18:13  orenmnero
+2002-10-17 23:13  orenmnero
 
 	* doc/html/images/QuickFIX.jpg: removing bad image
 
-2002-10-17 18:06  orenmnero
+2002-10-17 23:06  orenmnero
 
 	* doc/html/.cvsignore: fixed typo
 
-2002-10-17 18:01  orenmnero
+2002-10-17 23:01  orenmnero
 
 	* doc/html/: .cvsignore, doxygen.png, index.html: removing
 	  generated files
 
-2002-10-17 17:59  orenmnero
+2002-10-17 22:59  orenmnero
 
 	* doc/html/.cvsignore: ingnoring only generated files
 
-2002-10-17 17:54  orenmnero
+2002-10-17 22:54  orenmnero
 
 	* doc/html/: acceptance_tests.html, receiving_messages.html,
 	  repeating_groups.html, sending_messages.html, unit_tests.html,
 	  user_defined.html: adding html files excluded from initial import
 
-2002-10-17 17:21  orenmnero
+2002-10-17 22:21  orenmnero
 
 	* spec/: FieldNumbers.xsl, Fields.xsl, Groups.xsl,
 	  MessageCracker.xsl, c_header.xsl, generate_java_fields.xsl,
@@ -5486,7 +5538,7 @@
 	  java_MessageFactory.xsl, net_Fields.xsl: keeping all xsl files in
 	  unix format to get rid of double spacing
 
-2002-10-17 17:20  orenmnero
+2002-10-17 22:20  orenmnero
 
 	* src/.NET/FIX40_MessageCracker.h, src/.NET/FIX40_MessageFactory.h,
 	  src/.NET/FIX40_Messages.h, src/.NET/FIX41_MessageCracker.h,
@@ -5496,18 +5548,18 @@
 	  src/.NET/Fields.h, src/.NET/Group.h, spec/net_Messages.xsl: .NET
 	  will correctly sort fields within repeating groups
 
-2002-10-17 17:11  orenmnero
+2002-10-17 22:11  orenmnero
 
 	* spec/generate_java_messages.xsl: java will correctly sort fields
 	  within repeating groups
 
-2002-10-17 17:10  orenmnero
+2002-10-17 22:10  orenmnero
 
 	* src/C++/: FieldMap.h, Group.h, MessageSorters.cpp,
 	  MessageSorters.h: ability to dynamically create sorters for
 	  repeating groups
 
-2002-10-17 17:07  orenmnero
+2002-10-17 22:07  orenmnero
 
 	* src/java/: org_quickfix_Group.cpp, org_quickfix_Group.h,
 	  src/org/quickfix/Group.java, src/org/quickfix/field/Account.java,
@@ -6023,7 +6075,7 @@
 	  src/org/quickfix/fix42/TradingSessionStatusRequest.java: java
 	  will correctly sort fields within repeating groups
 
-2002-10-16 14:58  orenmnero
+2002-10-16 19:58  orenmnero
 
 	* src/.NET/: Acceptor.h, Application.h, AssemblyInfo.cpp,
 	  DefaultMessageFactory.h, Exceptions.h, FIX40_MessageCracker.h,
@@ -6040,21 +6092,21 @@
 	  ThreadedSocketInitiator.h, quickfix_net.cpp, quickfix_net.h:
 	  properly formatted so file are no longer double spaced
 
-2002-10-16 01:56  orenmnero
+2002-10-16 06:56  orenmnero
 
 	* lib/.cvsignore, bin/.cvsignore: ignore files produced by windows
 	  build
 
-2002-10-16 00:25  orenmnero
+2002-10-16 05:25  orenmnero
 
 	* src/java/: .cvsignore, quickfix_jni.dsp: project file for VC6
 
-2002-10-15 23:37  orenmnero
+2002-10-16 04:37  orenmnero
 
 	* bin/cfg/: banzai.cfg, executor.cfg, ordermatch.cfg,
 	  tradeclient.cfg: configuration files for sample projects
 
-2002-10-15 23:33  orenmnero
+2002-10-16 04:33  orenmnero
 
 	* bin/: run_banzai.bat, run_executor_cpp, run_executor_cpp.bat,
 	  run_executor_cpp_debug.bat, run_executor_csharp.bat,
@@ -6063,22 +6115,22 @@
 	  run_tradeclient.bat, run_tradeclient_debug.bat: support scripts
 	  for binaries
 
-2002-10-15 23:32  orenmnero
+2002-10-16 04:32  orenmnero
 
 	* bin/: Makefile.am, Makefile.in, cfg/Makefile.am, cfg/Makefile.in:
 	  initial checkin
 
-2002-10-15 23:31  orenmnero
+2002-10-16 04:31  orenmnero
 
 	* lib/: ant.jar, crimson.jar, jaxp.jar, junit.jar, log4j-core.jar,
 	  log4j.jar, optional.jar: support libraries
 
-2002-10-15 23:26  orenmnero
+2002-10-16 04:26  orenmnero
 
 	* include/.cvsignore: no files in this directory belong in the
 	  repository
 
-2002-10-15 23:15  orenmnero
+2002-10-16 04:15  orenmnero
 
 	* .cvsignore, AUTHORS, Doxyfile, INSTALL, LICENSE.h, LICENSE.rb,
 	  LICENSE.xml, LICENSE.xsl, Makefile.am, Makefile.in, NEWS,
@@ -7207,7 +7259,7 @@
 	  test/definitions/server/future/Makefile.am,
 	  test/definitions/server/future/Makefile.in: Initial revision
 
-2002-10-15 23:15  orenmnero
+2002-10-16 04:15  orenmnero
 
 	* .cvsignore, AUTHORS, Doxyfile, INSTALL, LICENSE.h, LICENSE.rb,
 	  LICENSE.xml, LICENSE.xsl, Makefile.am, Makefile.in, NEWS,
