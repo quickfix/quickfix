@@ -1,0 +1,37 @@
+# If message with an invalid length is sent, we must ignore it
+
+iCONNECT
+I8=FIX.4.135=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.19=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# Send a message with a length that is too short
+I8=FIX.4.19=3035=D34=249=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+# Follow with a valid FIX message
+I8=FIX.4.135=D34=349=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+# Invalid message was ignored, and valid one was processed. Therefore
+# we should expect a resend request
+E8=FIX.4.19=5435=234=249=ISLD52=00000000-00:00:0056=TW7=216=210=0
+
+# Correctly resend the bad message we sent before
+I8=FIX.4.135=D34=249=TW52=<TIME>56=ISLD122=<TIME>11=ID21=338=10040=154=155=INTC
+E8=FIX.4.19=8135=D34=349=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
+E8=FIX.4.19=8135=D34=449=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
+
+# Send a message with a length that is too long, it should be ignored. Since
+# the length spills over into the next valid message, that one should be
+# ignored too.
+I8=FIX.4.19=11135=D34=449=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+I8=FIX.4.135=D34=549=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+
+# sending the last bad message correctly
+I8=FIX.4.135=D34=549=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+
+# resend message should ask for message 4 since it was ignored. We should not 
+# get disconnected for resending message 5 since the first one was ignored
+E8=FIX.4.19=5435=234=549=ISLD52=00000000-00:00:0056=TW7=416=410=0
+
+# resend message 4
+I8=FIX.4.135=D34=449=TW52=<TIME>56=ISLD11=ID21=340=154=155=INTC112=<TIME>60=<TIME>
+# continue with next message
+I8=FIX.4.135=034=649=TW52=<TIME>56=ISLD
+iDISCONNECT

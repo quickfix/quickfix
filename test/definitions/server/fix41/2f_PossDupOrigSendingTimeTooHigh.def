@@ -1,0 +1,22 @@
+# PossDupFlag is set to 'Y', OrigSendingTime is greater than SendingTime, and
+# MsgSeqNum is too low.  A Reject and Logout must be sent.
+
+iCONNECT
+I8=FIX.4.135=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.19=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# send two orders in sequence
+I8=FIX.4.135=D34=249=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+E8=FIX.4.19=8135=D34=249=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
+I8=FIX.4.135=D34=349=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
+E8=FIX.4.19=8135=D34=349=ISLD52=00000000-00:00:0056=TW11=ID21=338=10040=154=155=INTC10=0
+
+# resend message 2 with larger OrigSendingTime
+I8=FIX.4.135=D34=249=TW52=<TIME>56=ISLD43=Y122=<TIME+10>11=ID21=338=10040=154=155=INTC
+
+# reject message
+E8=FIX.4.19=8235=334=449=ISLD52=00000000-00:00:0056=TW45=258=SendingTime accuracy problem10=0
+# logout message
+E8=FIX.4.19=4535=534=549=ISLD52=00000000-00:00:0056=TW10=0
+I8=FIX.4.135=534=449=TW52=<TIME>56=ISLD
+eDISCONNECT

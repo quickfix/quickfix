@@ -1,0 +1,31 @@
+<B><CODE><PRE>
+import org.quickfix.*;
+import org.quickfix.fields.*;
+
+public void fromApp(Message message, SessionID sessionID)
+  throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+
+  crack(message, sessionID);
+}
+
+public void onMessage( org.quickfix.fix42.NewOrderSingle message, SessionID sessionID )
+  throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+
+  ClOrdID clOrdID = new ClOrdID();
+  message.get(clOrdID);
+
+  ClearingAccount clearingAccount = new ClearingAccount();
+  message.get(clearingAccount);
+}
+
+public void onMessage( org.quickfix.fix42.OrderCancelRequest message, SessionID sessionID )
+  throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+
+  ClOrdID clOrdID = new ClOrdID();
+  message.get(clOrdID);
+
+  </B>// compile time error!! field not defined for OrderCancelRequest<B>
+  ClearingAccount clearingAccount = new ClearingAccount();
+  message.get(clearingAccount);
+}
+</PRE></CODE></B>

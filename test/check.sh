@@ -1,0 +1,6 @@
+#!/bin/sh
+
+QUICKFIX_TEST_PORT=5000
+
+./runut $QUICKFIX_TEST_PORT
+./runat $QUICKFIX_TEST_PORT

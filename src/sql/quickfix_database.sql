@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS quickfix;
+CREATE DATABASE quickfix;

@@ -1,0 +1,110 @@
+Microsoft Developer Studio Workspace File, Format Version 6.00
+# WARNING: DO NOT EDIT OR DELETE THIS WORKSPACE FILE!
+
+###############################################################################
+
+Project: "at_client"=.\at_client.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name quickfix_lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "at_server"=.\at_server.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name quickfix_lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "atrun"=.\test\AtRun\atrun.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name at_client
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name at_server
+    End Project Dependency
+    Begin Project Dependency
+    Project_Dep_Name quickfix_lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "pt"=.\pt.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name quickfix_lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "quickfix_lib"=.\quickfix_lib.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "ut"=.\ut.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name quickfix_lib
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Global:
+
+Package=<5>
+{{{
+}}}
+
+Package=<3>
+{{{
+}}}
+
+###############################################################################
+

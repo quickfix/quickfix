@@ -1,0 +1,27 @@
+<B><CODE><PRE>
+using Fix;
+
+public void fromApp(Message message, SessionID sessionID)
+{
+  crack(message, sessionID);
+}
+
+public override void onMessage(Fix42.NewOrderSingle message, Fix.SessionID sessionID)
+{
+  ClOrdID clOrdID = new ClOrdID;
+  message.get(clOrdID);
+
+  ClearingAccount clearingAccount = new ClearingAccount();
+  message.get(clearingAccount);
+}
+
+public override void onMessage(Fix42.OrderCancelRequest message, Fix.SessionID sessionID)
+{
+  ClOrdID clOrdID = new ClOrdID;
+  message.get(clOrdID);
+
+  </B>// compile time error!! field not defined for OrderCancelRequest<B>
+  ClearingAccount clearingAccount = new ClearingAccount();
+  message.get(clearingAccount);
+}
+</PRE></CODE></B>

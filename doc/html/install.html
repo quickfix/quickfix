@@ -1,0 +1,240 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Installing QuickFIX</title>
+    <H1>Installing QuickFIX</H1>
+  </head>
+
+  <body>
+    <H2>Dependencies</H2>
+    <p>
+      Below is a list of tools that QuickFIX is dependent on for various uses.  The uses
+      are split into <I>Run</I>, <I>Build</I>, and <I>Test</I> catagories.  These respectively
+      refer to what is necessary to run a compiled QuickFIX application, what is required to
+      compile QuickFIX from the source, and the tools needed to use the automated testing
+      framework.
+    </p>
+    <p>
+      The <I>Run</I> category details what might be the setup of a deployment machine.  The
+      <I>Build</I> category might be the setup of a development machine that uses the QuickFIX
+      library. All three should be installed for a developer intent on modifying the QuickFIX
+      library code itself. The testing framework, however, should be useful in any configuration.
+    </p>
+    <table border=5 cellspacing=5 cellpadding=5 width="100%">
+      <tbody>
+        <tr>
+          <td align=center><B>Windows</B></td>
+          <td align=center>Run</td>
+          <td>
+            <a href="http://msdn.microsoft.com/downloads/default.asp?url=/downloads/sample.asp?url=/MSDN-FILES/027/001/772/msdncompositedoc.xml&frame=true">MSXML3</a>
+          </td>
+          <td align=center>Build</td>
+          <td>
+            <a href="http://msdn.microsoft.com/visualc/">Microsoft Visual C++</a><br>
+            <a href="http://msdn.microsoft.com/downloads/default.asp?url=/downloads/sample.asp?url=/MSDN-FILES/027/001/772/msdncompositedoc.xml&frame=true">MSXML3</a>
+          </td>
+          <td align=center>Test</td>
+          <td>
+            <a href="http://www.ruby-lang.org/~eban/ruby/binaries/mingw/">Ruby</a><br>
+            <a href="http://homepage1.nifty.com/markey/ruby/rubyunit/index_e.html">RubyUnit</a>
+          </td>
+        </tr>
+        <tr>
+          <td align=center><B>Linux</B></td>
+          <td align=center>Run</td>
+          <td>
+            <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=glibc">glibc</a><br>
+            <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=libxml">libxml</a><br>
+          </td>
+          <td align=center>Build</td>
+          <td>
+            <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=gcc">gcc</a><br>
+            <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=gcc-c%2B%2B">gcc-c++</a><br>
+            <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=glibc-devel">glibc-devel</a><br>
+            <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=libxml-devel">libxml-devel</a><br>
+            <a href="ftp://ftp.gnu.org/pub/gnu/make/">gnu make</a><br>
+            <a href="http://gcc.gnu.org/ml/libstdc++/2000-q2/msg00700/sstream">sstream</a><br>
+          </td>
+          <td align=center>Test</td>
+          <td>
+            <a href="http://www.rpmfind.net/linux/rpm2html/search.php?query=ruby">Ruby</a><br>
+            <a href="http://homepage1.nifty.com/markey/ruby/rubyunit/index_e.html">RubyUnit</a><br>
+          </td>
+          <tr>
+		  <td align=center><B>Solaris</B></td>
+		  <td align=center>Run</td>
+		  <td>
+		    <a href="http://www.gnu.org/software/libc/#Availability">glibc</a><br>
+		    <a href="http://xmlsoft.org/downloads.html">libxml</a><br>
+		  </td>
+		  <td align=center>Build</td>
+		  <td>
+		    <a href="http://www.gnu.org/software/gcc/releases.html">gcc</a><br>
+		    gcc-c++<br>
+		    glibc-devel<br>
+		    <a href="http://xmlsoft.org/downloads.html">libxml-devel</a><br>
+		    <a href="ftp://ftp.gnu.org/pub/gnu/make/">gnu make</a><br>
+		    <a href="http://gcc.gnu.org/ml/libstdc++/2000-q2/msg00700/sstream">sstream</a><br>
+		  </td>
+		  <td align=center>Test</td>
+		  <td>
+		    <a href="http://www.ruby-lang.org/en/download.html">Ruby</a><br>
+		    <a href="http://homepage1.nifty.com/markey/ruby/rubyunit/index_e.html">RubyUnit</a><br>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <H2>Building QuickFIX</H2>
+    <p>
+      Being a C++ engine, QuickFIX's functionality is mostly in inlined source code and
+      partially in a library.  To develop a FIX application, you should be comfortable
+      building QuickFIX and modifying the build scripts.  The example applications
+      are a good place to start for writing an application.
+    </p>
+    <H3>Windows (C++)</H3>
+    <p>
+      QuickFIX comes with a .dsw and a few .dsp files for building under DevStudio.  Simply open
+      the <I>quickfix.dsw</I> file and do a batch build of all the projects.  This will create
+      <I>lib\quickfix.lib</I> and <I>lib\quickfix_debug.lib</I> which can be linked into your
+      applications. The header files will also be copied to the <I>include</I> directory.
+    </p>
+    <p>
+      Since windows does not have a standard system for storing header and library files, you
+      should organize them however best suits your build environment. Leaving them in the <I>lib</I>
+      and <I>include</I> directories they are placed into by the build is one option.
+    </p>
+    <H3>Windows (.NET)</H3>
+	<p>
+	  QuickFIX comes with a .NET wrapper written in managed C++. This enables any CLR based language (i.e., C#, VB.NET)
+	  to access QuickFIX.
+	</p>
+	<p>
+	  The instruction for building under .NET are the same as the instructions for windows listed above,
+	  however you must use the <I>quickfix.sln</I> file and build under Visual Studio .NET. In addition to
+	  the quickfix lib files, DLLs named <B>quickfix_net.dll</B> and <B>quickfix_debug_net.dll</B>
+	  will be placed into your <I>lib</I> directory.
+	</p>
+
+    <H3>Linux/Solaris</H3>
+    <p>
+      QuickFIX uses GNU autotools (autoconf, automake, and libtool) in conjunction with make to
+      build on Linix systems.  You do not need to have autotools installed before you build but
+      if you plan to contribute to its development, you will need it.  If you also want to
+      reuse our makefiles for developing your own application, you will find it useful. Also note
+      that if your version of gcc does not come with sstream, you will need to download it from
+      the link above and put it in the correct include directory. Also please note for Solaris
+      you must use GNU make, the make that comes with Solaris will not work.
+    </p>
+    <p>
+      Building under linux requires two steps.  First, in the root quickfix directory, type
+      <B>./configure</B>  This will probe your system to find out what functionality it supports
+      for use in determining how to build QuickFIX.  After ./configure completes succesfully,
+      simply type <B>make</B> to build.
+    </p>
+    <p>
+      After succesfully building the QuickFIX, you should run <B>make install</B> as root.
+      This will place the library <I>libquickfix.a</I> and the quickfix header files into
+      the appropriate directories.
+    </p>
+    <H3>Java</H3>
+    <p>
+	  QuickFIX also has a JNI wrapper allowing the code to be accessed from JAVA. The JAVA support
+	  is currently only available for windows and is not yet documented, However, the java api is very similar to
+	  the C++ api. A sample trading GUI is also provided in the examples directory.
+	</p>
+	<p>
+	  To build the JNI layer, make sure you have completed the build/installation of the C++ quickfix
+	  library. Now open the <I>quickfix_jni.dsw</I> workspace in MSDev Studio from the <I>src\java</I> directory
+	  (or <I>quickfix_jni.sln</I> if building under Visual Studio .NET).
+	  Before building, make sure to add the JNI include directories to your include search path. Do this by opening up the
+	  <B>Tools->Options</B> menu and selecting the <B>Directories</B> tab (<B>Project->VC++ Directories</B>
+	  under Visual Studio .NET).  Make sure the <B>Show directories
+	  for:</B> combo box has <I>Include files</I> selected. Based on your <B>JAVA_HOME</B> environment settings,
+	  add the jdk's <I>include</I> and <I>include\win32</I> directories to your search path. These will probably be
+	  something like <I>C:\jdk1.3.1\include</I> and <I>C:\jdk1.3.1\include\win32</I>.  Now do a batch build of all project
+	  configurations. DLLs named <B>quickfix_jni.dll</B> and <B>quickfix_debug_jni.dll</B> will be placed into your
+	  <I>lib</I> directory.
+	</p>
+	  Once you have built the JNI dll, you must now build the QuickFIX java API. Simply run the <B>build.bat</B>
+	  file in the <I>src\java</I> directory. A jar file name <B>quickfix.jar</B> will be placed into your
+	  <I>lib</I> directory.
+	</p>
+
+    <hr>
+    <H2>Testing QuickFIX</H2>
+    <p>
+      The development of QuickFIX has been driven by a suite of functional acceptance tests
+      and unit tests.  We have been working incrementally, functional test by functional test,
+      writing the unit tests before the code.  If these tests pass, we're pretty confident
+      that the engine works as intended.
+    </p>
+    <p>
+      The developer unit tests are written in C++ and make direct calls into the code.  The
+      functional acceptance tests are scripted FIX messages that are pumped into a running
+      FIX server.  Most of these tests are based off of the
+      <a href="http://www.fixprotocol.org/ORGANIZATIONS/928202077/FIX_TestCase_SessionLevel20010710.doc">
+      FIX Session-level Test Cases and Expected Behaviors document</a>
+    </p>
+    <p>
+      Two executable files are built that allow you to run tests.  They are <I>ut(.exe)</I> and
+      <I>at_server(.exe)</I>.  Running the ut executable will run all the defined unit tests
+      against the quickfix library.  The at_server executable is an implementation of a FIX server
+      application that simply echoes NewOrderSingle messages back to the client.  It also ensures
+      a ClOrdID is not reused.  It has just enough functionality to test the application-level
+      behavior of our implementation.
+    </p>
+    <p>
+      The output of the unit test runner is represented by a period if the test passes or a
+      letter 'F' if it fails.  Failed tests will also display information regarding the failure.
+      This will usually be a test name, file name, and line number.  If you supply a "-f &lt;file&gt;"
+      argument to the unit test runner, it will write useful XML results to the specified file.
+    </p>
+    <p>
+      The output of the acceptance test runner will be an XML output that has a result field
+      with a sucess or failure.  A failed test will also display information on why the test
+      has failed.  Usually this will be a comparison of the expected result and the actual
+      result of a line. To run acceptance tests, ruby must be installed and in your path.
+    </p>
+
+    <H3>Windows</H3>
+    <table border=1 cellspacing=1 cellpadding=5 width="100%">
+	<tbody><tr><td align=left>
+      <H4>Unit Tests</H4>
+      <p>
+        Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
+        directory. To run unit tests, either type <B>runut debug [port]</B> or <B>runut release [port]</B>,
+        depending on if you want to test the debug or release version. The port is used to test
+	    socket functionality.
+      </p>
+      <H4>Acceptance Tests</H4>
+      <p>
+        Go to the <I>test</I> directory under the root quickfix directory.  Type either <B>runat
+        debug [port]</B> or <B>runat release [port]</B>, depending on if you want to test the
+        debug or release version.  The port is used to listen for connections on a socket server.
+        This should be a port that is not already in use on your system. <B>runat_threaded.bat</B> is
+        also provided if you want to test using threaded socket code. The parameters are the same.
+      </p>
+    </td></tr></td></table>
+
+    <H3>Linux/Solaris</H3>
+    <table border=1 cellspacing=1 cellpadding=5 width="100%">
+	<tbody><tr><td align=left>
+      <H4>Unit Tests</H4>
+	  <p>
+		Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
+		directory. To run unit tests, type <B>./runut [port]</B> where the port is used to test
+		the socket functionality.
+	  </p>
+	  <H4>Acceptance Tests</H4>
+	  <p>
+		Go to the <I>test</I> directory under the root quickfix directory.  Type <B>./runat
+		[port]</B>. The port is used to listen for connections on a socket server.
+        This should be a port that is not already in use on your system. <B>runat_threaded</B> is
+        also provided if you want to test using threaded socket code. The parameters are the same.
+	  </p>
+    </td></tr></tbody></table>
+
+  </body>
+</html>

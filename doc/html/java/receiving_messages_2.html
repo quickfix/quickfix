@@ -1,0 +1,14 @@
+<B><CODE><PRE>
+import org.quickfix.*;
+import org.quickfix.fields.*;
+
+public void fromApp(Message message, SessionID sessionID)
+  throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+
+  Price price = new Price();
+  message.getField(price);
+
+  ClOrdID = new ClOrdID();
+  message.getField(clOrdID);
+}
+</PRE></CODE></B>

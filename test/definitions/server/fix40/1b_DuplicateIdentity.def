@@ -1,0 +1,16 @@
+# If two logons with the same SenderCompID/TargetCompID combination logon
+# the second one must be disconnected
+
+# First logon, succesful
+i1,CONNECT
+I1,8=FIX.4.035=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E1,8=FIX.4.09=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# Second logon, unsuccesful
+i2,CONNECT
+I2,8=FIX.4.035=A34=149=TW52=<TIME>56=ISLD98=0108=30
+
+# wait for disconnect for second connection
+e2,DISCONNECT
+# force disconnect on first connection
+i1,DISCONNECT

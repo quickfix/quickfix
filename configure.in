@@ -1,0 +1,213 @@
+dnl I got a big bag of -*- Sh -*- for you right here
+# Process this file with autoconf to produce a configure script.
+AC_INIT(src/ut.cpp)
+AM_INIT_AUTOMAKE(quickfix, 1.2.1)
+AM_CONFIG_HEADER(config.h)
+# AM_DISABLE_SHARED
+
+# Checks for programs.
+AC_PROG_CXX()
+AC_PROG_CC()
+# AC_PROG_RANLIB
+#AC_DISABLE_SHARED
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
+AM_PROG_LEX
+
+########################################
+# RUBY
+########################################
+RUBYDIR=[`ruby -e 'require "rbconfig"; print Config::CONFIG["archdir"], "\n"'`]
+AC_SUBST(RUBYDIR)
+########################################
+
+########################################
+# JNI
+########################################
+jni_mt=$build_os
+case $build_os in
+linux-*) jni_mt=linux;;
+solaris-*) jni_mt=solaris;;
+esac
+
+JNI_CFLAGS="-I$JAVA_HOME/include -I$JAVA_HOME/include/$jni_mt"
+AC_SUBST(JNI_CFLAGS)
+########################################
+
+########################################
+# MYSQL
+########################################
+has_mysql=false
+AC_ARG_WITH(mysql,
+    [ --with-mysql=<path> prefix of MySQL installation. e.g. /usr/local or /usr], 
+    [has_mysql=true],
+    has_mysql=false
+)
+MYSQL_PREFIX=$with_mysql
+AC_SUBST(MYSQL_PREFIX)
+
+if test $has_mysql = true
+then
+    MYSQL_CFLAGS="-I${MYSQL_PREFIX}/include/mysql"    
+    AC_SUBST(MYSQL_CFLAGS)
+    MYSQL_LIBS="-L${MYSQL_PREFIX}/lib/mysql -lmysqlclient"
+    AC_SUBST(MYSQL_LIBS)
+    AC_DEFINE(HAVE_MYSQL, 1, Define if you have sql library (-lmysqlclient))
+fi
+########################################
+has_stlport=false
+AC_ARG_WITH(stlport,
+    [ --with-stlport=<path> prefix of stlport installation. e.g. /usr/local or /usr], 
+    [has_stlport=true],
+    has_stlport=false
+)
+STLPORT_PREFIX=$with_stlport
+AC_SUBST(STLPORT_PREFIX)
+
+if test $has_stlport = true
+then
+    STLPORT_CFLAGS="-I${STLPORT_PREFIX}/include/stlport"
+    AC_SUBST(STLPORT_CFLAGS)
+    STLPORT_LIBS="-L${STLPORT_PREFIX}/lib -lstlport_gcc"
+    AC_SUBST(STLPORT_LIBS)
+    AC_DEFINE(HAVE_STLPORT, 1, Define if you have stlport library (-lstlport_gcc))
+fi
+########################################
+
+########################################
+
+########################################
+# LIBXML
+########################################
+AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
+########################################
+
+# libs
+LIBS="$LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS"
+# gcc flags
+CFLAGS="-Wall $STLPORT_CFLAGS $MYSQL_CFLAGS $XML_CFLAGS $JNI_CFLAGS"
+AC_SUBST(CFLAGS)
+CXXFLAGS="-fexceptions $CFLAGS"
+AC_SUBST(CXXFLAGS)
+
+# Checks for libraries.
+AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
+AC_CHECK_LIB(c,inet_addr,true,AC_CHECK_LIB(nsl,inet_addr))
+# Checks for header files.
+AC_CHECK_HEADERS(stdio.h)
+
+# Checks for typedefs, structures, and compiler characteristics.
+# AC_CHECK_BROKENSOEXCEPT
+
+AC_LANG_SAVE
+AC_LANG_CPLUSPLUS
+
+AC_MSG_CHECKING(for STREAMS ioctl)
+AC_TRY_COMPILE(
+	[#include <sys/types.h>
+	 #include <stropts.h>
+	 #include <sys/conf.h>],
+	[ioctl(1,I_NREAD);],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(USING_STREAMS, 1,
+	The system supports AT&T STREAMS, presumably standard),
+	AC_MSG_RESULT(no))
+
+#AC_MSG_CHECKING(for recursive mutexes)
+#AC_TRY_COMPILE(
+#	 [#include <pthread.h>],
+#	 [PTHREAD_MUTEX_RECURSIVE;],
+#	 AC_MSG_RESULT(yes),
+#	 AC_MSG_RESULT(no)
+#	 AC_MSG_ERROR(recursive mutexes are required))
+
+AC_MSG_CHECKING(for typeinfo in the global namespace)
+AC_TRY_COMPILE(
+	[#include <typeinfo>],
+	[const typeinfo& ty = typeid(typeinfo);],
+	typeinfo_is_global=true, typeinfo_is_global=false)
+
+if test $typeinfo_is_global = true
+then AC_MSG_RESULT(yes)
+else AC_MSG_RESULT(no)
+    AC_MSG_CHECKING(for typeinfo in the std namespace)
+    AC_TRY_COMPILE(
+    [#include <typeinfo>],
+    [const std::type_info& ty = typeid(std::type_info);],
+    AC_MSG_RESULT(yes)
+    AC_DEFINE(TYPEINFO_IN_STD, 1, 
+    Whether or not we are using the new-style typeinfo header),
+    AC_MSG_RESULT(no)
+    AC_MSG_ERROR(type_info is required by the test library))
+fi
+
+# check for JNI
+AC_MSG_CHECKING(for JNI)
+AC_TRY_COMPILE(
+	[#include "jni.h"],
+	[return 0;],
+	has_jni=true, has_jni=false)
+if test $has_jni = true
+then AC_MSG_RESULT(yes)
+else AC_MSG_RESULT(no)
+fi
+AM_CONDITIONAL(HAS_JNI, $has_jni)
+
+# Checks for library functions.
+AC_LANG_RESTORE
+
+AC_CHECK_LIB(iberty, cplus_demangle,    
+  AC_DEFINE(HAVE_CPLUS_DEMANGLE,1,whether or not we have to demangle names)
+  LIBS="$LIBS -liberty")
+
+# Checks for runtime behavior
+AC_MSG_CHECKING(if select modifies timeval parameter)
+AC_TRY_RUN(
+[
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/time.h>
+int main(int argc, char** argv)
+{
+  struct timeval tv;
+  tv.tv_sec = 0;
+  tv.tv_usec = 1;
+  select(0,0,0,0,&tv);
+  return tv.tv_usec != 1 ? 0 : 1;
+}
+],
+AC_MSG_RESULT(yes)
+AC_DEFINE(SELECT_MODIFIES_TIMEVAL, 1, 
+select statement decrements timeval parameter if interupted),
+AC_MSG_RESULT(no),
+AC_MSG_RESULT(unable to determine, assuming no...))
+
+AC_OUTPUT( 
+	Makefile
+	src/Makefile
+	src/C++/Makefile
+	src/C++/test/Makefile
+	src/java/Makefile
+	src/java/cfg/Makefile
+	src/java/test/Makefile
+	src/java/src/Makefile
+	src/java/src/org/Makefile
+	src/java/src/org/quickfix/Makefile
+	src/java/src/org/quickfix/field/Makefile
+	src/java/src/org/quickfix/fix40/Makefile
+	src/java/src/org/quickfix/fix41/Makefile
+	src/java/src/org/quickfix/fix42/Makefile
+	cfg/Makefile
+	bin/Makefile
+	bin/cfg/Makefile
+	spec/Makefile
+	test/Makefile
+	test/atrun/Makefile
+	test/cfg/Makefile
+	test/definitions/Makefile
+	test/definitions/server/Makefile
+	test/definitions/server/future/Makefile
+	doc/Makefile
+	doc/html/Makefile
+	templates/Makefile
+        CPPTest/Makefile)

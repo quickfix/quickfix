@@ -1,0 +1,5 @@
+# If a bad SenderCompID is used, we must disconnect
+
+iCONNECT
+I8=FIX.4.235=A34=149=WT52=<TIME>56=ISLD98=0108=30
+eDISCONNECT

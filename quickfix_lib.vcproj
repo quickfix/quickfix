@@ -1,0 +1,1500 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.00"
+	Name="quickfix_lib"
+	ProjectGUID="{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
+	SccProjectName=""
+	SccLocalPath="">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory=".\Debug"
+			IntermediateDirectory=".\Debug"
+			ConfigurationType="4"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				Optimization="0"
+				FavorSizeOrSpeed="0"
+				OptimizeForWindowsApplication="FALSE"
+				AdditionalIncludeDirectories="../"
+				PreprocessorDefinitions="WIN32,_DEBUG,_LIB"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Debug/quickfix_lib.pch"
+				AssemblerListingLocation=".\Debug/"
+				ObjectFile=".\Debug/"
+				ProgramDataBaseFileName=".\Debug/"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				DebugInformationFormat="3"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="lib\quickfix_debug.lib"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+		</Configuration>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory=".\Release"
+			IntermediateDirectory=".\Release"
+			ConfigurationType="4"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				InlineFunctionExpansion="1"
+				FavorSizeOrSpeed="0"
+				AdditionalIncludeDirectories="../"
+				PreprocessorDefinitions="WIN32,NDEBUG,_LIB"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Release/quickfix_lib.pch"
+				AssemblerListingLocation=".\Release/"
+				ObjectFile=".\Release/"
+				ProgramDataBaseFileName=".\Release/"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLibrarianTool"
+				OutputFile="lib\quickfix.lib"
+				SuppressStartupBanner="TRUE"/>
+			<Tool
+				Name="VCMIDLTool"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
+			<File
+				RelativePath=".\src\C++\Acceptor.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\ConfigLexer.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Dictionary.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Initiator.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Parser.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Session.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\SessionFactory.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\SessionSettings.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Settings.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Utility.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\stdafx.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\strptime.c">
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl">
+			<File
+				RelativePath=".\src\C++\Acceptor.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Application.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\ConfigLexer.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Dictionary.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Event.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Exceptions.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\FlexLexer.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Initiator.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Mutex.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Parser.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Queue.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\SAXContentHandler.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Session.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\SessionFactory.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\SessionID.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\SessionSettings.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="src\C++\SessionState.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Settings.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Utility.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\index.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\strptime.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Field"
+			Filter="">
+			<Filter
+				Name="Field Source Files"
+				Filter="*.cpp">
+				<File
+					RelativePath=".\src\C++\FieldTypes.cpp">
+				</File>
+			</Filter>
+			<Filter
+				Name="Field Header Files"
+				Filter="*.h">
+				<File
+					RelativePath=".\src\C++\Field.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\FieldConvertors.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\FieldMap.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\FieldNumbers.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\FieldTypes.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\Fields.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\Values.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Message"
+			Filter="">
+			<File
+				RelativePath=".\src\C++\DataDictionary.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\DataDictionary.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\FIX40_MessageCracker.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\FIX40_Messages.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\FIX41_MessageCracker.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\FIX41_Messages.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\FIX42_MessageCracker.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\FIX42_Messages.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Group.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="src\C++\Message.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Message.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\MessageCracker.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\MessageSorters.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\MessageSorters.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Messages.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+						Outputs="include\$(InputName).h"/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Socket"
+			Filter="">
+			<Filter
+				Name="Socket Source Files"
+				Filter="*.cpp">
+				<File
+					RelativePath=".\src\C++\SocketAcceptor.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketConnection.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketConnector.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketInitiator.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketMonitor.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketServer.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\ThreadedSocketAcceptor.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\ThreadedSocketConnection.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\ThreadedSocketInitiator.cpp">
+				</File>
+			</Filter>
+			<Filter
+				Name="Socket Header Files"
+				Filter="*.h">
+				<File
+					RelativePath=".\src\C++\SocketAcceptor.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketConnection.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketConnector.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketInitiator.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketMonitor.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\SocketServer.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\ThreadedSocketAcceptor.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\ThreadedSocketConnection.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\ThreadedSocketInitiator.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Storage"
+			Filter="">
+			<Filter
+				Name="Storage Source Files"
+				Filter="*.cpp">
+				<File
+					RelativePath="src\C++\FileLog.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\FileStore.cpp">
+				</File>
+				<File
+					RelativePath="src\C++\Log.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\MessageStore.cpp">
+				</File>
+				<File
+					RelativePath="src\C++\MySQLStore.cpp">
+				</File>
+			</Filter>
+			<Filter
+				Name="Storage Header Files"
+				Filter="">
+				<File
+					RelativePath="src\C++\FileLog.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							AdditionalDependencies=""
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\FileStore.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="src\C++\Log.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\MessageStore.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+				<File
+					RelativePath="src\C++\MySQLStore.h">
+					<FileConfiguration
+						Name="Debug|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+					<FileConfiguration
+						Name="Release|Win32">
+						<Tool
+							Name="VCCustomBuildTool"
+							CommandLine="echo off
+IF EXIST include\$(InputName).h (del include\$(InputName).h)
+xcopy  &quot;$(InputPath)&quot; include
+"
+							AdditionalDependencies=""
+							Outputs="include\$(InputName).h"/>
+					</FileConfiguration>
+				</File>
+			</Filter>
+		</Filter>
+		<File
+			RelativePath=".\src\C++\stdafx.h">
+		</File>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

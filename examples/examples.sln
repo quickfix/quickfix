@@ -1,0 +1,39 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "executor_csharp", "executor\csharp\executor_csharp.csproj", "{BA234002-9F1A-4B01-98D6-DE05C7E78B58}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "executor_cpp", "executor\C++\executor_cpp.vcproj", "{AC97D259-3231-4575-8CA5-BF9EF79B5A87}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ordermatch", "ordermatch\ordermatch.vcproj", "{CBFECC67-2F3D-49F9-8450-BF47FBB766DF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "tradeclient", "tradeclient\tradeclient.vcproj", "{760375AB-01FD-4E38-A778-FAA2A27F8C41}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{BA234002-9F1A-4B01-98D6-DE05C7E78B58}.Debug.ActiveCfg = Debug|.NET
+		{BA234002-9F1A-4B01-98D6-DE05C7E78B58}.Debug.Build.0 = Debug|.NET
+		{BA234002-9F1A-4B01-98D6-DE05C7E78B58}.Release.ActiveCfg = Release|.NET
+		{BA234002-9F1A-4B01-98D6-DE05C7E78B58}.Release.Build.0 = Release|.NET
+		{AC97D259-3231-4575-8CA5-BF9EF79B5A87}.Debug.ActiveCfg = Debug|Win32
+		{AC97D259-3231-4575-8CA5-BF9EF79B5A87}.Debug.Build.0 = Debug|Win32
+		{AC97D259-3231-4575-8CA5-BF9EF79B5A87}.Release.ActiveCfg = Release|Win32
+		{AC97D259-3231-4575-8CA5-BF9EF79B5A87}.Release.Build.0 = Release|Win32
+		{CBFECC67-2F3D-49F9-8450-BF47FBB766DF}.Debug.ActiveCfg = Debug|Win32
+		{CBFECC67-2F3D-49F9-8450-BF47FBB766DF}.Debug.Build.0 = Debug|Win32
+		{CBFECC67-2F3D-49F9-8450-BF47FBB766DF}.Release.ActiveCfg = Release|Win32
+		{CBFECC67-2F3D-49F9-8450-BF47FBB766DF}.Release.Build.0 = Release|Win32
+		{760375AB-01FD-4E38-A778-FAA2A27F8C41}.Debug.ActiveCfg = Debug|Win32
+		{760375AB-01FD-4E38-A778-FAA2A27F8C41}.Debug.Build.0 = Debug|Win32
+		{760375AB-01FD-4E38-A778-FAA2A27F8C41}.Release.ActiveCfg = Release|Win32
+		{760375AB-01FD-4E38-A778-FAA2A27F8C41}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

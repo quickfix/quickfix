@@ -1,0 +1,21 @@
+# If message is garbled, it should be ignored
+
+iCONNECT
+I8=FIX.4.035=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.035=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=30
+
+# Garbled message
+I8=FIX.4.09=5235=034=24garbled9=TW52=<TIME>56=ISLD10=0
+# Corrected message
+I8=FIX.4.035=034=249=TW52=<TIME>56=ISLD
+
+# Garbled message
+I8=FIX.4.09=8135=D34=349garbled=TW52=<TIME>56=ISLD11=ID21=340=154=155=INTC10=0
+# Correct message with new sequence number
+I8=FIX.4.035=034=449=TW52=<TIME>56=ISLD
+
+# Resend request for missed message
+E8=FIX.4.09=5435=234=249=ISLD52=00000000-00:00:0056=TW7=316=310=0
+# Send requested message
+I8=FIX.4.035=D34=349=TW52=<TIME>56=ISLD11=ID21=340=154=155=INTC112=<TIME>
+iDISCONNECT

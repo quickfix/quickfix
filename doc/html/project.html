@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Setting Up Your Project</title>
+    <H1>Setting Up Your Project</H1>
+  </head>
+
+  <body>
+    <p>
+      Before using quickfix, you must make sure that your project has build settings that
+      are compatible. Being a portable piece of code, some tradeoffs needed to be made concerning
+      the areas of portability, maintainability, performance, testability, and features.
+    </p>
+    <p>
+      QuickFIX makes use of many advanced features of C++ that help and hinder some of these
+      areas. We believe that for QuickFIX to be the best product it could be, the use of templates,
+      exceptions, and the STL were important in most elegantly expressing the logic and data of a FIX
+      engine. Therefore it is necessary that your compiler support these features. Most
+      modern compilers will have no problem however there are some caveats which will be listed
+      in the following sections.
+    </p>
+    <H3>Windows (C++)</H3>
+    <p>
+      The following settings concerning quickfix can all be found under the <B>project|settings</B>
+      dialog box in Microsoft Visual Studio. All pages in this dialog box are organized by tabs
+      and catagories.  When refering to a setting, the format <B>tab | catagory | setting</B> will be
+      used.
+    </p>
+    <p>
+      <UL>
+        <LI><B>C/C++ | General | Optimizations</B>, can be set to whatever you prefer. The quickfix
+               library by default is built with <I>Maximize Speed</I> but your project does not need
+               to use the same setting.
+        <LI><B>C/C++ | C++ Language | Enable exception handling</B>, should be checked.
+        <LI><B>C/C++ | Code Generation | Use run-time library</B>, should be set to <I>Debug Multithreaded DLL</I>
+               or <I>Multithreaded DLL</I>. If you want to use a different setting, you must rebuild QuickFIX with
+               the same setting.  QuickFIX cannot currently be built single threaded.
+        <LI><B>C/C++ | Preprocessor | Additional Include directories</B>, must have a directory
+               for accessing the QuickFIX header files. We reccomend setting this to a couple
+               directories above the header files so your includes can look like <B>#include
+               quickfix/include/Application.h</B>. This helps resolves ambiguities between your
+               application and other third party libraries.
+        <LI><B>Link | Input | Object/library modules</B>, must contain the <I>quickfix.lib</I> or <I>quickfix_debug.lib</I>
+               file. It must also have <I>ws2_32.lib</I>. This library links the winsock library into your
+               application.
+        <LI><B>Link | Input | Additional library path</B>, must have the directory where <I>quickfix.lib</I> and
+               <I>quickfix_debug.lib</I> reside.
+      </UL>
+    </p>
+    <H3>Windows (.NET)</H3>
+    <p>
+    This couldn't be simpler.
+    </p>
+      <UL>
+        <LI>Add the <B>quickfix_net.dll</B> or <B>quickfix_net_debug.dll</B> to the references
+        section of your projects.
+     </UL>
+    </p>
+    <H3>Linux/Solaris</H3>
+    <p>
+      Linux/Solaris have several caveats. Using GCC you have to keep a few things in mind. Support
+      for C++ is adequate but not great. The unix world is still primarily driven by C and therefore
+      the tools are more readily available and optimized for C. Although everything builds and works
+      correctly under Linux and Solaris, there are a few things to keep in mind.
+    </p>
+    <p>
+      <UL>
+        <LI>QuickFIX must currently be built statically and linked directly into an executable. This
+        also means you cannot link the C runtime library dynamically.
+        <LI>GCC has pretty poor support for compiling code with templates. It can compile them fine,
+        but it is really slow. It is tolerable with normal optimization, however if you try to
+        use some of the higher optimizations, the build time can become intolerable (and can even
+        eat up all of your machines resources). For this reason, standard optimizations are recommended.
+        <LI>Because GCC isn't particularly optimized for C++ code, and also due to the fact we don't
+        use the higher level optimizations, GCC compiled code tends to be slower than code compiled
+        by some of the commercially available compilers. If you feel you need more performance, you may
+        want to try one of these compilers. If you do this, please run the unit tests and acceptance
+        tests to verify everything works as it should. We only currently do our testing with GCC.
+      </UL>
+    </p>
+    <p>
+      There are a lot of choices for how to build under a unix environment. We use GNU autotools,
+      however a lot of people don't. Instead of going over setting up an autotools project (a complex
+      topic that I could not do justice here), I will simply cover what parameters need to be passed
+      into your compiler and linker.
+    </p>
+    <p>
+      <UL>
+        <LI>Exceptions must be enabled with <B>-fexceptions</B>
+        <LI>The <B>-finline-functions</B> optimization is recommended. Much of quickfix is in templates
+            declared in header files. Allowing the compiler to inline some of these functions can
+            help to optimize many frequent calls.
+        <LI>Quickfix library must be linked in with <B>-lquickfix</B>
+        <LI>Quickfix makes use of pthreads and libxml.  These must be linked in with <B>-lpthread</B>,
+            <B>-lxml2</B> and <B>-lz</B>
+        <LI>Currently, QuickFIX relies on the use of recursive mutexes. In order for your compiler to
+            use these you must pass in <B>-D_XOPEN_SOURCE=500</B>
+        <LI>In addition to the above, on Solaris you must link with <B>-lnsl</B> and <B>-lsocket</B>
+        <BR><B>NB</B>: GNU <TT>ld</TT> is a one-pass linker, so order is important.  Put more generally
+        useful libraries (libsocket) last on the command line.
+      </UL>
+
+      The actual placement of the quickfix library and header files should have been done for you
+      when you ran <B>make install</B> after building quickfix.
+    </p>
+  </body>
+  <H3>Java</H3>
+    <p>
+    Remember, currently JAVA support is only available under Windows. This is what you must do
+    to access QuickFIX from Java.
+    </p>
+    <p>
+      <UL>
+	    <LI>Create a static initializer on your class containing your main method. Add the line
+	    <B>System.loadLibrary("quickfix_jni");</B> or <B>System.loadLibrary("quickfix_jni_debug");</B>
+	    in order to load the appropriate QuickFIX DLL.
+	    <LI>When compiling, make sure <B>quickfix.jar</B> is in your classpath.
+	    <LI>When running your application, add <I>-Djava.library.path=&lt;DLL directory>;</I>
+	        so the QuickFIX JNI DLL can be found. Alternatively, make sure that QuickFIX JNI DLL is in
+	        your working directory.
+	  </UL>
+	</p>
+</html>

@@ -1,0 +1,44 @@
+	dnl I got a big bag of -*- Sh -*- for you right here
+# Process this file with autoconf to produce a configure script.
+AC_INIT(ordermatch/Application.h)
+AM_INIT_AUTOMAKE(ordermatch, 1.0.0)
+AM_CONFIG_HEADER(config.h)
+# AM_DISABLE_SHARED
+
+# Checks for programs.
+AC_PROG_CXX()
+AC_PROG_CC()
+# AC_PROG_RANLIB
+AC_DISABLE_SHARED
+AC_LIBTOOL_WIN32_DLL
+AM_PROG_LIBTOOL
+AM_PROG_LEX
+
+# gcc flags
+AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
+LIBS="$LIBS $XML_LIBS"
+CXXFLAGS="-Wall -fexceptions -finline-functions -D_XOPEN_SOURCE=500 $XML_CFLAGS"
+AC_SUBST(CXXFLAGS)
+CFLAGS="-D_XOPEN_SOURCE=500 $XML_CFLAGS"
+AC_SUBST(CFLAGS)
+
+AC_LANG_SAVE
+AC_LANG_CPLUSPLUS
+
+AC_OUTPUT( 
+	Makefile
+	executor/Makefile
+	executor/C++/Makefile
+	executor/java/Makefile
+	executor/java/src/Makefile
+	ordermatch/Makefile
+	ordermatch/test/Makefile
+	tradeclient/Makefile
+	tradeclientgui/Makefile
+	tradeclientgui/banzai/Makefile
+	tradeclientgui/banzai/test/Makefile
+	tradeclientgui/banzai/src/Makefile
+	tradeclientgui/banzai/src/org/Makefile
+	tradeclientgui/banzai/src/org/quickfix/Makefile
+	tradeclientgui/banzai/src/org/quickfix/banzai/Makefile
+	tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile )

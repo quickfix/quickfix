@@ -1,0 +1,690 @@
+/* ====================================================================
+* The QuickFIX Software License, Version 1.0
+*
+* Copyright (c) 2001 ThoughtWorks, Inc.  All rights
+* reserved.
+*
+* Redistribution and use in source and binary forms, with or without
+* modification, are permitted provided that the following conditions
+* are met:
+*
+* 1. Redistributions of source code must retain the above copyright
+*    notice, this list of conditions and the following disclaimer.
+*
+* 2. Redistributions in binary form must reproduce the above copyright
+*    notice, this list of conditions and the following disclaimer in
+*    the documentation and/or other materials provided with the
+*    distribution.
+*
+* 3. The end-user documentation included with the redistribution,
+*    if any, must include the following acknowledgment:
+*       "This product includes software developed by
+*        ThoughtWorks, Inc. (http://www.thoughtworks.com/)."
+*    Alternately, this acknowledgment may appear in the software itself,
+*    if and wherever such third-party acknowledgments normally appear.
+*
+* 4. The names "QuickFIX" and "ThoughtWorks, Inc." must
+*    not be used to endorse or promote products derived from this
+*    software without prior written permission. For written
+*    permission, please contact quickfix-users@lists.sourceforge.net.
+*
+* 5. Products derived from this software may not be called "QuickFIX",
+*    nor may "QuickFIX" appear in their name, without prior written
+*    permission of ThoughtWorks, Inc.
+*
+* THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+* WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+* DISCLAIMED.  IN NO EVENT SHALL THOUGHTWORKS INC OR
+* ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+* LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+* USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+* OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+* OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+* SUCH DAMAGE.
+* ====================================================================
+*/
+
+#ifdef _MSC_VER
+#pragma warning( disable : 4503 4355 4786 )
+#include "stdafx.h"
+#else
+#include "config.h"
+#endif
+
+#include "MessagesTestCase.h"
+
+namespace FIX
+{
+using namespace FIX42;
+static UtcTimeStamp create_tm()
+{
+  UtcTimeStamp result;
+  memset( &result, 0, sizeof( UtcTimeStamp ) );
+  return result;
+}
+
+void MessageTestCase::identifyType::onRun( Message& )
+{
+  try
+  {
+    assert
+    ( FIX::identifyType( "8=FIX.4.2\0019=12\00135=A\001108=30\001"
+                         "10=031\001" ) == "A" );
+  }
+  catch ( std::logic_error& ) { assert( false ); }
+
+  try
+  {
+    assert
+    ( FIX::identifyType( "8=FIX.4.2\0019=12\001108=30\00110=031\001" )
+      == "A" );
+    assert( false );
+  }
+  catch ( std::logic_error& ) { assert( true ); }
+}
+
+void MessageTestCase::setString::onRun( Message& object )
+{
+  static const char * strGood =
+    "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=218\001";
+  static const char* strNoChk =
+    "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\001";
+  static const char* strBadChk =
+    "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=000\001";
+  static const char* strBad =
+    "8=FIX.4.2\0019=45\00135=0\00134=3\001"
+    "49garbled=TW\00152=20000426-12:05:06\00156=ISLD\00110=000\001";
+  static const char* strBadHeaderOrder =
+    "8=FIX.4.2\00135=0\0019=45\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=218\001";
+  static const char* strBodyFields =
+    "8=FIX.4.2\0019=60\00135=D\00111=ORDERID\00121=3\00140=2\001"
+    "54=1\00155=MSFT\00160=19000100-00:00:00\00110=225\001";
+  static const char* strNoLengthAndChk =
+    "8=FIX.4.2\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\001";
+
+  assert( object.setString( strGood ) );
+  assert( !object.setString( strNoChk ) );
+  assert( !object.setString( strBadChk ) );
+  assert( !object.setString( strBad ) );
+  assert( !object.setString( strBadHeaderOrder ) );
+  assert( !object.setString( strNoLengthAndChk ) );
+  assert( object.setString( strNoLengthAndChk, false ) );
+
+  DataDictionary dataDictionary;
+  dataDictionary.addHeaderField( 11 );
+  dataDictionary.addTrailerField( 60 );
+
+  ClOrdID clOrdID;
+  TransactTime transactTime;
+  Symbol symbol;
+  assert( object.setString( strBodyFields, true, &dataDictionary ) );
+  assert( object.getHeader().isSetField( clOrdID ) );
+  assert( object.getTrailer().isSetField( transactTime ) );
+  assert( object.isSetField( symbol ) );
+}
+
+void MessageTestCase::checkSum::onRun( Message& object )
+{
+  const std::string str1 =
+    "8=FIX.4.2\0019=46\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\001";
+  const std::string str2 =
+    "8=FIX.4.2\0019=46\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=000\001";
+  std::string::size_type i;
+  int chksum;
+
+  for ( i = 0L, chksum = 0; i < str1.size(); chksum += ( int ) str1[ i++ ] ) {}
+
+  chksum %= 256;
+
+  object.setString( str2 );
+  assert( object.checkSum() == chksum );
+}
+
+void MessageTestCase::repeatingField::onRun( Message& )
+{
+  /*Logout logout;
+    Text text;
+    std::vector<Text> texts;
+    logout.add(Text("TEXT1"));
+    logout.add(Text("TEXT2"));
+    assert(logout.count(text) == 2);
+    assert(logout.get(text) == "TEXT1");
+    assert(logout.get(texts) == 2);
+    assert(texts[0] == "TEXT1");
+    assert(texts[1] == "TEXT2");*/
+}
+
+void MessageTestCase::headerFieldsFirst::onRun( Message& object )
+{
+  const std::string str =
+    "8=FIX.4.2\0019=95\00135=D\00134=5\00149=ISLD\00155=INTC\001"
+    "52=00000000-00:00:00\00156=TW\00111=ID\00121=3\001"
+    "40=1\00154=1\00160=00000000-00:00:00\00110=000\001";
+  object.setString( str );
+  assert( !object.hasValidStructure() );
+}
+
+void MessageTestCase::noEndingDelim::onRun( Message& object )
+{
+  static const char * str =
+    "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=218";
+  try
+  {
+    object.setString( str );
+    assert( false );
+  }
+  catch ( InvalidMessage& )
+  {}}
+
+void MessageTestCase::outOfOrder::onRun( Message& object )
+{
+  static const char * str =
+    "54=1\00120=0\00131=109.03125\00160=00000000-00:00:00\001"
+    "8=FIX.4.2\0016=109.03125\0011=acct1\001151=0\001150=2\001"
+    "17=2\00139=2\00138=3000\00149=MEK\00115=USD\00137=1\001"
+    "48=123ABC789\00114=3000\00135=8\00156=KEM\00134=2\001"
+    "55=ABCD\00111=ID1\00122=1\001";
+
+  static const char * expected =
+    "8=FIX.4.2\0019=171\00135=8\00134=2\00149=MEK\00156=KEM\0011=acct1\001"
+    "6=109.03125\00111=ID1\00114=3000\00115=USD\00117=2\00120=0\00122=1\001"
+    "31=109.03125\00137=1\00138=3000\00139=2\00148=123ABC789\001"
+    "54=1\00155=ABCD\00160=00000000-00:00:00\001150=2\001151=0\00110=225\001";
+
+  try
+  {
+    object.setString( str, false );
+    assert( expected == object.getString() );
+  }
+  catch ( InvalidMessage& )
+  { assert( false ); }
+}
+
+void LogonParseTestCase::getString::onRun( Logon& object )
+{
+  try
+  {
+    EncryptMethod encryptMethod;
+    object.get( encryptMethod );
+    assert( false );
+  }
+  catch ( std::logic_error& ) {}
+
+  object.set( HeartBtInt( 30 ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=12\00135=A\001"
+          "108=30\00110=026\001" );
+}
+
+void LogonParseTestCase::setString::onRun( Logon& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=026\001" ) );
+
+  HeartBtInt heartBtInt;
+  assert( object.get( heartBtInt ) == 30 );
+}
+
+void TestRequestParseTestCase::getString::onRun( TestRequest& object )
+{
+  object.set( TestReqID( "23" ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" );
+}
+
+void TestRequestParseTestCase::setString::onRun( TestRequest& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" ) );
+
+  TestReqID testReqID;
+  assert( object.get( testReqID ) == "23" );
+}
+
+void ResendRequestParseTestCase::getString::onRun( ResendRequest& object )
+{
+  object.set( BeginSeqNo( 1 ) );
+  object.set( EndSeqNo( 233 ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001" );
+}
+
+void ResendRequestParseTestCase::setString::onRun( ResendRequest& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001" ) );
+
+  BeginSeqNo beginSeqNo;
+  EndSeqNo endSeqNo;
+  assert( object.get( beginSeqNo ) == 1 );
+  assert( object.get( endSeqNo ) == 233 );
+}
+
+void RejectParseTestCase::getString::onRun( Reject& object )
+{
+  object.set( RefSeqNum( 73 ) );
+  object.set( Text( "This Message SUCKS!!!" ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=36\00135=3\00145=73\001"
+          "58=This Message SUCKS!!!\00110=029\001" );
+}
+
+void RejectParseTestCase::setString::onRun( Reject& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=36\00135=3\00145=73\001"
+            "58=This Message SUCKS!!!\00110=029\001" ) );
+
+  RefSeqNum refSeqNum;
+  Text text;
+  assert( object.get( refSeqNum ) == 73 );
+  assert( object.get( text ) == "This Message SUCKS!!!" );
+}
+
+void SequenceResetParseTestCase::getString::onRun( SequenceReset& object )
+{
+  object.set( GapFillFlag( true ) );
+  object.set( NewSeqNo( 88 ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001" );
+}
+
+void SequenceResetParseTestCase::setString::onRun( SequenceReset& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001" ) );
+
+  GapFillFlag gapFillFlag;
+  NewSeqNo newSeqNo;
+  assert( object.get( gapFillFlag ) == true );
+  assert( object.get( newSeqNo ) == 88 );
+}
+
+void LogoutParseTestCase::getString::onRun( Logout& object )
+{
+  object.set( Text( "See Ya..." ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" );
+}
+
+void LogoutParseTestCase::setString::onRun( Logout& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" ) );
+
+  Text text;
+  assert( object.get( text ) == "See Ya..." );
+}
+
+void NewOrderSingleParseTestCase::getString::onRun( NewOrderSingle& object )
+{
+  object.set( ClOrdID( "ORDERID" ) );
+  object.set( HandlInst( '3' ) );
+  object.set( Symbol( "MSFT" ) );
+  object.set( Side( '1' ) );
+  object.set( TransactTime( create_tm() ) );
+  object.set( OrdType( '2' ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=60\00135=D\00111=ORDERID\00121=3\00140=2\001"
+          "54=1\00155=MSFT\00160=19000100-00:00:00\00110=225\001" );
+}
+
+void NewOrderSingleParseTestCase::setString::onRun( NewOrderSingle& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=48\00135=D\00111=ORDERID\00121=3\00140=2\001"
+            "54=1\00155=MSFT\00160=TODAY\00110=028\001" ) );
+
+  ClOrdID clOrdID;
+  HandlInst handlInst;
+  Symbol symbol;
+  Side side;
+  TransactTime transactTime;
+  OrdType ordType;
+  assert( object.get( clOrdID ) == "ORDERID" );
+  assert( object.get( handlInst ) == '3' );
+  assert( object.get( symbol ) == "MSFT" );
+  assert( object.get( side ) == '1' );
+  //assert( object.get(transactTime) == 0 );
+  assert( object.get( ordType ) == '2' );
+}
+
+void ExecutionReportParseTestCase::getString::onRun
+( ExecutionReport& object )
+{
+  object.set( OrderID( "ORDERID" ) );
+  object.set( ExecID( "EXECID" ) );
+  object.set( ExecTransType( '1' ) );
+  object.set( ExecType( '2' ) );
+  object.set( OrdStatus( '3' ) );
+  object.set( Symbol( "MSFT" ) );
+  object.set( Side( '4' ) );
+  object.set( LeavesQty( 200 ) );
+  object.set( CumQty( 300 ) );
+  object.set( AvgPx( 23.4 ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
+          "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\00155=MSFT\001"
+          "150=2\001151=200\00110=052\001" );
+}
+
+void ExecutionReportParseTestCase::setString::onRun
+( ExecutionReport& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
+            "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\001"
+            "55=MSFT\001150=2\001151=200\00110=052\001" ) );
+
+  OrderID orderID;
+  ExecID execID;
+  ExecTransType execTransType;
+  ExecType execType;
+  OrdStatus ordStatus;
+  Symbol symbol;
+  Side side;
+  LeavesQty leavesQty;
+  CumQty cumQty;
+  AvgPx avgPx;
+  assert( object.get( orderID ) == "ORDERID" );
+  assert( object.get( execID ) == "EXECID" );
+  assert( object.get( execTransType ) == '1' );
+  assert( object.get( execType ) == '2' );
+  assert( object.get( ordStatus ) == '3' );
+  assert( object.get( symbol ) == "MSFT" );
+  assert( object.get( side ) == '4' );
+  assert( object.get( leavesQty ) == 200 );
+  assert( object.get( cumQty ) == 300 );
+  assert( object.get( avgPx ) == 23.4 );
+}
+
+void DontKnowTradeParseTestCase::getString::onRun( DontKnowTrade& object )
+{
+  object.set( OrderID( "ORDERID" ) );
+  object.set( ExecID( "EXECID" ) );
+  object.set( DKReason( '1' ) );
+  object.set( Symbol( "MSFT" ) );
+  object.set( Side( '2' ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
+          "54=2\00155=MSFT\001127=1\00110=195\001" );
+}
+
+void DontKnowTradeParseTestCase::setString::onRun( DontKnowTrade& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
+            "54=2\00155=MSFT\001127=1\00110=195\001" ) );
+
+  OrderID orderID;
+  ExecID execID;
+  DKReason dKReason;
+  Symbol symbol;
+  Side side;
+  assert( object.get( orderID ) == "ORDERID" );
+  assert( object.get( execID ) == "EXECID" );
+  assert( object.get( dKReason ) == '1' );
+  assert( object.get( symbol ) == "MSFT" );
+  assert( object.get( side ) == '2' );
+}
+
+void OrderCancelReplaceRequestParseTestCase::getString::onRun
+( OrderCancelReplaceRequest& object )
+{
+  object.set( OrigClOrdID( "ORIGINALID" ) );
+  object.set( ClOrdID( "CLIENTID" ) );
+  object.set( HandlInst( '1' ) );
+  object.set( Symbol( "MSFT" ) );
+  object.set( Side( '2' ) );
+  object.set( TransactTime( create_tm() ) );
+  object.set( OrdType( '3' ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=75\00135=G\00111=CLIENTID\00121=1\001"
+          "40=3\00141=ORIGINALID\00154=2\00155=MSFT\001"
+          "60=19000100-00:00:00\00110=178\001" );
+}
+
+void OrderCancelReplaceRequestParseTestCase::setString::onRun
+( OrderCancelReplaceRequest& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=63\00135=G\00111=CLIENTID\00121=1\001"
+            "40=3\00141=ORIGINALID\00154=2\00155=MSFT\00160=TODAY\001"
+            "10=228\001" ) );
+
+  OrigClOrdID origClOrdID;
+  ClOrdID clOrdID;
+  HandlInst handlInst;
+  Symbol symbol;
+  Side side;
+  TransactTime transactTime;
+  OrdType ordType;
+  assert( object.get( origClOrdID ) == "ORIGINALID" );
+  assert( object.get( clOrdID ) == "CLIENTID" );
+  assert( object.get( handlInst ) == '1' );
+  assert( object.get( symbol ) == "MSFT" );
+  assert( object.get( side ) == '2' );
+  assert( object.get( ordType ) == '3' );
+}
+
+void OrderCancelRequestParseTestCase::getString::onRun
+( OrderCancelRequest& object )
+{
+  object.set( OrigClOrdID( "ORIGINALID" ) );
+  object.set( ClOrdID( "CLIENTID" ) );
+  object.set( Symbol( "MSFT" ) );
+  object.set( Side( '1' ) );
+  object.set( TransactTime( create_tm() ) );
+
+  assert( object.getString()
+          ==
+          "8=FIX.4.2\0019=65\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
+          "54=1\00155=MSFT\00160=19000100-00:00:00\00110=008\001" );
+}
+
+void OrderCancelRequestParseTestCase::setString::onRun
+( OrderCancelRequest& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=53\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
+            "54=1\00155=MSFT\00160=TODAY\00110=058\001" ) );
+
+  OrigClOrdID origClOrdID;
+  ClOrdID clOrdID;
+  Symbol symbol;
+  Side side;
+  TransactTime transactTime;
+  assert( object.get( origClOrdID ) == "ORIGINALID" );
+  assert( object.get( clOrdID ) == "CLIENTID" );
+  assert( object.get( symbol ) == "MSFT" );
+  assert( object.get( side ) == '1' );
+}
+
+void OrderCancelRejectParseTestCase::getString::onRun
+( OrderCancelReject& object )
+{
+  object.set( OrderID( "ORDERID" ) );
+  object.set( ClOrdID( "CLIENTID" ) );
+  object.set( OrigClOrdID( "ORIGINALID" ) );
+  object.set( OrdStatus( '1' ) );
+  object.set( CxlRejResponseTo( '2' ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
+          "39=1\00141=ORIGINALID\001434=2\00110=229\001" );
+}
+
+void OrderCancelRejectParseTestCase::setString::onRun
+( OrderCancelReject& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
+            "39=1\00141=ORIGINALID\001434=2\00110=229\001" ) );
+
+  OrderID orderID;
+  ClOrdID clOrdID;
+  OrigClOrdID origClOrdID;
+  OrdStatus ordStatus;
+  CxlRejResponseTo cxlRejResponseTo;
+  assert( object.get( orderID ) == "ORDERID" );
+  assert( object.get( clOrdID ) == "CLIENTID" );
+  assert( object.get( origClOrdID ) == "ORIGINALID" );
+  assert( object.get( ordStatus ) == '1' );
+  assert( object.get( cxlRejResponseTo ) == '2' );
+}
+
+void OrderStatusRequestParseTestCase::getString::onRun
+( OrderStatusRequest& object )
+{
+  object.set( ClOrdID( "CLIENTID" ) );
+  object.set( Symbol( "MSFT" ) );
+  object.set( Side( '1' ) );
+
+  assert( object.getString() ==
+          "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
+          "55=MSFT\00110=141\001" );
+}
+
+void OrderStatusRequestParseTestCase::setString::onRun
+( OrderStatusRequest& object )
+{
+  assert( object.setString
+          ( "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
+            "55=MSFT\00110=141\001" ) );
+
+  ClOrdID clOrdID;
+  Symbol symbol;
+  Side side;
+  assert( object.get( clOrdID ) == "CLIENTID" );
+  assert( object.get( symbol ) == "MSFT" );
+  assert( object.get( side ) == '1' );
+}
+
+void NewOrderListParseTestCase::getString::onRun
+( NewOrderList& object )
+{
+  object.set( ListID( "1" ) );
+  object.set( BidType( 0 ) );
+  object.set( TotNoOrders( 3 ) );
+
+  NewOrderList::NoOrders group;
+  group.set( ClOrdID( "A" ) );
+  group.set( ListSeqNo( 1 ) );
+  group.set( Symbol( "DELL" ) );
+  group.set( Side( '1' ) );
+  object.addGroup( group );
+
+  group.set( ClOrdID( "B" ) );
+  group.set( ListSeqNo( 2 ) );
+  group.set( Symbol( "LNUX" ) );
+  group.set( Side( '2' ) );
+  object.addGroup( group );
+
+  group.set( ClOrdID( "C" ) );
+  group.set( ListSeqNo( 3 ) );
+  group.set( Symbol( "RHAT" ) );
+  group.set( Side( '3' ) );
+  object.addGroup( group );
+
+  assert( object.getString() ==
+          ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
+            "11=A\00167=1\00155=DELL\00154=1\001"
+            "11=B\00167=2\00155=LNUX\00154=2\001"
+            "11=C\00167=3\00155=RHAT\00154=3\001"
+            "394=0\00110=233\001" ) );
+}
+
+void NewOrderListParseTestCase::setString::onRun
+( NewOrderList& object )
+{
+  DataDictionary dataDictionary( "spec/FIX42.xml" );
+  try
+  {
+    assert( object.setString
+            ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
+              "11=A\00154=1\00155=DELL\00167=1\001"
+              "11=B\00154=2\00155=LNUX\00167=2\001"
+              "11=C\00154=3\00155=RHAT\00167=3\001"
+              "394=0\00110=233\001", true, &dataDictionary ) );
+  }
+  catch ( ... )
+  { assert(false); }
+
+  ListID listID;
+  BidType bidType;
+  TotNoOrders totNoOrders;
+
+  object.get( listID );
+  object.get( bidType );
+  object.get( totNoOrders );
+
+  ClOrdID clOrdID;
+  ListSeqNo listSeqNo;
+  Symbol symbol;
+  Side side;
+
+  NewOrderList::NoOrders group;
+  object.getGroup( 1, group );
+  group.get( clOrdID );
+  group.get( listSeqNo );
+  group.get( symbol );
+  group.get( side );
+
+  assert( clOrdID.getValue() == "A" );
+  assert( listSeqNo == 1 );
+  assert( symbol == "DELL" );
+  assert( side == '1' );
+
+  object.getGroup( 2, group );
+  group.get( clOrdID );
+  group.get( listSeqNo );
+  group.get( symbol );
+  group.get( side );
+
+  assert( clOrdID.getValue() == "B" );
+  assert( listSeqNo == 2 );
+  assert( symbol == "LNUX" );
+  assert( side == '2' );
+
+  object.getGroup( 3, group );
+  group.get( clOrdID );
+  group.get( listSeqNo );
+  group.get( symbol );
+  group.get( side );
+
+  assert( clOrdID.getValue() == "C" );
+  assert( listSeqNo == 3 );
+  assert( symbol == "RHAT" );
+  assert( side == '3' );
+
+  try
+  {
+    assert( object.setString
+            ( "8=FIX.4.2\0019=26\00135=E\00166=1\00168=3\00173=0\001"
+              "394=0\00110=137\001", true, &dataDictionary ) );
+  }
+  catch ( ... )
+  { assert(false); }
+}
+}

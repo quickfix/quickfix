@@ -1,0 +1,25 @@
+# SendingTime is too small, reject
+
+iCONNECT
+I8=FIX.4.135=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.19=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+# send heartbeat more than 2 minutes early
+I8=FIX.4.135=034=249=TW52=<TIME-121>56=ISLD
+# reject and logoff
+E8=FIX.4.19=8235=334=249=ISLD52=00000000-00:00:0056=TW45=258=SendingTime accuracy problem10=0
+E8=FIX.4.19=4535=534=349=ISLD52=00000000-00:00:0056=TW10=0
+I8=FIX.4.135=534=349=TW52=<TIME>56=ISLD
+eDISCONNECT
+
+# SendingTime is too large, reject
+
+iCONNECT
+I8=FIX.4.135=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.19=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+# send heartbeat more than 2 minutes late
+I8=FIX.4.135=034=249=TW52=<TIME+121>56=ISLD
+# reject and logoff
+E8=FIX.4.19=8235=334=249=ISLD52=00000000-00:00:0056=TW45=258=SendingTime accuracy problem10=0
+E8=FIX.4.19=4535=534=349=ISLD52=00000000-00:00:0056=TW10=0
+I8=FIX.4.135=534=349=TW52=<TIME>56=ISLD
+eDISCONNECT

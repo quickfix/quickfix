@@ -1,0 +1,17 @@
+<B><CODE><PRE>
+package org.quickfix;
+
+public interface Application {
+  void onCreate(SessionID sessionId);
+  void onLogon(SessionID sessionId);
+  void onLogout(SessionID sessionId);
+  void toAdmin(Message message, SessionID sessionId);
+  void toApp(Message message, SessionID sessionId)
+    throws DoNotSend;
+  void fromAdmin(Message message, SessionID sessionId)
+    throws FieldNotFound, RejectLogon;
+  void fromApp(Message message, SessionID sessionId)
+    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue;
+  void onRun();
+}
+</PRE></CODE></B>

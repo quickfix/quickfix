@@ -1,0 +1,20 @@
+# Send message with invalid BeginString
+
+iCONNECT
+I8=FIX.4.035=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.09=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# Send with incorrect begin string and respond to logout
+I8=FIX.4.135=134=249=TW52=<TIME>56=ISLD112=id
+E8=FIX.4.09=7035=534=249=ISLD52=00000000-00:00:0056=TW58=Incorrect BeginString10=0
+I8=FIX.4.035=534=349=TW52=<TIME>56=ISLD
+eDISCONNECT
+
+iCONNECT
+I8=FIX.4.035=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.09=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# Send with incorrect begin string and don't respond to logout
+I8=FIX.4.135=134=249=TW52=<TIME>56=ISLD112=id
+E8=FIX.4.09=7035=534=249=ISLD52=00000000-00:00:0056=TW58=Incorrect BeginString10=0
+eDISCONNECT

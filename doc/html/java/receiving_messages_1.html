@@ -1,0 +1,10 @@
+<B><CODE><PRE>
+import org.quickfix.*;
+
+public void fromApp(Message message, SessionID sessionID)
+  throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+
+  StringField field = new StringField(44);
+  message.getField(field);
+}
+</PRE></CODE></B>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding = "Windows-1252"?>
+<VisualStudioProject
+	ProjectType="Visual C++"
+	Version="7.00"
+	Name="ut"
+	SccProjectName=""
+	SccLocalPath="">
+	<Platforms>
+		<Platform
+			Name="Win32"/>
+	</Platforms>
+	<Configurations>
+		<Configuration
+			Name="Release|Win32"
+			OutputDirectory=".\Release"
+			IntermediateDirectory=".\Release"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "
+				InlineFunctionExpansion="1"
+				AdditionalIncludeDirectories="./src,./src/C++,."
+				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
+				StringPooling="TRUE"
+				RuntimeLibrary="2"
+				EnableFunctionLevelLinking="TRUE"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Release/ut.pch"
+				AssemblerListingLocation=".\Release/"
+				ObjectFile=".\Release/"
+				ProgramDataBaseFileName=".\Release/"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				CompileAs="0"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/MACHINE:I386"
+				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				OutputFile="bin\ut.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="lib"
+				ProgramDatabaseFile=".\Release/ut.pdb"
+				SubSystem="1"/>
+			<Tool
+				Name="VCMIDLTool"
+				TypeLibraryName=".\Release/ut.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="NDEBUG"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+		<Configuration
+			Name="Debug|Win32"
+			OutputDirectory=".\Debug"
+			IntermediateDirectory=".\Debug"
+			ConfigurationType="1"
+			UseOfMFC="0"
+			ATLMinimizesCRunTimeLibraryUsage="FALSE"
+			CharacterSet="2">
+			<Tool
+				Name="VCCLCompilerTool"
+				AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "
+				Optimization="0"
+				AdditionalIncludeDirectories="./src,./src/C++,."
+				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
+				BasicRuntimeChecks="3"
+				RuntimeLibrary="3"
+				RuntimeTypeInfo="TRUE"
+				UsePrecompiledHeader="2"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Debug/ut.pch"
+				AssemblerListingLocation=".\Debug/"
+				ObjectFile=".\Debug/"
+				ProgramDataBaseFileName=".\Debug/"
+				WarningLevel="3"
+				SuppressStartupBanner="TRUE"
+				DebugInformationFormat="3"
+				CompileAs="0"
+				ShowIncludes="FALSE"/>
+			<Tool
+				Name="VCCustomBuildTool"/>
+			<Tool
+				Name="VCLinkerTool"
+				AdditionalOptions="/MACHINE:I386"
+				AdditionalDependencies="quickfix_debug.lib ws2_32.lib odbc32.lib odbccp32.lib"
+				OutputFile="bin\ut_debug.exe"
+				LinkIncremental="1"
+				SuppressStartupBanner="TRUE"
+				AdditionalLibraryDirectories="lib"
+				GenerateDebugInformation="TRUE"
+				ProgramDatabaseFile=".\Debug/ut_debug.pdb"
+				SubSystem="1"/>
+			<Tool
+				Name="VCMIDLTool"
+				TypeLibraryName=".\Debug/ut.tlb"/>
+			<Tool
+				Name="VCPostBuildEventTool"/>
+			<Tool
+				Name="VCPreBuildEventTool"/>
+			<Tool
+				Name="VCPreLinkEventTool"/>
+			<Tool
+				Name="VCResourceCompilerTool"
+				PreprocessorDefinitions="_DEBUG"
+				Culture="1033"/>
+			<Tool
+				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCWebDeploymentTool"/>
+		</Configuration>
+	</Configurations>
+	<Files>
+		<Filter
+			Name="Source Files"
+			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
+			<File
+				RelativePath=".\src\C++\Test\AcceptorTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\test\DataDictionaryTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\DictionaryTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\FieldConvertorsTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\FileStoreFactoryTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\FileStoreTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\MessageStoreTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\MessagesTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="src\C++\test\MySQLStoreTestCase.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\ParserTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SessionIDTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SessionSettingsTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SessionTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SettingsTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\test\SocketConnectorTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\test\SocketServerTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\test\SocketUtilitiesTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="src\C++\test\UtcTimeOnlyTestCase.cpp">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\UtcTimeStampTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\getopt.c">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\ut.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+		</Filter>
+		<Filter
+			Name="Header Files"
+			Filter="h;hpp;hxx;hm;inl">
+			<File
+				RelativePath=".\src\C++\Test\AcceptorTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\test\DataDictionaryTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\DictionaryTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\FieldConvertorsTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\FileStoreFactoryTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\FileStoreTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\MemoryStoreTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\MessageStoreTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\MessagesTestCase.h">
+			</File>
+			<File
+				RelativePath="src\C++\test\MySQLStoreTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\ParserTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SessionIDTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SessionSettingsTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SessionTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\SettingsTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\test\SocketConnectorTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\test\SocketServerTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\test\SocketUtilitiesTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\TestSuite.h">
+			</File>
+			<File
+				RelativePath="src\C++\test\UtcTimeOnlyTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\UtcTimeStampTestCase.h">
+			</File>
+		</Filter>
+		<Filter
+			Name="Resource Files"
+			Filter="ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe">
+		</Filter>
+	</Files>
+	<Globals>
+	</Globals>
+</VisualStudioProject>

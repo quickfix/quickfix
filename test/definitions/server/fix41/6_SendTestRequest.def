@@ -1,0 +1,24 @@
+# If a heartbeat is not sent to the target, a test request should be received
+# and we should eventually timeout
+
+iCONNECT
+I8=FIX.4.135=A34=149=TW52=<TIME>56=ISLD98=0108=2
+E8=FIX.4.19=5635=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=210=0
+
+# wait for two heartbeats
+E8=FIX.4.19=4535=034=249=ISLD52=00000000-00:00:0056=TW10=0
+I8=FIX.4.135=034=249=TW52=<TIME>56=ISLD
+E8=FIX.4.19=4535=034=349=ISLD52=00000000-00:00:0056=TW10=0
+
+# wait for test request
+E8=FIX.4.19=5435=134=449=ISLD52=00000000-00:00:0056=TW112=TEST10=210
+I8=FIX.4.135=034=349=TW52=<TIME>56=ISLD112=TEST
+
+# wait for two heartbeats
+E8=FIX.4.19=4535=034=549=ISLD52=00000000-00:00:0056=TW10=0
+I8=FIX.4.135=034=449=TW52=<TIME>56=ISLD
+E8=FIX.4.19=4535=034=649=ISLD52=00000000-00:00:0056=TW10=0
+
+# wait for three test requests and disconnect
+E8=FIX.4.19=5435=134=749=ISLD52=00000000-00:00:0056=TW112=TEST10=213
+eDISCONNECT

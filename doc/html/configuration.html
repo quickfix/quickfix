@@ -1,0 +1,263 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Configuring QuickFIX</title>
+    <H1>Configuring QuickFIX</H1>
+  </head>
+  <body>
+  <p>
+  A quickfix acceptor or initiator can maintain as many FIX sessions as you would like. A FIX
+  session is defined in QuickFIX as a unique combination of a <B>BeginString</B> (the FIX version number),
+  a <B>SenderCompID</B> (your ID), and a <B>TargetCompID</B> (the ID of your counterparty).
+  </p>
+  <p>
+  Each of the sessions can have several settings associated with them. Some of these setting may
+  not be known at compile time and are therefore passed around in a class called SessionSettings
+  which acts as a data dictionary that can be queried.
+  </p>
+  <p>
+  The SessionSettings class has the ability to pull settings out of any c++ stream such as a file
+  stream. You can also simply pass it a filename. If you decide to write your own  components,
+  (storage for a particular database, a new kind of connector etc...), you may also use this to
+  store settings.
+  </p>
+
+  <p>
+  A settings file is set up with two types of heading, a [DEFAULT] and a [SESSION] heading. [SESSION]
+  tells QuickFIX that a new Session is being defined. [DEFAULT] is a place that you can define settings
+  which will be associated with sessions that don't explicitly define them. QuickFIX itself will not
+  define any default settings for you. If you do not provide a setting that QuickFIX needs, it will
+  throw a ConfigError telling you what setting is missing or improperly formatted.
+  </p>
+  <p>
+  These are the settings you can associate with a session based on the default
+  components provided with QuickFIX, followed by an example.
+  </p>
+
+  <H2>QuickFIX Settings</H2>
+  <TABLE BORDER=1 CELLSPACING=2 CELLPADDING=3 WIDTH="100%">
+  <tbody>
+  <TR ALIGN="left" VALIGN="middle">
+    <TH>ID</TH>
+    <TH>Description</TH>
+    <TH>Valid Values</TH>
+    <TH>Default</TH>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>BeginString</I> </TD>
+    <TD> Version of FIX this session should use </TD>
+    <TD> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>SenderCompID</I> </TD>
+    <TD> Your ID as associated with this FIX session </TD>
+    <TD> case-sensitive alpha-numeric string </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>TargetCompID</I> </TD>
+    <TD> counter parties ID as associated with this FIX session </TD>
+    <TD> case-sensitive alpha-numeric string </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>ConnectionType</I> </TD>
+    <TD> Defines if session will act as an acceptor or an initiator </TD>
+    <TD> initiator <br> acceptor </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+      <TD> <I>ReconnectInterval</I> </TD>
+      <TD> Time between reconnection attempts in seconds. Only used for initiators </TD>
+      <TD> positive integer </TD>
+      <TD> 30 </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+      <TD> <I>StartTime</I> </TD>
+      <TD> Time of day that this FIX session becomes activated </TD>
+      <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
+     <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+      <TD> <I>EndTime</I> </TD>
+      <TD> Time of day that this FIX session becomes deactivated </TD>
+      <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
+      <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>HeartBtInt</I> </TD>
+    <TD> Heartbeat interval in seconds. Only used for initiators. </TD>
+    <TD> positive integer </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>LogonTimeout</I> </TD>
+    <TD> Number of seconds to wait for a logon response before disconnecting. Default is 10.</TD>
+    <TD> positive integer </TD>
+    <TD> 10 </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>DataDictionary</I> </TD>
+    <TD> XML definition file for validating incomming FIX messages. If no DataDictionary is supplied, only basic message validation will be done</TD>
+    <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory<br><br>FIX42.xml <br>FIX41.xml <br>FIX40.xml </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>ValidateFieldsOutOfOrder</I> </TD>
+    <TD> If set to N, fields that are out of order (i.e. body fields in the header, or header fields in the body) will not be rejected. Useful for connecting to systems which do not properly order fields.</TD>
+    <TD> Y<br>N</TD>
+    <TD> Y </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>CheckLatency</I> </TD>
+    <TD> If set to Y, messages must be received from the counterparty within a defined number of seconds (see MaxLatency). It is useful to turn this off if a system uses localtime for it's timestamps instead of GMT.</TD>
+    <TD> Y<br>N</TD>
+    <TD> Y </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>MaxLatency</I> </TD>
+    <TD> If CheckLatency is set to Y, this defines the number of seconds latency allowed for a message to be processed. Default is 120.</TD>
+    <TD> positive integer</TD>
+    <TD> 120 </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>ResetOnLogout</I> </TD>
+    <TD> Determines if sequence numbers should be reset to 1 after a normal logout termination. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>ResetOnDisconnect</I> </TD>
+    <TD> Determines if sequence numbers should be reset to 1 after an abnormal termination. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>SocketAcceptPort</I> </TD>
+    <TD> Socket port for listening to incomming connections, Only used with a SocketAcceptor </TD>
+    <TD> positive integer, valid open socket port. Currently, this must be defined in the [DEFAULT]
+    	 section.</TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>SocketConnectPort</I> </TD>
+    <TD> Socket port for connecting to a session. Only used with a SocketInitiator </TD>
+    <TD> positive integer </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>SocketConnectHost</I> </TD>
+    <TD> Host to connect to. Only used with a SocketInitiator </TD>
+    <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>SocketConnectPort&lt;n&gt;</I> </TD>
+    <TD> Alternate socket ports for connecting to a session for failover, where <B>n</B> is a
+  	     positive integer. (i.e.) SocketConnectPort1, SocketConnectPort2... must be consecutive
+             and have a matching SocketConnectHost[n]</TD>
+    <TD> positive integer </TD>
+    <TD> </TD>
+    </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>SocketConnectHost&lt;n&gt;</I> </TD>
+    <TD> Alternate socket hosts for connecting to a session for failover, where <B>n</B> is a
+         positive integer. (i.e.) SocketConnectHost1, SocketConnectHost2... must be consecutive
+         and have a matching SocketConnectPort[n]</TD>
+    <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>FileStorePath</I> </TD>
+    <TD> Directory to store sequence number and message files. Only used with FileStoreFactory. </TD>
+    <TD> valid directory for storing files, must have write access </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>MySQLStoreDatabase</I> </TD>
+    <TD> Name of MySQL database to access for storing messages and session state. Only used with
+         MySQLStoreFactory. </TD>
+    <TD> valid database for storing files, must have write access and correct DB shema </TD>
+    <TD> quickfix </TD>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>MySQLStoreUser</I> </TD>
+    <TD> User name logging in to MySQL database. Only used with MySQLStoreFactory. </TD>
+    <TD> valid user with read/write access to appropriate tables in database </TD>
+    <TD> current user </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>MySQLStorePassword</I> </TD>
+    <TD> Users password. Only used with MySQLStoreFactory. </TD>
+    <TD> correct MySQL password for user </TD>
+    <TD> empty password </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>MySQLStoreHost</I> </TD>
+    <TD> Address of MySQL database. Only used with MySQLStoreFactory. </TD>
+    <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
+    <TD> localhost </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN=middle">
+    <TD> <I>MySQLStorePort</I> </TD>
+    <TD> Port of MySQL database. Only used with MySQLStoreFactory. </TD>
+    <TD> positive integer </TD>
+    <TD> standard MySQL port </TD>
+  </TR>
+  </tbody>
+  </TABLE>
+
+  <H2>Sample Settings File</H2>
+  <p>
+    Here is a typical settings file you might find in a firm that wants to connect to several ECNs.
+  </p>
+
+  <B><CODE><PRE>
+  </B># default settings for sessions<B>
+  [DEFAULT]
+  ConnectionType=initator
+  ReconnectInterval=60
+  SenderCompID=TW
+
+  </B># session definition<B>
+  [SESSION]
+  </B># inherit ConnectionType, ReconnectInterval and SenderCompID from default<B>
+  BeginString=FIX.4.1
+  TargetCompID=ARCA
+  StartTime=12:30:00
+  EndTime=23:30:00
+  HeartBtInt=20
+  SocketConnectPort=9823
+  SocketConnectHost=123.123.123.123
+  DataDictionary=somewhere/FIX41.xml
+
+  [SESSION]
+  BeginString=FIX.4.0
+  TargetCompID=ISLD
+  StartTime=12:00:00
+  EndTime=23:00:00
+  HeartBtInt=30
+  SocketConnectPort=8323
+  SocketConnectHost=23.23.23.23
+  DataDictionary=somewhere/FIX40.xml
+
+  [SESSION]
+  BeginString=FIX.4.2
+  TargetCompID=INCA
+  StartTime=12:30:00
+  EndTime=21:30:00
+  </B># overide default setting for RecconnectInterval<B>
+  ReconnectInterval=30
+  HeartBtInt=30
+  SocketConnectPort=6523
+  SocketConnectHost=3.3.3.3
+  </B># (optional) alternate connection ports and hosts to cycle through on failover<B>
+  SocketConnectPort1=8392
+  SocketConnectHost1=8.8.8.8
+  SocketConnectPort2=2932
+  SocketConnectHost2=12.12.12.12
+  DataDictionary=somewhere/FIX42.xml
+  </PRE></CODE></B>
+  </head>
+</html>

@@ -1,0 +1,1 @@
+mysql --execute="source mysql.sql";

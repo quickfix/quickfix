@@ -1,0 +1,21 @@
+Microsoft Visual Studio Solution File, Format Version 7.00
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_jni", "quickfix_jni.vcproj", "{15CC92EF-7F81-4474-8A92-B957916D4E02}"
+EndProject
+Global
+	GlobalSection(SolutionConfiguration) = preSolution
+		ConfigName.0 = Debug
+		ConfigName.1 = Release
+	EndGlobalSection
+	GlobalSection(ProjectDependencies) = postSolution
+	EndGlobalSection
+	GlobalSection(ProjectConfiguration) = postSolution
+		{15CC92EF-7F81-4474-8A92-B957916D4E02}.Debug.ActiveCfg = Debug|Win32
+		{15CC92EF-7F81-4474-8A92-B957916D4E02}.Debug.Build.0 = Debug|Win32
+		{15CC92EF-7F81-4474-8A92-B957916D4E02}.Release.ActiveCfg = Release|Win32
+		{15CC92EF-7F81-4474-8A92-B957916D4E02}.Release.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+	EndGlobalSection
+	GlobalSection(ExtensibilityAddIns) = postSolution
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+<B><CODE><PRE>
+static bool sendToTarget(Fix.Message message)
+  throw(Fix.SessionNotFound);
+
+static bool sendToTarget(Fix.Message message, Fix.SessionID sessionID)
+  throw(Fix.SessionNotFound);
+
+static bool sendToTarget(Fix.Message message, String senderCompID, String targetCompID)
+  throw(Fix.SessionNotFound);
+</PRE></CODE></B>

@@ -1,0 +1,24 @@
+<B><CODE><PRE>
+import org.quickfix.*;
+import java.io.FileInputStream;
+
+public class MyClass {
+
+  static {
+    System.loadLibrary("quickfix_jni");
+  }
+
+  public static void main(String args[]) throws Exception {
+    if(args.length != 1) return;
+    String fileName = args[0];
+
+    Application application = new Application();
+    Settings settings = new Settings(new FileInputStream(fileName));
+    MessageStoreFactory factory = new FileMessageStoreFactory(settings);
+    MessageFactory messageFactory = new DefaultMessageFactory();
+    Acceptor acceptor = new SocketAcceptor
+      (application, factory, settings, messageFactory);
+    acceptor.start();
+  }
+}
+</PRE></CODE></B>

@@ -1,0 +1,27 @@
+<B><CODE><PRE>
+using Fix;
+
+class MyClass
+{
+  static void Main(string[] args)
+  {
+    if(args.Length != 1) return;
+    String fileName = args[0];
+
+    try
+    {
+      SessionSettings settings = new SessionSettings(fileName);
+      Application application = new MyApplication();
+      FileStoreFactory factory = new FileStoreFactory(settings);
+      MessageFactory messageFactory = new DefaultMessageFactory();
+      SocketAcceptor acceptor
+        = new SocketAcceptor(application, factory, settings, messageFactory);
+      acceptor.start();
+    }
+    catch(ConfigError e)
+    {
+      Console.WriteLine(e);
+    }
+  }
+}
+</PRE></CODE></B>

@@ -1,0 +1,77 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Validation</title>
+    <H1>Validation</H1>
+  </head>
+  <body>
+  <p>
+  QuickFIX will validate and reject any messages that do not conform to the FIX specifications.
+  This means that it will reject any poorly formed messages without bothering you at the application
+  level. But there is an extra piece to validation. QuickFIX can also dynamically load an XML
+  definition file for each session which it will use to validate if a message is of the right type,
+  if it contains unsupported fields, if required fields are missing etc... And it will do this all without
+  you needing to do any extra work at the application level.
+  </p>
+  <p>
+  QuickFIX comes with three definitions files. These are <B>FIX40.xml</B>, <B>FIX41.xml</B> and
+  <B>FIX42.xml</B>. These are directly generated off their respected fix specification documents.
+  But the power comes in modifying these documents or creating new ones for your specific needs.
+  <p>
+  <p>
+  If, for instance, you need to define a FIX spec for a sell side application.  Why not define the
+  spec in XML and then just publish the XML file to your clients! Not only is your FIX spec fully documented
+  in a machine and human readable format, but you can guarantee that the documentation is 100%
+  accurate because it is actually <B>defining</B> and not just reflecting reality.
+  </p>
+  <p>
+  And if XYZ corp needs some special fields added to their session but you don't want to expose
+  them to anyone else, fine. Create XYZ.xml, load it up with the session and keep everyone else
+  using the normal definintion file. Now XYZ can send their user defined fields but they will be rejected
+  for anyone else.
+  </p>
+  <p>
+  The skeleton of a definition file looks like this.
+  </p>
+  <PRE><B>
+  &lt;fix major="4" minor="1">
+    &lt;header>
+      &lt;field number="8" name="BeginString" required="Y"/>
+      ...
+    &lt;/header>
+    &lt;trailer>
+      &lt;field number="10" name="CheckSum" required="Y"/>
+      ...
+    &lt;/trailer>
+    &lt;messages>
+      &lt;message name="Heartbeat" msgtype="0" msgcat="admin">
+        &lt;field number="112" name="TestReqID" required="N"/>
+      &lt;/message>
+      ...
+      &lt;message name="NewOrderSingle" msgtype="D" msgcat="app">
+        &lt;field number="11" name="ClOrdID" required="Y"/>
+        ...
+      &lt;/message>
+      ...
+    &lt;/messages>
+    &lt;fields>
+      &lt;field number="1" name="Account" type="CHAR" />
+      ...
+      &lt;field number="4" name="AdvSide" type="CHAR">
+       &lt;value enum="B" description="BUY" />
+       &lt;value enum="S" description="SELL" />
+       &lt;value enum="X" description="CROSS" />
+       &lt;value enum="T" description="TRADE" />
+     &lt;/field>
+     ...
+    &lt;/fields>
+  &lt;/fix>
+  </PRE></B>
+
+  <p>
+  The validator will not reject conditionally required fields because the rules for them are not
+  clearly defined and are often debatable. QuickFIX will reject a conditonally required field when
+  you try to pull it out in your <B>fromApp</B> function if you try to get a field that is not there.
+  </body>
+</html>
