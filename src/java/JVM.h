@@ -80,8 +80,8 @@ public:
   static void set( JavaVM* );
   static JavaVM* get();
 
-JVM( JavaVM* pJvm ) : m_pJvm( pJvm ) {}
-JVM() : m_pJvm( 0 ) {}
+  JVM( JavaVM* pJvm ) : m_pJvm( pJvm ) {}
+  JVM() : m_pJvm( 0 ) {}
 
   operator JavaVM*() { return m_pJvm; }
   JavaVM& getJvm() { return * m_pJvm; }
@@ -156,7 +156,7 @@ public:
     if ( !obj ) throw JVMException( "Object not found" );
   }
   
-  JVMObject( JVMObject& copy ) : m_obj(copy) {}
+  JVMObject( const JVMObject& copy ) : m_obj(copy.m_obj) {}
 
   JVMClass getClass() { return JVMClass( ENV::get() ->GetObjectClass( m_obj ) ); }
   JVMObject newGlobalRef() { return JVMObject( ENV::get() ->NewGlobalRef( m_obj ) ); }

@@ -118,7 +118,7 @@ void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionI
   JNIEnv* pEnv = ENV::get();
   JVMObject jmsg = newMessage( msg, m_factory );
   JVMObject jsessionid = newSessionID( sessionID );
-  pEnv->CallVoidMethod( m_object, notifyToAdminId, jmsg, jsessionid );
+  pEnv->CallVoidMethod( m_object, notifyToAdminId, (jobject)jmsg, (jobject)jsessionid );
   msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
   jsessionid.deleteLocalRef();
   jmsg.deleteLocalRef();
@@ -132,7 +132,7 @@ throw( FIX::DoNotSend& )
   JVMObject jmsg = newMessage( msg, m_factory );
   JVMObject jsessionid = newSessionID( sessionID );
   Exceptions e;
-  pEnv->CallVoidMethod( m_object, notifyToAppId, jmsg, jsessionid );
+  pEnv->CallVoidMethod( m_object, notifyToAppId, (jobject)jmsg, (jobject)jsessionid );
   msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
   jsessionid.deleteLocalRef();
   jmsg.deleteLocalRef();
