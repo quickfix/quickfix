@@ -152,6 +152,20 @@ AC_TRY_COMPILE(
 #	 AC_MSG_RESULT(no)
 #	 AC_MSG_ERROR(recursive mutexes are required))
 
+AC_MSG_CHECKING(for ftime)
+AC_TRY_COMPILE(
+	[#include <sys/timeb>],
+	[const timeb tb;
+         ftime(&tb)],
+	has_ftime=true, has_ftime=false)
+
+if test $has_ftime = true
+then AC_MSG_RESULT(yes)
+     AC_DEFINE(HAS_FTIME, 1, found ftime)
+else AC_MSG_RESULT(no)
+fi
+AM_CONDITIONAL(HAS_FTIME, $has_ftime)
+
 AC_MSG_CHECKING(for set_terminate in the global namespace)
 AC_TRY_COMPILE(
 	[#include <exception>
