@@ -96,7 +96,7 @@ public:
     *this = copy;
   }
 
-  virtual ~FieldMap() {}
+  virtual ~FieldMap() { clear(); }
 
   FieldMap& operator=( const FieldMap& rhs )
   {
