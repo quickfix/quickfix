@@ -91,7 +91,7 @@ EXTRA_DIST = *.h *.cpp *.bat *.xml *.properties *.dsp *.dsw
 
 lib_LTLIBRARIES = libquickfix_jni.la
 
-libquickfix_jni_la_SOURCES =  	JVM.h 	JVM.cpp 	Conversions.h 	Conversions.cpp 	JavaApplication.h 	JavaApplication.cpp 	JavaLog.h 	JavaLog.cpp 	JavaLogFactory.h 	JavaLogFactory.cpp 	JavaMessageStore.h 	JavaMessageStore.cpp 	JavaMessageStoreFactory.h 	JavaMessageStoreFactory.cpp 	org_quickfix_FileStore.h 	org_quickfix_FileStore.cpp 	org_quickfix_FileStoreFactory.h 	org_quickfix_FileStoreFactory.cpp 	org_quickfix_FileLog.h 	org_quickfix_FileLog.cpp 	org_quickfix_FileLogFactory.h 	org_quickfix_FileLogFactory.cpp 	org_quickfix_Group.h 	org_quickfix_Group.cpp 	org_quickfix_MemoryStore.h 	org_quickfix_MemoryStore.cpp 	org_quickfix_Message.h 	org_quickfix_Message.cpp 	org_quickfix_MySQLStore.h 	org_quickfix_MySQLStore.cpp 	org_quickfix_MySQLStoreFactory.h 	org_quickfix_MySQLStoreFactory.cpp 	org_quickfix_MySQLLog.h 	org_quickfix_MySQLLog.cpp 	org_quickfix_MySQLLogFactory.h 	org_quickfix_MySQLLogFactory.cpp 	org_quickfix_ScreenLog.h 	org_quickfix_ScreenLog.cpp 	org_quickfix_ScreenLogFactory.h 	org_quickfix_ScreenLogFactory.cpp 	org_quickfix_Session.h 	org_quickfix_Session.cpp 	org_quickfix_SessionID.h 	org_quickfix_SessionID.cpp 	org_quickfix_Settings.h 	org_quickfix_Settings.cpp 	org_quickfix_SocketAcceptor.h 	org_quickfix_SocketAcceptor.cpp 	org_quickfix_SocketInitiator.h 	org_quickfix_SocketInitiator.cpp 	org_quickfix_ThreadedSocketAcceptor.h 	org_quickfix_ThreadedSocketAcceptor.cpp 	org_quickfix_ThreadedSocketInitiator.h 	org_quickfix_ThreadedSocketInitiator.cpp
+libquickfix_jni_la_SOURCES =  	JVM.h 	JVM.cpp 	Conversions.h 	Conversions.cpp 	JavaApplication.h 	JavaApplication.cpp 	JavaLog.h 	JavaLog.cpp 	JavaLogFactory.h 	JavaLogFactory.cpp 	JavaMessageStore.h 	JavaMessageStore.cpp 	JavaMessageStoreFactory.h 	JavaMessageStoreFactory.cpp 	org_quickfix_FileStore.h 	org_quickfix_FileStore.cpp 	org_quickfix_FileStoreFactory.h 	org_quickfix_FileStoreFactory.cpp 	org_quickfix_FileLog.h 	org_quickfix_FileLog.cpp 	org_quickfix_FileLogFactory.h 	org_quickfix_FileLogFactory.cpp 	org_quickfix_Group.h 	org_quickfix_Group.cpp 	org_quickfix_MemoryStore.h 	org_quickfix_MemoryStore.cpp 	org_quickfix_Message.h 	org_quickfix_Message.cpp 	org_quickfix_MySQLStore.h 	org_quickfix_MySQLStore.cpp 	org_quickfix_MySQLStoreFactory.h 	org_quickfix_MySQLStoreFactory.cpp 	org_quickfix_MySQLLog.h 	org_quickfix_MySQLLog.cpp 	org_quickfix_MySQLLogFactory.h 	org_quickfix_MySQLLogFactory.cpp 	org_quickfix_ScreenLog.h 	org_quickfix_ScreenLog.cpp 	org_quickfix_ScreenLogFactory.h 	org_quickfix_ScreenLogFactory.cpp 	org_quickfix_Session.h 	org_quickfix_Session.cpp 	org_quickfix_SessionID.h 	org_quickfix_SessionID.cpp 	org_quickfix_SessionSettings.h 	org_quickfix_SessionSettings.cpp 	org_quickfix_SocketAcceptor.h 	org_quickfix_SocketAcceptor.cpp 	org_quickfix_SocketInitiator.h 	org_quickfix_SocketInitiator.cpp 	org_quickfix_ThreadedSocketAcceptor.h 	org_quickfix_ThreadedSocketAcceptor.cpp 	org_quickfix_ThreadedSocketInitiator.h 	org_quickfix_ThreadedSocketInitiator.cpp
 
 
 libquickfix_jni_la_LDFLAGS = -version-info 1:0:0
@@ -119,7 +119,7 @@ org_quickfix_MySQLStore.lo org_quickfix_MySQLStoreFactory.lo \
 org_quickfix_MySQLLog.lo org_quickfix_MySQLLogFactory.lo \
 org_quickfix_ScreenLog.lo org_quickfix_ScreenLogFactory.lo \
 org_quickfix_Session.lo org_quickfix_SessionID.lo \
-org_quickfix_Settings.lo org_quickfix_SocketAcceptor.lo \
+org_quickfix_SessionSettings.lo org_quickfix_SocketAcceptor.lo \
 org_quickfix_SocketInitiator.lo org_quickfix_ThreadedSocketAcceptor.lo \
 org_quickfix_ThreadedSocketInitiator.lo
 CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
@@ -147,7 +147,8 @@ DEP_FILES =  .deps/Conversions.P .deps/JVM.P .deps/JavaApplication.P \
 .deps/org_quickfix_MySQLStore.P .deps/org_quickfix_MySQLStoreFactory.P \
 .deps/org_quickfix_ScreenLog.P .deps/org_quickfix_ScreenLogFactory.P \
 .deps/org_quickfix_Session.P .deps/org_quickfix_SessionID.P \
-.deps/org_quickfix_Settings.P .deps/org_quickfix_SocketAcceptor.P \
+.deps/org_quickfix_SessionSettings.P \
+.deps/org_quickfix_SocketAcceptor.P \
 .deps/org_quickfix_SocketInitiator.P \
 .deps/org_quickfix_ThreadedSocketAcceptor.P \
 .deps/org_quickfix_ThreadedSocketInitiator.P
