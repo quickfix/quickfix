@@ -1045,6 +1045,7 @@
       <value enum="C" description="QUANTITY_EXCEEDS_ORDER"/>
       <value enum="D" description="NO_MATCHING_ORDER"/>
       <value enum="E" description="PRICE_EXCEEDS_LIMIT"/>
+      <value enum="Z" description="OTHER" />
     </field>
     <field number="128" name="DeliverToCompID" type="CHAR"/>
     <field number="129" name="DeliverToSubID" type="CHAR"/>
