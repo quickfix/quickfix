@@ -69,6 +69,7 @@ echo } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.
      <xsl:when test="@type='UTCTIMESTAMP'">Date</xsl:when>
      <xsl:when test="@type='UTCTIMEONLY'">Date</xsl:when>
      <xsl:when test="@type='UTCDATE'">Date</xsl:when>
+     <xsl:when test="@type='UTCDATEONLY'">Date</xsl:when>
      <xsl:when test="@type='BOOLEAN'">boolean</xsl:when>
      <xsl:when test="@type='FLOAT'">double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">double</xsl:when>
@@ -93,7 +94,8 @@ echo } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.
      <xsl:when test="@type='CURRENCY'">String</xsl:when>
      <xsl:when test="@type='UTCTIMESTAMP'">UtcTimeStamp</xsl:when>
      <xsl:when test="@type='UTCTIMEONLY'">UtcTimeOnly</xsl:when>
-     <xsl:when test="@type='UTCDATE'">UtcDate</xsl:when>
+     <xsl:when test="@type='UTCDATE'">UtcDateOnly</xsl:when>
+     <xsl:when test="@type='UTCDATEONLY'">UtcDateOnly</xsl:when>
      <xsl:when test="@type='BOOLEAN'">Boolean</xsl:when>
      <xsl:when test="@type='FLOAT'">Double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">Double</xsl:when>

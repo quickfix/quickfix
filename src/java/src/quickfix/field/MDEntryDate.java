@@ -1,8 +1,8 @@
 package quickfix.field; 
-import quickfix.StringField; 
+import quickfix.UtcDateOnlyField; 
 import java.util.Date; 
 
-public class MDEntryDate extends StringField 
+public class MDEntryDate extends UtcDateOnlyField 
 { 
   public static final int FIELD = 272; 
 
@@ -10,7 +10,7 @@ public class MDEntryDate extends StringField
   { 
     super(272);
   } 
-  public MDEntryDate(String data) 
+  public MDEntryDate(Date data) 
   { 
     super(272, data);
   } 

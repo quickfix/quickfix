@@ -1,8 +1,8 @@
 package quickfix.field; 
-import quickfix.UtcDateField; 
+import quickfix.UtcDateOnlyField; 
 import java.util.Date; 
 
-public class TotalVolumeTradedDate extends UtcDateField 
+public class TotalVolumeTradedDate extends UtcDateOnlyField 
 { 
   public static final int FIELD = 449; 
 

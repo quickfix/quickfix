@@ -21,12 +21,12 @@ package quickfix;
 
 import java.util.Date;
 
-public class UtcDateField extends UtcDateOnlyField {
-    public UtcDateField(int field) {
+public class UtcDateOnlyField extends DateField {
+    public UtcDateOnlyField(int field) {
         super(field);
     }
 
-    protected UtcDateField(int field, Date data) {
+    protected UtcDateOnlyField(int field, Date data) {
         super(field, data);
     }
 }
