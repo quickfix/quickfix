@@ -73,6 +73,24 @@ namespace FIX
     QF_STACK_POP
   }
 
+  DOMAttributes::map LIBXML_DOMAttributes::toMap()
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::toMap)
+
+    xmlAttr* attr = m_pNode->properties;
+    DOMAttributes::map map;
+    while( attr != 0 )
+    {
+      std::string value;
+      std::string name = (char*)attr->name;
+      get(name, value);
+      map[name] = value;
+      attr = attr->next;
+    }   
+    return map;
+
+    QF_STACK_POP
+  }
+
   DOMNodePtr LIBXML_DOMNode::getFirstChildNode()
   { QF_STACK_PUSH(LIBXML_DOMAttributes::getFirstChildNode)
 
