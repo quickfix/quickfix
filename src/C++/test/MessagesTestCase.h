@@ -62,6 +62,7 @@ public:
   MessageTestCase()
   {
     add( &m_identifyType );
+    add( &m_isAdminMsgType );
     add( &m_setString );
     add( &m_checkSum );
     add( &m_repeatingField );
@@ -79,6 +80,12 @@ class identifyType : public EmptyTest
     void onRun( Message& object );
   }
   m_identifyType;
+
+class isAdminMsgType : public EmptyTest
+  {
+    void onRun( Message& object );
+  }
+  m_isAdminMsgType;
 
 class setString : public SimpleTest
   {

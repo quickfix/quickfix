@@ -88,6 +88,14 @@ void MessageTestCase::identifyType::onRun( Message& )
   catch ( std::logic_error& ) { assert( true ); }
 }
 
+void MessageTestCase::isAdminMsgType::onRun( Message& object )
+{
+  assert( FIX::Message::isAdminMsgType( FIX::MsgType("A") ));
+  assert( !FIX::Message::isAdminMsgType( FIX::MsgType("D") ));
+  assert( !FIX::Message::isAdminMsgType( FIX::MsgType("AE") ));
+  assert( !FIX::Message::isAdminMsgType( FIX::MsgType() ));
+}
+
 void MessageTestCase::setString::onRun( Message& object )
 {
   static const char * strGood =
