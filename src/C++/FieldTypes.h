@@ -103,7 +103,7 @@ public:
 
   UtcTimeStamp( long sec )
   {
-    *static_cast < tm* > ( this ) = time_gmtime( &sec );
+    *static_cast < tm* > ( this ) = time_gmtime( &(time_t)sec );
   }
 
   UtcTimeStamp( const tm* time ) { *static_cast < tm* > ( this ) = *time; }

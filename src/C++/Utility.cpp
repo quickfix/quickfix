@@ -321,14 +321,14 @@ tm time_localtime( const time_t* t)
 bool thread_spawn( void*( *func ) ( void* ), void* var, unsigned& thread )
 {
 #ifdef _MSC_VER
-  int result = 0;
+  unsigned int result = 0;
   result = _beginthread( ( void( __cdecl* ) ( void* ) ) func, 0, var );
   if ( result == -1 ) return false;
 #else
   pthread_t result = 0;
   if ( pthread_create( &result, 0, func, var ) != 0 ) return false;
 #endif
-  thread = result;
+  thread = (unsigned)result;
   return true;
 }
 
@@ -353,7 +353,7 @@ void thread_detach( unsigned thread )
 { QF_STACK_PUSH(thread_detach)
 
 #ifndef _MSC_VER
-  pthread_detach( thread );
+  pthread_detach( (pthread*)thread );
 #endif
 
   QF_STACK_POP
