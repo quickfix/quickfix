@@ -63,34 +63,31 @@ namespace FIX
 {
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
-                      const SessionSettings& settings )
-throw( ConfigError& )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( 0 )
+                      const SessionSettings& settings ) throw( ConfigError& )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( 0 )
 { initialize(); }
 
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
                       const SessionSettings& settings,
-                      LogFactory& logFactory )
-throw( ConfigError& )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( &logFactory )
-
+                      LogFactory& logFactory ) throw( ConfigError& )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( &logFactory )
 { initialize(); }
 
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
                       const SessionSettings& settings,
                       bool& threw, ConfigError& ex )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( 0 )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( 0 )
 {
   try
   {
@@ -106,10 +103,10 @@ Initiator::Initiator( Application& application,
                       const SessionSettings& settings,
                       LogFactory& logFactory,
                       bool& threw, ConfigError& ex )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( &logFactory )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( &logFactory )
 {
   try
   {
@@ -193,14 +190,13 @@ bool Initiator::isConnected( const SessionID& sessionID )
   return m_connected.find( sessionID ) != m_connected.end();
 }
 
-bool Initiator::start()
+void Initiator::start() throw ( ConfigError& )
 {
+  onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );
-  if ( !threadid ) return false;
-
-  bool result = onStart( m_settings );
+  if ( !threadid ) throw ConfigError("Unable to spawn thread");
+  onStart();
   thread_join( threadid );
-  return result;
 }
 
 void* Initiator::startThread( void* p )

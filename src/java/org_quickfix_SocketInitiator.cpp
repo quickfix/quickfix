@@ -142,7 +142,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doStart
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
-  getCPPSocketInitiator( obj ) ->start();
+  try
+  {
+    getCPPSocketInitiator( obj ) ->start();
+  }
+  catch( FIX::ConfigError &e )
+  {
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+  }
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doStop

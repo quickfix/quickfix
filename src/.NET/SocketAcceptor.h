@@ -109,8 +109,17 @@ public:
     delete m_logFactory;
   }
 
-  void start()
-  { m_pUnmanaged->start(); }
+  void start() throw ( ConfigError* ) 
+  { 
+    try
+    {
+      m_pUnmanaged->start(); 
+    }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
+  }
   void stop()
   { m_pUnmanaged->stop(); }
 

@@ -65,10 +65,10 @@ Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
                     const SessionSettings& settings )
 throw( ConfigError& )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( 0 )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( 0 )
 { initialize(); }
 
 Acceptor::Acceptor( Application& application,
@@ -76,20 +76,20 @@ Acceptor::Acceptor( Application& application,
                     const SessionSettings& settings,
                     LogFactory& logFactory )
 throw( ConfigError& )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( &logFactory )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( &logFactory )
 { initialize(); }
 
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
                     const SessionSettings& settings,
                     bool& threw, ConfigError& ex )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( 0 )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( 0 )
 {
   try
   {
@@ -105,10 +105,10 @@ Acceptor::Acceptor( Application& application,
                     const SessionSettings& settings,
                     LogFactory& logFactory,
                     bool& threw, ConfigError& ex )
-    : m_application( application ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_settings( settings ),
-    m_pLogFactory( &logFactory )
+: m_application( application ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_settings( settings ),
+  m_pLogFactory( &logFactory )
 {
   try
   {
@@ -180,14 +180,13 @@ Session* Acceptor::getSession
   return 0;
 }
 
-bool Acceptor::start()
+void Acceptor::start() throw ( ConfigError& )
 {
+  onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );
-  if ( !threadid ) return false;
-
-  bool result = onStart( m_settings );
+  if ( !threadid ) throw ConfigError("Unable to spawn thread");
+  onStart();
   thread_join( threadid );
-  return result;
 }
 
 void* Acceptor::startThread( void* p )

@@ -61,48 +61,50 @@ namespace FIX
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
                                   const SessionSettings& settings )
-throw( ConfigError& )
-    : Initiator( application, factory, settings ),
-    m_connector( 1 ), m_elapsedTimeouts( 0 ),
-m_reconnectInterval( 30 ), m_stop( false ) {}
+throw( ConfigError& ) 
+: Initiator( application, factory, settings ),
+  m_connector( 1 ), m_elapsedTimeouts( 0 ),
+  m_reconnectInterval( 30 ), m_stop( false ) {}
 
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
                                   const SessionSettings& settings,
                                   LogFactory& logFactory )
 throw( ConfigError& )
-    : Initiator( application, factory, settings, logFactory ),
-    m_connector( 1 ), m_elapsedTimeouts( 0 ),
-m_reconnectInterval( 30 ), m_stop( false ) {}
+: Initiator( application, factory, settings, logFactory ),
+  m_connector( 1 ), m_elapsedTimeouts( 0 ),
+  m_reconnectInterval( 30 ), m_stop( false ) {}
 
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
                                   const SessionSettings& settings,
                                   bool& threw, ConfigError& ex )
-    : Initiator( application, factory, settings, threw, ex ),
-    m_connector( 1 ), m_elapsedTimeouts( 0 ),
-m_reconnectInterval( 30 ), m_stop( false ) {}
+: Initiator( application, factory, settings, threw, ex ),
+  m_connector( 1 ), m_elapsedTimeouts( 0 ),
+  m_reconnectInterval( 30 ), m_stop( false ) {}
 
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
                                   const SessionSettings& settings,
                                   LogFactory& logFactory,
                                   bool& threw, ConfigError& ex )
-    : Initiator( application, factory, settings, logFactory, threw, ex ),
-    m_connector( 1 ), m_elapsedTimeouts( 0 ),
-m_reconnectInterval( 30 ), m_stop( false ) {}
+: Initiator( application, factory, settings, logFactory, threw, ex ),
+  m_connector( 1 ), m_elapsedTimeouts( 0 ),
+  m_reconnectInterval( 30 ), m_stop( false ) {}
 
 SocketInitiator::~SocketInitiator() {}
 
-bool SocketInitiator::onStart( const SessionSettings& s )
+void SocketInitiator::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
 {
   try { m_reconnectInterval = s.get().getLong( RECONNECT_INTERVAL ); }
   catch ( std::exception& ) {}
+}
 
+void SocketInitiator::onStart()
+{
   connect();
   while ( !m_stop )
     m_connector.block( *this );
-  return true;
 }
 
 void SocketInitiator::onStop()
@@ -116,17 +118,24 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
   {
     std::string address;
     short port = 0;
+    Log* log = Session::lookupSession( s )->getLog();
 
     getHost( s, d, address, port );
-
+    
+    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert(port) );
     int result = m_connector.connect( address, port );
-    if ( !result ) return false;
+    if ( !result ) 
+    { 
+      log->onEvent( "Connection failed" );
+      return false;
+    }
+    log->onEvent( "Connection succeeded" );
 
     m_connections[ result ] = new SocketConnection
                               ( *this, s, result, &m_connector.getMonitor() );
     return true;
   }
-catch ( std::exception& ) { return false; }
+  catch ( std::exception& ) { return false; }
 }
 
 void SocketInitiator::onConnect( SocketConnector&, int s )

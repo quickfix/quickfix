@@ -90,7 +90,7 @@ public class SocketAcceptor implements Acceptor {
     private native void create();
     private native void destroy();
 
-    public void start() {
+    public void start() throws ConfigError {
         doStart();
     }
 
@@ -98,7 +98,7 @@ public class SocketAcceptor implements Acceptor {
         doStop();
     }
 
-    private native void doStart();
+    private native void doStart() throws ConfigError;
 
     private native void doStop();
 }

@@ -94,7 +94,7 @@ public:
   virtual ~Initiator();
 
   /// Start initiator.
-  bool start();
+  void start() throw ( ConfigError& );
   /// Stop initiator.
   void stop() { onStop(); }
 
@@ -113,8 +113,10 @@ protected:
 private:
   void initialize() throw ( ConfigError& );
 
+  /// Implemented to initialize initiator
+  virtual void onInitialize( const SessionSettings& ) throw ( ConfigError& ) = 0;
   /// Implemented to start connecting to targets.
-  virtual bool onStart( const SessionSettings& ) = 0;
+  virtual void onStart() = 0;
   /// Implemented to stop a running initiator.
   virtual void onStop() = 0;
   /// Implemented to connect a session to its target.

@@ -70,7 +70,8 @@ public:
                 MemoryStoreFactory& factory )
 : Acceptor( *( m_pApp = new TestApplication() ), factory, settings ) {}
   ~TestAcceptor() { delete m_pApp; }
-  bool onStart( const SessionSettings& ) { return true; };
+  void onInitialize( const SessionSettings& ) {}
+  void onStart() {};
   void onStop() {}
   TestApplication* m_pApp;
 };

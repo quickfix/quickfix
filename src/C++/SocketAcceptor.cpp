@@ -61,33 +61,31 @@ namespace FIX
 {
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
-                                const SessionSettings& settings )
-throw( ConfigError& )
-    : Acceptor( application, factory, settings ),
-m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
+                                const SessionSettings& settings ) throw( ConfigError& )
+: Acceptor( application, factory, settings ),
+  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings,
-                                LogFactory& logFactory )
-throw( ConfigError& )
-    : Acceptor( application, factory, settings, logFactory ),
-m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
+                                LogFactory& logFactory ) throw( ConfigError& )
+: Acceptor( application, factory, settings, logFactory ),
+  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings,
                                 bool& threw, ConfigError& ex )
-    : Acceptor( application, factory, settings, threw, ex ),
-m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
+: Acceptor( application, factory, settings, threw, ex ),
+  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings,
                                 LogFactory& logFactory,
                                 bool& threw, ConfigError& ex )
-    : Acceptor( application, factory, settings, logFactory, threw, ex ),
-m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
+: Acceptor( application, factory, settings, logFactory, threw, ex ),
+  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::~SocketAcceptor()
 {
@@ -96,21 +94,32 @@ SocketAcceptor::~SocketAcceptor()
     delete iter->second;
 }
 
-bool SocketAcceptor::onStart( const SessionSettings& s )
+void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
 {
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
+  try
+  {
+    m_pServer = new SocketServer( m_port, 1 );    
+  }
+  catch( std::exception& )
+  {
+    throw ConfigError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+  }
+}
 
-  SocketServer server( m_port, 1 );
-  m_pServer = &server;
-
-  while ( !m_stop && server.block( *this ) ) {}
-  return true;
+void SocketAcceptor::onStart()
+{
+  while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
 }
 
 void SocketAcceptor::onStop()
 {
   m_stop = true;
-  if ( m_pServer ) m_pServer->close();
+  if ( m_pServer ) 
+  {
+    m_pServer->close();
+    delete m_pServer;
+  }
 }
 
 void SocketAcceptor::onConnect( SocketServer& server, int s )

@@ -86,8 +86,10 @@ private:
   typedef std::map < int, int > SocketToThread;
   typedef std::map < SessionID, int > SessionToHostNum;
 
-  bool onStart( const SessionSettings& );
+  void onInitialize( const SessionSettings& ) throw ( ConfigError& );
+  void onStart();
   void onStop();
+
   bool doConnect( const SessionID& s, const Dictionary& d );
 
   void addThread( int s, int t );

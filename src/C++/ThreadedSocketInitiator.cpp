@@ -61,20 +61,18 @@ namespace FIX
 ThreadedSocketInitiator::ThreadedSocketInitiator(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings )
-throw( ConfigError& )
-    : Initiator( application, factory, settings ),
-    m_reconnectInterval( 30 ), m_stop( false )
+  const SessionSettings& settings ) throw( ConfigError& )
+: Initiator( application, factory, settings ),
+  m_reconnectInterval( 30 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::ThreadedSocketInitiator(
   Application& application,
   MessageStoreFactory& factory,
   const SessionSettings& settings,
-  LogFactory& logFactory )
-throw( ConfigError& )
-    : Initiator( application, factory, settings, logFactory ),
-    m_reconnectInterval( 30 ), m_stop( false )
+  LogFactory& logFactory ) throw( ConfigError& )
+: Initiator( application, factory, settings, logFactory ),
+  m_reconnectInterval( 30 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::ThreadedSocketInitiator(
@@ -82,8 +80,8 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   MessageStoreFactory& factory,
   const SessionSettings& settings,
   bool& threw, ConfigError& ex )
-    : Initiator( application, factory, settings, threw, ex ),
-    m_reconnectInterval( 30 ), m_stop( false )
+: Initiator( application, factory, settings, threw, ex ),
+  m_reconnectInterval( 30 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::ThreadedSocketInitiator(
@@ -92,22 +90,24 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   const SessionSettings& settings,
   LogFactory& logFactory,
   bool& threw, ConfigError& ex )
-    : Initiator( application, factory, settings, logFactory, threw, ex ),
-    m_reconnectInterval( 30 ), m_stop( false )
+: Initiator( application, factory, settings, logFactory, threw, ex ),
+  m_reconnectInterval( 30 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
 { socket_term(); }
 
-bool ThreadedSocketInitiator::onStart( const SessionSettings& s )
+void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
 {
   try { m_reconnectInterval = s.get().getLong( "ReconnectInterval" ); }
   catch ( std::exception& ) {}
+}
 
+void ThreadedSocketInitiator::onStart()
+{
   connect();
   while ( !m_stop )
     process_sleep( 1 );
-  return true;
 }
 
 void ThreadedSocketInitiator::onStop()
@@ -136,7 +136,7 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
       delete threadStruct;
     return true;
   }
-catch ( std::exception& ) { return false; }
+  catch ( std::exception& ) { return false; }
 }
 
 void ThreadedSocketInitiator::addThread( int s, int t )
@@ -177,6 +177,7 @@ void* ThreadedSocketInitiator::socketThread( void* p )
   SessionID sessionID = threadStruct->sessionID;
   Dictionary dictionary = threadStruct->dictionary;
   delete threadStruct;
+  Log* log = Session::lookupSession( sessionID )->getLog();
 
   while ( !pInitiator->m_stop )
   {
@@ -184,12 +185,15 @@ void* ThreadedSocketInitiator::socketThread( void* p )
     short port = 0;
     pInitiator->getHost( sessionID, dictionary, address, port );
 
+    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert(port) );
     int socket = socket_createConnector( address.c_str(), port );    
     if ( socket < 0 )
     {
+      log->onEvent( "Connection failed" );
       process_sleep( pInitiator->m_reconnectInterval );
       continue;
     }
+    log->onEvent( "Connection succeeded" );
 
     pInitiator->addThread( socket, thread_self() );
 

@@ -62,19 +62,17 @@ namespace FIX
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings )
-throw( ConfigError& )
-    : Acceptor( application, factory, settings ),
-    m_port( 0 ), m_socket( 0 ), m_stop( false )
+  const SessionSettings& settings ) throw( ConfigError& )
+: Acceptor( application, factory, settings ),
+  m_port( 0 ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
   const SessionSettings& settings,
-  LogFactory& logFactory )
-throw( ConfigError& )
-    : Acceptor( application, factory, settings, logFactory ),
+  LogFactory& logFactory ) throw( ConfigError& )
+: Acceptor( application, factory, settings, logFactory ),
     m_port( 0 ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
 
@@ -83,8 +81,8 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   MessageStoreFactory& factory,
   const SessionSettings& settings,
   bool& threw, ConfigError& ex )
-    : Acceptor( application, factory, settings, threw, ex ),
-    m_port( 0 ), m_socket( 0 ), m_stop( false )
+: Acceptor( application, factory, settings, threw, ex ),
+  m_port( 0 ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
@@ -93,18 +91,23 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   const SessionSettings& settings,
   LogFactory& logFactory,
   bool& threw, ConfigError& ex )
-    : Acceptor( application, factory, settings, logFactory, threw, ex ),
-    m_port( 0 ), m_socket( 0 ), m_stop( false )
+: Acceptor( application, factory, settings, logFactory, threw, ex ),
+  m_port( 0 ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 { socket_term(); }
 
-bool ThreadedSocketAcceptor::onStart( const SessionSettings& s )
+void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
 {
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
   m_socket = socket_createAcceptor( m_port );
+  if( m_socket < 0 )
+    throw ConfigError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+}
 
+void ThreadedSocketAcceptor::onStart()
+{
   int socket = 0;
   while ( ( !m_stop && ( socket = socket_accept( m_socket ) ) >= 0 ) )
   {
@@ -118,7 +121,6 @@ bool ThreadedSocketAcceptor::onStart( const SessionSettings& s )
       delete pair;
     addThread( socket, thread );
   }
-  return true;
 }
 
 void ThreadedSocketAcceptor::onStop()

@@ -142,7 +142,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doStart
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
-  getCPPThreadedSocketAcceptor( obj ) ->start();
+  try
+  {
+    getCPPThreadedSocketAcceptor( obj ) ->start();
+  }
+  catch( FIX::ConfigError &e )
+  {
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+  }
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doStop

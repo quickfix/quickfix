@@ -51,6 +51,6 @@ package org.quickfix;
 
 public interface Initiator {
 
-    void start();
+    void start() throws ConfigError;
     void stop();
 }

@@ -83,7 +83,8 @@ private:
   typedef std::map < int, SocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
-  bool onStart( const SessionSettings& );
+  void onInitialize( const SessionSettings& ) throw ( ConfigError& );
+  void onStart();
   void onStop();
 
   bool doConnect( const SessionID&, const Dictionary& d );

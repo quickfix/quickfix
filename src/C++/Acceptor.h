@@ -93,7 +93,7 @@ public:
   virtual ~Acceptor();
 
   /// Start acceptor.
-  bool start();
+  void start() throw ( ConfigError& );
   /// Stop acceptor.
   void stop() { onStop(); }
 
@@ -109,8 +109,10 @@ public:
 private:
   void initialize() throw ( ConfigError& );
 
+  /// Implemented to initialize acceptor
+  virtual void onInitialize( const SessionSettings& ) throw ( ConfigError& ) = 0;
   /// Implemented to start listening for connections.
-  virtual bool onStart( const SessionSettings& ) = 0;
+  virtual void onStart() = 0;
   /// Implemented to stop a running acceptor.
   virtual void onStop() = 0;
 
