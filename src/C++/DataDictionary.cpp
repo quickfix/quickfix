@@ -377,7 +377,7 @@ int DataDictionary::lookupXMLFieldNumber
 
   NameToField::iterator i = m_names.find(name);
   if( i == m_names.end() )
-    throw ConfigError("Field not defined in fields section");
+    throw ConfigError("Field " + name + " not defined in fields section");
   return i->second;
 
   QF_STACK_POP
@@ -425,6 +425,10 @@ int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       DD.addField(field);
       DD.addMsgField(msgtype, field);
     }
+    if(pComponentFieldNode->getName() == "group")
+    {
+      addXMLGroup(pDoc, pComponentFieldNode.get(), msgtype, DD);
+    }
     RESET_AUTO_PTR(pComponentFieldNode,
       pComponentFieldNode->getNextSiblingNode());
   }
@@ -442,7 +446,6 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
   std::string name;
   if(!attrs->get("name", name))
     throw ConfigError("No name given to group");
-
   int group = lookupXMLFieldNumber( pDoc, name );
   int delim = 0;
   int field = 0;
