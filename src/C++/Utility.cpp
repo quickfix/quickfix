@@ -85,7 +85,7 @@ void socket_term()
 #endif
 }
 
-int socket_createAcceptor( int port, bool reuse = false )
+int socket_createAcceptor( int port, bool reuse )
 {
   int socket = ::socket( PF_INET, SOCK_STREAM, 0 );
   if ( socket < 0 ) return -1;
