@@ -19,6 +19,9 @@
       </UL>
     </LI>
     <LI>
+      <A HREF="#Generating MySQL Database">Generating MySQL Database</A>
+    </LI>
+    <LI>
       <A HREF="#Testing QuickFIX">Testing QuickFIX</A>
       <UL>
         <LI><A HREF="#Windows">Windows</A></LI>
@@ -51,12 +54,12 @@
           <td align=center><B>Windows</B></td>
           <td align=center>Run</td>
           <td>
-            <a href="http://msdn.microsoft.com/XML/XMLDownloads/default.aspx">MSXML3</a>
+            <a href="http://msdn.microsoft.com/XML/XMLDownloads/default.aspx">MSXML3</a> or libxml2
           </td>
           <td align=center>Build</td>
           <td>
             <a href="http://msdn.microsoft.com/visualc/">Microsoft Visual C++</a><br>
-            <a href="http://msdn.microsoft.com/downloads/default.asp?url=/downloads/sample.asp?url=/MSDN-FILES/027/001/772/msdncompositedoc.xml&frame=true">MSXML3</a>
+            <a href="http://msdn.microsoft.com/downloads/default.asp?url=/downloads/sample.asp?url=/MSDN-FILES/027/001/772/msdncompositedoc.xml&frame=true">MSXML3</a> or libxml2
           </td>
           <td align=center>Test</td>
           <td>
@@ -94,7 +97,7 @@
             </td>
             <td align=center>Build</td>
             <td>
-              <a href="http://www.gnu.org/software/gcc/releases.html">gcc</a><br>
+              <a href="http://www.gnu.org/software/gcc/releases.html">gcc</a> or SunPRO<br>
               gcc-c++<br>
               glibc-devel<br>
               <a href="http://xmlsoft.org/downloads.html">libxml2-devel</a><br>
@@ -175,7 +178,7 @@
       and <I>include</I> directories they are placed into by the build is one option.
     </p>
     <p>
-      Compile time options are controlled from the <I>config_windows.h</I> file in the <I>src</I>
+      Compile time options are controlled from the <B>config_windows.h</B> file in the <I>src</I>
       directory. The following options are supported:<br><br>
       <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT>
       Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
@@ -255,6 +258,22 @@
     </p>
 
     <hr>
+    <A NAME="Generating MySQL Database">
+    <H2>Generating MySQL Database</H2>
+    <p>
+      First, make sure you have compiled QuickFIX with MySQL support.  If you have not done this, 
+      go back to the build instructions for your system and follow the instructions.  Also, make
+      sure you have installed MySQL and have the deamon running.
+    </p>
+    <p>
+      Everything needed to generate your MySQL database is in the <I>src/sql</I> directory. Here,
+      there are the script and batch files <B>create_mysql.sh</B> and <B>create_mysql.bat</B>.
+      These scripts will work on a newly installed mysql database with default permisions. The
+      scripts will try to generate the database using the root MySQL account with no password. If
+      you need to use a different account or need a password, you will have to edit the script.
+      To select a different user, simply change 'root' to another user.  To add a password,
+      use pass the -p <password> option after the username.
+    </p>
     <A NAME="Testing QuickFIX"/>
     <H2>Testing QuickFIX</H2>
     <p>
