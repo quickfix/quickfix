@@ -62,6 +62,42 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
   QF_STACK_CATCH
 }
 
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Ljava_lang_String_2
+( JNIEnv *pEnv, jclass cls, jobject msg, jstring qualifier )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(msg) ) return false;
+
+  JVM::set( pEnv );
+  JVMObject jmessage( msg );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+
+  FIX::BeginString beginString;
+  FIX::SenderCompID senderCompID;
+  FIX::TargetCompID targetCompID;
+
+  try
+  {
+    if( isNull(qualifier) )
+    {
+      return FIX::Session::sendToTarget( *pMessage );
+    }
+    else
+    {
+      const char* uqualifier = pEnv->GetStringUTFChars( qualifier, 0 );
+      return FIX::Session::sendToTarget( *pMessage, uqualifier );
+      pEnv->ReleaseStringUTFChars( qualifier, uqualifier );
+    }
+  }
+  catch( FIX::SessionNotFound& e )
+  {
+    throwNew( "Lquickfix/SessionNotFound;", e.what() );
+    return false;
+  }
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Lquickfix_SessionID_2
 ( JNIEnv *pEnv, jclass cls, jobject msg, jobject sID )
 { QF_STACK_TRY
@@ -112,8 +148,55 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
   try
   {
     return FIX::Session::sendToTarget( *pMessage,
-	                                FIX::SenderCompID( senderCompID ),
-		                        FIX::TargetCompID( targetCompID ) );
+                                       FIX::SenderCompID( senderCompID ),
+                                       FIX::TargetCompID( targetCompID ) );
+  }
+  catch( FIX::SessionNotFound& e )
+  {
+    throwNew( "Lquickfix/SessionNotFound;", e.what() );
+    return false;
+  }
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2
+( JNIEnv *pEnv, jclass cls, jobject msg, jstring sender, jstring target, jstring qualifier )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(msg) ) return false;
+  if( isNullAndThrow(sender) ) return false;
+  if( isNullAndThrow(target) ) return false;
+
+  JVM::set( pEnv );
+  JVMObject jmessage( msg );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+
+  const char* usender = pEnv->GetStringUTFChars( sender, 0 );
+  std::string senderCompID( usender );
+  pEnv->ReleaseStringUTFChars( sender, usender );
+
+  const char* utarget = pEnv->GetStringUTFChars( target, 0 );
+  std::string targetCompID( utarget );
+  pEnv->ReleaseStringUTFChars( target, utarget );
+
+  try
+  {
+    if( isNull(qualifier) )
+    {
+      return FIX::Session::sendToTarget( *pMessage,
+	                                  FIX::SenderCompID( senderCompID ),
+		                          FIX::TargetCompID( targetCompID ) );
+    }
+    else
+    {
+      const char* uqualifier = pEnv->GetStringUTFChars( qualifier, 0 );
+      return FIX::Session::sendToTarget( *pMessage,
+	                                  FIX::SenderCompID( senderCompID ),
+					  FIX::TargetCompID( targetCompID ),
+                                          uqualifier );
+      pEnv->ReleaseStringUTFChars( qualifier, uqualifier );
+    }
   }
   catch( FIX::SessionNotFound& e )
   {

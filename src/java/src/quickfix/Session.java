@@ -29,6 +29,9 @@ public class Session {
     
     public static native boolean sendToTarget(Message message)
 	throws SessionNotFound;
+
+    public static native boolean sendToTarget(Message message, String qualifier)
+	throws SessionNotFound;
     
     public static native boolean sendToTarget
 	(Message message, SessionID sessionID)
@@ -36,6 +39,11 @@ public class Session {
     
     public static native boolean sendToTarget
 	(Message message, String senderCompID, String targetCompID)
+	throws SessionNotFound;
+
+    public static native boolean sendToTarget
+	(Message message, String senderCompID, String targetCompID,
+         String qualifier)
 	throws SessionNotFound;
     
     public static native Session lookupSession(SessionID sessionID);

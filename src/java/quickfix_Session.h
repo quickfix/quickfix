@@ -18,6 +18,14 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 /*
  * Class:     quickfix_Session
  * Method:    sendToTarget
+ * Signature: (Lquickfix/Message;Ljava/lang/String;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Ljava_lang_String_2
+  (JNIEnv *, jclass, jobject, jstring);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    sendToTarget
  * Signature: (Lquickfix/Message;Lquickfix/SessionID;)Z
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Lquickfix_SessionID_2
@@ -30,6 +38,14 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2
   (JNIEnv *, jclass, jobject, jstring, jstring);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    sendToTarget
+ * Signature: (Lquickfix/Message;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2Ljava_lang_String_2
+  (JNIEnv *, jclass, jobject, jstring, jstring, jstring);
 
 /*
  * Class:     quickfix_Session

@@ -71,15 +71,20 @@ public:
   const DataDictionary& getDataDictionary() const 
   { return m_dataDictionary; }
 
-  static bool sendToTarget( Message& )
+  static bool sendToTarget( Message& message, 
+                            const std::string& qualifier = "" )
   throw( SessionNotFound ); 
-  static bool sendToTarget( Message&, const SessionID& )
+  static bool sendToTarget( Message& message, const SessionID& sessionID )
   throw( SessionNotFound );
-  static bool sendToTarget( Message&, const SenderCompID&,
-                            const TargetCompID& )
+  static bool sendToTarget( Message&, 
+                            const SenderCompID& senderCompID,
+                            const TargetCompID& targetCompID,
+                            const std::string& qualifier = "" )
   throw( SessionNotFound );
-  static bool sendToTarget( Message&, const std::string&,
-                            const std::string& )
+  static bool sendToTarget( Message& message, 
+                            const std::string& senderCompID,
+                            const std::string& targetCompID,
+                            const std::string& qualifier = "" )
   throw( SessionNotFound );
 
   static bool doesSessionExist( const SessionID& );

@@ -1203,13 +1203,13 @@ void Session::next( const Message& message )
   QF_STACK_POP
 }
 
-bool Session::sendToTarget( Message& message )
+bool Session::sendToTarget( Message& message, const std::string& qualifier )
 throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   try
   {
-    SessionID sessionID = message.getSessionID();
+    SessionID sessionID = message.getSessionID( qualifier );
     Session* pSession = lookupSession( sessionID );
     if ( !pSession ) throw SessionNotFound();
     bool result = pSession->send( message );
@@ -1231,25 +1231,28 @@ throw( SessionNotFound )
 }
 
 bool Session::sendToTarget
-( Message& message, const SenderCompID& senderCompID,
-  const TargetCompID& targetCompID )
+( Message& message, 
+  const SenderCompID& senderCompID,
+  const TargetCompID& targetCompID,
+  const std::string& qualifier )
 throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   message.getHeader().setField( senderCompID );
   message.getHeader().setField( targetCompID );
-  return sendToTarget( message );
+  return sendToTarget( message, qualifier );
 
   QF_STACK_POP
 }
 
 bool Session::sendToTarget
-( Message& message, const std::string& sender, const std::string& target )
+( Message& message, const std::string& sender, const std::string& target,
+  const std::string& qualifier )
 throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   return sendToTarget( message, SenderCompID( sender ),
-                       TargetCompID( target ) );
+                       TargetCompID( target ), qualifier );
 
   QF_STACK_POP
 }

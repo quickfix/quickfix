@@ -215,7 +215,8 @@ public:
                               const DataDictionary* pD = 0 );
 
   /// Returns the session ID of the intended recipient
-  SessionID getSessionID() throw( FieldNotFound );
+  SessionID getSessionID( const std::string& qualifier = "" ) 
+  throw( FieldNotFound );
   /// Sets the session ID of the intended recipient
   void setSessionID( const SessionID& sessionID );
 
