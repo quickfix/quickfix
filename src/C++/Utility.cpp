@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Utility.h"
 
@@ -60,13 +61,13 @@
 #include <sys/conf.h>
 #endif
 #include <math.h>
-
 #include <stdio.h>
 
 namespace FIX
 {
 void socket_init()
-{
+{ QF_STACK_PUSH(socket_init)
+
 #ifdef _MSC_VER
   WORD version = MAKEWORD( 2, 2 );
   WSADATA data;
@@ -76,17 +77,23 @@ struct sigaction sa;
   sa.sa_handler = SIG_IGN;
   sigaction( SIGPIPE, &sa, 0 );
 #endif
+
+  QF_STACK_POP
 }
 
 void socket_term()
-{
+{ QF_STACK_PUSH(socket_term)
+
 #ifdef _MSC_VER
   WSACleanup();
 #endif
-}
 
-int socket_createAcceptor( int port, bool reuse )
-{
+  QF_STACK_POP
+} 
+
+int socket_createAcceptor(int port, bool reuse)
+{ QF_STACK_PUSH(socket_createAcceptor)
+
   int socket = ::socket( PF_INET, SOCK_STREAM, 0 );
   if ( socket < 0 ) return -1;
 
@@ -106,10 +113,13 @@ int socket_createAcceptor( int port, bool reuse )
   result = listen( socket, SOMAXCONN );
   if ( result < 0 ) return -1;
   return socket;
-}
+
+  QF_STACK_POP
+} 
 
 int socket_createConnector( const char* address, int port )
-{
+{ QF_STACK_PUSH(socket_createConnector)
+
   int socket = ::socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
 
   sockaddr_in addr;
@@ -126,48 +136,63 @@ int socket_createConnector( const char* address, int port )
     socket_close( socket );
     return -1;
   }
+
+  QF_STACK_POP
 }
 
 int socket_accept( int s )
-{
+{ QF_STACK_PUSH(socket_accept)
+
   if ( !socket_isValid( s ) ) return -1;
   return accept( s, 0, 0 );
+
+  QF_STACK_POP
 }
 
 bool socket_send( int s, const char* msg, int length )
-{
+{ QF_STACK_PUSH(socket_send)
+
   return send( s, msg, length, 0 ) !=
 #ifdef _MSC_VER
-         SOCKET_ERROR;
+  SOCKET_ERROR;
 #else 
-- 1;
+  -1;
 #endif
-}
+
+  QF_STACK_POP
+} 
 
 void socket_close( int s )
-{
+{ QF_STACK_PUSH(socket_close)
+
   shutdown( s, 2 );
 #ifdef _MSC_VER
   closesocket( s );
 #else
   close( s );
 #endif
-}
+
+  QF_STACK_POP
+} 
 
 bool socket_fionread( int s, int& bytes )
-{
+{ QF_STACK_PUSH(socket_fionread)
+
   bytes = 0;
 #if defined(_MSC_VER) 
   return ::ioctlsocket( s, FIONREAD, &( ( unsigned long& ) bytes ) ) == 0;
 #elif defined(USING_STREAMS) 
-return ::ioctl( s, I_NREAD, &bytes ) >= 0;
+  return ::ioctl( s, I_NREAD, &bytes ) >= 0;
 #else 
-return ::ioctl( s, FIONREAD, &bytes ) == 0;
+  return ::ioctl( s, FIONREAD, &bytes ) == 0;
 #endif
-}
+
+  QF_STACK_POP
+} 
 
 bool socket_disconnected( int s )
-{
+{ QF_STACK_PUSH(socket_disconnected)
+
   unsigned long read;
 #ifdef _MSC_VER
   ioctlsocket( s, FIONREAD, &read );
@@ -177,10 +202,13 @@ bool socket_disconnected( int s )
   ioctl( s, FIONREAD, &read );
 #endif 
   return read == 0;
-}
+
+  QF_STACK_POP
+} 
 
 void socket_setsockopt( int s, int opt )
-{
+{ QF_STACK_PUSH(socket_setsockopt)
+
 #ifdef _MSC_VER
   BOOL optval = TRUE;
   ::setsockopt( s, SOL_SOCKET, opt,
@@ -190,37 +218,49 @@ int optval = 1;
   ::setsockopt( s, SOL_SOCKET, opt,
                 &optval, sizeof( optval ) );
 #endif
-}
+
+  QF_STACK_POP
+} 
 
 bool socket_isValid( int socket )
-{
+{ QF_STACK_PUSH(socket_isValid)
+
 #ifdef _MSC_VER 
   return socket != INVALID_SOCKET;
 #else 
-return socket >= 0;
+  return socket >= 0;
 #endif
-}
+
+  QF_STACK_POP
+} 
 
 #ifndef _MSC_VER
 bool socket_isBad( int s )
-{
+{ QF_STACK_PUSH(socket_isBad)
+
   struct stat buf;
   fstat( s, &buf );
   return errno == EBADF;
+
+  QF_STACK_POP
 }
 #endif
 
 void socket_invalidate( int& socket )
-{
+{ QF_STACK_PUSH(socket_invalidate)
+
 #ifdef _MSC_VER
   socket = INVALID_SOCKET;
 #else
   socket = -1;
 #endif
+
+  QF_STACK_POP
 }
 
 const char* socket_hostname( const char* name )
-{
+{ QF_STACK_PUSH(socket_hostname)
+
   struct hostent * buf;
   struct in_addr **paddr;
   struct in_addr saddr;
@@ -233,9 +273,11 @@ const char* socket_hostname( const char* name )
 
   paddr = ( struct in_addr ** ) buf->h_addr_list;
   return inet_ntoa( **paddr );
+
+  QF_STACK_POP
 }
 
-bool thread_spawn( void*( *func ) ( void* ), void* var, int& thread )
+bool thread_spawn( void*( *func ) ( void* ), void* var, unsigned& thread )
 {
 #ifdef _MSC_VER
   int result = 0;
@@ -250,31 +292,34 @@ bool thread_spawn( void*( *func ) ( void* ), void* var, int& thread )
 }
 
 bool thread_spawn( void*( *func ) ( void* ), void* var )
-{
-  int thread = 0;
+{ unsigned thread = 0;
   return thread_spawn( func, var, thread );
 }
 
-void thread_join( int thread )
-{
+void thread_join( unsigned thread )
+{ QF_STACK_PUSH(thread_join)
+
 #ifdef _MSC_VER
   WaitForSingleObject( ( void* ) thread, INFINITE );
 #else
-pthread_join( ( pthread_t ) thread, 0 );
+  pthread_join( ( pthread_t ) thread, 0 );
 #endif
+
+  QF_STACK_POP
 }
 
-int thread_self()
+unsigned thread_self()
 {
 #ifdef _MSC_VER 
-  return ( int ) GetCurrentThread();
+  return ( unsigned ) GetCurrentThread();
 #else 
-  return ( int ) pthread_self();
+  return ( unsigned ) pthread_self();
 #endif
 }
 
 void process_sleep( double s )
-{
+{ QF_STACK_PUSH(process_sleep)
+
 #ifdef _MSC_VER
   Sleep( ( long ) s * 1000 );
 #else
@@ -288,22 +333,33 @@ void process_sleep( double s )
   nanosleep(&time, actual);*/
   sleep( ( long ) s );
 #endif
+
+  QF_STACK_POP
 }
 
 #ifdef _MSC_VER
 void file_mkdir( const char* path, int mode )
-{ _mkdir( path ); }
+{ QF_STACK_PUSH(file_mkdir)
+  _mkdir( path ); 
+  QF_STACK_POP
+}
 #else
 void file_mkdir( const char* path, mode_t mode )
-{ mkdir( path, mode ); }
+{ QF_STACK_PUSH(file_mkdir)
+  mkdir( path, mode ); 
+  QF_STACK_POP
+}
 #endif
 
 void file_unlink( const char* path )
-{
+{ QF_STACK_PUSH(file_unlink)
+
 #ifdef _MSC_VER
   _unlink( path );
 #else
-unlink( path );
+  unlink( path );
 #endif
+
+  QF_STACK_POP
 }
 }

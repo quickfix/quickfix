@@ -58,6 +58,7 @@
 #include "JVM.h"
 #include "org_quickfix_MySQLStore.h"
 #include "quickfix/include/MySQLStore.h"
+#include "quickfix/include/CallStack.h"
 #include "Conversions.h"
 #include "JavaMessageStore.h"
 
@@ -67,50 +68,86 @@ JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_create
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_destroy
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_destroy( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_destroy( pEnv, obj );
+  QF_STACK_CALL
+}
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_MySQLStore_set0
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
-{ return JavaMessageStore_set0( pEnv, obj, seq, message ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_set0( pEnv, obj, seq, message ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_MySQLStore_get0__ILjava_lang_String_2
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
-{ return JavaMessageStore_get0__ILjava_lang_String_2( pEnv, obj, seq, message ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_get0__ILjava_lang_String_2( pEnv, obj, seq, message ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_get0__IILjava_util_Collection_2
 ( JNIEnv *pEnv, jobject obj, jint start, jint end, jobject array )
-{ JavaMessageStore_get0__IILjava_util_Collection_2( pEnv, obj, start, end, array ); }
+{ QF_STACK_TRY
+  JavaMessageStore_get0__IILjava_util_Collection_2( pEnv, obj, start, end, array ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT jint JNICALL Java_org_quickfix_MySQLStore_getNextSenderMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ return JavaMessageStore_getNextSenderMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_getNextSenderMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT jint JNICALL Java_org_quickfix_MySQLStore_getNextTargetMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ return JavaMessageStore_getNextTargetMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_getNextTargetMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_setNextSenderMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj, jint seq )
-{ JavaMessageStore_setNextSenderMsgSeqNum0( pEnv, obj, seq ); }
+{ QF_STACK_TRY
+  JavaMessageStore_setNextSenderMsgSeqNum0( pEnv, obj, seq ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_setNextTargetMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj, jint seq )
-{ JavaMessageStore_setNextTargetMsgSeqNum0( pEnv, obj, seq ); }
+{ QF_STACK_TRY
+  JavaMessageStore_setNextTargetMsgSeqNum0( pEnv, obj, seq ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_incrNextSenderMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_incrNextSenderMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_incrNextSenderMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_incrNextTargetMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_incrNextTargetMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_incrNextTargetMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLStore_getCreationTime0
 ( JNIEnv *pEnv, jobject obj )
-{ return JavaMessageStore_getCreationTime0( pEnv, obj ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_getCreationTime0( pEnv, obj ); 
+  QF_STACK_CALL
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStore_reset0
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_reset0( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_reset0( pEnv, obj ); 
+  QF_STACK_CALL
+}
 
 #endif //HAVE_MYSQL

@@ -53,13 +53,14 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "MessageSorters.h"
 
 namespace FIX
 {
 message_order::message_order( int first, ... )
-    : m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
+: m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
 {
   int field = first;
   int size = 0;
@@ -84,7 +85,7 @@ message_order::message_order( int first, ... )
 }
 
 message_order::message_order( const int order[] )
-    : m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
+: m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
 {
   int size = 0;
   while( order[size] != 0 ) { ++size; }
@@ -92,7 +93,8 @@ message_order::message_order( const int order[] )
 }
 
 message_order& message_order::operator=( const message_order& rhs )
-{
+{ QF_STACK_PUSH(message_order::operator=)
+
   m_mode = rhs.m_mode;
   m_delim = rhs.m_delim;
   m_largest = rhs.m_largest;
@@ -103,10 +105,13 @@ message_order& message_order::operator=( const message_order& rhs )
     memcpy( m_groupOrder, rhs.m_groupOrder, ( m_largest + 1 ) * sizeof( int ) );
   }
   return *this;
+
+  QF_STACK_POP
 }
 
 void message_order::setOrder( int size, const int order[] )
-{
+{ QF_STACK_PUSH(message_order::operator=)
+
   if(size < 1) return;
   m_largest = m_delim = order[0];
   
@@ -127,5 +132,7 @@ void message_order::setOrder( int size, const int order[] )
   for ( i = 1; i <= size; ++i )
     m_groupOrder[ fields[ i ] ] = i;
   delete [] fields;
+
+  QF_STACK_POP
 }
 }

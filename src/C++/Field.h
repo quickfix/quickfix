@@ -77,7 +77,7 @@ class FieldBase
   friend class Message;
 public:
   FieldBase( int field, const std::string& string )
-: m_field( field ), m_length( 0 ), m_total( 0 )
+  : m_field( field ), m_length( 0 ), m_total( 0 )
   {
     std::stringstream stream;
     stream << field << "=" << string << '\001';

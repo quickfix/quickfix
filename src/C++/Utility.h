@@ -99,10 +99,10 @@ bool socket_isBad( int s );
 void socket_invalidate( int& socket );
 const char* socket_hostname( const char* name );
 
-bool thread_spawn( void*( *func ) ( void* ), void* var, int& thread );
+bool thread_spawn( void*( *func ) ( void* ), void* var, unsigned& thread );
 bool thread_spawn( void*( *func ) ( void* ), void* var );
-void thread_join( int thread );
-int thread_self();
+void thread_join( unsigned thread );
+unsigned thread_self();
 
 void process_sleep( double s );
 

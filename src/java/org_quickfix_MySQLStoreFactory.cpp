@@ -59,11 +59,13 @@
 #include "org_quickfix_MySQLStoreFactory.h"
 #include "quickfix/include/MySQLStore.h"
 #include "quickfix/include/SessionSettings.h"
+#include "quickfix/include/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStoreFactory_create__
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject object( obj );
 
@@ -73,21 +75,27 @@ JNIEXPORT void JNICALL Java_org_quickfix_MySQLStoreFactory_create__
 
   FIX::MessageStoreFactory* pFactory = new FIX::MySQLStoreFactory( *pSettings );
   object.setInt( "cppPointer", ( int ) pFactory );
+
+  QF_STACK_CATC
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStoreFactory_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MySQLStoreFactory* pFactory
   = ( FIX::MySQLStoreFactory* ) jobject.getInt( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATC
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLStoreFactory_create__Lorg_quickfix_SessionID_2
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobj( obj );
   JVMObject jsession( sessionID );
@@ -114,6 +122,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLStoreFactory_create__Lorg_quick
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
   jobject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
   return result;
+
+  QF_STACK_CATC
 }
 
 #endif //HAVE_MYSQL

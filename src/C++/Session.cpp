@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Session.h"
 #include "Values.h"
@@ -71,15 +72,15 @@ Session::Session( Application& application,
                   const UtcTimeOnly& startTime,
                   const UtcTimeOnly& endTime,
                   int heartBtInt, LogFactory* pLogFactory )
-    : m_application( application ),
-    m_sessionID( sessionID ),
-    m_startTime( startTime ), m_endTime( endTime ),
-    m_checkLatency( true ), m_maxLatency( 120 ),
-    m_resetOnLogout( false ), m_resetOnDisconnect( false ),
-    m_dataDictionary( dataDictionary ),
-    m_messageStoreFactory( messageStoreFactory ),
-    m_pLogFactory( pLogFactory ),
-    m_pResponder( 0 )
+: m_application( application ),
+  m_sessionID( sessionID ),
+  m_startTime( startTime ), m_endTime( endTime ),
+  m_checkLatency( true ), m_maxLatency( 120 ),
+  m_resetOnLogout( false ), m_resetOnDisconnect( false ),
+  m_dataDictionary( dataDictionary ),
+  m_messageStoreFactory( messageStoreFactory ),
+  m_pLogFactory( pLogFactory ),
+  m_pResponder( 0 )
 {
   m_state.heartBtInt( heartBtInt );
   m_state.initiate( heartBtInt != 0 );
@@ -96,15 +97,17 @@ Session::Session( Application& application,
 }
 
 Session::~Session()
-{
+{ QF_STACK_IGNORE_BEGIN  
   removeSession( *this );
   m_messageStoreFactory.destroy( m_state.store() );
   if ( m_pLogFactory && m_state.log() )
     m_pLogFactory->destroy( m_state.log() );
+  QF_STACK_IGNORE_END
 }
 
 void Session::fill( Header& header )
-{
+{ QF_STACK_PUSH(Session::fill)
+
   UtcTimeStamp now;
   m_state.lastSentTime( now );
   header.setField( m_sessionID.getBeginString() );
@@ -112,10 +115,13 @@ void Session::fill( Header& header )
   header.setField( m_sessionID.getTargetCompID() );
   header.setField( MsgSeqNum( getExpectedSenderNum() ) );
   header.setField( SendingTime() );
+
+  QF_STACK_POP
 }
 
 void Session::next()
-{
+{ QF_STACK_PUSH(Session::next)
+
   try
   {
     UtcTimeStamp now;
@@ -171,10 +177,13 @@ void Session::next()
     m_state.onEvent( "Error Reading/Writing in MessageStore" );
     disconnect();
   }
+
+  QF_STACK_POP
 }
 
 void Session::nextLogon( const Message& logon )
-{
+{ QF_STACK_PUSH(Session::nextLogon)
+
   if ( m_state.shouldSendLogon() )
   {
     m_state.onEvent( "Received logon response before sending request" );
@@ -216,25 +225,34 @@ void Session::nextLogon( const Message& logon )
 
   if ( isLoggedOn() )
     m_application.onLogon( m_sessionID );
+
+  QF_STACK_POP
 }
 
 void Session::nextHeartbeat( const Message& heartbeat )
-{
+{ QF_STACK_PUSH(Session::nextHeartbeat)
+
   if ( !verify( heartbeat ) ) return ;
   m_state.incrNextTargetMsgSeqNum();
   nextQueued();
+
+  QF_STACK_POP
 }
 
 void Session::nextTestRequest( const Message& testRequest )
-{
+{ QF_STACK_PUSH(Session::nextTestRequest)
+
   if ( !verify( testRequest ) ) return ;
   generateHeartbeat( testRequest );
   m_state.incrNextTargetMsgSeqNum();
   nextQueued();
+
+  QF_STACK_POP
 }
 
 void Session::nextLogout( const Message& logout )
-{
+{ QF_STACK_PUSH(Session::nextLogout)
+
   if ( !verify( logout, false, false ) ) return ;
   if ( !m_state.sentLogout() )
   {
@@ -248,17 +266,23 @@ void Session::nextLogout( const Message& logout )
   m_state.incrNextTargetMsgSeqNum();
   if ( m_resetOnLogout ) reset();
   disconnect();
+
+  QF_STACK_POP
 }
 
 void Session::nextReject( const Message& reject )
-{
+{ QF_STACK_PUSH(Session::nextReject)
+
   if ( !verify( reject ) ) return ;
   m_state.incrNextTargetMsgSeqNum();
   nextQueued();
+
+  QF_STACK_POP
 }
 
 void Session::nextSequenceReset( const Message& sequenceReset )
-{
+{ QF_STACK_PUSH(Session::nextSequenceReset)
+
   bool isGapFill = false;
   GapFillFlag gapFillFlag;
   if ( sequenceReset.isSetField( gapFillFlag ) )
@@ -274,7 +298,8 @@ void Session::nextSequenceReset( const Message& sequenceReset )
   {
     sequenceReset.getField( newSeqNo );
 
-    m_state.onEvent( "Received SequenceReset FROM: " + IntConvertor::convert( getExpectedTargetNum() ) +
+    m_state.onEvent( "Received SequenceReset FROM: " 
+		     + IntConvertor::convert( getExpectedTargetNum() ) +
                      " TO: " + IntConvertor::convert( newSeqNo ) );
 
     if ( newSeqNo > getExpectedTargetNum() )
@@ -282,10 +307,13 @@ void Session::nextSequenceReset( const Message& sequenceReset )
     else if ( newSeqNo < getExpectedTargetNum() )
       generateReject( sequenceReset, 5 );
   }
+  
+  QF_STACK_POP
 }
 
 void Session::nextResendRequest( const Message& resendRequest )
-{
+{ QF_STACK_PUSH(Session::nextResendRequest)
+
   if ( !verify( resendRequest, false, false ) ) return ;
   BeginSeqNo beginSeqNo;
   EndSeqNo endSeqNo;
@@ -293,7 +321,8 @@ void Session::nextResendRequest( const Message& resendRequest )
   resendRequest.getField( endSeqNo );
   std::vector < std::string > messages;
 
-  m_state.onEvent( "Received ResendRequest FROM: " + IntConvertor::convert( beginSeqNo ) +
+  m_state.onEvent( "Received ResendRequest FROM: " 
+		   + IntConvertor::convert( beginSeqNo ) +
                    " TO: " + IntConvertor::convert( endSeqNo ) );
 
   std::string beginString = m_sessionID.getBeginString();
@@ -328,7 +357,8 @@ void Session::nextResendRequest( const Message& resendRequest )
       {
         if ( begin ) generateSequenceReset( begin, msgSeqNum );
         send( msg.toString() );
-        m_state.onEvent( "Resending Message: " + IntConvertor::convert( msgSeqNum ) );
+        m_state.onEvent( "Resending Message: " 
+			 + IntConvertor::convert( msgSeqNum ) );
         begin = 0;
       }
       else
@@ -351,17 +381,23 @@ void Session::nextResendRequest( const Message& resendRequest )
   }
 
   m_state.incrNextTargetMsgSeqNum();
+
+  QF_STACK_POP
 }
 
 bool Session::send( Message& message )
-{
+{ QF_STACK_PUSH(Session::send)
+
   message.getHeader().removeField( FIELD::PossDupFlag );
   message.getHeader().removeField( FIELD::OrigSendingTime );
   return sendRaw( message );
+
+  QF_STACK_POP
 }
 
 bool Session::sendRaw( Message& message, int num )
-{
+{ QF_STACK_PUSH(Session::nextSequenceReset)
+
   Locker l( m_mutex );
 
   try
@@ -406,17 +442,23 @@ bool Session::sendRaw( Message& message, int num )
   }
   catch ( IOException& )
   { return false; }
+
+  QF_STACK_POP
 }
 
 bool Session::send( const std::string string )
-{
+{ QF_STACK_PUSH(Session::send)
+
   if ( !m_pResponder ) return false;
   m_state.onOutgoing( string );
   return m_pResponder->send( string );
+
+  QF_STACK_POP
 }
 
 void Session::disconnect()
-{
+{ QF_STACK_PUSH(Session::disconnect)
+
   if ( m_pResponder )
   {
     m_state.onEvent( "Disconnecting" );
@@ -435,10 +477,13 @@ void Session::disconnect()
   m_state.clearQueue();
   if ( m_resetOnDisconnect && m_state.connected() )
   { m_state.connected( false ); reset(); }
+
+  QF_STACK_POP
 }
 
 bool Session::resend( Message& message )
-{
+{ QF_STACK_PUSH(Session::resend)
+
   SendingTime sendingTime;
   MsgSeqNum msgSeqNum;
   Header& header = message.getHeader();
@@ -456,10 +501,13 @@ bool Session::resend( Message& message )
   }
   catch ( DoNotSend& )
   { return false; }
+
+  QF_STACK_POP
 }
 
 void Session::generateLogon()
-{
+{ QF_STACK_PUSH(Session::generateLogon)
+
   Message logon;
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
@@ -470,10 +518,13 @@ void Session::generateLogon()
   m_state.testRequest( 0 );
   m_state.sentLogon( true );
   sendRaw( logon );
+
+  QF_STACK_POP
 }
 
 void Session::generateLogon( const Message& aLogon )
-{
+{ QF_STACK_PUSH(Session::generateLogon)
+
   Message logon;
   EncryptMethod encryptMethod;
   HeartBtInt heartBtInt;
@@ -484,10 +535,13 @@ void Session::generateLogon( const Message& aLogon )
   fill( logon.getHeader() );
   sendRaw( logon );
   m_state.sentLogon( true );
+
+  QF_STACK_POP
 }
 
 void Session::generateResendRequest( const MsgSeqNum& msgSeqNum )
-{
+{ QF_STACK_PUSH(Session::generateResendRequest)
+
   Message resendRequest;
   BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
   EndSeqNo endSeqNo( msgSeqNum - 1 );
@@ -496,14 +550,17 @@ void Session::generateResendRequest( const MsgSeqNum& msgSeqNum )
   resendRequest.setField( endSeqNo );
   fill( resendRequest.getHeader() );
   sendRaw( resendRequest );
-  m_state.onEvent( "Sent ResendRequest FROM: " + IntConvertor::convert( beginSeqNo ) +
+  m_state.onEvent( "Sent ResendRequest FROM: " 
+		   + IntConvertor::convert( beginSeqNo ) +
                    " TO: " + IntConvertor::convert( endSeqNo ) );
 
+  QF_STACK_POP
 }
 
 void Session::generateSequenceReset
 ( int beginSeqNo, int endSeqNo )
-{
+{ QF_STACK_PUSH(Session::generateSequenceReset)
+
   Message sequenceReset;
   NewSeqNo newSeqNo( endSeqNo );
   sequenceReset.getHeader().setField( MsgType( "4" ) );
@@ -514,19 +571,26 @@ void Session::generateSequenceReset
   sequenceReset.getHeader().setField( MsgSeqNum( beginSeqNo ) );
   sequenceReset.setField( GapFillFlag( true ) );
   sendRaw( sequenceReset, beginSeqNo );
-  m_state.onEvent( "Sent SequenceReset TO: " + IntConvertor::convert( newSeqNo ) );
+  m_state.onEvent( "Sent SequenceReset TO: " 
+		   + IntConvertor::convert( newSeqNo ) );
+
+  QF_STACK_POP
 }
 
 void Session::generateHeartbeat()
-{
+{ QF_STACK_PUSH(Session::generateHeartbeat)
+
   Message heartbeat;
   heartbeat.getHeader().setField( MsgType( "0" ) );
   fill( heartbeat.getHeader() );
   sendRaw( heartbeat );
+  
+  QF_STACK_POP
 }
 
 void Session::generateHeartbeat( const Message& testRequest )
-{
+{ QF_STACK_PUSH(Session::generateHeartbeat)
+
   Message heartbeat;
   heartbeat.getHeader().setField( MsgType( "0" ) );
   fill( heartbeat.getHeader() );
@@ -539,10 +603,13 @@ void Session::generateHeartbeat( const Message& testRequest )
   catch ( FieldNotFound& ) {}
 
   sendRaw( heartbeat );
+
+  QF_STACK_POP
 }
 
 void Session::generateTestRequest( const std::string& id )
-{
+{ QF_STACK_PUSH(Session::generateTestRequest)
+
   Message testRequest;
   testRequest.getHeader().setField( MsgType( "1" ) );
   fill( testRequest.getHeader() );
@@ -550,10 +617,13 @@ void Session::generateTestRequest( const std::string& id )
   testRequest.setField( testReqID );
 
   sendRaw( testRequest );
+
+  QF_STACK_POP
 }
 
 void Session::generateReject( const Message& message, int err, int field )
-{
+{ QF_STACK_PUSH(Session::generateReject)
+
   std::string beginString = m_sessionID.getBeginString();
 
   Message reject;
@@ -573,8 +643,9 @@ void Session::generateReject( const Message& message, int err, int field )
   if ( beginString >= FIX::BeginString_FIX42 )
   {
     reject.setField( RefMsgType( msgType ) );
-    if ( (beginString == FIX::BeginString_FIX42 && err <= SessionRejectReason_INVALID_MSGTYPE)
-       || beginString > FIX::BeginString_FIX42 )
+    if ( (beginString == FIX::BeginString_FIX42 
+	  && err <= SessionRejectReason_INVALID_MSGTYPE)
+	 || beginString > FIX::BeginString_FIX42 )
     {
       reject.setField( SessionRejectReason( err ) );
     }
@@ -627,16 +698,20 @@ void Session::generateReject( const Message& message, int err, int field )
   else if ( reason )
   {
     populateRejectReason( reject, *reason );
-    m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected: " + *reason );
+    m_state.onEvent( "Message " + msgSeqNum.getString() 
+		     + " Rejected: " + *reason );
   }
   else
     m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected" );
 
   sendRaw( reject );
+
+  QF_STACK_POP
 }
 
 void Session::generateReject( const Message& message, const std::string& str )
-{
+{ QF_STACK_PUSH(Session::generateReject)
+
   std::string beginString = m_sessionID.getBeginString();
 
   Message reject;
@@ -659,11 +734,15 @@ void Session::generateReject( const Message& message, const std::string& str )
 
   reject.setField( Text( str ) );
   sendRaw( reject );
-  m_state.onEvent( "Rejecting Message: " + IntConvertor::convert( msgSeqNum ) );
+  m_state.onEvent( "Rejecting Message: " 
+		   + IntConvertor::convert( msgSeqNum ) );
+
+  QF_STACK_POP
 }
 
 void Session::generateBusinessReject( const Message& message, int err )
-{
+{ QF_STACK_PUSH(Session::generateBusinessReject)
+
   Message reject;
   reject.getHeader().setField( MsgType( MsgType_BusinessMessageReject ) );
   fill( reject.getHeader() );
@@ -679,11 +758,15 @@ void Session::generateBusinessReject( const Message& message, int err )
   if ( err == 3 )
     reject.setField( Text( "Unsupported Message Type" ) );
   sendRaw( reject );
-  m_state.onEvent( "Rejecting Message: " + IntConvertor::convert( msgSeqNum ) );
+  m_state.onEvent( "Rejecting Message: " 
+		   + IntConvertor::convert( msgSeqNum ) );
+
+  QF_STACK_POP
 }
 
 void Session::generateLogout( const std::string& text )
-{
+{ QF_STACK_PUSH(Session::generateLogout)
+
   Message logout;
   logout.getHeader().setField( MsgType( MsgType_Logout ) );
   fill( logout.getHeader() );
@@ -691,11 +774,14 @@ void Session::generateLogout( const std::string& text )
     logout.setField( Text( text ) );
   sendRaw( logout );
   m_state.sentLogout( true );
+
+  QF_STACK_POP
 }
 
 void Session::populateRejectReason( Message& reject, int field,
                                     const std::string& text )
-{
+{ QF_STACK_PUSH(Session::populateRejectReason)
+
   if ( m_sessionID.getBeginString() >= FIX::BeginString_FIX42 )
   {
     reject.setField( RefTagID( field ) );
@@ -707,16 +793,20 @@ void Session::populateRejectReason( Message& reject, int field,
     stream << text << " (" << field << ")";
     reject.setField( Text( stream.str() ) );
   }
+
+  QF_STACK_POP
 }
 
 void Session::populateRejectReason( Message& reject, const std::string& text )
-{
+{ QF_STACK_PUSH(Session::populateRejectReason)
   reject.setField( Text( text ) );
+  QF_STACK_POP
 }
 
 bool Session::verify( const Message& msg, bool checkTooHigh,
                       bool checkTooLow )
-{
+{ QF_STACK_PUSH(Session::verify)
+
   SenderCompID senderCompID;
   TargetCompID targetCompID;
   SendingTime sendingTime;
@@ -759,15 +849,19 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
 
   fromCallback( msgType, msg, m_sessionID );
   return true;
+
+  QF_STACK_POP
 }
 
 bool Session::get( int b, int e, std::vector < Message > &m ) const
-{
+{ QF_STACK_PUSH(Session::get)
   return false;
+  QF_STACK_POP
 }
 
 bool Session::validLogonState( const MsgType& msgType )
-{
+{ QF_STACK_PUSH(Session::validLogonState)
+
   if ( msgType == MsgType_Logon && !m_state.receivedLogon()
        || msgType != MsgType_Logon && m_state.receivedLogon() )
     return true;
@@ -775,33 +869,45 @@ bool Session::validLogonState( const MsgType& msgType )
     return true;
   if ( msgType == MsgType_SequenceReset ) return true;
   return false;
+
+  QF_STACK_POP
 }
 
 void Session::fromCallback( const MsgType& msgType, const Message& msg,
                             const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(Session::fromCallback)
+
   if ( Message::isAdminMsgType( msgType ) )
     m_application.fromAdmin( msg, m_sessionID );
   else
     m_application.fromApp( msg, m_sessionID );
+
+  QF_STACK_POP
 }
 
 void Session::doBadTime( const Message& msg )
-{
+{ QF_STACK_PUSH(Session::doBadTime)
+
   generateReject( msg, 10 );
   generateLogout();
+
+  QF_STACK_POP
 }
 
 void Session::doBadCompID( const Message& msg )
-{
+{ QF_STACK_PUSH(Session::doBadCompID)
+
   if ( !m_state.receivedLogon() )
     throw std::exception();
   generateReject( msg, 9 );
   generateLogout();
+
+  QF_STACK_POP
 }
 
 bool Session::doPossDup( const Message& msg )
-{
+{ QF_STACK_PUSH(Session::doPossDup)
+
   const Header & header = msg.getHeader();
   OrigSendingTime origSendingTime;
   SendingTime sendingTime;
@@ -827,10 +933,13 @@ bool Session::doPossDup( const Message& msg )
     }
   }
   return true;
+
+  QF_STACK_POP
 }
 
 bool Session::doTargetTooLow( const Message& msg )
-{
+{ QF_STACK_PUSH(Session::doTargetTooLow)
+
   const Header & header = msg.getHeader();
   MsgType msgType;
   PossDupFlag possDupFlag;
@@ -839,56 +948,75 @@ bool Session::doTargetTooLow( const Message& msg )
   header.getField( possDupFlag );
   header.getField( msgSeqNum );
 
-  m_state.onEvent( "MsgSeqNum too low RECEIVED: " + IntConvertor::convert( msgSeqNum ) +
-                   " EXPECTED: " + IntConvertor::convert( getExpectedTargetNum() ) +
-                   " PosDup: " + BoolConvertor::convert( possDupFlag ) );
+  m_state.onEvent( "MsgSeqNum too low RECEIVED: " 
+		   + IntConvertor::convert( msgSeqNum ) 
+		   +" EXPECTED: " 
+		   + IntConvertor::convert( getExpectedTargetNum() ) 
+		   + " PosDup: " + BoolConvertor::convert( possDupFlag ) );
 
   if ( !possDupFlag )
     throw std::exception();
   return doPossDup( msg );
+
+  QF_STACK_POP
 }
 
 void Session::doTargetTooHigh( const Message& msg )
-{
+{ QF_STACK_PUSH(Session::doTargetTooHigh)
+
   const Header & header = msg.getHeader();
   MsgSeqNum msgSeqNum;
   header.getField( msgSeqNum );
 
-  m_state.onEvent( "MsgSeqNum too high RECEIVED: " + IntConvertor::convert( msgSeqNum ) +
-                   " EXPECTED: " + IntConvertor::convert( getExpectedTargetNum() ) );
+  m_state.onEvent( "MsgSeqNum too high RECEIVED: " 
+		   + IntConvertor::convert( msgSeqNum ) 
+		   + " EXPECTED: " 
+		   + IntConvertor::convert( getExpectedTargetNum() ) );
 
   m_state.queue( msgSeqNum, msg );
   generateResendRequest( msgSeqNum );
+
+  QF_STACK_POP
 }
 
 void Session::nextQueued()
-{
-  while ( nextQueued( getExpectedTargetNum() ) ) {}}
+{ QF_STACK_PUSH(Session::nextQueued)
+  while ( nextQueued( getExpectedTargetNum() ) ) {}
+  QF_STACK_POP
+}
 
 bool Session::nextQueued( int num )
-{
+{ QF_STACK_PUSH(Session::nextQueued)
+
   Message msg;
   MsgType msgType;
 
   if ( m_state.retreive( num, msg ) )
   {
-    m_state.onEvent( "Processing QUEUED message: " + IntConvertor::convert( num ) );
+    m_state.onEvent( "Processing QUEUED message: " 
+		     + IntConvertor::convert( num ) );
     msg.getHeader().getField( msgType );
     if ( msgType != MsgType_Logon )
       next( msg.toString() );
     return true;
   }
   return false;
+
+  QF_STACK_POP
 }
 
 void Session::next( const std::string& msg )
-{
+{ QF_STACK_PUSH(Session::next)
+
   m_state.onIncoming( msg );
   next( Message( msg, m_dataDictionary ) );
+
+  QF_STACK_POP
 }
 
 void Session::next( const Message& message )
-{
+{ QF_STACK_PUSH(Session::next)
+
   MsgType msgType;
   BeginString beginString;
   SenderCompID senderCompID;
@@ -983,11 +1111,14 @@ void Session::next( const Message& message )
     m_state.onEvent( "Error Reading/Writing in MessageStore" );
     disconnect();
   }
+
+  QF_STACK_POP
 }
 
 bool Session::sendToTarget( Message& message )
 throw( SessionNotFound& )
-{
+{ QF_STACK_PUSH(Session::sendToTarget)
+
   try
   {
     SessionID sessionID = message.getSessionID();
@@ -996,49 +1127,70 @@ throw( SessionNotFound& )
     bool result = pSession->send( message );
     return result;
   }
-catch ( FieldNotFound& ) { throw SessionNotFound(); }
+  catch ( FieldNotFound& ) { throw SessionNotFound(); }
+
+  QF_STACK_POP
 }
 
 bool Session::sendToTarget( Message& message, const SessionID& sessionID )
 throw( SessionNotFound& )
-{
+{ QF_STACK_PUSH(Session::sendToTarget)
+
   message.setSessionID( sessionID );
   return sendToTarget( message );
+
+  QF_STACK_POP
 }
 
 bool Session::sendToTarget
 ( Message& message, const SenderCompID& senderCompID,
   const TargetCompID& targetCompID )
 throw( SessionNotFound& )
-{
+{ QF_STACK_PUSH(Session::sendToTarget)
+
   message.getHeader().setField( senderCompID );
   message.getHeader().setField( targetCompID );
   return sendToTarget( message );
+
+  QF_STACK_POP
 }
 
 bool Session::sendToTarget
 ( Message& message, const std::string& sender, const std::string& target )
 throw( SessionNotFound& )
-{ return sendToTarget( message, SenderCompID( sender ), TargetCompID( target ) ); }
+{ QF_STACK_PUSH(Session::sendToTarget)
+
+  return sendToTarget( message, SenderCompID( sender ), 
+		       TargetCompID( target ) );
+
+  QF_STACK_POP
+}
 
 bool Session::doesSessionExist( const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(Session::doesSessionExist)
+
   Locker locker( s_mutex );
   return s_sessions.end() != s_sessions.find( sessionID );
+
+  QF_STACK_POP
 }
 
 Session* Session::lookupSession( const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(Session::lookupSession)
+
   Locker locker( s_mutex );
   Sessions::iterator find = s_sessions.find( sessionID );
   if ( find != s_sessions.end() )
     return find->second;
   else
     return 0;
+
+  QF_STACK_POP
 }
 
 Session* Session::lookupSession( const std::string& string, bool reverse )
-{
+{ QF_STACK_PUSH(Session::lookupSession)
+
   Message message;
   if ( !message.setStringHeader( string ) )
     return 0;
@@ -1061,39 +1213,51 @@ Session* Session::lookupSession( const std::string& string, bool reverse )
   }
   else
   {
-    return lookupSession( SessionID( beginString, senderCompID, targetCompID ) );
+    return lookupSession( SessionID( beginString, senderCompID, 
+				     targetCompID ) );
   }
+
+  QF_STACK_POP
 }
 
 bool Session::isSessionRegistered( const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(Session::isSessionRegistered)
+
   Locker locker( s_mutex );
   return s_registered.end() != s_registered.find( sessionID );
+
+  QF_STACK_POP
 }
 
 Session* Session::registerSession( const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(Session::registerSession)
+
   Locker locker( s_mutex );
   Session* pSession = lookupSession( sessionID );
   if ( pSession == 0 ) return 0;
   if ( isSessionRegistered( sessionID ) ) return 0;
   s_registered[ sessionID ] = pSession;
   return pSession;
+
+  QF_STACK_POP
 }
 
 void Session::unregisterSession( const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(Session::unregisterSession)
   s_registered.erase( sessionID );
+  QF_STACK_POP
 }
 
 int Session::numSessions()
-{
+{ QF_STACK_PUSH(Session::numSessions)
   Locker locker( s_mutex );
   return s_sessions.size();
+  QF_STACK_POP
 }
 
 bool Session::addSession( Session& s )
-{
+{ QF_STACK_PUSH(Session::addSession)
+
   Locker locker( s_mutex );
   Sessions::iterator it = s_sessions.find( s.m_sessionID );
   if ( it == s_sessions.end() )
@@ -1103,34 +1267,45 @@ bool Session::addSession( Session& s )
   }
   else
     return false;
+
+  QF_STACK_POP
 }
 
 void Session::removeSession( Session& s )
-{
+{ QF_STACK_PUSH(Session::removeSession)
+
   Locker locker( s_mutex );
   s_sessions.erase( s.m_sessionID );
   s_registered.erase( s.m_sessionID );
+
+  QF_STACK_POP
 }
 
 bool Session::isSessionTime( const UtcTimeOnly& start, const UtcTimeOnly& end,
                              const UtcTimeStamp& time )
-{
+{ QF_STACK_PUSH(Session::isSessionTime)
+
   UtcTimeOnly timeOnly( time );
 
   if ( start < end )
     return ( timeOnly >= start && timeOnly <= end );
   else
     return ( timeOnly >= start || timeOnly <= end );
+
+  QF_STACK_POP
 }
 
 bool Session::isSameSession( const UtcTimeOnly& start,
                              const UtcTimeOnly& end,
                              const UtcTimeStamp& time1,
                              const UtcTimeStamp& time2 )
-{
+{ QF_STACK_PUSH(Session::isSameSession)
+
   if ( !isSessionTime( start, end, time1 ) ) return false;
   if ( !isSessionTime( start, end, time2 ) ) return false;
 
   return (time1 - time2 <= UTC_DAY);
+
+  QF_STACK_POP
 }
 }

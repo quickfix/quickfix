@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "ThreadedSocketAcceptor.h"
 #include "Settings.h"
@@ -99,7 +100,8 @@ ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 { socket_term(); }
 
 void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
-{
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
+
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
   bool reuseAddress = false;
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
@@ -108,10 +110,13 @@ void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( Ru
   m_socket = socket_createAcceptor( m_port, reuseAddress );
   if( m_socket < 0 )
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::onStart()
-{
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::onStart)
+
   int socket = 0;
   while ( ( !m_stop && ( socket = socket_accept( m_socket ) ) >= 0 ) )
   {
@@ -120,15 +125,18 @@ void ThreadedSocketAcceptor::onStart()
 
     ThreadPair* pair = new ThreadPair( this, pConnection );
 
-    int thread;
+    unsigned thread;
     if ( !thread_spawn( &socketThread, pair, thread ) )
       delete pair;
     addThread( socket, thread );
   }
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::onStop()
-{
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::onStop)
+
   m_stop = true;
   socket_close( m_socket );
 
@@ -141,24 +149,34 @@ void ThreadedSocketAcceptor::onStop()
     thread_join( i->second );
 
   m_mutex.unlock();
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::addThread( int s, int t )
-{
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::addThread)
+
   m_mutex.lock();
   m_threads[ s ] = t;
   m_mutex.unlock();
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::removeThread( int s )
-{
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::removeThread)
+
   m_mutex.lock();
   m_threads.erase( s );
   m_mutex.unlock();
+
+  QF_STACK_POP
 }
 
 void* ThreadedSocketAcceptor::socketThread( void* p )
-{
+{ QF_STACK_TRY
+  QF_STACK_PUSH(ThreadedSocketAcceptor::socketThread)
+
   ThreadPair * pair = reinterpret_cast < ThreadPair* > ( p );
 
   ThreadedSocketAcceptor* pAcceptor = pair->first;
@@ -169,5 +187,8 @@ void* ThreadedSocketAcceptor::socketThread( void* p )
   pAcceptor->removeThread( pConnection->getSocket() );
   delete pConnection;
   return 0;
+
+  QF_STACK_POP
+  QF_STACK_CATCH
 }
 }

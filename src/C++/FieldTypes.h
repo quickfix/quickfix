@@ -155,19 +155,19 @@ class UtcTimeOnly : protected UtcTimeStamp
 {
 public:
   /// Defaults to the current time
-UtcTimeOnly() : UtcTimeStamp()
+  UtcTimeOnly() : UtcTimeStamp()
   {
     clearDate();
   }
 
   UtcTimeOnly( int hour, int minute, int second )
-: UtcTimeStamp( hour, minute, second )
+  : UtcTimeStamp( hour, minute, second )
   {
     clearDate();
   }
 
-UtcTimeOnly( long sec ) : UtcTimeStamp( sec ) { clearDate(); }
-UtcTimeOnly( const tm* time ) : UtcTimeStamp( time ) { clearDate(); }
+  UtcTimeOnly( long sec ) : UtcTimeStamp( sec ) { clearDate(); }
+  UtcTimeOnly( const tm* time ) : UtcTimeStamp( time ) { clearDate(); }
 
   operator tm*() { return UtcTimeStamp::operator tm*(); }
   operator const tm*() const { return UtcTimeStamp::operator const tm*(); }
@@ -213,19 +213,19 @@ class UtcDate : protected UtcTimeStamp
 {
 public:
   /// Defaults to the current date
-UtcDate() : UtcTimeStamp()
+  UtcDate() : UtcTimeStamp()
   {
     clearTime();
   }
 
   UtcDate( int date, int month, int year )
-: UtcTimeStamp( date, month, year )
+  : UtcTimeStamp( date, month, year )
   {
     clearTime();
   }
 
-UtcDate( long sec ) : UtcTimeStamp( sec ) { clearTime(); }
-UtcDate( const tm* time ) : UtcTimeStamp( time ) { clearTime(); }
+  UtcDate( long sec ) : UtcTimeStamp( sec ) { clearTime(); }
+  UtcDate( const tm* time ) : UtcTimeStamp( time ) { clearTime(); }
 
   operator tm*() { return UtcTimeStamp::operator tm*(); }
   operator const tm*() const { return UtcTimeStamp::operator const tm*(); }

@@ -52,6 +52,7 @@
 #define FIX_EVENT_H
 
 #include "Utility.h"
+#include "CallStack.h"
 
 #ifndef _MSC_VER
 #include <pthread.h>
@@ -68,7 +69,7 @@ public:
 #ifdef _MSC_VER
     m_event = CreateEvent( 0, false, false, 0 );
 #else
-pthread_mutex_init( &m_mutex, 0 );
+    pthread_mutex_init( &m_mutex, 0 );
     pthread_cond_init( &m_event, 0 );
 #endif
   }
@@ -78,7 +79,7 @@ pthread_mutex_init( &m_mutex, 0 );
 #ifdef _MSC_VER
     CloseHandle( m_event );
 #else
-pthread_cond_destroy( &m_event );
+    pthread_cond_destroy( &m_event );
     pthread_mutex_destroy( &m_mutex );
 #endif
   }

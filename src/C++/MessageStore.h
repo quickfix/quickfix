@@ -129,7 +129,7 @@ public:
 class MemoryStore : public MessageStore
 {
 public:
-MemoryStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
+  MemoryStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
 
   bool set( int, const std::string& ) throw ( IOException& );
   bool get( int, std::string& ) const throw ( IOException& );
@@ -184,7 +184,7 @@ class MessageStoreExceptionWrapper
 private:
   MessageStore* m_pStore;
 public:
-MessageStoreExceptionWrapper( MessageStore* pStore ) : m_pStore( pStore ) {}
+  MessageStoreExceptionWrapper( MessageStore* pStore ) : m_pStore( pStore ) {}
   ~MessageStoreExceptionWrapper() { delete m_pStore; }
 
   bool set( int, const std::string&, bool&, IOException& );

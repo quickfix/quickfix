@@ -84,10 +84,7 @@ public:
   bool drop( int socket );
   void block( Strategy& strategy );
 
-  int numSockets()
-  {
-    return m_sockets.size();
-  }
+  int numSockets() { return m_sockets.size(); }
 
 private:
   typedef std::set < int > Sockets;

@@ -56,14 +56,15 @@
 #include "JVM.h"
 #include "org_quickfix_FileStore.h"
 #include "quickfix/include/FileStore.h"
+#include "quickfix/include/CallStack.h"
 #include "JavaMessageStore.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_create
 ( JNIEnv *pEnv, jobject obj, jstring path, jobject sessionID )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
-  JVMObject jobject( obj );
   JVMObject jsession( obj );
 
   FIX::SessionID* pSessionID
@@ -75,52 +76,90 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileStore_create
   pEnv->ReleaseStringUTFChars( path, upath );
 
   JavaMessageStore_create( pEnv, obj, pStore );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_destroy
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_destroy( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_destroy( pEnv, obj ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_FileStore_set0
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
-{ return JavaMessageStore_set0( pEnv, obj, seq, message ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_set0( pEnv, obj, seq, message ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_FileStore_get0__ILjava_lang_String_2
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
-{ return JavaMessageStore_get0__ILjava_lang_String_2( pEnv, obj, seq, message ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_get0__ILjava_lang_String_2( pEnv, obj, seq, message ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_get0__IILjava_util_Collection_2
 ( JNIEnv *pEnv, jobject obj, jint start, jint end, jobject array )
-{ JavaMessageStore_get0__IILjava_util_Collection_2( pEnv, obj, start, end, array ); }
+{ QF_STACK_TRY
+  JavaMessageStore_get0__IILjava_util_Collection_2( pEnv, obj, start, end, array ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT jint JNICALL Java_org_quickfix_FileStore_getNextSenderMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ return JavaMessageStore_getNextSenderMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_getNextSenderMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT jint JNICALL Java_org_quickfix_FileStore_getNextTargetMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ return JavaMessageStore_getNextTargetMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_getNextTargetMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_setNextSenderMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj, jint seq )
-{ JavaMessageStore_setNextSenderMsgSeqNum0( pEnv, obj, seq ); }
+{ QF_STACK_TRY
+  JavaMessageStore_setNextSenderMsgSeqNum0( pEnv, obj, seq ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_setNextTargetMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj, jint seq )
-{ JavaMessageStore_setNextTargetMsgSeqNum0( pEnv, obj, seq ); }
+{ QF_STACK_TRY
+  JavaMessageStore_setNextTargetMsgSeqNum0( pEnv, obj, seq ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_incrNextSenderMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_incrNextSenderMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_incrNextSenderMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_incrNextTargetMsgSeqNum0
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_incrNextTargetMsgSeqNum0( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_incrNextTargetMsgSeqNum0( pEnv, obj ); 
+  QF_STACK_CATCH
+}
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_FileStore_getCreationTime0
 ( JNIEnv *pEnv, jobject obj )
-{ return JavaMessageStore_getCreationTime0( pEnv, obj ); }
+{ QF_STACK_TRY
+  return JavaMessageStore_getCreationTime0( pEnv, obj );
+  QF_STACK_CATCH
+}
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStore_reset0
 ( JNIEnv *pEnv, jobject obj )
-{ JavaMessageStore_reset0( pEnv, obj ); }
+{ QF_STACK_TRY
+  JavaMessageStore_reset0( pEnv, obj );
+  QF_STACK_CATCH
+}

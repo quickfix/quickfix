@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Parser.h"
 #include "Utility.h"
@@ -60,13 +61,15 @@
 namespace FIX
 {
 void throw_isdigit( const char c )
-{
+{ QF_STACK_PUSH(throw_isdigit)
   if ( !isdigit( c ) ) throw MessageParseError();
+  QF_STACK_POP
 }
 
 bool Parser::readFixMessage( std::string& str )
 throw( MessageParseError&, RecvFailed& )
-{
+{ QF_STACK_PUSH(Parser::readFixMessage)
+
   readFromStream();
 
   std::string::size_type pos = m_buffer.find( "\00110=", 0 );
@@ -83,10 +86,13 @@ throw( MessageParseError&, RecvFailed& )
   }
   readFromStream();
   return false;
+
+  QF_STACK_POP
 }
 
 bool Parser::readFromStream() throw( RecvFailed& )
-{
+{ QF_STACK_PUSH(Parser::readFromStream)
+
   int size = 0;
   if ( m_pStream )
   {
@@ -111,5 +117,7 @@ bool Parser::readFromStream() throw( RecvFailed& )
   m_buffer += m_readBuffer;
 
   return true;
+
+  QF_STACK_POP
 }
 }

@@ -60,12 +60,14 @@
 #include "JVM.h"
 #include "org_quickfix_Session.h"
 #include "quickfix/include/Session.h"
+#include "quickfix/include/CallStack.h"
 #include "Conversions.h"
 #include <iostream>
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2
 ( JNIEnv *pEnv, jclass cls, jobject msg )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jmessage( msg );
   FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
@@ -90,11 +92,14 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix
   }
 
   return FIX::Session::sendToTarget( *pMessage );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2Lorg_quickfix_SessionID_2
 ( JNIEnv *pEnv, jclass cls, jobject msg, jobject sID )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jmessage( msg );
   JVMObject jsessionid( sID );
@@ -108,11 +113,14 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix
     return false;
   }
   return FIX::Session::sendToTarget( *pMessage, *pSessionID );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2
 ( JNIEnv *pEnv, jclass cls, jobject msg, jstring sender, jstring target )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jmessage( msg );
   FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
@@ -142,11 +150,14 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix
   return FIX::Session::sendToTarget( *pMessage,
                                      FIX::SenderCompID( senderCompID ),
                                      FIX::TargetCompID( targetCompID ) );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Session_lookupSession
 (JNIEnv *pEnv, jclass cls, jobject sID)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jsessionid( sID );
 
@@ -157,11 +168,14 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Session_lookupSession
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
   jobject result = pEnv->NewObject( type, method, ( jint ) pSession );
   return result;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_Session_reset
 (JNIEnv *pEnv, jobject obj)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
@@ -174,11 +188,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_Session_reset
   {
     throwNew( "Ljava/io/IOException;", "" );
   }
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextSenderMsgSeqNum
 (JNIEnv *pEnv, jobject obj, jint num)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
@@ -191,11 +208,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextSenderMsgSeqNum
   {
     throwNew( "Ljava/io/IOException;", "" );
   }
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextTargetMsgSeqNum
 (JNIEnv *pEnv, jobject obj, jint num)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
@@ -208,4 +228,6 @@ JNIEXPORT void JNICALL Java_org_quickfix_Session_setNextTargetMsgSeqNum
   {
     throwNew( "Ljava/io/IOException;", "" );
   }
+
+  QF_STACK_CATCH
 }

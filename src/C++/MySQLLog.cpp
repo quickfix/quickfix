@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #ifdef HAVE_MYSQL
 
@@ -94,7 +95,8 @@ MySQLLog::~MySQLLog()
 }
 
 Log* MySQLLogFactory::create( const SessionID& s )
-{
+{ QF_STACK_PUSH(MySQLLogFactory::create)
+
   std::string database = DEFAULT_DATABASE;
   std::string user = DEFAULT_USER;
   std::string password = DEFAULT_PASSWORD;
@@ -118,7 +120,8 @@ Log* MySQLLogFactory::create( const SessionID& s )
     catch ( ConfigError& ) {}
 
     try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
-    catch ( ConfigError& ) {}}
+    catch ( ConfigError& ) {}
+  }
   else
   {
     database = m_database;
@@ -129,15 +132,19 @@ Log* MySQLLogFactory::create( const SessionID& s )
   }
 
   return new MySQLLog( s, database, user, password, host, port );
+
+  QF_STACK_POP
 }
 
 void MySQLLogFactory::destroy( Log* pLog )
-{
+{ QF_STACK_PUSH(MySQLLogFactory::destroy)
   delete pLog;
+  QF_STACK_POP
 }
 
 void MySQLLog::insert( const std::string& table, const std::string value )
-{
+{ QF_STACK_PUSH(MySQLLog::insert)
+
   UtcTimeStamp time;
   char sqlTime[ 20 ];
   strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
@@ -154,6 +161,8 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   << "\"" << value << "\")";
 
   mysql_query( pConnection, query.str().c_str() );
+
+  QF_STACK_POP
 }
 
 } //namespace FIX

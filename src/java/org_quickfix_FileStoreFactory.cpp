@@ -57,11 +57,13 @@
 #include "org_quickfix_FileStoreFactory.h"
 #include "quickfix/include/FileStore.h"
 #include "quickfix/include/SessionSettings.h"
+#include "quickfix/include/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStoreFactory_create__
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject object( obj );
 
@@ -71,21 +73,27 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileStoreFactory_create__
 
   FIX::MessageStoreFactory* pFactory = new FIX::FileStoreFactory( *pSettings );
   object.setInt( "cppPointer", ( int ) pFactory );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStoreFactory_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::FileStoreFactory* pFactory
   = ( FIX::FileStoreFactory* ) jobject.getInt( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_FileStoreFactory_create__Lorg_quickfix_SessionID_2
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jsession( sessionID );
@@ -112,4 +120,6 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_FileStoreFactory_create__Lorg_quickf
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
   JVMObject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
   return result;
+
+  QF_STACK_CATCH
 }

@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "SessionSettings.h"
 #include "Settings.h"
@@ -109,25 +110,32 @@ throw( ConfigError& )
 
 Dictionary SessionSettings::get( const SessionID& sessionID ) const
 throw( ConfigError& )
-{
+{ QF_STACK_PUSH(SessionSettings::get)
+
   Dictionaries::const_iterator i;
   i = m_settings.find( sessionID );
   if ( i == m_settings.end() ) throw ConfigError( "Session not found" );
   return i->second;
+
+  QF_STACK_POP
 }
 
 void SessionSettings::set( const SessionID& sessionID,
                            const Dictionary& settings )
-{
+{ QF_STACK_PUSH(SessionSettings::set)
   m_settings[ sessionID ] = settings;
+  QF_STACK_POP
 }
 
 std::set < SessionID > SessionSettings::getSessions() const
-{
+{ QF_STACK_PUSH(SessionSettings::getSessions)
+
   std::set < SessionID > result;
   Dictionaries::const_iterator i;
   for ( i = m_settings.begin(); i != m_settings.end(); ++i )
     result.insert( i->first );
   return result;
+
+  QF_STACK_POP
 }
 }

@@ -57,31 +57,39 @@
 #include "Conversions.h"
 #include "org_quickfix_ScreenLogFactory.h"
 #include "quickfix/include/Log.h"
+#include "quickfix/include/CallStack.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_ScreenLogFactory_create__ZZZ
 ( JNIEnv *pEnv, jobject obj, jboolean incoming, jboolean outgoing, jboolean event )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject object( obj );
 
   FIX::LogFactory* pFactory = new FIX::ScreenLogFactory
                               ( incoming, outgoing, event );
   object.setInt( "cppPointer", ( int ) pFactory );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_ScreenLogFactory_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::ScreenLogFactory* pFactory
   = ( FIX::ScreenLogFactory* ) jobject.getInt( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_ScreenLogFactory_create__Lorg_quickfix_SessionID_2
 ( JNIEnv * pEnv, jobject obj, jobject sessionID )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jsession( sessionID );
@@ -104,4 +112,6 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_ScreenLogFactory_create__Lorg_quickf
     throwNew( "Lorg/quickfix/ConfigError;", e.what() );
   }
   return 0;
+
+  QF_STACK_CATCH
 }

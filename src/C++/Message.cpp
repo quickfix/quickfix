@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Message.h"
 #include "Utility.h"
@@ -62,32 +63,34 @@ namespace FIX
 std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 
 Message::Message()
-    : m_header( message_order( message_order::header ) ),
-    m_trailer( message_order( message_order::trailer ) ),
+: m_header( message_order( message_order::header ) ),
+  m_trailer( message_order( message_order::trailer ) ),
 m_validStructure( true ) {}
 
 Message::Message( const std::string& string, bool validate )
 throw( InvalidMessage& )
-    : m_header( message_order( message_order::header ) ),
-    m_trailer( message_order( message_order::trailer ) ),
-    m_validStructure( true )
+: m_header( message_order( message_order::header ) ),
+  m_trailer( message_order( message_order::trailer ) ),
+  m_validStructure( true )
 {
   if ( !setString( string, validate ) )
     throw InvalidMessage();
 }
 
-Message::Message( const std::string& string, const DataDictionary& dataDictionary )
+Message::Message( const std::string& string, 
+		  const DataDictionary& dataDictionary )
 throw( InvalidMessage& )
-    : m_header( message_order( message_order::header ) ),
-    m_trailer( message_order( message_order::trailer ) ),
-    m_validStructure( true )
+: m_header( message_order( message_order::header ) ),
+  m_trailer( message_order( message_order::trailer ) ),
+  m_validStructure( true )
 {
   if ( !setString( string, true, &dataDictionary ) )
     throw InvalidMessage();
 }
 
 bool Message::InitializeXML( const std::string& url )
-{
+{ QF_STACK_PUSH(Message::InitializeXML)
+
   try
   {
     std::auto_ptr<DataDictionary> p =
@@ -97,10 +100,13 @@ bool Message::InitializeXML( const std::string& url )
   }
   catch( ConfigError& )
   { return false; }
+
+  QF_STACK_POP
 }
 
 std::string Message::toString() const
-{
+{ QF_STACK_PUSH(Message::toString)
+
   m_header.setField( BodyLength( bodyLength() ) );
   m_trailer.setField( CheckSum( checkSum() ) );
 
@@ -108,10 +114,13 @@ std::string Message::toString() const
     m_header.calculateString() +
     FieldMap::calculateString() +
     m_trailer.calculateString();
+
+  QF_STACK_POP
 }
 
 std::string Message::toXML() const
-{
+{ QF_STACK_PUSH(Message::toXML)
+
   std::stringstream stream;
   stream << "<message>"                         << EOL
          << std::setw(2) << " " << "<header>"   << EOL  
@@ -126,10 +135,13 @@ std::string Message::toXML() const
          << "</message>";
 
   return stream.str();
+
+  QF_STACK_POP
 }
 
 std::string Message::toXMLFields(const FieldMap& fields, int space) const
-{
+{ QF_STACK_PUSH(Message::toXMLFields)
+
   std::stringstream stream;
   FieldMap::iterator i;
   std::string name;
@@ -140,11 +152,16 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
 
     stream << std::setw(space) << " " << "<field ";
     if(s_dataDictionary.get() && s_dataDictionary->getFieldName(field, name))
+    {
       stream << "name=\"" << name << "\" ";
+    }
     stream << "number=\"" << field << "\" value=\"" << value << "\"";
-    if(s_dataDictionary.get() && s_dataDictionary->getValueName(field, value, name))
+    if(s_dataDictionary.get() 
+       && s_dataDictionary->getValueName(field, value, name))
+    {
       stream << " enum=\"" << name << "\"";
-	stream << "/>" << EOL;
+    }
+    stream << "/>" << EOL;
   }
 
   FieldMap::g_iterator j;
@@ -154,18 +171,21 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     for(k = j->second.begin(); k != j->second.end(); ++k)
     {
 		stream << std::setw(space) << " " << "<group>" << EOL
-             << toXMLFields(*(*k), space+2)
-			 << std::setw(space) << " " << "</group>" << EOL;
+           << toXMLFields(*(*k), space+2)
+	    		 << std::setw(space) << " " << "</group>" << EOL;
     }
   }
 
   return stream.str();
+
+  QF_STACK_POP
 }
 
 bool Message::setString( const std::string& string,
                          bool doValidation,
                          const DataDictionary* pDataDictionary )
-{
+{ QF_STACK_PUSH(Message::setString)
+
   clear();
 
   std::string::size_type pos = 0;
@@ -228,12 +248,16 @@ bool Message::setString( const std::string& string,
   }
   if ( doValidation ) return validate();
   return true;
+
+  QF_STACK_POP
 }
 
-void Message::setGroup( const std::string& msg, const FieldBase& field, const std::string& string,
+void Message::setGroup( const std::string& msg, const FieldBase& field, 
+			const std::string& string,
                         std::string::size_type& pos, FieldMap& map,
                         const DataDictionary& dataDictionary )
-{
+{ QF_STACK_PUSH(Message::setGroup)
+
   int group = field.getField();
   int delim;
   const DataDictionary* pDD = 0;
@@ -261,10 +285,13 @@ void Message::setGroup( const std::string& msg, const FieldBase& field, const st
     pGroup->setField( field );
     setGroup( msg, field, string, pos, *pGroup, *pDD );
   }
+
+  QF_STACK_POP
 }
 
 bool Message::setStringHeader( const std::string& string )
-{
+{ QF_STACK_PUSH(Message::setStringHeader)
+
   clear();
 
   std::string::size_type pos = 0;
@@ -281,11 +308,147 @@ bool Message::setStringHeader( const std::string& string )
     else break;
   }
   return true;
+
+  QF_STACK_POP
+}
+
+bool Message::isHeaderField( int field )
+{ QF_STACK_PUSH(Message::isHeaderField)
+
+  switch ( field )
+  {
+    case FIELD::BeginString:
+    case FIELD::BodyLength:
+    case FIELD::MsgType:
+    case FIELD::SenderCompID:
+    case FIELD::TargetCompID:
+    case FIELD::OnBehalfOfCompID:
+    case FIELD::DeliverToCompID:
+    case FIELD::SecureDataLen:
+    case FIELD::MsgSeqNum:
+    case FIELD::SenderSubID:
+    case FIELD::SenderLocationID:
+    case FIELD::TargetSubID:
+    case FIELD::TargetLocationID:
+    case FIELD::OnBehalfOfSubID:
+    case FIELD::OnBehalfOfLocationID:
+    case FIELD::DeliverToSubID:
+    case FIELD::DeliverToLocationID:
+    case FIELD::PossDupFlag:
+    case FIELD::PossResend:
+    case FIELD::SendingTime:
+    case FIELD::OrigSendingTime:
+    case FIELD::XmlDataLen:
+    case FIELD::XmlData:
+    case FIELD::MessageEncoding:
+    case FIELD::LastMsgSeqNumProcessed:
+    case FIELD::OnBehalfOfSendingTime:
+    return true;
+    default:
+    return false;
+  };
+
+  QF_STACK_POP
+}
+
+bool Message::isHeaderField( const FieldBase& field, 
+			     const DataDictionary* pD )
+{ QF_STACK_PUSH(Message::isHeaderField)
+
+  if ( isHeaderField( field.getField() ) ) return true;
+  if ( pD ) return pD->isHeaderField( field.getField() );
+  return false;
+
+  QF_STACK_POP
+}
+
+bool Message::isTrailerField( int field )
+{ QF_STACK_PUSH(Message::isTrailerField)
+
+  switch ( field )
+  {
+    case FIELD::SignatureLength:
+    case FIELD::Signature:
+    case FIELD::CheckSum:
+    return true;
+    default:
+    return false;
+  };
+
+  QF_STACK_POP
+}
+
+bool Message::isTrailerField( const FieldBase& field, 
+			      const DataDictionary* pD )
+{ QF_STACK_PUSH(Message::isTrailerField)
+
+  if ( isTrailerField( field.getField() ) ) return true;
+  if ( pD ) return pD->isTrailerField( field.getField() );
+  return false;
+
+  QF_STACK_POP
+}
+
+SessionID Message::getSessionID() throw( FieldNotFound& )
+{ QF_STACK_PUSH(Message::getSessionID)
+
+  BeginString beginString;
+  SenderCompID senderCompID;
+  TargetCompID targetCompID;
+
+  getHeader().getField( beginString );
+  getHeader().getField( senderCompID );
+  getHeader().getField( targetCompID );
+
+  return SessionID( beginString, senderCompID, targetCompID );
+
+  QF_STACK_POP
+}
+
+void Message::setSessionID( const SessionID& sessionID )
+{ QF_STACK_PUSH(Message::setSessionID)
+
+  getHeader().setField( sessionID.getBeginString() );
+  getHeader().setField( sessionID.getSenderCompID() );
+  getHeader().setField( sessionID.getTargetCompID() );
+
+  QF_STACK_POP
+}
+
+void Message::clear()
+{ QF_STACK_PUSH(Message::clear)
+
+  m_field = 0;
+  m_header.clear();
+  FieldMap::clear();
+  m_trailer.clear();
+
+  QF_STACK_POP
+}
+
+bool Message::validate()
+{ QF_STACK_PUSH(Message::validate)
+
+  try
+  {
+    BodyLength aBodyLength;
+    m_header.getField( aBodyLength );
+    if ( aBodyLength != bodyLength() )
+      return false;
+
+    CheckSum aCheckSum;
+    m_trailer.getField( aCheckSum );
+    return aCheckSum == checkSum();
+  }
+  catch ( FieldNotFound& ) { return false; }
+
+  QF_STACK_POP
 }
 
 FieldBase Message::extractField
 ( const std::string& string, std::string::size_type& pos )
-{
+{ QF_STACK_PUSH(Message::extractField)
+
   int field;
   std::string fieldString;
   std::string valueString;
@@ -303,5 +466,7 @@ FieldBase Message::extractField
 
   pos = soh + 1;
   return FieldBase( field, valueString );
+
+  QF_STACK_POP
 }
 }

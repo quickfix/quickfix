@@ -59,11 +59,13 @@
 #include "org_quickfix_MySQLLogFactory.h"
 #include "quickfix/include/MySQLLog.h"
 #include "quickfix/include/SessionSettings.h"
+#include "quickfix/include/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLLogFactory_create__
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   FIX::process_sleep(15);
   JVM::set( pEnv );
   JVMObject object( obj );
@@ -74,21 +76,27 @@ JNIEXPORT void JNICALL Java_org_quickfix_MySQLLogFactory_create__
 
   FIX::LogFactory* pFactory = new FIX::MySQLLogFactory( *pSettings );
   object.setInt( "cppPointer", ( int ) pFactory );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLLogFactory_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MySQLLogFactory* pFactory
   = ( FIX::MySQLLogFactory* ) jobject.getInt( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLLogFactory_create__Lorg_quickfix_SessionID_2
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobj( obj );
   JVMObject jsession( sessionID );
@@ -111,5 +119,7 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLLogFactory_create__Lorg_quickfi
     throwNew( "Lorg/quickfix/ConfigError;", e.what() );
   }
   return 0;
+
+  QF_STACK_CATCH
 }
 #endif //HAVE_MYSQL

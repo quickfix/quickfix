@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "SessionFactory.h"
 #include "SessionSettings.h"
@@ -60,15 +61,17 @@
 namespace FIX
 {
 SessionFactory::~SessionFactory()
-{
+{ QF_STACK_IGNORE_BEGIN
   Dictionaries::iterator i = m_dictionaries.begin();
   for ( ; i != m_dictionaries.end(); ++i )
     delete i->second;
+  QF_STACK_IGNORE_END
 }
 
 Session* SessionFactory::create( const SessionID& sessionID,
                                  const Dictionary& settings ) throw( ConfigError )
-{
+{ QF_STACK_PUSH(SessionFactory::create)
+
   std::string connectionType = settings.getString( CONNECTION_TYPE );
   if ( connectionType != "acceptor" && connectionType != "initiator" )
     throw ConfigError( "Invalid ConnectionType" );
@@ -133,5 +136,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if ( settings.has( RESET_ON_DISCONNECT ) )
     pSession->setResetOnDisconnect( settings.getBool( RESET_ON_DISCONNECT ) );
   return pSession;
+
+  QF_STACK_POP
 }
 }

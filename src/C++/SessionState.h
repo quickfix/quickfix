@@ -66,7 +66,8 @@ class SessionState : public MessageStore, public Log
 {
   typedef std::map < int, Message > Messages;
 public:
-SessionState() : m_connected( false ), m_receivedLogon( false ),
+  SessionState() 
+: m_connected( false ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
   m_pStore( 0 ), m_pLog( 0 ) {}

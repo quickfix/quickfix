@@ -69,10 +69,7 @@ class SocketMonitor;
 class SocketConnection : Session::Responder
 {
 public:
-  SocketConnection( int s, SocketMonitor* pMonitor )
-: m_socket( s ), m_parser( s ),
-  m_pSession( 0 ), m_pMonitor( pMonitor ) {}
-
+  SocketConnection( int s, SocketMonitor* pMonitor );
   SocketConnection( SocketInitiator&, const SessionID&, int, SocketMonitor* );
   virtual ~SocketConnection() {}
 

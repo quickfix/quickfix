@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Dictionary.h"
 #include "FieldConvertors.h"
@@ -60,15 +61,19 @@ namespace FIX
 {
 std::string Dictionary::getString( const std::string& key ) const
 throw( ConfigError&, FieldConvertError& )
-{
+{ QF_STACK_PUSH(Dictionary::getString)
+
   Data::const_iterator i = m_data.find( key );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   return i->second;
+
+  QF_STACK_POP
 }
 
 long Dictionary::getLong( const std::string& key ) const
 throw( ConfigError&, FieldConvertError& )
-{
+{ QF_STACK_PUSH(Dictionary::getLong)
+
   Data::const_iterator i = m_data.find( key );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
@@ -79,11 +84,14 @@ throw( ConfigError&, FieldConvertError& )
   {
     throw ConfigError( "Illegal value " + i->second + " for " + key );
   }
+
+  QF_STACK_POP
 }
 
 double Dictionary::getDouble( const std::string& key ) const
 throw( ConfigError&, FieldConvertError& )
-{
+{ QF_STACK_PUSH(Dictionary::getDouble)
+
   Data::const_iterator i = m_data.find( key );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
@@ -94,11 +102,14 @@ throw( ConfigError&, FieldConvertError& )
   {
     throw ConfigError( "Illegal value " + i->second + " for " + key );
   }
+
+  QF_STACK_POP
 }
 
 bool Dictionary::getBool( const std::string& key ) const
 throw( ConfigError&, FieldConvertError& )
-{
+{ QF_STACK_PUSH(Dictionary::getBool)
+
   Data::const_iterator i = m_data.find( key );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
@@ -109,38 +120,48 @@ throw( ConfigError&, FieldConvertError& )
   {
     throw ConfigError( "Illegal value " + i->second + " for " + key );
   }
+
+  QF_STACK_POP
 }
 
 void Dictionary::setString( const std::string& key, const std::string& value )
-{
+{ QF_STACK_PUSH(Dictionary::setString)  
   m_data[ key ] = value;
+  QF_STACK_POP
 }
 
 void Dictionary::setLong( const std::string& key, const long& value )
-{
+{ QF_STACK_PUSH(Dictionary::setString)
   m_data[ key ] = IntConvertor::convert( value );
+  QF_STACK_POP
 }
 
 void Dictionary::setDouble( const std::string& key, const double& value )
-{
+{ QF_STACK_PUSH(Dictionary::setDouble)
   m_data[ key ] = DoubleConvertor::convert( value );
+  QF_STACK_POP
 }
 
 void Dictionary::setBool( const std::string& key, const bool& value )
-{
+{ QF_STACK_PUSH(Dictionary::setBool)
   m_data[ key ] = BoolConvertor::convert( value );
+  QF_STACK_POP
 }
 
 bool Dictionary::has( const std::string& key ) const
-{
+{ QF_STACK_PUSH(Dictionary::has)
   return m_data.find( key ) != m_data.end();
+  QF_STACK_POP
 }
 
 void Dictionary::merge( const Dictionary& toMerge )
-{
+{ QF_STACK_PUSH(Dictionary::merge)
+
   Data::const_iterator i = toMerge.m_data.begin();
   for ( ; i != toMerge.m_data.end(); ++i )
     if ( m_data.find( i->first ) == m_data.end() )
       m_data[ i->first ] = i->second;
+
+  QF_STACK_POP
 }
 }

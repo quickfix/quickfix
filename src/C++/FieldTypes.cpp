@@ -52,15 +52,19 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "FieldTypes.h"
 
 namespace FIX
 {
 void UtcTimeStamp::setTime( const UtcTimeOnly& time )
-{
+{ QF_STACK_PUSH(UtcTimeStamp::setTime)
+
   setHour( time.getHour() );
   setMinute( time.getMinute() );
   setSecond( time.getSecond() );
+
+  QF_STACK_POP
 }
 }

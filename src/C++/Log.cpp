@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Log.h"
 
@@ -60,12 +61,14 @@ namespace FIX
 Mutex ScreenLog::s_mutex;
 
 Log* ScreenLogFactory::create( const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(ScreenLogFactory::create)
   return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
+  QF_STACK_POP
 }
 
 void ScreenLogFactory::destroy( Log* pLog )
-{
+{ QF_STACK_PUSH(ScreenLogFactory::destroy)
   delete pLog;
+  QF_STACK_POP
 }
 } //namespace FIX

@@ -54,6 +54,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "LIBXML_DOMDocument.h"
 #include <libxml/xpath.h>
@@ -62,42 +63,54 @@
 namespace FIX
 {
   bool LIBXML_DOMAttributes::get( const std::string& name, std::string& value )
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::get)
+
     xmlChar* result = xmlGetProp(m_pNode, (const xmlChar*)name.c_str());
     if(result == NULL) return false;
     value = (char*)result;
     return true;
+
+    QF_STACK_POP
   }
 
   DOMNodePtr LIBXML_DOMNode::getFirstChildNode()
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::getFirstChildNode)
+
     if( !m_pNode->children ) return DOMNodePtr();
     xmlNodePtr pNode = m_pNode->children->next;
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new LIBXML_DOMNode(pNode));
+
+    QF_STACK_POP
   }
 
   DOMNodePtr LIBXML_DOMNode::getNextSiblingNode()
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::getNextSiblingNode)
+
     if( !m_pNode->next ) return DOMNodePtr();
     xmlNodePtr pNode = m_pNode->next->next;
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new LIBXML_DOMNode(pNode));
+
+    QF_STACK_POP
   }
 
   DOMAttributesPtr LIBXML_DOMNode::getAttributes()
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::getAttributes)
     return DOMAttributesPtr(new LIBXML_DOMAttributes(m_pNode));
+    QF_STACK_POP
   }
 
   std::string LIBXML_DOMNode::getName()
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::getName)
     return (char*)m_pNode->name;
+    QF_STACK_POP
   }
 
   std::string LIBXML_DOMNode::getText()
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::getText)
     return (char*)m_pNode->content;
+    QF_STACK_POP
   }
 
   LIBXML_DOMDocument::LIBXML_DOMDocument() throw( ConfigError& )
@@ -111,7 +124,8 @@ namespace FIX
   }
 
   bool LIBXML_DOMDocument::load( std::istream& stream )
-  {  
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::load)
+
     try
     {
       std::stringstream sstream;
@@ -120,31 +134,38 @@ namespace FIX
       return m_pDoc != NULL;
     }
     catch( ... ) { return false; }
+
+    QF_STACK_POP
   }
 
   bool LIBXML_DOMDocument::load( const std::string& url )
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::lead)
+
     try
     {
       m_pDoc = xmlParseFile(url.c_str());
       return m_pDoc != NULL;
     }
     catch( ... ) { return false; }
+
+    QF_STACK_POP
   }
 
   bool LIBXML_DOMDocument::xml( std::ostream& out )
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::xml)
     return false;
+    QF_STACK_POP
   }
 
   DOMNodePtr LIBXML_DOMDocument::getNode( const std::string& XPath )
-  {
+  { QF_STACK_PUSH(LIBXML_DOMAttributes::getNode)
+
     xmlXPathContextPtr context = xmlXPathNewContext(m_pDoc);
     xmlXPathObjectPtr xpathObject = xmlXPathEval((xmlChar*)XPath.c_str(), context);
 
     if( xpathObject == NULL 
-	|| xpathObject->nodesetval == NULL 
-	|| xpathObject->nodesetval->nodeNr != 1 )
+	      || xpathObject->nodesetval == NULL 
+	      || xpathObject->nodesetval->nodeNr != 1 )
     {
       xmlXPathFreeContext(context);
       return DOMNodePtr();
@@ -154,5 +175,7 @@ namespace FIX
     xmlXPathFreeContext(context);
     xmlXPathFreeObject(xpathObject);
     return result;
+
+    QF_STACK_POP
   }
 }

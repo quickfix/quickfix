@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "FileStore.h"
 #include "Session.h"
@@ -62,7 +63,7 @@
 namespace FIX
 {
 FileStore::FileStore( std::string path, const SessionID& s )
-    : m_msgFile( 0 ), m_headerFile( 0 ), m_seqNumsFile( 0 ), m_sessionFile( 0 )
+: m_msgFile( 0 ), m_headerFile( 0 ), m_seqNumsFile( 0 ), m_sessionFile( 0 )
 {
   file_mkdir( path.c_str(), 0700 );
 
@@ -100,7 +101,8 @@ FileStore::~FileStore()
 }
 
 void FileStore::open( bool deleteFile )
-{
+{ QF_STACK_PUSH(FileStore::open)
+
   if ( m_msgFile ) fclose( m_msgFile );
   if ( m_headerFile ) fclose( m_headerFile );
   if ( m_seqNumsFile ) fclose( m_seqNumsFile );
@@ -140,10 +142,13 @@ void FileStore::open( bool deleteFile )
 
   setNextSenderMsgSeqNum( getNextSenderMsgSeqNum() );
   setNextTargetMsgSeqNum( getNextTargetMsgSeqNum() );
+
+  QF_STACK_POP
 }
 
 void FileStore::populateCache()
-{
+{ QF_STACK_PUSH(FileStore::populateCache)
+
   std::string msg;
   Message message;
 
@@ -181,26 +186,33 @@ void FileStore::populateCache()
     }
     fclose( sessionFile );
   }
+
+  QF_STACK_POP
 }
 
 MessageStore* FileStoreFactory::create( const SessionID& s )
-{
+{ QF_STACK_PUSH(FileStoreFactory::create)
+
   if ( m_path.size() ) return new FileStore( m_path, s );
 
   std::string path;
   Dictionary settings = m_settings.get( s );
   path = settings.getString( FILE_STORE_PATH );
   return new FileStore( path, s );
+
+  QF_STACK_POP
 }
 
 void FileStoreFactory::destroy( MessageStore* pStore )
-{
+{ QF_STACK_PUSH(FileStoreFactory::destroy)
   delete pStore;
+  QF_STACK_POP 
 }
 
 bool FileStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::set)
+
   if ( fseek( m_msgFile, 0, SEEK_END ) ) throw IOException();
   if ( fseek( m_headerFile, 0, SEEK_END ) ) throw IOException();
 
@@ -216,11 +228,14 @@ throw ( IOException& )
   if ( fflush( m_msgFile ) == EOF ) throw IOException();
   if ( fflush( m_headerFile ) == EOF ) throw IOException();
   return true;
+
+  QF_STACK_POP
 }
 
 bool FileStore::get( int msgSeqNum, std::string& msg ) const
 throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::get)
+
   NumToOffset::const_iterator find = m_offsets.find( msgSeqNum );
   if ( find == m_offsets.end() ) return false;
   const OffsetSize& offset = find->second;
@@ -232,12 +247,15 @@ throw ( IOException& )
   msg = buffer;
   delete [] buffer;
   return true;
+
+  QF_STACK_POP
 }
 
 void FileStore::get( int begin, int end,
                      std::vector < std::string > & result ) const
 throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::get)
+
   result.clear();
   std::string msg;
   for ( int i = begin; i <= end; ++i )
@@ -245,69 +263,87 @@ throw ( IOException& )
     if ( get( i, msg ) )
       result.push_back( msg );
   }
+
+  QF_STACK_POP
 }
 
 int FileStore::getNextSenderMsgSeqNum() const throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::getNextSenderMsgSeqNum)
   return m_cache.getNextSenderMsgSeqNum();
+  QF_STACK_POP
 }
 
 int FileStore::getNextTargetMsgSeqNum() const throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::getNextTargetMsgSeqNum)
   return m_cache.getNextTargetMsgSeqNum();
+  QF_STACK_POP
 }
 
 void FileStore::setNextSenderMsgSeqNum( int value ) throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::setNextSenderMsgSeqNum)
   m_cache.setNextSenderMsgSeqNum( value );
   setSeqNum();
+  QF_STACK_POP
 }
 
 void FileStore::setNextTargetMsgSeqNum( int value ) throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::setNextTargetMsgSeqNum)
   m_cache.setNextTargetMsgSeqNum( value );
   setSeqNum();
+  QF_STACK_POP
 }
 
 void FileStore::incrNextSenderMsgSeqNum() throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::incrNextSenderMsgSeqNum)
   m_cache.incrNextSenderMsgSeqNum();
   setSeqNum();
+  QF_STACK_POP
 }
 
 void FileStore::incrNextTargetMsgSeqNum() throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::incrNextTargetMsgSeqNum)
   m_cache.incrNextTargetMsgSeqNum();
   setSeqNum();
+  QF_STACK_POP
 }
 
 UtcTimeStamp FileStore::getCreationTime() const throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::getCreationTime)
   return m_cache.getCreationTime();
+  QF_STACK_POP
 }
 
 void FileStore::reset() throw ( IOException& )
-{
+{ QF_STACK_PUSH(FileStore::reset)
+
   m_cache.reset();
   open( true );
   setSession();
+
+  QF_STACK_POP
 }
 
 void FileStore::setSeqNum()
-{
+{ QF_STACK_PUSH(FileStore::setSeqNum)
+
   rewind( m_seqNumsFile );
   fprintf( m_seqNumsFile, "%d : %d",
            getNextSenderMsgSeqNum(), getNextTargetMsgSeqNum() );
   if ( ferror( m_seqNumsFile ) ) throw IOException();
   if ( fflush( m_seqNumsFile ) ) throw IOException();
+
+  QF_STACK_POP
 }
 
 void FileStore::setSession()
-{
+{ QF_STACK_PUSH(FileStore::setSession)
+
   rewind( m_sessionFile );
   fprintf( m_sessionFile, "%s",
            UtcTimeStampConvertor::convert( m_cache.getCreationTime() ).c_str() );
   if ( ferror( m_sessionFile ) ) throw IOException();
   if ( fflush( m_sessionFile ) ) throw IOException();
+
+  QF_STACK_POP
 }
 } //namespace FIX

@@ -62,6 +62,7 @@ libquickfix_la_SOURCES = \
 	FieldTypes.h \
 	Fields.h \
 	DeprecatedFields.h \
+	FieldMap.cpp \
 	FieldMap.h \
 	Message.cpp \
 	Message.h \
@@ -92,7 +93,9 @@ libquickfix_la_SOURCES = \
 	FIX41_MessageCracker.h \
 	FIX42_MessageCracker.h \
 	FIX43_MessageCracker.h \
-	MessageCracker.h
+	MessageCracker.h \
+	CallStack.h \
+	CallStack.cpp
 
 libquickfix_la_LIBADD = -lpthread
 

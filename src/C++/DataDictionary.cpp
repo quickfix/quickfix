@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "DataDictionary.h"
 #include "Message.h"
@@ -89,14 +90,16 @@ DataDictionary::DataDictionary( const DataDictionary& copy )
 }
 
 DataDictionary::~DataDictionary()
-{
+{ 
   FieldToGroup::iterator i;
   for ( i = m_groups.begin(); i != m_groups.end(); ++i )
     delete i->second.second;
+  
 }
 
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
-{
+{ QF_STACK_PUSH(DataDictionary::operator=)
+
   m_hasVersion = rhs.m_hasVersion;
   m_checkFieldsOutOfOrder = rhs.m_checkFieldsOutOfOrder;
   m_checkFieldsHaveValues = rhs.m_checkFieldsHaveValues;
@@ -117,11 +120,14 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
               i->second.first, *i->second.second );
   }
   return *this;
+
+  QF_STACK_POP
 }
 
 void DataDictionary::validate( const Message& message )
 throw( std::exception& )
-{
+{ QF_STACK_PUSH(DataDictionary::validate)
+
   BeginString beginString;
   MsgType msgType;
   message.getHeader().getField( beginString );
@@ -144,10 +150,13 @@ throw( std::exception& )
   iterate( message.getHeader(), msgType );
   iterate( message.getTrailer(), msgType );
   iterate( message, msgType );
+
+  QF_STACK_POP
 }
 
 void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
-{
+{ QF_STACK_PUSH(DataDictionary::iterate)
+
   FieldMap::iterator i;
   for ( i = map.begin(); i != map.end(); ++i )
   {
@@ -170,10 +179,13 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
       }
     }
   }
+
+  QF_STACK_POP
 }
 
 void DataDictionary::readFromURL( const std::string& url )
-{
+{ QF_STACK_PUSH(DataDictionary::readFromURL)
+
 #ifdef _MSC_VER
   DOMDocumentPtr pDoc = DOMDocumentPtr(new MSXML_DOMDocument());
 #else
@@ -265,7 +277,7 @@ void DataDictionary::readFromURL( const std::string& url )
     throw ConfigError("Trailer section not found in data dictionary");
 
   DOMNodePtr pTrailerFieldNode = pTrailerNode->getFirstChildNode();
-  if(!pTrailerFieldNode.get()) throw ConfigError("No trailer fields defined");  
+  if(!pTrailerFieldNode.get()) throw ConfigError("No trailer fields defined");
 
   while(pTrailerFieldNode.get())
   {
@@ -303,10 +315,12 @@ void DataDictionary::readFromURL( const std::string& url )
         addValueName( 35, msgtype, name );
 
       DOMNodePtr pMessageFieldNode = pMessageNode->getFirstChildNode();
-      if( !pMessageFieldNode.get() ) throw ConfigError("Message contains no fields");
+      if( !pMessageFieldNode.get() ) 
+	throw ConfigError("Message contains no fields");
       while( pMessageFieldNode.get() )
       {
-        if(pMessageFieldNode->getName() == "field" || pMessageFieldNode->getName() == "group")
+        if(pMessageFieldNode->getName() == "field" 
+	   || pMessageFieldNode->getName() == "group")
         {
           DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();  
           std::string name;
@@ -316,8 +330,11 @@ void DataDictionary::readFromURL( const std::string& url )
           addMsgField(msgtype, num);
           
           std::string required;
-          if(attrs->get("required", required) && (required == "Y" || required == "y"))
+          if(attrs->get("required", required) 
+	     && (required == "Y" || required == "y"))
+	  {
             addRequiredField(msgtype, num);
+	  }
         }
         else if(pMessageFieldNode->getName() == "component")
         {
@@ -325,32 +342,41 @@ void DataDictionary::readFromURL( const std::string& url )
           std::string required;
           attrs->get("required", required);
           bool isRequired = (required == "Y" || required == "y");
-          addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(), msgtype, *this, isRequired);
+          addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(), 
+				msgtype, *this, isRequired);
         }
         if(pMessageFieldNode->getName() == "group")
         {
           addXMLGroup(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
         }
-        RESET_AUTO_PTR(pMessageFieldNode, pMessageFieldNode->getNextSiblingNode());
+        RESET_AUTO_PTR(pMessageFieldNode, 
+		       pMessageFieldNode->getNextSiblingNode());
       }
     }
     RESET_AUTO_PTR(pMessageNode, pMessageNode->getNextSiblingNode());
   } 
+
+  QF_STACK_POP
 }
 
 int DataDictionary::lookupXMLFieldNumber
-  ( DOMDocument* pDoc, const std::string& name )
-{
+( DOMDocument* pDoc, const std::string& name )
+{ QF_STACK_PUSH(DataDictionary::lookupXMLFieldNumber)
+
   NameToField::iterator i = m_names.find(name);
   if( i == m_names.end() )
     throw ConfigError("Field not defined in fields section");
   return i->second;
+
+  QF_STACK_POP
 }
 
 void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode, 
-                                            const std::string& msgtype, DataDictionary& DD,
+                                            const std::string& msgtype, 
+					    DataDictionary& DD,
                                             bool componentRequired )
-{
+{ QF_STACK_PUSH(DataDictionary::addXMLComponentFields)
+
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
   if(!attrs->get("name", name)) 
@@ -364,7 +390,8 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
   DOMNodePtr pComponentFieldNode = pComponentNode->getFirstChildNode();
   while(pComponentFieldNode.get())
   {
-    if(pComponentFieldNode->getName() == "field" || pComponentFieldNode->getName() == "group")
+    if(pComponentFieldNode->getName() == "field" 
+       || pComponentFieldNode->getName() == "group")
     {
       DOMAttributesPtr attrs = pComponentFieldNode->getAttributes();
       std::string name;
@@ -373,19 +400,28 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       int field = lookupXMLFieldNumber(pDoc, name);
 
       std::string required;
-      if(attrs->get("required", required) && (required == "Y" || required =="y") && componentRequired)
+      if(attrs->get("required", required) 
+	 && (required == "Y" || required =="y") 
+	 && componentRequired)
+      {
         addRequiredField(msgtype, field);
+      }
 
       DD.addField(field);
       DD.addMsgField(msgtype, field);
     }
-    RESET_AUTO_PTR(pComponentFieldNode, pComponentFieldNode->getNextSiblingNode());
+    RESET_AUTO_PTR(pComponentFieldNode, 
+		   pComponentFieldNode->getNextSiblingNode());
   }
+
+  QF_STACK_POP
 }
 
 void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode, 
-                                  const std::string& msgtype, DataDictionary& DD )
-{
+                                  const std::string& msgtype, 
+				  DataDictionary& DD )
+{ QF_STACK_PUSH(DataDictionary::addXMLGroup)
+
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
   if(!attrs->get("name", name)) 
@@ -419,10 +455,13 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
   }
 
   if( delim ) DD.addGroup( msgtype, group, delim, groupDD );
+
+  QF_STACK_POP
 }
 
 TYPE::Type DataDictionary::XMLTypeToType( const std::string& type )
-{
+{ QF_STACK_PUSH(DataDictionary::XMLTypeToType)
+
   if ( m_beginString < "FIX.4.2" && type == "CHAR" )
     return TYPE::String;
 
@@ -451,5 +490,7 @@ TYPE::Type DataDictionary::XMLTypeToType( const std::string& type )
   if ( type == "LENGTH" ) return TYPE::Length;
   if ( type == "COUNTRY" ) return TYPE::Country;
   return TYPE::Unknown;
+
+  QF_STACK_POP
 }
 }

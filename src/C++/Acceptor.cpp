@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Acceptor.h"
 #include "Utility.h"
@@ -69,7 +70,9 @@ throw( ConfigError& )
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( 0 )
-{ initialize(); }
+{
+  initialize(); 
+} 
 
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
@@ -80,7 +83,9 @@ throw( ConfigError& )
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( &logFactory )
-{ initialize(); }
+{
+  initialize(); 
+}
 
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
@@ -98,7 +103,7 @@ Acceptor::Acceptor( Application& application,
   }
   catch ( ConfigError & e )
   { threw = true; ex = e; }
-}
+} 
 
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
@@ -119,8 +124,9 @@ Acceptor::Acceptor( Application& application,
   { threw = true; ex = e; }
 }
 
-void Acceptor::initialize() throw ( ConfigError& )
-{
+void Acceptor::initialize() throw ( ConfigError& ) 
+{ QF_STACK_PUSH( Acceptor::initialize )
+
   std::set < SessionID > sessions = m_settings.getSessions();
   std::set < SessionID > ::iterator i;
 
@@ -137,18 +143,22 @@ void Acceptor::initialize() throw ( ConfigError& )
   }
   if ( !m_sessions.size() )
     throw ConfigError( "No sessions defined for acceptor" );
+
+  QF_STACK_POP
 }
 
 Acceptor::~Acceptor()
-{
+{ QF_STACK_IGNORE_BEGIN
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
+  QF_STACK_IGNORE_END
 }
 
 Session* Acceptor::getSession
 ( const std::string& msg, Session::Responder& responder )
-{
+{ QF_STACK_PUSH( Acceptor::getSession )
+
   Message message;
   if ( !message.setStringHeader( msg ) )
     return 0;
@@ -178,22 +188,32 @@ Session* Acceptor::getSession
   }
   catch ( FieldNotFound& ) {}
   return 0;
+
+  QF_STACK_POP
 }
 
 void Acceptor::start() throw ( RuntimeError& )
-{
+{ QF_STACK_PUSH( Acceptor::start )
+
   onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );
   if ( !threadid ) throw RuntimeError("Unable to spawn thread");
   onStart();
   thread_join( threadid );
+
+  QF_STACK_POP
 }
 
 void* Acceptor::startThread( void* p )
-{
+{ QF_STACK_TRY
+  QF_STACK_PUSH( Acceptor::startThread )
+
   Acceptor * pAcceptor = static_cast < Acceptor* > ( p );
   pAcceptor->getApplication().onRun();
   pAcceptor->stop();
   return 0;
+
+  QF_STACK_POP
+  QF_STACK_CATCH
 }
 }

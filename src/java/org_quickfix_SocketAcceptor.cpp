@@ -66,6 +66,7 @@
 #include "quickfix/include/SocketAcceptor.h"
 #include "quickfix/include/Settings.h"
 #include "quickfix/include/Utility.h"
+#include "quickfix/include/CallStack.h"
 #include <sstream>
 
 FIX::SocketAcceptor* getCPPSocketAcceptor( jobject obj )
@@ -76,7 +77,8 @@ FIX::SocketAcceptor* getCPPSocketAcceptor( jobject obj )
 
 JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_create
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
@@ -117,22 +119,28 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_create
   }
 
   jobject.setInt( "cppPointer", ( int ) pAcceptor );
+  
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   FIX::SocketAcceptor * p = getCPPSocketAcceptor( obj );
   if ( p == 0 ) return ;
 
   delete & p ->getApplication();
   delete &p ->getMessageStoreFactory();
   delete p;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doStart
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   try
   {
@@ -142,11 +150,16 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doStart
   {
     throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
   }
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doStop
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   getCPPSocketAcceptor( obj ) ->stop();
+
+  QF_STACK_CATCH
 }

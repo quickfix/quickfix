@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "SocketMonitor.h"
 #include "Utility.h"
@@ -63,7 +64,7 @@
 namespace FIX
 {
 SocketMonitor::SocketMonitor( int timeout )
-    : m_timeout( timeout )
+: m_timeout( timeout )
 {
   socket_init();
 
@@ -84,7 +85,8 @@ SocketMonitor::~SocketMonitor()
 }
 
 bool SocketMonitor::add( int s )
-{
+{ QF_STACK_PUSH(SocketMonitor::add)
+
   Sockets::iterator i = m_sockets.find( s );
   if ( i == m_sockets.end() )
   {
@@ -93,10 +95,13 @@ bool SocketMonitor::add( int s )
   }
   else
     return false;
+
+  QF_STACK_POP
 }
 
 bool SocketMonitor::drop( int s )
-{
+{ QF_STACK_PUSH(SocketMonitor::drop)
+
   Sockets::iterator i = m_sockets.find( s );
   if ( i != m_sockets.end() )
   {
@@ -106,10 +111,13 @@ bool SocketMonitor::drop( int s )
     return true;
   }
   return false;
+
+  QF_STACK_POP
 }
 
 inline timeval* SocketMonitor::getTimeval()
-{
+{ QF_STACK_PUSH(SocketMonitor::getTimeval)
+
   if ( !m_timeout )
     return 0;
 #ifdef SELECT_MODIFIES_TIMEVAL
@@ -131,10 +139,13 @@ double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
   }
   return &m_timeval;
 #endif
+
+  QF_STACK_POP
 }
 
 bool SocketMonitor::sleepIfEmpty()
-{
+{ QF_STACK_PUSH(SocketMonitor::sleepIfEmpty)
+
   if ( m_sockets.empty() )
   {
     process_sleep( m_timeout );
@@ -142,10 +153,13 @@ bool SocketMonitor::sleepIfEmpty()
   }
   else
     return false;
+
+  QF_STACK_POP
 }
 
 void SocketMonitor::block( Strategy& strategy )
-{
+{ QF_STACK_PUSH(SocketMonitor::block)
+
   while ( m_dropped.size() )
   {
     strategy.onError( *this, m_dropped.front() );
@@ -207,13 +221,18 @@ Sockets::iterator i;
 #endif
   else
     strategy.onError( *this );
+
+  QF_STACK_POP
 }
 
 void SocketMonitor::buildSet( fd_set& watchSet )
-{
+{ QF_STACK_PUSH(SocketMonitor::buildSet)
+
   FD_ZERO( &watchSet );
   Sockets::iterator iter;
   for ( iter = m_sockets.begin(); iter != m_sockets.end(); ++iter )
     FD_SET( *iter, &watchSet );
+
+  QF_STACK_POP
 }
 }

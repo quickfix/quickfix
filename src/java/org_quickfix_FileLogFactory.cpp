@@ -57,11 +57,13 @@
 #include "org_quickfix_FileLogFactory.h"
 #include "quickfix/include/FileLog.h"
 #include "quickfix/include/SessionSettings.h"
+#include "quickfix/include/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLogFactory_create__
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject object( obj );
 
@@ -71,22 +73,28 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileLogFactory_create__
 
   FIX::LogFactory* pFactory = new FIX::FileLogFactory( *pSettings );
   object.setInt( "cppPointer", ( int ) pFactory );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLogFactory_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::FileLogFactory* pFactory
   = ( FIX::FileLogFactory* ) jobject.getInt( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_FileLogFactory_create__Lorg_quickfix_SessionID_2
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
-{
- JVM::set( pEnv );
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jsession( sessionID );
 
@@ -108,4 +116,6 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_FileLogFactory_create__Lorg_quickfix
     throwNew( "Lorg/quickfix/ConfigError;", e.what() );
   }
   return 0;
+
+  QF_STACK_CATCH
 }

@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "SocketAcceptor.h"
 #include "Settings.h"
@@ -95,7 +96,8 @@ SocketAcceptor::~SocketAcceptor()
 }
 
 void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
-{
+{ QF_STACK_PUSH(SocketAcceptor::onInitialize)
+
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
   bool reuseAddress = false;
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
@@ -109,40 +111,54 @@ void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeErr
   {
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
   }
+  
+  QF_STACK_POP
 }
 
 void SocketAcceptor::onStart()
-{
+{ QF_STACK_PUSH(SocketAcceptor::onStart)
   while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
+  QF_STACK_POP
 }
 
 void SocketAcceptor::onStop()
-{
+{ QF_STACK_PUSH(SocketAcceptor::onStop)
+
   m_stop = true;
   if ( m_pServer ) 
   {
     m_pServer->close();
     delete m_pServer;
   }
+
+  QF_STACK_POP
 }
 
 void SocketAcceptor::onConnect( SocketServer& server, int s )
-{
+{ QF_STACK_PUSH(SocketAcceptor::onConnect)
+
   if ( !socket_isValid( s ) ) return ;
   SocketConnections::iterator i = m_connections.find( s );
   if ( i != m_connections.end() ) return ;
   m_connections[ s ] = new SocketConnection( s, &server.getMonitor() );
+
+  QF_STACK_POP
 }
 
 void SocketAcceptor::onData( SocketServer& server, int s )
-{
+{ QF_STACK_PUSH(SocketAcceptor::onData)
+
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
-  while ( pSocketConnection->read( *this, server ) ) {}}
+  while ( pSocketConnection->read( *this, server ) ) {}
+
+  QF_STACK_POP
+}
 
 void SocketAcceptor::onDisconnect( SocketServer&, int s )
-{
+{ QF_STACK_PUSH(SocketAcceptor::onDisconnect)
+
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
@@ -152,14 +168,19 @@ void SocketAcceptor::onDisconnect( SocketServer&, int s )
 
   delete pSocketConnection;
   m_connections.erase( s );
+
+  QF_STACK_POP
 }
 
 void SocketAcceptor::onError( SocketServer& ) {}
 
 void SocketAcceptor::onTimeout( SocketServer& )
-{
+{ QF_STACK_PUSH(SocketAcceptor::onInitialize)
+
   SocketConnections::iterator i;
   for ( i = m_connections.begin(); i != m_connections.end(); ++i )
     i->second->onTimeout();
+
+  QF_STACK_POP
 }
 }

@@ -57,11 +57,13 @@
 #include "Conversions.h"
 #include "org_quickfix_SessionID.h"
 #include "quickfix/include/SessionID.h"
+#include "quickfix/include/CallStack.h"
 #include <string>
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionID_create
 ( JNIEnv *pEnv, jobject obj, jstring begin, jstring sender, jstring target )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
@@ -83,43 +85,57 @@ JNIEXPORT void JNICALL Java_org_quickfix_SessionID_create
                                FIX::TargetCompID( targetCompID ) );
 
   jobject.setInt( "cppPointer", ( int ) pSession );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionID_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::SessionID* pSession = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
   delete pSession;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getBeginString0
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::SessionID* pSession = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
   jstring result = newString( pSession->getBeginString().getValue() );
   return result;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getSenderCompID0
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::SessionID* pSession = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
   jstring result = newString( pSession->getSenderCompID().getValue() );
   return result;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getTargetCompID0
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::SessionID* pSession = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
   jstring result = newString( pSession->getTargetCompID().getValue() );
   return result;
+
+  QF_STACK_CATCH
 }

@@ -107,9 +107,7 @@ private:
 
   struct ThreadStruct
   {
-    ThreadStruct( ThreadedSocketInitiator* i,
-                  const SessionID& s, const Dictionary& d )
-        : pInitiator( i ), sessionID( s ), dictionary( d ) {}
+    ThreadStruct( ThreadedSocketInitiator* i, const SessionID& s, const Dictionary& d );
     ThreadedSocketInitiator* pInitiator;
     SessionID sessionID;
     Dictionary dictionary;

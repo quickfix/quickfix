@@ -58,6 +58,7 @@
 #include "Field.h"
 #include "MessageSorters.h"
 #include "Exceptions.h"
+#include "CallStack.h"
 #include <map>
 #include <vector>
 #include <sstream>
@@ -96,39 +97,25 @@ public:
     *this = copy;
   }
 
-  virtual ~FieldMap() {	clear(); }
+  virtual ~FieldMap();
 
-  FieldMap& operator=( const FieldMap& rhs )
-  {
-    clear();
-    m_fields = rhs.m_fields;
-
-    Groups::const_iterator i;
-    for ( i = rhs.m_groups.begin(); i != rhs.m_groups.end(); ++i )
-    {
-      std::vector < FieldMap* > ::const_iterator j;
-      for ( j = i->second.begin(); j != i->second.end(); ++j )
-        addGroup( i->first, **j );
-    }
-    return *this;
-  }
+  FieldMap& operator=( const FieldMap& rhs );
 
   /// Set a field without type checking
-  void setField( const FieldBase& field )
+  void FieldMap::setField( const FieldBase& field )
   {
     m_fields.erase( field.getField() );
     m_fields.insert( std::make_pair( field.getField(), field ) );
   }
-
   /// Set a field without a field class
-  void setField( int field, const std::string value )
+  void FieldMap::setField( int field, const std::string value )
   {
     FieldBase fieldBase( field, value );
     setField( fieldBase );
   }
 
   /// Get a field without type checking
-  FieldBase& getField( FieldBase& field )
+  FieldBase& FieldMap::getField( FieldBase& field )
   const throw( FieldNotFound& )
   {
     Fields::const_iterator iter = m_fields.find( field.getField() );
@@ -137,9 +124,8 @@ public:
     field = iter->second;
     return field;
   }
-
   /// Get a field without a field class
-  std::string getField( int field )
+  std::string FieldMap::getField( int field )
   const throw( FieldNotFound& )
   {
     FieldBase fieldBase( field, "" );
@@ -147,152 +133,38 @@ public:
     return fieldBase.getString();
   }
 
-  FieldBase& getField( FieldBase& field, int pos )
-  const throw( FieldNotFound& )
-  {
-    Fields::const_iterator iter = m_fields.find( field.getField() );
-    if ( iter == m_fields.end() )
-      throw FieldNotFound( field.getField() );
-    if ( countField( field ) < pos )
-      throw FieldNotFound( field.getField() );
-
-  for ( int i = 1; i < pos; ++i, ++iter ) {}
-    field = iter->second;
-    return field;
-  }
-
-  void addGroup( int field, const FieldMap& group )
-  {
-    FieldMap * pGroup = new FieldMap;
-    *pGroup = group;
-    m_groups[ field ].push_back( pGroup );
-    Groups::iterator i = m_groups.find( field );
-    setField( IntField( field, i->second.size() ) );
-  }
-
-  FieldMap& getGroup( int num, int field, FieldMap& group ) const
-  throw( FieldNotFound& )
-  {
-    Groups::const_iterator i = m_groups.find( field );
-    if ( i == m_groups.end() ) throw FieldNotFound( field );
-    if ( i->second.size() < ( unsigned ) num ) throw FieldNotFound( field );
-    group = *( *( i->second.begin() + ( num - 1 ) ) );
-    return group;
-  }
-
   /**
    * Check to see if a field is set
    * If a field has been set on the map at least once, this will
    * return true.
    */
-  bool isSetField( const FieldBase& field ) const
-  {
-    return m_fields.find( field.getField() ) != m_fields.end();
-  }
-
+  bool FieldMap::isSetField( const FieldBase& field ) const
+  { return m_fields.find( field.getField() ) != m_fields.end(); }
   /**
    * Check to see if a field is set by referencing its number
    * If a field has been set on the map at least once, this will
    * return true.
    */
-  bool isSetField( int field ) const
-  {
-    return m_fields.find( field ) != m_fields.end();
-  }
+  bool FieldMap::isSetField( int field ) const
+  { return m_fields.find( field ) != m_fields.end(); }
+
+  void addGroup( int field, const FieldMap& group );
+
+  FieldMap& getGroup( int num, int field, FieldMap& group ) const
+    throw( FieldNotFound& );
+
+  /// Remove a field. If field is not present, this is a no-op.
+  void removeField( int field );
 
   /// Check to see if a group exists
-  bool hasGroup( unsigned num, int field, FieldMap& group )
-  {
-    Groups::const_iterator i = m_groups.find( field );
-    return i != m_groups.end();
-  }
-
-  void removeField( int field )
-  {
-    Fields::iterator i = m_fields.find( field );
-    if ( i != m_fields.end() )
-      m_fields.erase( i );
-  }
-
-  int countField( const FieldBase& field ) const
-  {
-    return m_fields.count( field.getField() );
-  }
+  bool hasGroup( unsigned num, int field, FieldMap& group );
 
   /// Clear all fields from the map
-  void clear()
-  {
-    m_fields.clear();
+  void clear();
 
-    Groups::iterator i;
-    for ( i = m_groups.begin(); i != m_groups.end(); ++i )
-    {
-      std::vector < FieldMap* > ::iterator j;
-      for ( j = i->second.begin(); j != i->second.end(); ++j )
-        delete *j;
-    }
-    m_groups.clear();
-  }
-
-  std::string calculateString() const
-  {
-    std::string result;
-    Fields::const_iterator i;
-    for ( i = m_fields.begin(); i != m_fields.end(); ++i )
-    {
-      result += i->second.getValue();
-
-      // add groups if they exist
-      Groups::const_iterator j = m_groups.find( i->first );
-      if ( j == m_groups.end() ) continue;
-      std::vector < FieldMap* > ::const_iterator k;
-      for ( k = j->second.begin(); k != j->second.end(); ++k )
-        result += ( *k ) ->calculateString();
-    }
-    return result;
-  }
-
-  int calculateLength() const
-  {
-    int result = 0;
-    Fields::const_iterator i;
-    for ( i = m_fields.begin(); i != m_fields.end(); ++i )
-    {
-      if ( i->first != FIELD::BeginString
-           && i->first != FIELD::BodyLength
-           && i->first != FIELD::CheckSum )
-      { result += i->second.getLength(); }
-    }
-
-    Groups::const_iterator j;
-    for ( j = m_groups.begin(); j != m_groups.end(); ++j )
-    {
-      std::vector < FieldMap* > ::const_iterator k;
-      for ( k = j->second.begin(); k != j->second.end(); ++k )
-        result += ( *k ) ->calculateLength();
-    }
-    return result;
-  }
-
-  int calculateTotal() const
-  {
-    int result = 0;
-    Fields::const_iterator i;
-    for ( i = m_fields.begin(); i != m_fields.end(); ++i )
-    {
-      if ( i->first != FIELD::CheckSum )
-        result += i->second.getTotal();
-    }
-
-    Groups::const_iterator j;
-    for ( j = m_groups.begin(); j != m_groups.end(); ++j )
-    {
-      std::vector < FieldMap* > ::const_iterator k;
-      for ( k = j->second.begin(); k != j->second.end(); ++k )
-        result += ( *k ) ->calculateTotal();
-    }
-    return result;
-  }
+  std::string calculateString() const;
+  int calculateLength() const;
+  int calculateTotal() const;
 
   iterator begin() const { return m_fields.begin(); }
   iterator end() const { return m_fields.end(); }
@@ -306,12 +178,12 @@ private:
 /*! @} */
 }
 
-#define FIELD_SET( MAP, FIELD )               \
-bool isSet( const FIELD& field ) const      \
+#define FIELD_SET( MAP, FIELD )           \
+bool isSet( const FIELD& field ) const    \
 { return (MAP).isSetField(field); }       \
-void set( const FIELD& field )              \
+void set( const FIELD& field )            \
 { (MAP).setField(field); }                \
-FIELD& get( FIELD& field ) const            \
+FIELD& get( FIELD& field ) const          \
 { return (FIELD&)(MAP).getField(field); }
 
 #endif //FIX_FIELDMAP

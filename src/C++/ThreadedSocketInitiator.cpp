@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "ThreadedSocketInitiator.h"
 #include "Settings.h"
@@ -98,20 +99,27 @@ ThreadedSocketInitiator::~ThreadedSocketInitiator()
 { socket_term(); }
 
 void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
-{
+{ QF_STACK_PUSH(ThreadedSocketInitiator::onInitialize)
+
   try { m_reconnectInterval = s.get().getLong( "ReconnectInterval" ); }
   catch ( std::exception& ) {}
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketInitiator::onStart()
-{
+{ QF_STACK_PUSH(ThreadedSocketInitiator::onStart)
+
   connect();
   while ( !m_stop )
     process_sleep( 1 );
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketInitiator::onStop()
-{
+{ QF_STACK_PUSH(ThreadedSocketInitiator::onStop)
+
   m_stop = true;
   m_mutex.lock();
 
@@ -122,10 +130,13 @@ void ThreadedSocketInitiator::onStop()
     thread_join( i->second );
 
   m_mutex.unlock();
+
+  QF_STACK_POP
 }
 
 bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
-{
+{ QF_STACK_PUSH(ThreadedSocketInitiator::doConnect)
+
   try
   {
     std::string address;
@@ -137,10 +148,13 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     return true;
   }
   catch ( std::exception& ) { return false; }
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketInitiator::addThread( int s, int t )
-{
+{ QF_STACK_PUSH(ThreadedSocketInitiator::addThread)
+
   m_mutex.lock();
 #ifdef _MSC_VER
   HANDLE handle;
@@ -153,10 +167,13 @@ void ThreadedSocketInitiator::addThread( int s, int t )
 #endif
   m_threads[ s ] = t;
   m_mutex.unlock();
+
+  QF_STACK_POP
 }
 
 void ThreadedSocketInitiator::removeThread( int s )
-{
+{ QF_STACK_PUSH(ThreadedSocketInitiator::removeThread)
+
   m_mutex.lock();
   SocketToThread::iterator i = m_threads.find( s );
   if ( i != m_threads.end() )
@@ -167,10 +184,14 @@ void ThreadedSocketInitiator::removeThread( int s )
     m_threads.erase( i );
   }
   m_mutex.unlock();
+
+  QF_STACK_POP
 }
 
 void* ThreadedSocketInitiator::socketThread( void* p )
-{
+{ QF_STACK_TRY
+  QF_STACK_PUSH(ThreadedSocketInitiator::socketThread)
+
   ThreadStruct * threadStruct = reinterpret_cast < ThreadStruct* > ( p );
 
   ThreadedSocketInitiator* pInitiator = threadStruct->pInitiator;
@@ -207,11 +228,15 @@ void* ThreadedSocketInitiator::socketThread( void* p )
       process_sleep( pInitiator->m_reconnectInterval );
   }
   return 0;
+
+  QF_STACK_POP
+  QF_STACK_CATCH
 }
 
 void ThreadedSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
                                        std::string& address, short& port )
-{
+{ QF_STACK_PUSH(ThreadedSocketInitiator::getHost)
+
   int num = 0;
   SessionToHostNum::iterator i = m_sessionToHostNum.find( s );
   if ( i != m_sessionToHostNum.end() ) num = i->second;
@@ -233,6 +258,12 @@ void ThreadedSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
     port = ( short ) d.getLong( SOCKET_CONNECT_PORT );
   }
   m_sessionToHostNum[ s ] = ++num;
+
+  QF_STACK_POP
 }
+
+ThreadedSocketInitiator::ThreadStruct::ThreadStruct
+( ThreadedSocketInitiator* i, const SessionID& s, const Dictionary& d )
+: pInitiator( i ), sessionID( s ), dictionary( d ) {}
 
 }

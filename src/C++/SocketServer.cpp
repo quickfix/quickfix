@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "SocketServer.h"
 #include "Utility.h"
@@ -74,7 +75,8 @@ public:
 
 private:
   void onEvent( SocketMonitor&, int socket )
-  {
+  { QF_STACK_PUSH(ServerWrapper::onEvent)
+
     if ( socket == m_socket )
     {
       m_strategy.onConnect( m_server, m_server.accept() );
@@ -86,18 +88,29 @@ private:
       }
       else
         m_strategy.onData( m_server, socket );
+
+    QF_STACK_POP
   }
 
   void onError( SocketMonitor&, int socket )
-  {
+  { QF_STACK_PUSH(ServerWrapper::onError)
+
     m_strategy.onDisconnect( m_server, socket );
     m_server.getMonitor().drop( socket );
+
+    QF_STACK_POP
   }
+
   void onError( SocketMonitor& )
-  { m_strategy.onError( m_server ); }
+  { QF_STACK_PUSH(ServerWrapper::onEvent)
+    m_strategy.onError( m_server ); 
+    QF_STACK_POP
+  }
+
   void onTimeout( SocketMonitor& )
-  {
+  { QF_STACK_PUSH(ServerWrapper::onTimeout)
     m_strategy.onTimeout( m_server );
+    QF_STACK_POP
   };
 
   int m_socket;
@@ -114,20 +127,27 @@ SocketServer::SocketServer( int port, int timeout, bool reuse )
 }
 
 int SocketServer::accept()
-{
+{ QF_STACK_PUSH(SocketServer::accept)
+
   int result = ::accept( m_socket, 0, 0 );
   if ( result >= 0 ) m_monitor.add( result );
   return result;
+
+  QF_STACK_POP
 }
 
 void SocketServer::close()
-{
+{ QF_STACK_PUSH(SocketServer::close)
+
   socket_close( m_socket );
   socket_invalidate( m_socket );
+
+  QF_STACK_POP
 }
 
 bool SocketServer::block( Strategy& strategy )
-{
+{ QF_STACK_PUSH(SocketServer::block)
+
   if ( socket_isValid( m_socket ) )
   {
     ServerWrapper wrapper( m_socket, *this, strategy );
@@ -135,5 +155,7 @@ bool SocketServer::block( Strategy& strategy )
     return true;
   }
   return false;
+
+  QF_STACK_POP
 }
 }

@@ -66,6 +66,7 @@
 #include "quickfix/include/ThreadedSocketInitiator.h"
 #include "quickfix/include/Settings.h"
 #include "quickfix/include/Utility.h"
+#include "quickfix/include/CallStack.h"
 #include <sstream>
 
 FIX::ThreadedSocketInitiator* getCPPThreadedSocketInitiator( jobject obj )
@@ -75,16 +76,20 @@ FIX::ThreadedSocketInitiator* getCPPThreadedSocketInitiator( jobject obj )
 }
 
 FIX::SessionSettings& getThreadedInitiatorSettings( JVMObject& obj )
-{
+{ QF_STACK_TRY
+
   JVMObject jsettings = obj.getObject( "settings", "Lorg/quickfix/SessionSettings;" );
   FIX::SessionSettings* pSettings
   = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
   return *pSettings;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_create
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
@@ -125,22 +130,28 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_create
   }
 
   jobject.setInt( "cppPointer", ( int ) pInitiator );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   FIX::ThreadedSocketInitiator * p = getCPPThreadedSocketInitiator( obj );
   if ( p == 0 ) return ;
 
   delete & p ->getApplication();
   delete &p ->getMessageStoreFactory();
   delete p;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doStart
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   try
   {
@@ -150,11 +161,16 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doStart
   {
     throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
   }
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doStop
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   getCPPThreadedSocketInitiator( obj ) ->stop();
+
+  QF_STACK_CATCH
 }

@@ -52,6 +52,7 @@
 #define FIX_MUTEX_H
 
 #include "Utility.h"
+#include "CallStack.h"
 
 namespace FIX
 {
@@ -64,7 +65,7 @@ public:
 #ifdef _MSC_VER
     InitializeCriticalSection( &m_mutex );
 #else
-m_count = 0;
+    m_count = 0;
     m_threadID = 0;
     //pthread_mutexattr_t attr;
     //pthread_mutexattr_init(&attr);
@@ -124,14 +125,14 @@ class Locker
 {
 public:
   Locker( Mutex& mutex )
-: m_mutex( mutex )
+  : m_mutex( mutex )
   {
     m_mutex.lock();
   }
 
   ~Locker()
-  {
-    m_mutex.unlock();
+  { 
+    m_mutex.unlock(); 
   }
 private:
   Mutex& m_mutex;
@@ -141,14 +142,14 @@ class ReverseLocker
 {
 public:
   ReverseLocker( Mutex& mutex )
-: m_mutex( mutex )
+  : m_mutex( mutex )
   {
     m_mutex.unlock();
   }
 
   ~ReverseLocker()
   {
-    m_mutex.lock();
+    m_mutex.lock(); 
   }
 private:
   Mutex& m_mutex;

@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "SocketConnector.h"
 #include "Utility.h"
@@ -74,25 +75,37 @@ public:
 
 private:
   void onEvent( SocketMonitor&, int socket )
-  {
+  { QF_STACK_PUSH(ConnectorWrapper::onEvent)
+
     if ( socket_disconnected( socket ) )
     {
       m_connector.getMonitor().drop( socket );
     }
     else
       m_strategy.onData( m_connector, socket );
+
+    QF_STACK_POP
   }
 
   void onError( SocketMonitor&, int socket )
-  {
+  { QF_STACK_PUSH(ConnectorWrapper::onError)
+
     m_strategy.onDisconnect( m_connector, socket );
     m_connector.getMonitor().drop( socket );
+
+    QF_STACK_POP
   }
+
   void onError( SocketMonitor& )
-  { m_strategy.onError( m_connector ); }
+  { QF_STACK_PUSH(ConnectorWrapper::onError)
+    m_strategy.onError( m_connector ); 
+    QF_STACK_POP
+  }
+
   void onTimeout( SocketMonitor& )
-  {
+  { QF_STACK_PUSH(ConnectorWrapper::onTimeout)
     m_strategy.onTimeout( m_connector );
+    QF_STACK_POP
   };
 
   SocketConnector& m_connector;
@@ -100,10 +113,11 @@ private:
 };
 
 SocketConnector::SocketConnector( int timeout )
-    : m_monitor( timeout ) {}
+: m_monitor( timeout ) {}
 
 int SocketConnector::connect( const std::string& address, int port )
-{
+{ QF_STACK_PUSH(SocketConnector::connect)
+
   int sock = socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
 
   sockaddr_in addr;
@@ -123,20 +137,28 @@ int SocketConnector::connect( const std::string& address, int port )
     socket_close( sock );
     return 0;
   }
+
+  QF_STACK_POP
 }
 
 int SocketConnector::connect( const std::string& address, int port,
                               Strategy& strategy )
-{
+{ QF_STACK_PUSH(SocketConnector::connect)
+
   int sock = connect( address, port );
   if ( sock )
     strategy.onConnect( *this, sock );
   return sock;
+
+  QF_STACK_POP
 }
 
 void SocketConnector::block( Strategy& strategy )
-{
+{ QF_STACK_PUSH(SocketConnector::block)
+
   ConnectorWrapper wrapper( *this, strategy );
   m_monitor.block( wrapper );
+
+  QF_STACK_POP
 }
 }

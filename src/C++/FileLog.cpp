@@ -52,28 +52,32 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "FileLog.h"
 
 namespace FIX
 {
 Log* FileLogFactory::create( const SessionID& s )
-{
-  if ( m_path.size() ) return new FileLog( m_path, s );
+{ QF_STACK_PUSH(FileLogFactory::create)
 
+  if ( m_path.size() ) return new FileLog( m_path, s );
   std::string path;
   Dictionary settings = m_settings.get( s );
   path = settings.getString( FILE_LOG_PATH );
   return new FileLog( path, s );
+
+  QF_STACK_POP
 }
 
 void FileLogFactory::destroy( Log* pLog )
-{
+{ QF_STACK_PUSH(FileLogFactory::destroy)
   delete pLog;
+  QF_STACK_POP
 }
 
 FileLog::FileLog( std::string path, const SessionID& s )
-    : m_sessionID( s )
+: m_sessionID( s )
 {
   file_mkdir( path.c_str(), 0700 );
 

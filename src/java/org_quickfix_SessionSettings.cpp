@@ -56,6 +56,7 @@
 #include "JVM.h"
 #include "org_quickfix_SessionSettings.h"
 #include "quickfix/include/SessionSettings.h"
+#include "quickfix/include/CallStack.h"
 #include "Conversions.h"
 
 FIX::SessionSettings* getCPPSessionSettings( jobject obj )
@@ -66,7 +67,8 @@ FIX::SessionSettings* getCPPSessionSettings( jobject obj )
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_create
 ( JNIEnv *pEnv, jobject obj, jobject stream )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   JVMObject jobject( obj );
@@ -78,17 +80,21 @@ JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_create
 
   FIX::SessionSettings* pSettings = new FIX::SessionSettings( stringStream );
   jobject.setInt( "cppPointer", ( int ) pSettings );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
   delete getCPPSessionSettings( obj );
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_SessionSettings_getString
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -109,11 +115,14 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_SessionSettings_getString
   { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }  
   pEnv->ReleaseStringUTFChars( key, ukey );  
   return 0;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jlong JNICALL Java_org_quickfix_SessionSettings_getLong
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -134,11 +143,14 @@ JNIEXPORT jlong JNICALL Java_org_quickfix_SessionSettings_getLong
   { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }  
   pEnv->ReleaseStringUTFChars( key, ukey );  
   return 0;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jdouble JNICALL Java_org_quickfix_SessionSettings_getDouble
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -159,11 +171,14 @@ JNIEXPORT jdouble JNICALL Java_org_quickfix_SessionSettings_getDouble
   { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }  
   pEnv->ReleaseStringUTFChars( key, ukey );  
   return 0;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jboolean JNICALL Java_org_quickfix_SessionSettings_getBool
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -184,11 +199,14 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_SessionSettings_getBool
   { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }  
   pEnv->ReleaseStringUTFChars( key, ukey );  
   return 0;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setString
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jstring value)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -207,11 +225,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setString
 
   pEnv->ReleaseStringUTFChars( key, ukey );
   pEnv->ReleaseStringUTFChars( value, uvalue );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setLong
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jlong value)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -228,11 +249,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setLong
   { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
 
   pEnv->ReleaseStringUTFChars( key, ukey );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setDouble
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jdouble value)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -249,11 +273,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setDouble
   { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
 
   pEnv->ReleaseStringUTFChars( key, ukey );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setBool
   (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jboolean value)
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
@@ -270,4 +297,6 @@ JNIEXPORT void JNICALL Java_org_quickfix_SessionSettings_setBool
   { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
 
   pEnv->ReleaseStringUTFChars( key, ukey );
+
+  QF_STACK_CATCH
 }

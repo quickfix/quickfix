@@ -68,10 +68,7 @@ namespace FIX
       pNode->get_attributes(&m_pNodeMap);
     }
 
-    ~MSXML_DOMAttributes()
-    {
-      if(m_pNodeMap) m_pNodeMap->Release();
-    }
+    ~MSXML_DOMAttributes();
 
     bool get( const std::string&, std::string& );
 
@@ -84,8 +81,8 @@ namespace FIX
   public:
     MSXML_DOMNode( MSXML2::IXMLDOMNode* pNode )
     : m_pNode( pNode ) {}
-    ~MSXML_DOMNode()
-    { m_pNode->Release(); }
+
+	~MSXML_DOMNode();
 
     DOMNodePtr getFirstChildNode();
     DOMNodePtr getNextSiblingNode();

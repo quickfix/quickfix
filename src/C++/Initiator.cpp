@@ -52,6 +52,7 @@
 #else
 #include "config.h"
 #endif
+#include "CallStack.h"
 
 #include "Initiator.h"
 #include "Utility.h"
@@ -118,7 +119,8 @@ Initiator::Initiator( Application& application,
 }
 
 void Initiator::initialize() throw ( ConfigError& )
-{
+{ QF_STACK_PUSH(Initiator::initialize)
+
   std::set < SessionID > sessions = m_settings.getSessions();
   std::set < SessionID > ::iterator i;
 
@@ -138,18 +140,22 @@ void Initiator::initialize() throw ( ConfigError& )
     if ( !m_sessions.size() )
       throw ConfigError( "No sessions defined for initiator" );
   }
+
+  QF_STACK_POP
 }
 
 Initiator::~Initiator()
-{
+{ QF_STACK_IGNORE_BEGIN
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
+  QF_STACK_IGNORE_END
 }
 
 Session* Initiator::getSession( const SessionID& sessionID,
                                 Session::Responder& responder )
-{
+{ QF_STACK_PUSH(Initiator::getSession)
+
   Sessions::iterator i = m_sessions.find( sessionID );
   if ( i != m_sessions.end() )
   {
@@ -157,10 +163,13 @@ Session* Initiator::getSession( const SessionID& sessionID,
     return i->second;
   }
   return 0;
+
+  QF_STACK_POP
 }
 
 void Initiator::connect()
-{
+{ QF_STACK_PUSH(Initiator::connect)
+
   SessionIDs disconnected = m_disconnected;
   SessionIDs::iterator i = disconnected.begin();
   for ( ; i != disconnected.end(); ++i )
@@ -169,10 +178,13 @@ void Initiator::connect()
     if ( pSession->isSessionTime() )
       setConnected( *i, doConnect( *i, m_settings.get( *i ) ) );
   }
+
+  QF_STACK_POP
 }
 
 void Initiator::setConnected( const SessionID& sessionID, bool connected )
-{
+{ QF_STACK_PUSH(Initiator::setConnected)
+
   if ( connected )
   {
     m_connected.insert( sessionID );
@@ -183,27 +195,38 @@ void Initiator::setConnected( const SessionID& sessionID, bool connected )
     m_disconnected.insert( sessionID );
     m_connected.erase( sessionID );
   }
+
+  QF_STACK_POP
 }
 
 bool Initiator::isConnected( const SessionID& sessionID )
-{
+{ QF_STACK_PUSH(Initiator::isConnected)
   return m_connected.find( sessionID ) != m_connected.end();
+  QF_STACK_POP
 }
 
 void Initiator::start() throw ( RuntimeError& )
-{
+{ QF_STACK_PUSH(Initiator::start)
+
   onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );
   if ( !threadid ) throw RuntimeError("Unable to spawn thread");
   onStart();
   thread_join( threadid );
+
+  QF_STACK_POP
 }
 
 void* Initiator::startThread( void* p )
-{
+{ QF_STACK_TRY
+  QF_STACK_PUSH(Initiator::startThread)
+
   Initiator * pInitiator = static_cast < Initiator* > ( p );
   pInitiator->getApplication().onRun();
   pInitiator->stop();
   return 0;
+
+  QF_STACK_POP
+  QF_STACK_CATCH
 }
 }

@@ -60,6 +60,7 @@
 #include "Group.h"
 #include "SessionID.h"
 #include "DataDictionary.h"
+#include "CallStack.h"
 #include <vector>
 #include <memory>
 
@@ -106,25 +107,21 @@ public:
   static bool InitializeXML( const std::string& string );
 
   void addGroup( Group& group )
-  {
-    FieldMap::addGroup( group.field(), group );
-  }
+  { FieldMap::addGroup( group.field(), group ); }
 
   Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound& )
-  {
-    group.clear();
-    return static_cast < Group& > ( FieldMap::getGroup( num, group.field(), group ) );
+  { group.clear();
+    return static_cast < Group& > 
+      ( FieldMap::getGroup( num, group.field(), group ) );
   }
 
   bool hasGroup( unsigned num, Group& group )
-  {
-    return FieldMap::hasGroup( num, group.field(), group );
-  }
+  { return FieldMap::hasGroup( num, group.field(), group ); }
 
 protected:
   // Constructor for derived classes
   Message( const BeginString& beginString, const MsgType& msgType )
-: m_header( message_order( message_order::header ) ),
+  : m_header( message_order( message_order::header ) ),
   m_trailer( message_order( message_order::trailer ) ),
   m_validStructure( true )
   {
@@ -171,146 +168,49 @@ public:
   Trailer& getTrailer() { return m_trailer; }
 
   bool hasValidStructure(int& field) const 
-  { 
-    field = m_field;
+  { field = m_field;
     return m_validStructure; 
   }
 
   int bodyLength() const
-  {
-    return m_header.calculateLength()
+  { return m_header.calculateLength()
            + calculateLength()
            + m_trailer.calculateLength();
   }
 
   int checkSum() const
-  {
-    return ( m_header.calculateTotal()
+  { return ( m_header.calculateTotal()
              + calculateTotal()
              + m_trailer.calculateTotal() ) % 256;
   }
 
   static bool isAdminMsgType( const MsgType& msgType )
-  {
-    if ( msgType.getValue().length() != 1 ) return false;
+  { if ( msgType.getValue().length() != 1 ) return false;
     return strchr
            ( "0A12345",
              msgType.getValue().c_str() [ 0 ] ) != 0;
   }
 
-  static bool isHeaderField( int field )
-  {
-    switch ( field )
-    {
-      case FIELD::BeginString:
-      case FIELD::BodyLength:
-      case FIELD::MsgType:
-      case FIELD::SenderCompID:
-      case FIELD::TargetCompID:
-      case FIELD::OnBehalfOfCompID:
-      case FIELD::DeliverToCompID:
-      case FIELD::SecureDataLen:
-      case FIELD::MsgSeqNum:
-      case FIELD::SenderSubID:
-      case FIELD::SenderLocationID:
-      case FIELD::TargetSubID:
-      case FIELD::TargetLocationID:
-      case FIELD::OnBehalfOfSubID:
-      case FIELD::OnBehalfOfLocationID:
-      case FIELD::DeliverToSubID:
-      case FIELD::DeliverToLocationID:
-      case FIELD::PossDupFlag:
-      case FIELD::PossResend:
-      case FIELD::SendingTime:
-      case FIELD::OrigSendingTime:
-      case FIELD::XmlDataLen:
-      case FIELD::XmlData:
-      case FIELD::MessageEncoding:
-      case FIELD::LastMsgSeqNumProcessed:
-      case FIELD::OnBehalfOfSendingTime:
-      return true;
-      default:
-      return false;
-    };
-  }
-  static bool isHeaderField( const FieldBase& field, const DataDictionary* pD = 0 )
-  {
-    if ( isHeaderField( field.getField() ) ) return true;
-    if ( pD ) return pD->isHeaderField( field.getField() );
-    return false;
-  }
+  static bool isHeaderField( int field );
+  static bool isHeaderField( const FieldBase& field, 
+			     const DataDictionary* pD = 0 );
 
-  static bool isTrailerField( int field )
-  {
-    switch ( field )
-    {
-      case FIELD::SignatureLength:
-      case FIELD::Signature:
-      case FIELD::CheckSum:
-      return true;
-      default:
-      return false;
-    };
-  }
-
-  static bool isTrailerField( const FieldBase& field, const DataDictionary* pD = 0 )
-  {
-    if ( isTrailerField( field.getField() ) ) return true;
-    if ( pD ) return pD->isTrailerField( field.getField() );
-    return false;
-  }
+  static bool isTrailerField( int field );
+  static bool isTrailerField( const FieldBase& field, 
+			      const DataDictionary* pD = 0 );
 
   /// Returns the session ID of the intended recipient
-  SessionID getSessionID() throw( FieldNotFound& )
-  {
-    BeginString beginString;
-    SenderCompID senderCompID;
-    TargetCompID targetCompID;
-
-    getHeader().getField( beginString );
-    getHeader().getField( senderCompID );
-    getHeader().getField( targetCompID );
-
-    return SessionID( beginString, senderCompID, targetCompID );
-  }
-
+  SessionID getSessionID() throw( FieldNotFound& );
   /// Sets the session ID of the intended recipient
-  void setSessionID( const SessionID& sessionID )
-  {
-    getHeader().setField( sessionID.getBeginString() );
-    getHeader().setField( sessionID.getSenderCompID() );
-    getHeader().setField( sessionID.getTargetCompID() );
-  }
+  void setSessionID( const SessionID& sessionID );
 
 private:
   FieldBase extractField
   ( const std::string& string, std::string::size_type& pos );
 
-  void clear()
-  {
-    m_field = 0;
-    m_header.clear();
-    FieldMap::clear();
-    m_trailer.clear();
-  }
-
-  bool validate()
-  {
-    try
-    {
-      BodyLength aBodyLength;
-      m_header.getField( aBodyLength );
-      if ( aBodyLength != bodyLength() )
-        return false;
-
-      CheckSum aCheckSum;
-      m_trailer.getField( aCheckSum );
-      return aCheckSum == checkSum();
-    }
-  catch ( FieldNotFound& ) { return false; }
-  }
-
-std::string toXMLFields(const FieldMap& fields, int space) const;
+  void clear();
+  bool validate();
+  std::string toXMLFields(const FieldMap& fields, int space) const;
 
 protected:
   mutable FieldMap m_header;

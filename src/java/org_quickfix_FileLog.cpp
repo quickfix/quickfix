@@ -57,25 +57,31 @@
 #include "Conversions.h"
 #include "org_quickfix_FileLog.h"
 #include "quickfix/include/FileLog.h"
+#include "quickfix/include/CallStack.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLog_create
 ( JNIEnv *, jobject )
-{
+{ QF_STACK_TRY
   // not used
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLog_destroy
 ( JNIEnv *pEnv, jobject obj )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
   delete pLog;
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLog_onIncoming0
 ( JNIEnv * pEnv, jobject obj, jstring string )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
@@ -83,11 +89,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileLog_onIncoming0
   const char* ustring = pEnv->GetStringUTFChars( string, 0 );
   pLog->onIncoming( ustring );
   pEnv->ReleaseStringUTFChars( string, ustring );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLog_onOutgoing0
 ( JNIEnv * pEnv, jobject obj, jstring string )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
@@ -95,11 +104,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileLog_onOutgoing0
   const char* ustring = pEnv->GetStringUTFChars( string, 0 );
   pLog->onOutgoing( ustring );
   pEnv->ReleaseStringUTFChars( string, ustring );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLog_onEvent0
 ( JNIEnv * pEnv, jobject obj, jstring string )
-{
+{ QF_STACK_TRY
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
@@ -107,4 +119,6 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileLog_onEvent0
   const char* ustring = pEnv->GetStringUTFChars( string, 0 );
   pLog->onEvent( ustring );
   pEnv->ReleaseStringUTFChars( string, ustring );
+
+  QF_STACK_CATCH
 }

@@ -92,7 +92,7 @@ private:
   bool m_deleted;
   Queue < char* > m_queue;
   bool m_queueThreadSpawned;
-  int m_queueThread;
+  unsigned m_queueThread;
 };
 }
 
