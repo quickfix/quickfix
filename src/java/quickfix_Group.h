@@ -105,10 +105,10 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
 
 /*
  * Class:     quickfix_Group
- * Method:    setUtcDate
+ * Method:    setUtcDateOnly
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDateOnly
   (JNIEnv *, jobject, jint, jobject);
 
 /*
@@ -169,10 +169,10 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeOnly
 
 /*
  * Class:     quickfix_Group
- * Method:    getUtcDate
+ * Method:    getUtcDateOnly
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDateOnly
   (JNIEnv *, jobject, jint);
 
 /*

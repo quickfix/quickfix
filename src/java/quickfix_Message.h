@@ -113,10 +113,10 @@ JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeOnly
 
 /*
  * Class:     quickfix_Message
- * Method:    setUtcDate
+ * Method:    setUtcDateOnly
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Message_setUtcDateOnly
   (JNIEnv *, jobject, jint, jobject);
 
 /*
@@ -177,10 +177,10 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcTimeOnly
 
 /*
  * Class:     quickfix_Message
- * Method:    getUtcDate
+ * Method:    getUtcDateOnly
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcDateOnly
   (JNIEnv *, jobject, jint);
 
 /*
@@ -337,10 +337,10 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcTimeOnly
 
 /*
  * Class:     quickfix_Message
- * Method:    headerSetUtcDate
+ * Method:    headerSetUtcDateOnly
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcDateOnly
   (JNIEnv *, jobject, jint, jobject);
 
 /*
@@ -401,10 +401,10 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcTimeOnly
 
 /*
  * Class:     quickfix_Message
- * Method:    headerGetUtcDate
+ * Method:    headerGetUtcDateOnly
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcDateOnly
   (JNIEnv *, jobject, jint);
 
 /*
@@ -505,10 +505,10 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcTimeOnly
 
 /*
  * Class:     quickfix_Message
- * Method:    trailerSetUtcDate
+ * Method:    trailerSetUtcDateOnly
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcDateOnly
   (JNIEnv *, jobject, jint, jobject);
 
 /*
@@ -569,10 +569,10 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcTimeOnly
 
 /*
  * Class:     quickfix_Message
- * Method:    trailerGetUtcDate
+ * Method:    trailerGetUtcDateOnly
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcDateOnly
   (JNIEnv *, jobject, jint);
 
 /*

@@ -113,7 +113,7 @@ public class Group extends FieldMap {
         field.setValue(getUtcTimeOnly(field.getField()));
         return field;
     }
-    public UtcDateField getField(UtcDateOnlyField field) throws FieldNotFound {
+    public UtcDateOnlyField getField(UtcDateOnlyField field) throws FieldNotFound {
         field.setValue(getUtcDateOnly(field.getField()));
         return field;
     }
