@@ -209,6 +209,7 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_SocketInitiator_doPoll
   {
     throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
   }
+  return false;
 
   QF_STACK_CATCH
 }
