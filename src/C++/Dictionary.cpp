@@ -101,6 +101,35 @@ throw( ConfigError, FieldConvertError )
   QF_STACK_POP
 }
 
+int Dictionary::getDay( const std::string& key ) const
+throw( ConfigError, FieldConvertError )
+{ QF_STACK_PUSH(Dictionary::getDay)
+
+  Data::const_iterator i = m_data.find( key );
+  if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
+  try
+  {
+    std::string value = i->second;
+    if( value.size() < 2 ) throw FieldConvertError(0);
+    std::string abbr = value.substr(0, 2);
+    std::transform( abbr.begin(), abbr.end(), abbr.begin(), tolower );
+    if( abbr == "su" ) return 1;
+    if( abbr == "mo" ) return 2;
+    if( abbr == "tu" ) return 3;
+    if( abbr == "we" ) return 4;
+    if( abbr == "th" ) return 5;
+    if( abbr == "fr" ) return 6;
+    if( abbr == "sa" ) return 7;
+    if( value.size() < 2 ) throw FieldConvertError(0);
+  }
+  catch ( FieldConvertError& )
+  {
+    throw ConfigError( "Illegal value " + i->second + " for " + key );
+  }
+
+  QF_STACK_POP
+}
+
 void Dictionary::setString( const std::string& key, const std::string& value )
 { QF_STACK_PUSH(Dictionary::setString)  
   m_data[ key ] = value;

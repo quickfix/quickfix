@@ -87,6 +87,22 @@ Session* SessionFactory::create( const SessionID& sessionID,
   }
   catch ( FieldConvertError & e ) { throw ConfigError( e.what() ); }
 
+  int startDay = -1;
+  int endDay = -1;
+
+  try
+  {
+    startDay = settings.getDay( START_DAY );
+    endDay = settings.getDay( END_DAY );
+  }
+  catch( ConfigError & e ) {}
+  catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
+
+  if( startDay >= 0 && endDay < 0 )
+    throw ConfigError( "StartDay used without EndDay" );
+  if( endDay >= 0 && startDay < 0 )
+    throw ConfigError( "EndDay used without StartDay" );
+
   HeartBtInt heartBtInt( 0 );
   if ( connectionType == "initiator" )
   {
@@ -95,8 +111,9 @@ Session* SessionFactory::create( const SessionID& sessionID,
   }
 
   Session* pSession = 0;
-  pSession = new Session( m_application, m_messageStoreFactory, sessionID,
-                          dataDictionary, SessionTime(startTime, endTime), 
+  pSession = new Session( m_application, m_messageStoreFactory, 
+                          sessionID, dataDictionary, 
+                          SessionTime(startTime, endTime, startDay, endDay), 
                           heartBtInt, m_pLogFactory );
 
   if ( settings.has( CHECK_LATENCY ) )

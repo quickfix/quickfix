@@ -39,7 +39,7 @@ namespace FIX
 class Dictionary
 {
 public:
-Dictionary( const std::string& name ) : m_name( name ) {}
+  Dictionary( const std::string& name ) : m_name( name ) {}
   Dictionary() {}
   virtual ~Dictionary() {}
 
@@ -59,6 +59,9 @@ Dictionary( const std::string& name ) : m_name( name ) {}
   throw( ConfigError, FieldConvertError );
   /// Get a value as a bool
   bool getBool( const std::string& ) const
+  throw( ConfigError, FieldConvertError );
+  /// Get a value as a day of week
+  int getDay( const std::string& ) const
   throw( ConfigError, FieldConvertError );
 
   /// Set a value from a string.

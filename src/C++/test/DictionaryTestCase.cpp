@@ -37,7 +37,8 @@ void DictionaryTestCase::setGetString::onRun( Dictionary& object )
   assert( object.getString( "STRINGKEY2" ) == "stringvalue2" );
   assert( object.getString( "STRINGKEY2", true ) == "STRINGVALUE2" );
   try{ object.getString( "STRINGKEY3" ); assert( false ); }
-  catch ( ConfigError& ) {}}
+  catch ( ConfigError& ) {}
+}
 
 void DictionaryTestCase::setGetLong::onRun( Dictionary& object )
 {
@@ -50,7 +51,8 @@ void DictionaryTestCase::setGetLong::onRun( Dictionary& object )
   try{ object.getLong( "LONGKEY3" ); assert( false ); }
   catch ( ConfigError& ) {}
   try{ object.getLong( "BADLONGKEY" ); assert( false ); }
-  catch ( ConfigError& ) {}}
+  catch ( ConfigError& ) {}
+}
 
 void DictionaryTestCase::setGetDouble::onRun( Dictionary& object )
 {
@@ -63,7 +65,27 @@ void DictionaryTestCase::setGetDouble::onRun( Dictionary& object )
   try{ object.getDouble( "DOUBLEKEY3" ); assert( false ); }
   catch ( ConfigError& ) {}
   try{ object.getDouble( "BADDOUBLEKEY" ); assert( false ); }
-  catch ( ConfigError& ) {}}
+  catch ( ConfigError& ) {}
+}
+
+void DictionaryTestCase::getDay::onRun( Dictionary& object )
+{
+  object.setString( "DAY1", "SU" );
+  object.setString( "DAY2", "MO" );
+  object.setString( "DAY3", "TU" );
+  object.setString( "DAY4", "WE" );
+  object.setString( "DAY5", "TH" );
+  object.setString( "DAY6", "FR" );
+  object.setString( "DAY7", "SA" );
+
+  assert( object.getDay( "DAY1" ) == 1 );
+  assert( object.getDay( "DAY2" ) == 2 );
+  assert( object.getDay( "DAY3" ) == 3 );
+  assert( object.getDay( "DAY4" ) == 4 );
+  assert( object.getDay( "DAY5" ) == 5 );
+  assert( object.getDay( "DAY6" ) == 6 );
+  assert( object.getDay( "DAY7" ) == 7 );
+}
 
 void DictionaryTestCase::merge::onRun( Dictionary& object )
 {

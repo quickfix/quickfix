@@ -35,35 +35,37 @@ public:
     add( &m_setGetString );
     add( &m_setGetLong );
     add( &m_setGetDouble );
+    add( &m_getDay );
     add( &m_merge );
   }
 
 private:
   typedef CPPTest::SimpleTest < Dictionary > Test;
 
-class setGetString : public Test
+  class setGetString : public Test
   {
     void onRun( Dictionary& object );
-  }
-  m_setGetString;
+  } m_setGetString;
 
-class setGetLong : public Test
+  class setGetLong : public Test
   {
     void onRun( Dictionary& object );
-  }
-  m_setGetLong;
+  } m_setGetLong;
 
-class setGetDouble : public Test
+  class setGetDouble : public Test
   {
     void onRun( Dictionary& object );
-  }
-  m_setGetDouble;
+  } m_setGetDouble;
 
-class merge : public Test
+  class getDay : public Test
   {
     void onRun( Dictionary& object );
-  }
-  m_merge;
+  } m_getDay;
+
+  class merge : public Test
+  {
+    void onRun( Dictionary& object );
+  } m_merge;
 };
 }
 
