@@ -120,87 +120,87 @@ SOURCE=.\JVM.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_DataDictionary.cpp
+SOURCE=.\quickfix_DataDictionary.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileLog.cpp
+SOURCE=.\quickfix_FileLog.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileLogFactory.cpp
+SOURCE=.\quickfix_FileLogFactory.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileStore.cpp
+SOURCE=.\quickfix_FileStore.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileStoreFactory.cpp
+SOURCE=.\quickfix_FileStoreFactory.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Group.cpp
+SOURCE=.\quickfix_Group.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MemoryStore.cpp
+SOURCE=.\quickfix_MemoryStore.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Message.cpp
+SOURCE=.\quickfix_Message.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLLog.cpp
+SOURCE=.\quickfix_MySQLLog.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLLogFactory.cpp
+SOURCE=.\quickfix_MySQLLogFactory.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLStore.cpp
+SOURCE=.\quickfix_MySQLStore.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLStoreFactory.cpp
+SOURCE=.\quickfix_MySQLStoreFactory.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ScreenLog.cpp
+SOURCE=.\quickfix_ScreenLog.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ScreenLogFactory.cpp
+SOURCE=.\quickfix_ScreenLogFactory.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Session.cpp
+SOURCE=.\quickfix_Session.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SessionID.cpp
+SOURCE=.\quickfix_SessionID.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SessionSettings.cpp
+SOURCE=.\quickfix_SessionSettings.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SocketAcceptor.cpp
+SOURCE=.\quickfix_SocketAcceptor.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SocketInitiator.cpp
+SOURCE=.\quickfix_SocketInitiator.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ThreadedSocketAcceptor.cpp
+SOURCE=.\quickfix_ThreadedSocketAcceptor.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ThreadedSocketInitiator.cpp
+SOURCE=.\quickfix_ThreadedSocketInitiator.cpp
 # End Source File
 # Begin Source File
 
@@ -240,87 +240,87 @@ SOURCE=.\JVM.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_DataDictionary.h
+SOURCE=.\quickfix_DataDictionary.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileLog.h
+SOURCE=.\quickfix_FileLog.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileLogFactory.h
+SOURCE=.\quickfix_FileLogFactory.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileStore.h
+SOURCE=.\quickfix_FileStore.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_FileStoreFactory.h
+SOURCE=.\quickfix_FileStoreFactory.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Group.h
+SOURCE=.\quickfix_Group.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MemoryStore.h
+SOURCE=.\quickfix_MemoryStore.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Message.h
+SOURCE=.\quickfix_Message.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLLog.h
+SOURCE=.\quickfix_MySQLLog.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLLogFactory.h
+SOURCE=.\quickfix_MySQLLogFactory.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLStore.h
+SOURCE=.\quickfix_MySQLStore.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_MySQLStoreFactory.h
+SOURCE=.\quickfix_MySQLStoreFactory.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ScreenLog.h
+SOURCE=.\quickfix_ScreenLog.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ScreenLogFactory.h
+SOURCE=.\quickfix_ScreenLogFactory.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Session.h
+SOURCE=.\quickfix_Session.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SessionID.h
+SOURCE=.\quickfix_SessionID.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SessionSettings.h
+SOURCE=.\quickfix_SessionSettings.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SocketAcceptor.h
+SOURCE=.\quickfix_SocketAcceptor.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_SocketInitiator.h
+SOURCE=.\quickfix_SocketInitiator.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ThreadedSocketAcceptor.h
+SOURCE=.\quickfix_ThreadedSocketAcceptor.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_ThreadedSocketInitiator.h
+SOURCE=.\quickfix_ThreadedSocketInitiator.h
 # End Source File
 # Begin Source File
 

@@ -157,67 +157,67 @@
 				RelativePath="Stdafx.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_DataDictionary.cpp">
+				RelativePath="quickfix_DataDictionary.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileLog.cpp">
+				RelativePath="quickfix_FileLog.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileLogFactory.cpp">
+				RelativePath="quickfix_FileLogFactory.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileStore.cpp">
+				RelativePath="quickfix_FileStore.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileStoreFactory.cpp">
+				RelativePath="quickfix_FileStoreFactory.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_Group.cpp">
+				RelativePath="quickfix_Group.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_MemoryStore.cpp">
+				RelativePath="quickfix_MemoryStore.cpp">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_Message.cpp">
+				RelativePath="quickfix_Message.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLLog.cpp">
+				RelativePath="quickfix_MySQLLog.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLLogFactory.cpp">
+				RelativePath="quickfix_MySQLLogFactory.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLStore.cpp">
+				RelativePath="quickfix_MySQLStore.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLStoreFactory.cpp">
+				RelativePath="quickfix_MySQLStoreFactory.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_ScreenLog.cpp">
+				RelativePath="quickfix_ScreenLog.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_ScreenLogFactory.cpp">
+				RelativePath="quickfix_ScreenLogFactory.cpp">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_Session.cpp">
+				RelativePath="quickfix_Session.cpp">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_SessionID.cpp">
+				RelativePath="quickfix_SessionID.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_SessionSettings.cpp">
+				RelativePath="quickfix_SessionSettings.cpp">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_SocketAcceptor.cpp">
+				RelativePath="quickfix_SocketAcceptor.cpp">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_SocketInitiator.cpp">
+				RelativePath="quickfix_SocketInitiator.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_ThreadedSocketAcceptor.cpp">
+				RelativePath="quickfix_ThreadedSocketAcceptor.cpp">
 			</File>
 			<File
-				RelativePath="org_quickfix_ThreadedSocketInitiator.cpp">
+				RelativePath="quickfix_ThreadedSocketInitiator.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -248,67 +248,67 @@
 				RelativePath="Stdafx.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_DataDictionary.h">
+				RelativePath="quickfix_DataDictionary.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileLog.h">
+				RelativePath="quickfix_FileLog.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileLogFactory.h">
+				RelativePath="quickfix_FileLogFactory.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileStore.h">
+				RelativePath="quickfix_FileStore.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_FileStoreFactory.h">
+				RelativePath="quickfix_FileStoreFactory.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_Group.h">
+				RelativePath="quickfix_Group.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_MemoryStore.h">
+				RelativePath="quickfix_MemoryStore.h">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_Message.h">
+				RelativePath="quickfix_Message.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLLog.h">
+				RelativePath="quickfix_MySQLLog.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLLogFactory.h">
+				RelativePath="quickfix_MySQLLogFactory.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLStore.h">
+				RelativePath="quickfix_MySQLStore.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_MySQLStoreFactory.h">
+				RelativePath="quickfix_MySQLStoreFactory.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_ScreenLog.h">
+				RelativePath="quickfix_ScreenLog.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_ScreenLogFactory.h">
+				RelativePath="quickfix_ScreenLogFactory.h">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_Session.h">
+				RelativePath="quickfix_Session.h">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_SessionID.h">
+				RelativePath="quickfix_SessionID.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_SessionSettings.h">
+				RelativePath="quickfix_SessionSettings.h">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_SocketAcceptor.h">
+				RelativePath="quickfix_SocketAcceptor.h">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_SocketInitiator.h">
+				RelativePath="quickfix_SocketInitiator.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_ThreadedSocketAcceptor.h">
+				RelativePath="quickfix_ThreadedSocketAcceptor.h">
 			</File>
 			<File
-				RelativePath="org_quickfix_ThreadedSocketInitiator.h">
+				RelativePath="quickfix_ThreadedSocketInitiator.h">
 			</File>
 		</Filter>
 		<Filter
