@@ -1,3 +1,16 @@
+2004-09-15 15:21  orenmnero
+
+	* NEWS: [no log message]
+
+2004-09-15 14:34  orenmnero
+
+	* configure.in, src/C++/Makefile.am, src/java/Makefile.am,
+	  src/python/Makefile.am: corrected versioning problems
+
+2004-09-13 20:19  orenmnero
+
+	* ChangeLog, NEWS: [no log message]
+
 2004-09-13 18:13  orenmnero
 
 	* src/C++/MySQLStore.cpp: added missing include file

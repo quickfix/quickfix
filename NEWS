@@ -1,3 +1,7 @@
+1.9.2
+-----
+Fixed incorrect versioning of libraries under unix systems
+
 1.9.1
 -----
 Multi-character Currencies will no longer be rejected
