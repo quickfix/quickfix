@@ -128,7 +128,7 @@ void ThreadedSocketAcceptor::onStop()
   m_stop = true;
   socket_close( m_socket );
 
-  m_mutex.lock();
+  Locker l(m_mutex);
 
   SocketToThread::iterator i;
   for ( i = m_threads.begin(); i != m_threads.end(); ++i )
@@ -136,17 +136,14 @@ void ThreadedSocketAcceptor::onStop()
   for ( i = m_threads.begin(); i != m_threads.end(); ++i )
     thread_join( i->second );
 
-  m_mutex.unlock();
-
   QF_STACK_POP
 }
 
 void ThreadedSocketAcceptor::addThread( int s, int t )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::addThread)
 
-  m_mutex.lock();
+  Locker l(m_mutex);
   m_threads[ s ] = t;
-  m_mutex.unlock();
 
   QF_STACK_POP
 }
@@ -154,9 +151,8 @@ void ThreadedSocketAcceptor::addThread( int s, int t )
 void ThreadedSocketAcceptor::removeThread( int s )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::removeThread)
 
-  m_mutex.lock();
+  Locker l(m_mutex);
   m_threads.erase( s );
-  m_mutex.unlock();
 
   QF_STACK_POP
 }
@@ -172,7 +168,8 @@ void* ThreadedSocketAcceptor::socketThread( void* p )
   delete pair;
 
   while ( pConnection->read() ) {}
-  pAcceptor->removeThread( pConnection->getSocket() );
+  if( !pAcceptor->m_stop )
+    pAcceptor->removeThread( pConnection->getSocket() );
   delete pConnection;
   return 0;
 
