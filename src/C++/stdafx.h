@@ -15,7 +15,7 @@
 #include <stdio.h>
 #include "../config_windows.h"
 
-#import <msxml3.dll> raw_interfaces_only
+#import <msxml3.dll> raw_interfaces_only named_guids
 using namespace MSXML2;
 
 //{{AFX_INSERT_LOCATION}}
