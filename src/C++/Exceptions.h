@@ -189,6 +189,22 @@ struct TagOutOfOrder : public std::logic_error
   const int field;
 };
 
+/// Repeated tag not part of repeating group
+struct RepeatedTag : public std::logic_error
+{
+  RepeatedTag( int f )
+    : std::logic_error( "Repeated tag not part of repeating group" ), field( f ) {}
+  const int field;
+};
+
+/// Repeated group count not equal to actual count 
+struct RepeatingGroupCountMismatch : public std::logic_error
+{
+  RepeatingGroupCountMismatch( int f )
+    : std::logic_error( "Repeating group count mismatch" ), field( f ) {}
+  const int field;
+};
+
 /// Indicates user does not want to send a message
 struct DoNotSend : public std::logic_error
 {
