@@ -60,11 +60,39 @@
 
 namespace FIX
 {
+bool ParserTestCase::extractLength::onSetup( Parser*& pObject )
+{
+  m_normalLength = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
+  m_badLength = "8=FIX.4.2\0019=A\00135=A\001108=30\00110=31\001";
+  m_negativeLength = "8=FIX.4.2\0019=-1\00135=A\001108=30\00110=31\001";
+  return true;
+}
+
+void ParserTestCase::extractLength::onRun( Parser& object )
+{
+  int length = 0;
+  std::string::size_type pos = 0;
+
+  assert( object.extractLength(length, pos, m_normalLength) );
+  assert( length == 12 );
+  assert( pos == 15 );
+
+  try { object.extractLength(length, pos, m_badLength);
+        assert(false); }
+  catch( MessageParseError& e ) {}
+
+  try { object.extractLength(length, pos, m_negativeLength);
+        assert(false); }
+  catch( MessageParseError& e ) {}
+
+  assert( !object.extractLength(length, pos, "") );
+}
+
 bool ParserTestCase::readFixMessage::onSetup( Parser*& pObject )
 {
   m_fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
   m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
-  m_fixMsg3 = "8=FIX.4.2\0019=12\00135=A\001108=30\0019710=8\00110=31\001";
+  m_fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
 
   m_pStream = new std::stringstream( m_fixMsg1 + m_fixMsg2 + m_fixMsg3 );
 
@@ -111,7 +139,7 @@ bool ParserTestCase::readFromSocket::onSetup( Parser*& pObject )
 {
   m_fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
   m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
-  m_fixMsg3 = "8=FIX.4.2\0019=12\00135=A\001108=30\0019710=8\00110=31\001";
+  m_fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
 
   m_pServer = new SocketServer( m_port, 0, true );
   m_pConnector = new SocketConnector;

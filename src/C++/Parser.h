@@ -68,10 +68,14 @@ class RecvFailed : public std::exception {};
 class Parser
 {
 public:
-Parser( std::istream& stream ) : m_pStream( &stream ), m_socket( 0 ) {}
-Parser( int socket ) : m_pStream( 0 ), m_socket( socket ) {}
-Parser() : m_pStream( 0 ), m_socket( 0 ) {}
-  bool readFixMessage( std::string& )
+  Parser( std::istream& stream ) : m_pStream( &stream ), m_socket( 0 ) {}
+  Parser( int socket ) : m_pStream( 0 ), m_socket( socket ) {}
+  Parser() : m_pStream( 0 ), m_socket( 0 ) {}
+
+  bool extractLength( int& length, std::string::size_type& pos,
+                      const std::string& buffer )
+  throw ( MessageParseError& );
+  bool readFixMessage( std::string& str )
   throw ( MessageParseError&, RecvFailed& );
   bool readFromStream() throw ( RecvFailed& );
 

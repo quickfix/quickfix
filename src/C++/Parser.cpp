@@ -56,13 +56,37 @@
 
 #include "Parser.h"
 #include "Utility.h"
+#include "FieldConvertors.h"
 #include <algorithm>
 
 namespace FIX
 {
-void throw_isdigit( const char c )
-{ QF_STACK_PUSH(throw_isdigit)
-  if ( !isdigit( c ) ) throw MessageParseError();
+bool Parser::extractLength( int& length, std::string::size_type& pos,
+                            const std::string& buffer )
+throw( MessageParseError& )
+{ QF_STACK_PUSH(Parser::extractLength)
+
+  if( !buffer.size() ) return false;
+  
+  std::string::size_type startPos = buffer.find( "\0019=", 0 );
+  if( pos == std::string::npos ) return false;
+  startPos += 3;
+  std::string::size_type endPos = buffer.find( "\001", startPos );
+  if( pos == std::string::npos ) return false;
+  pos = endPos + 1;
+
+  std::string strLength( buffer, startPos, endPos - startPos );
+
+  try
+  {
+    length = IntConvertor::convert( strLength );
+    if( length < 0 ) throw MessageParseError();
+  }
+  catch( FieldConvertError& e )
+  { throw MessageParseError(); }
+
+  return true;
+
   QF_STACK_POP
 }
 
@@ -72,18 +96,41 @@ throw( MessageParseError&, RecvFailed& )
 
   readFromStream();
 
-  std::string::size_type pos = m_buffer.find( "\00110=", 0 );
-  if ( pos != std::string::npos )
+  std::string::size_type pos = 0;
+
+  if( m_buffer.length() < 2 ) return false;
+  pos = m_buffer.find( "8=" );
+  if( pos == std::string::npos ) return false;
+  m_buffer.erase( 0, pos );
+
+  int length = 0;
+
+  try
   {
-    pos++;
-    pos = m_buffer.find( "\001", pos );
-    if ( pos != std::string::npos )
+    if( extractLength(length, pos, m_buffer) )
     {
-      str = m_buffer.substr( 0, pos + 1 );
-      m_buffer.erase( 0, pos + 1 );
+      pos += length;
+      if( m_buffer.size() < pos )
+        return false;
+
+      pos = m_buffer.find( "\00110=", pos-1 );
+      if( pos == std::string::npos ) return false;
+      pos += 4;
+      pos = m_buffer.find( "\001", pos );
+      if( pos == std::string::npos ) return false;
+      pos += 1;
+
+      str = m_buffer.substr( 0, pos );
+      m_buffer.erase( 0, pos );
       return true;
     }
   }
+  catch( MessageParseError& e )
+  {
+    m_buffer.erase( 0, pos + length );
+    throw e;
+  }
+
   readFromStream();
   return false;
 

@@ -65,8 +65,9 @@ class ParserTestCase : public CPPTest::TestCase < Parser >
 {
 public:
   ParserTestCase( short m_port )
-: m_readFromSocket( m_port )
+  : m_readFromSocket( m_port )
   {
+    add( &m_extractLength );
     add( &m_readFixMessage );
     add( &m_readPartialFixMessage );
     add( &m_readFromSocket );
@@ -74,6 +75,17 @@ public:
 
 private:
   typedef CPPTest::Test < Parser > Test;
+
+class extractLength : public Test
+  {
+    bool onSetup( Parser*& pObject );
+    void onRun( Parser& object );
+
+    std::string m_normalLength;
+    std::string m_badLength;
+    std::string m_negativeLength;
+  }
+  m_extractLength;
 
 class readFixMessage : public Test
   {
