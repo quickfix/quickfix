@@ -188,7 +188,7 @@ std::string& Message::toString( std::string& str ) const
 
   int length = bodyLength();
   str.reserve( 32 + length );
-  m_header.setField( BodyLength( bodyLength ) );
+  m_header.setField( BodyLength( length ) );
   m_trailer.setField( CheckSum( checkSum() ) );
 
   m_header.calculateString( str, true );
