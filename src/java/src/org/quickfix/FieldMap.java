@@ -57,4 +57,19 @@ public abstract class FieldMap {
     public abstract UtcTimeStampField getField(UtcTimeStampField field) throws FieldNotFound;
     public abstract UtcTimeOnlyField getField(UtcTimeOnlyField field) throws FieldNotFound;
     public abstract UtcDateField getField(UtcDateField field) throws FieldNotFound;
+
+    public boolean isSet(int field) {
+      try {
+        getString(field);
+        return true;
+      }
+      catch( FieldNotFound fnf ) {
+        return false;
+      }
+    }
+
+    public boolean isSet(Field field) {
+      return isSet( field.getField() );
+    }
+
 }
