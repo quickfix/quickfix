@@ -419,7 +419,7 @@ namespace FIX
   const int CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST = 4;
   const int CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER = 5;
   const int CxlRejReason_DUPLICATE_CLORDID_RECEIVED = 6;
-  const int OrdRejReason_BROKER = 0;
+  const int OrdRejReason_BROKER_OPTION = 0;
   const int OrdRejReason_UNKNOWN_SYMBOL = 1;
   const int OrdRejReason_EXCHANGE_CLOSED = 2;
   const int OrdRejReason_ORDER_EXCEEDS_LIMIT = 3;

@@ -2652,7 +2652,7 @@
       <value enum="6" description="DUPLICATE_CLORDID_RECEIVED" />
     </field>
     <field number="103" name="OrdRejReason" type="INT">
-      <value enum="0" description="BROKER" />
+      <value enum="0" description="BROKER_OPTION" />
       <value enum="1" description="UNKNOWN_SYMBOL" />
       <value enum="2" description="EXCHANGE_CLOSED" />
       <value enum="3" description="ORDER_EXCEEDS_LIMIT" />

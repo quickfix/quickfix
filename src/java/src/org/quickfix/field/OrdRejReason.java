@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class OrdRejReason extends IntField 
 { 
-public static final int BROKER = 0; 
+public static final int BROKER_OPTION = 0; 
 public static final int UNKNOWN_SYMBOL = 1; 
 public static final int EXCHANGE_CLOSED = 2; 
 public static final int ORDER_EXCEEDS_LIMIT = 3; 

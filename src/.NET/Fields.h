@@ -1065,7 +1065,7 @@ namespace Fix
   public __gc class OrdRejReason : public IntField
   {
   public:
-  static const int BROKER = 0;
+  static const int BROKER_OPTION = 0;
   static const int UNKNOWN_SYMBOL = 1;
   static const int EXCHANGE_CLOSED = 2;
   static const int ORDER_EXCEEDS_LIMIT = 3;
