@@ -121,7 +121,7 @@ inline jobject newMessage( const FIX::Message& message, JVMObject factory )
                     ( factory, method, jBeginString, jMsgType ) );
 
   FIX::Message* pMessage = ( FIX::Message* ) result.getInt( "cppPointer" );
-  pMessage->setString( message.toString() );
+  *pMessage = message;
   return result;
 }
 
@@ -138,7 +138,7 @@ inline jobject newMessage( const FIX::Message& message )
   JVMObject result( pEnv->NewObject( type, method ) );
 
   FIX::Message* pMessage = ( FIX::Message* ) result.getInt( "cppPointer" );
-  pMessage->setString( message.toString() );
+  *pMessage = message;
   return result;
 }
 
