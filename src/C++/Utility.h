@@ -42,6 +42,7 @@ typedef int socklen_t;
 #include <sys/time.h>
 #include <sys/stat.h>
 #include <netinet/in.h>
+#include <netinet/tcp.h>
 #include <arpa/inet.h>
 #include <netdb.h>
 #include <unistd.h>
