@@ -33,6 +33,10 @@ XML document, instead a ConfigError is thrown.
 Repeating groups within Component are now read correctly from the
 DataDictionary file.
 
+DataDictionary will enforce that field names are unique.  This
+prevents accidentally assigning two different field names to the
+same tag number.
+
 Fixed a bug where messages sent while logged off were not stored in
 the MessageStore, causing them to never be resent.
 
