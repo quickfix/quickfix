@@ -207,7 +207,7 @@ void MessageTestCase::outOfOrder::onRun( Message& object )
   try
   {
     object.setString( str, false );
-    assert( expected == object.getString() );
+    assert( expected == object.toString() );
   }
   catch ( InvalidMessage& )
   { assert( false ); }
@@ -259,7 +259,7 @@ void MessageTestCase::getXML::onRun( Message& object )
 			        << "  </trailer>" << EOL
 			        << "</message>";
 
-  assert( message.getXML() == stream.str() );
+  assert( message.toXML() == stream.str() );
 }
 
 void LogonParseTestCase::getString::onRun( Logon& object )
@@ -274,7 +274,7 @@ void LogonParseTestCase::getString::onRun( Logon& object )
 
   object.set( HeartBtInt( 30 ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=12\00135=A\001"
           "108=30\00110=026\001" );
 }
@@ -292,7 +292,7 @@ void TestRequestParseTestCase::getString::onRun( TestRequest& object )
 {
   object.set( TestReqID( "23" ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" );
 }
 
@@ -310,7 +310,7 @@ void ResendRequestParseTestCase::getString::onRun( ResendRequest& object )
   object.set( BeginSeqNo( 1 ) );
   object.set( EndSeqNo( 233 ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001" );
 }
 
@@ -330,7 +330,7 @@ void RejectParseTestCase::getString::onRun( Reject& object )
   object.set( RefSeqNum( 73 ) );
   object.set( Text( "This Message SUCKS!!!" ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=36\00135=3\00145=73\001"
           "58=This Message SUCKS!!!\00110=029\001" );
 }
@@ -352,7 +352,7 @@ void SequenceResetParseTestCase::getString::onRun( SequenceReset& object )
   object.set( GapFillFlag( true ) );
   object.set( NewSeqNo( 88 ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001" );
 }
 
@@ -371,7 +371,7 @@ void LogoutParseTestCase::getString::onRun( Logout& object )
 {
   object.set( Text( "See Ya..." ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" );
 }
 
@@ -393,7 +393,7 @@ void NewOrderSingleParseTestCase::getString::onRun( NewOrderSingle& object )
   object.set( TransactTime( create_tm() ) );
   object.set( OrdType( '2' ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=60\00135=D\00111=ORDERID\00121=3\00140=2\001"
           "54=1\00155=MSFT\00160=19000100-00:00:00\00110=225\001" );
 }
@@ -432,7 +432,7 @@ void ExecutionReportParseTestCase::getString::onRun
   object.set( CumQty( 300 ) );
   object.set( AvgPx( 23.4 ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
           "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\00155=MSFT\001"
           "150=2\001151=200\00110=052\001" );
@@ -476,7 +476,7 @@ void DontKnowTradeParseTestCase::getString::onRun( DontKnowTrade& object )
   object.set( Symbol( "MSFT" ) );
   object.set( Side( '2' ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
           "54=2\00155=MSFT\001127=1\00110=195\001" );
 }
@@ -510,7 +510,7 @@ void OrderCancelReplaceRequestParseTestCase::getString::onRun
   object.set( TransactTime( create_tm() ) );
   object.set( OrdType( '3' ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=75\00135=G\00111=CLIENTID\00121=1\001"
           "40=3\00141=ORIGINALID\00154=2\00155=MSFT\001"
           "60=19000100-00:00:00\00110=178\001" );
@@ -548,7 +548,7 @@ void OrderCancelRequestParseTestCase::getString::onRun
   object.set( Side( '1' ) );
   object.set( TransactTime( create_tm() ) );
 
-  assert( object.getString()
+  assert( object.toString()
           ==
           "8=FIX.4.2\0019=65\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
           "54=1\00155=MSFT\00160=19000100-00:00:00\00110=008\001" );
@@ -581,7 +581,7 @@ void OrderCancelRejectParseTestCase::getString::onRun
   object.set( OrdStatus( '1' ) );
   object.set( CxlRejResponseTo( '2' ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
           "39=1\00141=ORIGINALID\001434=2\00110=229\001" );
 }
@@ -612,7 +612,7 @@ void OrderStatusRequestParseTestCase::getString::onRun
   object.set( Symbol( "MSFT" ) );
   object.set( Side( '1' ) );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
           "55=MSFT\00110=141\001" );
 }
@@ -658,7 +658,7 @@ void NewOrderListParseTestCase::getString::onRun
   group.set( Side( '3' ) );
   object.addGroup( group );
 
-  assert( object.getString() ==
+  assert( object.toString() ==
           ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
             "11=A\00167=1\00155=DELL\00154=1\001"
             "11=B\00167=2\00155=LNUX\00154=2\001"

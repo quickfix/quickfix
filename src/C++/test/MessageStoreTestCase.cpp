@@ -64,49 +64,49 @@ void MessageStoreTestCase::setGet::onRun( MessageStore& object )
 {
   Logon logon;
   logon.getHeader().setField( MsgSeqNum( 1 ) );
-  object.set( 1, logon.getString() );
+  object.set( 1, logon.toString() );
 
   Heartbeat heartbeat;
   heartbeat.getHeader().setField( MsgSeqNum( 2 ) );
-  object.set( 2, heartbeat.getString() );
+  object.set( 2, heartbeat.toString() );
 
   std::string message;
   assert( object.get( 1, message ) );
-  assert( message == logon.getString() );
+  assert( message == logon.toString() );
 
   Message getHeartbeat;
   assert( object.get( 2, message ) );
-  assert( message == heartbeat.getString() );
+  assert( message == heartbeat.toString() );
 }
 
 void MessageStoreTestCase::getRange::onRun( MessageStore& object )
 {
   Logon logon;
   logon.getHeader().setField( MsgSeqNum( 1 ) );
-  object.set( 1, logon.getString() );
+  object.set( 1, logon.toString() );
 
   Heartbeat heartbeat;
   heartbeat.getHeader().setField( MsgSeqNum( 2 ) );
-  object.set( 2, heartbeat.getString() );
+  object.set( 2, heartbeat.toString() );
 
   NewOrderSingle newOrderSingle;
   newOrderSingle.getHeader().setField( MsgSeqNum( 3 ) );
-  object.set( 3, newOrderSingle.getString() );
+  object.set( 3, newOrderSingle.toString() );
 
   std::vector < std::string > messages;
   object.get( 1, 3, messages );
   assert( messages.size() == 3 );
-  assert( messages[ 0 ] == logon.getString() );
-  assert( messages[ 1 ] == heartbeat.getString() );
-  assert( messages[ 2 ] == newOrderSingle.getString() );
+  assert( messages[ 0 ] == logon.toString() );
+  assert( messages[ 1 ] == heartbeat.toString() );
+  assert( messages[ 2 ] == newOrderSingle.toString() );
 
   object.get( 4, 6, messages );
   assert( messages.size() == 0 );
 
   object.get( 2, 6, messages );
   assert( messages.size() == 2 );
-  assert( messages[ 0 ] == heartbeat.getString() );
-  assert( messages[ 1 ] == newOrderSingle.getString() );
+  assert( messages[ 0 ] == heartbeat.toString() );
+  assert( messages[ 1 ] == newOrderSingle.toString() );
 }
 
 void MessageStoreTestCase::other::onRun( MessageStore& object )

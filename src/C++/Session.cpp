@@ -330,7 +330,7 @@ void Session::nextResendRequest( const Message& resendRequest )
       if ( resend( msg ) )
       {
         if ( begin ) generateSequenceReset( begin, msgSeqNum );
-        send( msg.getString() );
+        send( msg.toString() );
         m_state.onEvent( "Resending Message: " + IntConvertor::convert( msgSeqNum ) );
         begin = 0;
       }
@@ -374,14 +374,14 @@ bool Session::sendRaw( Message& message, int num )
         || msgType == "2" || msgType == "4"
         || isLoggedOn()
       )
-        result = send( message.getString() );
+        result = send( message.toString() );
     }
     else
     {
       try
       {
         m_application.toApp( message, m_sessionID );
-        if ( isLoggedOn() ) result = send( message.getString() );
+        if ( isLoggedOn() ) result = send( message.toString() );
       }
       catch ( DoNotSend& ) {}}
 
@@ -389,7 +389,7 @@ bool Session::sendRaw( Message& message, int num )
     {
       MsgSeqNum msgSeqNum;
       header.getField( msgSeqNum );
-      m_state.set( msgSeqNum, message.getString() );
+      m_state.set( msgSeqNum, message.toString() );
       m_state.incrNextSenderMsgSeqNum();
     }
     return result;
@@ -852,7 +852,7 @@ bool Session::nextQueued( int num )
     m_state.onEvent( "Processing QUEUED message: " + IntConvertor::convert( num ) );
     msg.getHeader().getField( msgType );
     if ( msgType != MsgType_Logon )
-      next( msg.getString() );
+      next( msg.toString() );
     return true;
   }
   return false;

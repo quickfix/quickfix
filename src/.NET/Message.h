@@ -148,12 +148,12 @@ public:
 
   String* ToString()
   {
-    return m_pUnmanaged->getString().c_str();
+    return m_pUnmanaged->toString().c_str();
   }
 
   String* ToXML()
   {
-    return m_pUnmanaged->getXML().c_str();
+    return m_pUnmanaged->toXML().c_str();
   }
 
   void setField( StringField* field );

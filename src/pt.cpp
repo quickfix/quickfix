@@ -231,7 +231,7 @@ int testSerializeToStringHeartbeat( int count )
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
-    message.getString();
+    message.toString();
   }
   return GetTickCount() - start;
 }
@@ -240,7 +240,7 @@ int testSerializeFromStringHeartbeat( int count )
 {
   std::vector < FIX42::Heartbeat > vector;
   FIX42::Heartbeat message;
-  std::string string = message.getString();
+  std::string string = message.toString();
   count = count - 1;
 
   for ( int i = 0; i <= count; ++i )
@@ -298,7 +298,7 @@ int testSerializeToStringNewOrderSingle( int count )
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
-    message.getString();
+    message.toString();
   }
   return GetTickCount() - start;
 }
@@ -313,7 +313,7 @@ int testSerializeFromStringNewOrderSingle( int count )
   FIX::OrdType ordType( FIX::OrdType_MARKET );
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
-  std::string string = message.getString();
+  std::string string = message.toString();
 
   count = count - 1;
 
@@ -341,7 +341,7 @@ int testFileStoreNewOrderSingle( int count )
   FIX42::NewOrderSingle message
   ( clOrdID, handlInst, symbol, side, transactTime, ordType );
   message.getHeader().set( FIX::MsgSeqNum( 1 ) );
-  std::string messageString = message.getString();
+  std::string messageString = message.toString();
 
   FIX::FileStore store( "store", id );
   store.reset();

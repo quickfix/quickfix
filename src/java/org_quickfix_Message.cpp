@@ -499,7 +499,7 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  return newString( pMessage->getString() );
+  return newString( pMessage->toString() );
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toXML
@@ -508,7 +508,7 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toXML
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  return newString( pMessage->getXML() );
+  return newString( pMessage->toXML() );
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString

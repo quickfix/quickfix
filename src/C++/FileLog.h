@@ -86,7 +86,17 @@ private:
 /**
  * File based implementation of Log
  *
- * This stores all log events into flat files
+ * Three files are created by this implementation.  One for outgoing
+ * messages, one for incoming message, and one for events.
+ *
+ * The formats of the files are:<br>
+ * &nbsp;&nbsp;
+ *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.incoming<br>
+ * &nbsp;&nbsp;
+ *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.outgoing<br>
+ * &nbsp;&nbsp;
+ *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.event<br>
+ *
  */
 class FileLog : public Log
 {

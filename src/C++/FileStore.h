@@ -87,15 +87,15 @@ private:
 /**
  * File based implementation of MessageStore.
  *
- * Three files are created by this implementation.  One for storing outgoing
- * messages, one for storing sequence numbers, and one for storing the
- * session creation time.
+ * Four files are created by this implementation.  One for storing outgoing
+ * messages, one for indexing message locations, one for storing sequence numbers, 
+ * and one for storing the session creation time.
  *
  * The formats of the files are:<br>
  * &nbsp;&nbsp;
  *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.body<br>
  * &nbsp;&nbsp;
- *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.headers<br>
+ *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.header<br>
  * &nbsp;&nbsp;
  *   <path>+<BeginString>-<SenderCompID>-<TargetCompID>.seqnums<br>
  * &nbsp;&nbsp;

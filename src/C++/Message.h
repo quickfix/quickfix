@@ -134,9 +134,11 @@ protected:
 
 public:
   /// Get a string representation of the message
-  std::string getString() const;
+  std::string toString() const;
+  ///\deprecated To be removed next public release: Use toString()
+  std::string getString() const { return toString(); }
   /// Get a XML representation of the message
-  std::string getXML() const;
+  std::string toXML() const;
 
   /**
    * Set a message based on a string representation
@@ -303,7 +305,7 @@ private:
   catch ( FieldNotFound& ) { return false; }
   }
 
-std::string getXMLFields(const FieldMap& fields, int space) const;
+std::string toXMLFields(const FieldMap& fields, int space) const;
 
 protected:
   mutable FieldMap m_header;
@@ -316,7 +318,7 @@ protected:
 inline std::ostream& operator <<
 ( std::ostream& stream, const Message& message )
 {
-  stream << message.getString();
+  stream << message.toString();
   return stream;
 }
 

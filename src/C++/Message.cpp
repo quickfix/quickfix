@@ -99,7 +99,7 @@ bool Message::InitializeXML( const std::string& url )
   { return false; }
 }
 
-std::string Message::getString() const
+std::string Message::toString() const
 {
   m_header.setField( BodyLength( bodyLength() ) );
   m_trailer.setField( CheckSum( checkSum() ) );
@@ -110,25 +110,25 @@ std::string Message::getString() const
     m_trailer.calculateString();
 }
 
-std::string Message::getXML() const
+std::string Message::toXML() const
 {
   std::stringstream stream;
   stream << "<message>"                         << EOL
          << std::setw(2) << " " << "<header>"   << EOL  
-         << getXMLFields(getHeader(), 4)
+         << toXMLFields(getHeader(), 4)
          << std::setw(2) << " " << "</header>"  << EOL
          << std::setw(2) << " " << "<body>"     << EOL
-         << getXMLFields(*this, 4)
+         << toXMLFields(*this, 4)
          << std::setw(2) << " " << "</body>"    << EOL
          << std::setw(2) << " " << "<trailer>"  << EOL
-         << getXMLFields(getTrailer(), 4)
+         << toXMLFields(getTrailer(), 4)
          << std::setw(2) << " " << "</trailer>" << EOL
          << "</message>";
 
   return stream.str();
 }
 
-std::string Message::getXMLFields(const FieldMap& fields, int space) const
+std::string Message::toXMLFields(const FieldMap& fields, int space) const
 {
   std::stringstream stream;
   FieldMap::iterator i;
@@ -154,7 +154,7 @@ std::string Message::getXMLFields(const FieldMap& fields, int space) const
     for(k = j->second.begin(); k != j->second.end(); ++k)
     {
 		stream << std::setw(space) << " " << "<group>" << EOL
-             << getXMLFields(*(*k), space+2)
+             << toXMLFields(*(*k), space+2)
 			 << std::setw(space) << " " << "</group>" << EOL;
     }
   }
