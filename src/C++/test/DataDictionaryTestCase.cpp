@@ -351,10 +351,16 @@ bool DataDictionaryTestCase::checkValue::onSetup
   pObject->addField( FIELD::MsgType );
   pObject->addField( FIELD::CheckSum );
   pObject->addField( FIELD::OrdType );
+  pObject->addField( FIELD::OrderRestrictions );
   pObject->addMsgType( MsgType_NewOrderSingle );
   pObject->addMsgField( MsgType_NewOrderSingle, FIELD::OrdType );
+  pObject->addMsgField( MsgType_NewOrderSingle, FIELD::OrderRestrictions );
   pObject->addFieldType( FIELD::OrdType, TYPE::Char );
   pObject->addFieldValue( FIELD::OrdType, "1" );
+  pObject->addFieldType( FIELD::OrderRestrictions, TYPE::MultipleValueString );
+  pObject->addFieldValue( FIELD::OrderRestrictions, "1" );
+  pObject->addFieldValue( FIELD::OrderRestrictions, "2" );
+  pObject->addFieldValue( FIELD::OrderRestrictions, "3" );
   return true;
 }
 
@@ -368,7 +374,17 @@ void DataDictionaryTestCase::checkValue::onRun
 
   message.setField( OrdType( '2' ) );
   try{ object.validate( message ); assert( false ); }
-  catch ( IncorrectTagValue& ) {}}
+  catch ( IncorrectTagValue& ) {}
+
+  message.setField( OrdType( '1' ) );
+  message.setField( OrderRestrictions("1 2 3") );
+  try{ object.validate( message ); }
+  catch ( IncorrectTagValue& e ) { assert(false); }
+
+  message.setField( OrderRestrictions("1 4 3") );
+  try{ object.validate( message ); assert(false); }
+  catch ( IncorrectTagValue& e ) {}
+}
 
 bool DataDictionaryTestCase::readFromFile::onSetup
 ( DataDictionary*& pObject )
@@ -429,7 +445,8 @@ void DataDictionaryTestCase::readFromFile::onRun
   assert( delim == 299 );
   assert( pDD->isField( 55 ) );
   assert( !pDD->isField( 310 ) );
-
+  assert( object.getGroup( "8", 453, delim, pDD ) );
+  assert( delim == 448 );
   assert( object.getGroup( "y", 146, delim, pDD ) );
   assert( delim == 55 );
 }

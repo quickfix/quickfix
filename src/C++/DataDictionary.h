@@ -60,6 +60,7 @@
 #include "DOMDocument.h"
 #include <set>
 #include <map>
+#include <string.h>
 
 namespace FIX
 {
@@ -219,7 +220,22 @@ public:
     FieldToValue::const_iterator i = m_fieldValues.find( field );
     if ( i == m_fieldValues.end() )
       return false;
-    return i->second.find( value ) != i->second.end();
+    if( !isMultipleValueStringField( field ) )
+      return i->second.find( value ) != i->second.end();
+
+    // MultipleValueString
+    std::string::size_type startPos = 0;
+    std::string::size_type endPos = 0; 
+    do
+    {
+      endPos = value.find_first_of(' ', startPos);
+      std::string singleValue =
+        value.substr( startPos, endPos - startPos );
+      if( i->second.find( singleValue ) == i->second.end() )
+        return false;
+      startPos = endPos + 1;
+    } while( endPos != std::string::npos );
+    return true;
   }
 
   void addGroup( const std::string& msg, int field, int delim,
@@ -252,6 +268,12 @@ public:
   {
     FieldTypes::const_iterator i = m_fieldTypes.find( field );
     return i != m_fieldTypes.end() && i->second == TYPE::Data;
+  }
+
+  bool isMultipleValueStringField( int field ) const
+  {
+    FieldTypes::const_iterator i = m_fieldTypes.find( field );
+    return i != m_fieldTypes.end() && i->second == TYPE::MultipleValueString;
   }
 
   void checkFieldsOutOfOrder( bool value )
