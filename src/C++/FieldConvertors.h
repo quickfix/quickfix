@@ -245,6 +245,7 @@ struct UtcTimeStampConvertor
     const char* val = value.c_str();
     const char* len = strptime( val, "%Y%m%d-%H:%M:%S", result );
     if ( len - val != 17 ) throw FieldConvertError();
+    static_cast<tm*>(result)->tm_isdst = -1;
 
     // if we have milliseconds in the string, *len should be ".sss"
     result.setMillisecond(0);
@@ -285,6 +286,7 @@ struct UtcTimeOnlyConvertor
     const char* val = value.c_str();
     const char* len = strptime( val, "%H:%M:%S", result );
     if ( len - val != 8 ) throw FieldConvertError();
+    static_cast<tm*>(result)->tm_isdst = -1;
 
     // if we have milliseconds in the string, *len should be ".sss"
     result.setMillisecond(0);
@@ -318,6 +320,7 @@ struct UtcDateConvertor
     const char* val = value.c_str();
     const char* len = strptime( val, "%Y%m%d", result );
     if ( len - val != 8 ) throw FieldConvertError();
+    static_cast<tm*>(result)->tm_isdst = -1;
     return result;
   }
 };
