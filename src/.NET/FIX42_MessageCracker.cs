@@ -107,6 +107,8 @@ namespace QuickFix42
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( NewOrderList message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( ListStrikePrice message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ListStatus message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ListExecute message, QuickFix.SessionID session ) 
@@ -244,6 +246,9 @@ namespace QuickFix42
     else
     if( msgTypeValue == "E" )
       onMessage( (NewOrderList)(message), sessionID );
+    else
+    if( msgTypeValue == "m" )
+      onMessage( (ListStrikePrice)(message), sessionID );
     else
     if( msgTypeValue == "N" )
       onMessage( (ListStatus)(message), sessionID );

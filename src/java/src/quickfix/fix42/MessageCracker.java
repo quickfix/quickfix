@@ -108,6 +108,8 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     { throw new UnsupportedMessageType(); }
   public void onMessage( NewOrderList message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
+  public void onMessage( ListStrikePrice message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( ListStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( ListExecute message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
@@ -249,6 +251,9 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     else
     if( msgTypeValue.equals("E") )
       onMessage( (NewOrderList)message, sessionID );
+    else
+    if( msgTypeValue.equals("m") )
+      onMessage( (ListStrikePrice)message, sessionID );
     else
     if( msgTypeValue.equals("N") )
       onMessage( (ListStatus)message, sessionID );

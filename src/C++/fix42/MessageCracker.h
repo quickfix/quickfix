@@ -68,6 +68,7 @@ namespace FIX42
   class BidRequest; 
   class BidResponse; 
   class NewOrderList; 
+  class ListStrikePrice; 
   class ListStatus; 
   class ListExecute; 
   class ListCancelRequest; 
@@ -159,6 +160,8 @@ namespace FIX42
   virtual void onMessage( const BidResponse&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const NewOrderList&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const ListStrikePrice&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const ListStatus&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -298,6 +301,9 @@ public:
     else
     if( msgTypeValue == "E" )
       onMessage( (NewOrderList&)message, sessionID );
+    else
+    if( msgTypeValue == "m" )
+      onMessage( (ListStrikePrice&)message, sessionID );
     else
     if( msgTypeValue == "N" )
       onMessage( (ListStatus&)message, sessionID );

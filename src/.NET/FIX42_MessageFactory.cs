@@ -188,6 +188,10 @@ namespace QuickFix42
        return new QuickFix42.NewOrderList();
      }
    
+     if(msgType.Equals("m")) {
+       return new QuickFix42.ListStrikePrice();
+     }
+   
      if(msgType.Equals("N")) {
        return new QuickFix42.ListStatus();
      }

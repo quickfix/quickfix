@@ -187,6 +187,10 @@ public class MessageFactory implements quickfix.MessageFactory
      return new quickfix.fix42.NewOrderList();
    }
  
+   if("m".equals(msgType)) {
+     return new quickfix.fix42.ListStrikePrice();
+   }
+ 
    if("N".equals(msgType)) {
      return new quickfix.fix42.ListStatus();
    }
