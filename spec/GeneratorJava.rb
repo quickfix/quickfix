@@ -2,10 +2,10 @@ class GeneratorJava
   def initialize(major, minor, dir)
     @major = major
     @minor = minor
-    @package = "org.quickfix.fix" + major + minor
+    @package = "quickfix.fix" + major + minor
     @beginstring = "FIX." + major + "." + minor
     @depth = 0;
-    @dir = dir + "/" + "src/org/quickfix/fix" + major + minor + "/"
+    @dir = dir + "/" + "src/quickfix/fix" + major + minor + "/"
     @basefile = createFile("Message.java")
     @f = @basefile
   end
@@ -30,11 +30,11 @@ class GeneratorJava
 
   def front
     @f.puts "package " + @package + ";"
-    @f.puts "import org.quickfix.FieldNotFound;"
-    @f.puts "import org.quickfix.Group;"
-    @f.puts "import org.quickfix.field.*;"
+    @f.puts "import quickfix.FieldNotFound;"
+    @f.puts "import quickfix.Group;"
+    @f.puts "import quickfix.field.*;"
     @f.puts
-    @f.puts "public class Message extends org.quickfix.Message {"
+    @f.puts "public class Message extends quickfix.Message {"
     @f.puts "  public Message() {"
     @f.puts "    super();"
     @f.puts "    header = new Header();"
@@ -45,15 +45,15 @@ class GeneratorJava
 
   def field(name, number)
     @depth += 1
-    @f.puts tabs + "  public void set(org.quickfix.field." + name + " value)" 
+    @f.puts tabs + "  public void set(quickfix.field." + name + " value)" 
     @f.puts tabs + "  { setField(value); }"
-    @f.puts tabs + "  public org.quickfix.field." + name + " get(org.quickfix.field." + name + "  value)"
+    @f.puts tabs + "  public quickfix.field." + name + " get(quickfix.field." + name + "  value)"
     @f.puts tabs + "    throws FieldNotFound" 
     @f.puts tabs + "  { getField(value); return value; }"
-    @f.puts tabs + "  public org.quickfix.field." + name + " get" + name + "() throws FieldNotFound"
-    @f.puts tabs + "  { org.quickfix.field." + name + " value = new org.quickfix.field." + name + "();"
+    @f.puts tabs + "  public quickfix.field." + name + " get" + name + "() throws FieldNotFound"
+    @f.puts tabs + "  { quickfix.field." + name + " value = new quickfix.field." + name + "();"
     @f.puts tabs + "    getField(value); return value; }"
-    @f.puts tabs + "  public boolean isSet(org.quickfix.field." + name + " field)"
+    @f.puts tabs + "  public boolean isSet(quickfix.field." + name + " field)"
     @f.puts tabs + "  { return isSetField(field); }"
     @f.puts tabs + "  public boolean isSet" + name + "()"
     @f.puts tabs + "  { return isSetField(" + number.to_s + "); }"
@@ -62,7 +62,7 @@ class GeneratorJava
 
   def headerStart
     @depth += 1
-    @f.puts tabs + "public class Header extends org.quickfix.Message.Header {"
+    @f.puts tabs + "public class Header extends quickfix.Message.Header {"
   end
 
   def headerEnd
@@ -110,9 +110,9 @@ class GeneratorJava
     @depth += 1
 
     @f.puts tabs + "package " + @package + ";"
-    @f.puts tabs + "import org.quickfix.FieldNotFound;"
-    @f.puts tabs + "import org.quickfix.Group;"
-    @f.puts tabs + "import org.quickfix.field.*;"
+    @f.puts tabs + "import quickfix.FieldNotFound;"
+    @f.puts tabs + "import quickfix.Group;"
+    @f.puts tabs + "import quickfix.field.*;"
     @f.puts
     @f.puts tabs + "public class " + name + " extends Message"
     @f.puts tabs + "{"
@@ -125,7 +125,7 @@ class GeneratorJava
       @f.puts tabs + "  public " + name + "("
       required.each_index { |i|
 	field = required[i]
-	@f.print tabs + "    org.quickfix.field." + field + " a" + field
+	@f.print tabs + "    quickfix.field." + field + " a" + field
 	if( i!= required.size-1)
 	  @f.puts ","
 	else

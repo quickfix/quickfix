@@ -66,8 +66,8 @@ echo on
  </xsl:template>
 
  <xsl:template match="fix/fields/field">
-echo package org.quickfix.field; &gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
-echo import org.quickfix.<xsl:call-template name="get-field-type"/>Field; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
+echo package quickfix.field; &gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
+echo import quickfix.<xsl:call-template name="get-field-type"/>Field; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
 echo import java.util.Date; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
 type blankline.txt &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
 echo public class <xsl:value-of select="@name"/> extends <xsl:call-template name="get-field-type"/>Field &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
@@ -166,7 +166,7 @@ echo public static final String FUTURE = "FUT"; &gt;&gt; <xsl:call-template name
 
 </xsl:template>
 
-<xsl:template name="path">..\src\java\src\org\quickfix\field</xsl:template>
+<xsl:template name="path">..\src\java\src\quickfix\field</xsl:template>
 
 <xsl:template name="version">fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/></xsl:template>
 

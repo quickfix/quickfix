@@ -55,12 +55,12 @@
 
  <xsl:template match="/">/* -*- C++ -*- */<xsl:copy-of select=
    "document('../LICENSE.xml')"/>
-package org.quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
+package quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
 
-import org.quickfix.FieldNotFound;
-import org.quickfix.field.*;
+import quickfix.FieldNotFound;
+import quickfix.field.*;
 
-public class Message extends org.quickfix.Message
+public class Message extends quickfix.Message
 {
   public Message() {
     super();
@@ -69,7 +69,7 @@ public class Message extends org.quickfix.Message
     getHeader().setField(new BeginString("FIX.<xsl:value-of select="//fix/@major"/>.<xsl:value-of select="//fix/@minor"/>"));
   }
   
-  public class Header extends org.quickfix.Message.Header {
+  public class Header extends quickfix.Message.Header {
 <xsl:call-template name="if-statement"/>
   }
 }

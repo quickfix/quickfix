@@ -55,14 +55,14 @@
 
  <xsl:template match="/">/* -*- C++ -*- */<xsl:copy-of select=
    "document('../LICENSE.xml')"/>
-package org.quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
+package quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
 
-import org.quickfix.*;
-import org.quickfix.field.*;
+import quickfix.*;
+import quickfix.field.*;
 
 public class MessageCracker <xsl:call-template name="base-class"/>
 {
-public void onMessage( org.quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+public void onMessage( quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
   { throw new UnsupportedMessageType(); }
 <xsl:call-template name="virtual-functions"/>
 <xsl:call-template name="switch-statement"/>
@@ -81,7 +81,7 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
 </xsl:template>
 
 <xsl:template name="switch-statement">
-  public void crack( org.quickfix.Message message, SessionID sessionID )
+  public void crack( quickfix.Message message, SessionID sessionID )
     throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue
   { crack<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>((Message)message, sessionID); }
 
@@ -103,10 +103,10 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
 
 <xsl:template name="base-class">
  <xsl:if test="//fix/@major='4'">
-   <xsl:if test="//fix/@minor='1'">extends org.quickfix.fix40.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='2'">extends org.quickfix.fix41.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='3'">extends org.quickfix.fix42.MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='4'">extends org.quickfix.fix43.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='1'">extends quickfix.fix40.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='2'">extends quickfix.fix41.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='3'">extends quickfix.fix42.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='4'">extends quickfix.fix43.MessageCracker</xsl:if>
  </xsl:if>
 </xsl:template>
 

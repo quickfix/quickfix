@@ -55,15 +55,15 @@
 
  <xsl:template match="/">/* -*- C++ -*- */<xsl:copy-of select=
    "document('../LICENSE.xml')"/>
-package org.quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
+package quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>;
 
-import org.quickfix.Message;
+import quickfix.Message;
 
-public class MessageFactory implements org.quickfix.MessageFactory
+public class MessageFactory implements quickfix.MessageFactory
 {
   public Message create( String beginString, String msgType ) {
   <xsl:call-template name="if-statement"/>
-  return new org.quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.Message();
+  return new quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.Message();
   }
 }
 
@@ -72,7 +72,7 @@ public class MessageFactory implements org.quickfix.MessageFactory
 <xsl:template name="if-statement">
  <xsl:for-each select="//fix/messages/message">
    if("<xsl:value-of select="@msgtype"/>".equals(msgType)) {
-     return new org.quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.<xsl:value-of select="@name"/>();
+     return new quickfix.fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>.<xsl:value-of select="@name"/>();
    }
  </xsl:for-each>
 </xsl:template>
