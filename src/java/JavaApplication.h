@@ -74,7 +74,6 @@ public:
   void onRun();
 
 private:
-  void setupExceptions() const;
   void handleException( JNIEnv* ) const;
 
   JVMObject m_object;
@@ -89,12 +88,6 @@ private:
   jmethodID notifyFromAdminId;
   jmethodID notifyFromAppId;
   jmethodID onRunId;
-
-  mutable JVMClass doNotSendID;
-  mutable JVMClass rejectLogonID;
-  mutable JVMClass unsupportedMessageTypeID;
-  mutable JVMClass fieldNotFoundID;
-  mutable JVMClass incorrectTagValueID;
 
   FIX::Mutex m_mutex;
 };

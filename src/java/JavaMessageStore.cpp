@@ -58,8 +58,7 @@
 #include <iostream>
 
 JavaMessageStore::JavaMessageStore( JVMObject object )
-    : messageStore( object.newGlobalRef() ),
-    ioExceptionID( "Ljava/io/IOException;" )
+    : messageStore( object.newGlobalRef() )
 {
   setId = object.getClass()
           .getMethodID( "set", "(ILjava/lang/String;)Z" );
@@ -101,7 +100,6 @@ bool JavaMessageStore::set( int seq, const std::string& message )
 throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   jstring jstr = newString( message );
   bool result = pEnv->CallBooleanMethod( messageStore, setId,
                                          seq, jstr ) != 0;  
@@ -114,7 +112,6 @@ bool JavaMessageStore::get( int seq, std::string& message ) const
 throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   jstring string = newString( "" );
   bool result = pEnv->CallBooleanMethod( messageStore, getId,
                                          seq, string ) != 0;
@@ -135,7 +132,6 @@ throw ( FIX::IOException& )
   JNIEnv * pEnv = ENV::get();
   JVMObject collection( newCollection() );
 
-  setupExceptions();
   pEnv->CallVoidMethod( messageStore, getRangeId,
                         start, end, ( jobject ) collection );
   handleException( pEnv );
@@ -158,7 +154,6 @@ throw ( FIX::IOException& )
 int JavaMessageStore::getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   int result = pEnv->CallIntMethod( messageStore, getNextSenderMsgSeqNumId );
   handleException( pEnv );
   return result;
@@ -167,7 +162,6 @@ int JavaMessageStore::getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
 int JavaMessageStore::getNextTargetMsgSeqNum() const throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   int result = pEnv->CallIntMethod( messageStore, getNextTargetMsgSeqNumId );
   handleException( pEnv );
   return result;
@@ -176,7 +170,6 @@ int JavaMessageStore::getNextTargetMsgSeqNum() const throw ( FIX::IOException& )
 void JavaMessageStore::setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   pEnv->CallVoidMethod( messageStore, setNextSenderMsgSeqNumId, seq );
   handleException( pEnv );
 }
@@ -184,7 +177,6 @@ void JavaMessageStore::setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOExceptio
 void JavaMessageStore::setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   pEnv->CallVoidMethod( messageStore, setNextTargetMsgSeqNumId, seq );
   handleException( pEnv );
 }
@@ -192,7 +184,6 @@ void JavaMessageStore::setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOExceptio
 void JavaMessageStore::incrNextSenderMsgSeqNum() throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   pEnv->CallVoidMethod( messageStore, incrNextSenderMsgSeqNumId );
   handleException( pEnv );
 }
@@ -200,7 +191,6 @@ void JavaMessageStore::incrNextSenderMsgSeqNum() throw ( FIX::IOException& )
 void JavaMessageStore::incrNextTargetMsgSeqNum() throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   pEnv->CallVoidMethod( messageStore, incrNextTargetMsgSeqNumId );
   handleException( pEnv );
 }
@@ -209,7 +199,6 @@ FIX::UtcTimeStamp JavaMessageStore::getCreationTime() const
 throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   JVMObject date( pEnv->CallObjectMethod( messageStore, getCreationTimeId ) );
   handleException( pEnv );
   long longTime = date.callLongMethod( "getTime" ) / 1000;
@@ -220,7 +209,6 @@ throw ( FIX::IOException& )
 void JavaMessageStore::reset() throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  setupExceptions();
   pEnv->CallVoidMethod( messageStore, resetId );
   handleException( pEnv );
 }
@@ -234,17 +222,12 @@ jobject JavaMessageStore::newCollection() const
   return result;
 }
 
-void JavaMessageStore::setupExceptions() const
-{
-  ioExceptionID = JVMClass( "Ljava/io/IOException;" );
-}
-
 void JavaMessageStore::handleException( JNIEnv* env ) const
 {
   jthrowable exception = env->ExceptionOccurred();
   if ( exception )
   {
-    if ( ioExceptionID.IsInstanceOf( exception ) )
+    if ( JVMClass( "Ljava/io/IOException;" ).IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::IOException();

@@ -57,12 +57,7 @@
 #include "Conversions.h"
 
 JavaApplication::JavaApplication( JVMObject object, JVMObject factory )
-    : m_object( object.newGlobalRef() ), m_factory( factory.newGlobalRef() ),
-    doNotSendID( "Lorg/quickfix/DoNotSend;" ),
-    rejectLogonID( "Lorg/quickfix/RejectLogon;" ),
-    unsupportedMessageTypeID( "Lorg/quickfix/UnsupportedMessageType;" ),
-    fieldNotFoundID( "Lorg/quickfix/FieldNotFound;" ),
-    incorrectTagValueID( "Lorg/quickfix/IncorrectTagValue;" )
+    : m_object( object.newGlobalRef() ), m_factory( factory.newGlobalRef() )
 {
   onCreateId = object.getClass()
                .getMethodID( "onCreate", "(Lorg/quickfix/SessionID;)V" );
@@ -134,7 +129,6 @@ throw( FIX::DoNotSend& )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
-  setupExceptions();
   JVMObject jmsg = newMessage( msg, m_factory );
   JVMObject jsessionid = newSessionID( sessionID );
   pEnv->CallVoidMethod( m_object, notifyToAppId, jmsg, jsessionid );
@@ -149,7 +143,6 @@ throw( FIX::FieldNotFound&, FIX::RejectLogon& )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
-  setupExceptions();
   jobject jmessage = newMessage( msg, m_factory );
   jobject jsessionid = newSessionID( sessionID );
   pEnv->CallVoidMethod
@@ -164,7 +157,6 @@ throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
-  setupExceptions();
   jobject jmessage = newMessage( msg, m_factory );
   jobject jsessionid = newSessionID( sessionID );
   pEnv->CallVoidMethod
@@ -181,41 +173,32 @@ void JavaApplication::onRun()
   JVM::get() ->DetachCurrentThread();
 };
 
-void JavaApplication::setupExceptions() const
-{
-  doNotSendID = JVMClass( "Lorg/quickfix/DoNotSend;" );
-  rejectLogonID = JVMClass( "Lorg/quickfix/RejectLogon;" );
-  unsupportedMessageTypeID = JVMClass( "Lorg/quickfix/UnsupportedMessageType;" );
-  fieldNotFoundID = JVMClass( "Lorg/quickfix/FieldNotFound;" );
-  incorrectTagValueID = JVMClass( "Lorg/quickfix/IncorrectTagValue;" );
-}
-
 void JavaApplication::handleException( JNIEnv* env ) const
 {
   jthrowable exception = env->ExceptionOccurred();
   if ( exception )
   {
-    if ( doNotSendID.IsInstanceOf( exception ) )
+    if ( JVMClass( "Lorg/quickfix/DoNotSend;" ).IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::DoNotSend();
     }
-    else if ( rejectLogonID.IsInstanceOf( exception ) )
+    else if ( JVMClass( "Lorg/quickfix/RejectLogon;" ).IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::RejectLogon();
     }
-    else if ( unsupportedMessageTypeID.IsInstanceOf( exception ) )
+    else if ( JVMClass( "Lorg/quickfix/UnsupportedMessageType;" ).IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::UnsupportedMessageType();
     }
-    else if ( fieldNotFoundID.IsInstanceOf( exception ) )
+    else if ( JVMClass( "Lorg/quickfix/FieldNotFound;" ).IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::FieldNotFound( 0 );
     }
-    else if ( incorrectTagValueID.IsInstanceOf( exception ) )
+    else if ( JVMClass( "Lorg/quickfix/IncorrectTagValue;" ).IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
       throw FIX::IncorrectTagValue( 0 );
