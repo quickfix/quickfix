@@ -315,7 +315,7 @@ inline JavaLogFactory& createLogFactory( JVMObject& obj )
 
 inline FIX::SessionSettings& getSettings( JVMObject& obj )
 {
-  JVMObject jsettings = obj.getObject( "settings", "Lorg/quickfix/Settings;" );
+  JVMObject jsettings = obj.getObject( "settings", "Lorg/quickfix/SessionSettings;" );
   FIX::SessionSettings* pSettings
   = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
   return *pSettings;

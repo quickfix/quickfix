@@ -76,7 +76,7 @@ FIX::SocketInitiator* getCPPSocketInitiator( jobject obj )
 
 FIX::SessionSettings& getInitiatorSettings( JVMObject& obj )
 {
-  JVMObject jsettings = obj.getObject( "settings", "Lorg/quickfix/Settings;" );
+  JVMObject jsettings = obj.getObject( "settings", "Lorg/quickfix/SessionSettings;" );
   FIX::SessionSettings* pSettings
   = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
   return *pSettings;
@@ -123,7 +123,6 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_create
       return ;
     }
   }
-
   jobject.setInt( "cppPointer", ( int ) pInitiator );
 }
 

@@ -51,10 +51,10 @@ package org.quickfix;
 
 import java.io.InputStream;
 
-public class Settings {
+public class SessionSettings {
     private int cppPointer;
 
-    public Settings(InputStream stream) throws ConfigError {
+    public SessionSettings(InputStream stream) throws ConfigError {
         create(stream);
     }
 
@@ -64,4 +64,14 @@ public class Settings {
 
     private native void create(InputStream stream) throws ConfigError;
     private native void destroy();
+
+    public native String getString( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
+    public native long getLong( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
+    public native double getDouble( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
+    public native boolean getBool( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
+
+    public native void setString( SessionID sessionID, String key, String value );
+    public native void setLong( SessionID sessionID, String key, long value );
+    public native void setDouble( SessionID sessionID, String key, double value );
+    public native void setBool( SessionID sessionID, String key, boolean value );
 }

@@ -52,9 +52,9 @@ package org.quickfix;
 public class FileLogFactory implements LogFactory {
     private int cppPointer;
 
-    private Settings settings = null;
+    private SessionSettings settings = null;
 
-    public FileLogFactory(Settings settings) {
+    public FileLogFactory(SessionSettings settings) {
         this.settings = settings;
         create();
     }

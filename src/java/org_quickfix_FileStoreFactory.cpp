@@ -65,7 +65,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileStoreFactory_create__
   JVM::set( pEnv );
   JVMObject object( obj );
 
-  JVMObject jsettings( object.getObject( "settings", "Lorg/quickfix/Settings;" ) );
+  JVMObject jsettings( object.getObject( "settings", "Lorg/quickfix/SessionSettings;" ) );
   FIX::SessionSettings* pSettings
   = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
 

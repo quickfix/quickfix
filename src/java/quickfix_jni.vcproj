@@ -200,7 +200,7 @@
 				RelativePath=".\org_quickfix_SessionID.cpp">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_Settings.cpp">
+				RelativePath="org_quickfix_SessionSettings.cpp">
 			</File>
 			<File
 				RelativePath=".\org_quickfix_SocketAcceptor.cpp">
@@ -288,7 +288,7 @@
 				RelativePath=".\org_quickfix_SessionID.h">
 			</File>
 			<File
-				RelativePath=".\org_quickfix_Settings.h">
+				RelativePath="org_quickfix_SessionSettings.h">
 			</File>
 			<File
 				RelativePath=".\org_quickfix_SocketAcceptor.h">

@@ -52,9 +52,9 @@ package org.quickfix;
 public class FileStoreFactory implements MessageStoreFactory {
     private int cppPointer;
 
-    private Settings settings = null;
+    private SessionSettings settings = null;
 
-    public FileStoreFactory(Settings settings) {
+    public FileStoreFactory(SessionSettings settings) {
         this.settings = settings;
         create();
     }

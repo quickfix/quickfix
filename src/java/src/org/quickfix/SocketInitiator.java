@@ -54,14 +54,14 @@ public class SocketInitiator implements Initiator {
     private int cppPointer;
 
     private Application application;
-    private Settings settings;
+    private SessionSettings settings;
     private MessageStoreFactory messageStoreFactory;
     private MessageFactory messageFactory;
     private LogFactory logFactory = null;
 
     public SocketInitiator(Application application,
                            MessageStoreFactory messageStoreFactory,
-                           Settings settings,
+                           SessionSettings settings,
                            MessageFactory messageFactory) throws ConfigError {
         this.application = application;
         this.settings = settings;
@@ -72,7 +72,7 @@ public class SocketInitiator implements Initiator {
 
     public SocketInitiator(Application application,
                            MessageStoreFactory messageStoreFactory,
-                           Settings settings,
+                           SessionSettings settings,
                            LogFactory logFactory,
                            MessageFactory messageFactory) throws ConfigError {
         this.application = application;

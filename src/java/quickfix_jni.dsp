@@ -180,7 +180,7 @@ SOURCE=.\org_quickfix_SessionID.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Settings.cpp
+SOURCE=.\org_quickfix_SessionSettings.cpp
 # End Source File
 # Begin Source File
 
@@ -296,7 +296,7 @@ SOURCE=.\org_quickfix_SessionID.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\org_quickfix_Settings.h
+SOURCE=.\org_quickfix_SessionSettings.h
 # End Source File
 # Begin Source File
 

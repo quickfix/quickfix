@@ -44,7 +44,7 @@ public class OrderTest extends TestCase {
         application = new ApplicationImpl();
         FileInputStream configuration =
             new FileInputStream("cfg/at_client.cfg");
-        Settings settings = new Settings(configuration);
+        SessionSettings settings = new SessionSettings(configuration);
         MessageStoreFactory messageStoreFactory =
             new MemoryStoreFactory();
         MessageFactory messageFactory = new DefaultMessageFactory();

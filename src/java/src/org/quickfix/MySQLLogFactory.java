@@ -52,9 +52,9 @@ package org.quickfix;
 public class MySQLLogFactory implements LogFactory {
     private int cppPointer;
 
-    private Settings settings = null;
+    private SessionSettings settings = null;
 
-    public MySQLLogFactory(Settings settings) {
+    public MySQLLogFactory(SessionSettings settings) {
         this.settings = settings;
         create();
     }

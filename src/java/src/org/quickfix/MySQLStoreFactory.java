@@ -52,9 +52,9 @@ package org.quickfix;
 public class MySQLStoreFactory implements MessageStoreFactory {
     private int cppPointer;
 
-    private Settings settings = null;
+    private SessionSettings settings = null;
 
-    public MySQLStoreFactory(Settings settings) {
+    public MySQLStoreFactory(SessionSettings settings) {
         this.settings = settings;
         create();
     }
