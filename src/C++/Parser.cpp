@@ -61,6 +61,22 @@
 
 namespace FIX
 {
+void Parser::allocate( int length )
+{ QF_STACK_PUSH(Parser::allocate)
+
+  char* newBuffer = new char[length+1];
+  if( m_readBuffer && m_bufferSize )
+  {
+    strcpy(newBuffer, m_readBuffer);
+    delete [] m_readBuffer;
+  }
+  m_readBuffer = newBuffer;
+  m_bufferSize = length;
+  m_buffer.reserve( length + 1 );
+
+  QF_STACK_POP
+}
+
 bool Parser::extractLength( int& length, std::string::size_type& pos,
                             const std::string& buffer )
 throw( MessageParseError& )
@@ -143,7 +159,7 @@ bool Parser::readFromStream() throw( RecvFailed& )
   int size = 0;
   if ( m_pStream )
   {
-    m_pStream->read( m_readBuffer, 4096 );
+    m_pStream->read( m_readBuffer, m_bufferSize );
     size = m_pStream->gcount();
     if ( size == 0 ) return false;
   }
@@ -155,8 +171,9 @@ bool Parser::readFromStream() throw( RecvFailed& )
     if ( bytes == 0 )
       return false;
 
-    size = recv( m_socket, m_readBuffer, 4096, 0 );
+    size = recv( m_socket, m_readBuffer, m_bufferSize, 0 );
     if ( size <= 0 ) throw RecvFailed();
+    if( size == m_bufferSize ) allocate( m_bufferSize * 2 );
   }
   else return true;
 

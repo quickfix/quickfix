@@ -68,10 +68,22 @@ class RecvFailed : public std::exception {};
 class Parser
 {
 public:
-  Parser( std::istream& stream ) : m_pStream( &stream ), m_socket( 0 ) {}
-  Parser( int socket ) : m_pStream( 0 ), m_socket( socket ) {}
-  Parser() : m_pStream( 0 ), m_socket( 0 ) {}
+  Parser( std::istream& stream ) 
+  : m_pStream( &stream ), m_socket( 0 ), 
+    m_bufferSize( 0 ), m_readBuffer( 0 ) 
+  { allocate( 4096 ); }
+  Parser( int socket ) 
+  : m_pStream( 0 ), m_socket( socket ), 
+    m_bufferSize( 0 ), m_readBuffer( 0 ) 
+  { allocate( 4096 ); }
+  Parser() 
+  : m_pStream( 0 ), m_socket( 0 ), 
+    m_bufferSize( 0 ), m_readBuffer( 0 ) 
+  { allocate( 4096 ); }
 
+  ~Parser() { delete [] m_readBuffer; }
+
+  void allocate( int ); 
   bool extractLength( int& length, std::string::size_type& pos,
                       const std::string& buffer )
   throw ( MessageParseError& );
@@ -86,7 +98,8 @@ private:
   std::istream* m_pStream;
   int m_socket;
   std::string m_buffer;
-  char m_readBuffer[ 4097 ];
+  char* m_readBuffer;
+  int m_bufferSize;
 };
 }
 #endif //FIX_PARSER_H
