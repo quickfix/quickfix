@@ -84,7 +84,7 @@ tm time_localtime( const time_t* t);
 typedef unsigned int (_stdcall THREAD_START_ROUTINE)(void *);
 #define  THREAD_PROC unsigned int _stdcall 
 #else
-typedef void * (THREAD_START_ROUTINE)(void *);
+extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #define THREAD_PROC void *
 #endif
 
