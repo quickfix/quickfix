@@ -284,7 +284,7 @@ namespace QuickFix44
        return new QuickFix44.AllocationReport();
      }
    
-     if(msgType.Equals("AS")) {
+     if(msgType.Equals("AT")) {
        return new QuickFix44.AllocationReportAck();
      }
    
@@ -296,7 +296,7 @@ namespace QuickFix44
        return new QuickFix44.ConfirmationAck();
      }
    
-     if(msgType.Equals("BS")) {
+     if(msgType.Equals("BH")) {
        return new QuickFix44.ConfirmationRequest();
      }
    
@@ -348,7 +348,7 @@ namespace QuickFix44
        return new QuickFix44.RequestForPositionsAck();
      }
    
-     if(msgType.Equals("AO")) {
+     if(msgType.Equals("AP")) {
        return new QuickFix44.PositionReport();
      }
    
@@ -376,7 +376,7 @@ namespace QuickFix44
        return new QuickFix44.CollateralInquiry();
      }
    
-     if(msgType.Equals("BB")) {
+     if(msgType.Equals("BG")) {
        return new QuickFix44.CollateralInquiryAck();
      }
    

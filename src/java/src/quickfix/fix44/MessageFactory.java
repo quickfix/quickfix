@@ -283,7 +283,7 @@ public class MessageFactory implements quickfix.MessageFactory
      return new quickfix.fix44.AllocationReport();
    }
  
-   if("AS".equals(msgType)) {
+   if("AT".equals(msgType)) {
      return new quickfix.fix44.AllocationReportAck();
    }
  
@@ -295,7 +295,7 @@ public class MessageFactory implements quickfix.MessageFactory
      return new quickfix.fix44.ConfirmationAck();
    }
  
-   if("BS".equals(msgType)) {
+   if("BH".equals(msgType)) {
      return new quickfix.fix44.ConfirmationRequest();
    }
  
@@ -347,7 +347,7 @@ public class MessageFactory implements quickfix.MessageFactory
      return new quickfix.fix44.RequestForPositionsAck();
    }
  
-   if("AO".equals(msgType)) {
+   if("AP".equals(msgType)) {
      return new quickfix.fix44.PositionReport();
    }
  
@@ -375,7 +375,7 @@ public class MessageFactory implements quickfix.MessageFactory
      return new quickfix.fix44.CollateralInquiry();
    }
  
-   if("BB".equals(msgType)) {
+   if("BG".equals(msgType)) {
      return new quickfix.fix44.CollateralInquiryAck();
    }
  

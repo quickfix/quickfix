@@ -7,14 +7,14 @@ public class ConfirmationRequest extends Message
 {
   public ConfirmationRequest()
   {
-    getHeader().setField(new MsgType("BS"));
+    getHeader().setField(new MsgType("BH"));
   }
   public ConfirmationRequest(
     quickfix.field.ConfirmReqID aConfirmReqID,
     quickfix.field.ConfirmType aConfirmType,
     quickfix.field.TransactTime aTransactTime ) {
 
-    getHeader().setField(new MsgType("BS"));
+    getHeader().setField(new MsgType("BH"));
     set(aConfirmReqID);
     set(aConfirmType);
     set(aTransactTime);

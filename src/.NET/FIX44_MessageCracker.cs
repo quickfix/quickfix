@@ -403,7 +403,7 @@ namespace QuickFix44
     if( msgTypeValue == "AS" )
       onMessage( (AllocationReport)(message), sessionID );
     else
-    if( msgTypeValue == "AS" )
+    if( msgTypeValue == "AT" )
       onMessage( (AllocationReportAck)(message), sessionID );
     else
     if( msgTypeValue == "AK" )
@@ -412,7 +412,7 @@ namespace QuickFix44
     if( msgTypeValue == "AU" )
       onMessage( (ConfirmationAck)(message), sessionID );
     else
-    if( msgTypeValue == "BS" )
+    if( msgTypeValue == "BH" )
       onMessage( (ConfirmationRequest)(message), sessionID );
     else
     if( msgTypeValue == "T" )
@@ -451,7 +451,7 @@ namespace QuickFix44
     if( msgTypeValue == "AO" )
       onMessage( (RequestForPositionsAck)(message), sessionID );
     else
-    if( msgTypeValue == "AO" )
+    if( msgTypeValue == "AP" )
       onMessage( (PositionReport)(message), sessionID );
     else
     if( msgTypeValue == "AW" )
@@ -472,7 +472,7 @@ namespace QuickFix44
     if( msgTypeValue == "BB" )
       onMessage( (CollateralInquiry)(message), sessionID );
     else
-    if( msgTypeValue == "BB" )
+    if( msgTypeValue == "BG" )
       onMessage( (CollateralInquiryAck)(message), sessionID );
     else onMessage( message, sessionID );    
   }

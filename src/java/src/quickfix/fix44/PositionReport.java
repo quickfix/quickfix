@@ -7,7 +7,7 @@ public class PositionReport extends Message
 {
   public PositionReport()
   {
-    getHeader().setField(new MsgType("AO"));
+    getHeader().setField(new MsgType("AP"));
   }
   public PositionReport(
     quickfix.field.PosMaintRptID aPosMaintRptID,
@@ -19,7 +19,7 @@ public class PositionReport extends Message
     quickfix.field.SettlPriceType aSettlPriceType,
     quickfix.field.PriorSettlPrice aPriorSettlPrice ) {
 
-    getHeader().setField(new MsgType("AO"));
+    getHeader().setField(new MsgType("AP"));
     set(aPosMaintRptID);
     set(aPosReqResult);
     set(aClearingBusinessDate);

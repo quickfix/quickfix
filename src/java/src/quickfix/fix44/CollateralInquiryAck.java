@@ -7,13 +7,13 @@ public class CollateralInquiryAck extends Message
 {
   public CollateralInquiryAck()
   {
-    getHeader().setField(new MsgType("BB"));
+    getHeader().setField(new MsgType("BG"));
   }
   public CollateralInquiryAck(
     quickfix.field.CollInquiryID aCollInquiryID,
     quickfix.field.CollInquiryStatus aCollInquiryStatus ) {
 
-    getHeader().setField(new MsgType("BB"));
+    getHeader().setField(new MsgType("BG"));
     set(aCollInquiryID);
     set(aCollInquiryStatus);
   }

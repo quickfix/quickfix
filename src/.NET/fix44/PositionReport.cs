@@ -4,7 +4,7 @@ namespace QuickFix44
   public class PositionReport : Message
   {
     public PositionReport() : base(MsgType()) {}
-    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("AO"); }
+    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("AP"); }
 
     public PositionReport(
       QuickFix.PosMaintRptID aPosMaintRptID,

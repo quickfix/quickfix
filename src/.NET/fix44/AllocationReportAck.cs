@@ -4,7 +4,7 @@ namespace QuickFix44
   public class AllocationReportAck : Message
   {
     public AllocationReportAck() : base(MsgType()) {}
-    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("AS"); }
+    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("AT"); }
 
     public AllocationReportAck(
       QuickFix.AllocReportID aAllocReportID,

@@ -408,7 +408,7 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     if( msgTypeValue.equals("AS") )
       onMessage( (AllocationReport)message, sessionID );
     else
-    if( msgTypeValue.equals("AS") )
+    if( msgTypeValue.equals("AT") )
       onMessage( (AllocationReportAck)message, sessionID );
     else
     if( msgTypeValue.equals("AK") )
@@ -417,7 +417,7 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     if( msgTypeValue.equals("AU") )
       onMessage( (ConfirmationAck)message, sessionID );
     else
-    if( msgTypeValue.equals("BS") )
+    if( msgTypeValue.equals("BH") )
       onMessage( (ConfirmationRequest)message, sessionID );
     else
     if( msgTypeValue.equals("T") )
@@ -456,7 +456,7 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     if( msgTypeValue.equals("AO") )
       onMessage( (RequestForPositionsAck)message, sessionID );
     else
-    if( msgTypeValue.equals("AO") )
+    if( msgTypeValue.equals("AP") )
       onMessage( (PositionReport)message, sessionID );
     else
     if( msgTypeValue.equals("AW") )
@@ -477,7 +477,7 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     if( msgTypeValue.equals("BB") )
       onMessage( (CollateralInquiry)message, sessionID );
     else
-    if( msgTypeValue.equals("BB") )
+    if( msgTypeValue.equals("BG") )
       onMessage( (CollateralInquiryAck)message, sessionID );
     else onMessage( message, sessionID );
   }

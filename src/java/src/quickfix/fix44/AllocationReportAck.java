@@ -7,7 +7,7 @@ public class AllocationReportAck extends Message
 {
   public AllocationReportAck()
   {
-    getHeader().setField(new MsgType("AS"));
+    getHeader().setField(new MsgType("AT"));
   }
   public AllocationReportAck(
     quickfix.field.AllocReportID aAllocReportID,
@@ -15,7 +15,7 @@ public class AllocationReportAck extends Message
     quickfix.field.TransactTime aTransactTime,
     quickfix.field.AllocStatus aAllocStatus ) {
 
-    getHeader().setField(new MsgType("AS"));
+    getHeader().setField(new MsgType("AT"));
     set(aAllocReportID);
     set(aAllocID);
     set(aTransactTime);

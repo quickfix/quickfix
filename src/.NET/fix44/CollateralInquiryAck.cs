@@ -4,7 +4,7 @@ namespace QuickFix44
   public class CollateralInquiryAck : Message
   {
     public CollateralInquiryAck() : base(MsgType()) {}
-    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("BB"); }
+    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("BG"); }
 
     public CollateralInquiryAck(
       QuickFix.CollInquiryID aCollInquiryID,

@@ -4,7 +4,7 @@ namespace QuickFix44
   public class ConfirmationRequest : Message
   {
     public ConfirmationRequest() : base(MsgType()) {}
-    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("BS"); }
+    static QuickFix.MsgType MsgType() { return new QuickFix.MsgType("BH"); }
 
     public ConfirmationRequest(
       QuickFix.ConfirmReqID aConfirmReqID,
