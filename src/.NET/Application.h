@@ -145,7 +145,7 @@ public:
   }
 
 private:
-  QuickFix::Message __pin * create( const FIX::Message& unmanaged )
+  QuickFix::Message* create( const FIX::Message& unmanaged )
   {
     FIX::BeginString beginString;
     FIX::MsgType msgType;
