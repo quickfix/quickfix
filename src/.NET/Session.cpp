@@ -117,7 +117,8 @@ throw( SessionNotFound* )
 
   try
   {
-    return FIX::Session::sendToTarget( message->unmanaged() );
+    Message __pin * pMessage = message;
+    return FIX::Session::sendToTarget( pMessage->unmanaged() );
   }
   catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }; 
 
@@ -130,7 +131,8 @@ throw( SessionNotFound* )
 
   try
   {
-    return FIX::Session::sendToTarget( message->unmanaged(),
+    Message __pin * pMessage = message;
+    return FIX::Session::sendToTarget( pMessage->unmanaged(),
                                        sessionID->unmanaged() );
   }
   catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
@@ -145,8 +147,9 @@ throw( SessionNotFound* )
 
   try
   {
+    Message __pin * pMessage = message;
     return FIX::Session::sendToTarget
-           ( message->unmanaged(),
+           ( pMessage->unmanaged(),
              FIX::SenderCompID( convertString( senderCompID ) ),
              FIX::TargetCompID( convertString( targetCompID ) ) );
   }
