@@ -1,0 +1,4 @@
+#!/bin/sh
+PYTHONPATH=../lib
+
+python ../examples/executor/python/executor.py cfg/executor.cfg
