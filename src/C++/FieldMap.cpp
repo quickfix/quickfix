@@ -102,6 +102,7 @@ throw( FieldNotFound& )
 
   Groups::const_iterator i = m_groups.find( field );
   if ( i == m_groups.end() ) throw FieldNotFound( field );
+  if ( num <= 0 ) throw FieldNotFound( field );
   if ( i->second.size() < ( unsigned ) num ) throw FieldNotFound( field );
   group = *( *( i->second.begin() + ( num - 1 ) ) );
   return group;
