@@ -197,7 +197,7 @@ void Initiator::blockingStart() throw ( ConfigError&, RuntimeError& )
 }
 
 void Initiator::stop() 
-{ QF_STACK_PUSH( Acceptor::stop ) 
+{ QF_STACK_PUSH( Initiator::stop ) 
   
   if( !m_threadid ) return;
   onStop();
