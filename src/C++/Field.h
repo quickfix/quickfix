@@ -396,8 +396,10 @@ typedef StringField LocalMktDateField;
 typedef StringField DataField;
 typedef DoubleField FloatField;
 typedef DoubleField PriceOffsetField;
+typedef StringField MonthField;
 typedef StringField MonthYearField;
 typedef StringField DayOfMonthField;
+typedef UtcDateField UtcDateOnlyField;
 typedef IntField LengthField;
 typedef IntField NumInGroupField;
 typedef IntField SeqNumField;
@@ -443,6 +445,7 @@ DEFINE_FIELD_CLASS(NAME, MonthYear, MONTHYEAR)
 #define DEFINE_DAYOFMONTH( NAME ) \
 DEFINE_FIELD_CLASS(NAME, DayOfMonth, DAYOFMONTH)
 #define DEFINE_UTCDATE( NAME ) DEFINE_FIELD_CLASS(NAME, UtcDate, UTCDATE)
+#define DEFINE_UTCDATEONLY( NAME ) DEFINE_FIELD_CLASS(NAME, UtcDateOnly, UTCDATEONLY)
 #define DEFINE_UTCTIMEONLY( NAME ) \
 DEFINE_FIELD_CLASS(NAME, UtcTimeOnly, UTCTIMEONLY)
 #define DEFINE_NUMINGROUP( NAME ) DEFINE_FIELD_CLASS(NAME, NumInGroup, NUMINGROUP)
@@ -487,6 +490,8 @@ DEFINE_FIELD_CLASS_NUM(NAME, MonthYear, MONTHYEAR, NUM);
 DEFINE_FIELD_CLASS_NUM(NAME, DayOfMonth, DAYOFMONTH, NUM);
 #define USER_DEFINE_UTCDATE( NAME, NUM ) \
 DEFINE_FIELD_CLASS_NUM(NAME, UtcDate, UTCDATE, NUM);
+#define USER_DEFINE_UTCDATEONLY( NAME, NUM ) \
+DEFINE_FIELD_CLASS_NUM(NAME, UtcDateOnly, UTCDATEONLY, NUM);
 #define USER_DEFINE_UTCTIMEONLY( NAME, NUM ) \
 DEFINE_FIELD_CLASS_NUM(NAME, UtcTimeOnly, UTCTIMEONLY, NUM);
 #define USER_DEFINE_NUMINGROUP( NAME, NUM ) \
@@ -499,7 +504,6 @@ DEFINE_FIELD_CLASS_NUM(NAME, Length, LENGTH, NUM);
 DEFINE_FIELD_CLASS_NUM(NAME, Percentage, PERCENTAGE, NUM);
 #define USER_DEFINE_COUNTRY( NAME, NUM ) \
 DEFINE_FIELD_CLASS_NUM(NAME, Country, COUNTRY, NUM);
-
 
 #endif
 

@@ -257,6 +257,8 @@ private:
 };
 /*! @} */
 
+typedef UtcDate UtcDateOnly;
+
 inline bool operator==( const UtcTimeStamp& lhs, const UtcTimeStamp& rhs )
 {
   return
@@ -394,6 +396,7 @@ typedef double PRICEOFFSET;
 typedef std::string MONTHYEAR;
 typedef std::string DAYOFMONTH;
 typedef UtcDate UTCDATE;
+typedef UtcDateOnly UTCDATEONLY;
 typedef UtcTimeOnly UTCTIMEONLY;
 typedef int NUMINGROUP;
 typedef double PERCENTAGE;
@@ -424,6 +427,7 @@ enum Type
   MonthYear,
   DayOfMonth,
   UtcDate,
+  UtcDateOnly = UtcDate,
   UtcTimeOnly,
   NumInGroup,
   Percentage,

@@ -90,10 +90,12 @@ libquickfix_la_SOURCES = \
 	FIX41_Messages.h \
 	FIX42_Messages.h \
 	FIX43_Messages.h \
+	FIX44_Messages.h \
 	FIX40_MessageCracker.h \
 	FIX41_MessageCracker.h \
 	FIX42_MessageCracker.h \
 	FIX43_MessageCracker.h \
+	FIX44_MessageCracker.h \
 	MessageCracker.h \
 	Responder.h \
 	CallStack.h \
@@ -121,11 +123,13 @@ install-exec-local: *.h
 	mkdir $(pkgincludedir)/fix41
 	mkdir $(pkgincludedir)/fix42
 	mkdir $(pkgincludedir)/fix43
+	mkdir $(pkgincludedir)/fix44
 	cp *.h $(pkgincludedir)
 	cp fix40/*.h $(pkgincludedir)/fix40
 	cp fix41/*.h $(pkgincludedir)/fix41
 	cp fix42/*.h $(pkgincludedir)/fix42
 	cp fix43/*.h $(pkgincludedir)/fix43
+	cp fix44/*.h $(pkgincludedir)/fix44
 
 uninstall-local:
 	rm -rf $(pkgincludedir)
