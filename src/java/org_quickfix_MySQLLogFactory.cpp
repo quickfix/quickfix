@@ -90,11 +90,11 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLLogFactory_create__Lorg_quickfi
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
 {
   JVM::set( pEnv );
-  JVMObject jobject( obj );
+  JVMObject jobj( obj );
   JVMObject jsession( sessionID );
 
   FIX::MySQLLogFactory* pFactory
-  = ( FIX::MySQLLogFactory* ) jobject.getInt( "cppPointer" );
+  = ( FIX::MySQLLogFactory* ) jobj.getInt( "cppPointer" );
   FIX::SessionID* pSessionID
   = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
 
