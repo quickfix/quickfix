@@ -9,6 +9,9 @@
 /* Define if you have the <stdio.h> header file.  */
 #undef HAVE_STDIO_H
 
+/* Define if you have the c_r library (-lc_r).  */
+#undef HAVE_LIBC_R
+
 /* Define if you have the nsl library (-lnsl).  */
 #undef HAVE_LIBNSL
 
