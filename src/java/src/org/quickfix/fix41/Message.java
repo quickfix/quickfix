@@ -1,245 +1,316 @@
-/* -*- C++ -*- */
-/* ====================================================================
-* The QuickFIX Software License, Version 1.0
-*
-* Copyright (c) 2001 ThoughtWorks, Inc.  All rights
-* reserved.
-*
-* Redistribution and use in source and binary forms, with or without
-* modification, are permitted provided that the following conditions
-* are met:
-*
-* 1. Redistributions of source code must retain the above copyright
-*    notice, this list of conditions and the following disclaimer.
-*
-* 2. Redistributions in binary form must reproduce the above copyright
-*    notice, this list of conditions and the following disclaimer in
-*    the documentation and/or other materials provided with the
-*    distribution.
-*
-* 3. The end-user documentation included with the redistribution,
-*    if any, must include the following acknowledgment:
-*       "This product includes software developed by
-*        ThoughtWorks, Inc. (http://www.thoughtworks.com/)."
-*    Alternately, this acknowledgment may appear in the software itself,
-*    if and wherever such third-party acknowledgments normally appear.
-*
-* 4. The names "QuickFIX" and "ThoughtWorks, Inc." must
-*    not be used to endorse or promote products derived from this
-*    software without prior written permission. For written
-*    permission, please contact quickfix-users@lists.sourceforge.net.
-*
-* 5. Products derived from this software may not be called "QuickFIX",
-*    nor may "QuickFIX" appear in their name, without prior written
-*    permission of ThoughtWorks, Inc.
-*
-* THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
-* WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
-* OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-* DISCLAIMED.  IN NO EVENT SHALL THOUGHTWORKS INC OR
-* ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-* SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-* LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
-* USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-* ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
-* OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
-* OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-* SUCH DAMAGE.
-* ====================================================================
-*/
-
 package org.quickfix.fix41;
-
 import org.quickfix.FieldNotFound;
+import org.quickfix.Group;
 import org.quickfix.field.*;
 
-public class Message extends org.quickfix.Message
-{
+public class Message extends org.quickfix.Message {
   public Message() {
     super();
     header = new Header();
     trailer = new Trailer();
     getHeader().setField(new BeginString("FIX.4.1"));
   }
-  
   public class Header extends org.quickfix.Message.Header {
-
-    public void set(BeginString value) { 
-      super.setField(value);
-    }
-    BeginString get(BeginString value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(BodyLength value) { 
-      super.setField(value);
-    }
-    BodyLength get(BodyLength value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(MsgType value) { 
-      super.setField(value);
-    }
-    MsgType get(MsgType value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(SenderCompID value) { 
-      super.setField(value);
-    }
-    SenderCompID get(SenderCompID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(TargetCompID value) { 
-      super.setField(value);
-    }
-    TargetCompID get(TargetCompID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(OnBehalfOfCompID value) { 
-      super.setField(value);
-    }
-    OnBehalfOfCompID get(OnBehalfOfCompID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(DeliverToCompID value) { 
-      super.setField(value);
-    }
-    DeliverToCompID get(DeliverToCompID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(SecureDataLen value) { 
-      super.setField(value);
-    }
-    SecureDataLen get(SecureDataLen value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(SecureData value) { 
-      super.setField(value);
-    }
-    SecureData get(SecureData value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(MsgSeqNum value) { 
-      super.setField(value);
-    }
-    MsgSeqNum get(MsgSeqNum value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(SenderSubID value) { 
-      super.setField(value);
-    }
-    SenderSubID get(SenderSubID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(SenderLocationID value) { 
-      super.setField(value);
-    }
-    SenderLocationID get(SenderLocationID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(TargetSubID value) { 
-      super.setField(value);
-    }
-    TargetSubID get(TargetSubID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(TargetLocationID value) { 
-      super.setField(value);
-    }
-    TargetLocationID get(TargetLocationID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(OnBehalfOfSubID value) { 
-      super.setField(value);
-    }
-    OnBehalfOfSubID get(OnBehalfOfSubID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(OnBehalfOfLocationID value) { 
-      super.setField(value);
-    }
-    OnBehalfOfLocationID get(OnBehalfOfLocationID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(DeliverToSubID value) { 
-      super.setField(value);
-    }
-    DeliverToSubID get(DeliverToSubID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(DeliverToLocationID value) { 
-      super.setField(value);
-    }
-    DeliverToLocationID get(DeliverToLocationID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(PossDupFlag value) { 
-      super.setField(value);
-    }
-    PossDupFlag get(PossDupFlag value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(PossResend value) { 
-      super.setField(value);
-    }
-    PossResend get(PossResend value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(SendingTime value) { 
-      super.setField(value);
-    }
-    SendingTime get(SendingTime value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(OrigSendingTime value) { 
-      super.setField(value);
-    }
-    OrigSendingTime get(OrigSendingTime value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
+      public void set(org.quickfix.field.BeginString value)
+      { setField(value); }
+      public org.quickfix.field.BeginString get(org.quickfix.field.BeginString  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.BeginString getBeginString() throws FieldNotFound
+      { org.quickfix.field.BeginString value = new org.quickfix.field.BeginString();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.BeginString field)
+      { return isSetField(field); }
+      public boolean isSetBeginString()
+      { return isSetField(8); }
+      public void set(org.quickfix.field.BodyLength value)
+      { setField(value); }
+      public org.quickfix.field.BodyLength get(org.quickfix.field.BodyLength  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.BodyLength getBodyLength() throws FieldNotFound
+      { org.quickfix.field.BodyLength value = new org.quickfix.field.BodyLength();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.BodyLength field)
+      { return isSetField(field); }
+      public boolean isSetBodyLength()
+      { return isSetField(9); }
+      public void set(org.quickfix.field.MsgType value)
+      { setField(value); }
+      public org.quickfix.field.MsgType get(org.quickfix.field.MsgType  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.MsgType getMsgType() throws FieldNotFound
+      { org.quickfix.field.MsgType value = new org.quickfix.field.MsgType();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.MsgType field)
+      { return isSetField(field); }
+      public boolean isSetMsgType()
+      { return isSetField(35); }
+      public void set(org.quickfix.field.SenderCompID value)
+      { setField(value); }
+      public org.quickfix.field.SenderCompID get(org.quickfix.field.SenderCompID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.SenderCompID getSenderCompID() throws FieldNotFound
+      { org.quickfix.field.SenderCompID value = new org.quickfix.field.SenderCompID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.SenderCompID field)
+      { return isSetField(field); }
+      public boolean isSetSenderCompID()
+      { return isSetField(49); }
+      public void set(org.quickfix.field.TargetCompID value)
+      { setField(value); }
+      public org.quickfix.field.TargetCompID get(org.quickfix.field.TargetCompID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.TargetCompID getTargetCompID() throws FieldNotFound
+      { org.quickfix.field.TargetCompID value = new org.quickfix.field.TargetCompID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.TargetCompID field)
+      { return isSetField(field); }
+      public boolean isSetTargetCompID()
+      { return isSetField(56); }
+      public void set(org.quickfix.field.OnBehalfOfCompID value)
+      { setField(value); }
+      public org.quickfix.field.OnBehalfOfCompID get(org.quickfix.field.OnBehalfOfCompID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.OnBehalfOfCompID getOnBehalfOfCompID() throws FieldNotFound
+      { org.quickfix.field.OnBehalfOfCompID value = new org.quickfix.field.OnBehalfOfCompID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.OnBehalfOfCompID field)
+      { return isSetField(field); }
+      public boolean isSetOnBehalfOfCompID()
+      { return isSetField(115); }
+      public void set(org.quickfix.field.DeliverToCompID value)
+      { setField(value); }
+      public org.quickfix.field.DeliverToCompID get(org.quickfix.field.DeliverToCompID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.DeliverToCompID getDeliverToCompID() throws FieldNotFound
+      { org.quickfix.field.DeliverToCompID value = new org.quickfix.field.DeliverToCompID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.DeliverToCompID field)
+      { return isSetField(field); }
+      public boolean isSetDeliverToCompID()
+      { return isSetField(128); }
+      public void set(org.quickfix.field.SecureDataLen value)
+      { setField(value); }
+      public org.quickfix.field.SecureDataLen get(org.quickfix.field.SecureDataLen  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.SecureDataLen getSecureDataLen() throws FieldNotFound
+      { org.quickfix.field.SecureDataLen value = new org.quickfix.field.SecureDataLen();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.SecureDataLen field)
+      { return isSetField(field); }
+      public boolean isSetSecureDataLen()
+      { return isSetField(90); }
+      public void set(org.quickfix.field.SecureData value)
+      { setField(value); }
+      public org.quickfix.field.SecureData get(org.quickfix.field.SecureData  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.SecureData getSecureData() throws FieldNotFound
+      { org.quickfix.field.SecureData value = new org.quickfix.field.SecureData();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.SecureData field)
+      { return isSetField(field); }
+      public boolean isSetSecureData()
+      { return isSetField(91); }
+      public void set(org.quickfix.field.MsgSeqNum value)
+      { setField(value); }
+      public org.quickfix.field.MsgSeqNum get(org.quickfix.field.MsgSeqNum  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.MsgSeqNum getMsgSeqNum() throws FieldNotFound
+      { org.quickfix.field.MsgSeqNum value = new org.quickfix.field.MsgSeqNum();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.MsgSeqNum field)
+      { return isSetField(field); }
+      public boolean isSetMsgSeqNum()
+      { return isSetField(34); }
+      public void set(org.quickfix.field.SenderSubID value)
+      { setField(value); }
+      public org.quickfix.field.SenderSubID get(org.quickfix.field.SenderSubID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.SenderSubID getSenderSubID() throws FieldNotFound
+      { org.quickfix.field.SenderSubID value = new org.quickfix.field.SenderSubID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.SenderSubID field)
+      { return isSetField(field); }
+      public boolean isSetSenderSubID()
+      { return isSetField(50); }
+      public void set(org.quickfix.field.SenderLocationID value)
+      { setField(value); }
+      public org.quickfix.field.SenderLocationID get(org.quickfix.field.SenderLocationID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.SenderLocationID getSenderLocationID() throws FieldNotFound
+      { org.quickfix.field.SenderLocationID value = new org.quickfix.field.SenderLocationID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.SenderLocationID field)
+      { return isSetField(field); }
+      public boolean isSetSenderLocationID()
+      { return isSetField(142); }
+      public void set(org.quickfix.field.TargetSubID value)
+      { setField(value); }
+      public org.quickfix.field.TargetSubID get(org.quickfix.field.TargetSubID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.TargetSubID getTargetSubID() throws FieldNotFound
+      { org.quickfix.field.TargetSubID value = new org.quickfix.field.TargetSubID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.TargetSubID field)
+      { return isSetField(field); }
+      public boolean isSetTargetSubID()
+      { return isSetField(57); }
+      public void set(org.quickfix.field.TargetLocationID value)
+      { setField(value); }
+      public org.quickfix.field.TargetLocationID get(org.quickfix.field.TargetLocationID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.TargetLocationID getTargetLocationID() throws FieldNotFound
+      { org.quickfix.field.TargetLocationID value = new org.quickfix.field.TargetLocationID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.TargetLocationID field)
+      { return isSetField(field); }
+      public boolean isSetTargetLocationID()
+      { return isSetField(143); }
+      public void set(org.quickfix.field.OnBehalfOfSubID value)
+      { setField(value); }
+      public org.quickfix.field.OnBehalfOfSubID get(org.quickfix.field.OnBehalfOfSubID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.OnBehalfOfSubID getOnBehalfOfSubID() throws FieldNotFound
+      { org.quickfix.field.OnBehalfOfSubID value = new org.quickfix.field.OnBehalfOfSubID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.OnBehalfOfSubID field)
+      { return isSetField(field); }
+      public boolean isSetOnBehalfOfSubID()
+      { return isSetField(116); }
+      public void set(org.quickfix.field.OnBehalfOfLocationID value)
+      { setField(value); }
+      public org.quickfix.field.OnBehalfOfLocationID get(org.quickfix.field.OnBehalfOfLocationID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.OnBehalfOfLocationID getOnBehalfOfLocationID() throws FieldNotFound
+      { org.quickfix.field.OnBehalfOfLocationID value = new org.quickfix.field.OnBehalfOfLocationID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.OnBehalfOfLocationID field)
+      { return isSetField(field); }
+      public boolean isSetOnBehalfOfLocationID()
+      { return isSetField(144); }
+      public void set(org.quickfix.field.DeliverToSubID value)
+      { setField(value); }
+      public org.quickfix.field.DeliverToSubID get(org.quickfix.field.DeliverToSubID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.DeliverToSubID getDeliverToSubID() throws FieldNotFound
+      { org.quickfix.field.DeliverToSubID value = new org.quickfix.field.DeliverToSubID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.DeliverToSubID field)
+      { return isSetField(field); }
+      public boolean isSetDeliverToSubID()
+      { return isSetField(129); }
+      public void set(org.quickfix.field.DeliverToLocationID value)
+      { setField(value); }
+      public org.quickfix.field.DeliverToLocationID get(org.quickfix.field.DeliverToLocationID  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.DeliverToLocationID getDeliverToLocationID() throws FieldNotFound
+      { org.quickfix.field.DeliverToLocationID value = new org.quickfix.field.DeliverToLocationID();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.DeliverToLocationID field)
+      { return isSetField(field); }
+      public boolean isSetDeliverToLocationID()
+      { return isSetField(145); }
+      public void set(org.quickfix.field.PossDupFlag value)
+      { setField(value); }
+      public org.quickfix.field.PossDupFlag get(org.quickfix.field.PossDupFlag  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.PossDupFlag getPossDupFlag() throws FieldNotFound
+      { org.quickfix.field.PossDupFlag value = new org.quickfix.field.PossDupFlag();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.PossDupFlag field)
+      { return isSetField(field); }
+      public boolean isSetPossDupFlag()
+      { return isSetField(43); }
+      public void set(org.quickfix.field.PossResend value)
+      { setField(value); }
+      public org.quickfix.field.PossResend get(org.quickfix.field.PossResend  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.PossResend getPossResend() throws FieldNotFound
+      { org.quickfix.field.PossResend value = new org.quickfix.field.PossResend();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.PossResend field)
+      { return isSetField(field); }
+      public boolean isSetPossResend()
+      { return isSetField(97); }
+      public void set(org.quickfix.field.SendingTime value)
+      { setField(value); }
+      public org.quickfix.field.SendingTime get(org.quickfix.field.SendingTime  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.SendingTime getSendingTime() throws FieldNotFound
+      { org.quickfix.field.SendingTime value = new org.quickfix.field.SendingTime();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.SendingTime field)
+      { return isSetField(field); }
+      public boolean isSetSendingTime()
+      { return isSetField(52); }
+      public void set(org.quickfix.field.OrigSendingTime value)
+      { setField(value); }
+      public org.quickfix.field.OrigSendingTime get(org.quickfix.field.OrigSendingTime  value)
+        throws FieldNotFound
+      { getField(value); return value; }
+      public org.quickfix.field.OrigSendingTime getOrigSendingTime() throws FieldNotFound
+      { org.quickfix.field.OrigSendingTime value = new org.quickfix.field.OrigSendingTime();
+        getField(value); return value; }
+      public boolean isSet(org.quickfix.field.OrigSendingTime field)
+      { return isSetField(field); }
+      public boolean isSetOrigSendingTime()
+      { return isSetField(122); }
   }
-}
 
+    public void set(org.quickfix.field.SignatureLength value)
+    { setField(value); }
+    public org.quickfix.field.SignatureLength get(org.quickfix.field.SignatureLength  value)
+      throws FieldNotFound
+    { getField(value); return value; }
+    public org.quickfix.field.SignatureLength getSignatureLength() throws FieldNotFound
+    { org.quickfix.field.SignatureLength value = new org.quickfix.field.SignatureLength();
+      getField(value); return value; }
+    public boolean isSet(org.quickfix.field.SignatureLength field)
+    { return isSetField(field); }
+    public boolean isSetSignatureLength()
+    { return isSetField(93); }
+    public void set(org.quickfix.field.Signature value)
+    { setField(value); }
+    public org.quickfix.field.Signature get(org.quickfix.field.Signature  value)
+      throws FieldNotFound
+    { getField(value); return value; }
+    public org.quickfix.field.Signature getSignature() throws FieldNotFound
+    { org.quickfix.field.Signature value = new org.quickfix.field.Signature();
+      getField(value); return value; }
+    public boolean isSet(org.quickfix.field.Signature field)
+    { return isSetField(field); }
+    public boolean isSetSignature()
+    { return isSetField(89); }
+    public void set(org.quickfix.field.CheckSum value)
+    { setField(value); }
+    public org.quickfix.field.CheckSum get(org.quickfix.field.CheckSum  value)
+      throws FieldNotFound
+    { getField(value); return value; }
+    public org.quickfix.field.CheckSum getCheckSum() throws FieldNotFound
+    { org.quickfix.field.CheckSum value = new org.quickfix.field.CheckSum();
+      getField(value); return value; }
+    public boolean isSet(org.quickfix.field.CheckSum field)
+    { return isSetField(field); }
+    public boolean isSetCheckSum()
+    { return isSetField(10); }
+}
