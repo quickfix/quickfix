@@ -17,6 +17,8 @@ element so it can handle special XML characters. Placing XML strings that
 contain CDATA sections into a xmldata field will still cause
 problems but I'm not sure much can be done about that.
 
+More updates to FIX40 and FIX41 data dictionaries.
+
 1.9.0
 -----
 Session time logic pulled out into new SessionTime class.  Now supports 

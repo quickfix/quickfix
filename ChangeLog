@@ -1,3 +1,50 @@
+2004-09-13 18:13  orenmnero
+
+	* src/C++/MySQLStore.cpp: added missing include file
+
+2004-09-13 18:12  orenmnero
+
+	* test/definitions/server/:
+	  fix40/4a_NoDataSentDuringHeartBtInt.def,
+	  fix40/6_SendTestRequest.def,
+	  fix41/4a_NoDataSentDuringHeartBtInt.def,
+	  fix41/6_SendTestRequest.def,
+	  fix42/4a_NoDataSentDuringHeartBtInt.def,
+	  fix42/6_SendTestRequest.def,
+	  fix43/4a_NoDataSentDuringHeartBtInt.def,
+	  fix43/6_SendTestRequest.def,
+	  fix44/4a_NoDataSentDuringHeartBtInt.def,
+	  fix44/6_SendTestRequest.def: increased heartbeat interval
+
+2004-09-13 15:04  orenmnero
+
+	* doc/html/install.html: instructions for SUNPro environment
+	  variables
+
+2004-09-13 14:48  orenmnero
+
+	* CONTRIBUTORS, NEWS: [no log message]
+
+2004-09-13 14:47  orenmnero
+
+	* src/C++/: Message.cpp, test/MessagesTestCase.cpp: field values
+	  placed in CDATA section in text element
+
+2004-09-13 14:46  orenmnero
+
+	* src/C++/MySQLStore.cpp: use safe_query and free memory after
+	  queries
+
+2004-09-13 01:16  orenmnero
+
+	* ChangeLog, NEWS, configure.in, src/C++/Makefile.am,
+	  src/java/Makefile.am, src/python/Makefile.am: update version
+
+2004-09-13 01:15  orenmnero
+
+	* spec/: FIX40.xml, FIX41.xml: fixed required declaration in for
+	  IOIthSvc in IndicationOfInterest
+
 2004-09-11 17:02  orenmnero
 
 	* src/C++/FieldConvertors.h: removed static attribute causing link
