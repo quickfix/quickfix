@@ -90,7 +90,7 @@ throw ( ConfigError& )
 }
 
 void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) 
-throw ( ConfigError&, RuntimeError& )
+throw ( RuntimeError& )
 { QF_STACK_PUSH(ThreadedSocketInitiator::onInitialize)
   QF_STACK_POP
 }
