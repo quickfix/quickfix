@@ -133,19 +133,37 @@ namespace FIX<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
     }
   </xsl:template>
 
-  <xsl:template name="group-constructor-impl">FIX::message_order(<xsl:value-of select="count(field)"/>,<xsl:for-each select="field"><xsl:value-of select="@number"/>,</xsl:for-each>0)){}
-  </xsl:template>
+  <xsl:template name="group-constructor-impl">FIX::message_order(<xsl:apply-templates mode="group"/>0)){}</xsl:template>  
+  <xsl:template mode="group" match="group/field"><xsl:variable name="name" select="@name"/><xsl:value-of select="//fix/fields/field[@name=$name]/@number"/>,</xsl:template>
+  <xsl:template mode="group" match="group/component"><xsl:variable name="name" select="@name"/><xsl:for-each select="//fix/components/component[@name=$name]"><xsl:for-each select="field"><xsl:variable name="field_name" select="@name"/><xsl:value-of select="//fix/fields/field[@name=$field_name]/@number"/>,</xsl:for-each></xsl:for-each></xsl:template>
 
   <xsl:template name="group">
 
     class <xsl:value-of select="@name"/> : public FIX::Group
     {
     public:
-    <xsl:value-of select="@name"/>() : FIX::Group(<xsl:value-of select="@number"/>, <xsl:value-of select="field/@number"/>, <xsl:call-template name="group-constructor-impl"/>
+    <xsl:variable name="name" select="@name"/>
+    <xsl:variable name="field_name" select="field/@name"/>
+    <xsl:choose>
+      <xsl:when test="string-length(field[1]/@name) > 0">
+        <xsl:value-of select="@name"/>() : FIX::Group(<xsl:value-of select="//fix/fields/field[@name=$name]/@number"/>, <xsl:value-of select="//fix/fields/field[@name=$field_name]/@number"/>, <xsl:call-template name="group-constructor-impl"/>
+      </xsl:when>
+      <xsl:when test="string-length(component[1]/@name) > 0">
+        <xsl:variable name="component_name" select="component[1]/@name"/>
+        <xsl:variable name="component_field_name" select="//fix/components/component[@name=$component_name]/field[1]/@name"/>
+        <xsl:value-of select="@name"/>() : FIX::Group(<xsl:value-of select="//fix/fields/field[@name=$name]/@number"/>, <xsl:value-of select="//fix/fields/field[@name=$component_field_name]/@number"/>, <xsl:call-template name="group-constructor-impl"/>
+      </xsl:when>
+    </xsl:choose>
     <xsl:for-each select="field">
       FIELD_SET(*this, FIX::<xsl:value-of select=
       "@name"/>);</xsl:for-each>
     <xsl:for-each select="group"><xsl:call-template name="group"/></xsl:for-each>
+    <xsl:for-each select="component">
+      <xsl:variable name="component_name" select="@name"/>
+      <xsl:for-each select="//fix/components/component[@name=$component_name]/field">
+      FIELD_SET(*this, FIX::<xsl:value-of select="@name"/>);</xsl:for-each>
+      <xsl:for-each select="group"><xsl:call-template name="group"/></xsl:for-each>
+    </xsl:for-each>
     };</xsl:template>
 
  <xsl:template match="header/field">
@@ -157,9 +175,18 @@ namespace FIX<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
  <xsl:template match="messages/message/field">
     FIELD_SET(*this, FIX::<xsl:value-of select=
     "@name"/>);</xsl:template>
+ <xsl:template match="messages/message/component">
+   <xsl:variable name="name" select="@name"/>
+   <xsl:for-each select="//fix/components/component[@name=$name]/field">
+    FIELD_SET(*this, FIX::<xsl:value-of select="@name"/>);</xsl:for-each>
+   <xsl:for-each select="//fix/components/component[@name=$name]/group">
+     <xsl:call-template name="group"/>
+   </xsl:for-each>
+ </xsl:template>
+ <xsl:template match="component/group"></xsl:template>
  <xsl:template match="group">
     <xsl:call-template name="group"/>
- </xsl:template>
+ </xsl:template> 
 
  <xsl:template match="fields">
   };</xsl:template>
