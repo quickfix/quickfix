@@ -116,7 +116,7 @@ public:
   }
 
   bool hasGroup( unsigned num, Group& group )
-  { return FieldMap::hasGroup( num, group.field(), group ); }
+  { return FieldMap::hasGroup( group.field() ); }
 
 protected:
   // Constructor for derived classes

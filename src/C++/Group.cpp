@@ -72,7 +72,7 @@ Group& Group::getGroup( unsigned num, Group& group ) const throw( FieldNotFound&
 
 bool Group::hasGroup( unsigned num, Group& group )
 { QF_STACK_PUSH(Group::hasGroup)
-  return FieldMap::hasGroup( num, group.field(), group );
+  return FieldMap::hasGroup( group.field() );
   QF_STACK_POP
 }
 }
