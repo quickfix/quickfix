@@ -150,8 +150,11 @@ double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
   QF_STACK_POP
 }
 
-bool SocketMonitor::sleepIfEmpty()
+bool SocketMonitor::sleepIfEmpty( bool poll )
 { QF_STACK_PUSH(SocketMonitor::sleepIfEmpty)
+  
+  if( poll )
+    return !m_sockets.empty();
 
   if ( m_sockets.empty() )
   {
@@ -178,7 +181,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
   fd_set watchSet;
   buildSet( watchSet );
 
-  if ( sleepIfEmpty() )
+  if ( sleepIfEmpty(poll) )
   {
     strategy.onTimeout( *this );
     return ;

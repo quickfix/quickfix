@@ -95,7 +95,7 @@ private:
   bool listen();
   void buildSet( fd_set& );
   inline timeval* getTimeval( bool poll );
-  inline bool sleepIfEmpty();
+  inline bool sleepIfEmpty( bool poll );
 
   int m_timeout;
   timeval m_timeval;
