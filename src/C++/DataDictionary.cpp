@@ -173,8 +173,7 @@ void DataDictionary::readFromURL( const std::string& url )
   DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
 #endif
 
-  std::ifstream file(url.c_str());
-  if(!pDoc->load(file))
+  if(!pDoc->load(url))
     throw ConfigError("Could not parse data dictionary file " + url);
 
   // VERSION
@@ -331,15 +330,10 @@ void DataDictionary::readFromURL( const std::string& url )
 int DataDictionary::lookupXMLFieldNumber
   ( DOMDocument* pDoc, const std::string& name )
 {
-  DOMNodePtr pFieldNode =
-    pDoc->getNode("/fix/fields/field[@name='" + name + "']");
-  if(!pFieldNode.get())
-    throw ConfigError("Trailer field not defined in fields section");
-  DOMAttributesPtr attrs = pFieldNode->getAttributes();
-  std::string number;
-  if(!attrs->get("number", number))
-    throw ConfigError("Field does not have a number attribute");
-  return atol(number.c_str());
+  NameToField::iterator i = m_names.find(name);
+  if( i == m_names.end() )
+    throw ConfigError("Field not defined in fields section");
+  return i->second;
 }
 
 void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode, 
@@ -352,6 +346,8 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
 
   DOMNodePtr pComponentNode =
     pDoc->getNode("/fix/components/component[@name='" + name + "']");
+  if(pComponentNode.get() == 0)
+    throw ConfigError("Component not found");
   
   DOMNodePtr pComponentFieldNode = pComponentNode->getFirstChildNode();
   while(pComponentFieldNode.get())

@@ -75,6 +75,7 @@ class DataDictionary
   typedef std::set < std::string > Values;
   typedef std::map < int, Values > FieldToValue;
   typedef std::map < int, std::string > FieldToName;
+  typedef std::map < std::string, int > NameToField;
   typedef std::map < std::pair < int, std::string > , 
   std::string  > ValueToName;
   typedef std::map < std::pair < std::string, int > ,
@@ -106,6 +107,7 @@ public:
   void addFieldName( int field, const std::string& name )
   {
     m_fieldNames[field] = name;
+    m_names[name] = field;
   }
 
   bool getFieldName( int field, std::string& name ) const
@@ -404,6 +406,7 @@ private:
   FieldTypes m_fieldTypes;
   FieldToValue m_fieldValues;
   FieldToName m_fieldNames;
+  NameToField m_names;
   ValueToName m_valueNames;
   FieldToGroup m_groups;
 };
