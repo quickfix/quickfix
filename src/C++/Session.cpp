@@ -39,12 +39,11 @@ Session::Session( Application& application,
                   MessageStoreFactory& messageStoreFactory,
                   const SessionID& sessionID,
                   const DataDictionary& dataDictionary,
-                  const UtcTimeOnly& startTime,
-                  const UtcTimeOnly& endTime,
+                  const SessionTime& sessionTime,
                   int heartBtInt, LogFactory* pLogFactory )
 : m_application( application ),
   m_sessionID( sessionID ),
-  m_startTime( startTime ), m_endTime( endTime ),
+  m_sessionTime( sessionTime ),
   m_enabled( true ),
   m_checkLatency( true ), m_maxLatency( 120 ),
   m_resetOnLogout( false ), m_resetOnDisconnect( false ),
@@ -1358,43 +1357,6 @@ void Session::removeSession( Session& s )
   Locker locker( s_mutex );
   s_sessions.erase( s.m_sessionID );
   s_registered.erase( s.m_sessionID );
-
-  QF_STACK_POP
-}
-
-bool Session::isSessionTime( const UtcTimeOnly& start, const UtcTimeOnly& end,
-                             const UtcTimeStamp& time )
-{ QF_STACK_PUSH(Session::isSessionTime)
-
-  UtcTimeOnly timeOnly( time, 0 );
-
-  if ( start < end )
-    return ( timeOnly >= start && timeOnly <= end );
-  else
-    return ( timeOnly >= start || timeOnly <= end );
-
-  QF_STACK_POP
-}
-
-bool Session::isSameSession( const UtcTimeOnly& start,
-                             const UtcTimeOnly& end,
-                             const UtcTimeStamp& time1,
-                             const UtcTimeStamp& time2 )
-{ QF_STACK_PUSH(Session::isSameSession)
-
-  if ( !isSessionTime( start, end, time1 ) ) return false;
-  if ( !isSessionTime( start, end, time2 ) ) return false;
-
-  if ( time1 == time2 ) return true;
-
-  UtcDate time1Date( time1 );
-  UtcDate time2Date( time2 );
-
-  if ( start < end || start == end )
-    return time1Date == time2Date;
-  else if( start > end )
-    return std::abs(time1 - time2) < UTC_DAY;
-  return false;
 
   QF_STACK_POP
 }

@@ -96,8 +96,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
 
   Session* pSession = 0;
   pSession = new Session( m_application, m_messageStoreFactory, sessionID,
-                          dataDictionary, startTime, endTime, heartBtInt,
-                          m_pLogFactory );
+                          dataDictionary, SessionTime(startTime, endTime), 
+                          heartBtInt, m_pLogFactory );
 
   if ( settings.has( CHECK_LATENCY ) )
     pSession->checkLatency( settings.getBool( CHECK_LATENCY ) );

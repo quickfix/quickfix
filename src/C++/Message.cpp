@@ -172,8 +172,6 @@ void Message::reverseRoute( const Header& header )
   QF_STACK_POP
 }
 
-
-
 std::string Message::toString() const
 { QF_STACK_PUSH(Message::toString)
 

@@ -38,6 +38,7 @@
 #include "C++/test/FileUtilitiesTestCase.h"
 #include "C++/test/StringUtilitiesTestCase.h"
 #include "C++/test/SessionIDTestCase.h"
+#include "C++/test/SessionTimeTestCase.h"
 #include "C++/test/DictionaryTestCase.h"
 #include "C++/test/DataDictionaryTestCase.h"
 #include "C++/test/SocketConnectorTestCase.h"
@@ -88,6 +89,7 @@ public:
     add( &m_fileUtilities );
     add( &m_stringUtilities );
     add( &m_sessionID );
+    add( &m_sessionTime );
     add( &m_dictionary );
     add( &m_dataDictionary );
     add( &m_socketConnector );
@@ -135,6 +137,7 @@ private:
   FIX::SocketConnectorTestCase m_socketConnector;
   FIX::SocketServerTestCase m_socketServer;
   FIX::SessionIDTestCase m_sessionID;
+  FIX::SessionTimeTestCase m_sessionTime;
   FIX::DictionaryTestCase m_dictionary;
   FIX::DataDictionaryTestCase m_dataDictionary;
   FIX::FieldBaseTestCase m_fieldBase;

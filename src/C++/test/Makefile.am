@@ -36,6 +36,8 @@ libquickfixcpptest_la_SOURCES = \
 	SocketConnectorTestCase.h \
 	SessionIDTestCase.cpp \
 	SessionIDTestCase.h \
+	SessionTimeTestCase.cpp \
+	SessionTimeTestCase.h \
 	FileStoreTestCase.cpp \
 	FileStoreTestCase.h \
 	FileStoreFactoryTestCase.cpp \

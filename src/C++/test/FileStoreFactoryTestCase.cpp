@@ -39,7 +39,7 @@ void FileStoreFactoryTestCase::callCreate::onRun( FileStoreFactory& object )
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "FS" ), TargetCompID( "FACT" ) );
   Session s( *this, object, sessionID, DataDictionary(),
-             UtcTimeOnly(), UtcTimeOnly(), 0, 0 );
+             SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   s.setResponder( this );
 
   MessageStore* m = object.create( sessionID );

@@ -6,6 +6,8 @@ lib_LTLIBRARIES = libquickfix.la
 libquickfix_la_SOURCES = \
 	Session.cpp \
 	Session.h \
+	SessionTime.cpp \
+	SessionTime.h \
 	SessionState.h \
 	SessionFactory.h \
 	SessionFactory.cpp \

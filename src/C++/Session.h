@@ -27,6 +27,7 @@
 #endif
 
 #include "SessionState.h"
+#include "SessionTime.h"
 #include "SessionID.h"
 #include "Responder.h"
 #include "Fields.h"
@@ -45,8 +46,9 @@ class Session
 {
 public:
   Session( Application&, MessageStoreFactory&,
-           const SessionID&, const DataDictionary&,
-           const UtcTimeOnly& startTime, const UtcTimeOnly &endTime,
+           const SessionID&, 
+           const DataDictionary&,
+           const SessionTime&,
            int heartBtInt, LogFactory* pLogFactory );
   ~Session();
 
@@ -88,14 +90,9 @@ public:
   static void unregisterSession( const SessionID& );
 
   static int numSessions();
-  static bool isSessionTime( const UtcTimeOnly& start, const UtcTimeOnly& end,
-                             const UtcTimeStamp& time );
-  static bool isSameSession( const UtcTimeOnly& start, const UtcTimeOnly& end,
-                             const UtcTimeStamp& time1,
-                             const UtcTimeStamp& time2 );
-  bool isSessionTime() 
-    { return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() ); }
 
+  bool isSessionTime()
+    { return m_sessionTime.isSessionTime(); }
   void checkLatency ( bool value ) 
     { m_checkLatency = value; }
   void setMaxLatency ( int value ) 
@@ -143,7 +140,7 @@ private:
   bool checkSessionTime( const UtcTimeStamp& time )
   {
     UtcTimeStamp creationTime = m_state.getCreationTime();
-    return isSameSession(m_startTime, m_endTime, time, creationTime);
+    return m_sessionTime.isSameSession(time, creationTime);
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }
@@ -201,8 +198,7 @@ private:
 
   Application& m_application;
   SessionID m_sessionID;
-  UtcTimeOnly m_startTime;
-  UtcTimeOnly m_endTime;
+  SessionTime m_sessionTime;
   bool m_enabled;
 
   bool m_checkLatency;

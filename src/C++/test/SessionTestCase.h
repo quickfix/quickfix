@@ -54,8 +54,6 @@ public:
     add( &m_nextResendRequest );
     add( &m_badBeginString );
     add( &m_unsupportedMsgType );
-    add( &m_isSessionTime );
-    add( &m_isSameSession );
     add( &m_resetOnEndTime );
     add( &m_disconnectBeforeStartTime );
     add( &m_resetOnNewSession );
@@ -157,14 +155,15 @@ class Test : public CPPTest::Test < Session > ,
 
   void disconnect() { m_disconnect++; }
 
-    virtual Session* createSession()
-    {
-      SessionID sessionID( BeginString( "FIX.4.2" ),
-                           SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
+  virtual Session* createSession()
+  {
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
+    SessionTime sessionTime( m_startTime, m_endTime );
 
-      return new Session( *this, m_factory, sessionID, DataDictionary(),
-                          m_startTime, m_endTime, 0, 0 );
-    }
+    return new Session( *this, m_factory, sessionID, DataDictionary(),
+                        sessionTime, 0, 0 );
+  }
 
   protected:
     Message m_logon;
@@ -325,18 +324,6 @@ class unsupportedMsgType : public Test
     void onRun( Session& object );
   }
   m_unsupportedMsgType;
-
-class isSessionTime : public Test
-  {
-    void onRun( Session& object );
-  }
-  m_isSessionTime;
-
-class isSameSession : public Test
-  {
-    void onRun( Session& object );
-  }
-  m_isSameSession;
 
 class resetOnEndTime : public Test
   {
