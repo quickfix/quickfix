@@ -57,7 +57,7 @@
 #ifdef HAVE_MYSQL
 
 #include "MySQLLog.h"
-#include "Session.h"
+#include "SessionID.h"
 #include "SessionSettings.h"
 #include "Utility.h"
 #include <fstream>

@@ -56,15 +56,18 @@
 #endif
 
 #include "Parser.h"
-#include "Session.h"
+#include "Responder.h"
 #include "Queue.h"
 
 namespace FIX
 {
 class ThreadedSocketAcceptor;
 class ThreadedSocketInitiator;
+class Session;
+class SessionID;
+class Application;
 
-class ThreadedSocketConnection : Session::Responder
+class ThreadedSocketConnection : Responder
 {
 public:
   ThreadedSocketConnection( int s, Application& application );

@@ -48,48 +48,25 @@
  * ====================================================================
  */
 
-#ifndef FIX_SOCKETCONNECTION_H
-#define FIX_SOCKETCONNECTION_H
+#ifndef FIX_RESPONDER_H
+#define FIX_RESPONDER_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
-#include "Parser.h"
-#include "Responder.h"
+#include <string>
 
 namespace FIX
 {
-class SocketAcceptor;
-class SocketServer;
-class SocketConnector;
-class SocketInitiator;
-class SocketMonitor;
-class Session;
-  class SessionID;
-
-class SocketConnection : Responder
-{
-public:
-  SocketConnection( int s, SocketMonitor* pMonitor );
-  SocketConnection( SocketInitiator&, const SessionID&, int, SocketMonitor* );
-  virtual ~SocketConnection() {}
-
-  Session* getSession() const { return m_pSession; }
-  bool read( SocketConnector& s );
-  bool read( SocketAcceptor&, SocketServer& );
-  void onTimeout();
-
-private:
-  bool readMessage( std::string& msg ) throw( RecvFailed& );
-  bool send( const std::string& );
-  void disconnect();
-
-  int m_socket;
-  Parser m_parser;
-  Session* m_pSession;
-  SocketMonitor* m_pMonitor;
-};
+  /// Interface implements sending on and disconnecting a transport.
+  class Responder
+  {
+  public:
+    virtual ~Responder() {}
+    virtual bool send( const std::string& ) = 0;
+    virtual void disconnect() = 0;
+  };
 }
 
-#endif //FIX_SOCKETCONNECTION_H
+#endif

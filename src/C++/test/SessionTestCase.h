@@ -53,6 +53,7 @@
 
 #include <CPPTest/TestCase.h>
 #include "../Session.h"
+#include "../Responder.h"
 
 namespace FIX
 {
@@ -91,7 +92,7 @@ public:
 
 private:
 class Test : public CPPTest::Test < Session > ,
-        public Session::Responder, public NullApplication
+        public Responder, public NullApplication
   {
   protected:
     UtcTimeOnly m_startTime;

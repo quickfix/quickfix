@@ -55,6 +55,7 @@
 #endif
 
 #include "SessionTestCase.h"
+#include "../FIX42_Messages.h"
 #include "../Values.h"
 
 namespace FIX

@@ -56,6 +56,7 @@
 
 #include "Acceptor.h"
 #include "Utility.h"
+#include "Session.h"
 #include "SessionFactory.h"
 #include <algorithm>
 #include <fstream>
@@ -122,7 +123,7 @@ Acceptor::~Acceptor()
 }
 
 Session* Acceptor::getSession
-( const std::string& msg, Session::Responder& responder )
+( const std::string& msg, Responder& responder )
 { QF_STACK_PUSH( Acceptor::getSession )
 
   Message message;

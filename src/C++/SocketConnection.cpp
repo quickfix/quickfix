@@ -58,6 +58,7 @@
 #include "SocketAcceptor.h"
 #include "SocketConnector.h"
 #include "SocketInitiator.h"
+#include "Session.h"
 #include "Utility.h"
 
 namespace FIX

@@ -57,8 +57,8 @@
 
 #include "SessionState.h"
 #include "SessionID.h"
+#include "Responder.h"
 #include "Fields.h"
-#include "Messages.h"
 #include "DataDictionary.h"
 #include "Application.h"
 #include "Mutex.h"
@@ -73,8 +73,6 @@ namespace FIX
 class Session
 {
 public:
-  class Responder;
-
   Session( Application&, MessageStoreFactory&,
            const SessionID&, const DataDictionary&,
            const UtcTimeOnly& startTime, const UtcTimeOnly &endTime,
@@ -235,16 +233,6 @@ private:
   static Sessions s_registered;
   static Mutex s_mutex;
 
-public:
-  /// Interface implements sending on and disconnecting a transport.
-  class Responder
-  {
-    friend class Session;
-  public:
-    virtual ~Responder() {}
-    virtual bool send( const std::string& ) = 0;
-    virtual void disconnect() = 0;
-  };
 };
 }
 

@@ -54,7 +54,7 @@
 #include <CPPTest/TestCase.h>
 #include "../FileStore.h"
 #include "../Application.h"
-#include "../Session.h"
+#include "../Responder.h"
 
 namespace FIX
 {
@@ -69,7 +69,7 @@ public:
 private:
   typedef CPPTest::Test < FileStoreFactory > Test;
 
-class callCreate : public Test, FIX::NullApplication, FIX::Session::Responder
+class callCreate : public Test, FIX::NullApplication, FIX::Responder
   {
   public:
   callCreate() : m_object( "store" ) {}

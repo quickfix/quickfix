@@ -50,6 +50,7 @@
 
 #include "Application.h"
 #include "MessageCracker.h"
+#include "Session.h"
 #include <map>
 
 class MessageCracker : public FIX::MessageCracker

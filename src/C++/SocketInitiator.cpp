@@ -55,6 +55,7 @@
 #include "CallStack.h"
 
 #include "SocketInitiator.h"
+#include "Session.h"
 #include "Settings.h"
 
 namespace FIX

@@ -58,7 +58,7 @@
 #include "Application.h"
 #include "MessageStore.h"
 #include "Log.h"
-#include "Session.h"
+#include "Responder.h"
 #include "SessionSettings.h"
 #include "Exceptions.h"
 #include "Mutex.h"
@@ -98,7 +98,7 @@ public:
   /// Stop initiator.
   void stop();
 
-  Session* getSession( const SessionID& sessionID, Session::Responder& );
+  Session* getSession( const SessionID& sessionID, Responder& );
 
 public:
   Application& getApplication() { return m_application; }

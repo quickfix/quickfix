@@ -55,6 +55,7 @@
 #include "CallStack.h"
 
 #include "SocketAcceptor.h"
+#include "Session.h"
 #include "Settings.h"
 #include "Utility.h"
 

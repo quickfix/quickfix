@@ -56,6 +56,7 @@
 
 #include "Initiator.h"
 #include "Utility.h"
+#include "Session.h"
 #include "SessionFactory.h"
 #include <algorithm>
 #include <fstream>
@@ -119,7 +120,7 @@ Initiator::~Initiator()
 }
 
 Session* Initiator::getSession( const SessionID& sessionID,
-                                Session::Responder& responder )
+                                Responder& responder )
 { QF_STACK_PUSH(Initiator::getSession)
 
   Sessions::iterator i = m_sessions.find( sessionID );

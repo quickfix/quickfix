@@ -57,6 +57,7 @@
 #include "ThreadedSocketConnection.h"
 #include "ThreadedSocketAcceptor.h"
 #include "ThreadedSocketInitiator.h"
+#include "Session.h"
 #include "Utility.h"
 
 namespace FIX

@@ -58,7 +58,7 @@
 #include "Application.h"
 #include "MessageStore.h"
 #include "Log.h"
-#include "Session.h"
+#include "Responder.h"
 #include "SessionSettings.h"
 #include "Exceptions.h"
 #include <map>
@@ -91,11 +91,10 @@ public:
   void start() throw ( ConfigError&, RuntimeError& );
   void blockingStart() throw ( ConfigError&, RuntimeError& );
 
-
   /// Stop acceptor.
   void stop();
 
-  Session* getSession( const std::string& msg, Session::Responder& );
+  Session* getSession( const std::string& msg, Responder& );
   bool has( const SessionID& id )
   { return m_sessions.find( id ) != m_sessions.end(); }
 
