@@ -84,7 +84,7 @@ using namespace FIX;
 %typedef std::string COUNTRY;
 
 %init %{
-#ifndef _MSV_VER
+#ifndef _MSC_VER
       struct sigaction new_action, old_action;
       new_action.sa_handler = SIG_DFL;
       sigemptyset( &new_action.sa_mask );
