@@ -233,11 +233,11 @@ public class Message extends FieldMap {
     }
     
     public class Header extends FieldMap {
-	private Message message = null;
+        private Message message = null;
 
-	public Header( Message aMessage ) {
-	    message = aMessage;
-	}
+        public Header( Message aMessage ) {
+            message = aMessage;
+        }
 
         public class Iterator implements java.util.Iterator {
             private Message message;
@@ -245,7 +245,7 @@ public class Message extends FieldMap {
             
             public Iterator( Message aMessage ) {
                 message = aMessage;
-		headerIteratorCreate( this );
+                headerIteratorCreate( this );
             }
             
             public boolean hasNext() {
@@ -383,18 +383,18 @@ public class Message extends FieldMap {
     }
 
     public class Trailer extends FieldMap {
-	private Message message = null;
+        private Message message = null;
 
-	public Trailer( Message aMessage ) {
-	    message = aMessage;
-	}
+        public Trailer( Message aMessage ) {
+            message = aMessage;
+        }
         public class Iterator implements java.util.Iterator {
             private Message message;
             private int cppPointer;
             
             public Iterator( Message aMessage ) {
                 message = aMessage;
-		trailerIteratorCreate( this );
+                trailerIteratorCreate( this );
             }
             
             public boolean hasNext() {

@@ -58,9 +58,9 @@ public class Group extends FieldMap {
     }
 
     public Group(int field, int delim, int[] order) {
-		create(field, delim, order);
-	}
-
+        create(field, delim, order);
+    }
+    
     protected void finalize() {
         destroy();
     }
@@ -186,12 +186,16 @@ public class Group extends FieldMap {
     }
 
     public boolean isSetField(int field) {
-		return isSetField0(field);
-	}
-	public boolean isSetField(Field field) {
-		return isSetField0(field.getField());
-	}
-
+        return isSetField0(field);
+    }
+    public boolean isSetField(Field field) {
+        return isSetField0(field.getField());
+    }
+    public void removeField(int field) {
+    }
+    public java.util.Iterator iterator() {
+        return null;
+    }
 
     private native void addGroup0(Group group);
     private native Group getGroup0(int num, Group group) throws FieldNotFound;
