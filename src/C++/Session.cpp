@@ -667,14 +667,18 @@ void Session::generateReject( const Message& message, int err, int field )
 
   message.getHeader().getField( msgType );
   if( message.getHeader().isSetField( msgSeqNum ) )
+  {
     message.getHeader().getField( msgSeqNum );
+    if( msgSeqNum.getString() != "" )
+      reject.setField( RefSeqNum( msgSeqNum ) );
+  }
   if ( message.getHeader().isSetField( possDupFlag ) )
     message.getHeader().getField( possDupFlag );
 
-  reject.setField( RefSeqNum( msgSeqNum ) );
   if ( beginString >= FIX::BeginString_FIX42 )
   {
-    reject.setField( RefMsgType( msgType ) );
+    if( msgType.getString() == "" )
+      reject.setField( RefMsgType( msgType ) );
     if ( (beginString == FIX::BeginString_FIX42
           && err <= SessionRejectReason_INVALID_MSGTYPE)
           || beginString > FIX::BeginString_FIX42 )
