@@ -36,7 +36,7 @@ echo [SESSION] >> cfg\at_server.cfg
 echo BeginString=FIX.4.3 >> cfg\at_server.cfg
 echo DataDictionary=../spec/FIX43.xml >> cfg\at_server.cfg
 
-atrun -t run -s "..\bin\at_server%EX%.exe -f cfg\at_server.cfg" -d . -c "ruby Runner.rb localhost %2 definitions\server\fix40\*.def definitions\server\fix41\*.def definitions\server\fix42\*.def definitions\server\fix43\*.def" -i .\
+atrun -t run -s "..\bin\at_server%EX%.exe -f cfg\at_server.cfg" -d . -c "ruby Runner.rb 127.0.0.1 %2 definitions\server\fix40\*.def definitions\server\fix41\*.def definitions\server\fix42\*.def definitions\server\fix43\*.def" -i .\
 
 goto quit
 

@@ -24,7 +24,7 @@ echo DataDictionary=../spec/FIX42.xml >> cfg/at_server.cfg
 ../bin/at_server -f cfg/at_server.cfg -t &
 sleep 5
 cd $DIR
-ruby Runner.rb localhost $PORT definitions/server/fix*/*.def
+ruby Runner.rb 127.0.0.1 $PORT definitions/server/fix*/*.def
 RESULT=$?
 kill $!
 exit $RESULT

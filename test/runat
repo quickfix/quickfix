@@ -28,7 +28,7 @@ echo DataDictionary=../spec/FIX43.xml >> cfg/at_server.cfg
 ../bin/at_server -f cfg/at_server.cfg &
 PROCID=$!
 cd $DIR
-ruby Runner.rb localhost $PORT definitions/server/fix*/*.def
+ruby Runner.rb 127.0.0.1 $PORT definitions/server/fix*/*.def
 RESULT=$?
 kill $PROCID
 exit $RESULT
