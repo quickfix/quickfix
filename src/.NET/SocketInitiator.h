@@ -87,12 +87,12 @@ public:
     delete m_logFactory;
   }
 
-  void start() throw ( ConfigError*, RuntimeError* ) 
+  void block() throw ( ConfigError*, RuntimeError* ) 
   { QF_STACK_TRY
 
     try
     {
-      m_pUnmanaged->start(); 
+      m_pUnmanaged->block(); 
     }
     catch( FIX::ConfigError& e )
     {
@@ -106,15 +106,22 @@ public:
     QF_STACK_CATCH
   }
 
-  void block()
+  bool poll() throw ( ConfigError*, RuntimeError* ) 
   { QF_STACK_TRY
-    m_pUnmanaged->block();
-    QF_STACK_CATCH
-  }
 
-  void poll()
-  { QF_STACK_TRY
-    m_pUnmanaged->poll();
+    try
+    {
+      return m_pUnmanaged->poll(); 
+    }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
+    catch( FIX::RuntimeError& e )
+    {
+      throw new RuntimeError( e.what() );
+    }
+
     QF_STACK_CATCH
   }
 

@@ -106,15 +106,41 @@ public:
     QF_STACK_CATCH
   }
 
-  void block()
+  void block() throw ( ConfigError*, RuntimeError* ) 
   { QF_STACK_TRY
-    m_pUnmanaged->block();
+
+    try
+    {
+      m_pUnmanaged->block(); 
+    }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
+    catch( FIX::RuntimeError& e )
+    {
+      throw new RuntimeError( e.what() );
+    }
+
     QF_STACK_CATCH
   }
 
-  void poll()
+  bool poll() throw ( ConfigError*, RuntimeError* ) 
   { QF_STACK_TRY
-    m_pUnmanaged->poll();
+
+    try
+    {
+      return m_pUnmanaged->poll(); 
+    }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
+    catch( FIX::RuntimeError& e )
+    {
+      throw new RuntimeError( e.what() );
+    }
+
     QF_STACK_CATCH
   }
 
