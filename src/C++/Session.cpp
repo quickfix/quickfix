@@ -855,11 +855,17 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
 
     if ( !validLogonState( msgType ) )
       throw std::logic_error( "Logon state is not valid for message" );
-    if ( !isGoodTime( sendingTime ) )
-      doBadTime( msg );
-    if ( !isCorrectCompID( senderCompID, targetCompID ) )
-      doBadCompID( msg );
 
+    if ( !isGoodTime( sendingTime ) )
+    {
+      doBadTime( msg );
+      return false;
+    }
+    if ( !isCorrectCompID( senderCompID, targetCompID ) )
+    {
+      doBadCompID( msg );
+      return false;
+    }
     if ( checkTooHigh && isTargetTooHigh( msgSeqNum ) )
     {
       doTargetTooHigh( msg );
@@ -974,22 +980,21 @@ bool Session::doTargetTooLow( const Message& msg )
 { QF_STACK_PUSH(Session::doTargetTooLow)
 
   const Header & header = msg.getHeader();
-  MsgType msgType;
   PossDupFlag possDupFlag(false);
   MsgSeqNum msgSeqNum;
-  header.getField( msgType );
   if( header.isSetField(possDupFlag) )
     header.getField( possDupFlag );
   header.getField( msgSeqNum );
 
-  m_state.onEvent( "MsgSeqNum too low RECEIVED: "
-                   + IntConvertor::convert( msgSeqNum )
-                   +" EXPECTED: "
-                   + IntConvertor::convert( getExpectedTargetNum() )
-                   + " PosDup: " + BoolConvertor::convert( possDupFlag ) );
-
   if ( !possDupFlag )
-    throw std::logic_error( "Sequence number too low and PossDupFlag is false" );
+  {
+    std::stringstream stream;
+    stream << "MsgSeqNum too low, expecting " << getExpectedTargetNum()
+           << " but received " << msgSeqNum;
+    generateLogout( stream.str() );
+    throw std::logic_error( stream.str() );
+  }
+
   return doPossDup( msg );
 
   QF_STACK_POP
@@ -1004,10 +1009,10 @@ void Session::doTargetTooHigh( const Message& msg )
   header.getField( beginString );
   header.getField( msgSeqNum );
 
-  m_state.onEvent( "MsgSeqNum too high RECEIVED: "
-                   + IntConvertor::convert( msgSeqNum )
-                   + " EXPECTED: "
-                   + IntConvertor::convert( getExpectedTargetNum() ) );
+  m_state.onEvent( "MsgSeqNum too high, expecting  "
+                   + IntConvertor::convert( getExpectedTargetNum() )
+                   + " but received "
+                   + IntConvertor::convert( msgSeqNum ) );
 
   m_state.queue( msgSeqNum, msg );
   generateResendRequest( beginString, msgSeqNum );

@@ -8,4 +8,5 @@ I8=FIX.4.135=034=349=TW52=<TIME>56=ISLD
 I8=FIX.4.135=034=449=TW52=<TIME>56=ISLD
 # Message 2 was already sent
 I8=FIX.4.135=034=249=TW52=<TIME>56=ISLD
+E8=FIX.4.19=9435=534=249=ISLD52=00000000-00:00:0056=TW58=MsgSeqNum too low, expecting 5 but received 210=0
 eDISCONNECT

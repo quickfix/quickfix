@@ -11,4 +11,5 @@ E8=FIX.4.39=5935=034=249=ISLD52=00000000-00:00:00.00056=TW112=HELLO10=0
 
 # sequence reset with gap fill flag set to Y, PosDupFlag set to N
 I8=FIX.4.335=434=149=TW52=<TIME>56=ISLD36=20123=Y
+E8=FIX.4.39=9835=534=349=ISLD52=00000000-00:00:00.00056=TW58=MsgSeqNum too low, expecting 3 but received 110=0
 eDISCONNECT
