@@ -32,7 +32,7 @@ install-exec-local:
 uninstall-local:
 	rm -rf ${prefix}/lib/_quickfix.so
 
-libquickfix_python_la_LDFLAGS = -version-info 0:0:0
+libquickfix_python_la_LDFLAGS = -version-info 1:0:0
 libquickfix_python_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la -lstdc++
 
 INCLUDES =-I. -I.. -I../..
