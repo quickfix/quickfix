@@ -586,7 +586,7 @@ typedef DoubleConvertor PRICE_CONVERTOR;
 typedef IntConvertor INT_CONVERTOR;
 typedef DoubleConvertor AMT_CONVERTOR;
 typedef DoubleConvertor QTY_CONVERTOR;
-typedef CharConvertor CURRENCY_CONVERTOR;
+typedef StringConvertor CURRENCY_CONVERTOR;
 typedef StringConvertor MULTIPLEVALUESTRING_CONVERTOR;
 typedef StringConvertor EXCHANGE_CONVERTOR;
 typedef UtcTimeStampConvertor UTCTIMESTAMP_CONVERTOR;
