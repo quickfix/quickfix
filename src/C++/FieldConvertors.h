@@ -328,6 +328,11 @@ typedef StringConvertor MONTHYEAR_CONVERTOR;
 typedef StringConvertor DAYOFMONTH_CONVERTOR;
 typedef UtcDateConvertor UTCDATE_CONVERTOR;
 typedef UtcTimeOnlyConvertor UTCTIMEONLY_CONVERTOR;
+typedef IntConvertor NUMINGROUP_CONVERTOR;
+typedef DoubleConvertor PERCENTAGE_CONVERTOR;
+typedef IntConvertor SEQNUM_CONVERTOR;
+typedef IntConvertor LENGTH_CONVERTOR;
+typedef StringConvertor COUNTRY_CONVERTOR;
 typedef CheckSumConvertor CHECKSUM_CONVERTOR;
 }
 

@@ -281,45 +281,55 @@ private:
       getFieldType( field.getField(), type );
       switch ( type )
       {
-        case TYPE::String:
+      case TYPE::String:
         STRING_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Char:
+      case TYPE::Char:
         CHAR_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Price:
+      case TYPE::Price:
         PRICE_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Int:
+      case TYPE::Int:
         INT_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Amt:
+      case TYPE::Amt:
         AMT_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Qty:
+      case TYPE::Qty:
         QTY_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Currency:
+      case TYPE::Currency:
         CURRENCY_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::MultipleValueString:
+      case TYPE::MultipleValueString:
         MULTIPLEVALUESTRING_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Exchange:
+      case TYPE::Exchange:
         EXCHANGE_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::UtcTimeStamp:
+      case TYPE::UtcTimeStamp:
         UTCTIMESTAMP_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Boolean:
+      case TYPE::Boolean:
         BOOLEAN_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::LocalMktDate:
+      case TYPE::LocalMktDate:
         LOCALMKTDATE_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Data:
+      case TYPE::Data:
         DATA_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Float:
+      case TYPE::Float:
         FLOAT_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::PriceOffset:
+      case TYPE::PriceOffset:
         PRICEOFFSET_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::MonthYear:
+      case TYPE::MonthYear:
         MONTHYEAR_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::DayOfMonth:
+      case TYPE::DayOfMonth:
         DAYOFMONTH_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::UtcDate:
+      case TYPE::UtcDate:
         UTCDATE_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::UtcTimeOnly:
+      case TYPE::UtcTimeOnly:
         UTCTIMEONLY_CONVERTOR::convert( field.getString() ); break;
-        case TYPE::Unknown: break;
+      case TYPE::NumInGroup:
+	NUMINGROUP_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::Percentage:
+	PERCENTAGE_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::SeqNum:
+	SEQNUM_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::Length:
+	LENGTH_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::Country:
+	COUNTRY_CONVERTOR::convert( field.getString() ); break;
+      case TYPE::Unknown: break;
       }
     }
     catch ( FieldConvertError& )
