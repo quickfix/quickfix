@@ -36,6 +36,15 @@
   </p>
 
   <H2>QuickFIX Settings</H2>
+  <UL>
+    <LI><A HREF="#Session">Session</A></LI>
+    <LI><A HREF="#Validation">Validation</A></LI>
+    <LI><A HREF="#Initiator">Initiator</A></LI>
+    <LI><A HREF="#Acceptor">Acceptor</A></LI>
+    <LI><A HREF="#Storage">Storage</A></LI>
+    <LI><A HREF="#Logging">Logging</A></LI>
+    <LI><A HREF="#Sample Settings File">Sample Settings File</A></LI>
+  </UL>
   <TABLE BORDER=1 CELLSPACING=2 CELLPADDING=3 WIDTH="100%">
   <tbody>
   <TR ALIGN="left" VALIGN="middle">
@@ -44,116 +53,108 @@
     <TH>Valid Values</TH>
     <TH>Default</TH>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Session">Session</A></TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>BeginString</I> </TD>
     <TD> Version of FIX this session should use </TD>
     <TD> FIX.4.2 <br> FIX.4.1 <br> FIX.4.0 </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SenderCompID</I> </TD>
     <TD> Your ID as associated with this FIX session </TD>
     <TD> case-sensitive alpha-numeric string </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>TargetCompID</I> </TD>
     <TD> counter parties ID as associated with this FIX session </TD>
     <TD> case-sensitive alpha-numeric string </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ConnectionType</I> </TD>
     <TD> Defines if session will act as an acceptor or an initiator </TD>
     <TD> initiator <br> acceptor </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
-      <TD> <I>ReconnectInterval</I> </TD>
-      <TD> Time between reconnection attempts in seconds. Only used for initiators </TD>
-      <TD> positive integer </TD>
-      <TD> 30 </TD>
-  </TR>
-  <TR ALIGN="left" VALIGN=middle">
-      <TD> <I>StartTime</I> </TD>
-      <TD> Time of day that this FIX session becomes activated </TD>
-      <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
-     <TD> </TD>
-  </TR>
-  <TR ALIGN="left" VALIGN=middle">
-      <TD> <I>EndTime</I> </TD>
-      <TD> Time of day that this FIX session becomes deactivated </TD>
-      <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
-      <TD> </TD>
-  </TR>
-  <TR ALIGN="left" VALIGN=middle">
-    <TD> <I>HeartBtInt</I> </TD>
-    <TD> Heartbeat interval in seconds. Only used for initiators. </TD>
-    <TD> positive integer </TD>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>StartTime</I> </TD>
+    <TD> Time of day that this FIX session becomes activated </TD>
+    <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
-    <TD> <I>LogonTimeout</I> </TD>
-    <TD> Number of seconds to wait for a logon response before disconnecting. Default is 10.</TD>
-    <TD> positive integer </TD>
-    <TD> 10 </TD>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>EndTime</I> </TD>
+    <TD> Time of day that this FIX session becomes deactivated </TD>
+    <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
+    <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Validation">Validation</A></TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>DataDictionary</I> </TD>
     <TD> XML definition file for validating incomming FIX messages. If no DataDictionary is supplied, only basic message validation will be done</TD>
     <TD> valid XML data dictionary file, QuickFIX comes with the following defaults in the spec directory<br><br>FIX42.xml <br>FIX41.xml <br>FIX40.xml </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ValidateFieldsOutOfOrder</I> </TD>
     <TD> If set to N, fields that are out of order (i.e. body fields in the header, or header fields in the body) will not be rejected. Useful for connecting to systems which do not properly order fields.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>CheckLatency</I> </TD>
     <TD> If set to Y, messages must be received from the counterparty within a defined number of seconds (see MaxLatency). It is useful to turn this off if a system uses localtime for it's timestamps instead of GMT.</TD>
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MaxLatency</I> </TD>
     <TD> If CheckLatency is set to Y, this defines the number of seconds latency allowed for a message to be processed. Default is 120.</TD>
     <TD> positive integer</TD>
     <TD> 120 </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
-    <TD> <I>ResetOnLogout</I> </TD>
-    <TD> Determines if sequence numbers should be reset to 1 after a normal logout termination. </TD>
-    <TD> Y<br>N</TD>
-    <TD> N </TD>
+
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Initiator">Initiator</A></TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
-    <TD> <I>ResetOnDisconnect</I> </TD>
-    <TD> Determines if sequence numbers should be reset to 1 after an abnormal termination. </TD>
-    <TD> Y<br>N</TD>
-    <TD> N </TD>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>ReconnectInterval</I> </TD>
+    <TD> Time between reconnection attempts in seconds. Only used for initiators </TD>
+    <TD> positive integer </TD>
+    <TD> 30 </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
-    <TD> <I>SocketAcceptPort</I> </TD>
-    <TD> Socket port for listening to incomming connections, Only used with a SocketAcceptor </TD>
-    <TD> positive integer, valid open socket port. Currently, this must be defined in the [DEFAULT]
-    	 section.</TD>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>HeartBtInt</I> </TD>
+    <TD> Heartbeat interval in seconds. Only used for initiators. </TD>
+    <TD> positive integer </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>LogonTimeout</I> </TD>
+    <TD> Number of seconds to wait for a logon response before disconnecting. Default is 10.</TD>
+    <TD> positive integer </TD>
+    <TD> 10 </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SocketConnectPort</I> </TD>
     <TD> Socket port for connecting to a session. Only used with a SocketInitiator </TD>
     <TD> positive integer </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SocketConnectHost</I> </TD>
     <TD> Host to connect to. Only used with a SocketInitiator </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SocketConnectPort&lt;n&gt;</I> </TD>
     <TD> Alternate socket ports for connecting to a session for failover, where <B>n</B> is a
   	     positive integer. (i.e.) SocketConnectPort1, SocketConnectPort2... must be consecutive
@@ -161,7 +162,7 @@
     <TD> positive integer </TD>
     <TD> </TD>
     </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>SocketConnectHost&lt;n&gt;</I> </TD>
     <TD> Alternate socket hosts for connecting to a session for failover, where <B>n</B> is a
          positive integer. (i.e.) SocketConnectHost1, SocketConnectHost2... must be consecutive
@@ -169,46 +170,118 @@
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Acceptor">Acceptor</A></TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>SocketAcceptPort</I> </TD>
+    <TD> Socket port for listening to incomming connections, Only used with a SocketAcceptor </TD>
+    <TD> positive integer, valid open socket port. Currently, this must be defined in the [DEFAULT]
+         section.</TD>
+    <TD> </TD>
+  </TR>
+
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Storage">Storage</A></TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>FileStorePath</I> </TD>
     <TD> Directory to store sequence number and message files. Only used with FileStoreFactory. </TD>
     <TD> valid directory for storing files, must have write access </TD>
     <TD> </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStoreDatabase</I> </TD>
     <TD> Name of MySQL database to access for storing messages and session state. Only used with
          MySQLStoreFactory. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStoreUser</I> </TD>
     <TD> User name logging in to MySQL database. Only used with MySQLStoreFactory. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> current user </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStorePassword</I> </TD>
     <TD> Users password. Only used with MySQLStoreFactory. </TD>
     <TD> correct MySQL password for user </TD>
     <TD> empty password </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStoreHost</I> </TD>
     <TD> Address of MySQL database. Only used with MySQLStoreFactory. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
-  <TR ALIGN="left" VALIGN=middle">
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStorePort</I> </TD>
     <TD> Port of MySQL database. Only used with MySQLStoreFactory. </TD>
     <TD> positive integer </TD>
     <TD> standard MySQL port </TD>
   </TR>
+
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Logging">Logging</A></TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>FileLogPath</I> </TD>
+    <TD> Directory to store logs. Only used with FileLogFactory. </TD>
+    <TD> valid directory for storing files, must have write access </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>MySQLLogDatabase</I> </TD>
+    <TD> Name of MySQL database to access for logging. Only used with
+         MySQLLogFactory. </TD>
+    <TD> valid database for storing files, must have write access and correct DB shema </TD>
+    <TD> quickfix </TD>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>MySQLLogUser</I> </TD>
+    <TD> User name logging in to MySQL database. Only used with MySQLLogFactory. </TD>
+    <TD> valid user with read/write access to appropriate tables in database </TD>
+    <TD> current user </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>MySQLLogPassword</I> </TD>
+    <TD> Users password. Only used with MySQLLogFactory. </TD>
+    <TD> correct MySQL password for user </TD>
+    <TD> empty password </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>MySQLLogHost</I> </TD>
+    <TD> Address of MySQL database. Only used with MySQLLogFactory. </TD>
+    <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
+    <TD> localhost </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>MySQLLogPort</I> </TD>
+    <TD> Port of MySQL database. Only used with MySQLLogFactory. </TD>
+    <TD> positive integer </TD>
+    <TD> standard MySQL port </TD>
+  </TR>
+
+
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Miscellaneous">Miscellaneous</A></TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>ResetOnLogout</I> </TD>
+    <TD> Determines if sequence numbers should be reset to 1 after a normal logout termination. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>ResetOnDisconnect</I> </TD>
+    <TD> Determines if sequence numbers should be reset to 1 after an abnormal termination. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
   </tbody>
   </TABLE>
 
-  <H2>Sample Settings File</H2>
+  <H2><A NAME="Sample Settings File">Sample Settings File</A></H2>
   <p>
     Here is a typical settings file you might find in a firm that wants to connect to several ECNs.
   </p>
