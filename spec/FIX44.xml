@@ -4962,6 +4962,12 @@
       <value enum="7" description="EXPIRED" />
       <value enum="8" description="QUERY" />
       <value enum="9" description="QUOTE_NOT_FOUND" />
+      <value enum="10" description="PENDING" />
+      <value enum="11" description="PASS" />
+      <value enum="12" description="LOCKED_MARKET_WARNING" />
+      <value enum="13" description="CROSS_MARKET_WARNING" />
+      <value enum="14" description="CANCELED_DUE_TO_LOCK_MARKET" />
+      <value enum="15" description="CANCELED_DUE_TO_CROSS_MARKET" />
     </field>
     <field number="298" name="QuoteCancelType" type="INT">
       <value enum="1" description="CANCEL_FOR_SYMBOL" />
