@@ -1,0 +1,9 @@
+#!/bin/sh
+
+DIR=`pwd`
+
+cd ../src/java
+./test.sh quickfix.test.AllTests
+RESULT=$?
+cd $DIR
+exit $RESULT
