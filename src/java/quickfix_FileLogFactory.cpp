@@ -64,7 +64,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_FileLogFactory_create__Lquickfix_Session
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
 { QF_STACK_TRY
 
-  if( isNullAndThrow(sessionID) ) return;
+  if( isNullAndThrow(sessionID) ) return 0;
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
