@@ -482,7 +482,7 @@ all-local:
 	rm -rf ../../lib/libquickfix.la
 	ln -s ../src/C++/.libs/libquickfix.a ../../lib/libquickfix.a
 	ln -s ../src/C++/.libs/libquickfix.la ../../lib/libquickfix.la
-	cp -f *.h ../../include 2> /dev/null
+	./copy.sh *.h
 
 clean-local:
 	rm -rf ../../lib/libquickfix.a
