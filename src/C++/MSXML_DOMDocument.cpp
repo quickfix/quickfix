@@ -84,6 +84,11 @@ namespace FIX
     QF_STACK_POP
   }
 
+  DOMAttributes::map MSXML_DOMAttributes::toMap()
+  {
+    return DOMAttributes::map();
+  }
+
   MSXML_DOMNode::~MSXML_DOMNode()
   { QF_STACK_IGNORE_BEGIN
     m_pNode->Release();

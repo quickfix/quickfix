@@ -71,6 +71,7 @@ namespace FIX
     ~MSXML_DOMAttributes();
 
     bool get( const std::string&, std::string& );
+    DOMAttributes::map toMap();
 
   private:
     MSXML2::IXMLDOMNamedNodeMap* m_pNodeMap;
