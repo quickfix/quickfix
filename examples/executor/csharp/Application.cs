@@ -100,8 +100,8 @@ public class Application: MessageCracker, QuickFix.Application
         ( genOrderID(),
           genExecID(),
           new ExecTransType( ExecTransType.NEW ),
-          new ExecType( ExecType.NEW ),
-          new OrdStatus ( OrdStatus.NEW ),
+          new ExecType( ExecType.FILL ),
+          new OrdStatus ( OrdStatus.FILLED ),
           symbol,
           side,
           orderQty,
@@ -193,6 +193,50 @@ public class Application: MessageCracker, QuickFix.Application
                                               new LeavesQty ( 0 ),
                                               new CumQty ( orderQty.getValue() ),
                                               new AvgPx ( price.getValue() ) );
+
+    executionReport.set( clOrdID );
+    executionReport.set( symbol );
+    executionReport.set( orderQty );
+    executionReport.set( new LastQty( orderQty.getValue() ) );
+    executionReport.set( new LastPx( price.getValue() ) );
+
+    try
+    {
+      Session.sendToTarget( executionReport, sessionID );
+    }
+    catch ( SessionNotFound ) {}
+  }
+
+
+  public override void onMessage( QuickFix44.NewOrderSingle order, SessionID sessionID )
+  {
+    Symbol symbol = new Symbol();
+    Side side = new Side();
+    OrdType ordType = new OrdType();
+    OrderQty orderQty = new OrderQty();
+    Price price = new Price();
+    ClOrdID clOrdID = new ClOrdID();
+
+    order.get( ordType );
+
+    if ( ordType.getValue() != OrdType.LIMIT )
+      throw new IncorrectTagValue( ordType.getField() );
+
+    order.get( symbol );
+    order.get( side );
+    order.get( orderQty );
+    order.get( price );
+    order.get( clOrdID );
+
+    QuickFix44.ExecutionReport executionReport = new QuickFix44.ExecutionReport
+      ( genOrderID(),
+      genExecID(),
+      new ExecType ( ExecType.FILL ),
+      new OrdStatus ( OrdStatus.FILLED ),
+      side,
+      new LeavesQty ( 0 ),
+      new CumQty ( orderQty.getValue() ),
+      new AvgPx ( price.getValue() ) );
 
     executionReport.set( clOrdID );
     executionReport.set( symbol );
