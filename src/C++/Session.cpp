@@ -106,6 +106,23 @@ Session::~Session()
   QF_STACK_IGNORE_END
 }
 
+void Session::insertSendingTime( Header& header )
+{ QF_STACK_PUSH(Session::insertSendingTime)
+
+  // Use miliseconds if FIX.4.2 or later
+  UtcTimeStamp now;
+  if(m_sessionID.getBeginString() >= BeginString_FIX42)
+    header.setField( 
+      FIELD::SendingTime, 
+      UtcTimeStampConvertor::convert(now, m_millisecondsInTimeStamp) );
+  else
+    header.setField( 
+      FIELD::SendingTime, 
+      UtcTimeStampConvertor::convert(now, false) );
+
+  QF_STACK_POP
+}
+
 void Session::fill( Header& header )
 { QF_STACK_PUSH(Session::fill)
 
@@ -115,12 +132,7 @@ void Session::fill( Header& header )
   header.setField( m_sessionID.getSenderCompID() );
   header.setField( m_sessionID.getTargetCompID() );
   header.setField( MsgSeqNum( getExpectedSenderNum() ) );
-
-  // Use miliseconds if FIX.4.2 or later
-  if(m_sessionID.getBeginString() >= BeginString_FIX42)
-	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,m_millisecondsInTimeStamp));
-  else
-	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,false));
+  insertSendingTime( header );
 
   QF_STACK_POP
 }
@@ -505,17 +517,9 @@ bool Session::resend( Message& message )
   Header& header = message.getHeader();
   header.getField( sendingTime );
   header.getField( msgSeqNum );
-
   header.setField( OrigSendingTime( sendingTime ) );
-
-  // Use miliseconds if FIX.4.2 or later
-  UtcTimeStamp now;
-  if(m_sessionID.getBeginString() >= BeginString_FIX42)
-	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,m_millisecondsInTimeStamp));
-  else
-	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,false));
-
   header.setField( PossDupFlag( true ) );
+  insertSendingTime( header );
 
   try
   {

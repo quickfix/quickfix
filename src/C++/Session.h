@@ -150,8 +150,10 @@ private:
   bool send( const std::string );
   bool sendRaw( Message&, int msgSeqNum = 0 );
   bool resend( Message& message );
+  
+  void insertSendingTime( Header& );
   void fill( Header& );
-
+  
   bool isGoodTime( const SendingTime& sendingTime )
   {
     if ( !m_checkLatency ) return true;
