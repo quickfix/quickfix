@@ -44,6 +44,12 @@ SocketConnection::SocketConnection( SocketInitiator& i,
   m_pSession( i.getSession( sessionID, *this ) ),
   m_pMonitor( pMonitor ) {}
 
+SocketConnection::~SocketConnection()
+{
+  if ( m_pSession )
+    Session::unregisterSession( m_pSession->getSessionID() );
+}
+
 bool SocketConnection::send( const std::string& msg )
 { QF_STACK_PUSH(SocketConnection::send)
   return socket_send( m_socket, msg.c_str(), msg.length() );
@@ -94,7 +100,13 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
     if ( !readMessage( msg ) ) return false;
 
     if ( !m_pSession )
-      m_pSession = a.getSession( msg, *this );
+    {
+      m_pSession = Session::lookupSession( msg, true );
+      if ( m_pSession ) 
+	m_pSession = Session::registerSession( m_pSession->getSessionID() );
+      if ( m_pSession ) 
+	m_pSession = a.getSession( msg, *this );
+    }
 
     if ( m_pSession )
       m_pSession->next( msg );

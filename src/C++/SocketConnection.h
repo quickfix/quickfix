@@ -37,14 +37,14 @@ class SocketConnector;
 class SocketInitiator;
 class SocketMonitor;
 class Session;
-  class SessionID;
+class SessionID;
 
 class SocketConnection : Responder
 {
 public:
   SocketConnection( int s, SocketMonitor* pMonitor );
   SocketConnection( SocketInitiator&, const SessionID&, int, SocketMonitor* );
-  virtual ~SocketConnection() {}
+  virtual ~SocketConnection();
 
   Session* getSession() const { return m_pSession; }
   bool read( SocketConnector& s );
