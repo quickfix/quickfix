@@ -70,6 +70,7 @@ throw ( RuntimeError )
 void SocketInitiator::onStart()
 { QF_STACK_PUSH(SocketInitiator::onStart)
 
+  m_stop = false;
   connect();
   while ( !m_stop )
     m_connector.block( *this );

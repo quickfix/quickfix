@@ -69,6 +69,7 @@ throw ( RuntimeError )
 void ThreadedSocketInitiator::onStart()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStart)
 
+  m_stop = false;
   while ( !m_stop )
   {
     connect();
@@ -108,6 +109,7 @@ void ThreadedSocketInitiator::onStop()
     socket_close( i->first );
   for ( i = m_threads.begin(); i != m_threads.end(); ++i )
     thread_join( i->second );
+  m_threads.clear();
 
   QF_STACK_POP
 }

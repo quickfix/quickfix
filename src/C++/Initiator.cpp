@@ -184,15 +184,34 @@ bool Initiator::poll() throw ( ConfigError, RuntimeError )
 void Initiator::stop() 
 { QF_STACK_PUSH(Initiator::stop) 
 
+  std::vector<Session*> enabledSessions;
+
   SessionIDs connected = m_connected;
   SessionIDs::iterator i = connected.begin();
   for ( ; i != connected.end(); ++i )
-    Session::lookupSession(*i)->logout();
+  {
+    Session* pSession = Session::lookupSession(*i);
+    if( pSession->isEnabled() )
+    {
+      enabledSessions.push_back( pSession );
+      pSession->logout();
+    }
+  }
+
+  for ( int second = 1; second <= 10 && isLoggedOn(); ++second )
+    process_sleep( 1 );
+  
+  for ( i = connected.begin(); i != connected.end(); ++i )
+    setConnected( Session::lookupSession(*i)->getSessionID(), false );
   
   onStop();
   if( m_threadid )
     thread_join( m_threadid );
   m_threadid = 0;
+
+  std::vector<Session*>::iterator session = enabledSessions.begin();
+  for( ; session != enabledSessions.end(); ++session )
+    (*session)->logon();
 
   QF_STACK_POP
 }
