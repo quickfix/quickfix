@@ -1,3 +1,24 @@
+1.4.0
+-----
+Support for FIX 4.3
+
+New less redundant DataDictionary format, with support for component blocks
+
+reset method on Session now available in JAVA and .NET API's
+
+setNextSenderMsgSeqNum and setNextTargetMsgSeqNum available on session in all API's
+
+Changes made to messages in toAdmin and toApp in JAVA are correctly applied when sending
+
+sendToTarget throws SessionNotFound exception instead of just crashing under .NET
+
+Fixed memory leaks in JNI interface
+
+Fixed race condition between sending application and admin messages
+
+Processing of Queue in ThreadedSocketConnection modified so it can better handle large
+sustained throughput
+
 1.3.2
 -----
 More portable file copies during build process on unix
