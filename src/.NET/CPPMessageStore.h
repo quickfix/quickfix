@@ -71,7 +71,6 @@ public:
     m_pUnmanaged = pUnmanaged;
     QF_STACK_CATCH
   }
-  virtual ~CPPMessageStore() {}
 
   bool set( int sequence, String* message ) throw ( IOException* )
   { QF_STACK_TRY

@@ -72,7 +72,6 @@ public:
     m_pUnmanaged = pUnmanaged;
     QF_STACK_CATCH
   }
-  virtual ~CPPLog() { delete m_pUnmanaged; }
 
   void onIncoming( String* s )
   { QF_STACK_TRY
