@@ -56,6 +56,7 @@
 #endif
 
 #include "DataDictionaryTestCase.h"
+#include "../FieldNumbers.h"
 #include "../Values.h"
 #include "../Messages.h"
 
@@ -217,7 +218,11 @@ bool DataDictionaryTestCase::checkValidTagNumber::onSetup
 {
   pObject = new DataDictionary;
   pObject->setVersion( BeginString_FIX40 );
-  pObject->setLastField( 500 );
+  pObject->addField( FIELD::BeginString );
+  pObject->addField( FIELD::BodyLength );
+  pObject->addField( FIELD::MsgType );
+  pObject->addField( FIELD::CheckSum );
+  pObject->addField( FIELD::TestReqID );
   pObject->addMsgType( MsgType_TestRequest );
   pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   return true;
@@ -257,7 +262,12 @@ bool DataDictionaryTestCase::checkIsInMessage::onSetup
 {
   pObject = new DataDictionary;
   pObject->setVersion( BeginString_FIX40 );
-  pObject->setLastField( 500 );
+  pObject->addField( FIELD::BeginString );
+  pObject->addField( FIELD::BodyLength );
+  pObject->addField( FIELD::MsgType );
+  pObject->addField( FIELD::CheckSum );
+  pObject->addField( FIELD::TestReqID );
+  pObject->addField( FIELD::Symbol );
   pObject->addMsgType( MsgType_TestRequest );
   pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   return true;
@@ -281,7 +291,11 @@ bool DataDictionaryTestCase::checkHasRequired::onSetup
 {
   pObject = new DataDictionary;
   pObject->setVersion( BeginString_FIX40 );
-  pObject->setLastField( 500 );
+  pObject->addField( FIELD::BeginString );
+  pObject->addField( FIELD::BodyLength );
+  pObject->addField( FIELD::MsgType );
+  pObject->addField( FIELD::CheckSum );
+  pObject->addField( FIELD::TestReqID );
   pObject->addMsgType( MsgType_TestRequest );
   pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   pObject->addRequiredField( MsgType_TestRequest, FIELD::TestReqID );
@@ -305,7 +319,11 @@ bool DataDictionaryTestCase::checkValidFormat::onSetup
 {
   pObject = new DataDictionary;
   pObject->setVersion( BeginString_FIX40 );
-  pObject->setLastField( 500 );
+  pObject->addField( FIELD::BeginString );
+  pObject->addField( FIELD::BodyLength );
+  pObject->addField( FIELD::MsgType );
+  pObject->addField( FIELD::CheckSum );
+  pObject->addField( FIELD::TestReqID );
   pObject->addMsgType( MsgType_TestRequest );
   pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
   pObject->addFieldType( FIELD::TestReqID, TYPE::Int );
@@ -324,8 +342,12 @@ bool DataDictionaryTestCase::checkValue::onSetup
 ( DataDictionary*& pObject )
 {
   pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );
-  pObject->setLastField( 500 );
+  pObject->setVersion( BeginString_FIX40 );  
+  pObject->addField( FIELD::BeginString );
+  pObject->addField( FIELD::BodyLength );
+  pObject->addField( FIELD::MsgType );
+  pObject->addField( FIELD::CheckSum );
+  pObject->addField( FIELD::OrdType );
   pObject->addMsgType( MsgType_NewOrderSingle );
   pObject->addMsgField( MsgType_NewOrderSingle, FIELD::OrdType );
   pObject->addFieldType( FIELD::OrdType, TYPE::Char );
@@ -397,7 +419,6 @@ bool DataDictionaryTestCase::copy::onSetup
 {
   pObject = new DataDictionary;
   pObject->setVersion( BeginString_FIX40 );
-  pObject->setLastField( 500 );
   pObject->addMsgType( MsgType_NewOrderSingle );
   pObject->addMsgField( MsgType_NewOrderSingle, FIELD::OrdType );
   pObject->addFieldType( FIELD::OrdType, TYPE::Char );
@@ -419,7 +440,6 @@ void DataDictionaryTestCase::copy::onRun( DataDictionary& object )
   int delim;
 
   assert( dataDictionary.getVersion() == BeginString_FIX40 );
-  assert( dataDictionary.getLastField() == 500 );
   assert( dataDictionary.isMsgType( MsgType_NewOrderSingle ) );
   assert( dataDictionary.isMsgField( MsgType_NewOrderSingle, FIELD::OrdType ) );
   assert( dataDictionary.getFieldType( FIELD::OrdType, type ) );
