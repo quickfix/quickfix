@@ -14,11 +14,11 @@ public class MyClass {
 
     Application application = new Application();
     Settings settings = new Settings(new FileInputStream(fileName));
-    MessageStoreFactory storeFactory = new FileMessageStoreFactory(settings);
+    MessageStoreFactory storeFactory = new FileStoreFactory(settings);
     LogFactory logFactory = new FileLogFactory(settings);
     MessageFactory messageFactory = new DefaultMessageFactory();
     Acceptor acceptor = new SocketAcceptor
-      (application, factory, settings, logFactory, messageFactory);
+      (application, storeFactory, settings, logFactory, messageFactory);
     acceptor.start();
   }
 }
