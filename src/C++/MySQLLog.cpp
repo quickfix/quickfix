@@ -119,6 +119,9 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   char sqlTime[ 20 ];
   strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
 
+  std::string valueCopy = value;
+  string_replace( "\"", "\\\"", valueCopy );
+
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
   std::stringstream query;
   query << "INSERT INTO " << table << " "
@@ -128,7 +131,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   << "\"" << m_sessionID.getBeginString().getValue() << "\","
   << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
   << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
-  << "\"" << value << "\")";
+  << "\"" << valueCopy << "\")";
 
   mysql_query( pConnection, query.str().c_str() );
 

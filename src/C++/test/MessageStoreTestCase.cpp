@@ -27,6 +27,7 @@
 #include "MessageStoreTestCase.h"
 #include "fix42/Logon.h"
 #include "fix42/Heartbeat.h"
+#include "fix42/TestRequest.h"
 #include "fix42/NewOrderSingle.h"
 
 namespace FIX
@@ -42,6 +43,11 @@ void MessageStoreTestCase::setGet::onRun( MessageStore& object )
   heartbeat.getHeader().setField( MsgSeqNum( 2 ) );
   object.set( 2, heartbeat.toString() );
 
+  TestRequest testRequest;
+  testRequest.getHeader().setField( MsgSeqNum(3) );
+  testRequest.set( TestReqID("contains a value \"in quotes\"") );
+  object.set( 3, testRequest.toString() );
+
   std::string message;
   assert( object.get( 1, message ) );
   assert( message == logon.toString() );
@@ -49,6 +55,10 @@ void MessageStoreTestCase::setGet::onRun( MessageStore& object )
   Message getHeartbeat;
   assert( object.get( 2, message ) );
   assert( message == heartbeat.toString() );
+
+  Message getTestRequest;
+  assert( object.get( 3, message ) );
+  assert( message == testRequest.toString() );
 }
 
 void MessageStoreTestCase::getRange::onRun( MessageStore& object )
