@@ -57,11 +57,12 @@ using namespace System;
 #include "FIX40_MessageCracker.h"
 #include "FIX41_MessageCracker.h"
 #include "FIX42_MessageCracker.h"
+#include "FIX43_MessageCracker.h"
 #include "quickfix/include/Values.h"
 
 namespace Fix
 {
-public __gc class MessageCracker : public Fix42::MessageCracker
+public __gc class MessageCracker : public Fix43::MessageCracker
 {
   void crack( Fix::Message* message, Fix::SessionID* sessionID )
   {
@@ -73,6 +74,8 @@ public __gc class MessageCracker : public Fix42::MessageCracker
       ( static_cast < Fix41::MessageCracker* > ( this ) ) ->crack( message, sessionID );
     else if ( beginString->Equals( new String( FIX::BeginString_FIX42 ) ) )
       ( static_cast < Fix42::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+    else if ( beginString->Equals( new String( FIX::BeginString_FIX43 ) ) )
+      ( static_cast < Fix43::MessageCracker* > ( this ) ) ->crack( message, sessionID );
     else
       onMessage( message, sessionID );
   }

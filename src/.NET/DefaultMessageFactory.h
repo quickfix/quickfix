@@ -53,6 +53,7 @@
 #include "FIX40_MessageFactory.h"
 #include "FIX41_MessageFactory.h"
 #include "FIX42_MessageFactory.h"
+#include "FIX43_MessageFactory.h"
 
 namespace Fix
 {
@@ -64,6 +65,7 @@ public:
     fix40Factory = new Fix40::MessageFactory();
     fix41Factory = new Fix41::MessageFactory();
     fix42Factory = new Fix42::MessageFactory();
+    fix43Factory = new Fix43::MessageFactory();
   }
 
   Fix::Message* create( String* beginString, String* msgType )
@@ -74,6 +76,8 @@ public:
       return fix41Factory->create( beginString, msgType );
     if ( beginString->Equals( "FIX.4.2" ) )
       return fix42Factory->create( beginString, msgType );
+    if ( beginString->Equals( "FIX.4.3" ) )
+      return fix43Factory->create( beginString, msgType );
     return new Message();
   }
 
@@ -81,5 +85,6 @@ private:
   Fix40::MessageFactory* fix40Factory;
   Fix41::MessageFactory* fix41Factory;
   Fix42::MessageFactory* fix42Factory;
+  Fix43::MessageFactory* fix43Factory;
 };
 }

@@ -57,6 +57,7 @@ using namespace System;
 #include "FIX40_Messages.h"
 #include "FIX41_Messages.h"
 #include "FIX42_Messages.h"
+#include "FIX43_Messages.h"
 
 namespace Fix
 {

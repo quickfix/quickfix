@@ -50,7 +50,9 @@
 
 #pragma once
 
+#undef Yield
 #include "Field.h"
+#include "DeprecatedFields.h"
 
 namespace Fix
 {
@@ -152,6 +154,9 @@ namespace Fix
   static const __wchar_t PER_SHARE = '1';
   static const __wchar_t PERCENTAGE = '2';
   static const __wchar_t ABSOLUTE = '3';
+  static const __wchar_t PERCENTAGE_WAIVED_CASH_DISCOUNT = '4';
+  static const __wchar_t PERCENTAGE_WAIVED_ENHANCED_UNITS = '5';
+  static const __wchar_t PER_BOND = '6';
   CommType() : CharField(13) {}
     CommType(__wchar_t data) : CharField(13, data) {}
   };
@@ -201,20 +206,27 @@ namespace Fix
   static const __wchar_t OK_TO_CROSS = 'B';
   static const __wchar_t CALL_FIRST = 'C';
   static const __wchar_t PERCENT_OF_VOLUME = 'D';
-  static const __wchar_t DO_NOT_INCREASE_DNI = 'E';
-  static const __wchar_t DO_NOT_REDUCE_DNR = 'F';
-  static const __wchar_t ALL_OR_NONE_AON = 'G';
+  static const __wchar_t DO_NOT_INCREASE = 'E';
+  static const __wchar_t DO_NOT_REDUCE = 'F';
+  static const __wchar_t ALL_OR_NONE = 'G';
+  static const __wchar_t REINSTATE_ON_SYSTEM_FAILURE = 'H';
   static const __wchar_t INSTITUTIONS_ONLY = 'I';
+  static const __wchar_t REINSTATE_ON_TRADING_HALT = 'J';
+  static const __wchar_t CANCEL_ON_TRADING_HALT = 'K';
   static const __wchar_t LAST_PEG = 'L';
-  static const __wchar_t MIDPRICE_PEG = 'M';
-  static const __wchar_t NONNEGOTIABLE = 'N';
+  static const __wchar_t MID_PRICE_PEG = 'M';
+  static const __wchar_t NON_NEGOTIABLE = 'N';
   static const __wchar_t OPENING_PEG = 'O';
+  static const __wchar_t MARKET_PEG = 'P';
+  static const __wchar_t CANCEL_ON_SYSTEM_FAILURE = 'Q';
   static const __wchar_t PRIMARY_PEG = 'R';
   static const __wchar_t SUSPEND = 'S';
   static const __wchar_t FIXED_PEG = 'T';
   static const __wchar_t CUSTOMER_DISPLAY_INSTRUCTION = 'U';
   static const __wchar_t NETTING = 'V';
   static const __wchar_t PEG_TO_VWAP = 'W';
+  static const __wchar_t TRADE_ALONG = 'X';
+  static const __wchar_t TRY_TO_STOP = 'Y';
   ExecInst() : StringField(18) {}
     ExecInst(String* data) : StringField(18, data) {}
   };
@@ -240,14 +252,14 @@ namespace Fix
   public __gc class HandlInst : public CharField
   {
   public:
-  static const __wchar_t AUTOMATED_EXECUTION_ORDER_PRIVATE_NO_BROKER_INTERVENTION = '1';
-  static const __wchar_t AUTOMATED_EXECUTION_ORDER_PUBLIC_BROKER_INTERVENTION_OK = '2';
-  static const __wchar_t MANUAL_ORDER_BEST_EXECUTION = '3';
+  static const __wchar_t AUTOMATED_EXECUTION_ORDER_PRIVATE = '1';
+  static const __wchar_t AUTOMATED_EXECUTION_ORDER_PUBLIC = '2';
+  static const __wchar_t MANUAL_ORDER = '3';
   HandlInst() : CharField(21) {}
     HandlInst(__wchar_t data) : CharField(21, data) {}
   };
   
-  public __gc class IDSource : public StringField
+  public __gc class SecurityIDSource : public StringField
   {
   public:
   static const String* CUSIP = "1";
@@ -259,8 +271,15 @@ namespace Fix
   static const String* ISO_COUNTRY_CODE = "7";
   static const String* EXCHANGE_SYMBOL = "8";
   static const String* CONSOLIDATED_TAPE_ASSOCIATION = "9";
-  IDSource() : StringField(22) {}
-    IDSource(String* data) : StringField(22, data) {}
+  static const String* BLOOMBERG_SYMBOL = "A";
+  static const String* WERTPAPIER = "B";
+  static const String* DUTCH = "C";
+  static const String* VALOREN = "D";
+  static const String* SICOVAM = "E";
+  static const String* BELGIAN = "F";
+  static const String* COMMON = "G";
+  SecurityIDSource() : StringField(22) {}
+    SecurityIDSource(String* data) : StringField(22, data) {}
   };
   
   public __gc class IOIid : public StringField
@@ -294,14 +313,14 @@ namespace Fix
     IOIRefID(String* data) : StringField(26, data) {}
   };
   
-  public __gc class IOIShares : public StringField
+  public __gc class IOIQty : public StringField
   {
   public:
   static const String* SMALL = "S";
   static const String* MEDIUM = "M";
   static const String* LARGE = "L";
-  IOIShares() : StringField(27) {}
-    IOIShares(String* data) : StringField(27, data) {}
+  IOIQty() : StringField(27) {}
+    IOIQty(String* data) : StringField(27, data) {}
   };
   
   public __gc class IOITransType : public CharField
@@ -339,11 +358,11 @@ namespace Fix
     LastPx(double data) : DoubleField(31, data) {}
   };
   
-  public __gc class LastShares : public DoubleField
+  public __gc class LastQty : public DoubleField
   {
   public:
-  LastShares() : DoubleField(32) {}
-    LastShares(double data) : DoubleField(32, data) {}
+  LastQty() : DoubleField(32) {}
+    LastQty(double data) : DoubleField(32, data) {}
   };
   
   public __gc class LinesOfText : public IntField
@@ -363,6 +382,74 @@ namespace Fix
   public __gc class MsgType : public StringField
   {
   public:
+  static const String* HEARTBEAT = "0";
+  static const String* TEST_REQUEST = "1";
+  static const String* RESEND_REQUEST = "2";
+  static const String* REJECT = "3";
+  static const String* SEQUENCE_RESET = "4";
+  static const String* LOGOUT = "5";
+  static const String* INDICATION_OF_INTEREST = "6";
+  static const String* ADVERTISEMENT = "7";
+  static const String* EXECUTION_REPORT = "8";
+  static const String* ORDER_CANCEL_REJECT = "9";
+  static const String* LOGON = "A";
+  static const String* NEWS = "B";
+  static const String* EMAIL = "C";
+  static const String* ORDER_SINGLE = "D";
+  static const String* ORDER_LIST = "E";
+  static const String* ORDER_CANCEL_REQUEST = "F";
+  static const String* ORDER_CANCEL = "G";
+  static const String* ORDER_STATUS_REQUEST = "H";
+  static const String* ALLOCATION = "J";
+  static const String* LIST_CANCEL_REQUEST = "K";
+  static const String* LIST_EXECUTE = "L";
+  static const String* LIST_STATUS_REQUEST = "M";
+  static const String* LIST_STATUS = "N";
+  static const String* ALLOCATION_ACK = "P";
+  static const String* DONT_KNOW_TRADE = "Q";
+  static const String* QUOTE_REQUEST = "R";
+  static const String* QUOTE = "S";
+  static const String* SETTLEMENT_INSTRUCTIONS = "T";
+  static const String* MARKET_DATA_REQUEST = "V";
+  static const String* MARKET_DATA_SNAPSHOT = "W";
+  static const String* MARKET_DATA_INCREMENTAL_REFRESH = "X";
+  static const String* MARKET_DATA_REQUEST_REJECT = "Y";
+  static const String* QUOTE_CANCEL = "Z";
+  static const String* QUOTE_STATUS_REQUEST = "a";
+  static const String* MASS_QUOTE_ACKNOWLEDGEMENT = "b";
+  static const String* SECURITY_DEFINITION_REQUEST = "c";
+  static const String* SECURITY_DEFINITION = "d";
+  static const String* SECURITY_STATUS_REQUEST = "e";
+  static const String* SECURITY_STATUS = "f";
+  static const String* TRADING_SESSION_STATUS_REQUEST = "g";
+  static const String* TRADING_SESSION_STATUS = "h";
+  static const String* MASS_QUOTE = "i";
+  static const String* BUSINESS_MESSAGE_REJECT = "j";
+  static const String* BID_REQUEST = "k";
+  static const String* BID_RESPONSE = "l";
+  static const String* LIST_STRIKE_PRICE = "m";
+  static const String* XML_MESSAGE = "n";
+  static const String* REGISTRATION_INSTRUCTIONS = "o";
+  static const String* REGISTRATION_INSTRUCTIONS_RESPONSE = "p";
+  static const String* ORDER_MASS_CANCEL_REQUEST = "q";
+  static const String* ORDER_MASS_CANCEL_REPORT = "r";
+  static const String* NEW_ORDER_CROSS = "s";
+  static const String* CROSS_ORDER_CANCEL = "t";
+  static const String* CROSS_ORDER_CANCEL_REQUEST = "u";
+  static const String* SECURITY_TYPE_REQUEST = "v";
+  static const String* SECURITY_TYPES = "w";
+  static const String* SECURITY_LIST_REQUEST = "x";
+  static const String* SECURITY_LIST = "y";
+  static const String* DERIVATIVE_SECURITY_LIST_REQUEST = "z";
+  static const String* DERIVATIVE_SECURITY_LIST = "AA";
+  static const String* NEW_ORDER_MULTILEG = "AB";
+  static const String* MULTILEG_ORDER_CANCEL = "AC";
+  static const String* TRADE_CAPTURE_REPORT_REQUEST = "AD";
+  static const String* TRADE_CAPTURE_REPORT = "AE";
+  static const String* ORDER_MASS_STATUS_REQUEST = "AF";
+  static const String* QUOTE_REQUEST_REJECT = "AG";
+  static const String* RFQ_REQUEST = "AH";
+  static const String* QUOTE_STATUS_REPORT = "AI";
   MsgType() : StringField(35) {}
     MsgType(String* data) : StringField(35, data) {}
   };
@@ -431,6 +518,10 @@ namespace Fix
   static const __wchar_t FOREX_SWAP = 'G';
   static const __wchar_t FOREX_PREVIOUSLY_QUOTED = 'H';
   static const __wchar_t FUNARI = 'I';
+  static const __wchar_t MARKET_IF_TOUCHED = 'J';
+  static const __wchar_t MARKET_WITH_LEFTOVER_AS_LIMIT = 'K';
+  static const __wchar_t PREVIOUS_FUND_VALUATION_POINT = 'L';
+  static const __wchar_t NEXT_FUND_VALUATION_POINT = 'M';
   static const __wchar_t PEGGED = 'P';
   OrdType() : CharField(40) {}
     OrdType(__wchar_t data) : CharField(40, data) {}
@@ -484,26 +575,27 @@ namespace Fix
   {
   public:
   static const __wchar_t AGENCY_SINGLE_ORDER = 'A';
-  static const __wchar_t SHORT_EXEMPT_TRANSACTION_B = 'B';
-  static const __wchar_t PROGRAM_ORDER_NONINDEX_ARB_FOR_MEMBER_FIRMORG = 'C';
-  static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRMORG = 'D';
-  static const __wchar_t REGISTERED_EQUITY_MARKET_MAKER_TRADES = 'E';
-  static const __wchar_t SHORT_EXEMPT_TRANSACTION_F = 'F';
-  static const __wchar_t SHORT_EXEMPT_TRANSACTION_H = 'H';
+  static const __wchar_t SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE = 'B';
+  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM = 'C';
+  static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM = 'D';
+  static const __wchar_t SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL = 'E';
+  static const __wchar_t SHORT_EXEMPT_TRANSACTION_REFER_TO_W_TYPE = 'F';
+  static const __wchar_t SHORT_EXEMPT_TRANSACTION_REFER_TO_I_TYPE = 'H';
+  static const __wchar_t INDIVIDUAL_INVESTOR = 'I';
   static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'J';
-  static const __wchar_t PROGRAM_ORDER_NONINDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'K';
+  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'K';
   static const __wchar_t SHORT_EXEMPT_AFFILIATED = 'L';
   static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER = 'M';
-  static const __wchar_t PROGRAM_ORDER_NONINDEX_ARB_FOR_OTHER_MEMBER = 'N';
-  static const __wchar_t COMPETING_DEALER_TRADES_O = 'O';
+  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER = 'N';
+  static const __wchar_t PROPRIETARY_AFFILIATED = 'O';
   static const __wchar_t PRINCIPAL = 'P';
-  static const __wchar_t COMPETING_DEALER_TRADES_R = 'R';
+  static const __wchar_t TRANSACTIONS_NON_MEMBER = 'R';
   static const __wchar_t SPECIALIST_TRADES = 'S';
-  static const __wchar_t COMPETING_DEALER_TRADES_T = 'T';
+  static const __wchar_t TRANSACTIONS_UNAFFILIATED_MEMBER = 'T';
   static const __wchar_t PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY = 'U';
   static const __wchar_t ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER = 'W';
   static const __wchar_t SHORT_EXEMPT_NOT_AFFILIATED = 'X';
-  static const __wchar_t PROGRAM_ORDER_NONINDEX_ARB_FOR_OTHER_AGENCY = 'Y';
+  static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY = 'Y';
   static const __wchar_t SHORT_EXEMPT_NONMEMBER = 'Z';
   Rule80A() : CharField(47) {}
     Rule80A(__wchar_t data) : CharField(47, data) {}
@@ -530,6 +622,13 @@ namespace Fix
     SenderSubID(String* data) : StringField(50, data) {}
   };
   
+  public __gc class SendingDate : public StringField
+  {
+  public:
+  SendingDate() : StringField(51) {}
+    SendingDate(String* data) : StringField(51, data) {}
+  };
+  
   public __gc class SendingTime : public UtcTimeStampField
   {
   public:
@@ -537,11 +636,11 @@ namespace Fix
     SendingTime(DateTime data) : UtcTimeStampField(52, data) {}
   };
   
-  public __gc class Shares : public DoubleField
+  public __gc class Quantity : public DoubleField
   {
   public:
-  Shares() : DoubleField(53) {}
-    Shares(double data) : DoubleField(53, data) {}
+  Quantity() : DoubleField(53) {}
+    Quantity(double data) : DoubleField(53, data) {}
   };
   
   public __gc class Side : public CharField
@@ -553,9 +652,12 @@ namespace Fix
   static const __wchar_t SELL_PLUS = '4';
   static const __wchar_t SELL_SHORT = '5';
   static const __wchar_t SELL_SHORT_EXEMPT = '6';
-  static const __wchar_t D = '7';
+  static const __wchar_t UNDISCLOSED = '7';
   static const __wchar_t CROSS = '8';
   static const __wchar_t CROSS_SHORT = '9';
+  static const __wchar_t CROSS_SHORT_EXEMPT = 'A';
+  static const __wchar_t AS_DEFINED = 'B';
+  static const __wchar_t OPPOSITE = 'C';
   Side() : CharField(54) {}
     Side(__wchar_t data) : CharField(54, data) {}
   };
@@ -598,6 +700,7 @@ namespace Fix
   static const __wchar_t FILL_OR_KILL = '4';
   static const __wchar_t GOOD_TILL_CROSSING = '5';
   static const __wchar_t GOOD_TILL_DATE = '6';
+  static const __wchar_t AT_THE_CLOSE = '7';
   TimeInForce() : CharField(59) {}
     TimeInForce(__wchar_t data) : CharField(59, data) {}
   };
@@ -632,13 +735,14 @@ namespace Fix
   static const __wchar_t REGULAR = '0';
   static const __wchar_t CASH = '1';
   static const __wchar_t NEXT_DAY = '2';
-  static const __wchar_t TPLUS2 = '3';
-  static const __wchar_t TPLUS3 = '4';
-  static const __wchar_t TPLUS4 = '5';
+  static const __wchar_t T_PLUS_2 = '3';
+  static const __wchar_t T_PLUS_3 = '4';
+  static const __wchar_t T_PLUS_4 = '5';
   static const __wchar_t FUTURE = '6';
-  static const __wchar_t WHEN_ISSUED = '7';
+  static const __wchar_t WHEN_AND_IF_ISSUED = '7';
   static const __wchar_t SELLERS_OPTION = '8';
-  static const __wchar_t TPLUS5 = '9';
+  static const __wchar_t T_PLUS_5 = '9';
+  static const __wchar_t T_PLUS_1 = 'A';
   SettlmntTyp() : CharField(63) {}
     SettlmntTyp(__wchar_t data) : CharField(63, data) {}
   };
@@ -747,13 +851,11 @@ namespace Fix
     ExecBroker(String* data) : StringField(76, data) {}
   };
   
-  public __gc class OpenClose : public CharField
+  public __gc class PositionEffect : public CharField
   {
   public:
-  static const __wchar_t OPEN = 'O';
-  static const __wchar_t CLOSE = 'C';
-  OpenClose() : CharField(77) {}
-    OpenClose(__wchar_t data) : CharField(77, data) {}
+  PositionEffect() : CharField(77) {}
+    PositionEffect(__wchar_t data) : CharField(77, data) {}
   };
   
   public __gc class NoAllocs : public IntField
@@ -770,11 +872,11 @@ namespace Fix
     AllocAccount(String* data) : StringField(79, data) {}
   };
   
-  public __gc class AllocShares : public DoubleField
+  public __gc class AllocQty : public DoubleField
   {
   public:
-  AllocShares() : DoubleField(80) {}
-    AllocShares(double data) : DoubleField(80, data) {}
+  AllocQty() : DoubleField(80) {}
+    AllocQty(double data) : DoubleField(80, data) {}
   };
   
   public __gc class ProcessCode : public CharField
@@ -782,10 +884,10 @@ namespace Fix
   public:
   static const __wchar_t REGULAR = '0';
   static const __wchar_t SOFT_DOLLAR = '1';
-  static const __wchar_t STEPIN = '2';
-  static const __wchar_t STEPOUT = '3';
-  static const __wchar_t SOFTDOLLAR_STEPIN = '4';
-  static const __wchar_t SOFTDOLLAR_STEPOUT = '5';
+  static const __wchar_t STEP_IN = '2';
+  static const __wchar_t STEP_OUT = '3';
+  static const __wchar_t SOFT_DOLLAR_STEP_IN = '4';
+  static const __wchar_t SOFT_DOLLAR_STEP_OUT = '5';
   static const __wchar_t PLAN_SPONSOR = '6';
   ProcessCode() : CharField(81) {}
     ProcessCode(__wchar_t data) : CharField(81, data) {}
@@ -921,13 +1023,13 @@ namespace Fix
   public __gc class EncryptMethod : public IntField
   {
   public:
-  static const int NONE_OTHER = 0;
-  static const int PKCS = 1;
+  static const int NONE = 0;
+  static const int PKCS_PROPRIETARY = 1;
   static const int DES = 2;
-  static const int PKCSDES = 3;
-  static const int PGPDES = 4;
-  static const int PGPDESMD5 = 5;
-  static const int PEMDESMD5 = 6;
+  static const int PKCS_DES = 3;
+  static const int PGP_DES = 4;
+  static const int PGP_DES_MD5 = 5;
+  static const int PEM = 6;
   EncryptMethod() : IntField(98) {}
     EncryptMethod(int data) : IntField(98, data) {}
   };
@@ -951,8 +1053,11 @@ namespace Fix
   public:
   static const int TOO_LATE_TO_CANCEL = 0;
   static const int UNKNOWN_ORDER = 1;
-  static const int BROKER_OPTION = 2;
+  static const int BROKER = 2;
   static const int ALREADY_PENDING = 3;
+  static const int UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST = 4;
+  static const int ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER = 5;
+  static const int DUPLICATE_CLORDID_RECEIVED = 6;
   CxlRejReason() : IntField(102) {}
     CxlRejReason(int data) : IntField(102, data) {}
   };
@@ -960,15 +1065,19 @@ namespace Fix
   public __gc class OrdRejReason : public IntField
   {
   public:
-  static const int BROKER_OPTION = 0;
+  static const int BROKER = 0;
   static const int UNKNOWN_SYMBOL = 1;
   static const int EXCHANGE_CLOSED = 2;
   static const int ORDER_EXCEEDS_LIMIT = 3;
   static const int TOO_LATE_TO_ENTER = 4;
   static const int UNKNOWN_ORDER = 5;
   static const int DUPLICATE_ORDER = 6;
-  static const int DUPLICATE_VERBALYES = 7;
+  static const int DUPLICATE_VERBAL = 7;
   static const int STALE_ORDER = 8;
+  static const int TRADE_ALONG_REQUIRED = 9;
+  static const int INVALID_INVESTOR_ID = 10;
+  static const int UNSUPPORTED_ORDER_CHARACTERISTIC = 11;
+  static const int SURVEILLENCE_OPTION = 12;
   OrdRejReason() : IntField(103) {}
     OrdRejReason(int data) : IntField(103, data) {}
   };
@@ -977,7 +1086,9 @@ namespace Fix
   {
   public:
   static const __wchar_t ALL_OR_NONE = 'A';
+  static const __wchar_t MARKET_ON_CLOSE = 'B';
   static const __wchar_t AT_THE_CLOSE = 'C';
+  static const __wchar_t VWAP = 'D';
   static const __wchar_t IN_TOUCH_WITH = 'I';
   static const __wchar_t LIMIT = 'L';
   static const __wchar_t MORE_BEHIND = 'M';
@@ -988,10 +1099,10 @@ namespace Fix
   static const __wchar_t PORTFOLIO_SHOWN = 'S';
   static const __wchar_t THROUGH_THE_DAY = 'T';
   static const __wchar_t VERSUS = 'V';
-  static const __wchar_t INDICATION_WORKING_AWAY = 'W';
+  static const __wchar_t INDICATION = 'W';
   static const __wchar_t CROSSING_OPPORTUNITY = 'X';
   static const __wchar_t AT_THE_MIDPOINT = 'Y';
-  static const __wchar_t PREOPEN = 'Z';
+  static const __wchar_t PRE_OPEN = 'Z';
   IOIQualifier() : CharField(104) {}
     IOIQualifier(__wchar_t data) : CharField(104, data) {}
   };
@@ -1131,8 +1242,8 @@ namespace Fix
   public __gc class GapFillFlag : public StringField
   {
   public:
-  static const __wchar_t GAP_FILL_MESSAGE_MSGSEQNUM_FIELD_VALID = 'Y';
-  static const __wchar_t SEQUENCE_RESET_IGNORE_MSGSEQNUM = 'N';
+  static const __wchar_t GAP_FILL_MESSAGE = 'Y';
+  static const __wchar_t SEQUENCE_RESET = 'N';
   GapFillFlag() : StringField(123) {}
     GapFillFlag(String* data) : StringField(123, data) {}
   };
@@ -1166,6 +1277,7 @@ namespace Fix
   static const __wchar_t QUANTITY_EXCEEDS_ORDER = 'C';
   static const __wchar_t NO_MATCHING_ORDER = 'D';
   static const __wchar_t PRICE_EXCEEDS_LIMIT = 'E';
+  static const __wchar_t OTHER = 'Z';
   DKReason() : CharField(127) {}
     DKReason(__wchar_t data) : CharField(127, data) {}
   };
@@ -1275,7 +1387,7 @@ namespace Fix
   public __gc class ResetSeqNumFlag : public StringField
   {
   public:
-  static const __wchar_t YES_RESET_SEQUENCE_NUMBERS = 'Y';
+  static const __wchar_t YES = 'Y';
   static const __wchar_t NO = 'N';
   ResetSeqNumFlag() : StringField(141) {}
     ResetSeqNumFlag(String* data) : StringField(141, data) {}
@@ -1355,6 +1467,10 @@ namespace Fix
   static const __wchar_t EXPIRED = 'C';
   static const __wchar_t RESTATED = 'D';
   static const __wchar_t PENDING_REPLACE = 'E';
+  static const __wchar_t TRADE = 'F';
+  static const __wchar_t TRADE_CORRECT = 'G';
+  static const __wchar_t TRADE_CANCEL = 'H';
+  static const __wchar_t ORDER_STATUS = 'I';
   ExecType() : CharField(150) {}
     ExecType(__wchar_t data) : CharField(150, data) {}
   };
@@ -1397,8 +1513,6 @@ namespace Fix
   public __gc class SettlCurrFxRateCalc : public CharField
   {
   public:
-  static const __wchar_t MULTIPLY = 'M';
-  static const __wchar_t DIVIDE = 'D';
   SettlCurrFxRateCalc() : CharField(156) {}
     SettlCurrFxRateCalc(__wchar_t data) : CharField(156, data) {}
   };
@@ -1431,6 +1545,7 @@ namespace Fix
   static const __wchar_t STANDING_INSTRUCTIONS_PROVIDED = '1';
   static const __wchar_t SPECIFIC_ALLOCATION_ACCOUNT_OVERRIDING = '2';
   static const __wchar_t SPECIFIC_ALLOCATION_ACCOUNT_STANDING = '3';
+  static const __wchar_t SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT = '4';
   SettlInstMode() : CharField(160) {}
     SettlInstMode(__wchar_t data) : CharField(160, data) {}
   };
@@ -1469,8 +1584,9 @@ namespace Fix
   public __gc class SettlInstSource : public CharField
   {
   public:
-  static const __wchar_t BROKER = '1';
-  static const __wchar_t INSTITUTION = '2';
+  static const __wchar_t BROKERS_INSTRUCTIONS = '1';
+  static const __wchar_t INSTITUTIONS_INSTRUCTIONS = '2';
+  static const __wchar_t INVESTOR = '3';
   SettlInstSource() : CharField(165) {}
     SettlInstSource(__wchar_t data) : CharField(165, data) {}
   };
@@ -1482,9 +1598,8 @@ namespace Fix
   static const String* DEPOSITORY_TRUST_COMPANY = "DTC";
   static const String* EUROCLEAR = "EUR";
   static const String* FEDERAL_BOOK_ENTRY = "FED";
-  static const String* PHYSICAL = "PNY";
-  static const String* PARTICIPANT_TRUST_COMPANY = "PTC";
-  static const String* LOCAL_MARKET_SETTLE_LOCATION = "ISO";
+  static const String* PHYSICAL = "PED";
+  static const String* PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY = "PTC";
   SettlLocation() : StringField(166) {}
     SettlLocation(String* data) : StringField(166, data) {}
   };
@@ -1492,37 +1607,6 @@ namespace Fix
   public __gc class SecurityType : public StringField
   {
   public:
-  static const String* BANKERS_ACCEPTANCE = "BA";
-  static const String* CONVERTIBLE_BOND = "CB";
-  static const String* CERTIFICATE_OF_DEPOSIT = "CD";
-  static const String* COLLATERALIZE_MORTGAGE_OBLIGATION = "CMO";
-  static const String* CORPORATE_BOND = "CORP";
-  static const String* COMMERCIAL_PAPER = "CP";
-  static const String* CORPORATE_PRIVATE_PLACEMENT = "CPP";
-  static const String* COMMON_STOCK = "CS";
-  static const String* FEDERAL_HOUSING_AUTHORITY = "FHA";
-  static const String* FEDERAL_HOME_LOAN = "FHL";
-  static const String* FEDERAL_NATIONAL_MORTGAGE_ASSOCIATION = "FN";
-  static const String* FOREIGN_EXCHANGE_CONTRACT = "FOR";
-  static const String* FUTURE = "FUT";
-  static const String* GOVERNMENT_NATIONAL_MORTGAGE_ASSOCIATION = "GN";
-  static const String* TREASURIES_PLUS_AGENCY_DEBENTURE = "GOVT";
-  static const String* MUTUAL_FUND = "MF";
-  static const String* MORTGAGE_INTEREST_ONLY = "MIO";
-  static const String* MORTGAGE_PRINCIPAL_ONLY = "MPO";
-  static const String* MORTGAGE_PRIVATE_PLACEMENT = "MPP";
-  static const String* MISCELLANEOUS_PASSTHRU = "MPT";
-  static const String* MUNICIPAL_BOND = "MUNI";
-  static const String* NO_ISITC_SECURITY_TYPE = "NONE";
-  static const String* OPTION = "OPT";
-  static const String* PREFERRED_STOCK = "PS";
-  static const String* REPURCHASE_AGREEMENT = "RP";
-  static const String* REVERSE_REPURCHASE_AGREEMENT = "RVRP";
-  static const String* STUDENT_LOAN_MARKETING_ASSOCIATION = "SL";
-  static const String* TIME_DEPOSIT = "TD";
-  static const String* US_TREASURY_BILL = "USTB";
-  static const String* WARRANT = "WAR";
-  static const String* CATS_TIGERS = "ZOO";
   SecurityType() : StringField(167) {}
     SecurityType(String* data) : StringField(167, data) {}
   };
@@ -1737,8 +1821,8 @@ namespace Fix
   public __gc class AllocLinkType : public IntField
   {
   public:
-  static const int FX_NETTING = 0;
-  static const int FX_SWAP = 1;
+  static const int F_X_NETTING = 0;
+  static const int F_X_SWAP = 1;
   AllocLinkType() : IntField(197) {}
     AllocLinkType(int data) : IntField(197, data) {}
   };
@@ -1898,11 +1982,11 @@ namespace Fix
     RoutingID(String* data) : StringField(217, data) {}
   };
   
-  public __gc class SpreadToBenchmark : public DoubleField
+  public __gc class Spread : public DoubleField
   {
   public:
-  SpreadToBenchmark() : DoubleField(218) {}
-    SpreadToBenchmark(double data) : DoubleField(218, data) {}
+  Spread() : DoubleField(218) {}
+    Spread(double data) : DoubleField(218, data) {}
   };
   
   public __gc class Benchmark : public CharField
@@ -1921,6 +2005,27 @@ namespace Fix
     Benchmark(__wchar_t data) : CharField(219, data) {}
   };
   
+  public __gc class BenchmarkCurveCurrency : public DoubleField
+  {
+  public:
+  BenchmarkCurveCurrency() : DoubleField(220) {}
+    BenchmarkCurveCurrency(double data) : DoubleField(220, data) {}
+  };
+  
+  public __gc class BenchmarkCurveName : public StringField
+  {
+  public:
+  BenchmarkCurveName() : StringField(221) {}
+    BenchmarkCurveName(String* data) : StringField(221, data) {}
+  };
+  
+  public __gc class BenchmarkCurvePoint : public StringField
+  {
+  public:
+  BenchmarkCurvePoint() : StringField(222) {}
+    BenchmarkCurvePoint(String* data) : StringField(222, data) {}
+  };
+  
   public __gc class CouponRate : public DoubleField
   {
   public:
@@ -1928,11 +2033,299 @@ namespace Fix
     CouponRate(double data) : DoubleField(223, data) {}
   };
   
+  public __gc class CouponPaymentDate : public UtcDateField
+  {
+  public:
+  CouponPaymentDate() : UtcDateField(224) {}
+    CouponPaymentDate(DateTime data) : UtcDateField(224, data) {}
+  };
+  
+  public __gc class IssueDate : public UtcDateField
+  {
+  public:
+  IssueDate() : UtcDateField(225) {}
+    IssueDate(DateTime data) : UtcDateField(225, data) {}
+  };
+  
+  public __gc class RepurchaseTerm : public IntField
+  {
+  public:
+  RepurchaseTerm() : IntField(226) {}
+    RepurchaseTerm(int data) : IntField(226, data) {}
+  };
+  
+  public __gc class RepurchaseRate : public DoubleField
+  {
+  public:
+  RepurchaseRate() : DoubleField(227) {}
+    RepurchaseRate(double data) : DoubleField(227, data) {}
+  };
+  
+  public __gc class Factor : public DoubleField
+  {
+  public:
+  Factor() : DoubleField(228) {}
+    Factor(double data) : DoubleField(228, data) {}
+  };
+  
+  public __gc class TradeOriginationDate : public UtcDateField
+  {
+  public:
+  TradeOriginationDate() : UtcDateField(229) {}
+    TradeOriginationDate(DateTime data) : UtcDateField(229, data) {}
+  };
+  
+  public __gc class ExDate : public UtcDateField
+  {
+  public:
+  ExDate() : UtcDateField(230) {}
+    ExDate(DateTime data) : UtcDateField(230, data) {}
+  };
+  
   public __gc class ContractMultiplier : public DoubleField
   {
   public:
   ContractMultiplier() : DoubleField(231) {}
     ContractMultiplier(double data) : DoubleField(231, data) {}
+  };
+  
+  public __gc class NoStipulations : public IntField
+  {
+  public:
+  NoStipulations() : IntField(232) {}
+    NoStipulations(int data) : IntField(232, data) {}
+  };
+  
+  public __gc class StipulationType : public StringField
+  {
+  public:
+  StipulationType() : StringField(233) {}
+    StipulationType(String* data) : StringField(233, data) {}
+  };
+  
+  public __gc class StipulationValue : public StringField
+  {
+  public:
+  StipulationValue() : StringField(234) {}
+    StipulationValue(String* data) : StringField(234, data) {}
+  };
+  
+  public __gc class YieldType : public StringField
+  {
+  public:
+  static const String* AFTER_TAX_YIELD = "AFTERTAX";
+  static const String* ANNUAL_YIELD = "ANNUAL";
+  static const String* YIELD_AT_ISSUE = "ATISSUE";
+  static const String* YIELD_TO_AVERAGE_LIFE = "AVGLIFE";
+  static const String* YIELD_TO_AVERAGE_MATURITY = "AVGMATURITY";
+  static const String* BOOK_YIELD = "BOOK";
+  static const String* YIELD_TO_NEXT_CALL = "CALL";
+  static const String* YIELD_CHANGE_SINCE_CLOSE = "CHANGE";
+  static const String* CLOSING_YIELD = "CLOSE";
+  static const String* COMPOUND_YIELD = "COMPOUND";
+  static const String* CURRENT_YIELD = "CURRENT";
+  static const String* TRUE_GROSS_YIELD = "GROSS";
+  static const String* GOVERNMENT_EQUIVALENT_YIELD = "GOVTEQUIV";
+  static const String* YIELD_WITH_INFLATION_ASSUMPTION = "INFLATION";
+  static const String* INVERSE_FLOATER_BOND_YIELD = "INVERSEFLOATER";
+  static const String* MOST_RECENT_CLOSING_YIELD = "LASTCLOSE";
+  static const String* CLOSING_YIELD_MOST_RECENT_MONTH = "LASTMONTH";
+  static const String* CLOSING_YIELD_MOST_RECENT_QUARTER = "LASTQUARTER";
+  static const String* CLOSING_YIELD_MOST_RECENT_YEAR = "LASTYEAR";
+  static const String* YIELD_TO_LONGEST_AVERAGE_LIFE = "LONGAVGLIFE";
+  static const String* YIELD_TO_LONGEST_AVERAGE = "LONGEST";
+  static const String* MARK_TO_MARKET_YIELD = "MARK";
+  static const String* YIELD_TO_MATURITY = "MATURITY";
+  static const String* YIELD_TO_NEXT_REFUND = "NEXTREFUND";
+  static const String* OPEN_AVERAGE_YIELD = "OPENAVG";
+  static const String* YIELD_TO_NEXT_PUT = "PUT";
+  static const String* PREVIOUS_CLOSE_YIELD = "PREVCLOSE";
+  static const String* PROCEEDS_YIELD = "PROCEEDS";
+  static const String* SEMI_ANNUAL_YIELD = "SEMIANNUAL";
+  static const String* YIELD_TO_SHORTEST_AVERAGE_LIFE = "SHORTAVGLIFE";
+  static const String* YIELD_TO_SHORTEST_AVERAGE = "SHORTEST";
+  static const String* SIMPLE_YIELD = "SIMPLE";
+  static const String* TAX_EQUIVALENT_YIELD = "TAXEQUIV";
+  static const String* YIELD_TO_TENDER_DATE = "TENDER";
+  static const String* TRUE_YIELD = "TRUE";
+  static const String* YIELD_TO_WORST_CONVENTION = "WORST";
+  YieldType() : StringField(235) {}
+    YieldType(String* data) : StringField(235, data) {}
+  };
+  
+  public __gc class Yield : public DoubleField
+  {
+  public:
+  Yield() : DoubleField(236) {}
+    Yield(double data) : DoubleField(236, data) {}
+  };
+  
+  public __gc class TotalTakedown : public DoubleField
+  {
+  public:
+  TotalTakedown() : DoubleField(237) {}
+    TotalTakedown(double data) : DoubleField(237, data) {}
+  };
+  
+  public __gc class Concession : public DoubleField
+  {
+  public:
+  Concession() : DoubleField(238) {}
+    Concession(double data) : DoubleField(238, data) {}
+  };
+  
+  public __gc class RepoCollateralSecurityType : public IntField
+  {
+  public:
+  RepoCollateralSecurityType() : IntField(239) {}
+    RepoCollateralSecurityType(int data) : IntField(239, data) {}
+  };
+  
+  public __gc class RedemptionDate : public UtcDateField
+  {
+  public:
+  RedemptionDate() : UtcDateField(240) {}
+    RedemptionDate(DateTime data) : UtcDateField(240, data) {}
+  };
+  
+  public __gc class UnderlyingCouponPaymentDate : public UtcDateField
+  {
+  public:
+  UnderlyingCouponPaymentDate() : UtcDateField(241) {}
+    UnderlyingCouponPaymentDate(DateTime data) : UtcDateField(241, data) {}
+  };
+  
+  public __gc class UnderlyingIssueDate : public UtcDateField
+  {
+  public:
+  UnderlyingIssueDate() : UtcDateField(242) {}
+    UnderlyingIssueDate(DateTime data) : UtcDateField(242, data) {}
+  };
+  
+  public __gc class UnderlyingRepoCollateralSecurityType : public IntField
+  {
+  public:
+  UnderlyingRepoCollateralSecurityType() : IntField(243) {}
+    UnderlyingRepoCollateralSecurityType(int data) : IntField(243, data) {}
+  };
+  
+  public __gc class UnderlyingRepurchaseTerm : public IntField
+  {
+  public:
+  UnderlyingRepurchaseTerm() : IntField(244) {}
+    UnderlyingRepurchaseTerm(int data) : IntField(244, data) {}
+  };
+  
+  public __gc class UnderlyingRepurchaseRate : public DoubleField
+  {
+  public:
+  UnderlyingRepurchaseRate() : DoubleField(245) {}
+    UnderlyingRepurchaseRate(double data) : DoubleField(245, data) {}
+  };
+  
+  public __gc class UnderlyingFactor : public DoubleField
+  {
+  public:
+  UnderlyingFactor() : DoubleField(246) {}
+    UnderlyingFactor(double data) : DoubleField(246, data) {}
+  };
+  
+  public __gc class UnderlyingRedemptionDate : public UtcDateField
+  {
+  public:
+  UnderlyingRedemptionDate() : UtcDateField(247) {}
+    UnderlyingRedemptionDate(DateTime data) : UtcDateField(247, data) {}
+  };
+  
+  public __gc class LegCouponPaymentDate : public UtcDateField
+  {
+  public:
+  LegCouponPaymentDate() : UtcDateField(248) {}
+    LegCouponPaymentDate(DateTime data) : UtcDateField(248, data) {}
+  };
+  
+  public __gc class LegIssueDate : public UtcDateField
+  {
+  public:
+  LegIssueDate() : UtcDateField(249) {}
+    LegIssueDate(DateTime data) : UtcDateField(249, data) {}
+  };
+  
+  public __gc class LegRepoCollateralSecurityType : public IntField
+  {
+  public:
+  LegRepoCollateralSecurityType() : IntField(250) {}
+    LegRepoCollateralSecurityType(int data) : IntField(250, data) {}
+  };
+  
+  public __gc class LegRepurchaseTerm : public IntField
+  {
+  public:
+  LegRepurchaseTerm() : IntField(251) {}
+    LegRepurchaseTerm(int data) : IntField(251, data) {}
+  };
+  
+  public __gc class LegRepurchaseRate : public DoubleField
+  {
+  public:
+  LegRepurchaseRate() : DoubleField(252) {}
+    LegRepurchaseRate(double data) : DoubleField(252, data) {}
+  };
+  
+  public __gc class LegFactor : public DoubleField
+  {
+  public:
+  LegFactor() : DoubleField(253) {}
+    LegFactor(double data) : DoubleField(253, data) {}
+  };
+  
+  public __gc class LegRedemptionDate : public UtcDateField
+  {
+  public:
+  LegRedemptionDate() : UtcDateField(254) {}
+    LegRedemptionDate(DateTime data) : UtcDateField(254, data) {}
+  };
+  
+  public __gc class CreditRating : public StringField
+  {
+  public:
+  CreditRating() : StringField(255) {}
+    CreditRating(String* data) : StringField(255, data) {}
+  };
+  
+  public __gc class UnderlyingCreditRating : public StringField
+  {
+  public:
+  UnderlyingCreditRating() : StringField(256) {}
+    UnderlyingCreditRating(String* data) : StringField(256, data) {}
+  };
+  
+  public __gc class LegCreditRating : public StringField
+  {
+  public:
+  LegCreditRating() : StringField(257) {}
+    LegCreditRating(String* data) : StringField(257, data) {}
+  };
+  
+  public __gc class TradedFlatSwitch : public StringField
+  {
+  public:
+  TradedFlatSwitch() : StringField(258) {}
+    TradedFlatSwitch(String* data) : StringField(258, data) {}
+  };
+  
+  public __gc class BasisFeatureDate : public UtcDateField
+  {
+  public:
+  BasisFeatureDate() : UtcDateField(259) {}
+    BasisFeatureDate(DateTime data) : UtcDateField(259, data) {}
+  };
+  
+  public __gc class BasisFeaturePrice : public DoubleField
+  {
+  public:
+  BasisFeaturePrice() : DoubleField(260) {}
+    BasisFeaturePrice(double data) : DoubleField(260, data) {}
   };
   
   public __gc class MDReqID : public StringField
@@ -1947,7 +2340,7 @@ namespace Fix
   public:
   static const __wchar_t SNAPSHOT = '0';
   static const __wchar_t SNAPSHOT_PLUS_UPDATES = '1';
-  static const __wchar_t DISABLE_PREVIOUS = '2';
+  static const __wchar_t DISABLE_PREVIOUS_SNAPSHOT_PLUS_UPDATE_REQUEST = '2';
   SubscriptionRequestType() : CharField(263) {}
     SubscriptionRequestType(__wchar_t data) : CharField(263, data) {}
   };
@@ -2006,6 +2399,7 @@ namespace Fix
   static const __wchar_t TRADING_SESSION_HIGH_PRICE = '7';
   static const __wchar_t TRADING_SESSION_LOW_PRICE = '8';
   static const __wchar_t TRADING_SESSION_VWAP_PRICE = '9';
+  static const __wchar_t IMBALANCE = 'A';
   MDEntryType() : CharField(269) {}
     MDEntryType(__wchar_t data) : CharField(269, data) {}
   };
@@ -2042,9 +2436,9 @@ namespace Fix
   {
   public:
   static const __wchar_t PLUS_TICK = '0';
-  static const __wchar_t ZEROPLUS_TICK = '1';
+  static const __wchar_t ZERO_PLUS_TICK = '1';
   static const __wchar_t MINUS_TICK = '2';
-  static const __wchar_t ZEROMINUS_TICK = '3';
+  static const __wchar_t ZERO_MINUS_TICK = '3';
   TickDirection() : CharField(274) {}
     TickDirection(__wchar_t data) : CharField(274, data) {}
   };
@@ -2059,15 +2453,15 @@ namespace Fix
   public __gc class QuoteCondition : public StringField
   {
   public:
-  static const __wchar_t OPEN_ACTIVE = 'A';
-  static const __wchar_t CLOSED_INACTIVE = 'B';
+  static const __wchar_t OPEN = 'A';
+  static const __wchar_t CLOSED = 'B';
   static const __wchar_t EXCHANGE_BEST = 'C';
   static const __wchar_t CONSOLIDATED_BEST = 'D';
   static const __wchar_t LOCKED = 'E';
   static const __wchar_t CROSSED = 'F';
   static const __wchar_t DEPTH = 'G';
   static const __wchar_t FAST_TRADING = 'H';
-  static const __wchar_t NONFIRM = 'I';
+  static const __wchar_t NON_FIRM = 'I';
   QuoteCondition() : StringField(276) {}
     QuoteCondition(String* data) : StringField(276, data) {}
   };
@@ -2079,7 +2473,7 @@ namespace Fix
   static const __wchar_t AVERAGE_PRICE_TRADE = 'B';
   static const __wchar_t CASH_TRADE = 'C';
   static const __wchar_t NEXT_DAY = 'D';
-  static const __wchar_t OPENING_REOPENING_TRADE_DETAIL = 'E';
+  static const __wchar_t OPENING = 'E';
   static const __wchar_t INTRADAY_TRADE_DETAIL = 'F';
   static const __wchar_t RULE_127_TRADE = 'G';
   static const __wchar_t RULE_155_TRADE = 'H';
@@ -2089,6 +2483,9 @@ namespace Fix
   static const __wchar_t SELLER = 'L';
   static const __wchar_t SOLD = 'M';
   static const __wchar_t STOPPED_STOCK = 'N';
+  static const __wchar_t IMBALANCE_MORE_BUYERS = 'P';
+  static const __wchar_t IMBALANCE_MORE_SELLERS = 'Q';
+  static const __wchar_t OPENING_PRICE = 'R';
   TradeCondition() : StringField(277) {}
     TradeCondition(String* data) : StringField(277, data) {}
   };
@@ -2129,6 +2526,10 @@ namespace Fix
   static const __wchar_t UNSUPPORTED_MDUPDATETYPE = '6';
   static const __wchar_t UNSUPPORTED_AGGREGATEDBOOK = '7';
   static const __wchar_t UNSUPPORTED_MDENTRYTYPE = '8';
+  static const __wchar_t UNSUPPORTED_TRADINGSESSIONID = '9';
+  static const __wchar_t UNSUPPORTED_SCOPE = 'A';
+  static const __wchar_t UNSUPPORTED_OPENCLOSESETTLEFLAG = 'B';
+  static const __wchar_t UNSUPPORTED_MDIMPLICITDELETE = 'C';
   MDReqRejReason() : CharField(281) {}
     MDReqRejReason(__wchar_t data) : CharField(281, data) {}
   };
@@ -2157,20 +2558,22 @@ namespace Fix
   public __gc class DeleteReason : public CharField
   {
   public:
-  static const __wchar_t CANCELATION_TRADE_BUST = '0';
+  static const __wchar_t CANCELATION = '0';
   static const __wchar_t ERROR = '1';
   DeleteReason() : CharField(285) {}
     DeleteReason(__wchar_t data) : CharField(285, data) {}
   };
   
-  public __gc class OpenCloseSettleFlag : public CharField
+  public __gc class OpenCloseSettleFlag : public StringField
   {
   public:
-  static const __wchar_t DAILY_OPEN_CLOSE__SETTLEMENT_PRICE = '0';
-  static const __wchar_t SESSION_OPEN_CLOSE__SETTLEMENT_PRICE = '1';
+  static const __wchar_t DAILY_OPEN = '0';
+  static const __wchar_t SESSION_OPEN = '1';
   static const __wchar_t DELIVERY_SETTLEMENT_PRICE = '2';
-  OpenCloseSettleFlag() : CharField(286) {}
-    OpenCloseSettleFlag(__wchar_t data) : CharField(286, data) {}
+  static const __wchar_t EXPECTED_PRICE = '3';
+  static const __wchar_t PRICE_FROM_PREVIOUS_BUSINESS_DAY = '4';
+  OpenCloseSettleFlag() : StringField(286) {}
+    OpenCloseSettleFlag(String* data) : StringField(286, data) {}
   };
   
   public __gc class SellerDays : public IntField
@@ -2201,24 +2604,25 @@ namespace Fix
     MDEntryPositionNo(int data) : IntField(290, data) {}
   };
   
-  public __gc class FinancialStatus : public CharField
+  public __gc class FinancialStatus : public StringField
   {
   public:
   static const __wchar_t BANKRUPT = '1';
-  FinancialStatus() : CharField(291) {}
-    FinancialStatus(__wchar_t data) : CharField(291, data) {}
+  static const __wchar_t PENDING_DELISTING = '2';
+  FinancialStatus() : StringField(291) {}
+    FinancialStatus(String* data) : StringField(291, data) {}
   };
   
-  public __gc class CorporateAction : public CharField
+  public __gc class CorporateAction : public StringField
   {
   public:
-  static const __wchar_t EXDIVIDEND = 'A';
-  static const __wchar_t EXDISTRIBUTION = 'B';
-  static const __wchar_t EXRIGHTS = 'C';
+  static const __wchar_t EX_DIVIDEND = 'A';
+  static const __wchar_t EX_DISTRIBUTION = 'B';
+  static const __wchar_t EX_RIGHTS = 'C';
   static const __wchar_t NEW = 'D';
-  static const __wchar_t EXINTEREST = 'E';
-  CorporateAction() : CharField(292) {}
-    CorporateAction(__wchar_t data) : CharField(292, data) {}
+  static const __wchar_t EX_INTEREST = 'E';
+  CorporateAction() : StringField(292) {}
+    CorporateAction(String* data) : StringField(292, data) {}
   };
   
   public __gc class DefBidSize : public DoubleField
@@ -2249,11 +2653,22 @@ namespace Fix
     NoQuoteSets(int data) : IntField(296, data) {}
   };
   
-  public __gc class QuoteAckStatus : public IntField
+  public __gc class QuoteStatus : public IntField
   {
   public:
-  QuoteAckStatus() : IntField(297) {}
-    QuoteAckStatus(int data) : IntField(297, data) {}
+  static const int ACCEPTED = 0;
+  static const int CANCELED_FOR_SYMBOL = 1;
+  static const int CANCELED_FOR_SECURITY_TYPE = 2;
+  static const int CANCELED_FOR_UNDERLYING = 3;
+  static const int CANCELED_ALL = 4;
+  static const int REJECTED = 5;
+  static const int REMOVED_FROM_MARKET = 6;
+  static const int EXPIRED = 7;
+  static const int QUERY = 8;
+  static const int QUOTE_NOT_FOUND = 9;
+  static const int PENDING = 10;
+  QuoteStatus() : IntField(297) {}
+    QuoteStatus(int data) : IntField(297, data) {}
   };
   
   public __gc class QuoteCancelType : public IntField
@@ -2273,14 +2688,6 @@ namespace Fix
   public __gc class QuoteRejectReason : public IntField
   {
   public:
-  static const int UNKNOWN_SYMBOL = 1;
-  static const int EXCHANGE = 2;
-  static const int QUOTE_REQUEST_EXCEEDS_LIMIT = 3;
-  static const int TOO_LATE_TO_ENTER = 4;
-  static const int UNKNOWN_QUOTE = 5;
-  static const int DUPLICATE_QUOTE_7 = 6;
-  static const int INVALID_PRICE = 8;
-  static const int NOT_AUTHORIZED_TO_QUOTE_SECURITY = 9;
   QuoteRejectReason() : IntField(300) {}
     QuoteRejectReason(int data) : IntField(300, data) {}
   };
@@ -2302,6 +2709,8 @@ namespace Fix
   public __gc class QuoteRequestType : public IntField
   {
   public:
+  static const int MANUAL = 1;
+  static const int AUTOMATIC = 2;
   QuoteRequestType() : IntField(303) {}
     QuoteRequestType(int data) : IntField(303, data) {}
   };
@@ -2313,11 +2722,11 @@ namespace Fix
     TotQuoteEntries(int data) : IntField(304, data) {}
   };
   
-  public __gc class UnderlyingIDSource : public StringField
+  public __gc class UnderlyingSecurityIDSource : public StringField
   {
   public:
-  UnderlyingIDSource() : StringField(305) {}
-    UnderlyingIDSource(String* data) : StringField(305, data) {}
+  UnderlyingSecurityIDSource() : StringField(305) {}
+    UnderlyingSecurityIDSource(String* data) : StringField(305, data) {}
   };
   
   public __gc class UnderlyingIssuer : public StringField
@@ -2478,7 +2887,7 @@ namespace Fix
   static const int OPENING_DELAY = 1;
   static const int TRADING_HALT = 2;
   static const int RESUME = 3;
-  static const int NO_OPENNO_RESUME = 4;
+  static const int NO_OPEN = 4;
   static const int PRICE_INDICATION = 5;
   static const int TRADING_RANGE_INDICATION = 6;
   static const int MARKET_IMBALANCE_BUY = 7;
@@ -2487,13 +2896,16 @@ namespace Fix
   static const int MARKET_ON_CLOSE_IMBALANCE_SELL = 10;
   static const int NO_MARKET_IMBALANCE = 12;
   static const int NO_MARKET_ON_CLOSE_IMBALANCE = 13;
-  static const int ITS_PREOPENING = 14;
+  static const int ITS_PRE_OPENING = 14;
   static const int NEW_PRICE_INDICATION = 15;
   static const int TRADE_DISSEMINATION_TIME = 16;
   static const int READY_TO_TRADE = 17;
   static const int NOT_AVAILABLE_FOR_TRADING = 18;
   static const int NOT_TRADED_ON_THIS_MARKET = 19;
   static const int UNKNOWN_OR_INVALID = 20;
+  static const int PRE_OPEN = 21;
+  static const int OPENING_ROTATION = 22;
+  static const int FAST_MARKET = 23;
   SecurityTradingStatus() : IntField(326) {}
     SecurityTradingStatus(int data) : IntField(326, data) {}
   };
@@ -2611,11 +3023,13 @@ namespace Fix
   public __gc class TradSesStatus : public IntField
   {
   public:
+  static const int UNKNOWN = 0;
   static const int HALTED = 1;
   static const int OPEN = 2;
   static const int CLOSED = 3;
-  static const int PREOPEN = 4;
-  static const int PRECLOSE = 5;
+  static const int PRE_OPEN = 4;
+  static const int PRE_CLOSE = 5;
+  static const int REQUEST_REJECTED = 6;
   TradSesStatus() : IntField(340) {}
     TradSesStatus(int data) : IntField(340, data) {}
   };
@@ -2818,7 +3232,7 @@ namespace Fix
   static const int TOO_LATE_TO_ENTER = 4;
   static const int UNKNOWN_QUOTE = 5;
   static const int DUPLICATE_QUOTE = 6;
-  static const int INVALID_BIDASK_SPREAD = 7;
+  static const int INVALID_BID = 7;
   static const int INVALID_PRICE = 8;
   static const int NOT_AUTHORIZED_TO_QUOTE_SECURITY = 9;
   QuoteEntryRejectReason() : IntField(368) {}
@@ -2867,7 +3281,13 @@ namespace Fix
   static const int SIGNATURE_PROBLEM = 8;
   static const int COMPID_PROBLEM = 9;
   static const int SENDINGTIME_ACCURACY_PROBLEM = 10;
-  static const int E = 11;
+  static const int INVALID_MSGTYPE = 11;
+  static const int XML_VALIDATION_ERROR = 12;
+  static const int TAG_APPEARS_MORE_THAN_ONCE = 13;
+  static const int TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER = 14;
+  static const int REPEATING_GROUP_FIELDS_OUT_OF_ORDER = 15;
+  static const int INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP = 16;
+  static const int NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER = 17;
   SessionRejectReason() : IntField(373) {}
     SessionRejectReason(int data) : IntField(373, data) {}
   };
@@ -2908,11 +3328,14 @@ namespace Fix
   {
   public:
   static const int GT_CORPORATE_ACTION = 0;
-  static const int GT_RENEWAL_RESTATEMENT = 1;
+  static const int GT_RENEWAL = 1;
   static const int VERBAL_CHANGE = 2;
   static const int REPRICING_OF_ORDER = 3;
   static const int BROKER_OPTION = 4;
   static const int PARTIAL_DECLINE_OF_ORDERQTY = 5;
+  static const int CANCEL_ON_TRADING_HALT = 6;
+  static const int CANCEL_ON_SYSTEM_FAILURE = 7;
+  static const int MARKET = 8;
   ExecRestatementReason() : IntField(378) {}
     ExecRestatementReason(int data) : IntField(378, data) {}
   };
@@ -2933,6 +3356,8 @@ namespace Fix
   static const int UNSUPPORTED_MESSAGE_TYPE = 3;
   static const int APPLICATION_NOT_AVAILABLE = 4;
   static const int CONDITIONALLY_REQUIRED_FIELD_MISSING = 5;
+  static const int NOT_AUTHORIZED = 6;
+  static const int DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME = 7;
   BusinessRejectReason() : IntField(380) {}
     BusinessRejectReason(int data) : IntField(380, data) {}
   };
@@ -3039,6 +3464,9 @@ namespace Fix
   public __gc class BidType : public IntField
   {
   public:
+  static const int NON_DISCLOSED_STYLE = 1;
+  static const int DISCLOSED_STYLE = 2;
+  static const int NO_BIDDING_PROCESS = 3;
   BidType() : IntField(394) {}
     BidType(int data) : IntField(394, data) {}
   };
@@ -3074,6 +3502,9 @@ namespace Fix
   public __gc class BidDescriptorType : public IntField
   {
   public:
+  static const int SECTOR = 1;
+  static const int COUNTRY = 2;
+  static const int INDEX = 3;
   BidDescriptorType() : IntField(399) {}
     BidDescriptorType(int data) : IntField(399, data) {}
   };
@@ -3088,6 +3519,8 @@ namespace Fix
   public __gc class SideValueInd : public IntField
   {
   public:
+  static const int SIDEVALUE1 = 1;
+  static const int SIDEVALUE_2 = 2;
   SideValueInd() : IntField(401) {}
     SideValueInd(int data) : IntField(401, data) {}
   };
@@ -3144,6 +3577,10 @@ namespace Fix
   public __gc class LiquidityIndType : public IntField
   {
   public:
+  static const int FIVEDAY_MOVING_AVERAGE = 1;
+  static const int TWENTYDAY_MOVING_AVERAGE = 2;
+  static const int NORMAL_MARKET_SIZE = 3;
+  static const int OTHER = 4;
   LiquidityIndType() : IntField(409) {}
     LiquidityIndType(int data) : IntField(409, data) {}
   };
@@ -3181,6 +3618,9 @@ namespace Fix
   public __gc class ProgRptReqs : public IntField
   {
   public:
+  static const int BUYSIDE_EXPLICITLY_REQUESTS_STATUS_USING_STATUSREQUEST = 1;
+  static const int SELLSIDE_PERIODICALLY_SENDS_STATUS_USING_LISTSTATUS = 2;
+  static const int REAL_TIME_EXECUTION_REPORTS = 3;
   ProgRptReqs() : IntField(414) {}
     ProgRptReqs(int data) : IntField(414, data) {}
   };
@@ -3195,6 +3635,8 @@ namespace Fix
   public __gc class IncTaxInd : public IntField
   {
   public:
+  static const int NET = 1;
+  static const int GROSS = 2;
   IncTaxInd() : IntField(416) {}
     IncTaxInd(int data) : IntField(416, data) {}
   };
@@ -3216,6 +3658,19 @@ namespace Fix
   public __gc class BasisPxType : public CharField
   {
   public:
+  static const __wchar_t CLOSING_PRICE_AT_MORNING_SESSION = '2';
+  static const __wchar_t CLOSING_PRICE = '3';
+  static const __wchar_t CURRENT_PRICE = '4';
+  static const __wchar_t SQ = '5';
+  static const __wchar_t VWAP_THROUGH_A_DAY = '6';
+  static const __wchar_t VWAP_THROUGH_A_MORNING_SESSION = '7';
+  static const __wchar_t VWAP_THROUGH_AN_AFTERNOON_SESSION = '8';
+  static const __wchar_t VWAP_THROUGH_A_DAY_EXCEPT_YORI = '9';
+  static const __wchar_t VWAP_THROUGH_A_MORNING_SESSION_EXCEPT_YORI = 'A';
+  static const __wchar_t VWAP_THROUGH_AN_AFTERNOON_SESSION_EXCEPT_YORI = 'B';
+  static const __wchar_t STRIKE = 'C';
+  static const __wchar_t OPEN = 'D';
+  static const __wchar_t OTHERS = 'Z';
   BasisPxType() : CharField(419) {}
     BasisPxType(__wchar_t data) : CharField(419, data) {}
   };
@@ -3244,6 +3699,14 @@ namespace Fix
   public __gc class PriceType : public IntField
   {
   public:
+  static const int PERCENTAGE = 1;
+  static const int PER_SHARE = 2;
+  static const int FIXED_AMOUNT = 3;
+  static const int DISCOUNT = 4;
+  static const int PREMIUM = 5;
+  static const int BASIS_POINTS_RELATIVE_TO_BENCHMARK = 6;
+  static const int TED_PRICE = 7;
+  static const int TED_YIELD = 8;
   PriceType() : IntField(423) {}
     PriceType(int data) : IntField(423, data) {}
   };
@@ -3289,6 +3752,12 @@ namespace Fix
   public __gc class ListStatusType : public IntField
   {
   public:
+  static const int ACK = 1;
+  static const int RESPONSE = 2;
+  static const int TIMED = 3;
+  static const int EXECSTARTED = 4;
+  static const int ALLDONE = 5;
+  static const int ALERT = 6;
   ListStatusType() : IntField(429) {}
     ListStatusType(int data) : IntField(429, data) {}
   };
@@ -3296,6 +3765,8 @@ namespace Fix
   public __gc class NetGrossInd : public IntField
   {
   public:
+  static const int NET = 1;
+  static const int GROSS = 2;
   NetGrossInd() : IntField(430) {}
     NetGrossInd(int data) : IntField(430, data) {}
   };
@@ -3303,6 +3774,13 @@ namespace Fix
   public __gc class ListOrderStatus : public IntField
   {
   public:
+  static const int INBIDDINGPROCESS = 1;
+  static const int RECEIVEDFOREXECUTION = 2;
+  static const int EXECUTING = 3;
+  static const int CANCELING = 4;
+  static const int ALERT = 5;
+  static const int ALL_DONE = 6;
+  static const int REJECT = 7;
   ListOrderStatus() : IntField(431) {}
     ListOrderStatus(int data) : IntField(431, data) {}
   };
@@ -3317,6 +3795,11 @@ namespace Fix
   public __gc class ListExecInstType : public CharField
   {
   public:
+  static const __wchar_t IMMEDIATE = '1';
+  static const __wchar_t WAIT_FOR_EXECUTE_INSTRUCTION = '2';
+  static const __wchar_t EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN = '3';
+  static const __wchar_t EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP = '4';
+  static const __wchar_t EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW = '5';
   ListExecInstType() : CharField(433) {}
     ListExecInstType(__wchar_t data) : CharField(433, data) {}
   };
@@ -3324,6 +3807,8 @@ namespace Fix
   public __gc class CxlRejResponseTo : public CharField
   {
   public:
+  static const __wchar_t ORDER_CANCEL_REQUEST = '1';
+  static const __wchar_t ORDER_CANCEL = '2';
   CxlRejResponseTo() : CharField(434) {}
     CxlRejResponseTo(__wchar_t data) : CharField(434, data) {}
   };
@@ -3410,6 +3895,1711 @@ namespace Fix
   public:
   EncodedListStatusText() : StringField(446) {}
     EncodedListStatusText(String* data) : StringField(446, data) {}
+  };
+  
+  public __gc class PartyIDSource : public CharField
+  {
+  public:
+  static const __wchar_t BIC = 'B';
+  static const __wchar_t GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = 'C';
+  static const __wchar_t PROPRIETARY = 'D';
+  static const __wchar_t ISO_COUNTRY_CODE = 'E';
+  static const __wchar_t SETTLEMENT_ENTITY_LOCATION = 'F';
+  static const __wchar_t ISO_COUNTRY_CODE_ = 'E';
+  static const __wchar_t KOREAN_INVESTOR_ID = '1';
+  static const __wchar_t TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII = '2';
+  static const __wchar_t TAIWANESE_TRADING_ACCOUNT = '3';
+  static const __wchar_t MALAYSIAN_CENTRAL_DEPOSITORY = '4';
+  static const __wchar_t CHINESE_B_SHARE = '5';
+  static const __wchar_t UK_NATIONAL_INSURANCE_OR_PENSION_NUMBER = '6';
+  static const __wchar_t US_SOCIAL_SECURITY_NUMBER = '7';
+  static const __wchar_t US_EMPLOYER_IDENTIFICATION_NUMBER = '8';
+  static const __wchar_t AUSTRALIAN_BUSINESS_NUMBER = '9';
+  static const __wchar_t AUSTRALIAN_TAX_FILE_NUMBER = 'A';
+  PartyIDSource() : CharField(447) {}
+    PartyIDSource(__wchar_t data) : CharField(447, data) {}
+  };
+  
+  public __gc class PartyID : public StringField
+  {
+  public:
+  PartyID() : StringField(448) {}
+    PartyID(String* data) : StringField(448, data) {}
+  };
+  
+  public __gc class TotalVolumeTradedDate : public UtcDateField
+  {
+  public:
+  TotalVolumeTradedDate() : UtcDateField(449) {}
+    TotalVolumeTradedDate(DateTime data) : UtcDateField(449, data) {}
+  };
+  
+  public __gc class TotalVolumeTradedTime : public UtcTimeOnlyField
+  {
+  public:
+  TotalVolumeTradedTime() : UtcTimeOnlyField(450) {}
+    TotalVolumeTradedTime(DateTime data) : UtcTimeOnlyField(450, data) {}
+  };
+  
+  public __gc class NetChgPrevDay : public DoubleField
+  {
+  public:
+  NetChgPrevDay() : DoubleField(451) {}
+    NetChgPrevDay(double data) : DoubleField(451, data) {}
+  };
+  
+  public __gc class PartyRole : public IntField
+  {
+  public:
+  static const int EXECUTING_FIRM = 1;
+  static const int BROKER_OF_CREDIT = 2;
+  static const int CLIENT_ID = 3;
+  static const int CLEARING_FIRM = 4;
+  static const int INVESTOR_ID = 5;
+  static const int INTRODUCING_FIRM = 6;
+  static const int ENTERING_FIRM = 7;
+  static const int LOCATE = 8;
+  static const int FUND_MANAGER_CLIENT_ID = 9;
+  static const int SETTLEMENT_LOCATION = 10;
+  static const int ORDER_ORIGINATION_TRADER = 11;
+  static const int EXECUTING_TRADER = 12;
+  static const int ORDER_ORIGINATION_FIRM = 13;
+  static const int GIVEUP_CLEARING_FIRM = 14;
+  static const int CORRESPONDANT_CLEARING_FIRM = 15;
+  static const int EXECUTING_SYSTEM = 16;
+  static const int CONTRA_FIRM = 17;
+  static const int CONTRA_CLEARING_FIRM = 18;
+  static const int SPONSORING_FIRM = 19;
+  static const int UNDERLYING_CONTRA_FIRM = 20;
+  PartyRole() : IntField(452) {}
+    PartyRole(int data) : IntField(452, data) {}
+  };
+  
+  public __gc class NoPartyIDs : public IntField
+  {
+  public:
+  NoPartyIDs() : IntField(453) {}
+    NoPartyIDs(int data) : IntField(453, data) {}
+  };
+  
+  public __gc class NoSecurityAltID : public IntField
+  {
+  public:
+  NoSecurityAltID() : IntField(454) {}
+    NoSecurityAltID(int data) : IntField(454, data) {}
+  };
+  
+  public __gc class SecurityAltID : public StringField
+  {
+  public:
+  SecurityAltID() : StringField(455) {}
+    SecurityAltID(String* data) : StringField(455, data) {}
+  };
+  
+  public __gc class SecurityAltIDSource : public StringField
+  {
+  public:
+  SecurityAltIDSource() : StringField(456) {}
+    SecurityAltIDSource(String* data) : StringField(456, data) {}
+  };
+  
+  public __gc class NoUnderlyingSecurityAltID : public IntField
+  {
+  public:
+  NoUnderlyingSecurityAltID() : IntField(457) {}
+    NoUnderlyingSecurityAltID(int data) : IntField(457, data) {}
+  };
+  
+  public __gc class UnderlyingSecurityAltID : public StringField
+  {
+  public:
+  UnderlyingSecurityAltID() : StringField(458) {}
+    UnderlyingSecurityAltID(String* data) : StringField(458, data) {}
+  };
+  
+  public __gc class UnderlyingSecurityAltIDSource : public StringField
+  {
+  public:
+  UnderlyingSecurityAltIDSource() : StringField(459) {}
+    UnderlyingSecurityAltIDSource(String* data) : StringField(459, data) {}
+  };
+  
+  public __gc class Product : public IntField
+  {
+  public:
+  static const int AGENCY = 1;
+  static const int COMMODITY = 2;
+  static const int CORPORATE = 3;
+  static const int CURRENCY = 4;
+  static const int EQUITY = 5;
+  static const int GOVERNMENT = 6;
+  static const int INDEX = 7;
+  static const int LOAN = 8;
+  static const int MONEYMARKET = 9;
+  static const int MORTGAGE = 10;
+  static const int MUNICIPAL = 11;
+  static const int OTHER = 12;
+  Product() : IntField(460) {}
+    Product(int data) : IntField(460, data) {}
+  };
+  
+  public __gc class CFICode : public StringField
+  {
+  public:
+  CFICode() : StringField(461) {}
+    CFICode(String* data) : StringField(461, data) {}
+  };
+  
+  public __gc class UnderlyingProduct : public IntField
+  {
+  public:
+  UnderlyingProduct() : IntField(462) {}
+    UnderlyingProduct(int data) : IntField(462, data) {}
+  };
+  
+  public __gc class UnderlyingCFICode : public StringField
+  {
+  public:
+  UnderlyingCFICode() : StringField(463) {}
+    UnderlyingCFICode(String* data) : StringField(463, data) {}
+  };
+  
+  public __gc class TestMessageIndicator : public StringField
+  {
+  public:
+  static const __wchar_t TRUE = 'Y';
+  static const __wchar_t FALSE = 'N';
+  TestMessageIndicator() : StringField(464) {}
+    TestMessageIndicator(String* data) : StringField(464, data) {}
+  };
+  
+  public __gc class QuantityType : public IntField
+  {
+  public:
+  static const int SHARES = 1;
+  static const int BONDS = 2;
+  static const int CURRENTFACE = 3;
+  static const int ORIGINALFACE = 4;
+  static const int CURRENCY = 5;
+  static const int CONTRACTS = 6;
+  static const int OTHER = 7;
+  static const int PAR = 8;
+  QuantityType() : IntField(465) {}
+    QuantityType(int data) : IntField(465, data) {}
+  };
+  
+  public __gc class BookingRefID : public StringField
+  {
+  public:
+  BookingRefID() : StringField(466) {}
+    BookingRefID(String* data) : StringField(466, data) {}
+  };
+  
+  public __gc class IndividualAllocID : public StringField
+  {
+  public:
+  IndividualAllocID() : StringField(467) {}
+    IndividualAllocID(String* data) : StringField(467, data) {}
+  };
+  
+  public __gc class RoundingDirection : public CharField
+  {
+  public:
+  RoundingDirection() : CharField(468) {}
+    RoundingDirection(__wchar_t data) : CharField(468, data) {}
+  };
+  
+  public __gc class RoundingModulus : public DoubleField
+  {
+  public:
+  RoundingModulus() : DoubleField(469) {}
+    RoundingModulus(double data) : DoubleField(469, data) {}
+  };
+  
+  public __gc class CountryOfIssue : public StringField
+  {
+  public:
+  CountryOfIssue() : StringField(470) {}
+    CountryOfIssue(String* data) : StringField(470, data) {}
+  };
+  
+  public __gc class StateOrProvinceOfIssue : public StringField
+  {
+  public:
+  StateOrProvinceOfIssue() : StringField(471) {}
+    StateOrProvinceOfIssue(String* data) : StringField(471, data) {}
+  };
+  
+  public __gc class LocaleOfIssue : public StringField
+  {
+  public:
+  LocaleOfIssue() : StringField(472) {}
+    LocaleOfIssue(String* data) : StringField(472, data) {}
+  };
+  
+  public __gc class NoRegistDtls : public IntField
+  {
+  public:
+  NoRegistDtls() : IntField(473) {}
+    NoRegistDtls(int data) : IntField(473, data) {}
+  };
+  
+  public __gc class MailingDtls : public StringField
+  {
+  public:
+  MailingDtls() : StringField(474) {}
+    MailingDtls(String* data) : StringField(474, data) {}
+  };
+  
+  public __gc class InvestorCountryOfResidence : public StringField
+  {
+  public:
+  InvestorCountryOfResidence() : StringField(475) {}
+    InvestorCountryOfResidence(String* data) : StringField(475, data) {}
+  };
+  
+  public __gc class PaymentRef : public StringField
+  {
+  public:
+  PaymentRef() : StringField(476) {}
+    PaymentRef(String* data) : StringField(476, data) {}
+  };
+  
+  public __gc class DistribPaymentMethod : public IntField
+  {
+  public:
+  DistribPaymentMethod() : IntField(477) {}
+    DistribPaymentMethod(int data) : IntField(477, data) {}
+  };
+  
+  public __gc class CashDistribCurr : public DoubleField
+  {
+  public:
+  CashDistribCurr() : DoubleField(478) {}
+    CashDistribCurr(double data) : DoubleField(478, data) {}
+  };
+  
+  public __gc class CommCurrency : public DoubleField
+  {
+  public:
+  CommCurrency() : DoubleField(479) {}
+    CommCurrency(double data) : DoubleField(479, data) {}
+  };
+  
+  public __gc class CancellationRights : public CharField
+  {
+  public:
+  CancellationRights() : CharField(480) {}
+    CancellationRights(__wchar_t data) : CharField(480, data) {}
+  };
+  
+  public __gc class MoneyLaunderingStatus : public CharField
+  {
+  public:
+  static const __wchar_t PASSED = 'Y';
+  static const __wchar_t NOT_CHECKED = 'N';
+  static const __wchar_t EXEMPT_BELOW_THE_LIMIT = '1';
+  static const __wchar_t EXEMPT_CLIENT_MONEY_TYPE_EXEMPTION = '2';
+  static const __wchar_t EXEMPT_AUTHORISED_CREDIT_OR_FINANCIAL_INSTITUTION = '3';
+  MoneyLaunderingStatus() : CharField(481) {}
+    MoneyLaunderingStatus(__wchar_t data) : CharField(481, data) {}
+  };
+  
+  public __gc class MailingInst : public StringField
+  {
+  public:
+  MailingInst() : StringField(482) {}
+    MailingInst(String* data) : StringField(482, data) {}
+  };
+  
+  public __gc class TransBkdTime : public UtcTimeStampField
+  {
+  public:
+  TransBkdTime() : UtcTimeStampField(483) {}
+    TransBkdTime(DateTime data) : UtcTimeStampField(483, data) {}
+  };
+  
+  public __gc class ExecPriceType : public CharField
+  {
+  public:
+  ExecPriceType() : CharField(484) {}
+    ExecPriceType(__wchar_t data) : CharField(484, data) {}
+  };
+  
+  public __gc class ExecPriceAdjustment : public DoubleField
+  {
+  public:
+  ExecPriceAdjustment() : DoubleField(485) {}
+    ExecPriceAdjustment(double data) : DoubleField(485, data) {}
+  };
+  
+  public __gc class DateOfBirth : public StringField
+  {
+  public:
+  DateOfBirth() : StringField(486) {}
+    DateOfBirth(String* data) : StringField(486, data) {}
+  };
+  
+  public __gc class TradeReportTransType : public CharField
+  {
+  public:
+  static const __wchar_t NEW = 'N';
+  static const __wchar_t CANCEL = 'C';
+  static const __wchar_t REPLACE = 'R';
+  TradeReportTransType() : CharField(487) {}
+    TradeReportTransType(__wchar_t data) : CharField(487, data) {}
+  };
+  
+  public __gc class CardHolderName : public StringField
+  {
+  public:
+  CardHolderName() : StringField(488) {}
+    CardHolderName(String* data) : StringField(488, data) {}
+  };
+  
+  public __gc class CardNumber : public StringField
+  {
+  public:
+  CardNumber() : StringField(489) {}
+    CardNumber(String* data) : StringField(489, data) {}
+  };
+  
+  public __gc class CardExpDate : public StringField
+  {
+  public:
+  CardExpDate() : StringField(490) {}
+    CardExpDate(String* data) : StringField(490, data) {}
+  };
+  
+  public __gc class CardIssNo : public StringField
+  {
+  public:
+  CardIssNo() : StringField(491) {}
+    CardIssNo(String* data) : StringField(491, data) {}
+  };
+  
+  public __gc class PaymentMethod : public IntField
+  {
+  public:
+  PaymentMethod() : IntField(492) {}
+    PaymentMethod(int data) : IntField(492, data) {}
+  };
+  
+  public __gc class RegistAcctType : public StringField
+  {
+  public:
+  RegistAcctType() : StringField(493) {}
+    RegistAcctType(String* data) : StringField(493, data) {}
+  };
+  
+  public __gc class Designation : public StringField
+  {
+  public:
+  Designation() : StringField(494) {}
+    Designation(String* data) : StringField(494, data) {}
+  };
+  
+  public __gc class TaxAdvantageType : public IntField
+  {
+  public:
+  TaxAdvantageType() : IntField(495) {}
+    TaxAdvantageType(int data) : IntField(495, data) {}
+  };
+  
+  public __gc class RegistRejReasonText : public StringField
+  {
+  public:
+  RegistRejReasonText() : StringField(496) {}
+    RegistRejReasonText(String* data) : StringField(496, data) {}
+  };
+  
+  public __gc class FundRenewWaiv : public CharField
+  {
+  public:
+  FundRenewWaiv() : CharField(497) {}
+    FundRenewWaiv(__wchar_t data) : CharField(497, data) {}
+  };
+  
+  public __gc class CashDistribAgentName : public StringField
+  {
+  public:
+  CashDistribAgentName() : StringField(498) {}
+    CashDistribAgentName(String* data) : StringField(498, data) {}
+  };
+  
+  public __gc class CashDistribAgentCode : public StringField
+  {
+  public:
+  CashDistribAgentCode() : StringField(499) {}
+    CashDistribAgentCode(String* data) : StringField(499, data) {}
+  };
+  
+  public __gc class CashDistribAgentAcctNumber : public StringField
+  {
+  public:
+  CashDistribAgentAcctNumber() : StringField(500) {}
+    CashDistribAgentAcctNumber(String* data) : StringField(500, data) {}
+  };
+  
+  public __gc class CashDistribPayRef : public StringField
+  {
+  public:
+  CashDistribPayRef() : StringField(501) {}
+    CashDistribPayRef(String* data) : StringField(501, data) {}
+  };
+  
+  public __gc class CashDistribAgentAcctName : public StringField
+  {
+  public:
+  CashDistribAgentAcctName() : StringField(502) {}
+    CashDistribAgentAcctName(String* data) : StringField(502, data) {}
+  };
+  
+  public __gc class CardStartDate : public StringField
+  {
+  public:
+  CardStartDate() : StringField(503) {}
+    CardStartDate(String* data) : StringField(503, data) {}
+  };
+  
+  public __gc class PaymentDate : public StringField
+  {
+  public:
+  PaymentDate() : StringField(504) {}
+    PaymentDate(String* data) : StringField(504, data) {}
+  };
+  
+  public __gc class PaymentRemitterID : public StringField
+  {
+  public:
+  PaymentRemitterID() : StringField(505) {}
+    PaymentRemitterID(String* data) : StringField(505, data) {}
+  };
+  
+  public __gc class RegistStatus : public CharField
+  {
+  public:
+  RegistStatus() : CharField(506) {}
+    RegistStatus(__wchar_t data) : CharField(506, data) {}
+  };
+  
+  public __gc class RegistRejReasonCode : public IntField
+  {
+  public:
+  RegistRejReasonCode() : IntField(507) {}
+    RegistRejReasonCode(int data) : IntField(507, data) {}
+  };
+  
+  public __gc class RegistRefID : public StringField
+  {
+  public:
+  RegistRefID() : StringField(508) {}
+    RegistRefID(String* data) : StringField(508, data) {}
+  };
+  
+  public __gc class RegistDetls : public StringField
+  {
+  public:
+  RegistDetls() : StringField(509) {}
+    RegistDetls(String* data) : StringField(509, data) {}
+  };
+  
+  public __gc class NoDistribInsts : public IntField
+  {
+  public:
+  NoDistribInsts() : IntField(510) {}
+    NoDistribInsts(int data) : IntField(510, data) {}
+  };
+  
+  public __gc class RegistEmail : public StringField
+  {
+  public:
+  RegistEmail() : StringField(511) {}
+    RegistEmail(String* data) : StringField(511, data) {}
+  };
+  
+  public __gc class DistribPercentage : public DoubleField
+  {
+  public:
+  DistribPercentage() : DoubleField(512) {}
+    DistribPercentage(double data) : DoubleField(512, data) {}
+  };
+  
+  public __gc class RegistID : public StringField
+  {
+  public:
+  RegistID() : StringField(513) {}
+    RegistID(String* data) : StringField(513, data) {}
+  };
+  
+  public __gc class RegistTransType : public CharField
+  {
+  public:
+  static const __wchar_t NEW = '0';
+  static const __wchar_t REPLACE = '1';
+  static const __wchar_t CANCEL = '2';
+  RegistTransType() : CharField(514) {}
+    RegistTransType(__wchar_t data) : CharField(514, data) {}
+  };
+  
+  public __gc class ExecValuationPoint : public UtcTimeStampField
+  {
+  public:
+  ExecValuationPoint() : UtcTimeStampField(515) {}
+    ExecValuationPoint(DateTime data) : UtcTimeStampField(515, data) {}
+  };
+  
+  public __gc class OrderPercent : public DoubleField
+  {
+  public:
+  OrderPercent() : DoubleField(516) {}
+    OrderPercent(double data) : DoubleField(516, data) {}
+  };
+  
+  public __gc class OwnershipType : public CharField
+  {
+  public:
+  OwnershipType() : CharField(517) {}
+    OwnershipType(__wchar_t data) : CharField(517, data) {}
+  };
+  
+  public __gc class NoContAmts : public IntField
+  {
+  public:
+  NoContAmts() : IntField(518) {}
+    NoContAmts(int data) : IntField(518, data) {}
+  };
+  
+  public __gc class ContAmtType : public IntField
+  {
+  public:
+  ContAmtType() : IntField(519) {}
+    ContAmtType(int data) : IntField(519, data) {}
+  };
+  
+  public __gc class ContAmtValue : public DoubleField
+  {
+  public:
+  ContAmtValue() : DoubleField(520) {}
+    ContAmtValue(double data) : DoubleField(520, data) {}
+  };
+  
+  public __gc class ContAmtCurr : public DoubleField
+  {
+  public:
+  ContAmtCurr() : DoubleField(521) {}
+    ContAmtCurr(double data) : DoubleField(521, data) {}
+  };
+  
+  public __gc class OwnerType : public IntField
+  {
+  public:
+  static const int INDIVIDUAL_INVESTOR = 1;
+  static const int PUBLIC_COMPANY = 2;
+  static const int PRIVATE_COMPANY = 3;
+  static const int INDIVIDUAL_TRUSTEE = 4;
+  static const int COMPANY_TRUSTEE = 5;
+  static const int PENSION_PLAN = 6;
+  static const int CUSTODIAN_UNDER_GIFTS_TO_MINORS_ACT = 7;
+  static const int TRUSTS = 8;
+  static const int FIDUCIARIES = 9;
+  static const int NETWORKING_SUB_ACCOUNT = 10;
+  static const int NON_PROFIT_ORGANIZATION = 11;
+  static const int CORPORATE_BODY = 12;
+  static const int NOMINEE = 13;
+  OwnerType() : IntField(522) {}
+    OwnerType(int data) : IntField(522, data) {}
+  };
+  
+  public __gc class PartySubID : public StringField
+  {
+  public:
+  PartySubID() : StringField(523) {}
+    PartySubID(String* data) : StringField(523, data) {}
+  };
+  
+  public __gc class NestedPartyID : public StringField
+  {
+  public:
+  NestedPartyID() : StringField(524) {}
+    NestedPartyID(String* data) : StringField(524, data) {}
+  };
+  
+  public __gc class NestedPartyIDSource : public CharField
+  {
+  public:
+  NestedPartyIDSource() : CharField(525) {}
+    NestedPartyIDSource(__wchar_t data) : CharField(525, data) {}
+  };
+  
+  public __gc class SecondaryClOrdID : public StringField
+  {
+  public:
+  SecondaryClOrdID() : StringField(526) {}
+    SecondaryClOrdID(String* data) : StringField(526, data) {}
+  };
+  
+  public __gc class SecondaryExecID : public StringField
+  {
+  public:
+  SecondaryExecID() : StringField(527) {}
+    SecondaryExecID(String* data) : StringField(527, data) {}
+  };
+  
+  public __gc class OrderCapacity : public CharField
+  {
+  public:
+  static const __wchar_t AGENCY = 'A';
+  static const __wchar_t PROPRIETARY = 'G';
+  static const __wchar_t INDIVIDUAL = 'I';
+  static const __wchar_t PRINCIPAL = 'P';
+  static const __wchar_t RISKLESS_PRINCIPAL = 'R';
+  static const __wchar_t AGENT_FOR_OTHER_MEMBER = 'W';
+  OrderCapacity() : CharField(528) {}
+    OrderCapacity(__wchar_t data) : CharField(528, data) {}
+  };
+  
+  public __gc class OrderRestrictions : public StringField
+  {
+  public:
+  static const __wchar_t PROGRAM_TRADE = '1';
+  static const __wchar_t INDEX_ARBITRAGE = '2';
+  static const __wchar_t NON_INDEX_ARBITRAGE = '3';
+  static const __wchar_t COMPETING_MARKET_MAKER = '4';
+  static const __wchar_t ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_SECURITY = '5';
+  static const __wchar_t ACTING_AS_MARKET_MAKER_OR_SPECIALIST_IN_THE_UNDERLYING_SECURITY_OF_A_DERIVATIVE_SECURITY = '6';
+  static const __wchar_t FOREIGN_ENTITY = '7';
+  static const __wchar_t EXTERNAL_MARKET_PARTICIPANT = '8';
+  static const __wchar_t EXTERNAL_INTER_CONNECTED_MARKET_LINKAGE = '9';
+  static const __wchar_t RISKLESS_ARBITRAGE = 'A';
+  OrderRestrictions() : StringField(529) {}
+    OrderRestrictions(String* data) : StringField(529, data) {}
+  };
+  
+  public __gc class MassCancelRequestType : public CharField
+  {
+  public:
+  static const __wchar_t CANCEL_ORDERS_FOR_A_SECURITY = '1';
+  static const __wchar_t CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY = '2';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_PRODUCT = '3';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_CFICODE = '4';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_SECURITYTYPE = '5';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_TRADING_SESSION = '6';
+  static const __wchar_t CANCEL_ALL_ORDERS = '7';
+  MassCancelRequestType() : CharField(530) {}
+    MassCancelRequestType(__wchar_t data) : CharField(530, data) {}
+  };
+  
+  public __gc class MassCancelResponse : public CharField
+  {
+  public:
+  static const __wchar_t CANCEL_REQUEST_REJECTED = '0';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_SECURITY = '1';
+  static const __wchar_t CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY = '2';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_PRODUCT = '3';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_CFICODE = '4';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_SECURITYTYPE = '5';
+  static const __wchar_t CANCEL_ORDERS_FOR_A_TRADING_SESSION = '6';
+  static const __wchar_t CANCEL_ALL_ORDERS = '7';
+  MassCancelResponse() : CharField(531) {}
+    MassCancelResponse(__wchar_t data) : CharField(531, data) {}
+  };
+  
+  public __gc class MassCancelRejectReason : public CharField
+  {
+  public:
+  MassCancelRejectReason() : CharField(532) {}
+    MassCancelRejectReason(__wchar_t data) : CharField(532, data) {}
+  };
+  
+  public __gc class TotalAffectedOrders : public IntField
+  {
+  public:
+  TotalAffectedOrders() : IntField(533) {}
+    TotalAffectedOrders(int data) : IntField(533, data) {}
+  };
+  
+  public __gc class NoAffectedOrders : public IntField
+  {
+  public:
+  NoAffectedOrders() : IntField(534) {}
+    NoAffectedOrders(int data) : IntField(534, data) {}
+  };
+  
+  public __gc class AffectedOrderID : public StringField
+  {
+  public:
+  AffectedOrderID() : StringField(535) {}
+    AffectedOrderID(String* data) : StringField(535, data) {}
+  };
+  
+  public __gc class AffectedSecondaryOrderID : public StringField
+  {
+  public:
+  AffectedSecondaryOrderID() : StringField(536) {}
+    AffectedSecondaryOrderID(String* data) : StringField(536, data) {}
+  };
+  
+  public __gc class QuoteType : public IntField
+  {
+  public:
+  static const int INDICATIVE = 0;
+  static const int TRADEABLE = 1;
+  static const int RESTRICTED_TRADEABLE = 2;
+  QuoteType() : IntField(537) {}
+    QuoteType(int data) : IntField(537, data) {}
+  };
+  
+  public __gc class NestedPartyRole : public IntField
+  {
+  public:
+  NestedPartyRole() : IntField(538) {}
+    NestedPartyRole(int data) : IntField(538, data) {}
+  };
+  
+  public __gc class NoNestedPartyIDs : public IntField
+  {
+  public:
+  NoNestedPartyIDs() : IntField(539) {}
+    NoNestedPartyIDs(int data) : IntField(539, data) {}
+  };
+  
+  public __gc class TotalAccruedInterestAmt : public DoubleField
+  {
+  public:
+  TotalAccruedInterestAmt() : DoubleField(540) {}
+    TotalAccruedInterestAmt(double data) : DoubleField(540, data) {}
+  };
+  
+  public __gc class MaturityDate : public StringField
+  {
+  public:
+  MaturityDate() : StringField(541) {}
+    MaturityDate(String* data) : StringField(541, data) {}
+  };
+  
+  public __gc class UnderlyingMaturityDate : public StringField
+  {
+  public:
+  UnderlyingMaturityDate() : StringField(542) {}
+    UnderlyingMaturityDate(String* data) : StringField(542, data) {}
+  };
+  
+  public __gc class InstrRegistry : public StringField
+  {
+  public:
+  static const String* COUNTRY_IN_WHICH_REGISTRY_IS_KEPT = "Code";
+  static const String* PHYSICAL_OR_BEARER = "ZZ";
+  InstrRegistry() : StringField(543) {}
+    InstrRegistry(String* data) : StringField(543, data) {}
+  };
+  
+  public __gc class CashMargin : public CharField
+  {
+  public:
+  static const __wchar_t CASH = '1';
+  static const __wchar_t MARGIN_OPEN = '2';
+  static const __wchar_t MARGIN_CLOSE = '3';
+  CashMargin() : CharField(544) {}
+    CashMargin(__wchar_t data) : CharField(544, data) {}
+  };
+  
+  public __gc class NestedPartySubID : public StringField
+  {
+  public:
+  NestedPartySubID() : StringField(545) {}
+    NestedPartySubID(String* data) : StringField(545, data) {}
+  };
+  
+  public __gc class Scope : public StringField
+  {
+  public:
+  static const __wchar_t LOCAL = '1';
+  static const __wchar_t NATIONAL = '2';
+  static const __wchar_t GLOBAL = '3';
+  Scope() : StringField(546) {}
+    Scope(String* data) : StringField(546, data) {}
+  };
+  
+  public __gc class MDImplicitDelete : public StringField
+  {
+  public:
+  static const __wchar_t CLIENT_DELETES_BIDS = 'Y';
+  static const __wchar_t SERVER_DELETES_BIDS = 'N';
+  MDImplicitDelete() : StringField(547) {}
+    MDImplicitDelete(String* data) : StringField(547, data) {}
+  };
+  
+  public __gc class CrossID : public StringField
+  {
+  public:
+  CrossID() : StringField(548) {}
+    CrossID(String* data) : StringField(548, data) {}
+  };
+  
+  public __gc class CrossType : public IntField
+  {
+  public:
+  static const int CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT = 1;
+  static const int CROSS_TRADE_WHICH_IS_EXECUTED_PARTIALLY_AND_THE_REST_IS_CANCELLED = 2;
+  static const int CROSS_TRADE_WHICH_IS_PARTIALLY_EXECUTED_WITH_THE_UNFILLED_PORTIONS_REMAINING_ACTIVE = 3;
+  static const int CROSS_TRADE_IS_EXECUTED_WITH_EXISTING_ORDERS_WITH_THE_SAME_PRICE = 4;
+  CrossType() : IntField(549) {}
+    CrossType(int data) : IntField(549, data) {}
+  };
+  
+  public __gc class CrossPrioritization : public IntField
+  {
+  public:
+  CrossPrioritization() : IntField(550) {}
+    CrossPrioritization(int data) : IntField(550, data) {}
+  };
+  
+  public __gc class OrigCrossID : public StringField
+  {
+  public:
+  OrigCrossID() : StringField(551) {}
+    OrigCrossID(String* data) : StringField(551, data) {}
+  };
+  
+  public __gc class NoSides : public IntField
+  {
+  public:
+  static const __wchar_t ONE_SIDE = '1';
+  static const __wchar_t BOTH_SIDES = '2';
+  NoSides() : IntField(552) {}
+    NoSides(int data) : IntField(552, data) {}
+  };
+  
+  public __gc class Username : public StringField
+  {
+  public:
+  Username() : StringField(553) {}
+    Username(String* data) : StringField(553, data) {}
+  };
+  
+  public __gc class Password : public StringField
+  {
+  public:
+  Password() : StringField(554) {}
+    Password(String* data) : StringField(554, data) {}
+  };
+  
+  public __gc class NoLegs : public IntField
+  {
+  public:
+  NoLegs() : IntField(555) {}
+    NoLegs(int data) : IntField(555, data) {}
+  };
+  
+  public __gc class LegCurrency : public DoubleField
+  {
+  public:
+  LegCurrency() : DoubleField(556) {}
+    LegCurrency(double data) : DoubleField(556, data) {}
+  };
+  
+  public __gc class TotalNumSecurityTypes : public IntField
+  {
+  public:
+  TotalNumSecurityTypes() : IntField(557) {}
+    TotalNumSecurityTypes(int data) : IntField(557, data) {}
+  };
+  
+  public __gc class NoSecurityTypes : public IntField
+  {
+  public:
+  NoSecurityTypes() : IntField(558) {}
+    NoSecurityTypes(int data) : IntField(558, data) {}
+  };
+  
+  public __gc class SecurityListRequestType : public IntField
+  {
+  public:
+  static const int SYMBOL = 0;
+  static const int SECURITYTYPE_AND = 1;
+  static const int PRODUCT = 2;
+  static const int TRADINGSESSIONID = 3;
+  static const int ALL_SECURITIES = 4;
+  SecurityListRequestType() : IntField(559) {}
+    SecurityListRequestType(int data) : IntField(559, data) {}
+  };
+  
+  public __gc class SecurityRequestResult : public IntField
+  {
+  public:
+  static const int VALID_REQUEST = 0;
+  static const int INVALID_OR_UNSUPPORTED_REQUEST = 1;
+  static const int NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA = 2;
+  static const int NOT_AUTHORIZED_TO_RETRIEVE_INSTRUMENT_DATA = 3;
+  static const int INSTRUMENT_DATA_TEMPORARILY_UNAVAILABLE = 4;
+  static const int REQUEST_FOR_INSTRUMENT_DATA_NOT_SUPPORTED = 5;
+  SecurityRequestResult() : IntField(560) {}
+    SecurityRequestResult(int data) : IntField(560, data) {}
+  };
+  
+  public __gc class RoundLot : public DoubleField
+  {
+  public:
+  RoundLot() : DoubleField(561) {}
+    RoundLot(double data) : DoubleField(561, data) {}
+  };
+  
+  public __gc class MinTradeVol : public DoubleField
+  {
+  public:
+  MinTradeVol() : DoubleField(562) {}
+    MinTradeVol(double data) : DoubleField(562, data) {}
+  };
+  
+  public __gc class MultiLegRptTypeReq : public IntField
+  {
+  public:
+  MultiLegRptTypeReq() : IntField(563) {}
+    MultiLegRptTypeReq(int data) : IntField(563, data) {}
+  };
+  
+  public __gc class LegPositionEffect : public CharField
+  {
+  public:
+  LegPositionEffect() : CharField(564) {}
+    LegPositionEffect(__wchar_t data) : CharField(564, data) {}
+  };
+  
+  public __gc class LegCoveredOrUncovered : public IntField
+  {
+  public:
+  LegCoveredOrUncovered() : IntField(565) {}
+    LegCoveredOrUncovered(int data) : IntField(565, data) {}
+  };
+  
+  public __gc class LegPrice : public DoubleField
+  {
+  public:
+  LegPrice() : DoubleField(566) {}
+    LegPrice(double data) : DoubleField(566, data) {}
+  };
+  
+  public __gc class TradSesStatusRejReason : public IntField
+  {
+  public:
+  static const int UNKNOWN_OR_INVALID_TRADINGSESSIONID = 1;
+  TradSesStatusRejReason() : IntField(567) {}
+    TradSesStatusRejReason(int data) : IntField(567, data) {}
+  };
+  
+  public __gc class TradeRequestID : public StringField
+  {
+  public:
+  TradeRequestID() : StringField(568) {}
+    TradeRequestID(String* data) : StringField(568, data) {}
+  };
+  
+  public __gc class TradeRequestType : public IntField
+  {
+  public:
+  static const int ALL_TRADES = 0;
+  static const int MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST = 1;
+  static const int UNMATCHED_TRADES_THAT_MATCH_CRITERIA = 2;
+  static const int UNREPORTED_TRADES_THAT_MATCH_CRITERIA = 3;
+  static const int ADVISORIES_THAT_MATCH_CRITERIA = 4;
+  TradeRequestType() : IntField(569) {}
+    TradeRequestType(int data) : IntField(569, data) {}
+  };
+  
+  public __gc class PreviouslyReported : public StringField
+  {
+  public:
+  static const __wchar_t PREVIOUSLY_REPORTED_TO_COUNTERPARTY = 'Y';
+  static const __wchar_t NOT_REPORTED_TO_COUNTERPARTY = 'N';
+  PreviouslyReported() : StringField(570) {}
+    PreviouslyReported(String* data) : StringField(570, data) {}
+  };
+  
+  public __gc class TradeReportID : public StringField
+  {
+  public:
+  TradeReportID() : StringField(571) {}
+    TradeReportID(String* data) : StringField(571, data) {}
+  };
+  
+  public __gc class TradeReportRefID : public StringField
+  {
+  public:
+  TradeReportRefID() : StringField(572) {}
+    TradeReportRefID(String* data) : StringField(572, data) {}
+  };
+  
+  public __gc class MatchStatus : public CharField
+  {
+  public:
+  static const __wchar_t COMPARED = '0';
+  static const __wchar_t UNCOMPARED = '1';
+  static const __wchar_t ADVISORY_OR_ALERT = '2';
+  MatchStatus() : CharField(573) {}
+    MatchStatus(__wchar_t data) : CharField(573, data) {}
+  };
+  
+  public __gc class MatchType : public StringField
+  {
+  public:
+  static const String* EXACT_MATCH_PLUS_FOUR_BADGES_AND_EXECUTION_TIME = "A1";
+  static const String* EXACT_MATCH_PLUS_FOUR_BADGES = "A2";
+  static const String* EXACT_MATCH_PLUS_TWO_BADGES_AND_EXECUTION_TIME = "A3";
+  static const String* EXACT_MATCH_PLUS_TWO_BADGES = "A4";
+  static const String* EXACT_MATCH_PLUS_EXECUTION_TIME = "A5";
+  static const String* COMPARED_RECORDS_RESULTING_FROM_STAMPED_ADVISORIES_OR_SPECIALIST_ACCEPTS = "AQ";
+  static const String* SUMMARIZED_MATCH_USING_A1_TO_A5 = "S5";
+  static const String* EXACT_MATCH_MINUS_BADGES_AND_EXECUTION_TIME = "M1";
+  static const String* SUMMARIZED_MATCH_MINUS_BADGES_AND_TIMES = "M2";
+  static const String* OCS_LOCKED_IN = "MT";
+  static const String* ACT_M1_MATCH = "M1";
+  static const String* ACT_M2_MATCH = "M2";
+  static const String* ACT_ACCEPTED_TRADE = "M3";
+  static const String* ACT_DEFAULT_TRADE = "M4";
+  static const String* ACT_DEFAULT_AFTER_M2 = "M5";
+  static const String* ACT_M6_MATCH = "M6";
+  static const String* NON_ACT = "MT";
+  MatchType() : StringField(574) {}
+    MatchType(String* data) : StringField(574, data) {}
+  };
+  
+  public __gc class OddLot : public StringField
+  {
+  public:
+  OddLot() : StringField(575) {}
+    OddLot(String* data) : StringField(575, data) {}
+  };
+  
+  public __gc class NoClearingInstructions : public IntField
+  {
+  public:
+  NoClearingInstructions() : IntField(576) {}
+    NoClearingInstructions(int data) : IntField(576, data) {}
+  };
+  
+  public __gc class ClearingInstruction : public IntField
+  {
+  public:
+  static const int PROCESS_NORMALLY = 0;
+  static const int EXCLUDE_FROM_ALL_NETTING = 1;
+  static const int BILATERAL_NETTING_ONLY = 2;
+  static const int EX_CLEARING = 3;
+  static const int SPECIAL_TRADE = 4;
+  static const int MULTILATERAL_NETTING = 5;
+  static const int CLEAR_AGAINST_CENTRAL_COUNTERPARTY = 6;
+  static const int EXCLUDE_FROM_CENTRAL_COUNTERPARTY = 7;
+  static const int MANUAL_MODE = 8;
+  static const int AUTOMATIC_POSTING_MODE = 9;
+  static const int AUTOMATIC_GIVE_UP_MODE = 10;
+  ClearingInstruction() : IntField(577) {}
+    ClearingInstruction(int data) : IntField(577, data) {}
+  };
+  
+  public __gc class TradeInputSource : public StringField
+  {
+  public:
+  TradeInputSource() : StringField(578) {}
+    TradeInputSource(String* data) : StringField(578, data) {}
+  };
+  
+  public __gc class TradeInputDevice : public StringField
+  {
+  public:
+  TradeInputDevice() : StringField(579) {}
+    TradeInputDevice(String* data) : StringField(579, data) {}
+  };
+  
+  public __gc class NoDates : public IntField
+  {
+  public:
+  NoDates() : IntField(580) {}
+    NoDates(int data) : IntField(580, data) {}
+  };
+  
+  public __gc class AccountType : public IntField
+  {
+  public:
+  static const int ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = 1;
+  static const int ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = 2;
+  static const int HOUSE_TRADER = 3;
+  static const int FLOOR_TRADER = 4;
+  static const int ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS_AND_IS_CROSS_MARGINED = 6;
+  static const int ACCOUNT_IS_HOUSE_TRADER_AND_IS_CROSS_MARGINED = 7;
+  static const int JOINT_BACKOFFICE_ACCOUNT = 8;
+  AccountType() : IntField(581) {}
+    AccountType(int data) : IntField(581, data) {}
+  };
+  
+  public __gc class CustOrderCapacity : public IntField
+  {
+  public:
+  CustOrderCapacity() : IntField(582) {}
+    CustOrderCapacity(int data) : IntField(582, data) {}
+  };
+  
+  public __gc class ClOrdLinkID : public StringField
+  {
+  public:
+  ClOrdLinkID() : StringField(583) {}
+    ClOrdLinkID(String* data) : StringField(583, data) {}
+  };
+  
+  public __gc class MassStatusReqID : public StringField
+  {
+  public:
+  MassStatusReqID() : StringField(584) {}
+    MassStatusReqID(String* data) : StringField(584, data) {}
+  };
+  
+  public __gc class MassStatusReqType : public IntField
+  {
+  public:
+  static const int STATUS_FOR_ORDERS_FOR_A_SECURITY = 1;
+  static const int STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY = 2;
+  static const int STATUS_FOR_ORDERS_FOR_A_PRODUCT = 3;
+  static const int STATUS_FOR_ORDERS_FOR_A_CFICODE = 4;
+  static const int STATUS_FOR_ORDERS_FOR_A_SECURITYTYPE = 5;
+  static const int STATUS_FOR_ORDERS_FOR_A_TRADING_SESSION = 6;
+  static const int STATUS_FOR_ALL_ORDERS = 7;
+  static const int STATUS_FOR_ORDERS_FOR_A_PARTYID = 8;
+  MassStatusReqType() : IntField(585) {}
+    MassStatusReqType(int data) : IntField(585, data) {}
+  };
+  
+  public __gc class OrigOrdModTime : public UtcTimeStampField
+  {
+  public:
+  OrigOrdModTime() : UtcTimeStampField(586) {}
+    OrigOrdModTime(DateTime data) : UtcTimeStampField(586, data) {}
+  };
+  
+  public __gc class LegSettlmntTyp : public CharField
+  {
+  public:
+  LegSettlmntTyp() : CharField(587) {}
+    LegSettlmntTyp(__wchar_t data) : CharField(587, data) {}
+  };
+  
+  public __gc class LegFutSettDate : public StringField
+  {
+  public:
+  LegFutSettDate() : StringField(588) {}
+    LegFutSettDate(String* data) : StringField(588, data) {}
+  };
+  
+  public __gc class DayBookingInst : public CharField
+  {
+  public:
+  DayBookingInst() : CharField(589) {}
+    DayBookingInst(__wchar_t data) : CharField(589, data) {}
+  };
+  
+  public __gc class BookingUnit : public CharField
+  {
+  public:
+  BookingUnit() : CharField(590) {}
+    BookingUnit(__wchar_t data) : CharField(590, data) {}
+  };
+  
+  public __gc class PreallocMethod : public CharField
+  {
+  public:
+  PreallocMethod() : CharField(591) {}
+    PreallocMethod(__wchar_t data) : CharField(591, data) {}
+  };
+  
+  public __gc class UnderlyingCountryOfIssue : public StringField
+  {
+  public:
+  UnderlyingCountryOfIssue() : StringField(592) {}
+    UnderlyingCountryOfIssue(String* data) : StringField(592, data) {}
+  };
+  
+  public __gc class UnderlyingStateOrProvinceOfIssue : public StringField
+  {
+  public:
+  UnderlyingStateOrProvinceOfIssue() : StringField(593) {}
+    UnderlyingStateOrProvinceOfIssue(String* data) : StringField(593, data) {}
+  };
+  
+  public __gc class UnderlyingLocaleOfIssue : public StringField
+  {
+  public:
+  UnderlyingLocaleOfIssue() : StringField(594) {}
+    UnderlyingLocaleOfIssue(String* data) : StringField(594, data) {}
+  };
+  
+  public __gc class UnderlyingInstrRegistry : public StringField
+  {
+  public:
+  UnderlyingInstrRegistry() : StringField(595) {}
+    UnderlyingInstrRegistry(String* data) : StringField(595, data) {}
+  };
+  
+  public __gc class LegCountryOfIssue : public StringField
+  {
+  public:
+  LegCountryOfIssue() : StringField(596) {}
+    LegCountryOfIssue(String* data) : StringField(596, data) {}
+  };
+  
+  public __gc class LegStateOrProvinceOfIssue : public StringField
+  {
+  public:
+  LegStateOrProvinceOfIssue() : StringField(597) {}
+    LegStateOrProvinceOfIssue(String* data) : StringField(597, data) {}
+  };
+  
+  public __gc class LegLocaleOfIssue : public StringField
+  {
+  public:
+  LegLocaleOfIssue() : StringField(598) {}
+    LegLocaleOfIssue(String* data) : StringField(598, data) {}
+  };
+  
+  public __gc class LegInstrRegistry : public StringField
+  {
+  public:
+  LegInstrRegistry() : StringField(599) {}
+    LegInstrRegistry(String* data) : StringField(599, data) {}
+  };
+  
+  public __gc class LegSymbol : public StringField
+  {
+  public:
+  LegSymbol() : StringField(600) {}
+    LegSymbol(String* data) : StringField(600, data) {}
+  };
+  
+  public __gc class LegSymbolSfx : public StringField
+  {
+  public:
+  LegSymbolSfx() : StringField(601) {}
+    LegSymbolSfx(String* data) : StringField(601, data) {}
+  };
+  
+  public __gc class LegSecurityID : public StringField
+  {
+  public:
+  LegSecurityID() : StringField(602) {}
+    LegSecurityID(String* data) : StringField(602, data) {}
+  };
+  
+  public __gc class LegSecurityIDSource : public StringField
+  {
+  public:
+  LegSecurityIDSource() : StringField(603) {}
+    LegSecurityIDSource(String* data) : StringField(603, data) {}
+  };
+  
+  public __gc class NoLegSecurityAltID : public StringField
+  {
+  public:
+  NoLegSecurityAltID() : StringField(604) {}
+    NoLegSecurityAltID(String* data) : StringField(604, data) {}
+  };
+  
+  public __gc class LegSecurityAltID : public StringField
+  {
+  public:
+  LegSecurityAltID() : StringField(605) {}
+    LegSecurityAltID(String* data) : StringField(605, data) {}
+  };
+  
+  public __gc class LegSecurityAltIDSource : public StringField
+  {
+  public:
+  LegSecurityAltIDSource() : StringField(606) {}
+    LegSecurityAltIDSource(String* data) : StringField(606, data) {}
+  };
+  
+  public __gc class LegProduct : public IntField
+  {
+  public:
+  LegProduct() : IntField(607) {}
+    LegProduct(int data) : IntField(607, data) {}
+  };
+  
+  public __gc class LegCFICode : public StringField
+  {
+  public:
+  LegCFICode() : StringField(608) {}
+    LegCFICode(String* data) : StringField(608, data) {}
+  };
+  
+  public __gc class LegSecurityType : public StringField
+  {
+  public:
+  LegSecurityType() : StringField(609) {}
+    LegSecurityType(String* data) : StringField(609, data) {}
+  };
+  
+  public __gc class LegMaturityMonthYear : public StringField
+  {
+  public:
+  LegMaturityMonthYear() : StringField(610) {}
+    LegMaturityMonthYear(String* data) : StringField(610, data) {}
+  };
+  
+  public __gc class LegMaturityDate : public StringField
+  {
+  public:
+  LegMaturityDate() : StringField(611) {}
+    LegMaturityDate(String* data) : StringField(611, data) {}
+  };
+  
+  public __gc class LegStrikePrice : public DoubleField
+  {
+  public:
+  LegStrikePrice() : DoubleField(612) {}
+    LegStrikePrice(double data) : DoubleField(612, data) {}
+  };
+  
+  public __gc class LegOptAttribute : public CharField
+  {
+  public:
+  LegOptAttribute() : CharField(613) {}
+    LegOptAttribute(__wchar_t data) : CharField(613, data) {}
+  };
+  
+  public __gc class LegContractMultiplier : public DoubleField
+  {
+  public:
+  LegContractMultiplier() : DoubleField(614) {}
+    LegContractMultiplier(double data) : DoubleField(614, data) {}
+  };
+  
+  public __gc class LegCouponRate : public DoubleField
+  {
+  public:
+  LegCouponRate() : DoubleField(615) {}
+    LegCouponRate(double data) : DoubleField(615, data) {}
+  };
+  
+  public __gc class LegSecurityExchange : public StringField
+  {
+  public:
+  LegSecurityExchange() : StringField(616) {}
+    LegSecurityExchange(String* data) : StringField(616, data) {}
+  };
+  
+  public __gc class LegIssuer : public StringField
+  {
+  public:
+  LegIssuer() : StringField(617) {}
+    LegIssuer(String* data) : StringField(617, data) {}
+  };
+  
+  public __gc class EncodedLegIssuerLen : public IntField
+  {
+  public:
+  EncodedLegIssuerLen() : IntField(618) {}
+    EncodedLegIssuerLen(int data) : IntField(618, data) {}
+  };
+  
+  public __gc class EncodedLegIssuer : public StringField
+  {
+  public:
+  EncodedLegIssuer() : StringField(619) {}
+    EncodedLegIssuer(String* data) : StringField(619, data) {}
+  };
+  
+  public __gc class LegSecurityDesc : public StringField
+  {
+  public:
+  LegSecurityDesc() : StringField(620) {}
+    LegSecurityDesc(String* data) : StringField(620, data) {}
+  };
+  
+  public __gc class EncodedLegSecurityDescLen : public IntField
+  {
+  public:
+  EncodedLegSecurityDescLen() : IntField(621) {}
+    EncodedLegSecurityDescLen(int data) : IntField(621, data) {}
+  };
+  
+  public __gc class EncodedLegSecurityDesc : public StringField
+  {
+  public:
+  EncodedLegSecurityDesc() : StringField(622) {}
+    EncodedLegSecurityDesc(String* data) : StringField(622, data) {}
+  };
+  
+  public __gc class LegRatioQty : public DoubleField
+  {
+  public:
+  LegRatioQty() : DoubleField(623) {}
+    LegRatioQty(double data) : DoubleField(623, data) {}
+  };
+  
+  public __gc class LegSide : public CharField
+  {
+  public:
+  LegSide() : CharField(624) {}
+    LegSide(__wchar_t data) : CharField(624, data) {}
+  };
+  
+  public __gc class TradingSessionSubID : public StringField
+  {
+  public:
+  TradingSessionSubID() : StringField(625) {}
+    TradingSessionSubID(String* data) : StringField(625, data) {}
+  };
+  
+  public __gc class AllocType : public IntField
+  {
+  public:
+  static const int BUYSIDE_CALCULATED = 1;
+  static const int BUYSIDE_PRELIMINARY = 2;
+  static const int SELLSIDE_CALCULATED_USING_PRELIMINARY = 3;
+  static const int SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY = 4;
+  static const int BUYSIDE_READY_TO_BOOK_SINGLE_ORDER = 5;
+  static const int BUYSIDE_READY_TO_BOOK_COMBINED_SET_OF_ORDERS = 6;
+  AllocType() : IntField(626) {}
+    AllocType(int data) : IntField(626, data) {}
+  };
+  
+  public __gc class NoHops : public IntField
+  {
+  public:
+  NoHops() : IntField(627) {}
+    NoHops(int data) : IntField(627, data) {}
+  };
+  
+  public __gc class HopCompID : public StringField
+  {
+  public:
+  HopCompID() : StringField(628) {}
+    HopCompID(String* data) : StringField(628, data) {}
+  };
+  
+  public __gc class HopSendingTime : public UtcTimeStampField
+  {
+  public:
+  HopSendingTime() : UtcTimeStampField(629) {}
+    HopSendingTime(DateTime data) : UtcTimeStampField(629, data) {}
+  };
+  
+  public __gc class HopRefID : public IntField
+  {
+  public:
+  HopRefID() : IntField(630) {}
+    HopRefID(int data) : IntField(630, data) {}
+  };
+  
+  public __gc class MidPx : public DoubleField
+  {
+  public:
+  MidPx() : DoubleField(631) {}
+    MidPx(double data) : DoubleField(631, data) {}
+  };
+  
+  public __gc class BidYield : public DoubleField
+  {
+  public:
+  BidYield() : DoubleField(632) {}
+    BidYield(double data) : DoubleField(632, data) {}
+  };
+  
+  public __gc class MidYield : public DoubleField
+  {
+  public:
+  MidYield() : DoubleField(633) {}
+    MidYield(double data) : DoubleField(633, data) {}
+  };
+  
+  public __gc class OfferYield : public DoubleField
+  {
+  public:
+  OfferYield() : DoubleField(634) {}
+    OfferYield(double data) : DoubleField(634, data) {}
+  };
+  
+  public __gc class ClearingFeeIndicator : public StringField
+  {
+  public:
+  ClearingFeeIndicator() : StringField(635) {}
+    ClearingFeeIndicator(String* data) : StringField(635, data) {}
+  };
+  
+  public __gc class WorkingIndicator : public StringField
+  {
+  public:
+  static const __wchar_t ORDER_IS_CURRENTLY_BEING_WORKED = 'Y';
+  static const __wchar_t ORDER_HAS_BEEN_ACCEPTED_BUT_NOT_YET_IN_A_WORKING_STATE = 'N';
+  WorkingIndicator() : StringField(636) {}
+    WorkingIndicator(String* data) : StringField(636, data) {}
+  };
+  
+  public __gc class LegLastPx : public DoubleField
+  {
+  public:
+  LegLastPx() : DoubleField(637) {}
+    LegLastPx(double data) : DoubleField(637, data) {}
+  };
+  
+  public __gc class PriorityIndicator : public IntField
+  {
+  public:
+  static const int PRIORITY_UNCHANGED = 0;
+  static const int LOST_PRIORITY_AS_RESULT_OF_ORDER_CHANGE = 1;
+  PriorityIndicator() : IntField(638) {}
+    PriorityIndicator(int data) : IntField(638, data) {}
+  };
+  
+  public __gc class PriceImprovement : public DoubleField
+  {
+  public:
+  PriceImprovement() : DoubleField(639) {}
+    PriceImprovement(double data) : DoubleField(639, data) {}
+  };
+  
+  public __gc class Price2 : public DoubleField
+  {
+  public:
+  Price2() : DoubleField(640) {}
+    Price2(double data) : DoubleField(640, data) {}
+  };
+  
+  public __gc class LastForwardPoints2 : public DoubleField
+  {
+  public:
+  LastForwardPoints2() : DoubleField(641) {}
+    LastForwardPoints2(double data) : DoubleField(641, data) {}
+  };
+  
+  public __gc class BidForwardPoints2 : public DoubleField
+  {
+  public:
+  BidForwardPoints2() : DoubleField(642) {}
+    BidForwardPoints2(double data) : DoubleField(642, data) {}
+  };
+  
+  public __gc class OfferForwardPoints2 : public DoubleField
+  {
+  public:
+  OfferForwardPoints2() : DoubleField(643) {}
+    OfferForwardPoints2(double data) : DoubleField(643, data) {}
+  };
+  
+  public __gc class RFQReqID : public StringField
+  {
+  public:
+  RFQReqID() : StringField(644) {}
+    RFQReqID(String* data) : StringField(644, data) {}
+  };
+  
+  public __gc class MktBidPx : public DoubleField
+  {
+  public:
+  MktBidPx() : DoubleField(645) {}
+    MktBidPx(double data) : DoubleField(645, data) {}
+  };
+  
+  public __gc class MktOfferPx : public DoubleField
+  {
+  public:
+  MktOfferPx() : DoubleField(646) {}
+    MktOfferPx(double data) : DoubleField(646, data) {}
+  };
+  
+  public __gc class MinBidSize : public DoubleField
+  {
+  public:
+  MinBidSize() : DoubleField(647) {}
+    MinBidSize(double data) : DoubleField(647, data) {}
+  };
+  
+  public __gc class MinOfferSize : public DoubleField
+  {
+  public:
+  MinOfferSize() : DoubleField(648) {}
+    MinOfferSize(double data) : DoubleField(648, data) {}
+  };
+  
+  public __gc class QuoteStatusReqID : public StringField
+  {
+  public:
+  QuoteStatusReqID() : StringField(649) {}
+    QuoteStatusReqID(String* data) : StringField(649, data) {}
+  };
+  
+  public __gc class LegalConfirm : public StringField
+  {
+  public:
+  static const __wchar_t LEGAL_CONFIRM = 'Y';
+  static const __wchar_t DOES_NOT_CONSTITUTE_A_LEGAL_CONFIRM = 'N';
+  LegalConfirm() : StringField(650) {}
+    LegalConfirm(String* data) : StringField(650, data) {}
+  };
+  
+  public __gc class UnderlyingLastPx : public DoubleField
+  {
+  public:
+  UnderlyingLastPx() : DoubleField(651) {}
+    UnderlyingLastPx(double data) : DoubleField(651, data) {}
+  };
+  
+  public __gc class UnderlyingLastQty : public DoubleField
+  {
+  public:
+  UnderlyingLastQty() : DoubleField(652) {}
+    UnderlyingLastQty(double data) : DoubleField(652, data) {}
+  };
+  
+  public __gc class SecDefStatus : public IntField
+  {
+  public:
+  static const int PENDING_APPROVAL = 0;
+  static const int APPROVED = 1;
+  static const int REJECTED = 2;
+  static const int UNAUTHORIZED_REQUEST = 3;
+  static const int INVALID_DEFINITION_REQUEST = 4;
+  SecDefStatus() : IntField(653) {}
+    SecDefStatus(int data) : IntField(653, data) {}
+  };
+  
+  public __gc class LegRefID : public StringField
+  {
+  public:
+  LegRefID() : StringField(654) {}
+    LegRefID(String* data) : StringField(654, data) {}
+  };
+  
+  public __gc class ContraLegRefID : public StringField
+  {
+  public:
+  ContraLegRefID() : StringField(655) {}
+    ContraLegRefID(String* data) : StringField(655, data) {}
+  };
+  
+  public __gc class SettlCurrBidFxRate : public DoubleField
+  {
+  public:
+  SettlCurrBidFxRate() : DoubleField(656) {}
+    SettlCurrBidFxRate(double data) : DoubleField(656, data) {}
+  };
+  
+  public __gc class SettlCurrOfferFxRate : public DoubleField
+  {
+  public:
+  SettlCurrOfferFxRate() : DoubleField(657) {}
+    SettlCurrOfferFxRate(double data) : DoubleField(657, data) {}
+  };
+  
+  public __gc class QuoteRequestRejectReason : public IntField
+  {
+  public:
+  QuoteRequestRejectReason() : IntField(658) {}
+    QuoteRequestRejectReason(int data) : IntField(658, data) {}
+  };
+  
+  public __gc class SideComplianceID : public StringField
+  {
+  public:
+  SideComplianceID() : StringField(659) {}
+    SideComplianceID(String* data) : StringField(659, data) {}
   };
   
 }
