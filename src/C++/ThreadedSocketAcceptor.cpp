@@ -98,7 +98,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 { socket_term(); }
 
-void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
+void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
 {
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
   m_socket = socket_createAcceptor( m_port );

@@ -91,7 +91,7 @@ private:
   typedef std::map < int, int > SocketToThread;
   typedef std::pair < ThreadedSocketAcceptor*, ThreadedSocketConnection* > ThreadPair;
 
-  void onInitialize( const SessionSettings& ) throw ( ConfigError& );
+  void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
   void onStart();
   void onStop();
 

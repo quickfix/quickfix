@@ -83,7 +83,7 @@ private:
   typedef std::map < int, SocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
-  void onInitialize( const SessionSettings& ) throw ( ConfigError& );
+  void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
   void onStart();
   void onStop();
 

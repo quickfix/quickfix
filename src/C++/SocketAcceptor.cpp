@@ -94,7 +94,7 @@ SocketAcceptor::~SocketAcceptor()
     delete iter->second;
 }
 
-void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
+void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
 {
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
   try

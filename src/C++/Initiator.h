@@ -114,7 +114,7 @@ private:
   void initialize() throw ( ConfigError& );
 
   /// Implemented to initialize initiator
-  virtual void onInitialize( const SessionSettings& ) throw ( ConfigError& ) = 0;
+  virtual void onInitialize( const SessionSettings& ) throw ( RuntimeError& ) = 0;
   /// Implemented to start connecting to targets.
   virtual void onStart() = 0;
   /// Implemented to stop a running initiator.

@@ -110,7 +110,7 @@ private:
   void initialize() throw ( ConfigError& );
 
   /// Implemented to initialize acceptor
-  virtual void onInitialize( const SessionSettings& ) throw ( ConfigError& ) = 0;
+  virtual void onInitialize( const SessionSettings& ) throw ( RuntimeError& ) = 0;
   /// Implemented to start listening for connections.
   virtual void onStart() = 0;
   /// Implemented to stop a running acceptor.

@@ -94,7 +94,7 @@ SocketInitiator::SocketInitiator( Application& application,
 
 SocketInitiator::~SocketInitiator() {}
 
-void SocketInitiator::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
+void SocketInitiator::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
 {
   try { m_reconnectInterval = s.get().getLong( RECONNECT_INTERVAL ); }
   catch ( std::exception& ) {}

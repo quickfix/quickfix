@@ -97,7 +97,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
 { socket_term(); }
 
-void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) throw ( ConfigError& )
+void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
 {
   try { m_reconnectInterval = s.get().getLong( "ReconnectInterval" ); }
   catch ( std::exception& ) {}
