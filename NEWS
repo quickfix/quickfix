@@ -10,6 +10,9 @@ setNextSenderMsgSeqNum and setNextTargetMsgSeqNum available on session in all AP
 
 Changes made to messages in toAdmin and toApp in JAVA are correctly applied when sending
 
+isSetField method added to JAVA API. Methods in version specific messages also have
+methods to check if fields are set.
+
 sendToTarget throws SessionNotFound exception instead of just crashing under .NET
 
 Fixed memory leaks in JNI interface
@@ -30,6 +33,13 @@ occurs.
 
 SocketAcceptor and ThreadedSocketAcceptor will no longer allow you to silently takeover
 a used port.  An exception will be thrown instead.
+
+New constructor for SessionID takes strings.
+
+New setting ValidateFieldsHaveValue can be set to N to prevent rejecting messages with 
+empty fields.
+
+MySQL MessageStore will properly reset sequence numbers
 
 1.3.2
 -----
