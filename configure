@@ -5904,7 +5904,7 @@ fi
 if test $use_callstack = yes
 then
     cat >> confdefs.h <<\EOF
-#define USING_CALLSTACK 1
+#define ENABLE_CALLSTACK 1
 EOF
 
 fi
@@ -6523,17 +6523,70 @@ rm -f conftest*
 #	 AC_MSG_RESULT(no)
 #	 AC_MSG_ERROR(recursive mutexes are required))
 
-echo $ac_n "checking for typeinfo in the global namespace""... $ac_c" 1>&6
-echo "configure:6528: checking for typeinfo in the global namespace" >&5
+echo $ac_n "checking for set_terminate in the global namespace""... $ac_c" 1>&6
+echo "configure:6528: checking for set_terminate in the global namespace" >&5
 cat > conftest.$ac_ext <<EOF
 #line 6530 "configure"
+#include "confdefs.h"
+#include <exception>
+	 void term() {}
+int main() {
+set_terminate(term);
+; return 0; }
+EOF
+if { (eval echo configure:6538: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+  rm -rf conftest*
+  set_terminate_is_global=true
+else
+  echo "configure: failed program was:" >&5
+  cat conftest.$ac_ext >&5
+  rm -rf conftest*
+  set_terminate_is_global=false
+fi
+rm -f conftest*
+
+if test $set_terminate_is_global = true
+then echo "$ac_t""yes" 1>&6
+else echo "$ac_t""no" 1>&6
+    echo $ac_n "checking for set_terminate in the std namespace""... $ac_c" 1>&6
+echo "configure:6553: checking for set_terminate in the std namespace" >&5
+    cat > conftest.$ac_ext <<EOF
+#line 6555 "configure"
+#include "confdefs.h"
+#include <exception>
+     void term() {}
+int main() {
+std::set_terminate(term);
+; return 0; }
+EOF
+if { (eval echo configure:6563: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+  rm -rf conftest*
+  echo "$ac_t""yes" 1>&6
+    cat >> confdefs.h <<\EOF
+#define TERMINATE_IN_STD 1
+EOF
+
+else
+  echo "configure: failed program was:" >&5
+  cat conftest.$ac_ext >&5
+  rm -rf conftest*
+  echo "$ac_t""no" 1>&6
+    { echo "configure: error: unable to find set_terminate in std or global namespace" 1>&2; exit 1; }
+fi
+rm -f conftest*
+fi
+
+echo $ac_n "checking for typeinfo in the global namespace""... $ac_c" 1>&6
+echo "configure:6581: checking for typeinfo in the global namespace" >&5
+cat > conftest.$ac_ext <<EOF
+#line 6583 "configure"
 #include "confdefs.h"
 #include <typeinfo>
 int main() {
 const typeinfo& ty = typeid(typeinfo);
 ; return 0; }
 EOF
-if { (eval echo configure:6537: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+if { (eval echo configure:6590: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
   rm -rf conftest*
   typeinfo_is_global=true
 else
@@ -6548,16 +6601,16 @@ if test $typeinfo_is_global = true
 then echo "$ac_t""yes" 1>&6
 else echo "$ac_t""no" 1>&6
     echo $ac_n "checking for typeinfo in the std namespace""... $ac_c" 1>&6
-echo "configure:6552: checking for typeinfo in the std namespace" >&5
+echo "configure:6605: checking for typeinfo in the std namespace" >&5
     cat > conftest.$ac_ext <<EOF
-#line 6554 "configure"
+#line 6607 "configure"
 #include "confdefs.h"
 #include <typeinfo>
 int main() {
 const std::type_info& ty = typeid(std::type_info);
 ; return 0; }
 EOF
-if { (eval echo configure:6561: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+if { (eval echo configure:6614: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
   rm -rf conftest*
   echo "$ac_t""yes" 1>&6
     cat >> confdefs.h <<\EOF
@@ -6576,16 +6629,16 @@ fi
 
 # check for JNI
 echo $ac_n "checking for JNI""... $ac_c" 1>&6
-echo "configure:6580: checking for JNI" >&5
+echo "configure:6633: checking for JNI" >&5
 cat > conftest.$ac_ext <<EOF
-#line 6582 "configure"
+#line 6635 "configure"
 #include "confdefs.h"
 #include "jni.h"
 int main() {
 return 0;
 ; return 0; }
 EOF
-if { (eval echo configure:6589: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
+if { (eval echo configure:6642: \"$ac_compile\") 1>&5; (eval $ac_compile) 2>&5; }; then
   rm -rf conftest*
   has_jni=true
 else
@@ -6619,7 +6672,7 @@ cross_compiling=$ac_cv_prog_cc_cross
 
 
 echo $ac_n "checking for cplus_demangle in -liberty""... $ac_c" 1>&6
-echo "configure:6623: checking for cplus_demangle in -liberty" >&5
+echo "configure:6676: checking for cplus_demangle in -liberty" >&5
 ac_lib_var=`echo iberty'_'cplus_demangle | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_lib_$ac_lib_var'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -6627,7 +6680,7 @@ else
   ac_save_LIBS="$LIBS"
 LIBS="-liberty  $LIBS"
 cat > conftest.$ac_ext <<EOF
-#line 6631 "configure"
+#line 6684 "configure"
 #include "confdefs.h"
 /* Override any gcc2 internal prototype to avoid an error.  */
 /* We use char because int might match the return type of a gcc2
@@ -6638,7 +6691,7 @@ int main() {
 cplus_demangle()
 ; return 0; }
 EOF
-if { (eval echo configure:6642: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
+if { (eval echo configure:6695: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
   rm -rf conftest*
   eval "ac_cv_lib_$ac_lib_var=yes"
 else
@@ -6665,12 +6718,12 @@ fi
 
 # Checks for runtime behavior
 echo $ac_n "checking if select modifies timeval parameter""... $ac_c" 1>&6
-echo "configure:6669: checking if select modifies timeval parameter" >&5
+echo "configure:6722: checking if select modifies timeval parameter" >&5
 if test "$cross_compiling" = yes; then
   echo "$ac_t""unable to determine" 1>&6
 else
   cat > conftest.$ac_ext <<EOF
-#line 6674 "configure"
+#line 6727 "configure"
 #include "confdefs.h"
 
 #include <unistd.h>
@@ -6686,7 +6739,7 @@ int main(int argc, char** argv)
 }
 
 EOF
-if { (eval echo configure:6690: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+if { (eval echo configure:6743: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 then
   echo "$ac_t""yes" 1>&6
 cat >> confdefs.h <<\EOF

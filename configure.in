@@ -26,7 +26,7 @@ AC_ARG_ENABLE(callstack,
 
 if test $use_callstack = yes
 then
-    AC_DEFINE(USING_CALLSTACK, 1, 
+    AC_DEFINE(ENABLE_CALLSTACK, 1, 
 	Define if you want a C++ callstack to be displayed after crashing)
 fi
 ########################################
@@ -139,6 +139,28 @@ AC_TRY_COMPILE(
 #	 AC_MSG_RESULT(yes),
 #	 AC_MSG_RESULT(no)
 #	 AC_MSG_ERROR(recursive mutexes are required))
+
+AC_MSG_CHECKING(for set_terminate in the global namespace)
+AC_TRY_COMPILE(
+	[#include <exception>
+	 void term() {}],
+	[set_terminate(term);],
+         set_terminate_is_global=true, set_terminate_is_global=false)
+
+if test $set_terminate_is_global = true
+then AC_MSG_RESULT(yes)
+else AC_MSG_RESULT(no)
+    AC_MSG_CHECKING(for set_terminate in the std namespace)
+    AC_TRY_COMPILE(
+    [#include <exception>
+     void term() {}],
+    [std::set_terminate(term);],
+    AC_MSG_RESULT(yes)
+    AC_DEFINE(TERMINATE_IN_STD, 1, 
+    For location of set_terminate),
+    AC_MSG_RESULT(no)
+    AC_MSG_ERROR(unable to find set_terminate in std or global namespace))
+fi
 
 AC_MSG_CHECKING(for typeinfo in the global namespace)
 AC_TRY_COMPILE(

@@ -22,7 +22,7 @@
 #undef VERSION
 
 /* Define if you want a C++ callstack to be displayed after crashing */
-#undef USING_CALLSTACK
+#undef ENABLE_CALLSTACK
 
 /* Define if you have sql library (-lmysqlclient) */
 #undef HAVE_MYSQL
@@ -32,6 +32,9 @@
 
 /* The system supports AT&T STREAMS */
 #undef USING_STREAMS
+
+/* For location of set_terminate */
+#undef TERMINATE_IN_STD
 
 /* Whether or not we are using the new-style typeinfo header */
 #undef TYPEINFO_IN_STD
