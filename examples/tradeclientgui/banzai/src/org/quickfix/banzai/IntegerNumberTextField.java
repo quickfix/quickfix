@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai;
+package quickfix.banzai;
 
 import javax.swing.*;
 import java.awt.event.KeyEvent;

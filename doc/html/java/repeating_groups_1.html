@@ -1,10 +1,10 @@
 <B><CODE><PRE>
-package org.quickfix;
+package quickfix;
 
-org.quickfix.fix42.MarketDataSnapshotFullRefresh message =
-  new org.quickfix.fix42.MarketDataSnapshotFullRefresh(new Symbol("QF"));
-org.quickfix.fix42.MarketDataSnapshotFullRefresh.NoMDEntries group =
-  new org.quickfix.fix42.MarketDataSnapshotFullRefresh.NoMDEntries();
+quickfix.fix42.MarketDataSnapshotFullRefresh message =
+  new quickfix.fix42.MarketDataSnapshotFullRefresh(new Symbol("QF"));
+quickfix.fix42.MarketDataSnapshotFullRefresh.NoMDEntries group =
+  new quickfix.fix42.MarketDataSnapshotFullRefresh.NoMDEntries();
 
 group.set(new MDEntryType('0'));
 group.set(new MDEntryPx(12.32));

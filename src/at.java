@@ -46,7 +46,7 @@
 * SUCH DAMAGE.
 * ====================================================================
 */
-import org.quickfix.*;
+import quickfix.*;
 import java.io.FileInputStream;
 
 public class at {

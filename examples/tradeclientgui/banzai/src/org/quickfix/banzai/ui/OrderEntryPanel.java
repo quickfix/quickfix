@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai.ui;
+package quickfix.banzai.ui;
 
 import java.util.Observable;
 import java.util.Observer;
@@ -55,8 +55,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.LineBorder;
-import org.quickfix.banzai.*;
-import org.quickfix.SessionID;
+import quickfix.banzai.*;
+import quickfix.SessionID;
 
 public class OrderEntryPanel extends JPanel implements Observer {
     private boolean symbolEntered = false;

@@ -47,12 +47,12 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai.ui;
+package quickfix.banzai.ui;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
-import org.quickfix.banzai.*;
+import quickfix.banzai.*;
 
 public class CancelReplacePanel extends JPanel {
     private JLabel quantityLabel = new JLabel("Quantity");

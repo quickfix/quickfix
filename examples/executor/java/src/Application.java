@@ -48,31 +48,31 @@
  */
 
 import java.util.Date;
-import org.quickfix.*;
-import org.quickfix.field.*;
+import quickfix.*;
+import quickfix.field.*;
 
-public class Application extends org.quickfix.MessageCracker implements org.quickfix.Application {
+public class Application extends quickfix.MessageCracker implements quickfix.Application {
 
     public Application() {}
 
     public void onCreate(SessionID sessionID) {}
     public void onLogon(SessionID sessionID) {}
     public void onLogout(SessionID sessionID) {}
-    public void toAdmin(org.quickfix.Message message,
+    public void toAdmin(quickfix.Message message,
                         SessionID sessionID) {}
 
-    public void toApp(org.quickfix.Message message,
+    public void toApp(quickfix.Message message,
                       SessionID sessionID) throws DoNotSend {}
 
-    public void fromAdmin(org.quickfix.Message message, SessionID sessionID)
+    public void fromAdmin(quickfix.Message message, SessionID sessionID)
     throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {}
 
-    public void fromApp(org.quickfix.Message message, SessionID sessionID)
+    public void fromApp(quickfix.Message message, SessionID sessionID)
     throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
         crack(message, sessionID);
     }
 
-	public void onMessage( org.quickfix.fix40.NewOrderSingle order, SessionID sessionID )
+	public void onMessage( quickfix.fix40.NewOrderSingle order, SessionID sessionID )
     throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
         Symbol symbol = new Symbol();
         Side side = new Side();
@@ -92,7 +92,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         order.get(price);
         order.get(clOrdID);
 
-        org.quickfix.fix40.ExecutionReport executionReport = new org.quickfix.fix40.ExecutionReport
+        quickfix.fix40.ExecutionReport executionReport = new quickfix.fix40.ExecutionReport
                 ( genOrderID(),
                   genExecID(),
                   new ExecTransType( ExecTransType.NEW ),
@@ -112,7 +112,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         } catch(SessionNotFound e) {}
     }
 
-	public void onMessage( org.quickfix.fix41.NewOrderSingle order, SessionID sessionID )
+	public void onMessage( quickfix.fix41.NewOrderSingle order, SessionID sessionID )
     throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
         Symbol symbol = new Symbol();
         Side side = new Side();
@@ -132,7 +132,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         order.get(price);
         order.get(clOrdID);
 
-        org.quickfix.fix41.ExecutionReport executionReport = new org.quickfix.fix41.ExecutionReport
+        quickfix.fix41.ExecutionReport executionReport = new quickfix.fix41.ExecutionReport
                 ( genOrderID(),
                   genExecID(),
                   new ExecTransType( ExecTransType.NEW ),
@@ -154,7 +154,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         } catch(SessionNotFound e) {}
     }
 
-    public void onMessage( org.quickfix.fix42.NewOrderSingle order, SessionID sessionID )
+    public void onMessage( quickfix.fix42.NewOrderSingle order, SessionID sessionID )
     throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
         Symbol symbol = new Symbol();
         Side side = new Side();
@@ -174,7 +174,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         order.get(price);
         order.get(clOrdID);
 
-        org.quickfix.fix42.ExecutionReport executionReport = new org.quickfix.fix42.ExecutionReport
+        quickfix.fix42.ExecutionReport executionReport = new quickfix.fix42.ExecutionReport
                 ( genOrderID(),
                   genExecID(),
                   new ExecTransType( ExecTransType.NEW ),
@@ -196,7 +196,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         } catch(SessionNotFound e) {}
     }
 
-    public void onMessage( org.quickfix.fix43.NewOrderSingle order, SessionID sessionID )
+    public void onMessage( quickfix.fix43.NewOrderSingle order, SessionID sessionID )
     throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
         Symbol symbol = new Symbol();
         Side side = new Side();
@@ -216,7 +216,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         order.get(price);
         order.get(clOrdID);
 
-        org.quickfix.fix43.ExecutionReport executionReport = new org.quickfix.fix43.ExecutionReport
+        quickfix.fix43.ExecutionReport executionReport = new quickfix.fix43.ExecutionReport
                 ( genOrderID(),
                   genExecID(),
                   new ExecType     ( ExecType.FILL ),
@@ -237,7 +237,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         } catch(SessionNotFound e) {}
     }
 
-    public void onMessage( org.quickfix.fix44.NewOrderSingle order, SessionID sessionID )
+    public void onMessage( quickfix.fix44.NewOrderSingle order, SessionID sessionID )
     throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
         Symbol symbol = new Symbol();
         Side side = new Side();
@@ -257,7 +257,7 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         order.get(price);
         order.get(clOrdID);
 
-        org.quickfix.fix44.ExecutionReport executionReport = new org.quickfix.fix44.ExecutionReport
+        quickfix.fix44.ExecutionReport executionReport = new quickfix.fix44.ExecutionReport
                 ( genOrderID(),
                   genExecID(),
                   new ExecType     ( ExecType.FILL ),

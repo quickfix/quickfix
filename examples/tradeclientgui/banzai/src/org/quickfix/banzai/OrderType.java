@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai;
+package quickfix.banzai;
 import java.util.HashMap;
 import java.util.Map;
 

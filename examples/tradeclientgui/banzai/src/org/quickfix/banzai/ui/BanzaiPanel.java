@@ -47,14 +47,14 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai.ui;
+package quickfix.banzai.ui;
 
 import org.apache.log4j.Category;
 import org.apache.log4j.PatternLayout;
-import org.quickfix.banzai.Order;
-import org.quickfix.banzai.OrderTableModel;
-import org.quickfix.banzai.ExecutionTableModel;
-import org.quickfix.banzai.BanzaiApplication;
+import quickfix.banzai.Order;
+import quickfix.banzai.OrderTableModel;
+import quickfix.banzai.ExecutionTableModel;
+import quickfix.banzai.BanzaiApplication;
 
 import javax.swing.*;
 import javax.swing.event.*;

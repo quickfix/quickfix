@@ -47,12 +47,12 @@
  * ====================================================================
  */
 
-import org.quickfix.banzai.ui.BanzaiFrame;
+import quickfix.banzai.ui.BanzaiFrame;
 import org.apache.log4j.PropertyConfigurator;
 import org.apache.log4j.Category;
 
-import org.quickfix.*;
-import org.quickfix.banzai.*;
+import quickfix.*;
+import quickfix.banzai.*;
 import javax.swing.*;
 import java.awt.event.*;
 import java.io.FileInputStream;

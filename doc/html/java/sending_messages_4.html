@@ -1,9 +1,9 @@
 <B><CODE><PRE>
-import org.quickfix.*;
+import quickfix.*;
 
 void sendOrderCancelRequest()
 {
-  org.quickfix.fix41.OrderCancelRequest message(
+  quickfix.fix41.OrderCancelRequest message(
 	new OrigClOrdID("123"),
 	new ClOrdID("321"),
 	new Symbol("LNUX"),

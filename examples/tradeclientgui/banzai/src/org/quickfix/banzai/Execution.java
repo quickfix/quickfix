@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai;
+package quickfix.banzai;
 
 public class Execution {
     private String symbol = null;

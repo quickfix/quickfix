@@ -48,10 +48,10 @@
  * ====================================================================
  */
 import java.util.HashSet;
-import org.quickfix.*;
-import org.quickfix.field.*;
+import quickfix.*;
+import quickfix.field.*;
 
-class at_messagecracker extends org.quickfix.MessageCracker {
+class at_messagecracker extends quickfix.MessageCracker {
 
 private HashSet orderIDs = new HashSet();
 
@@ -61,7 +61,7 @@ public void reset() {
 
 public void process( Message message, SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-  org.quickfix.Message echo = (org.quickfix.Message)message.clone();
+  quickfix.Message echo = (quickfix.Message)message.clone();
   PossResend possResend = new PossResend( false );
   if ( message.getHeader().isSetField( possResend ) )
     message.getHeader().getField( possResend );
@@ -82,16 +82,16 @@ throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
   }
 }
 
-public void onMessage( org.quickfix.fix44.NewOrderSingle message,
+public void onMessage( quickfix.fix44.NewOrderSingle message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
   process( message, sessionID );
 }
 
-public void onMessage( org.quickfix.fix44.SecurityDefinition message,
+public void onMessage( quickfix.fix44.SecurityDefinition message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-  org.quickfix.fix44.SecurityDefinition echo = message;
+  quickfix.fix44.SecurityDefinition echo = message;
   try {
     Session.sendToTarget( echo, sessionID );
   } catch( SessionNotFound snf ) {
@@ -99,45 +99,45 @@ throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
 }
 
 
-public void onMessage( org.quickfix.fix43.NewOrderSingle message,
+public void onMessage( quickfix.fix43.NewOrderSingle message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
   process( message, sessionID );
 }
 
-public void onMessage( org.quickfix.fix43.SecurityDefinition message,
+public void onMessage( quickfix.fix43.SecurityDefinition message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-  org.quickfix.fix43.SecurityDefinition echo = message;
+  quickfix.fix43.SecurityDefinition echo = message;
   try {
     Session.sendToTarget( echo, sessionID );
   } catch( SessionNotFound snf ) {
   }
 }
 
-public void onMessage( org.quickfix.fix42.NewOrderSingle message,
+public void onMessage( quickfix.fix42.NewOrderSingle message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
   process( message, sessionID );
 }
 
-public void onMessage( org.quickfix.fix42.SecurityDefinition message,
+public void onMessage( quickfix.fix42.SecurityDefinition message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-  org.quickfix.fix42.SecurityDefinition echo = message;
+  quickfix.fix42.SecurityDefinition echo = message;
   try {
     Session.sendToTarget( echo, sessionID );
   } catch( SessionNotFound snf ) {
   }
 }
 
-public void onMessage( org.quickfix.fix41.NewOrderSingle message,
+public void onMessage( quickfix.fix41.NewOrderSingle message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
   process( message, sessionID );
 }
 
-public void onMessage( org.quickfix.fix40.NewOrderSingle message,
+public void onMessage( quickfix.fix40.NewOrderSingle message,
 		       SessionID sessionID )
 throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
   process( message, sessionID );

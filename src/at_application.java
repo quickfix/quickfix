@@ -47,8 +47,8 @@
  * SUCH DAMAGE.
  * ====================================================================
  */
-import org.quickfix.*;
-import org.quickfix.field.*;
+import quickfix.*;
+import quickfix.field.*;
 
 public class at_application implements Application
 {

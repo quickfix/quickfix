@@ -47,10 +47,10 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai.ui;
+package quickfix.banzai.ui;
 
-import org.quickfix.banzai.ExecutionTableModel;
-import org.quickfix.banzai.Execution;
+import quickfix.banzai.ExecutionTableModel;
+import quickfix.banzai.Execution;
 import javax.swing.table.*;
 import javax.swing.*;
 import java.awt.*;

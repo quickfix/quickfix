@@ -47,9 +47,9 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai;
+package quickfix.banzai;
 
-import org.quickfix.SessionID;
+import quickfix.SessionID;
 
 public class LogonEvent {
     private SessionID sessionID;

@@ -47,10 +47,10 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai.ui;
+package quickfix.banzai.ui;
 
 import org.apache.log4j.Category;
-import org.quickfix.banzai.ExecutionTableModel;
+import quickfix.banzai.ExecutionTableModel;
 
 import javax.swing.*;
 import java.awt.*;

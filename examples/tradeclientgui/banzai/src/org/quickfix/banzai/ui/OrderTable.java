@@ -47,11 +47,11 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai.ui;
+package quickfix.banzai.ui;
 
-import org.quickfix.banzai.OrderTableModel;
-import org.quickfix.banzai.Order;
-import org.quickfix.banzai.BanzaiApplication;
+import quickfix.banzai.OrderTableModel;
+import quickfix.banzai.Order;
+import quickfix.banzai.BanzaiApplication;
 import javax.swing.table.*;
 import javax.swing.*;
 import java.awt.*;

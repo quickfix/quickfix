@@ -1,6 +1,6 @@
 <B><CODE><PRE>
-import org.quickfix.*;
-import org.quickfix.field.*;
+import quickfix.*;
+import quickfix.field.*;
 
 public void fromApp(Message message, SessionID sessionID)
   throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
@@ -8,7 +8,7 @@ public void fromApp(Message message, SessionID sessionID)
   crack(message, sessionID);
 }
 
-public void onMessage( org.quickfix.fix42.NewOrderSingle message, SessionID sessionID )
+public void onMessage( quickfix.fix42.NewOrderSingle message, SessionID sessionID )
   throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
 
   ClOrdID clOrdID = new ClOrdID();
@@ -18,7 +18,7 @@ public void onMessage( org.quickfix.fix42.NewOrderSingle message, SessionID sess
   message.get(clearingAccount);
 }
 
-public void onMessage( org.quickfix.fix42.OrderCancelRequest message, SessionID sessionID )
+public void onMessage( quickfix.fix42.OrderCancelRequest message, SessionID sessionID )
   throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
 
   ClOrdID clOrdID = new ClOrdID();

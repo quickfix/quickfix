@@ -47,7 +47,7 @@
  * ====================================================================
  */
 
-package org.quickfix.banzai;
+package quickfix.banzai;
 
 import java.util.Date;
 import java.util.Observable;
@@ -56,9 +56,9 @@ import java.util.Set;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.HashMap;
-import org.quickfix.*;
-import org.quickfix.banzai.Order;
-import org.quickfix.field.*;
+import quickfix.*;
+import quickfix.banzai.Order;
+import quickfix.field.*;
 import javax.swing.SwingUtilities;
 
 public class BanzaiApplication implements Application {
@@ -85,16 +85,16 @@ public class BanzaiApplication implements Application {
         observableLogon.logoff(sessionID);
     }
 
-    public void toAdmin(org.quickfix.Message message,
+    public void toAdmin(quickfix.Message message,
                         SessionID sessionID) {}
 
-    public void toApp(org.quickfix.Message message,
+    public void toApp(quickfix.Message message,
                       SessionID sessionID) throws DoNotSend {}
 
-    public void fromAdmin(org.quickfix.Message message,SessionID sessionID)
+    public void fromAdmin(quickfix.Message message,SessionID sessionID)
     throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon {}
 
-    public void fromApp(org.quickfix.Message message, SessionID sessionID)
+    public void fromApp(quickfix.Message message, SessionID sessionID)
     throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType {
         try {
             SwingUtilities.invokeLater(new doFromApp(message, sessionID));
@@ -102,10 +102,10 @@ public class BanzaiApplication implements Application {
     }
 
     public class doFromApp implements Runnable {
-        private org.quickfix.Message message;
+        private quickfix.Message message;
         private SessionID sessionID;
 
-        public doFromApp(org.quickfix.Message message, SessionID sessionID) {
+        public doFromApp(quickfix.Message message, SessionID sessionID) {
             this.message = message;
             this.sessionID = sessionID;
         }
@@ -231,7 +231,7 @@ public class BanzaiApplication implements Application {
         }
     }
 
-    private void send(org.quickfix.Message message, SessionID sessionID) {
+    private void send(quickfix.Message message, SessionID sessionID) {
         try {
             Session.sendToTarget(message, sessionID);
         } catch(SessionNotFound e) {
@@ -251,8 +251,8 @@ public class BanzaiApplication implements Application {
     }
 
     public void send40(Order order) {
-        org.quickfix.fix40.NewOrderSingle newOrderSingle =
-            new org.quickfix.fix40.NewOrderSingle
+        quickfix.fix40.NewOrderSingle newOrderSingle =
+            new quickfix.fix40.NewOrderSingle
             (new ClOrdID(order.getID()),
              new HandlInst('1'),
              new Symbol(order.getSymbol()),
@@ -264,8 +264,8 @@ public class BanzaiApplication implements Application {
     }
 
     public void send41(Order order) {
-        org.quickfix.fix41.NewOrderSingle newOrderSingle =
-            new org.quickfix.fix41.NewOrderSingle
+        quickfix.fix41.NewOrderSingle newOrderSingle =
+            new quickfix.fix41.NewOrderSingle
             (new ClOrdID(order.getID()),
              new HandlInst('1'),
              new Symbol(order.getSymbol()),
@@ -277,8 +277,8 @@ public class BanzaiApplication implements Application {
     }
 
     public void send42(Order order) {
-        org.quickfix.fix42.NewOrderSingle newOrderSingle =
-            new org.quickfix.fix42.NewOrderSingle
+        quickfix.fix42.NewOrderSingle newOrderSingle =
+            new quickfix.fix42.NewOrderSingle
             (new ClOrdID(order.getID()),
              new HandlInst('1'),
              new Symbol(order.getSymbol()),
@@ -290,8 +290,8 @@ public class BanzaiApplication implements Application {
         send(populateOrder(order, newOrderSingle), order.getSessionID());
     }
 
-    public  org.quickfix.Message populateOrder
-    (Order order, org.quickfix.Message newOrderSingle) {
+    public  quickfix.Message populateOrder
+    (Order order, quickfix.Message newOrderSingle) {
 
         OrderType type = order.getType();
 
@@ -322,8 +322,8 @@ public class BanzaiApplication implements Application {
 
     public void cancel40(Order order) {
         String id = order.generateID();
-        org.quickfix.fix40.OrderCancelRequest message =
-            new org.quickfix.fix40.OrderCancelRequest
+        quickfix.fix40.OrderCancelRequest message =
+            new quickfix.fix40.OrderCancelRequest
             (new OrigClOrdID(order.getID()),
              new ClOrdID(id),
              new CxlType('F'),
@@ -337,8 +337,8 @@ public class BanzaiApplication implements Application {
 
     public void cancel41(Order order) {
         String id = order.generateID();
-        org.quickfix.fix41.OrderCancelRequest message =
-            new org.quickfix.fix41.OrderCancelRequest
+        quickfix.fix41.OrderCancelRequest message =
+            new quickfix.fix41.OrderCancelRequest
             (new OrigClOrdID(order.getID()),
              new ClOrdID(id),
              new Symbol(order.getSymbol()),
@@ -351,8 +351,8 @@ public class BanzaiApplication implements Application {
 
     public void cancel42(Order order) {
         String id = order.generateID();
-        org.quickfix.fix42.OrderCancelRequest message =
-            new org.quickfix.fix42.OrderCancelRequest
+        quickfix.fix42.OrderCancelRequest message =
+            new quickfix.fix42.OrderCancelRequest
             (new OrigClOrdID(order.getID()),
              new ClOrdID(id),
              new Symbol(order.getSymbol()),
@@ -376,8 +376,8 @@ public class BanzaiApplication implements Application {
     }
 
     public void replace40(Order order, Order newOrder) {
-        org.quickfix.fix40.OrderCancelReplaceRequest message =
-            new org.quickfix.fix40.OrderCancelReplaceRequest
+        quickfix.fix40.OrderCancelReplaceRequest message =
+            new quickfix.fix40.OrderCancelReplaceRequest
             (new OrigClOrdID(order.getID()),
              new ClOrdID(newOrder.getID()),
              new HandlInst('1'),
@@ -392,8 +392,8 @@ public class BanzaiApplication implements Application {
     }
 
     public void replace41(Order order, Order newOrder) {
-        org.quickfix.fix41.OrderCancelReplaceRequest message =
-            new org.quickfix.fix41.OrderCancelReplaceRequest
+        quickfix.fix41.OrderCancelReplaceRequest message =
+            new quickfix.fix41.OrderCancelReplaceRequest
             (new OrigClOrdID(order.getID()),
              new ClOrdID(newOrder.getID()),
              new HandlInst('1'),
@@ -407,8 +407,8 @@ public class BanzaiApplication implements Application {
     }
 
     public void replace42(Order order, Order newOrder) {
-        org.quickfix.fix42.OrderCancelReplaceRequest message =
-            new org.quickfix.fix42.OrderCancelReplaceRequest
+        quickfix.fix42.OrderCancelReplaceRequest message =
+            new quickfix.fix42.OrderCancelReplaceRequest
             (new OrigClOrdID(order.getID()),
              new ClOrdID(newOrder.getID()),
              new HandlInst('1'),
@@ -423,7 +423,7 @@ public class BanzaiApplication implements Application {
     }
 
     Message populateCancelReplace(Order order, Order newOrder,
-                                  org.quickfix.Message message) {
+                                  quickfix.Message message) {
 
         if(order.getQuantity() != newOrder.getQuantity())
             message.setField(new OrderQty(newOrder.getQuantity()));
