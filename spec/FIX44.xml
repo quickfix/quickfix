@@ -4027,7 +4027,7 @@
       <value enum="2" description="AUTOMATED_EXECUTION_ORDER_PUBLIC" />
       <value enum="3" description="MANUAL_ORDER" />
     </field>
-    <field number="22" name="SecurityIDSource" type="CHAR">
+    <field number="22" name="SecurityIDSource" type="STRING">
       <value enum="1" description="CUSIP" />
       <value enum="2" description="SEDOL" />
       <value enum="3" description="QUIK" />

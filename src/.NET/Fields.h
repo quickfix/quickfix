@@ -227,30 +227,30 @@ namespace QuickFix
     HandlInst(__wchar_t data) : CharField(21, data) {}
   };
   
-  public __gc class SecurityIDSource : public CharField
+  public __gc class SecurityIDSource : public StringField
   {
   public:
-  static const __wchar_t CUSIP = '1';
-  static const __wchar_t SEDOL = '2';
-  static const __wchar_t QUIK = '3';
-  static const __wchar_t ISIN_NUMBER = '4';
-  static const __wchar_t RIC_CODE = '5';
-  static const __wchar_t ISO_CURRENCY_CODE = '6';
-  static const __wchar_t ISO_COUNTRY_CODE = '7';
-  static const __wchar_t EXCHANGE_SYMBOL = '8';
-  static const __wchar_t CONSOLIDATED_TAPE_ASSOCIATION = '9';
-  static const __wchar_t BLOOMBERG_SYMBOL = 'A';
-  static const __wchar_t WERTPAPIER = 'B';
-  static const __wchar_t DUTCH = 'C';
-  static const __wchar_t VALOREN = 'D';
-  static const __wchar_t SICOVAM = 'E';
-  static const __wchar_t BELGIAN = 'F';
-  static const __wchar_t COMMON = 'G';
-  static const __wchar_t CLEARING_HOUSE_CLEARING_ORGANIZATION = 'H';
-  static const __wchar_t ISDA_FPML_PRODUCT_SPECIFICATION = 'I';
-  static const __wchar_t OPTIONS_PRICE_REPORTING_AUTHORITY = 'J';
-  SecurityIDSource() : CharField(22) {}
-    SecurityIDSource(__wchar_t data) : CharField(22, data) {}
+  static const String* CUSIP = "1";
+  static const String* SEDOL = "2";
+  static const String* QUIK = "3";
+  static const String* ISIN_NUMBER = "4";
+  static const String* RIC_CODE = "5";
+  static const String* ISO_CURRENCY_CODE = "6";
+  static const String* ISO_COUNTRY_CODE = "7";
+  static const String* EXCHANGE_SYMBOL = "8";
+  static const String* CONSOLIDATED_TAPE_ASSOCIATION = "9";
+  static const String* BLOOMBERG_SYMBOL = "A";
+  static const String* WERTPAPIER = "B";
+  static const String* DUTCH = "C";
+  static const String* VALOREN = "D";
+  static const String* SICOVAM = "E";
+  static const String* BELGIAN = "F";
+  static const String* COMMON = "G";
+  static const String* CLEARING_HOUSE_CLEARING_ORGANIZATION = "H";
+  static const String* ISDA_FPML_PRODUCT_SPECIFICATION = "I";
+  static const String* OPTIONS_PRICE_REPORTING_AUTHORITY = "J";
+  SecurityIDSource() : StringField(22) {}
+    SecurityIDSource(String* data) : StringField(22, data) {}
   };
   
   public __gc class IOIid : public StringField
