@@ -57,23 +57,46 @@
 namespace FIX
 {
   DEFINE_STRING(IDSource);
+  DEFINE_CHAR(IOIOthSvc);
   DEFINE_STRING(IOIShares);
   DEFINE_QTY(LastShares);
-  DEFINE_STRING(RelatedSym);
+  DEFINE_STRING(RelatdSym);
   DEFINE_CHAR(Rule80A);
   DEFINE_QTY(Shares);
   DEFINE_CHAR(SettlmntTyp);
   DEFINE_LOCALMKTDATE(FutSettDate);
+  DEFINE_INT(AvgPrxPrecision);
   DEFINE_STRING(ExecBroker);
   DEFINE_CHAR(OpenClose);
   DEFINE_INT(AllocShares);
+  DEFINE_CHAR(DlvyInst);
+  DEFINE_CHAR(BrokerOfCredit);
   DEFINE_STRING(ClientID);
+  DEFINE_CHAR(CxlType);
+  DEFINE_STRING(SettlLocation);
+  DEFINE_STRING(SettlDepositoryCode);
+  DEFINE_STRING(SettlBrkrCode);
+  DEFINE_STRING(SettlInstCode);
+  DEFINE_STRING(SecuritySettlAgentName);
+  DEFINE_STRING(SecuritySettlAgentCode);
+  DEFINE_STRING(SecuritySettlAgentAcctNum);
+  DEFINE_STRING(SecuritySettlAgentAcctName);
+  DEFINE_STRING(SecuritySettlAgentContactName);
+  DEFINE_STRING(SecuritySettlAgentContactPhone);
+  DEFINE_STRING(CashSettlAgentName);
+  DEFINE_STRING(CashSettlAgentCode);
+  DEFINE_STRING(CashSettlAgentAcctNum);
+  DEFINE_STRING(CashSettlAgentAcctName);
+  DEFINE_STRING(CashSettlAgentContactName);
+  DEFINE_STRING(CashSettlAgentContactPhone);
   DEFINE_LOCALMKTDATE(FutSettDate2);
   DEFINE_INT(PutOrCall);
   DEFINE_INT(CustomerOrFirm);
   DEFINE_DAYOFMONTH(MaturityDay);
   DEFINE_PRICEOFFSET(PegDifference);
   DEFINE_PRICEOFFSET(SpreadToBenchmark);
+  DEFINE_CHAR(Benchmark);
+  DEFINE_STRING(OpenCloseSettleFlag);
   DEFINE_STRING(UnderlyingIDSource);
   DEFINE_INT(QuoteAckStatus);
   DEFINE_INT(TotQuoteEntries);
@@ -83,8 +106,16 @@ namespace FIX
   DEFINE_UTCTIMESTAMP(OnBehalfOfSendingTime);
   DEFINE_PRICEOFFSET(DiscretionOffset);
   DEFINE_INT(TotalNumSecurities);
+  DEFINE_CHAR(TradeType);
   DEFINE_STRING(ClearingFirm);
   DEFINE_STRING(ClearingAccount);
+  DEFINE_UTCDATE(TotalVolumeTradedDate);
+  DEFINE_UTCTIMEONLY(TotalVolumeTradedTime);
+  DEFINE_STRING(CardIssNo);
+  DEFINE_STRING(RegistDetls);
+  DEFINE_INT(TotalNumSecurityTypes);
+  DEFINE_CHAR(LegSettlmntTyp);
+  DEFINE_STRING(LegFutSettDate);
 }
 
 #endif

@@ -103,10 +103,32 @@ namespace FIX
   const char SettlmntTyp_T_PLUS_1 = 'A';
   const char OpenClose_OPEN = 'O';
   const char OpenClose_CLOSE = 'C';
+  const char CxlType_PARTIAL_CANCEL = 'P';
+  const char CxlType_FULL_REMAINING_QUANTITY = 'F';
+  const std::string SettlLocation_CEDEL = "CED";
+  const std::string SettlLocation_DEPOSITORY_TRUST_COMPANY = "DTC";
+  const std::string SettlLocation_EUROCLEAR = "EUR";
+  const std::string SettlLocation_FEDERAL_BOOK_ENTRY = "FED";
+  const std::string SettlLocation_PHYSICAL = "PED";
+  const std::string SettlLocation_PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY = "PTC";
   const int PutOrCall_PUT = 0;
   const int PutOrCall_CALL = 1;
   const int CustomerOrFirm_CUSTOMER = 0;
   const int CustomerOrFirm_FIRM = 1;
+  const char Benchmark_CURVE = '1';
+  const char Benchmark_FIVEYR = '2';
+  const char Benchmark_OLD5 = '3';
+  const char Benchmark_TENYR = '4';
+  const char Benchmark_OLD10 = '5';
+  const char Benchmark_THIRTYYR = '6';
+  const char Benchmark_OLD30 = '7';
+  const char Benchmark_THREEMOLIBOR = '8';
+  const char Benchmark_SIXMOLIBOR = '9';
+  const char OpenCloseSettleFlag_DAILY_OPEN = '0';
+  const char OpenCloseSettleFlag_SESSION_OPEN = '1';
+  const char OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE = '2';
+  const char OpenCloseSettleFlag_EXPECTED_PRICE = '3';
+  const char OpenCloseSettleFlag_PRICE_FROM_PREVIOUS_BUSINESS_DAY = '4';
 }
 
 #endif
