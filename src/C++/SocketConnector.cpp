@@ -146,11 +146,11 @@ int SocketConnector::connect( const std::string& address, int port,
   QF_STACK_POP
 }
 
-void SocketConnector::block( Strategy& strategy )
+void SocketConnector::block( Strategy& strategy, bool poll )
 { QF_STACK_PUSH(SocketConnector::block)
 
   ConnectorWrapper wrapper( *this, strategy );
-  m_monitor.block( wrapper );
+  m_monitor.block( wrapper, poll );
 
   QF_STACK_POP
 }

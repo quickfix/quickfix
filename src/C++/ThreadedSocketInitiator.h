@@ -84,6 +84,7 @@ private:
   void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
 
   void onStart();
+  bool onPoll();
   void onStop();
 
   bool doConnect( const SessionID& s, const Dictionary& d );

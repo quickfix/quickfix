@@ -185,8 +185,8 @@ void Initiator::start() throw ( ConfigError&, RuntimeError& )
 }
 
 
-void Initiator::blockingStart() throw ( ConfigError&, RuntimeError& )
-{ QF_STACK_PUSH(Initiator::start)
+void Initiator::block() throw ( ConfigError&, RuntimeError& )
+{ QF_STACK_PUSH(Initiator::block)
 
   onConfigure( m_settings );
   onInitialize( m_settings );
@@ -196,8 +196,19 @@ void Initiator::blockingStart() throw ( ConfigError&, RuntimeError& )
   QF_STACK_POP
 }
 
+bool Initiator::poll() throw ( ConfigError&, RuntimeError& )
+{ QF_STACK_PUSH(Initiator::poll)
+
+  onConfigure( m_settings );
+  onInitialize( m_settings ); 
+
+  return onPoll();
+
+  QF_STACK_POP
+}
+
 void Initiator::stop() 
-{ QF_STACK_PUSH( Initiator::stop ) 
+{ QF_STACK_PUSH(Initiator::stop) 
   
   if( !m_threadid ) return;
   onStop();

@@ -178,7 +178,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlockingStart
   JVM::set( pEnv );
   try
   {
-    getCPPSocketInitiator( obj ) ->blockingStart();
+    getCPPSocketInitiator( obj ) ->block();
   }
   catch( FIX::ConfigError &e )
   {

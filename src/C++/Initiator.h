@@ -91,9 +91,10 @@ public:
 
   /// Start initiator.
   void start() throw ( ConfigError&, RuntimeError& );
-
-  /// Start initiator.
-  void blockingStart() throw ( ConfigError&, RuntimeError& );
+  /// Block on the initiator
+  void block() throw ( ConfigError&, RuntimeError& );
+  /// Poll the initiator
+  bool poll() throw ( ConfigError&, RuntimeError& );
 
   /// Stop initiator.
   void stop();
@@ -119,6 +120,8 @@ private:
   virtual void onInitialize( const SessionSettings& ) throw ( RuntimeError& ) {};
   /// Implemented to start connecting to targets.
   virtual void onStart() = 0;
+  /// Implemented to connect and poll for events.
+  virtual bool onPoll() = 0;
   /// Implemented to stop a running initiator.
   virtual void onStop() = 0;
   /// Implemented to connect a session to its target.

@@ -105,6 +105,17 @@ void SocketInitiator::onStart()
   QF_STACK_POP
 }
 
+bool SocketInitiator::onPoll()
+{ QF_STACK_PUSH(SocketInitiator::onPoll)
+
+  if( m_stop ) 
+    return false;
+   m_connector.block( *this, true );
+   return true;
+
+  QF_STACK_POP
+}
+
 void SocketInitiator::onStop()
 { QF_STACK_PUSH(SocketInitiator::onStop)
   m_stop = true;

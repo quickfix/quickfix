@@ -115,8 +115,15 @@ bool SocketMonitor::drop( int s )
   QF_STACK_POP
 }
 
-inline timeval* SocketMonitor::getTimeval()
+inline timeval* SocketMonitor::getTimeval( bool poll )
 { QF_STACK_PUSH(SocketMonitor::getTimeval)
+
+  if ( poll )
+  {
+    m_timeval.tv_sec = 0;
+    m_timeval.tv_usec = 0;
+    return &m_timeval;
+  }
 
   if ( !m_timeout )
     return 0;
@@ -157,7 +164,7 @@ bool SocketMonitor::sleepIfEmpty()
   QF_STACK_POP
 }
 
-void SocketMonitor::block( Strategy& strategy )
+void SocketMonitor::block( Strategy& strategy, bool poll )
 { QF_STACK_PUSH(SocketMonitor::block)
 
   while ( m_dropped.size() )
@@ -177,7 +184,7 @@ void SocketMonitor::block( Strategy& strategy )
     return ;
   }
 
-  int result = select( FD_SETSIZE, &watchSet, 0, 0, getTimeval() );
+  int result = select( FD_SETSIZE, &watchSet, 0, 0, getTimeval(poll) );
   if ( result == 0 )
   {
     strategy.onTimeout( *this );

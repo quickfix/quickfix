@@ -82,7 +82,7 @@ public:
 
   bool add( int socket );
   bool drop( int socket );
-  void block( Strategy& strategy );
+  void block( Strategy& strategy, bool poll = 0 );
 
   int numSockets() { return m_sockets.size(); }
 
@@ -94,7 +94,7 @@ private:
   bool bind();
   bool listen();
   void buildSet( fd_set& );
-  inline timeval* getTimeval();
+  inline timeval* getTimeval( bool poll );
   inline bool sleepIfEmpty();
 
   int m_timeout;

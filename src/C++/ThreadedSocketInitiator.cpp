@@ -106,6 +106,14 @@ void ThreadedSocketInitiator::onStart()
   QF_STACK_POP
 }
 
+bool ThreadedSocketInitiator::onPoll()
+{ QF_STACK_PUSH(ThreadedSocketInitiator::onPoll)
+
+  return false;
+
+  QF_STACK_POP
+}
+
 void ThreadedSocketInitiator::onStop()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStop)
 
