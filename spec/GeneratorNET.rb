@@ -107,7 +107,7 @@ class GeneratorNET
 
   def groupStart(name, number, delim, order)
     @depth += 1    
-    @f.puts tabs + "class " + name + ": QuickFix.Group"
+    @f.puts tabs + "public class " + name + ": QuickFix.Group"
     @f.puts tabs + "{"
     @f.puts tabs + "public " + name + "() : base(" + number + "," + delim + "," + "message_order ) {}"
     @f.print tabs + "static int[] message_order = new int[] {"
