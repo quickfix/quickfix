@@ -24,11 +24,13 @@
 
 #include "FieldTypes.h"
 #include "Exceptions.h"
+#include "Utility.h"
 #include <string>
 #include <sstream>
 #include <iomanip>
 #include <stdio.h>
-#include <ctype.h>
+#include <cctype>
+#include <ctime>
 
 namespace FIX
 {
