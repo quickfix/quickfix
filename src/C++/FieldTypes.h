@@ -173,6 +173,7 @@ public:
 #else
     time_t time;
     ::time(&time);
+    m_ms = 0;
 #endif
     *static_cast<tm*>(this) = time_gmtime( &time );
     tm_isdst = -1;
