@@ -190,10 +190,11 @@
       you must use GNU make, the make that comes with Solaris will not work.
     </p>
     <p>
-      Building under linux requires two steps.  First, in the root quickfix directory, type
+      Building under *nix requires two steps.  First, in the root quickfix directory, type
       <B>./configure</B>  This will probe your system to find out what functionality it supports
       for use in determining how to build QuickFIX.  After ./configure completes succesfully,
-      simply type <B>make</B> to build.
+      simply type <B>make</B> to build.  If you run into problems running configure, you may
+      need to run the <B>./bootstrap</B> script first.
     </p>
     <p>
       There are some options you can pass to <I>./configure</I> to enable compile time features.
@@ -205,7 +206,10 @@
     <p>
       After succesfully building the QuickFIX, you should run <B>make install</B> as root.
       This will place the library <I>libquickfix.a</I> and <I>libquickfix_jni.so</I> if java is
-      detected, and the quickfix header files into the appropriate directories.
+      detected, and the quickfix header files into the appropriate directories.  If you do not
+      have root access, you can also run configure with the 
+      <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option, where the base directory
+      is some directory which your account has write access.
     </p>
 
     <hr>
