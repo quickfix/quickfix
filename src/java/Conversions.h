@@ -149,6 +149,19 @@ inline jobject newMessage( const FIX::Message& message )
   return result;
 }
 
+inline jobject newField( const FIX::FieldBase& field )
+{
+  JNIEnv * pEnv = ENV::get();
+  JVMClass type( "Lquickfix/StringField;" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(ILjava/lang/String;)V" );
+  if ( method == 0 ) throw JVMException( "Could not find method <init>" );
+
+  jstring jValue = newString( field.getString() );
+  JVMObject result( pEnv->NewObject( type, method, field.getField(), jValue ) );
+  pEnv->DeleteLocalRef( jValue );
+  return result;
+}
+
 inline void setString( FIX::FieldMap& map, jint field, jstring value )
 {
   const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
