@@ -454,7 +454,10 @@ bool Session::sendRaw( Message& message, int num )
     return result;
   }
   catch ( IOException& )
-  { return false; }
+  {
+    m_state.onEvent( "Error Reading/Writing in MessageStore" );
+    return false; 
+  }
 
   QF_STACK_POP
 }
@@ -643,7 +646,7 @@ void Session::generateReject( const Message& message, int err, int field )
 { QF_STACK_PUSH(Session::generateReject)
 
   if ( !m_state.receivedLogon() )
-    throw std::exception( "Tried to send a reject while not logged on" );
+    throw std::logic_error( "Tried to send a reject while not logged on" );
 
   std::string beginString = m_sessionID.getBeginString();
 
@@ -852,7 +855,7 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     header.getField( msgSeqNum );
 
     if ( !validLogonState( msgType ) )
-      throw std::exception( "Logon state is not valid for message" );
+      throw std::logic_error( "Logon state is not valid for message" );
     if ( !isGoodTime( sendingTime ) )
       doBadTime( msg );
     if ( !isCorrectCompID( senderCompID, targetCompID ) )
@@ -986,7 +989,7 @@ bool Session::doTargetTooLow( const Message& msg )
                    + " PosDup: " + BoolConvertor::convert( possDupFlag ) );
 
   if ( !possDupFlag )
-    throw std::exception( "Sequence number too low and PossDupFlag is false" );
+    throw std::logic_error( "Sequence number too low and PossDupFlag is false" );
   return doPossDup( msg );
 
   QF_STACK_POP
@@ -1118,7 +1121,8 @@ void Session::next( const Message& message )
     }
     nextQueued();
   }
-  catch ( MessageParseError& ) {}
+  catch ( MessageParseError& e ) 
+  { m_state.onEvent( e.what() ); }
   catch ( RequiredTagMissing & e )
   { generateReject( message, 1, e.field ); }
   catch ( FieldNotFound & e )
@@ -1155,7 +1159,8 @@ void Session::next( const Message& message )
   { generateReject( message, 13, e.field ); }
   catch ( RepeatingGroupCountMismatch & e )
   { generateReject( message, 16, e.field ); }
-  catch ( InvalidMessage& ) {}
+  catch ( InvalidMessage& e )
+  { m_state.onEvent( e.what() ); }
   catch ( RejectLogon& )
   {
     m_state.onEvent( "Logon rejected" );
