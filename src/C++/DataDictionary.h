@@ -73,8 +73,9 @@ class DataDictionary
   typedef std::map < int, TYPE::Type > FieldTypes;
   typedef std::set < std::string > Values;
   typedef std::map < int, Values > FieldToValue;
+  typedef std::map < int, std::string > FieldToName;
   typedef std::map < std::pair < std::string, int > ,
-  std::pair < int, DataDictionary* > > FieldToGroup;
+  std::pair < int, DataDictionary* > > FieldToGroup;  
 
 public:
 DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
@@ -109,6 +110,19 @@ DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
   void addField( int field )
   {
     m_fields.insert( field );
+  }
+
+  void addFieldName( int field, const std::string& name )
+  {
+    m_fieldNames[field] = name;
+  }
+
+  bool getFieldName( int field, std::string& name ) const
+  {
+    FieldToName::const_iterator i = m_fieldNames.find( field );
+    if(i == m_fieldNames.end()) return false;
+    name = i->second;
+    return true;
   }
 
   bool isField( int field ) const
@@ -371,6 +385,7 @@ private:
   Fields m_trailerFields;
   FieldTypes m_fieldTypes;
   FieldToValue m_fieldValues;
+  FieldToName m_fieldNames;
   FieldToGroup m_groups;
 };
 }

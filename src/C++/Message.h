@@ -101,6 +101,9 @@ public:
   Message( const std::string& string, const DataDictionary& dataDictionary )
   throw( InvalidMessage& );
 
+  /// Set global data dictionary for encoding messages into XML
+  static bool InitializeXML( const std::string& string );
+
   void addGroup( Group& group )
   {
     FieldMap::addGroup( group.field(), group );
@@ -131,6 +134,8 @@ protected:
 public:
   /// Get a string representation of the message
   std::string getString() const;
+  /// Get a XML representation of the message
+  std::string getXML() const;
 
   /**
    * Set a message based on a string representation
@@ -297,10 +302,13 @@ private:
   catch ( FieldNotFound& ) { return false; }
   }
 
+std::string getXMLFields(const FieldMap& fields, int space) const;
+
 protected:
   mutable FieldMap m_header;
   mutable FieldMap m_trailer;
   bool m_validStructure;
+  static std::auto_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */
 

@@ -178,6 +178,25 @@ void DataDictionaryTestCase::addGroup::onRun( DataDictionary& object )
   assert( pDD->isMsgType( "3" ) );
 }
 
+void DataDictionaryTestCase::addFieldName::onRun( DataDictionary& object )
+{
+  object.setVersion( "FIX.4.2" );
+
+  object.addFieldName( 1, "Account" );
+  object.addFieldName( 11, "ClOrdID" );
+  object.addFieldName( 8, "BeginString" );
+
+  const DataDictionary* pDD = 0;
+
+  std::string name;
+  assert( object.getFieldName( 1, name ) );
+  assert( name == "Account" );
+  assert( object.getFieldName( 11, name ) );
+  assert( name == "ClOrdID" );
+  assert( object.getFieldName( 8, name ) );
+  assert( name == "BeginString" );
+}
+
 bool DataDictionaryTestCase::checkValidTagNumber::onSetup
 ( DataDictionary*& pObject )
 {
@@ -341,6 +360,14 @@ void DataDictionaryTestCase::readFromFile::onRun
 
   assert( object.isFieldValue( 40, "A" ) );
   assert( !object.isFieldValue( 40, "Z" ) );
+
+  std::string name;
+  assert( object.getFieldName( 1, name ) );
+  assert( name == "Account" );
+  assert( object.getFieldName( 11, name ) );
+  assert( name == "ClOrdID" );
+  assert( object.getFieldName( 8, name ) );
+  assert( name == "BeginString" );
 }
 
 bool DataDictionaryTestCase::copy::onSetup

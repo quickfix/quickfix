@@ -167,10 +167,13 @@ public:
 
   void doFixFieldsField()
   {
-    std::string type;
+    std::string name;
+    std::string type;    
 
     if ( !getValue( *m_pAttrs, "number", m_field ) )
       throw std::runtime_error( "No Field Number" );
+    if ( getValue( *m_pAttrs, "name", name ) )
+      m_dataDictionary.addFieldName( atol( m_field.c_str() ), name );
     if ( getValue( *m_pAttrs, "type", type ) )
       m_dataDictionary.addFieldType( atol( m_field.c_str() ), m_type = toType( type ) );
 

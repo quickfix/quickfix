@@ -68,6 +68,7 @@ public:
     add( &m_headerFieldsFirst );
     add( &m_noEndingDelim );
     add( &m_outOfOrder );
+    add( &m_getXML );
   }
 
   typedef CPPTest::SimpleTest < Message > SimpleTest;
@@ -114,6 +115,12 @@ class outOfOrder : public SimpleTest
     void onRun( Message& object );
   }
   m_outOfOrder;
+
+class getXML : public SimpleTest
+  {
+    void onRun( Message& object );
+  }
+  m_getXML;
 };
 
 template < typename T >

@@ -211,6 +211,51 @@ void MessageTestCase::outOfOrder::onRun( Message& object )
   { assert( false ); }
 }
 
+void MessageTestCase::getXML::onRun( Message& object )
+{
+  Message::InitializeXML("spec/FIX42.xml");
+  Message message;
+  message.getHeader().setField(BeginString("FIX.4.2"));
+  message.getHeader().setField(SenderCompID("SENDER"));
+  message.getHeader().setField(TargetCompID("TARGET"));  
+  message.setField(Account("ACCOUNT"));
+  message.setField(ClOrdID("CLORDID"));
+  message.setField(NoMsgTypes(2));
+  Group group(384, 372);
+  group.setField(RefMsgType("A"));
+  group.setField(MsgDirection('0'));
+  message.addGroup(group);
+  group.setField(RefMsgType("0"));
+  group.setField(MsgDirection('1'));
+  message.addGroup(group);
+  message.getTrailer().setField(CheckSum(132));
+
+  assert( message.getXML() == 
+    "\n<message>\n"
+    "  <header>\n"
+    "    <field name=\"BeginString\" number=\"8\" value=\"FIX.4.2\"/>\n"
+    "    <field name=\"SenderCompID\" number=\"49\" value=\"SENDER\"/>\n"
+    "    <field name=\"TargetCompID\" number=\"56\" value=\"TARGET\"/>\n"
+    "  </header>\n"
+    "  <body>\n"
+    "    <field name=\"Account\" number=\"1\" value=\"ACCOUNT\"/>\n"
+    "    <field name=\"ClOrdID\" number=\"11\" value=\"CLORDID\"/>\n"
+    "    <field name=\"NoMsgTypes\" number=\"384\" value=\"2\"/>\n"
+    "    <group>\n"
+    "      <field name=\"RefMsgType\" number=\"372\" value=\"A\"/>\n"
+    "      <field name=\"MsgDirection\" number=\"385\" value=\"0\"/>\n"
+    "    </group>\n"
+    "    <group>\n"
+    "      <field name=\"RefMsgType\" number=\"372\" value=\"0\"/>\n"
+    "      <field name=\"MsgDirection\" number=\"385\" value=\"1\"/>\n"
+    "    </group>\n"
+    "  </body>\n"
+    "  <trailer>\n"
+    "    <field name=\"CheckSum\" number=\"10\" value=\"132\"/>\n"
+    "  </trailer>\n"
+    "</message>\n" );
+}
+
 void LogonParseTestCase::getString::onRun( Logon& object )
 {
   try

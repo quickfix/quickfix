@@ -81,6 +81,8 @@ public:
   typedef std::map < int, std::vector < FieldMap* > > Groups;
   typedef Fields::const_iterator iterator;
   typedef iterator const_iterator;
+  typedef Groups::const_iterator g_iterator;
+  typedef Groups::const_iterator g_const_iterator;
 
   FieldMap( const message_order& order =
               message_order( message_order::normal ) )
@@ -292,8 +294,11 @@ public:
     return result;
   }
 
-iterator begin() const { return m_fields.begin(); }
+  iterator begin() const { return m_fields.begin(); }
   iterator end() const { return m_fields.end(); }
+  g_iterator g_begin() const { return m_groups.begin(); }
+  g_iterator g_end() const { return m_groups.end(); }
+
 private:
   Fields m_fields;
   Groups m_groups;

@@ -54,9 +54,12 @@
 #endif
 
 #include "Message.h"
+#include <iomanip>
 
 namespace FIX
 {
+std::auto_ptr<DataDictionary> Message::s_dataDictionary;
+
 Message::Message()
     : m_header( message_order( message_order::header ) ),
     m_trailer( message_order( message_order::trailer ) ),
@@ -82,6 +85,16 @@ throw( InvalidMessage& )
     throw InvalidMessage();
 }
 
+bool Message::InitializeXML( const std::string& url )
+{
+  try
+  {
+    s_dataDictionary = std::auto_ptr<DataDictionary>(new DataDictionary(url));
+    return true;
+  }
+  catch( ConfigError& )
+  { return false; }
+}
 
 std::string Message::getString() const
 {
@@ -92,6 +105,53 @@ std::string Message::getString() const
     m_header.calculateString() +
     FieldMap::calculateString() +
     m_trailer.calculateString();
+}
+
+std::string Message::getXML() const
+{
+  FieldMap::iterator i;
+  std::stringstream stream;
+  stream << "\n<message>"                       << "\n"
+         << std::setw(2) << " " << "<header>"   << "\n"  
+         << getXMLFields(getHeader(), 4)
+         << std::setw(2) << " " << "</header>"  << "\n"
+         << std::setw(2) << " " << "<body>"     << "\n"
+         << getXMLFields(*this, 4)
+         << std::setw(2) << " " << "</body>"    << "\n"
+         << std::setw(2) << " " << "<trailer>"  << "\n"
+         << getXMLFields(getTrailer(), 4)
+         << std::setw(2) << " " << "</trailer>" << "\n"
+         << "</message>"                        << "\n";
+
+  return stream.str();
+}
+
+std::string Message::getXMLFields(const FieldMap& fields, int space) const
+{
+  std::stringstream stream;
+  FieldMap::iterator i;
+  std::string name;
+  for(i = fields.begin(); i != fields.end(); ++i)
+  {       
+    stream << std::setw(space) << " " << "<field ";
+    if(s_dataDictionary.get() && s_dataDictionary->getFieldName(i->first, name))
+      stream << "name=\"" << name << "\" ";
+    stream << "number=\"" << i->first << "\" value=\"" << i->second.getString() << "\"/>" << "\n";
+  }
+
+  FieldMap::g_iterator j;
+  for(j = fields.g_begin(); j != fields.g_end(); ++j)
+  {
+    std::vector<FieldMap*>::const_iterator k;
+    for(k = j->second.begin(); k != j->second.end(); ++k)
+    {
+      stream << std::setw(space) << " " << "<group>\n"
+             << getXMLFields(*(*k), space+2)
+             << std::setw(space) << " " << "</group>\n";
+    }
+  }
+
+  return stream.str();
 }
 
 bool Message::setString( const std::string& string,
