@@ -67,10 +67,12 @@ libquickfix_jni_la_LIBADD = -L../../src/C++ -lquickfix -lstdc++
 
 INCLUDES = -I. -I.. -I../.. -I../../include
 
-all-local:
+ant-all:
 	rm -f ../../lib/libquickfix_jni.so
 	ln -s ../src/java/.libs/libquickfix_jni.so ../../lib/libquickfix_jni.so
 	./build.sh
+
+all: ant-all
 
 clean-local:
 	rm -f ../../lib/libquickfix_jni.so
