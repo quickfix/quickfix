@@ -56,6 +56,7 @@ static const std::string SOCKET_NODELAY = "SocketNodelay";
 static const std::string RECONNECT_INTERVAL = "ReconnectInterval";
 static const std::string VALIDATE_FIELDS_OUT_OF_ORDER = "ValidateFieldsOutOfOrder";
 static const std::string VALIDATE_FIELDS_HAVE_VALUES = "ValidateFieldsHaveValues";
+static const std::string VALIDATE_USER_DEFINED_FIELDS = "ValidateUserDefinedFields";
 static const std::string LOGON_TIMEOUT = "LogonTimeout";
 static const std::string FILE_STORE_PATH = "FileStorePath";
 static const std::string MYSQL_STORE_DATABASE = "MySQLStoreDatabase";
