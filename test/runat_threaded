@@ -20,6 +20,9 @@ echo DataDictionary=../spec/FIX41.xml >> cfg/at_server.cfg
 echo [SESSION] >> cfg/at_server.cfg
 echo BeginString=FIX.4.2 >> cfg/at_server.cfg
 echo DataDictionary=../spec/FIX42.xml >> cfg/at_server.cfg
+echo [SESSION] >> cfg/at_server.cfg
+echo BeginString=FIX.4.3 >> cfg/at_server.cfg
+echo DataDictionary=../spec/FIX43.xml >> cfg/at_server.cfg
 
 ../bin/at_server -f cfg/at_server.cfg -t &
 sleep 5
