@@ -1171,11 +1171,7 @@ void Session::next( const Message& message, bool queued )
 
     UtcTimeStamp now;
     if ( !checkSessionTime(now) )
-    { 
-      reset(); 
-      if ( !checkSessionTime(now) )
-        return; 
-    }
+      { reset(); return; }
 
     message.getHeader().getField( msgType );
     message.getHeader().getField( beginString );
