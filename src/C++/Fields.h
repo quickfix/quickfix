@@ -50,10 +50,10 @@
 
 #ifndef FIX_FIELDS_H
 #define FIX_FIELDS_H
-#undef Yield
 
 #include "DeprecatedFields.h"
 #include "Field.h"
+#undef Yield
 
 namespace FIX
 {
