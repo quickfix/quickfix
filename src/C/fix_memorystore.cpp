@@ -51,29 +51,33 @@
 #include <quickfix/MessageStore.h>
 #include <vector>
 
-int fix_MemoryStore_set(fix_MessageStore* store, const fix_Message message)
+int fix_MemoryStore_set(fix_MessageStore* store, int seq, const char* message)
 {
   FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
-  FIX::Message* pMessage = (FIX::Message*)message;
-  return pStore->set(*pMessage);
+  return pStore->set(seq, message);
 }
 
-int fix_MemoryStore_get(fix_MessageStore* store, int seq, fix_Message message)
+int fix_MemoryStore_get(fix_MessageStore* store, int seq, char* message, int* size)
 {
   FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
-  FIX::Message* pMessage = (FIX::Message*)message;
-  return pStore->get(seq, *pMessage);
-}
-
-int fix_MemoryStore_getRange(fix_MessageStore* store, int begin, int end, 
-                             fix_Message messages[], int* size)
-{
-  FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
-  std::vector<FIX::Message> vmessages;
-  bool result = pStore->get(begin, end, vmessages);
-  *size = vmessages.size();
-  messages = (fix_Message*)calloc(*size, sizeof(fix_Message));
+  std::string stored;
+  bool result = pStore->get(seq, stored);
+  if( result )
+  {
+    *size = stored.size() + 1;
+    message = (char*)calloc(*size + 1, sizeof(char));
+    strcpy( message, stored.c_str() );
+  }
   return result;
+}
+
+void fix_MemoryStore_getRange(fix_MessageStore* store, int begin, int end, 
+                             char* messages[], int* size)
+{
+  FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
+  std::vector<std::string> vmessages;
+  pStore->get(begin, end, vmessages);
+  *size = vmessages.size();
 }
 
 int fix_MemoryStore_getNextSenderMsgSeqNum(fix_MessageStore* store)

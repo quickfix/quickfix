@@ -60,9 +60,9 @@ extern "C" {
 
 struct fix_MessageStore
 {
-  int(*set)(fix_MessageStore*, const fix_Message);
-  int(*get)(fix_MessageStore*, int, fix_Message);
-  int(*getRange)(fix_MessageStore*, int, int, fix_Message[], int*);
+  int(*set)(fix_MessageStore*, int, const char*);
+  int(*get)(fix_MessageStore*, int, char*);
+  void(*getRange)(fix_MessageStore*, int, int, char*[], int*);
   int(*getNextSenderMsgSeqNum)(fix_MessageStore*);
   int(*getNextTargetMsgSeqNum)(fix_MessageStore*);
   void(*setNextSenderMsgSeqNum)(fix_MessageStore*, int);

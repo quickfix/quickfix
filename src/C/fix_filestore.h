@@ -58,7 +58,7 @@ extern "C" {
 #include <time.h>
 
 /* FileStore */
-int fix_FileStore_set(fix_MessageStore*, int, char*);
+int fix_FileStore_set(fix_MessageStore*, int, const char*);
 int fix_FileStore_get(fix_MessageStore*, int, char*);
 void fix_FileStore_getRange(fix_MessageStore*, int, int, char*[], int*);
 int fix_FileStore_getNextSenderMsgSeqNum(fix_MessageStore*);

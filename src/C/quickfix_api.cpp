@@ -50,7 +50,7 @@
 #include <stddef.h>
 #include "quickfix_api.h"
 #include <quickfix/Message.h>
-#include <quickfix/FIX42_Messages.h>
+#include <quickfix/fix42/Logon.h>
 
 using FIX42::Logon;
 

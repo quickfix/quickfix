@@ -58,9 +58,9 @@ extern "C" {
 #include <time.h>
 
 /* MemoryStore */
-int fix_MemoryStore_set(fix_MessageStore*, const fix_Message);
-int fix_MemoryStore_get(fix_MessageStore*, int, fix_Message);
-int fix_MemoryStore_getRange(fix_MessageStore*, int, int, char*[], int*);
+int fix_MemoryStore_set(fix_MessageStore*, int, const char*);
+int fix_MemoryStore_get(fix_MessageStore*, int, char*);
+void fix_MemoryStore_getRange(fix_MessageStore*, int, int, char*[], int*);
 int fix_MemoryStore_getNextSenderMsgSeqNum(fix_MessageStore*);
 int fix_MemoryStore_getNextTargetMsgSeqNum(fix_MessageStore*);
 void fix_MemoryStore_setNextSenderMsgSeqNum(fix_MessageStore*, int);

@@ -51,10 +51,9 @@
 #include <quickfix/FileStore.h>
 #include <vector>
 
-int fix_FileStore_set(fix_MessageStore* store, int seq, char* message)
+int fix_FileStore_set(fix_MessageStore* store, int seq, const char* message)
 {
   FIX::MessageStore* pStore = (FIX::MessageStore*)store->data;
-  FIX::Message* pMessage = (FIX::Message*)message;
   return pStore->set(seq, message);
 }
 
@@ -79,7 +78,6 @@ void fix_FileStore_getRange(fix_MessageStore* store, int begin, int end,
   std::vector<std::string> vmessages;
   pStore->get(begin, end, vmessages);
   *size = vmessages.size();
-  return result;
 }
 
 int fix_FileStore_getNextSenderMsgSeqNum(fix_MessageStore* store)
