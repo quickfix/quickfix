@@ -107,8 +107,9 @@ public:
 
   void addFieldName( int field, const std::string& name )
   {
+    if( m_names.insert( std::make_pair(name, field) ).second == false )
+      throw ConfigError( "Field named " + name + " defined multiple times" );
     m_fieldNames[field] = name;
-    m_names[name] = field;
   }
 
   bool getFieldName( int field, std::string& name ) const
