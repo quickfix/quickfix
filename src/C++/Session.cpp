@@ -1210,10 +1210,7 @@ throw( SessionNotFound )
   try
   {
     SessionID sessionID = message.getSessionID( qualifier );
-    Session* pSession = lookupSession( sessionID );
-    if ( !pSession ) throw SessionNotFound();
-    bool result = pSession->send( message );
-    return result;
+    return sendToTarget( message, sessionID );
   }
   catch ( FieldNotFound& ) { throw SessionNotFound(); }
 
@@ -1225,7 +1222,9 @@ throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   message.setSessionID( sessionID );
-  return sendToTarget( message, sessionID.getSessionQualifier() );
+  Session* pSession = lookupSession( sessionID );
+  if ( !pSession ) throw SessionNotFound();
+  return pSession->send( message );
 
   QF_STACK_POP
 }
