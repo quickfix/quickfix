@@ -78,7 +78,7 @@ namespace FIX
 class FieldMap
 {
 public:
-  typedef std::map < int, FieldBase, message_order > Fields;
+  typedef std::multimap < int, FieldBase, message_order > Fields;
   typedef std::map < int, std::vector < FieldMap* > > Groups;
   typedef Fields::const_iterator iterator;
   typedef iterator const_iterator;
@@ -102,13 +102,19 @@ public:
   FieldMap& operator=( const FieldMap& rhs );
 
   /// Set a field without type checking
-  void FieldMap::setField( const FieldBase& field )
+  void FieldMap::setField( const FieldBase& field, bool overwrite = true )
+  throw( RepeatedTag& )
   {
     Fields::iterator i = m_fields.find( field.getField() );
     if( i == m_fields.end() )
       m_fields.insert( std::make_pair( field.getField(), field ) );
     else
-      i->second = field;
+    {
+      if( overwrite )
+        i->second = field;
+      else
+        m_fields.insert( std::make_pair( field.getField(), field ) );
+    }
   }
   /// Set a field without a field class
   void FieldMap::setField( int field, const std::string value )
@@ -147,7 +153,7 @@ public:
   bool FieldMap::isSetField( int field ) const
   { return m_fields.find( field ) != m_fields.end(); }
 
-  void addGroup( int field, const FieldMap& group );
+  void addGroup( int field, const FieldMap& group, bool setCount = true );
 
   FieldMap& getGroup( int num, int field, FieldMap& group ) const
     throw( FieldNotFound& );
@@ -156,7 +162,8 @@ public:
   void removeField( int field );
 
   /// Check to see if a group exists
-  bool hasGroup( unsigned num, int field, FieldMap& group );
+  bool hasGroup( int field ) const;
+  int groupCount( int field ) const;
 
   /// Clear all fields from the map
   void clear();

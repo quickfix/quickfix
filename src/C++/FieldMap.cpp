@@ -68,7 +68,6 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
 { QF_STACK_PUSH(FieldMap::operator=)
 
   clear();
-  m_fields = rhs.m_fields;
 
   Groups::const_iterator i;
   for ( i = rhs.m_groups.begin(); i != rhs.m_groups.end(); ++i )
@@ -77,19 +76,22 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
     for ( j = i->second.begin(); j != i->second.end(); ++j )
       addGroup( i->first, **j );
   }
+  m_fields = rhs.m_fields;
+
   return *this;
 
   QF_STACK_POP
 }
 
-void FieldMap::addGroup( int field, const FieldMap& group )
+void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
 { QF_STACK_PUSH(FieldMap::addGroup)
 
   FieldMap * pGroup = new FieldMap;
   *pGroup = group;
   m_groups[ field ].push_back( pGroup );
   Groups::iterator i = m_groups.find( field );
-  setField( IntField( field, i->second.size() ) );
+  if( setCount )
+    setField( IntField( field, i->second.size() ) );
 
   QF_STACK_POP
 }
@@ -117,13 +119,22 @@ void FieldMap::removeField( int field )
   QF_STACK_POP
 }
 
-bool FieldMap::hasGroup( unsigned num, int field, FieldMap& group )
+bool FieldMap::hasGroup( int field ) const
 { QF_STACK_PUSH(FieldMap::hasGroup)
 
   Groups::const_iterator i = m_groups.find( field );
   return i != m_groups.end();
 
   QF_STACK_POP
+}
+
+int FieldMap::groupCount( int field ) const
+{ QF_STACK_PUSH(FieldMap::groupCount)
+
+  Groups::const_iterator i = m_groups.find( field );
+  if( i == m_groups.end() )
+    return 0;
+  return i->second.size();
 }
 
 void FieldMap::clear()
