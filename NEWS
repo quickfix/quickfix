@@ -1,3 +1,34 @@
+1.4.1
+-----
+Fixed compilation errors when building under gcc 3.x (matching throw
+specifiers, JNI patch).  Also got rid of warnings caused by generated
+source files not ending with newlines.
+
+getValue call in Java and .NET message class will throw and IncorrectDataFormat
+exception instead of just crashing.  In C++, method also throws IncorrectDataFormat
+instead of FieldConvertError.
+
+QuickFIX C++ call stack is available by running configure with the
+--enable-callstack option, or defining USING_CALLSTACK in windows_config.h
+
+Added ConfigError throw specifier to Initiator/Acceptor start method. 
+
+Removed ^M characters from install-sh which caused compile problems on
+some systems.
+
+Fixed code generation so groups withing components within groups are
+show up in message classes.
+
+Added missing SEQNUM type to DataDictionary.
+
+Increased heap size for Visual Studio so heap allocation errors are
+less likely when compiling.
+
+In Java, renamed Session class to SessionSettings to match the C++ API
+
+Fixed bug where session times would not ever reset when the start time
+is greater than the end time.
+
 1.4.0
 -----
 Support for FIX 4.3
