@@ -106,6 +106,11 @@ private:
   typedef std::map < int, OffsetSize > NumToOffset;
 
   void open( bool deleteFile );
+  void openMessageFile( bool deleteFile );
+  void openHeaderFile( bool deleteFile );
+  void openSequenceNumberFile( bool deleteFile );
+  void openSessionFile( bool deleteFile );
+
   void populateCache();
   bool readFromFile( int offset, int size, std::string& msg );
   void setSeqNum();

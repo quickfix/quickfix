@@ -74,12 +74,15 @@ void MessageStoreTestCase::other::onRun( MessageStore& object )
   assert( object.getNextSenderMsgSeqNum() == 11 );
   object.incrNextTargetMsgSeqNum();
   assert( object.getNextTargetMsgSeqNum() == 21 );
+
+  object.setNextSenderMsgSeqNum( 5 );
+  object.setNextTargetMsgSeqNum( 6 );
 }
 
 void MessageStoreTestCase::reload::onRun( MessageStore& object )
 {
   // use same session from previous test
-  assert( object.getNextSenderMsgSeqNum() == 11 );
-  assert( object.getNextTargetMsgSeqNum() == 21 );
+  assert( object.getNextSenderMsgSeqNum() == 5 );
+  assert( object.getNextTargetMsgSeqNum() == 6 );
 }
 }

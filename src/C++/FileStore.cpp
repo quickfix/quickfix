@@ -285,7 +285,7 @@ void FileStore::setSeqNum()
 { QF_STACK_PUSH(FileStore::setSeqNum)
 
   rewind( m_seqNumsFile );
-  fprintf( m_seqNumsFile, "%d : %d",
+  fprintf( m_seqNumsFile, "%10.10d : %10.10d",
            getNextSenderMsgSeqNum(), getNextTargetMsgSeqNum() );
   if ( ferror( m_seqNumsFile ) ) throw IOException();
   if ( fflush( m_seqNumsFile ) ) throw IOException();
