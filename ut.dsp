@@ -166,6 +166,10 @@ SOURCE=".\src\C++\Test\SettingsTestCase.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\test\SocketAcceptorTestCase.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\test\SocketConnectorTestCase.cpp"
 # End Source File
 # Begin Source File
@@ -263,6 +267,10 @@ SOURCE=".\src\C++\test\SessionTimeTestCase.h"
 # Begin Source File
 
 SOURCE=".\src\C++\Test\SettingsTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\test\SocketAcceptorTestCase.h"
 # End Source File
 # Begin Source File
 
