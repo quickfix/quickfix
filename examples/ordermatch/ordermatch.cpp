@@ -54,6 +54,7 @@
 #endif
 
 #include "quickfix/include/FileStore.h"
+#include "quickfix/include/FileLog.h"
 #include "quickfix/include/SocketAcceptor.h"
 #include "quickfix/include/SessionSettings.h"
 #include "Application.h"
@@ -75,8 +76,9 @@ int main( int argc, char** argv )
     FIX::SessionSettings settings( file );
 
     Application application;
-    FIX::FileStoreFactory factory( settings );
-    FIX::SocketAcceptor acceptor( application, factory, settings );
+    FIX::FileStoreFactory storeFactory( settings );
+    FIX::FileLogFactory logFactory( settings );
+    FIX::SocketAcceptor acceptor( application, storeFactory, settings, logFactory );
     acceptor.start();
     return 0;
   }
