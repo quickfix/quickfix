@@ -233,9 +233,7 @@ struct SocketException : public Exception
 {
   SocketException()
     : Exception( "Socket Error", errorToWhat(WSAGetLastError()) )
-  {
-    error = WSAGetLastError();
-  }
+  {}
 
   std::string errorToWhat( int error )
   {
@@ -341,9 +339,7 @@ struct SocketException : public Exception
 {
   SocketException()
     : Exception( "Socket Error", errorToWhat(errno) )
-  {
-    error = WSAGetLastError();
-  }
+  {}
 
   std::string errorToWhat( int error )
   {
