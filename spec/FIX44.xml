@@ -4192,13 +4192,19 @@
       <value enum="2" description="LIMIT" />
       <value enum="3" description="STOP" />
       <value enum="4" description="STOP_LIMIT" />
+      <value enum="5" description="MARKET_ON_CLOSE" />
       <value enum="6" description="WITH_OR_WITHOUT" />
       <value enum="7" description="LIMIT_OR_BETTER" />
       <value enum="8" description="LIMIT_WITH_OR_WITHOUT" />
       <value enum="9" description="ON_BASIS" />
+      <value enum="A" description="ON_CLOSE" />
+      <value enum="B" description="LIMIT_ON_CLOSE" />
+      <value enum="C" description="FOREX_MARKET" />
       <value enum="D" description="PREVIOUSLY_QUOTED" />
       <value enum="E" description="PREVIOUSLY_INDICATED" />
+      <value enum="F" description="FOREX_LIMIT" />
       <value enum="G" description="FOREX_SWAP" />
+      <value enum="H" description="FOREX_PREVIOUSLY_QUOTED" />
       <value enum="I" description="FUNARI" />
       <value enum="J" description="MARKET_IF_TOUCHED" />
       <value enum="K" description="MARKET_WITH_LEFTOVER_AS_LIMIT" />
