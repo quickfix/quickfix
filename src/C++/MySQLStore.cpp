@@ -33,6 +33,8 @@
 #include "Utility.h"
 #include <fstream>
 #include <mysql.h>
+#include <errmsg.h>
+
 #undef MYSQL_PORT
 
 namespace FIX
