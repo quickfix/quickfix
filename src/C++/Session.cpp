@@ -345,8 +345,6 @@ void Session::nextResendRequest( const Message& resendRequest )
 
 bool Session::send( Message& message )
 {
-  Locker l( m_mutex );
-
   message.getHeader().removeField( FIELD::PossDupFlag );
   message.getHeader().removeField( FIELD::OrigSendingTime );
   return sendRaw( message );
@@ -354,6 +352,8 @@ bool Session::send( Message& message )
 
 bool Session::sendRaw( Message& message, int num )
 {
+  Locker l( m_mutex );
+
   try
   {
     bool result = false;
