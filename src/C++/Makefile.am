@@ -105,9 +105,11 @@ all-local:
 	rm -rf ../../lib/libquickfix.a
 	rm -rf ../../lib/libquickfix.la
 	rm -rf ../../lib/libquickfix.so
+	rm -rf ../../lib/libquickfix.dylib
 	ln -s ../src/C++/.libs/libquickfix.a ../../lib/libquickfix.a
 	ln -s ../src/C++/.libs/libquickfix.la ../../lib/libquickfix.la
 	ln -s ../src/C++/.libs/libquickfix.so ../../lib/libquickfix.so
+	ln -s ../src/C++/.libs/libquickfix.dylib ../../lib/libquickfix.dylib
 	bash ./copy.sh ../../include/quickfix *.h
 	bash ./copy.sh ../../include/quickfix fix*/*.h
 

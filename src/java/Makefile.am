@@ -76,7 +76,9 @@ ant-all:
 
 all-local: ant-all
 	rm -f ../../lib/libquickfix_jni.so
+	rm -f ../../lib/libquickfix_jni.dylib
 	ln -s ../src/java/.libs/libquickfix_jni.so ../../lib/libquickfix_jni.so
+	ln -s ../src/java/.libs/libquickfix_jni.dylib ../../lib/libquickfix_jni.dylib
 
 clean-local:
 	rm -f ../../lib/libquickfix_jni.so
