@@ -120,6 +120,14 @@ SOURCE=.\JVM.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\quickfix_CppLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_CppMessageStore.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\quickfix_DataDictionary.cpp
 # End Source File
 # Begin Source File
@@ -237,6 +245,14 @@ SOURCE=.\JavaMessageStoreFactory.h
 # Begin Source File
 
 SOURCE=.\JVM.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_CppLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_CppMessageStore.h
 # End Source File
 # Begin Source File
 

@@ -157,6 +157,12 @@
 				RelativePath="Stdafx.cpp">
 			</File>
 			<File
+				RelativePath="quickfix_CppLog.cpp">
+			</File>
+			<File
+				RelativePath="quickfix_CppMessageStore.cpp">
+			</File>
+			<File
 				RelativePath="quickfix_DataDictionary.cpp">
 			</File>
 			<File
@@ -246,6 +252,12 @@
 			</File>
 			<File
 				RelativePath="Stdafx.h">
+			</File>
+			<File
+				RelativePath="quickfix_CppLog.h">
+			</File>
+			<File
+				RelativePath="quickfix_CppMessageStore.h">
 			</File>
 			<File
 				RelativePath="quickfix_DataDictionary.h">
