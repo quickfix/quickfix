@@ -127,6 +127,7 @@ throw( ConfigError, FieldConvertError )
   {
     throw ConfigError( "Illegal value " + i->second + " for " + key );
   }
+  return -1;
 
   QF_STACK_POP
 }
