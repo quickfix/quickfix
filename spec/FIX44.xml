@@ -4097,7 +4097,7 @@
       <value enum="M" description="LIST_STATUS_REQUEST" />
       <value enum="N" description="LIST_STATUS" />
       <value enum="P" description="ALLOCATION_INSTRUCTION_ACK" />
-      <value enum="Q" description="DONT_KNOW_TRADE_" />
+      <value enum="Q" description="DONT_KNOW_TRADE" />
       <value enum="R" description="QUOTE_REQUEST" />
       <value enum="S" description="QUOTE" />
       <value enum="T" description="SETTLEMENT_INSTRUCTIONS" />
