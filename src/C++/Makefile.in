@@ -90,7 +90,7 @@ SUBDIRS = test
 LEX = @LEX@ -+ -olex.yy.c
 
 lib_LTLIBRARIES = libquickfix.la
-libquickfix_la_SOURCES =  	Session.cpp 	Session.h 	SessionState.h 	SessionFactory.h 	SessionFactory.cpp 	Parser.cpp 	Parser.h 	Log.cpp 	Log.h 	FileLog.cpp 	FileLog.h 	Settings.cpp 	Settings.h 	ConfigLexer.cpp 	ConfigLexer.h 	MessageStore.cpp 	MessageStore.h 	SocketServer.cpp 	SocketServer.h 	SocketConnector.cpp 	Acceptor.cpp 	Acceptor.h 	Initiator.cpp 	Initiator.h 	SocketAcceptor.cpp 	SocketAcceptor.h 	SocketInitiator.cpp 	SocketInitiator.h 	SocketMonitor.cpp 	SocketMonitor.h 	SocketConnection.cpp 	SocketConnection.h 	ThreadedSocketAcceptor.cpp 	ThreadedSocketAcceptor.h 	ThreadedSocketInitiator.cpp 	ThreadedSocketInitiator.h 	ThreadedSocketConnection.cpp 	ThreadedSocketConnection.h 	FileStore.cpp 	FileStore.h 	MySQLStore.cpp 	MySQLStore.h 	MySQLLog.cpp 	MySQLLog.h 	Dictionary.cpp 	Dictionary.h 	DataDictionary.cpp 	DataDictionary.h 	SessionSettings.cpp 	SessionSettings.h 	Application.h 	Field.h 	FieldConvertors.h 	FieldNumbers.h 	FieldTypes.h 	Fields.h 	FieldMap.h 	Message.cpp 	Message.h 	MessageSorters.cpp 	MessageSorters.h 	Messages.h 	SessionID.h 	SocketConnector.h 	Mutex.h 	Event.h 	Queue.h 	Exceptions.h 	Utility.cpp 	Utility.h 	Values.h 	FlexLexer.h 	SAXContentHandler.h 	FIX40_Messages.h 	FIX41_Messages.h 	FIX42_Messages.h 	FIX40_MessageCracker.h 	FIX41_MessageCracker.h 	FIX42_MessageCracker.h 	MessageCracker.h
+libquickfix_la_SOURCES =  	Session.cpp 	Session.h 	SessionState.h 	SessionFactory.h 	SessionFactory.cpp 	Parser.cpp 	Parser.h 	Log.cpp 	Log.h 	FileLog.cpp 	FileLog.h 	Settings.cpp 	Settings.h 	ConfigLexer.cpp 	ConfigLexer.h 	MessageStore.cpp 	MessageStore.h 	SocketServer.cpp 	SocketServer.h 	SocketConnector.cpp 	Acceptor.cpp 	Acceptor.h 	Initiator.cpp 	Initiator.h 	SocketAcceptor.cpp 	SocketAcceptor.h 	SocketInitiator.cpp 	SocketInitiator.h 	SocketMonitor.cpp 	SocketMonitor.h 	SocketConnection.cpp 	SocketConnection.h 	ThreadedSocketAcceptor.cpp 	ThreadedSocketAcceptor.h 	ThreadedSocketInitiator.cpp 	ThreadedSocketInitiator.h 	ThreadedSocketConnection.cpp 	ThreadedSocketConnection.h 	FileStore.cpp 	FileStore.h 	MySQLStore.cpp 	MySQLStore.h 	MySQLLog.cpp 	MySQLLog.h 	Dictionary.cpp 	Dictionary.h 	DataDictionary.cpp 	DataDictionary.h 	SessionSettings.cpp 	SessionSettings.h 	Application.h 	Field.h 	FieldConvertors.h 	FieldNumbers.h 	DeprecatedFieldNumbers.h 	FieldTypes.h 	Fields.h 	DeprecatedFields.h 	FieldMap.h 	Message.cpp 	Message.h 	Group.cpp 	Group.h 	MessageSorters.cpp 	MessageSorters.h 	Messages.h 	SessionID.h 	SocketConnector.h 	Mutex.h 	Event.h 	Queue.h 	Exceptions.h 	Utility.cpp 	Utility.h 	Values.h 	DeprecatedValues.h 	FlexLexer.h 	DOMDocument.h 	LIBXML_DOMDocument.cpp 	LIBXML_DOMDocument.h 	FIX40_Messages.h 	FIX41_Messages.h 	FIX42_Messages.h 	FIX43_Messages.h 	FIX40_MessageCracker.h 	FIX41_MessageCracker.h 	FIX42_MessageCracker.h 	FIX43_MessageCracker.h 	MessageCracker.h
 
 
 libquickfix_la_LIBADD = -lpthread
@@ -117,8 +117,8 @@ SocketConnector.lo Acceptor.lo Initiator.lo SocketAcceptor.lo \
 SocketInitiator.lo SocketMonitor.lo SocketConnection.lo \
 ThreadedSocketAcceptor.lo ThreadedSocketInitiator.lo \
 ThreadedSocketConnection.lo FileStore.lo MySQLStore.lo MySQLLog.lo \
-Dictionary.lo DataDictionary.lo SessionSettings.lo Message.lo \
-MessageSorters.lo Utility.lo
+Dictionary.lo DataDictionary.lo SessionSettings.lo Message.lo Group.lo \
+MessageSorters.lo Utility.lo LIBXML_DOMDocument.lo
 CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
 LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
 CXXLD = $(CXX)
@@ -135,8 +135,9 @@ DISTFILES = $(DIST_COMMON) $(SOURCES) $(HEADERS) $(TEXINFOS) $(EXTRA_DIST)
 TAR = gtar
 GZIP_ENV = --best
 DEP_FILES =  .deps/Acceptor.P .deps/ConfigLexer.P .deps/DataDictionary.P \
-.deps/Dictionary.P .deps/FileLog.P .deps/FileStore.P .deps/Initiator.P \
-.deps/Log.P .deps/Message.P .deps/MessageSorters.P .deps/MessageStore.P \
+.deps/Dictionary.P .deps/FileLog.P .deps/FileStore.P .deps/Group.P \
+.deps/Initiator.P .deps/LIBXML_DOMDocument.P .deps/Log.P \
+.deps/Message.P .deps/MessageSorters.P .deps/MessageStore.P \
 .deps/MySQLLog.P .deps/MySQLStore.P .deps/Parser.P .deps/Session.P \
 .deps/SessionFactory.P .deps/SessionSettings.P .deps/Settings.P \
 .deps/SocketAcceptor.P .deps/SocketConnection.P .deps/SocketConnector.P \

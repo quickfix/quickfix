@@ -58,11 +58,15 @@ libquickfix_la_SOURCES = \
 	Field.h \
 	FieldConvertors.h \
 	FieldNumbers.h \
+	DeprecatedFieldNumbers.h \
 	FieldTypes.h \
 	Fields.h \
+	DeprecatedFields.h \
 	FieldMap.h \
 	Message.cpp \
 	Message.h \
+	Group.cpp \
+	Group.h \
 	MessageSorters.cpp \
 	MessageSorters.h \
 	Messages.h \
@@ -75,14 +79,19 @@ libquickfix_la_SOURCES = \
 	Utility.cpp \
 	Utility.h \
 	Values.h \
+	DeprecatedValues.h \
 	FlexLexer.h \
-	SAXContentHandler.h \
+	DOMDocument.h \
+	LIBXML_DOMDocument.cpp \
+	LIBXML_DOMDocument.h \
 	FIX40_Messages.h \
 	FIX41_Messages.h \
 	FIX42_Messages.h \
+	FIX43_Messages.h \
 	FIX40_MessageCracker.h \
 	FIX41_MessageCracker.h \
 	FIX42_MessageCracker.h \
+	FIX43_MessageCracker.h \
 	MessageCracker.h
 
 libquickfix_la_LIBADD = -lpthread
