@@ -337,6 +337,7 @@ void Session::nextResendRequest( const Message& resendRequest )
   MsgType msgType;
   int begin = 0;
   int current = beginSeqNo;
+  std::string messageString;
 
   for ( i = messages.begin(); i != messages.end(); ++i )
   {
@@ -355,8 +356,8 @@ void Session::nextResendRequest( const Message& resendRequest )
     {
       if ( resend( msg ) )
       {
-        if ( begin ) generateSequenceReset( begin, msgSeqNum );
-        send( msg.toString() );
+        if ( begin ) generateSequenceReset( begin, msgSeqNum );        
+        send( msg.toString(messageString) );
         m_state.onEvent( "Resending Message: "
                          + IntConvertor::convert( msgSeqNum ) );
         begin = 0;
@@ -408,6 +409,7 @@ bool Session::sendRaw( Message& message, int num )
     header.getField( msgType );
 
     fill( header );
+    std::string messageString;
 
     if ( num )
       header.setField( MsgSeqNum( num ) );
@@ -420,14 +422,15 @@ bool Session::sendRaw( Message& message, int num )
         || msgType == "2" || msgType == "4"
         || isLoggedOn()
       )
-        result = send( message.toString() );
+        result = send( message.toString(messageString) );
     }
     else
     {
       try
       {
         m_application.toApp( message, m_sessionID );
-        if ( isLoggedOn() ) result = send( message.toString() );
+        if ( isLoggedOn() ) result = 
+          send( message.toString(messageString) );
       }
       catch ( DoNotSend& ) {}}
 
@@ -435,7 +438,7 @@ bool Session::sendRaw( Message& message, int num )
     {
       MsgSeqNum msgSeqNum;
       header.getField( msgSeqNum );
-      m_state.set( msgSeqNum, message.toString() );
+      m_state.set( msgSeqNum, messageString );
       m_state.incrNextSenderMsgSeqNum();
     }
     return result;
@@ -999,9 +1002,14 @@ bool Session::nextQueued( int num )
                      + IntConvertor::convert( num ) );
     msg.getHeader().getField( msgType );
     if ( msgType == MsgType_Logon )
+    {
       m_state.incrNextTargetMsgSeqNum();
+    }
     else
-      next( msg.toString() );
+    {
+      std::string msgString;
+      next( msg.toString(msgString) );
+    }
     return true;
   }
   return false;
