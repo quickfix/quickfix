@@ -30,6 +30,7 @@
 #include "SessionID.h"
 #include "SessionSettings.h"
 #include "Utility.h"
+#include "strptime.h"
 #include <fstream>
 #include <mysql.h>
 #undef MYSQL_PORT

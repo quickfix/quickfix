@@ -43,18 +43,16 @@ public __gc class MySQLLog : public CPPLog
 public:
   MySQLLog( SessionID* sessionID, String* database, String* user, 
             String* password, String* host, short port )
-  { QF_STACK_TRY
+  : CPPLog( new FIX::MySQLLog
+    ( sessionID->unmanaged(),
+      convertString(database),
+      convertString(user),
+      convertString(password),
+      convertString(host),
+      port ) ) {}
 
-    m_pUnmanaged = new FIX::MySQLLog( sessionID->unmanaged(), 
-				      convertString(database),
-				      convertString(user), 
-				      convertString(password), 
-				      convertString(host), port );
-
-    QF_STACK_CATCH
-  }
-
-  MySQLLog( FIX::Log* pUnmanaged ) : m_pUnmanaged(pUnmanaged) {}
+  MySQLLog( FIX::Log* pUnmanaged )
+  : CPPLog( m_pUnmanaged ) {}
 
   ~MySQLLog() { delete m_pUnmanaged; }
 };

@@ -32,6 +32,7 @@
 #include "FieldConvertors.h"
 #include "Parser.h"
 #include "Utility.h"
+#include "strptime.h"
 #include <fstream>
 #include <mysql.h>
 #include <errmsg.h>

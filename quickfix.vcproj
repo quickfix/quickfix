@@ -165,6 +165,9 @@ del /F EXCLUDE
 			<File
 				RelativePath=".\src\C++\Utility.cpp">
 			</File>
+			<File
+				RelativePath="src\C++\strptime.c">
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"

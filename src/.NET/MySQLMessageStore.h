@@ -48,10 +48,7 @@ public:
       convertString(user),
       convertString(password),
       convertString(host),
-      port )
-  { QF_STACK_TRY
-    QF_STACK_CATCH
-  }
+      port ) ) {}
 
   MySQLStore( FIX::MessageStore* pUnmanaged ) 
   : CPPMessageStore( pUnmanaged ) {}
