@@ -361,7 +361,7 @@ void process_sleep( double s )
 { QF_STACK_PUSH(process_sleep)
 
 #ifdef _MSC_VER
-  Sleep( ( long ) s * 1000 );
+  Sleep( (long)(s * 1000) );
 #else
   timespec time, remainder;
   double intpart;
