@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Unit Tests</title>
+    <H1>Unit Tests</H1>
+  </head>
+  <body>
+
+  <p>
+  QuickFIX comes with a comprehensive suite of automated unit tests. These tests are run by a
+  framework called CPPTest that is bundled with QuickFIX. CPPTest allows developers to test
+  C++ code by writing code that calls functions on objects and asserting correct behavior. These
+  test verifies not only that the code works correctly, but also that it works the same on all
+  platforms.
+  </p>
+
+  <p>
+  An example of one of the unit tests is provided below. This sample shows the setup and
+  execution of the test that verifies our Parser object can correctly extract messages from a stream.
+  </p>
+
+  <PRE>
+  // here we set up our environment before the test is run
+  <B>bool ParserTestCase::readFixMessage::onSetup( Parser*& pObject )
+  {
+    m_fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
+    m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
+    m_partFixMsg1 = "8=FIX.4.2\0019=17\00135=4\00136=";
+    m_partFixMsg2 = "88\001123=Y\00110=34\001";</B>
+
+    // put two complete messages and a partial message into the stream
+    <B>m_pStream = new std::stringstream(m_fixMsg1 + m_fixMsg2 + m_partFixMsg1);
+
+    pObject = new Parser(*m_pStream);
+    return true;
+  }
+
+  void ParserTestCase::readFixMessage::onRun( Parser& object )
+  {</B>
+    // extract the first complete message
+    <B>std::string fixMsg1;
+    assert(object.readFixMessage(fixMsg1));
+    assert( fixMsg1 == m_fixMsg1 );</B>
+
+    // extract the second complete message
+    <B>std::string fixMsg2;
+    assert(object.readFixMessage(fixMsg2));
+    assert( fixMsg2 == m_fixMsg2 );</B>
+
+    // attempt to extract a third message should fail because it is incomplete
+    <B>std::string partFixMsg;
+    assert(!object.readFixMessage(partFixMsg));</B>
+    // supply the rest of the third message to the stream
+    <B>std::stringstream finishStream(m_partFixMsg2);
+    object.setStream(finishStream);
+    assert(!object.readFixMessage(partFixMsg));</B>
+    // now we can sucessfully extract the third message
+    <B>assert(object.readFixMessage(partFixMsg));
+    assert( partFixMsg == (m_partFixMsg1 + m_partFixMsg2) );
+  }</B>
+
+  // clean up when we are done with the test
+  <B>void ParserTestCase::readFixMessage::onTeardown( Parser* pObject )
+  {
+    delete pObject;
+    delete m_pStream;
+  }</B>
+  </PRE>
+  </body>
+</html>

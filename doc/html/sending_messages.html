@@ -1,0 +1,124 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Sending Messages</title>
+    <H1>Sending Messages</H1>
+  </head>
+  <body>
+    <p>
+    Messages can be sent to a counter party with the static <B>Session::sentToTarget</B> methods.
+    This method has several signitures. They are:
+    </p>
+	See this code in <a href="java/sending_messages_1.html">JAVA</a> or <a href="csharp/sending_messages_1.html">C#</a>
+    <PRE>
+    // send a message that already contains a <I>BeginString</I>, <I>SenderCompID</I>, and a <I>TargetCompID</I>
+    <B>static bool sendToTarget( Message& )
+        throw(SessionNotFound&);</B>
+
+    // send a message based on the sessionID, convenient for use
+    // in <I>fromApp</I> since it provides a session ID for incomming
+    // messages
+    <B>static bool sendToTarget( Message&, const SessionID& )
+      throw(SessionNotFound&);</B>
+
+    // append a <I>SenderCompID</I> and <I>TargetCompID</I> before sending
+    <B>static bool sendToTarget( Message&, const SenderCompID&, const TargetCompID& )
+      throw(SessionNotFound&);</B>
+
+    // pass SenderCompID and TargetCompID in as strings
+    <B>static bool sendToTarget( Message&, const std::string&, const std::string& )
+      throw(SessionNotFound&);</B>
+    </PRE>
+
+    <H1>Creating Messages</H1>
+    As for creating messages, just like reading them, there are several levels of type safety. And
+    just like before, the recommended usage is the type safe method.
+    </p>
+
+    <H2>Least Type Safe</H1>
+    <p>
+    Once again. This should only be used for low level interface to other languages and middleware.
+    <B>do not</B> use this for writing applications.
+    </p>
+    See this code in <a href="java/sending_messages_2.html">JAVA</a> or <a href="csharp/sending_messages_2.html">C#</a>
+    <B><PRE>
+    void sendOrderCancelRequest()
+    {
+      FIX::Message message;
+      // BeginString
+      message.getHeader().setField(8, "FIX.4.2");
+      // SenderCompID
+      message.getHeader().setField(49, "TW");
+      // TargetCompID, with enumeration
+      message.getHeader().setField(FIX::FIELD::TargetCompID, "TARGET");
+      // MsgType
+      message.getHeader().setField(35, 'F');
+      // OrigClOrdID
+      message.setField(41, "123");
+      // ClOrdID
+      message.setField(11, "321");
+      // Symbol
+      message.setField(55, "LNUX");
+      // Side, with value enumeration
+      message.setField(54, FIX::Side_BUY);
+      // Text
+      message.setField(58, "Cancel My Order!");
+
+      FIX::Session::sendToTarget(message);
+    }
+    </PRE></B>
+
+    <H2>More Type Safe</H2>
+    <p>
+    And here, by using field classes, we can clearify our code and add some type safety. Once again, this
+    is something you usually use for code that needs to work with multiple messages types or multiple
+    FIX versions.
+    </p>
+    See this code in <a href="java/sending_messages_3.html">JAVA</a> or <a href="csharp/sending_messages_3.html">C#</a>
+    <PRE><B>
+    void sendOrderCancelRequest()
+    {
+      FIX::Message message;
+      const FIX::Header header& = message.getHeader();
+
+      header.setField(FIX::BeginString("FIX.4.2"));
+      header.setField(FIX::SenderCompID(TW));
+      header.setField(FIX::TargetCompID("TARGET"));
+      header.setField(FIX::MsgType(FIX::MsgType_OrderCancelRequest));
+      message.setField(FIX::OrigClOrdID("123"));
+      message.setField(FIX::ClOrdID("321"));
+      message.setField(FIX::Symbol("LNUX"));
+      message.setField(FIX::Side(FIX::Side_BUY));
+      message.setField(FIX::Text("Cancel My Order!"));
+
+      FIX::Session::sendToTarget(message);
+    }
+    </PRE></B>
+
+	<H2>Most Type Safe... DO THIS!</H2>
+	<p>
+	Finally, the <B>highly recommended</B> method is to use the type safe message classes. This
+	should typically be the only way you should ever have to create messages. Here the constructor
+	takes in all the required fields and adds the correct <I>MsgType</I> and <I>BeginString</I> for you.
+	What's more, by using the <B>set</B> method instead of </B>setField</B>, the compiler will not let
+	you add a field that is not a part of a <I>OrderCancelRequest</I> based on the FIX4.1 specs. Keep in
+	mind you can still use <B>setField</B> if you want to force any field you want into the message.
+	</p>
+	See this code in <a href="java/sending_messages_4.html">JAVA</a> or <a href="csharp/sending_messages_4.html">C#</a>
+	<B><PRE>
+    void sendOrderCancelRequest()
+    {
+      FIX41::OrderCancelRequest message(
+        FIX::OrigClOrdID("123"),
+        FIX::ClOrdID("321"),
+        FIX::Symbol("LNUX"),
+        FIX::Side(FIX::Side_BUY));
+
+      message.set(FIX::Text("Cancel My Order!"));
+
+      FIX::Session::sendToTarget(message, SenderCompID("TW"), TargetCompID("TARGET"));
+    }
+    </PRE></B>
+  </body>
+</html>

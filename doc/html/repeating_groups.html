@@ -1,0 +1,73 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Repeating Groups</title>
+    <H1>Repeating Groups</H1>
+  </head>
+  <body>
+    QuickFIX has the ability to send messages containing repeating groups and even recursive
+    repeating groups. All repeating groups begin with a field that indicates how many repeating
+    groups are in a set. A group can be created by referencing a class named after this field
+    scoped within the parent message or group.
+
+    <H2>Creating Messages With Repeating Groups</H2>
+
+    Here is an example of a message that distributes market data. When the message is created
+    the required field with the number of repeating groups is set to zero. This is because
+    QuickFIX will automatically set this field for you when you add groups. This way there is
+    never an inconsistancy between the number of entries in the field and in the message.
+
+    <PRE>
+    // create a market data message
+    <B>FIX42::MarketDataSnapshotFullRefresh message(
+    FIX::Symbol("QF"), FIX::NoMDEntries(0));</B>
+
+    // repeating group in the form of MessageName::NoField
+    <B>FIX42::MarketDataSnapshotFullRefresh::NoMDEntries group;
+    group.set(FIX::MDEntryType(0));
+    group.set(FIX::MDEntryPx(12.32));
+    group.set(FIX::MDEntrySize(100));
+    group.set(FIX::OrderID("ORDERID"));
+    message.addGroup(group);</B>
+
+    // no need to create a new group class if we are reusing the fields
+    <B>group.set(FIX::MDEntryType(1));
+    group.set(FIX::MDEntryPx(12.32));
+    group.set(FIX::MDEntrySize(100));
+    group.set(FIX::OrderID("ORDERID"));
+    message.addGroup(group);</B>
+    </PRE>
+
+    <H2>Reading Messages With Repeating Groups</H2>
+
+    To pull a group out of a message you need to supply the group you wish to pull out. You should
+    first inspect the number of entries field (which the group is named after) to get the total number
+    of groups. The message that was created above is now parsed back out below.
+
+    <PRE>
+    // should be 2
+    <B>FIX::NoMDEntries noMDEntries;
+    message.get(noMDEntries);
+
+    FIX42::MarketDataSnapshotFullRefresh::NoMDEntries group;
+    FIX::MDEntryType MDEntryType;
+    FIX::MDEntryPx MDEntryPx;
+    FIX::MDEntrySize MDEntrySize;
+    FIX::OrderID orderID;
+
+    message.getGroup(1, group);
+    group.get(MDEntryType);
+    group.get(MDEntryPx);
+    group.get(MDEntrySize);
+    group.get(orderID);
+
+    message.getGroup(2, group);
+    group.get(MDEntryType);
+    group.get(MDEntryPx);
+    group.get(MDEntrySize);
+    group.get(orderID);</B>
+    </PRE>
+
+  </body>
+</html>

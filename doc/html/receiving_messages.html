@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Receiving Messages</title>
+    <H1>Receiving Messages</H1>
+
+    <p>
+    Most of the messages you will be interested in looking at will be arriving in your overloaded
+    <B>fromApp</B> function of your application. You can get fields out of messages with different
+    degrees of type safety. The type in question here is the FIX message type. When the application
+    passes you a <B>Message</B> class, the C++ type checker has no idea what specific FIX message it is, you
+    must determine that dynamically. There is, however, a way we can make C++ aware of this type information.
+    First we will cover how to dynamically retreive fields from a message, then we will show you the
+    prefered type safe way. Keep in mind that all messages have a header and a trailer. If you want
+    to see fields in them, you must first call <B>getHeader()</B> or <B>getTrailer()</B> to get access
+    to them. Otherwise you use them just like the message.
+    </p>
+
+    <H2>Least Type Safe</H1>
+    <p>
+    This method of retreiving data from messages is <b>strongly discouraged</b> and is generally only useful
+    for writing more low level interfaces for other languages and middleware.
+    </p>
+    Here is a sample code segment for this type of retrieval:
+    </p>
+    See this code in <a href="java/receiving_messages_1.html">JAVA</a> or <a href="csharp/receiving_messages_1.html">C#</a>
+    <B><PRE>
+    void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
+      throw(FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue&)
+    {
+      </B>// retreive value into string with integer field ID<B>
+      std::string value;
+      value = message.getField(44);
+
+      </B>// retrieve value into a field base with integer field ID<B>
+      FIX::FieldBase field(44, "");
+      message.getField(field);
+
+      </B>// retreive value with an enumeration, a little better<B>
+      message.getField(FIX::FIELD::Price);
+    }
+    </PRE></B>
+
+    <H2>More Type Safe</H2>
+    <p>
+    A way to add some type safety to this is by using field classes that represent all the FIX
+    defined fields. This is sometimes useful in an application, but is generally only used within
+    code segments that need to be version independent (meaning versions of FIX). For example, our
+    Session class is implemented using mostly these. It is generally not recomended for most
+    applications. This will also get fields as their appropriate type, not just as strings.
+    </p>
+    See this code in <a href="java/receiving_messages_2.html">JAVA</a> or <a href="csharp/receiving_messages_2.html">C#</a>
+    <B><PRE>
+    void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
+      throw(FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue&)
+    {
+      </B>// retreive value into field class<B>
+      FIX::Price price;
+      message.getField(price);
+
+      </B>// another field...<B>
+      FIX::ClOrdID clOrdID;
+      message.getField(clOrdID);
+    }
+	</PRE></B>
+
+	<H2>Most Type Safe... DO THIS!</H2>
+	<p>
+	Here is the most type safe and <B>highly encouraged</B> method for retreiving data from a message.
+	QuickFIX has message classes that correlate to all the messages defined in the spec. They are, just
+	like the field classes, generated directly off of the FIX specifications. To take advantage of this,
+	you must break the messages out with the supplied <B>MessageCracker</B>. Also notice we are no longer
+	using a generic <B>Message</B> class and we are now using <B>get</B> instead of <B>getField</B>. Keep
+	in mind you can still use <B>getField</B> as all of these classes derive from <B>Message</B>
+	</p>
+    See this code in <a href="java/receiving_messages_3.html">JAVA</a> or <a href="csharp/receiving_messages_3.html">C#</a>
+    <B><PRE>
+    void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
+      throw(FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue&)
+    {
+      crack(message, sessionID);
+    }
+
+    void onMessage( const FIX42::NewOrderSingle& message, const FIX::SessionID& )
+    {
+      FIX::ClOrdID clOrdID;
+      message.get(clOrdID);
+
+      FIX::ClearingAccount clearingAccount;
+      message.get(clearingAccount);
+    }
+
+    void onMessage( const FIX41::NewOrderSingle& message, const FIX::SessionID& )
+    {
+      FIX::ClOrdID clOrdID;
+      message.get(clOrdID);
+
+      </B>// compile time error!! field not defined in FIX41<B>
+      FIX::ClearingAccount clearingAccount;
+      message.get(clearingAccount);
+    }
+
+    void onMessage( const FIX42::OrderCancelRequest& message, const FIX::SessionID& )
+    {
+      FIX::ClOrdID clOrdID;
+      message.get(clOrdID);
+
+      </B>// compile time error!! field not defined for OrderCancelRequest<B>
+      FIX::Price price;
+      message.get(price);
+    }
+    </PRE></B>
+
+    <p>
+    In order to use this you must use the <B>MessageCracker</B> as a mixin to your application.
+    This will provide you with the <B>crack</B> function and allow you to overload specific message
+    functions. Any function you do not overload will by default throw an <B>UnsupportedMessageType</B>
+    exception<br><br>
+    Define your application like this:
+    </p>
+    See this code in <a href="java/receiving_messages_4.html">JAVA</a> or <a href="csharp/receiving_messages_4.html">C#</a>
+    <B><PRE>
+    #include "quickfix/include/Application.h"
+    #include "quickfix/include/MessageCracker.h"
+
+    class MyApplication
+    : public FIX::Application,
+      public FIX::MessageCracker
+    <PRE></B>
+
+  </head>
+  <body>
+  </body>
+</html>

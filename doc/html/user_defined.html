@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>User Defined Fields</title>
+    <H1>User Defined Fields</H1>
+  </head>
+  <body>
+  <p>
+    FIX allows for users to define their own fields that do not belong to the spec. How can QuickFIX
+    be used to set and get user defined fields? Well one answer would be to use the non-type safe
+    set and get fields like so:
+  </p>
+  See this code in <a href="java/user_defined_1.html">JAVA</a> or <a href="csharp/user_defined_1.html">C#</a>
+  <PRE><B>
+  message.setField(6123, "value");
+  message.getField(6123);
+  </PRE></B>
+
+  <p>
+    But there is a better way. Instead of using this non type safe method, why not bring your own
+    user defined fields into the type system? QuickFIX provides you with a set of macros to do just
+    that. Now you can define your user defined fields in a separate file like this.
+  </p>
+  See this code in <a href="java/user_defined_2.html">JAVA</a> or <a href="csharp/user_defined_2.html">C#</a>
+  <PRE><B>
+  #include "quickfix/include/Field.h"
+
+  namespace FIX
+  {
+    USER_DEFINE_STRING(MyStringField, 6123);
+    USER_DEFINE_PRICE(MyPriceField, 8756);
+  }
+  </PRE></B>
+
+  <p>
+  User defined fields must be declared within the <B>FIX</B> namespace.
+  Now, elsewhere in your application, you can write code like this:
+  </p>
+  See this code in <a href="java/user_defined_3.html">JAVA</a> or <a href="csharp/user_defined_3.html">C#</a>
+  <PRE><B>
+  MyStringField stringField("string");
+  MyPriceField priceField(14.54);
+
+  message.setField(stringField);
+  message.setField(priceField);
+
+  message.getField(stringField);
+  message.getField(priceField);
+  </PRE></B>
+
+  <p>
+  Here is a list of macros that allow you to define fields of all supported FIX types, but keep
+  in mind you can write fields of wildly different types if you supply a new macro and convertor
+  that can convert your type to and from a string. Here is the list of macros:
+  </p>
+  <PRE><B>
+  USER_DEFINE_STRING( NAME, NUM )
+  USER_DEFINE_CHAR( NAME, NUM )
+  USER_DEFINE_PRICE( NAME, NUM )
+  USER_DEFINE_INT( NAME, NUM )
+  USER_DEFINE_AMT( NAME, NUM )
+  USER_DEFINE_QTY( NAME, NUM )
+  USER_DEFINE_CURRENCY( NAME, NUM )
+  USER_DEFINE_MULTIPLEVALUESTRING( NAME, NUM )
+  USER_DEFINE_EXCHANGE( NAME, NUM )
+  USER_DEFINE_UTCTIMESTAMP( NAME, NUM )
+  USER_DEFINE_BOOLEAN( NAME, NUM )
+  USER_DEFINE_LOCALMKTDATE( NAME, NUM )
+  USER_DEFINE_DATA( NAME, NUM )
+  USER_DEFINE_FLOAT( NAME, NUM )
+  USER_DEFINE_PRICEOFFSET( NAME, NUM )
+  USER_DEFINE_MONTHYEAR( NAME, NUM )
+  USER_DEFINE_DAYOFMONTH( NAME, NUM )
+  USER_DEFINE_UTCDATE( NAME, NUM )
+  USER_DEFINE_UTCTIMEONLY( NAME, NUM )
+  </PRE></B>
+  </body>
+</html>
