@@ -136,7 +136,7 @@ public:
   /// Set to the current date and time.
   void setCurrent()
   { 
-#ifdef HAS_FTIME
+#ifdef HAVE_FTIME
     timeb tb;
     ftime(&tb);
     time_t& time = tb.time;

@@ -1,4 +1,4 @@
-if HAS_JNI
+if HAVE_JNI
 SUBDIRS = C++
 else
 SUBDIRS = C++
@@ -23,11 +23,11 @@ all-local:
 	ln -s ../src/ut ../bin/ut
 	ln -s ../src/pt ../bin/pt
 	ln -s ../src/at ../bin/at
-if HAS_JNI
+if HAVE_JNI
 	bash ./build.sh
 endif
 
 clean-local:
-if HAS_JNI
+if HAVE_JNI
 	bash ./build.sh clean
 endif

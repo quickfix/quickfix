@@ -1,4 +1,4 @@
-if HAS_JNI
+if HAVE_JNI
 SUBDIRS = C++ java
 else
 SUBDIRS = C++
