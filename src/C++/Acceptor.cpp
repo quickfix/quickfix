@@ -66,7 +66,8 @@ Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
                     const SessionSettings& settings )
 throw( ConfigError& )
-: m_application( application ),
+  : m_threadid( 0 ),
+  m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( 0 )
@@ -79,7 +80,8 @@ Acceptor::Acceptor( Application& application,
                     const SessionSettings& settings,
                     LogFactory& logFactory )
 throw( ConfigError& )
-: m_application( application ),
+: m_threadid( 0 ),
+  m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( &logFactory )

@@ -65,22 +65,22 @@ namespace FIX
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
                       const SessionSettings& settings ) throw( ConfigError& )
-: m_application( application ),
+: m_threadid( 0 ),
+  m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( 0 ),
-  m_threadid( 0 )
+  m_pLogFactory( 0 )
 { initialize(); }
 
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
                       const SessionSettings& settings,
                       LogFactory& logFactory ) throw( ConfigError& )
-: m_application( application ),
+: m_threadid( 0 ),
+  m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( &logFactory ),
-  m_threadid( 0 )
+  m_pLogFactory( &logFactory )
 { initialize(); }
 
 void Initiator::initialize() throw ( ConfigError& )
