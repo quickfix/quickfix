@@ -172,6 +172,9 @@ namespace QuickFix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
         <xsl:variable name="component_name" select="@name"/>
         <xsl:for-each select="//fix/components/component[@name=$component_name]/field">
           NET_FIELD_SET(<xsl:value-of select="@name"/>);</xsl:for-each>
+        <xsl:for-each select="//fix/components/component[@name=$component_name]/group">
+	  <xsl:call-template name="group"/>
+        </xsl:for-each>
       </xsl:for-each>
     };</xsl:template>
 

@@ -161,8 +161,10 @@ namespace FIX<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
     <xsl:for-each select="component">
       <xsl:variable name="component_name" select="@name"/>
       <xsl:for-each select="//fix/components/component[@name=$component_name]/field">
-      FIELD_SET(*this, FIX::<xsl:value-of select="@name"/>);</xsl:for-each>
-      <xsl:for-each select="group"><xsl:call-template name="group"/></xsl:for-each>
+        FIELD_SET(*this, FIX::<xsl:value-of select="@name"/>);</xsl:for-each>
+      <xsl:for-each select="//fix/components/component[@name=$component_name]/group">
+        <xsl:call-template name="group"/>
+      </xsl:for-each>      
     </xsl:for-each>
     };</xsl:template>
 
