@@ -45,6 +45,8 @@ FIX::Log* JavaLogFactory::create
     ENV::get() ->CallObjectMethod( m_object, createId, jsessionID );
 
   ENV::get()->DeleteLocalRef( jsessionID );
+  if ( !obj ) throw FIX::ConfigError();
+
   return new JavaLog( JVMObject( obj ) );
 }
 
