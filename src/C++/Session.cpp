@@ -127,7 +127,7 @@ void Session::next()
 
     UtcTimeStamp now;
     if ( !checkSessionTime( now ) )
-      { reset(); return ; }
+      { reset(); return; }
 
     if ( !m_state.receivedLogon() )
     {
@@ -1087,8 +1087,13 @@ void Session::next( const Message& message )
   {
     m_state.connected( true );
 
-    if ( !checkSessionTime( UtcTimeStamp() ) )
-    { reset(); return ; }
+    UtcTimeStamp now;
+    if ( !checkSessionTime(now) )
+    { 
+      reset(); 
+      if ( !checkSessionTime(now) )
+        return; 
+    }
 
     message.getHeader().getField( msgType );
     message.getHeader().getField( beginString );
