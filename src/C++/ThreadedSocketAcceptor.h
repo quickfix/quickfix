@@ -75,12 +75,6 @@ public:
                           const SessionSettings&,
                           LogFactory& ) throw( ConfigError& );
 
-  ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
-                          const SessionSettings&, bool&, ConfigError& );
-  ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
-                          const SessionSettings&, LogFactory&,
-                          bool&, ConfigError& );
-
   virtual ~ThreadedSocketAcceptor();
 
   short getPort() const { return m_port; }
@@ -91,7 +85,9 @@ private:
   typedef std::map < int, int > SocketToThread;
   typedef std::pair < ThreadedSocketAcceptor*, ThreadedSocketConnection* > ThreadPair;
 
+  void onConfigure( const SessionSettings& ) throw ( ConfigError& );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
+
   void onStart();
   void onStop();
 
@@ -100,6 +96,7 @@ private:
   static void* socketThread( void* p );
 
   short m_port;
+  bool m_reuseAddress;
   int m_socket;
   SocketToThread m_threads;
   Mutex m_mutex;

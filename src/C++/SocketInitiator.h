@@ -73,17 +73,15 @@ public:
   SocketInitiator( Application&, MessageStoreFactory&,
                    const SessionSettings&, LogFactory& ) throw( ConfigError& );
 
-  SocketInitiator( Application&, MessageStoreFactory&, const SessionSettings&,
-                   bool&, ConfigError& );
-  SocketInitiator( Application&, MessageStoreFactory&, const SessionSettings&,
-                   LogFactory&, bool&, ConfigError& );
   virtual ~SocketInitiator();
 
 private:
   typedef std::map < int, SocketConnection* > SocketConnections;
   typedef std::map < SessionID, int > SessionToHostNum;
 
+  void onConfigure( const SessionSettings& ) throw ( ConfigError& );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
+
   void onStart();
   void onStop();
 

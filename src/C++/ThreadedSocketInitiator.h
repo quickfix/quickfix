@@ -74,19 +74,15 @@ public:
                            const SessionSettings&,
                            LogFactory& ) throw( ConfigError& );
 
-  ThreadedSocketInitiator( Application&, MessageStoreFactory&,
-                           const SessionSettings&, bool&, ConfigError& );
-  ThreadedSocketInitiator( Application&, MessageStoreFactory&,
-                           const SessionSettings&, LogFactory&,
-                           bool&, ConfigError& );
-
   virtual ~ThreadedSocketInitiator();
 
 private:
   typedef std::map < int, int > SocketToThread;
   typedef std::map < SessionID, int > SessionToHostNum;
 
+  void onConfigure( const SessionSettings& ) throw ( ConfigError& );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
+
   void onStart();
   void onStop();
 

@@ -87,43 +87,6 @@ throw( ConfigError& )
   initialize(); 
 }
 
-Acceptor::Acceptor( Application& application,
-                    MessageStoreFactory& messageStoreFactory,
-                    const SessionSettings& settings,
-                    bool& threw, ConfigError& ex )
-: m_application( application ),
-  m_messageStoreFactory( messageStoreFactory ),
-  m_settings( settings ),
-  m_pLogFactory( 0 )
-{
-  try
-  {
-    threw = false;
-    initialize();
-  }
-  catch ( ConfigError & e )
-  { threw = true; ex = e; }
-} 
-
-Acceptor::Acceptor( Application& application,
-                    MessageStoreFactory& messageStoreFactory,
-                    const SessionSettings& settings,
-                    LogFactory& logFactory,
-                    bool& threw, ConfigError& ex )
-: m_application( application ),
-  m_messageStoreFactory( messageStoreFactory ),
-  m_settings( settings ),
-  m_pLogFactory( &logFactory )
-{
-  try
-  {
-    threw = false;
-    initialize();
-  }
-  catch ( ConfigError & e )
-  { threw = true; ex = e; }
-}
-
 void Acceptor::initialize() throw ( ConfigError& ) 
 { QF_STACK_PUSH( Acceptor::initialize )
 
@@ -141,8 +104,11 @@ void Acceptor::initialize() throw ( ConfigError& )
     if ( m_settings.get( *i ).getString( CONNECTION_TYPE ) == "acceptor" )
       m_sessions[ *i ] = factory.create( *i, m_settings.get( *i ) );
   }
+
   if ( !m_sessions.size() )
     throw ConfigError( "No sessions defined for acceptor" );
+  
+  onConfigure( m_settings );
 
   QF_STACK_POP
 }

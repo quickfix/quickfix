@@ -81,43 +81,6 @@ Initiator::Initiator( Application& application,
   m_pLogFactory( &logFactory )
 { initialize(); }
 
-Initiator::Initiator( Application& application,
-                      MessageStoreFactory& messageStoreFactory,
-                      const SessionSettings& settings,
-                      bool& threw, ConfigError& ex )
-: m_application( application ),
-  m_messageStoreFactory( messageStoreFactory ),
-  m_settings( settings ),
-  m_pLogFactory( 0 )
-{
-  try
-  {
-    threw = false;
-    initialize();
-  }
-  catch ( ConfigError & e )
-  { threw = true; ex = e; }
-}
-
-Initiator::Initiator( Application& application,
-                      MessageStoreFactory& messageStoreFactory,
-                      const SessionSettings& settings,
-                      LogFactory& logFactory,
-                      bool& threw, ConfigError& ex )
-: m_application( application ),
-  m_messageStoreFactory( messageStoreFactory ),
-  m_settings( settings ),
-  m_pLogFactory( &logFactory )
-{
-  try
-  {
-    threw = false;
-    initialize();
-  }
-  catch ( ConfigError & e )
-  { threw = true; ex = e; }
-}
-
 void Initiator::initialize() throw ( ConfigError& )
 { QF_STACK_PUSH(Initiator::initialize)
 
@@ -137,9 +100,12 @@ void Initiator::initialize() throw ( ConfigError& )
       m_sessions[ *i ] = factory.create( *i, m_settings.get( *i ) );
       setConnected( *i, false );
     }
-    if ( !m_sessions.size() )
-      throw ConfigError( "No sessions defined for initiator" );
   }
+
+  if ( !m_sessions.size() )
+    throw ConfigError( "No sessions defined for initiator" );
+
+  onConfigure( m_settings );
 
   QF_STACK_POP
 }

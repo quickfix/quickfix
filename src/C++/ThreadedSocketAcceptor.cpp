@@ -77,37 +77,25 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
     m_port( 0 ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
 
-ThreadedSocketAcceptor::ThreadedSocketAcceptor(
-  Application& application,
-  MessageStoreFactory& factory,
-  const SessionSettings& settings,
-  bool& threw, ConfigError& ex )
-: Acceptor( application, factory, settings, threw, ex ),
-  m_port( 0 ), m_socket( 0 ), m_stop( false )
-{ socket_init(); }
-
-ThreadedSocketAcceptor::ThreadedSocketAcceptor(
-  Application& application,
-  MessageStoreFactory& factory,
-  const SessionSettings& settings,
-  LogFactory& logFactory,
-  bool& threw, ConfigError& ex )
-: Acceptor( application, factory, settings, logFactory, threw, ex ),
-  m_port( 0 ), m_socket( 0 ), m_stop( false )
-{ socket_init(); }
-
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 { socket_term(); }
 
-void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
-{ QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
+void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )
+throw ( ConfigError& )
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::onConfigure)
 
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
-  bool reuseAddress = false;
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
-    reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+    m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
 
-  m_socket = socket_createAcceptor( m_port, reuseAddress );
+  QF_STACK_POP
+}
+
+void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) 
+throw ( RuntimeError& )
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
+
+  m_socket = socket_createAcceptor( m_port, m_reuseAddress );
   if( m_socket < 0 )
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
 

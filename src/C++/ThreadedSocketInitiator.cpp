@@ -76,34 +76,22 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   m_reconnectInterval( 30 ), m_stop( false )
 { socket_init(); }
 
-ThreadedSocketInitiator::ThreadedSocketInitiator(
-  Application& application,
-  MessageStoreFactory& factory,
-  const SessionSettings& settings,
-  bool& threw, ConfigError& ex )
-: Initiator( application, factory, settings, threw, ex ),
-  m_reconnectInterval( 30 ), m_stop( false )
-{ socket_init(); }
-
-ThreadedSocketInitiator::ThreadedSocketInitiator(
-  Application& application,
-  MessageStoreFactory& factory,
-  const SessionSettings& settings,
-  LogFactory& logFactory,
-  bool& threw, ConfigError& ex )
-: Initiator( application, factory, settings, logFactory, threw, ex ),
-  m_reconnectInterval( 30 ), m_stop( false )
-{ socket_init(); }
-
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
 { socket_term(); }
 
-void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
-{ QF_STACK_PUSH(ThreadedSocketInitiator::onInitialize)
+void ThreadedSocketInitiator::onConfigure( const SessionSettings& s )
+throw ( ConfigError& )
+{ QF_STACK_PUSH(ThreadedSocketInitiator::onConfigure)
 
   try { m_reconnectInterval = s.get().getLong( "ReconnectInterval" ); }
   catch ( std::exception& ) {}
 
+  QF_STACK_POP
+}
+
+void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) 
+throw ( ConfigError&, RuntimeError& )
+{ QF_STACK_PUSH(ThreadedSocketInitiator::onInitialize)
   QF_STACK_POP
 }
 

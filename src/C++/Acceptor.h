@@ -85,11 +85,6 @@ public:
   Acceptor( Application&, MessageStoreFactory&,
             const SessionSettings&, LogFactory& ) throw( ConfigError& );
 
-  Acceptor( Application&, MessageStoreFactory&, const SessionSettings&,
-            bool&, ConfigError& );
-  Acceptor( Application&, MessageStoreFactory&, const SessionSettings&,
-            LogFactory&, bool&, ConfigError& );
-
   virtual ~Acceptor();
 
   /// Start acceptor.
@@ -109,8 +104,10 @@ public:
 private:
   void initialize() throw ( ConfigError& );
 
+  /// Implemented to configure acceptor
+  virtual void onConfigure( const SessionSettings& ) throw ( ConfigError& ) {};
   /// Implemented to initialize acceptor
-  virtual void onInitialize( const SessionSettings& ) throw ( RuntimeError& ) = 0;
+  virtual void onInitialize( const SessionSettings& ) throw ( RuntimeError& ) {};
   /// Implemented to start listening for connections.
   virtual void onStart() = 0;
   /// Implemented to stop a running acceptor.

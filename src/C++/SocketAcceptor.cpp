@@ -73,21 +73,6 @@ SocketAcceptor::SocketAcceptor( Application& application,
 : Acceptor( application, factory, settings, logFactory ),
   m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
 
-SocketAcceptor::SocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings,
-                                bool& threw, ConfigError& ex )
-: Acceptor( application, factory, settings, threw, ex ),
-  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
-
-SocketAcceptor::SocketAcceptor( Application& application,
-                                MessageStoreFactory& factory,
-                                const SessionSettings& settings,
-                                LogFactory& logFactory,
-                                bool& threw, ConfigError& ex )
-: Acceptor( application, factory, settings, logFactory, threw, ex ),
-  m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
-
 SocketAcceptor::~SocketAcceptor()
 {
   SocketConnections::iterator iter;
@@ -95,17 +80,24 @@ SocketAcceptor::~SocketAcceptor()
     delete iter->second;
 }
 
-void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
-{ QF_STACK_PUSH(SocketAcceptor::onInitialize)
+void SocketAcceptor::onConfigure( const SessionSettings& s )
+throw ( ConfigError& )
+{ QF_STACK_PUSH(SocketAcceptor::onConfigure)
 
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
-  bool reuseAddress = false;
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
-    reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+    m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+
+  QF_STACK_POP
+}
+
+void SocketAcceptor::onInitialize( const SessionSettings& s ) 
+throw ( RuntimeError& )
+{ QF_STACK_PUSH(SocketAcceptor::onInitialize)
 
   try
   {
-    m_pServer = new SocketServer( m_port, 1, reuseAddress );
+    m_pServer = new SocketServer( m_port, 1, m_reuseAddress );
   }
   catch( std::exception& )
   {

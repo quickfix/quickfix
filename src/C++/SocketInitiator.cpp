@@ -76,31 +76,21 @@ throw( ConfigError& )
   m_connector( 1 ), m_elapsedTimeouts( 0 ),
   m_reconnectInterval( 30 ), m_stop( false ) {}
 
-SocketInitiator::SocketInitiator( Application& application,
-                                  MessageStoreFactory& factory,
-                                  const SessionSettings& settings,
-                                  bool& threw, ConfigError& ex )
-: Initiator( application, factory, settings, threw, ex ),
-  m_connector( 1 ), m_elapsedTimeouts( 0 ),
-  m_reconnectInterval( 30 ), m_stop( false ) {}
-
-SocketInitiator::SocketInitiator( Application& application,
-                                  MessageStoreFactory& factory,
-                                  const SessionSettings& settings,
-                                  LogFactory& logFactory,
-                                  bool& threw, ConfigError& ex )
-: Initiator( application, factory, settings, logFactory, threw, ex ),
-  m_connector( 1 ), m_elapsedTimeouts( 0 ),
-  m_reconnectInterval( 30 ), m_stop( false ) {}
-
 SocketInitiator::~SocketInitiator() {}
 
-void SocketInitiator::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
-{ QF_STACK_PUSH(SocketInitiator::onInitialize)
+void SocketInitiator::onConfigure( const SessionSettings& s )
+throw ( ConfigError& )
+{ QF_STACK_PUSH(SocketInitiator::onConfigure)
 
   try { m_reconnectInterval = s.get().getLong( RECONNECT_INTERVAL ); }
   catch ( std::exception& ) {}
 
+  QF_STACK_POP
+}
+
+void SocketInitiator::onInitialize( const SessionSettings& s ) 
+throw ( RuntimeError& )
+{ QF_STACK_PUSH(SocketInitiator::onInitialize)
   QF_STACK_POP
 }
 

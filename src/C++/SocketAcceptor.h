@@ -73,11 +73,7 @@ public:
                   const SessionSettings& ) throw( ConfigError& );
   SocketAcceptor( Application&, MessageStoreFactory&,
                   const SessionSettings&, LogFactory& ) throw( ConfigError& );
-
-  SocketAcceptor( Application&, MessageStoreFactory&, const SessionSettings&,
-                  bool&, ConfigError& );
-  SocketAcceptor( Application&, MessageStoreFactory&, const SessionSettings&,
-                  LogFactory&, bool&, ConfigError& );
+  void construct();
 
   virtual ~SocketAcceptor();
 
@@ -88,7 +84,9 @@ private:
 
   typedef std::map < int, SocketConnection* > SocketConnections;
 
+  void onConfigure( const SessionSettings& ) throw ( ConfigError& );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
+
   void onStart();
   void onStop();
 
@@ -99,6 +97,7 @@ private:
   void onTimeout( SocketServer& );
 
   short m_port;
+  bool m_reuseAddress;
   SocketServer* m_pServer;
   SocketConnections m_connections;
   bool m_stop;

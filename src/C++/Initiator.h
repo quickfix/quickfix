@@ -87,10 +87,6 @@ public:
   Initiator( Application&, MessageStoreFactory&,
              const SessionSettings&, LogFactory& ) throw( ConfigError& );
 
-  Initiator( Application&, MessageStoreFactory&, const SessionSettings&,
-             bool&, ConfigError& );
-  Initiator( Application&, MessageStoreFactory&, const SessionSettings&,
-             LogFactory&, bool&, ConfigError& );
   virtual ~Initiator();
 
   /// Start initiator.
@@ -113,8 +109,10 @@ protected:
 private:
   void initialize() throw ( ConfigError& );
 
+  /// Implemented to configure acceptor
+  virtual void onConfigure( const SessionSettings& ) throw ( ConfigError& ) {};
   /// Implemented to initialize initiator
-  virtual void onInitialize( const SessionSettings& ) throw ( RuntimeError& ) = 0;
+  virtual void onInitialize( const SessionSettings& ) throw ( RuntimeError& ) {};
   /// Implemented to start connecting to targets.
   virtual void onStart() = 0;
   /// Implemented to stop a running initiator.
