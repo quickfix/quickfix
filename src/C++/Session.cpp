@@ -597,8 +597,8 @@ void Session::generateReject( const Message& message, int err, int field )
     case SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM:
     reason = &SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT;
     break;
-    case SessionRejectReason_E:
-    reason = &SessionRejectReason_E_TEXT;
+    case SessionRejectReason_INVALID_MSGTYPE:
+    reason = &SessionRejectReason_INVALID_MSGTYPE_TEXT;
   };
 
   if ( reason && ( field || err == SessionRejectReason_INVALID_TAG_NUMBER ) )
