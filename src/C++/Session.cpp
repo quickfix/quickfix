@@ -932,7 +932,7 @@ void Session::next( const Message& message )
     }
     nextQueued();
   }
-catch ( MessageParseError& ) {}
+  catch ( MessageParseError& ) {}
   catch ( RequiredTagMissing & e )
   { generateReject( message, 1, e.field ); }
   catch ( FieldNotFound & e )
@@ -1131,15 +1131,6 @@ bool Session::isSameSession( const UtcTimeOnly& start,
   if ( !isSessionTime( start, end, time1 ) ) return false;
   if ( !isSessionTime( start, end, time2 ) ) return false;
 
-  if ( time1 == time2 ) return true;
-
-  UtcDate time1Date( time1 );
-  UtcDate time2Date( time2 );
-
-  if ( start < end || start == end )
-    return time1Date == time2Date;
-  else if( start > end )
-    return abs( time1Date - time2Date ) <= 1;
-  return false;
+  return (time1 - time2 <= UTC_DAY);
 }
 }

@@ -753,6 +753,7 @@ void SessionTestCase::isSessionTime::onRun( Session& object )
 
 void SessionTestCase::isSameSession::onRun( Session& object )
 {
+  // start time is less than end time
   UtcTimeOnly start( 3, 0, 0 );
   UtcTimeOnly end( 18, 0, 0 );
 
@@ -781,6 +782,7 @@ void SessionTestCase::isSameSession::onRun( Session& object )
   time2 = UtcTimeStamp( 2, 0, 0, 10, 10, 2000 );
   assert( !Session::isSameSession( start, end, time1, time2 ) );
 
+  // start time is greater than end time
   start = UtcTimeOnly( 18, 0, 0 );
   end = UtcTimeOnly( 3, 0, 0 );
 
@@ -798,6 +800,11 @@ void SessionTestCase::isSameSession::onRun( Session& object )
   time1 = UtcTimeStamp( 2, 0, 0, 11, 10, 2000 );
   time2 = UtcTimeStamp( 19, 0, 0, 10, 10, 2000 );
   assert( Session::isSameSession( start, end, time1, time2 ) );
+
+  // time 1 is 25 hours greater than time 2
+  time1 = UtcTimeStamp( 21, 0, 0, 11, 10, 2000 );
+  time2 = UtcTimeStamp( 20, 0, 0, 10, 10, 2000 );
+  assert( !Session::isSameSession( start, end, time1, time2 ) );
 }
 
 bool SessionTestCase::resetOnEndTime::onSetup( Session*& pObject )
