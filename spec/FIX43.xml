@@ -1994,7 +1994,7 @@
       <field name="AllocLinkType" required="N" />
       <field name="BookingRefID" required="N" />
       <group name="NoOrders" number="73">
-        <field name="ClOrdID" required="Y*" />
+        <field name="ClOrdID" required="Y" />
         <field name="OrderID" required="N" />
         <field name="SecondaryOrderID" required="N" />
         <field name="SecondaryClOrdID" required="" />
@@ -2005,9 +2005,9 @@
         <field name="SecondaryExecID" required="" />
         <field name="LastPx" required="N" />
         <field name="LastCapacity" required="N" />
-        <field name="AllocAccount" required="Y**" />
+        <field name="AllocAccount" required="Y" />
         <field name="AllocPrice" required="N" />
-        <field name="AllocQty" required="Y**" />
+        <field name="AllocQty" required="Y" />
         <field name="IndividualAllocID" required="N" />
         <field name="ProcessCode" required="N" />
         <component name="NestedParties" required="N" />
@@ -2036,7 +2036,7 @@
         </group>
       </group>
       <group name="NoExecs" number="124">
-        <field name="ClOrdID" required="Y*" />
+        <field name="ClOrdID" required="Y" />
         <field name="OrderID" required="N" />
         <field name="SecondaryOrderID" required="N" />
         <field name="SecondaryClOrdID" required="" />
@@ -2047,9 +2047,9 @@
         <field name="SecondaryExecID" required="" />
         <field name="LastPx" required="N" />
         <field name="LastCapacity" required="N" />
-        <field name="AllocAccount" required="Y**" />
+        <field name="AllocAccount" required="Y" />
         <field name="AllocPrice" required="N" />
-        <field name="AllocQty" required="Y**" />
+        <field name="AllocQty" required="Y" />
         <field name="IndividualAllocID" required="N" />
         <field name="ProcessCode" required="N" />
         <component name="NestedParties" required="N" />
@@ -2106,7 +2106,7 @@
       <field name="TotalAccruedInterestAmt" required="N" />
       <field name="LegalConfirm" required="N" />
       <group name="NoAllocs" number="78">
-        <field name="ClOrdID" required="Y*" />
+        <field name="ClOrdID" required="Y" />
         <field name="OrderID" required="N" />
         <field name="SecondaryOrderID" required="N" />
         <field name="SecondaryClOrdID" required="" />
@@ -2117,9 +2117,9 @@
         <field name="SecondaryExecID" required="" />
         <field name="LastPx" required="N" />
         <field name="LastCapacity" required="N" />
-        <field name="AllocAccount" required="Y**" />
+        <field name="AllocAccount" required="Y" />
         <field name="AllocPrice" required="N" />
-        <field name="AllocQty" required="Y**" />
+        <field name="AllocQty" required="Y" />
         <field name="IndividualAllocID" required="N" />
         <field name="ProcessCode" required="N" />
         <component name="NestedParties" required="N" />
@@ -2384,7 +2384,7 @@
   </messages>
   <components>
     <component name="Instrument">
-      <field name="Symbol" required="N" />
+      <field name="Symbol" required="Y" />
       <field name="SymbolSfx" required="N" />
       <field name="SecurityID" required="N" />
       <field name="SecurityIDSource" required="N" />
@@ -2421,7 +2421,7 @@
       <field name="EncodedSecurityDesc" required="N" />
     </component>
     <component name="InstrumentLeg">
-      <field name="LegSymbol" required="N" />
+      <field name="LegSymbol" required="Y" />
       <field name="LegSymbolSfx" required="N" />
       <field name="LegSecurityID" required="N" />
       <field name="LegSecurityIDSource" required="N" />
@@ -2502,7 +2502,7 @@
       <field name="Yield" required="N" />
     </component>
     <component name="UnderlyingInstrument">
-      <field name="UnderlyingSymbol" required="N" />
+      <field name="UnderlyingSymbol" required="Y" />
       <field name="UnderlyingSymbolSfx" required="N" />
       <field name="UnderlyingSecurityID" required="N" />
       <field name="UnderlyingSecurityIDSource" required="N" />
@@ -3133,7 +3133,86 @@
       <value description="PHYSICAL" enum="PED" />
       <value description="PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY" enum="PTC" />
     </field>
-    <field type="STRING" name="SecurityType" number="167" />
+    <field type="STRING" name="SecurityType" number="167">
+      <value description="CORPORATE_BOND" enum="CORP" />
+      <value description="CORPORATE_PRIVATE_PLACEMENT" enum="CPP" />
+      <value description="CONVERTABLE_BOND" enum="CB" />
+      <value description="DUAL_CURRENCY" enum="DUAL" />
+      <value description="INDEX_LINKED" enum="XLINKD" />
+      <value description="STRUCTURED_NOTES" enum="STRUCT" />
+      <value description="YANKEE_CORPORATE_BOND" enum="YANK" />
+      <value description="FOREIGN_EXCHANGE_CONTRACT" enum="FOR" />
+      <value description="COMMON_STOCK" enum="CS" />
+      <value description="PREFERED_STOCK" enum="PS" />
+      <value description="BRADY_BOND" enum="BRADY" />
+      <value description="US_TREASURY_BOND" enum="TBOND" />
+      <value description="INTEREST_STRIP_FROM_ANY_BOND_OR_NOTE" enum="TINT" />
+      <value description="TREASURY_INFLATION_PROTECTED_SECURITIES" enum="TIPS" />
+      <value description="PRINCIPAL_STRIP_OF_A_CALLABLE_BOND_OR_NOTE" enum="TCAL" />
+      <value description="PRINCIPAL_STRIP_FROM_A_NON_CALLABLE_BOND_OR_NOTE" enum="TPRN" />
+      <value description="US_TREASURY_NOTE_BOND" enum="UST" />
+      <value description="US_TREASURY_BILL" enum="USTB" />
+      <value description="TERM_LOAN" enum="TERM" />
+      <value description="REVOLVER_LOAN" enum="RVLV" />
+      <value description="REVOLVER_TERM_LOAN" enum="RVLVTRM" />
+      <value description="BRIDGE_LOAN" enum="BRIDGE" />
+      <value description="LETTER_OF_CREDIT" enum="LOFC" />
+      <value description="SWING_LINE_FACILITY" enum="SWING" />
+      <value description="DEBTOR_IN_POSSESSION" enum="DINP" />
+      <value description="DEFAULTED" enum="DEFLTED" />
+      <value description="WITHDRAWN" enum="WITHDRN" />
+      <value description="REPLACED" enum="REPLACD" />
+      <value description="MATURED" enum="MATURED" />
+      <value description="AMENDED_AND_RESTATED" enum="AMENDED" />
+      <value description="RETIRED" enum="RETIRED" />
+      <value description="BANKERS_ACCEPTANCE" enum="BA" />
+      <value description="BANK_NOTES" enum="BN" />
+      <value description="BILL_OF_EXCHANGES" enum="BOX" />
+      <value description="CERTIFICATE_OF_DEPOSIT" enum="CD" />
+      <value description="CALL_LOANS" enum="CL" />
+      <value description="COMMERCIAL_PAPER" enum="CP" />
+      <value description="DEPOSIT_NOTES" enum="DP" />
+      <value description="LIQUIDITY_NOTES" enum="LQN" />
+      <value description="MEDIUM_TERM_NOTES" enum="MTN" />
+      <value description="OVERNITE" enum="ONITE" />
+      <value description="PROMISSORY_NOTES" enum="PN" />
+      <value description="PLAZOS_FIJOS" enum="PZFJ" />
+      <value description="REPURCHASE_AGREEMENT" enum="RP" />
+      <value description="REVERSE_REPURCHASE_AGREEMENT" enum="RVRP" />
+      <value description="SHORT_TERM_LOAN_NOTE" enum="STN" />
+      <value description="TIME_DEPOSIT" enum="TD" />
+      <value description="EXTENDED_COMM_NOTE" enum="XCN" />
+      <value description="AGENCY_POOLS" enum="POOL" />
+      <value description="ASSET_BACKED_SECURITIES" enum="ABS" />
+      <value description="CORP_MORTGAGE_BACKED_SECURITIES" enum="CMBS" />
+      <value description="COLLATERALIZED_MORTGAGE_OBLIGATION" enum="CMO" />
+      <value description="IOETTE_MORTGAGE" enum="IET" />
+      <value description="MORTGAGE_BACKED_SECURITIES" enum="MBS" />
+      <value description="MORTGAGE_INTEREST_ONLY" enum="MIO" />
+      <value description="MORTGAGE_PRINCIPAL_ONLY" enum="MPO" />
+      <value description="MORTGAGE_PRIVATE_PLACEMENT" enum="MPP" />
+      <value description="MISCELLANEOUS_PASS_THROUGH" enum="MPT" />
+      <value description="OTHER_ANTICIPATION_NOTES" enum="AN" />
+      <value description="CERTIFICATE_OF_OBLIGATION" enum="COFO" />
+      <value description="CERTIFICATE_OF_PARTICIPATION" enum="COFP" />
+      <value description="GENERAL_OBLIGATION_BONDS" enum="GO" />
+      <value description="MANDATORY_TENDER" enum="MT" />
+      <value description="REVENUE_ANTICIPATION_NOTE" enum="RAN" />      
+      <value description="REVENUE_BONDS" enum="REV" />
+      <value description="SPECIAL_ASSESSMENT" enum="SPCLA" />
+      <value description="SPECIAL_OBLIGATION" enum="SPCLO" />
+      <value description="SPECIAL_TAX" enum="SPCLT" />
+      <value description="TAX_ANTICIPATION_NOTE" enum="TAN" />
+      <value description="TAX_ALLOCATION" enum="TAXA" />
+      <value description="TAX_EXEMPT_COMMERCIAL_PAPER" enum="TECP" />
+      <value description="TAX_AND_REVENUE_ANTICIPATION_NOTE" enum="TRAN" />
+      <value description="VARIABLE_RATE_DEMAND_NOTE" enum="VRDN" />
+      <value description="WARRANT" enum="WAR" />
+      <value description="MUTUAL_FUND" enum="MF" />
+      <value description="MULTI_LEG_INSTRUMENT" enum="MLEG" />
+      <value description="NO_SECURITY_TYPE" enum="NONE" />
+      <value description="WILDCARD" enum="?" />
+    </field>
     <field type="UTCTIMESTAMP" name="EffectiveTime" number="168" />
     <field type="INT" name="StandInstDbType" number="169">
       <value description="OTHER" enum="0" />
