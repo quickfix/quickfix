@@ -181,37 +181,43 @@ bool Message::setString( const std::string& string,
 
   field_type type = header;
 
-  while ( pos < string.size() )
-  {
-    FieldBase field = extractField( string, pos );
-    if ( count < 3 && headerOrder[ count++ ] != field.getField() )
-      if ( doValidation ) return false;
+  try {
+    while ( pos < string.size() )
+    {
+      FieldBase field = extractField( string, pos );
+      if ( count < 3 && headerOrder[ count++ ] != field.getField() )
+        if ( doValidation ) return false;
 
-    if ( isHeaderField( field, pDataDictionary ) )
-    {
-      if ( type != header ) m_validStructure = false;
-      if ( field.getField() == FIELD::MsgType )
-        msg = field.getString();
-      m_header.setField( field );
-    }
-    else if ( isTrailerField( field, pDataDictionary ) )
-    {
-      type = trailer;
-      m_trailer.setField( field );
-    }
-    else
-    {
-      if ( type == trailer ) m_validStructure = false;
-      type = body;
-      setField( field );
-      if ( pDataDictionary )
+      if ( isHeaderField( field, pDataDictionary ) )
       {
-        setGroup( msg, field, string, pos, *this, *pDataDictionary );
+        if ( type != header ) m_validStructure = false;
+        if ( field.getField() == FIELD::MsgType )
+          msg = field.getString();
+        m_header.setField( field );
+      }
+      else if ( isTrailerField( field, pDataDictionary ) )
+      {
+        type = trailer;
+        m_trailer.setField( field );
+      }
+      else
+      {
+        if ( type == trailer ) m_validStructure = false;
+        type = body;
+        setField( field );
+        if ( pDataDictionary )
+        {
+          setGroup( msg, field, string, pos, *this, *pDataDictionary );
+        }
       }
     }
+    if ( doValidation ) return validate();
+    return true;
   }
-  if ( doValidation ) return validate();
-  return true;
+  catch( InvalidMessage& )
+  {
+    return false;
+  }
 }
 
 void Message::setGroup( const std::string& msg, const FieldBase& field, const std::string& string,

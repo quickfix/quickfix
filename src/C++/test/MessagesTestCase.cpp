@@ -111,6 +111,8 @@ void MessageTestCase::setString::onRun( Message& object )
   static const char* strNoLengthAndChk =
     "8=FIX.4.2\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\001";
+  static const char* strJunk =
+    "paste your FIX message here, then hit ENTER";
 
   assert( object.setString( strGood ) );
   assert( !object.setString( strNoChk ) );
@@ -119,6 +121,7 @@ void MessageTestCase::setString::onRun( Message& object )
   assert( !object.setString( strBadHeaderOrder ) );
   assert( !object.setString( strNoLengthAndChk ) );
   assert( object.setString( strNoLengthAndChk, false ) );
+  assert( !object.setString( strJunk ) );
 
   DataDictionary dataDictionary;
   dataDictionary.addHeaderField( 11 );
@@ -181,13 +184,9 @@ void MessageTestCase::noEndingDelim::onRun( Message& object )
   static const char * str =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\00110=218";
-  try
-  {
-    object.setString( str );
-    assert( false );
-  }
-  catch ( InvalidMessage& )
-  {}}
+
+  assert(!object.setString( str ));
+}
 
 void MessageTestCase::outOfOrder::onRun( Message& object )
 {
