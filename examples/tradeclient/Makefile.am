@@ -5,7 +5,7 @@ tradeclient_SOURCES = \
 	Application.h \
 	Application.cpp
 
-tradeclient_LDADD = -L$(top_builddir)/src/C++ -lquickfix -lstdc++
+tradeclient_LDADD = $(top_builddir)/src/C++/libquickfix.la -lstdc++
 
 INCLUDES = -I$(top_builddir)/include -I..
 

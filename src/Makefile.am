@@ -1,5 +1,5 @@
 if HAVE_JNI
-SUBDIRS = C++
+SUBDIRS = C++ java
 else
 SUBDIRS = C++
 endif
