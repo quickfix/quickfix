@@ -1,3 +1,20 @@
+2003-05-23 13:21  orenmnero
+
+	* at.vcproj, pt.vcproj, quickfix.vcproj, ut.vcproj,
+	examples/executor/C++/executor_cpp.vcproj,
+	examples/ordermatch/ordermatch.vcproj,
+	examples/tradeclient/tradeclient.vcproj,
+	src/java/quickfix_jni.vcproj, test/atrun/atrun.vcproj: disable
+	precompiled headers 
+
+2003-05-22 23:23  orenmnero
+
+	* NEWS: updated for next version 
+
+2003-05-22 23:22  orenmnero
+
+	* ChangeLog: generated with cvs2cl.pl 
+
 2003-05-22 22:53  orenmnero
 
 	* doc/html/java/: receiving_messages_2.html,
