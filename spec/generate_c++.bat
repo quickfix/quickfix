@@ -1,9 +1,11 @@
-msxsl FIX42.xml FieldNumbers.xsl -o ..\src\C++\FieldNumbers.h
-msxsl FIX42.xml Fields.xsl -o ..\src\C++\Fields.h
-msxsl FIX42.xml Values.xsl -o ..\src\C++\Values.h
+msxsl FIX43.xml FieldNumbers.xsl -o ..\src\C++\FieldNumbers.h
+msxsl FIX43.xml Fields.xsl -o ..\src\C++\Fields.h
+msxsl FIX43.xml Values.xsl -o ..\src\C++\Values.h
 msxsl FIX40.xml MessageCracker.xsl -o ..\src\C++\FIX40_MessageCracker.h
 msxsl FIX41.xml MessageCracker.xsl -o ..\src\C++\FIX41_MessageCracker.h
 msxsl FIX42.xml MessageCracker.xsl -o ..\src\C++\FIX42_MessageCracker.h
+msxsl FIX43.xml MessageCracker.xsl -o ..\src\C++\FIX43_MessageCracker.h
 msxsl FIX40.xml Messages.xsl -o ..\src\C++\FIX40_Messages.h
 msxsl FIX41.xml Messages.xsl -o ..\src\C++\FIX41_Messages.h
 msxsl FIX42.xml Messages.xsl -o ..\src\C++\FIX42_Messages.h
+msxsl FIX43.xml Messages.xsl -o ..\src\C++\FIX43_Messages.h

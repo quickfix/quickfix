@@ -1,10 +1,13 @@
-msxsl FIX42.xml net_Fields.xsl -o ..\src\.NET\Fields.h
+msxsl FIX43.xml net_Fields.xsl -o ..\src\.NET\Fields.h
 msxsl FIX40.xml net_Messages.xsl -o ..\src\.NET\FIX40_Messages.h
 msxsl FIX41.xml net_Messages.xsl -o ..\src\.NET\FIX41_Messages.h
 msxsl FIX42.xml net_Messages.xsl -o ..\src\.NET\FIX42_Messages.h
+msxsl FIX43.xml net_Messages.xsl -o ..\src\.NET\FIX43_Messages.h
 msxsl FIX40.xml net_MessageCracker.xsl -o ..\src\.NET\FIX40_MessageCracker.h
 msxsl FIX41.xml net_MessageCracker.xsl -o ..\src\.NET\FIX41_MessageCracker.h
 msxsl FIX42.xml net_MessageCracker.xsl -o ..\src\.NET\FIX42_MessageCracker.h
+msxsl FIX43.xml net_MessageCracker.xsl -o ..\src\.NET\FIX43_MessageCracker.h
 msxsl FIX40.xml net_MessageFactory.xsl -o ..\src\.NET\FIX40_MessageFactory.h
 msxsl FIX41.xml net_MessageFactory.xsl -o ..\src\.NET\FIX41_MessageFactory.h
 msxsl FIX42.xml net_MessageFactory.xsl -o ..\src\.NET\FIX42_MessageFactory.h
+msxsl FIX43.xml net_MessageFactory.xsl -o ..\src\.NET\FIX43_MessageFactory.h
