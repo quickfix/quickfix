@@ -1,3 +1,4 @@
+<element>
 /****************************************************************************
 ** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
 **
@@ -16,37 +17,4 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
-#ifdef _MSC_VER
-#pragma warning( disable : 4503 4355 4786 )
-#include "stdafx.h"
-#else
-#include "config.h"
-#endif
-
-#include "C++/test/TestSuite.h"
-#include <CPPTest/TestStandardOutputDisplay.h>
-#include <CPPTest/TestXMLFileOutputDisplay.h>
-#include "getopt-repl.h"
-
-int main( int argc, char** argv )
-{
-  CPPTest::TestDisplay * display;
-
-  if ( getopt( argc, argv, "+p:" ) != 'p' )
-  {
-    std::cout << "usage: "
-    << argv[ 0 ]
-    << " -p port" << std::endl;
-    return 1;
-  }
-  std::string port = optarg;
-
-  display = new CPPTest::TestXMLFileOutputDisplay();
-
-  TestSuite suite( *display, ( short ) atol( port.c_str() ) );
-  suite.run();
-
-  delete display;
-  return suite.getExceptions().size() > 0;
-}
+</element>

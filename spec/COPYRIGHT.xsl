@@ -17,24 +17,3 @@
   not clear to you.
 *****************************************************************************
 -->
-
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
- <xsl:output method="text" encoding="UTF-8"/>
-
- <xsl:template match="text()"/>
-
- <xsl:template match="/"><xsl:copy-of select="document('COPYRIGHT.xml')"/>
-
-<xsl:apply-templates/>
-}
- </xsl:template>
-
- <xsl:template match="fix">
- <xsl:apply-templates/></xsl:template>
-
- <xsl:template match="messages/message">
-  int qfCreate<xsl:value-of select="@name"/>();
-  void qfDestroy<xsl:value-of select="@name"/>(int);
- </xsl:template>
-
-</xsl:stylesheet>
