@@ -75,6 +75,9 @@ public:
            bool validate = true )
   throw( InvalidMessage );
 
+  Message( const Message& copy )
+  { *this = copy; }
+
   /// Set global data dictionary for encoding messages into XML
   static bool InitializeXML( const std::string& string );
 
