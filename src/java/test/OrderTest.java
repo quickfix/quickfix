@@ -43,7 +43,7 @@ public class OrderTest extends TestCase {
     public void setUp() throws Exception {
         application = new ApplicationImpl();
         FileInputStream configuration =
-            new FileInputStream("cfg\\at_client.cfg");
+            new FileInputStream("cfg/at_client.cfg");
         Settings settings = new Settings(configuration);
         MessageStoreFactory messageStoreFactory =
             new MemoryStoreFactory();
