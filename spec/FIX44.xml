@@ -5676,7 +5676,7 @@
     <field number="554" name="Password" type="STRING" />
     <field number="555" name="NoLegs" type="NUMINGROUP" />
     <field number="556" name="LegCurrency" type="CURRENCY" />
-    <field number="557" name="TotNoSecurityType" type="INT" />
+    <field number="557" name="TotNoSecurityTypes" type="INT" />
     <field number="558" name="NoSecurityTypes" type="NUMINGROUP" />
     <field number="559" name="SecurityListRequestType" type="INT">
       <value enum="0" description="SYMBOL" />
