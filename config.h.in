@@ -3,6 +3,9 @@
 /* Define if lex declares yytext as a char * by default, not a char[].  */
 #undef YYTEXT_POINTER
 
+/* Define if you have the <dlfcn.h> header file.  */
+#undef HAVE_DLFCN_H
+
 /* Define if you have the <stdio.h> header file.  */
 #undef HAVE_STDIO_H
 
@@ -17,6 +20,9 @@
 
 /* Version number of package */
 #undef VERSION
+
+/* Define if you want a C++ callstack to be displayed after crashing */
+#undef USING_CALLSTACK
 
 /* Define if you have sql library (-lmysqlclient) */
 #undef HAVE_MYSQL
