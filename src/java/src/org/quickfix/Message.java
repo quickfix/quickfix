@@ -70,11 +70,22 @@ public class Message extends FieldMap {
         initFromString(string, validate);
     }
 
+    public Message(String string, DataDictionary dd) throws InvalidMessage {
+	    initFromString(string, dd);
+    }
+
     private void initFromString(String string, boolean validate) throws InvalidMessage {
         create();
         header = new Header();
         trailer = new Trailer();
         fromString(string, validate);
+    }
+
+    private void initFromString(String string, DataDictionary dd) throws InvalidMessage {
+        create();
+        header = new Header();
+        trailer = new Trailer();
+        fromString(string, dd);
     }
 
     protected Message(Header header, Trailer trailer) {
@@ -220,6 +231,7 @@ public class Message extends FieldMap {
     public native String toString();
     public native String toXML();
     private native void fromString(String string, boolean validate) throws InvalidMessage;
+    private native void fromString(String string, DataDictionary dd) throws InvalidMessage;
 
     public final Header getHeader() {
         return header;

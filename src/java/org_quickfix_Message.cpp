@@ -760,3 +760,28 @@ JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString__Ljava_lang_String_2Lorg_quickfix_DataDictionary_2
+( JNIEnv *pEnv, jobject obj, jstring value, jobject dd )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  JVMObject jdd( dd );
+
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jdd.getInt( "cppPointer" );
+
+  const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
+  try
+  {
+    pMessage->setString( uvalue, true, pDataDictionary );
+  }
+  catch( FIX::InvalidMessage& e )
+  {
+    throwNew( "Lorg/quickfix/InvalidMessage;", e.what() );
+  }
+  ENV::get()->ReleaseStringUTFChars( value, uvalue );
+
+  QF_STACK_CATCH
+}

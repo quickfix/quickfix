@@ -60,8 +60,16 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toXML
  * Method:    fromString
  * Signature: (Ljava/lang/String;Z)V
  */
-JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString
+JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString__Ljava_lang_String_2Z
   (JNIEnv *, jobject, jstring, jboolean);
+
+/*
+ * Class:     org_quickfix_Message
+ * Method:    fromString
+ * Signature: (Ljava/lang/String;Lorg/quickfix/DataDictionary;)V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString__Ljava_lang_String_2Lorg_quickfix_DataDictionary_2
+  (JNIEnv *, jobject, jstring, jobject);
 
 /*
  * Class:     org_quickfix_Message
