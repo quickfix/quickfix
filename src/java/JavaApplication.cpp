@@ -118,9 +118,9 @@ void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionI
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
-  pEnv->CallVoidMethod
-  ( m_object, notifyToAdminId,
-    newMessage( msg, m_factory ), newSessionID( sessionID ) );
+  JVMObject jmsg = newMessage( msg, m_factory );
+  pEnv->CallVoidMethod( m_object, notifyToAdminId, jmsg, newSessionID( sessionID ) );
+  msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
 }
 
 void JavaApplication::toApp( FIX::Message& msg, const FIX::SessionID& sessionID )
@@ -129,9 +129,9 @@ throw( FIX::DoNotSend& )
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   setupExceptions();
-  pEnv->CallVoidMethod
-  ( m_object, notifyToAppId,
-    newMessage( msg, m_factory ), newSessionID( sessionID ) );
+  JVMObject jmsg = newMessage( msg, m_factory );
+  pEnv->CallVoidMethod( m_object, notifyToAppId, jmsg, newSessionID( sessionID ) );
+  msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
   handleException( pEnv );
 }
 
