@@ -110,16 +110,14 @@ public:
   CharField* getField( CharField* field ) throw( FieldNotFound* );
   IntField* getField( IntField* field ) throw( FieldNotFound* );
   DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-  UtcTimeStampField* getField( UtcTimeStampField* field ) 
-    throw( FieldNotFound* );
+  UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
   UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
-  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
-    throw( FieldNotFound* );
+  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
   bool isSetField( Field* field );
 
   String* getField( int field ) throw( FieldNotFound* );
-  void setField( int field, String* ) throw( FieldNotFound* );
-  void removeField( int field ) throw( FieldNotFound* );
+  void setField( int field, String* );
+  void removeField( int field );
   bool hasGroup( int field );
   int groupCount( int field );
   bool isSetField( int field );

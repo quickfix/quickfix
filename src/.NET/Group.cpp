@@ -256,14 +256,12 @@ throw( FieldNotFound* )
 }
 
 void Group::setField( int field, String* value ) 
-throw( FieldNotFound* )
 { QF_STACK_TRY
   m_pUnmanaged->setField( field, convertString(value) );
   QF_STACK_CATCH
 }
 
 void Group::removeField( int field ) 
-throw( FieldNotFound* )
 { QF_STACK_TRY
   m_pUnmanaged->removeField( field );
   QF_STACK_CATCH
