@@ -666,7 +666,8 @@ void Session::generateReject( const Message& message, int err, int field )
   PossDupFlag possDupFlag( false );
 
   message.getHeader().getField( msgType );
-  message.getHeader().getField( msgSeqNum );
+  if( message.getHeader().isSetField( msgSeqNum ) )
+    message.getHeader().getField( msgSeqNum );
   if ( message.getHeader().isSetField( possDupFlag ) )
     message.getHeader().getField( possDupFlag );
 
@@ -857,7 +858,8 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     header.getField( targetCompID );
     header.getField( sendingTime );
     header.getField( msgType );
-    header.getField( msgSeqNum );
+    if( checkTooHigh || checkTooLow )
+      header.getField( msgSeqNum );
 
     if ( !validLogonState( msgType ) )
       throw std::logic_error( "Logon state is not valid for message" );

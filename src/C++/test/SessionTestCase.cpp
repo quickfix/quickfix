@@ -585,9 +585,17 @@ void SessionTestCase::nextSequenceReset::onRun( Session& object )
   assert( object.getExpectedTargetNum() == 3 );
   assert( m_toReject == 0 );
 
+  // No MsgSeqNum
+  SequenceReset sequenceReset = createSequenceReset( "ISLD", "TW", 0, 3 );
+  sequenceReset.getHeader().removeField( 34 );
+  object.next( sequenceReset );
+  assert( m_fromSequenceReset == 3 );
+  assert( object.getExpectedTargetNum() == 3 );
+  assert( m_toReject == 0 );
+
   // NewSeqNo is less
   object.next( createSequenceReset( "ISLD", "TW", 0, 2 ) );
-  assert( m_fromSequenceReset == 3 );
+  assert( m_fromSequenceReset == 4 );
   assert( object.getExpectedTargetNum() == 3 );
   assert( m_toReject == 1 );
 }
