@@ -104,7 +104,11 @@ public:
   /// Set a field without type checking
   void FieldMap::setField( const FieldBase& field )
   {
-    m_fields.insert( std::make_pair( field.getField(), field ) );
+    Fields::iterator i = m_fields.find( field.getField() );
+    if( i == m_fields.end() )
+      m_fields.insert( std::make_pair( field.getField(), field ) );
+    else
+      i->second = field;
   }
   /// Set a field without a field class
   void FieldMap::setField( int field, const std::string value )
