@@ -105,14 +105,14 @@ public:
   virtual ~FileLog();
 
   void onIncoming( const std::string& value )
-  { m_incoming << value << std::endl; }
+  { m_incoming << value << std::endl << std::flush; }
   void onOutgoing( const std::string& value )
-  { m_outgoing << value << std::endl; }
+  { m_outgoing << value << std::endl << std::flush; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
     m_event << UtcTimeStampConvertor::convert( now )
-    << " : " << value << std::endl;
+    << " : " << value << std::endl << std::flush;
   }
 
 private:
