@@ -481,7 +481,11 @@ void Session::disconnect()
 
   if ( m_pResponder )
   {
-    m_state.onEvent( "Disconnecting" );
+    if( !m_state.sentLogout() )
+      m_state.onEvent( "Dropped Connection" );
+    else
+      m_state.onEvent( "Disconnecting" );
+
     m_pResponder->disconnect();
     m_pResponder = 0;
   }
