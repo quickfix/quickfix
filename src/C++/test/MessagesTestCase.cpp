@@ -176,7 +176,9 @@ void MessageTestCase::headerFieldsFirst::onRun( Message& object )
     "52=00000000-00:00:00\00156=TW\00111=ID\00121=3\001"
     "40=1\00154=1\00160=00000000-00:00:00\00110=000\001";
   object.setString( str );
-  assert( !object.hasValidStructure() );
+  int field = 0;
+  assert( !object.hasValidStructure(field) );
+  assert( field == 52 );
 }
 
 void MessageTestCase::noEndingDelim::onRun( Message& object )

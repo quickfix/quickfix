@@ -192,7 +192,11 @@ bool Message::setString( const std::string& string,
 
       if ( isHeaderField( field, pDataDictionary ) )
       {
-        if ( type != header ) m_validStructure = false;
+        if ( type != header )
+        {
+          if(m_field == 0) m_field = field.getField();
+          m_validStructure = false;
+        }
         if ( field.getField() == FIELD::MsgType )
           msg = field.getString();
         m_header.setField( field );
@@ -204,7 +208,11 @@ bool Message::setString( const std::string& string,
       }
       else
       {
-        if ( type == trailer ) m_validStructure = false;
+        if ( type == trailer )
+        {
+          if(m_field == 0) m_field = field.getField(); 
+          m_validStructure = false;
+        }
         type = body;
         setField( field );
         if ( pDataDictionary )

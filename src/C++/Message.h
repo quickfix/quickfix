@@ -170,7 +170,11 @@ public:
   /// Mutable getter for the message trailer
   Trailer& getTrailer() { return m_trailer; }
 
-  bool hasValidStructure() const { return m_validStructure; }
+  bool hasValidStructure(int& field) const 
+  { 
+    field = m_field;
+    return m_validStructure; 
+  }
 
   int bodyLength() const
   {
@@ -284,6 +288,7 @@ private:
 
   void clear()
   {
+    m_field = 0;
     m_header.clear();
     FieldMap::clear();
     m_trailer.clear();
@@ -311,6 +316,7 @@ protected:
   mutable FieldMap m_header;
   mutable FieldMap m_trailer;
   bool m_validStructure;
+  int m_field;
   static std::auto_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */
