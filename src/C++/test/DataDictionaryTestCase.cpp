@@ -415,7 +415,7 @@ void DataDictionaryTestCase::readFromFile::onRun
   assert( object.getValueName( 18, "W", name ) );
   assert( name == "PEG_TO_VWAP" );
 
-  DataDictionary* pDD = 0;
+  const DataDictionary* pDD = 0;
   int delim = 0;
   assert( object.getGroup( "b", 296, delim, pDD ) );
   assert( delim == 302 );
