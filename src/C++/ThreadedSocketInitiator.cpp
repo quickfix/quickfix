@@ -184,7 +184,7 @@ void* ThreadedSocketInitiator::socketThread( void* p )
     short port = 0;
     pInitiator->getHost( sessionID, dictionary, address, port );
 
-    int socket = socket_createConnector( address.c_str(), port );
+    int socket = socket_createConnector( address.c_str(), port );    
     if ( socket < 0 )
     {
       process_sleep( pInitiator->m_reconnectInterval );
@@ -197,9 +197,10 @@ void* ThreadedSocketInitiator::socketThread( void* p )
       new ThreadedSocketConnection( sessionID, socket, pInitiator->getApplication() );
 
     while ( pConnection->read() && !pInitiator->m_stop ) {}
-    process_sleep( pInitiator->m_reconnectInterval );
     pInitiator->removeThread( pConnection->getSocket() );
     delete pConnection;
+    if(!pInitiator->m_stop)
+      process_sleep( pInitiator->m_reconnectInterval );
   }
   return 0;
 }
