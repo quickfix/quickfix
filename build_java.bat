@@ -6,6 +6,11 @@ call build.bat %COMMAND%
 popd
 if ERRORLEVEL 1 goto quit
 
+pushd src
+call build.bat %COMMAND%
+popd
+if ERRORLEVEL 1 goto quit
+
 pushd examples\executor\java
 call build.bat %COMMAND%
 popd

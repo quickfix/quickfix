@@ -2,9 +2,9 @@ echo off
 set COMMAND=%1
 if "%1" == "" set COMMAND=BUILD
 
-msdev quickfix.dsw /MAKE "at_server - Win32 Debug" /%COMMAND%
+msdev quickfix.dsw /MAKE "at - Win32 Debug" /%COMMAND%
 if ERRORLEVEL 1 goto quit
-msdev quickfix.dsw /MAKE "at_server - Win32 Release" /%COMMAND%
+msdev quickfix.dsw /MAKE "at - Win32 Release" /%COMMAND%
 if ERRORLEVEL 1 goto quit
 msdev quickfix.dsw /MAKE "atrun - Win32 Debug" /%COMMAND%
 if ERRORLEVEL 1 goto quit
@@ -14,9 +14,9 @@ msdev quickfix.dsw /MAKE "pt - Win32 Debug" /%COMMAND%
 if ERRORLEVEL 1 goto quit
 msdev quickfix.dsw /MAKE "pt - Win32 Release" /%COMMAND%
 if ERRORLEVEL 1 goto quit
-msdev quickfix.dsw /MAKE "quickfix_lib - Win32 Debug" /%COMMAND%
+msdev quickfix.dsw /MAKE "quickfix - Win32 Debug" /%COMMAND%
 if ERRORLEVEL 1 goto quit
-msdev quickfix.dsw /MAKE "quickfix_lib - Win32 Release" /%COMMAND%
+msdev quickfix.dsw /MAKE "quickfix - Win32 Release" /%COMMAND%
 if ERRORLEVEL 1 goto quit
 msdev quickfix.dsw /MAKE "ut - Win32 Debug" /%COMMAND%
 if ERRORLEVEL 1 goto quit
