@@ -31,7 +31,7 @@ public:
     LC_STATE_NONE,
     LC_STATE_SECTION,
     LC_STATE_NAME,
-    LC_STATE_VALUE,
+    LC_STATE_VALUE
   };
 
   ConfigLexer( std::istream* in = 0, std::ostream* out = 0 )
