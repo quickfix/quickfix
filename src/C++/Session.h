@@ -192,7 +192,7 @@ private:
 
   void generateLogon();
   void generateLogon( const Message& );
-  void generateResendRequest( const MsgSeqNum& );
+  void generateResendRequest( const BeginString&, const MsgSeqNum& );
   void generateSequenceReset( int, int );
   void generateHeartbeat();
   void generateHeartbeat( const Message& );

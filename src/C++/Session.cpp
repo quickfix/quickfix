@@ -315,11 +315,11 @@ void Session::nextResendRequest( const Message& resendRequest )
 { QF_STACK_PUSH(Session::nextResendRequest)
 
   if ( !verify( resendRequest, false, false ) ) return ;
+
   BeginSeqNo beginSeqNo;
   EndSeqNo endSeqNo;
   resendRequest.getField( beginSeqNo );
   resendRequest.getField( endSeqNo );
-  std::vector < std::string > messages;
 
   m_state.onEvent( "Received ResendRequest FROM: "
        + IntConvertor::convert( beginSeqNo ) +
@@ -330,6 +330,7 @@ void Session::nextResendRequest( const Message& resendRequest )
        beginString <= FIX::BeginString_FIX42 && endSeqNo == 999999 )
   { endSeqNo = getExpectedSenderNum() - 1; }
 
+  std::vector < std::string > messages;
   m_state.get( beginSeqNo, endSeqNo, messages );
 
   std::vector < std::string > ::iterator i;
@@ -381,7 +382,9 @@ void Session::nextResendRequest( const Message& resendRequest )
     generateSequenceReset( beginSeqNo, endSeqNo );
   }
 
-  m_state.incrNextTargetMsgSeqNum();
+  resendRequest.getHeader().getField( msgSeqNum );  
+  if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
+    m_state.incrNextTargetMsgSeqNum();
 
   QF_STACK_POP
 }
@@ -433,7 +436,8 @@ bool Session::sendRaw( Message& message, int num )
         if ( isLoggedOn() ) result = 
           send( messageString );
       }
-      catch ( DoNotSend& ) {}}
+      catch ( DoNotSend& ) {}
+    }
 
     if ( !num )
     {
@@ -545,12 +549,16 @@ void Session::generateLogon( const Message& aLogon )
   QF_STACK_POP
 }
 
-void Session::generateResendRequest( const MsgSeqNum& msgSeqNum )
+void Session::generateResendRequest( const BeginString& beginString, const MsgSeqNum& msgSeqNum )
 { QF_STACK_PUSH(Session::generateResendRequest)
 
   Message resendRequest;
   BeginSeqNo beginSeqNo( ( int ) getExpectedTargetNum() );
   EndSeqNo endSeqNo( msgSeqNum - 1 );
+  if ( beginString >= FIX::BeginString_FIX42 )
+    endSeqNo = 0;
+  else if( beginString <= FIX::BeginString_FIX41 )
+    endSeqNo = 999999;
   resendRequest.getHeader().setField( MsgType( "2" ) );
   resendRequest.setField( beginSeqNo );
   resendRequest.setField( endSeqNo );
@@ -977,7 +985,9 @@ void Session::doTargetTooHigh( const Message& msg )
 { QF_STACK_PUSH(Session::doTargetTooHigh)
 
   const Header & header = msg.getHeader();
+  BeginString beginString;
   MsgSeqNum msgSeqNum;
+  header.getField( beginString );
   header.getField( msgSeqNum );
 
   m_state.onEvent( "MsgSeqNum too high RECEIVED: "
@@ -986,7 +996,7 @@ void Session::doTargetTooHigh( const Message& msg )
                    + IntConvertor::convert( getExpectedTargetNum() ) );
 
   m_state.queue( msgSeqNum, msg );
-  generateResendRequest( msgSeqNum );
+  generateResendRequest( beginString, msgSeqNum );
 
   QF_STACK_POP
 }
@@ -1008,7 +1018,8 @@ bool Session::nextQueued( int num )
     m_state.onEvent( "Processing QUEUED message: "
                      + IntConvertor::convert( num ) );
     msg.getHeader().getField( msgType );
-    if ( msgType == MsgType_Logon )
+    if ( msgType == MsgType_Logon
+        || msgType == MsgType_ResendRequest )
     {
       m_state.incrNextTargetMsgSeqNum();
     }
