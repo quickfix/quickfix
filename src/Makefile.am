@@ -23,7 +23,7 @@ all-local:
 	ln -s ../src/ut ../bin/ut
 	ln -s ../src/pt ../bin/pt
 	ln -s ../src/at ../bin/at
-	./build.sh
+	bash ./build.sh
 
 clean-local:
-	./build.sh clean
+	bash ./build.sh clean
