@@ -1,7 +1,14 @@
+2004-11-02 21:25  orenmnero
+
+	* src/: .NET/fix44/UserRequest.cs, .NET/fix44/UserResponse.cs,
+	  C++/fix44/UserRequest.h, C++/fix44/UserResponse.h,
+	  java/src/quickfix/fix44/UserRequest.java,
+	  java/src/quickfix/fix44/UserResponse.java: [no log message]
+
 2004-11-02 02:22  orenmnero
 
 	* CONTRIBUTORS, NEWS, src/C++/Makefile.am, src/java/Makefile.am,
-	  src/python/Makefile.am: [no log message]
+	  src/python/Makefile.am, ChangeLog: [no log message]
 
 2004-11-02 00:57  orenmnero
 
