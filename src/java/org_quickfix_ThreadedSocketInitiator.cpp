@@ -99,34 +99,29 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_create
   catch ( JVMException& ) {}
 
   FIX::Initiator* pInitiator = 0;
-  bool threw = false;
-  FIX::ConfigError e;
-
-  if ( pLogFactory )
+  
+  try
   {
-    pInitiator = new FIX::ThreadedSocketInitiator(
-                   createApplication( jobject ),
-                   createFactory( jobject ),
-                   getSettings( jobject ),
-                   *pLogFactory, threw, e );
-    if ( threw )
+    if ( pLogFactory )
     {
-      throwNew( "Lorg/quickfix/ConfigError;", e.what() );
-      return ;
+      pInitiator = new FIX::ThreadedSocketInitiator(
+                    createApplication( jobject ),
+                    createFactory( jobject ),
+                    getSettings( jobject ),
+                    *pLogFactory );
+    }
+    else
+    {
+      pInitiator = new FIX::ThreadedSocketInitiator(
+                    createApplication( jobject ),
+                    createFactory( jobject ),
+                    getSettings( jobject ));
     }
   }
-  else
+  catch( FIX::ConfigError& e )
   {
-    pInitiator = new FIX::ThreadedSocketInitiator(
-                   createApplication( jobject ),
-                   createFactory( jobject ),
-                   getSettings( jobject ),
-                   threw, e );
-    if ( threw )
-    {
-      throwNew( "Lorg/quickfix/ConfigError;", e.what() );
-      return ;
-    }
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    return;
   }
 
   jobject.setInt( "cppPointer", ( int ) pInitiator );

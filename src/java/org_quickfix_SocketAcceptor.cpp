@@ -88,34 +88,29 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_create
   catch ( JVMException& ) {}
 
   FIX::Acceptor* pAcceptor = 0;
-  bool threw = false;
-  FIX::ConfigError e;
 
-  if ( pLogFactory )
+  try
   {
-    pAcceptor = new FIX::SocketAcceptor(
-                  createApplication( jobject ),
-                  createFactory( jobject ),
-                  getSettings( jobject ),
-                  *pLogFactory, threw, e );
-    if ( threw )
+    if ( pLogFactory )
     {
-      throwNew( "Lorg/quickfix/ConfigError;", e.what() );
-      return ;
+      pAcceptor = new FIX::SocketAcceptor(
+                    createApplication( jobject ),
+                    createFactory( jobject ),
+                    getSettings( jobject ),
+                    *pLogFactory );
+    }
+    else
+    {
+      pAcceptor = new FIX::SocketAcceptor(
+                    createApplication( jobject ),
+                    createFactory( jobject ),
+                    getSettings( jobject ));
     }
   }
-  else
+  catch( FIX::ConfigError& e )
   {
-    pAcceptor = new FIX::SocketAcceptor(
-                  createApplication( jobject ),
-                  createFactory( jobject ),
-                  getSettings( jobject ),
-                  threw, e );
-    if ( threw )
-    {
-      throwNew( "Lorg/quickfix/ConfigError;", e.what() );
-      return ;
-    }
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    return;
   }
 
   jobject.setInt( "cppPointer", ( int ) pAcceptor );
