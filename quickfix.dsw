@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "at_server"=.\at_server.dsp - Package Owner=<4>
+Project: "at"=.\at.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -11,9 +11,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix_lib
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -26,12 +23,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name at_server
-    End Project Dependency
-    Begin Project Dependency
-    Project_Dep_Name quickfix_lib
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -44,14 +35,11 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix_lib
-    End Project Dependency
 }}}
 
 ###############################################################################
 
-Project: "quickfix_lib"=.\quickfix_lib.dsp - Package Owner=<4>
+Project: "quickfix"=.\quickfix.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -71,9 +59,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix_lib
-    End Project Dependency
 }}}
 
 ###############################################################################

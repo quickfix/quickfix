@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.00"
-	Name="quickfix_lib"
+	Name="quickfix"
 	ProjectGUID="{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
 	SccProjectName=""
 	SccLocalPath="">
@@ -32,7 +32,7 @@
 				RuntimeTypeInfo="TRUE"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="stdafx.h"
-				PrecompiledHeaderFile=".\Debug/quickfix_lib.pch"
+				PrecompiledHeaderFile=".\Debug/quickfix.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
@@ -82,7 +82,7 @@
 				RuntimeTypeInfo="TRUE"
 				UsePrecompiledHeader="2"
 				PrecompiledHeaderThrough="stdafx.h"
-				PrecompiledHeaderFile=".\Release/quickfix_lib.pch"
+				PrecompiledHeaderFile=".\Release/quickfix.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"

@@ -1,11 +1,11 @@
 Microsoft Visual Studio Solution File, Format Version 7.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_net", "src\.NET\quickfix_net.vcproj", "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "at_server", "at_server.vcproj", "{63CC102A-A3CD-43CC-9535-A91E67256360}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "at", "at.vcproj", "{63CC102A-A3CD-43CC-9535-A91E67256360}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pt", "pt.vcproj", "{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_lib", "quickfix_lib.vcproj", "{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix", "quickfix.vcproj", "{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atrun", "test\atrun\atrun.vcproj", "{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
 EndProject

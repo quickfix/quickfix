@@ -1,24 +1,24 @@
-# Microsoft Developer Studio Project File - Name="at_client" - Package Owner=<4>
+# Microsoft Developer Studio Project File - Name="at" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
 # TARGTYPE "Win32 (x86) Console Application" 0x0103
 
-CFG=at_client - Win32 Debug
+CFG=at - Win32 Debug
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "at_client.mak".
+!MESSAGE NMAKE /f "at.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "at_client.mak" CFG="at_client - Win32 Debug"
+!MESSAGE NMAKE /f "at.mak" CFG="at - Win32 Debug"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
-!MESSAGE "at_client - Win32 Release" (based on "Win32 (x86) Console Application")
-!MESSAGE "at_client - Win32 Debug" (based on "Win32 (x86) Console Application")
+!MESSAGE "at - Win32 Release" (based on "Win32 (x86) Console Application")
+!MESSAGE "at - Win32 Debug" (based on "Win32 (x86) Console Application")
 !MESSAGE 
 
 # Begin Project
@@ -28,12 +28,12 @@ CFG=at_client - Win32 Debug
 CPP=cl.exe
 RSC=rc.exe
 
-!IF  "$(CFG)" == "at_client - Win32 Release"
+!IF  "$(CFG)" == "at - Win32 Release"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 0
-# PROP BASE Output_Dir "at_client___Win32_Release"
-# PROP BASE Intermediate_Dir "at_client___Win32_Release"
+# PROP BASE Output_Dir "Release"
+# PROP BASE Intermediate_Dir "Release"
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GX /O2 /I ".." /I "./src" /I "./src/c++" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /Zm200 /c
+# ADD CPP /nologo /MD /W3 /GX /O2 /I ".." /I "./src" /I "./src/c++" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /Zm1000 /c
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -50,14 +50,14 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386
-# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /out:"bin\at_client.exe" /libpath:"lib"
+# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /out:"bin\at.exe" /libpath:"lib"
 
-!ELSEIF  "$(CFG)" == "at_client - Win32 Debug"
+!ELSEIF  "$(CFG)" == "at - Win32 Debug"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 1
-# PROP BASE Output_Dir "at_client___Win32_Debug"
-# PROP BASE Intermediate_Dir "at_client___Win32_Debug"
+# PROP BASE Output_Dir "Debug"
+# PROP BASE Intermediate_Dir "Debug"
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
@@ -66,7 +66,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "./src" /I "./src/c++" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /Zm200 /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GX /Zi /Od /I ".." /I "./src" /I "./src/c++" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /Zm1000 /GZ /c
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -74,29 +74,21 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 quickfix_debug.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /debug /machine:I386 /out:"bin\at_client_debug.exe" /pdbtype:sept /libpath:"lib"
+# ADD LINK32 quickfix_debug.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /debug /machine:I386 /out:"bin\at_debug.exe" /libpath:"lib"
+# SUBTRACT LINK32 /profile
 
 !ENDIF 
 
 # Begin Target
 
-# Name "at_client - Win32 Release"
-# Name "at_client - Win32 Debug"
+# Name "at - Win32 Release"
+# Name "at - Win32 Debug"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\src\at_client.cpp
-
-!IF  "$(CFG)" == "at_client - Win32 Release"
-
-# ADD CPP /O2
-
-!ELSEIF  "$(CFG)" == "at_client - Win32 Debug"
-
-!ENDIF 
-
+SOURCE=.\src\at.cpp
 # End Source File
 # Begin Source File
 

@@ -2,8 +2,8 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.00"
-	Name="at_client"
-	ProjectGUID="{B7CF42AA-6E17-481E-A4E3-B7250EEF95D7}"
+	Name="at"
+	ProjectGUID="{63CC102A-A3CD-43CC-9535-A91E67256360}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -28,8 +28,8 @@
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="TRUE"
 				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="C++\stdafx.h"
-				PrecompiledHeaderFile="stdafx.h"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Release/at.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
@@ -42,15 +42,15 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="bin\at_client.exe"
+				OutputFile="bin\at.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories="lib"
-				ProgramDatabaseFile=".\Release/at_client.pdb"
+				ProgramDatabaseFile=".\Release/at.pdb"
 				SubSystem="1"/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName=".\Release/at_client.tlb"/>
+				TypeLibraryName=".\Release/at.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
@@ -82,8 +82,8 @@
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
 				UsePrecompiledHeader="2"
-				PrecompiledHeaderThrough="C++\stdafx.h"
-				PrecompiledHeaderFile="stdafx.h"
+				PrecompiledHeaderThrough="stdafx.h"
+				PrecompiledHeaderFile=".\Debug/at.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
@@ -97,16 +97,16 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="quickfix_debug.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="bin\at_client_debug.exe"
+				OutputFile="bin\at_debug.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories="lib"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile=".\Debug/at_client_debug.pdb"
+				ProgramDatabaseFile=".\Debug/at_debug.pdb"
 				SubSystem="1"/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName=".\Debug/at_client.tlb"/>
+				TypeLibraryName=".\Debug/at.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
@@ -128,7 +128,7 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath=".\src\at_client.cpp">
+				RelativePath=".\src\at.cpp">
 			</File>
 			<File
 				RelativePath=".\src\getopt.c">
