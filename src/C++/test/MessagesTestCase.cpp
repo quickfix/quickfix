@@ -262,13 +262,15 @@ void MessageTestCase::getXML::onRun( Message& object )
 void MessageTestCase::reverseRoute::onRun( Message& object )
 {
   Header header;
-  BeginString beginString( "BeginString" );
+  BeginString beginString( "FIX.4.2" );
   SenderCompID senderCompID( "SenderCompID" );
   TargetCompID targetCompID( "TargetCompID" );
   OnBehalfOfCompID onBehalfOfCompID( "OnBehalfOfCompID" );
   OnBehalfOfSubID onBehalfOfSubID( "OnBehalfOfSubID" );
+  OnBehalfOfLocationID onBehalfOfLocationID( "OnBehalfOfLocationID" );
   DeliverToCompID deliverToCompID( "DeliverToCompID" );
   DeliverToSubID deliverToSubID( "DeliverToSubID" );
+  DeliverToLocationID deliverToLocationID( "DeliverToLocationID" );
 
   Message reversedMessage;
   Header& reversedHeader = reversedMessage.getHeader();
@@ -278,17 +280,48 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   header.setField( targetCompID );
   header.setField( onBehalfOfCompID );
   header.setField( onBehalfOfSubID );
+  header.setField( onBehalfOfLocationID );
   header.setField( deliverToCompID );
   header.setField( deliverToSubID );
+  header.setField( deliverToLocationID );
   
   reversedMessage.reverseRoute( header );
-  assert( reversedHeader.getField( beginString ).getString() == "BeginString" );
+  assert( reversedHeader.getField( beginString ).getString() == "FIX.4.2" );
   assert( reversedHeader.getField( senderCompID ).getString() == "TargetCompID" );
   assert( reversedHeader.getField( targetCompID ).getString() == "SenderCompID" );
   assert( reversedHeader.getField( onBehalfOfCompID ).getString() == "DeliverToCompID" );
   assert( reversedHeader.getField( onBehalfOfSubID ).getString() == "DeliverToSubID" );
+  assert( reversedHeader.getField( onBehalfOfLocationID ).getString() == "DeliverToLocationID" );
   assert( reversedHeader.getField( deliverToCompID ).getString() == "OnBehalfOfCompID" );
   assert( reversedHeader.getField( deliverToSubID ).getString() == "OnBehalfOfSubID" );
+  assert( reversedHeader.getField( deliverToLocationID ).getString() == "OnBehalfOfLocationID" );
+
+  header.setField( BeginString("FIX.4.0" ) );
+  reversedMessage.reverseRoute( header );
+  assert( !reversedHeader.isSetField( onBehalfOfCompID ) );
+  assert( !reversedHeader.isSetField( deliverToCompID ) );
+
+  header.setField( beginString );
+  reversedMessage.reverseRoute( header );
+
+  header.setField( OnBehalfOfCompID() );
+  reversedMessage.reverseRoute( header );
+  assert( !reversedHeader.isSetField(deliverToCompID) );
+  header.setField( DeliverToCompID() );
+  reversedMessage.reverseRoute( header );
+  assert( !reversedHeader.isSetField(onBehalfOfCompID) );
+  header.setField( OnBehalfOfSubID() );
+  reversedMessage.reverseRoute( header );
+  assert( !reversedHeader.isSetField(deliverToSubID) );
+  header.setField( DeliverToSubID() );
+  reversedMessage.reverseRoute( header );
+  assert( !reversedHeader.isSetField(onBehalfOfSubID) );
+  header.setField( OnBehalfOfLocationID() );
+  reversedMessage.reverseRoute( header );
+  assert( !reversedHeader.isSetField(deliverToLocationID) );
+  header.setField( DeliverToLocationID() );
+  reversedMessage.reverseRoute( header );
+  assert( !reversedHeader.isSetField(onBehalfOfLocationID) );
 }
 
 void LogonParseTestCase::getString::onRun( Logon& object )

@@ -26,6 +26,7 @@
 
 #include "Message.h"
 #include "Utility.h"
+#include "Values.h"
 #include <iomanip>
 
 namespace FIX
@@ -72,7 +73,7 @@ bool Message::InitializeXML( const std::string& url )
 
   QF_STACK_POP
 }
-	
+        
 void Message::reverseRoute( const Header& header )
 { QF_STACK_PUSH(Message::reverseRoute)
 
@@ -81,22 +82,52 @@ void Message::reverseRoute( const Header& header )
   SenderCompID senderCompID;
   TargetCompID targetCompID;
 
+  m_header.removeField( beginString.getField() );
+  m_header.removeField( senderCompID.getField() );
+  m_header.removeField( targetCompID.getField() );
+
   if( header.isSetField( beginString ) )
   {
     header.getField( beginString );
-    m_header.setField( beginString );
+    if( beginString.getValue().size() )   
+      m_header.setField( beginString );
+
+    if( beginString >= BeginString_FIX41 )
+    {
+      OnBehalfOfLocationID onBehalfOfLocationID;
+      DeliverToLocationID deliverToLocationID;
+
+      m_header.removeField( onBehalfOfLocationID.getField() );
+      m_header.removeField( deliverToLocationID.getField() );
+
+      if( header.isSetField( onBehalfOfLocationID ) )
+      {
+        header.getField( onBehalfOfLocationID );
+        if( onBehalfOfLocationID.getValue().size() )
+          m_header.setField( DeliverToLocationID( onBehalfOfLocationID ) );
+      }
+
+      if( header.isSetField( deliverToLocationID ) )
+      {
+        header.getField( deliverToLocationID );
+        if( deliverToLocationID.getValue().size() )
+          m_header.setField( OnBehalfOfLocationID( deliverToLocationID ) );
+      }
+    }
   }
 
   if( header.isSetField( senderCompID ) )
   {
     header.getField( senderCompID );
-    m_header.setField( TargetCompID( senderCompID ) );
+    if( senderCompID.getValue().size() )
+      m_header.setField( TargetCompID( senderCompID ) );
   }
 
   if( header.isSetField( targetCompID ) )
   {
     header.getField( targetCompID );
-    m_header.setField( SenderCompID( targetCompID ) );
+    if( targetCompID.getValue().size() )
+      m_header.setField( SenderCompID( targetCompID ) );
   }
 
   // optional routing tags
@@ -105,28 +136,37 @@ void Message::reverseRoute( const Header& header )
   DeliverToCompID deliverToCompID;
   DeliverToSubID deliverToSubID;
 
+  m_header.removeField( onBehalfOfCompID.getField() );
+  m_header.removeField( onBehalfOfSubID.getField() );
+  m_header.removeField( deliverToCompID.getField() );
+  m_header.removeField( deliverToSubID.getField() );
+
   if( header.isSetField( onBehalfOfCompID ) )
   {
     header.getField( onBehalfOfCompID );
-    m_header.setField( DeliverToCompID( onBehalfOfCompID ) );
+    if( onBehalfOfCompID.getValue().size() )
+      m_header.setField( DeliverToCompID( onBehalfOfCompID ) );
   }
 
   if( header.isSetField( onBehalfOfSubID ) )
   {
     header.getField( onBehalfOfSubID );
-    m_header.setField( DeliverToSubID( onBehalfOfSubID ) );
+    if( onBehalfOfSubID.getValue().size() )
+      m_header.setField( DeliverToSubID( onBehalfOfSubID ) );
   }
-	
+        
   if( header.isSetField( deliverToCompID ) )
   {
     header.getField( deliverToCompID );
-    m_header.setField( OnBehalfOfCompID( deliverToCompID ) );
+    if( deliverToCompID.getValue().size() )
+      m_header.setField( OnBehalfOfCompID( deliverToCompID ) );
   }
 
   if( header.isSetField( deliverToSubID ) )
   {
     header.getField( deliverToSubID );
-    m_header.setField( OnBehalfOfSubID( deliverToSubID ) );
+    if( deliverToSubID.getValue().size() )
+      m_header.setField( OnBehalfOfSubID( deliverToSubID ) );
   }
 
   QF_STACK_POP
@@ -489,7 +529,7 @@ void Message::validate()
       text << "Expected BodyLength=" << bodyLength()
            << ", Recieved BodyLength=" << (int)aBodyLength;
       throw InvalidMessage(text.str());
-    }	
+    }   
 
     CheckSum aCheckSum;
     m_trailer.getField( aCheckSum );
