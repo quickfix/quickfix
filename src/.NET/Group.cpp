@@ -293,7 +293,7 @@ throw( FieldNotFound* )
 }
 
 void Group::removeField( int field ) 
-throw( FieldNotFound )
+throw( FieldNotFound* )
 { QF_STACK_TRY
   m_pUnmanaged->removeField( field );
   QF_STACK_CATCH
