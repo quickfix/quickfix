@@ -266,9 +266,12 @@ const char* socket_hostname( const char* name )
   struct hostent* host_ptr = 0;
   struct in_addr** paddr;
   struct in_addr saddr;
+
+#if( GETHOSTBYNAME_R_INPUTS_RESULT || GETHOSTBYNAME_R_RETURNS_RESULT )
   hostent host;
   char buf[1024];
   int error;
+#endif
 
   saddr.s_addr = inet_addr( name );
   if ( saddr.s_addr != ( unsigned ) - 1 ) return name;
