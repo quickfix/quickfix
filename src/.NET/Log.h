@@ -71,7 +71,7 @@ public __gc __interface Log
 class Log : public FIX::Log
 {
 public:
-Log( QuickFix::Log* log ) : m_log( log ) {}
+  Log( QuickFix::Log* log ) : m_log( log ) {}
 
   void onIncoming( const std::string& string )
   { m_log->onIncoming( string.c_str() ); }

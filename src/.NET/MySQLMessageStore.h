@@ -61,6 +61,7 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/include/MySQLStore.h"
 #include "quickfix/include/Settings.h"
+#include "quickfix/include/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -68,11 +69,17 @@ namespace QuickFix
 public __gc class MySQLStore : public MessageStore
 {
 public:
-  MySQLStore( SessionID* sessionID, String* database, String* user, String* password,
-             String* host, short port )
-  {
-    m_pUnmanaged = new FIX::MySQLStore( sessionID->unmanaged(), convertString(database),
-      convertString(user), convertString(password), convertString(host), port );
+  MySQLStore( SessionID* sessionID, String* database, String* user, 
+	      String* password, String* host, short port )
+  { QF_STACK_TRY
+
+    m_pUnmanaged = new FIX::MySQLStore( sessionID->unmanaged(), 
+					convertString(database),
+					convertString(user), 
+					convertString(password), 
+					convertString(host), port );
+
+    QF_STACK_CATCH
   }
 
   MySQLStore( FIX::MessageStore* pUnmanaged ) : m_pUnmanaged(pUnmanaged) {}
@@ -80,15 +87,19 @@ public:
   ~MySQLStore() { delete m_pUnmanaged; }
 
   bool set( int sequence, String* message ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { return m_pUnmanaged->set( sequence, createUnmanagedString( message ) ); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   bool get( int sequence, String* message ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     {
       std::string string;
@@ -97,10 +108,13 @@ public:
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void get( int begin, int end, ArrayList* list ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     {
       std::vector < std::string > messages;
@@ -111,58 +125,79 @@ public:
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   int getNextSenderMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { return m_pUnmanaged->getNextSenderMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   int getNextTargetMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { return m_pUnmanaged->getNextTargetMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void setNextSenderMsgSeqNum( int next ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->setNextSenderMsgSeqNum( next ); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void setNextTargetMsgSeqNum( int next ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->setNextTargetMsgSeqNum( next ); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void incrNextSenderMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->incrNextSenderMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void incrNextTargetMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->incrNextTargetMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   DateTime getCreationTime() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     {
       FIX::UtcTimeStamp d = m_pUnmanaged->getCreationTime();
@@ -171,14 +206,19 @@ public:
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void reset() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->reset(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
 private:
@@ -189,15 +229,17 @@ public __gc class MySQLStoreFactory : public MessageStoreFactory
 {
 public:
   MySQLStoreFactory( SessionSettings* settings )
-  {
+  { QF_STACK_TRY
     m_pUnmanaged = new FIX::MySQLStoreFactory(settings->unmanaged());
+    QF_STACK_CATCH
   }
 
   ~MySQLStoreFactory() { delete m_pUnmanaged; }
 
   MessageStore* create( SessionID* sessionID )
-  {
+  { QF_STACK_TRY
     return new MySQLStore(m_pUnmanaged->create(sessionID->unmanaged()));
+    QF_STACK_CATCH
   }
 
 private:

@@ -55,6 +55,7 @@ using namespace System;
 #include "quickfix_net.h"
 
 #include "quickfix/include/SessionID.h"
+#include "quickfix/include/CallStack.h"
 
 namespace QuickFix
 {
@@ -62,19 +63,25 @@ public __gc class SessionID
 {
 public:
   SessionID( String* beginString, String* senderCompID, String* targetCompID )
-  {
+  { QF_STACK_TRY
+    
     m_pUnmanaged = new FIX::SessionID(
                      FIX::BeginString( convertString( beginString ) ),
                      FIX::SenderCompID( convertString( senderCompID ) ),
                      FIX::TargetCompID( convertString( targetCompID ) ) );
+
+    QF_STACK_CATCH
   }
 
   SessionID( const FIX::SessionID& sessionID )
-  {
+  { QF_STACK_TRY
+
     m_pUnmanaged = new FIX::SessionID(
                      sessionID.getBeginString(),
                      sessionID.getSenderCompID(),
                      sessionID.getTargetCompID() );
+
+    QF_STACK_CATCH
   }
 
   ~SessionID()
@@ -86,18 +93,30 @@ public:
   { return * m_pUnmanaged; }
 
   String* ToString()
-  {
+  { QF_STACK_TRY
+
     return ( m_pUnmanaged->getBeginString().getValue() + ": "
              + m_pUnmanaged->getSenderCompID().getValue() + "->"
              + m_pUnmanaged->getTargetCompID().getValue() ).c_str();
+
+    QF_STACK_CATCH
   }
 
   String* getBeginString()
-  { return m_pUnmanaged->getBeginString().getValue().c_str(); }
+  { QF_STACK_TRY
+    return m_pUnmanaged->getBeginString().getValue().c_str(); 
+    QF_STACK_CATCH
+  }
   String* getSenderCompID()
-  { return m_pUnmanaged->getSenderCompID().getValue().c_str(); }
+  { QF_STACK_TRY
+    return m_pUnmanaged->getSenderCompID().getValue().c_str(); 
+    QF_STACK_CATCH
+  }
   String* getTargetCompID()
-  { return m_pUnmanaged->getTargetCompID().getValue().c_str(); }
+  { QF_STACK_TRY
+    return m_pUnmanaged->getTargetCompID().getValue().c_str(); 
+    QF_STACK_CATCH
+  }
 
 private:
   FIX::SessionID* m_pUnmanaged;

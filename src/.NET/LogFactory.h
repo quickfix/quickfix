@@ -71,7 +71,7 @@ class LogFactory : public FIX::LogFactory
 {
 public:
   LogFactory( QuickFix::LogFactory* factory )
-: m_factory( factory ) {}
+  : m_factory( factory ) {}
 
   FIX::Log* create( const FIX::SessionID& sessionID )
   { return new Log( m_factory->create( new QuickFix::SessionID( sessionID ) ) ); }

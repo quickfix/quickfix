@@ -71,9 +71,15 @@ public __gc __interface Application
   virtual void toApp( Message*, const SessionID* )
   throw( DoNotSend* ) = 0;
   virtual void fromAdmin( const Message*, const SessionID* )
-  throw( FieldNotFound*, IncorrectDataFormat*, IncorrectTagValue*, RejectLogon* ) = 0;
+  throw( FieldNotFound*, 
+	 IncorrectDataFormat*, 
+	 IncorrectTagValue*, 
+	 RejectLogon* ) = 0;
   virtual void fromApp( const Message*, const SessionID* )
-  throw( FieldNotFound*, IncorrectDataFormat*, IncorrectTagValue*, UnsupportedMessageType* ) = 0;
+  throw( FieldNotFound*, 
+	 IncorrectDataFormat*, 
+	 IncorrectTagValue*, 
+	 UnsupportedMessageType* ) = 0;
   virtual void onRun() = 0;
 };
 }
@@ -81,8 +87,9 @@ public __gc __interface Application
 class Application : public FIX::Application
 {
 public:
-  Application( QuickFix::Application* application, QuickFix::MessageFactory* factory )
-: m_application( application ), m_factory( factory ) {}
+  Application( QuickFix::Application* application, 
+	       QuickFix::MessageFactory* factory )
+  : m_application( application ), m_factory( factory ) {}
   void onCreate( const FIX::SessionID& sessionID )
   { m_application->onCreate( new QuickFix::SessionID( sessionID ) ); }
 
@@ -111,13 +118,18 @@ public:
     message = toMessage->unmanaged();
   }
 
-  void fromAdmin( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& )
+  void fromAdmin( const FIX::Message& message, 
+		  const FIX::SessionID& sessionID )
+  throw( FIX::FieldNotFound&, 
+	 FIX::IncorrectDataFormat&, 
+	 FIX::IncorrectTagValue&, 
+	 FIX::RejectLogon& )
   {
     QuickFix::Message * toMessage = create( message );
     try
     {
-      m_application->fromAdmin( toMessage, new QuickFix::SessionID( sessionID ) );
+      m_application->fromAdmin
+	( toMessage, new QuickFix::SessionID( sessionID ) );
     }
     catch ( QuickFix::FieldNotFound * e )
     {
@@ -135,12 +147,16 @@ public:
   }
 
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
+  throw( FIX::FieldNotFound&, 
+	 FIX::IncorrectDataFormat&, 
+	 FIX::IncorrectTagValue&, 
+	 FIX::UnsupportedMessageType& )
   {
     QuickFix::Message * toMessage = create( message );
     try
     {
-      m_application->fromApp( toMessage, new QuickFix::SessionID( sessionID ) );
+      m_application->fromApp
+	( toMessage, new QuickFix::SessionID( sessionID ) );
     }
     catch ( QuickFix::FieldNotFound * e )
     {
@@ -169,7 +185,9 @@ private:
     FIX::MsgType msgType;
     unmanaged.getHeader().getField( beginString );
     unmanaged.getHeader().getField( msgType );
-    QuickFix::Message* message = m_factory->create( beginString.getValue().c_str(), msgType.getValue().c_str() );
+    QuickFix::Message* message 
+      = m_factory->create
+      ( beginString.getValue().c_str(), msgType.getValue().c_str() );
     message->setUnmanaged( unmanaged );
     return message;
   }

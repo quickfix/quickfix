@@ -57,6 +57,7 @@ using namespace System;
 #include "Log.h"
 #include "LogFactory.h"
 #include "quickfix/include/Log.h"
+#include "quickfix/include/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -65,26 +66,41 @@ public __gc class ScreenLog : public Log
 {
 public:
   ScreenLog( SessionID* sessionID, bool incoming, bool outgoing, bool event )
-  {
+  { QF_STACK_TRY
     m_pUnmanaged = new FIX::ScreenLog
                    ( sessionID->unmanaged(), incoming, outgoing, event );
+    QF_STACK_CATCH
   }
   ~ScreenLog() { delete m_pUnmanaged; }
 
-    void onIncoming( String* s )
-  { char* us = createUnmanagedString( s );
+  void onIncoming( String* s )
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onIncoming( us ); 
     destroyUnmanagedString( us );
+    
+    QF_STACK_CATCH
   }
+
   void onOutgoing( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onOutgoing( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
+
   void onEvent( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onEvent( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
 
 private:
@@ -95,10 +111,13 @@ public __gc class ScreenLogFactory : public LogFactory
 {
 public:
   ScreenLogFactory( bool incoming, bool outgoing, bool event )
-: m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
+  : m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
 
   Log* create( SessionID* sessionID )
-  { return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event ); }
+  { QF_STACK_TRY
+    return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event ); 
+    QF_STACK_CATCH
+  }
 
 private:
   bool m_incoming;

@@ -58,6 +58,7 @@ using namespace System;
 #include "Group.h"
 
 #include "quickfix/include/Message.h"
+#include "quickfix/include/CallStack.h"
 
 namespace QuickFix
 {
@@ -68,14 +69,18 @@ public __gc class Message : public IDisposable
 {
 public:
   Message() : disposed( false )
-  {
+  { QF_STACK_TRY
+
     m_pUnmanaged = new FIX::Message();
     m_header = new Header( this );
     m_trailer = new Trailer( this );
+
+    QF_STACK_CATCH
   }
 
   Message( String* string ) : disposed( false )
-  {
+  { QF_STACK_TRY
+
     try
     {
       if ( !String::Compare( string, String::Empty ) )
@@ -87,22 +92,28 @@ public:
     }
     catch ( FIX::InvalidMessage & e )
     { throw new InvalidMessage(); }
+
+    QF_STACK_CATCH
   }
 
   Message( const FIX::Message& message ) : disposed( false )
-  {
+  { QF_STACK_TRY
+
     m_pUnmanaged = new FIX::Message();
     *m_pUnmanaged = message;
     m_header = new Header( this );
     m_trailer = new Trailer( this );
+
+    QF_STACK_CATCH
   }
 
   Message( BeginString* beginString );
   Message( BeginString* beginString, MsgType* msgType );
 
   static bool Message::InitializeXML( String* url )
-  {
+  { QF_STACK_TRY
     return FIX::Message::InitializeXML(convertString(url));
+    QF_STACK_CATCH
   }
 
   ~Message()
@@ -136,13 +147,15 @@ public:
   { *m_pUnmanaged = message; }
 
   String* ToString()
-  {
+  { QF_STACK_TRY
     return m_pUnmanaged->toString().c_str();
+    QF_STACK_CATCH
   }
 
   String* ToXML()
-  {
+  { QF_STACK_TRY
     return m_pUnmanaged->toXML().c_str();
+    QF_STACK_CATCH
   }
 
   void setField( StringField* field );
@@ -159,17 +172,21 @@ public:
   CharField* getField( CharField* field ) throw( FieldNotFound* );
   IntField* getField( IntField* field ) throw( FieldNotFound* );
   DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-  UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
+  UtcTimeStampField* getField( UtcTimeStampField* field ) 
+    throw( FieldNotFound* );
   UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
-  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
+    throw( FieldNotFound* );
 
   void addGroup( Group* group )
-  {
+  { QF_STACK_TRY
     m_pUnmanaged->addGroup( group->unmanaged() );
+    QF_STACK_CATCH
   }
 
   Group* getGroup( unsigned num, Group* group ) throw( FieldNotFound* )
-  {
+  { QF_STACK_TRY
+
     try
     {
       m_pUnmanaged->getGroup( num, group->unmanaged() );
@@ -179,9 +196,11 @@ public:
     {
       throw new FieldNotFound( e.field );
     }
+
+    QF_STACK_CATCH
   }
 
-__gc class Header : public IDisposable
+  __gc class Header : public IDisposable
   {
   public:
   Header( Message* message ) : m_message( message ), disposed( false ) {}
@@ -199,9 +218,11 @@ __gc class Header : public IDisposable
     CharField* getField( CharField* field ) throw( FieldNotFound* );
     IntField* getField( IntField* field ) throw( FieldNotFound* );
     DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-    UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
+    UtcTimeStampField* getField( UtcTimeStampField* field ) 
+      throw( FieldNotFound* );
     UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
-    UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+    UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
+      throw( FieldNotFound* );
 
     void Dispose()
     {
@@ -223,7 +244,7 @@ __gc class Header : public IDisposable
     bool disposed;
   };
 
-__gc class Trailer : public IDisposable
+  __gc class Trailer : public IDisposable
   {
   public:
     Trailer( Message* message ) : m_message( message ), disposed( false ) {}
@@ -241,9 +262,11 @@ __gc class Trailer : public IDisposable
     CharField* getField( CharField* field ) throw( FieldNotFound* );
     IntField* getField( IntField* field ) throw( FieldNotFound* );
     DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-    UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
+    UtcTimeStampField* getField( UtcTimeStampField* field ) 
+      throw( FieldNotFound* );
     UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
-    UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+    UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
+      throw( FieldNotFound* );
 
     void Dispose()
     {
@@ -278,14 +301,22 @@ private:
   void setField( UtcDateField* field, FIX::FieldMap& map );
   void setField( UtcTimeOnlyField* field, FIX::FieldMap& map );
 
-  StringField* getField( StringField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
-  BooleanField* getField( BooleanField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
-  CharField* getField( CharField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
-  IntField* getField( IntField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
-  DoubleField* getField( DoubleField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
-  UtcTimeStampField* getField( UtcTimeStampField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
-  UtcDateField* getField( UtcDateField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
-  UtcTimeOnlyField* getField( UtcTimeOnlyField* field, FIX::FieldMap& map ) throw( FieldNotFound* );
+  StringField* getField( StringField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
+  BooleanField* getField( BooleanField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
+  CharField* getField( CharField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
+  IntField* getField( IntField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
+  DoubleField* getField( DoubleField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
+  UtcTimeStampField* getField( UtcTimeStampField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
+  UtcDateField* getField( UtcDateField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
+  UtcTimeOnlyField* getField( UtcTimeOnlyField* field, FIX::FieldMap& map ) 
+    throw( FieldNotFound* );
 
 protected:
   Header* m_header;
@@ -296,11 +327,11 @@ private:
 };
 }
 
-#define NET_FIELD_SET( FIELD )                                \
-void set(QuickFix::FIELD* value)                                   \
-{ setField(value); }                                          \
+#define NET_FIELD_SET( FIELD )                                               \
+void set(QuickFix::FIELD* value)                                             \
+{ setField(value); }                                                         \
 QuickFix::FIELD* get(QuickFix::FIELD* value) throw(QuickFix::FieldNotFound*) \
-{ getField(value); return value; }                            \
-QuickFix::FIELD* get##FIELD() throw(QuickFix::FieldNotFound*)           \
-{ QuickFix::FIELD* value = new QuickFix::FIELD();                       \
+{ getField(value); return value; }                                           \
+QuickFix::FIELD* get##FIELD() throw(QuickFix::FieldNotFound*)                \
+{ QuickFix::FIELD* value = new QuickFix::FIELD();                            \
 getField(value); return value; }

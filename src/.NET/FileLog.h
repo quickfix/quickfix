@@ -58,6 +58,7 @@ using namespace System;
 #include "LogFactory.h"
 #include "SessionSettings.h"
 #include "quickfix/include/FileLog.h"
+#include "quickfix/include/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -66,28 +67,45 @@ public __gc class FileLog : public Log
 {
 public:
   FileLog( String* path, SessionID* sessionID )
-  {
+  { QF_STACK_TRY
+
     char* upath = createUnmanagedString( path );
     m_pUnmanaged = new FIX::FileLog
                    ( upath, sessionID->unmanaged() );
     destroyUnmanagedString( upath );
+
+    QF_STACK_CATCH
   }
   ~FileLog() { delete m_pUnmanaged; }
 
   void onIncoming( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onIncoming( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
+
   void onOutgoing( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onOutgoing( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
+
   void onEvent( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onEvent( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
 
 private:
@@ -97,10 +115,11 @@ private:
 public __gc class FileLogFactory : public LogFactory
 {
 public:
-FileLogFactory( String* path ) : m_path( path ) {}
+  FileLogFactory( String* path ) : m_path( path ) {}
 
   Log* create( SessionID* sessionID )
-  {
+  { QF_STACK_TRY
+
     if ( m_path ) return new FileLog( m_path, sessionID );
 
     FIX::SessionSettings& s = m_settings->unmanaged();
@@ -111,6 +130,8 @@ FileLogFactory( String* path ) : m_path( path ) {}
       return new FileLog( m_path, sessionID );
     }
     catch ( FIX::ConfigError & e ) { throw new ConfigError( e.what() ); }
+
+    QF_STACK_CATCH
   }
 
 private:

@@ -60,6 +60,7 @@ using namespace System;
 #include "LogFactory.h"
 #include "Initiator.h"
 #include "quickfix/include/SocketAcceptor.h"
+#include "quickfix/include/CallStack.h"
 
 namespace QuickFix
 {
@@ -70,8 +71,9 @@ public:
                   MessageStoreFactory* factory,
                   SessionSettings* settings,
                   MessageFactory* messageFactory )
-: m_settings( settings ), m_logFactory( 0 )
-  {
+  : m_settings( settings ), m_logFactory( 0 )
+  { QF_STACK_TRY
+
     try
     {
       m_application = new ::Application( application, messageFactory );
@@ -80,6 +82,8 @@ public:
                      ( *m_application, *m_factory, m_settings->unmanaged() );
     }
     catch ( FIX::ConfigError e ) { throw new ConfigError( e.what() ); }
+
+    QF_STACK_CATCH
   }
 
   SocketAcceptor( Application* application,
@@ -87,8 +91,9 @@ public:
                   SessionSettings* settings,
                   LogFactory* logFactory,
                   MessageFactory* messageFactory )
-: m_settings( settings )
-  {
+  : m_settings( settings )
+  { QF_STACK_TRY
+
     try
     {
       m_application = new ::Application( application, messageFactory );
@@ -99,6 +104,8 @@ public:
                        m_settings->unmanaged(), *m_logFactory );
     }
     catch ( FIX::ConfigError e ) { throw new ConfigError( e.what() ); }
+
+    QF_STACK_CATCH
   }
 
   ~SocketAcceptor()
@@ -110,7 +117,8 @@ public:
   }
 
   void start() throw ( RuntimeError* ) 
-  { 
+  { QF_STACK_TRY
+
     try
     {
       m_pUnmanaged->start(); 
@@ -119,9 +127,15 @@ public:
     {
       throw new RuntimeError( e.what() );
     }
+
+    QF_STACK_CATCH
   }
+
   void stop()
-  { m_pUnmanaged->stop(); }
+  { QF_STACK_TRY
+    m_pUnmanaged->stop(); 
+    QF_STACK_CATCH
+  }
 
 private:
   FIX::SocketAcceptor* m_pUnmanaged;

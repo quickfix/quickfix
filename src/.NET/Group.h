@@ -57,19 +57,22 @@ using namespace System;
 #include "Exceptions.h"
 
 #include "quickfix/include/Group.h"
+#include "quickfix/include/CallStack.h"
 
 namespace QuickFix
 {
 public __gc class Group : public IDisposable
 {
 public:
-Group( int field, int delim ) : disposed( false )
-  {
+  Group( int field, int delim ) : disposed( false )
+  { QF_STACK_TRY
     m_pUnmanaged = new FIX::Group( field, delim );
+    QF_STACK_CATCH
   }
 
-Group( int field, int delim, int message_order __gc[] ) : disposed( false )
-  {
+  Group( int field, int delim, int message_order __gc[] ) : disposed( false )
+  { QF_STACK_TRY
+
     int size = message_order->get_Length();
     int* order = new int[ size + 1 ];
     order[ size ] = 0;
@@ -80,12 +83,15 @@ Group( int field, int delim, int message_order __gc[] ) : disposed( false )
 
     m_pUnmanaged = new FIX::Group( field, delim, order );
     delete [] order;
+
+    QF_STACK_CATCH
   }
 
-Group( const FIX::Group& group ) : disposed( false )
-  {
+  Group( const FIX::Group& group ) : disposed( false )
+  { QF_STACK_TRY
     m_pUnmanaged = new FIX::Group( group.field(), group.delim() );
     *m_pUnmanaged = group;
+    QF_STACK_CATCH
   }
 
   ~Group()
@@ -111,7 +117,7 @@ Group( const FIX::Group& group ) : disposed( false )
   }
 
   FIX::Group& unmanaged()
-{ return * m_pUnmanaged; }
+  { return * m_pUnmanaged; }
 
   void setUnmanaged( const FIX::Group& group )
   { *m_pUnmanaged = group; }
@@ -133,17 +139,21 @@ Group( const FIX::Group& group ) : disposed( false )
   CharField* getField( CharField* field ) throw( FieldNotFound* );
   IntField* getField( IntField* field ) throw( FieldNotFound* );
   DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-  UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
+  UtcTimeStampField* getField( UtcTimeStampField* field ) 
+    throw( FieldNotFound* );
   UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
-  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
+    throw( FieldNotFound* );
 
   void addGroup( Group* group )
-  {
+  { QF_STACK_TRY
     m_pUnmanaged->addGroup( group->unmanaged() );
+    QF_STACK_CATCH
   }
 
   Group* getGroup( unsigned num, Group* group )
-  {
+  { QF_STACK_TRY
+
     try
     {
       m_pUnmanaged->getGroup( num, group->unmanaged() );
@@ -153,6 +163,8 @@ Group( const FIX::Group& group ) : disposed( false )
     {
       throw new FieldNotFound( e.field );
     }
+
+    QF_STACK_CATCH
   }
 
 private:

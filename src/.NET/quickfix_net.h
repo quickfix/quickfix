@@ -58,7 +58,7 @@ using System::Runtime::InteropServices::Marshal;
 
 namespace QuickFix
 {
-char* createUnmanagedString( String* s );
-void destroyUnmanagedString( char* s );
-std::string convertString( String* s );
+  char* createUnmanagedString( String* s );
+  void destroyUnmanagedString( char* s );
+  std::string convertString( String* s );
 }

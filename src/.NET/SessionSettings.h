@@ -56,6 +56,7 @@ using namespace System::IO;
 #include "quickfix_net.h"
 
 #include "quickfix/include/SessionSettings.h"
+#include "quickfix/include/CallStack.h"
 #include "Exceptions.h"
 
 namespace QuickFix
@@ -64,7 +65,8 @@ public __gc class SessionSettings
 {
 public:
   SessionSettings( Stream* stream )
-  {
+  { QF_STACK_TRY
+
     std::string streamValue;
     char read = -1;
     while ( ( read = ( char ) stream->ReadByte() ) != -1 )
@@ -75,15 +77,20 @@ public:
       m_pUnmanaged = new FIX::SessionSettings( stringStream );
     }
     catch ( std::exception & e ) { throw new ConfigError( e.what() ); }
+
+    QF_STACK_CATCH
   }
 
   SessionSettings( String* file )
-  {
+  { QF_STACK_TRY
+
     try
     {
       m_pUnmanaged = new FIX::SessionSettings( convertString( file ) );
     }
     catch ( std::exception & e ) { throw new ConfigError( e.what() ); }
+
+    QF_STACK_CATCH
   }
 
   ~SessionSettings()

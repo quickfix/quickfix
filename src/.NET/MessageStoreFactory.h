@@ -74,7 +74,8 @@ public:
 : m_factory( factory ) {}
 
   FIX::MessageStore* create( const FIX::SessionID& sessionID )
-  { return new MessageStore( m_factory->create( new QuickFix::SessionID( sessionID ) ) ); }
+  { return new MessageStore
+      ( m_factory->create( new QuickFix::SessionID( sessionID ) ) ); }
   void destroy( FIX::MessageStore* pStore )
   { delete pStore; }
 

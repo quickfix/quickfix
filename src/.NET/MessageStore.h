@@ -85,7 +85,7 @@ public __gc __interface MessageStore
 class MessageStore : public FIX::MessageStore
 {
 public:
-MessageStore( QuickFix::MessageStore* store ) : m_store( store ) {}
+  MessageStore( QuickFix::MessageStore* store ) : m_store( store ) {}
 
   bool set( int num, const std::string& message ) throw ( FIX::IOException& )
   {

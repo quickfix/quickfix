@@ -60,6 +60,7 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/include/FileStore.h"
 #include "quickfix/include/Settings.h"
+#include "quickfix/include/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -68,13 +69,16 @@ public __gc class FileStore : public MessageStore
 {
 public:
   FileStore( String* path, SessionID* sessionID )
-  {
-    m_pUnmanaged = new FIX::FileStore( convertString( path ), sessionID->unmanaged() );
+  { QF_STACK_TRY
+    m_pUnmanaged = new FIX::FileStore
+      ( convertString( path ), sessionID->unmanaged() );
+    QF_STACK_CATCH
   }
   ~FileStore() { delete m_pUnmanaged; }
 
   bool set( int sequence, String* message ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { char* umessage = createUnmanagedString( message );
       return m_pUnmanaged->set( sequence, umessage ); 
@@ -82,10 +86,13 @@ public:
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   bool get( int sequence, String* message ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     {
       std::string string;
@@ -94,10 +101,13 @@ public:
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void get( int begin, int end, ArrayList* list ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     {
       std::vector < std::string > messages;
@@ -108,58 +118,79 @@ public:
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   int getNextSenderMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { return m_pUnmanaged->getNextSenderMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   int getNextTargetMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { return m_pUnmanaged->getNextTargetMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void setNextSenderMsgSeqNum( int next ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->setNextSenderMsgSeqNum( next ); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void setNextTargetMsgSeqNum( int next ) throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->setNextTargetMsgSeqNum( next ); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void incrNextSenderMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->incrNextSenderMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void incrNextTargetMsgSeqNum() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->incrNextTargetMsgSeqNum(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   DateTime getCreationTime() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     {
       FIX::UtcTimeStamp d = m_pUnmanaged->getCreationTime();
@@ -168,14 +199,19 @@ public:
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
   void reset() throw ( IOException* )
-  {
+  { QF_STACK_TRY
+
     try
     { m_pUnmanaged->reset(); }
     catch ( FIX::IOException& )
     { throw new IOException(); }
+
+    QF_STACK_CATCH
   }
 
 private:
@@ -186,18 +222,21 @@ public __gc class FileStoreFactory : public MessageStoreFactory
 {
 public:
   FileStoreFactory( SessionSettings* settings )
-: m_path( 0 ), m_settings( settings ) {}
+  : m_path( 0 ), m_settings( settings ) {}
 
-FileStoreFactory( String* path ) : m_path( path ) {}
+  FileStoreFactory( String* path ) : m_path( path ) {}
 
   MessageStore* create( SessionID* sessionID )
-  {
+  { QF_STACK_TRY
+
     if ( m_path ) return new FileStore( m_path, sessionID );
 
     FIX::SessionSettings& s = m_settings->unmanaged();
     FIX::Dictionary settings = s.get();
     m_path = settings.getString( FIX::FILE_STORE_PATH ).c_str();
     return new FileStore( m_path, sessionID );
+
+    QF_STACK_CATCH
   }
 
 private:

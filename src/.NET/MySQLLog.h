@@ -62,6 +62,7 @@ using namespace System;
 #include "SessionSettings.h"
 #include "quickfix/include/MySQLLog.h"
 #include "quickfix/include/Settings.h"
+#include "quickfix/include/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
@@ -69,11 +70,17 @@ namespace QuickFix
 public __gc class MySQLLog : public Log
 {
 public:
-  MySQLLog( SessionID* sessionID, String* database, String* user, String* password,
-             String* host, short port )
-  {
-    m_pUnmanaged = new FIX::MySQLLog( sessionID->unmanaged(), convertString(database),
-      convertString(user), convertString(password), convertString(host), port );
+  MySQLLog( SessionID* sessionID, String* database, String* user, 
+	    String* password, String* host, short port )
+  { QF_STACK_TRY
+
+    m_pUnmanaged = new FIX::MySQLLog( sessionID->unmanaged(), 
+				      convertString(database),
+				      convertString(user), 
+				      convertString(password), 
+				      convertString(host), port );
+
+    QF_STACK_CATCH
   }
 
   MySQLLog( FIX::Log* pUnmanaged ) : m_pUnmanaged(pUnmanaged) {}
@@ -81,19 +88,33 @@ public:
   ~MySQLLog() { delete m_pUnmanaged; }
 
   void onIncoming( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onIncoming( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
+
   void onOutgoing( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onOutgoing( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
+
   void onEvent( String* s )
-  { char* us = createUnmanagedString( s );
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
     m_pUnmanaged->onEvent( us ); 
     destroyUnmanagedString( us );
+
+    QF_STACK_CATCH
   }
 
 private:
@@ -104,15 +125,18 @@ public __gc class MySQLLogFactory : public LogFactory
 {
 public:
   MySQLLogFactory( SessionSettings* settings )
-  {
+  { QF_STACK_TRY
     m_pUnmanaged = new FIX::MySQLLogFactory(settings->unmanaged());
+    QF_STACK_CATCH
   }
 
   ~MySQLLogFactory() { delete m_pUnmanaged; }
 
   Log* create( SessionID* sessionID )
   {
+    QF_STACK_TRY
     return new MySQLLog(m_pUnmanaged->create(sessionID->unmanaged()));
+    QF_STACK_CATCH
   }
 
 private:

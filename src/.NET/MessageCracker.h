@@ -71,13 +71,17 @@ public:
     message->getHeader() ->getField( beginString );
     String* value = beginString->getValue();
     if ( value->Equals( new String( FIX::BeginString_FIX40 ) ) )
-      ( static_cast < QuickFix40::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix40::MessageCracker* > 
+	( this ) ) ->crack( message, sessionID );
     else if ( value->Equals( new String( FIX::BeginString_FIX41 ) ) )
-      ( static_cast < QuickFix41::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix41::MessageCracker* > 
+	( this ) ) ->crack( message, sessionID );
     else if ( value->Equals( new String( FIX::BeginString_FIX42 ) ) )
-      ( static_cast < QuickFix42::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix42::MessageCracker* > 
+	( this ) ) ->crack( message, sessionID );
     else if ( value->Equals( new String( FIX::BeginString_FIX43 ) ) )
-      ( static_cast < QuickFix43::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix43::MessageCracker* > 
+	( this ) ) ->crack( message, sessionID );
     else
       onMessage( message, sessionID );
   }
