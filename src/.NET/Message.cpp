@@ -50,9 +50,27 @@
 #include "stdafx.h"
 
 #include "Message.h"
+#include "Fields.h"
 
 namespace Fix
 {
+Message::Message( BeginString* beginString ) : disposed( false )
+{
+  m_pUnmanaged = new FIX::Message();
+  m_header = new Header( this );
+  m_trailer = new Trailer( this );
+  setField( beginString, m_pUnmanaged->getHeader() );
+}
+
+Message::Message( BeginString* beginString, MsgType* msgType ) : disposed( false )
+{
+  m_pUnmanaged = new FIX::Message();
+  m_header = new Header( this );
+  m_trailer = new Trailer( this );
+  setField( beginString, m_pUnmanaged->getHeader() );
+  setField( msgType, m_pUnmanaged->getHeader() );
+}
+
 void Message::setField( StringField* field )
 { checkDisposed(); setField( field, *m_pUnmanaged ); }
 void Message::setField( BooleanField* field )

@@ -53,7 +53,7 @@
 using namespace System;
 
 #include "quickfix_net.h"
-#include "Fields.h"
+#include "Field.h"
 #include "Exceptions.h"
 #include "Group.h"
 
@@ -61,6 +61,9 @@ using namespace System;
 
 namespace Fix
 {
+public __gc class BeginString;
+public __gc class MsgType;
+
 public __gc class Message : public IDisposable
 {
 public:
@@ -94,22 +97,8 @@ public:
     m_trailer = new Trailer( this );
   }
 
-  Message( BeginString* beginString ) : disposed( false )
-  {
-    m_pUnmanaged = new FIX::Message();
-    m_header = new Header( this );
-    m_trailer = new Trailer( this );
-    setField( beginString, m_pUnmanaged->getHeader() );
-  }
-
-  Message( BeginString* beginString, MsgType* msgType ) : disposed( false )
-  {
-    m_pUnmanaged = new FIX::Message();
-    m_header = new Header( this );
-    m_trailer = new Trailer( this );
-    setField( beginString, m_pUnmanaged->getHeader() );
-    setField( msgType, m_pUnmanaged->getHeader() );
-  }
+  Message( BeginString* beginString );
+  Message( BeginString* beginString, MsgType* msgType );
 
   static bool Message::InitializeXML( String* url )
   {
@@ -306,3 +295,12 @@ private:
   bool disposed;
 };
 }
+
+#define NET_FIELD_SET( FIELD )                                \
+void set(Fix::FIELD* value)                                   \
+{ setField(value); }                                          \
+Fix::FIELD* get(Fix::FIELD* value) throw(Fix::FieldNotFound*) \
+{ getField(value); return value; }                            \
+Fix::FIELD* get##FIELD() throw(Fix::FieldNotFound*)           \
+{ Fix::FIELD* value = new Fix::FIELD();                       \
+getField(value); return value; }
