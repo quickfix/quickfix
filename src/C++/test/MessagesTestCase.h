@@ -84,6 +84,7 @@ public:
     add( &m_noEndingDelim );
     add( &m_outOfOrder );
     add( &m_getXML );
+    add( &m_reverseRoute );
   }
 
   typedef CPPTest::SimpleTest < Message > SimpleTest;
@@ -136,6 +137,12 @@ class getXML : public SimpleTest
     void onRun( Message& object );
   }
   m_getXML;
+
+class reverseRoute : public SimpleTest
+  {
+    void onRun( Message& object );
+  }
+  m_reverseRoute;
 };
 
 template < typename T >

@@ -142,6 +142,14 @@ public:
   std::string& toXML( std::string& ) const;
 
   /**
+   * Add header informations depending on a source message.
+   * This can be used to add routing informations like OnBehalfOfCompID
+   * and DeliverToCompID to a message.
+   */
+  void Message::reverseRoute( const Header& )
+  throw( FieldNotFound& );
+
+  /**
    * Set a message based on a string representation
    * This will fill in the fields on the message by parsing out the string
    * that is passed in.  It will return true on success and false

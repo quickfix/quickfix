@@ -101,6 +101,58 @@ bool Message::InitializeXML( const std::string& url )
 
   QF_STACK_POP
 }
+	
+void Message::reverseRoute( const Header& header )
+throw( FieldNotFound& )
+{ QF_STACK_PUSH(Message::reverseRoute)
+
+  // required routing tags
+  BeginString beginString;
+  SenderCompID senderCompID;
+  TargetCompID targetCompID;
+
+  header.getField( beginString );
+  header.getField( senderCompID );
+  header.getField( targetCompID );
+
+  m_header.setField( beginString );
+  m_header.setField( TargetCompID( senderCompID ) );
+  m_header.setField( SenderCompID( targetCompID ) );
+
+  // optional routing tags
+  OnBehalfOfCompID onBehalfOfCompID;
+  OnBehalfOfSubID onBehalfOfSubID;
+  DeliverToCompID deliverToCompID;
+  DeliverToSubID deliverToSubID;
+
+  if( header.isSetField( onBehalfOfCompID ) )
+  {
+    header.getField( onBehalfOfCompID );
+    m_header.setField( DeliverToCompID( onBehalfOfCompID ) );
+  }
+
+  if( header.isSetField( onBehalfOfSubID ) )
+  {
+    header.getField( onBehalfOfSubID );
+    m_header.setField( DeliverToSubID( onBehalfOfSubID ) );
+  }
+	
+  if( header.isSetField( deliverToCompID ) )
+  {
+    header.getField( deliverToCompID );
+    m_header.setField( OnBehalfOfCompID( deliverToCompID ) );
+  }
+
+  if( header.isSetField( deliverToSubID ) )
+  {
+    header.getField( deliverToSubID );
+    m_header.setField( OnBehalfOfSubID( deliverToSubID ) );
+  }
+
+  QF_STACK_POP
+}
+
+
 
 std::string Message::toString() const
 { QF_STACK_PUSH(Message::toString)

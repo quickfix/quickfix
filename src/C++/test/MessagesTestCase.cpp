@@ -271,6 +271,61 @@ void MessageTestCase::getXML::onRun( Message& object )
   assert( message.toXML() == stream.str() );
 }
 
+void MessageTestCase::reverseRoute::onRun( Message& object )
+{
+  Header header;
+  BeginString beginString( "BeginString" );
+  SenderCompID senderCompID( "SenderCompID" );
+  TargetCompID targetCompID( "TargetCompID" );
+
+  Message reversedMessage;
+  Header& reversedHeader = reversedMessage.getHeader();
+
+  // not all required fields set
+  try
+  {
+    reversedMessage.reverseRoute( header);
+    assert( false );
+  } catch( FieldNotFound& e ) {}
+  header.setField( beginString );
+  try
+  {
+    reversedMessage.reverseRoute( header );
+    assert( false );
+  } catch( FieldNotFound& e ) {}
+  header.setField( senderCompID );
+  try
+  {
+    reversedMessage.reverseRoute( header );
+    assert( false );
+  } catch( FieldNotFound& e ) {}
+  header.setField( targetCompID );
+
+  // all required fields set
+  reversedMessage.reverseRoute( header );
+  assert( reversedHeader.getField( beginString ).getString() == "BeginString" );
+  assert( reversedHeader.getField( senderCompID ).getString() == "TargetCompID" );
+  assert( reversedHeader.getField( targetCompID ).getString() == "SenderCompID" );
+
+  OnBehalfOfCompID onBehalfOfCompID( "OnBehalfOfCompID" );
+  OnBehalfOfSubID onBehalfOfSubID( "OnBehalfOfSubID" );
+  DeliverToCompID deliverToCompID( "DeliverToCompID" );
+  DeliverToSubID deliverToSubID( "DeliverToSubID" );
+  header.setField( onBehalfOfCompID );
+  header.setField( onBehalfOfSubID );
+  header.setField( deliverToCompID );
+  header.setField( deliverToSubID );
+  
+  reversedMessage.reverseRoute( header );
+  assert( reversedHeader.getField( beginString ).getString() == "BeginString" );
+  assert( reversedHeader.getField( senderCompID ).getString() == "TargetCompID" );
+  assert( reversedHeader.getField( targetCompID ).getString() == "SenderCompID" );
+  assert( reversedHeader.getField( onBehalfOfCompID ).getString() == "DeliverToCompID" );
+  assert( reversedHeader.getField( onBehalfOfSubID ).getString() == "DeliverToSubID" );
+  assert( reversedHeader.getField( deliverToCompID ).getString() == "OnBehalfOfCompID" );
+  assert( reversedHeader.getField( deliverToSubID ).getString() == "OnBehalfOfSubID" );
+}
+
 void LogonParseTestCase::getString::onRun( Logon& object )
 {
   try

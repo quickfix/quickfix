@@ -665,7 +665,8 @@ void Session::generateReject( const Message& message, int err, int field )
   Message reject;
   reject.getHeader().setField( MsgType( "3" ) );
   fill( reject.getHeader() );
-
+  reject.reverseRoute( message.getHeader() );
+  
   MsgSeqNum msgSeqNum;
   MsgType msgType;
   PossDupFlag possDupFlag( false );
@@ -759,6 +760,7 @@ void Session::generateReject( const Message& message, const std::string& str )
   Message reject;
   reject.getHeader().setField( MsgType( "3" ) );
   fill( reject.getHeader() );
+  reject.reverseRoute( message.getHeader() );
 
   MsgType msgType;
   MsgSeqNum msgSeqNum;
