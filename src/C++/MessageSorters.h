@@ -144,8 +144,8 @@ public:
   enum cmp_mode { header, trailer, normal, group };
 
   message_order( cmp_mode mode = normal ) : m_mode( mode ), m_groupOrder( 0 ) {}
-  message_order( int size, ... );
-  message_order( int size, const int order[] );
+  message_order( int first, ... );
+  message_order( const int order[] );
   message_order( const message_order& copy ) : m_groupOrder( 0 )
   { *this = copy; }
 

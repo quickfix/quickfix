@@ -58,16 +58,24 @@
 
 namespace FIX
 {
-message_order::message_order( int size, ... )
+message_order::message_order( int first, ... )
     : m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
 {
-  if ( size < 1 ) return ;
+  int field = first;
+  int size = 0;
 
   va_list arguments;
-  va_start( arguments, size );
+  va_start( arguments, first );
+  while( field != 0 )
+  {
+    size++;
+    field = va_arg( arguments, int );
+  }
 
+  va_start( arguments, first );
   int* order = new int[size];
-  for ( int i = 0; i < size; ++i )
+  order[0] = first;
+  for ( int i = 1; i < size; ++i )
     order[ i ] = va_arg( arguments, int );  
   setOrder(size, order);
   delete [] order;
@@ -75,9 +83,11 @@ message_order::message_order( int size, ... )
   va_end( arguments );
 }
 
-message_order::message_order( int size, const int order[] )
+message_order::message_order( const int order[] )
     : m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
 {
+  int size = 0;
+  while( order[size] != 0 ) { ++size; }
   setOrder(size, order);
 }
 
