@@ -24707,7 +24707,7 @@ MsgType_LIST_EXECUTE = cvar.MsgType_LIST_EXECUTE
 MsgType_LIST_STATUS_REQUEST = cvar.MsgType_LIST_STATUS_REQUEST
 MsgType_LIST_STATUS = cvar.MsgType_LIST_STATUS
 MsgType_ALLOCATION_INSTRUCTION_ACK = cvar.MsgType_ALLOCATION_INSTRUCTION_ACK
-MsgType_DONT_KNOW_TRADE_ = cvar.MsgType_DONT_KNOW_TRADE_
+MsgType_DONT_KNOW_TRADE = cvar.MsgType_DONT_KNOW_TRADE
 MsgType_QUOTE_REQUEST = cvar.MsgType_QUOTE_REQUEST
 MsgType_QUOTE = cvar.MsgType_QUOTE
 MsgType_SETTLEMENT_INSTRUCTIONS = cvar.MsgType_SETTLEMENT_INSTRUCTIONS
@@ -24795,13 +24795,19 @@ OrdType_MARKET = cvar.OrdType_MARKET
 OrdType_LIMIT = cvar.OrdType_LIMIT
 OrdType_STOP = cvar.OrdType_STOP
 OrdType_STOP_LIMIT = cvar.OrdType_STOP_LIMIT
+OrdType_MARKET_ON_CLOSE = cvar.OrdType_MARKET_ON_CLOSE
 OrdType_WITH_OR_WITHOUT = cvar.OrdType_WITH_OR_WITHOUT
 OrdType_LIMIT_OR_BETTER = cvar.OrdType_LIMIT_OR_BETTER
 OrdType_LIMIT_WITH_OR_WITHOUT = cvar.OrdType_LIMIT_WITH_OR_WITHOUT
 OrdType_ON_BASIS = cvar.OrdType_ON_BASIS
+OrdType_ON_CLOSE = cvar.OrdType_ON_CLOSE
+OrdType_LIMIT_ON_CLOSE = cvar.OrdType_LIMIT_ON_CLOSE
+OrdType_FOREX_MARKET = cvar.OrdType_FOREX_MARKET
 OrdType_PREVIOUSLY_QUOTED = cvar.OrdType_PREVIOUSLY_QUOTED
 OrdType_PREVIOUSLY_INDICATED = cvar.OrdType_PREVIOUSLY_INDICATED
+OrdType_FOREX_LIMIT = cvar.OrdType_FOREX_LIMIT
 OrdType_FOREX_SWAP = cvar.OrdType_FOREX_SWAP
+OrdType_FOREX_PREVIOUSLY_QUOTED = cvar.OrdType_FOREX_PREVIOUSLY_QUOTED
 OrdType_FUNARI = cvar.OrdType_FUNARI
 OrdType_MARKET_IF_TOUCHED = cvar.OrdType_MARKET_IF_TOUCHED
 OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT = cvar.OrdType_MARKET_WITH_LEFTOVER_AS_LIMIT
@@ -25292,6 +25298,12 @@ QuoteStatus_REMOVED_FROM_MARKET = cvar.QuoteStatus_REMOVED_FROM_MARKET
 QuoteStatus_EXPIRED = cvar.QuoteStatus_EXPIRED
 QuoteStatus_QUERY = cvar.QuoteStatus_QUERY
 QuoteStatus_QUOTE_NOT_FOUND = cvar.QuoteStatus_QUOTE_NOT_FOUND
+QuoteStatus_PENDING = cvar.QuoteStatus_PENDING
+QuoteStatus_PASS = cvar.QuoteStatus_PASS
+QuoteStatus_LOCKED_MARKET_WARNING = cvar.QuoteStatus_LOCKED_MARKET_WARNING
+QuoteStatus_CROSS_MARKET_WARNING = cvar.QuoteStatus_CROSS_MARKET_WARNING
+QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET = cvar.QuoteStatus_CANCELED_DUE_TO_LOCK_MARKET
+QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET = cvar.QuoteStatus_CANCELED_DUE_TO_CROSS_MARKET
 QuoteCancelType_CANCEL_FOR_SYMBOL = cvar.QuoteCancelType_CANCEL_FOR_SYMBOL
 QuoteCancelType_CANCEL_FOR_SECURITY_TYPE = cvar.QuoteCancelType_CANCEL_FOR_SECURITY_TYPE
 QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL = cvar.QuoteCancelType_CANCEL_FOR_UNDERLYING_SYMBOL
@@ -26246,6 +26258,8 @@ USE_DATA_DICTIONARY = cvar.USE_DATA_DICTIONARY
 DATA_DICTIONARY = cvar.DATA_DICTIONARY
 START_TIME = cvar.START_TIME
 END_TIME = cvar.END_TIME
+START_DAY = cvar.START_DAY
+END_DAY = cvar.END_DAY
 CHECK_LATENCY = cvar.CHECK_LATENCY
 MAX_LATENCY = cvar.MAX_LATENCY
 HEARTBTINT = cvar.HEARTBTINT
@@ -26316,10 +26330,6 @@ class Session(_object):
     if _newclass:unregisterSession = staticmethod(_quickfix.Session_unregisterSession)
     __swig_getmethods__["numSessions"] = lambda x: _quickfix.Session_numSessions
     if _newclass:numSessions = staticmethod(_quickfix.Session_numSessions)
-    __swig_getmethods__["isSessionTime"] = lambda x: _quickfix.Session_isSessionTime
-    if _newclass:isSessionTime = staticmethod(_quickfix.Session_isSessionTime)
-    __swig_getmethods__["isSameSession"] = lambda x: _quickfix.Session_isSameSession
-    if _newclass:isSameSession = staticmethod(_quickfix.Session_isSameSession)
     def isSessionTime(*args): return _quickfix.Session_isSessionTime(*args)
     def checkLatency(*args): return _quickfix.Session_checkLatency(*args)
     def setMaxLatency(*args): return _quickfix.Session_setMaxLatency(*args)
@@ -26358,8 +26368,6 @@ Session_registerSession = _quickfix.Session_registerSession
 Session_unregisterSession = _quickfix.Session_unregisterSession
 
 Session_numSessions = _quickfix.Session_numSessions
-
-Session_isSameSession = _quickfix.Session_isSameSession
 
 class LogFactory(_object):
     __swig_setmethods__ = {}
