@@ -96,9 +96,7 @@ class readFixMessage : public Test
     void onTeardown( Parser* pObject )
     { delete pObject; delete m_pStream; }
 
-    std::string m_fixMsg1, m_fixMsg2;
-    std::string m_partFixMsg1, m_partFixMsg2;
-    std::string m_fixMsg3;
+    std::string m_fixMsg1, m_fixMsg2, m_fixMsg3;
     std::stringstream* m_pStream;
   }
   m_readFixMessage;
