@@ -58,6 +58,8 @@
 #pragma once
 
 #undef Yield
+#undef DUPLICATE
+#undef STRICT
 #include "Field.h"
 #include "DeprecatedFields.h"
 
