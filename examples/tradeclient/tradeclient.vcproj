@@ -95,7 +95,7 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="../../bin/debug/tradeclient_debug.exe"
+				OutputFile="../../bin/debug/tradeclient.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories="../../lib/debug"
