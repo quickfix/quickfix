@@ -26,6 +26,7 @@
 
 #include "Dictionary.h"
 #include "FieldConvertors.h"
+#include <algorithm>
 
 namespace FIX
 {
