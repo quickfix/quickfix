@@ -6845,6 +6845,11 @@ else
 fi
 rm -f conftest*
 
+cat >> confdefs.h <<\EOF
+#define _REENTRANT 1
+EOF
+
+
 # Checks for library functions.
 ac_ext=c
 # CFLAGS is not in ac_cpp because -g, -O, etc. are not valid cpp options.
@@ -6855,7 +6860,7 @@ cross_compiling=$ac_cv_prog_cc_cross
 
 
 echo $ac_n "checking for cplus_demangle in -liberty""... $ac_c" 1>&6
-echo "configure:6859: checking for cplus_demangle in -liberty" >&5
+echo "configure:6864: checking for cplus_demangle in -liberty" >&5
 ac_lib_var=`echo iberty'_'cplus_demangle | sed 'y%./+-%__p_%'`
 if eval "test \"`echo '$''{'ac_cv_lib_$ac_lib_var'+set}'`\" = set"; then
   echo $ac_n "(cached) $ac_c" 1>&6
@@ -6863,7 +6868,7 @@ else
   ac_save_LIBS="$LIBS"
 LIBS="-liberty  $LIBS"
 cat > conftest.$ac_ext <<EOF
-#line 6867 "configure"
+#line 6872 "configure"
 #include "confdefs.h"
 /* Override any gcc2 internal prototype to avoid an error.  */
 /* We use char because int might match the return type of a gcc2
@@ -6874,7 +6879,7 @@ int main() {
 cplus_demangle()
 ; return 0; }
 EOF
-if { (eval echo configure:6878: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
+if { (eval echo configure:6883: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext}; then
   rm -rf conftest*
   eval "ac_cv_lib_$ac_lib_var=yes"
 else
@@ -6901,12 +6906,12 @@ fi
 
 # Checks for runtime behavior
 echo $ac_n "checking if select modifies timeval parameter""... $ac_c" 1>&6
-echo "configure:6905: checking if select modifies timeval parameter" >&5
+echo "configure:6910: checking if select modifies timeval parameter" >&5
 if test "$cross_compiling" = yes; then
   echo "$ac_t""unable to determine" 1>&6
 else
   cat > conftest.$ac_ext <<EOF
-#line 6910 "configure"
+#line 6915 "configure"
 #include "confdefs.h"
 
 #include <unistd.h>
@@ -6922,7 +6927,7 @@ int main(int argc, char** argv)
 }
 
 EOF
-if { (eval echo configure:6926: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
+if { (eval echo configure:6931: \"$ac_link\") 1>&5; (eval $ac_link) 2>&5; } && test -s conftest${ac_exeext} && (./conftest; exit) 2>/dev/null
 then
   echo "$ac_t""yes" 1>&6
 cat >> confdefs.h <<\EOF

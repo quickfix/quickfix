@@ -226,6 +226,8 @@ AC_TRY_COMPILE(
 	 The system has gethostbyname_r which returns result),
 	 AC_MSG_RESULT(no))
 
+AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
+
 # Checks for library functions.
 AC_LANG_RESTORE
 

@@ -45,6 +45,9 @@
 /* The system has gethostbyname_r which returns result */
 #undef GETHOSTBYNAME_R_RETURNS_RESULT
 
+/* enable reentrant system calls */
+#undef _REENTRANT
+
 /* whether or not we have to demangle names */
 #undef HAVE_CPLUS_DEMANGLE
 
