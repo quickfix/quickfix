@@ -98,8 +98,8 @@ private:
   std::istream* m_pStream;
   int m_socket;
   std::string m_buffer;
-  char* m_readBuffer;
   int m_bufferSize;
+  char* m_readBuffer;
 };
 }
 #endif //FIX_PARSER_H
