@@ -998,7 +998,9 @@ bool Session::nextQueued( int num )
     m_state.onEvent( "Processing QUEUED message: "
                      + IntConvertor::convert( num ) );
     msg.getHeader().getField( msgType );
-    if ( msgType != MsgType_Logon )
+    if ( msgType == MsgType_Logon )
+      m_state.incrNextTargetMsgSeqNum();
+    else
       next( msg.toString() );
     return true;
   }
