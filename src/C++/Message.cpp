@@ -112,20 +112,20 @@ void Message::reverseRoute( const Header& header )
 
   if( header.isSetField( beginString ) )
   {
-    m_header.setField( beginString );
     header.getField( beginString );
+    m_header.setField( beginString );
   }
 
   if( header.isSetField( senderCompID ) )
   {
-    m_header.setField( TargetCompID( senderCompID ) );
     header.getField( senderCompID );
+    m_header.setField( TargetCompID( senderCompID ) );
   }
 
   if( header.isSetField( targetCompID ) )
   {
-    m_header.setField( SenderCompID( targetCompID ) );
     header.getField( targetCompID );
+    m_header.setField( SenderCompID( targetCompID ) );
   }
 
   // optional routing tags
