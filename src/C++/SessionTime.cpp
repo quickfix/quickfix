@@ -29,8 +29,18 @@
 namespace FIX
 {
   SessionTime::SessionTime( const UtcTimeOnly& startTime, 
-                            const UtcTimeOnly &endTime )
-  : m_startTime( startTime ), m_endTime( endTime ) {}
+                            const UtcTimeOnly& endTime,
+                            int startDay,
+                            int endDay )
+  : m_startTime( startTime ), m_endTime( endTime ),
+    m_startDay( startDay ), m_endDay( endDay ) 
+  {
+    if( startDay > 0 
+        && endDay > 0 
+        && startDay == endDay
+        && endTime > startTime )
+      { m_endTime = m_startTime; }
+  }
 
   bool SessionTime::isSessionTime( const UtcTimeOnly& start, 
                                    const UtcTimeOnly& end,
@@ -44,6 +54,43 @@ namespace FIX
     else
       return ( timeOnly >= start || timeOnly <= end );
     
+    QF_STACK_POP
+  }
+
+  bool SessionTime::isSessionTime( const UtcTimeOnly& startTime, 
+                                   const UtcTimeOnly& endTime,
+                                   int startDay,
+                                   int endDay,
+                                   const UtcTimeStamp& time )
+  { QF_STACK_PUSH(SessionTime::isSessionTime)
+    
+    int currentDay = time.getWeekDay();
+    UtcTimeOnly timeOnly( time, 0 );
+
+    if( startDay == endDay )
+    {
+      if( timeOnly < startTime && timeOnly > endTime )
+        return false;
+    }
+    else if( startDay < endDay )
+    {
+      if( currentDay < startDay || currentDay > endDay )
+        return false;
+      else if( currentDay == startDay && timeOnly < startTime )
+        return false;
+      else if( currentDay == endDay && timeOnly > endTime )
+        return false;
+    }
+    else if( startDay > endDay )
+    {
+      if( currentDay < startDay && currentDay > endDay )
+        return false;
+      else if( currentDay == startDay && timeOnly < startTime )
+        return false;
+      else if( currentDay == endDay && timeOnly > endTime )
+        return false;
+    }
+    return true;
     QF_STACK_POP
   }
 

@@ -25,6 +25,7 @@
 #endif
 
 #include "SessionTimeTestCase.h"
+#include "FieldConvertors.h"
 
 namespace FIX
 {
@@ -61,6 +62,61 @@ void SessionTimeTestCase::isSessionTime::onRun( SessionTime& object )
 
   now = UtcTimeStamp( 17, 0, 0, 10, 10, 2000 );
   assert( !SessionTime::isSessionTime( start, end, now ) );
+}
+
+void SessionTimeTestCase::isSessionTimeWithDay::onRun( SessionTime& object )
+{
+  UtcTimeOnly startTime( 18, 0, 0 );
+  UtcTimeOnly endTime( 3, 0, 0 );  
+  int startDay = 7;
+  int endDay = 7;
+
+  UtcTimeStamp now( 10, 0, 0, 24, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 18, 0, 0, 24, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 3, 0, 0, 24, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 3, 0, 1, 24, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 18, 0, 1, 24, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 3, 0, 1, 25, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 18, 0, 1, 26, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+
+  startTime = UtcTimeOnly( 3, 0, 0 );
+  endTime = UtcTimeOnly( 18, 0, 0 );  
+  startDay = 2;
+  endDay = 5;
+
+  now = UtcTimeStamp( 2, 0, 0, 28, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 18, 0, 0, 27, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 3, 0, 0, 27, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 2, 59, 59, 26, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 18, 0, 1, 29, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+
+  startDay = 5;
+  endDay = 2;
+
+  now = UtcTimeStamp( 2, 0, 0, 24, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 2, 0, 0, 28, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 3, 0, 0, 22, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 18, 0, 0, 26, 7, 2004 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 2, 59, 59, 22, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 18, 0, 1, 26, 7, 2004 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
 }
 
 void SessionTimeTestCase::isSameSession::onRun( SessionTime& object )

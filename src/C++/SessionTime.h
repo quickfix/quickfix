@@ -34,10 +34,19 @@ namespace FIX
 class SessionTime
 {
 public:
-  SessionTime( const UtcTimeOnly& startTime, const UtcTimeOnly &endTime );
+  SessionTime( const UtcTimeOnly& startTime, const UtcTimeOnly &endTime,
+               int startDay = -1, int endDay = -1 );
 
-  static bool isSessionTime( const UtcTimeOnly& start, const UtcTimeOnly& end,
+  static bool isSessionTime( const UtcTimeOnly& start, 
+                             const UtcTimeOnly& end,
                              const UtcTimeStamp& time );
+
+  static bool isSessionTime( const UtcTimeOnly& startTime, 
+                             const UtcTimeOnly& endTime,
+                             int startDay,
+                             int endDay,
+                             const UtcTimeStamp& time );
+
   static bool isSameSession( const UtcTimeOnly& start, const UtcTimeOnly& end,
                              const UtcTimeStamp& time1,
                              const UtcTimeStamp& time2 );
@@ -50,6 +59,8 @@ public:
 private:
   UtcTimeOnly m_startTime;
   UtcTimeOnly m_endTime;
+  int m_startDay;
+  int m_endDay;
 };
 }
 

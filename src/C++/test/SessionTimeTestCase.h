@@ -33,24 +33,27 @@ public:
   SessionTimeTestCase()
   {
     add( &m_isSessionTime );
+    add( &m_isSessionTimeWithDay );
     add( &m_isSameSession );
   }
 
 private:
   typedef CPPTest::EmptyTest<SessionTime> Test;
 
-class isSessionTime : public Test
+  class isSessionTime : public Test
   {
     void onRun( SessionTime& object );
-  }
-  m_isSessionTime;
-
-class isSameSession : public Test
+  } m_isSessionTime;
+  
+  class isSessionTimeWithDay : public Test
   {
     void onRun( SessionTime& object );
-  }
-  m_isSameSession;
+  } m_isSessionTimeWithDay;
 
+  class isSameSession : public Test
+  {
+    void onRun( SessionTime& object );
+  } m_isSameSession;
 };
 }
 
