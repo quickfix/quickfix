@@ -5,8 +5,8 @@ specifiers, JNI patch).  Also got rid of warnings caused by generated
 source files not ending with newlines.
 
 getValue call in Java and .NET message class will throw and IncorrectDataFormat
-exception instead of just crashing.  In C++, method also throws IncorrectDataFormat
-instead of FieldConvertError.
+exception instead of just crashing.  In C++, method also throws 
+IncorrectDataFormat instead of FieldConvertError.
 
 QuickFIX C++ call stack is available by running configure with the
 --enable-callstack option, or defining USING_CALLSTACK in windows_config.h
@@ -31,6 +31,20 @@ In Java, renamed Session class to SessionSettings to match the C++ API
 Fixed bug where session times would not ever reset when the start time
 is greater than the end time.
 
+Reentrant system calls are used when they are available. Fixed
+unsynchronized resource bug on multi-processor machines.
+
+Initiator and Acceptor use correct result after spawning thread,
+instead of assigning the boolean result as the threadid.
+
+Fixed deadlock in ThreadedSocketAcceptor and ThreadedSocketInitiator
+when shutting down.
+
+UtcDate now calls the correct constructor so it is initialized
+properly.
+
+Java MessageCracker now supports FIX 4.3 messages.
+
 1.4.0
 -----
 Support for FIX 4.3
@@ -43,44 +57,47 @@ setNextSenderMsgSeqNum and setNextTargetMsgSeqNum available on session in all AP
 
 Changes made to messages in toAdmin and toApp in JAVA are correctly applied when sending
 
-new throw specifiers on fromAdmin and fromApp message. Prevents crashes from occuring when
-no data dictionary is used.
+new throw specifiers on fromAdmin and fromApp message. Prevents
+crashes from occuring when no data dictionary is used.
 
-isSetField method added to JAVA API. Methods in version specific messages also have
-methods to check if fields are set.
+isSetField method added to JAVA API. Methods in version specific
+messages also have methods to check if fields are set.
 
-sendToTarget throws SessionNotFound exception instead of just crashing under .NET
+sendToTarget throws SessionNotFound exception instead of just crashing
+under .NET
 
 Fixed memory leaks in JNI interface
 
 Fixed race condition between sending application and admin messages
 
-Processing of Queue in ThreadedSocketConnection modified so it can better handle large
-sustained throughput
+Processing of Queue in ThreadedSocketConnection modified so it can
+better handle large sustained throughput
 
-.NET namespace changed from Fix to QuickFix. Resolves conflict with unmanaged FIX 
-namespace allowing library to be used from VB.NET
+.NET namespace changed from Fix to QuickFix. Resolves conflict with
+unmanaged FIX namespace allowing library to be used from VB.NET
 
-Messages with repeating groups no longer take in the number of repeating groups in the
-constructor.  This value was always overwritten when adding groups anyway.
+Messages with repeating groups no longer take in the number of
+repeating groups in the constructor.  This value was always
+overwritten when adding groups anyway.
 
-The start method in Initiator and Acceptor can throw an exception if a serious error
-occurs.
+The start method in Initiator and Acceptor can throw an exception if a
+serious error occurs.
 
-SocketAcceptor and ThreadedSocketAcceptor will no longer allow you to silently takeover
-a used port.  An exception will be thrown instead.
+SocketAcceptor and ThreadedSocketAcceptor will no longer allow you to 
+silently takeover a used port.  An exception will be thrown instead.
 
 New constructor for SessionID takes strings.
 
-New setting ValidateFieldsHaveValue can be set to N to prevent rejecting messages with 
-empty fields.
+New setting ValidateFieldsHaveValue can be set to N to prevent
+rejecting messages with empty fields.
 
 MySQL MessageStore will properly reset sequence numbers
 
-Java field classes have final integers which identify the tag number of the field.
+Java field classes have final integers which identify the tag number
+of the field.
 
-Java and .NET will no longer crash when a incorrectly formatted field is read from a
-session without a data dictionary.
+Java and .NET will no longer crash when a incorrectly formatted field
+is read from a session without a data dictionary.
 
 1.3.2
 -----
@@ -88,7 +105,8 @@ More portable file copies during build process on unix
 
 1.3.1
 -----
-Fixed memory leak in repeating groups caused by FieldMap not calling clear() in destructor.
+Fixed memory leak in repeating groups caused by FieldMap not calling
+clear() in destructor.
 
 Corrected some minor errors building sample applications on some systems.
 
@@ -106,18 +124,20 @@ a state mechanism.
 MySQLFileStore added.  Now QuickFIX can maintain state in a production quality
 open source database right out of the box.
 
---with-stlport configure option added for building with STLport.  This fixes stability 
-problems that users have been experiencing on multi-processor machines with 2.95.x compilers.
+--with-stlport configure option added for building with STLport.  This
+fixes stability problems that users have been experiencing on
+multi-processor machines with 2.95.x compilers.
 
-Message decoding has been optimized. Decoding FIX messages is now 3 times faster than before.
+Message decoding has been optimized. Decoding FIX messages is now 3
+times faster than before.
 
 Message class can now output FIX messages as XML.
 
 Fixed copy operator for FieldMaps that contain repeating groups.
 
-Fixed resource leaks in .NET API.  Message class should now be garbage collected correctly.
-Also implemented IDisposable interface for Message. Be sure you know what you are doing
-before using this!
+Fixed resource leaks in .NET API.  Message class should now be garbage 
+collected correctly. Also implemented IDisposable interface for
+Message. Be sure you know what you are doing before using this!
 
 DataDictionary parser works much better.  In particular it is able to 
 generate the FIX40.xml and FIX41.xml files much more accurately.
@@ -126,8 +146,9 @@ Test Requests are now sent properly during times of high activity.
 
 Test Request time span shortened for a timed out connection.
 
-MessageStore sets and gets strings instead of messages. This allows the session to properly parse
-stored messages using its data dictionary. The old way was causing problems with resends with 
+MessageStore sets and gets strings instead of messages. This allows
+the session to properly parse stored messages using its data
+dictionary. The old way was causing problems with resends with 
 repeating groups.
 
 All MessageStore functions can now throw an IOException. If a session traps
@@ -138,59 +159,66 @@ instead of a boolean. If there is a problem retrieving a message, throw an
 IOException.  If you are asked for a message you do not have, just send back
 whatever is available within the range.
 
-Faster load times for sessions that share a data dictionary. Each DataDictionary
-file is now only parsed once on startup.
+Faster load times for sessions that share a data dictionary. Each 
+DataDictionary file is now only parsed once on startup.
 
 In JAVA booleans are properly represented as booleans instead of Strings
 
 Currency types are properly represented as Strings
 
-Rejecting a resent message will no longer increment the expected sequence number.
+Rejecting a resent message will no longer increment the expected
+sequence number.
 
-Can now properly accept a message with repeating group where the counter is set to zero.
+Can now properly accept a message with repeating group where the
+counter is set to zero.
 
-Continuous builds now being run on windows-vc6, windows-vc7, and linux-pgcc-2-95-2, and
-solaris-gcc-2-95-3-stlport
+Continuous builds now being run on windows-vc6, windows-vc7, and 
+linux-pgcc-2-95-2, and solaris-gcc-2-95-3-stlport
 
 Message::getString() deprecated in favor of Message::toString()
 
 1.2.1
 -----
-config.h no longer included from Utility.h.  This was causing problems when people wanted
-to build quickfix application without autotools.
+config.h no longer included from Utility.h.  This was causing problems
+when people wanted to build quickfix application without autotools.
 
-More robust detection of dropped/bad sockets. One of our users ran into a problem with this
-during certification with the CME. He has confirmed that it works correctly now.
+More robust detection of dropped/bad sockets. One of our users ran
+into a problem with this during certification with the CME. He has
+confirmed that it works correctly now.
 
 Closing acceptors now works in all situations.
 
-Mutex locking in session is a little smarter, making it easier to syncrhonize applications.
+Mutex locking in session is a little smarter, making it easier to
+syncrhonize applications.
 
-code is now auto formatted with astyle. This makes it easier for people to contribute code
-without having to worry as much about conforming to coding standards.
+code is now auto formatted with astyle. This makes it easier for
+people to contribute code without having to worry as much about
+conforming to coding standards.
 
 1.2.0
 -----
-First release of .NET API for QuickFIX. The API is mostly a direct port of the JAVA API,
-future versions well attempt to refine this API to use more .NET specific constructs. QuickFIX
-applications can now be written in C# or VB.NET or any other CLR language.
+First release of .NET API for QuickFIX. The API is mostly a direct
+port of the JAVA API, future versions well attempt to refine this API
+to use more .NET specific constructs. QuickFIX applications can now be
+written in C# or VB.NET or any other CLR language.
 
 Documentation covers all API's, C++, Java, and .NET
 
-New example application executor. Executor example is implemented in C++, Java and C#
-for side by side comparison.
+New example application executor. Executor example is implemented in
+C++, Java and C# for side by side comparison.
 
-Fixed bug where the session time range was not calculated correctly when minutes or
-seconds were involved. (.i.e., is that start time was set to 12:30:00, the 30 would
-cause problems, wheras 12:00:00 would be fine).
+Fixed bug where the session time range was not calculated correctly
+when minutes or seconds were involved. (.i.e., is that start time was
+set to 12:30:00, the 30 would cause problems, wheras 12:00:00 would be fine).
 
-Resend requests with EndSeqNo set to 0 (>=FIX 4.2) or 999999 (<=FIX 4.1) are now supported.
+Resend requests with EndSeqNo set to 0 (>=FIX 4.2) or 999999 (<=FIX
+4.1) are now supported.
 
-Possible duplicate messages with a sequence number that is too low will no longer be forwarded
-to the application callback.
+Possible duplicate messages with a sequence number that is too low
+will no longer be forwarded to the application callback.
 
-FIX Specification parser modified so it will now capture some fields that it was missing. The FIX42.xml
-file in particular is more complete.
+FIX Specification parser modified so it will now capture some fields
+that it was missing. The FIX42.xml file in particular is more complete.
 
 Made Java API more consistant with C++ API.
 
@@ -200,34 +228,39 @@ Fixed memory leak caused by copying repeating groups.
 
 Added acceptance tests for FIX 4.0 and 4.1
 
-When new fields are added to the header or trailer portion of the XML data dictionary, 
-QuickFIX will now handle them appropriately.
+When new fields are added to the header or trailer portion of the XML
+data dictionary, QuickFIX will now handle them appropriately.
 
-Header fields, not just body fields, can now be added to messages passing through toApp
-and toAdmin callbacks
+Header fields, not just body fields, can now be added to messages
+passing through toApp and toAdmin callbacks
 
-New setting CheckLatency and MaxLatency are available for session configuration. CheckLatency defaults
-to Y and determines if a session will check if a message looks too old to process. MaxLatency
-defaults to 120 and is the maximum number of seconds a message can be out of date and still
-be considered good.
+New setting CheckLatency and MaxLatency are available for session 
+configuration. CheckLatency defaults to Y and determines if a session
+will check if a message looks too old to process. MaxLatency defaults
+to 120 and is the maximum number of seconds a message can be out of
+date and still be considered good.
 
-New setting ValidateFieldsOutOfOrder is available for session configuration. Sets whether or not header 
-and body fields can be out of order. Useful for connecting to systems that don't properly sort their 
+New setting ValidateFieldsOutOfOrder is available for session
+configuration. Sets whether or not header and body fields can be out
+of order. Useful for connecting to systems that don't properly sort their 
 fields.
 
-New setting LogonTimeout is availbale for session configuration. Number of seconds QuickFIX
-will wait to receive a logon response. Defaults to 10.
+New setting LogonTimeout is availbale for session configuration. 
+Number of seconds QuickFIX will wait to receive a logon response. 
+Defaults to 10.
 
 Another fix put in to allow string based enumeration to be properly validated.
 
-RefMsgType field no longer added to reject messages in versions earlier thatn 4.2
+RefMsgType field no longer added to reject messages in versions
+earlier than 4.2
 
 SequenceReset messages are now appropriately send with OrigSendingTime field.
 
-RejectLogon, DoNotSend and UnsupportedMessageType exceptions added to JAVA interface.
+RejectLogon, DoNotSend and UnsupportedMessageType exceptions added to
+JAVA interface.
 
-New settings ResetOnLogout and ResetOnDisconnect will reset sequence numbers when a session
-is respectively normally or abnormally terminated.
+New settings ResetOnLogout and ResetOnDisconnect will reset sequence
+numbers when a session is respectively normally or abnormally terminated.
 
 <string> is included from Exceptions.h, which makes QF compilable with STLPort.
 
@@ -235,12 +268,14 @@ is respectively normally or abnormally terminated.
 -----
 Added support for messages with repeating groups.
 
-Added ThreadedSocketInitiator and ThreadedSocketAcceptor. Each session has it own thread 
-for listening on a socket and one for processing messages.
+Added ThreadedSocketInitiator and ThreadedSocketAcceptor. Each session
+has its own thread for listening on a socket and one for processing messages.
 
-The signature for toApp and toAdmin have changed from ( const Message&, const SessionID& )
-to ( Message&, const SessionID& ). This allows applications to add fields to messages before
-they are sent out. Particularly useful for administrative messages that need fields that arn't
+The signature for toApp and toAdmin have changed from 
+   ( const Message&, const SessionID& )
+to ( Message&, const SessionID& ). 
+This allows applications to add fields to messages before they are sent out. 
+Particularly useful for administrative messages that need fields that arn't
 added by default.
 
 Filestore is much more memory efficient. Only file offsets are stored in memory
@@ -252,19 +287,21 @@ the libxml guys that all new applications use libxml2. configure will verify
 that libxml is installed on a system and automatically add the necessary
 command line parameters.
 
-Possible duplicate messages are now passed to the fromAdmin and fromApp application
-callbacks. Applications must now check for this field and determine how possible
-duplicate messages should be handled.
+Possible duplicate messages are now passed to the fromAdmin and
+fromApp application callbacks. Applications must now check for this
+field and determine how possible duplicate messages should be handled.
 
 Values.h correctly generated enumerations for fields of type INT.
 
 Validation works with STRING enumerations, not just CHAR and INT.
 
-Sockets are now properly closed if a connection fails. This fixes a leak in socket
-resources that appeared after a large number of reconnect attempts.
+Sockets are now properly closed if a connection fails. This fixes a
+leak in socket resources that appeared after a large number of
+reconnect attempts.
 
-RefTagID, RefMsgType are no longer added to reject message in versions of FIX 4.1 
-and earlier. BusinessMessageReject no longer used in FIX versions 4.1 and earlier.
+RefTagID, RefMsgType are no longer added to reject message in versions
+of FIX 4.1 and earlier. BusinessMessageReject no longer used in FIX
+versions 4.1 and earlier.
 
 Improved DataDictionary generation. More enumerations are listed.
  
