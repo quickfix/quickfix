@@ -94,8 +94,12 @@ public class SocketInitiator implements Initiator {
         doStart();
     }
 
-    public void blockingStart() throws RuntimeError, ConfigError {
-        doBlockingStart();
+    public void block() throws RuntimeError, ConfigError {
+        doBlock();
+    }
+
+    public void poll() throws RuntimeError, ConfigError {
+	doPoll();
     }
 
     public void stop() {
@@ -103,8 +107,7 @@ public class SocketInitiator implements Initiator {
     }
 
     private native void doStart() throws RuntimeError, ConfigError;
-
-    private native void doBlockingStart() throws RuntimeError, ConfigError;
-
+    private native void doBlock() throws RuntimeError, ConfigError;
+    private native void doPoll() throws RuntimeError, ConfigError;
     private native void doStop();
 }

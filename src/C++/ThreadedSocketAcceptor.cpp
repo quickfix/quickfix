@@ -122,6 +122,14 @@ void ThreadedSocketAcceptor::onStart()
   QF_STACK_POP
 }
 
+bool ThreadedSocketAcceptor::onPoll()
+{ QF_STACK_PUSH(ThreadedSocketAcceptor::onPoll)
+
+  return false;
+
+  QF_STACK_POP
+}
+
 void ThreadedSocketAcceptor::onStop()
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onStop)
 

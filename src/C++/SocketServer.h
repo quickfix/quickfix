@@ -71,7 +71,7 @@ public:
 
   int accept();
   void close();
-  bool block( Strategy& strategy );
+  bool block( Strategy& strategy, bool poll = 0 );
 
   int numConnections() { return m_monitor.numSockets() - 1; }
   SocketMonitor& getMonitor() { return m_monitor; }

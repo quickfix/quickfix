@@ -171,7 +171,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doStart
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlockingStart
+JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlock
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -179,6 +179,27 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlockingStart
   try
   {
     getCPPSocketInitiator( obj ) ->block();
+  }
+  catch( FIX::ConfigError &e )
+  {
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+  }
+  catch( FIX::RuntimeError &e )
+  {
+    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
+  }
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doPoll
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  try
+  {
+    getCPPSocketInitiator( obj ) ->poll();
   }
   catch( FIX::ConfigError &e )
   {

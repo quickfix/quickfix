@@ -89,6 +89,7 @@ private:
   void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
 
   void onStart();
+  bool onPoll();
   void onStop();
 
   void addThread( int s, int t );

@@ -145,13 +145,13 @@ void SocketServer::close()
   QF_STACK_POP
 }
 
-bool SocketServer::block( Strategy& strategy )
+bool SocketServer::block( Strategy& strategy, bool poll )
 { QF_STACK_PUSH(SocketServer::block)
 
   if ( socket_isValid( m_socket ) )
   {
     ServerWrapper wrapper( m_socket, *this, strategy );
-    m_monitor.block( wrapper );
+    m_monitor.block( wrapper, poll );
     return true;
   }
   return false;

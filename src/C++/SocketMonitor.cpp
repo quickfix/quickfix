@@ -154,7 +154,7 @@ bool SocketMonitor::sleepIfEmpty( bool poll )
 { QF_STACK_PUSH(SocketMonitor::sleepIfEmpty)
   
   if( poll )
-    return !m_sockets.empty();
+    return false;
 
   if ( m_sockets.empty() )
   {

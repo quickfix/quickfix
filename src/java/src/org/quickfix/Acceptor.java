@@ -52,5 +52,7 @@ package org.quickfix;
 public interface Acceptor {
 
     void start() throws ConfigError, RuntimeError;
+    void block() throws ConfigError, RuntimeError;
+    void poll() throws ConfigError, RuntimeError;
     void stop();
 }

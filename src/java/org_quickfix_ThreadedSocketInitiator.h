@@ -33,6 +33,22 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doStart
 
 /*
  * Class:     org_quickfix_ThreadedSocketInitiator
+ * Method:    doBlock
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doBlock
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_ThreadedSocketInitiator
+ * Method:    doPoll
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doPoll
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_ThreadedSocketInitiator
  * Method:    doStop
  * Signature: ()V
  */

@@ -168,6 +168,48 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doStart
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doBlock
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  try
+  {
+    getCPPThreadedSocketAcceptor( obj ) ->block();
+  }
+  catch( FIX::ConfigError &e )
+  {
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+  }
+  catch( FIX::RuntimeError &e )
+  {
+    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
+  }
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doPoll
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  try
+  {
+    getCPPThreadedSocketAcceptor( obj ) ->poll();
+  }
+  catch( FIX::ConfigError &e )
+  {
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+  }
+  catch( FIX::RuntimeError &e )
+  {
+    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
+  }
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doStop
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY

@@ -90,15 +90,24 @@ public class ThreadedSocketAcceptor implements Acceptor {
     private native void create();
     private native void destroy();
 
-    public void start() throws RuntimeError {
+    public void start() throws ConfigError, RuntimeError {
         doStart();
+    }
+
+    public void block() throws ConfigError, RuntimeError {
+        doBlock();
+    }
+
+    public void poll() throws ConfigError, RuntimeError {
+        doPoll();
     }
 
     public void stop() {
         doStop();
     }
 
-    private native void doStart() throws RuntimeError;
-
+    private native void doStart() throws ConfigError, RuntimeError;
+    private native void doBlock() throws ConfigError, RuntimeError;
+    private native void doPoll() throws ConfigError, RuntimeError;
     private native void doStop();
 }

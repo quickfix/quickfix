@@ -114,6 +114,17 @@ void SocketAcceptor::onStart()
   QF_STACK_POP
 }
 
+bool SocketAcceptor::onPoll()
+{ QF_STACK_PUSH(SocketAcceptor::onPoll)
+
+  if( m_stop || !m_pServer ) 
+    return false;
+   m_pServer->block( *this, true );
+   return true;
+
+  QF_STACK_POP
+}
+
 void SocketAcceptor::onStop()
 { QF_STACK_PUSH(SocketAcceptor::onStop)
 
@@ -122,6 +133,7 @@ void SocketAcceptor::onStop()
   {
     m_pServer->close();
     delete m_pServer;
+    m_pServer = 0;
   }
 
   QF_STACK_POP

@@ -33,10 +33,18 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doStart
 
 /*
  * Class:     org_quickfix_SocketAcceptor
- * Method:    doBlockingStart
+ * Method:    doBlock
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doBlockingStart
+JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doBlock
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_SocketAcceptor
+ * Method:    doPoll
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doPoll
   (JNIEnv *, jobject);
 
 /*
