@@ -78,7 +78,7 @@
 				AdditionalDependencies="quickfix.lib ws2_32.lib"
 				OutputFile="$(OutDir)\quickfix_net.dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="..\..\lib\debug"
+				AdditionalLibraryDirectories="..\..\lib"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
