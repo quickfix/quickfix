@@ -77,11 +77,10 @@ public class Executor {
             acceptor = new SocketAcceptor
                        (application, messageStoreFactory, settings, logFactory, messageFactory);
 
-			while( acceptor.poll() ) {}
-            //acceptor.start();
-            //System.out.println("press <enter> to quit");
-            //System.in.read();
-            //acceptor.stop();
+            acceptor.start();
+            System.out.println("press <enter> to quit");
+            System.in.read();
+            acceptor.stop();
         }
         catch(Exception e) {
             System.out.println(e);
