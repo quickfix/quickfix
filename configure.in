@@ -113,6 +113,7 @@ AC_SUBST(CXXFLAGS)
 AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
 AC_CHECK_LIB(c,inet_addr,true,AC_CHECK_LIB(nsl,inet_addr))
 AC_CHECK_LIB(pthread,pthread_create)
+AC_CHECK_LIB(c_r,pthread_create)
 # Checks for header files.
 AC_CHECK_HEADERS(stdio.h)
 
