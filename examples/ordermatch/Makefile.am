@@ -12,7 +12,7 @@ ordermatch_SOURCES = \
 	Order.h \
 	OrderMatcher.h
 
-ordermatch_LDADD = $(top_builddir)/src/C++/libquickfix.la -lstdc++
+ordermatch_LDADD = $(top_builddir)/src/C++/libquickfix.la 
 
 INCLUDES = -I$(top_builddir)/include
 

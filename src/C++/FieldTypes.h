@@ -160,7 +160,7 @@ public:
 };
 
 /// Time only represented in UTC.
-class UtcTimeOnly : protected UtcTimeStamp
+class UtcTimeOnly : public UtcTimeStamp
 {
 public:
   /// Defaults to the current time
@@ -231,7 +231,7 @@ private:
 };
 
 /// Date only represented in UTC.
-class UtcDate : protected UtcTimeStamp
+class UtcDate : public UtcTimeStamp
 {
 public:
   /// Defaults to the current date

@@ -25,6 +25,7 @@
 #include "CallStack.h"
 
 #include "SessionTime.h"
+#include "Utility.h"
 
 namespace FIX
 {
@@ -111,7 +112,7 @@ namespace FIX
     if ( start < end || start == end )
       return time1Date == time2Date;
     else if( start > end )
-      return abs(time1 - time2) < UTC_DAY;
+      return labs(time1 - time2) < UTC_DAY;
     return false;
     
     QF_STACK_POP

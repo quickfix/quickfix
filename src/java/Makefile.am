@@ -69,7 +69,7 @@ libquickfix_jni_la_SOURCES = \
 	quickfix_ThreadedSocketInitiator.cpp
 
 libquickfix_jni_la_LDFLAGS = -version-info 8:0:0
-libquickfix_jni_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la -lstdc++
+libquickfix_jni_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la 
 
 INCLUDES = -I$(top_builddir)/include
 

@@ -10,6 +10,6 @@ ordermatch_ut_SOURCES = \
 	TestSuite.h \
 	Market.cpp
 
-ordermatch_ut_LDADD = -L$(top_builddir)/src/C++ -lquickfix -lstdc++
+ordermatch_ut_LDADD = -L$(top_builddir)/src/C++ -lquickfix 
 
 INCLUDES = -I$(top_builddir)/include -I..

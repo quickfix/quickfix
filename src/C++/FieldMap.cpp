@@ -25,6 +25,8 @@
 #include "CallStack.h"
 
 #include "FieldMap.h"
+#include <algorithm>
+#include <iterator>
 
 namespace FIX
 {
@@ -46,7 +48,8 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
     for ( j = i->second.begin(); j != i->second.end(); ++j )
       addGroup( i->first, **j );
   }
-  m_fields = rhs.m_fields;
+  std::copy( rhs.m_fields.begin (), rhs.m_fields.end(),
+             std::inserter(m_fields, m_fields.begin()) );
 
   return *this;
 
@@ -56,7 +59,7 @@ FieldMap& FieldMap::operator=( const FieldMap& rhs )
 void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
 { QF_STACK_PUSH(FieldMap::addGroup)
 
-  FieldMap * pGroup = new FieldMap;
+  FieldMap * pGroup = new FieldMap( group.m_fields.key_comp() );
   *pGroup = group;
   m_groups[ field ].push_back( pGroup );
   Groups::iterator i = m_groups.find( field );

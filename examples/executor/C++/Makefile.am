@@ -5,7 +5,7 @@ executor_SOURCES = \
 	Application.h \
 	Application.cpp
 
-executor_LDADD = $(top_builddir)/src/C++/libquickfix.la -lstdc++
+executor_LDADD = $(top_builddir)/src/C++/libquickfix.la 
 
 INCLUDES = -I$(top_builddir)/include
 

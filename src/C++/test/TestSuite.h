@@ -88,7 +88,11 @@ public:
     add( &m_socketUtilities );
     add( &m_fileUtilities );
     add( &m_stringUtilities );
+#if !defined(__SUNPRO_CC)
+    // it was reported this test won't compile under SUNPRO
+    // someone please take a look
     add( &m_sessionID );
+#endif
     add( &m_sessionTime );
     add( &m_dictionary );
     add( &m_dataDictionary );
@@ -136,7 +140,9 @@ private:
   FIX::StringUtilitiesTestCase m_stringUtilities;
   FIX::SocketConnectorTestCase m_socketConnector;
   FIX::SocketServerTestCase m_socketServer;
+#if !defined(__SUNPRO_CC)
   FIX::SessionIDTestCase m_sessionID;
+#endif
   FIX::SessionTimeTestCase m_sessionTime;
   FIX::DictionaryTestCase m_dictionary;
   FIX::DataDictionaryTestCase m_dataDictionary;
