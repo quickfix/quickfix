@@ -1,3 +1,59 @@
+1.7.1
+-----
+License moved over to quickfixengine.org. Otherwise it is identical.
+
+logon() and logoff() methods provided for the Session class, allowing you to 
+programatically.  Session times still work normally, but anytime during the 
+session time you can logoff and then re-logon.
+
+When stopping an initiator or acceptor, all sessions will go through a proper 
+logoff sequence instead of just disconnecting.  A session will be killed if it 
+does not receive a logoff response within 5 seconds.
+
+Sequence numbers will be incremented correctly when rejected a resent message.
+This fixes an infinite resend request problem.
+
+Reject messages will no longer reverse routing fields if they
+were sent as blanks, fixing an inifinite resend request problem.
+
+A Session's MessageStore can now be accessed with getStore() method. Both 
+getLog() and getStore() are available in Java and .NET APIs.
+
+Improved logging for disconnect scenarios.
+
+Message class now as isAdmin and isApp member functions.
+
+Message exposes iterators under Java which return fields as 
+StringFields. Now you can iterate through all fields to dynamically
+discover what is available in a message.
+
+removeField added to Java Message.
+
+More Session methods are exposed in Java and .NET.
+
+Methods to retrieve information about what is in a DataDictionary now exposed
+through Java interface.
+
+In Java, constructor that takes in a DataDictionary but turns off validation
+is exposed.
+
+getGroup under Java will throw a proper exception instead of aborting.
+
+In the data dictionary file, omments can be added between values under 
+enumerations without QuickFIX complaining about the format.
+
+Windows version whould now build with millisecond support.
+
+In FIX 4.0, Time type is treated like a UtcTimeStamp instead of a String.
+
+Example applications are part of the main build under *nix.
+
+stop on the initiator and acceptor will now work with the block() call.
+
+SecurityIDSource changed from CHAR to STRING in FIX44.xml
+
+Fixed warning when building .NET library.
+
 1.7.0
 -----
 FIX 4.4 support added to .NET! The .NET API had to be segmented into two
