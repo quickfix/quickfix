@@ -46,6 +46,8 @@ libquickfix_la_SOURCES = \
 	FileStore.h \
 	MySQLStore.cpp \
 	MySQLStore.h \
+	MySQLLog.cpp \
+	MySQLLog.h \
 	Dictionary.cpp \
 	Dictionary.h \
 	DataDictionary.cpp \

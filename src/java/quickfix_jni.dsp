@@ -148,6 +148,14 @@ SOURCE=.\org_quickfix_Message.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\org_quickfix_MySQLLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\org_quickfix_MySQLLogFactory.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\org_quickfix_MySQLStore.cpp
 # End Source File
 # Begin Source File
@@ -253,6 +261,14 @@ SOURCE=.\org_quickfix_MemoryStore.h
 # Begin Source File
 
 SOURCE=.\org_quickfix_Message.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\org_quickfix_MySQLLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\org_quickfix_MySQLLogFactory.h
 # End Source File
 # Begin Source File
 
