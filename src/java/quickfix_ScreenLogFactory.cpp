@@ -102,14 +102,14 @@ JNIEXPORT jobject JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_Sessi
   try
   {
     FIX::Log* pLog = pFactory->create( *pSessionID );
-    JVMClass type( "Lorg/quickfix/ScreenLog;" );
+    JVMClass type( "Lquickfix/ScreenLog;" );
     jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
     JVMObject result = pEnv->NewObject( type, method, ( jint ) pLog );
     return result;
   }
   catch ( FIX::ConfigError & e )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lquickfix/ConfigError;", e.what() );
   }
   return 0;
 

@@ -62,7 +62,7 @@ JavaMessageStoreFactory::JavaMessageStoreFactory( JVMObject object )
 {
   createId = object.getClass()
              .getMethodID( "create",
-                           "(Lorg/quickfix/SessionID;)Lorg/quickfix/MessageStore;" );
+                           "(Lquickfix/SessionID;)Lquickfix/MessageStore;" );
 }
 
 JavaMessageStoreFactory::~JavaMessageStoreFactory() { m_object.deleteGlobalRef(); }

@@ -83,12 +83,12 @@ private:
   struct Exceptions
   {
     Exceptions() : 
-      doNotSend("Lorg/quickfix/DoNotSend;"),
-      rejectLogon("Lorg/quickfix/RejectLogon;"),
-      unsupportedMessageType("Lorg/quickfix/UnsupportedMessageType;"),
-      fieldNotFound("Lorg/quickfix/FieldNotFound;"),
-      incorrectTagValue("Lorg/quickfix/IncorrectTagValue;"),
-      incorrectDataFormat("Lorg/quickfix/IncorrectDataFormat;") {}
+      doNotSend("Lquickfix/DoNotSend;"),
+      rejectLogon("Lquickfix/RejectLogon;"),
+      unsupportedMessageType("Lquickfix/UnsupportedMessageType;"),
+      fieldNotFound("Lquickfix/FieldNotFound;"),
+      incorrectTagValue("Lquickfix/IncorrectTagValue;"),
+      incorrectDataFormat("Lquickfix/IncorrectDataFormat;") {}
 
     JVMClass doNotSend;
     JVMClass rejectLogon;

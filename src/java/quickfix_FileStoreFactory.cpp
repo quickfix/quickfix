@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_quickfix_FileStoreFactory_create__
   JVM::set( pEnv );
   JVMObject object( obj );
 
-  JVMObject jsettings( object.getObject( "settings", "Lorg/quickfix/SessionSettings;" ) );
+  JVMObject jsettings( object.getObject( "settings", "Lquickfix/SessionSettings;" ) );
   FIX::SessionSettings* pSettings
   = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
 
@@ -109,14 +109,14 @@ JNIEXPORT jobject JNICALL Java_quickfix_FileStoreFactory_create__Lquickfix_Sessi
   FIX::MessageStore* pStore = wrapper.create( *pSessionID, threw, e );
   if ( threw )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lquickfix/ConfigError;", e.what() );
     return 0;
   }
 
   FIX::MessageStoreExceptionWrapper* pWrapper =
     new FIX::MessageStoreExceptionWrapper( pStore );
 
-  JVMClass type( "Lorg/quickfix/FileStore;" );
+  JVMClass type( "Lquickfix/FileStore;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
   JVMObject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
   return result;

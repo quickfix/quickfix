@@ -81,7 +81,7 @@ FIX::SocketInitiator* getCPPSocketInitiator( jobject obj )
 FIX::SessionSettings& getInitiatorSettings( JVMObject& obj )
 { QF_STACK_TRY
 
-  JVMObject jsettings = obj.getObject( "settings", "Lorg/quickfix/SessionSettings;" );
+  JVMObject jsettings = obj.getObject( "settings", "Lquickfix/SessionSettings;" );
   FIX::SessionSettings* pSettings
   = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
   return *pSettings;
@@ -123,7 +123,7 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_create
   }
   catch( FIX::ConfigError& e )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lquickfix/ConfigError;", e.what() );
     return;
   }
 
@@ -161,11 +161,11 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStart
   }
   catch( FIX::ConfigError &e )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lquickfix/ConfigError;", e.what() );
   }
   catch( FIX::RuntimeError &e )
   {
-    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
+    throwNew( "Lquickfix/RuntimeError;", e.what() );
   }
 
   QF_STACK_CATCH
@@ -182,11 +182,11 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doBlock
   }
   catch( FIX::ConfigError &e )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lquickfix/ConfigError;", e.what() );
   }
   catch( FIX::RuntimeError &e )
   {
-    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
+    throwNew( "Lquickfix/RuntimeError;", e.what() );
   }
 
   QF_STACK_CATCH
@@ -203,11 +203,11 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doPoll
   }
   catch( FIX::ConfigError &e )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lquickfix/ConfigError;", e.what() );
   }
   catch( FIX::RuntimeError &e )
   {
-    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
+    throwNew( "Lquickfix/RuntimeError;", e.what() );
   }
   return false;
 

@@ -82,7 +82,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
   }
   catch( FIX::SessionNotFound& e )
   {
-    throwNew( "Lorg/quickfix/SessionNotFound;", e.what() );
+    throwNew( "Lquickfix/SessionNotFound;", e.what() );
     return false;
   }
 
@@ -106,7 +106,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
   }
   catch( FIX::SessionNotFound& e )
   {
-    throwNew( "Lorg/quickfix/SessionNotFound;", e.what() );
+    throwNew( "Lquickfix/SessionNotFound;", e.what() );
     return false;
   }
 
@@ -137,7 +137,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
   }
   catch( FIX::SessionNotFound& e )
   {
-    throwNew( "Lorg/quickfix/SessionNotFound;", e.what() );
+    throwNew( "Lquickfix/SessionNotFound;", e.what() );
     return false;
   }
 
@@ -154,7 +154,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_lookupSession
   FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getInt( "cppPointer" );
   FIX::Session* pSession = FIX::Session::lookupSession( *pSessionID );
   if( !pSession ) return 0;
-  JVMClass type( "Lorg/quickfix/Session;" );
+  JVMClass type( "Lquickfix/Session;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
   jobject result = pEnv->NewObject( type, method, ( jint ) pSession );
   return result;

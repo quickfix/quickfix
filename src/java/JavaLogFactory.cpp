@@ -62,7 +62,7 @@ JavaLogFactory::JavaLogFactory( JVMObject object )
 {
   createId = object.getClass()
              .getMethodID( "create",
-                           "(Lorg/quickfix/SessionID;)Lorg/quickfix/Log;" );
+                           "(Lquickfix/SessionID;)Lquickfix/Log;" );
 }
 
 JavaLogFactory::~JavaLogFactory() { m_object.deleteGlobalRef(); }

@@ -60,25 +60,25 @@ JavaApplication::JavaApplication( JVMObject object, JVMObject factory )
     : m_object( object.newGlobalRef() ), m_factory( factory.newGlobalRef() )
 {
   onCreateId = object.getClass()
-               .getMethodID( "onCreate", "(Lorg/quickfix/SessionID;)V" );
+               .getMethodID( "onCreate", "(Lquickfix/SessionID;)V" );
 
   onLogonId = object.getClass()
-              .getMethodID( "onLogon", "(Lorg/quickfix/SessionID;)V" );
+              .getMethodID( "onLogon", "(Lquickfix/SessionID;)V" );
 
   onLogoutId = object.getClass()
-               .getMethodID( "onLogout", "(Lorg/quickfix/SessionID;)V" );
+               .getMethodID( "onLogout", "(Lquickfix/SessionID;)V" );
 
   notifyToAdminId = object.getClass()
-                    .getMethodID( "toAdmin", "(Lorg/quickfix/Message;Lorg/quickfix/SessionID;)V" );
+                    .getMethodID( "toAdmin", "(Lquickfix/Message;Lquickfix/SessionID;)V" );
 
   notifyToAppId = object.getClass()
-                  .getMethodID( "toApp", "(Lorg/quickfix/Message;Lorg/quickfix/SessionID;)V" );
+                  .getMethodID( "toApp", "(Lquickfix/Message;Lquickfix/SessionID;)V" );
 
   notifyFromAdminId = object.getClass()
-                      .getMethodID( "fromAdmin", "(Lorg/quickfix/Message;Lorg/quickfix/SessionID;)V" );
+                      .getMethodID( "fromAdmin", "(Lquickfix/Message;Lquickfix/SessionID;)V" );
 
   notifyFromAppId = object.getClass()
-                    .getMethodID( "fromApp", "(Lorg/quickfix/Message;Lorg/quickfix/SessionID;)V" );
+                    .getMethodID( "fromApp", "(Lquickfix/Message;Lquickfix/SessionID;)V" );
 }
 
 JavaApplication::~JavaApplication() { m_factory.deleteGlobalRef(); m_object.deleteGlobalRef(); }

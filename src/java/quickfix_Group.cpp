@@ -131,7 +131,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup0
   }
   else
   {
-    throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( num ).c_str() );
+    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( num ).c_str() );
     return 0;
   }
 

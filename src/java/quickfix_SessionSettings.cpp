@@ -110,9 +110,9 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_getString
     return newString( result );
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }
+  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
   pEnv->ReleaseStringUTFChars( key, ukey );
   return 0;
 
@@ -138,9 +138,9 @@ JNIEXPORT jlong JNICALL Java_quickfix_SessionSettings_getLong
     return result;
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }
+  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
   pEnv->ReleaseStringUTFChars( key, ukey );
   return 0;
 
@@ -166,9 +166,9 @@ JNIEXPORT jdouble JNICALL Java_quickfix_SessionSettings_getDouble
     return result;
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }
+  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
   pEnv->ReleaseStringUTFChars( key, ukey );
   return 0;
 
@@ -194,9 +194,9 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SessionSettings_getBool
     return result;
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/FieldConvertError;", e.what() ); }
+  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
   pEnv->ReleaseStringUTFChars( key, ukey );
   return 0;
 
@@ -221,7 +221,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setString
     dict.setString( ukey, uvalue );
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
 
   pEnv->ReleaseStringUTFChars( key, ukey );
   pEnv->ReleaseStringUTFChars( value, uvalue );
@@ -246,7 +246,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setLong
     dict.setLong( ukey, value );
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
 
   pEnv->ReleaseStringUTFChars( key, ukey );
 
@@ -270,7 +270,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setDouble
     dict.setDouble( ukey, value );
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
 
   pEnv->ReleaseStringUTFChars( key, ukey );
 
@@ -294,7 +294,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setBool
     dict.setBool( ukey, value );
   }
   catch( FIX::ConfigError& e )
-  { throwNew( "Lorg/quickfix/ConfigError;", e.what() ); }
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
 
   pEnv->ReleaseStringUTFChars( key, ukey );
 

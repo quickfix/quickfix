@@ -85,6 +85,6 @@ AC_OUTPUT(
 	tradeclientgui/banzai/test/Makefile
 	tradeclientgui/banzai/src/Makefile
 	tradeclientgui/banzai/src/org/Makefile
-	tradeclientgui/banzai/src/org/quickfix/Makefile
-	tradeclientgui/banzai/src/org/quickfix/banzai/Makefile
-	tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile )
+	tradeclientgui/banzai/src/quickfix/Makefile
+	tradeclientgui/banzai/src/quickfix/banzai/Makefile
+	tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile )

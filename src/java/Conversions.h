@@ -84,7 +84,7 @@ jobject newDate( const FIX::UtcTimeStamp& date );
 inline jobject newSessionID( const FIX::SessionID& sessionID )
 {
   JNIEnv * pEnv = ENV::get();
-  JVMClass type( "Lorg/quickfix/SessionID;" );
+  JVMClass type( "Lquickfix/SessionID;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" );
   
   jstring beginString = newString( sessionID.getBeginString().getValue() );
@@ -118,9 +118,9 @@ inline jobject newMessage( const FIX::Message& message, JVMObject factory )
     jMsgType = newString( "" );
   if ( jMsgType == 0 ) throw JVMException( "Could not create string" );
 
-  JVMClass type( "Lorg/quickfix/MessageFactory;" );
+  JVMClass type( "Lquickfix/MessageFactory;" );
   jmethodID method = pEnv->GetMethodID( type, "create",
-                                        "(Ljava/lang/String;Ljava/lang/String;)Lorg/quickfix/Message;" );
+                                        "(Ljava/lang/String;Ljava/lang/String;)Lquickfix/Message;" );
   if ( method == 0 ) throw JVMException( "Could not find method create" );
   JVMObject result( pEnv->CallObjectMethod
                     ( factory, method, jBeginString, jMsgType ) );
@@ -138,7 +138,7 @@ inline jobject newMessage( const FIX::Message& message )
   FIX::BeginString beginString;
   FIX::MsgType msgType;
 
-  JVMClass type( "Lorg/quickfix/Message;" );
+  JVMClass type( "Lquickfix/Message;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
   if ( method == 0 ) throw JVMException( "Could not find method <init>" );
 
@@ -201,7 +201,7 @@ inline jstring getString( FIX::FieldMap& map, jint field )
 {
   try { return newString( map.getField( field ) ); }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }  
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }  
   return 0;
 }
 
@@ -209,9 +209,9 @@ inline jboolean getBoolean( FIX::FieldMap& map, jint field )
 {
   try { return FIX::BoolConvertor::convert( map.getField( field ) ); }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
@@ -219,9 +219,9 @@ inline jchar getChar( FIX::FieldMap& map, jint field )
 {
   try { return FIX::CharConvertor::convert( map.getField( field ) ); }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
@@ -229,9 +229,9 @@ inline jint getInt( FIX::FieldMap& map, jint field )
 {
   try { return FIX::IntConvertor::convert( map.getField( field ) ); }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
@@ -239,9 +239,9 @@ inline jdouble getDouble( FIX::FieldMap& map, jint field )
 {
   try { return FIX::DoubleConvertor::convert( map.getField( field ) ); }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
@@ -254,9 +254,9 @@ inline jobject newUtcTimeStamp( FIX::FieldMap& map, jint field )
     return newDate( timeStamp );
   }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
@@ -270,9 +270,9 @@ inline jobject newUtcTimeOnly( FIX::FieldMap& map, jint field )
     return newDate( *p );
   }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
@@ -286,36 +286,36 @@ inline jobject newUtcDate( FIX::FieldMap& map, jint field )
     return newDate( *p );
   }
   catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
-  { throwNew( "Lorg/quickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
+  { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
 inline JavaApplication& createApplication( JVMObject& obj )
 {
   return * new JavaApplication(
-           obj.getObject( "application", "Lorg/quickfix/Application;" ),
-           obj.getObject( "messageFactory", "Lorg/quickfix/MessageFactory;" ) );
+           obj.getObject( "application", "Lquickfix/Application;" ),
+           obj.getObject( "messageFactory", "Lquickfix/MessageFactory;" ) );
 }
 
 inline JavaMessageStoreFactory& createFactory( JVMObject& obj )
 {
   JVMObject jmessageStoreFactory = obj.getObject( "messageStoreFactory",
-                                   "Lorg/quickfix/MessageStoreFactory;" );
+                                   "Lquickfix/MessageStoreFactory;" );
   return *( new JavaMessageStoreFactory( jmessageStoreFactory ) );
 }
 
 inline JavaLogFactory& createLogFactory( JVMObject& obj )
 {
   JVMObject jlogFactory = obj.getObject( "logFactory",
-                                         "Lorg/quickfix/LogFactory;" );
+                                         "Lquickfix/LogFactory;" );
   return *( new JavaLogFactory( jlogFactory ) );
 }
 
 inline FIX::SessionSettings& getSettings( JVMObject& obj )
 {
-  JVMObject jsettings = obj.getObject( "settings", "Lorg/quickfix/SessionSettings;" );
+  JVMObject jsettings = obj.getObject( "settings", "Lquickfix/SessionSettings;" );
   FIX::SessionSettings* pSettings
   = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
   return *pSettings;

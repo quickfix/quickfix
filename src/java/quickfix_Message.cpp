@@ -142,7 +142,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup0
   }
   else
   {
-    throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( num ).c_str() );
+    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( num ).c_str() );
     return 0;
   }
 
@@ -754,7 +754,7 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString
   }
   catch( FIX::InvalidMessage& e )
   {
-    throwNew( "Lorg/quickfix/InvalidMessage;", e.what() );
+    throwNew( "Lquickfix/InvalidMessage;", e.what() );
   }
   ENV::get()->ReleaseStringUTFChars( value, uvalue );
 
@@ -779,7 +779,7 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
   }
   catch( FIX::InvalidMessage& e )
   {
-    throwNew( "Lorg/quickfix/InvalidMessage;", e.what() );
+    throwNew( "Lquickfix/InvalidMessage;", e.what() );
   }
   ENV::get()->ReleaseStringUTFChars( value, uvalue );
 
