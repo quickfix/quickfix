@@ -1,3 +1,4 @@
+#!/bin/sh
 RUN_CLASSPATH=../lib/executor.jar:../lib/quickfix.jar;
 
 java -cp $RUN_CLASSPATH -Djava.library.path=../lib Executor cfg/executor.cfg
