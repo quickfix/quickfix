@@ -29,6 +29,7 @@
 #include <sstream>
 #include <iomanip>
 #include <cstdio>
+#include <limits>
 
 namespace FIX
 {
@@ -42,15 +43,15 @@ static inline char * integer_to_string (char * buf, const size_t len, T t)
 
   if( isNegative ) 
   {
-    if( t == std::numeric_limits<T>::min() ) 
+    if( t == (std::numeric_limits<T>::min)() ) 
     {
-      *--p = '0' + (10-t%10)%10;
+      *--p = '0' + (char)((10-t%10)%10);
       t/=10;
     }
     t = -t;
     do 
     {
-      *--p = '0' + t % 10;
+      *--p = '0' + (char)(t % 10);
       t /= 10;
     } while (t > 0);
     *--p = '-';
@@ -59,7 +60,7 @@ static inline char * integer_to_string (char * buf, const size_t len, T t)
   {
     do 
     {
-      *--p = '0' + t % 10;
+      *--p = '0' + (char)(t % 10);
       t /= 10;
     } while( t > 0 );
   }
@@ -81,15 +82,15 @@ static inline char * integer_to_string_padded
 
   if( isNegative ) 
   {
-    if( t == std::numeric_limits<T>::min() ) 
+    if( t == (std::numeric_limits<T>::min)() ) 
     {
-      *--p = '0' + ( 10 -t % 10 ) % 10;
+      *--p = '0' + (char)(( 10 -t % 10 ) % 10);
       t/=10;
     }
     t=-t;
     do 
     {
-      *--p = '0' + t % 10;
+      *--p = '0' + (char)(t % 10);
       t /= 10;
     } while (t > 0);
     if( p > buf )
@@ -99,7 +100,7 @@ static inline char * integer_to_string_padded
   {
     do 
     {
-      *--p = '0' + t % 10;
+      *--p = '0' + (char)(t % 10);
       t /= 10;
     } while( t > 0 );
   }
@@ -216,20 +217,20 @@ struct DoubleConvertor
 
     bool haveDigit = false;
 
-    if( std::isdigit(*i) ) 
+    if( isdigit(*i) ) 
     {
       haveDigit = true;
-      while( std::isdigit (*++i) );
+      while( isdigit (*++i) );
     }
 
-    if( *i == '.' && std::isdigit(*++i) ) 
+    if( *i == '.' && isdigit(*++i) ) 
     {
       haveDigit = true;
-      while( std::isdigit (*++i) );
+      while( isdigit (*++i) );
     }
 
     if( *i || !haveDigit ) return false;
-    result = std::strtod( value.c_str(), 0 );
+    result = strtod( value.c_str(), 0 );
     return true;
   }
 
@@ -357,23 +358,24 @@ struct UtcTimeStampConvertor
     }
 
     int i = 0;
-    for( int c=0; c<8; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    int c = 0;
+    for( c = 0; c < 8; ++c ) 
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
     if (value[i++] != '-') throw FieldConvertError();
-    for( int c=0; c<2; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    for( c = 0; c < 2; ++c ) 
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
     if( value[i++] != ':' ) throw FieldConvertError();
-    for( int c=0; c<2; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    for( c = 0; c < 2; ++c ) 
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
     if( value[i++] != ':' ) throw FieldConvertError();
-    for( int c=0; c<2; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    for( c = 0; c < 2; ++c ) 
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
 
     if( haveMilliseconds ) 
     {
       if( value[i++] != '.' ) throw FieldConvertError();
-      for( int c=0; c<3; ++c ) 
-	if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+      for( c = 0; c < 3; ++c ) 
+	      if( !isdigit(value[i++]) ) throw FieldConvertError();
     }
 
     tm & result_tm = *static_cast<tm*>(result);
@@ -474,20 +476,21 @@ struct UtcTimeOnlyConvertor
     }
 
     int i = 0;
-    for( int c=0; c<2; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    int c = 0;
+    for( c = 0; c < 2; ++c ) 
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
     if( value[i++] != ':' ) throw FieldConvertError();
-    for( int c=0; c<2; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    for( c = 0; c < 2; ++c ) 
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
     if( value[i++] != ':' ) throw FieldConvertError();
-    for( int c=0; c<2; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    for( c = 0; c < 2; ++c ) 
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
 
     if( haveMilliseconds ) 
     {
       // ++i instead of i++ skips the '.' separator
-      for( int c=0; c<3; ++c ) 
-	if( !std::isdigit(value[++i]) ) throw FieldConvertError();
+      for( c = 0; c < 3; ++c ) 
+	      if( !isdigit(value[++i]) ) throw FieldConvertError();
     }
 
     tm & result_tm = *static_cast<tm*>(result);
@@ -555,7 +558,7 @@ struct UtcDateConvertor
 
     int i = 0;
     for( int c=0; c<8; ++c ) 
-      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+      if( !isdigit(value[i++]) ) throw FieldConvertError();
 
     tm & result_tm = *static_cast<tm*>(result);
 

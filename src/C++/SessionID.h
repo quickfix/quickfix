@@ -87,7 +87,7 @@ public:
     if( first == third )
     {
       m_targetCompID = str.substr(second+2);
-      m_sessionQualifier.clear();
+      m_sessionQualifier = "";
     }
     else
     {
