@@ -157,7 +157,7 @@ inline bool operator==( const CallStack::Method& rhs, const CallStack::Method& l
   #define QF_METHOD_EXISTS(name)
 #endif
 
-#ifdef USING_CALLSTACK
+#ifdef ENABLE_CALLSTACK
 #define QF_STACK_PUSH(name) \
   QF_METHOD_EXISTS(name) \
   CallStack cs_(#name, __FILE__, __LINE__); \
@@ -185,13 +185,13 @@ inline bool operator==( const CallStack::Method& rhs, const CallStack::Method& l
   try {
 #define QF_STACK_CATCH \
   } catch( ... ) { FIX::CallStack::output(); throw; }
-#else //USING_CALLSTACK
+#else //ENABLE_CALLSTACK
 #define QF_STACK_PUSH(name)
 #define QF_STACK_POP
 #define QF_STACK_IGNORE_BEGIN
 #define QF_STACK_IGNORE_END
 #define QF_STACK_TRY
 #define QF_STACK_CATCH
-#endif //USING_CALLSTACK
+#endif //ENABLE_CALLSTACK
 
 #endif
