@@ -8,7 +8,7 @@ CREATE TABLE outgoing_log (
   beginstring CHAR(8) NOT NULL,
   sendercompid VARCHAR(64) NOT NULL,
   targetcompid VARCHAR(64) NOT NULL,
-  qualifier VARCHAR(64),
+  session_qualifier VARCHAR(64) NOT NULL,
   text BLOB NOT NULL,
   PRIMARY KEY (id)
 );

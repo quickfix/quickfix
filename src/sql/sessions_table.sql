@@ -6,9 +6,9 @@ CREATE TABLE sessions (
   beginstring CHAR(8) NOT NULL,
   sendercompid VARCHAR(64) NOT NULL,
   targetcompid VARCHAR(64) NOT NULL,
-  qualifier VATCHAR(64),
-  creationtime DATETIME NOT NULL,
+  session_qualifier VATCHAR(64) NOT NULL,
+  creation_time DATETIME NOT NULL,
   incoming_seqnum INT NOT NULL, 
   outgoing_seqnum INT NOT NULL,
-  PRIMARY KEY (beginstring, sendercompid, targetcompid, qualifier)
+  PRIMARY KEY (beginstring, sendercompid, targetcompid, session_qualifier)
 );

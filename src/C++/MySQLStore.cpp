@@ -72,13 +72,12 @@ void MySQLStore::populateCache()
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
   std::stringstream query;
-  const std::string& sessionQualifier = m_sessionID.getSessionQualifier();
 
   query << "SELECT * FROM sessions WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "sessionqualifier=" << "\"" << m_session.getSessionQualifier() << "\"";
+  << "session_qualifier=" << "\"" << m_session.getSessionQualifier() << "\"";
 
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw ConfigError( "Unable to connect to database" );
@@ -105,8 +104,8 @@ void MySQLStore::populateCache()
       char sqlTime[ 20 ];
       strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
       std::stringstream query2;
-      query2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, sessionqualifier,"
-      << "creationtime, incoming_seqnum, outgoing_seqnum) VALUES("
+      query2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
+      << "creation_time, incoming_seqnum, outgoing_seqnum) VALUES("
       << "\"" << m_sessionID.getBeginString().getValue() << "\","
       << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
       << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
@@ -180,7 +179,7 @@ throw ( IOException )
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
   std::stringstream query;
   query << "INSERT INTO messages "
-  << "(beginstring, sendercompid, targetcompid, sessionqualifier, msgseqnum, message) "
+  << "(beginstring, sendercompid, targetcompid, session_qualifier, msgseqnum, message) "
   << "VALUES ("
   << "\"" << m_sessionID.getBeginString().getValue() << "\","
   << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
@@ -196,7 +195,7 @@ throw ( IOException )
     << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
     << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
     << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-    << "sessionqualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
+    << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
     << "msgseqnum=" << msgSeqNum;
     if ( mysql_query( pConnection, query2.str().c_str() ) )
       throw IOException();
@@ -216,7 +215,7 @@ throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "sessionqualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
   << "msgseqnum=" << msgSeqNum;
 
   if ( mysql_query( pConnection, query.str().c_str() ) )
@@ -242,7 +241,7 @@ throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "sessionqualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
   << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
   << "ORDER BY msgseqnum";
 
@@ -278,7 +277,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "sessionqualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw IOException();
   m_cache.setNextSenderMsgSeqNum( value );
@@ -295,7 +294,7 @@ void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "sessionqualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw IOException();
   m_cache.setNextTargetMsgSeqNum( value );
@@ -332,7 +331,7 @@ void MySQLStore::reset() throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "sessionqualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw IOException();
 
@@ -342,13 +341,13 @@ void MySQLStore::reset() throw ( IOException )
   strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
 
   std::stringstream query2;
-  query2 << "UPDATE sessions SET creationtime='" << sqlTime << "', "
+  query2 << "UPDATE sessions SET creation_time='" << sqlTime << "', "
   << "incoming_seqnum=" << m_cache.getNextTargetMsgSeqNum() << ", "
   << "outgoing_seqnum=" << m_cache.getNextSenderMsgSeqNum() << " WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "sessionqualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
   if ( mysql_query( pConnection, query2.str().c_str() ) )
     throw IOException();
 

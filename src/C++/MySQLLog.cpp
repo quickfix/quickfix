@@ -125,7 +125,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
   std::stringstream query;
   query << "INSERT INTO " << table << " "
-  << "(time, beginstring, sendercompid, targetcompid, sessionqualifier, text) "
+  << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
   << "'" << sqlTime << "',"
   << "\"" << m_sessionID.getBeginString().getValue() << "\","
