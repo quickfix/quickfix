@@ -272,14 +272,13 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   int delim;
   const DataDictionary* pDD = 0;
   if ( !dataDictionary.getGroup( msg, group, delim, pDD ) ) return ;
-  if ( IntConvertor::convert(field.getString() ) <= 0 ) return ;
   Group* pGroup = 0;
 
   while ( pos < string.size() )
   {
     std::string::size_type oldPos = pos;
     FieldBase field = extractField( string, pos, &dataDictionary, pGroup );
-    if ( field.getField() == delim )
+    if ( (field.getField() == delim) || (pGroup == 0) )
     {
       if ( pGroup ) 
       { 
