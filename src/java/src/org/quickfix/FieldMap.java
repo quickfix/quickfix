@@ -4,27 +4,6 @@ import java.util.Date;
 
 public abstract class FieldMap {
 
-    public Field getField(Field field) throws FieldNotFound {
-        if (field instanceof StringField)
-            return getField((StringField)field);
-        else if (field instanceof CharField)
-            return getField((CharField)field);
-        else if (field instanceof IntField)
-            return getField((IntField)field);
-        else if (field instanceof DoubleField)
-            return getField((DoubleField)field);
-        else if (field instanceof BooleanField)
-            return getField((BooleanField)field);
-        else if (field instanceof UtcTimeStampField)
-            return getField((UtcTimeStampField)field);
-        else if (field instanceof UtcTimeOnlyField)
-            return getField((UtcTimeOnlyField)field);
-        else if (field instanceof UtcDateField)
-            return getField((UtcDateField)field);
-        else
-            throw new RuntimeException("Invalid field type" + field.getClass());
-    }
-
     public abstract void setString(int field, String value);
     public abstract void setBoolean(int field, boolean value);
     public abstract void setChar(int field, char value);
@@ -58,7 +37,7 @@ public abstract class FieldMap {
     public abstract UtcTimeOnlyField getField(UtcTimeOnlyField field) throws FieldNotFound;
     public abstract UtcDateField getField(UtcDateField field) throws FieldNotFound;
 
-    public boolean isSet(int field) {
+    public boolean isSetField(int field) {
       try {
         getString(field);
         return true;
@@ -68,8 +47,8 @@ public abstract class FieldMap {
       }
     }
 
-    public boolean isSet(Field field) {
-      return isSet( field.getField() );
+    public boolean isSetField(Field field) {
+      return isSetField( field.getField() );
     }
 
 }
