@@ -178,6 +178,9 @@ public:
   UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
     throw( FieldNotFound* );
 
+  bool isSetField( Field* field );
+  bool isSetField( int field );
+
   void addGroup( Group* group )
   { QF_STACK_TRY
     m_pUnmanaged->addGroup( group->unmanaged() );
@@ -224,6 +227,9 @@ public:
     UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
       throw( FieldNotFound* );
 
+    bool isSetField( Field* field );
+    bool isSetField( int field );
+
     void Dispose()
     {
       if ( !disposed )
@@ -267,6 +273,9 @@ public:
     UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
     UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
       throw( FieldNotFound* );
+
+    bool isSetField( Field* field );
+    bool isSetField( int field );
 
     void Dispose()
     {

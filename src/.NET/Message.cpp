@@ -170,6 +170,17 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   QF_STACK_CATCH 
 }
 
+bool Message::isSetField( Field* field )
+{ QF_STACK_TRY
+  return m_pUnmanaged->isSetField( field->getField() );
+  QF_STACK_CATCH
+}
+bool Message::isSetField( int field )
+{ QF_STACK_TRY
+  return m_pUnmanaged->isSetField( field );
+  QF_STACK_CATCH
+}
+
 void Message::Header::setField( StringField* field )
 { QF_STACK_TRY 
   checkDisposed(); 
@@ -276,6 +287,17 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   QF_STACK_CATCH
 }
 
+bool Message::Header::isSetField( Field* field )
+{ QF_STACK_TRY
+  return m_message->m_pUnmanaged->getHeader().isSetField( field->getField() );
+  QF_STACK_CATCH
+}
+bool Message::Header::isSetField( int field )
+{ QF_STACK_TRY
+  return m_message->m_pUnmanaged->getHeader().isSetField( field );
+  QF_STACK_CATCH
+}
+
 void Message::Trailer::setField( StringField* field )
 { QF_STACK_TRY
   checkDisposed(); 
@@ -379,6 +401,17 @@ throw( FieldNotFound*, IncorrectDataFormat* )
 { QF_STACK_TRY
   checkDisposed(); 
   return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
+  QF_STACK_CATCH
+}
+
+bool Message::Trailer::isSetField( Field* field )
+{ QF_STACK_TRY
+  return m_message->m_pUnmanaged->getTrailer().isSetField( field->getField() );
+  QF_STACK_CATCH
+}
+bool Message::Trailer::isSetField( int field )
+{ QF_STACK_TRY
+  return m_message->m_pUnmanaged->getTrailer().isSetField( field );
   QF_STACK_CATCH
 }
 

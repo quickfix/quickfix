@@ -271,4 +271,15 @@ throw( FieldNotFound* )
 
   QF_STACK_CATCH 
 }
+
+bool Group::isSetField( Field* field )
+{ QF_STACK_TRY
+  return m_pUnmanaged->isSetField( field->getField() );
+  QF_STACK_CATCH
+}
+bool Group::isSetField( int field )
+{ QF_STACK_TRY
+  return m_pUnmanaged->isSetField( field );
+  QF_STACK_CATCH
+}
 }
