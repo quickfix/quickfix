@@ -9,7 +9,7 @@ void* readOutput( void* p )
   HANDLE hStdOut = GetStdHandle(STD_OUTPUT_HANDLE);
   char chBuf[128];
   DWORD dwRead, dwWritten;
- 
+
   while(true)
   { 
     if( !ReadFile( hReadPipe, chBuf, 128, &dwRead, 
@@ -29,6 +29,7 @@ namespace ATRUN
     sa.bInheritHandle = TRUE; 
     sa.lpSecurityDescriptor = NULL; 
 
+
     STARTUPINFO info;
     GetStartupInfo(&info);
 
@@ -46,6 +47,7 @@ namespace ATRUN
       info.hStdOutput = m_outFileHandle;
       info.hStdError = m_outFileHandle;
     }
+
     else if(m_sendToStd)
     {
       info.dwFlags = STARTF_USESTDHANDLES;
@@ -53,7 +55,7 @@ namespace ATRUN
       info.hStdOutput = hWritePipe;
       info.hStdError = hWritePipe;
     }
-    
+
     m_created = CreateProcess(
       NULL,
       const_cast<char*>(m_commandLine.c_str()),
@@ -109,13 +111,13 @@ namespace ATRUN
       sa.lpSecurityDescriptor = NULL; 
 
       m_outFileHandle = CreateFile(
-	m_outFile.c_str(),
-	GENERIC_WRITE,
-	0, //open exclusively
-	&sa,
-	CREATE_ALWAYS,
-	FILE_ATTRIBUTE_NORMAL,
-	NULL );
+        m_outFile.c_str(),
+        GENERIC_WRITE,
+        0, //open exclusively
+        &sa,
+        CREATE_ALWAYS,
+        FILE_ATTRIBUTE_NORMAL,
+        NULL );
 
       m_isOutFileOpen = true;
   }

@@ -17,3 +17,4 @@ private:
   
   ATRUN::ProcessTestCase m_process;
 };
+

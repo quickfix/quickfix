@@ -44,7 +44,7 @@ int main( int argc, char** argv )
     printUsage(argv[0]);
     return 1;
   }
-  
+
   if(strcmp(optarg, "test") == 0)
   {
     return doTestMode();
@@ -53,7 +53,7 @@ int main( int argc, char** argv )
   {
     return doRunMode( argc, argv );
   }
-  
+
   printUsage(argv[0]);    
   return 1;
 }
@@ -61,7 +61,6 @@ int main( int argc, char** argv )
 int doTestMode()
 {
   CPPTest::TestStandardOutputDisplay display;
-
   TestSuite suite(display);
   suite.run();
   return 0;
@@ -96,6 +95,8 @@ int doRunMode(int argc, char** argv )
 
   return client.getExitCode();
 }
+
+
 
 bool processArguments(int argc, char** argv)
 {
@@ -135,7 +136,7 @@ bool processArguments(int argc, char** argv)
 
 void printUsage(char* exe)
 {
-    std::cout << "usage: " 
-	      << exe 
-	      << " -t test|run -s serverCmdLine -d serverStartDir -c clientCmdLine -i initialClientDir -o outFile" << std::endl;
+  std::cout << "usage: " 
+            << exe 
+            << " -t test|run -s serverCmdLine -d serverStartDir -c clientCmdLine -i initialClientDir -o outFile" << std::endl;
 }

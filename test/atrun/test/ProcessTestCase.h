@@ -12,13 +12,13 @@ namespace ATRUN
   {
   public:
     ProcessTestCase()
-      {
-	add(&m_createProcess);
-	add(&m_sendOutputToFile);
-	add(&m_setWorkingDirectory);
-	add(&m_destroyProcess);
-	add(&m_waitFor);
-      }
+    {
+      add(&m_createProcess);
+      add(&m_sendOutputToFile);
+      add(&m_setWorkingDirectory);
+      add(&m_destroyProcess);
+      add(&m_waitFor);
+    }
 
   private:
     typedef CPPTest::Test<Process> Test;
