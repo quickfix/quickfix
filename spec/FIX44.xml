@@ -82,7 +82,7 @@
       <field name="EncodedTextLen" required="N" />
       <field name="EncodedText" required="N" />
     </message>
-    <message name="BusinessMessageReject" msgtype="j" msgcat="admin">
+    <message name="BusinessMessageReject" msgtype="j" msgcat="app">
       <field name="RefSeqNum" required="N" />
       <field name="RefMsgType" required="Y" />
       <field name="BusinessRejectRefID" required="N" />
@@ -90,6 +90,21 @@
       <field name="Text" required="N" />
       <field name="EncodedTextLen" required="N" />
       <field name="EncodedText" required="N" />
+    </message>
+    <message name="UserRequest" msgtype="BE" msgcat="app">
+      <field name="UserRequestID" required="Y" />
+      <field name="UserRequestType" required="Y" />
+      <field name="Username" required="Y" />
+      <field name="Password" required="N" />
+      <field name="NewPassword" required="N" />
+      <field name="RawDataLength" required="N" />
+      <field name="RawData" required="N" />
+    </message>
+    <message name="UserResponse" msgtype="BF" msgcat="app">
+      <field name="UserRequestID" required="Y" />
+      <field name="Username" required="Y" />
+      <field name="UserStatus" required="N" />
+      <field name="UserStatusText" required="N" />
     </message>
     <message name="Advertisement" msgtype="7" msgcat="app">
       <field name="AdvId" required="Y" />
