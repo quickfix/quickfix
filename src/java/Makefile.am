@@ -35,7 +35,11 @@ libquickfix_jni_la_SOURCES = \
 	org_quickfix_MySQLStore.h \
 	org_quickfix_MySQLStore.cpp \
 	org_quickfix_MySQLStoreFactory.h \
-	org_quickfix_MySQLStoreFactory.cpp \
+	org_quickfix_MySQLStoreFactory.cpp \	
+	org_quickfix_MySQLLog.h \
+	org_quickfix_MySQLLog.cpp \
+	org_quickfix_MySQLLogFactory.h \
+	org_quickfix_MySQLLogFactory.cpp \
 	org_quickfix_ScreenLog.h \
 	org_quickfix_ScreenLog.cpp \
 	org_quickfix_ScreenLogFactory.h \

@@ -1865,6 +1865,10 @@ SOURCE=".\src\C++\MessageStore.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\MySQLLog.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\MySQLStore.cpp"
 # End Source File
 # End Group
@@ -1992,6 +1996,28 @@ InputName=MessageStore
 # Begin Custom Build
 InputPath=".\src\C++\MessageStore.h"
 InputName=MessageStore
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\MySQLLog.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=.\src\C++\MySQLLog.h
+InputName=MySQLLog
 
 "include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
