@@ -75,8 +75,16 @@ public:
            bool validate = true )
   throw( InvalidMessage );
 
-  Message( const Message& copy )
-  { *this = copy; }
+  Message( const Message& copy ) 
+  : FieldMap( copy ),
+    m_header( message_order( message_order::header ) ),
+    m_trailer( message_order( message_order::trailer ) )
+  { 
+    m_header = copy.m_header;
+    m_trailer = copy.m_trailer;
+    m_validStructure = copy.m_validStructure;
+    m_field = copy.m_field;
+  }
 
   /// Set global data dictionary for encoding messages into XML
   static bool InitializeXML( const std::string& string );
