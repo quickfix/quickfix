@@ -211,7 +211,7 @@ void printTabs()
 {
   int i;
   for( i = 0; i < tabs; ++i )
-    printf("   ");
+    printf("  ");
 }
 
 int skip( char* str )
@@ -219,7 +219,10 @@ int skip( char* str )
   if(strcmp("24", str) == 0)
   { 
     printTabs();
-    printf("<field number='24' name='IOIOthSvc' type='CHAR'/>\n");
+    if((clTag != message) && (clTag != header) && (clTag != trailer))
+      printf("<field number=\"24\" name=\"IOIOthSvc\" type=\"CHAR\"/>\n");
+    else
+      printf("<field name=\"IOIOthSvc\" type=\"CHAR\"/>\n");
   }
 
   return !strcmp("101", str) 
@@ -339,7 +342,7 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
          || !strcmp(lastName, "LinesOfText"))
       {
         printTabs(); tabs++;
-        printf("<group number='%s' name='%s'>\n", lastNum, lastName);
+        printf("<group name=\"%s\">\n", lastName);
       }
       else
       {
@@ -355,7 +358,9 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
 
     printTabs();
     strcpy(lastNum, yytext);
-    printf("<field number='%s' ", yytext);
+    printf("<field ");
+    if((clTag != message) && (clTag != header) && (clTag != trailer))
+      printf("number=\"%s\" ", yytext);
     ignorePass = 0;
     BEGIN(html_fnum);
   }
@@ -368,7 +373,7 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
   {
     condense(stripName(yytext, "<"), " ");
     strcpy(lastName, yytext);
-    printf("name='%s' ", condense(yytext, " "));
+    printf("name=\"%s\" ", condense(yytext, " "));
   }
   BEGIN(html_fname); 
 }
@@ -378,11 +383,11 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
   static char r[9] = "required";
 
   if(!ignorePass)
-    printf("%s='%s'",
+    printf("%s=\"%s\"",
       (clTag == message) || (clTag == header) || (clTag == trailer) ? r : t, 
       type(up(condense(stripName(yytext, "<")," *"))));
   
-  if(repeating) printf(" repeating='Y'");
+  if(repeating) printf(" repeating=\"Y\"");
 
   repeating = 0;
   lastLevel = level;
@@ -421,18 +426,18 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
     if(val && strlen(val+desc_pos) > 0)
     {
       char* i = 0;
-      printf("<value enum='");
+      printf("<value enum=\"");
       for(i = val; *i != '=' && *i != ' ' 
 	    && *i != '&' && *i != '_'; ++i)
       {
         printf("%c", *i);
       }
-      printf("' description='%s", value(val + desc_pos));
+      printf("\" description=\"%s", value(val + desc_pos));
 
       if(!strcmp("SHORT_EXEMPT_TRANSACTION", val + desc_pos) ||
          !strcmp("COMPETING_DEALER_TRADES", val + desc_pos)) 
       { printf("_%c", *(--i)); }
-      printf("'/>\n");
+      printf("\"/>\n");
     }
     else
       --hasValues;
@@ -458,7 +463,7 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
 
 <html_msgcat>{HTML_MSGSTARTPAR} {
   printTabs(); tabs++;
-  printf("<message name='%s' ", msg(stripName(yytext, " (")));
+  printf("<message name=\"%s\" ", msg(stripName(yytext, " (")));
   BEGIN(html_msgtype);
 }
 
@@ -469,7 +474,7 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
   else
   {
     printTabs(); tabs++;
-    printf("<message name='%s' ", msg(yytext));
+    printf("<message name=\"%s\" ", msg(yytext));
     BEGIN(html_msgtype);
   }
 }
@@ -481,13 +486,13 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
   else
   {
     printTabs(); tabs++;
-    printf("<message name='%s' ", msg(yytext));
+    printf("<message name=\"%s\" ", msg(yytext));
     BEGIN(html_msgtype);
   }
 }
 
 <html_msgtype>{MSGTYPE} {
-  printf("msgtype='%c' msgcat='%s'>\n", yytext[10], msgCat == admin ? "admin" : "app");
+  printf("msgtype=\"%c\" msgcat=\"%s\">\n", yytext[10], msgCat == admin ? "admin" : "app");
   BEGIN(html_fs);
 }
 
@@ -496,7 +501,7 @@ HTML_VALUE3 ">"[a-zA-Z0-9 ]*"=&#9;"[ ,/\-\+'0-9A-Za-z]*
   strcpy(ver, yytext);
   verStr = (char*)strdup(version());
   verStr[1] = 0;
-  printf("<fix major='%s' minor='%s'>\n", verStr, verStr+2);
+  printf("<fix major=\"%s\" minor=\"%s\">\n", verStr, verStr+2);
   free(verStr);
 }
 
