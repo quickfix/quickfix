@@ -29,6 +29,7 @@
 #include "MySQLStore.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
+#include "FieldConvertors.h"
 #include "Parser.h"
 #include "Utility.h"
 #include <fstream>
@@ -117,7 +118,12 @@ void MySQLStore::populateCache()
       MYSQL_ROW row = mysql_fetch_row( result );
       UtcTimeStamp time;
       std::string sqlTime = row[ 0 ];
-      m_cache.setCreationTime( UtcTimeStampConverter( sqlTime, true ) );
+      strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
+      static_cast<tm*>(time)->tm_isdst = -1;
+      time_t t = mktime( (tm*)&time );
+      *((tm*)&time) = time_localtime( &t );
+      static_cast<tm*>(time)->tm_isdst = -1;
+      m_cache.setCreationTime( time );
       m_cache.setNextTargetMsgSeqNum( atol( row[ 1 ] ) );
       m_cache.setNextSenderMsgSeqNum( atol( row[ 2 ] ) );
     }
@@ -224,31 +230,6 @@ throw ( IOException )
     if ( safe_query( pConnection, query2.str() ) )
       throw IOException();
   }
-  return true;
-
-  QF_STACK_POP
-}
-
-bool MySQLStore::get( int msgSeqNum, std::string& msg ) const
-throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::get)
-
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
-  std::stringstream query;
-  query << "SELECT message FROM messages WHERE "
-  << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-  << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-  << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
-  << "msgseqnum=" << msgSeqNum;
-
-  if ( safe_query( pConnection, query.str() ) )
-    throw IOException();
-  MYSQL_RES* result = mysql_store_result( pConnection );
-  if ( mysql_num_rows( result ) != 1 ) return false;
-  MYSQL_ROW row = mysql_fetch_row( result );
-  msg = row[ 0 ];
-  mysql_free_result( result );
   return true;
 
   QF_STACK_POP

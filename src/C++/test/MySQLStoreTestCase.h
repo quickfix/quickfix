@@ -41,7 +41,6 @@ public:
   MySQLStoreTestCase()
   {
     add( &m_setGet );
-    add( &m_getRange );
     add( &m_other );
     add( &m_reload );
   }

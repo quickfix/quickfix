@@ -66,7 +66,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_MySQLStoreFactory_create__Lquickfix_Sess
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
 { QF_STACK_TRY
 
-  if( isNullAndThrow(sessionID) ) return;
+  if( isNullAndThrow(sessionID) ) return 0;
 
   JVM::set( pEnv );
   JVMObject jobj( obj );
