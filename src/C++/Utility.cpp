@@ -368,7 +368,7 @@ void process_sleep( double s )
   time.tv_nsec = (long)(modf(s, &intpart) * 1e9);
   time.tv_sec = (int)intpart;
   while( nanosleep(&time, &remainder) == -1 )
-    time = remainder;
+  time = remainder;
 #endif
 
   QF_STACK_POP
