@@ -122,14 +122,24 @@ void MessageTestCase::setString::onRun( Message& object )
   static const char* strJunk =
     "paste your FIX message here, then hit ENTER";
 
-  assert( object.setString( strGood ) );
-  assert( !object.setString( strNoChk ) );
-  assert( !object.setString( strBadChk ) );
-  assert( !object.setString( strBad ) );
-  assert( !object.setString( strBadHeaderOrder ) );
-  assert( !object.setString( strNoLengthAndChk ) );
-  assert( object.setString( strNoLengthAndChk, false ) );
-  assert( !object.setString( strJunk ) );
+  try 
+  {
+    object.setString( strGood );
+    object.setString( strNoLengthAndChk, false );
+  } catch( InvalidMessage& ) { assert(false); }
+
+  try{ object.setString( strNoChk ); assert(false) }
+  catch( InvalidMessage& ) {}
+  try{ object.setString( strBadChk ); assert(false) }
+  catch( InvalidMessage& ) {}
+  try{ object.setString( strBad ); assert(false) }
+  catch( InvalidMessage& ) {}
+  try{ object.setString( strBadHeaderOrder ); assert(false) }
+  catch( InvalidMessage& ) {}
+  try{ object.setString( strNoLengthAndChk ); assert(false) }
+  catch( InvalidMessage& ) {}
+  try{ object.setString( strJunk ); assert(false) }
+  catch( InvalidMessage& ) {}
 
   DataDictionary dataDictionary;
   dataDictionary.addHeaderField( 11 );
@@ -138,7 +148,8 @@ void MessageTestCase::setString::onRun( Message& object )
   ClOrdID clOrdID;
   TransactTime transactTime;
   Symbol symbol;
-  assert( object.setString( strBodyFields, true, &dataDictionary ) );
+  try{ object.setString( strBodyFields, true, &dataDictionary ); }
+  catch( InvalidMessage& ) { assert(false); }
   assert( object.getHeader().isSetField( clOrdID ) );
   assert( object.getTrailer().isSetField( transactTime ) );
   assert( object.isSetField( symbol ) );
@@ -159,7 +170,7 @@ void MessageTestCase::checkSum::onRun( Message& object )
 
   chksum %= 256;
 
-  object.setString( str2 );
+  object.setString( str2, false );
   assert( object.checkSum() == chksum );
 }
 
@@ -169,7 +180,7 @@ void MessageTestCase::headerFieldsFirst::onRun( Message& object )
     "8=FIX.4.2\0019=95\00135=D\00134=5\00149=ISLD\00155=INTC\001"
     "52=00000000-00:00:00\00156=TW\00111=ID\00121=3\001"
     "40=1\00154=1\00160=00000000-00:00:00\00110=000\001";
-  object.setString( str );
+  object.setString( str, false );
   int field = 0;
   assert( !object.hasValidStructure(field) );
   assert( field == 52 );
@@ -181,7 +192,8 @@ void MessageTestCase::noEndingDelim::onRun( Message& object )
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\00110=218";
 
-  assert(!object.setString( str ));
+  try{ object.setString( str ); assert(false) }
+  catch( InvalidMessage& ) {}
 }
 
 void MessageTestCase::outOfOrder::onRun( Message& object )
@@ -278,8 +290,8 @@ void LogonParseTestCase::getString::onRun( Logon& object )
 
 void LogonParseTestCase::setString::onRun( Logon& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=026\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=026\001" ) ;
 
   HeartBtInt heartBtInt;
   assert( object.get( heartBtInt ) == 30 );
@@ -295,8 +307,8 @@ void TestRequestParseTestCase::getString::onRun( TestRequest& object )
 
 void TestRequestParseTestCase::setString::onRun( TestRequest& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=12\00135=1\001112=23\00110=007\001" );
 
   TestReqID testReqID;
   assert( object.get( testReqID ) == "23" );
@@ -313,8 +325,8 @@ void ResendRequestParseTestCase::getString::onRun( ResendRequest& object )
 
 void ResendRequestParseTestCase::setString::onRun( ResendRequest& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=16\00135=2\0017=1\00116=233\00110=184\001" );
 
   BeginSeqNo beginSeqNo;
   EndSeqNo endSeqNo;
@@ -334,9 +346,9 @@ void RejectParseTestCase::getString::onRun( Reject& object )
 
 void RejectParseTestCase::setString::onRun( Reject& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=36\00135=3\00145=73\001"
-            "58=This Message SUCKS!!!\00110=029\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=36\00135=3\00145=73\001"
+      "58=This Message SUCKS!!!\00110=029\001" );
 
   RefSeqNum refSeqNum;
   Text text;
@@ -355,8 +367,8 @@ void SequenceResetParseTestCase::getString::onRun( SequenceReset& object )
 
 void SequenceResetParseTestCase::setString::onRun( SequenceReset& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=028\001" );
 
   GapFillFlag gapFillFlag;
   NewSeqNo newSeqNo;
@@ -374,8 +386,8 @@ void LogoutParseTestCase::getString::onRun( Logout& object )
 
 void LogoutParseTestCase::setString::onRun( Logout& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=18\00135=5\00158=See Ya...\00110=006\001" );
 
   Text text;
   assert( object.get( text ) == "See Ya..." );
@@ -397,9 +409,9 @@ void NewOrderSingleParseTestCase::getString::onRun( NewOrderSingle& object )
 
 void NewOrderSingleParseTestCase::setString::onRun( NewOrderSingle& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=48\00135=D\00111=ORDERID\00121=3\00140=2\001"
-            "54=1\00155=MSFT\00160=TODAY\00110=028\001" ) );
+  object.setString
+   ( "8=FIX.4.2\0019=48\00135=D\00111=ORDERID\00121=3\00140=2\001"
+     "54=1\00155=MSFT\00160=TODAY\00110=028\001" );
 
   ClOrdID clOrdID;
   HandlInst handlInst;
@@ -407,7 +419,7 @@ void NewOrderSingleParseTestCase::setString::onRun( NewOrderSingle& object )
   Side side;
   TransactTime transactTime;
   OrdType ordType;
-  assert( object.get( clOrdID ) == "ORDERID" );
+  assert( object.get( clOrdID ) == "ORDERID" ); 
   assert( object.get( handlInst ) == '3' );
   assert( object.get( symbol ) == "MSFT" );
   assert( object.get( side ) == '1' );
@@ -438,10 +450,10 @@ void ExecutionReportParseTestCase::getString::onRun
 void ExecutionReportParseTestCase::setString::onRun
 ( ExecutionReport& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
-            "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\001"
-            "55=MSFT\001150=2\001151=200\00110=052\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=77\00135=8\0016=23.4\00114=300\001"
+      "17=EXECID\00120=1\00137=ORDERID\00139=3\00154=4\001"
+      "55=MSFT\001150=2\001151=200\00110=052\001" );
 
   OrderID orderID;
   ExecID execID;
@@ -480,9 +492,9 @@ void DontKnowTradeParseTestCase::getString::onRun( DontKnowTrade& object )
 
 void DontKnowTradeParseTestCase::setString::onRun( DontKnowTrade& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
-            "54=2\00155=MSFT\001127=1\00110=195\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=45\00135=Q\00117=EXECID\00137=ORDERID\001"
+      "54=2\00155=MSFT\001127=1\00110=195\001" );
 
   OrderID orderID;
   ExecID execID;
@@ -516,10 +528,10 @@ void OrderCancelReplaceRequestParseTestCase::getString::onRun
 void OrderCancelReplaceRequestParseTestCase::setString::onRun
 ( OrderCancelReplaceRequest& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=63\00135=G\00111=CLIENTID\00121=1\001"
-            "40=3\00141=ORIGINALID\00154=2\00155=MSFT\00160=TODAY\001"
-            "10=228\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=63\00135=G\00111=CLIENTID\00121=1\001"
+      "40=3\00141=ORIGINALID\00154=2\00155=MSFT\00160=TODAY\001"
+      "10=228\001" );
 
   OrigClOrdID origClOrdID;
   ClOrdID clOrdID;
@@ -554,9 +566,9 @@ void OrderCancelRequestParseTestCase::getString::onRun
 void OrderCancelRequestParseTestCase::setString::onRun
 ( OrderCancelRequest& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=53\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
-            "54=1\00155=MSFT\00160=TODAY\00110=058\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=53\00135=F\00111=CLIENTID\00141=ORIGINALID\001"
+      "54=1\00155=MSFT\00160=TODAY\00110=058\001" );
 
   OrigClOrdID origClOrdID;
   ClOrdID clOrdID;
@@ -586,9 +598,9 @@ void OrderCancelRejectParseTestCase::getString::onRun
 void OrderCancelRejectParseTestCase::setString::onRun
 ( OrderCancelReject& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
-            "39=1\00141=ORIGINALID\001434=2\00110=229\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=53\00135=9\00111=CLIENTID\00137=ORDERID\001"
+      "39=1\00141=ORIGINALID\001434=2\00110=229\001" );
 
   OrderID orderID;
   ClOrdID clOrdID;
@@ -617,9 +629,9 @@ void OrderStatusRequestParseTestCase::getString::onRun
 void OrderStatusRequestParseTestCase::setString::onRun
 ( OrderStatusRequest& object )
 {
-  assert( object.setString
-          ( "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
-            "55=MSFT\00110=141\001" ) );
+  object.setString
+    ( "8=FIX.4.2\0019=30\00135=H\00111=CLIENTID\00154=1\001"
+      "55=MSFT\00110=141\001" );
 
   ClOrdID clOrdID;
   Symbol symbol;
@@ -669,12 +681,12 @@ void NewOrderListParseTestCase::setString::onRun
   DataDictionary dataDictionary( "spec/FIX42.xml" );
   try
   {
-    assert( object.setString
-            ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
-              "11=A\00154=1\00155=DELL\00167=1\001"
-              "11=B\00154=2\00155=LNUX\00167=2\001"
-              "11=C\00154=3\00155=RHAT\00167=3\001"
-              "394=0\00110=233\001", true, &dataDictionary ) );
+    object.setString
+      ( "8=FIX.4.2\0019=95\00135=E\00166=1\00168=3\00173=3\001"
+        "11=A\00154=1\00155=DELL\00167=1\001"
+        "11=B\00154=2\00155=LNUX\00167=2\001"
+        "11=C\00154=3\00155=RHAT\00167=3\001"
+        "394=0\00110=233\001", true, &dataDictionary );
   }
   catch ( ... )
   { assert(false); }
@@ -728,9 +740,9 @@ void NewOrderListParseTestCase::setString::onRun
 
   try
   {
-    assert( object.setString
-            ( "8=FIX.4.2\0019=26\00135=E\00166=1\00168=3\00173=0\001"
-              "394=0\00110=137\001", true, &dataDictionary ) );
+    object.setString
+      ( "8=FIX.4.2\0019=26\00135=E\00166=1\00168=3\00173=0\001"
+        "394=0\00110=137\001", true, &dataDictionary );
   }
   catch ( ... )
   { assert(false); }
@@ -759,10 +771,10 @@ void MassQuoteParseTestCase::setString::onRun
   DataDictionary dataDictionary( "spec/FIX42.xml" );
   try
   {
-    assert( object.setString
-            ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
-              "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001", 
-              true, &dataDictionary ) );
+    object.setString
+      ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
+        "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001", 
+         true, &dataDictionary );
   }
   catch ( ... )
   { assert(false); }
