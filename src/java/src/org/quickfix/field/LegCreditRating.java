@@ -1,0 +1,16 @@
+package org.quickfix.field; 
+import org.quickfix.StringField; 
+import java.util.Date; 
+
+public class LegCreditRating extends StringField 
+{ 
+
+  public LegCreditRating() 
+  { 
+    super(257);
+  } 
+  public LegCreditRating(String data) 
+  { 
+    super(257, data);
+  } 
+} 
