@@ -76,6 +76,9 @@ public:
     setDate( date );
     setMonth( month );
     setYear( year );
+    time_t t = mktime( (tm*)this );
+    localtime_r( &t, (tm*)this );
+    tm_isdst = -1;
   }
 
   UtcTimeStamp( int hour, int minute, int second, int millisecond,
@@ -89,6 +92,9 @@ public:
     setDate( date );
     setMonth( month );
     setYear( year );
+    time_t t = mktime( (tm*)this );
+    localtime_r( &t, (tm*)this );
+    tm_isdst = -1;
   }
 
   UtcTimeStamp( time_t time, int millisecond = 0 )
@@ -113,6 +119,8 @@ public:
   void setDate( int d ) { tm_mday = d; }
   void setMonth( int m ) { tm_mon = m - 1; }
   void setYear( int y ) { tm_year = y - 1900; }
+  void setWeekDay( int wd ) { tm_wday = wd - 1; }
+  void setYearDay( int yd ) { tm_yday = yd - 1; }
   void setTime( const UtcTimeOnly& time );
 
   int getMillisecond() const { return m_ms; }
