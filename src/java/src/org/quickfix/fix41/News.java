@@ -11,12 +11,10 @@ public class News extends Message
     getHeader().setField(new MsgType("B")); 
   } 
   public News(    
-    org.quickfix.field.Headline aHeadline,    
-    org.quickfix.field.LinesOfText aLinesOfText ) 
+    org.quickfix.field.Headline aHeadline ) 
   {  
     getHeader().setField(new MsgType("B")); 
-    set(aHeadline); 
-    set(aLinesOfText);  
+    set(aHeadline);  
   } 
 
   public void set(org.quickfix.field.OrigTime value) 
@@ -41,14 +39,6 @@ public class News extends Message
   { getField(value); return value; } 
   public org.quickfix.field.Headline getHeadline() throws FieldNotFound 
   { org.quickfix.field.Headline value = new org.quickfix.field.Headline(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoRelatedSym value) 
-  { setField(value); } 
-  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
-  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
     getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
@@ -176,14 +166,6 @@ public static class NoRelatedSym extends Group {
     getField(value); return value; } 
 
 } 
-
-  public void set(org.quickfix.field.LinesOfText value) 
-  { setField(value); } 
-  public org.quickfix.field.LinesOfText get(org.quickfix.field.LinesOfText value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.LinesOfText getLinesOfText() throws FieldNotFound 
-  { org.quickfix.field.LinesOfText value = new org.quickfix.field.LinesOfText(); 
-    getField(value); return value; } 
 
 public static class LinesOfText extends Group { 
   public LinesOfText() { 

@@ -67,14 +67,6 @@ public class Logon extends Message
   { org.quickfix.field.MaxMessageSize value = new org.quickfix.field.MaxMessageSize(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoMsgTypes value) 
-  { setField(value); } 
-  public org.quickfix.field.NoMsgTypes get(org.quickfix.field.NoMsgTypes value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoMsgTypes getNoMsgTypes() throws FieldNotFound 
-  { org.quickfix.field.NoMsgTypes value = new org.quickfix.field.NoMsgTypes(); 
-    getField(value); return value; } 
-
 public static class NoMsgTypes extends Group { 
   public NoMsgTypes() { 
     super(384, 372, 

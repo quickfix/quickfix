@@ -67,6 +67,8 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
     { throw new UnsupportedMessageType(); }
   public void onMessage( QuoteRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
+  public void onMessage( QuoteRequestReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( RFQRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( Quote message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
@@ -223,6 +225,9 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
     else
     if( msgTypeValue.equals("R") )
       onMessage( (QuoteRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("AG") )
+      onMessage( (QuoteRequestReject)message, sessionID );
     else
     if( msgTypeValue.equals("AH") )
       onMessage( (RFQRequest)message, sessionID );

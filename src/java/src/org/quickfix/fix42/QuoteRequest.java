@@ -11,12 +11,10 @@ public class QuoteRequest extends Message
     getHeader().setField(new MsgType("R")); 
   } 
   public QuoteRequest(    
-    org.quickfix.field.QuoteReqID aQuoteReqID,    
-    org.quickfix.field.NoRelatedSym aNoRelatedSym ) 
+    org.quickfix.field.QuoteReqID aQuoteReqID ) 
   {  
     getHeader().setField(new MsgType("R")); 
-    set(aQuoteReqID); 
-    set(aNoRelatedSym);  
+    set(aQuoteReqID);  
   } 
 
   public void set(org.quickfix.field.QuoteReqID value) 
@@ -25,14 +23,6 @@ public class QuoteRequest extends Message
   { getField(value); return value; } 
   public org.quickfix.field.QuoteReqID getQuoteReqID() throws FieldNotFound 
   { org.quickfix.field.QuoteReqID value = new org.quickfix.field.QuoteReqID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoRelatedSym value) 
-  { setField(value); } 
-  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
-  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
     getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 

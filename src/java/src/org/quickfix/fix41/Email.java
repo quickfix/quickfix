@@ -13,14 +13,12 @@ public class Email extends Message
   public Email(    
     org.quickfix.field.EmailThreadID aEmailThreadID,    
     org.quickfix.field.EmailType aEmailType,    
-    org.quickfix.field.Subject aSubject,    
-    org.quickfix.field.LinesOfText aLinesOfText ) 
+    org.quickfix.field.Subject aSubject ) 
   {  
     getHeader().setField(new MsgType("C")); 
     set(aEmailThreadID); 
     set(aEmailType); 
-    set(aSubject); 
-    set(aLinesOfText);  
+    set(aSubject);  
   } 
 
   public void set(org.quickfix.field.EmailThreadID value) 
@@ -53,14 +51,6 @@ public class Email extends Message
   { getField(value); return value; } 
   public org.quickfix.field.Subject getSubject() throws FieldNotFound 
   { org.quickfix.field.Subject value = new org.quickfix.field.Subject(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoRelatedSym value) 
-  { setField(value); } 
-  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
-  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
     getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
@@ -203,14 +193,6 @@ public static class NoRelatedSym extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.LinesOfText value) 
-  { setField(value); } 
-  public org.quickfix.field.LinesOfText get(org.quickfix.field.LinesOfText value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.LinesOfText getLinesOfText() throws FieldNotFound 
-  { org.quickfix.field.LinesOfText value = new org.quickfix.field.LinesOfText(); 
     getField(value); return value; } 
 
 public static class LinesOfText extends Group { 

@@ -16,8 +16,7 @@ public class ListStatus extends Message
     org.quickfix.field.NoRpts aNoRpts,    
     org.quickfix.field.ListOrderStatus aListOrderStatus,    
     org.quickfix.field.RptSeq aRptSeq,    
-    org.quickfix.field.TotNoOrders aTotNoOrders,    
-    org.quickfix.field.NoOrders aNoOrders ) 
+    org.quickfix.field.TotNoOrders aTotNoOrders ) 
   {  
     getHeader().setField(new MsgType("N")); 
     set(aListID); 
@@ -25,8 +24,7 @@ public class ListStatus extends Message
     set(aNoRpts); 
     set(aListOrderStatus); 
     set(aRptSeq); 
-    set(aTotNoOrders); 
-    set(aNoOrders);  
+    set(aTotNoOrders);  
   } 
 
   public void set(org.quickfix.field.ListID value) 
@@ -107,14 +105,6 @@ public class ListStatus extends Message
   { getField(value); return value; } 
   public org.quickfix.field.TotNoOrders getTotNoOrders() throws FieldNotFound 
   { org.quickfix.field.TotNoOrders value = new org.quickfix.field.TotNoOrders(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoOrders value) 
-  { setField(value); } 
-  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
-  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
     getField(value); return value; } 
 
 public static class NoOrders extends Group { 

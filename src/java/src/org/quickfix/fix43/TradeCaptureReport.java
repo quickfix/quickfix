@@ -197,15 +197,8 @@ public static class NoSides extends Group {
                37, 
                198, 
                11, 
-             453, 
-             448, 
-             447, 
-             452, 
-             523, 
                1, 
                581, 
-               63, 
-               64, 
                81, 
                575, 
                635, 
@@ -290,22 +283,6 @@ public static class NoSides extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.AccountType getAccountType() throws FieldNotFound 
   { org.quickfix.field.AccountType value = new org.quickfix.field.AccountType(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.SettlmntTyp value) 
-  { setField(value); } 
-  public org.quickfix.field.SettlmntTyp get(org.quickfix.field.SettlmntTyp value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.SettlmntTyp getSettlmntTyp() throws FieldNotFound 
-  { org.quickfix.field.SettlmntTyp value = new org.quickfix.field.SettlmntTyp(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.FutSettDate value) 
-  { setField(value); } 
-  public org.quickfix.field.FutSettDate get(org.quickfix.field.FutSettDate value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.FutSettDate getFutSettDate() throws FieldNotFound 
-  { org.quickfix.field.FutSettDate value = new org.quickfix.field.FutSettDate(); 
     getField(value); return value; } 
 
   public void set(org.quickfix.field.ProcessCode value) 
@@ -559,7 +536,7 @@ public static class NoSides extends Group {
 
 public static class NoClearingInstructions extends Group { 
   public NoClearingInstructions() { 
-    super(576, 137, 
+    super(576, 577, 
     new int[] { 
                0 } 
 ); 
@@ -570,73 +547,17 @@ public static class NoClearingInstructions extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.ClearingInstruction getClearingInstruction() throws FieldNotFound 
   { org.quickfix.field.ClearingInstruction value = new org.quickfix.field.ClearingInstruction(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.ContAmtType value) 
-  { setField(value); } 
-  public org.quickfix.field.ContAmtType get(org.quickfix.field.ContAmtType value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ContAmtType getContAmtType() throws FieldNotFound 
-  { org.quickfix.field.ContAmtType value = new org.quickfix.field.ContAmtType(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.ContAmtValue value) 
-  { setField(value); } 
-  public org.quickfix.field.ContAmtValue get(org.quickfix.field.ContAmtValue value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ContAmtValue getContAmtValue() throws FieldNotFound 
-  { org.quickfix.field.ContAmtValue value = new org.quickfix.field.ContAmtValue(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.ContAmtCurr value) 
-  { setField(value); } 
-  public org.quickfix.field.ContAmtCurr get(org.quickfix.field.ContAmtCurr value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ContAmtCurr getContAmtCurr() throws FieldNotFound 
-  { org.quickfix.field.ContAmtCurr value = new org.quickfix.field.ContAmtCurr(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.MiscFeeAmt value) 
-  { setField(value); } 
-  public org.quickfix.field.MiscFeeAmt get(org.quickfix.field.MiscFeeAmt value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.MiscFeeAmt getMiscFeeAmt() throws FieldNotFound 
-  { org.quickfix.field.MiscFeeAmt value = new org.quickfix.field.MiscFeeAmt(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.MiscFeeCurr value) 
-  { setField(value); } 
-  public org.quickfix.field.MiscFeeCurr get(org.quickfix.field.MiscFeeCurr value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.MiscFeeCurr getMiscFeeCurr() throws FieldNotFound 
-  { org.quickfix.field.MiscFeeCurr value = new org.quickfix.field.MiscFeeCurr(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.MiscFeeType value) 
-  { setField(value); } 
-  public org.quickfix.field.MiscFeeType get(org.quickfix.field.MiscFeeType value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.MiscFeeType getMiscFeeType() throws FieldNotFound 
-  { org.quickfix.field.MiscFeeType value = new org.quickfix.field.MiscFeeType(); 
     getField(value); return value; } 
 
 } 
 
 public static class NoContAmts extends Group { 
   public NoContAmts() { 
-    super(518, 137, 
+    super(518, 519, 
     new int[] { 
                0 } 
 ); 
   } 
-  public void set(org.quickfix.field.ClearingInstruction value) 
-  { setField(value); } 
-  public org.quickfix.field.ClearingInstruction get(org.quickfix.field.ClearingInstruction value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ClearingInstruction getClearingInstruction() throws FieldNotFound 
-  { org.quickfix.field.ClearingInstruction value = new org.quickfix.field.ClearingInstruction(); 
-    getField(value); return value; } 
-
   public void set(org.quickfix.field.ContAmtType value) 
   { setField(value); } 
   public org.quickfix.field.ContAmtType get(org.quickfix.field.ContAmtType value) throws FieldNotFound 
@@ -659,30 +580,6 @@ public static class NoContAmts extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.ContAmtCurr getContAmtCurr() throws FieldNotFound 
   { org.quickfix.field.ContAmtCurr value = new org.quickfix.field.ContAmtCurr(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.MiscFeeAmt value) 
-  { setField(value); } 
-  public org.quickfix.field.MiscFeeAmt get(org.quickfix.field.MiscFeeAmt value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.MiscFeeAmt getMiscFeeAmt() throws FieldNotFound 
-  { org.quickfix.field.MiscFeeAmt value = new org.quickfix.field.MiscFeeAmt(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.MiscFeeCurr value) 
-  { setField(value); } 
-  public org.quickfix.field.MiscFeeCurr get(org.quickfix.field.MiscFeeCurr value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.MiscFeeCurr getMiscFeeCurr() throws FieldNotFound 
-  { org.quickfix.field.MiscFeeCurr value = new org.quickfix.field.MiscFeeCurr(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.MiscFeeType value) 
-  { setField(value); } 
-  public org.quickfix.field.MiscFeeType get(org.quickfix.field.MiscFeeType value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.MiscFeeType getMiscFeeType() throws FieldNotFound 
-  { org.quickfix.field.MiscFeeType value = new org.quickfix.field.MiscFeeType(); 
     getField(value); return value; } 
 
 } 
@@ -694,38 +591,6 @@ public static class NoMiscFees extends Group {
                0 } 
 ); 
   } 
-  public void set(org.quickfix.field.ClearingInstruction value) 
-  { setField(value); } 
-  public org.quickfix.field.ClearingInstruction get(org.quickfix.field.ClearingInstruction value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ClearingInstruction getClearingInstruction() throws FieldNotFound 
-  { org.quickfix.field.ClearingInstruction value = new org.quickfix.field.ClearingInstruction(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.ContAmtType value) 
-  { setField(value); } 
-  public org.quickfix.field.ContAmtType get(org.quickfix.field.ContAmtType value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ContAmtType getContAmtType() throws FieldNotFound 
-  { org.quickfix.field.ContAmtType value = new org.quickfix.field.ContAmtType(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.ContAmtValue value) 
-  { setField(value); } 
-  public org.quickfix.field.ContAmtValue get(org.quickfix.field.ContAmtValue value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ContAmtValue getContAmtValue() throws FieldNotFound 
-  { org.quickfix.field.ContAmtValue value = new org.quickfix.field.ContAmtValue(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.ContAmtCurr value) 
-  { setField(value); } 
-  public org.quickfix.field.ContAmtCurr get(org.quickfix.field.ContAmtCurr value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.ContAmtCurr getContAmtCurr() throws FieldNotFound 
-  { org.quickfix.field.ContAmtCurr value = new org.quickfix.field.ContAmtCurr(); 
-    getField(value); return value; } 
-
   public void set(org.quickfix.field.MiscFeeAmt value) 
   { setField(value); } 
   public org.quickfix.field.MiscFeeAmt get(org.quickfix.field.MiscFeeAmt value) throws FieldNotFound 
@@ -751,41 +616,6 @@ public static class NoMiscFees extends Group {
     getField(value); return value; } 
 
 } 
-  public void set(org.quickfix.field.NoPartyIDs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoPartyIDs get(org.quickfix.field.NoPartyIDs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoPartyIDs getNoPartyIDs() throws FieldNotFound 
-  { org.quickfix.field.NoPartyIDs value = new org.quickfix.field.NoPartyIDs(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartyID value) 
-  { setField(value); } 
-  public org.quickfix.field.PartyID get(org.quickfix.field.PartyID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartyID getPartyID() throws FieldNotFound 
-  { org.quickfix.field.PartyID value = new org.quickfix.field.PartyID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartyIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.PartyIDSource get(org.quickfix.field.PartyIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartyIDSource getPartyIDSource() throws FieldNotFound 
-  { org.quickfix.field.PartyIDSource value = new org.quickfix.field.PartyIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartyRole value) 
-  { setField(value); } 
-  public org.quickfix.field.PartyRole get(org.quickfix.field.PartyRole value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartyRole getPartyRole() throws FieldNotFound 
-  { org.quickfix.field.PartyRole value = new org.quickfix.field.PartyRole(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartySubID value) 
-  { setField(value); } 
-  public org.quickfix.field.PartySubID get(org.quickfix.field.PartySubID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartySubID getPartySubID() throws FieldNotFound 
-  { org.quickfix.field.PartySubID value = new org.quickfix.field.PartySubID(); 
-    getField(value); return value; } 
   public void set(org.quickfix.field.Commission value) 
   { setField(value); } 
   public org.quickfix.field.Commission get(org.quickfix.field.Commission value) throws FieldNotFound 

@@ -73,17 +73,9 @@ public class QuoteAcknowledgement extends Message
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoQuoteSets value) 
-  { setField(value); } 
-  public org.quickfix.field.NoQuoteSets get(org.quickfix.field.NoQuoteSets value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoQuoteSets getNoQuoteSets() throws FieldNotFound 
-  { org.quickfix.field.NoQuoteSets value = new org.quickfix.field.NoQuoteSets(); 
-    getField(value); return value; } 
-
 public static class NoQuoteSets extends Group { 
   public NoQuoteSets() { 
-    super(296, 295, 
+    super(296, 302, 
     new int[] { 
                302, 
                311, 
@@ -106,7 +98,6 @@ public static class NoQuoteSets extends Group {
                364, 
                365, 
                304, 
-               295, 
                0 } 
 ); 
   } 
@@ -276,14 +267,6 @@ public static class NoQuoteSets extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.TotQuoteEntries getTotQuoteEntries() throws FieldNotFound 
   { org.quickfix.field.TotQuoteEntries value = new org.quickfix.field.TotQuoteEntries(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoQuoteEntries value) 
-  { setField(value); } 
-  public org.quickfix.field.NoQuoteEntries get(org.quickfix.field.NoQuoteEntries value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoQuoteEntries getNoQuoteEntries() throws FieldNotFound 
-  { org.quickfix.field.NoQuoteEntries value = new org.quickfix.field.NoQuoteEntries(); 
     getField(value); return value; } 
 
 

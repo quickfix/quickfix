@@ -245,14 +245,6 @@ public class SecurityDefinition extends Message
   { org.quickfix.field.EncodedText value = new org.quickfix.field.EncodedText(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoRelatedSym value) 
-  { setField(value); } 
-  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
-  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
-    getField(value); return value; } 
-
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
     super(146, 54, 

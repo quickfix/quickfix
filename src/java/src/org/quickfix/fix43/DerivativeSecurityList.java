@@ -61,9 +61,6 @@ public static class NoRelatedSym extends Group {
              65, 
              48, 
              22, 
-             454, 
-             455, 
-             456, 
              460, 
              461, 
              167, 
@@ -192,27 +189,6 @@ public static class NoLegs extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.LegSecurityIDSource getLegSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.LegSecurityIDSource value = new org.quickfix.field.LegSecurityIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NoLegSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.NoLegSecurityAltID get(org.quickfix.field.NoLegSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoLegSecurityAltID getNoLegSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.NoLegSecurityAltID value = new org.quickfix.field.NoLegSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.LegSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.LegSecurityAltID get(org.quickfix.field.LegSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.LegSecurityAltID getLegSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.LegSecurityAltID value = new org.quickfix.field.LegSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.LegSecurityAltIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.LegSecurityAltIDSource get(org.quickfix.field.LegSecurityAltIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.LegSecurityAltIDSource getLegSecurityAltIDSource() throws FieldNotFound 
-  { org.quickfix.field.LegSecurityAltIDSource value = new org.quickfix.field.LegSecurityAltIDSource(); 
     getField(value); return value; } 
   public void set(org.quickfix.field.LegProduct value) 
   { setField(value); } 
@@ -452,27 +428,6 @@ public static class NoLegs extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.SecurityIDSource getSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.SecurityIDSource value = new org.quickfix.field.SecurityIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NoSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.SecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.SecurityAltID get(org.quickfix.field.SecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.SecurityAltIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.SecurityAltIDSource get(org.quickfix.field.SecurityAltIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
-  { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
     getField(value); return value; } 
   public void set(org.quickfix.field.Product value) 
   { setField(value); } 

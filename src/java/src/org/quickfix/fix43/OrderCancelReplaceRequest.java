@@ -137,14 +137,7 @@ public static class NoAllocs extends Group {
     new int[] { 
                79, 
                467, 
-             539, 
-             524, 
-             525, 
-             538, 
-             545, 
                80, 
-               336, 
-               625, 
                0 } 
 ); 
   } 
@@ -172,57 +165,6 @@ public static class NoAllocs extends Group {
   { org.quickfix.field.AllocQty value = new org.quickfix.field.AllocQty(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.TradingSessionID value) 
-  { setField(value); } 
-  public org.quickfix.field.TradingSessionID get(org.quickfix.field.TradingSessionID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound 
-  { org.quickfix.field.TradingSessionID value = new org.quickfix.field.TradingSessionID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.TradingSessionSubID value) 
-  { setField(value); } 
-  public org.quickfix.field.TradingSessionSubID get(org.quickfix.field.TradingSessionSubID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.TradingSessionSubID getTradingSessionSubID() throws FieldNotFound 
-  { org.quickfix.field.TradingSessionSubID value = new org.quickfix.field.TradingSessionSubID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoNestedPartyIDs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoNestedPartyIDs get(org.quickfix.field.NoNestedPartyIDs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoNestedPartyIDs getNoNestedPartyIDs() throws FieldNotFound 
-  { org.quickfix.field.NoNestedPartyIDs value = new org.quickfix.field.NoNestedPartyIDs(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartyID value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartyID get(org.quickfix.field.NestedPartyID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartyID getNestedPartyID() throws FieldNotFound 
-  { org.quickfix.field.NestedPartyID value = new org.quickfix.field.NestedPartyID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartyIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartyIDSource get(org.quickfix.field.NestedPartyIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartyIDSource getNestedPartyIDSource() throws FieldNotFound 
-  { org.quickfix.field.NestedPartyIDSource value = new org.quickfix.field.NestedPartyIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartyRole value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartyRole get(org.quickfix.field.NestedPartyRole value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartyRole getNestedPartyRole() throws FieldNotFound 
-  { org.quickfix.field.NestedPartyRole value = new org.quickfix.field.NestedPartyRole(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartySubID value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartySubID get(org.quickfix.field.NestedPartySubID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartySubID getNestedPartySubID() throws FieldNotFound 
-  { org.quickfix.field.NestedPartySubID value = new org.quickfix.field.NestedPartySubID(); 
-    getField(value); return value; } 
 } 
 
   public void set(org.quickfix.field.SettlmntTyp value) 
@@ -299,45 +241,13 @@ public static class NoAllocs extends Group {
 
 public static class NoTradingSessions extends Group { 
   public NoTradingSessions() { 
-    super(386, 79, 
+    super(386, 336, 
     new int[] { 
-               79, 
-               467, 
-             539, 
-             524, 
-             525, 
-             538, 
-             545, 
-               80, 
                336, 
                625, 
                0 } 
 ); 
   } 
-  public void set(org.quickfix.field.AllocAccount value) 
-  { setField(value); } 
-  public org.quickfix.field.AllocAccount get(org.quickfix.field.AllocAccount value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.AllocAccount getAllocAccount() throws FieldNotFound 
-  { org.quickfix.field.AllocAccount value = new org.quickfix.field.AllocAccount(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.IndividualAllocID value) 
-  { setField(value); } 
-  public org.quickfix.field.IndividualAllocID get(org.quickfix.field.IndividualAllocID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.IndividualAllocID getIndividualAllocID() throws FieldNotFound 
-  { org.quickfix.field.IndividualAllocID value = new org.quickfix.field.IndividualAllocID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.AllocQty value) 
-  { setField(value); } 
-  public org.quickfix.field.AllocQty get(org.quickfix.field.AllocQty value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.AllocQty getAllocQty() throws FieldNotFound 
-  { org.quickfix.field.AllocQty value = new org.quickfix.field.AllocQty(); 
-    getField(value); return value; } 
-
   public void set(org.quickfix.field.TradingSessionID value) 
   { setField(value); } 
   public org.quickfix.field.TradingSessionID get(org.quickfix.field.TradingSessionID value) throws FieldNotFound 
@@ -354,41 +264,6 @@ public static class NoTradingSessions extends Group {
   { org.quickfix.field.TradingSessionSubID value = new org.quickfix.field.TradingSessionSubID(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoNestedPartyIDs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoNestedPartyIDs get(org.quickfix.field.NoNestedPartyIDs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoNestedPartyIDs getNoNestedPartyIDs() throws FieldNotFound 
-  { org.quickfix.field.NoNestedPartyIDs value = new org.quickfix.field.NoNestedPartyIDs(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartyID value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartyID get(org.quickfix.field.NestedPartyID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartyID getNestedPartyID() throws FieldNotFound 
-  { org.quickfix.field.NestedPartyID value = new org.quickfix.field.NestedPartyID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartyIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartyIDSource get(org.quickfix.field.NestedPartyIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartyIDSource getNestedPartyIDSource() throws FieldNotFound 
-  { org.quickfix.field.NestedPartyIDSource value = new org.quickfix.field.NestedPartyIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartyRole value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartyRole get(org.quickfix.field.NestedPartyRole value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartyRole getNestedPartyRole() throws FieldNotFound 
-  { org.quickfix.field.NestedPartyRole value = new org.quickfix.field.NestedPartyRole(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NestedPartySubID value) 
-  { setField(value); } 
-  public org.quickfix.field.NestedPartySubID get(org.quickfix.field.NestedPartySubID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NestedPartySubID getNestedPartySubID() throws FieldNotFound 
-  { org.quickfix.field.NestedPartySubID value = new org.quickfix.field.NestedPartySubID(); 
-    getField(value); return value; } 
 } 
 
   public void set(org.quickfix.field.Side value) 

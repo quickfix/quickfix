@@ -11,12 +11,10 @@ public class MarketDataSnapshotFullRefresh extends Message
     getHeader().setField(new MsgType("W")); 
   } 
   public MarketDataSnapshotFullRefresh(    
-    org.quickfix.field.Symbol aSymbol,    
-    org.quickfix.field.NoMDEntries aNoMDEntries ) 
+    org.quickfix.field.Symbol aSymbol ) 
   {  
     getHeader().setField(new MsgType("W")); 
-    set(aSymbol); 
-    set(aNoMDEntries);  
+    set(aSymbol);  
   } 
 
   public void set(org.quickfix.field.MDReqID value) 
@@ -201,14 +199,6 @@ public class MarketDataSnapshotFullRefresh extends Message
   { getField(value); return value; } 
   public org.quickfix.field.TotalVolumeTraded getTotalVolumeTraded() throws FieldNotFound 
   { org.quickfix.field.TotalVolumeTraded value = new org.quickfix.field.TotalVolumeTraded(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoMDEntries value) 
-  { setField(value); } 
-  public org.quickfix.field.NoMDEntries get(org.quickfix.field.NoMDEntries value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoMDEntries getNoMDEntries() throws FieldNotFound 
-  { org.quickfix.field.NoMDEntries value = new org.quickfix.field.NoMDEntries(); 
     getField(value); return value; } 
 
 public static class NoMDEntries extends Group { 

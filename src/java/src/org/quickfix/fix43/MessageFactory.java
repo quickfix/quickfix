@@ -108,6 +108,10 @@ public class MessageFactory implements org.quickfix.MessageFactory
      return new org.quickfix.fix43.QuoteRequest();
    }
  
+   if("AG".equals(msgType)) {
+     return new org.quickfix.fix43.QuoteRequestReject();
+   }
+ 
    if("AH".equals(msgType)) {
      return new org.quickfix.fix43.RFQRequest();
    }

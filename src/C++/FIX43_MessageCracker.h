@@ -73,6 +73,8 @@ namespace FIX43
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const QuoteRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const QuoteRequestReject&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const RFQRequest&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const Quote&, const FIX::SessionID& ) 
@@ -226,6 +228,9 @@ public:
     else
     if( msgTypeValue == "R" )
       onMessage( (QuoteRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "AG" )
+      onMessage( (QuoteRequestReject&)message, sessionID );
     else
     if( msgTypeValue == "AH" )
       onMessage( (RFQRequest&)message, sessionID );

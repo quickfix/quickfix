@@ -124,8 +124,6 @@ public static class NoIOIQualifiers extends Group {
     super(199, 104, 
     new int[] { 
                104, 
-               216, 
-               217, 
                0 } 
 ); 
   } 
@@ -135,22 +133,6 @@ public static class NoIOIQualifiers extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.IOIQualifier getIOIQualifier() throws FieldNotFound 
   { org.quickfix.field.IOIQualifier value = new org.quickfix.field.IOIQualifier(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.RoutingType value) 
-  { setField(value); } 
-  public org.quickfix.field.RoutingType get(org.quickfix.field.RoutingType value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.RoutingType getRoutingType() throws FieldNotFound 
-  { org.quickfix.field.RoutingType value = new org.quickfix.field.RoutingType(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.RoutingID value) 
-  { setField(value); } 
-  public org.quickfix.field.RoutingID get(org.quickfix.field.RoutingID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.RoutingID getRoutingID() throws FieldNotFound 
-  { org.quickfix.field.RoutingID value = new org.quickfix.field.RoutingID(); 
     getField(value); return value; } 
 
 } 
@@ -197,22 +179,13 @@ public static class NoIOIQualifiers extends Group {
 
 public static class NoRoutingIDs extends Group { 
   public NoRoutingIDs() { 
-    super(215, 104, 
+    super(215, 216, 
     new int[] { 
-               104, 
                216, 
                217, 
                0 } 
 ); 
   } 
-  public void set(org.quickfix.field.IOIQualifier value) 
-  { setField(value); } 
-  public org.quickfix.field.IOIQualifier get(org.quickfix.field.IOIQualifier value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.IOIQualifier getIOIQualifier() throws FieldNotFound 
-  { org.quickfix.field.IOIQualifier value = new org.quickfix.field.IOIQualifier(); 
-    getField(value); return value; } 
-
   public void set(org.quickfix.field.RoutingType value) 
   { setField(value); } 
   public org.quickfix.field.RoutingType get(org.quickfix.field.RoutingType value) throws FieldNotFound 

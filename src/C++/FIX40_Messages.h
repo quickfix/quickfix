@@ -327,19 +327,10 @@ namespace FIX40
     News() : Message(MsgType()) {}
     News(const Message& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("B"); }
-    //
-    News(
-      const FIX::LinesOfText& aLinesOfText )
-    : Message(FIX::MsgType("B"))
-    
-    {
-      set(aLinesOfText);
-    }
   
     FIELD_SET(*this, FIX::OrigTime);
     FIELD_SET(*this, FIX::Urgency);
     FIELD_SET(*this, FIX::RelatdSym);
-    FIELD_SET(*this, FIX::LinesOfText);
 
     class LinesOfText : public FIX::Group
     {
@@ -361,13 +352,11 @@ namespace FIX40
     static FIX::MsgType MsgType() { return FIX::MsgType("C"); }
     //
     Email(
-      const FIX::EmailType& aEmailType,
-      const FIX::LinesOfText& aLinesOfText )
+      const FIX::EmailType& aEmailType )
     : Message(FIX::MsgType("C"))
     
     {
       set(aEmailType);
-      set(aLinesOfText);
     }
   
     FIELD_SET(*this, FIX::EmailType);
@@ -375,7 +364,6 @@ namespace FIX40
     FIELD_SET(*this, FIX::RelatdSym);
     FIELD_SET(*this, FIX::OrderID);
     FIELD_SET(*this, FIX::ClOrdID);
-    FIELD_SET(*this, FIX::LinesOfText);
 
     class LinesOfText : public FIX::Group
     {
@@ -590,7 +578,6 @@ namespace FIX40
     FIELD_SET(*this, FIX::ReportToExch);
     FIELD_SET(*this, FIX::Commission);
     FIELD_SET(*this, FIX::CommType);
-    FIELD_SET(*this, FIX::NoMiscFees);
 
     class NoMiscFees : public FIX::Group
     {
@@ -818,31 +805,26 @@ namespace FIX40
     Allocation(
       const FIX::AllocID& aAllocID,
       const FIX::AllocTransType& aAllocTransType,
-      const FIX::NoOrders& aNoOrders,
       const FIX::Side& aSide,
       const FIX::Symbol& aSymbol,
       const FIX::Shares& aShares,
       const FIX::AvgPx& aAvgPx,
-      const FIX::TradeDate& aTradeDate,
-      const FIX::NoAllocs& aNoAllocs )
+      const FIX::TradeDate& aTradeDate )
     : Message(FIX::MsgType("J"))
     
     {
       set(aAllocID);
       set(aAllocTransType);
-      set(aNoOrders);
       set(aSide);
       set(aSymbol);
       set(aShares);
       set(aAvgPx);
       set(aTradeDate);
-      set(aNoAllocs);
     }
   
     FIELD_SET(*this, FIX::AllocID);
     FIELD_SET(*this, FIX::AllocTransType);
     FIELD_SET(*this, FIX::RefAllocID);
-    FIELD_SET(*this, FIX::NoOrders);
 
     class NoOrders : public FIX::Group
     {
@@ -858,7 +840,6 @@ namespace FIX40
       FIELD_SET(*this, FIX::ListID);
       FIELD_SET(*this, FIX::WaveNo);
     };
-    FIELD_SET(*this, FIX::NoExecs);
 
     class NoExecs : public FIX::Group
     {
@@ -890,7 +871,6 @@ namespace FIX40
     FIELD_SET(*this, FIX::SettlmntTyp);
     FIELD_SET(*this, FIX::FutSettDate);
     FIELD_SET(*this, FIX::NetMoney);
-    FIELD_SET(*this, FIX::NoMiscFees);
 
     class NoMiscFees : public FIX::Group
     {
@@ -908,7 +888,6 @@ namespace FIX40
     FIELD_SET(*this, FIX::SettlCurrency);
     FIELD_SET(*this, FIX::OpenClose);
     FIELD_SET(*this, FIX::Text);
-    FIELD_SET(*this, FIX::NoAllocs);
 
     class NoAllocs : public FIX::Group
     {
@@ -921,7 +900,6 @@ namespace FIX40
             109,
             12,
             13,
-            85,
             
                92,
                86,
@@ -934,7 +912,6 @@ namespace FIX40
       FIELD_SET(*this, FIX::ClientID);
       FIELD_SET(*this, FIX::Commission);
       FIELD_SET(*this, FIX::CommType);
-      FIELD_SET(*this, FIX::NoDlvyInst);
 
     class NoDlvyInst : public FIX::Group
     {
@@ -1060,22 +1037,19 @@ namespace FIX40
     ListStatus(
       const FIX::ListID& aListID,
       const FIX::NoRpts& aNoRpts,
-      const FIX::RptSeq& aRptSeq,
-      const FIX::NoOrders& aNoOrders )
+      const FIX::RptSeq& aRptSeq )
     : Message(FIX::MsgType("N"))
     
     {
       set(aListID);
       set(aNoRpts);
       set(aRptSeq);
-      set(aNoOrders);
     }
   
     FIELD_SET(*this, FIX::ListID);
     FIELD_SET(*this, FIX::WaveNo);
     FIELD_SET(*this, FIX::NoRpts);
     FIELD_SET(*this, FIX::RptSeq);
-    FIELD_SET(*this, FIX::NoOrders);
 
     class NoOrders : public FIX::Group
     {

@@ -13,24 +13,20 @@ public class Allocation extends Message
   public Allocation(    
     org.quickfix.field.AllocID aAllocID,    
     org.quickfix.field.AllocTransType aAllocTransType,    
-    org.quickfix.field.NoOrders aNoOrders,    
     org.quickfix.field.Side aSide,    
     org.quickfix.field.Symbol aSymbol,    
     org.quickfix.field.Shares aShares,    
     org.quickfix.field.AvgPx aAvgPx,    
-    org.quickfix.field.TradeDate aTradeDate,    
-    org.quickfix.field.NoAllocs aNoAllocs ) 
+    org.quickfix.field.TradeDate aTradeDate ) 
   {  
     getHeader().setField(new MsgType("J")); 
     set(aAllocID); 
     set(aAllocTransType); 
-    set(aNoOrders); 
     set(aSide); 
     set(aSymbol); 
     set(aShares); 
     set(aAvgPx); 
-    set(aTradeDate); 
-    set(aNoAllocs);  
+    set(aTradeDate);  
   } 
 
   public void set(org.quickfix.field.AllocID value) 
@@ -55,14 +51,6 @@ public class Allocation extends Message
   { getField(value); return value; } 
   public org.quickfix.field.RefAllocID getRefAllocID() throws FieldNotFound 
   { org.quickfix.field.RefAllocID value = new org.quickfix.field.RefAllocID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoOrders value) 
-  { setField(value); } 
-  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
-  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
     getField(value); return value; } 
 
 public static class NoOrders extends Group { 
@@ -109,14 +97,6 @@ public static class NoOrders extends Group {
     getField(value); return value; } 
 
 } 
-
-  public void set(org.quickfix.field.NoExecs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoExecs get(org.quickfix.field.NoExecs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoExecs getNoExecs() throws FieldNotFound 
-  { org.quickfix.field.NoExecs value = new org.quickfix.field.NoExecs(); 
-    getField(value); return value; } 
 
 public static class NoExecs extends Group { 
   public NoExecs() { 
@@ -291,14 +271,6 @@ public static class NoExecs extends Group {
   { org.quickfix.field.NetMoney value = new org.quickfix.field.NetMoney(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoMiscFees value) 
-  { setField(value); } 
-  public org.quickfix.field.NoMiscFees get(org.quickfix.field.NoMiscFees value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoMiscFees getNoMiscFees() throws FieldNotFound 
-  { org.quickfix.field.NoMiscFees value = new org.quickfix.field.NoMiscFees(); 
-    getField(value); return value; } 
-
 public static class NoMiscFees extends Group { 
   public NoMiscFees() { 
     super(136, 137, 
@@ -367,14 +339,6 @@ public static class NoMiscFees extends Group {
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoAllocs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoAllocs get(org.quickfix.field.NoAllocs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoAllocs getNoAllocs() throws FieldNotFound 
-  { org.quickfix.field.NoAllocs value = new org.quickfix.field.NoAllocs(); 
-    getField(value); return value; } 
-
 public static class NoAllocs extends Group { 
   public NoAllocs() { 
     super(78, 12, 
@@ -386,7 +350,6 @@ public static class NoAllocs extends Group {
                109, 
                12, 
                13, 
-               85, 
                0 } 
 ); 
   } 
@@ -444,14 +407,6 @@ public static class NoAllocs extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.CommType getCommType() throws FieldNotFound 
   { org.quickfix.field.CommType value = new org.quickfix.field.CommType(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoDlvyInst value) 
-  { setField(value); } 
-  public org.quickfix.field.NoDlvyInst get(org.quickfix.field.NoDlvyInst value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoDlvyInst getNoDlvyInst() throws FieldNotFound 
-  { org.quickfix.field.NoDlvyInst value = new org.quickfix.field.NoDlvyInst(); 
     getField(value); return value; } 
 
 

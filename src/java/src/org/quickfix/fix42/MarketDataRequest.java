@@ -13,16 +13,12 @@ public class MarketDataRequest extends Message
   public MarketDataRequest(    
     org.quickfix.field.MDReqID aMDReqID,    
     org.quickfix.field.SubscriptionRequestType aSubscriptionRequestType,    
-    org.quickfix.field.MarketDepth aMarketDepth,    
-    org.quickfix.field.NoMDEntryTypes aNoMDEntryTypes,    
-    org.quickfix.field.NoRelatedSym aNoRelatedSym ) 
+    org.quickfix.field.MarketDepth aMarketDepth ) 
   {  
     getHeader().setField(new MsgType("V")); 
     set(aMDReqID); 
     set(aSubscriptionRequestType); 
-    set(aMarketDepth); 
-    set(aNoMDEntryTypes); 
-    set(aNoRelatedSym);  
+    set(aMarketDepth);  
   } 
 
   public void set(org.quickfix.field.MDReqID value) 
@@ -65,14 +61,6 @@ public class MarketDataRequest extends Message
   { org.quickfix.field.AggregatedBook value = new org.quickfix.field.AggregatedBook(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoMDEntryTypes value) 
-  { setField(value); } 
-  public org.quickfix.field.NoMDEntryTypes get(org.quickfix.field.NoMDEntryTypes value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoMDEntryTypes getNoMDEntryTypes() throws FieldNotFound 
-  { org.quickfix.field.NoMDEntryTypes value = new org.quickfix.field.NoMDEntryTypes(); 
-    getField(value); return value; } 
-
 public static class NoMDEntryTypes extends Group { 
   public NoMDEntryTypes() { 
     super(267, 269, 
@@ -90,14 +78,6 @@ public static class NoMDEntryTypes extends Group {
     getField(value); return value; } 
 
 } 
-
-  public void set(org.quickfix.field.NoRelatedSym value) 
-  { setField(value); } 
-  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
-  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
-    getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 

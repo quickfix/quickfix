@@ -101,9 +101,6 @@ public static class NoLegs extends Group {
              601, 
              602, 
              603, 
-             604, 
-             605, 
-             606, 
              607, 
              608, 
              609, 
@@ -173,27 +170,6 @@ public static class NoLegs extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.LegSecurityIDSource getLegSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.LegSecurityIDSource value = new org.quickfix.field.LegSecurityIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NoLegSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.NoLegSecurityAltID get(org.quickfix.field.NoLegSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoLegSecurityAltID getNoLegSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.NoLegSecurityAltID value = new org.quickfix.field.NoLegSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.LegSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.LegSecurityAltID get(org.quickfix.field.LegSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.LegSecurityAltID getLegSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.LegSecurityAltID value = new org.quickfix.field.LegSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.LegSecurityAltIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.LegSecurityAltIDSource get(org.quickfix.field.LegSecurityAltIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.LegSecurityAltIDSource getLegSecurityAltIDSource() throws FieldNotFound 
-  { org.quickfix.field.LegSecurityAltIDSource value = new org.quickfix.field.LegSecurityAltIDSource(); 
     getField(value); return value; } 
   public void set(org.quickfix.field.LegProduct value) 
   { setField(value); } 

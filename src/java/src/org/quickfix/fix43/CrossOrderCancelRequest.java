@@ -75,11 +75,6 @@ public static class NoSides extends Group {
                526, 
                583, 
                586, 
-             453, 
-             448, 
-             447, 
-             452, 
-             523, 
                229, 
              38, 
              152, 
@@ -181,41 +176,6 @@ public static class NoSides extends Group {
   { org.quickfix.field.EncodedText value = new org.quickfix.field.EncodedText(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoPartyIDs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoPartyIDs get(org.quickfix.field.NoPartyIDs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoPartyIDs getNoPartyIDs() throws FieldNotFound 
-  { org.quickfix.field.NoPartyIDs value = new org.quickfix.field.NoPartyIDs(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartyID value) 
-  { setField(value); } 
-  public org.quickfix.field.PartyID get(org.quickfix.field.PartyID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartyID getPartyID() throws FieldNotFound 
-  { org.quickfix.field.PartyID value = new org.quickfix.field.PartyID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartyIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.PartyIDSource get(org.quickfix.field.PartyIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartyIDSource getPartyIDSource() throws FieldNotFound 
-  { org.quickfix.field.PartyIDSource value = new org.quickfix.field.PartyIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartyRole value) 
-  { setField(value); } 
-  public org.quickfix.field.PartyRole get(org.quickfix.field.PartyRole value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartyRole getPartyRole() throws FieldNotFound 
-  { org.quickfix.field.PartyRole value = new org.quickfix.field.PartyRole(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.PartySubID value) 
-  { setField(value); } 
-  public org.quickfix.field.PartySubID get(org.quickfix.field.PartySubID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.PartySubID getPartySubID() throws FieldNotFound 
-  { org.quickfix.field.PartySubID value = new org.quickfix.field.PartySubID(); 
-    getField(value); return value; } 
   public void set(org.quickfix.field.OrderQty value) 
   { setField(value); } 
   public org.quickfix.field.OrderQty get(org.quickfix.field.OrderQty value) throws FieldNotFound 

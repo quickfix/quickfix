@@ -257,14 +257,6 @@ public class IndicationofInterest extends Message
   { org.quickfix.field.IOINaturalFlag value = new org.quickfix.field.IOINaturalFlag(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoIOIQualifiers value) 
-  { setField(value); } 
-  public org.quickfix.field.NoIOIQualifiers get(org.quickfix.field.NoIOIQualifiers value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoIOIQualifiers getNoIOIQualifiers() throws FieldNotFound 
-  { org.quickfix.field.NoIOIQualifiers value = new org.quickfix.field.NoIOIQualifiers(); 
-    getField(value); return value; } 
-
 public static class NoIOIQualifiers extends Group { 
   public NoIOIQualifiers() { 
     super(199, 104, 
@@ -321,14 +313,6 @@ public static class NoIOIQualifiers extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.URLLink getURLLink() throws FieldNotFound 
   { org.quickfix.field.URLLink value = new org.quickfix.field.URLLink(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoRoutingIDs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoRoutingIDs get(org.quickfix.field.NoRoutingIDs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoRoutingIDs getNoRoutingIDs() throws FieldNotFound 
-  { org.quickfix.field.NoRoutingIDs value = new org.quickfix.field.NoRoutingIDs(); 
     getField(value); return value; } 
 
 public static class NoRoutingIDs extends Group { 

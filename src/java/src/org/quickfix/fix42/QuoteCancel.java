@@ -12,13 +12,11 @@ public class QuoteCancel extends Message
   } 
   public QuoteCancel(    
     org.quickfix.field.QuoteID aQuoteID,    
-    org.quickfix.field.QuoteCancelType aQuoteCancelType,    
-    org.quickfix.field.NoQuoteEntries aNoQuoteEntries ) 
+    org.quickfix.field.QuoteCancelType aQuoteCancelType ) 
   {  
     getHeader().setField(new MsgType("Z")); 
     set(aQuoteID); 
-    set(aQuoteCancelType); 
-    set(aNoQuoteEntries);  
+    set(aQuoteCancelType);  
   } 
 
   public void set(org.quickfix.field.QuoteReqID value) 
@@ -59,14 +57,6 @@ public class QuoteCancel extends Message
   { getField(value); return value; } 
   public org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound 
   { org.quickfix.field.TradingSessionID value = new org.quickfix.field.TradingSessionID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoQuoteEntries value) 
-  { setField(value); } 
-  public org.quickfix.field.NoQuoteEntries get(org.quickfix.field.NoQuoteEntries value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoQuoteEntries getNoQuoteEntries() throws FieldNotFound 
-  { org.quickfix.field.NoQuoteEntries value = new org.quickfix.field.NoQuoteEntries(); 
     getField(value); return value; } 
 
 public static class NoQuoteEntries extends Group { 

@@ -74,6 +74,7 @@ namespace FIX
   const char MsgType_News[] = "B";
   const char MsgType_Email[] = "C";
   const char MsgType_QuoteRequest[] = "R";
+  const char MsgType_QuoteRequestReject[] = "AG";
   const char MsgType_RFQRequest[] = "AH";
   const char MsgType_Quote[] = "S";
   const char MsgType_QuoteCancel[] = "Z";
@@ -1156,6 +1157,7 @@ namespace FIX
   const std::string SessionRejectReason_COMPID_PROBLEM_TEXT = "CompID problem";
   const std::string SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT = "SendingTime accuracy problem";
   const std::string SessionRejectReason_INVALID_MSGTYPE_TEXT = "Invalid MsgType";
+  const std::string SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT = "Tag specified out of required order";
 }
 #endif //FIX_VALUES_H
  

@@ -280,38 +280,6 @@ public class Message extends org.quickfix.Message
       return value;
     }
  
-    public void set(NoHops value) { 
-      super.setField(value);
-    }
-    NoHops get(NoHops value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(HopCompID value) { 
-      super.setField(value);
-    }
-    HopCompID get(HopCompID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(HopSendingTime value) { 
-      super.setField(value);
-    }
-    HopSendingTime get(HopSendingTime value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
-    public void set(HopRefID value) { 
-      super.setField(value);
-    }
-    HopRefID get(HopRefID value) throws FieldNotFound{
-      super.getField(value);
-      return value;
-    }
- 
   }
 }
 

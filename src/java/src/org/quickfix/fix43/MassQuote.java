@@ -90,9 +90,6 @@ public static class NoQuoteSets extends Group {
              312, 
              309, 
              305, 
-             457, 
-             458, 
-             459, 
              462, 
              463, 
              310, 
@@ -379,27 +376,6 @@ public static class NoQuoteEntries extends Group {
   public org.quickfix.field.SecurityIDSource getSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.SecurityIDSource value = new org.quickfix.field.SecurityIDSource(); 
     getField(value); return value; } 
-  public void set(org.quickfix.field.NoSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.SecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.SecurityAltID get(org.quickfix.field.SecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.SecurityAltIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.SecurityAltIDSource get(org.quickfix.field.SecurityAltIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
-  { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
-    getField(value); return value; } 
   public void set(org.quickfix.field.Product value) 
   { setField(value); } 
   public org.quickfix.field.Product get(org.quickfix.field.Product value) throws FieldNotFound 
@@ -624,27 +600,6 @@ public static class NoQuoteEntries extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.UnderlyingSecurityIDSource getUnderlyingSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityIDSource value = new org.quickfix.field.UnderlyingSecurityIDSource(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NoUnderlyingSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.NoUnderlyingSecurityAltID get(org.quickfix.field.NoUnderlyingSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoUnderlyingSecurityAltID getNoUnderlyingSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.NoUnderlyingSecurityAltID value = new org.quickfix.field.NoUnderlyingSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.UnderlyingSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.UnderlyingSecurityAltID get(org.quickfix.field.UnderlyingSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.UnderlyingSecurityAltID getUnderlyingSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.UnderlyingSecurityAltID value = new org.quickfix.field.UnderlyingSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.UnderlyingSecurityAltIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.UnderlyingSecurityAltIDSource get(org.quickfix.field.UnderlyingSecurityAltIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.UnderlyingSecurityAltIDSource getUnderlyingSecurityAltIDSource() throws FieldNotFound 
-  { org.quickfix.field.UnderlyingSecurityAltIDSource value = new org.quickfix.field.UnderlyingSecurityAltIDSource(); 
     getField(value); return value; } 
   public void set(org.quickfix.field.UnderlyingProduct value) 
   { setField(value); } 

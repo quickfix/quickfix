@@ -13,14 +13,12 @@ public class NewOrderList extends Message
   public NewOrderList(    
     org.quickfix.field.ListID aListID,    
     org.quickfix.field.BidType aBidType,    
-    org.quickfix.field.TotNoOrders aTotNoOrders,    
-    org.quickfix.field.NoOrders aNoOrders ) 
+    org.quickfix.field.TotNoOrders aTotNoOrders ) 
   {  
     getHeader().setField(new MsgType("E")); 
     set(aListID); 
     set(aBidType); 
-    set(aTotNoOrders); 
-    set(aNoOrders);  
+    set(aTotNoOrders);  
   } 
 
   public void set(org.quickfix.field.ListID value) 
@@ -111,14 +109,6 @@ public class NewOrderList extends Message
   { org.quickfix.field.TotNoOrders value = new org.quickfix.field.TotNoOrders(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoOrders value) 
-  { setField(value); } 
-  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
-  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
-    getField(value); return value; } 
-
 public static class NoOrders extends Group { 
   public NoOrders() { 
     super(73, 1, 
@@ -129,7 +119,6 @@ public static class NoOrders extends Group {
                109, 
                76, 
                1, 
-               78, 
                63, 
                64, 
                21, 
@@ -137,7 +126,6 @@ public static class NoOrders extends Group {
                110, 
                111, 
                100, 
-               386, 
                81, 
                55, 
                65, 
@@ -248,14 +236,6 @@ public static class NoOrders extends Group {
   { org.quickfix.field.Account value = new org.quickfix.field.Account(); 
     getField(value); return value; } 
 
-  public void set(org.quickfix.field.NoAllocs value) 
-  { setField(value); } 
-  public org.quickfix.field.NoAllocs get(org.quickfix.field.NoAllocs value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoAllocs getNoAllocs() throws FieldNotFound 
-  { org.quickfix.field.NoAllocs value = new org.quickfix.field.NoAllocs(); 
-    getField(value); return value; } 
-
   public void set(org.quickfix.field.SettlmntTyp value) 
   { setField(value); } 
   public org.quickfix.field.SettlmntTyp get(org.quickfix.field.SettlmntTyp value) throws FieldNotFound 
@@ -310,14 +290,6 @@ public static class NoOrders extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.ExDestination getExDestination() throws FieldNotFound 
   { org.quickfix.field.ExDestination value = new org.quickfix.field.ExDestination(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.NoTradingSessions value) 
-  { setField(value); } 
-  public org.quickfix.field.NoTradingSessions get(org.quickfix.field.NoTradingSessions value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoTradingSessions getNoTradingSessions() throws FieldNotFound 
-  { org.quickfix.field.NoTradingSessions value = new org.quickfix.field.NoTradingSessions(); 
     getField(value); return value; } 
 
   public void set(org.quickfix.field.ProcessCode value) 

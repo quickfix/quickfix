@@ -41,9 +41,6 @@ public static class NoRelatedSym extends Group {
              65, 
              48, 
              22, 
-             454, 
-             455, 
-             456, 
              460, 
              461, 
              167, 
@@ -78,9 +75,6 @@ public static class NoRelatedSym extends Group {
                336, 
                625, 
                229, 
-             232, 
-             233, 
-             234, 
                54, 
                465, 
                38, 
@@ -301,27 +295,6 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.SecurityIDSource getSecurityIDSource() throws FieldNotFound 
   { org.quickfix.field.SecurityIDSource value = new org.quickfix.field.SecurityIDSource(); 
     getField(value); return value; } 
-  public void set(org.quickfix.field.NoSecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.SecurityAltID value) 
-  { setField(value); } 
-  public org.quickfix.field.SecurityAltID get(org.quickfix.field.SecurityAltID value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
-  { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.SecurityAltIDSource value) 
-  { setField(value); } 
-  public org.quickfix.field.SecurityAltIDSource get(org.quickfix.field.SecurityAltIDSource value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
-  { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
-    getField(value); return value; } 
   public void set(org.quickfix.field.Product value) 
   { setField(value); } 
   public org.quickfix.field.Product get(org.quickfix.field.Product value) throws FieldNotFound 
@@ -517,27 +490,6 @@ public static class NoRelatedSym extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.EncodedSecurityDesc getEncodedSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedSecurityDesc value = new org.quickfix.field.EncodedSecurityDesc(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.NoStipulations value) 
-  { setField(value); } 
-  public org.quickfix.field.NoStipulations get(org.quickfix.field.NoStipulations value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.NoStipulations getNoStipulations() throws FieldNotFound 
-  { org.quickfix.field.NoStipulations value = new org.quickfix.field.NoStipulations(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.StipulationType value) 
-  { setField(value); } 
-  public org.quickfix.field.StipulationType get(org.quickfix.field.StipulationType value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.StipulationType getStipulationType() throws FieldNotFound 
-  { org.quickfix.field.StipulationType value = new org.quickfix.field.StipulationType(); 
-    getField(value); return value; } 
-  public void set(org.quickfix.field.StipulationValue value) 
-  { setField(value); } 
-  public org.quickfix.field.StipulationValue get(org.quickfix.field.StipulationValue value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.StipulationValue getStipulationValue() throws FieldNotFound 
-  { org.quickfix.field.StipulationValue value = new org.quickfix.field.StipulationValue(); 
     getField(value); return value; } 
   public void set(org.quickfix.field.Spread value) 
   { setField(value); } 

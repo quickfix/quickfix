@@ -11,12 +11,10 @@ public class Email extends Message
     getHeader().setField(new MsgType("C")); 
   } 
   public Email(    
-    org.quickfix.field.EmailType aEmailType,    
-    org.quickfix.field.LinesOfText aLinesOfText ) 
+    org.quickfix.field.EmailType aEmailType ) 
   {  
     getHeader().setField(new MsgType("C")); 
-    set(aEmailType); 
-    set(aLinesOfText);  
+    set(aEmailType);  
   } 
 
   public void set(org.quickfix.field.EmailType value) 
@@ -57,14 +55,6 @@ public class Email extends Message
   { getField(value); return value; } 
   public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
-    getField(value); return value; } 
-
-  public void set(org.quickfix.field.LinesOfText value) 
-  { setField(value); } 
-  public org.quickfix.field.LinesOfText get(org.quickfix.field.LinesOfText value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.LinesOfText getLinesOfText() throws FieldNotFound 
-  { org.quickfix.field.LinesOfText value = new org.quickfix.field.LinesOfText(); 
     getField(value); return value; } 
 
 public static class LinesOfText extends Group { 
