@@ -144,7 +144,9 @@ inline jobject newMessage( const FIX::Message& message )
 
 inline void setString( FIX::FieldMap& map, jint field, jstring value )
 {
-  map.setField( field, ENV::get() ->GetStringUTFChars( value, 0 ) );
+  const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
+  map.setField( field, uvalue );
+  ENV::get()->ReleaseStringUTFChars( value, uvalue );
 }
 
 inline void setBoolean( FIX::FieldMap& map, jint field, jboolean value )

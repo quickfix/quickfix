@@ -69,8 +69,11 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileStore_create
   FIX::SessionID* pSessionID
   = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
 
+  const char* upath = pEnv->GetStringUTFChars( path, 0 );
   FIX::MessageStore* pStore = new FIX::FileStore(
-                                pEnv->GetStringUTFChars( path, 0 ), *pSessionID );
+                                upath, *pSessionID );
+  pEnv->ReleaseStringUTFChars( path, upath );
+
   JavaMessageStore_create( pEnv, obj, pStore );
 }
 

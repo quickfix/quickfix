@@ -86,7 +86,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_FileLogFactory_destroy
 JNIEXPORT jobject JNICALL Java_org_quickfix_FileLogFactory_create__Lorg_quickfix_SessionID_2
 ( JNIEnv *pEnv, jobject obj, jobject sessionID )
 {
-  JVM::set( pEnv );
+ JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jsession( sessionID );
 
@@ -95,7 +95,16 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_FileLogFactory_create__Lorg_quickfix
   FIX::SessionID* pSessionID
   = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
 
-  JVMClass type( "Lorg/quickfix/FileLog;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-  return pEnv->NewObject( type, method, ( jint ) pFactory );
+  try
+  {
+    FIX::Log* pLog = pFactory->create( *pSessionID );
+    JVMClass type( "Lorg/quickfix/FileLog;" );
+    jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+    return pEnv->NewObject( type, method, ( jint ) pLog );
+  }
+  catch ( FIX::ConfigError & e )
+  {
+    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+  }
+  return 0;
 }

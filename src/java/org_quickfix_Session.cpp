@@ -117,8 +117,13 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfi
   JVMObject jmessage( msg );
   FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
 
-  std::string senderCompID( ( pEnv->GetStringUTFChars( sender, 0 ) ) );
-  std::string targetCompID( ( pEnv->GetStringUTFChars( target, 0 ) ) );
+  const char* usender = pEnv->GetStringUTFChars( sender, 0 );
+  std::string senderCompID( usender );
+  pEnv->ReleaseStringUTFChars( sender, usender );
+
+  const char* utarget = pEnv->GetStringUTFChars( target, 0 );
+  std::string targetCompID( utarget );
+  pEnv->ReleaseStringUTFChars( target, utarget );
 
   FIX::BeginString beginString;
   if ( !pMessage->getHeader().isSetField( beginString ) )

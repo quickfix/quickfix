@@ -117,7 +117,10 @@ throw ( FIX::IOException& )
   bool result = pEnv->CallBooleanMethod( messageStore, getId,
                                          seq, string ) != 0;
 
-  message = pEnv->GetStringUTFChars( string, 0 );
+  const char* ustring = pEnv->GetStringUTFChars( string, 0 );
+  message = ustring;
+  pEnv->ReleaseStringUTFChars( string, ustring );
+
   handleException( pEnv );
   return result;
 }
@@ -141,7 +144,9 @@ throw ( FIX::IOException& )
   for ( jint i = 0; i < size; ++i )
   {
     jstring message = ( jstring ) pEnv->CallObjectMethod( collection, methodID, i );
-    messages.push_back( pEnv->GetStringUTFChars( message, 0 ) );
+    const char* umessage = pEnv->GetStringUTFChars( message, 0 );
+    messages.push_back( umessage );
+    pEnv->ReleaseStringUTFChars( message, umessage );
   }
 }
 
@@ -293,7 +298,10 @@ jboolean JNICALL JavaMessageStore_set0
 
   bool threw = false;
   FIX::IOException e;
-  bool result = pWrapper->set( seq, pEnv->GetStringUTFChars( message, 0 ), threw, e );
+
+  const char* umessage = pEnv->GetStringUTFChars( message, 0 );
+  bool result = pWrapper->set( seq, umessage, threw, e );
+  pEnv->ReleaseStringUTFChars( message, umessage );
 
   if ( threw )
   {

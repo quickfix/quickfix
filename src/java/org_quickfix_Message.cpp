@@ -70,7 +70,9 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_InitializeXML
 ( JNIEnv *pEnv, jclass type, jstring url )
 {
   JVM::set( pEnv );
-  return FIX::Message::InitializeXML(ENV::get() ->GetStringUTFChars( url, 0 ));
+  const char* uurl = ENV::get()->GetStringUTFChars( url, 0 );
+  return FIX::Message::InitializeXML( uurl );
+  ENV::get()->ReleaseStringUTFChars( url, uurl );
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_Message_create
@@ -517,8 +519,11 @@ JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  if ( !pMessage->setString( ENV::get() ->GetStringUTFChars( value, 0 ), validate ) )
+
+  const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
+  if ( !pMessage->setString( uvalue, validate ) )
   {
     throwNew( "Lorg/quickfix/InvalidMessage;", "Invalid Message" );
   }
+  ENV::get()->ReleaseStringUTFChars( value, uvalue );
 }

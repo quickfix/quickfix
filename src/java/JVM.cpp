@@ -222,7 +222,10 @@ std::string JVMObject::getString( const std::string& name )
   jstring jstr = ( jstring ) ( jobject ) getObjectField( fid );
   if ( jstr == 0 ) throw std::logic_error( "string field " + name + " is null" );
 
-  return pEnv->GetStringUTFChars( jstr, 0 );
+  const char* u = pEnv->GetStringUTFChars( jstr, 0 );
+  std::string result = u;
+  pEnv->ReleaseStringUTFChars( jstr, u );
+  return result;
 }
 
 char JVMObject::getChar( const std::string& name )

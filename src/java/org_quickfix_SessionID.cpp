@@ -65,9 +65,17 @@ JNIEXPORT void JNICALL Java_org_quickfix_SessionID_create
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
-  std::string beginString( ( pEnv->GetStringUTFChars( begin, 0 ) ) );
-  std::string senderCompID( ( pEnv->GetStringUTFChars( sender, 0 ) ) );
-  std::string targetCompID( ( pEnv->GetStringUTFChars( target, 0 ) ) );
+  const char* ubegin = pEnv->GetStringUTFChars( begin, 0 );
+  std::string beginString( ubegin );
+  pEnv->ReleaseStringUTFChars( begin, ubegin );
+
+  const char* usender = pEnv->GetStringUTFChars( sender, 0 );
+  std::string senderCompID( usender );
+  pEnv->ReleaseStringUTFChars( sender, usender );
+
+  const char* utarget = pEnv->GetStringUTFChars( target, 0 );
+  std::string targetCompID( utarget );
+  pEnv->ReleaseStringUTFChars( target, utarget );
 
   FIX::SessionID* pSession = new FIX::SessionID
                              ( FIX::BeginString( beginString ),
