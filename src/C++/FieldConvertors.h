@@ -211,7 +211,8 @@ struct DoubleConvertor
     {
       int size = sprintf( result, "%.15f", value );
       // strip trailing 0's
-      for( char * i = result + size - 1; *i == '0'; *(i--) = 0, size-- ) {}
+      char* i = 0;
+      for( i = result + size - 1; *i == '0'; *(i--) = 0, size-- ) {}
       if( *i == '.' ) return "0";
       return std::string( result, size );
     }
