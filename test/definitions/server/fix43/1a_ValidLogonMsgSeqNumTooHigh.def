@@ -1,0 +1,8 @@
+# if the message sequence number is too high, respond with long and send
+# resend request
+
+iCONNECT
+I8=FIX.4.335=A34=549=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.39=5735=A34=149=ISLD52=<TIME>56=TW98=0108=3010=0
+E8=FIX.4.39=5435=234=249=ISLD52=00000000-00:00:0056=TW7=116=410=0
+iDISCONNECT

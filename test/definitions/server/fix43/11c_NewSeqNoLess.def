@@ -1,0 +1,21 @@
+# SequenceReset where NewSeqNo is less than the expected inbound MsgSeqNum
+
+iCONNECT
+I8=FIX.4.335=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.39=5735=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# sequence reset without gap fill flag (default to N)
+I8=FIX.4.335=434=049=TW52=<TIME>56=ISLD36=1
+E8=FIX.4.39=11235=334=249=ISLD52=00000000-00:00:0056=TW45=058=Value is incorrect (out of range) for this tag372=4373=510=0
+
+I8=FIX.4.335=134=249=TW52=<TIME>56=ISLD112=HELLO
+E8=FIX.4.39=5535=034=349=ISLD52=00000000-00:00:0056=TW112=HELLO10=0
+
+# sequence reset without gap fill flag (default to N)
+I8=FIX.4.335=434=049=TW52=<TIME>56=ISLD36=1123=N
+E8=FIX.4.39=11235=334=449=ISLD52=00000000-00:00:0056=TW45=058=Value is incorrect (out of range) for this tag372=4373=510=0
+
+I8=FIX.4.335=134=349=TW52=<TIME>56=ISLD112=HELLO
+E8=FIX.4.39=5535=034=549=ISLD52=00000000-00:00:0056=TW112=HELLO10=0
+
+iDISCONNECT
