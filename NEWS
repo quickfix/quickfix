@@ -1,3 +1,59 @@
+1.5.0
+-----
+Support for DATA fields. This will allow to safely send encrypted and
+compressed fields.  Out of necessity, FIX parser uses the length field
+instead of just looking for 10=SOH. This means behavior will be slightly
+different when receiving messages with an incorrect length.
+
+Acceptor and Initiator start() method is not a non-blocking call. onRun
+is no longer called in your application.  Instead you must call stop on
+your initiator or acceptor when you want it to shut down.
+
+Fixed several problems with parsing nested repeating groups and groups
+with components.
+
+Added UseDataDictionary field which defaults to Y. You must explicitly
+set this field to N if you DONT want to use a DataDictionary.
+
+New include structure for C++. Includes are now in the form of
+quickfix/[file].h instead of the old quickfix/include/[file].h
+
+Several optimizations added to increase the speed of creating, parsing,
+and sending messages.  Overall performance of the engine should be
+considerably better.  Messages with repeating groups should show dramatic 
+performance increase.
+
+All libraries are now build as shared libraries. This also doubles the speed
+of the build under gcc because object files only need to be compiled once
+instead of twice as before.
+
+Header file dependencies have been reduced to speed up build. This may means
+headers that were previously pulled in automatically via other header files,
+may no longer do so.  You will now need to explicitly include these files where
+needed.
+
+Fixed some resource leaks when shutting down threads.
+
+Added java acceptance tests. All FIX test scripts can now be run with
+the runat_java and runat_java.bat commands in the test directory. FIX 4.3
+tests now run with runat_threaded
+
+Queued logon messages (logons messages received with sequence number to
+high), are skipped when processing queue.
+
+Build will pull CFLAGS, CXXFLAGS, and LDFLAGS in from the environment.
+Default compiler flags are now -O2 -g. This may cause problems with some
+older versions of gcc. Set CXXFLAGS to -O or blank if you have problems
+compiling
+
+Added new 'void toString( std::string& )' and 'void toXML( std::string& )' 
+method calls. These are more efficient than 'string toString()' and
+'string toXML' calls.  The new versions should be used if these methods
+are called in a loop for better performance.
+
+FileLog forcefully flushes writes so the state of the storage file is
+always up to date.
+
 1.4.1
 -----
 Fixed compilation errors when building under gcc 3.x (matching throw
