@@ -643,7 +643,7 @@ void Session::generateReject( const Message& message, int err, int field )
 { QF_STACK_PUSH(Session::generateReject)
 
   if ( !m_state.receivedLogon() )
-    throw std::exception();
+    throw std::exception( "Tried to send a reject while not logged on" );
 
   std::string beginString = m_sessionID.getBeginString();
 
@@ -852,7 +852,7 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     header.getField( msgSeqNum );
 
     if ( !validLogonState( msgType ) )
-      throw std::exception();
+      throw std::exception( "Logon state is not valid for message" );
     if ( !isGoodTime( sendingTime ) )
       doBadTime( msg );
     if ( !isCorrectCompID( senderCompID, targetCompID ) )
@@ -986,7 +986,7 @@ bool Session::doTargetTooLow( const Message& msg )
                    + " PosDup: " + BoolConvertor::convert( possDupFlag ) );
 
   if ( !possDupFlag )
-    throw std::exception();
+    throw std::exception( "Sequence number too low and PossDupFlag is false" );
   return doPossDup( msg );
 
   QF_STACK_POP
