@@ -151,7 +151,7 @@ private:
     FIX::MsgType msgType;
     unmanaged.getHeader().getField( beginString );
     unmanaged.getHeader().getField( msgType );
-    QuickFix::Message* message 
+    QuickFix::Message __pin * message 
       = m_factory->create
       ( beginString.getValue().c_str(), msgType.getValue().c_str() );
     message->setUnmanaged( unmanaged );
