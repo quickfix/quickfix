@@ -49,7 +49,7 @@ Dictionary( const std::string& name ) : m_name( name ) {}
   int size() const { return m_data.size(); }
 
   /// Get a value as a string.
-  std::string getString( const std::string& ) const
+  std::string getString( const std::string&, bool capitalize = false ) const
   throw( ConfigError, FieldConvertError );
   /// Get a value as a long.
   long getLong( const std::string& ) const

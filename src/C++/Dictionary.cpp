@@ -29,13 +29,20 @@
 
 namespace FIX
 {
-std::string Dictionary::getString( const std::string& key ) const
+std::string Dictionary::getString( const std::string& key, bool capitalize ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getString)
 
   Data::const_iterator i = m_data.find( key );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
-  return i->second;
+
+  std::string result = i->second;
+  if( capitalize )
+  {
+    for( std::string::size_type i = 0; i <= result.size(); ++i )
+      result[i] = toupper(result[i]);
+  }
+  return result;
 
   QF_STACK_POP
 }

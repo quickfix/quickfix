@@ -31,10 +31,11 @@ namespace FIX
 void DictionaryTestCase::setGetString::onRun( Dictionary& object )
 {
   object.setString( "STRINGKEY1", "STRINGVALUE1" );
-  object.setString( "STRINGKEY2", "STRINGVALUE2" );
+  object.setString( "STRINGKEY2", "stringvalue2" );
 
   assert( object.getString( "STRINGKEY1" ) == "STRINGVALUE1" );
-  assert( object.getString( "STRINGKEY2" ) == "STRINGVALUE2" );
+  assert( object.getString( "STRINGKEY2" ) == "stringvalue2" );
+  assert( object.getString( "STRINGKEY2", true ) == "STRINGVALUE2" );
   try{ object.getString( "STRINGKEY3" ); assert( false ); }
   catch ( ConfigError& ) {}}
 

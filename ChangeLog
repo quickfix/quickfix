@@ -1,3 +1,273 @@
+2004-06-15 20:37  orenmnero
+
+	* src/C++/Session.cpp: first message received during session time
+	  will be processed
+
+2004-06-15 18:38  orenmnero
+
+	* quickfix_jni.dsw: workspace points to dsp in right directory
+
+2004-06-15 15:15  orenmnero
+
+	* build_vc7.bat: added back debug build
+
+2004-06-11 18:56  orenmnero
+
+	* src/: C++/MySQLLog.cpp, C++/MySQLStore.cpp, sql/create_mysql.bat,
+	  sql/create_mysql.sh: explicitly set default user as root
+
+2004-06-10 03:34  orenmnero
+
+	* src/C++/test/Makefile.am: always build tests without
+	  optimizations
+
+2004-06-10 03:22  orenmnero
+
+	* build_vc7.bat, spec/MessageCracker.xsl,
+	  spec/java_MessageCracker.xsl, spec/net_MessageCracker.xsl,
+	  src/.NET/FIX40_MessageCracker.cs,
+	  src/.NET/FIX41_MessageCracker.cs,
+	  src/.NET/FIX42_MessageCracker.cs,
+	  src/.NET/FIX43_MessageCracker.cs,
+	  src/.NET/FIX44_MessageCracker.cs, src/C++/fix43/MessageCracker.h,
+	  src/C++/fix44/MessageCracker.h,
+	  src/java/src/quickfix/fix40/MessageCracker.java,
+	  src/java/src/quickfix/fix41/MessageCracker.java,
+	  src/java/src/quickfix/fix42/MessageCracker.java,
+	  src/java/src/quickfix/fix43/MessageCracker.java,
+	  src/java/src/quickfix/fix44/MessageCracker.java: removed extra {}
+	  for BusinessMessageReject
+
+2004-06-09 20:29  orenmnero
+
+	* src/: .NET/FIX40_MessageCracker.cs, .NET/FIX41_MessageCracker.cs,
+	  .NET/FIX42_MessageCracker.cs, .NET/FIX43_MessageCracker.cs,
+	  .NET/FIX44_MessageCracker.cs, C++/fix40/MessageCracker.h,
+	  C++/fix41/MessageCracker.h, C++/fix42/MessageCracker.h,
+	  C++/fix43/MessageCracker.h, C++/fix44/MessageCracker.h: admin
+	  messages do not throw UnsupportedMessage if not overriden
+
+2004-06-09 20:27  orenmnero
+
+	* src/java/src/quickfix/fix40/MessageCracker.java,
+	  src/java/src/quickfix/fix41/MessageCracker.java,
+	  src/java/src/quickfix/fix42/MessageCracker.java,
+	  src/java/src/quickfix/fix43/MessageCracker.java,
+	  src/java/src/quickfix/fix44/MessageCracker.java,
+	  spec/java_MessageCracker.xsl: added methods for admin messages
+
+2004-06-09 20:18  orenmnero
+
+	* src/C++/Values.h: using std::strings instead of char arrays
+
+2004-06-09 20:17  orenmnero
+
+	* src/python/QuickfixPython.cpp: [no log message]
+
+2004-06-09 20:07  orenmnero
+
+	* spec/: generate_java.sh, generate_net.sh: initial checkin
+
+2004-06-09 20:02  orenmnero
+
+	* spec/: MessageCracker.xsl, java_MessageCracker.xsl,
+	  net_MessageCracker.xsl: admin messages do not throw
+	  UnsupportedMessage if not overridden
+
+2004-06-08 03:09  orenmnero
+
+	* lib/.cvsignore: [no log message]
+
+2004-06-08 03:00  orenmnero
+
+	* src/C++/Session.cpp: logs correct message if sequence number too
+	  low with no PossDup flag
+
+2004-06-06 17:07  orenmnero
+
+	* src/C++/MySQLStore.cpp: corrected populateCache which read in
+	  incoming and outgoing numbers to the wrong fields
+
+2004-06-05 01:20  orenmnero
+
+	* src/C++/MySQLStore.cpp: corrected UPDATE statements which had
+	  sequence numbers reversed
+
+2004-06-01 04:25  orenmnero
+
+	* src/C++/Group.h: removed undefined methods
+
+2004-06-01 04:00  orenmnero
+
+	* build_vc6.bat: [no log message]
+
+2004-06-01 03:28  orenmnero
+
+	* examples/executor/: executor_cpp.dsp, C++/executor_cpp.dsp: [no
+	  log message]
+
+2004-06-01 03:12  orenmnero
+
+	* doc/html/: application.html, receiving_messages.html,
+	  repeating_groups.html, sending_messages.html, user_defined.html,
+	  csharp/receiving_messages_2.html, python/application_1.html,
+	  python/application_2.html, python/receiving_messages_1.html,
+	  python/receiving_messages_2.html, python/sending_messages_1.html,
+	  python/sending_messages_2.html, python/sending_messages_3.html,
+	  python/user_defined_1.html, python/user_defined_2.html,
+	  python/user_defined_3.html: added documentation for python
+
+2004-05-31 23:47  orenmnero
+
+	* doc/html/: application.html, examples.html,
+	  receiving_messages.html, repeating_groups.html,
+	  sending_messages.html, user_defined.html,
+	  vbnet/application_1.html, vbnet/application_2.html,
+	  vbnet/receiving_messages_1.html, vbnet/receiving_messages_2.html,
+	  vbnet/receiving_messages_3.html, vbnet/receiving_messages_4.html,
+	  vbnet/repeating_groups_1.html, vbnet/repeating_groups_2.html,
+	  vbnet/sending_messages_1.html, vbnet/sending_messages_2.html,
+	  vbnet/sending_messages_3.html, vbnet/sending_messages_4.html,
+	  vbnet/user_defined_1.html, vbnet/user_defined_2.html,
+	  vbnet/user_defined_3.html: added documentation for VB.NET
+
+2004-05-31 23:46  orenmnero
+
+	* doc/html/csharp/application_1.html,
+	  doc/html/csharp/repeating_groups_2.html,
+	  doc/html/csharp/sending_messages_1.html,
+	  doc/html/csharp/sending_messages_2.html,
+	  doc/html/csharp/sending_messages_4.html,
+	  examples/executor/csharp/Executor.cs,
+	  examples/executor/vbnet/Application.vb,
+	  examples/executor/vbnet/Executor.vb: [no log message]
+
+2004-05-31 20:31  orenmnero
+
+	* examples/executor/csharp/Application.cs: added support for FIX
+	  4.4
+
+2004-05-31 20:29  orenmnero
+
+	* examples/executor/vbnet/.cvsignore,
+	  examples/executor/vbnet/Application.vb,
+	  examples/executor/vbnet/AssemblyInfo.vb,
+	  examples/executor/vbnet/Executor.vb,
+	  examples/executor/vbnet/executor_vbnet.vbproj,
+	  bin/run_executor_vbnet.bat, examples/examples.sln: [no log
+	  message]
+
+2004-05-31 20:27  orenmnero
+
+	* src/.NET/Application.h: removed const pointer that were causing
+	  problems with VB.NET
+
+2004-05-31 16:07  orenmnero
+
+	* examples/executor/python/executor.py: [no log message]
+
+2004-05-31 16:04  orenmnero
+
+	* src/python/: QuickfixPython.cpp, quickfix.i, quickfix.py: force
+	  python to terminate on receiving CTRL-C ignore start method which
+	  is unsafe to use with python
+
+2004-05-31 14:57  orenmnero
+
+	* src/python/quickfix.i: [no log message]
+
+2004-05-31 14:34  orenmnero
+
+	* bin/: executor.py, run_executor_python: [no log message]
+
+2004-05-31 14:34  orenmnero
+
+	* examples/executor/python/executor.py: initial checkin
+
+2004-05-31 14:22  orenmnero
+
+	* spec/Makefile.am: install FIX44.xml
+
+2004-05-31 14:22  orenmnero
+
+	* src/python/Makefile.am: install/uninstall for python
+
+2004-05-31 02:18  orenmnero
+
+	* configure.in: [no log message]
+
+2004-05-31 01:33  orenmnero
+
+	* src/python/.cvsignore, bin/executor.py, bin/cfg/banzai.cfg: [no
+	  log message]
+
+2004-05-31 01:32  orenmnero
+
+	* src/python/: Makefile.am, QuickfixPython.cpp, QuickfixPython.h,
+	  quickfix.i, quickfix.py: swig generated python api
+
+2004-05-31 01:17  orenmnero
+
+	* src/Makefile.am, src/at_application.h, src/C++/Acceptor.cpp,
+	  src/C++/Acceptor.h, src/C++/Application.h,
+	  src/C++/DataDictionary.cpp, src/C++/DataDictionary.h,
+	  src/C++/Dictionary.cpp, src/C++/Dictionary.h,
+	  src/C++/Exceptions.h, src/C++/Field.h, src/C++/FieldConvertors.h,
+	  src/C++/FieldMap.cpp, src/C++/FieldMap.h, src/C++/FileStore.cpp,
+	  src/C++/FileStore.h, src/C++/Group.cpp, src/C++/Group.h,
+	  src/C++/Initiator.cpp, src/C++/Initiator.h,
+	  src/C++/LIBXML_DOMDocument.cpp, src/C++/LIBXML_DOMDocument.h,
+	  src/C++/MSXML_DOMDocument.cpp, src/C++/MSXML_DOMDocument.h,
+	  src/C++/Message.cpp, src/C++/Message.h, src/C++/MessageStore.cpp,
+	  src/C++/MessageStore.h, src/C++/Messages.h,
+	  src/C++/MySQLStore.cpp, src/C++/MySQLStore.h, src/C++/Parser.cpp,
+	  src/C++/Parser.h, src/C++/Session.cpp, src/C++/Session.h,
+	  src/C++/SessionSettings.cpp, src/C++/SessionSettings.h,
+	  src/C++/SessionState.h, src/C++/SocketAcceptor.cpp,
+	  src/C++/SocketAcceptor.h, src/C++/SocketConnection.cpp,
+	  src/C++/SocketConnection.h, src/C++/SocketInitiator.cpp,
+	  src/C++/SocketInitiator.h, src/C++/ThreadedSocketAcceptor.cpp,
+	  src/C++/ThreadedSocketAcceptor.h,
+	  src/C++/ThreadedSocketConnection.cpp,
+	  src/C++/ThreadedSocketConnection.h,
+	  src/C++/ThreadedSocketInitiator.cpp,
+	  src/C++/ThreadedSocketInitiator.h,
+	  src/C++/test/AcceptorTestCase.h,
+	  src/C++/test/FileStoreFactoryTestCase.h,
+	  src/C++/test/SessionTestCase.h, src/java/JavaApplication.cpp,
+	  src/java/JavaApplication.h, src/java/JavaMessageStore.cpp,
+	  src/java/JavaMessageStore.h, src/java/quickfix_Message.h,
+	  spec/Values.xsl, examples/executor/C++/Application.cpp,
+	  examples/executor/C++/Application.h,
+	  examples/ordermatch/Application.cpp,
+	  examples/ordermatch/Application.h,
+	  examples/tradeclient/Application.cpp,
+	  examples/tradeclient/Application.h: updated to make compatible
+	  with swig for generating python interface
+
+2004-05-27 20:06  orenmnero
+
+	* src/C++/SocketInitiator.cpp: call timout on error so polling
+	  works under windows
+
+2004-05-23 00:08  orenmnero
+
+	* src/C++/FieldMap.h: removed unnecessary FieldMap:: from methods,
+	  which was confusing swig
+
+2004-05-18 03:12  orenmnero
+
+	* src/C++/FieldMap.h: pass by reference instead of value to
+	  setField
+
+2004-05-09 17:13  orenmnero
+
+	* configure.in: updated version
+
+2004-05-09 15:35  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-05-09 14:34  orenmnero
 
 	* NEWS: [no log message]
@@ -889,28 +1159,8 @@
 
 2004-02-22 20:16  orenmnero
 
-	* examples/tradeclientgui/banzai/src/org/: Makefile.am,
-	  quickfix/.cvsignore, quickfix/banzai/.cvsignore,
-	  quickfix/banzai/BanzaiApplication.java,
-	  quickfix/banzai/DoubleNumberTextField.java,
-	  quickfix/banzai/Execution.java,
-	  quickfix/banzai/ExecutionTableModel.java,
-	  quickfix/banzai/IntegerNumberTextField.java,
-	  quickfix/banzai/LogonEvent.java, quickfix/banzai/Makefile.am,
-	  quickfix/banzai/Order.java, quickfix/banzai/OrderSide.java,
-	  quickfix/banzai/OrderTIF.java,
-	  quickfix/banzai/OrderTableModel.java,
-	  quickfix/banzai/OrderType.java, quickfix/banzai/TwoWayMap.java,
-	  quickfix/banzai/ui/.cvsignore,
-	  quickfix/banzai/ui/BanzaiFrame.java,
-	  quickfix/banzai/ui/BanzaiPanel.java,
-	  quickfix/banzai/ui/CancelReplacePanel.java,
-	  quickfix/banzai/ui/ExecutionPanel.java,
-	  quickfix/banzai/ui/ExecutionTable.java,
-	  quickfix/banzai/ui/Makefile.am,
-	  quickfix/banzai/ui/OrderEntryPanel.java,
-	  quickfix/banzai/ui/OrderPanel.java,
-	  quickfix/banzai/ui/OrderTable.java: [no log message]
+	* examples/tradeclientgui/banzai/src/org/Makefile.am: [no log
+	  message]
 
 2004-02-21 16:46  orenmnero
 
@@ -935,8 +1185,7 @@
 2004-02-20 06:41  orenmnero
 
 	* examples/tradeclientgui/banzai/src/: Makefile.am,
-	  org/quickfix/Makefile.am, quickfix/Makefile.am,
-	  quickfix/banzai/BanzaiApplication.java,
+	  quickfix/Makefile.am, quickfix/banzai/BanzaiApplication.java,
 	  quickfix/banzai/DoubleNumberTextField.java,
 	  quickfix/banzai/Execution.java,
 	  quickfix/banzai/ExecutionTableModel.java,
@@ -1033,26 +1282,6 @@
 	  examples/executor/java/src/Application.java,
 	  examples/executor/java/src/Executor.java,
 	  examples/tradeclientgui/banzai/src/Banzai.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/BanzaiApplication.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/DoubleNumberTextField.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Execution.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ExecutionTableModel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/IntegerNumberTextField.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/LogonEvent.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Order.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderSide.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderTIF.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderTableModel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderType.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/TwoWayMap.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/BanzaiFrame.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/BanzaiPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/CancelReplacePanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/ExecutionPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/ExecutionTable.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderEntryPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderTable.java,
 	  examples/tradeclientgui/banzai/test/BanzaiTest.java, src/at.java,
 	  src/at_application.java, src/at_messagecracker.java,
 	  src/C++/ConfigLexer.cpp: moving java api from org.quuickfix to
@@ -1505,66 +1734,8 @@
 	  fix43/TradeCaptureReport.java,
 	  fix43/TradeCaptureReportRequest.java,
 	  fix43/TradingSessionStatus.java,
-	  fix43/TradingSessionStatusRequest.java, fix44/Advertisement.java,
-	  fix44/AllocationInstruction.java,
-	  fix44/AllocationInstructionAck.java, fix44/AllocationReport.java,
-	  fix44/AllocationReportAck.java, fix44/AssignmentReport.java,
-	  fix44/BidRequest.java, fix44/BidResponse.java,
-	  fix44/BusinessMessageReject.java,
-	  fix44/CollateralAssignment.java, fix44/CollateralInquiry.java,
-	  fix44/CollateralInquiryAck.java, fix44/CollateralReport.java,
-	  fix44/CollateralRequest.java, fix44/CollateralResponse.java,
-	  fix44/Confirmation.java, fix44/ConfirmationAck.java,
-	  fix44/ConfirmationRequest.java,
-	  fix44/CrossOrderCancelReplaceRequest.java,
-	  fix44/CrossOrderCancelRequest.java,
-	  fix44/DerivativeSecurityList.java,
-	  fix44/DerivativeSecurityListRequest.java,
-	  fix44/DontKnowTrade.java, fix44/Email.java,
-	  fix44/ExecutionReport.java, fix44/Heartbeat.java,
-	  fix44/IndicationOfInterest.java, fix44/ListCancelRequest.java,
-	  fix44/ListExecute.java, fix44/ListStatus.java,
-	  fix44/ListStatusRequest.java, fix44/ListStrikePrice.java,
-	  fix44/Logon.java, fix44/Logout.java,
-	  fix44/MarketDataIncrementalRefresh.java,
-	  fix44/MarketDataRequest.java, fix44/MarketDataRequestReject.java,
-	  fix44/MarketDataSnapshotFullRefresh.java, fix44/MassQuote.java,
-	  fix44/MassQuoteAcknowledgement.java, fix44/Message.java,
-	  fix44/MessageCracker.java, fix44/MessageFactory.java,
-	  fix44/MultilegOrderCancelReplaceRequest.java,
-	  fix44/NewOrderCross.java, fix44/NewOrderList.java,
-	  fix44/NewOrderMultileg.java, fix44/NewOrderSingle.java,
-	  fix44/News.java, fix44/OrderCancelReject.java,
-	  fix44/OrderCancelReplaceRequest.java,
-	  fix44/OrderCancelRequest.java, fix44/OrderMassCancelReport.java,
-	  fix44/OrderMassCancelRequest.java,
-	  fix44/OrderMassStatusRequest.java, fix44/OrderStatusRequest.java,
-	  fix44/PositionMaintenanceReport.java,
-	  fix44/PositionMaintenanceRequest.java, fix44/PositionReport.java,
-	  fix44/Quote.java, fix44/QuoteCancel.java,
-	  fix44/QuoteRequest.java, fix44/QuoteRequestReject.java,
-	  fix44/QuoteResponse.java, fix44/QuoteStatusReport.java,
-	  fix44/QuoteStatusRequest.java, fix44/RFQRequest.java,
-	  fix44/RegistrationInstructions.java,
-	  fix44/RegistrationInstructionsResponse.java, fix44/Reject.java,
-	  fix44/RequestForPositions.java,
-	  fix44/RequestForPositionsAck.java, fix44/ResendRequest.java,
-	  fix44/SecurityDefinition.java,
-	  fix44/SecurityDefinitionRequest.java, fix44/SecurityList.java,
-	  fix44/SecurityListRequest.java, fix44/SecurityStatus.java,
-	  fix44/SecurityStatusRequest.java, fix44/SecurityTypeRequest.java,
-	  fix44/SecurityTypes.java, fix44/SequenceReset.java,
-	  fix44/SettlementInstructionRequest.java,
-	  fix44/SettlementInstructions.java, fix44/TestRequest.java,
-	  fix44/TradeCaptureReport.java, fix44/TradeCaptureReportAck.java,
-	  fix44/TradeCaptureReportRequest.java,
-	  fix44/TradeCaptureReportRequestAck.java,
-	  fix44/TradingSessionStatus.java,
-	  fix44/TradingSessionStatusRequest.java, test/AllTests.java,
-	  test/ApplicationImpl.java, test/FieldTest.java,
-	  test/MessageTest.java, test/OrderTest.java,
-	  test/PerformanceTest.java: moving java api from org.quickfix to
-	  quickfix namespace
+	  fix43/TradingSessionStatusRequest.java: moving java api from
+	  org.quickfix to quickfix namespace
 
 2004-02-09 20:54  orenmnero
 
@@ -4086,12 +4257,7 @@
 
 2004-02-02 17:36  orenmnero
 
-	* src/java/: build.xml, src/org/quickfix/test/AllTests.java,
-	  src/org/quickfix/test/ApplicationImpl.java,
-	  src/org/quickfix/test/FieldTest.java,
-	  src/org/quickfix/test/MessageTest.java,
-	  src/org/quickfix/test/OrderTest.java,
-	  src/org/quickfix/test/PerformanceTest.java, test/AllTests.java,
+	* src/java/: build.xml, test/AllTests.java,
 	  test/ApplicationImpl.java, test/FieldTest.java,
 	  test/Generator.java, test/Makefile.am, test/MessageTest.java,
 	  test/OrderTest.java, test/PerformanceTest.java: moved test source
@@ -4127,9 +4293,9 @@
 
 2004-01-30 14:52  orenmnero
 
-	* src/: C/fix_filestore.cpp, C/fix_filestore.h,
-	  C/fix_memorystore.cpp, C/fix_memorystore.h, C/fix_messagestore.h,
-	  C/quickfix_api.cpp, ruby/QuickFix.c: [no log message]
+	* src/C/: fix_filestore.cpp, fix_filestore.h, fix_memorystore.cpp,
+	  fix_memorystore.h, fix_messagestore.h, quickfix_api.cpp: [no log
+	  message]
 
 2004-01-29 21:28  orenmnero
 
@@ -5016,61 +5182,7 @@
 	  fix43/TradeCaptureReport.java,
 	  fix43/TradeCaptureReportRequest.java,
 	  fix43/TradingSessionStatus.java,
-	  fix43/TradingSessionStatusRequest.java, fix44/Advertisement.java,
-	  fix44/AllocationInstruction.java,
-	  fix44/AllocationInstructionAck.java, fix44/AllocationReport.java,
-	  fix44/AllocationReportAck.java, fix44/AssignmentReport.java,
-	  fix44/BidRequest.java, fix44/BidResponse.java,
-	  fix44/BusinessMessageReject.java,
-	  fix44/CollateralAssignment.java, fix44/CollateralInquiry.java,
-	  fix44/CollateralInquiryAck.java, fix44/CollateralReport.java,
-	  fix44/CollateralRequest.java, fix44/CollateralResponse.java,
-	  fix44/Confirmation.java, fix44/ConfirmationAck.java,
-	  fix44/ConfirmationRequest.java,
-	  fix44/CrossOrderCancelReplaceRequest.java,
-	  fix44/CrossOrderCancelRequest.java,
-	  fix44/DerivativeSecurityList.java,
-	  fix44/DerivativeSecurityListRequest.java,
-	  fix44/DontKnowTrade.java, fix44/Email.java,
-	  fix44/ExecutionReport.java, fix44/Heartbeat.java,
-	  fix44/IndicationOfInterest.java, fix44/ListCancelRequest.java,
-	  fix44/ListExecute.java, fix44/ListStatus.java,
-	  fix44/ListStatusRequest.java, fix44/ListStrikePrice.java,
-	  fix44/Logon.java, fix44/Logout.java,
-	  fix44/MarketDataIncrementalRefresh.java,
-	  fix44/MarketDataRequest.java, fix44/MarketDataRequestReject.java,
-	  fix44/MarketDataSnapshotFullRefresh.java, fix44/MassQuote.java,
-	  fix44/MassQuoteAcknowledgement.java, fix44/Message.java,
-	  fix44/MultilegOrderCancelReplaceRequest.java,
-	  fix44/NewOrderCross.java, fix44/NewOrderList.java,
-	  fix44/NewOrderMultileg.java, fix44/NewOrderSingle.java,
-	  fix44/News.java, fix44/OrderCancelReject.java,
-	  fix44/OrderCancelReplaceRequest.java,
-	  fix44/OrderCancelRequest.java, fix44/OrderMassCancelReport.java,
-	  fix44/OrderMassCancelRequest.java,
-	  fix44/OrderMassStatusRequest.java, fix44/OrderStatusRequest.java,
-	  fix44/PositionMaintenanceReport.java,
-	  fix44/PositionMaintenanceRequest.java, fix44/PositionReport.java,
-	  fix44/Quote.java, fix44/QuoteCancel.java,
-	  fix44/QuoteRequest.java, fix44/QuoteRequestReject.java,
-	  fix44/QuoteResponse.java, fix44/QuoteStatusReport.java,
-	  fix44/QuoteStatusRequest.java, fix44/RFQRequest.java,
-	  fix44/RegistrationInstructions.java,
-	  fix44/RegistrationInstructionsResponse.java, fix44/Reject.java,
-	  fix44/RequestForPositions.java,
-	  fix44/RequestForPositionsAck.java, fix44/ResendRequest.java,
-	  fix44/SecurityDefinition.java,
-	  fix44/SecurityDefinitionRequest.java, fix44/SecurityList.java,
-	  fix44/SecurityListRequest.java, fix44/SecurityStatus.java,
-	  fix44/SecurityStatusRequest.java, fix44/SecurityTypeRequest.java,
-	  fix44/SecurityTypes.java, fix44/SequenceReset.java,
-	  fix44/SettlementInstructionRequest.java,
-	  fix44/SettlementInstructions.java, fix44/TestRequest.java,
-	  fix44/TradeCaptureReport.java, fix44/TradeCaptureReportAck.java,
-	  fix44/TradeCaptureReportRequest.java,
-	  fix44/TradeCaptureReportRequestAck.java,
-	  fix44/TradingSessionStatus.java,
-	  fix44/TradingSessionStatusRequest.java: generated from ruby
+	  fix43/TradingSessionStatusRequest.java: generated from ruby
 	  generator, groups with component in first field use correct
 	  delimiter
 
@@ -5183,9 +5295,7 @@
 
 	* spec/FIX44.xml, src/.NET/Fields.h, src/C++/FieldNumbers.h,
 	  src/C++/Values.h,
-	  src/java/src/org/quickfix/field/TotNoOrders.java,
-	  src/java/src/org/quickfix/fix44/ListStatus.java,
-	  src/java/src/org/quickfix/fix44/NewOrderList.java: corrected
+	  src/java/src/org/quickfix/field/TotNoOrders.java: corrected
 	  FIX44.xml
 
 2003-08-04 06:31  orenmnero
@@ -5305,9 +5415,8 @@
 2003-08-01 18:42  orenmnero
 
 	* spec/java_MessageCracker.xsl,
-	  src/java/src/org/quickfix/MessageCracker.java,
-	  src/java/src/org/quickfix/fix44/MessageCracker.java: updated for
-	  FIX 4.4
+	  src/java/src/org/quickfix/MessageCracker.java: updated for FIX
+	  4.4
 
 2003-08-01 16:39  orenmnero
 
@@ -5332,21 +5441,8 @@
 	  org_quickfix_SocketAcceptor.cpp,
 	  org_quickfix_SocketInitiator.cpp,
 	  org_quickfix_ThreadedSocketAcceptor.cpp,
-	  org_quickfix_ThreadedSocketInitiator.cpp,
-	  src/org/quickfix/fix44/AllocationInstruction.java,
-	  src/org/quickfix/fix44/AllocationReport.java,
-	  src/org/quickfix/fix44/BidResponse.java,
-	  src/org/quickfix/fix44/Confirmation.java,
-	  src/org/quickfix/fix44/CrossOrderCancelReplaceRequest.java,
-	  src/org/quickfix/fix44/ExecutionReport.java,
-	  src/org/quickfix/fix44/MultilegOrderCancelReplaceRequest.java,
-	  src/org/quickfix/fix44/NewOrderCross.java,
-	  src/org/quickfix/fix44/NewOrderList.java,
-	  src/org/quickfix/fix44/NewOrderMultileg.java,
-	  src/org/quickfix/fix44/NewOrderSingle.java,
-	  src/org/quickfix/fix44/OrderCancelReplaceRequest.java,
-	  src/org/quickfix/fix44/TradeCaptureReport.java: explicitly
-	  including quickfix files with path
+	  org_quickfix_ThreadedSocketInitiator.cpp: explicitly including
+	  quickfix files with path
 
 2003-08-01 16:25  orenmnero
 
@@ -5379,13 +5475,8 @@
 2003-07-28 16:04  orenmnero
 
 	* src/: .NET/FIX44_Messages.h, .NET/Fields.h, C++/FieldNumbers.h,
-	  java/src/org/quickfix/field/LastQty.java,
-	  java/src/org/quickfix/fix44/AllocationInstruction.java,
-	  java/src/org/quickfix/fix44/AllocationReport.java,
-	  java/src/org/quickfix/fix44/DontKnowTrade.java,
-	  java/src/org/quickfix/fix44/ExecutionReport.java,
-	  java/src/org/quickfix/fix44/TradeCaptureReport.java: corrected
-	  number for LastQty
+	  java/src/org/quickfix/field/LastQty.java: corrected number for
+	  LastQty
 
 2003-07-28 14:48  orenmnero
 
@@ -5415,26 +5506,8 @@
 	  java/src/org/quickfix/field/SettlDate.java,
 	  java/src/org/quickfix/field/SettlType.java,
 	  java/src/org/quickfix/field/TradeRequestResult.java,
-	  java/src/org/quickfix/field/UserRequestType.java,
-	  java/src/org/quickfix/fix44/CrossOrderCancelReplaceRequest.java,
-	  java/src/org/quickfix/fix44/ExecutionReport.java,
-	  java/src/org/quickfix/fix44/MassQuote.java,
-	  java/src/org/quickfix/fix44/MassQuoteAcknowledgement.java,
-	  java/src/org/quickfix/fix44/MultilegOrderCancelReplaceRequest.java,
-	  java/src/org/quickfix/fix44/NewOrderCross.java,
-	  java/src/org/quickfix/fix44/NewOrderList.java,
-	  java/src/org/quickfix/fix44/NewOrderMultileg.java,
-	  java/src/org/quickfix/fix44/NewOrderSingle.java,
-	  java/src/org/quickfix/fix44/OrderCancelReplaceRequest.java,
-	  java/src/org/quickfix/fix44/Quote.java,
-	  java/src/org/quickfix/fix44/QuoteRequest.java,
-	  java/src/org/quickfix/fix44/QuoteRequestReject.java,
-	  java/src/org/quickfix/fix44/QuoteResponse.java,
-	  java/src/org/quickfix/fix44/QuoteStatusReport.java,
-	  java/src/org/quickfix/fix44/SecurityTypes.java,
-	  java/src/org/quickfix/fix44/TradeCaptureReport.java,
-	  java/src/org/quickfix/fix44/TradeCaptureReportAck.java: updated
-	  FIX44 fields and values
+	  java/src/org/quickfix/field/UserRequestType.java: updated FIX44
+	  fields and values
 
 2003-07-28 13:48  orenmnero
 
@@ -5635,30 +5708,8 @@
 	  java/src/org/quickfix/field/UnderlyingSymbolSfx.java,
 	  java/src/org/quickfix/field/UserRequestType.java,
 	  java/src/org/quickfix/field/YieldRedemptionPriceType.java,
-	  java/src/org/quickfix/field/YieldType.java,
-	  java/src/org/quickfix/fix44/AllocationInstruction.java,
-	  java/src/org/quickfix/fix44/AllocationReport.java,
-	  java/src/org/quickfix/fix44/CrossOrderCancelReplaceRequest.java,
-	  java/src/org/quickfix/fix44/DontKnowTrade.java,
-	  java/src/org/quickfix/fix44/ExecutionReport.java,
-	  java/src/org/quickfix/fix44/ListStatus.java,
-	  java/src/org/quickfix/fix44/MassQuote.java,
-	  java/src/org/quickfix/fix44/MassQuoteAcknowledgement.java,
-	  java/src/org/quickfix/fix44/MultilegOrderCancelReplaceRequest.java,
-	  java/src/org/quickfix/fix44/NewOrderCross.java,
-	  java/src/org/quickfix/fix44/NewOrderList.java,
-	  java/src/org/quickfix/fix44/NewOrderMultileg.java,
-	  java/src/org/quickfix/fix44/NewOrderSingle.java,
-	  java/src/org/quickfix/fix44/OrderCancelReplaceRequest.java,
-	  java/src/org/quickfix/fix44/Quote.java,
-	  java/src/org/quickfix/fix44/QuoteRequest.java,
-	  java/src/org/quickfix/fix44/QuoteRequestReject.java,
-	  java/src/org/quickfix/fix44/QuoteResponse.java,
-	  java/src/org/quickfix/fix44/QuoteStatusReport.java,
-	  java/src/org/quickfix/fix44/SecurityTypes.java,
-	  java/src/org/quickfix/fix44/TradeCaptureReport.java,
-	  java/src/org/quickfix/fix44/TradeCaptureReportAck.java: recreated
-	  fields section for FIX 4.4
+	  java/src/org/quickfix/field/YieldType.java: recreated fields
+	  section for FIX 4.4
 
 2003-07-24 03:37  orenmnero
 
@@ -5699,51 +5750,6 @@
 2003-07-24 03:00  orenmnero
 
 	* spec/net_Messages.xsl: includes DeprecatedFields.h
-
-2003-07-24 02:51  orenmnero
-
-	* src/java/src/org/quickfix/fix44/: Advertisement.java,
-	  AllocationInstruction.java, AllocationInstructionAck.java,
-	  AllocationReport.java, AllocationReportAck.java,
-	  AssignmentReport.java, BidRequest.java, BidResponse.java,
-	  BusinessMessageReject.java, CollateralAssignment.java,
-	  CollateralInquiry.java, CollateralInquiryAck.java,
-	  CollateralReport.java, CollateralRequest.java,
-	  CollateralResponse.java, Confirmation.java, ConfirmationAck.java,
-	  ConfirmationRequest.java, CrossOrderCancelReplaceRequest.java,
-	  CrossOrderCancelRequest.java, DerivativeSecurityList.java,
-	  DerivativeSecurityListRequest.java, DontKnowTrade.java,
-	  Email.java, ExecutionReport.java, Heartbeat.java,
-	  IndicationOfInterest.java, ListCancelRequest.java,
-	  ListExecute.java, ListStatus.java, ListStatusRequest.java,
-	  ListStrikePrice.java, Logon.java, Logout.java,
-	  MarketDataIncrementalRefresh.java, MarketDataRequest.java,
-	  MarketDataRequestReject.java, MarketDataSnapshotFullRefresh.java,
-	  MassQuote.java, MassQuoteAcknowledgement.java, Message.java,
-	  MessageCracker.java, MessageFactory.java,
-	  MultilegOrderCancelReplaceRequest.java, NewOrderCross.java,
-	  NewOrderList.java, NewOrderMultileg.java, NewOrderSingle.java,
-	  News.java, OrderCancelReject.java,
-	  OrderCancelReplaceRequest.java, OrderCancelRequest.java,
-	  OrderMassCancelReport.java, OrderMassCancelRequest.java,
-	  OrderMassStatusRequest.java, OrderStatusRequest.java,
-	  PositionMaintenanceReport.java, PositionMaintenanceRequest.java,
-	  PositionReport.java, Quote.java, QuoteCancel.java,
-	  QuoteRequest.java, QuoteRequestReject.java, QuoteResponse.java,
-	  QuoteStatusReport.java, QuoteStatusRequest.java, RFQRequest.java,
-	  RegistrationInstructions.java,
-	  RegistrationInstructionsResponse.java, Reject.java,
-	  RequestForPositions.java, RequestForPositionsAck.java,
-	  ResendRequest.java, SecurityDefinition.java,
-	  SecurityDefinitionRequest.java, SecurityList.java,
-	  SecurityListRequest.java, SecurityStatus.java,
-	  SecurityStatusRequest.java, SecurityTypeRequest.java,
-	  SecurityTypes.java, SequenceReset.java,
-	  SettlementInstructionRequest.java, SettlementInstructions.java,
-	  TestRequest.java, TradeCaptureReport.java,
-	  TradeCaptureReportAck.java, TradeCaptureReportRequest.java,
-	  TradeCaptureReportRequestAck.java, TradingSessionStatus.java,
-	  TradingSessionStatusRequest.java: initial checkin
 
 2003-07-24 02:03  orenmnero
 
@@ -6582,15 +6588,12 @@
 	  examples/tradeclientgui/banzai/.cvsignore,
 	  examples/tradeclientgui/banzai/src/.cvsignore,
 	  examples/tradeclientgui/banzai/src/org/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/.cvsignore,
 	  examples/tradeclientgui/banzai/test/.cvsignore, spec/.cvsignore,
 	  src/.cvsignore, src/C/.cvsignore, src/C++/.cvsignore,
 	  src/C++/test/.cvsignore, src/java/.cvsignore,
-	  src/ruby/.cvsignore, templates/.cvsignore, test/.cvsignore,
-	  test/atrun/.cvsignore, test/definitions/.cvsignore,
-	  test/definitions/server/.cvsignore: Fix line endings
+	  templates/.cvsignore, test/.cvsignore, test/atrun/.cvsignore,
+	  test/definitions/.cvsignore, test/definitions/server/.cvsignore:
+	  Fix line endings
 
 2003-05-06 22:19  orenmnero
 
@@ -6787,9 +6790,6 @@
 	  examples/tradeclientgui/banzai/Makefile.in,
 	  examples/tradeclientgui/banzai/src/Makefile.in,
 	  examples/tradeclientgui/banzai/src/org/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile.in,
 	  examples/tradeclientgui/banzai/test/Makefile.in,
 	  spec/Makefile.in, src/Makefile.in, src/C/Makefile.in,
 	  src/C++/Makefile.in, src/C++/test/Makefile.in,
@@ -6801,9 +6801,9 @@
 	  src/java/src/org/quickfix/fix41/Makefile.in,
 	  src/java/src/org/quickfix/fix42/Makefile.in,
 	  src/java/src/org/quickfix/fix43/Makefile.in,
-	  src/java/test/Makefile.in, src/ruby/Makefile.in,
-	  templates/Makefile.in, test/Makefile.in, test/atrun/Makefile.in,
-	  test/cfg/Makefile.in, test/definitions/Makefile.in,
+	  src/java/test/Makefile.in, templates/Makefile.in,
+	  test/Makefile.in, test/atrun/Makefile.in, test/cfg/Makefile.in,
+	  test/definitions/Makefile.in,
 	  test/definitions/server/Makefile.in,
 	  test/definitions/server/future/Makefile.in, CPPTest/Makefile.in,
 	  bin/Makefile.in, bin/cfg/Makefile.in, cfg/Makefile.in,
@@ -6968,9 +6968,8 @@
 	  ordermatch/Market.h, ordermatch/OrderMatcher.h,
 	  ordermatch/ordermatch.cpp, tradeclient/Application.cpp,
 	  tradeclient/Application.h, tradeclient/tradeclient.cpp,
-	  tradeclientgui/banzai/src/Banzai.java,
-	  tradeclientgui/banzai/src/org/quickfix/banzai/BanzaiApplication.java:
-	  replaced onRun with start/stop
+	  tradeclientgui/banzai/src/Banzai.java: replaced onRun with
+	  start/stop
 
 2003-04-09 00:33  orenmnero
 
@@ -7182,9 +7181,6 @@
 	  examples/tradeclientgui/banzai/Makefile.in,
 	  examples/tradeclientgui/banzai/src/Makefile.in,
 	  examples/tradeclientgui/banzai/src/org/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile.in,
 	  examples/tradeclientgui/banzai/test/Makefile.in,
 	  CPPTest/Makefile.in, bin/Makefile.in, cfg/Makefile.in,
 	  doc/Makefile.in, doc/html/Makefile.in, spec/Makefile.in,
@@ -7441,10 +7437,8 @@
 	  examples/ordermatch/Application.cpp,
 	  examples/ordermatch/Application.h,
 	  examples/tradeclient/Application.cpp,
-	  examples/tradeclient/Application.h,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/BanzaiApplication.java,
-	  src/at_application.h: changed throw specifier for fromApp and
-	  fromAdmin
+	  examples/tradeclient/Application.h, src/at_application.h: changed
+	  throw specifier for fromApp and fromAdmin
 
 2003-03-08 19:24  orenmnero
 
@@ -8192,14 +8186,8 @@
 	* src/java/src/org/quickfix/field/: AllocShares.java,
 	  IDSource.java, IOIShares.java, LastShares.java, ListNoOrds.java,
 	  OpenClose.java, QuoteAckStatus.java, Shares.java,
-	  SpreadToBenchmark.java, UnderlyingIDSource.java,
-	  deprecated/AllocShares.java, deprecated/IDSource.java,
-	  deprecated/IOIShares.java, deprecated/LastShares.java,
-	  deprecated/ListNoOrds.java, deprecated/OpenClose.java,
-	  deprecated/QuoteAckStatus.java, deprecated/Shares.java,
-	  deprecated/SpreadToBenchmark.java,
-	  deprecated/UnderlyingIDSource.java: moved deprecated fields up
-	  one directory
+	  SpreadToBenchmark.java, UnderlyingIDSource.java: moved deprecated
+	  fields up one directory
 
 2003-03-03 06:50  orenmnero
 
@@ -9742,12 +9730,7 @@
 
 2002-12-02 05:21  orenmnero
 
-	* src/java/src/org/quickfix/field/: deprecated/AllocShares.java,
-	  deprecated/IDSource.java, deprecated/IOIShares.java,
-	  deprecated/LastShares.java, deprecated/ListNoOrds.java,
-	  deprecated/OpenClose.java, deprecated/QuoteAckStatus.java,
-	  deprecated/Shares.java, deprecated/SpreadToBenchmark.java,
-	  deprecated/UnderlyingIDSource.java, AllocShares.java,
+	* src/java/src/org/quickfix/field/: AllocShares.java,
 	  IDSource.java, IOIShares.java, LastShares.java, ListNoOrds.java,
 	  OpenClose.java, QuoteAckStatus.java, Shares.java,
 	  SpreadToBenchmark.java, UnderlyingIDSource.java: field deprecated
@@ -9852,9 +9835,6 @@
 	  examples/tradeclientgui/banzai/Makefile.in,
 	  examples/tradeclientgui/banzai/src/Makefile.in,
 	  examples/tradeclientgui/banzai/src/org/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile.in,
 	  examples/tradeclientgui/banzai/test/Makefile.in,
 	  src/C++/Makefile.in, src/java/Makefile.am, src/java/Makefile.in:
 	  changes to autotools generated files
@@ -10947,35 +10927,6 @@
 	  examples/tradeclientgui/banzai/src/org/.cvsignore,
 	  examples/tradeclientgui/banzai/src/org/Makefile.am,
 	  examples/tradeclientgui/banzai/src/org/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/Makefile.am,
-	  examples/tradeclientgui/banzai/src/org/quickfix/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/BanzaiApplication.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/DoubleNumberTextField.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Execution.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ExecutionTableModel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/IntegerNumberTextField.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/LogonEvent.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Makefile.am,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Order.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderSide.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderTIF.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderTableModel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderType.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/TwoWayMap.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/BanzaiFrame.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/BanzaiPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/CancelReplacePanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/ExecutionPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/ExecutionTable.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile.am,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderEntryPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderTable.java,
 	  examples/tradeclientgui/banzai/test/.cvsignore,
 	  examples/tradeclientgui/banzai/test/BanzaiTest.java,
 	  examples/tradeclientgui/banzai/test/Makefile.am,
@@ -11740,8 +11691,6 @@
 	  src/java/test/Generator.java, src/java/test/Makefile.am,
 	  src/java/test/Makefile.in, src/java/test/MessageTest.java,
 	  src/java/test/OrderTest.java, src/java/test/PerformanceTest.java,
-	  src/ruby/.cvsignore, src/ruby/Makefile.am, src/ruby/Makefile.in,
-	  src/ruby/QuickFix.c, src/ruby/QuickFixTestCase.rb,
 	  src/sql/create_mysql.bat, src/sql/create_mysql.sh,
 	  src/sql/event_log_table.sql, src/sql/incoming_log_table.sql,
 	  src/sql/messages_table.sql, src/sql/mysql.sql,
@@ -12076,35 +12025,6 @@
 	  examples/tradeclientgui/banzai/src/org/.cvsignore,
 	  examples/tradeclientgui/banzai/src/org/Makefile.am,
 	  examples/tradeclientgui/banzai/src/org/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/Makefile.am,
-	  examples/tradeclientgui/banzai/src/org/quickfix/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/BanzaiApplication.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/DoubleNumberTextField.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Execution.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ExecutionTableModel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/IntegerNumberTextField.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/LogonEvent.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Makefile.am,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/Order.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderSide.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderTIF.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderTableModel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/OrderType.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/TwoWayMap.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/.cvsignore,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/BanzaiFrame.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/BanzaiPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/CancelReplacePanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/ExecutionPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/ExecutionTable.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile.am,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/Makefile.in,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderEntryPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderPanel.java,
-	  examples/tradeclientgui/banzai/src/org/quickfix/banzai/ui/OrderTable.java,
 	  examples/tradeclientgui/banzai/test/.cvsignore,
 	  examples/tradeclientgui/banzai/test/BanzaiTest.java,
 	  examples/tradeclientgui/banzai/test/Makefile.am,
@@ -12869,8 +12789,6 @@
 	  src/java/test/Generator.java, src/java/test/Makefile.am,
 	  src/java/test/Makefile.in, src/java/test/MessageTest.java,
 	  src/java/test/OrderTest.java, src/java/test/PerformanceTest.java,
-	  src/ruby/.cvsignore, src/ruby/Makefile.am, src/ruby/Makefile.in,
-	  src/ruby/QuickFix.c, src/ruby/QuickFixTestCase.rb,
 	  src/sql/create_mysql.bat, src/sql/create_mysql.sh,
 	  src/sql/event_log_table.sql, src/sql/incoming_log_table.sql,
 	  src/sql/messages_table.sql, src/sql/mysql.sql,

@@ -1,3 +1,42 @@
+1.8.0
+-----
+Completed python API. Now QuickFIX can be used to FIX enable python scripts. This
+is currently only tested on linux.  It will probably work on solaris, and 
+FreeBSD. To enable the python interface, run configure with 
+--with-python=<dir containing Python.h>. Most of the python API is generated
+with SWIG (www.swig.org), thanks to them for updating their software to 
+accomodate our requirements. If you wish to regenerate the API off of the 
+SWIG interface definition file, you must get the latest SWIG from cvs.
+
+VB.NET API works again.
+
+Initiator and Acceptor poll() commands now work under Windows.
+
+Executor example application implemented in VB.NET and python. Documentation now
+includes VB.NET and python code snippets.
+
+Fixed a couple bugs with the MySQL message store. Some of the sequence numbers
+were being stored/retrieved in reverse. (thanks to Pasqale d'Aloise)
+
+Correct useful error is logged if a message is received with a sequence number
+too low without a PossDup flag.  The previous error "Field Not Found" was 
+incorrect.
+
+The default behavior in the MessageCracker for admin messages is to ignore the
+messages.  Application messages will continue to throw UnsupportedMessageType.
+
+Unit tests are always built without optimizations to speed up compilation.
+
+MySQL scripts, log, and message store explicitly set the user to root by
+default to reflect requirements of new versions of MySQL.
+
+JNI workspace now points to the project in the correct directory, so the JNI
+library will build normally without having to modify the workspace.
+
+The first message received within the sessions time frame should always be
+processed. There were some circumstances where it would not correctly identify
+itself as being in the session time until the second message.
+
 1.7.1
 -----
 License moved over to quickfixengine.org. Otherwise it is identical.
