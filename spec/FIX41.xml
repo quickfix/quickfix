@@ -762,11 +762,7 @@
       <value enum="H" description="HIGH"/>
     </field>
     <field number="26" name="IOIRefID" type="CHAR"/>
-    <field number="27" name="IOIShares" type="CHAR">
-      <value enum="S" description="SMALL"/>
-      <value enum="M" description="MEDIUM"/>
-      <value enum="L" description="LARGE"/>
-    </field>
+    <field number="27" name="IOIShares" type="CHAR"/>
     <field number="28" name="IOITransType" type="CHAR">
       <value enum="N" description="NEW"/>
       <value enum="C" description="CANCEL"/>

@@ -2340,11 +2340,7 @@
       <value enum="H" description="HIGH" />
     </field>
     <field number="26" name="IOIRefID" type="STRING" />
-    <field number="27" name="IOIQty" type="STRING">
-      <value enum="S" description="SMALL" />
-      <value enum="M" description="MEDIUM" />
-      <value enum="L" description="LARGE" />
-    </field>
+    <field number="27" name="IOIQty" type="STRING" />
     <field number="28" name="IOITransType" type="CHAR">
       <value enum="N" description="NEW" />
       <value enum="C" description="CANCEL" />
@@ -2478,10 +2474,7 @@
     </field>
     <field number="41" name="OrigClOrdID" type="STRING" />
     <field number="42" name="OrigTime" type="UTCTIMESTAMP" />
-    <field number="43" name="PossDupFlag" type="BOOLEAN">
-      <value enum="Y" description="POSSIBLE_DUPLICATE" />
-      <value enum="N" description="ORIGINAL_TRANSMISSION" />
-    </field>
+    <field number="43" name="PossDupFlag" type="BOOLEAN" />
     <field number="44" name="Price" type="PRICE" />
     <field number="45" name="RefSeqNum" type="SEQNUM" />
     <field number="46" name="RelatdSym" type="STRING" />
@@ -2637,7 +2630,7 @@
       <value enum="2" description="DES" />
       <value enum="3" description="PKCS_DES" />
       <value enum="4" description="PGP_DES" />
-      <value description="PGP_DES_MD5" enum="5" />
+      <value enum="5" description="PGP_DES_MD5" />
       <value enum="6" description="PEM" />
     </field>
     <field number="99" name="StopPx" type="PRICE" />
@@ -2694,29 +2687,17 @@
     <field number="110" name="MinQty" type="QTY" />
     <field number="111" name="MaxFloor" type="QTY" />
     <field number="112" name="TestReqID" type="STRING" />
-    <field number="113" name="ReportToExch" type="BOOLEAN">
-      <value enum="Y" description="YES" />
-      <value enum="N" description="NO" />
-    </field>
-    <field number="114" name="LocateReqd" type="BOOLEAN">
-      <value enum="Y" description="YES" />
-      <value enum="N" description="NO" />
-    </field>
+    <field number="113" name="ReportToExch" type="BOOLEAN" />
+    <field number="114" name="LocateReqd" type="BOOLEAN" />
     <field number="115" name="OnBehalfOfCompID" type="STRING" />
     <field number="116" name="OnBehalfOfSubID" type="STRING" />
     <field number="117" name="QuoteID" type="STRING" />
     <field number="118" name="NetMoney" type="AMT" />
     <field number="119" name="SettlCurrAmt" type="AMT" />
     <field number="120" name="SettlCurrency" type="CURRENCY" />
-    <field number="121" name="ForexReq" type="BOOLEAN">
-      <value enum="Y" description="YES" />
-      <value enum="N" description="NO" />
-    </field>
+    <field number="121" name="ForexReq" type="BOOLEAN" />
     <field number="122" name="OrigSendingTime" type="UTCTIMESTAMP" />
-    <field number="123" name="GapFillFlag" type="BOOLEAN">
-      <value enum="Y" description="GAP_FILL_MESSAGE" />
-      <value enum="N" description="SEQUENCE_RESET" />
-    </field>
+    <field number="123" name="GapFillFlag" type="BOOLEAN" />
     <field number="124" name="NoExecs" type="NUMINGROUP" />
     <field number="125" name="CxlType" type="CHAR" />
     <field number="126" name="ExpireTime" type="UTCTIMESTAMP" />
@@ -2730,10 +2711,7 @@
     </field>
     <field number="128" name="DeliverToCompID" type="STRING" />
     <field number="129" name="DeliverToSubID" type="STRING" />
-    <field number="130" name="IOINaturalFlag" type="BOOLEAN">
-      <value enum="Y" description="NATURAL" />
-      <value enum="N" description="NOT_NATURAL" />
-    </field>
+    <field number="130" name="IOINaturalFlag" type="BOOLEAN" />
     <field number="131" name="QuoteReqID" type="STRING" />
     <field number="132" name="BidPx" type="PRICE" />
     <field number="133" name="OfferPx" type="PRICE" />
@@ -2754,10 +2732,7 @@
       <value enum="9" description="CONSUMPTION_TAX" />
     </field>
     <field number="140" name="PrevClosePx" type="PRICE" />
-    <field number="141" name="ResetSeqNumFlag" type="BOOLEAN">
-      <value enum="Y" description="YES" />
-      <value enum="N" description="NO" />
-    </field>
+    <field number="141" name="ResetSeqNumFlag" type="BOOLEAN" />
     <field number="142" name="SenderLocationID" type="STRING" />
     <field number="143" name="TargetLocationID" type="STRING" />
     <field number="144" name="OnBehalfOfLocationID" type="STRING" />
@@ -2961,10 +2936,7 @@
     <field number="205" name="MaturityDay" type="DAYOFMONTH" />
     <field number="206" name="OptAttribute" type="CHAR" />
     <field number="207" name="SecurityExchange" type="EXCHANGE" />
-    <field number="208" name="NotifyBrokerOfCredit" type="BOOLEAN">
-      <value enum="Y" description="DETAILS_SHOULD_BE_COMMUNICATED" />
-      <value enum="N" description="DETAILS_SHOULD_NOT_BE_COMMUNICATED" />
-    </field>
+    <field number="208" name="NotifyBrokerOfCredit" type="BOOLEAN" />
     <field number="209" name="AllocHandlInst" type="INT">
       <value enum="1" description="MATCH" />
       <value enum="2" description="FORWARD" />
@@ -2987,11 +2959,11 @@
     <field number="219" name="Benchmark" type="CHAR">
       <value enum="1" description="CURVE" />
       <value enum="2" description="FIVEYR" />
-      <value description="OLD5" enum="3" />
+      <value enum="3" description="OLD5" />
       <value enum="4" description="TENYR" />
-      <value description="OLD10" enum="5" />
+      <value enum="5" description="OLD10" />
       <value enum="6" description="THIRTYYR" />
-      <value description="OLD30" enum="7" />
+      <value enum="7" description="OLD30" />
       <value enum="8" description="THREEMOLIBOR" />
       <value enum="9" description="SIXMOLIBOR" />
     </field>
@@ -3087,10 +3059,7 @@
       <value enum="0" description="FULL_REFRESH" />
       <value enum="1" description="INCREMENTAL_REFRESH" />
     </field>
-    <field number="266" name="AggregatedBook" type="BOOLEAN">
-      <value enum="Y" description="ONE_BOOK_ENTRY_PER_SIDE_PER_PRICE" />
-      <value enum="N" description="MULTIPLE_ENTRIES_PER_SIDE_PER_PRICE_ALLOWED" />
-    </field>
+    <field number="266" name="AggregatedBook" type="BOOLEAN" />
     <field number="267" name="NoMDEntryTypes" type="NUMINGROUP" />
     <field number="268" name="NoMDEntries" type="NUMINGROUP" />
     <field number="269" name="MDEntryType" type="CHAR">
@@ -3135,8 +3104,8 @@
       <value enum="D" description="NEXT_DAY" />
       <value enum="E" description="OPENING" />
       <value enum="F" description="INTRADAY_TRADE_DETAIL" />
-      <value description="RULE_127_TRADE" enum="G" />
-      <value description="RULE_155_TRADE" enum="H" />
+      <value enum="G" description="RULE_127_TRADE" />
+      <value enum="H" description="RULE_155_TRADE" />
       <value enum="I" description="SOLD_LAST" />
       <value enum="J" description="NEXT_DAY_TRADE" />
       <value enum="K" description="OPENED" />
@@ -3257,10 +3226,7 @@
       <value enum="6" description="CAN_NOT_MATCH_SELECTION_CRITERIA" />
     </field>
     <field number="324" name="SecurityStatusReqID" type="STRING" />
-    <field number="325" name="UnsolicitedIndicator" type="BOOLEAN">
-      <value enum="Y" description="MESSAGE_IS_BEING_SENT_UNSOLICITED" />
-      <value enum="N" description="MESSAGE_IS_BEING_SENT_AS_A_RESULT_OF_A_PRIOR_REQUEST" />
-    </field>
+    <field number="325" name="UnsolicitedIndicator" type="BOOLEAN" />
     <field number="326" name="SecurityTradingStatus" type="INT">
       <value enum="1" description="OPENING_DELAY" />
       <value enum="2" description="TRADING_HALT" />
@@ -3293,14 +3259,8 @@
       <value enum="E" description="ORDER_INFLUX" />
       <value enum="M" description="ADDITIONAL_INFORMATION" />
     </field>
-    <field number="328" name="InViewOfCommon" type="BOOLEAN">
-      <value enum="Y" description="HALT_WAS_DUE_TO_COMMON_STOCK_BEING_HALTED" />
-      <value enum="N" description="HALT_WAS_NOT_RELATED_TO_A_HALT_OF_THE_COMMON_STOCK" />
-    </field>
-    <field number="329" name="DueToRelated" type="BOOLEAN">
-      <value enum="Y" description="HALT_WAS_DUE_TO_RELATED_SECURITY_BEING_HALTED" />
-      <value enum="N" description="HALT_WAS_NOT_RELATED_TO_A_HALT_OF_THE_RELATED_SECURITY" />
-    </field>
+    <field number="328" name="InViewOfCommon" type="BOOLEAN" />
+    <field number="329" name="DueToRelated" type="BOOLEAN" />
     <field number="330" name="BuyVolume" type="QTY" />
     <field number="331" name="SellVolume" type="QTY" />
     <field number="332" name="HighPx" type="PRICE" />
@@ -3400,10 +3360,7 @@
     </field>
     <field number="375" name="ContraBroker" type="STRING" />
     <field number="376" name="ComplianceID" type="STRING" />
-    <field number="377" name="SolicitedFlag" type="BOOLEAN">
-      <value enum="Y" description="WAS_SOLCITIED" />
-      <value enum="N" description="WAS_NOT_SOLICITED" />
-    </field>
+    <field number="377" name="SolicitedFlag" type="BOOLEAN" />
     <field number="378" name="ExecRestatementReason" type="INT">
       <value enum="0" description="GT_CORPORATE_ACTION" />
       <value enum="1" description="GT_RENEWAL" />
@@ -3482,10 +3439,7 @@
       <value enum="4" description="OTHER" />
     </field>
     <field number="410" name="WtAverageLiquidity" type="PERCENTAGE" />
-    <field number="411" name="ExchangeForPhysical" type="BOOLEAN">
-      <value enum="Y" description="TRUE" />
-      <value enum="N" description="FALSE" />
-    </field>
+    <field number="411" name="ExchangeForPhysical" type="BOOLEAN" />
     <field number="412" name="OutMainCntryUIndex" type="AMT" />
     <field number="413" name="CrossPercent" type="PERCENTAGE" />
     <field number="414" name="ProgRptReqs" type="INT">
@@ -3650,10 +3604,7 @@
     <field number="461" name="CFICode" type="STRING" />
     <field number="462" name="UnderlyingProduct" type="INT" />
     <field number="463" name="UnderlyingCFICode" type="STRING" />
-    <field number="464" name="TestMessageIndicator" type="BOOLEAN">
-      <value enum="Y" description="TRUE" />
-      <value enum="N" description="FALSE" />
-    </field>
+    <field number="464" name="TestMessageIndicator" type="BOOLEAN" />
     <field number="465" name="QuantityType" type="INT">
       <value enum="1" description="SHARES" />
       <value enum="2" description="BONDS" />
@@ -3823,10 +3774,7 @@
       <value enum="2" description="NATIONAL" />
       <value enum="3" description="GLOBAL" />
     </field>
-    <field number="547" name="MDImplicitDelete" type="BOOLEAN">
-      <value enum="Y" description="CLIENT_DELETES_BIDS" />
-      <value enum="N" description="SERVER_DELETES_BIDS" />
-    </field>
+    <field number="547" name="MDImplicitDelete" type="BOOLEAN" />
     <field number="548" name="CrossID" type="STRING" />
     <field number="549" name="CrossType" type="INT">
       <value enum="1" description="CROSS_TRADE_WHICH_IS_EXECUTED_COMPLETELY_OR_NOT" />
@@ -3878,10 +3826,7 @@
       <value enum="3" description="UNREPORTED_TRADES_THAT_MATCH_CRITERIA" />
       <value enum="4" description="ADVISORIES_THAT_MATCH_CRITERIA" />
     </field>
-    <field number="570" name="PreviouslyReported" type="BOOLEAN">
-      <value enum="Y" description="PREVIOUSLY_REPORTED_TO_COUNTERPARTY" />
-      <value enum="N" description="NOT_REPORTED_TO_COUNTERPARTY" />
-    </field>
+    <field number="570" name="PreviouslyReported" type="BOOLEAN" />
     <field number="571" name="TradeReportID" type="STRING" />
     <field number="572" name="TradeReportRefID" type="STRING" />
     <field number="573" name="MatchStatus" type="CHAR">
@@ -4005,10 +3950,7 @@
     <field number="633" name="MidYield" type="PERCENTAGE" />
     <field number="634" name="OfferYield" type="PERCENTAGE" />
     <field number="635" name="ClearingFeeIndicator" type="STRING" />
-    <field number="636" name="WorkingIndicator" type="BOOLEAN">
-      <value enum="Y" description="ORDER_IS_CURRENTLY_BEING_WORKED" />
-      <value enum="N" description="ORDER_HAS_BEEN_ACCEPTED_BUT_NOT_YET_IN_A_WORKING_STATE" />
-    </field>
+    <field number="636" name="WorkingIndicator" type="BOOLEAN" />
     <field number="637" name="LegLastPx" type="PRICE" />
     <field number="638" name="PriorityIndicator" type="INT">
       <value enum="0" description="PRIORITY_UNCHANGED" />
@@ -4025,10 +3967,7 @@
     <field number="647" name="MinBidSize" type="QTY" />
     <field number="648" name="MinOfferSize" type="QTY" />
     <field number="649" name="QuoteStatusReqID" type="STRING" />
-    <field number="650" name="LegalConfirm" type="BOOLEAN">
-      <value enum="Y" description="LEGAL_CONFIRM" />
-      <value enum="N" description="DOES_NOT_CONSTITUTE_A_LEGAL_CONFIRM" />
-    </field>
+    <field number="650" name="LegalConfirm" type="BOOLEAN" />
     <field number="651" name="UnderlyingLastPx" type="PRICE" />
     <field number="652" name="UnderlyingLastQty" type="QTY" />
     <field number="653" name="SecDefStatus" type="INT">
