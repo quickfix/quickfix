@@ -34,6 +34,7 @@ void SessionSettingsTestCase::readFromIstream::onRun
 {
   std::string configuration =
     "[DEFAULT]\n"
+    "ConnectionType=initiator\n"
     "BeginString=FIX.4.0\n"
     "Value=4\n"
     "[SESSION]\n"
@@ -78,4 +79,50 @@ void SessionSettingsTestCase::readFromIstream::onRun
   assert( object.get( session3 ).getLong( "Value" ) == 3 );
   assert( object.get( session4 ).getLong( "Value" ) == 4 );
 }
+
+void SessionSettingsTestCase::validate::onRun( SessionSettings& object )
+{
+  SessionID sessionID = SessionID( "FIX.4.2", "SenderCompID", "TargetCompID" );
+
+  // ConnectionType not set
+  Dictionary dictionary;
+  try
+  {
+    object.set( sessionID, dictionary );
+    assert( false );
+  }
+  catch( ConfigError& ) {}
+
+  // ConnectionType set to invalid value
+  dictionary.setString( CONNECTION_TYPE, "badvalue" );
+  try
+  {
+    object.set( sessionID, dictionary );
+    assert( false );
+  }
+  catch( ConfigError& ) {}
+
+    // ConnectionType set to valid value
+  dictionary.setString( CONNECTION_TYPE, "initiator" );
+  try
+  {
+    object.set( sessionID, dictionary );
+  }
+  catch( ConfigError& ) 
+  {
+    assert( false );
+  }
+
+  // Invalid BeginString
+  sessionID = SessionID( "FIX4.2", "SenderCompID", "TargetCompID" );
+  try
+  {
+    object.set( sessionID, dictionary );
+    assert( false );
+  }
+  catch( ConfigError& ) 
+  {
+  }
+}
+
 }

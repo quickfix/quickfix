@@ -80,14 +80,14 @@ public:
   SessionSettings( const std::string& file ) throw( ConfigError );
 
   /// Get a dictionary for a session.
-  Dictionary get( const SessionID& ) const throw( ConfigError );
+  const Dictionary& get( const SessionID& ) const throw( ConfigError );
   /// Set a dictionary for a session
-  void set( const SessionID&, const Dictionary& );
+  void set( const SessionID&, Dictionary ) throw( ConfigError );
 
   /// Get global default settings
-  Dictionary get() const { return m_defaults; }
+  const Dictionary& get() const { return m_defaults; }
   /// Set global default settings
-  void set( const Dictionary& defaults ) { m_defaults = defaults; }
+  void set( const Dictionary& defaults ) throw( ConfigError ) { m_defaults = defaults; }
 
   /// Number of session settings
   int size() { return m_settings.size(); }
@@ -96,6 +96,8 @@ public:
   std::set < SessionID > getSessions() const;
 
 private:
+  void validate( const Dictionary& ) const throw( ConfigError );
+
   Dictionaries m_settings;
   Dictionary m_defaults;
 };

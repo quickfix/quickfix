@@ -26,6 +26,7 @@
 
 #include "SessionSettings.h"
 #include "Settings.h"
+#include "Values.h"
 #include <fstream>
 
 namespace FIX
@@ -81,7 +82,7 @@ throw( ConfigError )
   return stream;
 }
 
-Dictionary SessionSettings::get( const SessionID& sessionID ) const
+const Dictionary& SessionSettings::get( const SessionID& sessionID ) const
 throw( ConfigError )
 { QF_STACK_PUSH(SessionSettings::get)
 
@@ -94,9 +95,17 @@ throw( ConfigError )
 }
 
 void SessionSettings::set( const SessionID& sessionID,
-                           const Dictionary& settings )
+                           Dictionary settings ) 
+throw( ConfigError )
 { QF_STACK_PUSH(SessionSettings::set)
+  
+  settings.setString( BEGINSTRING, sessionID.getBeginString() );
+  settings.setString( SENDERCOMPID, sessionID.getSenderCompID() );
+  settings.setString( TARGETCOMPID, sessionID.getTargetCompID() );
+
+  validate( settings );
   m_settings[ sessionID ] = settings;
+
   QF_STACK_POP
 }
 
@@ -111,4 +120,26 @@ std::set < SessionID > SessionSettings::getSessions() const
 
   QF_STACK_POP
 }
+
+void SessionSettings::validate( const Dictionary& dictionary ) const
+throw( ConfigError )
+{
+  std::string beginString = dictionary.getString( BEGINSTRING );
+  if( beginString != BeginString_FIX40 &&
+      beginString != BeginString_FIX41 &&
+      beginString != BeginString_FIX42 &&
+      beginString != BeginString_FIX43 &&
+      beginString != BeginString_FIX44 )
+  {
+    throw ConfigError( BEGINSTRING + " must be FIX.4.0 to FIX.4.4" );
+  }
+
+  std::string connectionType = dictionary.getString( CONNECTION_TYPE );
+  if( connectionType != "initiator" &&
+      connectionType != "acceptor" )
+  {
+    throw ConfigError( CONNECTION_TYPE + " must be 'initiator' or 'acceptor'" );
+  }
+}
+
 }

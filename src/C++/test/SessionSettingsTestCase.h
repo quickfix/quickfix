@@ -33,18 +33,25 @@ public:
   SessionSettingsTestCase()
   {
     add( &m_readFromIstream );
+    add( &m_validate );
   }
 
 private:
   typedef CPPTest::SimpleTest < SessionSettings > Test;
 
-class readFromIstream : public Test
+  class readFromIstream : public Test
   {
   public:
-    readFromIstream() {}
     void onRun( SessionSettings& object );
   }
   m_readFromIstream;
+
+  class validate : public Test
+  {
+  public:
+    void onRun( SessionSettings& object );
+  }
+  m_validate;
 };
 }
 
