@@ -3,6 +3,8 @@ package org.quickfix.test;
 import org.quickfix.Message;
 import org.quickfix.FieldNotFound;
 import org.quickfix.InvalidMessage;
+import org.quickfix.field.*;
+import org.quickfix.fix42.*;
 import junit.framework.TestCase;
 import java.util.Date;
 import java.util.Calendar;
@@ -39,6 +41,17 @@ public class MessageTest extends TestCase {
         assertEquals("8=FIX.4.2\0019=12\00135=A\001108=30\00110=026\001", message.toString());
     }
 
+    public void testMessageGroups() {
+        Message message = new Message();
+        NewOrderSingle.NoAllocs numAllocs = new NewOrderSingle.NoAllocs();
+        numAllocs.set( new AllocAccount("AllocACC1") );
+        numAllocs.set( new AllocShares(1010.10) );
+        message.addGroup(numAllocs);
+        numAllocs.set( new AllocAccount("AllocACC2") );
+        numAllocs.set( new AllocShares(2020.20) );
+        message.addGroup(numAllocs);        
+    }
+
     public void testMessageSetGetString() {
         Message message = new Message();
 
@@ -54,7 +67,7 @@ public class MessageTest extends TestCase {
         } catch(FieldNotFound e) { assertTrue("exception thrown", false); }
     }
 
-    public void setGetBoolean() {
+    public void testMessagesetGetBoolean() {
         Message message = new Message();
 
         try {

@@ -83,6 +83,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_Group_create__II_3I
   jsize size = pEnv->GetArrayLength(array);
   jint *body = pEnv->GetIntArrayElements(array, 0);
   FIX::Group* pGroup = new FIX::Group( field, delim, size, (int*)body );  
+  jobject.setInt( "cppPointer", ( int ) pGroup );
   pEnv->ReleaseIntArrayElements(array, body, 0);
 }
 
