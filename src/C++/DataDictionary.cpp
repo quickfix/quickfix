@@ -125,8 +125,9 @@ throw( std::exception& )
   if ( m_hasVersion && m_beginString != beginString )
     throw UnsupportedVersion();
 
-  if ( m_checkFieldsOutOfOrder && !message.hasValidStructure() )
-    throw FieldsOutOfOrder();
+  int field = 0;
+  if ( m_checkFieldsOutOfOrder && !message.hasValidStructure(field) )
+    throw TagOutOfOrder(field);
 
   if ( m_hasVersion )
   {
@@ -299,7 +300,7 @@ void DataDictionary::readFromURL( const std::string& url )
       if( !pMessageFieldNode.get() ) throw ConfigError("Message contains no fields");
       while( pMessageFieldNode.get() )
       {
-        if(pMessageFieldNode->getName() == "field")
+        if(pMessageFieldNode->getName() == "field" || pMessageFieldNode->getName() == "group")
         {
           DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();  
           std::string name;
@@ -320,7 +321,7 @@ void DataDictionary::readFromURL( const std::string& url )
           bool isRequired = (required == "Y" || required == "y");
           addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(), msgtype, *this, isRequired);
         }
-        else if(pMessageFieldNode->getName() == "group")
+        if(pMessageFieldNode->getName() == "group")
         {
           addXMLGroup(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
         }
@@ -357,7 +358,7 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
   DOMNodePtr pComponentFieldNode = pComponentNode->getFirstChildNode();
   while(pComponentFieldNode.get())
   {
-    if(pComponentFieldNode->getName() == "field")
+    if(pComponentFieldNode->getName() == "field" || pComponentFieldNode->getName() == "group")
     {
       DOMAttributesPtr attrs = pComponentFieldNode->getAttributes();
       std::string name;
