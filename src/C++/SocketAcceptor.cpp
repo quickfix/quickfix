@@ -156,7 +156,7 @@ void SocketAcceptor::onData( SocketServer& server, int s )
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
-  while ( pSocketConnection->read( *this, server ) ) {}
+  pSocketConnection->read( *this, server );
 
   QF_STACK_POP
 }

@@ -67,10 +67,12 @@ class block : public Test, public SocketServer::Strategy
 
     void onConnect( SocketServer&, int socket )
     { m_connect++; m_connectSocket = socket; }
-    void onData( SocketServer&, int socket )
+    void onData( SocketServer& server, int socket )
     {
       m_data++; m_dataSocket = socket;
       m_bufLen = recv( socket, m_buf, 1, 0 );
+      if( m_bufLen <= 0 )
+        onDisconnect( server, socket );
     }
     void onDisconnect( SocketServer&, int socket )
     { m_disconnect++; m_disconnectSocket = socket; }

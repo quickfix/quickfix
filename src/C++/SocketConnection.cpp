@@ -76,14 +76,20 @@ bool SocketConnection::read( SocketConnector& s )
 
     m_pSession->next( msg );
   } 
-  catch( SocketRecvFailed& )
+  catch( SocketRecvFailed& e )
   {
+    if( m_pSession )
+      m_pSession->getLog()->onEvent( e.what() );
     s.getMonitor().drop( m_socket );
   }
-  catch ( InvalidMessage& )
+  catch ( InvalidMessage& e )
   {
-    if ( !m_pSession->isLoggedOn() )
+    if ( !m_pSession || (m_pSession && !m_pSession->isLoggedOn()) )
+    {
+      if( m_pSession )
+        m_pSession->getLog()->onEvent( e.what() );
       s.getMonitor().drop( m_socket );
+    }
   }
   return true;
 
@@ -113,16 +119,18 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       s.getMonitor().drop( m_socket );
     return true;
   }
-  catch ( SocketRecvFailed& )
+  catch ( SocketRecvFailed& e )
   {
+    if( m_pSession )
+      m_pSession->getLog()->onEvent( e.what() );
     s.getMonitor().drop( m_socket );
   }
   catch ( InvalidMessage& )
   {
-    if ( !m_pSession->isLoggedOn() )
+    if ( !m_pSession || !m_pSession->isLoggedOn() )
       s.getMonitor().drop( m_socket );
   }
-  return true;
+  return false;
 
   QF_STACK_POP
 }
@@ -131,20 +139,14 @@ bool SocketConnection::readMessage( std::string& msg )
 throw( SocketRecvFailed )
 { QF_STACK_PUSH(SocketConnection::readMessage)
 
-  int bytes = 0;
-  if ( !socket_fionread( m_socket, bytes ) )
-    return false;
-  if ( bytes == 0 )
-    return false;
-
-  char buffer[4097];
-  int size = recv( m_socket, buffer, 4096, 0 );
+  int size = recv( m_socket, m_buffer, 4095, 0 );
   if( size <= 0 ) throw SocketRecvFailed();
-  buffer[ size ] = '\0';
+
+  m_buffer[ size ] = '\0';
 
   try
   {
-    m_parser.addToStream( buffer, size );
+    m_parser.addToStream( m_buffer, size );
     return m_parser.readFixMessage( msg );
   }
   catch ( MessageParseError& ) {}

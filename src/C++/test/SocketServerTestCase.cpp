@@ -105,7 +105,6 @@ void SocketServerTestCase::block::onRun( SocketServer& object )
 
   SocketUtilitiesTestCase::destroySocket( s );
   object.block( *this );
-  object.block( *this );
   assert( m_disconnect == 1 );
   assert( m_disconnectSocket > 0 );
 }

@@ -159,7 +159,7 @@ void SocketInitiator::onData( SocketConnector& connector, int s )
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
-  while ( pSocketConnection->read( connector ) ) {}
+  pSocketConnection->read( connector );
 
   QF_STACK_POP
 }

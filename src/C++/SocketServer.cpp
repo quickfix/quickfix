@@ -52,11 +52,6 @@ private:
       m_strategy.onConnect( m_server, m_server.accept() );
     }
     else
-      if ( socket_disconnected( socket ) )
-      {
-        m_server.getMonitor().drop( socket );
-      }
-      else
         m_strategy.onData( m_server, socket );
 
     QF_STACK_POP

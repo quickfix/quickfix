@@ -88,13 +88,8 @@ bool ThreadedSocketConnection::read()
     if ( !m_queueThreadSpawned )
       m_queueThreadSpawned = thread_spawn( &queueThread, this, m_queueThread );
 
-    if ( !socket_isValid( m_socket ) )
-      return false;
-
-    socket_fionread( m_socket, bytes );
-    if ( bytes == 0 ) bytes = 4096;
-    buffer = new char[ bytes + 1 ];
-    int result = recv( m_socket, buffer, bytes, 0 );
+    buffer = new char[ 4096 ];
+    int result = recv( m_socket, buffer, 4095, 0 );
     if ( result <= 0 ) { throw SocketRecvFailed(); }
     buffer[ result ] = '\0';
     m_queue.push( std::make_pair((size_t)result, buffer) );
@@ -103,9 +98,17 @@ bool ThreadedSocketConnection::read()
   catch ( SocketRecvFailed& e )
   {
     if( m_pSession )
+    {
       m_pSession->getLog()->onEvent( e.what() );
+      m_pSession->disconnect();
+    }
+    else
+    {
+      disconnect();
+    }
+
     delete [] buffer;
-    m_queue.push( std::make_pair((size_t)0, (char*)0) );
+    m_queue.push( std::make_pair((size_t)-1, (char*)0) );
     return false;
   }
 
@@ -140,27 +143,24 @@ void ThreadedSocketConnection::readQueue()
       std::pair<size_t, char*> entry;
       while( m_queue.pop(entry) )
       {
-        if( !entry.second ) throw SocketRecvFailed();
+        if( entry.first < 0 ) return;
         m_parser.addToStream( entry.second, entry.first );
         processStream();
         delete [] entry.second;
       }
     }
-    catch ( InvalidMessage& )
+    catch ( InvalidMessage& e )
     {
-      if( m_pSession && !m_pSession->isLoggedOn() )
-        m_pSession->disconnect();
+      if ( !m_pSession || (m_pSession && !m_pSession->isLoggedOn()) )
+      {
+        if( m_pSession )
+          m_pSession->getLog()->onEvent( e.what() );
+        disconnect();
+      }
     }
-    catch ( SocketRecvFailed& )
-    { break; }
     catch ( std::exception& )
-    { break; }
+    { return; }
   }
-
-  if( m_pSession )
-    m_pSession->disconnect();
-  else
-    disconnect();
 
   QF_STACK_POP
 }
@@ -181,8 +181,12 @@ void ThreadedSocketConnection::processStream()
       m_pSession->next( msg );
     }
   }
-  catch( SocketRecvFailed& )
-  { disconnect(); }
+  catch( SocketRecvFailed& e )
+  {
+    if( m_pSession )
+      m_pSession->getLog()->onEvent( e.what() );
+    disconnect(); 
+  }
 
   if ( m_pSession )
     m_pSession->next();
