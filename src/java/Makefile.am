@@ -55,6 +55,7 @@ libquickfix_jni_la_SOURCES = \
 	org_quickfix_ThreadedSocketInitiator.h \
 	org_quickfix_ThreadedSocketInitiator.cpp
 
+libquickfix_jni_la_LDFLAGS = -version-info 0:0:0
 libquickfix_jni_la_LIBADD = -L../../src/C++ -lquickfix -lstdc++
 
 INCLUDES = -I. -I.. -I../.. -I../../..
