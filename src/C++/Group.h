@@ -61,15 +61,17 @@
 
 namespace FIX
 {
+class Component;
+
 class Group : public FieldMap
 {
 public:
   Group( int field, int delim )
-: FieldMap( message_order( 1, delim ) ),
+: FieldMap( message_order( delim, 0 ) ),
   m_field( field ), m_delim( delim ) {}
 
-  Group( int field, int delim, int size, const int order[] )
-: FieldMap( size, order ), m_field( field ), m_delim( delim ) {}
+  Group( int field, int delim, const int order[] )
+: FieldMap( order ), m_field( field ), m_delim( delim ) {}
 
   Group( int field, int delim, const message_order& order )
 : FieldMap( order ), m_field( field ), m_delim( delim ) {} 
@@ -77,20 +79,12 @@ public:
   int field() const { return m_field; }
   int delim() const { return m_delim; }
 
-  void addGroup( Group& group )
-  {
-    FieldMap::addGroup( group.field(), group );
-  }
+  void addGroup( Group& group );
+  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound& );
+  bool hasGroup( unsigned num, Group& group );
 
-  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound& )
-  {
-    return static_cast < Group& > ( FieldMap::getGroup( num, group.field(), group ) );
-  }
-
-  bool hasGroup( unsigned num, Group& group )
-  {
-    return FieldMap::hasGroup( num, group.field(), group );
-  }
+  void setComponent( const Component& component );
+  Component& getComponent( Component& component ) const throw( FieldNotFound& );
 
 private:
   int m_field;

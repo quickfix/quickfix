@@ -400,6 +400,11 @@ typedef std::string MONTHYEAR;
 typedef std::string DAYOFMONTH;
 typedef UtcDate UTCDATE;
 typedef UtcTimeOnly UTCTIMEONLY;
+typedef int NUMINGROUP;
+typedef double PERCENTAGE;
+typedef int SEQNUM;
+typedef int LENGTH;
+typedef std::string COUNTRY;
 
 namespace TYPE
 {
@@ -424,7 +429,12 @@ enum Type
   MonthYear,
   DayOfMonth,
   UtcDate,
-  UtcTimeOnly
+  UtcTimeOnly,
+  NumInGroup,
+  Percentage,
+  SeqNum,
+  Length,
+  Country
 };
 }
 }
