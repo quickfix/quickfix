@@ -1342,6 +1342,78 @@
       <field name="CashSettlAgentContactName" required="N"/>
       <field name="CashSettlAgentContactPhone" required="N"/>
     </message>
+    <message name="BidRequest" msgtype="k" msgcat="app">
+      <field name="BidID" required="N" />
+      <field name="ClientBidID" required="Y" />
+      <field name="BidRequestTransType" required="Y" />
+      <field name="ListName" required="N" />
+      <field name="TotalNumSecurities" required="Y" />
+      <field name="BidType" required="Y" />
+      <field name="NumTickets" required="N" />
+      <field name="Currency" required="N" />
+      <field name="SideValue1" required="N" />
+      <field name="SideValue2" required="N" />
+      <group name="NoBidDescriptors" required="N">
+        <field name="BidDescriptorType" required="N" />
+        <field name="BidDescriptor" required="N" />
+        <field name="SideValueInd" required="N" />
+        <field name="LiquidityValue" required="N" />
+        <field name="LiquidityNumSecurities" required="N" />
+        <field name="LiquidityPctLow" required="N" />
+        <field name="LiquidityPctHigh" required="N" />
+        <field name="EFPTrackingError" required="N" />
+        <field name="FairValue" required="N" />
+        <field name="OutsideIndexPct" required="N" />
+        <field name="ValueOfFutures" required="N" />
+      </group>
+      <group name="NoBidComponents" required="N">
+        <field name="ListID" required="N" />
+        <field name="Side" required="N" />
+        <field name="TradingSessionID" required="N" />
+        <field name="NetGrossInd" required="N" />
+        <field name="SettlmntTyp" required="N" />
+        <field name="FutSettDate" required="N" />
+        <field name="Account" required="N" />
+      </group>
+      <field name="LiquidityIndType" required="N" />
+      <field name="WtAverageLiquidity" required="N" />
+      <field name="ExchangeForPhysical" required="N" />
+      <field name="OutMainCntryUIndex" required="N" />
+      <field name="CrossPercent" required="N" />
+      <field name="ProgRptReqs" required="N" />
+      <field name="ProgPeriodInterval" required="N" />
+      <field name="IncTaxInd" required="N" />
+      <field name="ForexReq" required="N" />
+      <field name="NumBidders" required="N" />
+      <field name="TradeDate" required="N" />
+      <field name="TradeType" required="Y" />
+      <field name="BasisPxType" required="Y" />
+      <field name="StrikeTime" required="N" />
+      <field name="Text" required="N" />
+      <field name="EncodedTextLen" required="N" />
+      <field name="EncodedText" required="N" />
+    </message>
+    <message name="BidResponse" msgtype="l" msgcat="app">
+      <field name="BidID" required="N" />
+      <field name="ClientBidID" required="N" />
+      <group name="NoBidComponents" required="Y">
+        <field name="Commission" required="N" />
+        <field name="CommType" required="N" />
+        <field name="ListID" required="N" />
+        <field name="Country" required="N" />
+        <field name="Side" required="N" />
+        <field name="Price" required="N" />
+        <field name="PriceType" required="N" />
+        <field name="FairValue" required="N" />
+        <field name="NetGrossInd" required="N" />
+        <field name="SettlmntTyp" required="N" />
+        <field name="FutSettDate" required="N" />
+        <field name="TradingSessionID" required="N" />
+        <field name="Text" required="N" />
+        <field name="EncodedTextLen" required="N" />
+        <field name="EncodedText" required="N" />
+      </group>
+    </message>
     <message name="NewOrderList" msgtype="E" msgcat="app">
       <field name="ListID" required="Y"/>
       <field name="BidID" required="N"/>
