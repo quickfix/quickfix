@@ -914,6 +914,8 @@ bool Session::validLogonState( const MsgType& msgType )
   if ( msgType == MsgType_Logon && !m_state.receivedLogon()
        || msgType != MsgType_Logon && m_state.receivedLogon() )
     return true;
+  if ( msgType == MsgType_Logout && m_state.sentLogon() )
+    return true;
   if ( msgType != MsgType_Logout && m_state.sentLogout() )
     return true;
   if ( msgType == MsgType_SequenceReset ) return true;
