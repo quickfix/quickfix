@@ -89,7 +89,10 @@ public:
   void setNextTargetMsgSeqNum( int num ) throw( IOException& )
   { m_state.setNextTargetMsgSeqNum( num ); }
 
-  const SessionID& getSessionID() const { return m_sessionID; }
+  const SessionID& getSessionID() const 
+  { return m_sessionID; }
+  const DataDictionary& getDataDictionary() const 
+  { return m_dataDictionary; }
 
   static bool sendToTarget( Message& )
   throw( SessionNotFound& );
