@@ -1,7 +1,7 @@
-package org.quickfix.test;
+package quickfix.test;
 
 import junit.framework.TestCase;
-import org.quickfix.field.*;
+import quickfix.field.*;
 
 public class FieldTest extends TestCase {
 

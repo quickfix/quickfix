@@ -1,4 +1,4 @@
-package org.quickfix.test;
+package quickfix.test;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;

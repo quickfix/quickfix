@@ -1,10 +1,10 @@
-package org.quickfix.test;
+package quickfix.test;
 
-import org.quickfix.Message;
-import org.quickfix.FieldNotFound;
-import org.quickfix.InvalidMessage;
-import org.quickfix.field.*;
-import org.quickfix.fix42.*;
+import quickfix.Message;
+import quickfix.FieldNotFound;
+import quickfix.InvalidMessage;
+import quickfix.field.*;
+import quickfix.fix42.*;
 import junit.framework.TestCase;
 import java.util.Date;
 import java.util.Calendar;

@@ -1,8 +1,8 @@
-package org.quickfix.test;
+package quickfix.test;
 
-import org.quickfix.Application;
-import org.quickfix.SessionID;
-import org.quickfix.Message;
+import quickfix.Application;
+import quickfix.SessionID;
+import quickfix.Message;
 import org.apache.log4j.Category;
 
 public class ApplicationImpl implements Application {

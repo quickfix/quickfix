@@ -1,4 +1,4 @@
-package org.quickfix.test;
+package quickfix.test;
 
 import junit.framework.TestCase;
 import org.apache.log4j.Category;
@@ -7,9 +7,9 @@ import java.io.FileInputStream;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import org.quickfix.*;
-import org.quickfix.field.*;
-import org.quickfix.fix42.NewOrderSingle;
+import quickfix.*;
+import quickfix.field.*;
+import quickfix.fix42.NewOrderSingle;
 
 public class OrderTest extends TestCase {
     private static Category category
