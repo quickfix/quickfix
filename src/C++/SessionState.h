@@ -71,19 +71,19 @@ SessionState() : m_connected( false ), m_receivedLogon( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
   m_pStore( 0 ), m_pLog( 0 ) {}
 
-  bool connected() { return m_connected; }
+  bool connected() const { return m_connected; }
   void connected( bool value ) { m_connected = value; }
-  bool receivedLogon() { return m_receivedLogon; }
+  bool receivedLogon() const { return m_receivedLogon; }
   void receivedLogon( bool value ) { m_receivedLogon = value; }
-  bool sentLogout() { return m_sentLogout; }
+  bool sentLogout() const { return m_sentLogout; }
   void sentLogout( bool value ) { m_sentLogout = value; }
-  bool sentLogon() { return m_sentLogon; }
+  bool sentLogon() const { return m_sentLogon; }
   void sentLogon( bool value ) { m_sentLogon = value; }
-  bool initiate() { return m_initiate; }
+  bool initiate() const { return m_initiate; }
   void initiate( bool value ) { m_initiate = value; }
-  int logonTimeout() { return m_logonTimeout; }
+  int logonTimeout() const { return m_logonTimeout; }
   void logonTimeout( int value ) { m_logonTimeout = value; }
-  int testRequest() { return m_testRequest; }
+  int testRequest() const { return m_testRequest; }
   void testRequest( int value ) { m_testRequest = value; }
 
   MessageStore* store() { return m_pStore; }
@@ -95,46 +95,52 @@ SessionState() : m_connected( false ), m_receivedLogon( false ),
   { m_heartBtInt = value; }
   HeartBtInt& heartBtInt()
   { return m_heartBtInt; }
+  const HeartBtInt& heartBtInt() const
+  { return m_heartBtInt; }
 
   void lastSentTime( const UtcTimeStamp& value )
   { m_lastSentTime = value; }
+  UtcTimeStamp& lastSentTime()
+  { return m_lastSentTime; }
   const UtcTimeStamp& lastSentTime() const
-    { return m_lastSentTime; }
+  { return m_lastSentTime; }
 
   void lastReceivedTime( const UtcTimeStamp& value )
   { m_lastReceivedTime = value; }
+  UtcTimeStamp& lastReceivedTime()
+  { return m_lastReceivedTime; }
   const UtcTimeStamp& lastReceivedTime() const
-    { return m_lastReceivedTime; }
+  { return m_lastReceivedTime; }
 
-  bool shouldSendLogon() { return initiate() && !sentLogon(); }
-  bool alreadySentLogon() { return initiate() && sentLogon(); }
-  bool logonTimedOut()
+  bool shouldSendLogon() const { return initiate() && !sentLogon(); }
+  bool alreadySentLogon() const { return initiate() && sentLogon(); }
+  bool logonTimedOut() const
   {
     UtcTimeStamp now;
     return now - lastReceivedTime() >= logonTimeout();
   }
-  bool logoutTimedOut()
+  bool logoutTimedOut() const
   {
     UtcTimeStamp now;
     return sentLogout() && ( ( now - lastReceivedTime() ) >= 2 );
   }
-  bool withinHeartBeat()
+  bool withinHeartBeat() const
   {
     UtcTimeStamp now;
     return ( ( now - lastSentTime() ) < heartBtInt() ) &&
            ( ( now - lastReceivedTime() ) < heartBtInt() );
   }
-  bool timedOut()
+  bool timedOut() const
   {
     UtcTimeStamp now;
     return ( now - lastReceivedTime() ) >= ( 2.4 * ( double ) heartBtInt() );
   }
-  bool needHeartbeat()
+  bool needHeartbeat() const
   {
     UtcTimeStamp now;
     return ( ( now - lastSentTime() ) >= heartBtInt() ) && !testRequest();
   }
-  bool needTestRequest()
+  bool needTestRequest() const
   {
     UtcTimeStamp now;
     return ( now - lastReceivedTime() ) >=
@@ -185,9 +191,9 @@ SessionState() : m_connected( false ), m_receivedLogon( false ),
   void onIncoming( const std::string& string )
   { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onIncoming( string ); }
   void onOutgoing( const std::string& string )
-{ if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onOutgoing( string ); }
+  { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onOutgoing( string ); }
   void onEvent( const std::string& string )
-{ if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onEvent( string ); }
+  { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onEvent( string ); }
 
 private:
   bool m_connected;
