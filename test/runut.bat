@@ -20,6 +20,6 @@ popd
 goto quit
 
 :usage
-echo "Usage: runall [release | debug] [port]"
+echo "Usage: runut [release | debug] [port]"
 
 :quit
