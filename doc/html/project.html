@@ -52,11 +52,10 @@
                directories above the header files so your includes can look like <B>#include
                quickfix/Application.h</B>. This helps resolves ambiguities between your
                application and other third party libraries.
-        <LI><B>Link | Input | Object/library modules</B>, must contain the <I>quickfix.lib</I> or <I>quickfix_debug.lib</I>
+        <LI><B>Link | Input | Object/library modules</B>, must contain the <I>quickfix.lib</I>
                file. It must also have <I>ws2_32.lib</I>. This library links the winsock library into your
                application.
-        <LI><B>Link | Input | Additional library path</B>, must have the directory where <I>quickfix.lib</I> and
-               <I>quickfix_debug.lib</I> reside.
+        <LI><B>Link | Input | Additional library path</B>, must have the directory where <I>quickfix.lib</I> resides.
       </UL>
     </p>
 
@@ -66,7 +65,7 @@
     This couldn't be simpler.
     </p>
       <UL>
-        <LI>Add the <B>quickfix_net.dll</B> or <B>quickfix_net_debug.dll</B> to the references
+        <LI>Add the <B>quickfix_net.dll</B> and <B>quickfix_net_message.dll</B> to the references
         section of your projects.
      </UL>
     </p>
@@ -74,24 +73,21 @@
     <A NAME="Linux/Solaris (C++)"/>
     <H3>Linux/Solaris</H3>
     <p>
-      Linux/Solaris have several caveats. Using GCC you have to keep a few things in mind. Support
+      Linux/Solaris have several caveats. Using GCC you have to keep a couple things in mind. Support
       for C++ is adequate but not great. The unix world is still primarily driven by C and therefore
       the tools are more readily available and optimized for C. Although everything builds and works
       correctly under Linux and Solaris, there are a few things to keep in mind.
     </p>
     <p>
       <UL>
-        <LI>GCC has pretty poor support for compiling code with templates. It can compile them fine,
-        but it is really slow. It is tolerable with normal optimization, however if you try to
-        use some of the higher optimizations, the build time can become intolerable (and can even
-        eat up all of your machines resources). For this reason, standard optimizations are recommended.
-        <LI>Because GCC isn't particularly optimized for C++ code, and also due to the fact we don't
-        use the higher level optimizations, GCC compiled code tends to be slower than code compiled
+        <LI>Because GCC isn't particularly optimized for C++ code, GCC compiled code tends to be slower than code compiled
         by some of the commercially available compilers. If you feel you need more performance, you may
         want to try one of these compilers. If you do this, please run the unit tests and acceptance
         tests to verify everything works as it should. We only currently do our testing with GCC.
         <LI>STL implementations that come with Versions of GCC 2.95.x, are not safe for use on 
-        multi-processor machines.  Use STLport or upgrade to a version 3.x.x
+        multi-processor machines.  Use STLport or upgrade to a version
+        3.x.x.  STLport also tends to be faster then the
+        implementation that comes with GCC.
       </UL>
     </p>
     <p>
@@ -127,7 +123,7 @@
     <p>
       <UL>
 	    <LI>Create a static initializer on your class containing your main method. Add the line
-	    <B>System.loadLibrary("quickfix_jni");</B> or <B>System.loadLibrary("quickfix_jni_debug");</B>
+	    <B>System.loadLibrary("quickfix_jni");</B>
 	    in order to load the appropriate QuickFIX DLL or shared object.
 	    <LI>When compiling, make sure <B>quickfix.jar</B> is in your classpath.
 	    <LI>When running your application, add <I>-Djava.library.path=&lt;directory>;</I>

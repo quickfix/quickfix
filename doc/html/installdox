@@ -70,7 +70,7 @@ if ( ! @files ) {
 }
 
 if ( ! @files ) {
-  print STDERR "Warning: No input files given and non found!\n";
+  print STDERR "Warning: No input files given and none found!\n";
 }
 
 foreach $f (@files)
