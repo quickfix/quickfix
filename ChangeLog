@@ -1,3 +1,15 @@
+2003-05-12 Alex Hornby <alex@anvil.com>
+
+	* src/C++/Initiator.h: add blockingStart
+
+	* src/C++/Initiator.cpp: add blockingStart
+
+	* src/java/org_quickfix_SocketInitiator.cpp: add blockingStart
+
+	* src/java/org_quickfix_SocketInitiator.h: add blockingStart
+
+	* src/java/src/org/quickfix/SocketInitiator.java: add blockingStart
+	
 2003-05-07 Alex Hornby <alex@anvil.com>
 
 	* src/java/Makefile.am: reorder ant build

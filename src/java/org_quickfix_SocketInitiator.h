@@ -33,6 +33,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doStart
 
 /*
  * Class:     org_quickfix_SocketInitiator
+ * Method:    doBlockingStart
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlockingStart
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_SocketInitiator
  * Method:    doStop
  * Signature: ()V
  */

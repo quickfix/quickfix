@@ -183,6 +183,18 @@ void Initiator::start() throw ( ConfigError&, RuntimeError& )
   QF_STACK_POP
 }
 
+
+void Initiator::blockingStart() throw ( ConfigError&, RuntimeError& )
+{ QF_STACK_PUSH(Initiator::start)
+
+  onConfigure( m_settings );
+  onInitialize( m_settings );
+
+  startThread(this);
+
+  QF_STACK_POP
+}
+
 void Initiator::stop() 
 { QF_STACK_PUSH( Acceptor::stop ) 
   

@@ -91,6 +91,10 @@ public:
 
   /// Start initiator.
   void start() throw ( ConfigError&, RuntimeError& );
+
+  /// Start initiator.
+  void blockingStart() throw ( ConfigError&, RuntimeError& );
+
   /// Stop initiator.
   void stop();
 
