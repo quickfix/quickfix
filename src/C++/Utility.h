@@ -122,6 +122,7 @@ using std::abs;
 using std::labs;
 using std::memcpy;
 using std::memset;
+using std::exit;
 #endif
 
 #endif

@@ -24,6 +24,7 @@
 #endif
 
 #include "JavaApplication.h"
+#include <quickfix/Utility.h>
 #include "Conversions.h"
 
 JavaApplication::JavaApplication( JVMObject object, JVMObject factory )
@@ -192,7 +193,7 @@ void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
     {
       env->ExceptionDescribe();
       env->ExceptionClear();
-      std::exit(1);
+      exit(1);
     }
   }
 }
