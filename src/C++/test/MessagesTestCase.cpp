@@ -231,29 +231,29 @@ void MessageTestCase::getXML::onRun( Message& object )
   message.getTrailer().setField(CheckSum(132));
 
   assert( message.getXML() == 
-    "\n<message>\n"
+    "<message>\n"
     "  <header>\n"
-    "    <field name=\"BeginString\" number=\"8\" value=\"FIX.4.2\"/>\n"
-    "    <field name=\"SenderCompID\" number=\"49\" value=\"SENDER\"/>\n"
-    "    <field name=\"TargetCompID\" number=\"56\" value=\"TARGET\"/>\n"
+    "    <field name=\042BeginString\042 number=\0428\042 value=\042FIX.4.2\042/>\n"
+    "    <field name=\042SenderCompID\042 number=\04249\042 value=\042SENDER\042/>\n"
+    "    <field name=\042TargetCompID\042 number=\04256\042 value=\042TARGET\042/>\n"
     "  </header>\n"
     "  <body>\n"
-    "    <field name=\"Account\" number=\"1\" value=\"ACCOUNT\"/>\n"
-    "    <field name=\"ClOrdID\" number=\"11\" value=\"CLORDID\"/>\n"
-    "    <field name=\"NoMsgTypes\" number=\"384\" value=\"2\"/>\n"
+    "    <field name=\042Account\042 number=\0421\042 value=\042ACCOUNT\042/>\n"
+    "    <field name=\042ClOrdID\042 number=\04211\042 value=\042CLORDID\042/>\n"
+    "    <field name=\042NoMsgTypes\042 number=\042384\042 value=\0422\042/>\n"
     "    <group>\n"
-    "      <field name=\"RefMsgType\" number=\"372\" value=\"A\"/>\n"
-    "      <field name=\"MsgDirection\" number=\"385\" value=\"0\"/>\n"
+    "      <field name=\042RefMsgType\042 number=\042372\042 value=\042A\042/>\n"
+    "      <field name=\042MsgDirection\042 number=\042385\042 value=\0420\042/>\n"
     "    </group>\n"
     "    <group>\n"
-    "      <field name=\"RefMsgType\" number=\"372\" value=\"0\"/>\n"
-    "      <field name=\"MsgDirection\" number=\"385\" value=\"1\"/>\n"
+    "      <field name=\042RefMsgType\042 number=\042372\042 value=\0420\042/>\n"
+    "      <field name=\042MsgDirection\042 number=\042385\042 value=\0421\042/>\n"
     "    </group>\n"
     "  </body>\n"
     "  <trailer>\n"
-    "    <field name=\"CheckSum\" number=\"10\" value=\"132\"/>\n"
+    "    <field name=\042CheckSum\042 number=\04210\042 value=\042132\042/>\n"
     "  </trailer>\n"
-    "</message>\n" );
+    "</message>" );
 }
 
 void LogonParseTestCase::getString::onRun( Logon& object )
