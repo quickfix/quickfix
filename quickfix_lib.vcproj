@@ -21,7 +21,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/Zm1000"
+				AdditionalOptions="/Zm300"
 				Optimization="0"
 				FavorSizeOrSpeed="0"
 				OptimizeForWindowsApplication="FALSE"
@@ -71,7 +71,7 @@
 			CharacterSet="2">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/Zm1000"
+				AdditionalOptions="/Zm300"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="0"
 				AdditionalIncludeDirectories="../"
