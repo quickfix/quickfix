@@ -303,38 +303,38 @@ public:
   Trailer* getTrailer() { checkDisposed(); return m_trailer; }
 
 private:
-  void setField( StringField* field, FIX::FieldMap& map );
-  void setField( BooleanField* field, FIX::FieldMap& map );
-  void setField( CharField* field, FIX::FieldMap& map );
-  void setField( IntField* field, FIX::FieldMap& map );
-  void setField( DoubleField* field, FIX::FieldMap& map );
-  void setField( UtcTimeStampField* field, FIX::FieldMap& map );
-  void setField( UtcDateOnlyField* field, FIX::FieldMap& map );
-  void setField( UtcTimeOnlyField* field, FIX::FieldMap& map );
+  void mapSetField( StringField* field, FIX::FieldMap& map );
+  void mapSetField( BooleanField* field, FIX::FieldMap& map );
+  void mapSetField( CharField* field, FIX::FieldMap& map );
+  void mapSetField( IntField* field, FIX::FieldMap& map );
+  void mapSetField( DoubleField* field, FIX::FieldMap& map );
+  void mapSetField( UtcTimeStampField* field, FIX::FieldMap& map );
+  void mapSetField( UtcDateOnlyField* field, FIX::FieldMap& map );
+  void mapSetField( UtcTimeOnlyField* field, FIX::FieldMap& map );
 
-  StringField* getField( StringField* field, FIX::FieldMap& map ) 
+  StringField* mapGetField( StringField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  BooleanField* getField( BooleanField* field, FIX::FieldMap& map ) 
+  BooleanField* mapGetField( BooleanField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  CharField* getField( CharField* field, FIX::FieldMap& map ) 
+  CharField* mapGetField( CharField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  IntField* getField( IntField* field, FIX::FieldMap& map ) 
+  IntField* mapGetField( IntField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  DoubleField* getField( DoubleField* field, FIX::FieldMap& map ) 
+  DoubleField* mapGetField( DoubleField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  UtcTimeStampField* getField( UtcTimeStampField* field, FIX::FieldMap& map ) 
+  UtcTimeStampField* mapGetField( UtcTimeStampField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  UtcDateOnlyField* getField( UtcDateOnlyField* field, FIX::FieldMap& map ) 
+  UtcDateOnlyField* mapGetField( UtcDateOnlyField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  UtcTimeOnlyField* getField( UtcTimeOnlyField* field, FIX::FieldMap& map ) 
+  UtcTimeOnlyField* mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
 
-  void setField( int field, String*, FIX::FieldMap& map );
-  String* getField( int field, FIX::FieldMap& map )
+  void mapSetField( int field, String*, FIX::FieldMap& map );
+  String* mapGetField( int field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  void removeField( int field, FIX::FieldMap& map );
-  bool hasGroup( int field, FIX::FieldMap& map );
-  int groupCount( int field, FIX::FieldMap& map );
+  void mapRemoveField( int field, FIX::FieldMap& map );
+  bool mapHasGroup( int field, FIX::FieldMap& map );
+  int mapGroupCount( int field, FIX::FieldMap& map );
 
 protected:
   Header* m_header;
