@@ -107,10 +107,19 @@ bool Message::InitializeXML( const std::string& url )
 std::string Message::toString() const
 { QF_STACK_PUSH(Message::toString)
 
+  std::string str;
+  return toString( str );
+
+  QF_STACK_POP
+}
+
+std::string& Message::toString( std::string& str ) const
+{ QF_STACK_PUSH(Message::toString)
+
   m_header.setField( BodyLength( bodyLength() ) );
   m_trailer.setField( CheckSum( checkSum() ) );
 
-  return
+  return str =
     m_header.calculateString() +
     FieldMap::calculateString() +
     m_trailer.calculateString();
@@ -119,6 +128,15 @@ std::string Message::toString() const
 }
 
 std::string Message::toXML() const
+{ QF_STACK_PUSH(Message::toXML)
+
+  std::string str;
+  return toXML( str );
+
+  QF_STACK_POP
+}
+
+std::string& Message::toXML( std::string& str ) const
 { QF_STACK_PUSH(Message::toXML)
 
   std::stringstream stream;
@@ -134,7 +152,7 @@ std::string Message::toXML() const
          << std::setw(2) << " " << "</trailer>" << std::endl
          << "</message>";
 
-  return stream.str();
+  return str = stream.str();
 
   QF_STACK_POP
 }

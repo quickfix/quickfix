@@ -132,10 +132,14 @@ protected:
 public:
   /// Get a string representation of the message
   std::string toString() const;
+  /// Get a string representation without making a copy
+  std::string& toString( std::string& ) const;
   ///\deprecated To be removed next public release: Use toString()
   std::string getString() const { return toString(); }
   /// Get a XML representation of the message
   std::string toXML() const;
+  /// Get a XML representation without making a copy
+  std::string& toXML( std::string& ) const;
 
   /**
    * Set a message based on a string representation
@@ -224,7 +228,8 @@ protected:
 inline std::ostream& operator <<
 ( std::ostream& stream, const Message& message )
 {
-  stream << message.toString();
+  std::string str;
+  stream << message.toString( str );
   return stream;
 }
 
