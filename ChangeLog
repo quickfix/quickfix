@@ -1,3 +1,33 @@
+2004-09-05 20:01  orenmnero
+
+	* src/C++/test/: ParserTestCase.cpp, SocketServerTestCase.cpp:
+	  verify valid socket has been created
+
+2004-09-02 16:01  orenmnero
+
+	* ChangeLog, NEWS: [no log message]
+
+2004-09-01 18:30  orenmnero
+
+	* src/python/: QuickfixPython.cpp, quickfix.py: regenerated
+
+2004-09-01 18:26  orenmnero
+
+	* CONTRIBUTORS: [no log message]
+
+2004-09-01 18:25  orenmnero
+
+	* configure.in, src/C++/Makefile.am, src/java/Makefile.am,
+	  src/python/Makefile.am: updated version numbers
+
+2004-09-01 18:23  orenmnero
+
+	* doc/html/configuration.html: added new session settings
+
+2004-09-01 18:23  orenmnero
+
+	* doc/html/install.html: added section on generating database
+
 2004-09-01 16:50  orenmnero
 
 	* src/C++/FieldConvertors.h: use get methods instead of accessing
