@@ -39,7 +39,7 @@ namespace FIX
 {
 
 const std::string MySQLStoreFactory::DEFAULT_DATABASE = "quickfix";
-const std::string MySQLStoreFactory::DEFAULT_USER = "";
+const std::string MySQLStoreFactory::DEFAULT_USER = "root";
 const std::string MySQLStoreFactory::DEFAULT_PASSWORD = "";
 const std::string MySQLStoreFactory::DEFAULT_HOST = "localhost";
 const short MySQLStoreFactory::DEFAULT_PORT = 0;
