@@ -58,10 +58,12 @@
 #ifndef FIX_VALUES_H
 #define FIX_VALUES_H
 
+#include "DeprecatedValues.h"
 #include &lt;string>
 
 namespace FIX
 {
+  const char BeginString_FIX43[] = "FIX.4.3";
   const char BeginString_FIX42[] = "FIX.4.2";
   const char BeginString_FIX41[] = "FIX.4.1";
   const char BeginString_FIX40[] = "FIX.4.0";
@@ -77,7 +79,7 @@ namespace FIX
   const std::string SessionRejectReason_SIGNATURE_PROBLEM_TEXT = "Signature problem";
   const std::string SessionRejectReason_COMPID_PROBLEM_TEXT = "CompID problem";
   const std::string SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT = "SendingTime accuracy problem";
-  const std::string SessionRejectReason_E_TEXT = "Invalid MsgType";
+  const std::string SessionRejectReason_INVALID_MSGTYPE_TEXT = "Invalid MsgType";
 }
 #endif //FIX_VALUES_H
  </xsl:template>
@@ -92,7 +94,7 @@ namespace FIX
   const char <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = '<xsl:value-of select="@enum"/>';</xsl:otherwise>
  </xsl:choose>
  </xsl:template>
-
+ 
  <xsl:template match="fix/messages/message">
   const char MsgType_<xsl:value-of select="@name"/>[] = "<xsl:value-of select="@msgtype"/>";</xsl:template>
 

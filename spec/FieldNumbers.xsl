@@ -67,9 +67,10 @@ namespace FIX
     enum Field
     {
       <xsl:apply-templates/>
-      FIX40_LastField = PrevClosePx,
-      FIX41_LastField = PegDifference,
-      FIX42_LastField = EncodedListStatusText
+      ,FIX40_LastField = PrevClosePx
+      ,FIX41_LastField = PegDifference
+      ,FIX42_LastField = EncodedListStatusText
+      ,FIX43_LastField = SideComplianceID
     };
 
     const int NormalMin = 1;
@@ -92,14 +93,14 @@ namespace FIX
  </xsl:template>
 
  <xsl:template match="fields/field[position()=1]">
-      <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>,
+      <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
  </xsl:template>
  <xsl:template match="fields/field[position()!=1]">
-      <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>,
+      ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
  </xsl:template>
  <xsl:template match="fields/field[@name='TotNoOrders']">
-      <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>,
-      ListNoOrds = <xsl:value-of select="@number"/>,
+      ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
+      ,ListNoOrds = <xsl:value-of select="@number"/>
  </xsl:template>
 
 </xsl:stylesheet>
