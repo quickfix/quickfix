@@ -49,7 +49,7 @@
 				Name="VCMIDLTool"/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="echo test &gt; EXCLUDE
+				CommandLine="echo test &gt;\ EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
 xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix
 del /F EXCLUDE
