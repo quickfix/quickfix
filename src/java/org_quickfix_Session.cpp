@@ -76,22 +76,15 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix
   FIX::SenderCompID senderCompID;
   FIX::TargetCompID targetCompID;
 
-  if ( !pMessage->getHeader().isSetField( beginString ) ||
-       !pMessage->getHeader().isSetField( senderCompID ) ||
-       !pMessage->getHeader().isSetField( targetCompID ) )
+  try
   {
-    throwNew( "Lorg/quickfix/SessionNotFound;", "" );
+    return FIX::Session::sendToTarget( *pMessage );
+  }
+  catch( FIX::SessionNotFound& e )
+  {
+    throwNew( "Lorg/quickfix/SessionNotFound;", e.what() );
     return false;
   }
-
-  FIX::SessionID sessionID = pMessage->getSessionID();
-  if ( !FIX::Session::lookupSession( sessionID ) )
-  {
-    throwNew( "Lorg/quickfix/SessionNotFound;", "" );
-    return false;
-  }
-
-  return FIX::Session::sendToTarget( *pMessage );
 
   QF_STACK_CATCH
 }
@@ -107,12 +100,15 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix
   FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
   FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getInt( "cppPointer" );
 
-  if ( !FIX::Session::lookupSession( *pSessionID ) )
+  try
   {
-    throwNew( "Lorg/quickfix/SessionNotFound;", "" );
+    return FIX::Session::sendToTarget( *pMessage, *pSessionID );
+  }
+  catch( FIX::SessionNotFound& e )
+  {
+    throwNew( "Lorg/quickfix/SessionNotFound;", e.what() );
     return false;
   }
-  return FIX::Session::sendToTarget( *pMessage, *pSessionID );
 
   QF_STACK_CATCH
 }
@@ -133,23 +129,17 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix
   std::string targetCompID( utarget );
   pEnv->ReleaseStringUTFChars( target, utarget );
 
-  FIX::BeginString beginString;
-  if ( !pMessage->getHeader().isSetField( beginString ) )
+  try 
   {
-    throwNew( "Lorg/quickfix/SessionNotFound;", "" );
-    return 0;
+    return FIX::Session::sendToTarget( *pMessage,
+	                                FIX::SenderCompID( senderCompID ),
+		                        FIX::TargetCompID( targetCompID ) );
   }
-
-  FIX::SessionID sessionID = FIX::SessionID( beginString,
-                             FIX::SenderCompID( senderCompID ), FIX::TargetCompID( targetCompID ) );
-  if ( !FIX::Session::lookupSession( sessionID ) )
+  catch( FIX::SessionNotFound& e )
   {
-    throwNew( "Lorg/quickfix/SessionNotFound;", "" );
+    throwNew( "Lorg/quickfix/SessionNotFound;", e.what() );
     return false;
   }
-  return FIX::Session::sendToTarget( *pMessage,
-                                     FIX::SenderCompID( senderCompID ),
-                                     FIX::TargetCompID( targetCompID ) );
 
   QF_STACK_CATCH
 }
