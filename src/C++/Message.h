@@ -61,6 +61,7 @@
 #include "SessionID.h"
 #include "DataDictionary.h"
 #include <vector>
+#include <memory>
 
 namespace FIX
 {

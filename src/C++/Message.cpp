@@ -89,7 +89,9 @@ bool Message::InitializeXML( const std::string& url )
 {
   try
   {
-    s_dataDictionary = std::auto_ptr<DataDictionary>(new DataDictionary(url));
+    std::auto_ptr<DataDictionary> p =
+      std::auto_ptr<DataDictionary>(new DataDictionary(url));
+    s_dataDictionary = p;
     return true;
   }
   catch( ConfigError& )
@@ -109,7 +111,6 @@ std::string Message::getString() const
 
 std::string Message::getXML() const
 {
-  FieldMap::iterator i;
   std::stringstream stream;
   stream << "<message>"                         << "\n"
          << std::setw(2) << " " << "<header>"   << "\n"  
