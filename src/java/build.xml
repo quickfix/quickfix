@@ -23,7 +23,6 @@
     <target name="compile" depends="init">
         <javac destdir="${build}" failonerror="true">
             <src path="${src}"/>
-            <src path="${test}"/>
             <classpath>
                 <fileset dir="${lib}">
                     <include name="*.jar"/>
