@@ -361,7 +361,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
         map.addGroup( group, *pGroup, false ); 
         delete pGroup; pGroup = 0;
       }
-      pGroup = new Group( field.getField(), delim );
+      pGroup = new Group( field.getField(), delim, pDD->getOrderedFields()  );
     }
     else if ( !pDD->isField( field.getField() ) )
     {

@@ -47,11 +47,11 @@ namespace FIX
 {
 DataDictionary::DataDictionary()
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true ) {}
+  m_checkFieldsHaveValues( true ), m_orderedFieldsArray(0) {}
 
 DataDictionary::DataDictionary( const std::string& url )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
-  m_checkFieldsHaveValues( true )
+  m_checkFieldsHaveValues( true ), m_orderedFieldsArray(0)
 {
   readFromURL( url );
 }
@@ -66,7 +66,8 @@ DataDictionary::~DataDictionary()
   FieldToGroup::iterator i;
   for ( i = m_groups.begin(); i != m_groups.end(); ++i )
     delete i->second.second;
-
+  if( m_orderedFieldsArray )
+    delete [] m_orderedFieldsArray;
 }
 
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
@@ -82,6 +83,8 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
   m_headerFields = rhs.m_headerFields;
   m_trailerFields = rhs.m_trailerFields;
   m_fields = rhs.m_fields;
+  m_orderedFields = rhs.m_orderedFields;
+  m_orderedFieldsArray = 0;
   m_fieldTypes = rhs.m_fieldTypes;
   m_fieldValues = rhs.m_fieldValues;
   m_fieldNames = rhs.m_fieldNames;
@@ -344,6 +347,21 @@ void DataDictionary::readFromURL( const std::string& url )
     }
     RESET_AUTO_PTR(pMessageNode, pMessageNode->getNextSiblingNode());
   }
+
+  QF_STACK_POP
+}
+
+int* DataDictionary::getOrderedFields() const
+{ QF_STACK_PUSH(DataDictionary::getOrderedFields)
+
+  if( m_orderedFieldsArray ) return m_orderedFieldsArray;
+  m_orderedFieldsArray = new int[m_orderedFields.size() + 1];
+
+  int* i = m_orderedFieldsArray;
+  OrderedFields::const_iterator iter;  
+  for( iter = m_orderedFields.begin(); iter != m_orderedFields.end(); *(i++) = *(iter++) ) {}
+  *i = 0;
+  return m_orderedFieldsArray;
 
   QF_STACK_POP
 }

@@ -43,6 +43,8 @@ class DataDictionary
   typedef std::map < std::string, MsgFields > MsgTypeToField;
   typedef std::set < std::string > MsgTypes;
   typedef std::set < int > Fields;
+  typedef std::vector< int > OrderedFields;
+  typedef int* OrderedFieldsArray;
   typedef std::map < int, TYPE::Type > FieldTypes;
   typedef std::set < std::string > Values;
   typedef std::map < int, Values > FieldToValue;
@@ -60,6 +62,8 @@ public:
   virtual ~DataDictionary();
   void readFromURL( const std::string& url );
 
+  int* getOrderedFields() const;
+
   // storage functions
   void setVersion( const std::string& beginString )
   {
@@ -74,6 +78,7 @@ public:
   void addField( int field )
   {
     m_fields.insert( field );
+    m_orderedFields.push_back( field );
   }
 
   void addFieldName( int field, const std::string& name )
@@ -419,6 +424,8 @@ private:
   MsgTypeToField m_requiredFields;
   MsgTypes m_messages;
   Fields m_fields;
+  OrderedFields m_orderedFields;
+  mutable OrderedFieldsArray m_orderedFieldsArray;
   Fields m_headerFields;
   Fields m_trailerFields;
   FieldTypes m_fieldTypes;

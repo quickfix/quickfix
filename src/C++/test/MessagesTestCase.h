@@ -52,6 +52,7 @@ public:
     add( &m_isAdmin );
     add( &m_isApp );
     add( &m_setString );
+    add( &m_setStringWithGroup );
     add( &m_checkSum );
     add( &m_headerFieldsFirst );
     add( &m_noEndingDelim );
@@ -87,6 +88,11 @@ public:
   {
     void onRun( Message& object );
   } m_setString;
+
+  class setStringWithGroup : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_setStringWithGroup;
 
   class checkSum : public SimpleTest
   {

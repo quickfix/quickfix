@@ -143,6 +143,23 @@ void MessageTestCase::setString::onRun( Message& object )
   assert( object.isSetField( symbol ) );
 }
 
+void MessageTestCase::setStringWithGroup::onRun( Message& object )
+{
+  DataDictionary dataDictionary( "spec/FIX43.xml" );
+  static const char* str =
+    "8=FIX.4.3\0019=199\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152"
+    "=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\00111"
+    "=1095350459\00167=1\0011=00303\00155=fred\00154=1\00140=1\00159=3\00111=1095"
+    "350460\00167=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110="
+    "138\001";
+
+    try 
+    {
+      object.setString( str, true, &dataDictionary );
+      assert( object.toString() == str );
+    } catch( InvalidMessage& ) { assert(false); }
+}
+
 void MessageTestCase::checkSum::onRun( Message& object )
 {
   const std::string str1 =
