@@ -73,7 +73,7 @@ void MySQLStore::populateCache()
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
   std::stringstream query;
 
-  query << "SELECT * FROM sessions WHERE "
+  query << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
@@ -91,12 +91,12 @@ void MySQLStore::populateCache()
     {
       MYSQL_ROW row = mysql_fetch_row( result );
       UtcTimeStamp time;
-      std::string sqlTime = row[ 3 ];
+      std::string sqlTime = row[ 0 ];
       strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
       static_cast<tm*>(time)->tm_isdst = -1;
       m_cache.setCreationTime( time );
-      m_cache.setNextTargetMsgSeqNum( atol( row[ 4 ] ) );
-      m_cache.setNextSenderMsgSeqNum( atol( row[ 5 ] ) );
+      m_cache.setNextTargetMsgSeqNum( atol( row[ 1 ] ) );
+      m_cache.setNextSenderMsgSeqNum( atol( row[ 2 ] ) );
     }
     else
     {

@@ -42,15 +42,16 @@ public:
   {
     add( &m_setGet );
     add( &m_getRange );
-    //add( &m_other );
+    add( &m_other );
+    add( &m_reload );
   }
 
 private:
-
-class setGet : public MessageStoreTestCase::setGet
+  
+  class setGet : public MessageStoreTestCase::setGet
   {
   public:
-  setGet() : m_factory() {}
+    setGet() : m_factory() {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -59,10 +60,10 @@ class setGet : public MessageStoreTestCase::setGet
   }
   m_setGet;
 
-class getRange : public MessageStoreTestCase::getRange
+  class getRange : public MessageStoreTestCase::getRange
   {
   public:
-  getRange() : m_factory() {}
+    getRange() : m_factory() {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -71,19 +72,31 @@ class getRange : public MessageStoreTestCase::getRange
   }
   m_getRange;
 
-  /*class other : public MessageStoreTestCase::other
-    {
-    public:
-    other() : m_fileStoreFactory( "store" ) {}
-      bool onSetup( MessageStore*& pObject );
-      void onTeardown( MessageStore* pObject );
+  class other : public MessageStoreTestCase::other
+  {
+  public:
+    other() : m_factory() {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
    
-    private:
-      FileStoreFactory m_fileStoreFactory;
-    }
-    m_other;*/
+  private:
+    MySQLStoreFactory m_factory;
+  }
+  m_other;
+
+  class reload : public MessageStoreTestCase::reload
+  {
+  public:
+    reload() : m_factory() {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+   
+  private:
+    MySQLStoreFactory m_factory;
+  }
+  m_reload;
 };
 }
 
-#endif //FIX_FILESTORETESTCASE_H
+#endif //FIX_MYSQLSTORETESTCASE_H
 #endif //HAVE_MYSQL

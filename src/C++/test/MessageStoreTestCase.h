@@ -36,7 +36,16 @@ public:
 public:
   typedef CPPTest::Test < MessageStore > Test;
 
-class setGet : public Test
+  class setGet : public Test
+  {
+  public:
+    bool onSetup( MessageStore*& pObject )
+    { pObject = &( *m_object ); pObject->reset(); return true; }
+    void onRun( MessageStore& object );
+    MessageStore* m_object;
+  };
+  
+  class getRange : public Test
   {
   public:
     bool onSetup( MessageStore*& pObject )
@@ -45,7 +54,7 @@ class setGet : public Test
     MessageStore* m_object;
   };
 
-class getRange : public Test
+  class other : public Test
   {
   public:
     bool onSetup( MessageStore*& pObject )
@@ -53,12 +62,12 @@ class getRange : public Test
     void onRun( MessageStore& object );
     MessageStore* m_object;
   };
-
-class other : public Test
+  
+  class reload : public Test
   {
   public:
     bool onSetup( MessageStore*& pObject )
-    { pObject = &( *m_object ); pObject->reset(); return true; }
+    { pObject = &( *m_object ); return true; }
     void onRun( MessageStore& object );
     MessageStore* m_object;
   };

@@ -102,4 +102,11 @@ void MessageStoreTestCase::other::onRun( MessageStore& object )
   object.incrNextTargetMsgSeqNum();
   assert( object.getNextTargetMsgSeqNum() == 21 );
 }
+
+void MessageStoreTestCase::reload::onRun( MessageStore& object )
+{
+  // use same session from previous test
+  assert( object.getNextSenderMsgSeqNum() == 11 );
+  assert( object.getNextTargetMsgSeqNum() == 21 );
+}
 }

@@ -64,13 +64,38 @@ void MySQLStoreTestCase::getRange::onTeardown( MessageStore* pObject )
   m_factory.destroy( pObject );
 }
 
-/*bool MySQLStoreTestCase::other::onSetup( MessageStore*& pObject )
+bool MySQLStoreTestCase::other::onSetup( MessageStore*& pObject )
 {
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_factory.create( sessionID );
+  pObject = &( *m_object );
+  pObject->reset();
+
+  return true;
 }
  
 void MySQLStoreTestCase::other::onTeardown( MessageStore* pObject )
 {
-}*/
+  m_factory.destroy( pObject );
+}
+
+bool MySQLStoreTestCase::reload::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_factory.create( sessionID );
+  pObject = &( *m_object );
+
+  return true;
+}
+ 
+void MySQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
+{
+  m_factory.destroy( pObject );
+}
 } //namespace FIX
 
 #endif //HAVE_MYSQL
