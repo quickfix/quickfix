@@ -117,6 +117,9 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
 
   try
   {
+    Session* session = Session::lookupSession( s );
+    if( !session->isSessionTime() ) return false;
+
     std::string address;
 
     ThreadStruct* threadStruct = new ThreadStruct( this, s, d );

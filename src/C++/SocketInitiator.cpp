@@ -123,7 +123,10 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
   {
     std::string address;
     short port = 0;
-    Log* log = Session::lookupSession( s )->getLog();
+    Session* session = Session::lookupSession( s );
+    if( !session->isSessionTime() ) return false;
+
+    Log* log = session->getLog();
 
     getHost( s, d, address, port );
     
