@@ -70,6 +70,7 @@ echo on
 
  <xsl:template name="field">
  <xsl:param name="file"/> 
+ <xsl:variable name="name"><xsl:value-of select="@name"/></xsl:variable>
 echo   public void set(org.quickfix.field.<xsl:value-of select="@name"/> value) &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   { setField(value); } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   public org.quickfix.field.<xsl:value-of select="@name"/> get(org.quickfix.field.<xsl:value-of select="@name"/> value) throws FieldNotFound &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
@@ -77,6 +78,10 @@ echo   { getField(value); return value; } &gt;&gt; <xsl:call-template name="path
 echo   public org.quickfix.field.<xsl:value-of select="@name"/> get<xsl:value-of select="@name"/>() throws FieldNotFound &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   { org.quickfix.field.<xsl:value-of select="@name"/> value = new org.quickfix.field.<xsl:value-of select="@name"/>(); &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo     getField(value); return value; } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
+echo   public boolean isSet(org.quickfix.field.<xsl:value-of select="@name"/> field) &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
+echo   { return isSetField(field); } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
+echo   public boolean isSet<xsl:value-of select="@name"/>() &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
+echo   { return isSetField(<xsl:value-of select="/fix/fields/field[@name=$name]/@number"/>); } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
  </xsl:template>
  
  <xsl:template name="component">
