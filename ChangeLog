@@ -1,3 +1,34 @@
+2004-11-15 07:25  orenmnero
+
+	* NEWS: [no log message]
+
+2004-11-15 07:00  orenmnero
+
+	* configure.in, src/C++/Makefile.am: [no log message]
+
+2004-11-14 21:27  orenmnero
+
+	* src/.NET/quickfix_net.vcproj: link to release library
+
+2004-11-11 17:14  orenmnero
+
+	* src/.NET/Application.h: remove erroneous __pin specifier on
+	  return value
+
+2004-11-11 17:13  orenmnero
+
+	* src/C++/ThreadedSocketInitiator.cpp: alway make sure we are
+	  connected when necessary
+
+2004-11-11 17:12  orenmnero
+
+	* src/java/: build.bat, build.sh, build.xml: allocate extra memory
+	  inside ant script instead of when loading jvm
+
+2004-11-08 08:29  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-08 08:23  orenmnero
 
 	* src/: C++/MySQLStore.cpp, C++/test/MySQLStoreTestCase.h,

@@ -1,3 +1,12 @@
+1.9.4
+-----
+Fixed compilation and linking errors in .NET library.
+
+ThreadedSocketInitiator will reconnect when roaming into a sessions start time.
+
+Instead of the shell/bat scripts allocated extra memory for the JVM to build
+the java API, the memory is allocated in the ant script.
+
 1.9.3
 -----
 .NET crashes do to random NullPointerExceptions has been fixed.  The
