@@ -97,9 +97,9 @@ FileLog::FileLog( std::string path, const SessionID& s )
   m_incoming.open( incomingFileName.c_str(), std::ios::out | std::ios::app );
   if ( !m_incoming.is_open() ) throw ConfigError( "Could not open incoming file" );
   m_outgoing.open( outgoingFileName.c_str(), std::ios::out | std::ios::app );
-  if ( !m_incoming.is_open() ) throw ConfigError( "Could not open outgoing file" );
+  if ( !m_outgoing.is_open() ) throw ConfigError( "Could not open outgoing file" );
   m_event.open( eventFileName.c_str(), std::ios::out | std::ios::app );
-  if ( !m_incoming.is_open() ) throw ConfigError( "Could not open event file" );
+  if ( !m_event.is_open() ) throw ConfigError( "Could not open event file" );
 }
 
 FileLog::~FileLog()
