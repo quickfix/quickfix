@@ -1,3 +1,14 @@
+2004-11-15 16:30  orenmnero
+
+	* quickfix.dsp, quickfix.vcproj, src/.NET/MySQLLog.h,
+	  src/.NET/MySQLMessageStore.h, src/C++/MySQLLog.cpp,
+	  src/C++/MySQLStore.cpp: fixed MySQL compilation errors under
+	  windows
+
+2004-11-15 07:29  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-15 07:25  orenmnero
 
 	* NEWS: [no log message]
