@@ -68,7 +68,7 @@ const int UTC_DAY = 86400;
 
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /// Date and Time represented in UTC.
 class UtcTimeStamp : protected tm
 {
@@ -219,7 +219,7 @@ public:
   }
 
   UtcDate( int date, int month, int year )
-  : UtcTimeStamp( date, month, year )
+  : UtcTimeStamp( 0, 0, 0, date, month, year )
   {
     clearTime();
   }
