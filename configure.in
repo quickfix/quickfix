@@ -1,7 +1,6 @@
 dnl I got a big bag of -*- Sh -*- for you right here
 # Process this file with autoconf to produce a configure script.
 
-AC_PREREQ(2.53)
 AC_INIT(src/ut.cpp)
 AM_INIT_AUTOMAKE(quickfix, 1.4.1)
 AM_CONFIG_HEADER(config.h)
