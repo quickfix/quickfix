@@ -714,9 +714,13 @@ JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
 
   const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
-  if ( !pMessage->setString( uvalue, validate ) )
+  try
   {
-    throwNew( "Lorg/quickfix/InvalidMessage;", "Invalid Message" );
+    pMessage->setString( uvalue, validate );
+  }
+  catch( FIX::InvalidMessage& e )
+  {
+    throwNew( "Lorg/quickfix/InvalidMessage;", e.what() );
   }
   ENV::get()->ReleaseStringUTFChars( value, uvalue );
 
