@@ -3615,7 +3615,7 @@
   </messages>
   <components>
     <component name="Instrument">
-      <field name="Symbol" requires="Y" />
+      <field name="Symbol" required="Y" />
       <field name="SymbolSfx" required="N" />
       <field name="SecurityID" required="N" />
       <field name="SecurityIDSource" required="N" />
@@ -4274,7 +4274,7 @@
     </field>
     <field number="66" name="ListID" type="STRING" />
     <field number="67" name="ListSeqNo" type="INT" />
-    <field number="63" name="TotNoOrders" type="INT" />
+    <field number="68" name="TotNoOrders" type="INT" />
     <field number="69" name="ListExecInst" type="STRING" />
     <field number="70" name="AllocID" type="STRING" />
     <field number="71" name="AllocTransType" type="CHAR">
@@ -4797,7 +4797,7 @@
       <value enum="TAXEQUIV" description="TAX_EQUIVALENT_YIELD" />
       <value enum="TENDER" description="YIELD_TO_TENDER_DATE" />
       <value enum="TRUE" description="TRUE_YIELD" />
-      VALUE1/32 = Yield Value Of 1/32
+      <value enum="VALUE1_32" description="YIELD_VALUE_OF_1_32" />
       <value enum="WORST" description="YIELD_TO_WORST" />
     </field>
     <field number="236" name="Yield" type="PERCENTAGE" />
@@ -5695,7 +5695,7 @@
     <field number="562" name="MinTradeVol" type="QTY" />
     <field number="563" name="MultiLegRptTypeReq" type="INT">
       <value enum="0" description="REPORT_BY_MULITLEG_SECURITY_ONLY" />
-      <value enum="1" description="REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY" />.
+      <value enum="1" description="REPORT_BY_MULTILEG_SECURITY_AND_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY" />
       <value enum="2" description="REPORT_BY_INSTRUMENT_LEGS_BELONGING_TO_THE_MULTILEG_SECURITY_ONLY" />
     </field>
     <field number="564" name="LegPositionEffect" type="CHAR" />

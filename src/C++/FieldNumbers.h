@@ -122,8 +122,8 @@ namespace FIX
      ,SymbolSfx = 65
      ,ListID = 66
      ,ListSeqNo = 67
-     ,TotNoOrders = 63
-     ,ListNoOrds = 63
+     ,TotNoOrders = 68
+     ,ListNoOrds = 68
      ,ListExecInst = 69
      ,AllocID = 70
      ,AllocTransType = 71

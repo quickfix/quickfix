@@ -746,8 +746,8 @@ namespace QuickFix
   public __gc class TotNoOrders : public IntField
   {
   public:
-  TotNoOrders() : IntField(63) {}
-    TotNoOrders(int data) : IntField(63, data) {}
+  TotNoOrders() : IntField(68) {}
+    TotNoOrders(int data) : IntField(68, data) {}
   };
   
   public __gc class ListNoOrds : public IntField

@@ -754,6 +754,7 @@ namespace FIX
  const std::string YieldType_TAX_EQUIVALENT_YIELD = "TAXEQUIV";
  const std::string YieldType_YIELD_TO_TENDER_DATE = "TENDER";
  const std::string YieldType_TRUE_YIELD = "TRUE";
+ const std::string YieldType_YIELD_VALUE_OF_1_32 = "VALUE1_32";
  const std::string YieldType_YIELD_TO_WORST = "WORST";
  const char SubscriptionRequestType_SNAPSHOT = '0';
  const char SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES = '1';
@@ -1678,7 +1679,9 @@ namespace FIX
   const std::string SessionRejectReason_COMPID_PROBLEM_TEXT = "CompID problem";
   const std::string SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT = "SendingTime accuracy problem";
   const std::string SessionRejectReason_INVALID_MSGTYPE_TEXT = "Invalid MsgType";
+  const std::string SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT = "Tag appears more than once";
   const std::string SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT = "Tag specified out of required order";
+  const std::string SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT = "Incorrect NumInGroup count for repeating group";
 }
 #endif //FIX_VALUES_H
 
