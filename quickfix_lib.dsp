@@ -838,6 +838,39 @@ InputName=Settings
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\SmartPtr.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+# Begin Custom Build
+InputPath=.\src\C++\SmartPtr.h
+InputName=SmartPtr
+
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
+	
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=.\src\C++\SmartPtr.h
+InputName=SmartPtr
+
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\strptime.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
