@@ -131,7 +131,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   << "\"" << m_sessionID.getBeginString().getValue() << "\","
   << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
   << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
-  << "\"" << m_sessionID.getSessionQualifier().getValue() << "\","
+  << "\"" << m_sessionID.getSessionQualifier() << "\","
   << "\"" << valueCopy << "\")";
 
   mysql_query( pConnection, query.str().c_str() );

@@ -77,7 +77,7 @@ void MySQLStore::populateCache()
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_session.getSessionQualifier() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
 
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw ConfigError( "Unable to connect to database" );
@@ -93,7 +93,7 @@ void MySQLStore::populateCache()
       UtcTimeStamp time;
       std::string sqlTime = row[ 3 ];
       strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
-      static_cast<tm*>(time)->tm_dst = -1;
+      static_cast<tm*>(time)->tm_isdst = -1;
       m_cache.setCreationTime( time );
       m_cache.setNextTargetMsgSeqNum( atol( row[ 4 ] ) );
       m_cache.setNextSenderMsgSeqNum( atol( row[ 5 ] ) );
@@ -109,7 +109,7 @@ void MySQLStore::populateCache()
       << "\"" << m_sessionID.getBeginString().getValue() << "\","
       << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
       << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
-      << "\"" << m_sessionID.getSessionQualifier().getValue() << "\","
+      << "\"" << m_sessionID.getSessionQualifier() << "\","
       << "'" << sqlTime << "',"
       << m_cache.getNextTargetMsgSeqNum() << ","
       << m_cache.getNextSenderMsgSeqNum() << ")";
@@ -184,7 +184,7 @@ throw ( IOException )
   << "\"" << m_sessionID.getBeginString().getValue() << "\","
   << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
   << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
-  << "\"" << m_sessionID.getSessionQualifier().getValue << "\","
+  << "\"" << m_sessionID.getSessionQualifier() << "\","
   << msgSeqNum << ","
   << "\"" << msgCopy << "\")";
 
@@ -195,7 +195,7 @@ throw ( IOException )
     << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
     << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
     << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-    << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
+    << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
     << "msgseqnum=" << msgSeqNum;
     if ( mysql_query( pConnection, query2.str().c_str() ) )
       throw IOException();
@@ -215,7 +215,7 @@ throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
   << "msgseqnum=" << msgSeqNum;
 
   if ( mysql_query( pConnection, query.str().c_str() ) )
@@ -241,7 +241,7 @@ throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\" and "
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
   << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
   << "ORDER BY msgseqnum";
 
@@ -277,7 +277,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw IOException();
   m_cache.setNextSenderMsgSeqNum( value );
@@ -294,7 +294,7 @@ void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw IOException();
   m_cache.setNextTargetMsgSeqNum( value );
@@ -331,7 +331,7 @@ void MySQLStore::reset() throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
   if ( mysql_query( pConnection, query.str().c_str() ) )
     throw IOException();
 
@@ -347,7 +347,7 @@ void MySQLStore::reset() throw ( IOException )
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier().getValue() << "\"";
+  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
   if ( mysql_query( pConnection, query2.str().c_str() ) )
     throw IOException();
 
