@@ -53,267 +53,235 @@ package org.quickfix.fix42;
 import org.quickfix.*;
 import org.quickfix.field.*;
 
-public class MessageCracker extends org.quickfix.fix41.MessageCracker {
-    public void onMessage( org.quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( Advertisement message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( IndicationofInterest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( News message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( Email message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( QuoteRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( Quote message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( MassQuote message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( QuoteCancel message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( QuoteStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( QuoteAcknowledgement message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( MarketDataRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( MarketDataSnapshotFullRefresh message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( MarketDataIncrementalRefresh message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( MarketDataRequestReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( SecurityDefinitionRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( SecurityDefinition message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( SecurityStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( SecurityStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( TradingSessionStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( TradingSessionStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( NewOrderSingle message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( ExecutionReport message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( DontKnowTrade message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( OrderCancelReplaceRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( OrderCancelRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( OrderCancelReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( OrderStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( Allocation message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( AllocationACK message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( SettlementInstructions message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( NewOrderList message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( ListStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( ListExecute message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( ListCancelRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( ListStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
-        throw new UnsupportedMessageType();
-    }
-    public void onMessage( BusinessMessageReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {}
+public class MessageCracker extends org.quickfix.fix41.MessageCracker
+{
+public void onMessage( org.quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+  { throw new UnsupportedMessageType(); }
+ public void onMessage( Advertisement message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( IndicationofInterest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( News message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( Email message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( QuoteRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( Quote message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( MassQuote message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( QuoteCancel message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( QuoteStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( QuoteAcknowledgement message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( MarketDataRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( MarketDataSnapshotFullRefresh message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( MarketDataIncrementalRefresh message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( MarketDataRequestReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( SecurityDefinitionRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( SecurityDefinition message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( SecurityStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( SecurityStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( TradingSessionStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( TradingSessionStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( NewOrderSingle message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( ExecutionReport message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( DontKnowTrade message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( OrderCancelReplaceRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( OrderCancelRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( OrderCancelReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( OrderStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( Allocation message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( AllocationACK message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( SettlementInstructions message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( NewOrderList message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( ListStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( ListExecute message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( ListCancelRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( ListStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( BusinessMessageReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    {}
+ 
+  public void crack( org.quickfix.Message message, SessionID sessionID )
+    throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue
+  { crack42((Message)message, sessionID); }
 
-    public void crack( org.quickfix.Message message, SessionID sessionID )
-    throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue {
-        crack42((Message)message, sessionID);
+  public void crack42( Message message, SessionID sessionID ) 
+    throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue
+  {
+    MsgType msgType = new MsgType();
+    message.getHeader().getField(msgType);
+    String msgTypeString = msgType.getValue();
+    if(msgTypeString.length() > 1)
+    {
+      onMessage( message, sessionID );
+      return;
     }
 
-    public void crack42( Message message, SessionID sessionID )
-    throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue {
-        MsgType msgType = new MsgType();
-        message.getHeader().getField(msgType);
-        String msgTypeString = msgType.getValue();
-        if(msgTypeString.length() > 1) {
-            onMessage( message, sessionID );
-            return;
-        }
-
-        switch(msgTypeString.charAt(0)) {
-        case '0':
-            onMessage( (Heartbeat)message, sessionID );
-            break;
-        case 'A':
-            onMessage( (Logon)message, sessionID );
-            break;
-        case '1':
-            onMessage( (TestRequest)message, sessionID );
-            break;
-        case '2':
-            onMessage( (ResendRequest)message, sessionID );
-            break;
-        case '3':
-            onMessage( (Reject)message, sessionID );
-            break;
-        case '4':
-            onMessage( (SequenceReset)message, sessionID );
-            break;
-        case '5':
-            onMessage( (Logout)message, sessionID );
-            break;
-        case '7':
-            onMessage( (Advertisement)message, sessionID );
-            break;
-        case '6':
-            onMessage( (IndicationofInterest)message, sessionID );
-            break;
-        case 'B':
-            onMessage( (News)message, sessionID );
-            break;
-        case 'C':
-            onMessage( (Email)message, sessionID );
-            break;
-        case 'R':
-            onMessage( (QuoteRequest)message, sessionID );
-            break;
-        case 'S':
-            onMessage( (Quote)message, sessionID );
-            break;
-        case 'i':
-            onMessage( (MassQuote)message, sessionID );
-            break;
-        case 'Z':
-            onMessage( (QuoteCancel)message, sessionID );
-            break;
-        case 'a':
-            onMessage( (QuoteStatusRequest)message, sessionID );
-            break;
-        case 'b':
-            onMessage( (QuoteAcknowledgement)message, sessionID );
-            break;
-        case 'V':
-            onMessage( (MarketDataRequest)message, sessionID );
-            break;
-        case 'W':
-            onMessage( (MarketDataSnapshotFullRefresh)message, sessionID );
-            break;
-        case 'X':
-            onMessage( (MarketDataIncrementalRefresh)message, sessionID );
-            break;
-        case 'Y':
-            onMessage( (MarketDataRequestReject)message, sessionID );
-            break;
-        case 'c':
-            onMessage( (SecurityDefinitionRequest)message, sessionID );
-            break;
-        case 'd':
-            onMessage( (SecurityDefinition)message, sessionID );
-            break;
-        case 'e':
-            onMessage( (SecurityStatusRequest)message, sessionID );
-            break;
-        case 'f':
-            onMessage( (SecurityStatus)message, sessionID );
-            break;
-        case 'g':
-            onMessage( (TradingSessionStatusRequest)message, sessionID );
-            break;
-        case 'h':
-            onMessage( (TradingSessionStatus)message, sessionID );
-            break;
-        case 'D':
-            onMessage( (NewOrderSingle)message, sessionID );
-            break;
-        case '8':
-            onMessage( (ExecutionReport)message, sessionID );
-            break;
-        case 'Q':
-            onMessage( (DontKnowTrade)message, sessionID );
-            break;
-        case 'G':
-            onMessage( (OrderCancelReplaceRequest)message, sessionID );
-            break;
-        case 'F':
-            onMessage( (OrderCancelRequest)message, sessionID );
-            break;
-        case '9':
-            onMessage( (OrderCancelReject)message, sessionID );
-            break;
-        case 'H':
-            onMessage( (OrderStatusRequest)message, sessionID );
-            break;
-        case 'J':
-            onMessage( (Allocation)message, sessionID );
-            break;
-        case 'P':
-            onMessage( (AllocationACK)message, sessionID );
-            break;
-        case 'T':
-            onMessage( (SettlementInstructions)message, sessionID );
-            break;
-        case 'E':
-            onMessage( (NewOrderList)message, sessionID );
-            break;
-        case 'N':
-            onMessage( (ListStatus)message, sessionID );
-            break;
-        case 'L':
-            onMessage( (ListExecute)message, sessionID );
-            break;
-        case 'K':
-            onMessage( (ListCancelRequest)message, sessionID );
-            break;
-        case 'M':
-            onMessage( (ListStatusRequest)message, sessionID );
-            break;
-        case 'j':
-            onMessage( (BusinessMessageReject)message, sessionID );
-            break;
-        default:
-            onMessage( message, sessionID );
-        }
+    switch(msgTypeString.charAt(0))
+    {
+      case '0':
+        onMessage( (Heartbeat)message, sessionID );
+	      break;
+      case 'A':
+        onMessage( (Logon)message, sessionID );
+	      break;
+      case '1':
+        onMessage( (TestRequest)message, sessionID );
+	      break;
+      case '2':
+        onMessage( (ResendRequest)message, sessionID );
+	      break;
+      case '3':
+        onMessage( (Reject)message, sessionID );
+	      break;
+      case '4':
+        onMessage( (SequenceReset)message, sessionID );
+	      break;
+      case '5':
+        onMessage( (Logout)message, sessionID );
+	      break;
+      case '7':
+        onMessage( (Advertisement)message, sessionID );
+	      break;
+      case '6':
+        onMessage( (IndicationofInterest)message, sessionID );
+	      break;
+      case 'B':
+        onMessage( (News)message, sessionID );
+	      break;
+      case 'C':
+        onMessage( (Email)message, sessionID );
+	      break;
+      case 'R':
+        onMessage( (QuoteRequest)message, sessionID );
+	      break;
+      case 'S':
+        onMessage( (Quote)message, sessionID );
+	      break;
+      case 'i':
+        onMessage( (MassQuote)message, sessionID );
+	      break;
+      case 'Z':
+        onMessage( (QuoteCancel)message, sessionID );
+	      break;
+      case 'a':
+        onMessage( (QuoteStatusRequest)message, sessionID );
+	      break;
+      case 'b':
+        onMessage( (QuoteAcknowledgement)message, sessionID );
+	      break;
+      case 'V':
+        onMessage( (MarketDataRequest)message, sessionID );
+	      break;
+      case 'W':
+        onMessage( (MarketDataSnapshotFullRefresh)message, sessionID );
+	      break;
+      case 'X':
+        onMessage( (MarketDataIncrementalRefresh)message, sessionID );
+	      break;
+      case 'Y':
+        onMessage( (MarketDataRequestReject)message, sessionID );
+	      break;
+      case 'c':
+        onMessage( (SecurityDefinitionRequest)message, sessionID );
+	      break;
+      case 'd':
+        onMessage( (SecurityDefinition)message, sessionID );
+	      break;
+      case 'e':
+        onMessage( (SecurityStatusRequest)message, sessionID );
+	      break;
+      case 'f':
+        onMessage( (SecurityStatus)message, sessionID );
+	      break;
+      case 'g':
+        onMessage( (TradingSessionStatusRequest)message, sessionID );
+	      break;
+      case 'h':
+        onMessage( (TradingSessionStatus)message, sessionID );
+	      break;
+      case 'D':
+        onMessage( (NewOrderSingle)message, sessionID );
+	      break;
+      case '8':
+        onMessage( (ExecutionReport)message, sessionID );
+	      break;
+      case 'Q':
+        onMessage( (DontKnowTrade)message, sessionID );
+	      break;
+      case 'G':
+        onMessage( (OrderCancelReplaceRequest)message, sessionID );
+	      break;
+      case 'F':
+        onMessage( (OrderCancelRequest)message, sessionID );
+	      break;
+      case '9':
+        onMessage( (OrderCancelReject)message, sessionID );
+	      break;
+      case 'H':
+        onMessage( (OrderStatusRequest)message, sessionID );
+	      break;
+      case 'J':
+        onMessage( (Allocation)message, sessionID );
+	      break;
+      case 'P':
+        onMessage( (AllocationACK)message, sessionID );
+	      break;
+      case 'T':
+        onMessage( (SettlementInstructions)message, sessionID );
+	      break;
+      case 'E':
+        onMessage( (NewOrderList)message, sessionID );
+	      break;
+      case 'N':
+        onMessage( (ListStatus)message, sessionID );
+	      break;
+      case 'L':
+        onMessage( (ListExecute)message, sessionID );
+	      break;
+      case 'K':
+        onMessage( (ListCancelRequest)message, sessionID );
+	      break;
+      case 'M':
+        onMessage( (ListStatusRequest)message, sessionID );
+	      break;
+      case 'j':
+        onMessage( (BusinessMessageReject)message, sessionID );
+	      break;
+      default:
+        onMessage( message, sessionID );
     }
+  }
 
-};
+  };
 
 

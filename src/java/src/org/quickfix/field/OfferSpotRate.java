@@ -1,13 +1,16 @@
-package org.quickfix.field;
-import org.quickfix.DoubleField;
-import java.util.Date;
+package org.quickfix.field; 
+import org.quickfix.DoubleField; 
+import java.util.Date; 
 
-public class OfferSpotRate extends DoubleField {
+public class OfferSpotRate extends DoubleField 
+{ 
 
-    public OfferSpotRate() {
-        super(190);
-    }
-    public OfferSpotRate(double data) {
-        super(190, data);
-    }
-}
+  public OfferSpotRate() 
+  { 
+    super(190);
+  } 
+  public OfferSpotRate(double data) 
+  { 
+    super(190, data);
+  } 
+} 

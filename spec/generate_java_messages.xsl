@@ -116,7 +116,7 @@ REM
 type blankline.txt &gt;&gt; <xsl:call-template name="path"/>\ &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo public class <xsl:value-of select="@name"/> extends Group { &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   public <xsl:value-of select="@name"/>() { &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
-echo     super(<xsl:value-of select="@number"/>,<xsl:value-of select="field/@number"/>); &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
+echo     super(<xsl:value-of select="@number"/>,<xsl:value-of select="field/@number"/>, new int[]{<xsl:for-each select="field"><xsl:value-of select="@number"/>,</xsl:for-each>0}); &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 <xsl:for-each select="field">
 echo   void set(org.quickfix.field.<xsl:value-of select="@name"/> value) &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java

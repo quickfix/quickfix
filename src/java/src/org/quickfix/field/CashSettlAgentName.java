@@ -1,13 +1,16 @@
-package org.quickfix.field;
-import org.quickfix.StringField;
-import java.util.Date;
+package org.quickfix.field; 
+import org.quickfix.StringField; 
+import java.util.Date; 
 
-public class CashSettlAgentName extends StringField {
+public class CashSettlAgentName extends StringField 
+{ 
 
-    public CashSettlAgentName() {
-        super(182);
-    }
-    public CashSettlAgentName(String data) {
-        super(182, data);
-    }
-}
+  public CashSettlAgentName() 
+  { 
+    super(182);
+  } 
+  public CashSettlAgentName(String data) 
+  { 
+    super(182, data);
+  } 
+} 

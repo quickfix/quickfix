@@ -48,186 +48,372 @@
 * ====================================================================
 */
 
+
 package org.quickfix.fix42;
+
+
 
 import org.quickfix.Message;
 
-public class MessageFactory implements org.quickfix.MessageFactory {
-    public Message create( String beginString, String msgType ) {
 
-        if("0".equals(msgType)) {
-            return new org.quickfix.fix42.Heartbeat();
-        }
 
-        if("A".equals(msgType)) {
-            return new org.quickfix.fix42.Logon();
-        }
+public class MessageFactory implements org.quickfix.MessageFactory
 
-        if("1".equals(msgType)) {
-            return new org.quickfix.fix42.TestRequest();
-        }
+{
 
-        if("2".equals(msgType)) {
-            return new org.quickfix.fix42.ResendRequest();
-        }
+  public Message create( String beginString, String msgType ) {
 
-        if("3".equals(msgType)) {
-            return new org.quickfix.fix42.Reject();
-        }
+  
 
-        if("4".equals(msgType)) {
-            return new org.quickfix.fix42.SequenceReset();
-        }
+   if("0".equals(msgType)) {
 
-        if("5".equals(msgType)) {
-            return new org.quickfix.fix42.Logout();
-        }
+     return new org.quickfix.fix42.Heartbeat();
 
-        if("7".equals(msgType)) {
-            return new org.quickfix.fix42.Advertisement();
-        }
+   }
 
-        if("6".equals(msgType)) {
-            return new org.quickfix.fix42.IndicationofInterest();
-        }
+ 
 
-        if("B".equals(msgType)) {
-            return new org.quickfix.fix42.News();
-        }
+   if("A".equals(msgType)) {
 
-        if("C".equals(msgType)) {
-            return new org.quickfix.fix42.Email();
-        }
+     return new org.quickfix.fix42.Logon();
 
-        if("R".equals(msgType)) {
-            return new org.quickfix.fix42.QuoteRequest();
-        }
+   }
 
-        if("S".equals(msgType)) {
-            return new org.quickfix.fix42.Quote();
-        }
+ 
 
-        if("i".equals(msgType)) {
-            return new org.quickfix.fix42.MassQuote();
-        }
+   if("1".equals(msgType)) {
 
-        if("Z".equals(msgType)) {
-            return new org.quickfix.fix42.QuoteCancel();
-        }
+     return new org.quickfix.fix42.TestRequest();
 
-        if("a".equals(msgType)) {
-            return new org.quickfix.fix42.QuoteStatusRequest();
-        }
+   }
 
-        if("b".equals(msgType)) {
-            return new org.quickfix.fix42.QuoteAcknowledgement();
-        }
+ 
 
-        if("V".equals(msgType)) {
-            return new org.quickfix.fix42.MarketDataRequest();
-        }
+   if("2".equals(msgType)) {
 
-        if("W".equals(msgType)) {
-            return new org.quickfix.fix42.MarketDataSnapshotFullRefresh();
-        }
+     return new org.quickfix.fix42.ResendRequest();
 
-        if("X".equals(msgType)) {
-            return new org.quickfix.fix42.MarketDataIncrementalRefresh();
-        }
+   }
 
-        if("Y".equals(msgType)) {
-            return new org.quickfix.fix42.MarketDataRequestReject();
-        }
+ 
 
-        if("c".equals(msgType)) {
-            return new org.quickfix.fix42.SecurityDefinitionRequest();
-        }
+   if("3".equals(msgType)) {
 
-        if("d".equals(msgType)) {
-            return new org.quickfix.fix42.SecurityDefinition();
-        }
+     return new org.quickfix.fix42.Reject();
 
-        if("e".equals(msgType)) {
-            return new org.quickfix.fix42.SecurityStatusRequest();
-        }
+   }
 
-        if("f".equals(msgType)) {
-            return new org.quickfix.fix42.SecurityStatus();
-        }
+ 
 
-        if("g".equals(msgType)) {
-            return new org.quickfix.fix42.TradingSessionStatusRequest();
-        }
+   if("4".equals(msgType)) {
 
-        if("h".equals(msgType)) {
-            return new org.quickfix.fix42.TradingSessionStatus();
-        }
+     return new org.quickfix.fix42.SequenceReset();
 
-        if("D".equals(msgType)) {
-            return new org.quickfix.fix42.NewOrderSingle();
-        }
+   }
 
-        if("8".equals(msgType)) {
-            return new org.quickfix.fix42.ExecutionReport();
-        }
+ 
 
-        if("Q".equals(msgType)) {
-            return new org.quickfix.fix42.DontKnowTrade();
-        }
+   if("5".equals(msgType)) {
 
-        if("G".equals(msgType)) {
-            return new org.quickfix.fix42.OrderCancelReplaceRequest();
-        }
+     return new org.quickfix.fix42.Logout();
 
-        if("F".equals(msgType)) {
-            return new org.quickfix.fix42.OrderCancelRequest();
-        }
+   }
 
-        if("9".equals(msgType)) {
-            return new org.quickfix.fix42.OrderCancelReject();
-        }
+ 
 
-        if("H".equals(msgType)) {
-            return new org.quickfix.fix42.OrderStatusRequest();
-        }
+   if("7".equals(msgType)) {
 
-        if("J".equals(msgType)) {
-            return new org.quickfix.fix42.Allocation();
-        }
+     return new org.quickfix.fix42.Advertisement();
 
-        if("P".equals(msgType)) {
-            return new org.quickfix.fix42.AllocationACK();
-        }
+   }
 
-        if("T".equals(msgType)) {
-            return new org.quickfix.fix42.SettlementInstructions();
-        }
+ 
 
-        if("E".equals(msgType)) {
-            return new org.quickfix.fix42.NewOrderList();
-        }
+   if("6".equals(msgType)) {
 
-        if("N".equals(msgType)) {
-            return new org.quickfix.fix42.ListStatus();
-        }
+     return new org.quickfix.fix42.IndicationofInterest();
 
-        if("L".equals(msgType)) {
-            return new org.quickfix.fix42.ListExecute();
-        }
+   }
 
-        if("K".equals(msgType)) {
-            return new org.quickfix.fix42.ListCancelRequest();
-        }
+ 
 
-        if("M".equals(msgType)) {
-            return new org.quickfix.fix42.ListStatusRequest();
-        }
+   if("B".equals(msgType)) {
 
-        if("j".equals(msgType)) {
-            return new org.quickfix.fix42.BusinessMessageReject();
-        }
+     return new org.quickfix.fix42.News();
 
-        return new org.quickfix.fix42.Message();
-    }
+   }
+
+ 
+
+   if("C".equals(msgType)) {
+
+     return new org.quickfix.fix42.Email();
+
+   }
+
+ 
+
+   if("R".equals(msgType)) {
+
+     return new org.quickfix.fix42.QuoteRequest();
+
+   }
+
+ 
+
+   if("S".equals(msgType)) {
+
+     return new org.quickfix.fix42.Quote();
+
+   }
+
+ 
+
+   if("i".equals(msgType)) {
+
+     return new org.quickfix.fix42.MassQuote();
+
+   }
+
+ 
+
+   if("Z".equals(msgType)) {
+
+     return new org.quickfix.fix42.QuoteCancel();
+
+   }
+
+ 
+
+   if("a".equals(msgType)) {
+
+     return new org.quickfix.fix42.QuoteStatusRequest();
+
+   }
+
+ 
+
+   if("b".equals(msgType)) {
+
+     return new org.quickfix.fix42.QuoteAcknowledgement();
+
+   }
+
+ 
+
+   if("V".equals(msgType)) {
+
+     return new org.quickfix.fix42.MarketDataRequest();
+
+   }
+
+ 
+
+   if("W".equals(msgType)) {
+
+     return new org.quickfix.fix42.MarketDataSnapshotFullRefresh();
+
+   }
+
+ 
+
+   if("X".equals(msgType)) {
+
+     return new org.quickfix.fix42.MarketDataIncrementalRefresh();
+
+   }
+
+ 
+
+   if("Y".equals(msgType)) {
+
+     return new org.quickfix.fix42.MarketDataRequestReject();
+
+   }
+
+ 
+
+   if("c".equals(msgType)) {
+
+     return new org.quickfix.fix42.SecurityDefinitionRequest();
+
+   }
+
+ 
+
+   if("d".equals(msgType)) {
+
+     return new org.quickfix.fix42.SecurityDefinition();
+
+   }
+
+ 
+
+   if("e".equals(msgType)) {
+
+     return new org.quickfix.fix42.SecurityStatusRequest();
+
+   }
+
+ 
+
+   if("f".equals(msgType)) {
+
+     return new org.quickfix.fix42.SecurityStatus();
+
+   }
+
+ 
+
+   if("g".equals(msgType)) {
+
+     return new org.quickfix.fix42.TradingSessionStatusRequest();
+
+   }
+
+ 
+
+   if("h".equals(msgType)) {
+
+     return new org.quickfix.fix42.TradingSessionStatus();
+
+   }
+
+ 
+
+   if("D".equals(msgType)) {
+
+     return new org.quickfix.fix42.NewOrderSingle();
+
+   }
+
+ 
+
+   if("8".equals(msgType)) {
+
+     return new org.quickfix.fix42.ExecutionReport();
+
+   }
+
+ 
+
+   if("Q".equals(msgType)) {
+
+     return new org.quickfix.fix42.DontKnowTrade();
+
+   }
+
+ 
+
+   if("G".equals(msgType)) {
+
+     return new org.quickfix.fix42.OrderCancelReplaceRequest();
+
+   }
+
+ 
+
+   if("F".equals(msgType)) {
+
+     return new org.quickfix.fix42.OrderCancelRequest();
+
+   }
+
+ 
+
+   if("9".equals(msgType)) {
+
+     return new org.quickfix.fix42.OrderCancelReject();
+
+   }
+
+ 
+
+   if("H".equals(msgType)) {
+
+     return new org.quickfix.fix42.OrderStatusRequest();
+
+   }
+
+ 
+
+   if("J".equals(msgType)) {
+
+     return new org.quickfix.fix42.Allocation();
+
+   }
+
+ 
+
+   if("P".equals(msgType)) {
+
+     return new org.quickfix.fix42.AllocationACK();
+
+   }
+
+ 
+
+   if("T".equals(msgType)) {
+
+     return new org.quickfix.fix42.SettlementInstructions();
+
+   }
+
+ 
+
+   if("E".equals(msgType)) {
+
+     return new org.quickfix.fix42.NewOrderList();
+
+   }
+
+ 
+
+   if("N".equals(msgType)) {
+
+     return new org.quickfix.fix42.ListStatus();
+
+   }
+
+ 
+
+   if("L".equals(msgType)) {
+
+     return new org.quickfix.fix42.ListExecute();
+
+   }
+
+ 
+
+   if("K".equals(msgType)) {
+
+     return new org.quickfix.fix42.ListCancelRequest();
+
+   }
+
+ 
+
+   if("M".equals(msgType)) {
+
+     return new org.quickfix.fix42.ListStatusRequest();
+
+   }
+
+ 
+
+   if("j".equals(msgType)) {
+
+     return new org.quickfix.fix42.BusinessMessageReject();
+
+   }
+
+ 
+
+  return new org.quickfix.fix42.Message();
+
+  }
+
 }
+
+
 

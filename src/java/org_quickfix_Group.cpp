@@ -75,6 +75,17 @@ JNIEXPORT void JNICALL Java_org_quickfix_Group_create
   jobject.setInt( "cppPointer", ( int ) pGroup );
 }
 
+JNIEXPORT void JNICALL Java_org_quickfix_Group_create__II_3I
+(JNIEnv *pEnv, jobject obj, jint field, jint delim, jintArray array)
+{
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  jsize size = pEnv->GetArrayLength(array);
+  jint *body = pEnv->GetIntArrayElements(array, 0);
+  FIX::Group* pGroup = new FIX::Group( field, delim, size, (int*)body );  
+  pEnv->ReleaseIntArrayElements(array, body, 0);
+}
+
 JNIEXPORT void JNICALL Java_org_quickfix_Group_destroy
 ( JNIEnv *pEnv, jobject obj )
 {

@@ -12,8 +12,16 @@ extern "C" {
  * Method:    create
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_org_quickfix_Group_create
+JNIEXPORT void JNICALL Java_org_quickfix_Group_create__II
   (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     org_quickfix_Group
+ * Method:    create
+ * Signature: (II[I)V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_Group_create__II_3I
+  (JNIEnv *, jobject, jint, jint, jintArray);
 
 /*
  * Class:     org_quickfix_Group

@@ -1,13 +1,16 @@
-package org.quickfix.field;
-import org.quickfix.StringField;
-import java.util.Date;
+package org.quickfix.field; 
+import org.quickfix.StringField; 
+import java.util.Date; 
 
-public class ExDestination extends StringField {
+public class ExDestination extends StringField 
+{ 
 
-    public ExDestination() {
-        super(100);
-    }
-    public ExDestination(String data) {
-        super(100, data);
-    }
-}
+  public ExDestination() 
+  { 
+    super(100);
+  } 
+  public ExDestination(String data) 
+  { 
+    super(100, data);
+  } 
+} 

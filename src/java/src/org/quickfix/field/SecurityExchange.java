@@ -1,13 +1,16 @@
-package org.quickfix.field;
-import org.quickfix.StringField;
-import java.util.Date;
+package org.quickfix.field; 
+import org.quickfix.StringField; 
+import java.util.Date; 
 
-public class SecurityExchange extends StringField {
+public class SecurityExchange extends StringField 
+{ 
 
-    public SecurityExchange() {
-        super(207);
-    }
-    public SecurityExchange(String data) {
-        super(207, data);
-    }
-}
+  public SecurityExchange() 
+  { 
+    super(207);
+  } 
+  public SecurityExchange(String data) 
+  { 
+    super(207, data);
+  } 
+} 

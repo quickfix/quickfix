@@ -1,13 +1,16 @@
-package org.quickfix.field;
-import org.quickfix.IntField;
-import java.util.Date;
+package org.quickfix.field; 
+import org.quickfix.IntField; 
+import java.util.Date; 
 
-public class RptSeq extends IntField {
+public class RptSeq extends IntField 
+{ 
 
-    public RptSeq() {
-        super(83);
-    }
-    public RptSeq(int data) {
-        super(83, data);
-    }
-}
+  public RptSeq() 
+  { 
+    super(83);
+  } 
+  public RptSeq(int data) 
+  { 
+    super(83, data);
+  } 
+} 

@@ -57,11 +57,16 @@ public class Group {
         create(field, delim);
     }
 
+    public Group(int field, int delim, int[] order) {
+		create(field, delim, order);
+	}
+
     protected void finalize() {
         destroy();
     }
 
     private native void create(int field, int delim);
+    private native void create(int field, int delim, int[] order);
     private native void destroy();
 
     public void addGroup(Group group) {

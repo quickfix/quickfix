@@ -1,13 +1,16 @@
-package org.quickfix.field;
-import org.quickfix.StringField;
-import java.util.Date;
+package org.quickfix.field; 
+import org.quickfix.StringField; 
+import java.util.Date; 
 
-public class ListExecInst extends StringField {
+public class ListExecInst extends StringField 
+{ 
 
-    public ListExecInst() {
-        super(69);
-    }
-    public ListExecInst(String data) {
-        super(69, data);
-    }
-}
+  public ListExecInst() 
+  { 
+    super(69);
+  } 
+  public ListExecInst(String data) 
+  { 
+    super(69, data);
+  } 
+} 
