@@ -92,14 +92,14 @@ void Message::reverseRoute( const Header& header )
     if( beginString.getValue().size() )   
       m_header.setField( beginString );
 
+    OnBehalfOfLocationID onBehalfOfLocationID;
+    DeliverToLocationID deliverToLocationID;
+    
+    m_header.removeField( onBehalfOfLocationID.getField() );
+    m_header.removeField( deliverToLocationID.getField() );
+
     if( beginString >= BeginString_FIX41 )
     {
-      OnBehalfOfLocationID onBehalfOfLocationID;
-      DeliverToLocationID deliverToLocationID;
-
-      m_header.removeField( onBehalfOfLocationID.getField() );
-      m_header.removeField( deliverToLocationID.getField() );
-
       if( header.isSetField( onBehalfOfLocationID ) )
       {
         header.getField( onBehalfOfLocationID );

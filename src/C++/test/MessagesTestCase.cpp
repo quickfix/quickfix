@@ -298,8 +298,8 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
 
   header.setField( BeginString("FIX.4.0" ) );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField( onBehalfOfCompID ) );
-  assert( !reversedHeader.isSetField( deliverToCompID ) );
+  assert( !reversedHeader.isSetField( onBehalfOfLocationID ) );
+  assert( !reversedHeader.isSetField( deliverToLocationID ) );
 
   header.setField( beginString );
   reversedMessage.reverseRoute( header );
