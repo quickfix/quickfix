@@ -54,17 +54,15 @@
 
 class MessageCracker : public FIX::MessageCracker
 {
-  void onMessage( const FIX42::NewOrderSingle& message,
-                  const FIX::SessionID& sessionID )
+  void process( const FIX::Message& message, const FIX::SessionID& sessionID )
   {
-    FIX42::NewOrderSingle echo = message;
-
+    FIX::Message echo = message;
     FIX::PossResend possResend( false );
-    if ( message.getHeader().isSet( possResend ) )
-      message.getHeader().get( possResend );
+    if ( message.getHeader().isSetField( possResend ) )
+      message.getHeader().getField( possResend );
 
     FIX::ClOrdID clOrdID;
-    message.get( clOrdID );
+    message.getField( clOrdID );
 
     std::pair < FIX::ClOrdID, FIX::SessionID > pair =
       std::make_pair( clOrdID, sessionID );
@@ -75,8 +73,26 @@ class MessageCracker : public FIX::MessageCracker
         return ;
     }
     m_orderIDs.insert( pair );
-
     FIX::Session::sendToTarget( echo, sessionID );
+  }
+
+  void onMessage( const FIX43::NewOrderSingle& message,
+                  const FIX::SessionID& sessionID )
+  {
+    process( message, sessionID );    
+  }
+
+  void onMessage( const FIX43::SecurityDefinition& message,
+                  const FIX::SessionID& sessionID )
+  {
+    FIX43::SecurityDefinition echo = message;
+    FIX::Session::sendToTarget( echo, sessionID );
+  }
+
+  void onMessage( const FIX42::NewOrderSingle& message,
+                  const FIX::SessionID& sessionID )
+  {
+    process( message, sessionID );    
   }
 
   void onMessage( const FIX42::SecurityDefinition& message,
@@ -89,51 +105,13 @@ class MessageCracker : public FIX::MessageCracker
   void onMessage( const FIX41::NewOrderSingle& message,
                   const FIX::SessionID& sessionID )
   {
-    FIX41::NewOrderSingle echo = message;
-
-    FIX::PossResend possResend( false );
-    if ( message.getHeader().isSet( possResend ) )
-      message.getHeader().get( possResend );
-
-    FIX::ClOrdID clOrdID;
-    message.get( clOrdID );
-
-    std::pair < FIX::ClOrdID, FIX::SessionID > pair =
-      std::make_pair( clOrdID, sessionID );
-
-    if ( possResend == true )
-    {
-      if ( m_orderIDs.find( pair ) != m_orderIDs.end() )
-        return ;
-    }
-    m_orderIDs.insert( pair );
-
-    FIX::Session::sendToTarget( echo, sessionID );
+    process( message, sessionID );
   }
 
   void onMessage( const FIX40::NewOrderSingle& message,
                   const FIX::SessionID& sessionID )
   {
-    FIX40::NewOrderSingle echo = message;
-
-    FIX::PossResend possResend( false );
-    if ( message.getHeader().isSet( possResend ) )
-      message.getHeader().get( possResend );
-
-    FIX::ClOrdID clOrdID;
-    message.get( clOrdID );
-
-    std::pair < FIX::ClOrdID, FIX::SessionID > pair =
-      std::make_pair( clOrdID, sessionID );
-
-    if ( possResend == true )
-    {
-      if ( m_orderIDs.find( pair ) != m_orderIDs.end() )
-        return ;
-    }
-    m_orderIDs.insert( pair );
-
-    FIX::Session::sendToTarget( echo, sessionID );
+    process( message, sessionID );
   }
 
   std::set < std::pair < FIX::ClOrdID, FIX::SessionID > > m_orderIDs;
