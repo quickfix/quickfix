@@ -152,10 +152,8 @@ namespace FIX
     time_t t1 = mktime( (tm*)&time1 ) - UTC_DAY * time1Range;
     time_t t2 = mktime( (tm*)&time2 ) - UTC_DAY * time2Range;
     
-    tm tm1;
-    localtime_r( &t1, &tm1 );
-    tm tm2;
-    localtime_r( &t2, &tm2 );
+    tm tm1 = time_localtime( &t1 );
+    tm tm2 = time_localtime( &t2 );
 
     return tm1.tm_year == tm2.tm_year
            && tm1.tm_yday == tm2.tm_yday;

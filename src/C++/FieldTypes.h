@@ -77,7 +77,7 @@ public:
     setMonth( month );
     setYear( year );
     time_t t = mktime( (tm*)this );
-    localtime_r( &t, (tm*)this );
+    *static_cast<tm*>(this) = time_localtime( &t );
     tm_isdst = -1;
   }
 
@@ -93,20 +93,20 @@ public:
     setMonth( month );
     setYear( year );
     time_t t = mktime( (tm*)this );
-    localtime_r( &t, (tm*)this );
+    *static_cast<tm*>(this) = time_localtime( &t );
     tm_isdst = -1;
   }
 
   UtcTimeStamp( time_t time, int millisecond = 0 )
   {
     *static_cast<tm*>(this) = time_gmtime( &time );
-      setMillisecond(millisecond);
+    setMillisecond(millisecond);
   }
 
   UtcTimeStamp( const tm* time, int millisecond = 0 ) 
   { 
     *static_cast<tm*>(this) = *time;
-      setMillisecond(millisecond);
+    setMillisecond(millisecond);
   }
  
   operator tm*() { return this; }
