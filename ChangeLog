@@ -1,4 +1,9 @@
 2003-05-06 Alex Hornby <alex@anvil.com>
+
+	* *.cpp: Fix include path to be quickfix/foo.h rather than
+	quickfix/include/foo.h
+
+2003-05-06 Alex Hornby <alex@anvil.com>
 	
 	* */.cvsignore: ignore generated files
 	

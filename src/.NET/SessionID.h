@@ -54,8 +54,8 @@ using namespace System;
 
 #include "quickfix_net.h"
 
-#include "quickfix/include/SessionID.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/SessionID.h"
+#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {

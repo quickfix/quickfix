@@ -57,9 +57,9 @@
 
 #include "JVM.h"
 #include "org_quickfix_MySQLStoreFactory.h"
-#include "quickfix/include/MySQLStore.h"
-#include "quickfix/include/SessionSettings.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/MySQLStore.h"
+#include "quickfix/SessionSettings.h"
+#include "quickfix/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStoreFactory_create__

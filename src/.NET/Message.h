@@ -57,8 +57,8 @@ using namespace System;
 #include "Exceptions.h"
 #include "Group.h"
 
-#include "quickfix/include/Message.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/Message.h"
+#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {

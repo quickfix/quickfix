@@ -57,9 +57,9 @@
 
 #include "JVM.h"
 #include "org_quickfix_MySQLLogFactory.h"
-#include "quickfix/include/MySQLLog.h"
-#include "quickfix/include/SessionSettings.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/MySQLLog.h"
+#include "quickfix/SessionSettings.h"
+#include "quickfix/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLLogFactory_create__

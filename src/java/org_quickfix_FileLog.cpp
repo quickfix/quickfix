@@ -56,8 +56,8 @@
 #include "JVM.h"
 #include "Conversions.h"
 #include "org_quickfix_FileLog.h"
-#include "quickfix/include/FileLog.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/FileLog.h"
+#include "quickfix/CallStack.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLog_create
 ( JNIEnv *, jobject )

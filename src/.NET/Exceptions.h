@@ -54,7 +54,7 @@ using namespace System;
 
 #include "quickfix_net.h"
 
-#include "quickfix/include/exceptions.h"
+#include "quickfix/exceptions.h"
 
 namespace QuickFix
 {

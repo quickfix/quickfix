@@ -51,11 +51,11 @@
 #ifndef ORDERMATCH_APPLICATION_H
 #define ORDERMATCH_APPLICATION_H
 
-#include "quickfix/include/Application.h"
-#include "quickfix/include/MessageCracker.h"
-#include "quickfix/include/Values.h"
-#include "quickfix/include/Utility.h"
-#include "quickfix/include/Mutex.h"
+#include "quickfix/Application.h"
+#include "quickfix/MessageCracker.h"
+#include "quickfix/Values.h"
+#include "quickfix/Utility.h"
+#include "quickfix/Mutex.h"
 #include "IDGenerator.h"
 #include "OrderMatcher.h"
 #include "Order.h"

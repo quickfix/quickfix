@@ -108,16 +108,15 @@ all-local:
 clean-local:
 	rm -rf ../../lib/libquickfix.a
 	rm -rf ../../lib/libquickfix.la
-	rm -f ../../include/*.h
+	rm -f ../../include/quickfix/*.h
 
 install-exec-local: *.h
-	rm -rf $(includedir)/quickfix
-	mkdir $(includedir)/quickfix
-	mkdir $(includedir)/quickfix/include
-	cp *.h $(includedir)/quickfix/include
+	rm -rf $(pkgincludedir)
+	mkdir $(pkgincludedir)
+	cp *.h $(pkgincludedir)
 
 uninstall-local:
-	rm -rf $(includedir)/quickfix
+	rm -rf $(pkgincludedir)
 
 EXTRA_DIST = strptime.c strptime.h
 

@@ -55,8 +55,8 @@
 
 #include "JVM.h"
 #include "org_quickfix_MemoryStore.h"
-#include "quickfix/include/MessageStore.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/MessageStore.h"
+#include "quickfix/CallStack.h"
 #include "Conversions.h"
 #include "JavaMessageStore.h"
 

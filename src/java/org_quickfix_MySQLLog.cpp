@@ -58,8 +58,8 @@
 #include "JVM.h"
 #include "Conversions.h"
 #include "org_quickfix_MySQLLog.h"
-#include "quickfix/include/MySQLLog.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/MySQLLog.h"
+#include "quickfix/CallStack.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLLog_create
 ( JNIEnv *, jobject )

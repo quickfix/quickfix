@@ -56,8 +56,8 @@ using namespace System;
 #include "Field.h"
 #include "Exceptions.h"
 
-#include "quickfix/include/Group.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/Group.h"
+#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {

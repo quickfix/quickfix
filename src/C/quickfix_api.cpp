@@ -49,8 +49,8 @@
 
 #include <stddef.h>
 #include "quickfix_api.h"
-#include <quickfix/include/Message.h>
-#include <quickfix/include/FIX42_Messages.h>
+#include <quickfix/Message.h>
+#include <quickfix/FIX42_Messages.h>
 
 using FIX42::Logon;
 

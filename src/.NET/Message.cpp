@@ -51,7 +51,7 @@
 
 #include "Message.h"
 #include "Fields.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {

@@ -57,7 +57,7 @@ using namespace System;
 #include "Message.h"
 #include "SessionID.h"
 #include "MessageFactory.h"
-#include "quickfix/include/Application.h"
+#include "quickfix/Application.h"
 #include "vcclr.h"
 
 namespace QuickFix

@@ -56,7 +56,7 @@ using namespace System;
 
 #include "Log.h"
 #include "SessionID.h"
-#include "quickfix/include/Log.h"
+#include "quickfix/Log.h"
 #include "vcclr.h"
 
 namespace QuickFix

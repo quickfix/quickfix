@@ -59,8 +59,8 @@
 
 #include "JVM.h"
 #include "org_quickfix_Session.h"
-#include "quickfix/include/Session.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/Session.h"
+#include "quickfix/CallStack.h"
 #include "Conversions.h"
 #include <iostream>
 

@@ -55,8 +55,8 @@ using namespace System::IO;
 
 #include "quickfix_net.h"
 
-#include "quickfix/include/SessionSettings.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/SessionSettings.h"
+#include "quickfix/CallStack.h"
 #include "Exceptions.h"
 
 namespace QuickFix

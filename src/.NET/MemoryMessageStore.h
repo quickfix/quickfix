@@ -57,8 +57,8 @@ using namespace System::IO;
 
 #include "MessageStore.h"
 #include "MessageStoreFactory.h"
-#include "quickfix/include/MessageStore.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/MessageStore.h"
+#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix

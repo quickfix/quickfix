@@ -57,8 +57,8 @@ using namespace System::IO;
 
 #include "Message.h"
 #include "SessionID.h"
-#include "quickfix/include/SessionID.h"
-#include "quickfix/include/Session.h"
+#include "quickfix/SessionID.h"
+#include "quickfix/Session.h"
 
 namespace QuickFix
 {

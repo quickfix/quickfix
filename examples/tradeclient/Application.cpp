@@ -49,7 +49,7 @@
 */
 
 #include "Application.h"
-#include "quickfix/include/Session.h"
+#include "quickfix/Session.h"
 #include <iostream>
 
 #ifdef _MSC_VER

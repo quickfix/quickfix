@@ -51,8 +51,8 @@
 #ifndef JAVA_APPLICATION
 #define JAVA_APPLICATION
 
-#include "quickfix/include/Application.h"
-#include "quickfix/include/Mutex.h"
+#include "quickfix/Application.h"
+#include "quickfix/Mutex.h"
 #include "JVM.h"
 #include <memory>
 

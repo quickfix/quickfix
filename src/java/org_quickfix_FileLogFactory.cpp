@@ -55,9 +55,9 @@
 
 #include "JVM.h"
 #include "org_quickfix_FileLogFactory.h"
-#include "quickfix/include/FileLog.h"
-#include "quickfix/include/SessionSettings.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/FileLog.h"
+#include "quickfix/SessionSettings.h"
+#include "quickfix/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileLogFactory_create__

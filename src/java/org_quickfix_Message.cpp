@@ -55,9 +55,9 @@
 
 #include "JVM.h"
 #include "org_quickfix_Message.h"
-#include "quickfix/include/Utility.h"
-#include "quickfix/include/Message.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/Utility.h"
+#include "quickfix/Message.h"
+#include "quickfix/CallStack.h"
 #include "Conversions.h"
 #include <iostream>
 

@@ -50,7 +50,7 @@
 #include "stdafx.h"
 
 #include "Session.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {

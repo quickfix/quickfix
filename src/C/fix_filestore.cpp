@@ -48,7 +48,7 @@
  */
 
 #include "fix_filestore.h"
-#include <quickfix/include/FileStore.h>
+#include <quickfix/FileStore.h>
 #include <vector>
 
 int fix_FileStore_set(fix_MessageStore* store, const fix_Message message)

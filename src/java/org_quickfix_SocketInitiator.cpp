@@ -63,10 +63,10 @@
 #include "JavaApplication.h"
 #include "JavaMessageStoreFactory.h"
 #include "JavaLogFactory.h"
-#include "quickfix/include/SocketInitiator.h"
-#include "quickfix/include/Settings.h"
-#include "quickfix/include/Utility.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/SocketInitiator.h"
+#include "quickfix/Settings.h"
+#include "quickfix/Utility.h"
+#include "quickfix/CallStack.h"
 #include <sstream>
 
 FIX::SocketInitiator* getCPPSocketInitiator( jobject obj )

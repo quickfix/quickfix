@@ -58,9 +58,9 @@ using namespace System;
 #include "MessageStoreFactory.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
-#include "quickfix/include/FileStore.h"
-#include "quickfix/include/Settings.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/FileStore.h"
+#include "quickfix/Settings.h"
+#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix

@@ -48,7 +48,7 @@
  */
 
 #include "fix_memorystore.h"
-#include <quickfix/include/MessageStore.h>
+#include <quickfix/MessageStore.h>
 #include <vector>
 
 int fix_MemoryStore_set(fix_MessageStore* store, const fix_Message message)

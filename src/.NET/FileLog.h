@@ -57,8 +57,8 @@ using namespace System;
 #include "Log.h"
 #include "LogFactory.h"
 #include "SessionSettings.h"
-#include "quickfix/include/FileLog.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/FileLog.h"
+#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix

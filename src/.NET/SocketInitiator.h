@@ -59,8 +59,8 @@ using namespace System;
 #include "MessageStoreFactory.h"
 #include "LogFactory.h"
 #include "Initiator.h"
-#include "quickfix/include/SocketInitiator.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/SocketInitiator.h"
+#include "quickfix/CallStack.h"
 
 namespace QuickFix
 {

@@ -48,7 +48,7 @@
 */
 
 #include "Application.h"
-#include "quickfix/include/Session.h"
+#include "quickfix/Session.h"
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )

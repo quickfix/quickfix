@@ -51,11 +51,11 @@
 #ifndef TRADECLIENT_APPLICATION_H
 #define TRADECLIENT_APPLICATION_H
 
-#include "quickfix/include/Application.h"
-#include "quickfix/include/MessageCracker.h"
-#include "quickfix/include/Values.h"
-#include "quickfix/include/Messages.h"
-#include "quickfix/include/Mutex.h"
+#include "quickfix/Application.h"
+#include "quickfix/MessageCracker.h"
+#include "quickfix/Values.h"
+#include "quickfix/Messages.h"
+#include "quickfix/Mutex.h"
 
 #include <queue>
 

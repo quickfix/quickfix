@@ -51,7 +51,7 @@
 #ifndef JAVA_MESSAGE_STORE
 #define JAVA_MESSAGE_STORE
 
-#include "quickfix/include/MessageStore.h"
+#include "quickfix/MessageStore.h"
 #include "JVM.h"
 
 class JavaMessageStore : public FIX::MessageStore

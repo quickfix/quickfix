@@ -58,7 +58,7 @@ using namespace System;
 #include "FIX41_MessageCracker.h"
 #include "FIX42_MessageCracker.h"
 #include "FIX43_MessageCracker.h"
-#include "quickfix/include/Values.h"
+#include "quickfix/Values.h"
 
 namespace QuickFix
 {

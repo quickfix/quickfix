@@ -60,9 +60,9 @@ using namespace System;
 #include "MessageStore.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
-#include "quickfix/include/MySQLLog.h"
-#include "quickfix/include/Settings.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/MySQLLog.h"
+#include "quickfix/Settings.h"
+#include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix

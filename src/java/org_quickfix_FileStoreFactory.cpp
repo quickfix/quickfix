@@ -55,9 +55,9 @@
 
 #include "JVM.h"
 #include "org_quickfix_FileStoreFactory.h"
-#include "quickfix/include/FileStore.h"
-#include "quickfix/include/SessionSettings.h"
-#include "quickfix/include/CallStack.h"
+#include "quickfix/FileStore.h"
+#include "quickfix/SessionSettings.h"
+#include "quickfix/CallStack.h"
 #include "Conversions.h"
 
 JNIEXPORT void JNICALL Java_org_quickfix_FileStoreFactory_create__
