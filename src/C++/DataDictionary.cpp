@@ -501,6 +501,7 @@ TYPE::Type DataDictionary::XMLTypeToType( const std::string& type )
   if ( type == "MONTHYEAR" ) return TYPE::MonthYear;
   if ( type == "DAYOFMONTH" ) return TYPE::DayOfMonth;
   if ( type == "UTCDATE" ) return TYPE::UtcDate;
+  if ( type == "UTCDATEONLY" ) return TYPE::UtcDateOnly;
   if ( type == "UTCTIMEONLY" ) return TYPE::UtcTimeOnly;
   if ( type == "NUMINGROUP" ) return TYPE::NumInGroup;
   if ( type == "PERCENTAGE" ) return TYPE::Percentage;
