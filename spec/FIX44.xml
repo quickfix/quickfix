@@ -26,7 +26,7 @@
     <field name="XmlData" required="N" />
     <field name="MessageEncoding" required="N" />
     <field name="LastMsgSeqNumProcessed" required="N" />
-    <group name="HopCompID" required="N">
+    <group name="NoHops" required="N">
       <field name="HopCompID" required="N" />
       <field name="HopSendingTime" required="N" />
       <field name="HopRefID" required="N" />
@@ -805,14 +805,13 @@
       <field name="DeleteReason" required="N" />
       <field name="MDEntryType" required="N" />
       <field name="MDEntryID" required="N" />
-      <group name="MDEntryRefID" required="N">
-        <component name="Instrument" required="N" />
-        <group name="NoUnderlyings" required="N">
-          <component name="UnderlyingInstrument" required="N" />
-        </group>
-        <group name="NoLegs" required="N">
-          <component name="InstrumentLeg" required="N" />
-        </group>
+      <field name="MDEntryRefID" required="N" />
+      <component name="Instrument" required="N" />
+      <group name="NoUnderlyings" required="N">
+        <component name="UnderlyingInstrument" required="N" />
+      </group>
+      <group name="NoLegs" required="N">
+        <component name="InstrumentLeg" required="N" />
       </group>
       <field name="FinancialStatus" required="N" />
       <field name="CorporateAction" required="N" />
