@@ -205,19 +205,22 @@ void FieldConvertorsTestCase::utcTimeStampConvertTo::onRun( void*& )
   input.setHour( 12 );
   input.setMinute( 5 );
   input.setSecond( 6 );
+  input.setMillisecond( 555 );
   input.setYear( 2000 );
   input.setMonth( 4 );
   input.setDate( 26 );
   assert( UtcTimeStampConvertor::convert( input ) == "20000426-12:05:06" );
+  assert( UtcTimeStampConvertor::convert( input,true ) == "20000426-12:05:06.555" );
 }
 
 void FieldConvertorsTestCase::utcTimeStampConvertFrom::onRun( void*& )
 {
   UtcTimeStamp result = UtcTimeStampConvertor::convert
-                        ( std::string( "20000426-12:05:06" ) );
+                        ( std::string( "20000426-12:05:06.555" ) );
   assert( result.getHour() == 12 );
   assert( result.getMinute() == 5 );
   assert( result.getSecond() == 6 );
+  assert( result.getMillisecond() == 555 );
   assert( result.getYear() == 2000 );
   assert( result.getMonth() == 4 );
   assert( result.getDate() == 26 );
@@ -229,16 +232,19 @@ void FieldConvertorsTestCase::utcTimeOnlyConvertTo::onRun( void*& )
   input.setHour( 12 );
   input.setMinute( 5 );
   input.setSecond( 6 );
+  input.setMillisecond( 555 );
   assert( UtcTimeOnlyConvertor::convert( input ) == "12:05:06" );
+  assert( UtcTimeOnlyConvertor::convert( input,true ) == "12:05:06.555" );
 }
 
 void FieldConvertorsTestCase::utcTimeOnlyConvertFrom::onRun( void*& )
 {
   UtcTimeOnly result = UtcTimeOnlyConvertor::convert
-                       ( std::string( "12:05:06" ) );
+                       ( std::string( "12:05:06.555" ) );
   assert( result.getHour() == 12 );
   assert( result.getMinute() == 5 );
   assert( result.getSecond() == 6 );
+  assert( result.getMillisecond() == 555 );
 }
 
 void FieldConvertorsTestCase::utcDateConvertTo::onRun( void*& )

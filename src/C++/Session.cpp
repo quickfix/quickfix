@@ -114,7 +114,12 @@ void Session::fill( Header& header )
   header.setField( m_sessionID.getSenderCompID() );
   header.setField( m_sessionID.getTargetCompID() );
   header.setField( MsgSeqNum( getExpectedSenderNum() ) );
-  header.setField( SendingTime() );
+
+  // Use miliseconds if FIX.4.2 or later
+  if(m_sessionID.getBeginString() >= BeginString_FIX42)
+	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,true));
+  else
+	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,false));
 
   QF_STACK_POP
 }
@@ -501,7 +506,14 @@ bool Session::resend( Message& message )
   header.getField( msgSeqNum );
 
   header.setField( OrigSendingTime( sendingTime ) );
-  header.setField( SendingTime() );
+
+  // Use miliseconds if FIX.4.2 or later
+  UtcTimeStamp now;
+  if(m_sessionID.getBeginString() >= BeginString_FIX42)
+	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,true));
+  else
+	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,false));
+
   header.setField( PossDupFlag( true ) );
 
   try
@@ -1333,7 +1345,7 @@ bool Session::isSessionTime( const UtcTimeOnly& start, const UtcTimeOnly& end,
                              const UtcTimeStamp& time )
 { QF_STACK_PUSH(Session::isSessionTime)
 
-  UtcTimeOnly timeOnly( time );
+  UtcTimeOnly timeOnly( time,0 );
 
   if ( start < end )
     return ( timeOnly >= start && timeOnly <= end );

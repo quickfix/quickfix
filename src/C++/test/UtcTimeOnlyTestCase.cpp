@@ -63,6 +63,8 @@ bool UtcTimeOnlyTestCase::compare::onSetup( UtcTimeOnly*& pObject )
   m_object.setHour( 12 );
   m_object.setMinute( 20 );
   m_object.setSecond( 10 );
+  m_object.setMillisecond( 0 );
+
   pObject = &m_object;
   return true;
 }
@@ -73,6 +75,8 @@ void UtcTimeOnlyTestCase::compare::onRun( UtcTimeOnly& object )
   lesserObject.setHour( 12 );
   lesserObject.setMinute( 10 );
   lesserObject.setSecond( 5 );
+  lesserObject.setMillisecond( 0 );
+
   assert( lesserObject < object );
   assert( lesserObject <= object );
   assert( object > lesserObject );
@@ -82,6 +86,7 @@ void UtcTimeOnlyTestCase::compare::onRun( UtcTimeOnly& object )
   greaterObject.setHour( 13 );
   greaterObject.setMinute( 10 );
   greaterObject.setSecond( 5 );
+  greaterObject.setMillisecond( 0 );
   assert( greaterObject > object );
   assert( greaterObject >= object );
   assert( object < greaterObject );

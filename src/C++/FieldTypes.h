@@ -59,6 +59,7 @@
 #include <string>
 #include "strptime.h"
 #include <time.h>
+#include <sys/timeb.h>
 
 namespace FIX
 {
@@ -73,6 +74,8 @@ const int UTC_DAY = 86400;
 /// Date and Time represented in UTC.
 class UtcTimeStamp : protected tm
 {
+protected:
+	int m_ms;  // milliseconds
 public:
   /// Defaults to the current date and time
   UtcTimeStamp()
@@ -81,13 +84,15 @@ public:
   }
 
   /// Defaults to the current date
-  UtcTimeStamp( int hour, int minute, int second )
+  UtcTimeStamp( int hour, int minute, int second, int ms=0)
   {
     setCurrent();
     setHour( hour );
     setMinute( minute );
     setSecond( second );
+    setMillisecond( ms );
   }
+
 
   UtcTimeStamp( int hour, int minute, int second,
                 int date, int month, int year )
@@ -96,22 +101,39 @@ public:
     setHour( hour );
     setMinute( minute );
     setSecond( second );
+    setMillisecond( 0 );
     setDate( date );
     setMonth( month );
     setYear( year );
   }
 
-  UtcTimeStamp( long sec )
+  UtcTimeStamp( int hour, int minute, int second, int ms,
+                int date, int month, int year )
+  {
+    setCurrent();
+    setHour( hour );
+    setMinute( minute );
+    setSecond( second );
+    setMillisecond( ms );
+    setDate( date );
+    setMonth( month );
+    setYear( year );
+  }
+
+  UtcTimeStamp( long sec , int ms=0)
   {
     time_t t = (time_t)sec;
     *static_cast < tm* > ( this ) = time_gmtime( &t );
+	m_ms = ms;
   }
 
-  UtcTimeStamp( const tm* time ) { *static_cast < tm* > ( this ) = *time; }
+  UtcTimeStamp( const tm* time, int ms=0 ) { *static_cast < tm* > ( this ) = *time; m_ms = ms;}
+ 
 
   operator tm*() { return this; }
   operator const tm*() const { return this; }
 
+  void setMillisecond( int ms ) { m_ms = ms; }
   void setSecond( int s ) { tm_sec = s; }
   void setMinute( int m ) { tm_min = m; }
   void setHour( int h ) { tm_hour = h; }
@@ -120,6 +142,7 @@ public:
   void setYear( int y ) { tm_year = y - 1900; }
   void setTime( const UtcTimeOnly& time );
 
+  int getMillisecond() const { return m_ms; }
   int getSecond() const { return tm_sec; }
   int getMinute() const { return tm_min; }
   int getHour() const { return tm_hour; }
@@ -137,11 +160,16 @@ public:
 
   /// Set to the current date and time.
   void setCurrent()
-  {
-    time_t t;
-    time( &t );
-    *static_cast < tm* > ( this ) = time_gmtime( &t );
-    tm_isdst = 0;
+  { 
+	// Oct 2003, Daniel May moved to ftime() so we can store milliseconds	    
+    timeb tb;
+	ftime(&tb);
+    *static_cast < tm* > ( this ) = time_gmtime( &tb.time );
+	m_ms = tb.millitm;
+	// even though the field tb.dstflag is available, set tm_isdst to zero to
+	// be consistent will previous behavior
+	tm_isdst = 0;
+	
   }
 };
 
@@ -155,22 +183,24 @@ public:
     clearDate();
   }
 
-  UtcTimeOnly( int hour, int minute, int second )
-  : UtcTimeStamp( hour, minute, second )
+  UtcTimeOnly( int hour, int minute, int second, int ms=0)
+  : UtcTimeStamp( hour, minute, second, ms)
   {
     clearDate();
   }
 
-  UtcTimeOnly( long sec ) : UtcTimeStamp( sec ) { clearDate(); }
-  UtcTimeOnly( const tm* time ) : UtcTimeStamp( time ) { clearDate(); }
+  UtcTimeOnly( long sec, int ms=0 ) : UtcTimeStamp( sec, ms ) { clearDate(); }
+  UtcTimeOnly( const tm* time, int ms=0 ) : UtcTimeStamp( time, ms ) { clearDate(); }
 
   operator tm*() { return UtcTimeStamp::operator tm*(); }
   operator const tm*() const { return UtcTimeStamp::operator const tm*(); }
 
+  void setMillisecond( int ms ) { UtcTimeStamp::setMillisecond( ms ); }
   void setSecond( int s ) { UtcTimeStamp::setSecond( s ); }
   void setMinute( int m ) { UtcTimeStamp::setMinute( m ); }
   void setHour( int h ) { UtcTimeStamp::setHour( h ); }
 
+  int getMillisecond() const { return UtcTimeStamp::getMillisecond(); }
   int getSecond() const { return UtcTimeStamp::getSecond(); }
   int getMinute() const { return UtcTimeStamp::getMinute(); }
   int getHour() const { return UtcTimeStamp::getHour(); }
@@ -219,8 +249,8 @@ public:
     clearTime();
   }
 
-  UtcDate( long sec ) : UtcTimeStamp( sec ) { clearTime(); }
-  UtcDate( const tm* time ) : UtcTimeStamp( time ) { clearTime(); }
+  UtcDate( long sec ) : UtcTimeStamp( sec, 0 ) { clearTime(); }
+  UtcDate( const tm* time ) : UtcTimeStamp( time, 0 ) { clearTime(); }
 
   operator tm*() { return UtcTimeStamp::operator tm*(); }
   operator const tm*() const { return UtcTimeStamp::operator const tm*(); }
@@ -253,6 +283,7 @@ private:
     setHour( 0 );
     setMinute( 0 );
     setSecond( 0 );
+	setMillisecond( 0 );
   }
 };
 /*! @} */
@@ -262,7 +293,8 @@ typedef UtcDate UtcDateOnly;
 inline bool operator==( const UtcTimeStamp& lhs, const UtcTimeStamp& rhs )
 {
   return
-    lhs.tm_sec == rhs.tm_sec
+    lhs.m_ms == rhs.m_ms
+    && lhs.tm_sec == rhs.tm_sec
     && lhs.tm_min == rhs.tm_min
     && lhs.tm_hour == rhs.tm_hour
     && lhs.tm_mday == rhs.tm_mday
@@ -277,7 +309,12 @@ inline bool operator<( const UtcTimeStamp& lhs, const UtcTimeStamp& rhs )
   tm l_copy = lhs; tm r_copy = rhs;
   time_t l_time = mktime( &l_copy );
   time_t r_time = mktime( &r_copy );
-  return difftime( l_time, r_time ) < 0;
+  double diff = difftime( l_time, r_time );
+
+  if(diff==0.0)
+	  return (lhs.m_ms - rhs.m_ms) < 0;
+  else
+     return diff < 0;
 }
 
 inline bool operator>( const UtcTimeStamp& lhs, const UtcTimeStamp& rhs )
@@ -306,7 +343,8 @@ inline long operator-( const UtcTimeStamp& lhs, const UtcTimeStamp& rhs )
 inline bool operator==( const UtcTimeOnly& lhs, const UtcTimeOnly& rhs )
 {
   return
-    lhs.tm_sec == rhs.tm_sec
+	   lhs.m_ms == rhs.m_ms
+    && lhs.tm_sec == rhs.tm_sec
     && lhs.tm_min == rhs.tm_min
     && lhs.tm_hour == rhs.tm_hour;
 }
@@ -318,6 +356,9 @@ inline bool operator<( const UtcTimeOnly& lhs, const UtcTimeOnly& rhs )
   if ( lhs.tm_min < rhs.tm_min ) return true;
   if ( lhs.tm_min > rhs.tm_min ) return false;
   if ( lhs.tm_sec < rhs.tm_sec ) return true;
+  if ( lhs.tm_sec > rhs.tm_sec ) return false;
+  if ( lhs.m_ms < rhs.m_ms ) return true;
+
   return false;
 }
 

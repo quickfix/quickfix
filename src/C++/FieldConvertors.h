@@ -243,14 +243,21 @@ struct BoolConvertor
 /// Converts a UtcTimeStamp to/from a string
 struct UtcTimeStampConvertor
 {
-  static std::string convert( const UtcTimeStamp& value )
-  throw( FieldConvertError& )
-  {
-    char result[ 18 ];
-    int len = strftime( result, 18, "%Y%m%d-%H:%M:%S", value );
-    if ( len != 17 ) throw FieldConvertError();
-    return result;
-  }
+	static std::string convert( const UtcTimeStamp& value, bool showMilliseconds=false)
+		throw( FieldConvertError& )
+	{
+		char result[ 18+4 ];
+		int len = strftime( result, 18, "%Y%m%d-%H:%M:%S", value );
+		if ( len != 17 ) throw FieldConvertError();
+
+		if(true==showMilliseconds)
+		{
+			len = sprintf(result+17,".%03d",value.getMillisecond());
+		    if ( len != 4) throw FieldConvertError();
+		}
+
+		return result;
+	}
 
   static UtcTimeStamp convert( const std::string& value )
   throw( FieldConvertError& )
@@ -259,6 +266,16 @@ struct UtcTimeStampConvertor
     const char* val = value.c_str();
     const char* len = strptime( val, "%Y%m%d-%H:%M:%S", result );
     if ( len - val != 17 ) throw FieldConvertError();
+
+	// if we have milliseconds in the string, *len should be ".sss"
+	result.setMillisecond(0);
+	if(NULL != len && strlen(len)==4 && len[0] == '.')
+	{
+		int ms = atoi(&len[1]);
+		if(ms < 0 || ms > 999) throw FieldConvertError();
+		result.setMillisecond(ms);
+	}
+
     return result;
   }
 };
@@ -266,12 +283,19 @@ struct UtcTimeStampConvertor
 /// Converts a UtcTimeOnly to/from a string
 struct UtcTimeOnlyConvertor
 {
-  static std::string convert( const UtcTimeOnly& value )
+  static std::string convert( const UtcTimeOnly& value, bool showMilliseconds=false)
   throw( FieldConvertError& )
   {
-    char result[ 9 ];
+    char result[ 9+4 ];
     int len = strftime( result, 9, "%H:%M:%S", value );
     if ( len != 8 ) throw FieldConvertError();
+
+	if(true==showMilliseconds)
+	{
+		len = sprintf(result+8,".%03d",value.getMillisecond());
+	    if ( len != 4) throw FieldConvertError();
+	}
+
     return result;
   }
 
@@ -282,6 +306,16 @@ struct UtcTimeOnlyConvertor
     const char* val = value.c_str();
     const char* len = strptime( val, "%H:%M:%S", result );
     if ( len - val != 8 ) throw FieldConvertError();
+
+	// if we have milliseconds in the string, *len should be ".sss"
+	result.setMillisecond(0);
+	if(NULL != len && strlen(len)==4 && len[0] == '.')
+	{
+		int ms = atoi(&len[1]);
+		if(ms < 0 || ms > 999) throw FieldConvertError();
+		result.setMillisecond(ms);
+	}
+
     return result;
   }
 };

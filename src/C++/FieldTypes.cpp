@@ -64,6 +64,7 @@ void UtcTimeStamp::setTime( const UtcTimeOnly& time )
   setHour( time.getHour() );
   setMinute( time.getMinute() );
   setSecond( time.getSecond() );
+  setMillisecond( time.getMillisecond() );
 
   QF_STACK_POP
 }

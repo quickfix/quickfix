@@ -819,7 +819,11 @@ void SessionTestCase::isSameSession::onRun( Session& object )
 bool SessionTestCase::resetOnEndTime::onSetup( Session*& pObject )
 {
   m_startTime.setCurrent();
+  m_startTime.setMillisecond(0);
+
   m_endTime.setCurrent();
+  m_endTime.setMillisecond(0);
+
   m_endTime += 2;
   return Test::onSetup( pObject );
 }
