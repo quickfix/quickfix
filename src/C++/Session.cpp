@@ -675,10 +675,9 @@ void Session::generateReject( const Message& message, int err, int field )
       reject.setField( SessionRejectReason( err ) );
     }
   }
-  if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset
-       && !possDupFlag )
+  if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset 
+       && msgSeqNum == getExpectedTargetNum() )
   { m_state.incrNextTargetMsgSeqNum(); }
-
 
   const std::string* reason = 0;
   switch ( err )
@@ -1119,7 +1118,6 @@ void Session::next( const Message& message )
       if ( !verify( message ) ) return ;
       m_state.incrNextTargetMsgSeqNum();
     }
-    nextQueued();
   }
   catch ( MessageParseError& e ) 
   { m_state.onEvent( e.what() ); }
@@ -1181,6 +1179,8 @@ void Session::next( const Message& message )
     m_state.onEvent( "Error Reading/Writing in MessageStore" );
     disconnect();
   }
+
+  nextQueued();
 
   QF_STACK_POP
 }

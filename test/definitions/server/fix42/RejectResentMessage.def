@@ -1,0 +1,26 @@
+# Reject resent message
+
+iCONNECT
+#Logon
+I8=FIX.4.235=A34=149=TW52=<TIME>56=ISLD98=0108=30
+E8=FIX.4.29=6135=A34=149=ISLD52=00000000-00:00:0056=TW98=0108=3010=0
+
+# send in a test request one number too high
+I8=FIX.4.235=134=349=TW52=<TIME>56=ISLD112=HELLO1
+# receive resend request for message 2
+E8=FIX.4.29=5835=234=249=ISLD52=00000000-00:00:00.00056=TW7=216=010=0
+# send order with badly formatted field 126
+I8=FIX.4.235=D34=243=Y49=TW52=<TIME>56=ISLD122=<TIME>11=ID21=338=10040=154=155=IVP60=<TIME>126=20040415
+# receive session reject
+E8=FIX.4.29=10935=334=349=ISLD52=00000000-00:00:00.00056=TW45=258=Incorrect data format for value371=126372=D373=610=245
+
+# send in a second test request, tests requests should be processed in order
+I8=FIX.4.235=134=449=TW52=<TIME>56=ISLD112=HELLO2
+E8=FIX.4.29=6035=034=449=ISLD52=00000000-00:00:00.00056=TW112=HELLO110=0
+E8=FIX.4.29=6035=034=549=ISLD52=00000000-00:00:00.00056=TW112=HELLO210=0
+
+# logout message and response
+I8=FIX.4.235=534=1149=TW52=<TIME>56=ISLD
+E8=FIX.4.29=4935=534=649=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT
