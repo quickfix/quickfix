@@ -1,3 +1,383 @@
+2004-11-02 02:22  orenmnero
+
+	* CONTRIBUTORS, NEWS, src/C++/Makefile.am, src/java/Makefile.am,
+	  src/python/Makefile.am: [no log message]
+
+2004-11-02 00:57  orenmnero
+
+	* configure.in: incremented version
+
+2004-11-02 00:55  orenmnero
+
+	* src/python/: QuickfixPython.cpp, quickfix.py: [no log message]
+
+2004-11-01 17:50  orenmnero
+
+	* src/C++/test/MessagesTestCase.cpp: removed unused exception
+	  variable
+
+2004-11-01 16:23  orenmnero
+
+	* quickfix.dsp, quickfix.vcproj, src/.NET/Application.h,
+	  src/.NET/FIX44_MessageCracker.cs,
+	  src/.NET/FIX44_MessageFactory.cs, src/.NET/Message.h,
+	  src/.NET/MessageFactory.h, src/.NET/quickfix_net.vcproj,
+	  src/.NET/quickfix_net_messages.csproj, src/C++/Values.h,
+	  src/C++/fix44/MessageCracker.h,
+	  src/java/src/quickfix/fix44/MessageCracker.java,
+	  src/java/src/quickfix/fix44/MessageFactory.java: added
+	  UserRequest and UserResponse messages
+
+2004-11-01 15:39  orenmnero
+
+	* spec/FIX44.xml: added missing UserRequest and UserResponse
+	  messages
+
+2004-10-29 21:44  orenmnero
+
+	* src/at.cpp: removed screen logger
+
+2004-10-29 21:22  orenmnero
+
+	* src/C++/test/MessagesTestCase.cpp: increased checksum when null
+	  introduced
+
+2004-10-29 21:18  orenmnero
+
+	* src/C++/Field.h: put back std::accumulate
+
+2004-10-29 20:54  orenmnero
+
+	* src/C++/: Field.h, Message.cpp, Parser.cpp, Parser.h,
+	  SocketConnection.cpp, ThreadedSocketConnection.cpp,
+	  ThreadedSocketConnection.h, test/MessagesTestCase.cpp,
+	  test/ParserTestCase.cpp, test/ParserTestCase.h: added code to
+	  handle null characters in fix messages
+
+2004-10-28 18:53  orenmnero
+
+	* src/.NET/Session.cpp: pin message before passing it into native
+	  library
+
+2004-10-26 19:48  orenmnero
+
+	* src/C++/: Session.cpp, test/SessionTestCase.cpp: treat resend
+	  requests to sequence number larger than available like an
+	  infinite request
+
+2004-10-26 18:54  orenmnero
+
+	* src/C++/test/Makefile.am: added MemoryStoreTestCase.cpp
+
+2004-10-26 17:54  orenmnero
+
+	* ut.vcproj, src/at.cpp, src/.NET/MessageStore.h,
+	  src/C++/FileStore.cpp, src/C++/FileStore.h,
+	  src/C++/MessageStore.cpp, src/C++/MessageStore.h,
+	  src/C++/MySQLStore.h, src/C++/SessionState.h,
+	  src/C++/test/FileStoreTestCase.cpp,
+	  src/C++/test/FileStoreTestCase.h,
+	  src/C++/test/MemoryStoreTestCase.cpp,
+	  src/C++/test/MemoryStoreTestCase.h,
+	  src/C++/test/MessageStoreTestCase.cpp,
+	  src/C++/test/MessageStoreTestCase.h,
+	  src/C++/test/MessagesTestCase.cpp,
+	  src/C++/test/MessagesTestCase.h, src/java/JavaMessageStore.cpp,
+	  src/java/JavaMessageStore.h,
+	  src/java/quickfix_CppMessageStore.cpp,
+	  src/java/src/quickfix/MessageStore.java: removed message store
+	  get method for single message
+
+2004-10-26 17:48  orenmnero
+
+	* spec/: FIX40.xml, FIX41.xml, FIX42.xml: Added missing enumeration
+	  to DKReason
+
+2004-10-26 17:19  orenmnero
+
+	* src/.NET/CPPMessageStore.h: fixed memory leak
+
+2004-10-26 15:51  orenmnero
+
+	* src/C++/SocketConnection.cpp: just formatting
+
+2004-10-25 23:11  orenmnero
+
+	* src/.NET/Application.h: added missing __pin
+
+2004-10-19 17:45  orenmnero
+
+	* src/.NET/Application.h: Fix for random NullPointerExceptions.
+	  Unmanaged pointers are pinned so they don't get garbage collected
+	  to early. Submitted by Vladimir Arnost
+
+2004-10-14 06:06  orenmnero
+
+	* quickfix.dsp, quickfix.vcproj: removed reference to strptime.c
+
+2004-10-12 16:52  orenmnero
+
+	* src/C++/FieldMap.h: fixed broken copy constructor
+
+2004-10-12 16:50  orenmnero
+
+	* src/C++/Group.h: added copy constructor
+
+2004-10-07 20:19  orenmnero
+
+	* src/C++/SocketConnection.cpp, src/C++/SocketConnection.h,
+	  test/definitions/server/fix40/AlreadyLoggedOn.def,
+	  test/definitions/server/fix41/AlreadyLoggedOn.def,
+	  test/definitions/server/fix42/AlreadyLoggedOn.def,
+	  test/definitions/server/fix43/AlreadyLoggedOn.def,
+	  test/definitions/server/fix44/AlreadyLoggedOn.def: make sure two
+	  connections cannot logon to the same session
+
+2004-10-07 20:19  orenmnero
+
+	* src/C++/Utility.cpp: [no log message]
+
+2004-10-06 17:40  orenmnero
+
+	* src/C++/SessionFactory.cpp: remove unused exception declaration
+
+2004-10-06 17:38  orenmnero
+
+	* src/C++/FieldConvertors.h: use platform independent
+	  time_localtime
+
+2004-10-06 17:01  orenmnero
+
+	* src/.NET/: DataDictionary.h, Session.cpp, Session.h: added
+	  wrappers for missing public methods
+
+2004-10-02 15:05  orenmnero
+
+	* configure.in, src/python/Makefile.am: [no log message]
+
+2004-10-02 06:27  orenmnero
+
+	* configure.in, src/python/Makefile.am: copy python files into site
+	  module path
+
+2004-10-02 00:44  orenmnero
+
+	* src/C++/: FieldTypes.h, strptime.c, strptime.h: defined
+	  _XOPEN_SOURCE instead of using PowerDog implementation of
+	  strptime
+
+2004-10-01 23:54  orenmnero
+
+	* src/C++/: FieldConvertors.h, FileStore.cpp, MySQLStore.cpp,
+	  test/FieldConvertorsTestCase.cpp: slow UtcTimeStamp convertor
+	  which assigns day calculations to the tm_struct
+
+2004-10-01 20:07  orenmnero
+
+	* src/: .NET/FIX44_MessageCracker.cs, .NET/FIX44_MessageFactory.cs,
+	  .NET/fix44/AllocationReportAck.cs,
+	  .NET/fix44/CollateralInquiryAck.cs,
+	  .NET/fix44/ConfirmationRequest.cs, .NET/fix44/PositionReport.cs,
+	  C++/Values.h, java/src/quickfix/fix44/AllocationReportAck.java,
+	  java/src/quickfix/fix44/CollateralInquiryAck.java,
+	  java/src/quickfix/fix44/ConfirmationRequest.java,
+	  java/src/quickfix/fix44/MessageCracker.java,
+	  java/src/quickfix/fix44/MessageFactory.java,
+	  java/src/quickfix/fix44/PositionReport.java: regenerated with
+	  corrected message types
+
+2004-10-01 19:47  orenmnero
+
+	* src/C++/Message.h: fixed copy constructor so header and trailers
+	  have correct message order
+
+2004-10-01 19:46  orenmnero
+
+	* spec/GeneratorCPP.rb: added copy constructors
+
+2004-10-01 19:42  orenmnero
+
+	* src/C++/: fix40/Advertisement.h, fix40/Allocation.h,
+	  fix40/AllocationACK.h, fix40/DontKnowTrade.h, fix40/Email.h,
+	  fix40/ExecutionReport.h, fix40/Heartbeat.h,
+	  fix40/IndicationofInterest.h, fix40/ListCancelRequest.h,
+	  fix40/ListExecute.h, fix40/ListStatus.h,
+	  fix40/ListStatusRequest.h, fix40/Logon.h, fix40/Logout.h,
+	  fix40/Message.h, fix40/NewOrderList.h, fix40/NewOrderSingle.h,
+	  fix40/News.h, fix40/OrderCancelReject.h,
+	  fix40/OrderCancelReplaceRequest.h, fix40/OrderCancelRequest.h,
+	  fix40/OrderStatusRequest.h, fix40/Quote.h, fix40/QuoteRequest.h,
+	  fix40/Reject.h, fix40/ResendRequest.h, fix40/SequenceReset.h,
+	  fix40/TestRequest.h, fix41/Advertisement.h, fix41/Allocation.h,
+	  fix41/AllocationACK.h, fix41/DontKnowTrade.h, fix41/Email.h,
+	  fix41/ExecutionReport.h, fix41/Heartbeat.h,
+	  fix41/IndicationofInterest.h, fix41/ListCancelRequest.h,
+	  fix41/ListExecute.h, fix41/ListStatus.h,
+	  fix41/ListStatusRequest.h, fix41/Logon.h, fix41/Logout.h,
+	  fix41/Message.h, fix41/NewOrderList.h, fix41/NewOrderSingle.h,
+	  fix41/News.h, fix41/OrderCancelReject.h,
+	  fix41/OrderCancelReplaceRequest.h, fix41/OrderCancelRequest.h,
+	  fix41/OrderStatusRequest.h, fix41/Quote.h, fix41/QuoteRequest.h,
+	  fix41/Reject.h, fix41/ResendRequest.h, fix41/SequenceReset.h,
+	  fix41/SettlementInstructions.h, fix41/TestRequest.h,
+	  fix42/Advertisement.h, fix42/Allocation.h, fix42/AllocationACK.h,
+	  fix42/BusinessMessageReject.h, fix42/DontKnowTrade.h,
+	  fix42/Email.h, fix42/ExecutionReport.h, fix42/Heartbeat.h,
+	  fix42/IndicationofInterest.h, fix42/ListCancelRequest.h,
+	  fix42/ListExecute.h, fix42/ListStatus.h,
+	  fix42/ListStatusRequest.h, fix42/Logon.h, fix42/Logout.h,
+	  fix42/MarketDataIncrementalRefresh.h, fix42/MarketDataRequest.h,
+	  fix42/MarketDataRequestReject.h,
+	  fix42/MarketDataSnapshotFullRefresh.h, fix42/MassQuote.h,
+	  fix42/Message.h, fix42/NewOrderList.h, fix42/NewOrderSingle.h,
+	  fix42/News.h, fix42/OrderCancelReject.h,
+	  fix42/OrderCancelReplaceRequest.h, fix42/OrderCancelRequest.h,
+	  fix42/OrderStatusRequest.h, fix42/Quote.h,
+	  fix42/QuoteAcknowledgement.h, fix42/QuoteCancel.h,
+	  fix42/QuoteRequest.h, fix42/QuoteStatusRequest.h, fix42/Reject.h,
+	  fix42/ResendRequest.h, fix42/SecurityDefinition.h,
+	  fix42/SecurityDefinitionRequest.h, fix42/SecurityStatus.h,
+	  fix42/SecurityStatusRequest.h, fix42/SequenceReset.h,
+	  fix42/SettlementInstructions.h, fix42/TestRequest.h,
+	  fix42/TradingSessionStatus.h,
+	  fix42/TradingSessionStatusRequest.h, fix43/Advertisement.h,
+	  fix43/Allocation.h, fix43/AllocationACK.h, fix43/BidRequest.h,
+	  fix43/BidResponse.h, fix43/BusinessMessageReject.h,
+	  fix43/CrossOrderCancelReplaceRequest.h,
+	  fix43/CrossOrderCancelRequest.h, fix43/DerivativeSecurityList.h,
+	  fix43/DerivativeSecurityListRequest.h, fix43/DontKnowTrade.h,
+	  fix43/Email.h, fix43/ExecutionReport.h, fix43/Heartbeat.h,
+	  fix43/IndicationOfInterest.h, fix43/ListCancelRequest.h,
+	  fix43/ListExecute.h, fix43/ListStatus.h,
+	  fix43/ListStatusRequest.h, fix43/ListStrikePrice.h,
+	  fix43/Logon.h, fix43/Logout.h,
+	  fix43/MarketDataIncrementalRefresh.h, fix43/MarketDataRequest.h,
+	  fix43/MarketDataRequestReject.h,
+	  fix43/MarketDataSnapshotFullRefresh.h, fix43/MassQuote.h,
+	  fix43/MassQuoteAcknowledgement.h, fix43/Message.h,
+	  fix43/MultilegOrderCancelReplaceRequest.h, fix43/NewOrderCross.h,
+	  fix43/NewOrderList.h, fix43/NewOrderMultileg.h,
+	  fix43/NewOrderSingle.h, fix43/News.h, fix43/OrderCancelReject.h,
+	  fix43/OrderCancelReplaceRequest.h, fix43/OrderCancelRequest.h,
+	  fix43/OrderMassCancelReport.h, fix43/OrderMassCancelRequest.h,
+	  fix43/OrderMassStatusRequest.h, fix43/OrderStatusRequest.h,
+	  fix43/Quote.h, fix43/QuoteCancel.h, fix43/QuoteRequest.h,
+	  fix43/QuoteRequestReject.h, fix43/QuoteStatusReport.h,
+	  fix43/QuoteStatusRequest.h, fix43/RFQRequest.h,
+	  fix43/RegistrationInstructions.h,
+	  fix43/RegistrationInstructionsResponse.h, fix43/Reject.h,
+	  fix43/ResendRequest.h, fix43/SecurityDefinition.h,
+	  fix43/SecurityDefinitionRequest.h, fix43/SecurityList.h,
+	  fix43/SecurityListRequest.h, fix43/SecurityStatus.h,
+	  fix43/SecurityStatusRequest.h, fix43/SecurityTypeRequest.h,
+	  fix43/SecurityTypes.h, fix43/SequenceReset.h,
+	  fix43/SettlementInstructions.h, fix43/TestRequest.h,
+	  fix43/TradeCaptureReport.h, fix43/TradeCaptureReportRequest.h,
+	  fix43/TradingSessionStatus.h,
+	  fix43/TradingSessionStatusRequest.h, fix44/Advertisement.h,
+	  fix44/AllocationInstruction.h, fix44/AllocationInstructionAck.h,
+	  fix44/AllocationReport.h, fix44/AllocationReportAck.h,
+	  fix44/AssignmentReport.h, fix44/BidRequest.h,
+	  fix44/BidResponse.h, fix44/BusinessMessageReject.h,
+	  fix44/CollateralAssignment.h, fix44/CollateralInquiry.h,
+	  fix44/CollateralInquiryAck.h, fix44/CollateralReport.h,
+	  fix44/CollateralRequest.h, fix44/CollateralResponse.h,
+	  fix44/Confirmation.h, fix44/ConfirmationAck.h,
+	  fix44/ConfirmationRequest.h,
+	  fix44/CrossOrderCancelReplaceRequest.h,
+	  fix44/CrossOrderCancelRequest.h, fix44/DerivativeSecurityList.h,
+	  fix44/DerivativeSecurityListRequest.h, fix44/DontKnowTrade.h,
+	  fix44/Email.h, fix44/ExecutionReport.h, fix44/Heartbeat.h,
+	  fix44/IndicationOfInterest.h, fix44/ListCancelRequest.h,
+	  fix44/ListExecute.h, fix44/ListStatus.h,
+	  fix44/ListStatusRequest.h, fix44/ListStrikePrice.h,
+	  fix44/Logon.h, fix44/Logout.h,
+	  fix44/MarketDataIncrementalRefresh.h, fix44/MarketDataRequest.h,
+	  fix44/MarketDataRequestReject.h,
+	  fix44/MarketDataSnapshotFullRefresh.h, fix44/MassQuote.h,
+	  fix44/MassQuoteAcknowledgement.h, fix44/Message.h,
+	  fix44/MessageCracker.h,
+	  fix44/MultilegOrderCancelReplaceRequest.h, fix44/NewOrderCross.h,
+	  fix44/NewOrderList.h, fix44/NewOrderMultileg.h,
+	  fix44/NewOrderSingle.h, fix44/News.h, fix44/OrderCancelReject.h,
+	  fix44/OrderCancelReplaceRequest.h, fix44/OrderCancelRequest.h,
+	  fix44/OrderMassCancelReport.h, fix44/OrderMassCancelRequest.h,
+	  fix44/OrderMassStatusRequest.h, fix44/OrderStatusRequest.h,
+	  fix44/PositionMaintenanceReport.h,
+	  fix44/PositionMaintenanceRequest.h, fix44/PositionReport.h,
+	  fix44/Quote.h, fix44/QuoteCancel.h, fix44/QuoteRequest.h,
+	  fix44/QuoteRequestReject.h, fix44/QuoteResponse.h,
+	  fix44/QuoteStatusReport.h, fix44/QuoteStatusRequest.h,
+	  fix44/RFQRequest.h, fix44/RegistrationInstructions.h,
+	  fix44/RegistrationInstructionsResponse.h, fix44/Reject.h,
+	  fix44/RequestForPositions.h, fix44/RequestForPositionsAck.h,
+	  fix44/ResendRequest.h, fix44/SecurityDefinition.h,
+	  fix44/SecurityDefinitionRequest.h, fix44/SecurityList.h,
+	  fix44/SecurityListRequest.h, fix44/SecurityStatus.h,
+	  fix44/SecurityStatusRequest.h, fix44/SecurityTypeRequest.h,
+	  fix44/SecurityTypes.h, fix44/SequenceReset.h,
+	  fix44/SettlementInstructionRequest.h,
+	  fix44/SettlementInstructions.h, fix44/TestRequest.h,
+	  fix44/TradeCaptureReport.h, fix44/TradeCaptureReportAck.h,
+	  fix44/TradeCaptureReportRequest.h,
+	  fix44/TradeCaptureReportRequestAck.h,
+	  fix44/TradingSessionStatus.h,
+	  fix44/TradingSessionStatusRequest.h: added copy constructors
+
+2004-09-30 17:43  orenmnero
+
+	* src/C++/FieldMap.cpp: copy fields before groups so group fields
+	  don't get added twice
+
+2004-09-30 05:30  orenmnero
+
+	* src/C++/Message.h: added explicit copy constructo to Message
+
+2004-09-28 16:32  orenmnero
+
+	* src/C++/: Message.cpp, test/MessagesTestCase.cpp: throw
+	  InvalidException if message have trailing characters that are not
+	  part of a field
+
+2004-09-28 15:49  orenmnero
+
+	* src/C++/FieldMap.cpp: fixed problem where result wasn't being
+	  properly reset under VC6.  Fixes failing acceptance tests
+
+2004-09-22 16:29  orenmnero
+
+	* configure.in: increase FD_SETSIZE for older versions of linux
+
+2004-09-22 16:13  orenmnero
+
+	* configure.in: increase default FD_SETSIZE so we can handle a
+	  larger range of socket descriptors
+
+2004-09-21 15:27  orenmnero
+
+	* src/C++/Session.cpp: logouts were being sent multiple times, this
+	  makes sure only one is sent
+
+2004-09-19 14:19  orenmnero
+
+	* spec/FIX44.xml: fixed incorrect msgtypes for some messages
+
+2004-09-17 19:24  orenmnero
+
+	* src/C++/Utility.cpp: cast after multiplication so milliseconds
+	  don't get cut off
+
+2004-09-16 23:34  orenmnero
+
+	* src/C++/: DataDictionary.cpp, DataDictionary.h, Message.cpp,
+	  test/MessagesTestCase.cpp, test/MessagesTestCase.h: setString
+	  will place fields in repeating groups in the correct order if a
+	  data dictionary is supplied
+
+2004-09-15 15:25  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-09-15 15:21  orenmnero
 
 	* NEWS: [no log message]

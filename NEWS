@@ -1,3 +1,51 @@
+1.9.3
+-----
+.NET crashes do to random NullPointerExceptions has been fixed.  The
+.NET library seems to be completely stable now even under heavy load.
+
+When supplying a DataDictionary to Message::setString, the fields in
+repeating groups will now be placed in the correct order.
+
+Session will no longer send additional logout messages when one is pending.
+
+SocketAcceptor will no longer allow two connections to log on to the same
+session.
+
+When receiving a resend request for a larger than expected sequence number,
+QF will treat this like an INFINITE request.  This alleviates problems from
+receiving requests for extremely large numbers which cause a lot of lookups.
+
+Included message stores will now load up start times with the correct day
+of the year so week long sessions can safely be taken down and brought back
+up.
+
+Message and Parser can now handle messages with null characters.
+
+Message will be invalid in setString if it has trailing characters extra
+trailing characters that do not belong to a field.
+
+Messages with repeating groups can now have a properly implemented
+copy constructor.  It is safe to copy all messages.
+
+Added wrappers in .NET for some missing methods in DataDictionary and 
+Session classes.
+
+process_sleep has proper support for millisecond precision under windows.
+
+Some messages in FIX44.xml were identified with the wrong MsgType string.
+
+Added missing DKReason enumerations to FIX40.xml, FIX41.xml, and FIX42.xml
+
+Fixed problem where FieldMap::calculateString did not properly reset the
+output string under VC6.  This caused problems with resend requests.
+
+Python library will be installed to the site module path.
+
+get method for retrieving a single message has been removed from MessageStore.
+Only the get methods for retreiving a range needs to be implemented now.
+
+Added missing UserRequest and UserResponse messages for FIX.4.4
+
 1.9.2
 -----
 Fixed incorrect versioning of libraries under unix systems
