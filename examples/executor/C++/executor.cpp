@@ -60,14 +60,12 @@
 #include <string>
 #include <iostream>
 #include <fstream>
-#include <conio.h>
 
 void wait()
 {
-  std::cout << "hit any key to quit" << std::endl;
+  std::cout << "Type Ctrl-C to quit" << std::endl;
   while(true)
   {
-    if(kbhit()) break;
     FIX::process_sleep(1);
   }
 }
