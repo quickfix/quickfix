@@ -51,7 +51,7 @@ package org.quickfix;
 
 import org.quickfix.field.*;
 
-public class MessageCracker extends org.quickfix.fix42.MessageCracker {
+public class MessageCracker extends org.quickfix.fix43.MessageCracker {
 
     public void crack( org.quickfix.Message message, SessionID sessionID )
     throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue {
@@ -66,6 +66,8 @@ public class MessageCracker extends org.quickfix.fix42.MessageCracker {
             crack41((org.quickfix.fix41.Message)message, sessionID);
         else if(value.equals("FIX.4.2"))
             crack42((org.quickfix.fix42.Message)message, sessionID);
+        else if(value.equals("FIX.4.3"))
+            crack43((org.quickfix.fix43.Message)message, sessionID);
         else
             onMessage(message, sessionID);
     }
