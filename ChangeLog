@@ -1,3 +1,38 @@
+2004-11-03 21:07  orenmnero
+
+	* NEWS: [no log message]
+
+2004-11-03 21:06  orenmnero
+
+	* src/C++/Session.cpp: reversed the delegation of the sendToTarget
+	  methods
+
+2004-11-03 21:03  orenmnero
+
+	* src/.NET/: Session.cpp, Session.h: added qualifier to more
+	  sendToTarget signatures
+
+2004-11-03 20:57  orenmnero
+
+	* NEWS, src/C++/Session.cpp: added qualifier to more sendToTarget
+	  signatures
+
+2004-11-03 20:46  orenmnero
+
+	* src/java/quickfix_FileLogFactory.cpp: returns a value in non void
+	  method
+
+2004-11-03 20:20  orenmnero
+
+	* src/: C++/Message.cpp, C++/Message.h, C++/Session.cpp,
+	  C++/Session.h, java/quickfix_Session.cpp,
+	  java/quickfix_Session.h, java/src/quickfix/Session.java: added
+	  qualifier to more sendToTarget signatures
+
+2004-11-03 18:36  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-03 18:18  orenmnero
 
 	* NEWS: [no log message]
