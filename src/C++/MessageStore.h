@@ -73,8 +73,6 @@ public:
 
   virtual bool set( int, const std::string& )
   throw ( IOException ) = 0;
-  virtual bool get( int, std::string& ) const
-  throw ( IOException ) = 0;
   virtual void get( int, int, std::vector < std::string > & ) const
   throw ( IOException ) = 0;
 
@@ -103,7 +101,6 @@ public:
   MemoryStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
 
   bool set( int, const std::string& ) throw ( IOException );
-  bool get( int, std::string& ) const throw ( IOException );
   void get( int, int, std::vector < std::string > & ) const throw ( IOException );
 
   int getNextSenderMsgSeqNum() const throw ( IOException )
@@ -144,7 +141,8 @@ class MessageStoreFactoryExceptionWrapper
 private:
   MessageStoreFactory* m_pFactory;
 public:
-MessageStoreFactoryExceptionWrapper( MessageStoreFactory* pFactory ) : m_pFactory( pFactory ) {}
+  MessageStoreFactoryExceptionWrapper( MessageStoreFactory* pFactory ) 
+  : m_pFactory( pFactory ) {}
 
   MessageStore* create( const SessionID&, bool&, ConfigError& );
   void destroy( MessageStore* );
@@ -159,7 +157,6 @@ public:
   ~MessageStoreExceptionWrapper() { delete m_pStore; }
 
   bool set( int, const std::string&, bool&, IOException& );
-  bool get( int, std::string&, bool&, IOException& ) const;
   void get( int, int, std::vector < std::string > &, bool&, IOException& ) const;
   int getNextSenderMsgSeqNum( bool&, IOException& ) const;
   int getNextTargetMsgSeqNum( bool&, IOException& ) const;

@@ -38,8 +38,6 @@ public __gc __interface MessageStore
 {
   virtual bool set( int sequence, String* message )
   throw ( IOException* );
-  virtual bool get( int sequence, String* message )
-  throw ( IOException* );
   virtual void get( int begin, int end, ArrayList* )
   throw ( IOException* );
   virtual int getNextSenderMsgSeqNum() throw ( IOException* );
@@ -62,14 +60,6 @@ public:
   {
     try
     { return m_store->set( num, message.c_str() ); }
-    catch ( IOException * e )
-    { throw FIX::IOException(); }
-  }
-
-  bool get( int num, std::string& message ) const throw ( FIX::IOException& )
-  {
-    try
-    { return m_store->get( num, message.c_str() ); }
     catch ( IOException * e )
     { throw FIX::IOException(); }
   }

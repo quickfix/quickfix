@@ -209,25 +209,6 @@ throw ( IOException )
   QF_STACK_POP
 }
 
-bool FileStore::get( int msgSeqNum, std::string& msg ) const
-throw ( IOException )
-{ QF_STACK_PUSH(FileStore::get)
-
-  NumToOffset::const_iterator find = m_offsets.find( msgSeqNum );
-  if ( find == m_offsets.end() ) return false;
-  const OffsetSize& offset = find->second;
-  if ( fseek( m_msgFile, offset.first, SEEK_SET ) ) throw IOException();
-  char* buffer = new char[ offset.second + 1 ];
-  fread( buffer, sizeof( char ), offset.second, m_msgFile );
-  if ( ferror( m_msgFile ) ) throw IOException();
-  buffer[ offset.second ] = 0;
-  msg = buffer;
-  delete [] buffer;
-  return true;
-
-  QF_STACK_POP
-}
-
 void FileStore::get( int begin, int end,
                      std::vector < std::string > & result ) const
 throw ( IOException )
@@ -323,4 +304,24 @@ void FileStore::setSession()
 
   QF_STACK_POP
 }
+
+bool FileStore::get( int msgSeqNum, std::string& msg ) const
+throw ( IOException )
+{ QF_STACK_PUSH(FileStore::get)
+
+  NumToOffset::const_iterator find = m_offsets.find( msgSeqNum );
+  if ( find == m_offsets.end() ) return false;
+  const OffsetSize& offset = find->second;
+  if ( fseek( m_msgFile, offset.first, SEEK_SET ) ) throw IOException();
+  char* buffer = new char[ offset.second + 1 ];
+  fread( buffer, sizeof( char ), offset.second, m_msgFile );
+  if ( ferror( m_msgFile ) ) throw IOException();
+  buffer[ offset.second ] = 0;
+  msg = buffer;
+  delete [] buffer;
+  return true;
+
+  QF_STACK_POP
+}
+
 } //namespace FIX

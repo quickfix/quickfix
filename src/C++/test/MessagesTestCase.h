@@ -53,6 +53,7 @@ public:
     add( &m_isApp );
     add( &m_setString );
     add( &m_setStringWithGroup );
+    add( &m_copy );
     add( &m_checkSum );
     add( &m_headerFieldsFirst );
     add( &m_noEndingDelim );
@@ -93,6 +94,11 @@ public:
   {
     void onRun( Message& object );
   } m_setStringWithGroup;
+
+  class copy : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_copy;
 
   class checkSum : public SimpleTest
   {

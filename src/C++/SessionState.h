@@ -138,8 +138,6 @@ public:
 
   bool set( int s, const std::string& m ) throw ( IOException )
   { Locker l( m_mutex ); return m_pStore->set( s, m ); }
-  bool get( int s, std::string& m ) const throw ( IOException )
-  { Locker l( m_mutex ); return m_pStore->get( s, m ); }
   void get( int b, int e, std::vector < std::string > &m ) const
   throw ( IOException )
   { Locker l( m_mutex ); m_pStore->get( b, e, m ); }

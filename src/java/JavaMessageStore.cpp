@@ -34,9 +34,6 @@ JavaMessageStore::JavaMessageStore( JVMObject object )
           .getMethodID( "set", "(ILjava/lang/String;)Z" );
 
   getId = object.getClass()
-          .getMethodID( "get", "(ILjava/lang/String;)Z" );
-
-  getRangeId = object.getClass()
                .getMethodID( "get", "(IILjava/util/Collection;)V" );
 
   getNextSenderMsgSeqNumId = object.getClass()
@@ -79,24 +76,6 @@ throw ( FIX::IOException )
   return result;
 }
 
-bool JavaMessageStore::get( int seq, std::string& message ) const
-throw ( FIX::IOException )
-{
-  JNIEnv * pEnv = ENV::get();
-  jstring string = newString( "" );
-  Exceptions e;
-  bool result = pEnv->CallBooleanMethod( messageStore, getId,
-                                         seq, string ) != 0;
-
-  const char* ustring = pEnv->GetStringUTFChars( string, 0 );
-  message = ustring;
-  pEnv->ReleaseStringUTFChars( string, ustring );
-  pEnv->DeleteLocalRef( string );
-
-  handleException( pEnv, e );
-  return result;
-}
-
 void JavaMessageStore::get( int start, int end,
                             std::vector < std::string > & messages ) const
 throw ( FIX::IOException )
@@ -105,7 +84,7 @@ throw ( FIX::IOException )
   JVMObject collection( newCollection() );
 
   Exceptions e;
-  pEnv->CallVoidMethod( messageStore, getRangeId,
+  pEnv->CallVoidMethod( messageStore, getId,
                         start, end, ( jobject ) collection );
   handleException( pEnv, e );
 

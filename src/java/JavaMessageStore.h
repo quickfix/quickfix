@@ -33,8 +33,6 @@ public:
 
   virtual bool set( int seq, const std::string& message )
   throw ( FIX::IOException );
-  virtual bool get( int seq, std::string& message ) const
-  throw ( FIX::IOException );
   virtual void get( int start, int end, std::vector < std::string > & ) const
   throw ( FIX::IOException );
   virtual int getNextSenderMsgSeqNum() const throw ( FIX::IOException );
@@ -60,7 +58,6 @@ private:
 
   jmethodID setId;
   jmethodID getId;
-  jmethodID getRangeId;
   jmethodID getNextSenderMsgSeqNumId;
   jmethodID getNextTargetMsgSeqNumId;
   jmethodID setNextSenderMsgSeqNumId;

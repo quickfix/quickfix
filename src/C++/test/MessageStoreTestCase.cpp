@@ -33,35 +33,8 @@
 namespace FIX
 {
 using namespace FIX42;
+
 void MessageStoreTestCase::setGet::onRun( MessageStore& object )
-{
-  Logon logon;
-  logon.getHeader().setField( MsgSeqNum( 1 ) );
-  object.set( 1, logon.toString() );
-
-  Heartbeat heartbeat;
-  heartbeat.getHeader().setField( MsgSeqNum( 2 ) );
-  object.set( 2, heartbeat.toString() );
-
-  TestRequest testRequest;
-  testRequest.getHeader().setField( MsgSeqNum(3) );
-  testRequest.set( TestReqID("contains a value \"in quotes\"") );
-  object.set( 3, testRequest.toString() );
-
-  std::string message;
-  assert( object.get( 1, message ) );
-  assert( message == logon.toString() );
-
-  Message getHeartbeat;
-  assert( object.get( 2, message ) );
-  assert( message == heartbeat.toString() );
-
-  Message getTestRequest;
-  assert( object.get( 3, message ) );
-  assert( message == testRequest.toString() );
-}
-
-void MessageStoreTestCase::getRange::onRun( MessageStore& object )
 {
   Logon logon;
   logon.getHeader().setField( MsgSeqNum( 1 ) );

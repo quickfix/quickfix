@@ -229,6 +229,9 @@
 				RelativePath="src\C++\test\FileUtilitiesTestCase.cpp">
 			</File>
 			<File
+				RelativePath="src\C++\test\MemoryStoreTestCase.cpp">
+			</File>
+			<File
 				RelativePath=".\src\C++\Test\MessageStoreTestCase.cpp">
 				<FileConfiguration
 					Name="Release|Win32">
@@ -503,7 +506,7 @@
 				RelativePath="src\C++\test\StringUtilitiesTestCase.h">
 			</File>
 			<File
-				RelativePath=".\src\TestSuite.h">
+				RelativePath="src\C++\test\TestSuite.h">
 			</File>
 			<File
 				RelativePath="src\C++\test\UtcTimeOnlyTestCase.h">

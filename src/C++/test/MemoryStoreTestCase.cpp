@@ -25,49 +25,38 @@
 #endif
 
 #include "MemoryStoreTestCase.h"
-#include "Messages.h"
 
 namespace FIX
 {
-using namespace FIX42;
-void MemoryStoreTestCase::setGet::onRun( MemoryStore& object )
+bool MemoryStoreTestCase::setGet::onSetup( MessageStore*& pObject )
 {
-  Logon logon;
-  logon.getHeader().setField( MsgSeqNum( 1 ) );
-  object.setSender( logon );
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-  Heartbeat heartbeat;
-  heartbeat.getHeader().setField( MsgSeqNum( 2 ) );
-  object.setSender( heartbeat );
+  m_object = m_memoryStoreFactory.create( sessionID );
+  pObject = &( *m_object );
 
-  Message getLogon;
-  assert( object.getSender( MsgSeqNum( 1 ), getLogon ) );
-  Message getHeartbeat;
-  assert( object.getSender( MsgSeqNum( 2 ), getHeartbeat ) );
-
-  assert( getLogon.getString() == logon.getString() );
-  assert( getHeartbeat.getString() == heartbeat.getString() );
+  return true;
 }
 
-void MemoryStoreTestCase::getRange::onRun( MemoryStore& object )
+void MemoryStoreTestCase::setGet::onTeardown( MessageStore* pObject )
 {
-  Logon logon;
-  logon.getHeader().setField( MsgSeqNum( 1 ) );
-  object.setSender( logon );
+  m_memoryStoreFactory.destroy( pObject );
+}
 
-  Heartbeat heartbeat;
-  heartbeat.getHeader().setField( MsgSeqNum( 2 ) );
-  object.setSender( heartbeat );
+bool MemoryStoreTestCase::other::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-  NewOrderSingle newOrderSingle;
-  newOrderSingle.getHeader().setField( MsgSeqNum( 3 ) );
-  object.setSender( newOrderSingle );
+  m_object = m_memoryStoreFactory.create( sessionID );
+  pObject = &( *m_object );
 
-  std::vector < Message > messages;
-  assert( object.getSender( MsgSeqNum( 1 ), MsgSeqNum( 3 ), messages ) );
-  assert( messages.size() == 3 );
-  assert( messages[ 0 ].getString() == logon.getString() );
-  assert( messages[ 1 ].getString() == heartbeat.getString() );
-  assert( messages[ 2 ].getString() == newOrderSingle.getString() );
+  return true;
+}
+
+void MemoryStoreTestCase::other::onTeardown( MessageStore* pObject )
+{
+  m_memoryStoreFactory.destroy( pObject );
 }
 }

@@ -46,24 +46,6 @@ void FileStoreTestCase::setGet::onTeardown( MessageStore* pObject )
   deleteSession( "SETGET", "TEST" );
 }
 
-bool FileStoreTestCase::getRange::onSetup( MessageStore*& pObject )
-{
-  deleteSession( "GETRANGE", "TEST" );
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "GETRANGE" ), TargetCompID( "TEST" ) );
-
-  m_object = m_fileStoreFactory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void FileStoreTestCase::getRange::onTeardown( MessageStore* pObject )
-{
-  m_fileStoreFactory.destroy( pObject );
-  deleteSession( "GETRANGE", "TEST" );
-}
-
 bool FileStoreTestCase::other::onSetup( MessageStore*& pObject )
 {
   deleteSession( "SETGET", "TEST" );
@@ -98,4 +80,4 @@ void FileStoreTestCase::reload::onTeardown( MessageStore* pObject )
   m_fileStoreFactory.destroy( pObject );
   deleteSession( "SETGET", "TEST" );
 }
-} //namespace FIX
+}

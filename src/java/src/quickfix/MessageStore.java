@@ -28,9 +28,6 @@ public interface MessageStore {
     boolean set(int sequence, String message )
     throws IOException;
 
-    boolean get(int sequence, String message )
-    throws IOException;
-
     void get(int startSequence, int endSequence, Collection messages )
     throws IOException;
 

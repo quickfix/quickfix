@@ -45,15 +45,6 @@ public:
     MessageStore* m_object;
   };
   
-  class getRange : public Test
-  {
-  public:
-    bool onSetup( MessageStore*& pObject )
-    { pObject = &( *m_object ); pObject->reset(); return true; }
-    void onRun( MessageStore& object );
-    MessageStore* m_object;
-  };
-
   class other : public Test
   {
   public:

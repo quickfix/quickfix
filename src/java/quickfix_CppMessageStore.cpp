@@ -56,35 +56,6 @@ JNIEXPORT jboolean JNICALL Java_quickfix_CppMessageStore_set
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_CppMessageStore_get__ILjava_lang_String_2
-( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
-{ QF_STACK_TRY
-
-  JVM::set( pEnv );
-  JVMObject jobject( obj );
-  FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
-
-  std::string msg;
-  bool threw = false;
-  FIX::IOException e;
-  bool result = pWrapper->get( seq, msg, threw, e );
-  if ( threw )
-  {
-    throwNew( "Ljava/io/IOException;", e.what() );
-    return 0;
-  }
-
-  if ( result )
-  {
-    message = newString( msg );
-    pEnv->DeleteLocalRef( message );
-  }
-  return result;
-
-  QF_STACK_CATCH
-}
-
 JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_get__IILjava_util_Collection_2
 ( JNIEnv *pEnv, jobject obj, jint start, jint end, jobject array )
 { QF_STACK_TRY

@@ -33,29 +33,29 @@ public:
   MemoryStoreTestCase()
   {
     add( &m_setGet );
-    add( &m_getRange );
     add( &m_other );
   }
 
 private:
-class setGet : public MessageStoreTestCase::setGet
+  class setGet : public MessageStoreTestCase::setGet
   {
   public:
-    setGet() { m_object = new MemoryStore(); }
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+
+  private:
+    MemoryStoreFactory m_memoryStoreFactory;
   }
   m_setGet;
 
-class getRange : public MessageStoreTestCase::getRange
+  class other : public MessageStoreTestCase::other
   {
   public:
-    getRange() { m_object = new MemoryStore(); }
-  }
-  m_getRange;
-
-class other : public MessageStoreTestCase::other
-  {
-  public:
-    other() { m_object = new MemoryStore(); }
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+    
+  private:
+    MemoryStoreFactory m_memoryStoreFactory;
   }
   m_other;
 };

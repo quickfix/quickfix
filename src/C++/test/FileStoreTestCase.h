@@ -40,7 +40,6 @@ public:
   FileStoreTestCase()
   {
     add( &m_setGet );
-    add( &m_getRange );
     add( &m_other );
     add( &m_reload );
   }
@@ -58,18 +57,6 @@ private:
     FileStoreFactory m_fileStoreFactory;
   }
   m_setGet;
-
-  class getRange : public MessageStoreTestCase::getRange
-  {
-  public:
-    getRange() : m_fileStoreFactory( "store" ) {}
-    bool onSetup( MessageStore*& pObject );
-    void onTeardown( MessageStore* pObject );
-
-  private:
-    FileStoreFactory m_fileStoreFactory;
-  }
-  m_getRange;
 
   class other : public MessageStoreTestCase::other
   {

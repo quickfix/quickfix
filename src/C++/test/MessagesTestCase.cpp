@@ -27,6 +27,7 @@
 #include "MessagesTestCase.h"
 #include "Values.h"
 #include "Utility.h"
+#include "fix44/MarketDataRequest.h"
 
 namespace FIX
 {
@@ -163,6 +164,28 @@ void MessageTestCase::setStringWithGroup::onRun( Message& object )
       object.setString( str, true, &dataDictionary );
       assert( object.toString() == str );
     } catch( InvalidMessage& ) { assert(false); }
+}
+
+void MessageTestCase::copy::onRun( Message& object )
+{
+  FIX::MDReqID mdReqID( "MARKETDATAID" );
+  FIX::SubscriptionRequestType subType( FIX::SubscriptionRequestType_SNAPSHOT );
+  FIX::MarketDepth marketDepth( 0 );
+
+  FIX44::MarketDataRequest::NoMDEntryTypes marketDataEntryGroup;
+  FIX::MDEntryType mdEntryType( FIX::MDEntryType_BID );
+  marketDataEntryGroup.set( mdEntryType );
+
+  FIX44::MarketDataRequest::NoRelatedSym symbolGroup;
+  FIX::Symbol symbol( "LNUX" );
+  symbolGroup.set( symbol );
+
+  FIX44::MarketDataRequest message( mdReqID, subType, marketDepth );
+  message.addGroup( marketDataEntryGroup );
+  message.addGroup( symbolGroup );
+
+  Message copy = object;
+  Message copy2 = copy;
 }
 
 void MessageTestCase::checkSum::onRun( Message& object )

@@ -88,7 +88,6 @@ public:
   virtual ~FileStore();
 
   bool set( int, const std::string& ) throw ( IOException );
-  bool get( int, std::string& ) const throw ( IOException );
   void get( int, int, std::vector < std::string > & ) const throw ( IOException );
 
   int getNextSenderMsgSeqNum() const throw ( IOException );
@@ -111,6 +110,8 @@ private:
   bool readFromFile( int offset, int size, std::string& msg );
   void setSeqNum();
   void setSession();
+
+  bool get( int, std::string& ) const throw ( IOException );
 
   MemoryStore m_cache;
   NumToOffset m_offsets;

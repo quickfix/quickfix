@@ -48,18 +48,6 @@ throw( IOException )
   QF_STACK_POP
 }
 
-bool MemoryStore::get( int msgSeqNum, std::string& msg ) const
-throw( IOException )
-{ QF_STACK_PUSH(MemoryStore::get)
-
-  Messages::const_iterator find = m_messages.find( msgSeqNum );
-  if ( find == m_messages.end() ) return false;
-  msg = find->second;
-  return true;
-
-  QF_STACK_POP
-}
-
 void MemoryStore::get( int begin, int end,
                        std::vector < std::string > & messages ) const
 throw( IOException )
@@ -94,16 +82,6 @@ bool MessageStoreExceptionWrapper::set( int num, const std::string& msg, bool& t
 
   threw = false;
   try { return m_pStore->set( num, msg ); }
-  catch ( IOException & e ) { threw = true; ex = e; return false; }
-
-  QF_STACK_POP
-}
-
-bool MessageStoreExceptionWrapper::get( int num, std::string& msg, bool& threw, IOException& ex ) const
-{ QF_STACK_PUSH(MessageStoreExceptionWrapper::get)
-
-  threw = false;
-  try { return m_pStore->get( num, msg ); }
   catch ( IOException & e ) { threw = true; ex = e; return false; }
 
   QF_STACK_POP
