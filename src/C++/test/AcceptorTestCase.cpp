@@ -68,6 +68,7 @@ bool AcceptorTestCase::parseStream::onSetup( Acceptor*& pObject )
     "SocketAcceptPort=5000\n"
     "StartTime=00:00:00\n"
     "EndTime=00:00:00\n"
+    "UseDataDictionary=N\n"
     "[SESSION]\n"
     "BeginString=FIX.4.2\n"
     "SenderCompID=ISLD\n"
