@@ -102,6 +102,10 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     { throw new UnsupportedMessageType(); }
   public void onMessage( SettlementInstructions message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
+  public void onMessage( BidRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( BidResponse message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( NewOrderList message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( ListStatus message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
@@ -236,6 +240,12 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     else
     if( msgTypeValue.equals("T") )
       onMessage( (SettlementInstructions)message, sessionID );
+    else
+    if( msgTypeValue.equals("k") )
+      onMessage( (BidRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("l") )
+      onMessage( (BidResponse)message, sessionID );
     else
     if( msgTypeValue.equals("E") )
       onMessage( (NewOrderList)message, sessionID );

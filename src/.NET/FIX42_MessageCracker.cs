@@ -101,6 +101,10 @@ namespace QuickFix42
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( SettlementInstructions message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( BidRequest message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( BidResponse message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( NewOrderList message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( ListStatus message, QuickFix.SessionID session ) 
@@ -231,6 +235,12 @@ namespace QuickFix42
     else
     if( msgTypeValue == "T" )
       onMessage( (SettlementInstructions)(message), sessionID );
+    else
+    if( msgTypeValue == "k" )
+      onMessage( (BidRequest)(message), sessionID );
+    else
+    if( msgTypeValue == "l" )
+      onMessage( (BidResponse)(message), sessionID );
     else
     if( msgTypeValue == "E" )
       onMessage( (NewOrderList)(message), sessionID );

@@ -65,6 +65,8 @@ namespace FIX42
   class Allocation; 
   class AllocationACK; 
   class SettlementInstructions; 
+  class BidRequest; 
+  class BidResponse; 
   class NewOrderList; 
   class ListStatus; 
   class ListExecute; 
@@ -151,6 +153,10 @@ namespace FIX42
   virtual void onMessage( const AllocationACK&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const SettlementInstructions&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const BidRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const BidResponse&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const NewOrderList&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
@@ -283,6 +289,12 @@ public:
     else
     if( msgTypeValue == "T" )
       onMessage( (SettlementInstructions&)message, sessionID );
+    else
+    if( msgTypeValue == "k" )
+      onMessage( (BidRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "l" )
+      onMessage( (BidResponse&)message, sessionID );
     else
     if( msgTypeValue == "E" )
       onMessage( (NewOrderList&)message, sessionID );

@@ -176,6 +176,14 @@ namespace QuickFix42
        return new QuickFix42.SettlementInstructions();
      }
    
+     if(msgType.Equals("k")) {
+       return new QuickFix42.BidRequest();
+     }
+   
+     if(msgType.Equals("l")) {
+       return new QuickFix42.BidResponse();
+     }
+   
      if(msgType.Equals("E")) {
        return new QuickFix42.NewOrderList();
      }
