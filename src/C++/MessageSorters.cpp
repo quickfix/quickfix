@@ -1,3 +1,4 @@
+
 /* ====================================================================
 * The QuickFIX Software License, Version 1.0
 *
@@ -64,27 +65,20 @@ message_order::message_order( int size, ... )
 
   va_list arguments;
   va_start( arguments, size );
-  m_largest = m_delim = va_arg( arguments, int );
 
-  int* fields = new int[ size + 1 ];
-  fields[ 1 ] = m_delim;
-  // collect all fields and find the largest field number
-  int i;
-  for ( i = 2; i <= size; ++i )
-  {
-    int field = va_arg( arguments, int );
-    m_largest = m_largest > field ? m_largest : field;
-    fields[ i ] = field;
-  }
-
-  // populate array with field number as key and position as value
-  m_groupOrder = new int[ m_largest + 1 ];
-  memset( m_groupOrder, 0, ( m_largest + 1 ) * sizeof( int ) );
-  for ( i = 1; i <= size; ++i )
-    m_groupOrder[ fields[ i ] ] = i;
-  delete [] fields;
+  int* order = new int[size];
+  for ( int i = 0; i < size; ++i )
+    order[ i ] = va_arg( arguments, int );  
+  setOrder(size, order);
+  delete [] order;
 
   va_end( arguments );
+}
+
+message_order::message_order( int size, const int order[] )
+    : m_mode( group ), m_delim( 0 ), m_groupOrder( 0 ), m_largest( 0 )
+{
+  setOrder(size, order);
 }
 
 message_order& message_order::operator=( const message_order& rhs )
@@ -99,5 +93,29 @@ message_order& message_order::operator=( const message_order& rhs )
     memcpy( m_groupOrder, rhs.m_groupOrder, ( m_largest + 1 ) * sizeof( int ) );
   }
   return *this;
+}
+
+void message_order::setOrder( int size, const int order[] )
+{
+  if(size < 1) return;
+  m_largest = m_delim = order[0];
+  
+  int* fields = new int[ size + 1 ];
+  fields[ 1 ] = m_delim;
+  // collect all fields and find the largest field number
+  int i;
+  for ( i = 2; i <= size; ++i )
+  {
+    int field = order[i-1];
+    m_largest = m_largest > field ? m_largest : field;
+    fields[ i ] = field;
+  }
+
+  // populate array with field number as key and position as value
+  m_groupOrder = new int[ m_largest + 1 ];
+  memset( m_groupOrder, 0, ( m_largest + 1 ) * sizeof( int ) );
+  for ( i = 1; i <= size; ++i )
+    m_groupOrder[ fields[ i ] ] = i;
+  delete [] fields;
 }
 }

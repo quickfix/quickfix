@@ -86,6 +86,9 @@ public:
               message_order( message_order::normal ) )
 : m_fields( order ) {}
 
+  FieldMap( int size, const int order[] )
+: m_fields( message_order(size, order) ) {}
+
   FieldMap( const FieldMap& copy )
   {
     *this = copy;

@@ -68,8 +68,11 @@ public:
 : FieldMap( message_order( 1, delim ) ),
   m_field( field ), m_delim( delim ) {}
 
+  Group( int field, int delim, int size, const int order[] )
+: FieldMap( size, order ), m_field( field ), m_delim( delim ) {}
+
   Group( int field, int delim, const message_order& order )
-: FieldMap( order ), m_field( field ), m_delim( delim ) {}
+: FieldMap( order ), m_field( field ), m_delim( delim ) {} 
 
   int field() const { return m_field; }
   int delim() const { return m_delim; }

@@ -145,6 +145,7 @@ public:
 
   message_order( cmp_mode mode = normal ) : m_mode( mode ), m_groupOrder( 0 ) {}
   message_order( int size, ... );
+  message_order( int size, const int order[] );
   message_order( const message_order& copy ) : m_groupOrder( 0 )
   { *this = copy; }
 
@@ -172,6 +173,8 @@ public:
   message_order& operator=( const message_order& rhs );
 
 private:
+  void setOrder( int size, const int order[] );
+
   cmp_mode m_mode;
   int m_delim;
   int* m_groupOrder;
