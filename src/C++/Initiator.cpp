@@ -181,7 +181,7 @@ bool Initiator::poll() throw ( ConfigError, RuntimeError )
   QF_STACK_POP
 }
 
-void Initiator::stop() 
+void Initiator::stop( bool force )
 { QF_STACK_PUSH(Initiator::stop) 
 
   std::vector<Session*> enabledSessions;
@@ -198,8 +198,11 @@ void Initiator::stop()
     }
   }
 
-  for ( int second = 1; second <= 10 && isLoggedOn(); ++second )
-    process_sleep( 1 );
+  if( !force )
+  {
+    for ( int second = 1; second <= 10 && isLoggedOn(); ++second )
+      process_sleep( 1 );
+  }
   
   for ( i = connected.begin(); i != connected.end(); ++i )
     setConnected( Session::lookupSession(*i)->getSessionID(), false );

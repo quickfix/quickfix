@@ -169,18 +169,38 @@ bool Acceptor::poll() throw ( ConfigError, RuntimeError )
   QF_STACK_POP
 }
 
-void Acceptor::stop() 
+void Acceptor::stop( bool force ) 
 { QF_STACK_PUSH( Acceptor::stop ) 
+
+  std::vector<Session*> enabledSessions;
 
   Sessions sessions = m_sessions;
   Sessions::iterator i = sessions.begin();
   for ( ; i != sessions.end(); ++i )
-    i->second->logout();
+  {
+    Session* pSession = Session::lookupSession(i->first);
+    if( pSession->isEnabled() )
+    {
+      enabledSessions.push_back( pSession );
+      pSession->logout();
+      Session::unregisterSession( pSession->getSessionID() );
+    }
+  }
+
+  if( !force )
+  {
+    for ( int second = 1; second <= 10 && isLoggedOn(); ++second )
+      process_sleep( 1 );
+  }
 
   onStop();
   if( m_threadid )
     thread_join( m_threadid );
   m_threadid = 0;
+
+  std::vector<Session*>::iterator session = enabledSessions.begin();
+  for( ; session != enabledSessions.end(); ++session )
+    (*session)->logon();
 
   QF_STACK_POP
 }

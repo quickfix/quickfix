@@ -80,6 +80,7 @@ throw ( RuntimeError )
 void ThreadedSocketAcceptor::onStart()
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onStart)
 
+  m_stop = false;
   int socket = 0;
   while ( ( !m_stop && ( socket = socket_accept( m_socket ) ) >= 0 ) )
   {

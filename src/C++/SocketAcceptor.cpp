@@ -82,6 +82,7 @@ throw ( RuntimeError )
 void SocketAcceptor::onStart()
 { QF_STACK_PUSH(SocketAcceptor::onStart)
 
+  m_stop = false;
   while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
 
   if( !m_pServer ) 

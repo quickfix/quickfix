@@ -47,7 +47,7 @@ private:
     void onRun( SocketAcceptor& object );
     void onTeardown( SocketAcceptor* pObject )
     {
-      pObject->stop();
+      pObject->stop( true );
       delete pObject;
       delete m_pFactory;
       delete m_pApplication;

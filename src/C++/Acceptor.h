@@ -66,7 +66,7 @@ public:
   bool poll() throw ( ConfigError, RuntimeError );
 
   /// Stop acceptor.
-  void stop();
+  void stop( bool force = false );
 
   /// Check to see if any sessions are currently logged on
   bool isLoggedOn();
