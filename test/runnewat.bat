@@ -14,7 +14,7 @@ set EX=
 goto start
 
 :start
-call setup.bat
+call setup.bat %2
 
 atrun -t run -s "..\bin\at%EX%.exe -f cfg\at.cfg" -d . -c "ruby Runner.rb localhost %2 definitions\server\future\*.def" -i .
 goto quit
