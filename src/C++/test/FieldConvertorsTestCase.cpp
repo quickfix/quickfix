@@ -224,6 +224,7 @@ void FieldConvertorsTestCase::utcTimeStampConvertFrom::onRun( void*& )
   assert( result.getYear() == 2000 );
   assert( result.getMonth() == 4 );
   assert( result.getDate() == 26 );
+  assert( result.getYday() == 117 );
 }
 
 void FieldConvertorsTestCase::utcTimeOnlyConvertTo::onRun( void*& )
@@ -263,6 +264,7 @@ void FieldConvertorsTestCase::utcDateConvertFrom::onRun( void*& )
   assert( result.getYear() == 2000 );
   assert( result.getMonth() == 4 );
   assert( result.getDate() == 26 );
+  assert( result.getYday() == 117 );
 }
 
 void FieldConvertorsTestCase::checkSumConvertTo::onRun( void*& )

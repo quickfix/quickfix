@@ -149,6 +149,7 @@ public:
   int getDate() const { return tm_mday; }
   int getMonth() const { return tm_mon + 1; }
   int getYear() const { return tm_year + 1900; }
+  int getYday() const { return tm_yday + 1; }
 
   friend bool operator==( const UtcTimeStamp&, const UtcTimeStamp& );
   friend bool operator<( const UtcTimeStamp&, const UtcTimeStamp& );
@@ -262,6 +263,7 @@ public:
   int getDate() const { return UtcTimeStamp::getDate(); }
   int getMonth() const { return UtcTimeStamp::getMonth(); }
   int getYear() const { return UtcTimeStamp::getYear(); }
+  int getYday() const { return UtcTimeStamp::getYday(); }
 
   friend bool operator==( const UtcDate&, const UtcDate& );
   friend bool operator<( const UtcDate&, const UtcDate& );

@@ -69,6 +69,7 @@ static char sccsid[] = "@(#)strptime.c	0.1 (Powerdog) 94/03/27";
 #include <limits.h>
 #include <stdlib.h>
 #include <string.h>
+#include <math.h> 
 #ifdef	_THREAD_SAFE
 #include <pthread.h>
 #include "pthread_private.h"
@@ -93,6 +94,8 @@ _strptime(const char *buf, const char *fmt, struct tm *tm)
 	int	i,
 		len;
 	int Ealternative, Oalternative;
+	char isLeapYear; 
+	int mon,year; 
 
 	ptr = fmt;
 	while (*ptr != 0) {
@@ -261,7 +264,24 @@ _strptime(const char *buf, const char *fmt, struct tm *tm)
 					ptr++;
 			break;
 		}
-	}
+	} // Fix up yday field
+	year = tm->tm_year + 1900;
+	isLeapYear = (year%4==0) - (year%100==0) + (year%400==0) - (year%4000==0);
+	mon = tm->tm_mon; // 0 == January
+	tm->tm_yday = 
+		(mon>0)*31 + // Jan
+		(mon>1)*(28+isLeapYear) + // Feb
+		(mon>2)*31 + // March
+		(mon>3)*30 + // April
+		(mon>4)*31 + // May
+		(mon>5)*30 + // June
+		(mon>6)*31 + // July
+		(mon>7)*31 + // Aug
+		(mon>8)*30 + // Sept
+		(mon>9)*31 + // Oct
+		(mon>10)*30 + // Nov
+		+ tm->tm_mday - 1;
+
 	return (char *)buf;
 }
 
