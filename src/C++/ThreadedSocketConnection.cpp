@@ -147,24 +147,11 @@ throw( MessageParseError& )
 
 void ThreadedSocketConnection::readQueue()
 {
-  std::string msg;
   while ( !m_deleted )
   {
     try
     {
-      while ( readMessage( msg ) )
-      {
-        if ( !m_pSession )
-        {
-          if ( !setSession( msg ) )
-          { disconnect(); continue; }
-        }
-        m_pSession->next( msg );
-      }
-
-      if ( m_pSession )
-        m_pSession->next();
-
+      processStream();
       if ( !m_queue.size() )
         m_queue.wait();
 
@@ -173,6 +160,7 @@ void ThreadedSocketConnection::readQueue()
       {
         if ( buffer == 0 ) throw std::exception();
         m_parser.addToStream( buffer );
+        processStream();
         delete [] buffer;
       }
     }
@@ -193,6 +181,23 @@ void ThreadedSocketConnection::readQueue()
     m_pSession->disconnect();
   else
     disconnect();
+}
+
+void ThreadedSocketConnection::processStream()
+{
+  std::string msg;
+  while ( readMessage( msg ) )
+  {
+    if ( !m_pSession )
+    {
+      if ( !setSession( msg ) )
+      { disconnect(); continue; }
+    }
+    m_pSession->next( msg );
+  }
+
+  if ( m_pSession )
+    m_pSession->next();
 }
 
 bool ThreadedSocketConnection::setSession( const std::string& msg )

@@ -78,6 +78,7 @@ public:
 private:
   bool readMessage( std::string& msg ) throw( MessageParseError& );
   void readQueue();
+  void processStream();
   bool send( const std::string& );
   void disconnect();
   bool setSession( const std::string& msg );
