@@ -37,6 +37,52 @@
 using namespace FIX;
 %}
 
+%typedef DoubleField PriceField;
+%typedef DoubleField AmtField;
+%typedef DoubleField QtyField;
+%typedef StringField CurrencyField;
+%typedef StringField MultipleValueStringField;
+%typedef StringField ExchangeField;
+%typedef StringField LocalMktDateField;
+%typedef StringField DataField;
+%typedef DoubleField FloatField;
+%typedef DoubleField PriceOffsetField;
+%typedef StringField MonthField;
+%typedef StringField MonthYearField;
+%typedef StringField DayOfMonthField;
+%typedef UtcDateField UtcDateOnlyField;
+%typedef IntField LengthField;
+%typedef IntField NumInGroupField;
+%typedef IntField SeqNumField;
+%typedef DoubleField PercentageField;
+%typedef StringField CountryField;
+
+%typedef std::string STRING;
+%typedef char CHAR;
+%typedef double PRICE;
+%typedef int INT;
+%typedef double AMT;
+%typedef double QTY;
+%typedef std::string CURRENCY;
+%typedef std::string MULTIPLEVALUESTRING;
+%typedef std::string EXCHANGE;
+%typedef UtcTimeStamp UTCTIMESTAMP;
+%typedef bool BOOLEAN;
+%typedef std::string LOCALMKTDATE;
+%typedef std::string DATA;
+%typedef double FLOAT;
+%typedef double PRICEOFFSET;
+%typedef std::string MONTHYEAR;
+%typedef std::string DAYOFMONTH;
+%typedef UtcDate UTCDATE;
+%typedef UtcDateOnly UTCDATEONLY;
+%typedef UtcTimeOnly UTCTIMEONLY;
+%typedef int NUMINGROUP;
+%typedef double PERCENTAGE;
+%typedef int SEQNUM;
+%typedef int LENGTH;
+%typedef std::string COUNTRY;
+
 %init %{
 #ifndef _MSV_VER
       struct sigaction new_action, old_action;
