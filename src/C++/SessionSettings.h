@@ -34,6 +34,10 @@
 
 namespace FIX
 {
+static const std::string BEGINSTRING = "BeginString";
+static const std::string SENDERCOMPID = "SenderCompID";
+static const std::string TARGETCOMPID = "TargetCompID";
+static const std::string SESSION_QUALIFIER = "SessionQualifier";
 static const std::string CONNECTION_TYPE = "ConnectionType";
 static const std::string USE_DATA_DICTIONARY = "UseDataDictionary";
 static const std::string DATA_DICTIONARY = "DataDictionary";

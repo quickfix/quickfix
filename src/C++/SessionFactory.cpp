@@ -46,6 +46,9 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if ( connectionType != "acceptor" && connectionType != "initiator" )
     throw ConfigError( "Invalid ConnectionType" );
 
+  if( connectionType == "acceptor" && settings.has(SESSION_QUALIFIER) )
+    throw ConfigError( "SessionQualifier cannot be used with acceptor." );
+   
   bool useDataDictionary = true;
   if ( settings.has( USE_DATA_DICTIONARY ) )
     useDataDictionary = settings.getBool( USE_DATA_DICTIONARY );

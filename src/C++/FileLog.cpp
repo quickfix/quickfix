@@ -58,9 +58,16 @@ FileLog::FileLog( std::string path, const SessionID& s )
     s.getSenderCompID().getString();
   const std::string& target =
     s.getTargetCompID().getString();
+  const std::string& qualifier =
+    s.getSessionQualifier();
+
+  std::string sessionid = begin + "-" + sender + "-" + target;
+  if( qualifier.size() )
+    sessionid += "-" + qualifier;
 
   std::string prefix 
-    = file_appendpath(path, begin + "-" + sender + "-" + target + ".");
+    = file_appendpath(path, sessionid + ".");
+
   std::string incomingFileName = prefix + "incoming";
   std::string outgoingFileName = prefix + "outgoing";
   std::string eventFileName = prefix + "event";

@@ -25,37 +25,28 @@ public class SessionID {
     public SessionID(String beginString,
                      String senderCompID,
                      String targetCompID) {
-        create(beginString, senderCompID, targetCompID);
+        create(beginString, senderCompID, targetCompID, "");
+    }
+
+    public SessionID(String beginString,
+                     String senderCompID,
+                     String targetCompID,
+                     String sessionQualifier) {
+        create(beginString, senderCompID, targetCompID, sessionQualifier);
     }
 
     protected void finalize() {
         destroy();
     }
 
-    public String getBeginString()   {
-        return getBeginString0();
-    }
-    public String getSenderCompID()  {
-        return getSenderCompID0();
-    }
-    public String getTargetCompID()  {
-        return getTargetCompID0();
-    }
+    public native String getBeginString();
+    public native String getSenderCompID();
+    public native String getTargetCompID();
+    public native String getSessionQualifier();
 
-    public boolean equals(Object object) {
-        if(object == null)
-            return false;
-        SessionID sessionID = (SessionID)object;
-        return(getBeginString().equals(sessionID.getBeginString()) &&
-               getSenderCompID().equals(sessionID.getSenderCompID()) &&
-               getTargetCompID().equals(sessionID.getTargetCompID()));
-    }
+    public native boolean equals(Object object);
 
-    public String toString() {
-        return getBeginString() + ": "
-               + getSenderCompID() + "->"
-               + getTargetCompID();
-    }
+    public native String toString();
 
     public int hashCode() {
         return toString().hashCode();
@@ -63,10 +54,7 @@ public class SessionID {
 
     private native void create(String beginString,
                                String senderCompID,
-                               String targetCompID);
+                               String targetCompID,
+                               String sessionQualifier);
     private native void destroy();
-
-    private native String getBeginString0();
-    private native String getSenderCompID0();
-    private native String getTargetCompID0();
 }

@@ -120,6 +120,11 @@ void SessionIDTestCase::streamIn::onRun( SessionID& object )
   strstream << "FIX.4.2:SENDER->TARGET";
   strstream >> object;
   assert( object.toString() == "FIX.4.2:SENDER->TARGET" );
+
+  std::stringstream strstream2;
+  strstream2 << "FIX.4.2:SENDER->TARGET:QUALIFIER";
+  strstream2 >> object;
+  assert( object.toString() == "FIX.4.2:SENDER->TARGET:QUALIFIER" );
 }
 
 }

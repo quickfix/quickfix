@@ -67,12 +67,15 @@ throw( ConfigError )
     dict = section[ session ];
     dict.merge( def );
     BeginString beginString
-    ( dict.getString( "BeginString" ) );
+    ( dict.getString( BEGINSTRING ) );
     SenderCompID senderCompID
-    ( dict.getString( "SenderCompID" ) );
+    ( dict.getString( SENDERCOMPID ) );
     TargetCompID targetCompID
-    ( dict.getString( "TargetCompID" ) );
-    SessionID sessionID( beginString, senderCompID, targetCompID );
+    ( dict.getString( TARGETCOMPID ) );
+    std::string sessionQualifier;
+    if( dict.has( SESSION_QUALIFIER ) )
+      sessionQualifier = dict.getString( SESSION_QUALIFIER );
+    SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
     s.set( sessionID, dict );
   }
   return stream;

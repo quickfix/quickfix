@@ -9,11 +9,59 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_SessionID
+ * Method:    getBeginString
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getBeginString
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_SessionID
+ * Method:    getSenderCompID
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getSenderCompID
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_SessionID
+ * Method:    getTargetCompID
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getTargetCompID
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_SessionID
+ * Method:    getSessionQualifier
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getSessionQualifier
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_SessionID
+ * Method:    equals
+ * Signature: (Ljava/lang/Object;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_SessionID_equals
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_SessionID
+ * Method:    toString
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_SessionID_toString
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_SessionID
  * Method:    create
- * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
+ * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_quickfix_SessionID_create
-  (JNIEnv *, jobject, jstring, jstring, jstring);
+  (JNIEnv *, jobject, jstring, jstring, jstring, jstring);
 
 /*
  * Class:     quickfix_SessionID
@@ -21,30 +69,6 @@ JNIEXPORT void JNICALL Java_quickfix_SessionID_create
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_quickfix_SessionID_destroy
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_SessionID
- * Method:    getBeginString0
- * Signature: ()Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getBeginString0
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_SessionID
- * Method:    getSenderCompID0
- * Signature: ()Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getSenderCompID0
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_SessionID
- * Method:    getTargetCompID0
- * Signature: ()Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getTargetCompID0
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus
