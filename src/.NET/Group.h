@@ -144,8 +144,13 @@ public:
   UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
   UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
     throw( FieldNotFound* );
-
   bool isSetField( Field* field );
+
+  String* getField( int field ) throw( FieldNotFound* );
+  void setField( int field, String* ) throw( FieldNotFound* );
+  void removeField( int field ) throw( FieldNotFound );
+  bool hasGroup( int field );
+  int groupCount( int field );
   bool isSetField( int field );
 
   void addGroup( Group* group )

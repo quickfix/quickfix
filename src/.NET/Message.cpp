@@ -175,6 +175,35 @@ bool Message::isSetField( Field* field )
   return m_pUnmanaged->isSetField( field->getField() );
   QF_STACK_CATCH
 }
+
+String* Message::getField( int field ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  checkDisposed(); return getField( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+void Message::setField( int field, String* value ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  checkDisposed(); return setField( field, value, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+void Message::removeField( int field ) 
+throw( FieldNotFound )
+{ QF_STACK_TRY
+  checkDisposed(); return removeField( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+bool Message::hasGroup( int field )
+{ QF_STACK_TRY
+  checkDisposed(); return hasGroup( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+int Message::groupCount( int field )
+{ QF_STACK_TRY
+  checkDisposed(); return groupCount( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
 bool Message::isSetField( int field )
 { QF_STACK_TRY
   return m_pUnmanaged->isSetField( field );
@@ -292,6 +321,40 @@ bool Message::Header::isSetField( Field* field )
   return m_message->m_pUnmanaged->getHeader().isSetField( field->getField() );
   QF_STACK_CATCH
 }
+
+String* Message::Header::getField( int field ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+void Message::Header::setField( int field, String* value ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->setField( field, value, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+void Message::Header::removeField( int field ) 
+throw( FieldNotFound )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->removeField( field, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+bool Message::Header::hasGroup( int field )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->hasGroup( field, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+int Message::Header::groupCount( int field )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->groupCount( field, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
 bool Message::Header::isSetField( int field )
 { QF_STACK_TRY
   return m_message->m_pUnmanaged->getHeader().isSetField( field );
@@ -407,6 +470,40 @@ throw( FieldNotFound*, IncorrectDataFormat* )
 bool Message::Trailer::isSetField( Field* field )
 { QF_STACK_TRY
   return m_message->m_pUnmanaged->getTrailer().isSetField( field->getField() );
+  QF_STACK_CATCH
+}
+
+String* Message::Trailer::getField( int field ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+void Message::Trailer::setField( int field, String* value ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->setField( field, value, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+void Message::Trailer::removeField( int field ) 
+throw( FieldNotFound )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->removeField( field, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+bool Message::Trailer::hasGroup( int field )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->hasGroup( field, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+int Message::Trailer::groupCount( int field )
+{ QF_STACK_TRY
+  checkDisposed(); 
+  return m_message->groupCount( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 bool Message::Trailer::isSetField( int field )
@@ -610,8 +707,7 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   QF_STACK_CATCH
 }
 
-UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field,
-				     FIX::FieldMap& map )
+UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field, FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
 { QF_STACK_TRY
 
@@ -631,4 +727,42 @@ throw( FieldNotFound*, IncorrectDataFormat* )
 
   QF_STACK_CATCH
 }
+
+void Message::setField( int field, String* value, FIX::FieldMap& map )
+{ QF_STACK_TRY
+  map.setField( field, convertString(value) );
+  QF_STACK_CATCH
+}
+
+String* Message::getField( int field, FIX::FieldMap& map )
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  
+  try
+  {
+    return map.getField( field ).c_str();
+  }
+  catch ( FIX::FieldNotFound & e )
+  { throw new FieldNotFound( e.field ); }
+  QF_STACK_CATCH
+}
+
+void Message::removeField( int field, FIX::FieldMap& map )
+{ QF_STACK_TRY
+  map.removeField( field );
+  QF_STACK_CATCH
+}
+
+bool Message::hasGroup( int field, FIX::FieldMap& map )
+{ QF_STACK_TRY
+  return map.hasGroup( field );
+  QF_STACK_CATCH
+}
+
+int Message::groupCount( int field, FIX::FieldMap& map )
+{ QF_STACK_TRY
+  return map.groupCount(field);
+  QF_STACK_CATCH
+}
+
 }

@@ -179,6 +179,12 @@ public:
     throw( FieldNotFound* );
 
   bool isSetField( Field* field );
+
+  String* getField( int field ) throw( FieldNotFound* );
+  void setField( int field, String* ) throw( FieldNotFound* );
+  void removeField( int field ) throw( FieldNotFound );
+  bool hasGroup( int field );
+  int groupCount( int field );
   bool isSetField( int field );
 
   void addGroup( Group* group )
@@ -228,6 +234,12 @@ public:
       throw( FieldNotFound* );
 
     bool isSetField( Field* field );
+
+    void setField( int field, String* ) throw( FieldNotFound* );
+    String* getField( int field ) throw( FieldNotFound* );
+    void removeField( int field ) throw( FieldNotFound );
+    bool hasGroup( int field );
+    int groupCount( int field );
     bool isSetField( int field );
 
     void Dispose()
@@ -275,6 +287,12 @@ public:
       throw( FieldNotFound* );
 
     bool isSetField( Field* field );
+
+    String* getField( int field ) throw( FieldNotFound* );
+    void setField( int field, String* );
+    void removeField( int field );
+    bool hasGroup( int field );
+    int groupCount( int field );
     bool isSetField( int field );
 
     void Dispose()
@@ -326,6 +344,13 @@ private:
     throw( FieldNotFound* );
   UtcTimeOnlyField* getField( UtcTimeOnlyField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
+
+  void setField( int field, String*, FIX::FieldMap& map );
+  String* getField( int field, FIX::FieldMap& map )
+    throw( FieldNotFound* );
+  void removeField( int field, FIX::FieldMap& map );
+  bool hasGroup( int field, FIX::FieldMap& map );
+  int groupCount( int field, FIX::FieldMap& map );
 
 protected:
   Header* m_header;

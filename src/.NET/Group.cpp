@@ -277,6 +277,40 @@ bool Group::isSetField( Field* field )
   return m_pUnmanaged->isSetField( field->getField() );
   QF_STACK_CATCH
 }
+
+String* Group::getField( int field ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  return m_pUnmanaged->getField( field ).c_str();
+  QF_STACK_CATCH
+}
+
+void Group::setField( int field, String* value ) 
+throw( FieldNotFound* )
+{ QF_STACK_TRY
+  m_pUnmanaged->setField( field, convertString(value) );
+  QF_STACK_CATCH
+}
+
+void Group::removeField( int field ) 
+throw( FieldNotFound )
+{ QF_STACK_TRY
+  m_pUnmanaged->removeField( field );
+  QF_STACK_CATCH
+}
+
+bool Group::hasGroup( int field )
+{ QF_STACK_TRY
+  return ((FIX::FieldMap*)m_pUnmanaged)->hasGroup( field );
+  QF_STACK_CATCH
+}
+
+int Group::groupCount( int field )
+{ QF_STACK_TRY
+  return m_pUnmanaged->groupCount( field );
+  QF_STACK_CATCH
+}
+
 bool Group::isSetField( int field )
 { QF_STACK_TRY
   return m_pUnmanaged->isSetField( field );
