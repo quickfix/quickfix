@@ -102,21 +102,21 @@ libquickfix_la_SOURCES = \
 	CallStack.cpp
 
 all-local:
-	rm -rf ../../lib/libquickfix.a
-	rm -rf ../../lib/libquickfix.la
-	rm -rf ../../lib/libquickfix.so
-	rm -rf ../../lib/libquickfix.dylib
-	ln -s ../src/C++/.libs/libquickfix.a ../../lib/libquickfix.a
-	ln -s ../src/C++/.libs/libquickfix.la ../../lib/libquickfix.la
-	ln -s ../src/C++/.libs/libquickfix.so ../../lib/libquickfix.so
-	ln -s ../src/C++/.libs/libquickfix.dylib ../../lib/libquickfix.dylib
-	bash ./copy.sh ../../include/quickfix *.h
-	bash ./copy.sh ../../include/quickfix fix*/*.h
+	rm -rf $(top_builddir)/lib/libquickfix.a
+	rm -rf $(top_builddir)/lib/libquickfix.la
+	rm -rf $(top_builddir)/lib/libquickfix.so
+	rm -rf $(top_builddir)/lib/libquickfix.dylib
+	ln -s ../src/C++/.libs/libquickfix.a $(top_builddir)/lib/libquickfix.a
+	ln -s ../src/C++/.libs/libquickfix.la $(top_builddir)/lib/libquickfix.la
+	ln -s ../src/C++/.libs/libquickfix.so $(top_builddir)/lib/libquickfix.so
+	ln -s ../src/C++/.libs/libquickfix.dylib $(top_builddir)/lib/libquickfix.dylib
+	bash ./copy.sh $(top_builddir)/include/quickfix *.h
+	bash ./copy.sh $(top_builddir)/include/quickfix fix*/*.h
 
 clean-local:
-	rm -rf ../../lib/libquickfix.a
-	rm -rf ../../lib/libquickfix.la
-	rm -f ../../include/quickfix/*.h
+	rm -rf $(top_builddir)/lib/libquickfix.a
+	rm -rf $(top_builddir)/lib/libquickfix.la
+	rm -f $(top_builddir)/include/quickfix/*.h
 
 install-exec-local: *.h
 	rm -rf $(pkgincludedir)
@@ -140,4 +140,4 @@ EXTRA_DIST = strptime.c strptime.h
 
 libquickfix_la_LDFLAGS = -version-info 1:0:0
 
-INCLUDES =-I. -I.. -I../.. -I../../..
+INCLUDES =-I. -I.. -I../..

@@ -4,7 +4,7 @@ EXTRA_DIST = *.h *.cpp *.bat *.xml *.properties *.dsp *.dsw
 lib_LTLIBRARIES = libquickfix_jni.la
 
 jardir = $(libdir)
-jar_DATA = ../../lib/quickfix.jar
+jar_DATA = $(top_builddir)/lib/quickfix.jar
 
 libquickfix_jni_la_SOURCES = \
 	JVM.h \
@@ -65,21 +65,23 @@ libquickfix_jni_la_SOURCES = \
 	quickfix_ThreadedSocketInitiator.cpp
 
 libquickfix_jni_la_LDFLAGS = -version-info 4:0:1
-libquickfix_jni_la_LIBADD = -L../../src/C++ -lquickfix -lstdc++
+libquickfix_jni_la_LIBADD = -L$(top_builddir)/src/C++ -lquickfix -lstdc++
 
-INCLUDES = -I../../include
+INCLUDES = -I$(top_builddir)/include
 
 ant-all:
 	./build.sh
 
-../../lib/quickfix.jar: ant-all
+$(top_builddir)/lib/quickfix.jar: ant-all
 
 all-local: ant-all
-	rm -f ../../lib/libquickfix_jni.so
-	rm -f ../../lib/libquickfix_jni.dylib
-	ln -s ../src/java/.libs/libquickfix_jni.so ../../lib/libquickfix_jni.so
-	ln -s ../src/java/.libs/libquickfix_jni.dylib ../../lib/libquickfix_jni.dylib
+	rm -f $(top_builddir)/lib/libquickfix_jni.so
+	rm -f $(top_builddir)/lib/libquickfix_jni.jnilib
+	ln -s ../src/java/.libs/libquickfix_jni.so $(top_builddir)/lib/libquickfix_jni.so
+	ln -s ../src/java/.libs/libquickfix_jni.dylib $(top_builddir)/lib/libquickfix_jni.jnilib
 
 clean-local:
+	echo $(top_builddir)
 	rm -f ../../lib/libquickfix_jni.so
+	rm -f ../../lib/libquickfix_jni.jnilib
 	./build.sh clean
