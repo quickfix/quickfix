@@ -97,11 +97,7 @@ bool SocketConnection::read( SocketConnector& s )
   std::string msg;
   if ( !readMessage( msg ) ) return false;
 
-  try
-  {
-    m_pSession->next( msg );
-  }
-  catch ( InvalidMessage& ) {}
+  m_pSession->next( msg );
   return true;
 
   QF_STACK_POP
