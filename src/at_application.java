@@ -62,11 +62,8 @@ public void onCreate( SessionID sessionID ) {
   }
 }
 
-  /*public void onLogon( SessionID sessionID )
-    throws RejectLogon {}*/
-
 public void onLogon( SessionID sessionID ) {}
-  
+
 public void onLogout( SessionID sessionID ) {
   cracker.reset();
 }
@@ -75,10 +72,10 @@ public void toAdmin( Message message, SessionID sessionID ) {}
 public void toApp( Message message, SessionID sessionID )
   throws DoNotSend {}
 public void fromAdmin( Message message, SessionID sessionID )
-  throws FieldNotFound, IncorrectDataFormat, 
-  IncorrectTagValue, RejectLogon {}  
+  throws FieldNotFound, IncorrectDataFormat,
+  IncorrectTagValue, RejectLogon {}
 public void fromApp( Message message, SessionID sessionID )
-  throws FieldNotFound, IncorrectDataFormat, 
+  throws FieldNotFound, IncorrectDataFormat,
   IncorrectTagValue, UnsupportedMessageType {
 cracker.crack( message, sessionID );
 }
