@@ -320,15 +320,15 @@ private:
       case TYPE::UtcTimeOnly:
         UTCTIMEONLY_CONVERTOR::convert( field.getString() ); break;
       case TYPE::NumInGroup:
-	NUMINGROUP_CONVERTOR::convert( field.getString() ); break;
+	      NUMINGROUP_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Percentage:
-	PERCENTAGE_CONVERTOR::convert( field.getString() ); break;
+	      PERCENTAGE_CONVERTOR::convert( field.getString() ); break;
       case TYPE::SeqNum:
-	SEQNUM_CONVERTOR::convert( field.getString() ); break;
+	      SEQNUM_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Length:
-	LENGTH_CONVERTOR::convert( field.getString() ); break;
+	      LENGTH_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Country:
-	COUNTRY_CONVERTOR::convert( field.getString() ); break;
+	      COUNTRY_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Unknown: break;
       }
     }
