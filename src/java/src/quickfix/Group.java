@@ -49,7 +49,7 @@ public class Group extends FieldMap {
     public native void setDouble(int field, double value);
     public native void setUtcTimeStamp(int field, Date value);
     public native void setUtcTimeOnly(int field, Date value);
-    public native void setUtcDate(int field, Date value);
+    public native void setUtcDateOnly(int field, Date value);
 
     public native String getString(int field) throws FieldNotFound;
     public native boolean getBoolean(int field) throws FieldNotFound;
@@ -58,7 +58,7 @@ public class Group extends FieldMap {
     public native double getDouble(int field) throws FieldNotFound;
     public native Date getUtcTimeStamp(int field) throws FieldNotFound;
     public native Date getUtcTimeOnly(int field) throws FieldNotFound;
-    public native Date getUtcDate(int field) throws FieldNotFound;
+    public native Date getUtcDateOnly(int field) throws FieldNotFound;
 
     public void setField(StringField field) {
         setString(field.getField(), field.getValue());
@@ -81,8 +81,8 @@ public class Group extends FieldMap {
     public void setField(UtcTimeOnlyField field) {
         setUtcTimeOnly(field.getField(), field.getValue());
     }
-    public void setField(UtcDateField field) {
-        setUtcDate(field.getField(), field.getValue());
+    public void setField(UtcDateOnlyField field) {
+        setUtcDateOnly(field.getField(), field.getValue());
     }
 
     public StringField getField(StringField field) throws FieldNotFound {
@@ -113,8 +113,8 @@ public class Group extends FieldMap {
         field.setValue(getUtcTimeOnly(field.getField()));
         return field;
     }
-    public UtcDateField getField(UtcDateField field) throws FieldNotFound {
-        field.setValue(getUtcDate(field.getField()));
+    public UtcDateField getField(UtcDateOnlyField field) throws FieldNotFound {
+        field.setValue(getUtcDateOnly(field.getField()));
         return field;
     }
 

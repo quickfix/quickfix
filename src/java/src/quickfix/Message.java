@@ -102,7 +102,7 @@ public class Message extends FieldMap {
     public native void setDouble(int field, double value);
     public native void setUtcTimeStamp(int field, Date value);
     public native void setUtcTimeOnly(int field, Date value);
-    public native void setUtcDate(int field, Date value);
+    public native void setUtcDateOnly(int field, Date value);
 
     public native String getString(int field) throws FieldNotFound;
     public native boolean getBoolean(int field) throws FieldNotFound;
@@ -111,7 +111,7 @@ public class Message extends FieldMap {
     public native double getDouble(int field) throws FieldNotFound;
     public native Date getUtcTimeStamp(int field) throws FieldNotFound;
     public native Date getUtcTimeOnly(int field) throws FieldNotFound;
-    public native Date getUtcDate(int field) throws FieldNotFound;
+    public native Date getUtcDateOnly(int field) throws FieldNotFound;
 
     public void setField(StringField field) {
         setString( field.getField(), field.getValue() );
@@ -134,8 +134,8 @@ public class Message extends FieldMap {
     public void setField(UtcTimeOnlyField field) {
         setUtcTimeOnly( field.getField(), field.getValue() );
     }
-    public void setField(UtcDateField field) {
-        setUtcDate( field.getField(), field.getValue() );
+    public void setField(UtcDateOnlyField field) {
+        setUtcDateOnly( field.getField(), field.getValue() );
     }
 
     public StringField getField(StringField field) throws FieldNotFound {
@@ -166,8 +166,8 @@ public class Message extends FieldMap {
         field.setValue(getUtcTimeOnly(field.getField()));
         return field;
     }
-    public UtcDateField getField(UtcDateField field) throws FieldNotFound {
-        field.setValue(getUtcDate(field.getField()));
+    public UtcDateOnlyField getField(UtcDateOnlyField field) throws FieldNotFound {
+        field.setValue(getUtcDateOnly(field.getField()));
         return field;
     }
 
@@ -267,8 +267,8 @@ public class Message extends FieldMap {
         public void setUtcTimeOnly(int field, Date value) {
             headerSetUtcTimeOnly( field, value );
         }
-        public void setUtcDate(int field, Date value) {
-            headerSetUtcDate( field, value );
+        public void setUtcDateOnly(int field, Date value) {
+            headerSetUtcDateOnly( field, value );
         }
 
         public String getString(int field) throws FieldNotFound {
@@ -292,8 +292,8 @@ public class Message extends FieldMap {
         public Date getUtcTimeOnly(int field) throws FieldNotFound {
             return headerGetUtcTimeOnly( field );
         }
-        public Date getUtcDate(int field) throws FieldNotFound {
-            return headerGetUtcDate( field );
+        public Date getUtcDateOnly(int field) throws FieldNotFound {
+            return headerGetUtcDateOnly( field );
         }
 
         public void setField(StringField field) {
@@ -317,8 +317,8 @@ public class Message extends FieldMap {
         public void setField(UtcTimeOnlyField field) {
             headerSetUtcTimeOnly( field.getField(), field.getValue() );
         }
-        public void setField(UtcDateField field) {
-            headerSetUtcDate( field.getField(), field.getValue() );
+        public void setField(UtcDateOnlyField field) {
+            headerSetUtcDateOnly( field.getField(), field.getValue() );
         }
 
         public StringField getField(StringField field) throws FieldNotFound {
@@ -349,8 +349,8 @@ public class Message extends FieldMap {
             field.setValue(getUtcTimeOnly(field.getField()));
             return field;
         }
-        public UtcDateField getField(UtcDateField field) throws FieldNotFound {
-            field.setValue(getUtcDate(field.getField()));
+        public UtcDateOnlyField getField(UtcDateOnlyField field) throws FieldNotFound {
+            field.setValue(getUtcDateOnly(field.getField()));
             return field;
         }
 
@@ -416,8 +416,8 @@ public class Message extends FieldMap {
         public void setUtcTimeOnly(int field, Date value) {
             trailerSetUtcTimeOnly( field, value );
         }
-        public void setUtcDate(int field, Date value) {
-            trailerSetUtcDate( field, value );
+        public void setUtcDateOnly(int field, Date value) {
+            trailerSetUtcDateOnly( field, value );
         }
 
         public String getString(int field) throws FieldNotFound {
@@ -441,8 +441,8 @@ public class Message extends FieldMap {
         public Date getUtcTimeOnly(int field) throws FieldNotFound {
             return trailerGetUtcTimeOnly( field );
         }
-        public Date getUtcDate(int field) throws FieldNotFound {
-            return trailerGetUtcDate( field );
+        public Date getUtcDateOnly(int field) throws FieldNotFound {
+            return trailerGetUtcDateOnly( field );
         }
 
         public void setField(StringField field) {
@@ -466,8 +466,8 @@ public class Message extends FieldMap {
         public void setField(UtcTimeOnlyField field) {
             trailerSetUtcTimeOnly( field.getField(), field.getValue() );
         }
-        public void setField(UtcDateField field) {
-            trailerSetUtcDate( field.getField(), field.getValue() );
+        public void setField(UtcDateOnlyField field) {
+            trailerSetUtcDateOnly( field.getField(), field.getValue() );
         }
 
         public StringField getField(StringField field) throws FieldNotFound {
@@ -498,8 +498,8 @@ public class Message extends FieldMap {
             field.setValue(getUtcTimeOnly(field.getField()));
             return field;
         }
-        public UtcDateField getField(UtcDateField field) throws FieldNotFound {
-            field.setValue(getUtcDate(field.getField()));
+        public UtcDateOnlyField getField(UtcDateOnlyField field) throws FieldNotFound {
+            field.setValue(getUtcDateOnly(field.getField()));
             return field;
         }
 
@@ -529,7 +529,7 @@ public class Message extends FieldMap {
     private native void headerSetDouble(int field, double value);
     private native void headerSetUtcTimeStamp(int field, Date value);
     private native void headerSetUtcTimeOnly(int field, Date value);
-    private native void headerSetUtcDate(int field, Date value);
+    private native void headerSetUtcDateOnly(int field, Date value);
     
     private native String headerGetString(int field) throws FieldNotFound;
     private native boolean headerGetBoolean(int field) throws FieldNotFound;
@@ -538,7 +538,7 @@ public class Message extends FieldMap {
     private native double headerGetDouble(int field) throws FieldNotFound;
     private native Date headerGetUtcTimeStamp(int field) throws FieldNotFound;
     private native Date headerGetUtcTimeOnly(int field) throws FieldNotFound;
-    private native Date headerGetUtcDate(int field) throws FieldNotFound;
+    private native Date headerGetUtcDateOnly(int field) throws FieldNotFound;
 
     private native boolean headerIsSetField(int field);
     private native void headerRemoveField(int field);
@@ -554,7 +554,7 @@ public class Message extends FieldMap {
     private native void trailerSetDouble(int field, double value);
     private native void trailerSetUtcTimeStamp(int field, Date value);
     private native void trailerSetUtcTimeOnly(int field, Date value);
-    private native void trailerSetUtcDate(int field, Date value);
+    private native void trailerSetUtcDateOnly(int field, Date value);
     
     private native String trailerGetString(int field) throws FieldNotFound;
     private native boolean trailerGetBoolean(int field) throws FieldNotFound;
@@ -563,7 +563,7 @@ public class Message extends FieldMap {
     private native double trailerGetDouble(int field) throws FieldNotFound;
     private native Date trailerGetUtcTimeStamp(int field) throws FieldNotFound;
     private native Date trailerGetUtcTimeOnly(int field) throws FieldNotFound;
-    private native Date trailerGetUtcDate(int field) throws FieldNotFound;
+    private native Date trailerGetUtcDateOnly(int field) throws FieldNotFound;
 
     private native boolean trailerIsSetField(int field);
     private native void trailerRemoveField(int field);

@@ -181,13 +181,13 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
-  setUtcDate( *pGroup, field, value );
+  setUtcDateOnly( *pGroup, field, value );
 
   QF_STACK_CATCH
 }
@@ -271,13 +271,13 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
-  jobject result = newUtcDate( *pGroup, field );
+  jobject result = newUtcDateOnly( *pGroup, field );
   return result;
 
   QF_STACK_CATCH

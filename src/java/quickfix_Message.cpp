@@ -193,13 +193,13 @@ JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_setUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Message_setUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  setUtcDate( *pMessage, field, value );
+  setUtcDateOnly( *pMessage, field, value );
 
   QF_STACK_CATCH
 }
@@ -283,13 +283,13 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  jobject result = newUtcDate( *pMessage, field );
+  jobject result = newUtcDateOnly( *pMessage, field );
   return result;
 
   QF_STACK_CATCH
@@ -392,13 +392,13 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  setUtcDate( pMessage->getHeader(), field, value );
+  setUtcDateOnly( pMessage->getHeader(), field, value );
 
   QF_STACK_CATCH
 }
@@ -482,13 +482,13 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  jobject result = newUtcDate( pMessage->getHeader(), field );
+  jobject result = newUtcDateOnly( pMessage->getHeader(), field );
   return result;
 
   QF_STACK_CATCH
@@ -643,13 +643,13 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcDate
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  setUtcDate( pMessage->getTrailer(), field, value );
+  setUtcDateOnly( pMessage->getTrailer(), field, value );
 
   QF_STACK_CATCH
 }
@@ -733,13 +733,13 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcTimeOnly
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcDate
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcDateOnly
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  jobject result = newUtcDate( pMessage->getTrailer(), field );
+  jobject result = newUtcDateOnly( pMessage->getTrailer(), field );
   return result;
 
   QF_STACK_CATCH
