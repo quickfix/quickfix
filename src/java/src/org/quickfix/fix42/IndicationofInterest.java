@@ -505,15 +505,15 @@ public class IndicationofInterest extends Message
     return value;  
   } 
 
-public class NoIOIQualifiers extends Group { 
+public static class NoIOIQualifiers extends Group { 
   public NoIOIQualifiers() { 
     super(199,104, new int[]{104,0}); 
   } 
-  void set(org.quickfix.field.IOIQualifier value) 
+  public void set(org.quickfix.field.IOIQualifier value) 
   { setField(value); } 
-  org.quickfix.field.IOIQualifier get(org.quickfix.field.IOIQualifier value) throws FieldNotFound 
+  public org.quickfix.field.IOIQualifier get(org.quickfix.field.IOIQualifier value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.IOIQualifier getIOIQualifier() throws FieldNotFound 
+  public org.quickfix.field.IOIQualifier getIOIQualifier() throws FieldNotFound 
   { org.quickfix.field.IOIQualifier value = new org.quickfix.field.IOIQualifier(); 
     getField(value); return value; } 
 
@@ -615,23 +615,23 @@ public class NoIOIQualifiers extends Group {
     return value;  
   } 
 
-public class NoRoutingIDs extends Group { 
+public static class NoRoutingIDs extends Group { 
   public NoRoutingIDs() { 
     super(215,216, new int[]{216,217,0}); 
   } 
-  void set(org.quickfix.field.RoutingType value) 
+  public void set(org.quickfix.field.RoutingType value) 
   { setField(value); } 
-  org.quickfix.field.RoutingType get(org.quickfix.field.RoutingType value) throws FieldNotFound 
+  public org.quickfix.field.RoutingType get(org.quickfix.field.RoutingType value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.RoutingType getRoutingType() throws FieldNotFound 
+  public org.quickfix.field.RoutingType getRoutingType() throws FieldNotFound 
   { org.quickfix.field.RoutingType value = new org.quickfix.field.RoutingType(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.RoutingID value) 
+  public void set(org.quickfix.field.RoutingID value) 
   { setField(value); } 
-  org.quickfix.field.RoutingID get(org.quickfix.field.RoutingID value) throws FieldNotFound 
+  public org.quickfix.field.RoutingID get(org.quickfix.field.RoutingID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.RoutingID getRoutingID() throws FieldNotFound 
+  public org.quickfix.field.RoutingID getRoutingID() throws FieldNotFound 
   { org.quickfix.field.RoutingID value = new org.quickfix.field.RoutingID(); 
     getField(value); return value; } 
 

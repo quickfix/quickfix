@@ -485,183 +485,183 @@ public class SecurityDefinition extends Message
     return value;  
   } 
 
-public class NoRelatedSym extends Group { 
+public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
     super(146,311, new int[]{311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,319,54,318,0}); 
   } 
-  void set(org.quickfix.field.UnderlyingSymbol value) 
+  public void set(org.quickfix.field.UnderlyingSymbol value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingSymbol get(org.quickfix.field.UnderlyingSymbol value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSymbol get(org.quickfix.field.UnderlyingSymbol value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingSymbol getUnderlyingSymbol() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSymbol getUnderlyingSymbol() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSymbol value = new org.quickfix.field.UnderlyingSymbol(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingSymbolSfx value) 
+  public void set(org.quickfix.field.UnderlyingSymbolSfx value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingSymbolSfx get(org.quickfix.field.UnderlyingSymbolSfx value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSymbolSfx get(org.quickfix.field.UnderlyingSymbolSfx value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingSymbolSfx getUnderlyingSymbolSfx() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSymbolSfx getUnderlyingSymbolSfx() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSymbolSfx value = new org.quickfix.field.UnderlyingSymbolSfx(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingSecurityID value) 
+  public void set(org.quickfix.field.UnderlyingSecurityID value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingSecurityID get(org.quickfix.field.UnderlyingSecurityID value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityID get(org.quickfix.field.UnderlyingSecurityID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingSecurityID getUnderlyingSecurityID() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityID getUnderlyingSecurityID() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityID value = new org.quickfix.field.UnderlyingSecurityID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingIDSource value) 
+  public void set(org.quickfix.field.UnderlyingIDSource value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingIDSource get(org.quickfix.field.UnderlyingIDSource value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingIDSource get(org.quickfix.field.UnderlyingIDSource value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingIDSource getUnderlyingIDSource() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingIDSource getUnderlyingIDSource() throws FieldNotFound 
   { org.quickfix.field.UnderlyingIDSource value = new org.quickfix.field.UnderlyingIDSource(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingSecurityType value) 
+  public void set(org.quickfix.field.UnderlyingSecurityType value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingSecurityType get(org.quickfix.field.UnderlyingSecurityType value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityType get(org.quickfix.field.UnderlyingSecurityType value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingSecurityType getUnderlyingSecurityType() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityType getUnderlyingSecurityType() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityType value = new org.quickfix.field.UnderlyingSecurityType(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingMaturityMonthYear value) 
+  public void set(org.quickfix.field.UnderlyingMaturityMonthYear value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingMaturityMonthYear get(org.quickfix.field.UnderlyingMaturityMonthYear value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingMaturityMonthYear get(org.quickfix.field.UnderlyingMaturityMonthYear value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingMaturityMonthYear getUnderlyingMaturityMonthYear() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingMaturityMonthYear getUnderlyingMaturityMonthYear() throws FieldNotFound 
   { org.quickfix.field.UnderlyingMaturityMonthYear value = new org.quickfix.field.UnderlyingMaturityMonthYear(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingMaturityDay value) 
+  public void set(org.quickfix.field.UnderlyingMaturityDay value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingMaturityDay get(org.quickfix.field.UnderlyingMaturityDay value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingMaturityDay get(org.quickfix.field.UnderlyingMaturityDay value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingMaturityDay getUnderlyingMaturityDay() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingMaturityDay getUnderlyingMaturityDay() throws FieldNotFound 
   { org.quickfix.field.UnderlyingMaturityDay value = new org.quickfix.field.UnderlyingMaturityDay(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingPutOrCall value) 
+  public void set(org.quickfix.field.UnderlyingPutOrCall value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingPutOrCall get(org.quickfix.field.UnderlyingPutOrCall value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingPutOrCall get(org.quickfix.field.UnderlyingPutOrCall value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingPutOrCall getUnderlyingPutOrCall() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingPutOrCall getUnderlyingPutOrCall() throws FieldNotFound 
   { org.quickfix.field.UnderlyingPutOrCall value = new org.quickfix.field.UnderlyingPutOrCall(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingStrikePrice value) 
+  public void set(org.quickfix.field.UnderlyingStrikePrice value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingStrikePrice get(org.quickfix.field.UnderlyingStrikePrice value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingStrikePrice get(org.quickfix.field.UnderlyingStrikePrice value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingStrikePrice getUnderlyingStrikePrice() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingStrikePrice getUnderlyingStrikePrice() throws FieldNotFound 
   { org.quickfix.field.UnderlyingStrikePrice value = new org.quickfix.field.UnderlyingStrikePrice(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingOptAttribute value) 
+  public void set(org.quickfix.field.UnderlyingOptAttribute value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingOptAttribute get(org.quickfix.field.UnderlyingOptAttribute value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingOptAttribute get(org.quickfix.field.UnderlyingOptAttribute value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingOptAttribute getUnderlyingOptAttribute() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingOptAttribute getUnderlyingOptAttribute() throws FieldNotFound 
   { org.quickfix.field.UnderlyingOptAttribute value = new org.quickfix.field.UnderlyingOptAttribute(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingContractMultiplier value) 
+  public void set(org.quickfix.field.UnderlyingContractMultiplier value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingContractMultiplier get(org.quickfix.field.UnderlyingContractMultiplier value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingContractMultiplier get(org.quickfix.field.UnderlyingContractMultiplier value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingContractMultiplier getUnderlyingContractMultiplier() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingContractMultiplier getUnderlyingContractMultiplier() throws FieldNotFound 
   { org.quickfix.field.UnderlyingContractMultiplier value = new org.quickfix.field.UnderlyingContractMultiplier(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingCouponRate value) 
+  public void set(org.quickfix.field.UnderlyingCouponRate value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingCouponRate get(org.quickfix.field.UnderlyingCouponRate value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingCouponRate get(org.quickfix.field.UnderlyingCouponRate value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingCouponRate getUnderlyingCouponRate() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingCouponRate getUnderlyingCouponRate() throws FieldNotFound 
   { org.quickfix.field.UnderlyingCouponRate value = new org.quickfix.field.UnderlyingCouponRate(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingSecurityExchange value) 
+  public void set(org.quickfix.field.UnderlyingSecurityExchange value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingSecurityExchange get(org.quickfix.field.UnderlyingSecurityExchange value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityExchange get(org.quickfix.field.UnderlyingSecurityExchange value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingSecurityExchange getUnderlyingSecurityExchange() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityExchange getUnderlyingSecurityExchange() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityExchange value = new org.quickfix.field.UnderlyingSecurityExchange(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingIssuer value) 
+  public void set(org.quickfix.field.UnderlyingIssuer value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingIssuer get(org.quickfix.field.UnderlyingIssuer value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingIssuer get(org.quickfix.field.UnderlyingIssuer value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingIssuer getUnderlyingIssuer() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingIssuer getUnderlyingIssuer() throws FieldNotFound 
   { org.quickfix.field.UnderlyingIssuer value = new org.quickfix.field.UnderlyingIssuer(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.EncodedUnderlyingIssuerLen value) 
+  public void set(org.quickfix.field.EncodedUnderlyingIssuerLen value) 
   { setField(value); } 
-  org.quickfix.field.EncodedUnderlyingIssuerLen get(org.quickfix.field.EncodedUnderlyingIssuerLen value) throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingIssuerLen get(org.quickfix.field.EncodedUnderlyingIssuerLen value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.EncodedUnderlyingIssuerLen getEncodedUnderlyingIssuerLen() throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingIssuerLen getEncodedUnderlyingIssuerLen() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingIssuerLen value = new org.quickfix.field.EncodedUnderlyingIssuerLen(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.EncodedUnderlyingIssuer value) 
+  public void set(org.quickfix.field.EncodedUnderlyingIssuer value) 
   { setField(value); } 
-  org.quickfix.field.EncodedUnderlyingIssuer get(org.quickfix.field.EncodedUnderlyingIssuer value) throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingIssuer get(org.quickfix.field.EncodedUnderlyingIssuer value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.EncodedUnderlyingIssuer getEncodedUnderlyingIssuer() throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingIssuer getEncodedUnderlyingIssuer() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingIssuer value = new org.quickfix.field.EncodedUnderlyingIssuer(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingSecurityDesc value) 
+  public void set(org.quickfix.field.UnderlyingSecurityDesc value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingSecurityDesc get(org.quickfix.field.UnderlyingSecurityDesc value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityDesc get(org.quickfix.field.UnderlyingSecurityDesc value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingSecurityDesc getUnderlyingSecurityDesc() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingSecurityDesc getUnderlyingSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.UnderlyingSecurityDesc value = new org.quickfix.field.UnderlyingSecurityDesc(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.EncodedUnderlyingSecurityDescLen value) 
+  public void set(org.quickfix.field.EncodedUnderlyingSecurityDescLen value) 
   { setField(value); } 
-  org.quickfix.field.EncodedUnderlyingSecurityDescLen get(org.quickfix.field.EncodedUnderlyingSecurityDescLen value) throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingSecurityDescLen get(org.quickfix.field.EncodedUnderlyingSecurityDescLen value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.EncodedUnderlyingSecurityDescLen getEncodedUnderlyingSecurityDescLen() throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingSecurityDescLen getEncodedUnderlyingSecurityDescLen() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingSecurityDescLen value = new org.quickfix.field.EncodedUnderlyingSecurityDescLen(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.EncodedUnderlyingSecurityDesc value) 
+  public void set(org.quickfix.field.EncodedUnderlyingSecurityDesc value) 
   { setField(value); } 
-  org.quickfix.field.EncodedUnderlyingSecurityDesc get(org.quickfix.field.EncodedUnderlyingSecurityDesc value) throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingSecurityDesc get(org.quickfix.field.EncodedUnderlyingSecurityDesc value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.EncodedUnderlyingSecurityDesc getEncodedUnderlyingSecurityDesc() throws FieldNotFound 
+  public org.quickfix.field.EncodedUnderlyingSecurityDesc getEncodedUnderlyingSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedUnderlyingSecurityDesc value = new org.quickfix.field.EncodedUnderlyingSecurityDesc(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.RatioQty value) 
+  public void set(org.quickfix.field.RatioQty value) 
   { setField(value); } 
-  org.quickfix.field.RatioQty get(org.quickfix.field.RatioQty value) throws FieldNotFound 
+  public org.quickfix.field.RatioQty get(org.quickfix.field.RatioQty value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.RatioQty getRatioQty() throws FieldNotFound 
+  public org.quickfix.field.RatioQty getRatioQty() throws FieldNotFound 
   { org.quickfix.field.RatioQty value = new org.quickfix.field.RatioQty(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.Side value) 
+  public void set(org.quickfix.field.Side value) 
   { setField(value); } 
-  org.quickfix.field.Side get(org.quickfix.field.Side value) throws FieldNotFound 
+  public org.quickfix.field.Side get(org.quickfix.field.Side value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.Side getSide() throws FieldNotFound 
+  public org.quickfix.field.Side getSide() throws FieldNotFound 
   { org.quickfix.field.Side value = new org.quickfix.field.Side(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.UnderlyingCurrency value) 
+  public void set(org.quickfix.field.UnderlyingCurrency value) 
   { setField(value); } 
-  org.quickfix.field.UnderlyingCurrency get(org.quickfix.field.UnderlyingCurrency value) throws FieldNotFound 
+  public org.quickfix.field.UnderlyingCurrency get(org.quickfix.field.UnderlyingCurrency value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.UnderlyingCurrency getUnderlyingCurrency() throws FieldNotFound 
+  public org.quickfix.field.UnderlyingCurrency getUnderlyingCurrency() throws FieldNotFound 
   { org.quickfix.field.UnderlyingCurrency value = new org.quickfix.field.UnderlyingCurrency(); 
     getField(value); return value; } 
 

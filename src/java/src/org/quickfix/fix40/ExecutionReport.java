@@ -693,31 +693,31 @@ public class ExecutionReport extends Message
     return value;  
   } 
 
-public class NoMiscFees extends Group { 
+public static class NoMiscFees extends Group { 
   public NoMiscFees() { 
     super(136,137, new int[]{137,138,139,0}); 
   } 
-  void set(org.quickfix.field.MiscFeeAmt value) 
+  public void set(org.quickfix.field.MiscFeeAmt value) 
   { setField(value); } 
-  org.quickfix.field.MiscFeeAmt get(org.quickfix.field.MiscFeeAmt value) throws FieldNotFound 
+  public org.quickfix.field.MiscFeeAmt get(org.quickfix.field.MiscFeeAmt value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.MiscFeeAmt getMiscFeeAmt() throws FieldNotFound 
+  public org.quickfix.field.MiscFeeAmt getMiscFeeAmt() throws FieldNotFound 
   { org.quickfix.field.MiscFeeAmt value = new org.quickfix.field.MiscFeeAmt(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.MiscFeeCurr value) 
+  public void set(org.quickfix.field.MiscFeeCurr value) 
   { setField(value); } 
-  org.quickfix.field.MiscFeeCurr get(org.quickfix.field.MiscFeeCurr value) throws FieldNotFound 
+  public org.quickfix.field.MiscFeeCurr get(org.quickfix.field.MiscFeeCurr value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.MiscFeeCurr getMiscFeeCurr() throws FieldNotFound 
+  public org.quickfix.field.MiscFeeCurr getMiscFeeCurr() throws FieldNotFound 
   { org.quickfix.field.MiscFeeCurr value = new org.quickfix.field.MiscFeeCurr(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.MiscFeeType value) 
+  public void set(org.quickfix.field.MiscFeeType value) 
   { setField(value); } 
-  org.quickfix.field.MiscFeeType get(org.quickfix.field.MiscFeeType value) throws FieldNotFound 
+  public org.quickfix.field.MiscFeeType get(org.quickfix.field.MiscFeeType value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.MiscFeeType getMiscFeeType() throws FieldNotFound 
+  public org.quickfix.field.MiscFeeType getMiscFeeType() throws FieldNotFound 
   { org.quickfix.field.MiscFeeType value = new org.quickfix.field.MiscFeeType(); 
     getField(value); return value; } 
 

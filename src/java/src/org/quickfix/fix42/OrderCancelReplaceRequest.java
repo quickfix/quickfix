@@ -157,23 +157,23 @@ public class OrderCancelReplaceRequest extends Message
     return value;  
   } 
 
-public class NoAllocs extends Group { 
+public static class NoAllocs extends Group { 
   public NoAllocs() { 
     super(78,79, new int[]{79,80,0}); 
   } 
-  void set(org.quickfix.field.AllocAccount value) 
+  public void set(org.quickfix.field.AllocAccount value) 
   { setField(value); } 
-  org.quickfix.field.AllocAccount get(org.quickfix.field.AllocAccount value) throws FieldNotFound 
+  public org.quickfix.field.AllocAccount get(org.quickfix.field.AllocAccount value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.AllocAccount getAllocAccount() throws FieldNotFound 
+  public org.quickfix.field.AllocAccount getAllocAccount() throws FieldNotFound 
   { org.quickfix.field.AllocAccount value = new org.quickfix.field.AllocAccount(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.AllocShares value) 
+  public void set(org.quickfix.field.AllocShares value) 
   { setField(value); } 
-  org.quickfix.field.AllocShares get(org.quickfix.field.AllocShares value) throws FieldNotFound 
+  public org.quickfix.field.AllocShares get(org.quickfix.field.AllocShares value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.AllocShares getAllocShares() throws FieldNotFound 
+  public org.quickfix.field.AllocShares getAllocShares() throws FieldNotFound 
   { org.quickfix.field.AllocShares value = new org.quickfix.field.AllocShares(); 
     getField(value); return value; } 
 
@@ -307,15 +307,15 @@ public class NoAllocs extends Group {
     return value;  
   } 
 
-public class NoTradingSessions extends Group { 
+public static class NoTradingSessions extends Group { 
   public NoTradingSessions() { 
     super(386,336, new int[]{336,0}); 
   } 
-  void set(org.quickfix.field.TradingSessionID value) 
+  public void set(org.quickfix.field.TradingSessionID value) 
   { setField(value); } 
-  org.quickfix.field.TradingSessionID get(org.quickfix.field.TradingSessionID value) throws FieldNotFound 
+  public org.quickfix.field.TradingSessionID get(org.quickfix.field.TradingSessionID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound 
+  public org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound 
   { org.quickfix.field.TradingSessionID value = new org.quickfix.field.TradingSessionID(); 
     getField(value); return value; } 
 

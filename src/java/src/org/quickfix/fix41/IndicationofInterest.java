@@ -425,15 +425,15 @@ public class IndicationofInterest extends Message
     return value;  
   } 
 
-public class NoIOIQualifiers extends Group { 
+public static class NoIOIQualifiers extends Group { 
   public NoIOIQualifiers() { 
     super(199,104, new int[]{104,0}); 
   } 
-  void set(org.quickfix.field.IOIQualifier value) 
+  public void set(org.quickfix.field.IOIQualifier value) 
   { setField(value); } 
-  org.quickfix.field.IOIQualifier get(org.quickfix.field.IOIQualifier value) throws FieldNotFound 
+  public org.quickfix.field.IOIQualifier get(org.quickfix.field.IOIQualifier value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.IOIQualifier getIOIQualifier() throws FieldNotFound 
+  public org.quickfix.field.IOIQualifier getIOIQualifier() throws FieldNotFound 
   { org.quickfix.field.IOIQualifier value = new org.quickfix.field.IOIQualifier(); 
     getField(value); return value; } 
 

@@ -147,39 +147,39 @@ public class ExecutionReport extends Message
     return value;  
   } 
 
-public class NoContraBrokers extends Group { 
+public static class NoContraBrokers extends Group { 
   public NoContraBrokers() { 
     super(382,375, new int[]{375,337,437,438,0}); 
   } 
-  void set(org.quickfix.field.ContraBroker value) 
+  public void set(org.quickfix.field.ContraBroker value) 
   { setField(value); } 
-  org.quickfix.field.ContraBroker get(org.quickfix.field.ContraBroker value) throws FieldNotFound 
+  public org.quickfix.field.ContraBroker get(org.quickfix.field.ContraBroker value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ContraBroker getContraBroker() throws FieldNotFound 
+  public org.quickfix.field.ContraBroker getContraBroker() throws FieldNotFound 
   { org.quickfix.field.ContraBroker value = new org.quickfix.field.ContraBroker(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.ContraTrader value) 
+  public void set(org.quickfix.field.ContraTrader value) 
   { setField(value); } 
-  org.quickfix.field.ContraTrader get(org.quickfix.field.ContraTrader value) throws FieldNotFound 
+  public org.quickfix.field.ContraTrader get(org.quickfix.field.ContraTrader value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ContraTrader getContraTrader() throws FieldNotFound 
+  public org.quickfix.field.ContraTrader getContraTrader() throws FieldNotFound 
   { org.quickfix.field.ContraTrader value = new org.quickfix.field.ContraTrader(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.ContraTradeQty value) 
+  public void set(org.quickfix.field.ContraTradeQty value) 
   { setField(value); } 
-  org.quickfix.field.ContraTradeQty get(org.quickfix.field.ContraTradeQty value) throws FieldNotFound 
+  public org.quickfix.field.ContraTradeQty get(org.quickfix.field.ContraTradeQty value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ContraTradeQty getContraTradeQty() throws FieldNotFound 
+  public org.quickfix.field.ContraTradeQty getContraTradeQty() throws FieldNotFound 
   { org.quickfix.field.ContraTradeQty value = new org.quickfix.field.ContraTradeQty(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.ContraTradeTime value) 
+  public void set(org.quickfix.field.ContraTradeTime value) 
   { setField(value); } 
-  org.quickfix.field.ContraTradeTime get(org.quickfix.field.ContraTradeTime value) throws FieldNotFound 
+  public org.quickfix.field.ContraTradeTime get(org.quickfix.field.ContraTradeTime value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ContraTradeTime getContraTradeTime() throws FieldNotFound 
+  public org.quickfix.field.ContraTradeTime getContraTradeTime() throws FieldNotFound 
   { org.quickfix.field.ContraTradeTime value = new org.quickfix.field.ContraTradeTime(); 
     getField(value); return value; } 
 

@@ -103,39 +103,39 @@ public class ListStatus extends Message
     return value;  
   } 
 
-public class NoOrders extends Group { 
+public static class NoOrders extends Group { 
   public NoOrders() { 
     super(73,11, new int[]{11,14,84,6,0}); 
   } 
-  void set(org.quickfix.field.ClOrdID value) 
+  public void set(org.quickfix.field.ClOrdID value) 
   { setField(value); } 
-  org.quickfix.field.ClOrdID get(org.quickfix.field.ClOrdID value) throws FieldNotFound 
+  public org.quickfix.field.ClOrdID get(org.quickfix.field.ClOrdID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
+  public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.CumQty value) 
+  public void set(org.quickfix.field.CumQty value) 
   { setField(value); } 
-  org.quickfix.field.CumQty get(org.quickfix.field.CumQty value) throws FieldNotFound 
+  public org.quickfix.field.CumQty get(org.quickfix.field.CumQty value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.CumQty getCumQty() throws FieldNotFound 
+  public org.quickfix.field.CumQty getCumQty() throws FieldNotFound 
   { org.quickfix.field.CumQty value = new org.quickfix.field.CumQty(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.CxlQty value) 
+  public void set(org.quickfix.field.CxlQty value) 
   { setField(value); } 
-  org.quickfix.field.CxlQty get(org.quickfix.field.CxlQty value) throws FieldNotFound 
+  public org.quickfix.field.CxlQty get(org.quickfix.field.CxlQty value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.CxlQty getCxlQty() throws FieldNotFound 
+  public org.quickfix.field.CxlQty getCxlQty() throws FieldNotFound 
   { org.quickfix.field.CxlQty value = new org.quickfix.field.CxlQty(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.AvgPx value) 
+  public void set(org.quickfix.field.AvgPx value) 
   { setField(value); } 
-  org.quickfix.field.AvgPx get(org.quickfix.field.AvgPx value) throws FieldNotFound 
+  public org.quickfix.field.AvgPx get(org.quickfix.field.AvgPx value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.AvgPx getAvgPx() throws FieldNotFound 
+  public org.quickfix.field.AvgPx getAvgPx() throws FieldNotFound 
   { org.quickfix.field.AvgPx value = new org.quickfix.field.AvgPx(); 
     getField(value); return value; } 
 

@@ -205,87 +205,87 @@ public class ListStatus extends Message
     return value;  
   } 
 
-public class NoOrders extends Group { 
+public static class NoOrders extends Group { 
   public NoOrders() { 
     super(73,11, new int[]{11,14,39,151,84,6,103,58,354,355,0}); 
   } 
-  void set(org.quickfix.field.ClOrdID value) 
+  public void set(org.quickfix.field.ClOrdID value) 
   { setField(value); } 
-  org.quickfix.field.ClOrdID get(org.quickfix.field.ClOrdID value) throws FieldNotFound 
+  public org.quickfix.field.ClOrdID get(org.quickfix.field.ClOrdID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
+  public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.CumQty value) 
+  public void set(org.quickfix.field.CumQty value) 
   { setField(value); } 
-  org.quickfix.field.CumQty get(org.quickfix.field.CumQty value) throws FieldNotFound 
+  public org.quickfix.field.CumQty get(org.quickfix.field.CumQty value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.CumQty getCumQty() throws FieldNotFound 
+  public org.quickfix.field.CumQty getCumQty() throws FieldNotFound 
   { org.quickfix.field.CumQty value = new org.quickfix.field.CumQty(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.OrdStatus value) 
+  public void set(org.quickfix.field.OrdStatus value) 
   { setField(value); } 
-  org.quickfix.field.OrdStatus get(org.quickfix.field.OrdStatus value) throws FieldNotFound 
+  public org.quickfix.field.OrdStatus get(org.quickfix.field.OrdStatus value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.OrdStatus getOrdStatus() throws FieldNotFound 
+  public org.quickfix.field.OrdStatus getOrdStatus() throws FieldNotFound 
   { org.quickfix.field.OrdStatus value = new org.quickfix.field.OrdStatus(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.LeavesQty value) 
+  public void set(org.quickfix.field.LeavesQty value) 
   { setField(value); } 
-  org.quickfix.field.LeavesQty get(org.quickfix.field.LeavesQty value) throws FieldNotFound 
+  public org.quickfix.field.LeavesQty get(org.quickfix.field.LeavesQty value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.LeavesQty getLeavesQty() throws FieldNotFound 
+  public org.quickfix.field.LeavesQty getLeavesQty() throws FieldNotFound 
   { org.quickfix.field.LeavesQty value = new org.quickfix.field.LeavesQty(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.CxlQty value) 
+  public void set(org.quickfix.field.CxlQty value) 
   { setField(value); } 
-  org.quickfix.field.CxlQty get(org.quickfix.field.CxlQty value) throws FieldNotFound 
+  public org.quickfix.field.CxlQty get(org.quickfix.field.CxlQty value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.CxlQty getCxlQty() throws FieldNotFound 
+  public org.quickfix.field.CxlQty getCxlQty() throws FieldNotFound 
   { org.quickfix.field.CxlQty value = new org.quickfix.field.CxlQty(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.AvgPx value) 
+  public void set(org.quickfix.field.AvgPx value) 
   { setField(value); } 
-  org.quickfix.field.AvgPx get(org.quickfix.field.AvgPx value) throws FieldNotFound 
+  public org.quickfix.field.AvgPx get(org.quickfix.field.AvgPx value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.AvgPx getAvgPx() throws FieldNotFound 
+  public org.quickfix.field.AvgPx getAvgPx() throws FieldNotFound 
   { org.quickfix.field.AvgPx value = new org.quickfix.field.AvgPx(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.OrdRejReason value) 
+  public void set(org.quickfix.field.OrdRejReason value) 
   { setField(value); } 
-  org.quickfix.field.OrdRejReason get(org.quickfix.field.OrdRejReason value) throws FieldNotFound 
+  public org.quickfix.field.OrdRejReason get(org.quickfix.field.OrdRejReason value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.OrdRejReason getOrdRejReason() throws FieldNotFound 
+  public org.quickfix.field.OrdRejReason getOrdRejReason() throws FieldNotFound 
   { org.quickfix.field.OrdRejReason value = new org.quickfix.field.OrdRejReason(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.Text value) 
+  public void set(org.quickfix.field.Text value) 
   { setField(value); } 
-  org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound 
+  public org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.Text getText() throws FieldNotFound 
+  public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.EncodedTextLen value) 
+  public void set(org.quickfix.field.EncodedTextLen value) 
   { setField(value); } 
-  org.quickfix.field.EncodedTextLen get(org.quickfix.field.EncodedTextLen value) throws FieldNotFound 
+  public org.quickfix.field.EncodedTextLen get(org.quickfix.field.EncodedTextLen value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.EncodedTextLen getEncodedTextLen() throws FieldNotFound 
+  public org.quickfix.field.EncodedTextLen getEncodedTextLen() throws FieldNotFound 
   { org.quickfix.field.EncodedTextLen value = new org.quickfix.field.EncodedTextLen(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.EncodedText value) 
+  public void set(org.quickfix.field.EncodedText value) 
   { setField(value); } 
-  org.quickfix.field.EncodedText get(org.quickfix.field.EncodedText value) throws FieldNotFound 
+  public org.quickfix.field.EncodedText get(org.quickfix.field.EncodedText value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.EncodedText getEncodedText() throws FieldNotFound 
+  public org.quickfix.field.EncodedText getEncodedText() throws FieldNotFound 
   { org.quickfix.field.EncodedText value = new org.quickfix.field.EncodedText(); 
     getField(value); return value; } 
 

@@ -97,39 +97,39 @@ public class Allocation extends Message
     return value;  
   } 
 
-public class NoOrders extends Group { 
+public static class NoOrders extends Group { 
   public NoOrders() { 
     super(73,11, new int[]{11,37,66,105,0}); 
   } 
-  void set(org.quickfix.field.ClOrdID value) 
+  public void set(org.quickfix.field.ClOrdID value) 
   { setField(value); } 
-  org.quickfix.field.ClOrdID get(org.quickfix.field.ClOrdID value) throws FieldNotFound 
+  public org.quickfix.field.ClOrdID get(org.quickfix.field.ClOrdID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
+  public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.OrderID value) 
+  public void set(org.quickfix.field.OrderID value) 
   { setField(value); } 
-  org.quickfix.field.OrderID get(org.quickfix.field.OrderID value) throws FieldNotFound 
+  public org.quickfix.field.OrderID get(org.quickfix.field.OrderID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.OrderID getOrderID() throws FieldNotFound 
+  public org.quickfix.field.OrderID getOrderID() throws FieldNotFound 
   { org.quickfix.field.OrderID value = new org.quickfix.field.OrderID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.ListID value) 
+  public void set(org.quickfix.field.ListID value) 
   { setField(value); } 
-  org.quickfix.field.ListID get(org.quickfix.field.ListID value) throws FieldNotFound 
+  public org.quickfix.field.ListID get(org.quickfix.field.ListID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ListID getListID() throws FieldNotFound 
+  public org.quickfix.field.ListID getListID() throws FieldNotFound 
   { org.quickfix.field.ListID value = new org.quickfix.field.ListID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.WaveNo value) 
+  public void set(org.quickfix.field.WaveNo value) 
   { setField(value); } 
-  org.quickfix.field.WaveNo get(org.quickfix.field.WaveNo value) throws FieldNotFound 
+  public org.quickfix.field.WaveNo get(org.quickfix.field.WaveNo value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.WaveNo getWaveNo() throws FieldNotFound 
+  public org.quickfix.field.WaveNo getWaveNo() throws FieldNotFound 
   { org.quickfix.field.WaveNo value = new org.quickfix.field.WaveNo(); 
     getField(value); return value; } 
 
@@ -151,39 +151,39 @@ public class NoOrders extends Group {
     return value;  
   } 
 
-public class NoExecs extends Group { 
+public static class NoExecs extends Group { 
   public NoExecs() { 
     super(124,17, new int[]{17,32,31,30,0}); 
   } 
-  void set(org.quickfix.field.ExecID value) 
+  public void set(org.quickfix.field.ExecID value) 
   { setField(value); } 
-  org.quickfix.field.ExecID get(org.quickfix.field.ExecID value) throws FieldNotFound 
+  public org.quickfix.field.ExecID get(org.quickfix.field.ExecID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ExecID getExecID() throws FieldNotFound 
+  public org.quickfix.field.ExecID getExecID() throws FieldNotFound 
   { org.quickfix.field.ExecID value = new org.quickfix.field.ExecID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.LastShares value) 
+  public void set(org.quickfix.field.LastShares value) 
   { setField(value); } 
-  org.quickfix.field.LastShares get(org.quickfix.field.LastShares value) throws FieldNotFound 
+  public org.quickfix.field.LastShares get(org.quickfix.field.LastShares value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.LastShares getLastShares() throws FieldNotFound 
+  public org.quickfix.field.LastShares getLastShares() throws FieldNotFound 
   { org.quickfix.field.LastShares value = new org.quickfix.field.LastShares(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.LastPx value) 
+  public void set(org.quickfix.field.LastPx value) 
   { setField(value); } 
-  org.quickfix.field.LastPx get(org.quickfix.field.LastPx value) throws FieldNotFound 
+  public org.quickfix.field.LastPx get(org.quickfix.field.LastPx value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.LastPx getLastPx() throws FieldNotFound 
+  public org.quickfix.field.LastPx getLastPx() throws FieldNotFound 
   { org.quickfix.field.LastPx value = new org.quickfix.field.LastPx(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.LastMkt value) 
+  public void set(org.quickfix.field.LastMkt value) 
   { setField(value); } 
-  org.quickfix.field.LastMkt get(org.quickfix.field.LastMkt value) throws FieldNotFound 
+  public org.quickfix.field.LastMkt get(org.quickfix.field.LastMkt value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.LastMkt getLastMkt() throws FieldNotFound 
+  public org.quickfix.field.LastMkt getLastMkt() throws FieldNotFound 
   { org.quickfix.field.LastMkt value = new org.quickfix.field.LastMkt(); 
     getField(value); return value; } 
 
@@ -461,31 +461,31 @@ public class NoExecs extends Group {
     return value;  
   } 
 
-public class NoMiscFees extends Group { 
+public static class NoMiscFees extends Group { 
   public NoMiscFees() { 
     super(136,137, new int[]{137,138,139,0}); 
   } 
-  void set(org.quickfix.field.MiscFeeAmt value) 
+  public void set(org.quickfix.field.MiscFeeAmt value) 
   { setField(value); } 
-  org.quickfix.field.MiscFeeAmt get(org.quickfix.field.MiscFeeAmt value) throws FieldNotFound 
+  public org.quickfix.field.MiscFeeAmt get(org.quickfix.field.MiscFeeAmt value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.MiscFeeAmt getMiscFeeAmt() throws FieldNotFound 
+  public org.quickfix.field.MiscFeeAmt getMiscFeeAmt() throws FieldNotFound 
   { org.quickfix.field.MiscFeeAmt value = new org.quickfix.field.MiscFeeAmt(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.MiscFeeCurr value) 
+  public void set(org.quickfix.field.MiscFeeCurr value) 
   { setField(value); } 
-  org.quickfix.field.MiscFeeCurr get(org.quickfix.field.MiscFeeCurr value) throws FieldNotFound 
+  public org.quickfix.field.MiscFeeCurr get(org.quickfix.field.MiscFeeCurr value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.MiscFeeCurr getMiscFeeCurr() throws FieldNotFound 
+  public org.quickfix.field.MiscFeeCurr getMiscFeeCurr() throws FieldNotFound 
   { org.quickfix.field.MiscFeeCurr value = new org.quickfix.field.MiscFeeCurr(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.MiscFeeType value) 
+  public void set(org.quickfix.field.MiscFeeType value) 
   { setField(value); } 
-  org.quickfix.field.MiscFeeType get(org.quickfix.field.MiscFeeType value) throws FieldNotFound 
+  public org.quickfix.field.MiscFeeType get(org.quickfix.field.MiscFeeType value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.MiscFeeType getMiscFeeType() throws FieldNotFound 
+  public org.quickfix.field.MiscFeeType getMiscFeeType() throws FieldNotFound 
   { org.quickfix.field.MiscFeeType value = new org.quickfix.field.MiscFeeType(); 
     getField(value); return value; } 
 
@@ -571,92 +571,92 @@ public class NoMiscFees extends Group {
     return value;  
   } 
 
-public class NoAllocs extends Group { 
+public static class NoAllocs extends Group { 
   public NoAllocs() { 
     super(78,79, new int[]{79,80,81,76,109,12,13,85,0}); 
   } 
-  void set(org.quickfix.field.AllocAccount value) 
+  public void set(org.quickfix.field.AllocAccount value) 
   { setField(value); } 
-  org.quickfix.field.AllocAccount get(org.quickfix.field.AllocAccount value) throws FieldNotFound 
+  public org.quickfix.field.AllocAccount get(org.quickfix.field.AllocAccount value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.AllocAccount getAllocAccount() throws FieldNotFound 
+  public org.quickfix.field.AllocAccount getAllocAccount() throws FieldNotFound 
   { org.quickfix.field.AllocAccount value = new org.quickfix.field.AllocAccount(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.AllocShares value) 
+  public void set(org.quickfix.field.AllocShares value) 
   { setField(value); } 
-  org.quickfix.field.AllocShares get(org.quickfix.field.AllocShares value) throws FieldNotFound 
+  public org.quickfix.field.AllocShares get(org.quickfix.field.AllocShares value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.AllocShares getAllocShares() throws FieldNotFound 
+  public org.quickfix.field.AllocShares getAllocShares() throws FieldNotFound 
   { org.quickfix.field.AllocShares value = new org.quickfix.field.AllocShares(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.ProcessCode value) 
+  public void set(org.quickfix.field.ProcessCode value) 
   { setField(value); } 
-  org.quickfix.field.ProcessCode get(org.quickfix.field.ProcessCode value) throws FieldNotFound 
+  public org.quickfix.field.ProcessCode get(org.quickfix.field.ProcessCode value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ProcessCode getProcessCode() throws FieldNotFound 
+  public org.quickfix.field.ProcessCode getProcessCode() throws FieldNotFound 
   { org.quickfix.field.ProcessCode value = new org.quickfix.field.ProcessCode(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.ExecBroker value) 
+  public void set(org.quickfix.field.ExecBroker value) 
   { setField(value); } 
-  org.quickfix.field.ExecBroker get(org.quickfix.field.ExecBroker value) throws FieldNotFound 
+  public org.quickfix.field.ExecBroker get(org.quickfix.field.ExecBroker value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ExecBroker getExecBroker() throws FieldNotFound 
+  public org.quickfix.field.ExecBroker getExecBroker() throws FieldNotFound 
   { org.quickfix.field.ExecBroker value = new org.quickfix.field.ExecBroker(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.ClientID value) 
+  public void set(org.quickfix.field.ClientID value) 
   { setField(value); } 
-  org.quickfix.field.ClientID get(org.quickfix.field.ClientID value) throws FieldNotFound 
+  public org.quickfix.field.ClientID get(org.quickfix.field.ClientID value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.ClientID getClientID() throws FieldNotFound 
+  public org.quickfix.field.ClientID getClientID() throws FieldNotFound 
   { org.quickfix.field.ClientID value = new org.quickfix.field.ClientID(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.Commission value) 
+  public void set(org.quickfix.field.Commission value) 
   { setField(value); } 
-  org.quickfix.field.Commission get(org.quickfix.field.Commission value) throws FieldNotFound 
+  public org.quickfix.field.Commission get(org.quickfix.field.Commission value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.Commission getCommission() throws FieldNotFound 
+  public org.quickfix.field.Commission getCommission() throws FieldNotFound 
   { org.quickfix.field.Commission value = new org.quickfix.field.Commission(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.CommType value) 
+  public void set(org.quickfix.field.CommType value) 
   { setField(value); } 
-  org.quickfix.field.CommType get(org.quickfix.field.CommType value) throws FieldNotFound 
+  public org.quickfix.field.CommType get(org.quickfix.field.CommType value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.CommType getCommType() throws FieldNotFound 
+  public org.quickfix.field.CommType getCommType() throws FieldNotFound 
   { org.quickfix.field.CommType value = new org.quickfix.field.CommType(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.NoDlvyInst value) 
+  public void set(org.quickfix.field.NoDlvyInst value) 
   { setField(value); } 
-  org.quickfix.field.NoDlvyInst get(org.quickfix.field.NoDlvyInst value) throws FieldNotFound 
+  public org.quickfix.field.NoDlvyInst get(org.quickfix.field.NoDlvyInst value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.NoDlvyInst getNoDlvyInst() throws FieldNotFound 
+  public org.quickfix.field.NoDlvyInst getNoDlvyInst() throws FieldNotFound 
   { org.quickfix.field.NoDlvyInst value = new org.quickfix.field.NoDlvyInst(); 
     getField(value); return value; } 
 
 
-public class NoDlvyInst extends Group { 
+public static class NoDlvyInst extends Group { 
   public NoDlvyInst() { 
     super(85,92, new int[]{92,86,0}); 
   } 
-  void set(org.quickfix.field.BrokerOfCredit value) 
+  public void set(org.quickfix.field.BrokerOfCredit value) 
   { setField(value); } 
-  org.quickfix.field.BrokerOfCredit get(org.quickfix.field.BrokerOfCredit value) throws FieldNotFound 
+  public org.quickfix.field.BrokerOfCredit get(org.quickfix.field.BrokerOfCredit value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.BrokerOfCredit getBrokerOfCredit() throws FieldNotFound 
+  public org.quickfix.field.BrokerOfCredit getBrokerOfCredit() throws FieldNotFound 
   { org.quickfix.field.BrokerOfCredit value = new org.quickfix.field.BrokerOfCredit(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.DlvyInst value) 
+  public void set(org.quickfix.field.DlvyInst value) 
   { setField(value); } 
-  org.quickfix.field.DlvyInst get(org.quickfix.field.DlvyInst value) throws FieldNotFound 
+  public org.quickfix.field.DlvyInst get(org.quickfix.field.DlvyInst value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.DlvyInst getDlvyInst() throws FieldNotFound 
+  public org.quickfix.field.DlvyInst getDlvyInst() throws FieldNotFound 
   { org.quickfix.field.DlvyInst value = new org.quickfix.field.DlvyInst(); 
     getField(value); return value; } 
 

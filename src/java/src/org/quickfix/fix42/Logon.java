@@ -131,23 +131,23 @@ public class Logon extends Message
     return value;  
   } 
 
-public class NoMsgTypes extends Group { 
+public static class NoMsgTypes extends Group { 
   public NoMsgTypes() { 
     super(384,372, new int[]{372,385,0}); 
   } 
-  void set(org.quickfix.field.RefMsgType value) 
+  public void set(org.quickfix.field.RefMsgType value) 
   { setField(value); } 
-  org.quickfix.field.RefMsgType get(org.quickfix.field.RefMsgType value) throws FieldNotFound 
+  public org.quickfix.field.RefMsgType get(org.quickfix.field.RefMsgType value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.RefMsgType getRefMsgType() throws FieldNotFound 
+  public org.quickfix.field.RefMsgType getRefMsgType() throws FieldNotFound 
   { org.quickfix.field.RefMsgType value = new org.quickfix.field.RefMsgType(); 
     getField(value); return value; } 
 
-  void set(org.quickfix.field.MsgDirection value) 
+  public void set(org.quickfix.field.MsgDirection value) 
   { setField(value); } 
-  org.quickfix.field.MsgDirection get(org.quickfix.field.MsgDirection value) throws FieldNotFound 
+  public org.quickfix.field.MsgDirection get(org.quickfix.field.MsgDirection value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.MsgDirection getMsgDirection() throws FieldNotFound 
+  public org.quickfix.field.MsgDirection getMsgDirection() throws FieldNotFound 
   { org.quickfix.field.MsgDirection value = new org.quickfix.field.MsgDirection(); 
     getField(value); return value; } 
 

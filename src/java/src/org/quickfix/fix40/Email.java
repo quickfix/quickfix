@@ -115,15 +115,15 @@ public class Email extends Message
     return value;  
   } 
 
-public class LinesOfText extends Group { 
+public static class LinesOfText extends Group { 
   public LinesOfText() { 
     super(33,58, new int[]{58,0}); 
   } 
-  void set(org.quickfix.field.Text value) 
+  public void set(org.quickfix.field.Text value) 
   { setField(value); } 
-  org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound 
+  public org.quickfix.field.Text get(org.quickfix.field.Text value) throws FieldNotFound 
   { getField(value); return value; } 
-  org.quickfix.field.Text getText() throws FieldNotFound 
+  public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
 
