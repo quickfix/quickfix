@@ -14,6 +14,7 @@ AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 AM_PROG_LEX
 
+AC_DEFINE(__FD_SETSIZE, 4096, Maximum socket for select call for older versions of linux)
 AC_DEFINE(FD_SETSIZE, 4096, Maximum socket for select call)
 
 ########################################
