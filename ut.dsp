@@ -42,7 +42,7 @@ RSC=rc.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I "./" /I "./src" /I "./src/c++" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /I /src/socket" " /c
+# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I "./" /I "./src" /I "./src/c++" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /Zm200 /I /src/socket" " /c
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -67,7 +67,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "./" /I "./src" /I "./src/c++" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /I /src/socket" /GZ " /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "./" /I "./src" /I "./src/c++" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX"stdafx.h" /FD /Zm200 /I /src/socket" /GZ " /c
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe

@@ -41,7 +41,7 @@ RSC=rc.exe
 # PROP Intermediate_Dir "Release"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX"stdafx.h" /FD /c
+# ADD CPP /nologo /MD /W3 /GR /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX"stdafx.h" /FD /Zm200 /c
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
 BSC32=bscmake.exe
@@ -64,7 +64,7 @@ LIB32=link.exe -lib
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "../" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX"stdafx.h" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "../" /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX"stdafx.h" /FD /Zm200 /GZ /c
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
 BSC32=bscmake.exe
@@ -98,6 +98,10 @@ SOURCE=".\src\C++\Dictionary.cpp"
 # Begin Source File
 
 SOURCE=".\src\C++\Initiator.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\MSXML_DOMDocument.cpp"
 # End Source File
 # Begin Source File
 
@@ -256,6 +260,28 @@ InputName=Dictionary
 # Begin Custom Build
 InputPath=".\src\C++\Dictionary.h"
 InputName=Dictionary
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\DOMDocument.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\DOMDocument.h"
+InputName=DOMDocument
 
 "include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
@@ -434,6 +460,28 @@ InputName=Initiator
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\MSXML_DOMDocument.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\MSXML_DOMDocument.h"
+InputName=MSXML_DOMDocument
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\Mutex.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
@@ -520,39 +568,6 @@ InputName=Queue
 # Begin Custom Build
 InputPath=".\src\C++\Queue.h"
 InputName=Queue
-
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
-	
-# End Custom Build
-
-!ENDIF 
-
-# End Source File
-# Begin Source File
-
-SOURCE=".\src\C++\SAXContentHandler.h"
-
-!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
-
-# Begin Custom Build
-InputPath=".\src\C++\SAXContentHandler.h"
-InputName=SAXContentHandler
-
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
-	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
-	
-# End Custom Build
-
-!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
-
-# Begin Custom Build
-InputPath=".\src\C++\SAXContentHandler.h"
-InputName=SAXContentHandler
 
 "include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
@@ -843,6 +858,72 @@ SOURCE=".\src\C++\FieldTypes.cpp"
 # Begin Group "Field Header Files"
 
 # PROP Default_Filter "*.h"
+# Begin Source File
+
+SOURCE=".\src\C++\DeprecatedFieldNumbers.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\DeprecatedFieldNumbers.h"
+InputName=DeprecatedFieldNumbers
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\DeprecatedFields.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\DeprecatedFields.h"
+InputName=DeprecatedFields
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\DeprecatedValues.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\DeprecatedValues.h"
+InputName=DeprecatedValues
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\Field.h"
@@ -1315,6 +1396,50 @@ InputName=FIX42_Messages
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\FIX43_MessageCracker.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\FIX43_MessageCracker.h"
+InputName=FIX43_MessageCracker
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\FIX43_Messages.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\FIX43_Messages.h"
+InputName=FIX43_Messages
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\Group.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
@@ -1485,6 +1610,10 @@ InputName=MessageSorters
 # Begin Source File
 
 SOURCE=".\src\C++\DataDictionary.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\Group.cpp"
 # End Source File
 # Begin Source File
 
@@ -2016,7 +2145,7 @@ SOURCE=".\src\C++\MySQLLog.h"
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
 # Begin Custom Build
-InputPath=.\src\C++\MySQLLog.h
+InputPath=".\src\C++\MySQLLog.h"
 InputName=MySQLLog
 
 "include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"

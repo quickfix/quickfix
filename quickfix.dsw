@@ -3,21 +3,6 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "at_client"=.\at_client.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix_lib
-    End Project Dependency
-}}}
-
-###############################################################################
-
 Project: "at_server"=.\at_server.dsp - Package Owner=<4>
 
 Package=<5>
@@ -41,9 +26,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name at_client
-    End Project Dependency
     Begin Project Dependency
     Project_Dep_Name at_server
     End Project Dependency
