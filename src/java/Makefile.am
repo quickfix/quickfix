@@ -65,7 +65,7 @@ libquickfix_jni_la_SOURCES = \
 libquickfix_jni_la_LDFLAGS = -version-info 4:0:0
 libquickfix_jni_la_LIBADD = -L../../src/C++ -lquickfix -lstdc++
 
-INCLUDES = -I../C++
+INCLUDES = -I../../include
 
 ant-all:
 	./build.sh
