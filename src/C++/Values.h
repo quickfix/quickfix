@@ -1144,7 +1144,9 @@ namespace FIX
   const int SecDefStatus_APPROVED = 1;
   const int SecDefStatus_REJECTED = 2;
   const int SecDefStatus_UNAUTHORIZED_REQUEST = 3;
-  const int SecDefStatus_INVALID_DEFINITION_REQUEST = 4;
+  const int SecDefStatus_INVALID_DEFINITION_REQUEST = 4; 
+  const std::string SecurityType_OPTION = "OPT"; 
+  const std::string SecurityType_FUTURE = "FUT";
   const std::string SessionRejectReason_INVALID_TAG_NUMBER_TEXT = "Invalid tag number";
   const std::string SessionRejectReason_REQUIRED_TAG_MISSING_TEXT = "Required tag missing";
   const std::string SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT = "Tag not defined for this message type";

@@ -1685,6 +1685,9 @@ namespace QuickFix
   static const String* MULTI_LEG_INSTRUMENT = "MLEG";
   static const String* NO_SECURITY_TYPE = "NONE";
   static const String* WILDCARD = "?";
+   
+  static const String* OPTION = "OPT"; 
+  static const String* FUTURE = "FUT";
   SecurityType() : StringField(167) {}
     SecurityType(String* data) : StringField(167, data) {}
   };
