@@ -426,6 +426,9 @@ void DataDictionaryTestCase::readFromFile::onRun
   assert( delim == 299 );
   assert( pDD->isField( 55 ) );
   assert( !pDD->isField( 310 ) );
+
+  assert( object.getGroup( "y", 146, delim, pDD ) );
+  assert( delim == 55 );
 }
 
 bool DataDictionaryTestCase::copy::onSetup

@@ -359,6 +359,18 @@ void DataDictionary::readFromURL( const std::string& url )
   QF_STACK_POP
 }
 
+int DataDictionary::lookupXMLFieldNumber( DOMDocument* pDoc, DOMNode* pNode )
+{ QF_STACK_PUSH(DataDictionary::lookupXMLFieldNumber)
+
+  DOMAttributesPtr attrs = pNode->getAttributes();
+  std::string name;
+  if(!attrs->get("name", name))
+    throw ConfigError("No name given to field");
+  return lookupXMLFieldNumber( pDoc, name );
+
+  QF_STACK_POP
+}
+
 int DataDictionary::lookupXMLFieldNumber
 ( DOMDocument* pDoc, const std::string& name )
 { QF_STACK_PUSH(DataDictionary::lookupXMLFieldNumber)
@@ -371,11 +383,13 @@ int DataDictionary::lookupXMLFieldNumber
   QF_STACK_POP
 }
 
-void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
+int DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
                                             const std::string& msgtype,
                                             DataDictionary& DD,
                                             bool componentRequired )
 { QF_STACK_PUSH(DataDictionary::addXMLComponentFields)
+
+  int firstField = 0;
 
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
@@ -398,6 +412,7 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       if(!attrs->get("name", name))
         throw ConfigError("No name given to field");
       int field = lookupXMLFieldNumber(pDoc, name);
+      if( firstField == 0 ) firstField = field;
 
       std::string required;
       if(attrs->get("required", required)
@@ -413,6 +428,7 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
     RESET_AUTO_PTR(pComponentFieldNode,
       pComponentFieldNode->getNextSiblingNode());
   }
+  return firstField;
 
   QF_STACK_POP
 }
@@ -429,34 +445,27 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
 
   int group = lookupXMLFieldNumber( pDoc, name );
   int delim = 0;
+  int field = 0;
   DataDictionary groupDD;
   DOMNodePtr node = pNode->getFirstChildNode();
   while(node.get())
   {
     if( node->getName() == "field" )
     {
-      DOMAttributesPtr attrs = node->getAttributes();
-      std::string name;
-      if(!attrs->get("name", name))
-        throw ConfigError("No name given to field");
-      int field = lookupXMLFieldNumber( pDoc, name );
-      if( delim == 0 ) delim = field;
+      field = lookupXMLFieldNumber( pDoc, node.get() );
       groupDD.addField( field );
     }
     else if( node->getName() == "component" )
     {
-      addXMLComponentFields( pDoc, node.get(), msgtype, groupDD, false );
+      field = addXMLComponentFields( pDoc, node.get(), msgtype, groupDD, false );
     }
     else if( node->getName() == "group" )
     {
-      DOMAttributesPtr attrs = node->getAttributes();
-      std::string name;
-      if(!attrs->get("name", name))
-        throw ConfigError("No name given to group");
-      int field = lookupXMLFieldNumber( pDoc, name );
+      field = lookupXMLFieldNumber( pDoc, node.get() ); 
       groupDD.addField( field );
       addXMLGroup( pDoc, node.get(), msgtype, groupDD );
     }
+    if( delim == 0 ) delim = field;
     RESET_AUTO_PTR(node, node->getNextSiblingNode());
   }
 
