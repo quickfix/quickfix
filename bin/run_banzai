@@ -1,0 +1,4 @@
+#!/bin/sh
+RUN_CLASSPATH=../lib/banzai.jar:../lib/quickfix.jar:../lib/log4j.jar
+
+java -cp $RUN_CLASSPATH -Djava.library.path=../lib: Banzai
