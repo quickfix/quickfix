@@ -71,12 +71,21 @@ public:
   }
   ~ScreenLog() { delete m_pUnmanaged; }
 
-  void onIncoming( String* s )
-  { m_pUnmanaged->onIncoming( createUnmanagedString( s ) ); }
+    void onIncoming( String* s )
+  { char* us = createUnmanagedString( s );
+    m_pUnmanaged->onIncoming( us ); 
+    destroyUnmanagedString( us );
+  }
   void onOutgoing( String* s )
-  { m_pUnmanaged->onOutgoing( createUnmanagedString( s ) ); }
+  { char* us = createUnmanagedString( s );
+    m_pUnmanaged->onOutgoing( us ); 
+    destroyUnmanagedString( us );
+  }
   void onEvent( String* s )
-  { m_pUnmanaged->onEvent( createUnmanagedString( s ) ); }
+  { char* us = createUnmanagedString( s );
+    m_pUnmanaged->onEvent( us ); 
+    destroyUnmanagedString( us );
+  }
 
 private:
   FIX::ScreenLog* m_pUnmanaged;

@@ -66,17 +66,28 @@ public __gc class FileLog : public Log
 public:
   FileLog( String* path, SessionID* sessionID )
   {
+    char* upath = createUnmanagedString( path );
     m_pUnmanaged = new FIX::FileLog
-                   ( createUnmanagedString( path ), sessionID->unmanaged() );
+                   ( upath, sessionID->unmanaged() );
+    destroyUnmanagedString( upath );
   }
   ~FileLog() { delete m_pUnmanaged; }
 
   void onIncoming( String* s )
-  { m_pUnmanaged->onIncoming( createUnmanagedString( s ) ); }
+  { char* us = createUnmanagedString( s );
+    m_pUnmanaged->onIncoming( us ); 
+    destroyUnmanagedString( us );
+  }
   void onOutgoing( String* s )
-  { m_pUnmanaged->onOutgoing( createUnmanagedString( s ) ); }
+  { char* us = createUnmanagedString( s );
+    m_pUnmanaged->onOutgoing( us ); 
+    destroyUnmanagedString( us );
+  }
   void onEvent( String* s )
-  { m_pUnmanaged->onEvent( createUnmanagedString( s ) ); }
+  { char* us = createUnmanagedString( s );
+    m_pUnmanaged->onEvent( us ); 
+    destroyUnmanagedString( us );
+  }
 
 private:
   FIX::FileLog* m_pUnmanaged;

@@ -114,7 +114,9 @@ MessageStore( Fix::MessageStore* store ) : m_store( store ) {}
       while ( e->MoveNext() )
       {
         String * message = dynamic_cast < String* > ( e->get_Current() );
-        messages.push_back( Fix::createUnmanagedString( message ) );
+        char* umessage = Fix::createUnmanagedString( message );
+        messages.push_back( umessage );
+        Fix::destroyUnmanagedString( umessage );
       }
     }
     catch ( IOException * e )

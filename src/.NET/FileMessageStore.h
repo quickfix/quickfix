@@ -75,7 +75,10 @@ public:
   bool set( int sequence, String* message ) throw ( IOException* )
   {
     try
-    { return m_pUnmanaged->set( sequence, createUnmanagedString( message ) ); }
+    { char* umessage = createUnmanagedString( message );
+      return m_pUnmanaged->set( sequence, umessage ); 
+      destroyUnmanagedString( umessage );
+    }
     catch ( FIX::IOException& )
     { throw new IOException(); }
   }
