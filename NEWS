@@ -66,7 +66,7 @@ compressed fields.  Out of necessity, FIX parser uses the length field
 instead of just looking for 10=SOH. This means behavior will be slightly
 different when receiving messages with an incorrect length.
 
-Acceptor and Initiator start() method is not a non-blocking call. onRun
+Acceptor and Initiator start() method is a non-blocking call. onRun
 is no longer called in your application.  Instead you must call stop on
 your initiator or acceptor when you want it to shut down.
 
