@@ -104,7 +104,6 @@ public:
   /// Set a field without type checking
   void FieldMap::setField( const FieldBase& field )
   {
-    m_fields.erase( field.getField() );
     m_fields.insert( std::make_pair( field.getField(), field ) );
   }
   /// Set a field without a field class
@@ -135,15 +134,11 @@ public:
 
   /**
    * Check to see if a field is set
-   * If a field has been set on the map at least once, this will
-   * return true.
    */
   bool FieldMap::isSetField( const FieldBase& field ) const
   { return m_fields.find( field.getField() ) != m_fields.end(); }
   /**
    * Check to see if a field is set by referencing its number
-   * If a field has been set on the map at least once, this will
-   * return true.
    */
   bool FieldMap::isSetField( int field ) const
   { return m_fields.find( field ) != m_fields.end(); }
