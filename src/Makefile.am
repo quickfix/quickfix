@@ -12,10 +12,6 @@ pt_SOURCES = pt.cpp
 
 EXTRA_DIST = getopt.c getopt-repl.h
 
-at_LDFLAGS = -static
-ut_LDFLAGS = -static
-pt_LDFLAGS = -static
-
 at_LDADD = C++/libquickfix.la
 ut_LDADD = C++/test/libquickfixcpptest.la C++/libquickfix.la
 pt_LDADD = C++/libquickfix.la
@@ -30,4 +26,4 @@ all-local:
 	./build.sh
 
 clean-local:
-	rm -f *.class
+	./build.sh clean

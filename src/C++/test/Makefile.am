@@ -40,6 +40,4 @@ libquickfixcpptest_la_SOURCES = \
 	DataDictionaryTestCase.h \
 	MemoryStoreTestCase.h
 
-libquickfixcpptest_la_LDFLAGS = -static
-
 INCLUDES = -I.. -I../.. -I../../..

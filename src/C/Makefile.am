@@ -3,6 +3,4 @@ libquickfixapi_la_SOURCES = \
 	quickfix_api.cpp \
 	quickfix_api.h
 
-libquickfixapi_la_LDFLAGS = -static
-
 INCLUDES = -I.. -I../.. -I../../.. -I../C++

@@ -95,6 +95,7 @@ libquickfix_la_SOURCES = \
 	FIX42_MessageCracker.h \
 	FIX43_MessageCracker.h \
 	MessageCracker.h \
+	Responder.h \
 	CallStack.h \
 	CallStack.cpp
 

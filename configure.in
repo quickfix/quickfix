@@ -1,16 +1,15 @@
-dnl I got a big bag of -*- Sh -*- for you right here
 # Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/ut.cpp)
 AM_INIT_AUTOMAKE(quickfix, 1.4.1)
 AM_CONFIG_HEADER(config.h)
-# AM_DISABLE_SHARED
+AM_DISABLE_STATIC
 
 # Checks for programs.
 AC_PROG_CXX()
 AC_PROG_CC()
 # AC_PROG_RANLIB
-#AC_DISABLE_SHARED
+AC_DISABLE_STATIC
 AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 AM_PROG_LEX
