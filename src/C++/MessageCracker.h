@@ -54,6 +54,7 @@
 #include "FIX40_MessageCracker.h"
 #include "FIX41_MessageCracker.h"
 #include "FIX42_MessageCracker.h"
+#include "FIX43_MessageCracker.h"
 #include "Values.h"
 
 namespace FIX
@@ -61,7 +62,8 @@ namespace FIX
 class MessageCracker
       : public FIX40::MessageCracker,
       public FIX41::MessageCracker,
-      public FIX42::MessageCracker
+      public FIX42::MessageCracker,
+      public FIX43::MessageCracker
 {
 public:
   void crack( const Message& message,
@@ -83,6 +85,11 @@ public:
     {
       ( ( FIX42::MessageCracker& ) ( *this ) )
       .crack( ( FIX42::Message& ) message, sessionID );
+    }
+    else if ( beginString == BeginString_FIX43 )
+    {
+      ( ( FIX43::MessageCracker& ) ( *this ) )
+      .crack( ( FIX43::Message& ) message, sessionID );
     }
   }
 };
