@@ -88,6 +88,7 @@ namespace FIX
     virtual ~DOMDocument() {}
 
     virtual bool load( std::istream& ) = 0;
+    virtual bool load( const std::string& ) = 0;
     virtual bool xml( std::ostream& ) = 0;
 
     virtual std::auto_ptr<DOMNode> getNode( const std::string& ) = 0;

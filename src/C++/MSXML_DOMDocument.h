@@ -100,6 +100,7 @@ namespace FIX
     ~MSXML_DOMDocument();
 
     bool load( std::istream& );
+    bool load( const std::string& );
     bool xml( std::ostream& );
 
     DOMNodePtr getNode( const std::string& );

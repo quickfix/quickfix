@@ -148,6 +148,21 @@ namespace FIX
     catch( ... ) { return false; }
   }
 
+  bool MSXML_DOMDocument::load( const std::string& url )
+  {
+    try
+    {
+      m_pDoc->put_async(VARIANT_FALSE);
+      m_pDoc->put_resolveExternals(VARIANT_FALSE);
+      m_pDoc->setProperty(_bstr_t("SelectionLanguage"), _variant_t("XPath"));
+
+      VARIANT_BOOL success = FALSE;
+      m_pDoc->load(_variant_t(url.c_str()), &success);
+      return success != TRUE;
+    }
+    catch( ... ) { return false; }
+  }
+
   bool MSXML_DOMDocument::xml( std::ostream& out )
   {
     try
