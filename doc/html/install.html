@@ -247,6 +247,17 @@
       <FONT color="#0000FF">--enable-callstack</FONT> - Display C++ call stack after abnormal termination. Only use this when trying to track down a repeatable problem.<br>
     </p>
     <p>
+      If you are using the SUNPro compiler, you will need to set the following environment variables:<br/><br/>
+      <b>CC</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>CFLAGS</b>=<i>-g -xs</i><br/>
+      <b>CXX</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>CXXFLAGS</b>=<i>-g -xs</i><br/>
+      <b>LD</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>LDFLAGS</b>=<i>-g -xs -lCstd</i><br/>
+      <b>AR</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>AR_FLAGS</b>=<i>-g -xs -xar -o</i><br/>
+    </p>
+    <p>
       After succesfully building QuickFIX, you should run <B>make install</B> as root.
       This will place the library <I>libquickfix.so</I> and <I>libquickfix_jni.so</I> if java is
       detected, and the quickfix header files into the appropriate directories.  If you do not
