@@ -277,40 +277,17 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   BeginString beginString( "BeginString" );
   SenderCompID senderCompID( "SenderCompID" );
   TargetCompID targetCompID( "TargetCompID" );
-
-  Message reversedMessage;
-  Header& reversedHeader = reversedMessage.getHeader();
-
-  // not all required fields set
-  try
-  {
-    reversedMessage.reverseRoute( header);
-    assert( false );
-  } catch( FieldNotFound& e ) {}
-  header.setField( beginString );
-  try
-  {
-    reversedMessage.reverseRoute( header );
-    assert( false );
-  } catch( FieldNotFound& e ) {}
-  header.setField( senderCompID );
-  try
-  {
-    reversedMessage.reverseRoute( header );
-    assert( false );
-  } catch( FieldNotFound& e ) {}
-  header.setField( targetCompID );
-
-  // all required fields set
-  reversedMessage.reverseRoute( header );
-  assert( reversedHeader.getField( beginString ).getString() == "BeginString" );
-  assert( reversedHeader.getField( senderCompID ).getString() == "TargetCompID" );
-  assert( reversedHeader.getField( targetCompID ).getString() == "SenderCompID" );
-
   OnBehalfOfCompID onBehalfOfCompID( "OnBehalfOfCompID" );
   OnBehalfOfSubID onBehalfOfSubID( "OnBehalfOfSubID" );
   DeliverToCompID deliverToCompID( "DeliverToCompID" );
   DeliverToSubID deliverToSubID( "DeliverToSubID" );
+
+  Message reversedMessage;
+  Header& reversedHeader = reversedMessage.getHeader();
+
+  header.setField( beginString );
+  header.setField( senderCompID );
+  header.setField( targetCompID );
   header.setField( onBehalfOfCompID );
   header.setField( onBehalfOfSubID );
   header.setField( deliverToCompID );

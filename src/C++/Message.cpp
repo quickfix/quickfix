@@ -103,7 +103,6 @@ bool Message::InitializeXML( const std::string& url )
 }
 	
 void Message::reverseRoute( const Header& header )
-throw( FieldNotFound& )
 { QF_STACK_PUSH(Message::reverseRoute)
 
   // required routing tags
@@ -111,13 +110,23 @@ throw( FieldNotFound& )
   SenderCompID senderCompID;
   TargetCompID targetCompID;
 
-  header.getField( beginString );
-  header.getField( senderCompID );
-  header.getField( targetCompID );
+  if( header.isSetField( beginString ) )
+  {
+    m_header.setField( beginString );
+    header.getField( beginString );
+  }
 
-  m_header.setField( beginString );
-  m_header.setField( TargetCompID( senderCompID ) );
-  m_header.setField( SenderCompID( targetCompID ) );
+  if( header.isSetField( senderCompID ) )
+  {
+    m_header.setField( TargetCompID( senderCompID ) );
+    header.getField( senderCompID );
+  }
+
+  if( header.isSetField( targetCompID ) )
+  {
+    m_header.setField( SenderCompID( targetCompID ) );
+    header.getField( targetCompID );
+  }
 
   // optional routing tags
   OnBehalfOfCompID onBehalfOfCompID;

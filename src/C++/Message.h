@@ -146,8 +146,7 @@ public:
    * This can be used to add routing informations like OnBehalfOfCompID
    * and DeliverToCompID to a message.
    */
-  void Message::reverseRoute( const Header& )
-  throw( FieldNotFound& );
+  void Message::reverseRoute( const Header& );
 
   /**
    * Set a message based on a string representation
