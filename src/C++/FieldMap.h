@@ -86,17 +86,17 @@ public:
 
   FieldMap( const message_order& order =
               message_order( message_order::normal ) )
-: m_fields( order ) {}
+  : m_fields( order ) {}
 
-  FieldMap( int size, const int order[] )
-: m_fields( message_order(size, order) ) {}
+  FieldMap( const int order[] )
+  : m_fields( message_order(order) ) {}
 
   FieldMap( const FieldMap& copy )
   {
     *this = copy;
   }
 
-  virtual ~FieldMap() { clear(); }
+  virtual ~FieldMap() {	clear(); }
 
   FieldMap& operator=( const FieldMap& rhs )
   {
