@@ -88,7 +88,7 @@ public:
     }
   }
   /// Set a field without a field class
-  void FieldMap::setField( int field, const std::string value )
+  void FieldMap::setField( int field, const std::string& value )
   {
     FieldBase fieldBase( field, value );
     setField( fieldBase );
