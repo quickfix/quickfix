@@ -188,8 +188,8 @@ void JavaApplication::onRun()
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
   pEnv->CallVoidMethod( m_object, onRunId );
-  JVM::get() ->DetachCurrentThread();
   handleException( pEnv, e );
+  JVM::get() ->DetachCurrentThread();
 };
 
 void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
