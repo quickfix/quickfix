@@ -149,6 +149,7 @@ public:
   long getExpectedTargetNum() { return m_state.getNextTargetMsgSeqNum(); }
 
   Log* getLog() { return &m_state; }
+  const MessageStore* getStore() { return &m_state; }
 
 private:
   typedef std::map < SessionID, Session* > Sessions;
