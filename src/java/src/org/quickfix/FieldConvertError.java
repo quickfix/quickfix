@@ -51,7 +51,7 @@ package org.quickfix;
 
 public class FieldConvertError extends Exception {
 
-    public FieldConvertError() {
-        super("Could not convert field");
+    public FieldConvertError(String s) {
+		super(s);
     }
 }
