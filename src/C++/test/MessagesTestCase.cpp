@@ -86,7 +86,7 @@ void MessageTestCase::isApp::onRun( Message& object )
 
 void MessageTestCase::setString::onRun( Message& object )
 {
-  static const char * strGood =
+  static const char* strGood =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\00110=218\001";
   static const char* strNoChk =

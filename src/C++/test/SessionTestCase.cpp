@@ -40,7 +40,7 @@ namespace FIX
 {
 using namespace FIX42;
 
-void fillHeader( Header& header, char* sender, char* target, int seq )
+void fillHeader( Header& header, const char* sender, const char* target, int seq )
 {
   header.setField( SenderCompID( sender ) );
   header.setField( TargetCompID( target ) );
@@ -48,28 +48,28 @@ void fillHeader( Header& header, char* sender, char* target, int seq )
   header.setField( MsgSeqNum( seq ) );
 }
 
-Logon createLogon( char* sender, char* target, int seq )
+Logon createLogon( const char* sender, const char* target, int seq )
 {
   Logon logon( EncryptMethod( 0 ), HeartBtInt( 30 ) );
   fillHeader( logon.getHeader(), sender, target, seq );
   return logon;
 }
 
-Logout createLogout( char* sender, char* target, int seq )
+Logout createLogout( const char* sender, const char* target, int seq )
 {
   Logout logout;
   fillHeader( logout.getHeader(), sender, target, seq );
   return logout;
 }
 
-Heartbeat createHeartbeat( char* sender, char* target, int seq )
+Heartbeat createHeartbeat( const char* sender, const char* target, int seq )
 {
   Heartbeat heartbeat;
   fillHeader( heartbeat.getHeader(), sender, target, seq );
   return heartbeat;
 }
 
-TestRequest createTestRequest( char* sender, char* target, int seq, char* id )
+TestRequest createTestRequest( const char* sender, const char* target, int seq, char* id )
 {
   TestRequest testRequest;
   testRequest.set( TestReqID( id ) );
@@ -77,7 +77,7 @@ TestRequest createTestRequest( char* sender, char* target, int seq, char* id )
   return testRequest;
 }
 
-SequenceReset createSequenceReset( char* sender, char* target, int seq, int newSeq )
+SequenceReset createSequenceReset( const char* sender, const char* target, int seq, int newSeq )
 {
   SequenceReset sequenceReset;
   sequenceReset.set( NewSeqNo( newSeq ) );
@@ -85,7 +85,7 @@ SequenceReset createSequenceReset( char* sender, char* target, int seq, int newS
   return sequenceReset;
 }
 
-ResendRequest createResendRequest( char* sender, char* target, int seq, int begin, int end )
+ResendRequest createResendRequest( const char* sender, const char* target, int seq, int begin, int end )
 {
   ResendRequest resendRequest;
   resendRequest.set( BeginSeqNo( begin ) );
@@ -94,7 +94,7 @@ ResendRequest createResendRequest( char* sender, char* target, int seq, int begi
   return resendRequest;
 }
 
-Reject createReject( char* sender, char* target, int seq, int refSeq )
+Reject createReject( const char* sender, const char* target, int seq, int refSeq )
 {
   Reject reject;
   reject.set( RefSeqNum( refSeq ) );
@@ -102,7 +102,7 @@ Reject createReject( char* sender, char* target, int seq, int refSeq )
   return reject;
 }
 
-TestRequest createNewOrderSingle( char* sender, char* target, int seq )
+NewOrderSingle createNewOrderSingle( const char* sender, const char* target, int seq )
 {
   NewOrderSingle newOrderSingle;
   fillHeader( newOrderSingle.getHeader(), sender, target, seq );
