@@ -32,6 +32,84 @@
 
 namespace FIX
 {
+template<class T>
+static inline char * integer_to_string (char * buf, const size_t len, T t)
+{
+  const bool isNegative = t < 0;
+  char* p = buf + len;
+
+  *--p = '\0';
+
+  if( isNegative ) 
+  {
+    if( t == std::numeric_limits<T>::min() ) 
+    {
+      *--p = '0' + (10-t%10)%10;
+      t/=10;
+    }
+    t = -t;
+    do 
+    {
+      *--p = '0' + t % 10;
+      t /= 10;
+    } while (t > 0);
+    *--p = '-';
+  } 
+  else 
+  {
+    do 
+    {
+      *--p = '0' + t % 10;
+      t /= 10;
+    } while( t > 0 );
+  }
+  return p;
+}
+
+template<class T>
+static inline char * integer_to_string_padded 
+( char * buf, const size_t len, T t,
+  const size_t width = 0,
+  const char paddingChar = '0')
+{
+  if( !width ) return integer_to_string( buf, len, t );
+
+  const bool isNegative = t < 0;
+  char * p = buf + len;
+
+  *--p = '\0';
+
+  if( isNegative ) 
+  {
+    if( t == std::numeric_limits<T>::min() ) 
+    {
+      *--p = '0' + ( 10 -t % 10 ) % 10;
+      t/=10;
+    }
+    t=-t;
+    do 
+    {
+      *--p = '0' + t % 10;
+      t /= 10;
+    } while (t > 0);
+    if( p > buf )
+      *--p = '-';
+  } 
+  else 
+  {
+    do 
+    {
+      *--p = '0' + t % 10;
+      t /= 10;
+    } while( t > 0 );
+  }
+  const char* stop_p = buf + len - width - 1;
+  if( stop_p < buf ) stop_p = buf;
+  while( p > stop_p )
+    *--p = paddingChar;
+  return p;
+}
+
 /// Empty convertor is a no-op.
 struct EmptyConvertor
 {
@@ -46,21 +124,37 @@ struct IntConvertor
 {
   static std::string convert( long value )
   {
-    char temp[ 12 ];
-    memset( temp, 0, 12 * sizeof( char ) );
-    sprintf( temp, "%d", ( int ) value );
-    return temp;
+    // buffer is big enough for significant digits and extra digit, 
+    // minus and null
+    char buffer[std::numeric_limits<long>::digits10 + 3];
+    const char* const start 
+      = integer_to_string( buffer, sizeof (buffer), value );
+    return std::string( start, buffer + sizeof (buffer) - start - 1 );
   }
 
   static bool convert( const std::string& value, long& result )
   {
-    const char * str = value.c_str();
-    if ( *str == '-' ) ++str;
-    for ( const char * p = str; *p != 0; ++p )
+    const char* str = value.c_str();
+    bool isNegative = false;
+    long x = 0;
+
+    if( *str == '-' )
     {
-      if ( !isdigit( *p ) ) return false;
+      isNegative = true;
+      ++str;
     }
-    result = atol( value.c_str() );
+
+    do 
+    {
+      const int c = *str - '0';
+      if( c < 0 || 9 < c ) return false;
+      x = 10 * x + c;
+    } while (*++str);
+
+    if( isNegative )
+      x = -x;
+
+    result = x;
     return true;
   }
 
@@ -68,7 +162,7 @@ struct IntConvertor
   throw( FieldConvertError )
   {
     long result = 0;
-    if ( !convert( value, result ) )
+    if( !convert( value, result ) )
       throw FieldConvertError();
     else
       return result;
@@ -81,9 +175,13 @@ struct CheckSumConvertor
   throw( FieldConvertError )
   {
     if ( value > 255 || value < 0 ) throw FieldConvertError();
-    std::ostringstream stream;
-    stream << std::setw( 3 ) << std::setfill( '0' ) << value;
-    return stream.str();
+    char result[4];
+    if( integer_to_string_padded(result, sizeof(result), value, 3, '0') 
+	!= result )
+    {
+      throw FieldConvertError();
+    }
+    return std::string( result, 3 );
   }
 
   static bool convert( const std::string& value, long& result )
@@ -104,60 +202,42 @@ struct DoubleConvertor
   static std::string convert( double value )
   {
     char result[ 32 ];
-    memset( result, 0, 32 * sizeof( char ) );
-    sprintf( result, "%.15g", value );
-    return result;
+    return std::string( result, sprintf( result, "%.15g", value ) );
   }
 
   static bool convert( const std::string& value, double& result )
   {
-    if ( !value.size() ) return false;
-    if ( value == "." ) return false;
+    const char * i = value.c_str();
 
-    result = atof( const_cast < char* > ( value.c_str() ) );
-    std::string stripped = value;
+    // Catch null strings
+    if( !*i ) return false;
+    // Eat leading '-' and recheck for null string
+    if( *i == '-' && !*++i ) return false;
 
-    // add leading zero if none exists
-    if ( *stripped.begin() == '.' ) 
-      stripped = '0' + stripped;
+    bool haveDigit = false;
 
-    // remove extra leading zeros
-    while ( stripped.size() > 1 
-            && *(stripped.begin()) == '0' 
-            && isdigit(*(stripped.begin()+1)) )
+    if( std::isdigit(*i) ) 
     {
-      stripped.erase( stripped.begin() );
+      haveDigit = true;
+      while( std::isdigit (*++i) );
     }
 
-    if ( stripped.find( '.' ) != std::string::npos )
+    if( *i == '.' && std::isdigit(*++i) ) 
     {
-      std::string::reverse_iterator r = stripped.rbegin();
-      while ( r != stripped.rend() && ( *r == '0' || *r == '.' ) )
-      {
-        if ( *r == '.' ) { stripped.resize( stripped.size() - 1 ); break; }
-        stripped.resize( stripped.size() - 1 ); r++;
-      }
-    }
-    if ( *stripped.begin() == '0' )
-    {
-      std::string::size_type i = stripped.find_first_not_of( '0' );
-      std::string::size_type dot = stripped.find( '.' );
-      if ( i != dot )
-        stripped = stripped.substr( i );
+      haveDigit = true;
+      while( std::isdigit (*++i) );
     }
 
-    std::string converted = convert( result );
-    if ( stripped.size() != converted.size() ) return false;
-
-    // strcmp is being used because == operator is funky under linux
-    return ( strcmp( stripped.c_str(), converted.c_str() ) == 0 );
+    if( *i || !haveDigit ) return false;
+    result = std::strtod( value.c_str(), 0 );
+    return true;
   }
 
   static double convert( const std::string& value )
   throw( FieldConvertError )
   {
     double result = 0.0;
-    if ( !convert( value, result ) )
+    if( !convert( value, result ) )
       throw FieldConvertError();
     else
       return result;
@@ -169,16 +249,13 @@ struct CharConvertor
 {
   static std::string convert( char value )
   {
-    char temp[ 2 ];
-    temp[ 0 ] = value;
-    temp[ 1 ] = '\0';
-    return temp;
+    return std::string( 1, value );
   }
 
   static bool convert( const std::string& value, char& result )
   {
-    if ( value.size() == 0 ) return false;
-    result = *value.c_str();
+    if( value.size() != 1 ) return false;
+    result = value[0];
     return true;
   }
 
@@ -186,7 +263,7 @@ struct CharConvertor
   throw( FieldConvertError )
   {
     char result = '\0';
-    if ( !convert( value, result ) )
+    if( !convert( value, result ) )
       throw FieldConvertError();
     else
       return result;
@@ -197,15 +274,21 @@ struct CharConvertor
 struct BoolConvertor
 {
   static std::string convert( bool value )
-  { return value ? "Y" : "N"; }
+  {
+    const char ch = value ? 'Y' : 'N';
+    return std::string( 1, ch );
+  }
 
   static bool convert( const std::string& value, bool& result )
   {
-    if ( value == "Y" ) result = true;
-    else
-      if ( value == "N" ) result = false;
-      else
-        return false;
+    if( value.size() != 1 ) return false;
+    switch( value[0] ) 
+    {
+      case 'Y': result = true; break;
+      case 'N': result = false; break;
+      default: return false;
+    }
+
     return true;
   }
 
@@ -213,7 +296,7 @@ struct BoolConvertor
   throw( FieldConvertError )
   {
     bool result = false;
-    if ( !convert( value, result ) )
+    if( !convert( value, result ) )
       throw FieldConvertError();
     else
       return result;
@@ -227,13 +310,35 @@ struct UtcTimeStampConvertor
   throw( FieldConvertError )
   {
     char result[ 18+4 ];
-    int len = strftime( result, 18, "%Y%m%d-%H:%M:%S", value );
-    if ( len != 17 ) throw FieldConvertError();
+    integer_to_string_padded
+      ( result, 5, 
+	static_cast<const tm*>(value)->tm_year + 1900, 4, '0');
+    integer_to_string_padded
+      ( result + 4, 3, 
+	static_cast<const tm*>(value)->tm_mon + 1, 2, '0');
+    integer_to_string_padded
+      ( result + 6, 3, 
+	static_cast<const tm*>(value)->tm_mday, 2, '0'); 
+    result[8]  = '-';
+    integer_to_string_padded
+      ( result + 9, 3, 
+	static_cast<const tm*>(value)->tm_hour, 2, '0'); 
+    result[11] = ':';
+    integer_to_string_padded
+      ( result + 12, 3, 
+	static_cast<const tm*>(value)->tm_min, 2, '0'); 
+    result[14] = ':';
+    integer_to_string_padded
+      ( result + 15, 3, static_cast<const tm*>(value)->tm_sec, 2, '0');
 
-    if(true==showMilliseconds)
+    if( showMilliseconds )
     {
-      len = sprintf(result+17,".%03d",value.getMillisecond());
-      if ( len != 4) throw FieldConvertError();
+      result[17] = '.';
+      if( integer_to_string_padded
+	  ( result + 18, 4, value.getMillisecond(), 3, '0') != result + 18 )
+      {
+	throw FieldConvertError();
+      }
     }
     return result;
   }
@@ -242,19 +347,87 @@ struct UtcTimeStampConvertor
   throw( FieldConvertError )
   {
     UtcTimeStamp result;
-    const char* val = value.c_str();
-    const char* len = strptime( val, "%Y%m%d-%H:%M:%S", result );
-    if ( len - val != 17 ) throw FieldConvertError();
-    static_cast<tm*>(result)->tm_isdst = -1;
+    bool haveMilliseconds = false;
 
-    // if we have milliseconds in the string, *len should be ".sss"
-    result.setMillisecond(0);
-    if(NULL != len && strlen(len)==4 && len[0] == '.')
+    switch( value.size() ) 
     {
-      int ms = atoi(&len[1]);
-      if(ms < 0 || ms > 999) throw FieldConvertError();
-        result.setMillisecond(ms);
+      case 21: haveMilliseconds = true;
+      case 17: break;
+      default: throw FieldConvertError();
     }
+
+    int i = 0;
+    for( int c=0; c<8; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    if (value[i++] != '-') throw FieldConvertError();
+    for( int c=0; c<2; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    if( value[i++] != ':' ) throw FieldConvertError();
+    for( int c=0; c<2; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    if( value[i++] != ':' ) throw FieldConvertError();
+    for( int c=0; c<2; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+
+    if( haveMilliseconds ) 
+    {
+      if( value[i++] != '.' ) throw FieldConvertError();
+      for( int c=0; c<3; ++c ) 
+	if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    }
+
+    tm & result_tm = *static_cast<tm*>(result);
+
+    i = 0;
+
+    result_tm.tm_year = value[i++] - '0';
+    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
+    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
+    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
+    result_tm.tm_year -= 1900;
+
+    result_tm.tm_mon = value[i++] - '0';
+    result_tm.tm_mon = 10 * result_tm.tm_mon + value[i++] - '0';
+    if( result_tm.tm_mon < 1 || 12 < result_tm.tm_mon ) throw FieldConvertError();
+    --result_tm.tm_mon;
+
+    result_tm.tm_mday = value[i++] - '0';
+    result_tm.tm_mday = 10 * result_tm.tm_mday + value[i++] - '0';
+    if( result_tm.tm_mday < 1 || 31 < result_tm.tm_mday ) throw FieldConvertError();
+
+    ++i; // skip '-'
+
+    result_tm.tm_hour = value[i++] - '0';
+    result_tm.tm_hour = 10 * result_tm.tm_hour + value[i++] - '0';
+    // No check for >= 0 as no '-' are converted here
+    if( 23 < result_tm.tm_hour ) throw FieldConvertError(); 
+
+    ++i; // skip ':'
+
+    result_tm.tm_min = value[i++] - '0';
+    result_tm.tm_min = 10 * result_tm.tm_min + value[i++] - '0';
+    // No check for >= 0 as no '-' are converted here
+    if( 59 < result_tm.tm_min ) throw FieldConvertError(); 
+
+    ++i; // skip ':'
+
+    result_tm.tm_sec = value[i++] - '0';
+    result_tm.tm_sec = 10 * result_tm.tm_sec + value[i++] - '0';
+    // No check for >= 0 as no '-' are converted here
+    if( 60 < result_tm.tm_sec ) throw FieldConvertError(); 
+
+    if( haveMilliseconds )
+    {
+      result.setMillisecond ( 100 * (value[i+1] - '0') 
+			      + 10 * (value[i+2] - '0') 
+			      + (value[i+3] - '0'));
+    }
+    else
+    {
+      result.setMillisecond (0);
+    }
+
+    result_tm.tm_isdst = -1;
 
     return result;
   }
@@ -263,17 +436,25 @@ struct UtcTimeStampConvertor
 /// Converts a UtcTimeOnly to/from a string
 struct UtcTimeOnlyConvertor
 {
-  static std::string convert( const UtcTimeOnly& value, bool showMilliseconds=false)
+  static std::string convert( const UtcTimeOnly& value, bool showMilliseconds = false)
   throw( FieldConvertError )
   {
     char result[ 9+4 ];
-    int len = strftime( result, 9, "%H:%M:%S", value );
-    if ( len != 8 ) throw FieldConvertError();
+    integer_to_string_padded
+      ( result, 3, static_cast<const tm*>(value)->tm_hour, 2, '0'); 
+    result[2] = ':';
+    integer_to_string_padded
+      ( result + 3, 3, static_cast<const tm*>(value)->tm_min,  2, '0'); 
+    result[5] = ':';
+    integer_to_string_padded
+      ( result + 6, 3, static_cast<const tm*>(value)->tm_sec,  2, '0');
 
-    if(true==showMilliseconds)
+    if( showMilliseconds )
     {
-      len = sprintf(result+8,".%03d",value.getMillisecond());
-      if ( len != 4) throw FieldConvertError();
+      result[8] = '.';
+      if( integer_to_string_padded
+	  ( result + 9, 4, value.getMillisecond(), 3, '0') != result + 9 )
+	throw FieldConvertError();
     }
 
     return result;
@@ -283,19 +464,65 @@ struct UtcTimeOnlyConvertor
   throw( FieldConvertError )
   {
     UtcTimeOnly result;
-    const char* val = value.c_str();
-    const char* len = strptime( val, "%H:%M:%S", result );
-    if ( len - val != 8 ) throw FieldConvertError();
-    static_cast<tm*>(result)->tm_isdst = -1;
+    bool haveMilliseconds = false;
 
-    // if we have milliseconds in the string, *len should be ".sss"
-    result.setMillisecond(0);
-    if(NULL != len && strlen(len)==4 && len[0] == '.')
+    switch( value.size() )
     {
-      int ms = atoi(&len[1]);
-      if(ms < 0 || ms > 999) throw FieldConvertError();
-      result.setMillisecond(ms);
+      case 12: haveMilliseconds = true;
+      case 8: break;
+      default: throw FieldConvertError();
     }
+
+    int i = 0;
+    for( int c=0; c<2; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    if( value[i++] != ':' ) throw FieldConvertError();
+    for( int c=0; c<2; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+    if( value[i++] != ':' ) throw FieldConvertError();
+    for( int c=0; c<2; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+
+    if( haveMilliseconds ) 
+    {
+      // ++i instead of i++ skips the '.' separator
+      for( int c=0; c<3; ++c ) 
+	if( !std::isdigit(value[++i]) ) throw FieldConvertError();
+    }
+
+    tm & result_tm = *static_cast<tm*>(result);
+
+    i = 0;
+
+    result_tm.tm_hour = value[i++] - '0';
+    result_tm.tm_hour = 10 * result_tm.tm_hour + value[i++] - '0';
+    // No check for >= 0 as no '-' are converted here
+    if( 23 < result_tm.tm_hour ) throw FieldConvertError(); 
+    ++i; // skip ':'
+
+    result_tm.tm_min = value[i++] - '0';
+    result_tm.tm_min = 10 * result_tm.tm_min + value[i++] - '0';
+    // No check for >= 0 as no '-' are converted here
+    if( 59 < result_tm.tm_min ) throw FieldConvertError();
+    ++i; // skip ':'
+
+    result_tm.tm_sec = value[i++] - '0';
+    result_tm.tm_sec = 10 * result_tm.tm_sec + value[i++] - '0';
+    // No check for >= 0 as no '-' are converted here
+    if( 60 < result_tm.tm_sec ) throw FieldConvertError();
+
+    if( haveMilliseconds )
+    {
+      result.setMillisecond (100 * (value[i+1] - '0') 
+			     + 10 * (value[i+2] - '0') 
+			     + (value[i+3] - '0'));
+    }
+    else
+    {
+      result.setMillisecond (0);
+    }
+
+    result_tm.tm_isdst = -1;
 
     return result;
   }
@@ -308,8 +535,15 @@ struct UtcDateConvertor
   throw( FieldConvertError )
   {
     char result[ 9 ];
-    int len = strftime( result, 9, "%Y%m%d", value );
-    if ( len != 8 ) throw FieldConvertError();
+    integer_to_string_padded
+      ( result, 5, 
+	static_cast<const tm*>(value)->tm_year + 1900, 4, '0');
+    integer_to_string_padded
+      ( result + 4, 3, 
+	static_cast<const tm*>(value)->tm_mon + 1, 2, '0');
+    integer_to_string_padded 
+      ( result + 6, 3, 
+	static_cast<const tm*>(value)->tm_mday, 2, '0');
     return result;
   }
 
@@ -317,9 +551,36 @@ struct UtcDateConvertor
   throw( FieldConvertError )
   {
     UtcDate result;
-    const char* val = value.c_str();
-    const char* len = strptime( val, "%Y%m%d", result );
-    if ( len - val != 8 ) throw FieldConvertError();
+    if( value.size() != 8 ) throw FieldConvertError();
+
+    int i = 0;
+    for( int c=0; c<8; ++c ) 
+      if( !std::isdigit(value[i++]) ) throw FieldConvertError();
+
+    tm & result_tm = *static_cast<tm*>(result);
+
+    i = 0;
+
+    result_tm.tm_year = value[i++] - '0';
+    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
+    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
+    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
+    result_tm.tm_year -= 1900;
+
+    result_tm.tm_mon = value[i++] - '0';
+    result_tm.tm_mon = 10 * result_tm.tm_mon + value[i++] - '0';
+    if( result_tm.tm_mon < 1 || 12 < result_tm.tm_mon ) 
+      throw FieldConvertError();
+    --result_tm.tm_mon;
+
+    result_tm.tm_mday = value[i++] - '0';
+    result_tm.tm_mday = 10 * result_tm.tm_mday + value[i++] - '0';
+    if( result_tm.tm_mday < 1 || 31 < result_tm.tm_mday ) 
+      throw FieldConvertError();
+    ++i; // skip '-'
+
+    result_tm.tm_isdst = -1;
+
     static_cast<tm*>(result)->tm_isdst = -1;
     return result;
   }
