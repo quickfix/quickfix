@@ -1,10 +1,11 @@
 #!/bin/bash
-WHICH_JAVAC=$(which javac)
+WHICH_JAVA=$(which java)
 if [ $? != 0 ] ; then
     exit 0
 fi
 
 # set up classpath
-BUILD_CLASSPATH=../lib/quickfix.jar
+BUILD_CLASSPATH=../lib/ant.jar:../lib/optional.jar:../lib/junit.jar:../lib/crimson.jar:$JAVA_HOME/lib/tools.jar
 
-javac -classpath $BUILD_CLASSPATH at_messagecracker.java at_application.java at.java
+# call ant
+java -cp $BUILD_CLASSPATH org.apache.tools.ant.Main $1

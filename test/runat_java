@@ -4,7 +4,7 @@ DIR=`pwd`
 PORT=$1
 ./setup $PORT
 
-java -Djava.library.path=../lib -classpath ../lib/quickfix.jar:../src at -f  cfg/at.cfg &
+java -Djava.library.path=../lib -classpath ../lib/quickfix.jar:../lib/at.jar at -f  cfg/at.cfg &
 PROCID=$!
 cd $DIR
 ruby Runner.rb 127.0.0.1 $PORT definitions/server/fix*/*.def
