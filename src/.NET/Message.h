@@ -22,6 +22,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::Collections;
 
 #include "quickfix_net.h"
 #include "Field.h"
@@ -301,6 +302,65 @@ public:
 
   Header* getHeader() { checkDisposed(); return m_header; }
   Trailer* getTrailer() { checkDisposed(); return m_trailer; }
+
+  bool isAdmin()
+  { return unmanaged().isAdmin(); }
+  bool isApp()
+  { return unmanaged().isApp(); }
+
+  IEnumerator* GetEnumerator()
+  {
+    return new Enumerator( this );
+  }
+
+  __gc class Enumerator : public IEnumerator
+  {
+  public:
+    Enumerator( Message* message )
+      : m_message( message ), m_iterator(0) {}
+
+    ~Enumerator()
+    {
+      if( m_iterator )
+        delete m_iterator;
+    }
+
+    __property Object* get_Current()
+    {
+      if( m_iterator == 0 )
+        return 0;
+      if( *m_iterator == m_message->unmanaged().end() )
+        return 0;
+      FIX::FieldBase field = (*m_iterator)->second;
+      return new StringField( field.getField(), field.getString().c_str() );
+    }
+
+    bool MoveNext()
+    {
+      if( m_iterator == 0 )
+      {
+        m_iterator = new FIX::Message::iterator();
+        *m_iterator = m_message->unmanaged().begin();
+      }
+      else
+      {
+        (*m_iterator)++;
+      }
+
+      return *m_iterator != m_message->unmanaged().end();
+    }
+
+    void Reset()
+    {
+      if( m_iterator )
+        delete m_iterator;
+      m_iterator = 0;
+    }
+
+  private:
+    Message* m_message;
+    FIX::Message::iterator* m_iterator;
+  };
 
 private:
   void mapSetField( StringField* field, FIX::FieldMap& map );
