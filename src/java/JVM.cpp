@@ -145,7 +145,7 @@ int JVMClass::getInt( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
   jfieldID fid = getStaticFieldID( name.c_str(), INT_TYPE );
-  if ( fid == 0 ) throw std::logic_error( "char field " + name + " not found" );
+  if ( fid == 0 ) throw std::logic_error( "int field " + name + " not found" );
 
   return pEnv->GetStaticIntField( m_cls, fid );
 }
@@ -231,7 +231,7 @@ int JVMObject::getInt( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
   jfieldID fid = getClass().getFieldID( name.c_str(), INT_TYPE );
-  if ( fid == 0 ) throw std::logic_error( "char field " + name + " not found" );
+  if ( fid == 0 ) throw std::logic_error( "int field " + name + " not found" );
 
   return pEnv->GetIntField( m_obj, fid );
 }
