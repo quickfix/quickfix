@@ -1024,6 +1024,370 @@ SOURCE=".\src\C++\fix43\TradingSessionStatus.h"
 SOURCE=".\src\C++\fix43\TradingSessionStatusRequest.h"
 # End Source File
 # End Group
+# Begin Group "Fix44"
+
+# PROP Default_Filter ""
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Advertisement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\AllocationInstruction.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\AllocationInstructionAck.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\AllocationReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\AllocationReportAck.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\AssignmentReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\BidRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\BidResponse.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\BusinessMessageReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CollateralAssignment.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CollateralInquiry.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CollateralInquiryAck.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CollateralReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CollateralRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CollateralResponse.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Confirmation.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ConfirmationAck.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ConfirmationRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CrossOrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\CrossOrderCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\DerivativeSecurityList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\DerivativeSecurityListRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\DontKnowTrade.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Email.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ExecutionReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Heartbeat.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\IndicationOfInterest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ListCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ListExecute.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ListStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ListStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ListStrikePrice.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Logon.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Logout.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MarketDataIncrementalRefresh.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MarketDataRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MarketDataRequestReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MarketDataSnapshotFullRefresh.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MassQuote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MassQuoteAcknowledgement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Message.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MessageCracker.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\MultilegOrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\NewOrderCross.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\NewOrderList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\NewOrderMultileg.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\NewOrderSingle.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\News.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\OrderCancelReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\OrderCancelReplaceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\OrderCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\OrderMassCancelReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\OrderMassCancelRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\OrderMassStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\OrderStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\PositionMaintenanceReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\PositionMaintenanceRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\PositionReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Quote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\QuoteCancel.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\QuoteRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\QuoteRequestReject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\QuoteResponse.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\QuoteStatusReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\QuoteStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\RegistrationInstructions.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\RegistrationInstructionsResponse.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\Reject.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\RequestForPositions.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\RequestForPositionsAck.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\ResendRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\RFQRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityDefinition.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityDefinitionRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityList.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityListRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityTypeRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SecurityTypes.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SequenceReset.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SettlementInstructionRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\SettlementInstructions.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\TestRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\TradeCaptureReport.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\TradeCaptureReportAck.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\TradeCaptureReportRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\TradeCaptureReportRequestAck.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\TradingSessionStatus.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\TradingSessionStatusRequest.h"
+# End Source File
+# End Group
 # Begin Source File
 
 SOURCE=".\src\C++\DataDictionary.h"
