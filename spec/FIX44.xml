@@ -4071,7 +4071,7 @@
     </field>
     <field number="30" name="LastMkt" type="EXCHANGE" />
     <field number="31" name="LastPx" type="PRICE" />
-    <field number="3" name="LastQty" type="QTY" />
+    <field number="32" name="LastQty" type="QTY" />
     <field number="33" name="LinesOfText" type="NUMINGROUP" />
     <field number="34" name="MsgSeqNum" type="SEQNUM" />
     <field number="35" name="MsgType" type="STRING">
