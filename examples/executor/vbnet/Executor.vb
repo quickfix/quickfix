@@ -22,7 +22,7 @@ Module Executor
             Console.WriteLine("press <enter> to quit")
             Console.Read()
             acceptor.stop()
-        Catch e As Exception
+        Catch e As System.Exception
             Console.WriteLine(e)
         End Try
     End Sub
