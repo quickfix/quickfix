@@ -190,7 +190,7 @@ bool Initiator::isConnected( const SessionID& sessionID )
   return m_connected.find( sessionID ) != m_connected.end();
 }
 
-void Initiator::start() throw ( ConfigError& )
+void Initiator::start() throw ( RuntimeError& )
 {
   onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );

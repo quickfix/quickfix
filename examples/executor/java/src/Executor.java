@@ -75,7 +75,7 @@ public class Executor {
             acceptor = new SocketAcceptor
                        (application, messageStoreFactory, settings, logFactory, messageFactory);
             acceptor.start();
-        } catch(ConfigError e) {
+        } catch(Exception e) {
             System.out.println(e);
         }
     }

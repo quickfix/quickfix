@@ -75,8 +75,14 @@ IncorrectTagValue( int f ) : field( f ) {}
 public __gc class ConfigError : public Exception
 {
 public:
-ConfigError( String* what ) : Exception( what ) {}}
-;
+ConfigError( String* what ) : Exception( what ) {}
+};
+
+public __gc class RuntimeError : public Exception
+{
+public:
+RuntimeError( String* what ) : Exception( what ) {}
+};
 
 public __gc class SessionNotFound : public Exception {};
 public __gc class DoNotSend : public Exception {};

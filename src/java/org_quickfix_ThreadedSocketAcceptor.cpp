@@ -146,9 +146,9 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doStart
   {
     getCPPThreadedSocketAcceptor( obj ) ->start();
   }
-  catch( FIX::ConfigError &e )
+  catch( FIX::RuntimeError &e )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
   }
 }
 

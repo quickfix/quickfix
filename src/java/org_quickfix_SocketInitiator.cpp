@@ -146,9 +146,9 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doStart
   {
     getCPPSocketInitiator( obj ) ->start();
   }
-  catch( FIX::ConfigError &e )
+  catch( FIX::RuntimeError &e )
   {
-    throwNew( "Lorg/quickfix/ConfigError;", e.what() );
+    throwNew( "Lorg/quickfix/RuntimeError;", e.what() );
   }
 }
 

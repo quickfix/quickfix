@@ -51,6 +51,6 @@ package org.quickfix;
 
 public interface Acceptor {
 
-    void start() throws ConfigError;
+    void start() throws RuntimeError;
     void stop();
 }

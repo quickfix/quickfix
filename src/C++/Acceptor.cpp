@@ -180,7 +180,7 @@ Session* Acceptor::getSession
   return 0;
 }
 
-void Acceptor::start() throw ( ConfigError& )
+void Acceptor::start() throw ( RuntimeError& )
 {
   onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );

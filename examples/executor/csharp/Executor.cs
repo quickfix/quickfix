@@ -75,7 +75,7 @@ class Executor
 
       acceptor.start();
     }
-    catch ( ConfigError e )
+    catch ( Exception e )
     {
       Console.WriteLine( e );
     }

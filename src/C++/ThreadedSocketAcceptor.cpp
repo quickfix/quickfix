@@ -103,7 +103,7 @@ void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( Co
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
   m_socket = socket_createAcceptor( m_port );
   if( m_socket < 0 )
-    throw ConfigError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
 }
 
 void ThreadedSocketAcceptor::onStart()

@@ -24,7 +24,7 @@ public class OrderTest extends TestCase {
         public void run() {
 			try {
 	            initiator.start();
-			} catch( ConfigError e ) {
+			} catch( RuntimeError e ) {
 			}
         }
     }

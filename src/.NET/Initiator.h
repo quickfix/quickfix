@@ -58,7 +58,7 @@ namespace QuickFix
 {
 public __gc __interface Initiator
 {
-  void start() throw ( ConfigError* ) = 0;
+  void start() throw ( RuntimeError* ) = 0;
   void stop() = 0;
 };
 }

@@ -103,7 +103,7 @@ void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( ConfigErro
   }
   catch( std::exception& )
   {
-    throw ConfigError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
   }
 }
 

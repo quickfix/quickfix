@@ -93,7 +93,7 @@ public:
   virtual ~Acceptor();
 
   /// Start acceptor.
-  void start() throw ( ConfigError& );
+  void start() throw ( RuntimeError& );
   /// Stop acceptor.
   void stop() { onStop(); }
 

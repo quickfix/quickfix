@@ -90,7 +90,7 @@ public class ThreadedSocketAcceptor implements Acceptor {
     private native void create();
     private native void destroy();
 
-    public void start() throws ConfigError {
+    public void start() throws RuntimeError {
         doStart();
     }
 
@@ -98,7 +98,7 @@ public class ThreadedSocketAcceptor implements Acceptor {
         doStop();
     }
 
-    private native void doStart() throws ConfigError;
+    private native void doStart() throws RuntimeError;
 
     private native void doStop();
 }

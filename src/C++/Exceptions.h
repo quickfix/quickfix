@@ -93,6 +93,13 @@ struct ConfigError : public std::logic_error
   ConfigError( const std::string& what ) : std::logic_error( what ) {}
 };
 
+/// %Application encountered serious error during runtime
+struct RuntimeError : public std::logic_error
+{
+  RuntimeError() : std::logic_error( "Runtime error" ) {}
+  RuntimeError( const std::string& what ) : std::logic_error( what ) {}
+};
+
 /// Tag number does not exist in specification
 struct InvalidTagNumber : public std::logic_error
 {

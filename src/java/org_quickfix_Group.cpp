@@ -70,7 +70,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_Group_create
 ( JNIEnv *pEnv, jobject obj, jint field, jint delim )
 {
   JVM::set( pEnv );
-  JVMObject jobject( obj );
+  JVMObject jobject( obj ); 
   FIX::Group* pGroup = new FIX::Group( field, delim );
   jobject.setInt( "cppPointer", ( int ) pGroup );
 }
@@ -79,12 +79,12 @@ JNIEXPORT void JNICALL Java_org_quickfix_Group_create__II_3I
 (JNIEnv *pEnv, jobject obj, jint field, jint delim, jintArray array)
 {
   JVM::set( pEnv );
-  JVMObject jobject( obj );
+  JVMObject jobject( obj );  
   jsize size = pEnv->GetArrayLength(array);
   jint *body = pEnv->GetIntArrayElements(array, 0);
   int* carray = new int[ size + 1 ];
-  memcpy(carray, body, sizeof(int));
-  FIX::Group* pGroup = new FIX::Group( field, delim, carray );  
+  memcpy(carray, body, size * sizeof(int));
+  FIX::Group* pGroup = new FIX::Group( field, delim, carray );
   jobject.setInt( "cppPointer", ( int ) pGroup );
   delete [] carray;
   pEnv->ReleaseIntArrayElements(array, body, 0);
