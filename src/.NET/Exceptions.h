@@ -61,27 +61,34 @@ namespace QuickFix
 public __gc class FieldNotFound : public Exception
 {
 public:
-FieldNotFound( int f ) : field( f ) {}
+  FieldNotFound( int f ) : field( f ) {}
   int field;
 };
 
 public __gc class IncorrectTagValue : public Exception
 {
 public:
-IncorrectTagValue( int f ) : field( f ) {}
+  IncorrectTagValue( int f ) : field( f ) {}
+  int field;
+};
+
+public __gc class IncorrectDataFormat : public Exception
+{
+public:
+  IncorrectDataFormat( int f ) : field( f ) {}
   int field;
 };
 
 public __gc class ConfigError : public Exception
 {
 public:
-ConfigError( String* what ) : Exception( what ) {}
+  ConfigError( String* what ) : Exception( what ) {}
 };
 
 public __gc class RuntimeError : public Exception
 {
 public:
-RuntimeError( String* what ) : Exception( what ) {}
+  RuntimeError( String* what ) : Exception( what ) {}
 };
 
 public __gc class SessionNotFound : public Exception {};
