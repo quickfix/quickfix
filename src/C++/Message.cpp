@@ -181,10 +181,12 @@ bool Message::setString( const std::string& string,
 
   field_type type = header;
 
-  try {
-    while ( pos < string.size() )
+  while ( pos < string.size() )
+  {
+    try 
     {
       FieldBase field = extractField( string, pos );
+    
       if ( count < 3 && headerOrder[ count++ ] != field.getField() )
         if ( doValidation ) return false;
 
@@ -211,13 +213,13 @@ bool Message::setString( const std::string& string,
         }
       }
     }
-    if ( doValidation ) return validate();
-    return true;
+    catch( InvalidMessage& )
+    {
+      return false;
+    }
   }
-  catch( InvalidMessage& )
-  {
-    return false;
-  }
+  if ( doValidation ) return validate();
+  return true;
 }
 
 void Message::setGroup( const std::string& msg, const FieldBase& field, const std::string& string,
@@ -285,7 +287,8 @@ FieldBase Message::extractField
 
   std::string::size_type soh =
     string.find_first_of( '\001', equalSign + 1 );
-  if ( soh == std::string::npos ) throw InvalidMessage();
+  if ( soh == std::string::npos ) 
+    throw InvalidMessage();
   valueString = string.substr( equalSign + 1, soh - ( equalSign + 1 ) );
 
   field = atol( fieldString.c_str() );
