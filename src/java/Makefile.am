@@ -48,8 +48,8 @@ libquickfix_jni_la_SOURCES = \
 	org_quickfix_Session.cpp \
 	org_quickfix_SessionID.h \
 	org_quickfix_SessionID.cpp \
-	org_quickfix_Settings.h \
-	org_quickfix_Settings.cpp \
+	org_quickfix_SessionSettings.h \
+	org_quickfix_SessionSettings.cpp \
 	org_quickfix_SocketAcceptor.h \
 	org_quickfix_SocketAcceptor.cpp \
 	org_quickfix_SocketInitiator.h \
