@@ -37,20 +37,20 @@
   <PRE><B>
   &lt;fix major="4" minor="1">
     &lt;header>
-      &lt;field number="8" name="BeginString" required="Y"/>
+      &lt;field name="BeginString" required="Y"/>
       ...
     &lt;/header>
     &lt;trailer>
-      &lt;field number="10" name="CheckSum" required="Y"/>
+      &lt;field name="CheckSum" required="Y"/>
       ...
     &lt;/trailer>
     &lt;messages>
       &lt;message name="Heartbeat" msgtype="0" msgcat="admin">
-        &lt;field number="112" name="TestReqID" required="N"/>
+        &lt;field name="TestReqID" required="N"/>
       &lt;/message>
       ...
       &lt;message name="NewOrderSingle" msgtype="D" msgcat="app">
-        &lt;field number="11" name="ClOrdID" required="Y"/>
+        &lt;field name="ClOrdID" required="Y"/>
         ...
       &lt;/message>
       ...
