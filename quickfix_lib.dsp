@@ -277,6 +277,17 @@ SOURCE=".\src\C++\DOMDocument.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
 
+# Begin Custom Build
+InputPath=".\src\C++\DOMDocument.h"
+InputName=DOMDocument
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
 # Begin Custom Build
@@ -463,6 +474,17 @@ InputName=Initiator
 SOURCE=".\src\C++\MSXML_DOMDocument.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+# Begin Custom Build
+InputPath=".\src\C++\MSXML_DOMDocument.h"
+InputName=MSXML_DOMDocument
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
 
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
@@ -863,6 +885,17 @@ SOURCE=".\src\C++\FieldTypes.cpp"
 SOURCE=".\src\C++\DeprecatedFieldNumbers.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+# Begin Custom Build
+InputPath=".\src\C++\DeprecatedFieldNumbers.h"
+InputName=DeprecatedFieldNumbers
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
 
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
@@ -1400,6 +1433,17 @@ SOURCE=".\src\C++\FIX43_MessageCracker.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
 
+# Begin Custom Build
+InputPath=".\src\C++\FIX43_MessageCracker.h"
+InputName=FIX43_MessageCracker
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
 # Begin Custom Build
@@ -1421,6 +1465,17 @@ InputName=FIX43_MessageCracker
 SOURCE=".\src\C++\FIX43_Messages.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+# Begin Custom Build
+InputPath=".\src\C++\FIX43_Messages.h"
+InputName=FIX43_Messages
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
 
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
@@ -2141,6 +2196,17 @@ InputName=MessageStore
 SOURCE=".\src\C++\MySQLLog.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+# Begin Custom Build
+InputPath=".\src\C++\MySQLLog.h"
+InputName=MySQLLog
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
 
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
