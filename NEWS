@@ -39,12 +39,18 @@ Added missing DKReason enumerations to FIX40.xml, FIX41.xml, and FIX42.xml
 Fixed problem where FieldMap::calculateString did not properly reset the
 output string under VC6.  This caused problems with resend requests.
 
+JNI library will check input parameters for nulls and throw a 
+NullPointerException if the method cannot handle a null value.
+
 Python library will be installed to the site module path.
 
 get method for retrieving a single message has been removed from MessageStore.
 Only the get methods for retreiving a range needs to be implemented now.
 
 Added missing UserRequest and UserResponse messages for FIX.4.4
+
+Session differentiates between dropping a connection and disconnecting
+normally in the event logs.
 
 1.9.2
 -----
