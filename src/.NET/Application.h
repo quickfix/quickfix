@@ -71,7 +71,7 @@ public:
 
   void toAdmin( FIX::Message& message, const FIX::SessionID& sessionID )
   {
-    QuickFix::Message * toMessage = create( message );
+    QuickFix::Message __pin * toMessage = create( message );
     m_application->toAdmin( toMessage, new QuickFix::SessionID( sessionID ) );
     message = toMessage->unmanaged();
   }
@@ -79,7 +79,7 @@ public:
   void toApp( FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::DoNotSend& )
   {
-    QuickFix::Message * toMessage = create( message );
+    QuickFix::Message __pin * toMessage = create( message );
     try
     {
       m_application->toApp( toMessage, new QuickFix::SessionID( sessionID ) );
@@ -89,17 +89,16 @@ public:
   }
 
   void fromAdmin( const FIX::Message& message, 
-		  const FIX::SessionID& sessionID )
+		              const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound&, 
-	 FIX::IncorrectDataFormat&, 
-	 FIX::IncorrectTagValue&, 
-	 FIX::RejectLogon& )
+	       FIX::IncorrectDataFormat&, 
+	       FIX::IncorrectTagValue&, 
+	       FIX::RejectLogon& )
   {
-    QuickFix::Message * toMessage = create( message );
+    QuickFix::Message __pin * toMessage = create( message );
     try
     {
-      m_application->fromAdmin
-	( toMessage, new QuickFix::SessionID( sessionID ) );
+      m_application->fromAdmin( toMessage, new QuickFix::SessionID( sessionID ) );
     }
     catch ( QuickFix::FieldNotFound * e )
     {
@@ -118,15 +117,14 @@ public:
 
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound&, 
-	 FIX::IncorrectDataFormat&, 
-	 FIX::IncorrectTagValue&, 
-	 FIX::UnsupportedMessageType& )
+	       FIX::IncorrectDataFormat&, 
+	       FIX::IncorrectTagValue&, 
+	       FIX::UnsupportedMessageType& )
   {
-    QuickFix::Message * toMessage = create( message );
+    QuickFix::Message __pin * toMessage = create( message );
     try
     {
-      m_application->fromApp
-	( toMessage, new QuickFix::SessionID( sessionID ) );
+      m_application->fromApp( toMessage, new QuickFix::SessionID( sessionID ) );
     }
     catch ( QuickFix::FieldNotFound * e )
     {
