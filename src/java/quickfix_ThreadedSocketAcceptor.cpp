@@ -200,3 +200,13 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__Z
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doIsLoggedOn
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  return getCPPThreadedSocketAcceptor( obj )->isLoggedOn();
+
+  QF_STACK_CATCH
+}

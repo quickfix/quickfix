@@ -63,6 +63,14 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__
 JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__Z
   (JNIEnv *, jobject, jboolean);
 
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doIsLoggedOn
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doIsLoggedOn
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

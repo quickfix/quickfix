@@ -106,6 +106,18 @@ public:
     QF_STACK_CATCH
   }
 
+  void block()
+  { QF_STACK_TRY
+    m_pUnmanaged->block();
+    QF_STACK_CATCH
+  }
+
+  void poll()
+  { QF_STACK_TRY
+    m_pUnmanaged->poll();
+    QF_STACK_CATCH
+  }
+
   void stop()
   { QF_STACK_TRY
     m_pUnmanaged->stop(); 
@@ -115,6 +127,12 @@ public:
   void stop( bool force )
   { QF_STACK_TRY
     m_pUnmanaged->stop( force ); 
+    QF_STACK_CATCH
+  }
+
+  bool isLoggedOn()
+  { QF_STACK_TRY
+    return m_pUnmanaged->isLoggedOn();
     QF_STACK_CATCH
   }
 

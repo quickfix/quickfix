@@ -203,3 +203,13 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__Z
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doIsLoggedOn
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  return getCPPSocketInitiator( obj )->isLoggedOn();
+
+  QF_STACK_CATCH
+}
