@@ -11,7 +11,7 @@
     be used to set and get user defined fields? Well one answer would be to use the non-type safe
     set and get fields like so:
   </p>
-  See this code in <a href="java/user_defined_1.html">JAVA</a> or <a href="csharp/user_defined_1.html">C#</a>
+  See this code in <a href="java/user_defined_1.html">JAVA</a>, <a href="csharp/user_defined_1.html">C#</a> or <a href="vbnet/user_defined_1.html">VB.NET</a>
   <PRE><B>
   message.setField(6123, "value");
   message.getField(6123);
@@ -22,7 +22,7 @@
     user defined fields into the type system? QuickFIX provides you with a set of macros to do just
     that. Now you can define your user defined fields in a separate file like this.
   </p>
-  See this code in <a href="java/user_defined_2.html">JAVA</a> or <a href="csharp/user_defined_2.html">C#</a>
+  See this code in <a href="java/user_defined_2.html">JAVA</a>, <a href="csharp/user_defined_2.html">C#</a> or <a href="vbnet/user_defined_2.html">VB.NET</a>
   <PRE><B>
   #include "quickfix/Field.h"
 
@@ -37,7 +37,7 @@
   User defined fields must be declared within the <B>FIX</B> namespace.
   Now, elsewhere in your application, you can write code like this:
   </p>
-  See this code in <a href="java/user_defined_3.html">JAVA</a> or <a href="csharp/user_defined_3.html">C#</a>
+  See this code in <a href="java/user_defined_3.html">JAVA</a>, <a href="csharp/user_defined_3.html">C#</a> or <a href="vbnet/user_defined_3.html">VB.NET</a>
   <PRE><B>
   MyStringField stringField("string");
   MyPriceField priceField(14.54);

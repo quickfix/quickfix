@@ -1,16 +1,16 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
-
 <html>
-  <head>
-    <title>Creating Your Application</title>
-    <H1>Creating Your Application</H1>
-  </head>
-  <body>
-  <p>
-    Creating a FIX application is as easy as implementing the QuickFIX Application interface. The
-    C++ interface is defined in the following code segment:
-  </p>
-  See this code in <a href="java/application_1.html">JAVA</a> or <a href="csharp/application_1.html">C#</a>
+	<head>
+		<title>Creating Your Application</title>
+	</head>
+	<BODY>
+		<H1>Creating Your Application</H1>
+		<p>
+			Creating a FIX application is as easy as implementing the QuickFIX Application
+			interface. The C++ interface is defined in the following code segment:
+		</p>
+		See this code in <a href="java/application_1.html">JAVA</a>, <a href="csharp/application_1.html">
+			C#</a> or <a href="vbnet/application_1.html">VB.NET</a>
   <B><CODE><PRE>
   namespace FIX
   {
@@ -18,93 +18,98 @@
     {
     public:
       virtual ~Application() {};
-      virtual void onCreate( const SessionID& ) = 0;
-      virtual void onLogon( const SessionID& )
-      virtual void onLogout( const SessionID& ) = 0;
-      virtual void toAdmin( Message&, const SessionID& ) = 0;
-      virtual void toApp( Message&, const SessionID& )
-        throw(DoNotSend&) = 0;
-      virtual void fromAdmin( const Message&, const SessionID& )
-        throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, RejectLogon& ) = 0;
-      virtual void fromApp( const Message&, const SessionID& )
-        throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) = 0;
+      virtual void onCreate( const SessionID&amp; ) = 0;
+      virtual void onLogon( const SessionID&amp; ) = 0;
+      virtual void onLogout( const SessionID&amp; ) = 0;
+      virtual void toAdmin( Message&amp;, const SessionID&amp; ) = 0;
+      virtual void toApp( Message&amp;, const SessionID&amp; )
+        throw( DoNotSend ) = 0;
+      virtual void fromAdmin( const Message&amp;, const SessionID&amp; )
+        throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon ) = 0;
+      virtual void fromApp( const Message&amp;, const SessionID&amp; )
+        throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) = 0;
     };
   }
   </PRE></CODE></B>
-
-  <p>
-  By implementing these functions in your derived class, you are requesting to be notified of
-  events that occur on the FIX engine. The function you that you should be most aware of
-  is <I>fromApp</I>. Also remember that everything is in the <B>FIX</B> namespace,
-  so when overloading your class, you must refer to classes as <B>FIX::Session</B>, and <B>FIX::Message</B> etc...
-
-  <br><br>Here are explanations of what these functions provide for you.
-  <UL>
-    <U><B>onCreate</B></U>
-    gets called when quickfix creates a new session. A session comes into and remains
-    in existence for the life of the application. Sessions exist whether or not a counter
-    party is connected to it. As soon as a session is created, you can begin sending messages
-    to it. If no one is logged on, the messages will be sent at the time a connection is
-    established with the counterparty.
-
-  	<br><br><U><B>onLogon</B></U>
-  	notifies you when a valid logon has been established with a counter
-  	party. This is called when a connection has been established and the FIX
-  	logon process has completed with both parties exchanging valid logon messages.
-
-  	<br><br><U><B>onLogout</B></U>
-  	notifies you when an FIX session is no longer online. This could happen during
-  	a normal logout exchange or because of a forced termination or a loss of
-  	network connection.
-
-  	<br><br><U><B>toAdmin</B></U>
-  	provides you with a peak at the administrative messages that are
-  	being sent from your FIX engine to the counter party. This is normally
-  	not useful for an application however it is provided for any logging you
-  	may wish to do. Notice that the FIX::Message is not const. This allows you to add
-  	fields before an adminstrative message before it is sent out.
-
-  	<br><br><U><B>toApp</B></U>
-  	is a callback for application messages that you are being sent to a counterparty.
-  	If you throw a <I>DoNotSend</I> exception in this function, the application will not send
-  	the message. This is mostly useful if the application has been asked to resend a
-  	message such as an order that is no longer relevant for the current market. Messages
-  	that are being resent are marked with the <I>PossDupFlag</I> in the header set to true;
-  	If a <I>DoNotSend</I> exception is thrown and the flag is set to true, a sequence reset
-  	will be sent in place of the message. If it is set to false, the message will simply not
-  	be sent. Notice that the FIX::Message is not const. This allows you to add
-  	fields before an application message before it is sent out.
-
-  	<br><br><U><B>fromAdmin</B></U>
-  	notifies you when an administrative message is sent from a counterparty to
-  	your FIX engine. This can be usefull for doing extra validation on logon
-  	messages such as for checking passwords. Throwing a <I>RejectLogon</I> exception will
-  	disconnect the counterparty.
-
-  	<br><br><U><B>fromApp</B></U>
-  	is one of the core entry points for your FIX application. Every application
-  	level request will come through here. If, for example, your application is a sell-side
-  	OMS, this is where you will get your new order requests. If you were a buy side, you
-  	would get your execution reports here. If a <I>FieldNotFound</I> exception is thrown,
-  	the counterparty will receive a reject indicating a conditionally required field is
-  	missing. The Message class will throw this exception when trying to retrieve a missing
-  	field, so you will rarely need the throw this explicitly. You can also throw an
-  	<I>UnsupportedMessageType</I> exception. This will result in the counterparty getting a
-  	reject informing them your application cannot process those types of messages. An
-  	<I>IncorrectTagValue</I> can also be thrown if a field contains a value that is out of
-  	range or you do not support.
-  </UL>
-  </p>
-
-  <p>
-  The sample code below shows how you might start up a FIX acceptor which listens on a socket.
-  If you wanted an initiator, you would simply replace the acceptor in this code fragment with
-  a <i>SocketInitiator</i>. <i>ThreadedSocketInitiator</i> and <i>ThreadedSocketAcceptor</i> classes are also available.
-  These will supply a thread to each session that is created. If you use these you must make sure
-  your application is thread safe. A portable mutex class is supplied with QuickFIX.
-  </p>
-
-  See this code in <a href="java/application_2.html">JAVA</a> or <a href="csharp/application_2.html">C#</a>
+		<p>
+			By implementing these functions in your derived class, you are requesting to be
+			notified of events that occur on the FIX engine. The function you that you
+			should be most aware of is <I>fromApp</I>. Also remember that everything is in
+			the <B>FIX</B> namespace, so when overloading your class, you must refer to
+			classes as <B>FIX::Session</B>, and <B>FIX::Message</B> etc...
+			<br>
+			<br>
+			Here are explanations of what these functions provide for you.
+			<UL>
+				<U><B>onCreate</B></U> gets called when quickfix creates a new session. A
+				session comes into and remains in existence for the life of the application.
+				Sessions exist whether or not a counter party is connected to it. As soon as a
+				session is created, you can begin sending messages to it. If no one is logged
+				on, the messages will be sent at the time a connection is established with the
+				counterparty.
+				<br>
+				<br>
+				<U><B>onLogon</B></U> notifies you when a valid logon has been established with
+				a counter party. This is called when a connection has been established and the
+				FIX logon process has completed with both parties exchanging valid logon
+				messages.
+				<br>
+				<br>
+				<U><B>onLogout</B></U> notifies you when an FIX session is no longer online.
+				This could happen during a normal logout exchange or because of a forced
+				termination or a loss of network connection.
+				<br>
+				<br>
+				<U><B>toAdmin</B></U> provides you with a peak at the administrative messages
+				that are being sent from your FIX engine to the counter party. This is normally
+				not useful for an application however it is provided for any logging you may
+				wish to do. Notice that the FIX::Message is not const. This allows you to add
+				fields before an adminstrative message before it is sent out.
+				<br>
+				<br>
+				<U><B>toApp</B></U> is a callback for application messages that you are being
+				sent to a counterparty. If you throw a <I>DoNotSend</I> exception in this
+				function, the application will not send the message. This is mostly useful if
+				the application has been asked to resend a message such as an order that is no
+				longer relevant for the current market. Messages that are being resent are
+				marked with the <I>PossDupFlag</I> in the header set to true; If a <I>DoNotSend</I>
+				exception is thrown and the flag is set to true, a sequence reset will be sent
+				in place of the message. If it is set to false, the message will simply not be
+				sent. Notice that the FIX::Message is not const. This allows you to add fields
+				before an application message before it is sent out.
+				<br>
+				<br>
+				<U><B>fromAdmin</B></U> notifies you when an administrative message is sent
+				from a counterparty to your FIX engine. This can be usefull for doing extra
+				validation on logon messages such as for checking passwords. Throwing a <I>RejectLogon</I>
+				exception will disconnect the counterparty.
+				<br>
+				<br>
+				<U><B>fromApp</B></U> is one of the core entry points for your FIX application.
+				Every application level request will come through here. If, for example, your
+				application is a sell-side OMS, this is where you will get your new order
+				requests. If you were a buy side, you would get your execution reports here. If
+				a <I>FieldNotFound</I> exception is thrown, the counterparty will receive a
+				reject indicating a conditionally required field is missing. The Message class
+				will throw this exception when trying to retrieve a missing field, so you will
+				rarely need the throw this explicitly. You can also throw an <I>UnsupportedMessageType</I>
+				exception. This will result in the counterparty getting a reject informing them
+				your application cannot process those types of messages. An <I>IncorrectTagValue</I>
+				can also be thrown if a field contains a value that is out of range or you do
+				not support.
+			</UL>
+		<P></P>
+		<p>
+			The sample code below shows how you might start up a FIX acceptor which listens
+			on a socket. If you wanted an initiator, you would simply replace the acceptor
+			in this code fragment with a <i>SocketInitiator</i>. <i>ThreadedSocketInitiator</i>
+			and <i>ThreadedSocketAcceptor</i> classes are also available. These will supply
+			a thread to each session that is created. If you use these you must make sure
+			your application is thread safe. A portable mutex class is supplied with
+			QuickFIX.
+		</p>
+		See this code in <a href="java/application_2.html">JAVA</a>, <a href="csharp/application_2.html">
+			C#</a> or <a href="vbnet/application_2.html">VB.NET</a>
   <B><CODE><PRE>
   #include "quickfix/FileStore.h"
   #include "quickfix/FileLog.h"
@@ -117,7 +122,7 @@
   {
     try
     {
-      if(argc < 2) return 1;
+      if(argc &lt; 2) return 1;
       std::string fileName = argv[0];
 
       FIX::SessionSettings settings(file);
@@ -132,12 +137,12 @@
       acceptor.stop();
       return 0;
     }
-    catch(FIX::ConfigError& e)
+    catch(FIX::ConfigError&amp; e)
     {
-      std::cout << e.what();
+      std::cout &lt;&lt; e.what();
       return 1;
     }
   }
   </PRE></CODE></B>
-  </body>
+  </BODY>
 </html>
