@@ -975,10 +975,11 @@ bool Session::doTargetTooLow( const Message& msg )
 
   const Header & header = msg.getHeader();
   MsgType msgType;
-  PossDupFlag possDupFlag;
+  PossDupFlag possDupFlag(false);
   MsgSeqNum msgSeqNum;
   header.getField( msgType );
-  header.getField( possDupFlag );
+  if( header.isSetField(possDupFlag) )
+    header.getField( possDupFlag );
   header.getField( msgSeqNum );
 
   m_state.onEvent( "MsgSeqNum too low RECEIVED: "
