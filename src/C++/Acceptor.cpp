@@ -202,9 +202,29 @@ bool Acceptor::poll() throw ( ConfigError&, RuntimeError& )
 void Acceptor::stop() 
 { QF_STACK_PUSH( Acceptor::stop ) 
 
+  Sessions sessions = m_sessions;
+  Sessions::iterator i = sessions.begin();
+  for ( ; i != sessions.end(); ++i )
+    i->second->logout();
+
   if( !m_threadid ) return;
   onStop();
   thread_join( m_threadid );
+
+  QF_STACK_POP
+}
+
+bool Acceptor::isLoggedOn()
+{ QF_STACK_PUSH(Acceptor::isLoggedOn)
+
+  Sessions sessions = m_sessions;
+  Sessions::iterator i = sessions.begin();
+  for ( ; i != sessions.end(); ++i )
+  {
+    if( i->second->isLoggedOn() )
+      return true;
+  }
+  return false;
 
   QF_STACK_POP
 }

@@ -102,16 +102,38 @@ void SocketInitiator::onStart()
   while ( !m_stop )
     m_connector.block( *this );
 
+  time_t start = 0;
+  time_t now = 0;
+    
+  ::time( &start );
+  while ( isLoggedOn() )
+  {
+    m_connector.block( *this );
+    if( ::time(&now) -5 >= start )
+      break;
+  }
+
   QF_STACK_POP
 }
 
 bool SocketInitiator::onPoll()
 { QF_STACK_PUSH(SocketInitiator::onPoll)
 
-  if( m_stop ) 
-    return false;   
-   m_connector.block( *this, true );
-   return true;
+  time_t start = 0;
+  time_t now = 0;
+
+  if( m_stop )
+  {
+    if( start == 0 )
+      ::time( &start );
+    if( !isLoggedOn() )
+      return false;
+    if( ::time(&now) - 5 >= start )
+      return false;
+  }
+
+  m_connector.block( *this, true );  
+  return true;
 
   QF_STACK_POP
 }

@@ -123,7 +123,7 @@ public:
   bool logoutTimedOut() const
   {
     UtcTimeStamp now;
-    return sentLogout() && ( ( now - lastReceivedTime() ) >= 2 );
+    return sentLogout() && ( ( now - lastSentTime() ) >= 2 );
   }
   bool withinHeartBeat() const
   {

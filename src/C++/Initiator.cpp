@@ -142,7 +142,7 @@ void Initiator::connect()
   for ( ; i != disconnected.end(); ++i )
   {
     Session* pSession = Session::lookupSession( *i );
-    if ( pSession->isSessionTime() )
+    if ( pSession->isEnabled() && pSession->isSessionTime() )
       setConnected( *i, doConnect( *i, m_settings.get( *i ) ) );
   }
 
@@ -213,10 +213,30 @@ bool Initiator::poll() throw ( ConfigError&, RuntimeError& )
 
 void Initiator::stop() 
 { QF_STACK_PUSH(Initiator::stop) 
+
+  SessionIDs connected = m_connected;
+  SessionIDs::iterator i = connected.begin();
+  for ( ; i != connected.end(); ++i )
+    Session::lookupSession(*i)->logout();
   
   if( !m_threadid ) return;
   onStop();
   thread_join( m_threadid );
+
+  QF_STACK_POP
+}
+
+bool Initiator::isLoggedOn()
+{ QF_STACK_PUSH(Initiator::isLoggedOn)
+
+  SessionIDs connected = m_connected;
+  SessionIDs::iterator i = connected.begin();
+  for ( ; i != connected.end(); ++i )
+  {
+    if( Session::lookupSession(*i)->isLoggedOn() )
+      return true;
+  }
+  return false;
 
   QF_STACK_POP
 }

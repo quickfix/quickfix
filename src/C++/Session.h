@@ -79,6 +79,10 @@ public:
            int heartBtInt, LogFactory* pLogFactory );
   ~Session();
 
+  void logon() { m_enabled = true; }
+  void logout() { m_enabled = false; }
+  bool isEnabled() { return m_enabled; }
+
   bool sentLogon() { return m_state.sentLogon(); }
   bool sentLogout() { return m_state.sentLogout(); }
   bool receivedLogon() { return m_state.receivedLogon(); }
@@ -118,15 +122,21 @@ public:
   static bool isSameSession( const UtcTimeOnly& start, const UtcTimeOnly& end,
                              const UtcTimeStamp& time1,
                              const UtcTimeStamp& time2 );
-  bool isSessionTime() { return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() ); }
+  bool isSessionTime() 
+    { return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() ); }
 
-  void checkLatency ( bool value ) { m_checkLatency = value; }
-  void setMaxLatency ( int value ) { m_maxLatency = value; }
-  void setLogonTimeout ( int value ) { m_state.logonTimeout( value ); }
-  void setResetOnLogout ( bool value ) { m_resetOnLogout = value; }
-  void setResetOnDisconnect( bool value ) { m_resetOnDisconnect = value; }
-  void setMillisecondsInTimeStamp ( bool value ) { m_millisecondsInTimeStamp = value; }
-
+  void checkLatency ( bool value ) 
+    { m_checkLatency = value; }
+  void setMaxLatency ( int value ) 
+    { m_maxLatency = value; }
+  void setLogonTimeout ( int value ) 
+    { m_state.logonTimeout( value ); }
+  void setResetOnLogout ( bool value ) 
+    { m_resetOnLogout = value; }
+  void setResetOnDisconnect( bool value ) 
+    { m_resetOnDisconnect = value; }
+  void setMillisecondsInTimeStamp ( bool value ) 
+    { m_millisecondsInTimeStamp = value; }
 
   void setResponder( Responder* pR ) { m_pResponder = pR; }
   bool send( Message& );
@@ -141,8 +151,6 @@ public:
   Log* getLog() { return &m_state; }
 
 private:
-  void initialize( int );
-
   typedef std::map < SessionID, Session* > Sessions;
   static bool addSession( Session& );
   static void removeSession( Session& );
@@ -223,6 +231,7 @@ private:
   SessionID m_sessionID;
   UtcTimeOnly m_startTime;
   UtcTimeOnly m_endTime;
+  bool m_enabled;
 
   bool m_checkLatency;
   int m_maxLatency;

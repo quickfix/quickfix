@@ -75,6 +75,7 @@ Session::Session( Application& application,
 : m_application( application ),
   m_sessionID( sessionID ),
   m_startTime( startTime ), m_endTime( endTime ),
+  m_enabled( true ),
   m_checkLatency( true ), m_maxLatency( 120 ),
   m_resetOnLogout( false ), m_resetOnDisconnect( false ),
   m_millisecondsInTimeStamp( true ),
@@ -142,9 +143,17 @@ void Session::next()
 
   try
   {
+    if( !m_enabled )
+    {
+      if( isLoggedOn() )
+        generateLogout();
+      else
+        return;
+    }
+
     UtcTimeStamp now;
     if ( !checkSessionTime( now ) )
-    { reset(); return ; }
+      { reset(); return ; }
 
     if ( !m_state.receivedLogon() )
     {

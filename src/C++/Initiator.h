@@ -99,6 +99,9 @@ public:
   /// Stop initiator.
   void stop();
 
+  /// Check to see if any sessions are currently logged on
+  bool isLoggedOn();
+
   Session* getSession( const SessionID& sessionID, Responder& );
 
 public:

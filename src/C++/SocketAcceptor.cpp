@@ -110,17 +110,51 @@ throw ( RuntimeError& )
 
 void SocketAcceptor::onStart()
 { QF_STACK_PUSH(SocketAcceptor::onStart)
+
   while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
+
+  if( !m_pServer ) 
+    return;
+
+  time_t start = 0;
+  time_t now = 0;
+    
+  ::time( &start );
+  while ( isLoggedOn() )
+  {
+    m_pServer->block( *this );
+    if( ::time(&now) -5 >= start )
+      break;
+  }
+
+  m_pServer->close();
+  delete m_pServer;
+  m_pServer = 0;
+
   QF_STACK_POP
 }
 
 bool SocketAcceptor::onPoll()
 { QF_STACK_PUSH(SocketAcceptor::onPoll)
 
-  if( m_stop || !m_pServer ) 
+  if( !m_pServer )
     return false;
-   m_pServer->block( *this, true );
-   return true;
+
+  time_t start = 0;
+  time_t now = 0;
+
+  if( m_stop )
+  {
+    if( start == 0 )
+      ::time( &start );
+    if( !isLoggedOn() )
+      return false;
+    if( ::time(&now) - 5 >= start )
+      return false;
+  }
+
+  m_pServer->block( *this, true );
+  return true;
 
   QF_STACK_POP
 }
@@ -129,12 +163,6 @@ void SocketAcceptor::onStop()
 { QF_STACK_PUSH(SocketAcceptor::onStop)
 
   m_stop = true;
-  if ( m_pServer ) 
-  {
-    m_pServer->close();
-    delete m_pServer;
-    m_pServer = 0;
-  }
 
   QF_STACK_POP
 }
