@@ -395,6 +395,20 @@ private:
       throw TagNotDefinedForMessage( field.getField() );
   }
 
+  /// Check if group count matches number of groups in
+  void checkGroupCount
+  ( const FieldBase& field, const FieldMap& fieldMap, const MsgType& msgType )
+  throw( RepeatingGroupCountMismatch& )
+  {
+    int fieldNum = field.getField();
+    if( isGroup(msgType, fieldNum) )
+    {
+      if( fieldMap.groupCount(fieldNum) 
+        != IntConvertor::convert(field.getString()) )
+      throw RepeatingGroupCountMismatch(fieldNum);
+    }
+  }
+
   /// Check if a message has all required fields.
   void checkHasRequired
   ( const FieldMap& fieldMap, const MsgType& msgType )

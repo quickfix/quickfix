@@ -157,10 +157,14 @@ throw( std::exception& )
 void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
 { QF_STACK_PUSH(DataDictionary::iterate)
 
+  int lastField = 0;
+
   FieldMap::iterator i;
   for ( i = map.begin(); i != map.end(); ++i )
   {
     const FieldBase& field = i->second;
+    if( i != map.begin() && (field.getField() == lastField) )
+      throw RepeatedTag( lastField );
     checkHasValue( field );
 
     if ( m_hasVersion )
@@ -176,8 +180,10 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
            && !Message::isTrailerField( field, this ) )
       {
         checkIsInMessage( field, msgType );
+        checkGroupCount( field, map, msgType );
       }
     }
+    lastField = field.getField();
   }
 
   QF_STACK_POP
@@ -242,7 +248,7 @@ void DataDictionary::readFromURL( const std::string& url )
         DOMAttributesPtr attrs = pFieldValueNode->getAttributes();
         std::string enumeration;
         if(!attrs->get("enum", enumeration))
-          throw ConfigError(url + ": <value> does not have enum attribute");
+          throw ConfigError(url + ": <value> does not have enum attribute in field " + name);
         addFieldValue(num, enumeration);
         std::string description;
         if(attrs->get("description", description))
