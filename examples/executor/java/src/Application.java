@@ -51,7 +51,7 @@ import java.util.Date;
 import org.quickfix.*;
 import org.quickfix.field.*;
 
-public class Application extends MessageCracker implements org.quickfix.Application {
+public class Application extends org.quickfix.MessageCracker implements org.quickfix.Application {
 
     public Application() {}
 
