@@ -64,40 +64,40 @@ namespace FIX
 struct FieldNotFound : public std::logic_error
 {
   FieldNotFound( int f )
-      : std::logic_error( "Field not found" ), field( f ) {}
+    : std::logic_error( "Field not found" ), field( f ) {}
   int field;
 };
 
 /// Unable to convert field into its native format
 struct FieldConvertError : public std::logic_error
 {
-  FieldConvertError() : std::logic_error( "Could not convert field" ) {}}
-;
+  FieldConvertError() : std::logic_error( "Could not convert field" ) {}
+};
 
 /// Unable to parse message
 struct MessageParseError : public std::logic_error
 {
-  MessageParseError() : std::logic_error( "Could not parse message" ) {}}
-;
+  MessageParseError() : std::logic_error( "Could not parse message" ) {}
+};
 
 /// Not a recognizable message
 struct InvalidMessage : public std::logic_error
 {
-  InvalidMessage() : std::logic_error( "Invalid message" ) {}}
-;
+  InvalidMessage() : std::logic_error( "Invalid message" ) {}
+};
 
 /// %Application is not configured correctly
 struct ConfigError : public std::logic_error
 {
   ConfigError() : std::logic_error( "Configuration failed" ) {}
-  ConfigError( const std::string& what ) : std::logic_error( what ) {}}
-;
+  ConfigError( const std::string& what ) : std::logic_error( what ) {}
+};
 
 /// Tag number does not exist in specification
 struct InvalidTagNumber : public std::logic_error
 {
   InvalidTagNumber( int f )
-      : std::logic_error( "Invalid tag number" ), field( f ) {}
+    : std::logic_error( "Invalid tag number" ), field( f ) {}
   const int field;
 };
 
@@ -121,7 +121,7 @@ struct TagNotDefinedForMessage : public std::logic_error
 struct NoTagValue : public std::logic_error
 {
   NoTagValue( int f )
-      : std::logic_error( "Tag specified without a value" ), field( f ) {}
+    : std::logic_error( "Tag specified without a value" ), field( f ) {}
   const int field;
 };
 
@@ -137,7 +137,7 @@ struct IncorrectTagValue : public std::logic_error
 struct IncorrectDataFormat : public std::logic_error
 {
   IncorrectDataFormat( int f )
-      : std::logic_error( "Incorrect data format for value" ), field( f ) {}
+    : std::logic_error( "Incorrect data format for value" ), field( f ) {}
   const int field;
 };
 
@@ -145,64 +145,66 @@ struct IncorrectDataFormat : public std::logic_error
 struct IncorrectMessageStructure : public std::logic_error
 {
   IncorrectMessageStructure() : std::logic_error
-  ( "Incorrect message structure" ) {}}
-;
+  ( "Incorrect message structure" ) {}
+};
 
 /// Field shows up twice in the message
 struct DuplicateFieldNumber : public std::logic_error
 {
-  DuplicateFieldNumber() : std::logic_error( "Duplicate field number" ) {}}
-;
+  DuplicateFieldNumber() : std::logic_error( "Duplicate field number" ) {}
+};
 
 /// Not a known message type
 struct InvalidMessageType : public std::logic_error
 {
-  InvalidMessageType () : std::logic_error( "Invalid Message Type" ) {}}
-;
+  InvalidMessageType () : std::logic_error( "Invalid Message Type" ) {}
+};
 
 /// Message type not supported by application
 struct UnsupportedMessageType : public std::logic_error
 {
   UnsupportedMessageType() : std::logic_error
-  ( "Unsupported Message Type" ) {}}
-;
+  ( "Unsupported Message Type" ) {}
+};
 
 /// Version of %FIX is not supported
 struct UnsupportedVersion : public std::logic_error
 {
   UnsupportedVersion() : std::logic_error
-  ( "Unsupported Version" ) {}}
-;
+  ( "Unsupported Version" ) {}
+};
 
-/// Fields are not in the correct order
-struct FieldsOutOfOrder : public std::logic_error
+/// Tag is not in the correct order
+struct TagOutOfOrder : public std::logic_error
 {
-  FieldsOutOfOrder() : std::logic_error( "Incorrect Message Structure" ) {}}
-;
+  TagOutOfOrder( int f ) 
+    : std::logic_error( "Tag specified out of required order" ), field( f ) {}
+  const int field;
+};
 
 /// Indicates user does not want to send a message
 struct DoNotSend : public std::logic_error
 {
-  DoNotSend() : std::logic_error( "Do Not Send Message" ) {}}
-;
+  DoNotSend() : std::logic_error( "Do Not Send Message" ) {}
+};
 
 /// User wants to reject permission to logon
 struct RejectLogon : public std::logic_error
 {
-  RejectLogon() : std::logic_error( "Reject Logon Attempt" ) {}}
-;
+  RejectLogon() : std::logic_error( "Reject Logon Attempt" ) {}
+};
 
 /// Session cannot be found for specified action
 struct SessionNotFound : public std::logic_error
 {
-  SessionNotFound() : std::logic_error( "Session Not Found" ) {}}
-;
+  SessionNotFound() : std::logic_error( "Session Not Found" ) {}
+};
 
 /// IO Error
 struct IOException : public std::runtime_error
 {
-  IOException() : std::runtime_error( "IO Error" ) {}}
-;
+  IOException() : std::runtime_error( "IO Error" ) {}
+};
 /*! @} */
 }
 
