@@ -127,6 +127,7 @@ bool ParserTestCase::readFromSocket::onSetup( Parser*& pObject )
   m_pServer = new SocketServer( m_port, 0, true );
   m_pConnector = new SocketConnector;
   int connSocket = m_pConnector->connect( "127.0.0.1", m_port );
+  assert( connSocket > 0 );
   int recvSocket = m_pServer->accept();
 
   std::string buffer = m_fixMsg1 + m_fixMsg2 + m_fixMsg3;

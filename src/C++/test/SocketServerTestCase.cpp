@@ -45,16 +45,19 @@ bool SocketServerTestCase::accept::onSetup( SocketServer*& pObject )
 void SocketServerTestCase::accept::onRun( SocketServer& object )
 {
   int clientS1 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
+  assert( clientS1 > 0 );
   int s1 = object.accept();
   assert( s1 >= 0 );
   assert( object.numConnections() == 1 );
 
   int clientS2 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
+  assert( clientS2 > 0 );
   int s2 = object.accept();
   assert( s2 >= 0 );
   assert( object.numConnections() == 2 );
 
   int clientS3 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
+  assert( clientS3 > 0 );
   int s3 = object.accept();
   assert( s3 >= 0 );
   assert( object.numConnections() == 3 );
