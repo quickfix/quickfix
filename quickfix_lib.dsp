@@ -89,6 +89,10 @@ SOURCE=".\src\C++\Acceptor.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\CallStack.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\ConfigLexer.cpp"
 # End Source File
 # Begin Source File
@@ -194,6 +198,39 @@ InputName=Application
 # Begin Custom Build
 InputPath=".\src\C++\Application.h"
 InputName=Application
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\CallStack.h"
+
+!IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+# Begin Custom Build
+InputPath=".\src\C++\CallStack.h"
+InputName=CallStack
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
+
+# Begin Custom Build
+InputPath=".\src\C++\CallStack.h"
+InputName=CallStack
 
 "include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
@@ -919,6 +956,17 @@ SOURCE=".\src\C++\DeprecatedFields.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
 
+# Begin Custom Build
+InputPath=".\src\C++\DeprecatedFields.h"
+InputName=DeprecatedFields
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
+
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
 # Begin Custom Build
@@ -940,6 +988,17 @@ InputName=DeprecatedFields
 SOURCE=".\src\C++\DeprecatedValues.h"
 
 !IF  "$(CFG)" == "quickfix_lib - Win32 Release"
+
+# Begin Custom Build
+InputPath=".\src\C++\DeprecatedValues.h"
+InputName=DeprecatedValues
+
+"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
+	xcopy "$(InputPath)" include 
+	
+# End Custom Build
 
 !ELSEIF  "$(CFG)" == "quickfix_lib - Win32 Debug"
 
@@ -1189,6 +1248,10 @@ InputName=Values
 
 # End Source File
 # End Group
+# Begin Source File
+
+SOURCE=".\src\C++\FieldMap.cpp"
+# End Source File
 # End Group
 # Begin Group "Message"
 
