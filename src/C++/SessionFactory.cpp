@@ -98,7 +98,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     startDay = settings.getDay( START_DAY );
     endDay = settings.getDay( END_DAY );
   }
-  catch( ConfigError & e ) {}
+  catch( ConfigError & ) {}
   catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
 
   if( startDay >= 0 && endDay < 0 )
