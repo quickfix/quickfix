@@ -1,0 +1,36 @@
+2003-05-06 Alex Hornby <alex@anvil.com>
+	
+	* */.cvsignore: ignore generated files
+	
+	* */Makefile.in: remove generated files from CVS. this helps prevent
+	false conflicts.
+
+2003-05-01 Alex Hornby <alex@anvil.com>
+
+	* examples/trade_client/Application.h: Add fix 43 market data test
+	
+	* examples/trade_client/Application.cpp: Add fix 43 market data test
+
+	* examples/ordermatch/Application.cpp: Add fix 43 market data
+	test - just dumps recieved message for now.
+
+	* examples/ordermatch/Application.h: Add fix 43 market data
+	test - just dumps recieved message for now.
+	
+	* examples/ordermatch/test/Market.cpp: fix constness
+	
+	* examples/executor/C++/executor.cpp: don't use DOS console IO as
+	it breaks build on linux
+
+	* examples/bootstrap: update with feedback
+	
+	* examples/configure.ac: update for autoconf 2.53, fix C and CXX
+	flags. Add prefix to includes
+
+	* spec/Makefile.am: install xml files
+
+	* src/java/Makefile.am: install jar file
+	
+	* configure.ac: update for autoconf 2.53, fix C and CXX flags
+
+	* bootstrap: update with feedback
