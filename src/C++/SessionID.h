@@ -75,7 +75,7 @@ public:
     std::string::size_type first =
       str.find_first_of(':');
     std::string::size_type second =
-      str.find_first_of('-');
+      str.find("->");
     std::string::size_type third =
       str.find_last_of(':');
     if( first == std::string::npos )
