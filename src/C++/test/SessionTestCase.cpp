@@ -665,7 +665,7 @@ void SessionTestCase::nextResendRequest::onRun( Session& object )
   message = createNewOrderSingle( "ISLD", "TW", 17 );
   assert( object.send( message ) );
   object.next( createResendRequest( "ISLD", "TW", 8, 1, 20 ) );
-  assert( m_toSequenceReset == 7 );
+  assert( m_toSequenceReset == 6 );
 }
 
 void SessionTestCase::badBeginString::onRun( Session& object )

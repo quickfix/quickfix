@@ -331,7 +331,8 @@ void Session::nextResendRequest( const Message& resendRequest )
 
   std::string beginString = m_sessionID.getBeginString();
   if ( beginString >= FIX::BeginString_FIX42 && endSeqNo == 0 ||
-       beginString <= FIX::BeginString_FIX42 && endSeqNo == 999999 )
+       beginString <= FIX::BeginString_FIX42 && endSeqNo == 999999 ||
+       endSeqNo >= getExpectedSenderNum() )
   { endSeqNo = getExpectedSenderNum() - 1; }
 
   std::vector < std::string > messages;
