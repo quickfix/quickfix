@@ -39,6 +39,12 @@
 /* Whether or not we are using the new-style typeinfo header */
 #undef TYPEINFO_IN_STD
 
+/* The system has gethostbyname_r which takes a result as a pass-in param */
+#undef GETHOSTBYNAME_R_INPUTS_RESULT
+
+/* The system has gethostbyname_r which returns result */
+#undef GETHOSTBYNAME_R_RETURNS_RESULT
+
 /* whether or not we have to demangle names */
 #undef HAVE_CPLUS_DEMANGLE
 
