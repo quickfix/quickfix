@@ -90,21 +90,14 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
   {
     MsgType msgType = new MsgType();
     message.getHeader().getField(msgType);
-    String msgTypeString = msgType.getValue();
-    if(msgTypeString.length() > 1)
-    {
-      onMessage( message, sessionID );
-      return;
-    }
+    String msgTypeValue = msgType.getValue();
 
-    switch(msgTypeString.charAt(0))
-    {<xsl:for-each select="//fix/messages/message">
-      case '<xsl:value-of select="@msgtype"/>':
-        onMessage( (<xsl:value-of select="@name"/>)message, sessionID );
-	      break;</xsl:for-each>
-      default:
-        onMessage( message, sessionID );
-    }
+    <xsl:for-each select="//fix/messages/message">
+    <xsl:if test="position()!=1">
+    else
+    </xsl:if>if( msgTypeValue.equals("<xsl:value-of select="@msgtype"/>") )
+      onMessage( (<xsl:value-of select="@name"/>)message, sessionID );</xsl:for-each>
+    else onMessage( message, sessionID );
   }
 </xsl:template>
 

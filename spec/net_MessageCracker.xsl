@@ -94,21 +94,14 @@ public:
   {
     Fix::MsgType* msgType = new Fix::MsgType();
     message->getHeader()->getField(msgType);
-    std::string msgTypeString = Fix::convertString(msgType->getValue());
-    if(msgTypeString.size() > 1)
-    {
-      onMessage( message, sessionID );
-      return;
-    }
+    std::string msgTypeValue = Fix::convertString(msgType->getValue());
 
-    switch(msgTypeString[0])
-    {<xsl:for-each select="//fix/messages/message">
-      case '<xsl:value-of select="@msgtype"/>':
-        onMessage( dynamic_cast&lt;<xsl:value-of select="@name"/>*&gt;(message), sessionID );
-	      break;</xsl:for-each>
-      default:
-        onMessage( message, sessionID );
-    }
+    <xsl:for-each select="//fix/messages/message">
+    <xsl:if test="position()!=1">
+    else
+    </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
+      onMessage( dynamic_cast&lt;<xsl:value-of select="@name"/>*&gt;(message), sessionID );</xsl:for-each>
+    else onMessage( message, sessionID );    
   }
 </xsl:template>
 
@@ -116,6 +109,7 @@ public:
  <xsl:if test="//fix/@major='4'">
    <xsl:if test="//fix/@minor='1'">#include "FIX40_MessageCracker.h"</xsl:if>
    <xsl:if test="//fix/@minor='2'">#include "FIX41_MessageCracker.h"</xsl:if>
+   <xsl:if test="//fix/@minor='3'">#include "FIX42_MessageCracker.h"</xsl:if>
  </xsl:if>
 </xsl:template>
 
@@ -123,6 +117,7 @@ public:
  <xsl:if test="//fix/@major='4'">
    <xsl:if test="//fix/@minor='1'">: public Fix40::MessageCracker</xsl:if>
    <xsl:if test="//fix/@minor='2'">: public Fix41::MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='3'">: public Fix42::MessageCracker</xsl:if>
  </xsl:if>
 </xsl:template>
 

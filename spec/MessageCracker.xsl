@@ -95,20 +95,14 @@ public:
   {
     FIX::MsgType msgType;
     message.getHeader().getField(msgType);
-    if(msgType.getValue().size() > 1)
-    {
-      onMessage( message, sessionID );
-      return;
-    }
-
-    switch(msgType.getValue()[0])
-    {<xsl:for-each select="//fix/messages/message">
-      case '<xsl:value-of select="@msgtype"/>':
-        onMessage( (<xsl:value-of select="@name"/>&amp;)message, sessionID );
-	      break;</xsl:for-each>
-      default:
-        onMessage( message, sessionID );
-    }
+    std::string msgTypeValue = msgType.getValue();
+    
+    <xsl:for-each select="//fix/messages/message">
+    <xsl:if test="position()!=1">
+    else
+    </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
+      onMessage( (<xsl:value-of select="@name"/>&amp;)message, sessionID );</xsl:for-each>
+    else onMessage( message, sessionID );
   }
 </xsl:template>
 
