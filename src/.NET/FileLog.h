@@ -86,7 +86,11 @@ private:
 public __gc class FileLogFactory : public LogFactory
 {
 public:
-  FileLogFactory( String* path ) : m_path( path ) {}
+  FileLogFactory( SessionSettings* settings ) 
+  : m_path( 0 ), m_settings( settings ) {}
+
+  FileLogFactory( String* path ) 
+  : m_path( path ), m_settings( 0 ) {}
 
   Log* create( SessionID* sessionID )
   { QF_STACK_TRY
