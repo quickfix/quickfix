@@ -25,14 +25,14 @@ clean-local:
 	rm -rf $(top_builddir)/lib/libquickfix_python.la
 
 install-exec-local:
-	rm -rf ${PYTHON_SITE_PACKAGES}/_quickfix.so
-	rm -rf ${PYTHON_SITE_PACKAGES}/quickfix.py
-	ln -s ${prefix}/lib/libquickfix_python.so ${PYTHON_SITE_PACKAGES}/_quickfix.so
-	cp $(top_builddir)/lib/quickfix.py ${PYTHON_SITE_PACKAGES}
+	rm -rf $(PYTHON_SITE_PACKAGES)/_quickfix.so
+	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix.py
+	ln -s $(prefix)/lib/libquickfix_python.so $(PYTHON_SITE_PACKAGES)/_quickfix.so
+	cp $(top_builddir)/lib/quickfix.py $(PYTHON_SITE_PACKAGES)
 
 uninstall-local:
-	rm -rf ${PYTHON_SITE_PACKAGES}/_quickfix.so
-	rm -rf ${PYTHON_SITE_PACKAGES}/quickfix.py
+	rm -rf $(PYTHON_SITE_PACKAGES)/_quickfix.so
+	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix.py
 
 libquickfix_python_la_LDFLAGS = -version-info 1:1:0
 libquickfix_python_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la 

@@ -91,7 +91,7 @@ if test $has_python = true
 then
     PYTHON_CFLAGS="-I${PYTHON_PREFIX}" 
     AC_SUBST(PYTHON_CFLAGS)
-    PYTHON_SITE_PACKAGES=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib()"`
+    PYTHON_SITE_PACKAGES=[`python -c 'from distutils import sysconfig; print sysconfig.get_python_lib()'`]
     AC_SUBST(PYTHON_SITE_PACKAGES)
     AC_DEFINE(HAVE_PYTHON, 1, Define if you have python)
 fi
