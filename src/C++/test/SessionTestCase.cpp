@@ -831,8 +831,10 @@ void SessionTestCase::disconnectBeforeStartTime::onRun( Session& object )
 
 bool SessionTestCase::resetOnNewSession::onSetup( Session*& pObject )
 {
-  m_startTime += -100;
+  m_startTime.setCurrent();  
   m_endTime = m_startTime;
+  m_endTime += 2;
+  m_startTime += -2;  
   return Test::onSetup( pObject );
 }
 
