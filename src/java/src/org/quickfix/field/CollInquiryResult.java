@@ -15,7 +15,6 @@ public static final int NO_COLLATERAL_FOUND_FOR_THE_TRADE_SPECIFIED = 6;
 public static final int NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED = 7; 
 public static final int COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED = 8; 
 public static final int UNAUTHORIZED_FOR_COLLATERAL_INQUIRY = 9; 
-public static final int OTHER = 99; 
 
   public CollInquiryResult() 
   { 

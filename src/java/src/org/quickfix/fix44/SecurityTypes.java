@@ -67,7 +67,7 @@ public class SecurityTypes extends Message
   public boolean isSet(org.quickfix.field.TotNoSecurityTypes field) 
   { return isSetField(field); } 
   public boolean isSetTotNoSecurityTypes() 
-  { return isSetField(557); } 
+  { return isSetField(); } 
 
   public void set(org.quickfix.field.LastFragment value) 
   { setField(value); } 

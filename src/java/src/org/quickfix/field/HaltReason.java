@@ -5,12 +5,12 @@ import java.util.Date;
 public class HaltReason extends CharField 
 { 
   public static final int FIELD = 327; 
-public static final char ORD_IMB = 'I'; 
-public static final char EQUIP_CHANGE = 'X'; 
-public static final char NEWS_PEND = 'P'; 
-public static final char NEWS_DISS = 'D'; 
-public static final char ORD_INFL = 'E'; 
-public static final char ADD_INFO = 'M'; 
+public static final char ORDER_IMBALANCE = 'I'; 
+public static final char EQUIPMENT_CHANGEOVER = 'X'; 
+public static final char NEWS_PENDING = 'P'; 
+public static final char NEWS_DISSEMINATION = 'D'; 
+public static final char ORDER_INFLUX = 'E'; 
+public static final char ADDITIONAL_INFORMATION = 'M'; 
 
   public HaltReason() 
   { 

@@ -57,6 +57,7 @@ namespace FIX
   {
     enum DeprecatedField
     {
+      ExecTransType = 20,
       IDSource = 22,
       IOIOthSvc = 24,
       IOIShares = 27,

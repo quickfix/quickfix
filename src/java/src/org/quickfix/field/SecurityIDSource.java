@@ -1,35 +1,35 @@
 package org.quickfix.field; 
-import org.quickfix.StringField; 
+import org.quickfix.CharField; 
 import java.util.Date; 
 
-public class SecurityIDSource extends StringField 
+public class SecurityIDSource extends CharField 
 { 
   public static final int FIELD = 22; 
-public static final String CUSIP = "1"; 
-public static final String SEDOL = "2"; 
-public static final String QUIK = "3"; 
-public static final String ISIN = "4"; 
-public static final String RIC = "5"; 
-public static final String ISOCURR = "6"; 
-public static final String ISOCOUNTRY = "7"; 
-public static final String EXCH_SYMB = "8"; 
-public static final String CTA = "9"; 
-public static final String BLMBRG = "A"; 
-public static final String WERTPAPIER = "B"; 
-public static final String DUTCH = "C"; 
-public static final String VALOREN = "D"; 
-public static final String SICOVAM = "E"; 
-public static final String BELGIAN = "F"; 
-public static final String COMMON = "G"; 
-public static final String CLEARING_HOUSE = "H"; 
-public static final String FP_ML = "I"; 
-public static final String OPTION_PRICE_REPORTING_AUTHORITY = "J"; 
+public static final char CUSIP = '1'; 
+public static final char SEDOL = '2'; 
+public static final char QUIK = '3'; 
+public static final char ISIN_NUMBER = '4'; 
+public static final char RIC_CODE = '5'; 
+public static final char ISO_CURRENCY_CODE = '6'; 
+public static final char ISO_COUNTRY_CODE = '7'; 
+public static final char EXCHANGE_SYMBOL = '8'; 
+public static final char CONSOLIDATED_TAPE_ASSOCIATION = '9'; 
+public static final char BLOOMBERG_SYMBOL = 'A'; 
+public static final char WERTPAPIER = 'B'; 
+public static final char DUTCH = 'C'; 
+public static final char VALOREN = 'D'; 
+public static final char SICOVAM = 'E'; 
+public static final char BELGIAN = 'F'; 
+public static final char COMMON = 'G'; 
+public static final char CLEARING_HOUSE_CLEARING_ORGANIZATION = 'H'; 
+public static final char ISDA_FPML_PRODUCT_SPECIFICATION = 'I'; 
+public static final char OPTIONS_PRICE_REPORTING_AUTHORITY = 'J'; 
 
   public SecurityIDSource() 
   { 
     super(22);
   } 
-  public SecurityIDSource(String data) 
+  public SecurityIDSource(char data) 
   { 
     super(22, data);
   } 

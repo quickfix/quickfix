@@ -6,7 +6,7 @@ public class SymbolSfx extends StringField
 { 
   public static final int FIELD = 65; 
 public static final String WHEN_ISSUED = "WI"; 
-public static final String EUCPLUMPSUM_INTEREST = "CD"; 
+public static final String A_EUCP_WITH_LUMP_SUM_INTEREST = "CD"; 
 
   public SymbolSfx() 
   { 

@@ -55,6 +55,10 @@
 
 namespace FIX
 {
+  const char ExecTransType_NEW = '0';
+  const char ExecTransType_CANCEL = '1';
+  const char ExecTransType_CORRECT = '2';
+  const char ExecTransType_STATUS = '3';
   const std::string IDSource_CUSIP = "1";
   const std::string IDSource_SEDOL = "2";
   const std::string IDSource_QUIK = "3";

@@ -77,9 +77,8 @@ namespace FIX
  DEFINE_STRING(ExecID);
  DEFINE_MULTIPLEVALUESTRING(ExecInst);
  DEFINE_STRING(ExecRefID);
- DEFINE_CHAR(ExecTransType);
  DEFINE_CHAR(HandlInst);
- DEFINE_STRING(SecurityIDSource);
+ DEFINE_CHAR(SecurityIDSource);
  DEFINE_STRING(IOIid);
  DEFINE_CHAR(IOIQltyInd);
  DEFINE_STRING(IOIRefID);
@@ -187,7 +186,7 @@ namespace FIX
  DEFINE_NUMINGROUP(NoMiscFees);
  DEFINE_AMT(MiscFeeAmt);
  DEFINE_CURRENCY(MiscFeeCurr);
- DEFINE_INT(MiscFeeType);
+ DEFINE_CHAR(MiscFeeType);
  DEFINE_PRICE(PrevClosePx);
  DEFINE_BOOLEAN(ResetSeqNumFlag);
  DEFINE_STRING(SenderLocationID);
@@ -551,7 +550,7 @@ namespace FIX
  DEFINE_MULTIPLEVALUESTRING(OrderRestrictions);
  DEFINE_CHAR(MassCancelRequestType);
  DEFINE_CHAR(MassCancelResponse);
- DEFINE_INT(MassCancelRejectReason);
+ DEFINE_CHAR(MassCancelRejectReason);
  DEFINE_INT(TotalAffectedOrders);
  DEFINE_INT(NoAffectedOrders);
  DEFINE_STRING(AffectedOrderID);
@@ -576,7 +575,7 @@ namespace FIX
  DEFINE_STRING(Password);
  DEFINE_NUMINGROUP(NoLegs);
  DEFINE_CURRENCY(LegCurrency);
- DEFINE_INT(TotNoSecurityTypes);
+ DEFINE_INT(TotNoSecurityType);
  DEFINE_NUMINGROUP(NoSecurityTypes);
  DEFINE_INT(SecurityListRequestType);
  DEFINE_INT(SecurityRequestResult);
@@ -976,3 +975,4 @@ namespace FIX
  DEFINE_LOCALMKTDATE(LegInterestAccrualDate);
 }
 #endif //FIX_FIELDS_H
+

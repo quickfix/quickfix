@@ -5,9 +5,9 @@ import java.util.Date;
 public class SettlInstSource extends CharField 
 { 
   public static final int FIELD = 165; 
-public static final char BROKER_INSTR = '1'; 
-public static final char INST_INSTR = '2'; 
-public static final char INVESTOR_CIV = '3'; 
+public static final char BROKERS_INSTRUCTIONS = '1'; 
+public static final char INSTITUTIONS_INSTRUCTIONS = '2'; 
+public static final char INVESTOR = '3'; 
 
   public SettlInstSource() 
   { 

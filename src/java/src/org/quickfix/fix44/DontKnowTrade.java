@@ -1858,7 +1858,7 @@ public static class NoLegSecurityAltID extends Group {
   public boolean isSet(org.quickfix.field.LastQty field) 
   { return isSetField(field); } 
   public boolean isSetLastQty() 
-  { return isSetField(32); } 
+  { return isSetField(3); } 
 
   public void set(org.quickfix.field.LastPx value) 
   { setField(value); } 

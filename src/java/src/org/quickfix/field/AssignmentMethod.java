@@ -6,7 +6,7 @@ public class AssignmentMethod extends CharField
 { 
   public static final int FIELD = 744; 
 public static final char RANDOM = 'R'; 
-public static final char PRO_RATA = 'P'; 
+public static final char PRORATA = 'P'; 
 
   public AssignmentMethod() 
   { 

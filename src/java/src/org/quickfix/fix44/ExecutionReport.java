@@ -579,7 +579,7 @@ public static class NoContraBrokers extends Group {
   public boolean isSet(org.quickfix.field.PreallocMethod field) 
   { return isSetField(field); } 
   public boolean isSetPreallocMethod() 
-  { return isSetField(591); } 
+  { return isSetField(); } 
 
   public void set(org.quickfix.field.SettlType value) 
   { setField(value); } 
@@ -2410,7 +2410,7 @@ public static class NoStipulations extends Group {
   public boolean isSet(org.quickfix.field.LastQty field) 
   { return isSetField(field); } 
   public boolean isSetLastQty() 
-  { return isSetField(32); } 
+  { return isSetField(3); } 
 
   public void set(org.quickfix.field.UnderlyingLastQty value) 
   { setField(value); } 
@@ -3219,7 +3219,7 @@ public static class NoStipulations extends Group {
   public boolean isSet(org.quickfix.field.SettlDate2 field) 
   { return isSetField(field); } 
   public boolean isSetSettlDate2() 
-  { return isSetField(193); } 
+  { return isSetField(); } 
 
   public void set(org.quickfix.field.OrderQty2 value) 
   { setField(value); } 

@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class TotNoOrders extends IntField 
 { 
-  public static final int FIELD = 68; 
+  public static final int FIELD = 63; 
 
   public TotNoOrders() 
   { 
-    super(68);
+    super(63);
   } 
   public TotNoOrders(int data) 
   { 
-    super(68, data);
+    super(63, data);
   } 
 } 

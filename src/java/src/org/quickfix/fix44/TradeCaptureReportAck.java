@@ -1856,7 +1856,7 @@ public static class NoNestedPartySubIDs extends Group {
   public boolean isSet(org.quickfix.field.PreallocMethod field) 
   { return isSetField(field); } 
   public boolean isSetPreallocMethod() 
-  { return isSetField(591); } 
+  { return isSetField(); } 
   public void set(org.quickfix.field.NoAllocs value) 
   { setField(value); } 
   public org.quickfix.field.NoAllocs get(org.quickfix.field.NoAllocs value) throws FieldNotFound 

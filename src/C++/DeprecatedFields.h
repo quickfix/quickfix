@@ -56,6 +56,7 @@
 
 namespace FIX
 {
+  DEFINE_CHAR(ExecTransType);
   DEFINE_STRING(IDSource);
   DEFINE_CHAR(IOIOthSvc);
   DEFINE_STRING(IOIShares);

@@ -6,11 +6,9 @@ public class SettlInstMode extends CharField
 { 
   public static final int FIELD = 160; 
 public static final char DEFAULT = '0'; 
-public static final char SIPROVIDED = '1'; 
-public static final char ACCOUNT_OVERRIDING = '2'; 
-public static final char ACCOUNT_STANDING = '3'; 
-public static final char CIVORDER_SINGLE_ACCT = '4'; 
-public static final char REJECT = '5'; 
+public static final char STANDING_INSTRUCTIONS_PROVIDED = '1'; 
+public static final char SPECIFIC_ORDER_FOR_A_SINGLE_ACCOUNT = '4'; 
+public static final char REQUEST_REJECT = '5'; 
 
   public SettlInstMode() 
   { 

@@ -5,6 +5,8 @@ import java.util.Date;
 public class MsgDirection extends CharField 
 { 
   public static final int FIELD = 385; 
+public static final char SEND = 'S'; 
+public static final char RECEIVE = 'R'; 
 
   public MsgDirection() 
   { 

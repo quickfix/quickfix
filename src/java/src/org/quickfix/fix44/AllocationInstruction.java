@@ -407,7 +407,7 @@ public static class NoExecs extends Group {
   public NoExecs() { 
     super(124, 17, 
     new int[] { 
-               32, 
+               3, 
                17, 
                527, 
                31, 
@@ -426,7 +426,7 @@ public static class NoExecs extends Group {
   public boolean isSet(org.quickfix.field.LastQty field) 
   { return isSetField(field); } 
   public boolean isSetLastQty() 
-  { return isSetField(32); } 
+  { return isSetField(3); } 
 
   public void set(org.quickfix.field.ExecID value) 
   { setField(value); } 

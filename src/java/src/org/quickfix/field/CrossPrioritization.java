@@ -5,6 +5,9 @@ import java.util.Date;
 public class CrossPrioritization extends IntField 
 { 
   public static final int FIELD = 550; 
+public static final int NONE = 0; 
+public static final int BUY_SIDE_IS_PRIORITIZED = 1; 
+public static final int SELL_SIDE_IS_PRIORITIZED = 2; 
 
   public CrossPrioritization() 
   { 

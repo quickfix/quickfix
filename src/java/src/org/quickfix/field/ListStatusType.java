@@ -6,10 +6,10 @@ public class ListStatusType extends IntField
 { 
   public static final int FIELD = 429; 
 public static final int ACK = 1; 
-public static final int RESP = 2; 
+public static final int RESPONSE = 2; 
 public static final int TIMED = 3; 
-public static final int EXEC_START = 4; 
-public static final int ALL_DONE = 5; 
+public static final int EXECSTARTED = 4; 
+public static final int ALLDONE = 5; 
 public static final int ALERT = 6; 
 
   public ListStatusType() 

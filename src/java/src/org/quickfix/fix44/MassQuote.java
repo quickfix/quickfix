@@ -419,7 +419,7 @@ public static class NoQuoteEntries extends Group {
                625, 
                64, 
                40, 
-               193, 
+               , 
                192, 
                642, 
                643, 
@@ -665,7 +665,7 @@ public static class NoQuoteEntries extends Group {
   public boolean isSet(org.quickfix.field.SettlDate2 field) 
   { return isSetField(field); } 
   public boolean isSetSettlDate2() 
-  { return isSetField(193); } 
+  { return isSetField(); } 
 
   public void set(org.quickfix.field.OrderQty2 value) 
   { setField(value); } 

@@ -134,7 +134,7 @@ public static class NoRelatedSym extends Group {
              469, 
                63, 
                64, 
-               193, 
+               , 
                192, 
                15, 
                1, 
@@ -273,7 +273,7 @@ public static class NoRelatedSym extends Group {
   public boolean isSet(org.quickfix.field.SettlDate2 field) 
   { return isSetField(field); } 
   public boolean isSetSettlDate2() 
-  { return isSetField(193); } 
+  { return isSetField(); } 
 
   public void set(org.quickfix.field.OrderQty2 value) 
   { setField(value); } 

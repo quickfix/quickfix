@@ -11,7 +11,6 @@ public static final int UNAUTHORIZED_TRANSACTION = 2;
 public static final int INSUFFICIENT_COLLATERAL = 3; 
 public static final int INVALID_TYPE_OF_COLLATERAL = 4; 
 public static final int EXCESSIVE_SUBSTITUTION = 5; 
-public static final int OTHER = 99; 
 
   public CollAsgnRejectReason() 
   { 

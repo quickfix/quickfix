@@ -53,6 +53,7 @@
 #include "Message.h"
 #include "Group.h"
 #include "Fields.h"
+#include "DeprecatedFields.h"
 
 namespace QuickFix40
 {

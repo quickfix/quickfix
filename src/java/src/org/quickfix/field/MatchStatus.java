@@ -5,9 +5,9 @@ import java.util.Date;
 public class MatchStatus extends CharField 
 { 
   public static final int FIELD = 573; 
-public static final char COMP_MAT_AFF = '0'; 
-public static final char UNCOMP_UNMAT_UNAFF = '1'; 
-public static final char ADV_ALERT = '2'; 
+public static final char COMPARED_MATCHED_OR_AFFIRMED = '0'; 
+public static final char UNCOMPARED_UNMATCHED_OR_UNAFFIRMED = '1'; 
+public static final char ADVISORY_OR_ALERT = '2'; 
 
   public MatchStatus() 
   { 

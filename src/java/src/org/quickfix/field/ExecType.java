@@ -6,10 +6,12 @@ public class ExecType extends CharField
 { 
   public static final int FIELD = 150; 
 public static final char NEW = '0'; 
-public static final char DONE = '3'; 
+public static final char PARTIAL_FILL = '1'; 
+public static final char FILL = '2'; 
+public static final char DONE_FOR_DAY = '3'; 
 public static final char CANCELED = '4'; 
-public static final char REPLACED = '5'; 
-public static final char PENDING_CXL = '6'; 
+public static final char REPLACE = '5'; 
+public static final char PENDING_CANCEL = '6'; 
 public static final char STOPPED = '7'; 
 public static final char REJECTED = '8'; 
 public static final char SUSPENDED = '9'; 

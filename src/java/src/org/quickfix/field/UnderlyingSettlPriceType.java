@@ -5,8 +5,6 @@ import java.util.Date;
 public class UnderlyingSettlPriceType extends IntField 
 { 
   public static final int FIELD = 733; 
-public static final int FINAL = 1; 
-public static final int THEORETICAL = 2; 
 
   public UnderlyingSettlPriceType() 
   { 

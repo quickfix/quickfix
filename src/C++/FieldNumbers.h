@@ -79,7 +79,6 @@ namespace FIX
      ,ExecID = 17
      ,ExecInst = 18
      ,ExecRefID = 19
-     ,ExecTransType = 20
      ,HandlInst = 21
      ,SecurityIDSource = 22
      ,IOIid = 23
@@ -90,7 +89,7 @@ namespace FIX
      ,LastCapacity = 29
      ,LastMkt = 30
      ,LastPx = 31
-     ,LastQty = 32
+     ,LastQty = 3
      ,LinesOfText = 33
      ,MsgSeqNum = 34
      ,MsgType = 35
@@ -123,8 +122,8 @@ namespace FIX
      ,SymbolSfx = 65
      ,ListID = 66
      ,ListSeqNo = 67
-     ,TotNoOrders = 68
-     ,ListNoOrds = 68
+     ,TotNoOrders = 63
+     ,ListNoOrds = 63
      ,ListExecInst = 69
      ,AllocID = 70
      ,AllocTransType = 71
@@ -578,7 +577,7 @@ namespace FIX
      ,Password = 554
      ,NoLegs = 555
      ,LegCurrency = 556
-     ,TotNoSecurityTypes = 557
+     ,TotNoSecurityType = 557
      ,NoSecurityTypes = 558
      ,SecurityListRequestType = 559
      ,SecurityRequestResult = 560
@@ -1000,3 +999,4 @@ namespace FIX
 }
 
 #endif //FIX_FIELDNUMBERS_H
+

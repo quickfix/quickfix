@@ -5,20 +5,14 @@ import java.util.Date;
 public class ClearingFeeIndicator extends StringField 
 { 
   public static final int FIELD = 635; 
-public static final String CBOEMEMBER = "B"; 
-public static final String NON_MEMBER_CUSTOMER = "C"; 
-public static final String EQUITY_CLEARING_MEMBER = "E"; 
-public static final String FULL_ASSOCIATE_MEMBER = "F"; 
-public static final String _106H106J = "H"; 
-public static final String GIMIDEMCOMMEMBERSHIP = "I"; 
-public static final String LESSEE106F = "L"; 
-public static final String ALL_OTHERS = "M"; 
-public static final String FIRST_YEAR_DELEGATE = "1"; 
-public static final String SECOND_YEAR_DELEGATE = "2"; 
-public static final String THIRD_YEAR_DELEGATE = "3"; 
-public static final String FOURTH_YEAR_DELEGATE = "4"; 
-public static final String FIFTH_YEAR_DELEGATE = "5"; 
-public static final String SIXTH_YEAR_DELEGATE = "9"; 
+public static final String CBOE_MEMBER = "B"; 
+public static final String NON_MEMBER_AND_CUSTOMER = "C"; 
+public static final String EQUITY_MEMBER_AND_CLEARING_MEMBER = "E"; 
+public static final String FULL_AND_ASSOCIATE_MEMBER_TRADING_FOR_OWN_ACCOUNT_AND_AS_FLOOR_BROKERS = "F"; 
+public static final String 106.H_AND_106.J_FIRMS = "H"; 
+public static final String GIM_IDEM_AND_COM_MEMBERSHIP_INTEREST_HOLDERS = "I"; 
+public static final String LESSEE_AND_106.F_EMPLOYEES = "L"; 
+public static final String ALL_OTHER_OWNERSHIP_TYPES = "M"; 
 
   public ClearingFeeIndicator() 
   { 

@@ -145,7 +145,7 @@ public class ListStatus extends Message
   public boolean isSet(org.quickfix.field.TotNoOrders field) 
   { return isSetField(field); } 
   public boolean isSetTotNoOrders() 
-  { return isSetField(68); } 
+  { return isSetField(63); } 
 
   public void set(org.quickfix.field.LastFragment value) 
   { setField(value); } 

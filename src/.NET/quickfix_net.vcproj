@@ -213,6 +213,15 @@
 				RelativePath="FIX43_Messages.h">
 			</File>
 			<File
+				RelativePath="FIX44_MessageCracker.h">
+			</File>
+			<File
+				RelativePath="FIX44_MessageFactory.h">
+			</File>
+			<File
+				RelativePath="FIX44_Messages.h">
+			</File>
+			<File
 				RelativePath="Field.h">
 			</File>
 			<File

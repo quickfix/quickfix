@@ -54,6 +54,17 @@
 
 namespace QuickFix
 {
+  public __gc class ExecTransType : public CharField
+  {
+  public:
+  static const __wchar_t NEW = '0';
+  static const __wchar_t CANCEL = '1';
+  static const __wchar_t CORRECT = '2';
+  static const __wchar_t STATUS = '3';
+  ExecTransType() : CharField(20) {}
+    ExecTransType(__wchar_t data) : CharField(20, data) {}
+  };
+
   public __gc class IDSource : public StringField
   {
   public:

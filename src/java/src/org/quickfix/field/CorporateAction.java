@@ -6,7 +6,7 @@ public class CorporateAction extends StringField
 { 
   public static final int FIELD = 292; 
 public static final char EX_DIVIDEND = 'A'; 
-public static final char EX_DIST = 'B'; 
+public static final char EX_DISTRIBUTION = 'B'; 
 public static final char EX_RIGHTS = 'C'; 
 public static final char NEW = 'D'; 
 public static final char EX_INTEREST = 'E'; 

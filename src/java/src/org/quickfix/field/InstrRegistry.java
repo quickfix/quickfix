@@ -5,9 +5,6 @@ import java.util.Date;
 public class InstrRegistry extends StringField 
 { 
   public static final int FIELD = 543; 
-public static final String CUSTODIAN = "BIC"; 
-public static final String COUNTRY = "ISO"; 
-public static final String PHYSICAL = "ZZ"; 
 
   public InstrRegistry() 
   { 
