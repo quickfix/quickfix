@@ -168,6 +168,9 @@
 				RelativePath="Application.h">
 			</File>
 			<File
+				RelativePath="DataDictionary.h">
+			</File>
+			<File
 				RelativePath="DeprecatedFields.h">
 			</File>
 			<File
