@@ -262,7 +262,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
   std::stringstream query;
-  query << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
+  query << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\"";
@@ -278,7 +278,7 @@ void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
   std::stringstream query;
-  query << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
+  query << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\"";
