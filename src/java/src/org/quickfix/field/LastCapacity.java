@@ -5,10 +5,10 @@ import java.util.Date;
 public class LastCapacity extends CharField 
 { 
   public static final int FIELD = 29; 
-public static final char AGENT = '1'; 
-public static final char CROSS_AS_AGENT = '2'; 
-public static final char CROSS_AS_PRINCIPAL = '3'; 
-public static final char PRINCIPAL = '4'; 
+public static final char A = '1'; 
+public static final char XA = '2'; 
+public static final char XP = '3'; 
+public static final char P = '4'; 
 
   public LastCapacity() 
   { 

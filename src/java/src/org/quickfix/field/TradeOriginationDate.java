@@ -1,8 +1,8 @@
 package org.quickfix.field; 
-import org.quickfix.UtcDateField; 
+import org.quickfix.StringField; 
 import java.util.Date; 
 
-public class TradeOriginationDate extends UtcDateField 
+public class TradeOriginationDate extends StringField 
 { 
   public static final int FIELD = 229; 
 
@@ -10,7 +10,7 @@ public class TradeOriginationDate extends UtcDateField
   { 
     super(229);
   } 
-  public TradeOriginationDate(Date data) 
+  public TradeOriginationDate(String data) 
   { 
     super(229, data);
   } 

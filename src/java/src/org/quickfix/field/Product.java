@@ -17,6 +17,7 @@ public static final int MONEYMARKET = 9;
 public static final int MORTGAGE = 10; 
 public static final int MUNICIPAL = 11; 
 public static final int OTHER = 12; 
+public static final int FINANCING = 13; 
 
   public Product() 
   { 

@@ -8,6 +8,7 @@ public class SettlInstTransType extends CharField
 public static final char NEW = 'N'; 
 public static final char CANCEL = 'C'; 
 public static final char REPLACE = 'R'; 
+public static final char RESTATE = 'T'; 
 
   public SettlInstTransType() 
   { 

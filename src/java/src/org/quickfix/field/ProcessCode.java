@@ -9,8 +9,8 @@ public static final char REGULAR = '0';
 public static final char SOFT_DOLLAR = '1'; 
 public static final char STEP_IN = '2'; 
 public static final char STEP_OUT = '3'; 
-public static final char SOFT_DOLLAR_STEP_IN = '4'; 
-public static final char SOFT_DOLLAR_STEP_OUT = '5'; 
+public static final char STEP_IN_SOFT = '4'; 
+public static final char STEP_OUT_SOFT = '5'; 
 public static final char PLAN_SPONSOR = '6'; 
 
   public ProcessCode() 

@@ -5,8 +5,6 @@ import java.util.Date;
 public class ExchangeForPhysical extends BooleanField 
 { 
   public static final int FIELD = 411; 
-public static final boolean TRUE = true; 
-public static final boolean FALSE = false; 
 
   public ExchangeForPhysical() 
   { 

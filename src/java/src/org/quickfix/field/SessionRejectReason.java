@@ -23,6 +23,7 @@ public static final int TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER = 14;
 public static final int REPEATING_GROUP_FIELDS_OUT_OF_ORDER = 15; 
 public static final int INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP = 16; 
 public static final int NON_DATA_VALUE_INCLUDES_FIELD_DELIMITER = 17; 
+public static final int OTHER = 99; 
 
   public SessionRejectReason() 
   { 

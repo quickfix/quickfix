@@ -10,7 +10,7 @@ public static final char PROPRIETARY = 'G';
 public static final char INDIVIDUAL = 'I'; 
 public static final char PRINCIPAL = 'P'; 
 public static final char RISKLESS_PRINCIPAL = 'R'; 
-public static final char AGENT_FOR_OTHER_MEMBER = 'W'; 
+public static final char AGENT_OTHER_MEMBER = 'W'; 
 
   public OrderCapacity() 
   { 

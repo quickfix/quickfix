@@ -5,12 +5,14 @@ import java.util.Date;
 public class AllocType extends IntField 
 { 
   public static final int FIELD = 626; 
-public static final int BUYSIDE_CALCULATED = 1; 
-public static final int BUYSIDE_PRELIMINARY = 2; 
-public static final int SELLSIDE_CALCULATED_USING_PRELIMINARY = 3; 
-public static final int SELLSIDE_CALCULATED_WITHOUT_PRELIMINARY = 4; 
-public static final int BUYSIDE_READY_TO_BOOK_SINGLE_ORDER = 5; 
-public static final int BUYSIDE_READY_TO_BOOK_COMBINED_SET_OF_ORDERS = 6; 
+public static final int BUYSIDE_CALC = 1; 
+public static final int BUYSIDE_PRELIM = 2; 
+public static final int SELLSIDE_CALC = 3; 
+public static final int SELLSIDE_CALC_WITHOUT_PRELIM = 4; 
+public static final int BUYSIDE_READY_TO_BOOK_SINGLE = 5; 
+public static final int BUYSIDE_READY_TO_BOOK_COMBINED = 6; 
+public static final int WAREHOUSE_INSTRUCTION = 7; 
+public static final int REQUEST_TO_INTERMEDIARY = 8; 
 
   public AllocType() 
   { 

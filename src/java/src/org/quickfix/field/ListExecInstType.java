@@ -5,11 +5,11 @@ import java.util.Date;
 public class ListExecInstType extends CharField 
 { 
   public static final int FIELD = 433; 
-public static final char IMMEDIATE = '1'; 
-public static final char WAIT_FOR_EXECUTE_INSTRUCTION = '2'; 
-public static final char EXCHANGE_SWITCH_CIV_ORDER_SELL_DRIVEN = '3'; 
-public static final char EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_TOP_UP = '4'; 
-public static final char EXCHANGE_SWITCH_CIV_ORDER_BUY_DRIVEN_CASH_WITHDRAW = '5'; 
+public static final char IMMED = '1'; 
+public static final char WAIT = '2'; 
+public static final char EXCH_CIVSELL = '3'; 
+public static final char EXCH_CIVBUY_TOP = '4'; 
+public static final char EXCH_CIVBUY_WD = '5'; 
 
   public ListExecInstType() 
   { 

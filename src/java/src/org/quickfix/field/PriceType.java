@@ -5,14 +5,17 @@ import java.util.Date;
 public class PriceType extends IntField 
 { 
   public static final int FIELD = 423; 
-public static final int PERCENTAGE = 1; 
-public static final int PER_SHARE = 2; 
-public static final int FIXED_AMOUNT = 3; 
+public static final int PCT = 1; 
+public static final int CPS = 2; 
+public static final int ABS = 3; 
 public static final int DISCOUNT = 4; 
 public static final int PREMIUM = 5; 
-public static final int BASIS_POINTS_RELATIVE_TO_BENCHMARK = 6; 
-public static final int TED_PRICE = 7; 
-public static final int TED_YIELD = 8; 
+public static final int BPS_BENCHMARK = 6; 
+public static final int TEDPRICE = 7; 
+public static final int TEDYIELD = 8; 
+public static final int YIELD = 9; 
+public static final int FIXED_CABINET_TRADE_PRICE = 10; 
+public static final int VARIABLE_CABINET_TRADE_PRICE = 11; 
 
   public PriceType() 
   { 

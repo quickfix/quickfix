@@ -5,8 +5,6 @@ import java.util.Date;
 public class DueToRelated extends BooleanField 
 { 
   public static final int FIELD = 329; 
-public static final boolean HALT_WAS_DUE_TO_RELATED_SECURITY_BEING_HALTED = true; 
-public static final boolean HALT_WAS_NOT_RELATED_TO_A_HALT_OF_THE_RELATED_SECURITY = false; 
 
   public DueToRelated() 
   { 

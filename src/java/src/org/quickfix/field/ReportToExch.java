@@ -5,8 +5,6 @@ import java.util.Date;
 public class ReportToExch extends BooleanField 
 { 
   public static final int FIELD = 113; 
-public static final boolean YES = true; 
-public static final boolean NO = false; 
 
   public ReportToExch() 
   { 

@@ -1,8 +1,8 @@
 package org.quickfix.field; 
-import org.quickfix.UtcDateField; 
+import org.quickfix.StringField; 
 import java.util.Date; 
 
-public class RedemptionDate extends UtcDateField 
+public class RedemptionDate extends StringField 
 { 
   public static final int FIELD = 240; 
 
@@ -10,7 +10,7 @@ public class RedemptionDate extends UtcDateField
   { 
     super(240);
   } 
-  public RedemptionDate(Date data) 
+  public RedemptionDate(String data) 
   { 
     super(240, data);
   } 

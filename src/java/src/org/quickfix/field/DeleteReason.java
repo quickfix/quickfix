@@ -5,7 +5,7 @@ import java.util.Date;
 public class DeleteReason extends CharField 
 { 
   public static final int FIELD = 285; 
-public static final char CANCELATION = '0'; 
+public static final char CANCEL_TRADE_BUST = '0'; 
 public static final char ERROR = '1'; 
 
   public DeleteReason() 

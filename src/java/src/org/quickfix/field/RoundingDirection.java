@@ -5,6 +5,9 @@ import java.util.Date;
 public class RoundingDirection extends CharField 
 { 
   public static final int FIELD = 468; 
+public static final char ROUND_NEAREST = '0'; 
+public static final char ROUND_DOWN = '1'; 
+public static final char ROUND_UP = '2'; 
 
   public RoundingDirection() 
   { 

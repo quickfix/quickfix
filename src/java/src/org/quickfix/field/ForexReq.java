@@ -5,8 +5,6 @@ import java.util.Date;
 public class ForexReq extends BooleanField 
 { 
   public static final int FIELD = 121; 
-public static final boolean YES = true; 
-public static final boolean NO = false; 
 
   public ForexReq() 
   { 
