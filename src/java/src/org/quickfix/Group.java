@@ -50,7 +50,7 @@
 package org.quickfix;
 import java.util.Date;
 
-public class Group {
+public class Group extends FieldMap {
     private int cppPointer;
 
     public Group(int field, int delim) {
