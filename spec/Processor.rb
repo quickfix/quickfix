@@ -1,11 +1,10 @@
 require "rexml/document"
-require "GeneratorCPP"
 
 include REXML
 
 class Processor
 
-  def initialize(filename, outputdir)
+  def initialize(filename, outputdir, generator)
     file = File.new( filename )
     @doc = Document.new file
     @major = @doc.root.attributes["major"]
@@ -16,7 +15,7 @@ class Processor
     @fields = @doc.elements["fix/fields"]
     @components = @doc.elements["fix/components"]
     populateFieldHash()
-    @generator = GeneratorCPP.new(@major, @minor, outputdir)
+    @generator = generator    
     process
   end
 
@@ -53,7 +52,7 @@ class Processor
   def header
     @generator.headerStart
     @header.elements.each("field") { |element|
-      @generator.field(element.attributes["name"]) } 
+      @generator.field(element.attributes["name"], lookupField(element.attributes["name"])) } 
     groups(@header)
     @generator.headerEnd
   end
@@ -61,7 +60,7 @@ class Processor
   def trailer
     @generator.trailerStart
     @trailer.elements.each("field") { |element|
-      @generator.field(element.attributes["name"]) } 
+      @generator.field(element.attributes["name"], lookupField(element.attributes["name"])) } 
     groups(@trailer)
     @generator.trailerEnd
   end
@@ -74,7 +73,7 @@ class Processor
   def component( element )
     component = lookupComponent( element.attributes["name"] )
     component.elements.each("field") { |field|
-      @generator.field(field.attributes["name"]) }
+      @generator.field(field.attributes["name"], lookupField(field.attributes["name"])) }
     groups( lookupComponent(element.attributes["name"]) )
   end
 
@@ -83,13 +82,12 @@ class Processor
       name = group.attributes["name"]
       number = lookupField(name);
 
-      fieldElement = group.elements["field"]
-      componentElement = group.elements["component"]
+      element = group.elements["*"]
       
-      if( fieldElement )
-	delim = lookupField(fieldElement.attributes["name"])
+      if( element.name == "field" )
+	delim = lookupField(element.attributes["name"])
       else
-	component = lookupComponent( componentElement.attributes["name"] )
+	component = lookupComponent( element.attributes["name"] )
 	delim = lookupField(component.elements["field"].attributes["name"])
       end
 
@@ -105,11 +103,11 @@ class Processor
 	end
       }
 
-      @generator.field(name)
+      @generator.field(name, number)
       @generator.groupStart(name, number, delim, order)
       group.elements.each("*") { |element|
 	if(element.name == "field")
-	  @generator.field(element.attributes["name"])
+	  @generator.field(element.attributes["name"], lookupField(element.attributes["name"]))
 	end
 	if(element.name == "component")
 	  component(element)
@@ -133,7 +131,7 @@ class Processor
       @generator.messageStart(name, msgtype, required)
       message.elements.each("*") { |element|
 	if(element.name == "field")
-	  @generator.field(element.attributes["name"])
+	  @generator.field(element.attributes["name"], lookupField(element.attributes["name"]))
 	end
 	if(element.name == "component")
 	  component( element )

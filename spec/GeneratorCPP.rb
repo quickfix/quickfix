@@ -36,7 +36,7 @@ class GeneratorCPP
     @f.puts "{"
   end
 
-  def field(name)
+  def field(name, number)
     @depth += 1
     @f.puts tabs + "FIELD_SET(*this, FIX::" + name + ");"
     @depth -= 1
