@@ -108,6 +108,13 @@ public class NewOrderList extends Message
   public org.quickfix.field.TotNoOrders getTotNoOrders() throws FieldNotFound 
   { org.quickfix.field.TotNoOrders value = new org.quickfix.field.TotNoOrders(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoOrders value) 
+  { setField(value); } 
+  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
+  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
+    getField(value); return value; } 
 
 public static class NoOrders extends Group { 
   public NoOrders() { 
@@ -764,11 +771,20 @@ public static class NoOrders extends Group {
   { org.quickfix.field.ClearingAccount value = new org.quickfix.field.ClearingAccount(); 
     getField(value); return value; } 
 
+  public void set(org.quickfix.field.NoAllocs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoAllocs get(org.quickfix.field.NoAllocs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoAllocs getNoAllocs() throws FieldNotFound 
+  { org.quickfix.field.NoAllocs value = new org.quickfix.field.NoAllocs(); 
+    getField(value); return value; } 
 
 public static class NoAllocs extends Group { 
   public NoAllocs() { 
     super(78, 79, 
     new int[] { 
+               79, 
+               80, 
                0 } 
 ); 
   } 
@@ -789,11 +805,19 @@ public static class NoAllocs extends Group {
     getField(value); return value; } 
 
 } 
+  public void set(org.quickfix.field.NoTradingSessions value) 
+  { setField(value); } 
+  public org.quickfix.field.NoTradingSessions get(org.quickfix.field.NoTradingSessions value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoTradingSessions getNoTradingSessions() throws FieldNotFound 
+  { org.quickfix.field.NoTradingSessions value = new org.quickfix.field.NoTradingSessions(); 
+    getField(value); return value; } 
 
 public static class NoTradingSessions extends Group { 
   public NoTradingSessions() { 
     super(386, 336, 
     new int[] { 
+               336, 
                0 } 
 ); 
   } 

@@ -151,7 +151,7 @@ namespace Fix42
     NET_FIELD_SET(RawData);
     NET_FIELD_SET(ResetSeqNumFlag);
     NET_FIELD_SET(MaxMessageSize);
-  
+    NET_FIELD_SET(NoMsgTypes);
     __gc class NoMsgTypes : public Fix::Group
     {
     public:
@@ -363,7 +363,7 @@ namespace Fix42
     NET_FIELD_SET(ValidUntilTime);
     NET_FIELD_SET(IOIQltyInd);
     NET_FIELD_SET(IOINaturalFlag);
-  
+    NET_FIELD_SET(NoIOIQualifiers);
     __gc class NoIOIQualifiers : public Fix::Group
     {
     public:
@@ -378,7 +378,7 @@ namespace Fix42
     NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(URLLink);
-  
+    NET_FIELD_SET(NoRoutingIDs);
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
@@ -413,7 +413,7 @@ namespace Fix42
     NET_FIELD_SET(Headline);
     NET_FIELD_SET(EncodedHeadlineLen);
     NET_FIELD_SET(EncodedHeadline);
-  
+    NET_FIELD_SET(NoRoutingIDs);
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
@@ -425,7 +425,7 @@ namespace Fix42
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -471,7 +471,7 @@ namespace Fix42
       NET_FIELD_SET(EncodedSecurityDescLen);
       NET_FIELD_SET(EncodedSecurityDesc);
     };
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -514,7 +514,7 @@ namespace Fix42
     NET_FIELD_SET(Subject);
     NET_FIELD_SET(EncodedSubjectLen);
     NET_FIELD_SET(EncodedSubject);
-  
+    NET_FIELD_SET(NoRoutingIDs);
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
@@ -526,7 +526,7 @@ namespace Fix42
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -574,7 +574,7 @@ namespace Fix42
     };
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -607,7 +607,7 @@ namespace Fix42
     }
   
     NET_FIELD_SET(QuoteReqID);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -754,7 +754,7 @@ namespace Fix42
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(DefBidSize);
     NET_FIELD_SET(DefOfferSize);
-  
+    NET_FIELD_SET(NoQuoteSets);
     __gc class NoQuoteSets : public Fix::Group
     {
     public:
@@ -843,7 +843,7 @@ namespace Fix42
       NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
       NET_FIELD_SET(QuoteSetValidUntilTime);
       NET_FIELD_SET(TotQuoteEntries);
-  
+    NET_FIELD_SET(NoQuoteEntries);
     __gc class NoQuoteEntries : public Fix::Group
     {
     public:
@@ -947,7 +947,7 @@ namespace Fix42
     NET_FIELD_SET(QuoteCancelType);
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(TradingSessionID);
-  
+    NET_FIELD_SET(NoQuoteEntries);
     __gc class NoQuoteEntries : public Fix::Group
     {
     public:
@@ -1056,7 +1056,7 @@ namespace Fix42
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(Text);
-  
+    NET_FIELD_SET(NoQuoteSets);
     __gc class NoQuoteSets : public Fix::Group
     {
     public:
@@ -1128,7 +1128,7 @@ namespace Fix42
       NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);
       NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
       NET_FIELD_SET(TotQuoteEntries);
-  
+    NET_FIELD_SET(NoQuoteEntries);
     __gc class NoQuoteEntries : public Fix::Group
     {
     public:
@@ -1204,7 +1204,7 @@ namespace Fix42
     NET_FIELD_SET(MarketDepth);
     NET_FIELD_SET(MDUpdateType);
     NET_FIELD_SET(AggregatedBook);
-  
+    NET_FIELD_SET(NoMDEntryTypes);
     __gc class NoMDEntryTypes : public Fix::Group
     {
     public:
@@ -1214,7 +1214,7 @@ namespace Fix42
          0};
       NET_FIELD_SET(MDEntryType);
     };
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -1301,7 +1301,7 @@ namespace Fix42
     NET_FIELD_SET(FinancialStatus);
     NET_FIELD_SET(CorporateAction);
     NET_FIELD_SET(TotalVolumeTraded);
-  
+    NET_FIELD_SET(NoMDEntries);
     __gc class NoMDEntries : public Fix::Group
     {
     public:
@@ -1378,7 +1378,7 @@ namespace Fix42
     static Fix::MsgType* MsgType() { return new Fix::MsgType("X"); }
   
     NET_FIELD_SET(MDReqID);
-  
+    NET_FIELD_SET(NoMDEntries);
     __gc class NoMDEntries : public Fix::Group
     {
     public:
@@ -1563,7 +1563,7 @@ namespace Fix42
     NET_FIELD_SET(EncodedTextLen);
     NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(TradingSessionID);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -1663,7 +1663,7 @@ namespace Fix42
     NET_FIELD_SET(Text);
     NET_FIELD_SET(EncodedTextLen);
     NET_FIELD_SET(EncodedText);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -1896,7 +1896,7 @@ namespace Fix42
     NET_FIELD_SET(ClientID);
     NET_FIELD_SET(ExecBroker);
     NET_FIELD_SET(Account);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -1915,7 +1915,7 @@ namespace Fix42
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -2023,7 +2023,7 @@ namespace Fix42
     NET_FIELD_SET(OrigClOrdID);
     NET_FIELD_SET(ClientID);
     NET_FIELD_SET(ExecBroker);
-  
+    NET_FIELD_SET(NoContraBrokers);
     __gc class NoContraBrokers : public Fix::Group
     {
     public:
@@ -2211,7 +2211,7 @@ namespace Fix42
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(ListID);
     NET_FIELD_SET(Account);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -2230,7 +2230,7 @@ namespace Fix42
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -2470,7 +2470,7 @@ namespace Fix42
     NET_FIELD_SET(RefAllocID);
     NET_FIELD_SET(AllocLinkID);
     NET_FIELD_SET(AllocLinkType);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:
@@ -2488,7 +2488,7 @@ namespace Fix42
       NET_FIELD_SET(ListID);
       NET_FIELD_SET(WaveNo);
     };
-  
+    NET_FIELD_SET(NoExecs);
     __gc class NoExecs : public Fix::Group
     {
     public:
@@ -2542,7 +2542,7 @@ namespace Fix42
     NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(NumDaysInterest);
     NET_FIELD_SET(AccruedInterestRate);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -2598,7 +2598,7 @@ namespace Fix42
       NET_FIELD_SET(SettlCurrFxRateCalc);
       NET_FIELD_SET(AccruedInterestAmt);
       NET_FIELD_SET(SettlInstMode);
-  
+    NET_FIELD_SET(NoMiscFees);
     __gc class NoMiscFees : public Fix::Group
     {
     public:
@@ -2738,7 +2738,7 @@ namespace Fix42
     NET_FIELD_SET(EncodedListExecInstLen);
     NET_FIELD_SET(EncodedListExecInst);
     NET_FIELD_SET(TotNoOrders);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:
@@ -2896,7 +2896,7 @@ namespace Fix42
       NET_FIELD_SET(DiscretionOffset);
       NET_FIELD_SET(ClearingFirm);
       NET_FIELD_SET(ClearingAccount);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -2908,7 +2908,7 @@ namespace Fix42
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocShares);
     };
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -2955,7 +2955,7 @@ namespace Fix42
     NET_FIELD_SET(EncodedListStatusText);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(TotNoOrders);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:

@@ -56,6 +56,13 @@ public class Email extends Message
   public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.LinesOfText value) 
+  { setField(value); } 
+  public org.quickfix.field.LinesOfText get(org.quickfix.field.LinesOfText value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.LinesOfText getLinesOfText() throws FieldNotFound 
+  { org.quickfix.field.LinesOfText value = new org.quickfix.field.LinesOfText(); 
+    getField(value); return value; } 
 
 public static class LinesOfText extends Group { 
   public LinesOfText() { 

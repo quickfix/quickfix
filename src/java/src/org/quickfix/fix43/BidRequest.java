@@ -106,6 +106,13 @@ public class BidRequest extends Message
   public org.quickfix.field.SideValue2 getSideValue2() throws FieldNotFound 
   { org.quickfix.field.SideValue2 value = new org.quickfix.field.SideValue2(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoBidDescriptors value) 
+  { setField(value); } 
+  public org.quickfix.field.NoBidDescriptors get(org.quickfix.field.NoBidDescriptors value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoBidDescriptors getNoBidDescriptors() throws FieldNotFound 
+  { org.quickfix.field.NoBidDescriptors value = new org.quickfix.field.NoBidDescriptors(); 
+    getField(value); return value; } 
 
 public static class NoBidDescriptors extends Group { 
   public NoBidDescriptors() { 
@@ -214,6 +221,13 @@ public static class NoBidDescriptors extends Group {
     getField(value); return value; } 
 
 } 
+  public void set(org.quickfix.field.NoBidComponents value) 
+  { setField(value); } 
+  public org.quickfix.field.NoBidComponents get(org.quickfix.field.NoBidComponents value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoBidComponents getNoBidComponents() throws FieldNotFound 
+  { org.quickfix.field.NoBidComponents value = new org.quickfix.field.NoBidComponents(); 
+    getField(value); return value; } 
 
 public static class NoBidComponents extends Group { 
   public NoBidComponents() { 

@@ -315,7 +315,7 @@ namespace Fix40
     NET_FIELD_SET(OrigTime);
     NET_FIELD_SET(Urgency);
     NET_FIELD_SET(RelatdSym);
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -348,7 +348,7 @@ namespace Fix40
     NET_FIELD_SET(RelatdSym);
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -559,7 +559,7 @@ namespace Fix40
     NET_FIELD_SET(ReportToExch);
     NET_FIELD_SET(Commission);
     NET_FIELD_SET(CommType);
-  
+    NET_FIELD_SET(NoMiscFees);
     __gc class NoMiscFees : public Fix::Group
     {
     public:
@@ -801,7 +801,7 @@ namespace Fix40
     NET_FIELD_SET(AllocID);
     NET_FIELD_SET(AllocTransType);
     NET_FIELD_SET(RefAllocID);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:
@@ -817,7 +817,7 @@ namespace Fix40
       NET_FIELD_SET(ListID);
       NET_FIELD_SET(WaveNo);
     };
-  
+    NET_FIELD_SET(NoExecs);
     __gc class NoExecs : public Fix::Group
     {
     public:
@@ -849,7 +849,7 @@ namespace Fix40
     NET_FIELD_SET(SettlmntTyp);
     NET_FIELD_SET(FutSettDate);
     NET_FIELD_SET(NetMoney);
-  
+    NET_FIELD_SET(NoMiscFees);
     __gc class NoMiscFees : public Fix::Group
     {
     public:
@@ -867,7 +867,7 @@ namespace Fix40
     NET_FIELD_SET(SettlCurrency);
     NET_FIELD_SET(OpenClose);
     NET_FIELD_SET(Text);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -892,7 +892,7 @@ namespace Fix40
       NET_FIELD_SET(ClientID);
       NET_FIELD_SET(Commission);
       NET_FIELD_SET(CommType);
-  
+    NET_FIELD_SET(NoDlvyInst);
     __gc class NoDlvyInst : public Fix::Group
     {
     public:
@@ -1028,7 +1028,7 @@ namespace Fix40
     NET_FIELD_SET(WaveNo);
     NET_FIELD_SET(NoRpts);
     NET_FIELD_SET(RptSeq);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:

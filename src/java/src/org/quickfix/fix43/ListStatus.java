@@ -106,6 +106,13 @@ public class ListStatus extends Message
   public org.quickfix.field.TotNoOrders getTotNoOrders() throws FieldNotFound 
   { org.quickfix.field.TotNoOrders value = new org.quickfix.field.TotNoOrders(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoOrders value) 
+  { setField(value); } 
+  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
+  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
+    getField(value); return value; } 
 
 public static class NoOrders extends Group { 
   public NoOrders() { 

@@ -324,7 +324,7 @@ namespace Fix41
     NET_FIELD_SET(IOIQltyInd);
     NET_FIELD_SET(IOIOthSvc);
     NET_FIELD_SET(IOINaturalFlag);
-  
+    NET_FIELD_SET(NoIOIQualifiers);
     __gc class NoIOIQualifiers : public Fix::Group
     {
     public:
@@ -356,7 +356,7 @@ namespace Fix41
     NET_FIELD_SET(OrigTime);
     NET_FIELD_SET(Urgency);
     NET_FIELD_SET(Headline);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -390,7 +390,7 @@ namespace Fix41
       NET_FIELD_SET(Issuer);
       NET_FIELD_SET(SecurityDesc);
     };
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -427,7 +427,7 @@ namespace Fix41
     NET_FIELD_SET(EmailType);
     NET_FIELD_SET(OrigTime);
     NET_FIELD_SET(Subject);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -463,7 +463,7 @@ namespace Fix41
     };
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -999,7 +999,7 @@ namespace Fix41
     NET_FIELD_SET(RefAllocID);
     NET_FIELD_SET(AllocLinkID);
     NET_FIELD_SET(AllocLinkType);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:
@@ -1017,7 +1017,7 @@ namespace Fix41
       NET_FIELD_SET(ListID);
       NET_FIELD_SET(WaveNo);
     };
-  
+    NET_FIELD_SET(NoExecs);
     __gc class NoExecs : public Fix::Group
     {
     public:
@@ -1061,7 +1061,7 @@ namespace Fix41
     NET_FIELD_SET(Text);
     NET_FIELD_SET(NumDaysInterest);
     NET_FIELD_SET(AccruedInterestRate);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -1111,7 +1111,7 @@ namespace Fix41
       NET_FIELD_SET(SettlCurrFxRateCalc);
       NET_FIELD_SET(AccruedInterestAmt);
       NET_FIELD_SET(SettlInstMode);
-  
+    NET_FIELD_SET(NoMiscFees);
     __gc class NoMiscFees : public Fix::Group
     {
     public:
@@ -1323,7 +1323,7 @@ namespace Fix41
     NET_FIELD_SET(WaveNo);
     NET_FIELD_SET(NoRpts);
     NET_FIELD_SET(RptSeq);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:

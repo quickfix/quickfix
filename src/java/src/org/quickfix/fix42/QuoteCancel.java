@@ -58,6 +58,13 @@ public class QuoteCancel extends Message
   public org.quickfix.field.TradingSessionID getTradingSessionID() throws FieldNotFound 
   { org.quickfix.field.TradingSessionID value = new org.quickfix.field.TradingSessionID(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoQuoteEntries value) 
+  { setField(value); } 
+  public org.quickfix.field.NoQuoteEntries get(org.quickfix.field.NoQuoteEntries value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoQuoteEntries getNoQuoteEntries() throws FieldNotFound 
+  { org.quickfix.field.NoQuoteEntries value = new org.quickfix.field.NoQuoteEntries(); 
+    getField(value); return value; } 
 
 public static class NoQuoteEntries extends Group { 
   public NoQuoteEntries() { 

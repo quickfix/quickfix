@@ -26,6 +26,13 @@ public class BidResponse extends Message
   public org.quickfix.field.ClientBidID getClientBidID() throws FieldNotFound 
   { org.quickfix.field.ClientBidID value = new org.quickfix.field.ClientBidID(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoBidComponents value) 
+  { setField(value); } 
+  public org.quickfix.field.NoBidComponents get(org.quickfix.field.NoBidComponents value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoBidComponents getNoBidComponents() throws FieldNotFound 
+  { org.quickfix.field.NoBidComponents value = new org.quickfix.field.NoBidComponents(); 
+    getField(value); return value; } 
 
 public static class NoBidComponents extends Group { 
   public NoBidComponents() { 

@@ -343,7 +343,7 @@ namespace FIX41
     FIELD_SET(*this, FIX::IOIQltyInd);
     FIELD_SET(*this, FIX::IOIOthSvc);
     FIELD_SET(*this, FIX::IOINaturalFlag);
-
+    FIELD_SET(*this, FIX::NoIOIQualifiers);
     class NoIOIQualifiers : public FIX::Group
     {
     public:
@@ -375,7 +375,7 @@ namespace FIX41
     FIELD_SET(*this, FIX::OrigTime);
     FIELD_SET(*this, FIX::Urgency);
     FIELD_SET(*this, FIX::Headline);
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -408,7 +408,7 @@ namespace FIX41
       FIELD_SET(*this, FIX::Issuer);
       FIELD_SET(*this, FIX::SecurityDesc);
     };
-
+    FIELD_SET(*this, FIX::LinesOfText);
     class LinesOfText : public FIX::Group
     {
     public:
@@ -445,7 +445,7 @@ namespace FIX41
     FIELD_SET(*this, FIX::EmailType);
     FIELD_SET(*this, FIX::OrigTime);
     FIELD_SET(*this, FIX::Subject);
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -480,7 +480,7 @@ namespace FIX41
     };
     FIELD_SET(*this, FIX::OrderID);
     FIELD_SET(*this, FIX::ClOrdID);
-
+    FIELD_SET(*this, FIX::LinesOfText);
     class LinesOfText : public FIX::Group
     {
     public:
@@ -1025,7 +1025,7 @@ namespace FIX41
     FIELD_SET(*this, FIX::RefAllocID);
     FIELD_SET(*this, FIX::AllocLinkID);
     FIELD_SET(*this, FIX::AllocLinkType);
-
+    FIELD_SET(*this, FIX::NoOrders);
     class NoOrders : public FIX::Group
     {
     public:
@@ -1042,7 +1042,7 @@ namespace FIX41
       FIELD_SET(*this, FIX::ListID);
       FIELD_SET(*this, FIX::WaveNo);
     };
-
+    FIELD_SET(*this, FIX::NoExecs);
     class NoExecs : public FIX::Group
     {
     public:
@@ -1085,7 +1085,7 @@ namespace FIX41
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::NumDaysInterest);
     FIELD_SET(*this, FIX::AccruedInterestRate);
-
+    FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs : public FIX::Group
     {
     public:
@@ -1134,7 +1134,7 @@ namespace FIX41
       FIELD_SET(*this, FIX::SettlCurrFxRateCalc);
       FIELD_SET(*this, FIX::AccruedInterestAmt);
       FIELD_SET(*this, FIX::SettlInstMode);
-
+    FIELD_SET(*this, FIX::NoMiscFees);
     class NoMiscFees : public FIX::Group
     {
     public:
@@ -1349,7 +1349,7 @@ namespace FIX41
     FIELD_SET(*this, FIX::WaveNo);
     FIELD_SET(*this, FIX::NoRpts);
     FIELD_SET(*this, FIX::RptSeq);
-
+    FIELD_SET(*this, FIX::NoOrders);
     class NoOrders : public FIX::Group
     {
     public:

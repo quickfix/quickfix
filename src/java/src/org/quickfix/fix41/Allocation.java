@@ -68,6 +68,13 @@ public class Allocation extends Message
   public org.quickfix.field.AllocLinkType getAllocLinkType() throws FieldNotFound 
   { org.quickfix.field.AllocLinkType value = new org.quickfix.field.AllocLinkType(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoOrders value) 
+  { setField(value); } 
+  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
+  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
+    getField(value); return value; } 
 
 public static class NoOrders extends Group { 
   public NoOrders() { 
@@ -122,6 +129,13 @@ public static class NoOrders extends Group {
     getField(value); return value; } 
 
 } 
+  public void set(org.quickfix.field.NoExecs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoExecs get(org.quickfix.field.NoExecs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoExecs getNoExecs() throws FieldNotFound 
+  { org.quickfix.field.NoExecs value = new org.quickfix.field.NoExecs(); 
+    getField(value); return value; } 
 
 public static class NoExecs extends Group { 
   public NoExecs() { 
@@ -391,6 +405,13 @@ public static class NoExecs extends Group {
   public org.quickfix.field.AccruedInterestRate getAccruedInterestRate() throws FieldNotFound 
   { org.quickfix.field.AccruedInterestRate value = new org.quickfix.field.AccruedInterestRate(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoAllocs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoAllocs get(org.quickfix.field.NoAllocs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoAllocs getNoAllocs() throws FieldNotFound 
+  { org.quickfix.field.NoAllocs value = new org.quickfix.field.NoAllocs(); 
+    getField(value); return value; } 
 
 public static class NoAllocs extends Group { 
   public NoAllocs() { 
@@ -570,11 +591,21 @@ public static class NoAllocs extends Group {
   { org.quickfix.field.SettlInstMode value = new org.quickfix.field.SettlInstMode(); 
     getField(value); return value; } 
 
+  public void set(org.quickfix.field.NoMiscFees value) 
+  { setField(value); } 
+  public org.quickfix.field.NoMiscFees get(org.quickfix.field.NoMiscFees value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoMiscFees getNoMiscFees() throws FieldNotFound 
+  { org.quickfix.field.NoMiscFees value = new org.quickfix.field.NoMiscFees(); 
+    getField(value); return value; } 
 
 public static class NoMiscFees extends Group { 
   public NoMiscFees() { 
     super(136, 137, 
     new int[] { 
+               137, 
+               138, 
+               139, 
                0 } 
 ); 
   } 

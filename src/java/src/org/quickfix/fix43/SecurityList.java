@@ -52,6 +52,13 @@ public class SecurityList extends Message
   public org.quickfix.field.TotalNumSecurities getTotalNumSecurities() throws FieldNotFound 
   { org.quickfix.field.TotalNumSecurities value = new org.quickfix.field.TotalNumSecurities(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoRelatedSym value) 
+  { setField(value); } 
+  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
+  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
+    getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
@@ -164,11 +171,53 @@ public static class NoRelatedSym extends Group {
   { org.quickfix.field.EncodedText value = new org.quickfix.field.EncodedText(); 
     getField(value); return value; } 
 
+  public void set(org.quickfix.field.NoLegs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoLegs get(org.quickfix.field.NoLegs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoLegs getNoLegs() throws FieldNotFound 
+  { org.quickfix.field.NoLegs value = new org.quickfix.field.NoLegs(); 
+    getField(value); return value; } 
 
 public static class NoLegs extends Group { 
   public NoLegs() { 
     super(555, 556, 
     new int[] { 
+             600, 
+             601, 
+             602, 
+             603, 
+             607, 
+             608, 
+             609, 
+             610, 
+             611, 
+             248, 
+             249, 
+             250, 
+             251, 
+             252, 
+             253, 
+             257, 
+             599, 
+             596, 
+             597, 
+             598, 
+             254, 
+             612, 
+             613, 
+             614, 
+             615, 
+             616, 
+             617, 
+             618, 
+             619, 
+             620, 
+             621, 
+             622, 
+             623, 
+             624, 
+               556, 
                0 } 
 ); 
   } 
@@ -418,6 +467,40 @@ public static class NoLegs extends Group {
   public org.quickfix.field.LegSide getLegSide() throws FieldNotFound 
   { org.quickfix.field.LegSide value = new org.quickfix.field.LegSide(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoLegSecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.NoLegSecurityAltID get(org.quickfix.field.NoLegSecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoLegSecurityAltID getNoLegSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.NoLegSecurityAltID value = new org.quickfix.field.NoLegSecurityAltID(); 
+    getField(value); return value; } 
+
+public static class NoLegSecurityAltID extends Group { 
+  public NoLegSecurityAltID() { 
+    super(604, 605, 
+    new int[] { 
+               605, 
+               606, 
+               0 } 
+); 
+  } 
+  public void set(org.quickfix.field.LegSecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.LegSecurityAltID get(org.quickfix.field.LegSecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.LegSecurityAltID getLegSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.LegSecurityAltID value = new org.quickfix.field.LegSecurityAltID(); 
+    getField(value); return value; } 
+
+  public void set(org.quickfix.field.LegSecurityAltIDSource value) 
+  { setField(value); } 
+  public org.quickfix.field.LegSecurityAltIDSource get(org.quickfix.field.LegSecurityAltIDSource value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.LegSecurityAltIDSource getLegSecurityAltIDSource() throws FieldNotFound 
+  { org.quickfix.field.LegSecurityAltIDSource value = new org.quickfix.field.LegSecurityAltIDSource(); 
+    getField(value); return value; } 
+
+} 
 } 
   public void set(org.quickfix.field.Symbol value) 
   { setField(value); } 
@@ -643,5 +726,39 @@ public static class NoLegs extends Group {
   public org.quickfix.field.EncodedSecurityDesc getEncodedSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedSecurityDesc value = new org.quickfix.field.EncodedSecurityDesc(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoSecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
+    getField(value); return value; } 
+
+public static class NoSecurityAltID extends Group { 
+  public NoSecurityAltID() { 
+    super(454, 455, 
+    new int[] { 
+               455, 
+               456, 
+               0 } 
+); 
+  } 
+  public void set(org.quickfix.field.SecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltID get(org.quickfix.field.SecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
+    getField(value); return value; } 
+
+  public void set(org.quickfix.field.SecurityAltIDSource value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltIDSource get(org.quickfix.field.SecurityAltIDSource value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
+    getField(value); return value; } 
+
+} 
 } 
 } 

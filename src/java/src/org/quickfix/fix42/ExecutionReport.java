@@ -82,6 +82,13 @@ public class ExecutionReport extends Message
   public org.quickfix.field.ExecBroker getExecBroker() throws FieldNotFound 
   { org.quickfix.field.ExecBroker value = new org.quickfix.field.ExecBroker(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoContraBrokers value) 
+  { setField(value); } 
+  public org.quickfix.field.NoContraBrokers get(org.quickfix.field.NoContraBrokers value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoContraBrokers getNoContraBrokers() throws FieldNotFound 
+  { org.quickfix.field.NoContraBrokers value = new org.quickfix.field.NoContraBrokers(); 
+    getField(value); return value; } 
 
 public static class NoContraBrokers extends Group { 
   public NoContraBrokers() { 

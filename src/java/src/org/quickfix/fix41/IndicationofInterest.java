@@ -216,6 +216,13 @@ public class IndicationofInterest extends Message
   public org.quickfix.field.IOINaturalFlag getIOINaturalFlag() throws FieldNotFound 
   { org.quickfix.field.IOINaturalFlag value = new org.quickfix.field.IOINaturalFlag(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoIOIQualifiers value) 
+  { setField(value); } 
+  public org.quickfix.field.NoIOIQualifiers get(org.quickfix.field.NoIOIQualifiers value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoIOIQualifiers getNoIOIQualifiers() throws FieldNotFound 
+  { org.quickfix.field.NoIOIQualifiers value = new org.quickfix.field.NoIOIQualifiers(); 
+    getField(value); return value; } 
 
 public static class NoIOIQualifiers extends Group { 
   public NoIOIQualifiers() { 

@@ -52,6 +52,13 @@ public class SecurityTypes extends Message
   public org.quickfix.field.TotalNumSecurityTypes getTotalNumSecurityTypes() throws FieldNotFound 
   { org.quickfix.field.TotalNumSecurityTypes value = new org.quickfix.field.TotalNumSecurityTypes(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoSecurityTypes value) 
+  { setField(value); } 
+  public org.quickfix.field.NoSecurityTypes get(org.quickfix.field.NoSecurityTypes value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoSecurityTypes getNoSecurityTypes() throws FieldNotFound 
+  { org.quickfix.field.NoSecurityTypes value = new org.quickfix.field.NoSecurityTypes(); 
+    getField(value); return value; } 
 
 public static class NoSecurityTypes extends Group { 
   public NoSecurityTypes() { 

@@ -168,7 +168,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::RawData);
     FIELD_SET(*this, FIX::ResetSeqNumFlag);
     FIELD_SET(*this, FIX::MaxMessageSize);
-
+    FIELD_SET(*this, FIX::NoMsgTypes);
     class NoMsgTypes : public FIX::Group
     {
     public:
@@ -386,7 +386,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::ValidUntilTime);
     FIELD_SET(*this, FIX::IOIQltyInd);
     FIELD_SET(*this, FIX::IOINaturalFlag);
-
+    FIELD_SET(*this, FIX::NoIOIQualifiers);
     class NoIOIQualifiers : public FIX::Group
     {
     public:
@@ -400,7 +400,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::TransactTime);
     FIELD_SET(*this, FIX::URLLink);
-
+    FIELD_SET(*this, FIX::NoRoutingIDs);
     class NoRoutingIDs : public FIX::Group
     {
     public:
@@ -435,7 +435,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::Headline);
     FIELD_SET(*this, FIX::EncodedHeadlineLen);
     FIELD_SET(*this, FIX::EncodedHeadline);
-
+    FIELD_SET(*this, FIX::NoRoutingIDs);
     class NoRoutingIDs : public FIX::Group
     {
     public:
@@ -446,7 +446,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::RoutingType);
       FIELD_SET(*this, FIX::RoutingID);
     };
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -491,7 +491,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::EncodedSecurityDescLen);
       FIELD_SET(*this, FIX::EncodedSecurityDesc);
     };
-
+    FIELD_SET(*this, FIX::LinesOfText);
     class LinesOfText : public FIX::Group
     {
     public:
@@ -534,7 +534,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::Subject);
     FIELD_SET(*this, FIX::EncodedSubjectLen);
     FIELD_SET(*this, FIX::EncodedSubject);
-
+    FIELD_SET(*this, FIX::NoRoutingIDs);
     class NoRoutingIDs : public FIX::Group
     {
     public:
@@ -545,7 +545,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::RoutingType);
       FIELD_SET(*this, FIX::RoutingID);
     };
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -592,7 +592,7 @@ namespace FIX42
     };
     FIELD_SET(*this, FIX::OrderID);
     FIELD_SET(*this, FIX::ClOrdID);
-
+    FIELD_SET(*this, FIX::LinesOfText);
     class LinesOfText : public FIX::Group
     {
     public:
@@ -625,7 +625,7 @@ namespace FIX42
     }
   
     FIELD_SET(*this, FIX::QuoteReqID);
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -773,7 +773,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::QuoteResponseLevel);
     FIELD_SET(*this, FIX::DefBidSize);
     FIELD_SET(*this, FIX::DefOfferSize);
-
+    FIELD_SET(*this, FIX::NoQuoteSets);
     class NoQuoteSets : public FIX::Group
     {
     public:
@@ -861,7 +861,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDesc);
       FIELD_SET(*this, FIX::QuoteSetValidUntilTime);
       FIELD_SET(*this, FIX::TotQuoteEntries);
-
+    FIELD_SET(*this, FIX::NoQuoteEntries);
     class NoQuoteEntries : public FIX::Group
     {
     public:
@@ -965,7 +965,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::QuoteCancelType);
     FIELD_SET(*this, FIX::QuoteResponseLevel);
     FIELD_SET(*this, FIX::TradingSessionID);
-
+    FIELD_SET(*this, FIX::NoQuoteEntries);
     class NoQuoteEntries : public FIX::Group
     {
     public:
@@ -1075,7 +1075,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::QuoteResponseLevel);
     FIELD_SET(*this, FIX::TradingSessionID);
     FIELD_SET(*this, FIX::Text);
-
+    FIELD_SET(*this, FIX::NoQuoteSets);
     class NoQuoteSets : public FIX::Group
     {
     public:
@@ -1146,7 +1146,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDescLen);
       FIELD_SET(*this, FIX::EncodedUnderlyingSecurityDesc);
       FIELD_SET(*this, FIX::TotQuoteEntries);
-
+    FIELD_SET(*this, FIX::NoQuoteEntries);
     class NoQuoteEntries : public FIX::Group
     {
     public:
@@ -1222,7 +1222,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::MarketDepth);
     FIELD_SET(*this, FIX::MDUpdateType);
     FIELD_SET(*this, FIX::AggregatedBook);
-
+    FIELD_SET(*this, FIX::NoMDEntryTypes);
     class NoMDEntryTypes : public FIX::Group
     {
     public:
@@ -1231,7 +1231,7 @@ namespace FIX42
          0)){}
       FIELD_SET(*this, FIX::MDEntryType);
     };
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -1318,7 +1318,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::FinancialStatus);
     FIELD_SET(*this, FIX::CorporateAction);
     FIELD_SET(*this, FIX::TotalVolumeTraded);
-
+    FIELD_SET(*this, FIX::NoMDEntries);
     class NoMDEntries : public FIX::Group
     {
     public:
@@ -1395,7 +1395,7 @@ namespace FIX42
     static FIX::MsgType MsgType() { return FIX::MsgType("X"); }
   
     FIELD_SET(*this, FIX::MDReqID);
-
+    FIELD_SET(*this, FIX::NoMDEntries);
     class NoMDEntries : public FIX::Group
     {
     public:
@@ -1581,7 +1581,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::TradingSessionID);
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -1681,7 +1681,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::Text);
     FIELD_SET(*this, FIX::EncodedTextLen);
     FIELD_SET(*this, FIX::EncodedText);
-
+    FIELD_SET(*this, FIX::NoRelatedSym);
     class NoRelatedSym : public FIX::Group
     {
     public:
@@ -1918,7 +1918,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::ClientID);
     FIELD_SET(*this, FIX::ExecBroker);
     FIELD_SET(*this, FIX::Account);
-
+    FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs : public FIX::Group
     {
     public:
@@ -1936,7 +1936,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::MinQty);
     FIELD_SET(*this, FIX::MaxFloor);
     FIELD_SET(*this, FIX::ExDestination);
-
+    FIELD_SET(*this, FIX::NoTradingSessions);
     class NoTradingSessions : public FIX::Group
     {
     public:
@@ -2044,7 +2044,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::OrigClOrdID);
     FIELD_SET(*this, FIX::ClientID);
     FIELD_SET(*this, FIX::ExecBroker);
-
+    FIELD_SET(*this, FIX::NoContraBrokers);
     class NoContraBrokers : public FIX::Group
     {
     public:
@@ -2233,7 +2233,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::ClOrdID);
     FIELD_SET(*this, FIX::ListID);
     FIELD_SET(*this, FIX::Account);
-
+    FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs : public FIX::Group
     {
     public:
@@ -2251,7 +2251,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::MinQty);
     FIELD_SET(*this, FIX::MaxFloor);
     FIELD_SET(*this, FIX::ExDestination);
-
+    FIELD_SET(*this, FIX::NoTradingSessions);
     class NoTradingSessions : public FIX::Group
     {
     public:
@@ -2494,7 +2494,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::RefAllocID);
     FIELD_SET(*this, FIX::AllocLinkID);
     FIELD_SET(*this, FIX::AllocLinkType);
-
+    FIELD_SET(*this, FIX::NoOrders);
     class NoOrders : public FIX::Group
     {
     public:
@@ -2511,7 +2511,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::ListID);
       FIELD_SET(*this, FIX::WaveNo);
     };
-
+    FIELD_SET(*this, FIX::NoExecs);
     class NoExecs : public FIX::Group
     {
     public:
@@ -2564,7 +2564,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::EncodedText);
     FIELD_SET(*this, FIX::NumDaysInterest);
     FIELD_SET(*this, FIX::AccruedInterestRate);
-
+    FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs : public FIX::Group
     {
     public:
@@ -2619,7 +2619,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::SettlCurrFxRateCalc);
       FIELD_SET(*this, FIX::AccruedInterestAmt);
       FIELD_SET(*this, FIX::SettlInstMode);
-
+    FIELD_SET(*this, FIX::NoMiscFees);
     class NoMiscFees : public FIX::Group
     {
     public:
@@ -2761,7 +2761,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::EncodedListExecInstLen);
     FIELD_SET(*this, FIX::EncodedListExecInst);
     FIELD_SET(*this, FIX::TotNoOrders);
-
+    FIELD_SET(*this, FIX::NoOrders);
     class NoOrders : public FIX::Group
     {
     public:
@@ -2918,7 +2918,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::DiscretionOffset);
       FIELD_SET(*this, FIX::ClearingFirm);
       FIELD_SET(*this, FIX::ClearingAccount);
-
+    FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs : public FIX::Group
     {
     public:
@@ -2929,7 +2929,7 @@ namespace FIX42
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
     };
-
+    FIELD_SET(*this, FIX::NoTradingSessions);
     class NoTradingSessions : public FIX::Group
     {
     public:
@@ -2976,7 +2976,7 @@ namespace FIX42
     FIELD_SET(*this, FIX::EncodedListStatusText);
     FIELD_SET(*this, FIX::TransactTime);
     FIELD_SET(*this, FIX::TotNoOrders);
-
+    FIELD_SET(*this, FIX::NoOrders);
     class NoOrders : public FIX::Group
     {
     public:

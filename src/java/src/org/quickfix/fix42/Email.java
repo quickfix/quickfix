@@ -68,6 +68,13 @@ public class Email extends Message
   public org.quickfix.field.EncodedSubject getEncodedSubject() throws FieldNotFound 
   { org.quickfix.field.EncodedSubject value = new org.quickfix.field.EncodedSubject(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoRoutingIDs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoRoutingIDs get(org.quickfix.field.NoRoutingIDs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoRoutingIDs getNoRoutingIDs() throws FieldNotFound 
+  { org.quickfix.field.NoRoutingIDs value = new org.quickfix.field.NoRoutingIDs(); 
+    getField(value); return value; } 
 
 public static class NoRoutingIDs extends Group { 
   public NoRoutingIDs() { 
@@ -95,6 +102,13 @@ public static class NoRoutingIDs extends Group {
     getField(value); return value; } 
 
 } 
+  public void set(org.quickfix.field.NoRelatedSym value) 
+  { setField(value); } 
+  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
+  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
+    getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
@@ -290,6 +304,13 @@ public static class NoRelatedSym extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound 
   { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID(); 
+    getField(value); return value; } 
+  public void set(org.quickfix.field.LinesOfText value) 
+  { setField(value); } 
+  public org.quickfix.field.LinesOfText get(org.quickfix.field.LinesOfText value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.LinesOfText getLinesOfText() throws FieldNotFound 
+  { org.quickfix.field.LinesOfText value = new org.quickfix.field.LinesOfText(); 
     getField(value); return value; } 
 
 public static class LinesOfText extends Group { 

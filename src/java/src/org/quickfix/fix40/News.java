@@ -34,6 +34,13 @@ public class News extends Message
   public org.quickfix.field.RelatdSym getRelatdSym() throws FieldNotFound 
   { org.quickfix.field.RelatdSym value = new org.quickfix.field.RelatdSym(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.LinesOfText value) 
+  { setField(value); } 
+  public org.quickfix.field.LinesOfText get(org.quickfix.field.LinesOfText value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.LinesOfText getLinesOfText() throws FieldNotFound 
+  { org.quickfix.field.LinesOfText value = new org.quickfix.field.LinesOfText(); 
+    getField(value); return value; } 
 
 public static class LinesOfText extends Group { 
   public LinesOfText() { 

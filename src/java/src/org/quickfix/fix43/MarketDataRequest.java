@@ -84,6 +84,13 @@ public class MarketDataRequest extends Message
   public org.quickfix.field.MDImplicitDelete getMDImplicitDelete() throws FieldNotFound 
   { org.quickfix.field.MDImplicitDelete value = new org.quickfix.field.MDImplicitDelete(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoMDEntryTypes value) 
+  { setField(value); } 
+  public org.quickfix.field.NoMDEntryTypes get(org.quickfix.field.NoMDEntryTypes value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoMDEntryTypes getNoMDEntryTypes() throws FieldNotFound 
+  { org.quickfix.field.NoMDEntryTypes value = new org.quickfix.field.NoMDEntryTypes(); 
+    getField(value); return value; } 
 
 public static class NoMDEntryTypes extends Group { 
   public NoMDEntryTypes() { 
@@ -102,6 +109,13 @@ public static class NoMDEntryTypes extends Group {
     getField(value); return value; } 
 
 } 
+  public void set(org.quickfix.field.NoRelatedSym value) 
+  { setField(value); } 
+  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
+  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
+    getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
@@ -366,7 +380,48 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.EncodedSecurityDesc getEncodedSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedSecurityDesc value = new org.quickfix.field.EncodedSecurityDesc(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoSecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
+    getField(value); return value; } 
+
+public static class NoSecurityAltID extends Group { 
+  public NoSecurityAltID() { 
+    super(454, 455, 
+    new int[] { 
+               455, 
+               456, 
+               0 } 
+); 
+  } 
+  public void set(org.quickfix.field.SecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltID get(org.quickfix.field.SecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
+    getField(value); return value; } 
+
+  public void set(org.quickfix.field.SecurityAltIDSource value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltIDSource get(org.quickfix.field.SecurityAltIDSource value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
+    getField(value); return value; } 
+
 } 
+} 
+  public void set(org.quickfix.field.NoTradingSessions value) 
+  { setField(value); } 
+  public org.quickfix.field.NoTradingSessions get(org.quickfix.field.NoTradingSessions value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoTradingSessions getNoTradingSessions() throws FieldNotFound 
+  { org.quickfix.field.NoTradingSessions value = new org.quickfix.field.NoTradingSessions(); 
+    getField(value); return value; } 
 
 public static class NoTradingSessions extends Group { 
   public NoTradingSessions() { 

@@ -84,6 +84,13 @@ public class OrderCancelReplaceRequest extends Message
   public org.quickfix.field.Account getAccount() throws FieldNotFound 
   { org.quickfix.field.Account value = new org.quickfix.field.Account(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoAllocs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoAllocs get(org.quickfix.field.NoAllocs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoAllocs getNoAllocs() throws FieldNotFound 
+  { org.quickfix.field.NoAllocs value = new org.quickfix.field.NoAllocs(); 
+    getField(value); return value; } 
 
 public static class NoAllocs extends Group { 
   public NoAllocs() { 
@@ -166,6 +173,13 @@ public static class NoAllocs extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.ExDestination getExDestination() throws FieldNotFound 
   { org.quickfix.field.ExDestination value = new org.quickfix.field.ExDestination(); 
+    getField(value); return value; } 
+  public void set(org.quickfix.field.NoTradingSessions value) 
+  { setField(value); } 
+  public org.quickfix.field.NoTradingSessions get(org.quickfix.field.NoTradingSessions value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoTradingSessions getNoTradingSessions() throws FieldNotFound 
+  { org.quickfix.field.NoTradingSessions value = new org.quickfix.field.NoTradingSessions(); 
     getField(value); return value; } 
 
 public static class NoTradingSessions extends Group { 

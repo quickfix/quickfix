@@ -72,6 +72,13 @@ public class QuoteAcknowledgement extends Message
   public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoQuoteSets value) 
+  { setField(value); } 
+  public org.quickfix.field.NoQuoteSets get(org.quickfix.field.NoQuoteSets value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoQuoteSets getNoQuoteSets() throws FieldNotFound 
+  { org.quickfix.field.NoQuoteSets value = new org.quickfix.field.NoQuoteSets(); 
+    getField(value); return value; } 
 
 public static class NoQuoteSets extends Group { 
   public NoQuoteSets() { 
@@ -269,11 +276,39 @@ public static class NoQuoteSets extends Group {
   { org.quickfix.field.TotQuoteEntries value = new org.quickfix.field.TotQuoteEntries(); 
     getField(value); return value; } 
 
+  public void set(org.quickfix.field.NoQuoteEntries value) 
+  { setField(value); } 
+  public org.quickfix.field.NoQuoteEntries get(org.quickfix.field.NoQuoteEntries value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoQuoteEntries getNoQuoteEntries() throws FieldNotFound 
+  { org.quickfix.field.NoQuoteEntries value = new org.quickfix.field.NoQuoteEntries(); 
+    getField(value); return value; } 
 
 public static class NoQuoteEntries extends Group { 
   public NoQuoteEntries() { 
     super(295, 22, 
     new int[] { 
+               299, 
+               55, 
+               65, 
+               48, 
+               22, 
+               167, 
+               200, 
+               205, 
+               201, 
+               202, 
+               206, 
+               231, 
+               223, 
+               207, 
+               106, 
+               348, 
+               349, 
+               107, 
+               350, 
+               351, 
+               368, 
                0 } 
 ); 
   } 

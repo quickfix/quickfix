@@ -356,6 +356,13 @@ public class ExecutionReport extends Message
   public org.quickfix.field.CommType getCommType() throws FieldNotFound 
   { org.quickfix.field.CommType value = new org.quickfix.field.CommType(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoMiscFees value) 
+  { setField(value); } 
+  public org.quickfix.field.NoMiscFees get(org.quickfix.field.NoMiscFees value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoMiscFees getNoMiscFees() throws FieldNotFound 
+  { org.quickfix.field.NoMiscFees value = new org.quickfix.field.NoMiscFees(); 
+    getField(value); return value; } 
 
 public static class NoMiscFees extends Group { 
   public NoMiscFees() { 

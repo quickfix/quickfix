@@ -88,7 +88,7 @@ namespace Fix43
     NET_FIELD_SET(MessageEncoding);
     NET_FIELD_SET(LastMsgSeqNumProcessed);
     NET_FIELD_SET(OnBehalfOfSendingTime);
-  
+    NET_FIELD_SET(NoHops);
     __gc class NoHops : public Fix::Group
     {
     public:
@@ -165,7 +165,7 @@ namespace Fix43
     NET_FIELD_SET(RawData);
     NET_FIELD_SET(ResetSeqNumFlag);
     NET_FIELD_SET(MaxMessageSize);
-  
+    NET_FIELD_SET(NoMsgTypes);
     __gc class NoMsgTypes : public Fix::Group
     {
     public:
@@ -351,7 +351,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -433,7 +433,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -454,7 +454,7 @@ namespace Fix43
     NET_FIELD_SET(ValidUntilTime);
     NET_FIELD_SET(IOIQltyInd);
     NET_FIELD_SET(IOINaturalFlag);
-  
+    NET_FIELD_SET(NoIOIQualifiers);
     __gc class NoIOIQualifiers : public Fix::Group
     {
     public:
@@ -469,7 +469,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(URLLink);
-  
+    NET_FIELD_SET(NoRoutingIDs);
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
@@ -507,7 +507,7 @@ namespace Fix43
     NET_FIELD_SET(Headline);
     NET_FIELD_SET(EncodedHeadlineLen);
     NET_FIELD_SET(EncodedHeadline);
-  
+    NET_FIELD_SET(NoRoutingIDs);
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
@@ -519,7 +519,7 @@ namespace Fix43
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -560,7 +560,7 @@ namespace Fix43
           NET_FIELD_SET(EncodedSecurityDescLen);
           NET_FIELD_SET(EncodedSecurityDesc);
     };
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -603,7 +603,7 @@ namespace Fix43
     NET_FIELD_SET(Subject);
     NET_FIELD_SET(EncodedSubjectLen);
     NET_FIELD_SET(EncodedSubject);
-  
+    NET_FIELD_SET(NoRoutingIDs);
     __gc class NoRoutingIDs : public Fix::Group
     {
     public:
@@ -615,7 +615,7 @@ namespace Fix43
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
     };
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -658,7 +658,7 @@ namespace Fix43
     };
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
-  
+    NET_FIELD_SET(LinesOfText);
     __gc class LinesOfText : public Fix::Group
     {
     public:
@@ -692,7 +692,7 @@ namespace Fix43
   
     NET_FIELD_SET(QuoteReqID);
     NET_FIELD_SET(RFQReqID);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -808,7 +808,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteReqID);
     NET_FIELD_SET(RFQReqID);
     NET_FIELD_SET(QuoteRequestRejectReason);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -887,7 +887,7 @@ namespace Fix43
     }
   
     NET_FIELD_SET(RFQReqID);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -959,7 +959,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteType);
     NET_FIELD_SET(QuoteResponseLevel);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -1011,7 +1011,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -1081,7 +1081,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteCancelType);
     NET_FIELD_SET(QuoteResponseLevel);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -1101,7 +1101,7 @@ namespace Fix43
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(TradingSessionSubID);
-  
+    NET_FIELD_SET(NoQuoteEntries);
     __gc class NoQuoteEntries : public Fix::Group
     {
     public:
@@ -1184,7 +1184,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -1196,7 +1196,7 @@ namespace Fix43
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
     };
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -1237,7 +1237,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteReqID);
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteType);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -1289,7 +1289,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -1354,7 +1354,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteType);
     NET_FIELD_SET(QuoteResponseLevel);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -1374,7 +1374,7 @@ namespace Fix43
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(DefBidSize);
     NET_FIELD_SET(DefOfferSize);
-  
+    NET_FIELD_SET(NoQuoteSets);
     __gc class NoQuoteSets : public Fix::Group
     {
     public:
@@ -1415,7 +1415,7 @@ namespace Fix43
       NET_FIELD_SET(QuoteSetID);
       NET_FIELD_SET(QuoteSetValidUntilTime);
       NET_FIELD_SET(TotQuoteEntries);
-  
+    NET_FIELD_SET(NoQuoteEntries);
     __gc class NoQuoteEntries : public Fix::Group
     {
     public:
@@ -1560,7 +1560,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteRejectReason);
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(QuoteType);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -1579,7 +1579,7 @@ namespace Fix43
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(Text);
-  
+    NET_FIELD_SET(NoQuoteSets);
     __gc class NoQuoteSets : public Fix::Group
     {
     public:
@@ -1619,7 +1619,7 @@ namespace Fix43
       0};
       NET_FIELD_SET(QuoteSetID);
       NET_FIELD_SET(TotQuoteEntries);
-  
+    NET_FIELD_SET(NoQuoteEntries);
     __gc class NoQuoteEntries : public Fix::Group
     {
     public:
@@ -1772,7 +1772,7 @@ namespace Fix43
     NET_FIELD_SET(OpenCloseSettleFlag);
     NET_FIELD_SET(Scope);
     NET_FIELD_SET(MDImplicitDelete);
-  
+    NET_FIELD_SET(NoMDEntryTypes);
     __gc class NoMDEntryTypes : public Fix::Group
     {
     public:
@@ -1782,7 +1782,7 @@ namespace Fix43
       0};
       NET_FIELD_SET(MDEntryType);
     };
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -1823,7 +1823,7 @@ namespace Fix43
           NET_FIELD_SET(EncodedSecurityDescLen);
           NET_FIELD_SET(EncodedSecurityDesc);
     };
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -1876,7 +1876,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -1894,7 +1894,7 @@ namespace Fix43
     NET_FIELD_SET(TotalVolumeTradedDate);
     NET_FIELD_SET(TotalVolumeTradedTime);
     NET_FIELD_SET(NetChgPrevDay);
-  
+    NET_FIELD_SET(NoMDEntries);
     __gc class NoMDEntries : public Fix::Group
     {
     public:
@@ -1975,7 +1975,7 @@ namespace Fix43
     static Fix::MsgType* MsgType() { return new Fix::MsgType("X"); }
   
     NET_FIELD_SET(MDReqID);
-  
+    NET_FIELD_SET(NoMDEntries);
     __gc class NoMDEntries : public Fix::Group
     {
     public:
@@ -2173,7 +2173,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -2191,7 +2191,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(TradingSessionSubID);
-  
+    NET_FIELD_SET(NoLegs);
     __gc class NoLegs : public Fix::Group
     {
     public:
@@ -2292,7 +2292,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -2310,7 +2310,7 @@ namespace Fix43
     NET_FIELD_SET(Text);
     NET_FIELD_SET(EncodedTextLen);
     NET_FIELD_SET(EncodedText);
-  
+    NET_FIELD_SET(NoLegs);
     __gc class NoLegs : public Fix::Group
     {
     public:
@@ -2403,7 +2403,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityResponseID);
     NET_FIELD_SET(SecurityResponseType);
     NET_FIELD_SET(TotalNumSecurityTypes);
-  
+    NET_FIELD_SET(NoSecurityTypes);
     __gc class NoSecurityTypes : public Fix::Group
     {
     public:
@@ -2475,7 +2475,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -2518,7 +2518,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityResponseID);
     NET_FIELD_SET(SecurityRequestResult);
     NET_FIELD_SET(TotalNumSecurities);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -2546,7 +2546,7 @@ namespace Fix43
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
-  
+    NET_FIELD_SET(NoLegs);
     __gc class NoLegs : public Fix::Group
     {
     public:
@@ -2677,7 +2677,7 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
-  
+    NET_FIELD_SET(NoUnderlyingSecurityAltID);
     __gc class NoUnderlyingSecurityAltID : public Fix::Group
     {
     public:
@@ -2752,7 +2752,7 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
-  
+    NET_FIELD_SET(NoUnderlyingSecurityAltID);
     __gc class NoUnderlyingSecurityAltID : public Fix::Group
     {
     public:
@@ -2765,7 +2765,7 @@ namespace Fix43
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
     };
     NET_FIELD_SET(TotalNumSecurities);
-  
+    NET_FIELD_SET(NoRelatedSym);
     __gc class NoRelatedSym : public Fix::Group
     {
     public:
@@ -2789,7 +2789,7 @@ namespace Fix43
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
-  
+    NET_FIELD_SET(NoLegs);
     __gc class NoLegs : public Fix::Group
     {
     public:
@@ -2918,7 +2918,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -2975,7 +2975,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -3093,7 +3093,7 @@ namespace Fix43
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -3115,7 +3115,7 @@ namespace Fix43
     NET_FIELD_SET(DayBookingInst);
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -3139,7 +3139,7 @@ namespace Fix43
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -3184,7 +3184,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -3200,7 +3200,7 @@ namespace Fix43
     NET_FIELD_SET(Side);
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
-  
+    NET_FIELD_SET(NoStipulations);
     __gc class NoStipulations : public Fix::Group
     {
     public:
@@ -3304,7 +3304,7 @@ namespace Fix43
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(OrigClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -3321,7 +3321,7 @@ namespace Fix43
       NET_FIELD_SET(PartySubID);
     };
     NET_FIELD_SET(TradeOriginationDate);
-  
+    NET_FIELD_SET(NoContraBrokers);
     __gc class NoContraBrokers : public Fix::Group
     {
     public:
@@ -3391,7 +3391,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -3404,7 +3404,7 @@ namespace Fix43
       NET_FIELD_SET(SecurityAltIDSource);
     };
     NET_FIELD_SET(Side);
-  
+    NET_FIELD_SET(NoStipulations);
     __gc class NoStipulations : public Fix::Group
     {
     public:
@@ -3508,7 +3508,7 @@ namespace Fix43
     NET_FIELD_SET(ExecPriceAdjustment);
     NET_FIELD_SET(PriorityIndicator);
     NET_FIELD_SET(PriceImprovement);
-  
+    NET_FIELD_SET(NoContAmts);
     __gc class NoContAmts : public Fix::Group
     {
     public:
@@ -3522,7 +3522,7 @@ namespace Fix43
       NET_FIELD_SET(ContAmtValue);
       NET_FIELD_SET(ContAmtCurr);
     };
-  
+    NET_FIELD_SET(NoLegs);
     __gc class NoLegs : public Fix::Group
     {
     public:
@@ -3637,7 +3637,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -3687,7 +3687,7 @@ namespace Fix43
     }
   
     NET_FIELD_SET(OrderID);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -3715,7 +3715,7 @@ namespace Fix43
     NET_FIELD_SET(DayBookingInst);
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -3739,7 +3739,7 @@ namespace Fix43
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -3783,7 +3783,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -3882,7 +3882,7 @@ namespace Fix43
     NET_FIELD_SET(OrigOrdModTime);
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -3930,7 +3930,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -4018,7 +4018,7 @@ namespace Fix43
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -4067,7 +4067,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -4137,7 +4137,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -4182,7 +4182,7 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
-  
+    NET_FIELD_SET(NoUnderlyingSecurityAltID);
     __gc class NoUnderlyingSecurityAltID : public Fix::Group
     {
     public:
@@ -4227,7 +4227,7 @@ namespace Fix43
     NET_FIELD_SET(MassCancelResponse);
     NET_FIELD_SET(MassCancelRejectReason);
     NET_FIELD_SET(TotalAffectedOrders);
-  
+    NET_FIELD_SET(NoAffectedOrders);
     __gc class NoAffectedOrders : public Fix::Group
     {
     public:
@@ -4275,7 +4275,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -4320,7 +4320,7 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
-  
+    NET_FIELD_SET(NoUnderlyingSecurityAltID);
     __gc class NoUnderlyingSecurityAltID : public Fix::Group
     {
     public:
@@ -4357,7 +4357,7 @@ namespace Fix43
   
     NET_FIELD_SET(MassStatusReqID);
     NET_FIELD_SET(MassStatusReqType);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -4408,7 +4408,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -4453,7 +4453,7 @@ namespace Fix43
     NET_FIELD_SET(UnderlyingSecurityDesc);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
-  
+    NET_FIELD_SET(NoUnderlyingSecurityAltID);
     __gc class NoUnderlyingSecurityAltID : public Fix::Group
     {
     public:
@@ -4495,7 +4495,7 @@ namespace Fix43
     NET_FIELD_SET(CrossID);
     NET_FIELD_SET(CrossType);
     NET_FIELD_SET(CrossPrioritization);
-  
+    NET_FIELD_SET(NoSides);
     __gc class NoSides : public Fix::Group
     {
     public:
@@ -4561,7 +4561,7 @@ namespace Fix43
       NET_FIELD_SET(ClearingFeeIndicator);
       NET_FIELD_SET(SolicitedFlag);
       NET_FIELD_SET(SideComplianceID);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -4618,7 +4618,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -4637,7 +4637,7 @@ namespace Fix43
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -4653,7 +4653,7 @@ namespace Fix43
     NET_FIELD_SET(PrevClosePx);
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
-  
+    NET_FIELD_SET(NoStipulations);
     __gc class NoStipulations : public Fix::Group
     {
     public:
@@ -4728,7 +4728,7 @@ namespace Fix43
     NET_FIELD_SET(OrigCrossID);
     NET_FIELD_SET(CrossType);
     NET_FIELD_SET(CrossPrioritization);
-  
+    NET_FIELD_SET(NoSides);
     __gc class NoSides : public Fix::Group
     {
     public:
@@ -4798,7 +4798,7 @@ namespace Fix43
       NET_FIELD_SET(ClearingFeeIndicator);
       NET_FIELD_SET(SolicitedFlag);
       NET_FIELD_SET(SideComplianceID);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -4855,7 +4855,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -4874,7 +4874,7 @@ namespace Fix43
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -4890,7 +4890,7 @@ namespace Fix43
     NET_FIELD_SET(PrevClosePx);
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
-  
+    NET_FIELD_SET(NoStipulations);
     __gc class NoStipulations : public Fix::Group
     {
     public:
@@ -4961,7 +4961,7 @@ namespace Fix43
     NET_FIELD_SET(OrigCrossID);
     NET_FIELD_SET(CrossType);
     NET_FIELD_SET(CrossPrioritization);
-  
+    NET_FIELD_SET(NoSides);
     __gc class NoSides : public Fix::Group
     {
     public:
@@ -5030,7 +5030,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -5070,7 +5070,7 @@ namespace Fix43
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -5091,7 +5091,7 @@ namespace Fix43
     NET_FIELD_SET(DayBookingInst);
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -5114,7 +5114,7 @@ namespace Fix43
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -5160,7 +5160,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -5173,7 +5173,7 @@ namespace Fix43
       NET_FIELD_SET(SecurityAltIDSource);
     };
     NET_FIELD_SET(PrevClosePx);
-  
+    NET_FIELD_SET(NoLegs);
     __gc class NoLegs : public Fix::Group
     {
     public:
@@ -5307,7 +5307,7 @@ namespace Fix43
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
     NET_FIELD_SET(OrigOrdModTime);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -5328,7 +5328,7 @@ namespace Fix43
     NET_FIELD_SET(DayBookingInst);
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -5351,7 +5351,7 @@ namespace Fix43
     NET_FIELD_SET(MinQty);
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -5397,7 +5397,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -5410,7 +5410,7 @@ namespace Fix43
       NET_FIELD_SET(SecurityAltIDSource);
     };
     NET_FIELD_SET(PrevClosePx);
-  
+    NET_FIELD_SET(NoLegs);
     __gc class NoLegs : public Fix::Group
     {
     public:
@@ -5548,7 +5548,7 @@ namespace Fix43
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(SideValue1);
     NET_FIELD_SET(SideValue2);
-  
+    NET_FIELD_SET(NoBidDescriptors);
     __gc class NoBidDescriptors : public Fix::Group
     {
     public:
@@ -5578,7 +5578,7 @@ namespace Fix43
       NET_FIELD_SET(OutsideIndexPct);
       NET_FIELD_SET(ValueOfFutures);
     };
-  
+    NET_FIELD_SET(NoBidComponents);
     __gc class NoBidComponents : public Fix::Group
     {
     public:
@@ -5629,7 +5629,7 @@ namespace Fix43
   
     NET_FIELD_SET(BidID);
     NET_FIELD_SET(ClientBidID);
-  
+    NET_FIELD_SET(NoBidComponents);
     __gc class NoBidComponents : public Fix::Group
     {
     public:
@@ -5704,7 +5704,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedListExecInstLen);
     NET_FIELD_SET(EncodedListExecInst);
     NET_FIELD_SET(TotNoOrders);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:
@@ -5854,7 +5854,7 @@ namespace Fix43
       NET_FIELD_SET(AccruedInterestRate);
       NET_FIELD_SET(AccruedInterestAmt);
       NET_FIELD_SET(NetMoney);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -5869,7 +5869,7 @@ namespace Fix43
       NET_FIELD_SET(IndividualAllocID);
       NET_FIELD_SET(AllocQty);
     };
-  
+    NET_FIELD_SET(NoTradingSessions);
     __gc class NoTradingSessions : public Fix::Group
     {
     public:
@@ -5949,7 +5949,7 @@ namespace Fix43
   
     NET_FIELD_SET(ListID);
     NET_FIELD_SET(TotNoStrikes);
-  
+    NET_FIELD_SET(NoStrikes);
     __gc class NoStrikes : public Fix::Group
     {
     public:
@@ -6113,7 +6113,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedListStatusText);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(TotNoOrders);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:
@@ -6180,7 +6180,7 @@ namespace Fix43
     NET_FIELD_SET(AllocLinkID);
     NET_FIELD_SET(AllocLinkType);
     NET_FIELD_SET(BookingRefID);
-  
+    NET_FIELD_SET(NoOrders);
     __gc class NoOrders : public Fix::Group
     {
     public:
@@ -6198,7 +6198,7 @@ namespace Fix43
       NET_FIELD_SET(SecondaryClOrdID);
       NET_FIELD_SET(ListID);
     };
-  
+    NET_FIELD_SET(NoExecs);
     __gc class NoExecs : public Fix::Group
     {
     public:
@@ -6249,7 +6249,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -6270,7 +6270,7 @@ namespace Fix43
     NET_FIELD_SET(AvgPx);
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(AvgPrxPrecision);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -6302,7 +6302,7 @@ namespace Fix43
     NET_FIELD_SET(AccruedInterestRate);
     NET_FIELD_SET(TotalAccruedInterestAmt);
     NET_FIELD_SET(LegalConfirm);
-  
+    NET_FIELD_SET(NoAllocs);
     __gc class NoAllocs : public Fix::Group
     {
     public:
@@ -6352,7 +6352,7 @@ namespace Fix43
       NET_FIELD_SET(SettlCurrFxRateCalc);
       NET_FIELD_SET(AccruedInterestAmt);
       NET_FIELD_SET(SettlInstMode);
-  
+    NET_FIELD_SET(NoMiscFees);
     __gc class NoMiscFees : public Fix::Group
     {
     public:
@@ -6391,7 +6391,7 @@ namespace Fix43
       set(aAllocStatus);
     }
   
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -6461,7 +6461,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityType);
     NET_FIELD_SET(EffectiveTime);
     NET_FIELD_SET(TransactTime);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -6530,7 +6530,7 @@ namespace Fix43
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(MatchStatus);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -6578,7 +6578,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -6590,7 +6590,7 @@ namespace Fix43
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
     };
-  
+    NET_FIELD_SET(NoDates);
     __gc class NoDates : public Fix::Group
     {
     public:
@@ -6677,7 +6677,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityDesc);   
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
-  
+    NET_FIELD_SET(NoSecurityAltID);
     __gc class NoSecurityAltID : public Fix::Group
     {
     public:
@@ -6705,7 +6705,7 @@ namespace Fix43
     NET_FIELD_SET(FutSettDate);
     NET_FIELD_SET(MatchStatus);
     NET_FIELD_SET(MatchType);
-  
+    NET_FIELD_SET(NoSides);
     __gc class NoSides : public Fix::Group
     {
     public:
@@ -6801,7 +6801,7 @@ namespace Fix43
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
       NET_FIELD_SET(MultiLegReportingType);
-  
+    NET_FIELD_SET(NoClearingInstructions);
     __gc class NoClearingInstructions : public Fix::Group
     {
     public:
@@ -6811,7 +6811,7 @@ namespace Fix43
         0};
       NET_FIELD_SET(ClearingInstruction);
     };
-  
+    NET_FIELD_SET(NoContAmts);
     __gc class NoContAmts : public Fix::Group
     {
     public:
@@ -6825,7 +6825,7 @@ namespace Fix43
       NET_FIELD_SET(ContAmtValue);
       NET_FIELD_SET(ContAmtCurr);
     };
-  
+    NET_FIELD_SET(NoMiscFees);
     __gc class NoMiscFees : public Fix::Group
     {
     public:
@@ -6868,7 +6868,7 @@ namespace Fix43
     NET_FIELD_SET(RegistTransType);
     NET_FIELD_SET(RegistRefID);
     NET_FIELD_SET(ClOrdID);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:
@@ -6888,7 +6888,7 @@ namespace Fix43
     NET_FIELD_SET(RegistAcctType);
     NET_FIELD_SET(TaxAdvantageType);
     NET_FIELD_SET(OwnershipType);
-  
+    NET_FIELD_SET(NoRegistDtls);
     __gc class NoRegistDtls : public Fix::Group
     {
     public:
@@ -6911,7 +6911,7 @@ namespace Fix43
       NET_FIELD_SET(DateOfBirth);
       NET_FIELD_SET(InvestorCountryOfResidence);
     };
-  
+    NET_FIELD_SET(NoDistribInsts);
     __gc class NoDistribInsts : public Fix::Group
     {
     public:
@@ -6961,7 +6961,7 @@ namespace Fix43
     NET_FIELD_SET(RegistTransType);
     NET_FIELD_SET(RegistRefID);
     NET_FIELD_SET(ClOrdID);
-  
+    NET_FIELD_SET(NoPartyIDs);
     __gc class NoPartyIDs : public Fix::Group
     {
     public:

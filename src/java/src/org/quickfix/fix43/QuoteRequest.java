@@ -32,6 +32,13 @@ public class QuoteRequest extends Message
   public org.quickfix.field.RFQReqID getRFQReqID() throws FieldNotFound 
   { org.quickfix.field.RFQReqID value = new org.quickfix.field.RFQReqID(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoRelatedSym value) 
+  { setField(value); } 
+  public org.quickfix.field.NoRelatedSym get(org.quickfix.field.NoRelatedSym value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoRelatedSym getNoRelatedSym() throws FieldNotFound 
+  { org.quickfix.field.NoRelatedSym value = new org.quickfix.field.NoRelatedSym(); 
+    getField(value); return value; } 
 
 public static class NoRelatedSym extends Group { 
   public NoRelatedSym() { 
@@ -491,6 +498,74 @@ public static class NoRelatedSym extends Group {
   public org.quickfix.field.EncodedSecurityDesc getEncodedSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedSecurityDesc value = new org.quickfix.field.EncodedSecurityDesc(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoSecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
+    getField(value); return value; } 
+
+public static class NoSecurityAltID extends Group { 
+  public NoSecurityAltID() { 
+    super(454, 455, 
+    new int[] { 
+               455, 
+               456, 
+               0 } 
+); 
+  } 
+  public void set(org.quickfix.field.SecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltID get(org.quickfix.field.SecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
+    getField(value); return value; } 
+
+  public void set(org.quickfix.field.SecurityAltIDSource value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltIDSource get(org.quickfix.field.SecurityAltIDSource value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
+    getField(value); return value; } 
+
+} 
+  public void set(org.quickfix.field.NoStipulations value) 
+  { setField(value); } 
+  public org.quickfix.field.NoStipulations get(org.quickfix.field.NoStipulations value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoStipulations getNoStipulations() throws FieldNotFound 
+  { org.quickfix.field.NoStipulations value = new org.quickfix.field.NoStipulations(); 
+    getField(value); return value; } 
+
+public static class NoStipulations extends Group { 
+  public NoStipulations() { 
+    super(232, 233, 
+    new int[] { 
+               233, 
+               234, 
+               0 } 
+); 
+  } 
+  public void set(org.quickfix.field.StipulationType value) 
+  { setField(value); } 
+  public org.quickfix.field.StipulationType get(org.quickfix.field.StipulationType value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.StipulationType getStipulationType() throws FieldNotFound 
+  { org.quickfix.field.StipulationType value = new org.quickfix.field.StipulationType(); 
+    getField(value); return value; } 
+
+  public void set(org.quickfix.field.StipulationValue value) 
+  { setField(value); } 
+  public org.quickfix.field.StipulationValue get(org.quickfix.field.StipulationValue value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.StipulationValue getStipulationValue() throws FieldNotFound 
+  { org.quickfix.field.StipulationValue value = new org.quickfix.field.StipulationValue(); 
+    getField(value); return value; } 
+
+} 
   public void set(org.quickfix.field.Spread value) 
   { setField(value); } 
   public org.quickfix.field.Spread get(org.quickfix.field.Spread value) throws FieldNotFound 

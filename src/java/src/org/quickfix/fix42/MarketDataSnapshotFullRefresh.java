@@ -200,6 +200,13 @@ public class MarketDataSnapshotFullRefresh extends Message
   public org.quickfix.field.TotalVolumeTraded getTotalVolumeTraded() throws FieldNotFound 
   { org.quickfix.field.TotalVolumeTraded value = new org.quickfix.field.TotalVolumeTraded(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoMDEntries value) 
+  { setField(value); } 
+  public org.quickfix.field.NoMDEntries get(org.quickfix.field.NoMDEntries value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoMDEntries getNoMDEntries() throws FieldNotFound 
+  { org.quickfix.field.NoMDEntries value = new org.quickfix.field.NoMDEntries(); 
+    getField(value); return value; } 
 
 public static class NoMDEntries extends Group { 
   public NoMDEntries() { 

@@ -52,6 +52,13 @@ public class Allocation extends Message
   public org.quickfix.field.RefAllocID getRefAllocID() throws FieldNotFound 
   { org.quickfix.field.RefAllocID value = new org.quickfix.field.RefAllocID(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoOrders value) 
+  { setField(value); } 
+  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound 
+  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders(); 
+    getField(value); return value; } 
 
 public static class NoOrders extends Group { 
   public NoOrders() { 
@@ -97,6 +104,13 @@ public static class NoOrders extends Group {
     getField(value); return value; } 
 
 } 
+  public void set(org.quickfix.field.NoExecs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoExecs get(org.quickfix.field.NoExecs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoExecs getNoExecs() throws FieldNotFound 
+  { org.quickfix.field.NoExecs value = new org.quickfix.field.NoExecs(); 
+    getField(value); return value; } 
 
 public static class NoExecs extends Group { 
   public NoExecs() { 
@@ -270,6 +284,13 @@ public static class NoExecs extends Group {
   public org.quickfix.field.NetMoney getNetMoney() throws FieldNotFound 
   { org.quickfix.field.NetMoney value = new org.quickfix.field.NetMoney(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoMiscFees value) 
+  { setField(value); } 
+  public org.quickfix.field.NoMiscFees get(org.quickfix.field.NoMiscFees value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoMiscFees getNoMiscFees() throws FieldNotFound 
+  { org.quickfix.field.NoMiscFees value = new org.quickfix.field.NoMiscFees(); 
+    getField(value); return value; } 
 
 public static class NoMiscFees extends Group { 
   public NoMiscFees() { 
@@ -337,6 +358,13 @@ public static class NoMiscFees extends Group {
   { getField(value); return value; } 
   public org.quickfix.field.Text getText() throws FieldNotFound 
   { org.quickfix.field.Text value = new org.quickfix.field.Text(); 
+    getField(value); return value; } 
+  public void set(org.quickfix.field.NoAllocs value) 
+  { setField(value); } 
+  public org.quickfix.field.NoAllocs get(org.quickfix.field.NoAllocs value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoAllocs getNoAllocs() throws FieldNotFound 
+  { org.quickfix.field.NoAllocs value = new org.quickfix.field.NoAllocs(); 
     getField(value); return value; } 
 
 public static class NoAllocs extends Group { 
@@ -409,11 +437,20 @@ public static class NoAllocs extends Group {
   { org.quickfix.field.CommType value = new org.quickfix.field.CommType(); 
     getField(value); return value; } 
 
+  public void set(org.quickfix.field.NoDlvyInst value) 
+  { setField(value); } 
+  public org.quickfix.field.NoDlvyInst get(org.quickfix.field.NoDlvyInst value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoDlvyInst getNoDlvyInst() throws FieldNotFound 
+  { org.quickfix.field.NoDlvyInst value = new org.quickfix.field.NoDlvyInst(); 
+    getField(value); return value; } 
 
 public static class NoDlvyInst extends Group { 
   public NoDlvyInst() { 
     super(85, 86, 
     new int[] { 
+               92, 
+               86, 
                0 } 
 ); 
   } 

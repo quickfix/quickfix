@@ -18,6 +18,13 @@ public class MarketDataIncrementalRefresh extends Message
   public org.quickfix.field.MDReqID getMDReqID() throws FieldNotFound 
   { org.quickfix.field.MDReqID value = new org.quickfix.field.MDReqID(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoMDEntries value) 
+  { setField(value); } 
+  public org.quickfix.field.NoMDEntries get(org.quickfix.field.NoMDEntries value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoMDEntries getNoMDEntries() throws FieldNotFound 
+  { org.quickfix.field.NoMDEntries value = new org.quickfix.field.NoMDEntries(); 
+    getField(value); return value; } 
 
 public static class NoMDEntries extends Group { 
   public NoMDEntries() { 
@@ -660,5 +667,39 @@ public static class NoMDEntries extends Group {
   public org.quickfix.field.EncodedSecurityDesc getEncodedSecurityDesc() throws FieldNotFound 
   { org.quickfix.field.EncodedSecurityDesc value = new org.quickfix.field.EncodedSecurityDesc(); 
     getField(value); return value; } 
+  public void set(org.quickfix.field.NoSecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.NoSecurityAltID get(org.quickfix.field.NoSecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.NoSecurityAltID getNoSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.NoSecurityAltID value = new org.quickfix.field.NoSecurityAltID(); 
+    getField(value); return value; } 
+
+public static class NoSecurityAltID extends Group { 
+  public NoSecurityAltID() { 
+    super(454, 455, 
+    new int[] { 
+               455, 
+               456, 
+               0 } 
+); 
+  } 
+  public void set(org.quickfix.field.SecurityAltID value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltID get(org.quickfix.field.SecurityAltID value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltID getSecurityAltID() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltID value = new org.quickfix.field.SecurityAltID(); 
+    getField(value); return value; } 
+
+  public void set(org.quickfix.field.SecurityAltIDSource value) 
+  { setField(value); } 
+  public org.quickfix.field.SecurityAltIDSource get(org.quickfix.field.SecurityAltIDSource value) throws FieldNotFound 
+  { getField(value); return value; } 
+  public org.quickfix.field.SecurityAltIDSource getSecurityAltIDSource() throws FieldNotFound 
+  { org.quickfix.field.SecurityAltIDSource value = new org.quickfix.field.SecurityAltIDSource(); 
+    getField(value); return value; } 
+
+} 
 } 
 } 

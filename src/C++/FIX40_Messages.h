@@ -331,7 +331,7 @@ namespace FIX40
     FIELD_SET(*this, FIX::OrigTime);
     FIELD_SET(*this, FIX::Urgency);
     FIELD_SET(*this, FIX::RelatdSym);
-
+    FIELD_SET(*this, FIX::LinesOfText);
     class LinesOfText : public FIX::Group
     {
     public:
@@ -364,7 +364,7 @@ namespace FIX40
     FIELD_SET(*this, FIX::RelatdSym);
     FIELD_SET(*this, FIX::OrderID);
     FIELD_SET(*this, FIX::ClOrdID);
-
+    FIELD_SET(*this, FIX::LinesOfText);
     class LinesOfText : public FIX::Group
     {
     public:
@@ -578,7 +578,7 @@ namespace FIX40
     FIELD_SET(*this, FIX::ReportToExch);
     FIELD_SET(*this, FIX::Commission);
     FIELD_SET(*this, FIX::CommType);
-
+    FIELD_SET(*this, FIX::NoMiscFees);
     class NoMiscFees : public FIX::Group
     {
     public:
@@ -825,7 +825,7 @@ namespace FIX40
     FIELD_SET(*this, FIX::AllocID);
     FIELD_SET(*this, FIX::AllocTransType);
     FIELD_SET(*this, FIX::RefAllocID);
-
+    FIELD_SET(*this, FIX::NoOrders);
     class NoOrders : public FIX::Group
     {
     public:
@@ -840,7 +840,7 @@ namespace FIX40
       FIELD_SET(*this, FIX::ListID);
       FIELD_SET(*this, FIX::WaveNo);
     };
-
+    FIELD_SET(*this, FIX::NoExecs);
     class NoExecs : public FIX::Group
     {
     public:
@@ -871,7 +871,7 @@ namespace FIX40
     FIELD_SET(*this, FIX::SettlmntTyp);
     FIELD_SET(*this, FIX::FutSettDate);
     FIELD_SET(*this, FIX::NetMoney);
-
+    FIELD_SET(*this, FIX::NoMiscFees);
     class NoMiscFees : public FIX::Group
     {
     public:
@@ -888,7 +888,7 @@ namespace FIX40
     FIELD_SET(*this, FIX::SettlCurrency);
     FIELD_SET(*this, FIX::OpenClose);
     FIELD_SET(*this, FIX::Text);
-
+    FIELD_SET(*this, FIX::NoAllocs);
     class NoAllocs : public FIX::Group
     {
     public:
@@ -912,7 +912,7 @@ namespace FIX40
       FIELD_SET(*this, FIX::ClientID);
       FIELD_SET(*this, FIX::Commission);
       FIELD_SET(*this, FIX::CommType);
-
+    FIELD_SET(*this, FIX::NoDlvyInst);
     class NoDlvyInst : public FIX::Group
     {
     public:
@@ -1050,7 +1050,7 @@ namespace FIX40
     FIELD_SET(*this, FIX::WaveNo);
     FIELD_SET(*this, FIX::NoRpts);
     FIELD_SET(*this, FIX::RptSeq);
-
+    FIELD_SET(*this, FIX::NoOrders);
     class NoOrders : public FIX::Group
     {
     public:
