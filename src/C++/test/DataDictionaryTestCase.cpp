@@ -370,7 +370,7 @@ void DataDictionaryTestCase::checkValue::onRun
 bool DataDictionaryTestCase::readFromFile::onSetup
 ( DataDictionary*& pObject )
 {
-  pObject = new DataDictionary( "spec/FIX42.xml" );
+  pObject = new DataDictionary( "spec/FIX43.xml" );
   return true;
 }
 
@@ -390,10 +390,12 @@ void DataDictionaryTestCase::readFromFile::onRun
 
   TYPE::Type type = TYPE::Unknown;
   assert( object.getFieldType( 383, type ) );
-  assert( type == TYPE::Int );
+  assert( type == TYPE::Length );
 
   assert( object.isRequiredField( "A", 108 ) );
   assert( !object.isRequiredField( "A", 383 ) );
+  assert( object.isRequiredField( "D", 55 ) );
+  assert( !object.isRequiredField( "B", 55 ) );
 
   assert( object.isFieldValue( 40, "A" ) );
   assert( !object.isFieldValue( 40, "Z" ) );

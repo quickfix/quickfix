@@ -314,7 +314,11 @@ void DataDictionary::readFromURL( const std::string& url )
         }
         else if(pMessageFieldNode->getName() == "component")
         {
-          addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
+          DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();  
+          std::string required;
+          attrs->get("required", required);
+          bool isRequired = (required == "Y" || required == "y");
+          addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(), msgtype, *this, isRequired);
         }
         else if(pMessageFieldNode->getName() == "group")
         {
@@ -337,7 +341,8 @@ int DataDictionary::lookupXMLFieldNumber
 }
 
 void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode, 
-                                            const std::string& msgtype, DataDictionary& DD )
+                                            const std::string& msgtype, DataDictionary& DD,
+                                            bool componentRequired )
 {
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
@@ -359,6 +364,13 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       if(!attrs->get("name", name)) 
         throw ConfigError("No name given to field");      
       int field = lookupXMLFieldNumber(pDoc, name);
+
+      std::string required;
+      if(attrs->get("required", required) && (required == "Y" || required == "y"))    
+        addRequiredField(msgtype, field);
+      else if((required == "Y" || required =="y") && componentRequired)
+        addRequiredField(msgtype, field);
+
       DD.addField(field);
       DD.addMsgField(msgtype, field);
     }
@@ -392,7 +404,7 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
     }
     else if( node->getName() == "component" )
     {
-      addXMLComponentFields( pDoc, node.get(), msgtype, groupDD );
+      addXMLComponentFields( pDoc, node.get(), msgtype, groupDD, false );
     }
     else if( node->getName() == "group" )
     {

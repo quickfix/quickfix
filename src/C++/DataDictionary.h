@@ -390,7 +390,7 @@ private:
   void readLibXml( const std::string& );
 
   int lookupXMLFieldNumber( DOMDocument*, const std::string& name );
-  void addXMLComponentFields( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary& );
+  void addXMLComponentFields( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary&, bool );
   void addXMLGroup( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary& );
   TYPE::Type XMLTypeToType( const std::string& xmlType );
 
