@@ -116,20 +116,25 @@ public:
     delete m_logFactory;
   }
 
-  void start() throw ( RuntimeError* )
+  void start() throw ( ConfigError*, RuntimeError* ) 
   { QF_STACK_TRY
 
     try
     {
       m_pUnmanaged->start(); 
     }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
     catch( FIX::RuntimeError& e )
     {
-      throw new RuntimeError(e.what());
+      throw new RuntimeError( e.what() );
     }
 
     QF_STACK_CATCH
   }
+
   void stop()
   { QF_STACK_TRY
     m_pUnmanaged->stop(); 
