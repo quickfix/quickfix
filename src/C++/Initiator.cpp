@@ -189,9 +189,10 @@ void Initiator::stop()
   for ( ; i != connected.end(); ++i )
     Session::lookupSession(*i)->logout();
   
-  if( !m_threadid ) return;
   onStop();
-  thread_join( m_threadid );
+  if( m_threadid )
+    thread_join( m_threadid );
+  m_threadid = 0;
 
   QF_STACK_POP
 }
