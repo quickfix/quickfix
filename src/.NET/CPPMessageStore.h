@@ -48,23 +48,9 @@ public:
 
     try
     { char* umessage = createUnmanagedString( message );
-      return m_pUnmanaged->set( sequence, umessage ); 
+      bool result = m_pUnmanaged->set( sequence, umessage ); 
       destroyUnmanagedString( umessage );
-    }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
-
-    QF_STACK_CATCH
-  }
-
-  bool get( int sequence, String* message ) throw ( IOException* )
-  { QF_STACK_TRY
-
-    try
-    {
-      std::string string;
-      return m_pUnmanaged->get( sequence, string );
-      message = string.c_str();
+      return result;
     }
     catch ( FIX::IOException& )
     { throw new IOException(); }
