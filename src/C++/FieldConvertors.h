@@ -81,7 +81,7 @@ struct CheckSumConvertor
   throw( FieldConvertError )
   {
     if ( value > 255 || value < 0 ) throw FieldConvertError();
-    std::stringstream stream;
+    std::ostringstream stream;
     stream << std::setw( 3 ) << std::setfill( '0' ) << value;
     return stream.str();
   }
