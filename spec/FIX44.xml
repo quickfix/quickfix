@@ -3693,7 +3693,6 @@
       <field name="UnderlyingStateOrProvinceOfIssue" required="N" />
       <field name="UnderlyingLocaleOfIssue" required="N" />
       <field name="UnderlyingRedemptionDate" required="N" />
-      <!-- <field name="UnderlyingPutOrCall" required="N" /> -->
       <field name="UnderlyingStrikePrice" required="N" />
       <field name="UnderlyingStrikeCurrency" required="N" />
       <field name="UnderlyingOptAttribute" required="N" />
@@ -3781,11 +3780,10 @@
       <field name="RoundingModulus" required="N" />
     </component>
     <component name="CommissionData">
-      <field name="OrderQty" required="N" />
-      <field name="CashOrderQty" required="N" />
-      <field name="OrderPercent" required="N" />
-      <field name="RoundingDirection" required="N" />
-      <field name="RoundingModulus" required="N" />
+      <field name="Commission" required="N" />
+      <field name="CommType" required="N" />
+      <field name="CommCurrency" required="N" />
+      <field name="FundRenewWaiv" required="N" />
     </component>
     <component name="Parties">
       <group name="NoPartyIDs" required="N">
