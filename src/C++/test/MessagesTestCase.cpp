@@ -89,6 +89,9 @@ void MessageTestCase::setString::onRun( Message& object )
   static const char* strGood =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\00110=218\001";
+  static const char* strTrailingCharacter =
+    "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=218\001 ";
   static const char* strNoChk =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\001";
@@ -116,6 +119,8 @@ void MessageTestCase::setString::onRun( Message& object )
     object.setString( strNoLengthAndChk, false );
   } catch( InvalidMessage& ) { assert(false); }
 
+  try{ object.setString( strTrailingCharacter ); assert(false) }
+  catch( InvalidMessage& ) {}
   try{ object.setString( strNoChk ); assert(false) }
   catch( InvalidMessage& ) {}
   try{ object.setString( strBadChk ); assert(false) }

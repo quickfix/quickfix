@@ -557,7 +557,11 @@ FieldBase Message::extractField
   const DataDictionary* pDD, const Group* pGroup )
 { QF_STACK_PUSH(Message::extractField)
 
-  std::string::size_type equalSign = string.find_first_of( '=', pos );
+  std::string::size_type equalSign 
+    = string.find_first_of( '=', pos );
+  if( equalSign == std::string::npos) 
+    throw InvalidMessage();
+
   int field = atol(string.substr( pos, equalSign - pos ).c_str());
 
   std::string::size_type soh =
