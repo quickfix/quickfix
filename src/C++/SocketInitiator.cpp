@@ -179,7 +179,11 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
   QF_STACK_POP
 }
 
-void SocketInitiator::onError( SocketConnector& ) {}
+void SocketInitiator::onError( SocketConnector& connector ) 
+{ QF_STACK_PUSH(SocketInitiator::onError)
+  onTimeout( connector );
+  QF_STACK_POP
+}
 
 void SocketInitiator::onTimeout( SocketConnector& )
 { QF_STACK_PUSH(SocketInitiator::onTimeout)
