@@ -56,7 +56,6 @@ JavaApplication::~JavaApplication() { m_factory.deleteGlobalRef(); m_object.dele
 
 void JavaApplication::onCreate( const FIX::SessionID& sessionID )
 {
-  FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jsessionid = newSessionID( sessionID );
   Exceptions e;
@@ -67,7 +66,6 @@ void JavaApplication::onCreate( const FIX::SessionID& sessionID )
 
 void JavaApplication::onLogon( const FIX::SessionID& sessionID )
 {
-  FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jsessionid = newSessionID( sessionID );
   Exceptions e;
@@ -78,7 +76,6 @@ void JavaApplication::onLogon( const FIX::SessionID& sessionID )
 
 void JavaApplication::onLogout( const FIX::SessionID& sessionID )
 {
-  FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jsessionid = newSessionID( sessionID );
   Exceptions e;
@@ -89,7 +86,6 @@ void JavaApplication::onLogout( const FIX::SessionID& sessionID )
 
 void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionID )
 {
-  FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   JVMObject jmsg = newMessage( msg, m_factory );
   JVMObject jsessionid = newSessionID( sessionID );
@@ -105,7 +101,6 @@ void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionI
 void JavaApplication::toApp( FIX::Message& msg, const FIX::SessionID& sessionID )
 throw( FIX::DoNotSend )
 {
-  FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   JVMObject jmsg = newMessage( msg, m_factory );
   JVMObject jsessionid = newSessionID( sessionID );
@@ -124,7 +119,6 @@ void JavaApplication::fromAdmin( const FIX::Message& msg, const FIX::SessionID& 
          FIX::IncorrectTagValue,
          FIX::RejectLogon )
 {
-  FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jmessage = newMessage( msg, m_factory );
   jobject jsessionid = newSessionID( sessionID );
@@ -142,7 +136,6 @@ throw( FIX::FieldNotFound,
        FIX::IncorrectTagValue,
        FIX::UnsupportedMessageType )
 {
-  FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   jobject jmessage = newMessage( msg, m_factory );
   jobject jsessionid = newSessionID( sessionID );

@@ -23,7 +23,6 @@
 #define JAVA_APPLICATION
 
 #include <quickfix/Application.h>
-#include <quickfix/Mutex.h>
 #include "JVM.h"
 #include <memory>
 
@@ -81,8 +80,6 @@ private:
   jmethodID notifyToAppId;
   jmethodID notifyFromAdminId;
   jmethodID notifyFromAppId;
-
-  FIX::Mutex m_mutex;
 };
 
 #endif
