@@ -2549,7 +2549,7 @@
       <component name="SettlInstructionsData" required="N" />
     </group>
   </message>
-  <message name="AllocationReportAck" msgtype="AS" msgcat="app">
+  <message name="AllocationReportAck" msgtype="AT" msgcat="app">
     <field name="AllocReportID" required="Y" />
     <field name="AllocID" required="Y" />
     <component name="Parties" required="N" />
@@ -2678,7 +2678,7 @@
     <field name="EncodedTextLen" required="N" />
     <field name="EncodedText" required="N" />
   </message>
-  <message name="ConfirmationRequest" msgtype="BS" msgcat="app">
+  <message name="ConfirmationRequest" msgtype="BH" msgcat="app">
     <field name="ConfirmReqID" required="Y" />
     <field name="ConfirmType" required="Y" />
     <group name="NoOrders" required="N">
@@ -3203,7 +3203,7 @@
     <field name="EncodedTextLen" required="N" />
     <field name="EncodedText" required="N" />
   </message>
-  <message name="PositionReport" msgtype="AO" msgcat="app">
+  <message name="PositionReport" msgtype="AP" msgcat="app">
     <field name="PosMaintRptID" required="Y" />
     <field name="PosReqID" required="N" />
     <field name="PosReqType" required="N" />
@@ -3567,7 +3567,7 @@
     <field name="EncodedTextLen" required="N" />
     <field name="EncodedText" required="N" />
   </message>
-  <message name="CollateralInquiryAck" msgtype="BB" msgcat="app">
+  <message name="CollateralInquiryAck" msgtype="BG" msgcat="app">
     <field name="CollInquiryID" required="Y" />
     <field name="CollInquiryStatus" required="Y" />
     <field name="CollInquiryResult" required="N" />
