@@ -10,7 +10,7 @@ I8=FIX.4.09=3035=D34=249=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155
 I8=FIX.4.035=D34=349=TW52=<TIME>56=ISLD11=ID21=338=10040=154=155=INTC
 # Invalid message was ignored, and valid one was processed. Therefore
 # we should expect a resend request
-E8=FIX.4.09=5435=234=249=ISLD52=00000000-00:00:0056=TW7=216=210=0
+E8=FIX.4.09=5935=234=249=ISLD52=00000000-00:00:0056=TW7=216=99999910=0
 
 # Correctly resend the bad message we sent before
 I8=FIX.4.035=D34=249=TW52=<TIME>56=ISLD122=<TIME>11=ID21=338=10040=154=155=INTC
