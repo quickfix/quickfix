@@ -174,8 +174,9 @@ void Initiator::start() throw ( ConfigError&, RuntimeError& )
 
   onConfigure( m_settings );
   onInitialize( m_settings );
-  int threadid = thread_spawn( &startThread, this );
-  if ( !threadid ) throw RuntimeError("Unable to spawn thread");
+  unsigned threadid;
+  if( !thread_spawn( &startThread, this, threadid ) )
+    throw RuntimeError("Unable to spawn thread");
   onStart();
   thread_join( threadid );
 
