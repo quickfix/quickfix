@@ -74,6 +74,10 @@ public:
   bool isLoggedOn();
 
   Session* getSession( const SessionID& sessionID, Responder& );
+  const std::set<SessionID> getSessions() const { return m_sessionIDs; }
+
+  bool has( const SessionID& id )
+  { return m_sessions.find( id ) != m_sessions.end(); }
 
 public:
   Application& getApplication() { return m_application; }
@@ -108,6 +112,7 @@ private:
   typedef std::map < SessionID, Session* > Sessions;
 
   Sessions m_sessions;
+  SessionIDs m_sessionIDs;
   SessionIDs m_connected;
   SessionIDs m_disconnected;
   SessionState m_sessionState;

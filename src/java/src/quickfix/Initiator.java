@@ -18,6 +18,7 @@
 ****************************************************************************/
 
 package quickfix;
+import java.util.ArrayList;
 
 public interface Initiator {
 
@@ -26,4 +27,6 @@ public interface Initiator {
     boolean poll() throws ConfigError, RuntimeError;
     void stop();
 	void stop( boolean force );
+	boolean isLoggedOn();
+    ArrayList getSessions();
 }

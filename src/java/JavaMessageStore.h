@@ -52,8 +52,6 @@ private:
   };
   void handleException( JNIEnv*, Exceptions& e ) const;
 
-  jobject newCollection() const;
-
   mutable JVMObject messageStore;
 
   jmethodID setId;

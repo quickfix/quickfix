@@ -71,6 +71,14 @@ JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_doStop__Z
 JNIEXPORT jboolean JNICALL Java_quickfix_SocketAcceptor_doIsLoggedOn
   (JNIEnv *, jobject);
 
+/*
+ * Class:     quickfix_SocketAcceptor
+ * Method:    doGetSessions
+ * Signature: ()Ljava/util/ArrayList;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_SocketAcceptor_doGetSessions
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

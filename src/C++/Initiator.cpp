@@ -70,6 +70,7 @@ void Initiator::initialize() throw ( ConfigError )
   {
     if ( m_settings.get( *i ).getString( "ConnectionType" ) == "initiator" )
     {
+      m_sessionIDs.insert( *i );
       m_sessions[ *i ] = factory.create( *i, m_settings.get( *i ) );
       setConnected( *i, false );
     }

@@ -77,7 +77,10 @@ void Acceptor::initialize() throw ( ConfigError )
   for ( i = sessions.begin(); i != sessions.end(); ++i )
   {
     if ( m_settings.get( *i ).getString( CONNECTION_TYPE ) == "acceptor" )
+    {
+      m_sessionIDs.insert( *i );
       m_sessions[ *i ] = factory.create( *i, m_settings.get( *i ) );
+    }
   }
 
   if ( !m_sessions.size() )

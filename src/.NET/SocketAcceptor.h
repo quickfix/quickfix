@@ -162,6 +162,22 @@ public:
     QF_STACK_CATCH
   }
 
+  ArrayList* getSessions()
+  { QF_STACK_TRY
+
+    std::set< FIX::SessionID > sessions = m_pUnmanaged->getSessions();
+    ArrayList* result = new ArrayList();
+    std::set<FIX::SessionID>::iterator i;
+    for( i = sessions.begin(); i != sessions.end(); ++i )
+    {
+      SessionID* sessionID = new SessionID( *i );
+      result->Add( sessionID );
+    }
+    return result;
+
+    QF_STACK_CATCH
+  }
+
 private:
   FIX::SocketAcceptor* m_pUnmanaged;
   ::Application* m_application;

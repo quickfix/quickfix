@@ -81,7 +81,7 @@ void JavaMessageStore::get( int start, int end,
 throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
-  JVMObject collection( newCollection() );
+  JVMObject collection( newArrayList() );
 
   Exceptions e;
   pEnv->CallVoidMethod( messageStore, getId,
@@ -171,15 +171,6 @@ void JavaMessageStore::reset() throw ( FIX::IOException )
   Exceptions e;
   pEnv->CallVoidMethod( messageStore, resetId );
   handleException( pEnv, e );
-}
-
-jobject JavaMessageStore::newCollection() const
-{
-  JNIEnv * pEnv = ENV::get();
-  JVMClass type( "Ljava/util/ArrayList;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
-  jobject result = pEnv->NewObject( type, method );
-  return result;
 }
 
 void JavaMessageStore::handleException( JNIEnv* env, Exceptions& e ) const

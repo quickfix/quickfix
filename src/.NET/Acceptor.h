@@ -22,6 +22,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::Collections;
 
 #include "quickfix_net.h"
 
@@ -35,5 +36,6 @@ public __gc __interface Acceptor
   void stop() = 0;
   void stop( bool force ) = 0;
   bool isLoggedOn() = 0;
+  ArrayList* getSessions() = 0;
 };
 }

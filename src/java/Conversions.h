@@ -50,6 +50,15 @@ inline jstring newString( const std::string string )
   return result;
 }
 
+inline jobject newArrayList()
+{
+  JNIEnv * pEnv = ENV::get();
+  JVMClass type( ARRAYLIST_TYPE );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
+  jobject result = pEnv->NewObject( type, method );
+  return result;
+}
+
 inline bool isNull( jobject obj )
 {
   return obj == 0;

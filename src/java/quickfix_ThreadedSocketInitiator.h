@@ -71,6 +71,14 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__Z
 JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doIsLoggedOn
   (JNIEnv *, jobject);
 
+/*
+ * Class:     quickfix_ThreadedSocketInitiator
+ * Method:    doGetSessions
+ * Signature: ()Ljava/util/ArrayList;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketInitiator_doGetSessions
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

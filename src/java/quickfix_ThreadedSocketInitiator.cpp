@@ -210,3 +210,23 @@ JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doIsLoggedOn
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketInitiator_doGetSessions
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVMObject result( newArrayList() );
+  jmethodID methodID = result.getClass().getMethodID( "add", "(Ljava/lang/Object;)Z" );
+  std::set<FIX::SessionID> sessions = getCPPThreadedSocketInitiator( obj )->getSessions();
+  std::set<FIX::SessionID>::iterator i;
+  for( i = sessions.begin(); i != sessions.end(); ++i )
+  {
+    jobject sessionid = newSessionID( *i );
+    pEnv->CallVoidMethod( result, methodID, sessionid );
+    pEnv->DeleteLocalRef( sessionid );
+  }
+  pEnv->DeleteLocalRef( result );
+  return result;
+
+  QF_STACK_CATCH
+}

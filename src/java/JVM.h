@@ -41,6 +41,7 @@ public:
   #define CALENDAR_TYPE "Ljava/util/Calendar;"
   #define TIMEZONE_TYPE "Ljava/util/TimeZone;"
   #define STRING_TYPE "Ljava/lang/String;"
+  #define ARRAYLIST_TYPE "Ljava/util/ArrayList;"
   #define CHAR_TYPE "C"
   #define INT_TYPE "I"
   #define LONGMETHOD_TYPE "()J"

@@ -19,6 +19,7 @@
 
 package quickfix;
 import java.io.InputStream;
+import java.util.ArrayList;
 
 public class ThreadedSocketAcceptor implements Acceptor {
     private int cppPointer;
@@ -80,8 +81,12 @@ public class ThreadedSocketAcceptor implements Acceptor {
         doStop( force );
     }
 
-    public void isLoggedOn() {
-        doIsLoggedOn();
+    public boolean isLoggedOn() {
+        return doIsLoggedOn();
+    }
+
+	public ArrayList getSessions() {
+        return doGetSessions();
     }
 
     private native void doStart() throws ConfigError, RuntimeError;
@@ -90,4 +95,5 @@ public class ThreadedSocketAcceptor implements Acceptor {
     private native void doStop();
     private native void doStop( boolean force );
     private native boolean doIsLoggedOn();
+    private native ArrayList doGetSessions();
 }

@@ -72,6 +72,8 @@ public:
   bool isLoggedOn();
 
   Session* getSession( const std::string& msg, Responder& );
+  const std::set<SessionID> getSessions() const { return m_sessionIDs; }
+
   bool has( const SessionID& id )
   { return m_sessions.find( id ) != m_sessions.end(); }
 
@@ -96,10 +98,12 @@ private:
 
   static THREAD_PROC startThread( void* p );
 
+  typedef std::set < SessionID > SessionIDs;
   typedef std::map < SessionID, Session* > Sessions;
 
   unsigned m_threadid;
   Sessions m_sessions;
+  SessionIDs m_sessionIDs;
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;
   SessionSettings m_settings;
