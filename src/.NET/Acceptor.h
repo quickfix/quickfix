@@ -34,5 +34,6 @@ public __gc __interface Acceptor
   bool poll() throw ( ConfigError*, RuntimeError* ) = 0;
   void stop() = 0;
   void stop( bool force ) = 0;
+  bool isLoggedOn() = 0;
 };
 }
