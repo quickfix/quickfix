@@ -231,31 +231,30 @@ void MessageTestCase::getXML::onRun( Message& object )
 
   std::stringstream stream;
   stream  <<  "<message>" << std::endl
-              << "  <header>" << std::endl
-		          << "    <field name=\042BeginString\042 number=\0428\042 value=\042FIX.4.2\042/>" << std::endl
-              << "    <field name=\042MsgType\042 number=\04235\042 value=\042A\042 enum=\042Logon\042/>" << std::endl
-			        << "    <field name=\042SenderCompID\042 number=\04249\042 value=\042SENDER\042/>" << std::endl
-			        << "    <field name=\042TargetCompID\042 number=\04256\042 value=\042TARGET\042/>" << std::endl
-			        << "  </header>" << std::endl
-			        << "  <body>" << std::endl
-			        << "    <field name=\042Account\042 number=\0421\042 value=\042ACCOUNT\042/>" << std::endl
-			        << "    <field name=\042ClOrdID\042 number=\04211\042 value=\042CLORDID\042/>" << std::endl
-			        << "    <field name=\042IDSource\042 number=\04222\042 value=\0421\042 enum=\042CUSIP\042/>" << std::endl
-			        << "    <field name=\042NoMsgTypes\042 number=\042384\042 value=\0422\042/>" << std::endl
-			        << "    <group>" << std::endl
-			        << "      <field name=\042RefMsgType\042 number=\042372\042 value=\042A\042/>" << std::endl
-			        << "      <field name=\042MsgDirection\042 number=\042385\042 value=\0420\042/>" << std::endl
-			        << "    </group>" << std::endl
-			        << "    <group>" << std::endl
-			        << "      <field name=\042RefMsgType\042 number=\042372\042 value=\0420\042/>" << std::endl
-			        << "      <field name=\042MsgDirection\042 number=\042385\042 value=\0421\042/>" << std::endl
-			        << "    </group>" << std::endl
-			        << "  </body>" << std::endl
-			        << "  <trailer>" << std::endl
-			        << "    <field name=\042CheckSum\042 number=\04210\042 value=\042132\042/>" << std::endl
-			        << "  </trailer>" << std::endl
-			        << "</message>";
-
+          << "  <header>" << std::endl
+          << "    <field name=\"BeginString\" number=\"8\"><![CDATA[FIX.4.2]]></field>" << std::endl
+          << "    <field name=\"MsgType\" number=\"35\" enum=\"Logon\"><![CDATA[A]]></field>" << std::endl
+	  << "    <field name=\"SenderCompID\" number=\"49\"><![CDATA[SENDER]]></field>" << std::endl
+	  << "    <field name=\"TargetCompID\" number=\"56\"><![CDATA[TARGET]]></field>" << std::endl
+	  << "  </header>" << std::endl
+          << "  <body>" << std::endl
+	  << "    <field name=\"Account\" number=\"1\"><![CDATA[ACCOUNT]]></field>" << std::endl
+	  << "    <field name=\"ClOrdID\" number=\"11\"><![CDATA[CLORDID]]></field>" << std::endl
+	  << "    <field name=\"IDSource\" number=\"22\" enum=\"CUSIP\"><![CDATA[1]]></field>" << std::endl
+	  << "    <field name=\"NoMsgTypes\" number=\"384\"><![CDATA[2]]></field>" << std::endl
+	  << "    <group>" << std::endl
+	  << "      <field name=\"RefMsgType\" number=\"372\"><![CDATA[A]]></field>" << std::endl
+	  << "      <field name=\"MsgDirection\" number=\"385\"><![CDATA[0]]></field>" << std::endl
+	  << "    </group>" << std::endl
+	  << "    <group>" << std::endl
+	  << "      <field name=\"RefMsgType\" number=\"372\"><![CDATA[0]]></field>" << std::endl
+	  << "      <field name=\"MsgDirection\" number=\"385\"><![CDATA[1]]></field>" << std::endl
+	  << "    </group>" << std::endl
+	  << "  </body>" << std::endl
+	  << "  <trailer>" << std::endl
+	  << "    <field name=\"CheckSum\" number=\"10\"><![CDATA[132]]></field>" << std::endl
+	  << "  </trailer>" << std::endl
+	  << "</message>";
   assert( message.toXML() == stream.str() );
 }
 

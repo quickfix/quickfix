@@ -244,13 +244,15 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     {
       stream << "name=\"" << name << "\" ";
     }
-    stream << "number=\"" << field << "\" value=\"" << value << "\"";
+    stream << "number=\"" << field << "\"";
     if(s_dataDictionary.get()
        && s_dataDictionary->getValueName(field, value, name))
     {
       stream << " enum=\"" << name << "\"";
     }
-    stream << "/>" << std::endl;
+    stream << ">";
+    stream << "<![CDATA[" << value << "]]>";
+    stream << "</field>" << std::endl;
   }
 
   FieldMap::g_iterator j;
