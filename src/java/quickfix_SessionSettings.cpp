@@ -48,8 +48,13 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create
     string += ( char ) i;
   std::istringstream stringStream( string );
 
-  FIX::SessionSettings* pSettings = new FIX::SessionSettings( stringStream );
-  jobject.setInt( "cppPointer", ( int ) pSettings );
+  try
+  {
+    FIX::SessionSettings* pSettings = new FIX::SessionSettings( stringStream );
+    jobject.setInt( "cppPointer", ( int ) pSettings );
+  }
+  catch( FIX::ConfigError& e )
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
 
   QF_STACK_CATCH
 }
