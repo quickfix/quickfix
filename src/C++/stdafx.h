@@ -15,6 +15,10 @@
 #include <stdio.h>
 #include "../config_windows.h"
 
+#if _MSC_VER >= 1300
+  #define TERMINATE_IN_STD 1
+#endif
+
 #import <msxml3.dll> raw_interfaces_only named_guids
 using namespace MSXML2;
 
