@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.UtcTimeOnlyField; 
+package quickfix.field; 
+import quickfix.UtcTimeOnlyField; 
 import java.util.Date; 
 
 public class MDEntryTime extends UtcTimeOnlyField 

@@ -1,7 +1,7 @@
-package org.quickfix.fix44;
-import org.quickfix.FieldNotFound;
-import org.quickfix.Group;
-import org.quickfix.field.*;
+package quickfix.fix44;
+import quickfix.FieldNotFound;
+import quickfix.Group;
+import quickfix.field.*;
 
 public class ConfirmationAck extends Message
 {
@@ -10,10 +10,10 @@ public class ConfirmationAck extends Message
     getHeader().setField(new MsgType("AU"));
   }
   public ConfirmationAck(
-    org.quickfix.field.ConfirmID aConfirmID,
-    org.quickfix.field.TradeDate aTradeDate,
-    org.quickfix.field.TransactTime aTransactTime,
-    org.quickfix.field.AffirmStatus aAffirmStatus ) {
+    quickfix.field.ConfirmID aConfirmID,
+    quickfix.field.TradeDate aTradeDate,
+    quickfix.field.TransactTime aTransactTime,
+    quickfix.field.AffirmStatus aAffirmStatus ) {
 
     getHeader().setField(new MsgType("AU"));
     set(aConfirmID);
@@ -22,111 +22,111 @@ public class ConfirmationAck extends Message
     set(aAffirmStatus);
   }
 
-  public void set(org.quickfix.field.ConfirmID value)
+  public void set(quickfix.field.ConfirmID value)
   { setField(value); }
-  public org.quickfix.field.ConfirmID get(org.quickfix.field.ConfirmID  value)
+  public quickfix.field.ConfirmID get(quickfix.field.ConfirmID  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.ConfirmID getConfirmID() throws FieldNotFound
-  { org.quickfix.field.ConfirmID value = new org.quickfix.field.ConfirmID();
+  public quickfix.field.ConfirmID getConfirmID() throws FieldNotFound
+  { quickfix.field.ConfirmID value = new quickfix.field.ConfirmID();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.ConfirmID field)
+  public boolean isSet(quickfix.field.ConfirmID field)
   { return isSetField(field); }
   public boolean isSetConfirmID()
   { return isSetField(664); }
-  public void set(org.quickfix.field.TradeDate value)
+  public void set(quickfix.field.TradeDate value)
   { setField(value); }
-  public org.quickfix.field.TradeDate get(org.quickfix.field.TradeDate  value)
+  public quickfix.field.TradeDate get(quickfix.field.TradeDate  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.TradeDate getTradeDate() throws FieldNotFound
-  { org.quickfix.field.TradeDate value = new org.quickfix.field.TradeDate();
+  public quickfix.field.TradeDate getTradeDate() throws FieldNotFound
+  { quickfix.field.TradeDate value = new quickfix.field.TradeDate();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.TradeDate field)
+  public boolean isSet(quickfix.field.TradeDate field)
   { return isSetField(field); }
   public boolean isSetTradeDate()
   { return isSetField(75); }
-  public void set(org.quickfix.field.TransactTime value)
+  public void set(quickfix.field.TransactTime value)
   { setField(value); }
-  public org.quickfix.field.TransactTime get(org.quickfix.field.TransactTime  value)
+  public quickfix.field.TransactTime get(quickfix.field.TransactTime  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.TransactTime getTransactTime() throws FieldNotFound
-  { org.quickfix.field.TransactTime value = new org.quickfix.field.TransactTime();
+  public quickfix.field.TransactTime getTransactTime() throws FieldNotFound
+  { quickfix.field.TransactTime value = new quickfix.field.TransactTime();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.TransactTime field)
+  public boolean isSet(quickfix.field.TransactTime field)
   { return isSetField(field); }
   public boolean isSetTransactTime()
   { return isSetField(60); }
-  public void set(org.quickfix.field.AffirmStatus value)
+  public void set(quickfix.field.AffirmStatus value)
   { setField(value); }
-  public org.quickfix.field.AffirmStatus get(org.quickfix.field.AffirmStatus  value)
+  public quickfix.field.AffirmStatus get(quickfix.field.AffirmStatus  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.AffirmStatus getAffirmStatus() throws FieldNotFound
-  { org.quickfix.field.AffirmStatus value = new org.quickfix.field.AffirmStatus();
+  public quickfix.field.AffirmStatus getAffirmStatus() throws FieldNotFound
+  { quickfix.field.AffirmStatus value = new quickfix.field.AffirmStatus();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.AffirmStatus field)
+  public boolean isSet(quickfix.field.AffirmStatus field)
   { return isSetField(field); }
   public boolean isSetAffirmStatus()
   { return isSetField(940); }
-  public void set(org.quickfix.field.ConfirmRejReason value)
+  public void set(quickfix.field.ConfirmRejReason value)
   { setField(value); }
-  public org.quickfix.field.ConfirmRejReason get(org.quickfix.field.ConfirmRejReason  value)
+  public quickfix.field.ConfirmRejReason get(quickfix.field.ConfirmRejReason  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.ConfirmRejReason getConfirmRejReason() throws FieldNotFound
-  { org.quickfix.field.ConfirmRejReason value = new org.quickfix.field.ConfirmRejReason();
+  public quickfix.field.ConfirmRejReason getConfirmRejReason() throws FieldNotFound
+  { quickfix.field.ConfirmRejReason value = new quickfix.field.ConfirmRejReason();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.ConfirmRejReason field)
+  public boolean isSet(quickfix.field.ConfirmRejReason field)
   { return isSetField(field); }
   public boolean isSetConfirmRejReason()
   { return isSetField(774); }
-  public void set(org.quickfix.field.MatchStatus value)
+  public void set(quickfix.field.MatchStatus value)
   { setField(value); }
-  public org.quickfix.field.MatchStatus get(org.quickfix.field.MatchStatus  value)
+  public quickfix.field.MatchStatus get(quickfix.field.MatchStatus  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.MatchStatus getMatchStatus() throws FieldNotFound
-  { org.quickfix.field.MatchStatus value = new org.quickfix.field.MatchStatus();
+  public quickfix.field.MatchStatus getMatchStatus() throws FieldNotFound
+  { quickfix.field.MatchStatus value = new quickfix.field.MatchStatus();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.MatchStatus field)
+  public boolean isSet(quickfix.field.MatchStatus field)
   { return isSetField(field); }
   public boolean isSetMatchStatus()
   { return isSetField(573); }
-  public void set(org.quickfix.field.Text value)
+  public void set(quickfix.field.Text value)
   { setField(value); }
-  public org.quickfix.field.Text get(org.quickfix.field.Text  value)
+  public quickfix.field.Text get(quickfix.field.Text  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.Text getText() throws FieldNotFound
-  { org.quickfix.field.Text value = new org.quickfix.field.Text();
+  public quickfix.field.Text getText() throws FieldNotFound
+  { quickfix.field.Text value = new quickfix.field.Text();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.Text field)
+  public boolean isSet(quickfix.field.Text field)
   { return isSetField(field); }
   public boolean isSetText()
   { return isSetField(58); }
-  public void set(org.quickfix.field.EncodedTextLen value)
+  public void set(quickfix.field.EncodedTextLen value)
   { setField(value); }
-  public org.quickfix.field.EncodedTextLen get(org.quickfix.field.EncodedTextLen  value)
+  public quickfix.field.EncodedTextLen get(quickfix.field.EncodedTextLen  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.EncodedTextLen getEncodedTextLen() throws FieldNotFound
-  { org.quickfix.field.EncodedTextLen value = new org.quickfix.field.EncodedTextLen();
+  public quickfix.field.EncodedTextLen getEncodedTextLen() throws FieldNotFound
+  { quickfix.field.EncodedTextLen value = new quickfix.field.EncodedTextLen();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.EncodedTextLen field)
+  public boolean isSet(quickfix.field.EncodedTextLen field)
   { return isSetField(field); }
   public boolean isSetEncodedTextLen()
   { return isSetField(354); }
-  public void set(org.quickfix.field.EncodedText value)
+  public void set(quickfix.field.EncodedText value)
   { setField(value); }
-  public org.quickfix.field.EncodedText get(org.quickfix.field.EncodedText  value)
+  public quickfix.field.EncodedText get(quickfix.field.EncodedText  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.EncodedText getEncodedText() throws FieldNotFound
-  { org.quickfix.field.EncodedText value = new org.quickfix.field.EncodedText();
+  public quickfix.field.EncodedText getEncodedText() throws FieldNotFound
+  { quickfix.field.EncodedText value = new quickfix.field.EncodedText();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.EncodedText field)
+  public boolean isSet(quickfix.field.EncodedText field)
   { return isSetField(field); }
   public boolean isSetEncodedText()
   { return isSetField(355); }

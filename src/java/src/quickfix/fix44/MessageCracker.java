@@ -48,14 +48,14 @@
 * ====================================================================
 */
 
-package org.quickfix.fix44;
+package quickfix.fix44;
 
-import org.quickfix.*;
-import org.quickfix.field.*;
+import quickfix.*;
+import quickfix.field.*;
 
-public class MessageCracker extends org.quickfix.fix43.MessageCracker
+public class MessageCracker extends quickfix.fix43.MessageCracker
 {
-public void onMessage( org.quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+public void onMessage( quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
   { throw new UnsupportedMessageType(); }
  public void onMessage( Advertisement message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
@@ -218,7 +218,7 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
   public void onMessage( CollateralInquiryAck message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
  
-  public void crack( org.quickfix.Message message, SessionID sessionID )
+  public void crack( quickfix.Message message, SessionID sessionID )
     throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue
   { crack44((Message)message, sessionID); }
 

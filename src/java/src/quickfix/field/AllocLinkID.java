@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.StringField; 
+package quickfix.field; 
+import quickfix.StringField; 
 import java.util.Date; 
 
 public class AllocLinkID extends StringField 

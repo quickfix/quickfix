@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.IntField; 
+package quickfix.field; 
+import quickfix.IntField; 
 import java.util.Date; 
 
 public class NoUnderlyingSecurityAltID extends IntField 

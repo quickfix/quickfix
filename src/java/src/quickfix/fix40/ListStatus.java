@@ -1,7 +1,7 @@
-package org.quickfix.fix40;
-import org.quickfix.FieldNotFound;
-import org.quickfix.Group;
-import org.quickfix.field.*;
+package quickfix.fix40;
+import quickfix.FieldNotFound;
+import quickfix.Group;
+import quickfix.field.*;
 
 public class ListStatus extends Message
 {
@@ -10,9 +10,9 @@ public class ListStatus extends Message
     getHeader().setField(new MsgType("N"));
   }
   public ListStatus(
-    org.quickfix.field.ListID aListID,
-    org.quickfix.field.NoRpts aNoRpts,
-    org.quickfix.field.RptSeq aRptSeq ) {
+    quickfix.field.ListID aListID,
+    quickfix.field.NoRpts aNoRpts,
+    quickfix.field.RptSeq aRptSeq ) {
 
     getHeader().setField(new MsgType("N"));
     set(aListID);
@@ -20,63 +20,63 @@ public class ListStatus extends Message
     set(aRptSeq);
   }
 
-  public void set(org.quickfix.field.ListID value)
+  public void set(quickfix.field.ListID value)
   { setField(value); }
-  public org.quickfix.field.ListID get(org.quickfix.field.ListID  value)
+  public quickfix.field.ListID get(quickfix.field.ListID  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.ListID getListID() throws FieldNotFound
-  { org.quickfix.field.ListID value = new org.quickfix.field.ListID();
+  public quickfix.field.ListID getListID() throws FieldNotFound
+  { quickfix.field.ListID value = new quickfix.field.ListID();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.ListID field)
+  public boolean isSet(quickfix.field.ListID field)
   { return isSetField(field); }
   public boolean isSetListID()
   { return isSetField(66); }
-  public void set(org.quickfix.field.WaveNo value)
+  public void set(quickfix.field.WaveNo value)
   { setField(value); }
-  public org.quickfix.field.WaveNo get(org.quickfix.field.WaveNo  value)
+  public quickfix.field.WaveNo get(quickfix.field.WaveNo  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.WaveNo getWaveNo() throws FieldNotFound
-  { org.quickfix.field.WaveNo value = new org.quickfix.field.WaveNo();
+  public quickfix.field.WaveNo getWaveNo() throws FieldNotFound
+  { quickfix.field.WaveNo value = new quickfix.field.WaveNo();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.WaveNo field)
+  public boolean isSet(quickfix.field.WaveNo field)
   { return isSetField(field); }
   public boolean isSetWaveNo()
   { return isSetField(105); }
-  public void set(org.quickfix.field.NoRpts value)
+  public void set(quickfix.field.NoRpts value)
   { setField(value); }
-  public org.quickfix.field.NoRpts get(org.quickfix.field.NoRpts  value)
+  public quickfix.field.NoRpts get(quickfix.field.NoRpts  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.NoRpts getNoRpts() throws FieldNotFound
-  { org.quickfix.field.NoRpts value = new org.quickfix.field.NoRpts();
+  public quickfix.field.NoRpts getNoRpts() throws FieldNotFound
+  { quickfix.field.NoRpts value = new quickfix.field.NoRpts();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.NoRpts field)
+  public boolean isSet(quickfix.field.NoRpts field)
   { return isSetField(field); }
   public boolean isSetNoRpts()
   { return isSetField(82); }
-  public void set(org.quickfix.field.RptSeq value)
+  public void set(quickfix.field.RptSeq value)
   { setField(value); }
-  public org.quickfix.field.RptSeq get(org.quickfix.field.RptSeq  value)
+  public quickfix.field.RptSeq get(quickfix.field.RptSeq  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.RptSeq getRptSeq() throws FieldNotFound
-  { org.quickfix.field.RptSeq value = new org.quickfix.field.RptSeq();
+  public quickfix.field.RptSeq getRptSeq() throws FieldNotFound
+  { quickfix.field.RptSeq value = new quickfix.field.RptSeq();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.RptSeq field)
+  public boolean isSet(quickfix.field.RptSeq field)
   { return isSetField(field); }
   public boolean isSetRptSeq()
   { return isSetField(83); }
-  public void set(org.quickfix.field.NoOrders value)
+  public void set(quickfix.field.NoOrders value)
   { setField(value); }
-  public org.quickfix.field.NoOrders get(org.quickfix.field.NoOrders  value)
+  public quickfix.field.NoOrders get(quickfix.field.NoOrders  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.NoOrders getNoOrders() throws FieldNotFound
-  { org.quickfix.field.NoOrders value = new org.quickfix.field.NoOrders();
+  public quickfix.field.NoOrders getNoOrders() throws FieldNotFound
+  { quickfix.field.NoOrders value = new quickfix.field.NoOrders();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.NoOrders field)
+  public boolean isSet(quickfix.field.NoOrders field)
   { return isSetField(field); }
   public boolean isSetNoOrders()
   { return isSetField(73); }
@@ -84,51 +84,51 @@ public class ListStatus extends Message
     public NoOrders() {
       super(73,11,
       new int[] {11,14,84,6,0 } ); }
-  public void set(org.quickfix.field.ClOrdID value)
+  public void set(quickfix.field.ClOrdID value)
   { setField(value); }
-  public org.quickfix.field.ClOrdID get(org.quickfix.field.ClOrdID  value)
+  public quickfix.field.ClOrdID get(quickfix.field.ClOrdID  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.ClOrdID getClOrdID() throws FieldNotFound
-  { org.quickfix.field.ClOrdID value = new org.quickfix.field.ClOrdID();
+  public quickfix.field.ClOrdID getClOrdID() throws FieldNotFound
+  { quickfix.field.ClOrdID value = new quickfix.field.ClOrdID();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.ClOrdID field)
+  public boolean isSet(quickfix.field.ClOrdID field)
   { return isSetField(field); }
   public boolean isSetClOrdID()
   { return isSetField(11); }
-  public void set(org.quickfix.field.CumQty value)
+  public void set(quickfix.field.CumQty value)
   { setField(value); }
-  public org.quickfix.field.CumQty get(org.quickfix.field.CumQty  value)
+  public quickfix.field.CumQty get(quickfix.field.CumQty  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.CumQty getCumQty() throws FieldNotFound
-  { org.quickfix.field.CumQty value = new org.quickfix.field.CumQty();
+  public quickfix.field.CumQty getCumQty() throws FieldNotFound
+  { quickfix.field.CumQty value = new quickfix.field.CumQty();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.CumQty field)
+  public boolean isSet(quickfix.field.CumQty field)
   { return isSetField(field); }
   public boolean isSetCumQty()
   { return isSetField(14); }
-  public void set(org.quickfix.field.CxlQty value)
+  public void set(quickfix.field.CxlQty value)
   { setField(value); }
-  public org.quickfix.field.CxlQty get(org.quickfix.field.CxlQty  value)
+  public quickfix.field.CxlQty get(quickfix.field.CxlQty  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.CxlQty getCxlQty() throws FieldNotFound
-  { org.quickfix.field.CxlQty value = new org.quickfix.field.CxlQty();
+  public quickfix.field.CxlQty getCxlQty() throws FieldNotFound
+  { quickfix.field.CxlQty value = new quickfix.field.CxlQty();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.CxlQty field)
+  public boolean isSet(quickfix.field.CxlQty field)
   { return isSetField(field); }
   public boolean isSetCxlQty()
   { return isSetField(84); }
-  public void set(org.quickfix.field.AvgPx value)
+  public void set(quickfix.field.AvgPx value)
   { setField(value); }
-  public org.quickfix.field.AvgPx get(org.quickfix.field.AvgPx  value)
+  public quickfix.field.AvgPx get(quickfix.field.AvgPx  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.AvgPx getAvgPx() throws FieldNotFound
-  { org.quickfix.field.AvgPx value = new org.quickfix.field.AvgPx();
+  public quickfix.field.AvgPx getAvgPx() throws FieldNotFound
+  { quickfix.field.AvgPx value = new quickfix.field.AvgPx();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.AvgPx field)
+  public boolean isSet(quickfix.field.AvgPx field)
   { return isSetField(field); }
   public boolean isSetAvgPx()
   { return isSetField(6); }

@@ -1,7 +1,7 @@
-package org.quickfix.fix40;
-import org.quickfix.FieldNotFound;
-import org.quickfix.Group;
-import org.quickfix.field.*;
+package quickfix.fix40;
+import quickfix.FieldNotFound;
+import quickfix.Group;
+import quickfix.field.*;
 
 public class Logout extends Message
 {
@@ -10,15 +10,15 @@ public class Logout extends Message
     getHeader().setField(new MsgType("5"));
   }
 
-  public void set(org.quickfix.field.Text value)
+  public void set(quickfix.field.Text value)
   { setField(value); }
-  public org.quickfix.field.Text get(org.quickfix.field.Text  value)
+  public quickfix.field.Text get(quickfix.field.Text  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.Text getText() throws FieldNotFound
-  { org.quickfix.field.Text value = new org.quickfix.field.Text();
+  public quickfix.field.Text getText() throws FieldNotFound
+  { quickfix.field.Text value = new quickfix.field.Text();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.Text field)
+  public boolean isSet(quickfix.field.Text field)
   { return isSetField(field); }
   public boolean isSetText()
   { return isSetField(58); }

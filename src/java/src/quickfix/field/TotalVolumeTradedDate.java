@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.UtcDateField; 
+package quickfix.field; 
+import quickfix.UtcDateField; 
 import java.util.Date; 
 
 public class TotalVolumeTradedDate extends UtcDateField 

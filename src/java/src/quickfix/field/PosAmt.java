@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.DoubleField; 
+package quickfix.field; 
+import quickfix.DoubleField; 
 import java.util.Date; 
 
 public class PosAmt extends DoubleField 

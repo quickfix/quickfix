@@ -48,123 +48,123 @@
 * ====================================================================
 */
 
-package org.quickfix.fix40;
+package quickfix.fix40;
 
-import org.quickfix.Message;
+import quickfix.Message;
 
-public class MessageFactory implements org.quickfix.MessageFactory
+public class MessageFactory implements quickfix.MessageFactory
 {
   public Message create( String beginString, String msgType ) {
   
    if("0".equals(msgType)) {
-     return new org.quickfix.fix40.Heartbeat();
+     return new quickfix.fix40.Heartbeat();
    }
  
    if("A".equals(msgType)) {
-     return new org.quickfix.fix40.Logon();
+     return new quickfix.fix40.Logon();
    }
  
    if("1".equals(msgType)) {
-     return new org.quickfix.fix40.TestRequest();
+     return new quickfix.fix40.TestRequest();
    }
  
    if("2".equals(msgType)) {
-     return new org.quickfix.fix40.ResendRequest();
+     return new quickfix.fix40.ResendRequest();
    }
  
    if("3".equals(msgType)) {
-     return new org.quickfix.fix40.Reject();
+     return new quickfix.fix40.Reject();
    }
  
    if("4".equals(msgType)) {
-     return new org.quickfix.fix40.SequenceReset();
+     return new quickfix.fix40.SequenceReset();
    }
  
    if("5".equals(msgType)) {
-     return new org.quickfix.fix40.Logout();
+     return new quickfix.fix40.Logout();
    }
  
    if("7".equals(msgType)) {
-     return new org.quickfix.fix40.Advertisement();
+     return new quickfix.fix40.Advertisement();
    }
  
    if("6".equals(msgType)) {
-     return new org.quickfix.fix40.IndicationofInterest();
+     return new quickfix.fix40.IndicationofInterest();
    }
  
    if("B".equals(msgType)) {
-     return new org.quickfix.fix40.News();
+     return new quickfix.fix40.News();
    }
  
    if("C".equals(msgType)) {
-     return new org.quickfix.fix40.Email();
+     return new quickfix.fix40.Email();
    }
  
    if("R".equals(msgType)) {
-     return new org.quickfix.fix40.QuoteRequest();
+     return new quickfix.fix40.QuoteRequest();
    }
  
    if("S".equals(msgType)) {
-     return new org.quickfix.fix40.Quote();
+     return new quickfix.fix40.Quote();
    }
  
    if("D".equals(msgType)) {
-     return new org.quickfix.fix40.NewOrderSingle();
+     return new quickfix.fix40.NewOrderSingle();
    }
  
    if("8".equals(msgType)) {
-     return new org.quickfix.fix40.ExecutionReport();
+     return new quickfix.fix40.ExecutionReport();
    }
  
    if("Q".equals(msgType)) {
-     return new org.quickfix.fix40.DontKnowTrade();
+     return new quickfix.fix40.DontKnowTrade();
    }
  
    if("G".equals(msgType)) {
-     return new org.quickfix.fix40.OrderCancelReplaceRequest();
+     return new quickfix.fix40.OrderCancelReplaceRequest();
    }
  
    if("F".equals(msgType)) {
-     return new org.quickfix.fix40.OrderCancelRequest();
+     return new quickfix.fix40.OrderCancelRequest();
    }
  
    if("9".equals(msgType)) {
-     return new org.quickfix.fix40.OrderCancelReject();
+     return new quickfix.fix40.OrderCancelReject();
    }
  
    if("H".equals(msgType)) {
-     return new org.quickfix.fix40.OrderStatusRequest();
+     return new quickfix.fix40.OrderStatusRequest();
    }
  
    if("J".equals(msgType)) {
-     return new org.quickfix.fix40.Allocation();
+     return new quickfix.fix40.Allocation();
    }
  
    if("P".equals(msgType)) {
-     return new org.quickfix.fix40.AllocationACK();
+     return new quickfix.fix40.AllocationACK();
    }
  
    if("E".equals(msgType)) {
-     return new org.quickfix.fix40.NewOrderList();
+     return new quickfix.fix40.NewOrderList();
    }
  
    if("N".equals(msgType)) {
-     return new org.quickfix.fix40.ListStatus();
+     return new quickfix.fix40.ListStatus();
    }
  
    if("L".equals(msgType)) {
-     return new org.quickfix.fix40.ListExecute();
+     return new quickfix.fix40.ListExecute();
    }
  
    if("K".equals(msgType)) {
-     return new org.quickfix.fix40.ListCancelRequest();
+     return new quickfix.fix40.ListCancelRequest();
    }
  
    if("M".equals(msgType)) {
-     return new org.quickfix.fix40.ListStatusRequest();
+     return new quickfix.fix40.ListStatusRequest();
    }
  
-  return new org.quickfix.fix40.Message();
+  return new quickfix.fix40.Message();
   }
 }
 

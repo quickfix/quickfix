@@ -1,7 +1,7 @@
-package org.quickfix.fix40;
-import org.quickfix.FieldNotFound;
-import org.quickfix.Group;
-import org.quickfix.field.*;
+package quickfix.fix40;
+import quickfix.FieldNotFound;
+import quickfix.Group;
+import quickfix.field.*;
 
 public class ListCancelRequest extends Message
 {
@@ -10,45 +10,45 @@ public class ListCancelRequest extends Message
     getHeader().setField(new MsgType("K"));
   }
   public ListCancelRequest(
-    org.quickfix.field.ListID aListID ) {
+    quickfix.field.ListID aListID ) {
 
     getHeader().setField(new MsgType("K"));
     set(aListID);
   }
 
-  public void set(org.quickfix.field.ListID value)
+  public void set(quickfix.field.ListID value)
   { setField(value); }
-  public org.quickfix.field.ListID get(org.quickfix.field.ListID  value)
+  public quickfix.field.ListID get(quickfix.field.ListID  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.ListID getListID() throws FieldNotFound
-  { org.quickfix.field.ListID value = new org.quickfix.field.ListID();
+  public quickfix.field.ListID getListID() throws FieldNotFound
+  { quickfix.field.ListID value = new quickfix.field.ListID();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.ListID field)
+  public boolean isSet(quickfix.field.ListID field)
   { return isSetField(field); }
   public boolean isSetListID()
   { return isSetField(66); }
-  public void set(org.quickfix.field.WaveNo value)
+  public void set(quickfix.field.WaveNo value)
   { setField(value); }
-  public org.quickfix.field.WaveNo get(org.quickfix.field.WaveNo  value)
+  public quickfix.field.WaveNo get(quickfix.field.WaveNo  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.WaveNo getWaveNo() throws FieldNotFound
-  { org.quickfix.field.WaveNo value = new org.quickfix.field.WaveNo();
+  public quickfix.field.WaveNo getWaveNo() throws FieldNotFound
+  { quickfix.field.WaveNo value = new quickfix.field.WaveNo();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.WaveNo field)
+  public boolean isSet(quickfix.field.WaveNo field)
   { return isSetField(field); }
   public boolean isSetWaveNo()
   { return isSetField(105); }
-  public void set(org.quickfix.field.Text value)
+  public void set(quickfix.field.Text value)
   { setField(value); }
-  public org.quickfix.field.Text get(org.quickfix.field.Text  value)
+  public quickfix.field.Text get(quickfix.field.Text  value)
     throws FieldNotFound
   { getField(value); return value; }
-  public org.quickfix.field.Text getText() throws FieldNotFound
-  { org.quickfix.field.Text value = new org.quickfix.field.Text();
+  public quickfix.field.Text getText() throws FieldNotFound
+  { quickfix.field.Text value = new quickfix.field.Text();
     getField(value); return value; }
-  public boolean isSet(org.quickfix.field.Text field)
+  public boolean isSet(quickfix.field.Text field)
   { return isSetField(field); }
   public boolean isSetText()
   { return isSetField(58); }

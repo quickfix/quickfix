@@ -1,315 +1,315 @@
-package org.quickfix.fix41;
-import org.quickfix.FieldNotFound;
-import org.quickfix.Group;
-import org.quickfix.field.*;
+package quickfix.fix41;
+import quickfix.FieldNotFound;
+import quickfix.Group;
+import quickfix.field.*;
 
-public class Message extends org.quickfix.Message {
+public class Message extends quickfix.Message {
   public Message() {
     super();
     header = new Header();
     trailer = new Trailer();
     getHeader().setField(new BeginString("FIX.4.1"));
   }
-  public class Header extends org.quickfix.Message.Header {
-      public void set(org.quickfix.field.BeginString value)
+  public class Header extends quickfix.Message.Header {
+      public void set(quickfix.field.BeginString value)
       { setField(value); }
-      public org.quickfix.field.BeginString get(org.quickfix.field.BeginString  value)
+      public quickfix.field.BeginString get(quickfix.field.BeginString  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.BeginString getBeginString() throws FieldNotFound
-      { org.quickfix.field.BeginString value = new org.quickfix.field.BeginString();
+      public quickfix.field.BeginString getBeginString() throws FieldNotFound
+      { quickfix.field.BeginString value = new quickfix.field.BeginString();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.BeginString field)
+      public boolean isSet(quickfix.field.BeginString field)
       { return isSetField(field); }
       public boolean isSetBeginString()
       { return isSetField(8); }
-      public void set(org.quickfix.field.BodyLength value)
+      public void set(quickfix.field.BodyLength value)
       { setField(value); }
-      public org.quickfix.field.BodyLength get(org.quickfix.field.BodyLength  value)
+      public quickfix.field.BodyLength get(quickfix.field.BodyLength  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.BodyLength getBodyLength() throws FieldNotFound
-      { org.quickfix.field.BodyLength value = new org.quickfix.field.BodyLength();
+      public quickfix.field.BodyLength getBodyLength() throws FieldNotFound
+      { quickfix.field.BodyLength value = new quickfix.field.BodyLength();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.BodyLength field)
+      public boolean isSet(quickfix.field.BodyLength field)
       { return isSetField(field); }
       public boolean isSetBodyLength()
       { return isSetField(9); }
-      public void set(org.quickfix.field.MsgType value)
+      public void set(quickfix.field.MsgType value)
       { setField(value); }
-      public org.quickfix.field.MsgType get(org.quickfix.field.MsgType  value)
+      public quickfix.field.MsgType get(quickfix.field.MsgType  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.MsgType getMsgType() throws FieldNotFound
-      { org.quickfix.field.MsgType value = new org.quickfix.field.MsgType();
+      public quickfix.field.MsgType getMsgType() throws FieldNotFound
+      { quickfix.field.MsgType value = new quickfix.field.MsgType();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.MsgType field)
+      public boolean isSet(quickfix.field.MsgType field)
       { return isSetField(field); }
       public boolean isSetMsgType()
       { return isSetField(35); }
-      public void set(org.quickfix.field.SenderCompID value)
+      public void set(quickfix.field.SenderCompID value)
       { setField(value); }
-      public org.quickfix.field.SenderCompID get(org.quickfix.field.SenderCompID  value)
+      public quickfix.field.SenderCompID get(quickfix.field.SenderCompID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.SenderCompID getSenderCompID() throws FieldNotFound
-      { org.quickfix.field.SenderCompID value = new org.quickfix.field.SenderCompID();
+      public quickfix.field.SenderCompID getSenderCompID() throws FieldNotFound
+      { quickfix.field.SenderCompID value = new quickfix.field.SenderCompID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.SenderCompID field)
+      public boolean isSet(quickfix.field.SenderCompID field)
       { return isSetField(field); }
       public boolean isSetSenderCompID()
       { return isSetField(49); }
-      public void set(org.quickfix.field.TargetCompID value)
+      public void set(quickfix.field.TargetCompID value)
       { setField(value); }
-      public org.quickfix.field.TargetCompID get(org.quickfix.field.TargetCompID  value)
+      public quickfix.field.TargetCompID get(quickfix.field.TargetCompID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.TargetCompID getTargetCompID() throws FieldNotFound
-      { org.quickfix.field.TargetCompID value = new org.quickfix.field.TargetCompID();
+      public quickfix.field.TargetCompID getTargetCompID() throws FieldNotFound
+      { quickfix.field.TargetCompID value = new quickfix.field.TargetCompID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.TargetCompID field)
+      public boolean isSet(quickfix.field.TargetCompID field)
       { return isSetField(field); }
       public boolean isSetTargetCompID()
       { return isSetField(56); }
-      public void set(org.quickfix.field.OnBehalfOfCompID value)
+      public void set(quickfix.field.OnBehalfOfCompID value)
       { setField(value); }
-      public org.quickfix.field.OnBehalfOfCompID get(org.quickfix.field.OnBehalfOfCompID  value)
+      public quickfix.field.OnBehalfOfCompID get(quickfix.field.OnBehalfOfCompID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.OnBehalfOfCompID getOnBehalfOfCompID() throws FieldNotFound
-      { org.quickfix.field.OnBehalfOfCompID value = new org.quickfix.field.OnBehalfOfCompID();
+      public quickfix.field.OnBehalfOfCompID getOnBehalfOfCompID() throws FieldNotFound
+      { quickfix.field.OnBehalfOfCompID value = new quickfix.field.OnBehalfOfCompID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.OnBehalfOfCompID field)
+      public boolean isSet(quickfix.field.OnBehalfOfCompID field)
       { return isSetField(field); }
       public boolean isSetOnBehalfOfCompID()
       { return isSetField(115); }
-      public void set(org.quickfix.field.DeliverToCompID value)
+      public void set(quickfix.field.DeliverToCompID value)
       { setField(value); }
-      public org.quickfix.field.DeliverToCompID get(org.quickfix.field.DeliverToCompID  value)
+      public quickfix.field.DeliverToCompID get(quickfix.field.DeliverToCompID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.DeliverToCompID getDeliverToCompID() throws FieldNotFound
-      { org.quickfix.field.DeliverToCompID value = new org.quickfix.field.DeliverToCompID();
+      public quickfix.field.DeliverToCompID getDeliverToCompID() throws FieldNotFound
+      { quickfix.field.DeliverToCompID value = new quickfix.field.DeliverToCompID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.DeliverToCompID field)
+      public boolean isSet(quickfix.field.DeliverToCompID field)
       { return isSetField(field); }
       public boolean isSetDeliverToCompID()
       { return isSetField(128); }
-      public void set(org.quickfix.field.SecureDataLen value)
+      public void set(quickfix.field.SecureDataLen value)
       { setField(value); }
-      public org.quickfix.field.SecureDataLen get(org.quickfix.field.SecureDataLen  value)
+      public quickfix.field.SecureDataLen get(quickfix.field.SecureDataLen  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.SecureDataLen getSecureDataLen() throws FieldNotFound
-      { org.quickfix.field.SecureDataLen value = new org.quickfix.field.SecureDataLen();
+      public quickfix.field.SecureDataLen getSecureDataLen() throws FieldNotFound
+      { quickfix.field.SecureDataLen value = new quickfix.field.SecureDataLen();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.SecureDataLen field)
+      public boolean isSet(quickfix.field.SecureDataLen field)
       { return isSetField(field); }
       public boolean isSetSecureDataLen()
       { return isSetField(90); }
-      public void set(org.quickfix.field.SecureData value)
+      public void set(quickfix.field.SecureData value)
       { setField(value); }
-      public org.quickfix.field.SecureData get(org.quickfix.field.SecureData  value)
+      public quickfix.field.SecureData get(quickfix.field.SecureData  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.SecureData getSecureData() throws FieldNotFound
-      { org.quickfix.field.SecureData value = new org.quickfix.field.SecureData();
+      public quickfix.field.SecureData getSecureData() throws FieldNotFound
+      { quickfix.field.SecureData value = new quickfix.field.SecureData();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.SecureData field)
+      public boolean isSet(quickfix.field.SecureData field)
       { return isSetField(field); }
       public boolean isSetSecureData()
       { return isSetField(91); }
-      public void set(org.quickfix.field.MsgSeqNum value)
+      public void set(quickfix.field.MsgSeqNum value)
       { setField(value); }
-      public org.quickfix.field.MsgSeqNum get(org.quickfix.field.MsgSeqNum  value)
+      public quickfix.field.MsgSeqNum get(quickfix.field.MsgSeqNum  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.MsgSeqNum getMsgSeqNum() throws FieldNotFound
-      { org.quickfix.field.MsgSeqNum value = new org.quickfix.field.MsgSeqNum();
+      public quickfix.field.MsgSeqNum getMsgSeqNum() throws FieldNotFound
+      { quickfix.field.MsgSeqNum value = new quickfix.field.MsgSeqNum();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.MsgSeqNum field)
+      public boolean isSet(quickfix.field.MsgSeqNum field)
       { return isSetField(field); }
       public boolean isSetMsgSeqNum()
       { return isSetField(34); }
-      public void set(org.quickfix.field.SenderSubID value)
+      public void set(quickfix.field.SenderSubID value)
       { setField(value); }
-      public org.quickfix.field.SenderSubID get(org.quickfix.field.SenderSubID  value)
+      public quickfix.field.SenderSubID get(quickfix.field.SenderSubID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.SenderSubID getSenderSubID() throws FieldNotFound
-      { org.quickfix.field.SenderSubID value = new org.quickfix.field.SenderSubID();
+      public quickfix.field.SenderSubID getSenderSubID() throws FieldNotFound
+      { quickfix.field.SenderSubID value = new quickfix.field.SenderSubID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.SenderSubID field)
+      public boolean isSet(quickfix.field.SenderSubID field)
       { return isSetField(field); }
       public boolean isSetSenderSubID()
       { return isSetField(50); }
-      public void set(org.quickfix.field.SenderLocationID value)
+      public void set(quickfix.field.SenderLocationID value)
       { setField(value); }
-      public org.quickfix.field.SenderLocationID get(org.quickfix.field.SenderLocationID  value)
+      public quickfix.field.SenderLocationID get(quickfix.field.SenderLocationID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.SenderLocationID getSenderLocationID() throws FieldNotFound
-      { org.quickfix.field.SenderLocationID value = new org.quickfix.field.SenderLocationID();
+      public quickfix.field.SenderLocationID getSenderLocationID() throws FieldNotFound
+      { quickfix.field.SenderLocationID value = new quickfix.field.SenderLocationID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.SenderLocationID field)
+      public boolean isSet(quickfix.field.SenderLocationID field)
       { return isSetField(field); }
       public boolean isSetSenderLocationID()
       { return isSetField(142); }
-      public void set(org.quickfix.field.TargetSubID value)
+      public void set(quickfix.field.TargetSubID value)
       { setField(value); }
-      public org.quickfix.field.TargetSubID get(org.quickfix.field.TargetSubID  value)
+      public quickfix.field.TargetSubID get(quickfix.field.TargetSubID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.TargetSubID getTargetSubID() throws FieldNotFound
-      { org.quickfix.field.TargetSubID value = new org.quickfix.field.TargetSubID();
+      public quickfix.field.TargetSubID getTargetSubID() throws FieldNotFound
+      { quickfix.field.TargetSubID value = new quickfix.field.TargetSubID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.TargetSubID field)
+      public boolean isSet(quickfix.field.TargetSubID field)
       { return isSetField(field); }
       public boolean isSetTargetSubID()
       { return isSetField(57); }
-      public void set(org.quickfix.field.TargetLocationID value)
+      public void set(quickfix.field.TargetLocationID value)
       { setField(value); }
-      public org.quickfix.field.TargetLocationID get(org.quickfix.field.TargetLocationID  value)
+      public quickfix.field.TargetLocationID get(quickfix.field.TargetLocationID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.TargetLocationID getTargetLocationID() throws FieldNotFound
-      { org.quickfix.field.TargetLocationID value = new org.quickfix.field.TargetLocationID();
+      public quickfix.field.TargetLocationID getTargetLocationID() throws FieldNotFound
+      { quickfix.field.TargetLocationID value = new quickfix.field.TargetLocationID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.TargetLocationID field)
+      public boolean isSet(quickfix.field.TargetLocationID field)
       { return isSetField(field); }
       public boolean isSetTargetLocationID()
       { return isSetField(143); }
-      public void set(org.quickfix.field.OnBehalfOfSubID value)
+      public void set(quickfix.field.OnBehalfOfSubID value)
       { setField(value); }
-      public org.quickfix.field.OnBehalfOfSubID get(org.quickfix.field.OnBehalfOfSubID  value)
+      public quickfix.field.OnBehalfOfSubID get(quickfix.field.OnBehalfOfSubID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.OnBehalfOfSubID getOnBehalfOfSubID() throws FieldNotFound
-      { org.quickfix.field.OnBehalfOfSubID value = new org.quickfix.field.OnBehalfOfSubID();
+      public quickfix.field.OnBehalfOfSubID getOnBehalfOfSubID() throws FieldNotFound
+      { quickfix.field.OnBehalfOfSubID value = new quickfix.field.OnBehalfOfSubID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.OnBehalfOfSubID field)
+      public boolean isSet(quickfix.field.OnBehalfOfSubID field)
       { return isSetField(field); }
       public boolean isSetOnBehalfOfSubID()
       { return isSetField(116); }
-      public void set(org.quickfix.field.OnBehalfOfLocationID value)
+      public void set(quickfix.field.OnBehalfOfLocationID value)
       { setField(value); }
-      public org.quickfix.field.OnBehalfOfLocationID get(org.quickfix.field.OnBehalfOfLocationID  value)
+      public quickfix.field.OnBehalfOfLocationID get(quickfix.field.OnBehalfOfLocationID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.OnBehalfOfLocationID getOnBehalfOfLocationID() throws FieldNotFound
-      { org.quickfix.field.OnBehalfOfLocationID value = new org.quickfix.field.OnBehalfOfLocationID();
+      public quickfix.field.OnBehalfOfLocationID getOnBehalfOfLocationID() throws FieldNotFound
+      { quickfix.field.OnBehalfOfLocationID value = new quickfix.field.OnBehalfOfLocationID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.OnBehalfOfLocationID field)
+      public boolean isSet(quickfix.field.OnBehalfOfLocationID field)
       { return isSetField(field); }
       public boolean isSetOnBehalfOfLocationID()
       { return isSetField(144); }
-      public void set(org.quickfix.field.DeliverToSubID value)
+      public void set(quickfix.field.DeliverToSubID value)
       { setField(value); }
-      public org.quickfix.field.DeliverToSubID get(org.quickfix.field.DeliverToSubID  value)
+      public quickfix.field.DeliverToSubID get(quickfix.field.DeliverToSubID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.DeliverToSubID getDeliverToSubID() throws FieldNotFound
-      { org.quickfix.field.DeliverToSubID value = new org.quickfix.field.DeliverToSubID();
+      public quickfix.field.DeliverToSubID getDeliverToSubID() throws FieldNotFound
+      { quickfix.field.DeliverToSubID value = new quickfix.field.DeliverToSubID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.DeliverToSubID field)
+      public boolean isSet(quickfix.field.DeliverToSubID field)
       { return isSetField(field); }
       public boolean isSetDeliverToSubID()
       { return isSetField(129); }
-      public void set(org.quickfix.field.DeliverToLocationID value)
+      public void set(quickfix.field.DeliverToLocationID value)
       { setField(value); }
-      public org.quickfix.field.DeliverToLocationID get(org.quickfix.field.DeliverToLocationID  value)
+      public quickfix.field.DeliverToLocationID get(quickfix.field.DeliverToLocationID  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.DeliverToLocationID getDeliverToLocationID() throws FieldNotFound
-      { org.quickfix.field.DeliverToLocationID value = new org.quickfix.field.DeliverToLocationID();
+      public quickfix.field.DeliverToLocationID getDeliverToLocationID() throws FieldNotFound
+      { quickfix.field.DeliverToLocationID value = new quickfix.field.DeliverToLocationID();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.DeliverToLocationID field)
+      public boolean isSet(quickfix.field.DeliverToLocationID field)
       { return isSetField(field); }
       public boolean isSetDeliverToLocationID()
       { return isSetField(145); }
-      public void set(org.quickfix.field.PossDupFlag value)
+      public void set(quickfix.field.PossDupFlag value)
       { setField(value); }
-      public org.quickfix.field.PossDupFlag get(org.quickfix.field.PossDupFlag  value)
+      public quickfix.field.PossDupFlag get(quickfix.field.PossDupFlag  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.PossDupFlag getPossDupFlag() throws FieldNotFound
-      { org.quickfix.field.PossDupFlag value = new org.quickfix.field.PossDupFlag();
+      public quickfix.field.PossDupFlag getPossDupFlag() throws FieldNotFound
+      { quickfix.field.PossDupFlag value = new quickfix.field.PossDupFlag();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.PossDupFlag field)
+      public boolean isSet(quickfix.field.PossDupFlag field)
       { return isSetField(field); }
       public boolean isSetPossDupFlag()
       { return isSetField(43); }
-      public void set(org.quickfix.field.PossResend value)
+      public void set(quickfix.field.PossResend value)
       { setField(value); }
-      public org.quickfix.field.PossResend get(org.quickfix.field.PossResend  value)
+      public quickfix.field.PossResend get(quickfix.field.PossResend  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.PossResend getPossResend() throws FieldNotFound
-      { org.quickfix.field.PossResend value = new org.quickfix.field.PossResend();
+      public quickfix.field.PossResend getPossResend() throws FieldNotFound
+      { quickfix.field.PossResend value = new quickfix.field.PossResend();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.PossResend field)
+      public boolean isSet(quickfix.field.PossResend field)
       { return isSetField(field); }
       public boolean isSetPossResend()
       { return isSetField(97); }
-      public void set(org.quickfix.field.SendingTime value)
+      public void set(quickfix.field.SendingTime value)
       { setField(value); }
-      public org.quickfix.field.SendingTime get(org.quickfix.field.SendingTime  value)
+      public quickfix.field.SendingTime get(quickfix.field.SendingTime  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.SendingTime getSendingTime() throws FieldNotFound
-      { org.quickfix.field.SendingTime value = new org.quickfix.field.SendingTime();
+      public quickfix.field.SendingTime getSendingTime() throws FieldNotFound
+      { quickfix.field.SendingTime value = new quickfix.field.SendingTime();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.SendingTime field)
+      public boolean isSet(quickfix.field.SendingTime field)
       { return isSetField(field); }
       public boolean isSetSendingTime()
       { return isSetField(52); }
-      public void set(org.quickfix.field.OrigSendingTime value)
+      public void set(quickfix.field.OrigSendingTime value)
       { setField(value); }
-      public org.quickfix.field.OrigSendingTime get(org.quickfix.field.OrigSendingTime  value)
+      public quickfix.field.OrigSendingTime get(quickfix.field.OrigSendingTime  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public org.quickfix.field.OrigSendingTime getOrigSendingTime() throws FieldNotFound
-      { org.quickfix.field.OrigSendingTime value = new org.quickfix.field.OrigSendingTime();
+      public quickfix.field.OrigSendingTime getOrigSendingTime() throws FieldNotFound
+      { quickfix.field.OrigSendingTime value = new quickfix.field.OrigSendingTime();
         getField(value); return value; }
-      public boolean isSet(org.quickfix.field.OrigSendingTime field)
+      public boolean isSet(quickfix.field.OrigSendingTime field)
       { return isSetField(field); }
       public boolean isSetOrigSendingTime()
       { return isSetField(122); }
   }
 
-    public void set(org.quickfix.field.SignatureLength value)
+    public void set(quickfix.field.SignatureLength value)
     { setField(value); }
-    public org.quickfix.field.SignatureLength get(org.quickfix.field.SignatureLength  value)
+    public quickfix.field.SignatureLength get(quickfix.field.SignatureLength  value)
       throws FieldNotFound
     { getField(value); return value; }
-    public org.quickfix.field.SignatureLength getSignatureLength() throws FieldNotFound
-    { org.quickfix.field.SignatureLength value = new org.quickfix.field.SignatureLength();
+    public quickfix.field.SignatureLength getSignatureLength() throws FieldNotFound
+    { quickfix.field.SignatureLength value = new quickfix.field.SignatureLength();
       getField(value); return value; }
-    public boolean isSet(org.quickfix.field.SignatureLength field)
+    public boolean isSet(quickfix.field.SignatureLength field)
     { return isSetField(field); }
     public boolean isSetSignatureLength()
     { return isSetField(93); }
-    public void set(org.quickfix.field.Signature value)
+    public void set(quickfix.field.Signature value)
     { setField(value); }
-    public org.quickfix.field.Signature get(org.quickfix.field.Signature  value)
+    public quickfix.field.Signature get(quickfix.field.Signature  value)
       throws FieldNotFound
     { getField(value); return value; }
-    public org.quickfix.field.Signature getSignature() throws FieldNotFound
-    { org.quickfix.field.Signature value = new org.quickfix.field.Signature();
+    public quickfix.field.Signature getSignature() throws FieldNotFound
+    { quickfix.field.Signature value = new quickfix.field.Signature();
       getField(value); return value; }
-    public boolean isSet(org.quickfix.field.Signature field)
+    public boolean isSet(quickfix.field.Signature field)
     { return isSetField(field); }
     public boolean isSetSignature()
     { return isSetField(89); }
-    public void set(org.quickfix.field.CheckSum value)
+    public void set(quickfix.field.CheckSum value)
     { setField(value); }
-    public org.quickfix.field.CheckSum get(org.quickfix.field.CheckSum  value)
+    public quickfix.field.CheckSum get(quickfix.field.CheckSum  value)
       throws FieldNotFound
     { getField(value); return value; }
-    public org.quickfix.field.CheckSum getCheckSum() throws FieldNotFound
-    { org.quickfix.field.CheckSum value = new org.quickfix.field.CheckSum();
+    public quickfix.field.CheckSum getCheckSum() throws FieldNotFound
+    { quickfix.field.CheckSum value = new quickfix.field.CheckSum();
       getField(value); return value; }
-    public boolean isSet(org.quickfix.field.CheckSum field)
+    public boolean isSet(quickfix.field.CheckSum field)
     { return isSetField(field); }
     public boolean isSetCheckSum()
     { return isSetField(10); }

@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.BooleanField; 
+package quickfix.field; 
+import quickfix.BooleanField; 
 import java.util.Date; 
 
 public class PublishTrdIndicator extends BooleanField 

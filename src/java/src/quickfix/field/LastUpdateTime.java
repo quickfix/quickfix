@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.UtcTimeStampField; 
+package quickfix.field; 
+import quickfix.UtcTimeStampField; 
 import java.util.Date; 
 
 public class LastUpdateTime extends UtcTimeStampField 

@@ -1,5 +1,5 @@
-package org.quickfix.field; 
-import org.quickfix.CharField; 
+package quickfix.field; 
+import quickfix.CharField; 
 import java.util.Date; 
 
 public class SecurityIDSource extends CharField 
