@@ -51,7 +51,7 @@ import java.util.HashSet;
 import org.quickfix.*;
 import org.quickfix.field.*;
 
-class MessageCracker extends org.quickfix.MessageCracker {
+class at_messagecracker extends org.quickfix.MessageCracker {
 
 private HashSet orderIDs = new HashSet();
 
