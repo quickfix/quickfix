@@ -106,6 +106,7 @@ public void onMessage( org.quickfix.Message message, SessionID sessionID ) throw
    <xsl:if test="//fix/@minor='1'">extends org.quickfix.fix40.MessageCracker</xsl:if>
    <xsl:if test="//fix/@minor='2'">extends org.quickfix.fix41.MessageCracker</xsl:if>
    <xsl:if test="//fix/@minor='3'">extends org.quickfix.fix42.MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='4'">extends org.quickfix.fix43.MessageCracker</xsl:if>
  </xsl:if>
 </xsl:template>
 

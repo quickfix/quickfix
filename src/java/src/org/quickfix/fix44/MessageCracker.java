@@ -53,7 +53,7 @@ package org.quickfix.fix44;
 import org.quickfix.*;
 import org.quickfix.field.*;
 
-public class MessageCracker 
+public class MessageCracker extends org.quickfix.fix43.MessageCracker
 {
 public void onMessage( org.quickfix.Message message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
   { throw new UnsupportedMessageType(); }
