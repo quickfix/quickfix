@@ -497,6 +497,7 @@ TYPE::Type DataDictionary::XMLTypeToType( const std::string& type ) const
   if ( type == "SEQNUM" ) return TYPE::SeqNum;
   if ( type == "LENGTH" ) return TYPE::Length;
   if ( type == "COUNTRY" ) return TYPE::Country;
+  if ( type == "TIME" ) return TYPE::UtcTimeStamp;
   return TYPE::Unknown;
 
   QF_STACK_POP
