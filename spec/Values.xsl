@@ -63,6 +63,7 @@
 
 namespace FIX
 {
+  const char BeginString_FIX44[] = "FIX.4.4";
   const char BeginString_FIX43[] = "FIX.4.3";
   const char BeginString_FIX42[] = "FIX.4.2";
   const char BeginString_FIX41[] = "FIX.4.1";

@@ -59,6 +59,7 @@
 #define FIX_FIELDNUMBERS_H
 
 #include &lt;iostream&gt;
+#include "DeprecatedFieldNumbers.h"
 
 namespace FIX
 {
@@ -71,6 +72,7 @@ namespace FIX
       ,FIX41_LastField = PegDifference
       ,FIX42_LastField = EncodedListStatusText
       ,FIX43_LastField = SideComplianceID
+      ,FIX44_LastField = LegInterestAccrualDate
     };
 
     const int NormalMin = 1;
