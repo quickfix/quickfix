@@ -20,6 +20,8 @@ public class MyClass {
     Acceptor acceptor = new SocketAcceptor
       (application, storeFactory, settings, logFactory, messageFactory);
     acceptor.start();
+    // while( condition == true ) { do something; }
+    acceptor.stop();
   }
 }
 </PRE></CODE></B>

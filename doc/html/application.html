@@ -28,15 +28,14 @@
         throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, RejectLogon& ) = 0;
       virtual void fromApp( const Message&, const SessionID& )
         throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) = 0;
-      virtual void onRun() = 0;
     };
   }
   </PRE></CODE></B>
 
   <p>
   By implementing these functions in your derived class, you are requesting to be notified of
-  events that occur on the FIX engine. The two functions you that you should be most aware of
-  are <I>fromApp</I> and <I>onRun</I>. Also remember that everything is in the <B>FIX</B> namespace,
+  events that occur on the FIX engine. The function you that you should be most aware of
+  is <I>fromApp</I>. Also remember that everything is in the <B>FIX</B> namespace,
   so when overloading your class, you must refer to classes as <B>FIX::Session</B>, and <B>FIX::Message</B> etc...
 
   <br><br>Here are explanations of what these functions provide for you.
@@ -94,15 +93,6 @@
   	reject informing them your application cannot process those types of messages. A
   	<I>IncorrectTagValue</I> can also be thrown if a field contains a value that is out of
   	range or you do not support.
-
-    <br><br><U><B>onRun</B></U>
-    is where you need to provide a loop that keeps your application alive. When your application
-    is created, this function is called from a newly spawned thread. QuickFIX will close all active
-    sessions and stop running as soon as this function exits. There a various things you could put
-    in this function. For a windows GUI, this could be where you place your message loop. If you want to
-    integrate a FIX server with a piece of middleware such as TIBCO, you could listen for messages on your
-    system. If you have nothing you need to place in here (i.e., your application is completely driven off
-    of FIX application events), you should simply have a continous loop that sleeps.
   </UL>
   </p>
 
@@ -119,7 +109,9 @@
   #include "quickfix/FileStore.h"
   #include "quickfix/FileLog.h"
   #include "quickfix/SocketAcceptor.h"
+  #include "quickfix/Session.h"
   #include "quickfix/SessionSettings.h"
+  #include "quickfix/Application.h"
 
   int main( int argc, char** argv )
   {
@@ -136,6 +128,8 @@
       FIX::Socketacceptor acceptor
         (application, storeFactory, settings, logFactory /*optional*/);
       acceptor.start();
+      // while( condition == true ) { do something; }
+      acceptor.stop();
       return 0;
     }
     catch(FIX::ConfigError& e)

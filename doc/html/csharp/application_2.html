@@ -18,6 +18,8 @@ class MyClass
       SocketAcceptor acceptor = new SocketAcceptor
         (application, factory, settings, logFactory /*optional*/, messageFactory);
       acceptor.start();
+      // while( condition == true ) { do something; }
+      acceptor.stop();
     }
     catch(ConfigError e)
     {
