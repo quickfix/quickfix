@@ -237,8 +237,6 @@ public class Application: MessageCracker, QuickFix.Application
     catch ( SessionNotFound ) {}
   }
 
-  public void onRun() { while ( true ) Thread.Sleep( 1000 ); }
-
   private OrderID genOrderID()
   {
     return new OrderID( ( ++m_orderID ).ToString() );

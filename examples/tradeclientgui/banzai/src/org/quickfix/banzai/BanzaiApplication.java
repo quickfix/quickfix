@@ -109,8 +109,8 @@ public class BanzaiApplication implements Application {
             this.message = message;
             this.sessionID = sessionID;
         }
-        public void run() {
 
+        public void run() {
             try {
                 MsgType msgType = new MsgType();
                 if(message.getHeader().getField(msgType).valueEquals("8"))
@@ -120,14 +120,6 @@ public class BanzaiApplication implements Application {
             } catch(FieldNotFound e) {
                 System.out.println(e);
             }
-        }
-    }
-
-    public void onRun() {
-        while(true) {
-            try {
-                Thread.sleep(1000);
-            } catch(Exception e) {}
         }
     }
 

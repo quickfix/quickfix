@@ -66,6 +66,7 @@ public class Banzai {
     private static Category log = Category.getInstance(Banzai.class.getName());
     private Initiator initiator = null;
     private JFrame frame = null;
+    private static boolean stop = false;
 
     static {
         System.loadLibrary("quickfix_jni");
@@ -105,6 +106,11 @@ public class Banzai {
         initiator.start();
     }
 
+    public void stop() {
+		stop = true;
+		initiator.stop();
+	}
+
     public JFrame getFrame() {
         return frame;
     }
@@ -112,5 +118,9 @@ public class Banzai {
     public static void main(String args[]) throws Exception {
         Banzai banzai = new Banzai();
         banzai.start();
+        while( !stop ) {
+			Thread.sleep(1000);
+		}
+		banzai.stop();
     }
 }

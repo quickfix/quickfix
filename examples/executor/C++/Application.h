@@ -74,7 +74,6 @@ public:
     throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& );
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
     throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& );
-  void onRun();
 
   // MessageCracker overloads
   void onMessage( const FIX40::NewOrderSingle&, const FIX::SessionID& );

@@ -74,6 +74,9 @@ class Executor
       = new SocketAcceptor( application, factory, settings, logFactory, messageFactory );
 
       acceptor.start();
+      Console.WriteLine("press <enter> to quit");
+      Console.Read();
+      acceptor.stop();
     }
     catch ( Exception e )
     {

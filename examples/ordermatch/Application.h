@@ -64,7 +64,7 @@
 
 class Application
       : public FIX::Application,
-      public FIX::MessageCracker
+        public FIX::MessageCracker
 {
   // Application overloads
   void onCreate( const FIX::SessionID& ) {}
@@ -77,7 +77,6 @@ class Application
   throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& ) {}
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& );
-  void onRun();
 
   // MessageCracker overloads
   void onMessage( const FIX42::NewOrderSingle&, const FIX::SessionID& );
@@ -114,6 +113,9 @@ class Application
 
   OrderMatcher m_orderMatcher;
   IDGenerator m_generator;
+
+public: 
+  const OrderMatcher& orderMatcher() { return m_orderMatcher; }
 };
 
 #endif

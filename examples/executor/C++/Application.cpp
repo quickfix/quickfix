@@ -74,11 +74,6 @@ void Application::fromApp( const FIX::Message& message,
 throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
 { crack( message, sessionID ); }
 
-void Application::onRun()
-{
-  while ( true ) FIX::process_sleep( 1 );
-}
-
 void Application::onMessage( const FIX40::NewOrderSingle& message,
                              const FIX::SessionID& sessionID )
 {

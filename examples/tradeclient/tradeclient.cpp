@@ -82,7 +82,10 @@ int main( int argc, char** argv )
     FIX::FileStoreFactory storeFactory( settings );
     FIX::FileLogFactory logFactory( settings );
     FIX::SocketInitiator initiator( application, storeFactory, settings, logFactory );
+
     initiator.start();
+    application.run();
+    initiator.stop();
     return 0;
   }
   catch ( std::exception & e )

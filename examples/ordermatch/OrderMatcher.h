@@ -96,19 +96,19 @@ public:
     return orders.size() != 0;
   }
 
-  void display( std::string symbol )
+  void display( std::string symbol ) const
   {
-    Markets::iterator i = m_markets.find( symbol );
+    Markets::const_iterator i = m_markets.find( symbol );
     if ( i == m_markets.end() ) return ;
     i->second.display();
   }
 
-  void display()
+  void display() const
   {
     std::cout << "SYMBOLS:" << std::endl;
     std::cout << "--------" << std::endl;
 
-    Markets::iterator i;
+    Markets::const_iterator i;
     for ( i = m_markets.begin(); i != m_markets.end(); ++i )
       std::cout << i->first << std::endl;
   }

@@ -147,10 +147,10 @@ void Market::match( Order& bid, Order& ask )
   ask.execute( price, quantity );
 }
 
-void Market::display()
+void Market::display() const
 {
-  BidOrders::iterator iBid;
-  AskOrders::iterator iAsk;
+  BidOrders::const_iterator iBid;
+  AskOrders::const_iterator iAsk;
 
   std::cout << "BIDS:" << std::endl;
   std::cout << "-----" << std::endl << std::endl;

@@ -80,7 +80,23 @@ int main( int argc, char** argv )
     FIX::FileStoreFactory storeFactory( settings );
     FIX::FileLogFactory logFactory( settings );
     FIX::SocketAcceptor acceptor( application, storeFactory, settings, logFactory );
+
     acceptor.start();
+    while ( true )
+    {
+      std::string value;
+      std::cin >> value;
+
+      if ( value == "#symbols" )
+        application.orderMatcher().display();
+      else if( value == "#quit" )
+        break;
+      else
+        application.orderMatcher().display( value );
+
+      std::cout << std::endl;
+    }
+    acceptor.stop();
     return 0;
   }
   catch ( std::exception & e )

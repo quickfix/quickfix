@@ -84,7 +84,7 @@ throw( FIX::DoNotSend& )
     message.getHeader().getField( possDupFlag );
     if ( possDupFlag ) throw FIX::DoNotSend();
   }
-catch ( FIX::FieldNotFound& ) {}
+  catch ( FIX::FieldNotFound& ) {}
 
   std::cout << std::endl
   << "OUT: " << message << std::endl;
@@ -103,21 +103,22 @@ void Application::onMessage
 void Application::onMessage
 ( const FIX42::OrderCancelReject&, const FIX::SessionID& ) {}
 
-void Application::onRun()
+void Application::run()
 {
   while ( true )
   {
     try
     {
-      char action = queryAction();
-      int version = queryVersion();
+      char action = queryAction();      
 
       if ( action == '1' )
-        queryEnterOrder( version );
+        queryEnterOrder();
       else if ( action == '2' )
-        queryCancelOrder( version );
+        queryCancelOrder();
       else if ( action == '3' )
-        queryReplaceOrder( version );
+        queryReplaceOrder();
+      else if ( action == '4' )
+        break;
     }
     catch ( std::exception & e )
     {
@@ -126,8 +127,9 @@ void Application::onRun()
   }
 }
 
-void Application::queryEnterOrder( int version )
+void Application::queryEnterOrder()
 {
+  int version = queryVersion();
   std::cout << "\nNewOrderSingle\n";
   FIX::Message order;
 
@@ -142,8 +144,9 @@ void Application::queryEnterOrder( int version )
     FIX::Session::sendToTarget( order );
 }
 
-void Application::queryCancelOrder( int version )
+void Application::queryCancelOrder()
 {
+  int version = queryVersion();
   std::cout << "\nOrderCancelRequest\n";
   FIX::Message cancel;
 
@@ -158,8 +161,9 @@ void Application::queryCancelOrder( int version )
     FIX::Session::sendToTarget( cancel );
 }
 
-void Application::queryReplaceOrder( int version )
+void Application::queryReplaceOrder()
 {
+  int version = queryVersion();
   std::cout << "\nCancelReplaceRequest\n";
   FIX::Message replace;
 
@@ -321,11 +325,12 @@ char Application::queryAction()
   << "1) Enter Order" << std::endl
   << "2) Cancel Order" << std::endl
   << "3) Replace Order" << std::endl
+  << "4) Quit" << std::endl
   << "Action: ";
   std::cin >> value;
   switch ( value )
   {
-    case '1': case '2': case '3': break;
+    case '1': case '2': case '3': case '4': break;
     default: throw std::exception();
   }
   return value;

@@ -73,22 +73,6 @@ throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, 
   crack( message, sessionID );
 }
 
-void Application::onRun()
-{
-  while ( true )
-  {
-    std::string value;
-    std::cin >> value;
-
-    if ( value == "#symbols" )
-      m_orderMatcher.display();
-    else
-      m_orderMatcher.display( value );
-
-    std::cout << std::endl;
-  }
-}
-
 void Application::onMessage( const FIX42::NewOrderSingle& message, const FIX::SessionID& )
 {
   FIX::SenderCompID senderCompID;

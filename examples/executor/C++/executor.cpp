@@ -60,6 +60,17 @@
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <conio.h>
+
+void wait()
+{
+  std::cout << "hit any key to quit" << std::endl;
+  while(true)
+  {
+    if(kbhit()) break;
+    FIX::process_sleep(1);
+  }
+}
 
 int main( int argc, char** argv )
 {
@@ -79,7 +90,10 @@ int main( int argc, char** argv )
     FIX::FileStoreFactory factory( settings );
     FIX::ScreenLogFactory logFactory( true, true, true );
     FIX::SocketAcceptor acceptor( application, factory, settings, logFactory );
+
     acceptor.start();
+    wait();
+    acceptor.stop();
     return 0;
   }
   catch ( std::exception & e )

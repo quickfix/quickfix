@@ -66,7 +66,7 @@ public class Executor {
 
         try {
             Application application = new Application();
-            SessionSettings settings = 
+            SessionSettings settings =
                 new SessionSettings(new FileInputStream(args[0]));
             MessageStoreFactory messageStoreFactory =
                 new FileStoreFactory(settings);
@@ -75,8 +75,13 @@ public class Executor {
 
             acceptor = new SocketAcceptor
                        (application, messageStoreFactory, settings, logFactory, messageFactory);
+
             acceptor.start();
-        } catch(Exception e) {
+            System.out.println("press <enter> to quit");
+            System.in.read();
+            acceptor.stop();
+        }
+        catch(Exception e) {
             System.out.println(e);
         }
     }

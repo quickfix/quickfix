@@ -114,14 +114,6 @@ public class Application extends MessageCracker implements org.quickfix.Applicat
         } catch(SessionNotFound e) {}
     }
 
-    public void onRun() {
-        while(true) {
-            try {
-                Thread.sleep(1000);
-            } catch(Exception e) {}
-        }
-    }
-
     public OrderID genOrderID() {
         return new OrderID(new Integer(++m_orderID).toString());
     }

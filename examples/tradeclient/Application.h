@@ -63,6 +63,9 @@ class Application :
       public FIX::Application,
       public FIX::MessageCracker
 {
+public:
+  void run();
+
 private:
   void onCreate( const FIX::SessionID& ) {}
   void onLogon( const FIX::SessionID& sessionID );
@@ -73,8 +76,7 @@ private:
   void fromAdmin( const FIX::Message&, const FIX::SessionID& )
   throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::RejectLogon& ) {}
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& );
-  void onRun();
+  throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& );   
 
   void onMessage( const FIX40::ExecutionReport&, const FIX::SessionID& );
   void onMessage( const FIX40::OrderCancelReject&, const FIX::SessionID& );
@@ -83,9 +85,9 @@ private:
   void onMessage( const FIX42::ExecutionReport&, const FIX::SessionID& );
   void onMessage( const FIX42::OrderCancelReject&, const FIX::SessionID& );
 
-  void queryEnterOrder( int version );
-  void queryCancelOrder( int version );
-  void queryReplaceOrder( int version );
+  void queryEnterOrder();
+  void queryCancelOrder();
+  void queryReplaceOrder();
 
   FIX40::NewOrderSingle queryNewOrderSingle40();
   FIX41::NewOrderSingle queryNewOrderSingle41();
