@@ -1,4 +1,3 @@
-
 %{
 
 #include <iostream>
@@ -10,7 +9,7 @@
 %option noyywrap
 
 ID [A-Za-z0-9]*
-VALUE [A-Za-z0-9\/.\\:_\- ]*
+VALUE [[:alnum:][:punct:]\/.\\:_\- ]*
 
 %s nv
 
@@ -42,4 +41,3 @@ VALUE [A-Za-z0-9\/.\\:_\- ]*
 		return lcState = LC_STATE_VALUE;
             }
 %%
-
