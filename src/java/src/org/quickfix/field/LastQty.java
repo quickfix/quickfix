@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class LastQty extends DoubleField 
 { 
-  public static final int FIELD = 3; 
+  public static final int FIELD = 32; 
 
   public LastQty() 
   { 
-    super(3);
+    super(32);
   } 
   public LastQty(double data) 
   { 
-    super(3, data);
+    super(32, data);
   } 
 } 

@@ -2410,7 +2410,7 @@ public static class NoStipulations extends Group {
   public boolean isSet(org.quickfix.field.LastQty field) 
   { return isSetField(field); } 
   public boolean isSetLastQty() 
-  { return isSetField(3); } 
+  { return isSetField(32); } 
 
   public void set(org.quickfix.field.UnderlyingLastQty value) 
   { setField(value); } 

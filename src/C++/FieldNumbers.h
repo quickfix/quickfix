@@ -89,7 +89,7 @@ namespace FIX
      ,LastCapacity = 29
      ,LastMkt = 30
      ,LastPx = 31
-     ,LastQty = 3
+     ,LastQty = 32
      ,LinesOfText = 33
      ,MsgSeqNum = 34
      ,MsgType = 35

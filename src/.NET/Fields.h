@@ -351,8 +351,8 @@ namespace QuickFix
   public __gc class LastQty : public DoubleField
   {
   public:
-  LastQty() : DoubleField(3) {}
-    LastQty(double data) : DoubleField(3, data) {}
+  LastQty() : DoubleField(32) {}
+    LastQty(double data) : DoubleField(32, data) {}
   };
   
   public __gc class LinesOfText : public IntField

@@ -94,13 +94,9 @@ namespace QuickFix44
     public:
       HopCompID() : Group(628, 628, message_order ) {}
         static int message_order __gc[] = {
-
       628,
-
       629,
-
       630,
-
     0};
       NET_FIELD_SET(HopCompID);
       NET_FIELD_SET(HopSendingTime);
@@ -176,11 +172,8 @@ namespace QuickFix44
     public:
       NoMsgTypes() : Group(384, 372, message_order ) {}
         static int message_order __gc[] = {
-
         372,
-
         385,
-
       0};
       NET_FIELD_SET(RefMsgType);
       NET_FIELD_SET(MsgDirection);
@@ -373,11 +366,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -388,15 +378,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -409,9 +394,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -460,11 +443,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -476,9 +456,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -530,11 +508,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -625,11 +600,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -640,15 +612,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -670,9 +637,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -724,11 +689,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -749,11 +711,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -764,13 +723,9 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 682, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         682,
-
         
-
       0};
       NET_FIELD_SET(LegIOIQty);
           NET_FIELD_SET(LegSymbol);
@@ -820,11 +775,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -835,11 +787,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -856,9 +805,7 @@ namespace QuickFix44
     public:
       NoIOIQualifiers() : Group(199, 104, message_order ) {}
         static int message_order __gc[] = {
-
         104,
-
       0};
       NET_FIELD_SET(IOIQualifier);
     };
@@ -873,11 +820,8 @@ namespace QuickFix44
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
-
         216,
-
         217,
-
       0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
@@ -923,11 +867,8 @@ namespace QuickFix44
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
-
         216,
-
         217,
-
       0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
@@ -938,9 +879,7 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 55, message_order ) {}
         static int message_order __gc[] = {
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
       0};
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
@@ -988,11 +927,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -1003,15 +939,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -1025,9 +956,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -1076,11 +1005,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -1092,9 +1018,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -1146,11 +1070,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -1162,13 +1083,9 @@ namespace QuickFix44
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
         static int message_order __gc[] = {
-
         58,
-
         354,
-
         355,
-
       0};
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
@@ -1209,11 +1126,8 @@ namespace QuickFix44
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
         static int message_order __gc[] = {
-
         216,
-
         217,
-
       0};
       NET_FIELD_SET(RoutingType);
       NET_FIELD_SET(RoutingID);
@@ -1224,9 +1138,7 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 55, message_order ) {}
         static int message_order __gc[] = {
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
       0};
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
@@ -1274,11 +1186,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -1289,15 +1198,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -1311,9 +1215,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -1365,11 +1267,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -1381,9 +1280,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -1432,11 +1329,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -1450,13 +1344,9 @@ namespace QuickFix44
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
         static int message_order __gc[] = {
-
         58,
-
         354,
-
         355,
-
       0};
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
@@ -1490,101 +1380,53 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 1, message_order ) {}
         static int message_order __gc[] = {
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         913,914,915,918,788,916,917,919,898,
-
         
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         
-
         140,
-
         303,
-
         537,
-
         336,
-
         625,
-
         229,
-
         54,
-
         854,
-
         38,152,516,468,469,
-
         63,
-
         64,
-
         193,
-
         192,
-
         15,
-
         
-
         1,
-
         660,
-
         581,
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
           687,
-
           690,
-
           587,
-
           588,
-
           
-
           
-
           676,677,678,679,680,
-
         
-
         
-
           695,
-
         
-
         692,
-
         40,
-
         62,
-
         126,
-
         60,
-
         218,220,221,222,662,663,699,761,
-
         423,
-
         44,
-
         640,
-
         235,236,701,696,697,698,
-
         
-
       0};
       NET_FIELD_SET(PrevClosePx);
       NET_FIELD_SET(QuoteRequestType);
@@ -1616,9 +1458,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -1670,11 +1510,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -1686,23 +1523,14 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 587, message_order ) {}
         static int message_order __gc[] = {
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
           687,
-
           690,
-
           587,
-
           588,
-
           
-
           
-
           676,677,678,679,680,
-
         0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -1755,11 +1583,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -1770,11 +1595,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -1785,21 +1607,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -1810,11 +1624,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -1832,9 +1643,7 @@ namespace QuickFix44
     public:
       NoQuoteQualifiers() : Group(735, 695, message_order ) {}
         static int message_order __gc[] = {
-
           695,
-
         0};
       NET_FIELD_SET(QuoteQualifier);
     };
@@ -1884,11 +1693,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -1899,15 +1705,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -1934,11 +1735,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -1963,21 +1761,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -1988,11 +1778,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -2033,9 +1820,7 @@ namespace QuickFix44
     public:
       NoQuoteQualifiers() : Group(735, 695, message_order ) {}
         static int message_order __gc[] = {
-
         695,
-
       0};
       NET_FIELD_SET(QuoteQualifier);
     };
@@ -2045,21 +1830,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -2070,11 +1847,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -2128,11 +1902,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -2143,15 +1914,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -2173,9 +1939,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -2227,11 +1991,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -2254,11 +2015,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -2272,29 +2030,17 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 587, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         687,
-
         690,
-
         587,
-
         588,
-
         
-
         
-
         686,
-
         681,
-
         684,
-
         676,677,678,679,680,
-
       0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -2350,11 +2096,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -2365,11 +2108,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -2380,21 +2120,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -2405,11 +2137,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -2495,73 +2224,39 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 1, message_order ) {}
         static int message_order __gc[] = {
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         913,914,915,918,788,916,917,919,898,
-
         
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         
-
         140,
-
         303,
-
         537,
-
         336,
-
         625,
-
         229,
-
         54,
-
         854,
-
         38,152,516,468,469,
-
         63,
-
         64,
-
         193,
-
         192,
-
         15,
-
         
-
         1,
-
         660,
-
         581,
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
           687,
-
           690,
-
           587,
-
           588,
-
           
-
           
-
           676,677,678,679,680,
-
           
-
         0};
       NET_FIELD_SET(PrevClosePx);
       NET_FIELD_SET(QuoteRequestType);
@@ -2585,9 +2280,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -2639,11 +2332,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -2655,23 +2345,14 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 587, message_order ) {}
         static int message_order __gc[] = {
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
           687,
-
           690,
-
           587,
-
           588,
-
           
-
           
-
           676,677,678,679,680,
-
           0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -2724,11 +2405,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -2739,11 +2417,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -2754,21 +2429,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -2779,11 +2446,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -2841,11 +2505,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -2856,15 +2517,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -2891,11 +2547,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -2907,9 +2560,7 @@ namespace QuickFix44
     public:
       NoQuoteQualifiers() : Group(735, 695, message_order ) {}
         static int message_order __gc[] = {
-
           695,
-
         0};
       NET_FIELD_SET(QuoteQualifier);
     };
@@ -2940,21 +2591,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -2965,11 +2608,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -3001,31 +2641,18 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 140, message_order ) {}
         static int message_order __gc[] = {
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         
-
         140,
-
         303,
-
         537,
-
         336,
-
         625,
-
       0};
       NET_FIELD_SET(PrevClosePx);
       NET_FIELD_SET(QuoteRequestType);
@@ -3038,9 +2665,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -3092,11 +2717,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -3108,9 +2730,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -3159,11 +2779,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -3215,11 +2832,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -3230,15 +2844,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -3273,9 +2882,7 @@ namespace QuickFix44
     public:
       NoQuoteQualifiers() : Group(735, 695, message_order ) {}
         static int message_order __gc[] = {
-
         695,
-
       0};
       NET_FIELD_SET(QuoteQualifier);
     };
@@ -3286,21 +2893,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -3311,11 +2910,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -3369,11 +2965,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -3384,15 +2977,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -3414,9 +3002,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -3468,11 +3054,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -3495,11 +3078,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -3513,29 +3093,17 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 587, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         687,
-
         690,
-
         587,
-
         588,
-
         
-
         
-
         686,
-
         681,
-
         684,
-
         676,677,678,679,680,
-
       0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -3591,11 +3159,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -3606,11 +3171,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -3621,21 +3183,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -3646,11 +3200,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -3737,21 +3288,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -3762,11 +3305,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -3783,23 +3323,14 @@ namespace QuickFix44
     public:
       NoQuoteEntries() : Group(295, 55, message_order ) {}
         static int message_order __gc[] = {
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         913,914,915,918,788,916,917,919,898,
-
         
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         
-
       0};
     NET_FIELD_SET(NoUnderlyings);
     __gc class NoUnderlyings : public QuickFix::Group
@@ -3807,9 +3338,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -3861,11 +3390,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -3877,9 +3403,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -3928,11 +3452,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -3984,11 +3505,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -3999,15 +3517,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -4080,11 +3593,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -4095,15 +3605,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -4125,9 +3630,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -4179,11 +3682,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -4195,9 +3695,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -4246,11 +3744,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -4262,21 +3757,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -4287,11 +3774,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -4330,21 +3814,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -4355,11 +3831,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -4413,11 +3886,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -4428,15 +3898,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -4458,9 +3923,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -4512,11 +3975,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -4539,11 +3999,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -4557,21 +4014,13 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 587, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         687,
-
         690,
-
         587,
-
         588,
-
         
-
         
-
       0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -4624,11 +4073,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -4639,11 +4085,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -4654,21 +4097,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -4679,11 +4114,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -4696,9 +4128,7 @@ namespace QuickFix44
     public:
       NoQuoteQualifiers() : Group(735, 695, message_order ) {}
         static int message_order __gc[] = {
-
         695,
-
       0};
       NET_FIELD_SET(QuoteQualifier);
     };
@@ -4777,21 +4207,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -4802,11 +4224,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -4823,77 +4242,41 @@ namespace QuickFix44
     public:
       NoQuoteSets() : Group(296, 302, message_order ) {}
         static int message_order __gc[] = {
-
         302,
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         367,
-
         304,
-
         893,
-
         
-
           299,
-
           55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
           
-
             600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
           
-
           132,
-
           133,
-
           134,
-
           135,
-
           62,
-
           188,
-
           190,
-
           189,
-
           191,
-
           631,
-
           632,
-
           633,
-
           634,
-
           60,
-
           336,
-
           625,
-
           64,
-
           40,
-
           193,
-
           192,
-
           642,
-
           643,
-
           15,
-
         
-
       0};
       NET_FIELD_SET(QuoteSetID);
       NET_FIELD_SET(QuoteSetValidUntilTime);
@@ -4905,63 +4288,34 @@ namespace QuickFix44
     public:
       NoQuoteEntries() : Group(295, 15, message_order ) {}
         static int message_order __gc[] = {
-
           299,
-
           55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
           
-
             600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
           
-
           132,
-
           133,
-
           134,
-
           135,
-
           62,
-
           188,
-
           190,
-
           189,
-
           191,
-
           631,
-
           632,
-
           633,
-
           634,
-
           60,
-
           336,
-
           625,
-
           64,
-
           40,
-
           193,
-
           192,
-
           642,
-
           643,
-
           15,
-
         0};
       NET_FIELD_SET(QuoteEntryID);
       NET_FIELD_SET(BidPx);
@@ -4993,9 +4347,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
             600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
           0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -5044,11 +4396,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -5100,11 +4449,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -5115,15 +4461,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -5181,11 +4522,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -5219,21 +4557,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -5244,11 +4574,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -5266,77 +4593,41 @@ namespace QuickFix44
     public:
       NoQuoteSets() : Group(296, 302, message_order ) {}
         static int message_order __gc[] = {
-
       302,
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       304,
-
       893,
-
       
-
         299,
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
          
-
         132,
-
         133,
-
         134,
-
         135,
-
         62,
-
         188,
-
         190,
-
         189,
-
         191,
-
         631,
-
         632,
-
         633,
-
         634,
-
         60,
-
         336,
-
         625,
-
         64,
-
         40,
-
         193,
-
         192,
-
         642,
-
         643,
-
         15,
-
         368,
-
       
-
     0};
       NET_FIELD_SET(QuoteSetID);
       NET_FIELD_SET(TotNoQuoteEntries);
@@ -5347,65 +4638,35 @@ namespace QuickFix44
     public:
       NoQuoteEntries() : Group(295, 15, message_order ) {}
         static int message_order __gc[] = {
-
         299,
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
          
-
         132,
-
         133,
-
         134,
-
         135,
-
         62,
-
         188,
-
         190,
-
         189,
-
         191,
-
         631,
-
         632,
-
         633,
-
         634,
-
         60,
-
         336,
-
         625,
-
         64,
-
         40,
-
         193,
-
         192,
-
         642,
-
         643,
-
         15,
-
         368,
-
       0};
       NET_FIELD_SET(QuoteEntryID);
       NET_FIELD_SET(BidPx);
@@ -5438,9 +4699,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
          0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -5489,11 +4748,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -5545,11 +4801,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -5560,15 +4813,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -5626,11 +4874,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -5670,9 +4915,7 @@ namespace QuickFix44
     public:
       NoMDEntryTypes() : Group(267, 269, message_order ) {}
         static int message_order __gc[] = {
-
       269,
-
     0};
       NET_FIELD_SET(MDEntryType);
     };
@@ -5682,21 +4925,13 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 55, message_order ) {}
         static int message_order __gc[] = {
-
       55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
       
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       
-
       
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       
-
     0};
     NET_FIELD_SET(NoUnderlyings);
     __gc class NoUnderlyings : public QuickFix::Group
@@ -5704,9 +4939,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -5758,11 +4991,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -5774,9 +5004,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -5825,11 +5053,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -5881,11 +5106,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -5896,15 +5118,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -5918,11 +5135,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -5984,11 +5198,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -5999,15 +5210,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -6020,9 +5226,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -6074,11 +5278,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -6090,9 +5291,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -6141,11 +5340,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -6160,73 +5356,39 @@ namespace QuickFix44
     public:
       NoMDEntries() : Group(268, 15, message_order ) {}
         static int message_order __gc[] = {
-
       269,
-
       270,
-
       15,
-
       271,
-
       272,
-
       273,
-
       274,
-
       275,
-
       336,
-
       625,
-
       276,
-
       277,
-
       282,
-
       283,
-
       284,
-
       286,
-
       59,
-
       432,
-
       126,
-
       110,
-
       18,
-
       287,
-
       37,
-
       299,
-
       288,
-
       289,
-
       346,
-
       290,
-
       546,                
-
       811,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(MDEntryType);
       NET_FIELD_SET(MDEntryPx);
@@ -6279,103 +5441,54 @@ namespace QuickFix44
     public:
       NoMDEntries() : Group(268, 15, message_order ) {}
         static int message_order __gc[] = {
-
       279,
-
       285,
-
       269,
-
       278,
-
       
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         
-
       
-
       291,
-
       292,
-
       270,
-
       15,
-
       271,
-
       272,
-
       273,
-
       274,
-
       275,
-
       336,
-
       625,
-
       276,
-
       277,
-
       282,
-
       283,
-
       284,
-
       286,
-
       59,
-
       432,
-
       126,
-
       110,
-
       18,
-
       287,
-
       37,
-
       299,
-
       288,
-
       289,
-
       346,
-
       290,
-
       546,
-
       811,
-
       451,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(MDUpdateAction);
       NET_FIELD_SET(DeleteReason);
@@ -6422,21 +5535,13 @@ namespace QuickFix44
     public:
       MDEntryRefID() : Group(280, 55, message_order ) {}
         static int message_order __gc[] = {
-
         55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
         
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         
-
         
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         
-
       0};
     NET_FIELD_SET(NoUnderlyings);
     __gc class NoUnderlyings : public QuickFix::Group
@@ -6444,9 +5549,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
           311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
         0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -6498,11 +5601,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -6514,9 +5614,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
           600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -6565,11 +5663,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -6621,11 +5716,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -6636,15 +5728,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -6679,9 +5766,7 @@ namespace QuickFix44
     public:
       NoAltMDSource() : Group(816, 817, message_order ) {}
         static int message_order __gc[] = {
-
       817,
-
     0};
       NET_FIELD_SET(AltMDSourceID);
     };
@@ -6754,11 +5839,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -6769,15 +5851,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -6792,11 +5869,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -6807,9 +5881,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -6861,11 +5933,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -6883,9 +5952,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -6934,11 +6001,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -7015,11 +6079,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -7030,15 +6091,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -7053,11 +6109,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -7068,9 +6121,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -7122,11 +6173,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -7144,9 +6192,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -7195,11 +6241,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -7264,15 +6307,10 @@ namespace QuickFix44
     public:
       NoSecurityTypes() : Group(558, 167, message_order ) {}
         static int message_order __gc[] = {
-
       167,
-
       762,
-
       460,
-
       461,
-
     0};
       NET_FIELD_SET(SecurityType);
       NET_FIELD_SET(SecuritySubType);
@@ -7351,11 +6389,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -7366,15 +6401,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -7389,11 +6419,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -7413,9 +6440,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -7467,11 +6492,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -7483,9 +6505,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -7534,11 +6554,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -7582,57 +6599,31 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
         static int message_order __gc[] = {
-
       55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
       668,869,
-
       913,914,915,918,788,916,917,919,898,
-
       
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       
-
       15,
-
       
-
       
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         690,
-
         587,
-
         
-
         676,677,678,679,680,
-
       
-
       218,220,221,222,662,663,699,761,
-
       235,236,701,696,697,698,
-
       561,
-
       562,
-
       336,
-
       625,
-
       827,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(Currency);
       NET_FIELD_SET(RoundLot);
@@ -7649,9 +6640,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -7703,11 +6692,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -7719,17 +6705,11 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 587, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
         690,
-
         587,
-
         
-
         676,677,678,679,680,
-
       0};
       NET_FIELD_SET(LegSwapType);
       NET_FIELD_SET(LegSettlType);
@@ -7780,11 +6760,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -7795,11 +6772,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -7856,11 +6830,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -7871,15 +6842,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -7894,11 +6860,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -7918,11 +6881,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -8012,11 +6972,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -8102,11 +7059,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -8119,31 +7073,18 @@ namespace QuickFix44
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
         static int message_order __gc[] = {
-
       55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
       15,
-
       827,
-
       668,869,
-
       
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       
-
       336,
-
       625,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(Currency);
       NET_FIELD_SET(ExpirationCycle);
@@ -8158,9 +7099,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
         600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -8209,11 +7148,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -8265,11 +7201,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -8280,15 +7213,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -8303,11 +7231,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -8378,11 +7303,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -8393,15 +7315,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -8416,11 +7333,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -8431,9 +7345,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -8485,11 +7397,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -8501,9 +7410,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -8552,11 +7459,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -8621,11 +7525,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -8636,15 +7537,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -8659,11 +7555,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -8674,9 +7567,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -8728,11 +7619,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -8744,9 +7632,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -8795,11 +7681,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -8915,21 +7798,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -8940,11 +7815,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -8965,19 +7837,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       736,
-
       467,
-
       
-
       80,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -8990,21 +7855,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -9015,11 +7872,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -9041,11 +7895,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -9097,11 +7948,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -9112,15 +7960,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -9142,9 +7985,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -9196,11 +8037,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -9216,11 +8054,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -9347,21 +8182,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -9372,11 +8199,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -9389,17 +8213,11 @@ namespace QuickFix44
     public:
       NoContraBrokers() : Group(382, 337, message_order ) {}
         static int message_order __gc[] = {
-
       375,
-
       337,
-
       437,
-
       438,
-
       655,
-
     0};
       NET_FIELD_SET(ContraBroker);
       NET_FIELD_SET(ContraTrader);
@@ -9474,11 +8292,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -9489,15 +8304,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -9519,9 +8329,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -9573,11 +8381,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -9590,11 +8395,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -9729,13 +8531,9 @@ namespace QuickFix44
     public:
       NoContAmts() : Group(518, 519, message_order ) {}
         static int message_order __gc[] = {
-
       519,
-
       520,
-
       521,
-
     0};
       NET_FIELD_SET(ContAmtType);
       NET_FIELD_SET(ContAmtValue);
@@ -9747,31 +8545,18 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       687,
-
       690,
-
       
-
       564,
-
       565,
-
       
-
       654,
-
       566,
-
       587,
-
       588,
-
       637,
-
     0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -9829,11 +8614,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -9844,11 +8626,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -9859,21 +8638,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -9884,11 +8655,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -9902,15 +8670,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
       137,
-
       138,
-
       139,
-
       891,
-
     0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -9989,11 +8752,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -10004,15 +8764,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -10025,9 +8780,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -10079,11 +8832,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -10095,9 +8845,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -10146,11 +8894,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -10198,21 +8943,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -10223,11 +8960,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -10254,19 +8988,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       736,
-
       467,
-
       
-
       80,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -10279,21 +9006,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -10304,11 +9023,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -10330,11 +9046,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -10385,11 +9098,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -10400,15 +9110,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -10430,9 +9135,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -10484,11 +9187,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -10607,21 +9307,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -10632,11 +9324,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -10688,11 +9377,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -10703,15 +9389,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -10733,9 +9414,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -10787,11 +9466,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -10881,21 +9557,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -10906,11 +9574,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -10965,11 +9630,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -10980,15 +9642,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -11010,9 +9667,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -11064,11 +9719,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -11146,11 +9798,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -11161,15 +9810,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -11226,11 +9870,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -11274,13 +9915,9 @@ namespace QuickFix44
     public:
       NoAffectedOrders() : Group(534, 41, message_order ) {}
         static int message_order __gc[] = {
-
       41,
-
       535,
-
       536,
-
     0};
       NET_FIELD_SET(OrigClOrdID);
       NET_FIELD_SET(AffectedOrderID);
@@ -11334,11 +9971,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -11349,15 +9983,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -11414,11 +10043,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -11454,21 +10080,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -11479,11 +10097,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -11539,11 +10154,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -11554,15 +10166,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -11619,11 +10226,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -11662,87 +10266,46 @@ namespace QuickFix44
     public:
       NoSides() : Group(552, 1, message_order ) {}
         static int message_order __gc[] = {
-
       54,
-
       11,
-
       526,
-
       583,
-
       
-
       229,
-
       75,
-
       1,
-
       660,
-
       581,
-
       589,
-
       590,
-
       591,
-
       70,
-
       
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       
-
       854,
-
       38,152,516,468,469,
-
       38,152,516,468,469,
-
       528,
-
       529,
-
       582,
-
       121,
-
       120,
-
       775,
-
       58,
-
       354,
-
       355,
-
       77,
-
       203,
-
       544,
-
       635,
-
       377,
-
       659,
-
     0};
       NET_FIELD_SET(Side);
       NET_FIELD_SET(ClOrdID);
@@ -11779,19 +10342,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -11804,21 +10360,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -11829,11 +10377,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -11846,21 +10391,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -11871,11 +10408,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -11938,11 +10472,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -11953,15 +10484,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -11974,9 +10500,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -12028,11 +10552,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -12044,9 +10565,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -12095,11 +10614,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -12118,11 +10634,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -12137,11 +10650,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -12231,91 +10741,48 @@ namespace QuickFix44
     public:
       NoSides() : Group(552, 1, message_order ) {}
         static int message_order __gc[] = {
-
       54,
-
       41,
-
       11,
-
       526,
-
       583,
-
       586,
-
       
-
       229,
-
       75,
-
       1,
-
       660,
-
       581,
-
       589,
-
       590,
-
       591,
-
       70,
-
       
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       
-
       854,
-
       38,152,516,468,469,
-
       38,152,516,468,469,
-
       528,
-
       529,
-
       582,
-
       121,
-
       120,
-
       775,
-
       58,
-
       354,
-
       355,
-
       77,
-
       203,
-
       544,
-
       635,
-
       377,
-
       659,
-
     0};
       NET_FIELD_SET(Side);
       NET_FIELD_SET(OrigClOrdID);
@@ -12354,19 +10821,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -12379,21 +10839,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -12404,11 +10856,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -12421,21 +10870,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -12446,11 +10887,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -12513,11 +10951,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -12528,15 +10963,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -12549,9 +10979,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -12603,11 +11031,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -12619,9 +11044,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -12670,11 +11093,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -12693,11 +11113,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -12712,11 +11129,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -12804,35 +11218,20 @@ namespace QuickFix44
     public:
       NoSides() : Group(552, 11, message_order ) {}
         static int message_order __gc[] = {
-
       54,
-
       41,
-
       11,
-
       526,
-
       583,
-
       586,
-
       
-
       229,
-
       75,
-
       38,152,516,468,469,
-
       376,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(Side);
       NET_FIELD_SET(OrigClOrdID);
@@ -12852,21 +11251,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -12877,11 +11268,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -12939,11 +11327,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -12954,15 +11339,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -12975,9 +11355,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -13029,11 +11407,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -13045,9 +11420,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -13096,11 +11469,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -13138,21 +11508,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -13163,11 +11525,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -13188,19 +11547,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       736,
-
       467,
-
       
-
       80,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -13213,21 +11565,13 @@ namespace QuickFix44
     public:
       NoNested3PartyIDs() : Group(948, 949, message_order ) {}
         static int message_order __gc[] = {
-
         949,
-
         950,
-
         951,
-
         
-
           953,
-
           954,
-
           
-
       0};
       NET_FIELD_SET(Nested3PartyID);
       NET_FIELD_SET(Nested3PartyIDSource);
@@ -13238,11 +11582,8 @@ namespace QuickFix44
     public:
       NoNested3PartySubIDs() : Group(952, 953, message_order ) {}
         static int message_order __gc[] = {
-
           953,
-
           954,
-
           0};
       NET_FIELD_SET(Nested3PartySubID);
       NET_FIELD_SET(Nested3PartySubIDType);
@@ -13264,11 +11605,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -13321,11 +11659,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -13336,15 +11671,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -13357,9 +11687,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -13411,11 +11739,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -13428,45 +11753,25 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       687,
-
       690,
-
       
-
       
-
         671,
-
         672,
-
         
-
         673,
-
         674,
-
         675,
-
       
-
       564,
-
       565,
-
       
-
       654,
-
       566,
-
       587,
-
       588,
-
     0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -13482,19 +11787,12 @@ namespace QuickFix44
     public:
       NoLegAllocs() : Group(670, 671, message_order ) {}
         static int message_order __gc[] = {
-
         671,
-
         672,
-
         
-
         673,
-
         674,
-
         675,
-
       0};
       NET_FIELD_SET(LegAllocAccount);
       NET_FIELD_SET(LegIndividualAllocID);
@@ -13507,21 +11805,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -13532,11 +11822,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -13590,11 +11877,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -13605,11 +11889,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -13620,21 +11901,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -13645,11 +11918,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -13752,21 +12022,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -13777,11 +12039,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -13802,19 +12061,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       736,
-
       467,
-
       
-
       80,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -13827,21 +12079,13 @@ namespace QuickFix44
     public:
       NoNested3PartyIDs() : Group(948, 949, message_order ) {}
         static int message_order __gc[] = {
-
         949,
-
         950,
-
         951,
-
         
-
           953,
-
           954,
-
           
-
       0};
       NET_FIELD_SET(Nested3PartyID);
       NET_FIELD_SET(Nested3PartyIDSource);
@@ -13852,11 +12096,8 @@ namespace QuickFix44
     public:
       NoNested3PartySubIDs() : Group(952, 953, message_order ) {}
         static int message_order __gc[] = {
-
           953,
-
           954,
-
           0};
       NET_FIELD_SET(Nested3PartySubID);
       NET_FIELD_SET(Nested3PartySubIDType);
@@ -13878,11 +12119,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -13935,11 +12173,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -13950,15 +12185,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -13971,9 +12201,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -14025,11 +12253,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -14042,45 +12267,25 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       687,
-
       690,
-
       
-
       
-
         671,
-
         672,
-
         
-
         673,
-
         674,
-
         675,
-
       
-
       564,
-
       565,
-
       
-
       654,
-
       566,
-
       587,
-
       588,
-
     0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -14096,19 +12301,12 @@ namespace QuickFix44
     public:
       NoLegAllocs() : Group(670, 671, message_order ) {}
         static int message_order __gc[] = {
-
         671,
-
         672,
-
         
-
         673,
-
         674,
-
         675,
-
       0};
       NET_FIELD_SET(LegAllocAccount);
       NET_FIELD_SET(LegIndividualAllocID);
@@ -14121,21 +12319,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -14146,11 +12336,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -14204,11 +12391,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -14219,11 +12403,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -14234,21 +12415,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -14259,11 +12432,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -14372,29 +12542,17 @@ namespace QuickFix44
     public:
       NoBidDescriptors() : Group(398, 399, message_order ) {}
         static int message_order __gc[] = {
-
       399,
-
       400,
-
       401,
-
       404,
-
       441,
-
       402,
-
       403,
-
       405,
-
       406,
-
       407,
-
       408,
-
     0};
       NET_FIELD_SET(BidDescriptorType);
       NET_FIELD_SET(BidDescriptor);
@@ -14414,25 +12572,15 @@ namespace QuickFix44
     public:
       NoBidComponents() : Group(420, 1, message_order ) {}
         static int message_order __gc[] = {
-
       66,
-
       54,
-
       336,
-
       625,
-
       430,
-
       63,
-
       64,
-
       1,
-
       660,
-
     0};
       NET_FIELD_SET(ListID);
       NET_FIELD_SET(Side);
@@ -14477,37 +12625,21 @@ namespace QuickFix44
     public:
       NoBidComponents() : Group(420, 44, message_order ) {}
         static int message_order __gc[] = {
-
       38,152,516,468,469,
-
       66,
-
       421,
-
       54,
-
       44,
-
       423,
-
       406,
-
       430,
-
       63,
-
       64,
-
       336,
-
       625,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(ListID);
       NET_FIELD_SET(Country);
@@ -14573,181 +12705,93 @@ namespace QuickFix44
     public:
       NoOrders() : Group(73, 1, message_order ) {}
         static int message_order __gc[] = {
-
       11,
-
       526,
-
       67,
-
       583,
-
       160,
-
       
-
       229,
-
       75,
-
       1,
-
       660,
-
       581,
-
       589,
-
       590,
-
       70,
-
       591,
-
       
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       
-
       63,
-
       64,
-
       544,
-
       635,
-
       21,
-
       18,
-
       110,
-
       111,
-
       100,
-
       
-
         336,
-
         625,
-
       
-
       81,
-
       55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
       
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       
-
       140,
-
       54,
-
       401,
-
       114,
-
       60,
-
       
-
       854,
-
       38,152,516,468,469,
-
       40,
-
       423,
-
       44,
-
       99,
-
       218,220,221,222,662,663,699,761,
-
       235,236,701,696,697,698,
-
       15,
-
       376,
-
       377,
-
       23,
-
       117,
-
       59,
-
       168,
-
       432,
-
       126,
-
       427,
-
       38,152,516,468,469,
-
       528,
-
       529,
-
       582,
-
       121,
-
       120,
-
       775,
-
       58,
-
       354,
-
       355,
-
       193,
-
       192,
-
       640,
-
       77,
-
       203,
-
       210,
-
       211,835,836,837,838,840,
-
       388,389,841,842,843,844,846,
-
       847,
-
       848,
-
       849,
-
       494,
-
     0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(SecondaryClOrdID);
@@ -14818,19 +12862,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -14843,21 +12880,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -14868,11 +12897,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -14885,11 +12911,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
         336,
-
         625,
-
       0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -14900,9 +12923,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
         311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -14954,11 +12975,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -14970,21 +12988,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -14995,11 +13005,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -15051,11 +13058,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -15066,15 +13070,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -15087,11 +13086,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -15161,9 +13157,7 @@ namespace QuickFix44
     public:
       NoStrikes() : Group(428, 55, message_order ) {}
         static int message_order __gc[] = {
-
       55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,
-
     0};
           NET_FIELD_SET(Symbol);
           NET_FIELD_SET(SymbolSfx);
@@ -15211,11 +13205,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -15226,15 +13217,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -15248,27 +13234,16 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 11, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       140,
-
       11,
-
       526,
-
       54,
-
       44,
-
       15,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(PrevClosePx);
       NET_FIELD_SET(ClOrdID);
@@ -15329,11 +13304,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -15382,31 +13354,18 @@ namespace QuickFix44
     public:
       NoOrders() : Group(73, 6, message_order ) {}
         static int message_order __gc[] = {
-
       11,
-
       526,
-
       14,
-
       39,
-
       636,
-
       151,
-
       84,
-
       6,
-
       103,
-
       58,
-
       354,
-
       355,
-
     0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(SecondaryClOrdID);
@@ -15538,25 +13497,15 @@ namespace QuickFix44
     public:
       NoOrders() : Group(73, 11, message_order ) {}
         static int message_order __gc[] = {
-
       11,
-
       37,
-
       198,
-
       526,
-
       66,
-
       
-
       38,
-
       799,
-
       800,
-
     0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(OrderID);
@@ -15572,21 +13521,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -15597,11 +13538,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -15614,19 +13552,12 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
-      3,
-
+      32,
       17,
-
       527,
-
       31,
-
       669,
-
       29,
-
     0};
       NET_FIELD_SET(LastQty);
       NET_FIELD_SET(ExecID);
@@ -15685,11 +13616,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -15700,15 +13628,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -15723,11 +13646,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -15747,9 +13667,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -15801,11 +13719,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -15817,9 +13732,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -15868,11 +13781,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -15903,21 +13813,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -15928,11 +13830,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -15967,11 +13866,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -15990,81 +13886,43 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       573,
-
       366,
-
       80,
-
       467,
-
       81,
-
       
-
       208,
-
       209,
-
       161,
-
       360,
-
       361,
-
       38,152,516,468,469,
-
       153,
-
       154,
-
       119,
-
       737,
-
       120,
-
       736,
-
       155,
-
       156,
-
       159,
-
       742,
-
       741,
-
       160,
-
       
-
         137,
-
         138,
-
         139,
-
         891,
-
       
-
       576,
-
       577,
-
       635,
-
       780,
-
       172,169,170,171,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -16100,15 +13958,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
         137,
-
         138,
-
         139,
-
         891,
-
       0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -16121,21 +13974,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -16146,11 +13991,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -16171,13 +14013,9 @@ namespace QuickFix44
     public:
       NoDlvyInst() : Group(85, 165, message_order ) {}
         static int message_order __gc[] = {
-
         165,
-
         787,
-
         
-
       0};
       NET_FIELD_SET(SettlInstSource);
       NET_FIELD_SET(DlvyInstType);
@@ -16187,21 +14025,13 @@ namespace QuickFix44
     public:
       NoSettlPartyIDs() : Group(781, 782, message_order ) {}
         static int message_order __gc[] = {
-
         782,
-
         783,
-
         784,
-
         
-
           785,
-
           786,
-
         
-
       0};
       NET_FIELD_SET(SettlPartyID);
       NET_FIELD_SET(SettlPartyIDSource);
@@ -16212,11 +14042,8 @@ namespace QuickFix44
     public:
       NoSettlPartySubIDs() : Group(801, 785, message_order ) {}
         static int message_order __gc[] = {
-
           785,
-
           786,
-
         0};
       NET_FIELD_SET(SettlPartySubID);
       NET_FIELD_SET(SettlPartySubIDType);
@@ -16251,21 +14078,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -16276,11 +14095,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -16305,23 +14121,14 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       366,
-
       467,
-
       776,
-
       161,
-
       360,
-
       361,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -16385,25 +14192,15 @@ namespace QuickFix44
     public:
       NoOrders() : Group(73, 11, message_order ) {}
         static int message_order __gc[] = {
-
       11,
-
       37,
-
       198,
-
       526,
-
       66,
-
       
-
       38,
-
       799,
-
       800,
-
     0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(OrderID);
@@ -16419,21 +14216,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -16444,11 +14233,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -16461,19 +14247,12 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
-      3,
-
+      32,
       17,
-
       527,
-
       31,
-
       669,
-
       29,
-
     0};
       NET_FIELD_SET(LastQty);
       NET_FIELD_SET(ExecID);
@@ -16532,11 +14311,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -16547,15 +14323,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -16570,11 +14341,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -16594,9 +14362,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -16648,11 +14414,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -16664,9 +14427,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -16715,11 +14476,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -16750,21 +14508,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -16775,11 +14525,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -16814,11 +14561,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -16837,79 +14581,42 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       573,
-
       366,
-
       80,
-
       467,
-
       81,
-
       
-
       208,
-
       209,
-
       161,
-
       360,
-
       361,
-
       38,152,516,468,469,
-
       153,
-
       154,
-
       119,
-
       737,
-
       120,
-
       736,
-
       155,
-
       156,
-
       742,
-
       741,
-
       
-
         137,
-
         138,
-
         139,
-
         891,
-
       
-
       
-
         577,
-
       
-
       635,
-
       780,
-
       172,169,170,171,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -16941,15 +14648,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
         137,
-
         138,
-
         139,
-
         891,
-
       0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -16962,9 +14664,7 @@ namespace QuickFix44
     public:
       NoClearingInstructions() : Group(576, 577, message_order ) {}
         static int message_order __gc[] = {
-
         577,
-
       0};
       NET_FIELD_SET(ClearingInstruction);
     };
@@ -16974,21 +14674,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -16999,11 +14691,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -17024,13 +14713,9 @@ namespace QuickFix44
     public:
       NoDlvyInst() : Group(85, 165, message_order ) {}
         static int message_order __gc[] = {
-
         165,
-
         787,
-
         
-
       0};
       NET_FIELD_SET(SettlInstSource);
       NET_FIELD_SET(DlvyInstType);
@@ -17040,21 +14725,13 @@ namespace QuickFix44
     public:
       NoSettlPartyIDs() : Group(781, 782, message_order ) {}
         static int message_order __gc[] = {
-
         782,
-
         783,
-
         784,
-
         
-
           785,
-
           786,
-
         
-
       0};
       NET_FIELD_SET(SettlPartyID);
       NET_FIELD_SET(SettlPartyIDSource);
@@ -17065,11 +14742,8 @@ namespace QuickFix44
     public:
       NoSettlPartySubIDs() : Group(801, 785, message_order ) {}
         static int message_order __gc[] = {
-
           785,
-
           786,
-
         0};
       NET_FIELD_SET(SettlPartySubID);
       NET_FIELD_SET(SettlPartySubIDType);
@@ -17107,21 +14781,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -17132,11 +14798,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -17161,23 +14824,14 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       366,
-
       467,
-
       776,
-
       161,
-
       360,
-
       361,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -17240,21 +14894,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -17265,11 +14911,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -17281,25 +14924,15 @@ namespace QuickFix44
     public:
       NoOrders() : Group(73, 11, message_order ) {}
         static int message_order __gc[] = {
-
       11,
-
       37,
-
       198,
-
       526,
-
       66,
-
       
-
       38,
-
       799,
-
       800,
-
     0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(OrderID);
@@ -17315,21 +14948,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -17340,11 +14965,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -17362,13 +14984,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -17420,11 +15038,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -17435,15 +15050,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -17458,11 +15068,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -17482,9 +15089,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -17536,11 +15141,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -17552,9 +15154,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -17603,11 +15203,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -17630,13 +15227,9 @@ namespace QuickFix44
     public:
       NoCapacities() : Group(862, 528, message_order ) {}
         static int message_order __gc[] = {
-
       528,
-
       529,
-
       863,
-
     0};
       NET_FIELD_SET(OrderCapacity);
       NET_FIELD_SET(OrderRestrictions);
@@ -17691,13 +15284,9 @@ namespace QuickFix44
     public:
       NoDlvyInst() : Group(85, 165, message_order ) {}
         static int message_order __gc[] = {
-
         165,
-
         787,
-
         
-
       0};
       NET_FIELD_SET(SettlInstSource);
       NET_FIELD_SET(DlvyInstType);
@@ -17707,21 +15296,13 @@ namespace QuickFix44
     public:
       NoSettlPartyIDs() : Group(781, 782, message_order ) {}
         static int message_order __gc[] = {
-
         782,
-
         783,
-
         784,
-
         
-
           785,
-
           786,
-
         
-
       0};
       NET_FIELD_SET(SettlPartyID);
       NET_FIELD_SET(SettlPartyIDSource);
@@ -17732,11 +15313,8 @@ namespace QuickFix44
     public:
       NoSettlPartySubIDs() : Group(801, 785, message_order ) {}
         static int message_order __gc[] = {
-
           785,
-
           786,
-
         0};
       NET_FIELD_SET(SettlPartySubID);
       NET_FIELD_SET(SettlPartySubIDType);
@@ -17755,11 +15333,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -17770,15 +15345,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
       137,
-
       138,
-
       139,
-
       891,
-
     0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -17844,25 +15414,15 @@ namespace QuickFix44
     public:
       NoOrders() : Group(73, 11, message_order ) {}
         static int message_order __gc[] = {
-
       11,
-
       37,
-
       198,
-
       526,
-
       66,
-
       
-
       38,
-
       799,
-
       800,
-
     0};
       NET_FIELD_SET(ClOrdID);
       NET_FIELD_SET(OrderID);
@@ -17878,21 +15438,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -17903,11 +15455,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -17960,49 +15509,27 @@ namespace QuickFix44
     public:
       NoSettlInst() : Group(778, 54, message_order ) {}
         static int message_order __gc[] = {
-
       162,
-
       163,
-
       214,
-
       
-
       54,
-
       460,
-
       167,
-
       461,
-
       168,
-
       126,
-
       779,
-
       172,169,170,171,
-
       492,
-
       476,
-
       488,
-
       489,
-
       503,
-
       490,
-
       491,
-
       504,
-
       505,
-
     0};
       NET_FIELD_SET(SettlInstID);
       NET_FIELD_SET(SettlInstTransType);
@@ -18029,21 +15556,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -18054,11 +15573,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -18074,13 +15590,9 @@ namespace QuickFix44
     public:
       NoDlvyInst() : Group(85, 165, message_order ) {}
         static int message_order __gc[] = {
-
         165,
-
         787,
-
         
-
       0};
       NET_FIELD_SET(SettlInstSource);
       NET_FIELD_SET(DlvyInstType);
@@ -18090,21 +15602,13 @@ namespace QuickFix44
     public:
       NoSettlPartyIDs() : Group(781, 782, message_order ) {}
         static int message_order __gc[] = {
-
         782,
-
         783,
-
         784,
-
         
-
           785,
-
           786,
-
         
-
       0};
       NET_FIELD_SET(SettlPartyID);
       NET_FIELD_SET(SettlPartyIDSource);
@@ -18115,11 +15619,8 @@ namespace QuickFix44
     public:
       NoSettlPartySubIDs() : Group(801, 785, message_order ) {}
         static int message_order __gc[] = {
-
           785,
-
           786,
-
         0};
       NET_FIELD_SET(SettlPartySubID);
       NET_FIELD_SET(SettlPartySubIDType);
@@ -18153,21 +15654,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -18178,11 +15671,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -18240,21 +15730,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -18265,11 +15747,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -18321,11 +15800,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -18336,15 +15812,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -18359,11 +15830,8 @@ namespace QuickFix44
     public:
       NoInstrAttrib() : Group(870, 871, message_order ) {}
         static int message_order __gc[] = {
-
         871,
-
         872,
-
       0};
       NET_FIELD_SET(InstrAttribType);
       NET_FIELD_SET(InstrAttribValue);
@@ -18383,9 +15851,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -18437,11 +15903,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -18453,9 +15916,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -18504,11 +15965,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -18520,11 +15978,8 @@ namespace QuickFix44
     public:
       NoDates() : Group(580, 60, message_order ) {}
         static int message_order __gc[] = {
-
       75,
-
       60,
-
     0};
       NET_FIELD_SET(TradeDate);
       NET_FIELD_SET(TransactTime);
@@ -18616,11 +16071,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -18631,15 +16083,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -18652,9 +16099,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -18706,11 +16151,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -18722,9 +16164,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -18773,11 +16213,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -18885,11 +16322,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -18900,15 +16334,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -18942,9 +16371,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -18996,11 +16423,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -19037,31 +16461,18 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       687,
-
       690,
-
       
-
       564,
-
       565,
-
       
-
       654,
-
       566,
-
       587,
-
       588,
-
       637,
-
     0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -19119,11 +16530,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -19134,11 +16542,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -19149,21 +16554,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -19174,11 +16571,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -19192,13 +16586,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -19214,161 +16604,83 @@ namespace QuickFix44
     public:
       NoSides() : Group(552, 1, message_order ) {}
         static int message_order __gc[] = {
-
       54,
-
       37,
-
       198,
-
       11,
-
       526,
-
       66,
-
       
-
       1,
-
       660,
-
       581,
-
       81,
-
       575,
-
       
-
         577,
-
       
-
       635,
-
       578,
-
       579,
-
       821,
-
       15,
-
       376,
-
       377,
-
       528,
-
       529,
-
       582,
-
       40,
-
       18,
-
       483,
-
       336,
-
       625,
-
       943,
-
       38,152,516,468,469,
-
       381,
-
       157,
-
       230,
-
       158,
-
       159,
-
       738,
-
       920,
-
       921,
-
       922,
-
       238,
-
       237,
-
       118,
-
       119,
-
       120,
-
       155,
-
       156,
-
       77,
-
       58,
-
       354,
-
       355,
-
       752,
-
       
-
         519,
-
         520,
-
         521,
-
       
-
       
-
       
-
         137,
-
         138,
-
         139,
-
         891,
-
       
-
       825,
-
       826,
-
       591,
-
       70,
-
       
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       
-
     0};
       NET_FIELD_SET(Side);
       NET_FIELD_SET(OrderID);
@@ -19428,9 +16740,7 @@ namespace QuickFix44
     public:
       NoClearingInstructions() : Group(576, 577, message_order ) {}
         static int message_order __gc[] = {
-
         577,
-
       0};
       NET_FIELD_SET(ClearingInstruction);
     };
@@ -19440,13 +16750,9 @@ namespace QuickFix44
     public:
       NoContAmts() : Group(518, 519, message_order ) {}
         static int message_order __gc[] = {
-
         519,
-
         520,
-
         521,
-
       0};
       NET_FIELD_SET(ContAmtType);
       NET_FIELD_SET(ContAmtValue);
@@ -19458,15 +16764,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
         137,
-
         138,
-
         139,
-
         891,
-
       0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -19479,19 +16780,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
         79,
-
         661,
-
         736,
-
         467,
-
         
-
         80,
-
       0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -19504,21 +16798,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -19529,11 +16815,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -19546,21 +16829,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -19571,11 +16846,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -19592,11 +16864,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -19687,11 +16956,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -19702,15 +16968,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -19724,13 +16985,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -19747,31 +17004,18 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 564, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
       687,
-
       690,
-
       
-
       564,
-
       565,
-
       
-
       654,
-
       566,
-
       587,
-
       588,
-
       637,
-
     0};
       NET_FIELD_SET(LegQty);
       NET_FIELD_SET(LegSwapType);
@@ -19829,11 +17073,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -19844,11 +17085,8 @@ namespace QuickFix44
     public:
       NoLegStipulations() : Group(683, 688, message_order ) {}
         static int message_order __gc[] = {
-
         688,
-
         689,
-
       0};
       NET_FIELD_SET(LegStipulationType);
       NET_FIELD_SET(LegStipulationValue);
@@ -19859,21 +17097,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -19884,11 +17114,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -19910,19 +17137,12 @@ namespace QuickFix44
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
         static int message_order __gc[] = {
-
       79,
-
       661,
-
       736,
-
       467,
-
       
-
       80,
-
     0};
       NET_FIELD_SET(AllocAccount);
       NET_FIELD_SET(AllocAcctIDSource);
@@ -19935,21 +17155,13 @@ namespace QuickFix44
     public:
       NoNested2PartyIDs() : Group(756, 757, message_order ) {}
         static int message_order __gc[] = {
-
         757,
-
         758,
-
         759,
-
         
-
           760,
-
           807,
-
         
-
       0};
       NET_FIELD_SET(Nested2PartyID);
       NET_FIELD_SET(Nested2PartyIDSource);
@@ -19960,11 +17172,8 @@ namespace QuickFix44
     public:
       NoNested2PartySubIDs() : Group(806, 760, message_order ) {}
         static int message_order __gc[] = {
-
           760,
-
           807,
-
         0};
       NET_FIELD_SET(Nested2PartySubID);
       NET_FIELD_SET(Nested2PartySubIDType);
@@ -20001,21 +17210,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -20026,11 +17227,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -20047,23 +17245,14 @@ namespace QuickFix44
     public:
       NoRegistDtls() : Group(473, 474, message_order ) {}
         static int message_order __gc[] = {
-
       509,
-
       511,
-
       474,
-
       482,
-
       
-
       522,
-
       486,
-
       475,
-
     0};
       NET_FIELD_SET(RegistDtls);
       NET_FIELD_SET(RegistEmail);
@@ -20078,21 +17267,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -20103,11 +17284,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -20120,23 +17298,14 @@ namespace QuickFix44
     public:
       NoDistribInsts() : Group(510, 477, message_order ) {}
         static int message_order __gc[] = {
-
       477,
-
       512,
-
       478,
-
       498,
-
       499,
-
       500,
-
       501,
-
       502,
-
     0};
       NET_FIELD_SET(DistribPaymentMethod);
       NET_FIELD_SET(DistribPercentage);
@@ -20179,21 +17348,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -20204,11 +17365,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -20261,21 +17419,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -20286,11 +17436,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -20345,11 +17492,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -20360,15 +17504,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -20382,9 +17521,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -20433,11 +17570,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -20449,9 +17583,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -20503,11 +17635,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -20519,11 +17648,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -20535,17 +17661,11 @@ namespace QuickFix44
     public:
       NoPositions() : Group(702, 703, message_order ) {}
         static int message_order __gc[] = {
-
         703,
-
         704,   
-
         705,   
-
         706,   
-
         
-
       0};
       NET_FIELD_SET(PosType);
       NET_FIELD_SET(LongQty);
@@ -20557,21 +17677,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -20582,11 +17694,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -20648,21 +17757,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -20673,11 +17774,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -20732,11 +17830,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -20747,15 +17842,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -20769,9 +17859,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -20820,11 +17908,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -20836,9 +17921,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -20890,11 +17973,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -20906,11 +17986,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -20922,17 +17999,11 @@ namespace QuickFix44
     public:
       NoPositions() : Group(702, 703, message_order ) {}
         static int message_order __gc[] = {
-
         703,
-
         704,   
-
         705,   
-
         706,   
-
         
-
       0};
       NET_FIELD_SET(PosType);
       NET_FIELD_SET(LongQty);
@@ -20944,21 +18015,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -20969,11 +18032,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -21024,21 +18084,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -21049,11 +18101,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -21108,11 +18157,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -21123,15 +18169,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -21145,9 +18186,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -21196,11 +18235,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -21212,9 +18248,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -21266,11 +18300,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -21285,11 +18316,8 @@ namespace QuickFix44
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
         static int message_order __gc[] = {
-
       336,
-
       625,
-
     0};
       NET_FIELD_SET(TradingSessionID);
       NET_FIELD_SET(TradingSessionSubID);
@@ -21336,21 +18364,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -21361,11 +18381,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -21420,11 +18437,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -21435,15 +18449,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -21457,9 +18466,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -21508,11 +18515,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -21524,9 +18528,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -21578,11 +18580,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -21639,21 +18638,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -21664,11 +18655,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -21723,11 +18711,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -21738,15 +18723,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -21763,9 +18743,7 @@ namespace QuickFix44
     public:
       NoLegs() : Group(555, 600, message_order ) {}
         static int message_order __gc[] = {
-
       600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,
-
     0};
           NET_FIELD_SET(LegSymbol);
           NET_FIELD_SET(LegSymbolSfx);
@@ -21814,11 +18792,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -21830,13 +18805,9 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 732, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       732,
-
       733,
-
     0};
       NET_FIELD_SET(UnderlyingSettlPrice);
       NET_FIELD_SET(UnderlyingSettlPriceType);
@@ -21890,11 +18861,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -21906,17 +18874,11 @@ namespace QuickFix44
     public:
       NoPositions() : Group(702, 703, message_order ) {}
         static int message_order __gc[] = {
-
         703,
-
         704,   
-
         705,   
-
         706,   
-
         
-
       0};
       NET_FIELD_SET(PosType);
       NET_FIELD_SET(LongQty);
@@ -21928,21 +18890,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -21953,11 +18907,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -22017,21 +18968,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -22042,11 +18985,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -22100,11 +19040,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -22115,15 +19052,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -22179,11 +19111,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -22194,9 +19123,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -22248,11 +19175,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -22264,17 +19188,11 @@ namespace QuickFix44
     public:
       NoPositions() : Group(702, 703, message_order ) {}
         static int message_order __gc[] = {
-
         703,
-
         704,   
-
         705,   
-
         706,   
-
         
-
       0};
       NET_FIELD_SET(PosType);
       NET_FIELD_SET(LongQty);
@@ -22286,21 +19204,13 @@ namespace QuickFix44
     public:
       NoNestedPartyIDs() : Group(539, 524, message_order ) {}
         static int message_order __gc[] = {
-
         524,
-
         525,
-
         538,
-
         
-
           545,
-
           805,
-
         
-
       0};
       NET_FIELD_SET(NestedPartyID);
       NET_FIELD_SET(NestedPartyIDSource);
@@ -22311,11 +19221,8 @@ namespace QuickFix44
     public:
       NoNestedPartySubIDs() : Group(804, 545, message_order ) {}
         static int message_order __gc[] = {
-
           545,
-
           805,
-
         0};
       NET_FIELD_SET(NestedPartySubID);
       NET_FIELD_SET(NestedPartySubIDType);
@@ -22370,21 +19277,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -22395,11 +19294,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -22417,9 +19313,7 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
       17,
-
     0};
       NET_FIELD_SET(ExecID);
     };
@@ -22429,11 +19323,8 @@ namespace QuickFix44
     public:
       NoTrades() : Group(897, 571, message_order ) {}
         static int message_order __gc[] = {
-
       571,
-
       818, 
-
     0};
       NET_FIELD_SET(TradeReportID);
       NET_FIELD_SET(SecondaryTradeReportID);
@@ -22484,11 +19375,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -22499,15 +19387,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -22575,11 +19458,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -22590,11 +19470,8 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 944, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       944,
-
     0};
       NET_FIELD_SET(CollAction);
           NET_FIELD_SET(UnderlyingSymbol);
@@ -22647,11 +19524,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -22666,13 +19540,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -22685,15 +19555,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
       137,
-
       138, 
-
       139,
-
       891, 
-
     0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -22720,11 +19585,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -22772,21 +19634,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -22797,11 +19651,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -22819,9 +19670,7 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
       17,
-
     0};
       NET_FIELD_SET(ExecID);
     };
@@ -22831,11 +19680,8 @@ namespace QuickFix44
     public:
       NoTrades() : Group(897, 571, message_order ) {}
         static int message_order __gc[] = {
-
       571,
-
       818, 
-
     0};
       NET_FIELD_SET(TradeReportID);
       NET_FIELD_SET(SecondaryTradeReportID);
@@ -22886,11 +19732,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -22901,15 +19744,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -22977,11 +19815,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -22992,11 +19827,8 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 944, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       944,
-
     0};
       NET_FIELD_SET(CollAction);
           NET_FIELD_SET(UnderlyingSymbol);
@@ -23049,11 +19881,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -23068,13 +19897,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -23087,15 +19912,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
       137,
-
       138, 
-
       139,
-
       891, 
-
     0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -23122,11 +19942,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -23141,13 +19958,9 @@ namespace QuickFix44
     public:
       NoDlvyInst() : Group(85, 165, message_order ) {}
         static int message_order __gc[] = {
-
         165,
-
         787,
-
         
-
       0};
       NET_FIELD_SET(SettlInstSource);
       NET_FIELD_SET(DlvyInstType);
@@ -23157,21 +19970,13 @@ namespace QuickFix44
     public:
       NoSettlPartyIDs() : Group(781, 782, message_order ) {}
         static int message_order __gc[] = {
-
         782,
-
         783,
-
         784,
-
         
-
           785,
-
           786,
-
         
-
       0};
       NET_FIELD_SET(SettlPartyID);
       NET_FIELD_SET(SettlPartyIDSource);
@@ -23182,11 +19987,8 @@ namespace QuickFix44
     public:
       NoSettlPartySubIDs() : Group(801, 785, message_order ) {}
         static int message_order __gc[] = {
-
           785,
-
           786,
-
         0};
       NET_FIELD_SET(SettlPartySubID);
       NET_FIELD_SET(SettlPartySubIDType);
@@ -23239,21 +20041,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -23264,11 +20058,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -23286,9 +20077,7 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
       17,
-
     0};
       NET_FIELD_SET(ExecID);
     };
@@ -23298,11 +20087,8 @@ namespace QuickFix44
     public:
       NoTrades() : Group(897, 571, message_order ) {}
         static int message_order __gc[] = {
-
       571,
-
       818, 
-
     0};
       NET_FIELD_SET(TradeReportID);
       NET_FIELD_SET(SecondaryTradeReportID);
@@ -23353,11 +20139,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -23368,15 +20151,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -23444,11 +20222,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -23459,11 +20234,8 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 944, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
       944,
-
     0};
       NET_FIELD_SET(CollAction);
           NET_FIELD_SET(UnderlyingSymbol);
@@ -23516,11 +20288,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -23535,13 +20304,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -23554,15 +20319,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
       137,
-
       138, 
-
       139,
-
       891, 
-
     0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -23589,11 +20349,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -23630,21 +20387,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -23655,11 +20404,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -23677,9 +20423,7 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
       17,
-
     0};
       NET_FIELD_SET(ExecID);
     };
@@ -23689,11 +20433,8 @@ namespace QuickFix44
     public:
       NoTrades() : Group(897, 571, message_order ) {}
         static int message_order __gc[] = {
-
       571,
-
       818, 
-
     0};
       NET_FIELD_SET(TradeReportID);
       NET_FIELD_SET(SecondaryTradeReportID);
@@ -23744,11 +20485,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -23759,15 +20497,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -23835,11 +20568,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -23850,9 +20580,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -23904,11 +20632,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -23923,13 +20648,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -23942,15 +20663,10 @@ namespace QuickFix44
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
         static int message_order __gc[] = {
-
       137,
-
       138, 
-
       139,
-
       891, 
-
     0};
       NET_FIELD_SET(MiscFeeAmt);
       NET_FIELD_SET(MiscFeeCurr);
@@ -23977,11 +20693,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -23996,13 +20709,9 @@ namespace QuickFix44
     public:
       NoDlvyInst() : Group(85, 165, message_order ) {}
         static int message_order __gc[] = {
-
         165,
-
         787,
-
         
-
       0};
       NET_FIELD_SET(SettlInstSource);
       NET_FIELD_SET(DlvyInstType);
@@ -24012,21 +20721,13 @@ namespace QuickFix44
     public:
       NoSettlPartyIDs() : Group(781, 782, message_order ) {}
         static int message_order __gc[] = {
-
         782,
-
         783,
-
         784,
-
         
-
           785,
-
           786,
-
         
-
       0};
       NET_FIELD_SET(SettlPartyID);
       NET_FIELD_SET(SettlPartyIDSource);
@@ -24037,11 +20738,8 @@ namespace QuickFix44
     public:
       NoSettlPartySubIDs() : Group(801, 785, message_order ) {}
         static int message_order __gc[] = {
-
           785,
-
           786,
-
         0};
       NET_FIELD_SET(SettlPartySubID);
       NET_FIELD_SET(SettlPartySubIDType);
@@ -24071,9 +20769,7 @@ namespace QuickFix44
     public:
       NoCollInquiryQualifier() : Group(938, 896, message_order ) {}
         static int message_order __gc[] = {
-
       896,
-
     0};
       NET_FIELD_SET(CollInquiryQualifier);
     };
@@ -24086,21 +20782,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -24111,11 +20799,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -24133,9 +20818,7 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
       17,
-
     0};
       NET_FIELD_SET(ExecID);
     };
@@ -24145,11 +20828,8 @@ namespace QuickFix44
     public:
       NoTrades() : Group(897, 571, message_order ) {}
         static int message_order __gc[] = {
-
       571,
-
       818, 
-
     0};
       NET_FIELD_SET(TradeReportID);
       NET_FIELD_SET(SecondaryTradeReportID);
@@ -24200,11 +20880,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -24215,15 +20892,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -24291,11 +20963,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -24306,9 +20975,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -24360,11 +21027,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
@@ -24379,13 +21043,9 @@ namespace QuickFix44
     public:
       NoTrdRegTimestamps() : Group(768, 769, message_order ) {}
         static int message_order __gc[] = {
-
         769,
-
         770,
-
         771,
-
       0};
       NET_FIELD_SET(TrdRegTimestamp);
       NET_FIELD_SET(TrdRegTimestampType);
@@ -24412,11 +21072,8 @@ namespace QuickFix44
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
         static int message_order __gc[] = {
-
         233,
-
         234,
-
       0};
       NET_FIELD_SET(StipulationType);
       NET_FIELD_SET(StipulationValue);
@@ -24431,13 +21088,9 @@ namespace QuickFix44
     public:
       NoDlvyInst() : Group(85, 165, message_order ) {}
         static int message_order __gc[] = {
-
         165,
-
         787,
-
         
-
       0};
       NET_FIELD_SET(SettlInstSource);
       NET_FIELD_SET(DlvyInstType);
@@ -24447,21 +21100,13 @@ namespace QuickFix44
     public:
       NoSettlPartyIDs() : Group(781, 782, message_order ) {}
         static int message_order __gc[] = {
-
         782,
-
         783,
-
         784,
-
         
-
           785,
-
           786,
-
         
-
       0};
       NET_FIELD_SET(SettlPartyID);
       NET_FIELD_SET(SettlPartyIDSource);
@@ -24472,11 +21117,8 @@ namespace QuickFix44
     public:
       NoSettlPartySubIDs() : Group(801, 785, message_order ) {}
         static int message_order __gc[] = {
-
           785,
-
           786,
-
         0};
       NET_FIELD_SET(SettlPartySubID);
       NET_FIELD_SET(SettlPartySubIDType);
@@ -24518,9 +21160,7 @@ namespace QuickFix44
     public:
       NoCollInquiryQualifier() : Group(938, 896, message_order ) {}
         static int message_order __gc[] = {
-
       896,
-
     0};
       NET_FIELD_SET(CollInquiryQualifier);
     };
@@ -24531,21 +21171,13 @@ namespace QuickFix44
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
         static int message_order __gc[] = {
-
         448,
-
         447,
-
         452,
-
         
-
           523,
-
           803,
-
         
-
       0};
       NET_FIELD_SET(PartyID);
       NET_FIELD_SET(PartyIDSource);
@@ -24556,11 +21188,8 @@ namespace QuickFix44
     public:
       NoPartySubIDs() : Group(802, 523, message_order ) {}
         static int message_order __gc[] = {
-
           523,
-
           803,
-
         0};
       NET_FIELD_SET(PartySubID);
       NET_FIELD_SET(PartySubIDType);
@@ -24578,9 +21207,7 @@ namespace QuickFix44
     public:
       NoExecs() : Group(124, 17, message_order ) {}
         static int message_order __gc[] = {
-
       17,
-
     0};
       NET_FIELD_SET(ExecID);
     };
@@ -24590,11 +21217,8 @@ namespace QuickFix44
     public:
       NoTrades() : Group(897, 571, message_order ) {}
         static int message_order __gc[] = {
-
       571,
-
       818, 
-
     0};
       NET_FIELD_SET(TradeReportID);
       NET_FIELD_SET(SecondaryTradeReportID);
@@ -24645,11 +21269,8 @@ namespace QuickFix44
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
         static int message_order __gc[] = {
-
         455,
-
         456,
-
       0};
       NET_FIELD_SET(SecurityAltID);
       NET_FIELD_SET(SecurityAltIDSource);
@@ -24660,15 +21281,10 @@ namespace QuickFix44
     public:
       NoEvents() : Group(864, 865, message_order ) {}
         static int message_order __gc[] = {
-
         865,
-
         866,
-
         867,
-
         868,
-
       0};
       NET_FIELD_SET(EventType);
       NET_FIELD_SET(EventDate);
@@ -24736,11 +21352,8 @@ namespace QuickFix44
     public:
       NoLegSecurityAltID() : Group(604, 605, message_order ) {}
         static int message_order __gc[] = {
-
         605,
-
         606,
-
       0};
       NET_FIELD_SET(LegSecurityAltID);
       NET_FIELD_SET(LegSecurityAltIDSource);
@@ -24751,9 +21364,7 @@ namespace QuickFix44
     public:
       NoUnderlyings() : Group(711, 311, message_order ) {}
         static int message_order __gc[] = {
-
       311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,
-
     0};
           NET_FIELD_SET(UnderlyingSymbol);
           NET_FIELD_SET(UnderlyingSymbolSfx);
@@ -24805,11 +21416,8 @@ namespace QuickFix44
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
         static int message_order __gc[] = {
-
         458,
-
         459,
-
       0};
       NET_FIELD_SET(UnderlyingSecurityAltID);
       NET_FIELD_SET(UnderlyingSecurityAltIDSource);
