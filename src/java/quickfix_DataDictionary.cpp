@@ -258,3 +258,16 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isGroup
   QF_STACK_CATCH
 }
 
+JNIEXPORT jint JNICALL Java_quickfix_DataDictionary_getFieldType
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::TYPE::Type type;
+  bool result = pDataDictionary->getFieldType( field, type );
+  if( result ) return type;
+  return FIX::TYPE::Unknown;
+  QF_STACK_CATCH
+}

@@ -135,6 +135,14 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isFieldValue
 JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isGroup
   (JNIEnv *, jobject, jstring, jint);
 
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    getFieldType
+ * Signature: (I)I
+ */
+JNIEXPORT jint JNICALL Java_quickfix_DataDictionary_getFieldType
+  (JNIEnv *, jobject, jint);
+
 #ifdef __cplusplus
 }
 #endif

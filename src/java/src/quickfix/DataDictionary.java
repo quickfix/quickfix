@@ -55,4 +55,5 @@ public class DataDictionary {
     public native boolean hasFieldValue( int field );
     public native boolean isFieldValue( int field, String value );
     public native boolean isGroup( String msg, int field );
+    public native int getFieldType( int field );
 }
