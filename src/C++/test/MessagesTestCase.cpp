@@ -122,7 +122,7 @@ void MessageTestCase::setString::onRun( Message& object )
     object.setString( strGood );
     object.setString( std::string(strNull, 68) );
     object.setString( strNoLengthAndChk, false );
-  } catch( InvalidMessage& e ) { assert(false); }
+  } catch( InvalidMessage& ) { assert(false); }
 
   try{ object.setString( strTrailingCharacter ); assert(false) }
   catch( InvalidMessage& ) {}
