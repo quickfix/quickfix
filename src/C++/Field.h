@@ -78,20 +78,20 @@ class FieldBase
 public:
   FieldBase( int field, const std::string& string )
   : m_field( field ), m_length( 0 ), m_total( 0 )
-  {
-    std::stringstream stream;
-    stream << field << "=" << string << '\001';
+    { setString( string ); }
 
+  void setField( int field )
+    { m_field = field; }
+
+  void setString( const std::string& string )
+  { 
     m_string = string;
-    m_data = stream.str();
+    m_data = IntConvertor::convert(m_field) + "=" + string + "\001";
     m_length = m_data.length();
-    std::string::const_iterator iter = m_data.begin();
-    std::string::const_iterator end = m_data.end();
-    while ( iter != end )
-    {
-      m_total += *iter;
-      ++iter;
-    }
+    const char* iter = m_data.c_str();
+    const char* end = iter + m_data.length();
+    while( iter != end )
+      m_total += *iter++;
   }
 
   /// Get the fields integer tag.
@@ -146,6 +146,8 @@ public:
   StringField( int field )
 : FieldBase( field, "" ) {}
 
+  void setValue( const std::string& value )
+    { setString( value ); }
   const std::string getValue() const
     { return getString(); }
   operator const std::string() const
@@ -178,29 +180,29 @@ public:
 };
 
 inline bool operator<( const StringField& lhs, const char* rhs )
-{ return lhs.getValue() < rhs; }
+  { return lhs.getValue() < rhs; }
 inline bool operator<( const char* lhs, const StringField& rhs )
-{ return lhs < rhs.getValue(); }
+  { return lhs < rhs.getValue(); }
 inline bool operator>( const StringField& lhs, const char* rhs )
-{ return lhs.getValue() > rhs; }
+  { return lhs.getValue() > rhs; }
 inline bool operator>( const char* lhs, const StringField& rhs )
-{ return lhs > rhs.getValue(); }
+  { return lhs > rhs.getValue(); }
 inline bool operator==( const StringField& lhs, const char* rhs )
-{ return lhs.getValue() == rhs; }
+  { return lhs.getValue() == rhs; }
 inline bool operator==( const char* lhs, const StringField& rhs )
-{ return lhs == rhs.getValue(); }
+  { return lhs == rhs.getValue(); }
 inline bool operator!=( const StringField& lhs, const char* rhs )
-{ return lhs.getValue() != rhs; }
+  { return lhs.getValue() != rhs; }
 inline bool operator!=( const char* lhs, const StringField& rhs )
-{ return lhs != rhs.getValue(); }
+  { return lhs != rhs.getValue(); }
 inline bool operator<=( const StringField& lhs, const char* rhs )
-{ return lhs.getValue() <= rhs; }
+  { return lhs.getValue() <= rhs; }
 inline bool operator<=( const char* lhs, const StringField& rhs )
-{ return lhs <= rhs.getValue(); }
+  { return lhs <= rhs.getValue(); }
 inline bool operator>=( const StringField& lhs, const char* rhs )
-{ return lhs.getValue() >= rhs; }
+  { return lhs.getValue() >= rhs; }
 inline bool operator>=( const char* lhs, const StringField& rhs )
-{ return lhs >= rhs.getValue(); }
+  { return lhs >= rhs.getValue(); }
 
 class CharField : public FieldBase
 {
@@ -210,6 +212,8 @@ public:
   CharField( int field )
 : FieldBase( field, "" ) {}
 
+  void setValue( char value )
+    { setString( CharConvertor::convert( value ) ); }
   const char getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return CharConvertor::convert( getString() ); }
@@ -227,6 +231,8 @@ public:
   DoubleField( int field )
 : FieldBase( field, "" ) {}
 
+  void setValue( double value )
+    { setString( DoubleConvertor::convert( value ) ); }
   const double getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return DoubleConvertor::convert( getString() ); }
@@ -244,6 +250,8 @@ public:
   IntField( int field )
 : FieldBase( field, "" ) {}
 
+  void setValue( int value )
+    { setString( IntConvertor::convert( value ) ); }
   const int getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return IntConvertor::convert( getString() ); }
@@ -261,6 +269,8 @@ public:
   BoolField( int field )
 : FieldBase( field, "" ) {}
 
+  void setValue( bool value )
+    { setString( BoolConvertor::convert( value ) ); }
   const bool getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return BoolConvertor::convert( getString() ); }
@@ -278,6 +288,8 @@ public:
   UtcTimeStampField( int field )
 : FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp() ) ) {}
 
+  void setValue( UtcTimeStamp& value )
+    { setString( UtcTimeStampConvertor::convert( value ) ); }
   const UtcTimeStamp getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return UtcTimeStampConvertor::convert( getString() ); }
@@ -302,6 +314,8 @@ public:
   UtcDateField( int field )
 : FieldBase( field, UtcDateConvertor::convert( UtcDate() ) ) {}
 
+  void setValue( UtcDate& value )
+    { setString( UtcDateConvertor::convert( value ) ); }
   const UtcDate getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return UtcDateConvertor::convert( getString() ); }
@@ -326,6 +340,8 @@ public:
   UtcTimeOnlyField( int field )
 : FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly() ) ) {}
 
+  void setValue( UtcTimeOnly& value )
+    { setString( UtcTimeOnlyConvertor::convert( value ) ); }
   const UtcTimeOnly getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return UtcTimeOnlyConvertor::convert( getString() ); }
@@ -350,6 +366,8 @@ public:
   CheckSumField( int field )
 : FieldBase( field, "" ) {}
 
+  void setValue( int value )
+    { setString( CheckSumConvertor::convert( value ) ); }
   const int getValue() const throw ( IncorrectDataFormat& )
     { try 
       { return CheckSumConvertor::convert( getString() ); }
