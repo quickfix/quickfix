@@ -5395,6 +5395,10 @@
       <value enum="7" description="INDEX" />
       <value enum="8" description="LOAN" />
       <value enum="9" description="MONEYMARKET" />
+      <value enum="10" description="MORTGAGE" />
+      <value enum="11" description="MUNICIPAL" />
+      <value enum="12" description="OTHER" />
+      <value enum="13" description="FINANCING" />
     </field>
     <field number="461" name="CFICode" type="STRING" />
     <field number="462" name="UnderlyingProduct" type="INT" />
