@@ -3268,7 +3268,7 @@ namespace Fix43
         519,
         520,
         521,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -3293,6 +3293,43 @@ namespace Fix43
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
       NET_FIELD_SET(LegLastPx);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -3464,7 +3501,7 @@ namespace Fix43
         519,
         520,
         521,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -3489,6 +3526,43 @@ namespace Fix43
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
       NET_FIELD_SET(LegLastPx);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -3509,7 +3583,7 @@ namespace Fix43
         519,
         520,
         521,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -3534,6 +3608,43 @@ namespace Fix43
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
       NET_FIELD_SET(LegLastPx);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -5116,7 +5227,7 @@ namespace Fix43
         80,
         336,
         625,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -5136,6 +5247,43 @@ namespace Fix43
       NET_FIELD_SET(LegPrice);
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -5162,7 +5310,7 @@ namespace Fix43
         80,
         336,
         625,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -5182,6 +5330,43 @@ namespace Fix43
       NET_FIELD_SET(LegPrice);
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -5237,7 +5422,7 @@ namespace Fix43
         80,
         336,
         625,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -5257,6 +5442,43 @@ namespace Fix43
       NET_FIELD_SET(LegPrice);
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -5362,7 +5584,7 @@ namespace Fix43
         80,
         336,
         625,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -5382,6 +5604,43 @@ namespace Fix43
       NET_FIELD_SET(LegPrice);
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -5408,7 +5667,7 @@ namespace Fix43
         80,
         336,
         625,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -5428,6 +5687,43 @@ namespace Fix43
       NET_FIELD_SET(LegPrice);
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
@@ -5483,7 +5779,7 @@ namespace Fix43
         80,
         336,
         625,
-        
+        600,601,602,603,604,605,606,607,608,609,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,613,614,615,616,617,618,619,620,621,622,623,624,
         564,
         565,
         539,524,525,538,545,
@@ -5503,6 +5799,43 @@ namespace Fix43
       NET_FIELD_SET(LegPrice);
       NET_FIELD_SET(LegSettlmntTyp);
       NET_FIELD_SET(LegFutSettDate);
+          NET_FIELD_SET(LegSymbol);
+          NET_FIELD_SET(LegSymbolSfx);
+          NET_FIELD_SET(LegSecurityID);
+          NET_FIELD_SET(LegSecurityIDSource);
+          NET_FIELD_SET(NoLegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltID);
+          NET_FIELD_SET(LegSecurityAltIDSource);
+          NET_FIELD_SET(LegProduct);
+          NET_FIELD_SET(LegCFICode);
+          NET_FIELD_SET(LegSecurityType);
+          NET_FIELD_SET(LegMaturityMonthYear);
+          NET_FIELD_SET(LegMaturityDate);
+          NET_FIELD_SET(LegCouponPaymentDate);
+          NET_FIELD_SET(LegIssueDate);
+          NET_FIELD_SET(LegRepoCollateralSecurityType);
+          NET_FIELD_SET(LegRepurchaseTerm);
+          NET_FIELD_SET(LegRepurchaseRate);
+          NET_FIELD_SET(LegFactor);
+          NET_FIELD_SET(LegCreditRating);
+          NET_FIELD_SET(LegInstrRegistry);
+          NET_FIELD_SET(LegCountryOfIssue);
+          NET_FIELD_SET(LegStateOrProvinceOfIssue);
+          NET_FIELD_SET(LegLocaleOfIssue);
+          NET_FIELD_SET(LegRedemptionDate);
+          NET_FIELD_SET(LegStrikePrice);
+          NET_FIELD_SET(LegOptAttribute);
+          NET_FIELD_SET(LegContractMultiplier);
+          NET_FIELD_SET(LegCouponRate);
+          NET_FIELD_SET(LegSecurityExchange);
+          NET_FIELD_SET(LegIssuer);
+          NET_FIELD_SET(EncodedLegIssuerLen);
+          NET_FIELD_SET(EncodedLegIssuer);
+          NET_FIELD_SET(LegSecurityDesc);
+          NET_FIELD_SET(EncodedLegSecurityDescLen);
+          NET_FIELD_SET(EncodedLegSecurityDesc);
+          NET_FIELD_SET(LegRatioQty);
+          NET_FIELD_SET(LegSide);
           NET_FIELD_SET(NoNestedPartyIDs);
           NET_FIELD_SET(NestedPartyID);
           NET_FIELD_SET(NestedPartyIDSource);
