@@ -61,6 +61,8 @@ namespace FIX
   class DOMNode
   {
   public:
+    virtual ~DOMNode() {}
+
     typedef std::map<std::string, std::string> attributes;
 
     virtual std::auto_ptr<DOMNode> getFirstChildNode() = 0;
@@ -74,6 +76,8 @@ namespace FIX
   class DOMDocument
   {
   public:
+    virtual ~DOMDocument() {}
+
     virtual bool load( std::istream& ) = 0;
     virtual bool xml( std::ostream& ) = 0;
 
