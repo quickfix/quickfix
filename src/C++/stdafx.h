@@ -15,6 +15,10 @@
 #include <stdio.h>
 #include "../config_windows.h"
 
+#if defined(_STLP_MSVC)
+  #define HAVE_STLPORT 1
+#endif
+
 #if _MSC_VER >= 1300
   #define TERMINATE_IN_STD 1
 #endif
