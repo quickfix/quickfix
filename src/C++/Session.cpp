@@ -77,11 +77,11 @@ Session::Session( Application& application,
   m_startTime( startTime ), m_endTime( endTime ),
   m_checkLatency( true ), m_maxLatency( 120 ),
   m_resetOnLogout( false ), m_resetOnDisconnect( false ),
+  m_millisecondsInTimeStamp( true ),
   m_dataDictionary( dataDictionary ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
-  m_pResponder( 0 ),
-  m_millisecondsInTimeStamp( true )
+  m_pResponder( 0 )
 {
   m_state.heartBtInt( heartBtInt );
   m_state.initiate( heartBtInt != 0 );
@@ -1346,7 +1346,7 @@ bool Session::isSessionTime( const UtcTimeOnly& start, const UtcTimeOnly& end,
                              const UtcTimeStamp& time )
 { QF_STACK_PUSH(Session::isSessionTime)
 
-  UtcTimeOnly timeOnly( time,0 );
+  UtcTimeOnly timeOnly( time, 0 );
 
   if ( start < end )
     return ( timeOnly >= start && timeOnly <= end );
