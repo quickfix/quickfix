@@ -148,6 +148,15 @@ namespace QuickFix
   </xsl:otherwise>
 </xsl:choose>
 </xsl:for-each>
+
+<xsl:if test="@name='SecurityType'">
+<xsl:if test="not(/fix/fields/field[@name='SecurityType']/value[@description='OPTION'])"> 
+  static const String* OPTION = "OPT";</xsl:if>
+<xsl:if test="not(/fix/fields/field[@name='SecurityType']/value[@description='FUTURE'])"> 
+  static const String* FUTURE = "FUT";
+  </xsl:if>
+  </xsl:if>
+
 </xsl:template>
     
 </xsl:stylesheet>

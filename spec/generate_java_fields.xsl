@@ -155,6 +155,14 @@ echo } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.
   </xsl:otherwise>
 </xsl:choose>
 </xsl:for-each>
+
+<xsl:if test="@name='SecurityType'">
+<xsl:if test="not(/fix/fields/field[@name='SecurityType']/value[@description='OPTION'])"> 
+echo public static final String OPTION = "OPT"; &gt;&gt; <xsl:call-template name="path"/>\SecurityType.java</xsl:if>
+<xsl:if test="not(/fix/fields/field[@name='SecurityType']/value[@description='FUTURE'])"> 
+echo public static final String FUTURE = "FUT"; &gt;&gt; <xsl:call-template name="path"/>\SecurityType.java</xsl:if>
+</xsl:if>
+
 </xsl:template>
 
 <xsl:template name="path">..\src\java\src\org\quickfix\field</xsl:template>

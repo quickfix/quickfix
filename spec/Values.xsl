@@ -68,6 +68,10 @@ namespace FIX
   const char BeginString_FIX41[] = "FIX.4.1";
   const char BeginString_FIX40[] = "FIX.4.0";
   <xsl:apply-templates/>
+  <xsl:if test="not(/fix/fields/field[@name='SecurityType']/value[@description='OPTION'])"> 
+  const std::string SecurityType_OPTION = "OPT";</xsl:if>
+  <xsl:if test="not(/fix/fields/field[@name='SecurityType']/value[@description='FUTURE'])"> 
+  const std::string SecurityType_FUTURE = "FUT";</xsl:if>
   const std::string SessionRejectReason_INVALID_TAG_NUMBER_TEXT = "Invalid tag number";
   const std::string SessionRejectReason_REQUIRED_TAG_MISSING_TEXT = "Required tag missing";
   const std::string SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT = "Tag not defined for this message type";
@@ -84,7 +88,7 @@ namespace FIX
 }
 #endif //FIX_VALUES_H
  </xsl:template>
-
+ 
  <xsl:template match="fix/fields/field/value">
  <xsl:choose>
    <xsl:when test="../@type='INT'">
