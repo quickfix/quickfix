@@ -34,7 +34,7 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalDependencies="quickfix.lib ws2_32.lib"
-				OutputFile="$(OutDir)/quickfix_net.dll"
+				OutputFile="$(OutDir)\quickfix_net.dll"
 				LinkIncremental="2"
 				AdditionalLibraryDirectories="..\..\lib\debug"
 				GenerateDebugInformation="TRUE"/>
@@ -205,9 +205,6 @@
 			</File>
 			<File
 				RelativePath="Message.h">
-			</File>
-			<File
-				RelativePath="MessageCracker.h">
 			</File>
 			<File
 				RelativePath="MessageFactory.h">

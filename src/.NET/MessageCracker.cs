@@ -48,42 +48,29 @@
  * ====================================================================
  */
 
-#pragma once
-
-using namespace System;
-
-#include "quickfix_net.h"
-
-#include "FIX40_MessageCracker.h"
-#include "FIX41_MessageCracker.h"
-#include "FIX42_MessageCracker.h"
-#include "FIX43_MessageCracker.h"
-#include "quickfix/Values.h"
+using System;
 
 namespace QuickFix
 {
-public __gc class MessageCracker : public QuickFix43::MessageCracker
-{
-public:
-  void crack( QuickFix::Message* message, QuickFix::SessionID* sessionID )
+  public class MessageCracker : QuickFix44.MessageCracker
   {
-    BeginString * beginString = new BeginString();
-    message->getHeader() ->getField( beginString );
-    String* value = beginString->getValue();
-    if ( value->Equals( new String( FIX::BeginString_FIX40 ) ) )
-      ( static_cast < QuickFix40::MessageCracker* > 
-	( this ) ) ->crack( message, sessionID );
-    else if ( value->Equals( new String( FIX::BeginString_FIX41 ) ) )
-      ( static_cast < QuickFix41::MessageCracker* > 
-	( this ) ) ->crack( message, sessionID );
-    else if ( value->Equals( new String( FIX::BeginString_FIX42 ) ) )
-      ( static_cast < QuickFix42::MessageCracker* > 
-	( this ) ) ->crack( message, sessionID );
-    else if ( value->Equals( new String( FIX::BeginString_FIX43 ) ) )
-      ( static_cast < QuickFix43::MessageCracker* > 
-	( this ) ) ->crack( message, sessionID );
-    else
-      onMessage( message, sessionID );
-  }
-};
+    public void crack( QuickFix.Message message, QuickFix.SessionID sessionID )
+    {
+      BeginString beginString = new BeginString();
+      message.getHeader().getField( beginString );
+      String value = beginString.getValue();
+      if( value.Equals("FIX.4.0") )
+        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+      else if( value.Equals("FIX.4.1") )
+        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+      else if( value.Equals("FIX.4.2") )
+        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+      else if( value.Equals("FIX.4.3") )
+        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+      else if( value.Equals("FIX.4.4") )
+        ((QuickFix40.MessageCracker)this).crack( message, sessionID );
+      else
+        onMessage( message, sessionID );
+    }
+  };
 }

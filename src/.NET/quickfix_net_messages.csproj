@@ -87,6 +87,11 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "DefaultMessageFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "FIX40_MessageCracker.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -133,6 +138,11 @@
                 />
                 <File
                     RelPath = "FIX44_MessageFactory.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "MessageCracker.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />
