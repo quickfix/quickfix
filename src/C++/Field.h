@@ -27,6 +27,7 @@
 #endif
 
 #include <sstream>
+#include <numeric>
 #include "FieldNumbers.h"
 #include "FieldConvertors.h"
 #include "FieldTypes.h"
@@ -90,13 +91,23 @@ public:
 private:
   void calculate()
   {
-    m_data = IntConvertor::convert(m_field) + "=" + m_string + "\001";
-    m_length = m_data.length();
+    char buf[64];
+
+    if( 13 + m_string.length() < sizeof(buf) )
+    {
+      m_length = sprintf( buf, "%d=%*.*s\001", m_field,
+                          m_string.length(), m_string.length(),
+                          m_string.data() );
+      m_data.assign( buf, m_length );
+    }
+    else
+    {
+      m_data = IntConvertor::convert(m_field) + "=" + m_string + "\001";
+      m_length = m_data.length();
+    }
+
     const char* iter = m_data.c_str();
-    const char* end = iter + m_data.length();
-    m_total = 0;
-    while( iter != end )
-      m_total += *iter++;
+    m_total = std::accumulate( iter, iter + m_length, 0 );
   }
 
   int m_field;

@@ -186,7 +186,9 @@ std::string Message::toString() const
 std::string& Message::toString( std::string& str ) const
 { QF_STACK_PUSH(Message::toString)
 
-  m_header.setField( BodyLength( bodyLength() ) );
+  int length = bodyLength();
+  str.reserve( 32 + length );
+  m_header.setField( BodyLength( bodyLength ) );
   m_trailer.setField( CheckSum( checkSum() ) );
 
   m_header.calculateString( str, true );

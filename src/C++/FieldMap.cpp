@@ -131,7 +131,6 @@ std::string& FieldMap::calculateString( std::string& result, bool clear ) const
 { QF_STACK_PUSH(FieldMap::calculateString)
 
   if( clear ) result.clear();
-  result.reserve( result.size() + m_fields.size() * 20 );
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
