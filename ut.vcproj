@@ -382,6 +382,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="src\C++\test\StringUtilitiesTestCase.cpp">
+			</File>
+			<File
 				RelativePath="src\C++\test\UtcTimeOnlyTestCase.cpp">
 			</File>
 			<File
@@ -489,6 +492,9 @@
 			</File>
 			<File
 				RelativePath=".\src\C++\test\SocketUtilitiesTestCase.h">
+			</File>
+			<File
+				RelativePath="src\C++\test\StringUtilitiesTestCase.h">
 			</File>
 			<File
 				RelativePath=".\src\TestSuite.h">

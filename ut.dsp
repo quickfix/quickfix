@@ -170,6 +170,10 @@ SOURCE=".\src\C++\test\SocketUtilitiesTestCase.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\test\StringUtilitiesTestCase.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=.\src\ut.cpp
 # End Source File
 # Begin Source File
