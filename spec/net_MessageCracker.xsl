@@ -42,12 +42,12 @@ namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//f
 
 <xsl:template name="virtual-functions">
  <xsl:for-each select="//fix/messages/message"> public virtual void onMessage( <xsl:value-of select="@name"/> message, QuickFix.SessionID session ) 
- <xsl:if test="@name!='BusinessMessageReject' and @msgcat='app'">   { throw new QuickFix.UnsupportedMessageType(); }
+ <xsl:if test="@msgcat='app' and @name!='BusinessMessageReject'">   { throw new QuickFix.UnsupportedMessageType(); }
  </xsl:if>
- <xsl:if test="@name='BusinessMessageReject'">   {}
+ <xsl:if test="@msgcat='app' and @name='BusinessMessageReject'">   {}
  </xsl:if>
-<xsl:if test="@msgcat='admin'">   {}
-</xsl:if>
+ <xsl:if test="@msgcat='admin'">   {}
+ </xsl:if>
 </xsl:for-each>
 </xsl:template>
 

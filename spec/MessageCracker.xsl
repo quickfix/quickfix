@@ -55,9 +55,9 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
 
 <xsl:template name="virtual-functions">
  <xsl:for-each select="//fix/messages/message"> virtual void onMessage( const <xsl:value-of select="@name"/>&amp;, const FIX::SessionID&amp; ) 
- <xsl:if test="@name!='BusinessMessageReject' and @msgcat='app'">   { throw FIX::UnsupportedMessageType(); }
+ <xsl:if test="@msgcat='app' and @name!='BusinessMessageReject'">   { throw FIX::UnsupportedMessageType(); }
  </xsl:if>
- <xsl:if test="@name='BusinessMessageReject'">   {}
+ <xsl:if test="@msgcat='app' and @name='BusinessMessageReject'">   {}
  </xsl:if>
  <xsl:if test="@msgcat='admin'">   {}
  </xsl:if>

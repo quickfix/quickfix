@@ -139,7 +139,6 @@ namespace FIX44
     {}
   virtual void onMessage( const BusinessMessageReject&, const FIX::SessionID& ) 
     {}
-    {}
   virtual void onMessage( const Advertisement&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const IndicationOfInterest&, const FIX::SessionID& ) 

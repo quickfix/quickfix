@@ -29,22 +29,21 @@ namespace QuickFix44
     { throw new QuickFix.UnsupportedMessageType(); }
  public virtual void onMessage( Heartbeat message, QuickFix.SessionID session ) 
     {}
- public virtual void onMessage( Logon message, QuickFix.SessionID session ) 
+  public virtual void onMessage( Logon message, QuickFix.SessionID session ) 
     {}
- public virtual void onMessage( TestRequest message, QuickFix.SessionID session ) 
+  public virtual void onMessage( TestRequest message, QuickFix.SessionID session ) 
     {}
- public virtual void onMessage( ResendRequest message, QuickFix.SessionID session ) 
+  public virtual void onMessage( ResendRequest message, QuickFix.SessionID session ) 
     {}
- public virtual void onMessage( Reject message, QuickFix.SessionID session ) 
+  public virtual void onMessage( Reject message, QuickFix.SessionID session ) 
     {}
- public virtual void onMessage( SequenceReset message, QuickFix.SessionID session ) 
+  public virtual void onMessage( SequenceReset message, QuickFix.SessionID session ) 
     {}
- public virtual void onMessage( Logout message, QuickFix.SessionID session ) 
+  public virtual void onMessage( Logout message, QuickFix.SessionID session ) 
     {}
- public virtual void onMessage( BusinessMessageReject message, QuickFix.SessionID session ) 
+  public virtual void onMessage( BusinessMessageReject message, QuickFix.SessionID session ) 
     {}
-    {}
- public virtual void onMessage( Advertisement message, QuickFix.SessionID session ) 
+  public virtual void onMessage( Advertisement message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( IndicationOfInterest message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
