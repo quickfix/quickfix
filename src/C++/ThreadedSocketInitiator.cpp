@@ -33,7 +33,7 @@ namespace FIX
 ThreadedSocketInitiator::ThreadedSocketInitiator(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings ) throw( ConfigError& )
+  const SessionSettings& settings ) throw( ConfigError )
 : Initiator( application, factory, settings ),
   m_reconnectInterval( 30 ), m_stop( false )
 { socket_init(); }
@@ -42,7 +42,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   Application& application,
   MessageStoreFactory& factory,
   const SessionSettings& settings,
-  LogFactory& logFactory ) throw( ConfigError& )
+  LogFactory& logFactory ) throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_reconnectInterval( 30 ), m_stop( false )
 { socket_init(); }
@@ -51,7 +51,7 @@ ThreadedSocketInitiator::~ThreadedSocketInitiator()
 { socket_term(); }
 
 void ThreadedSocketInitiator::onConfigure( const SessionSettings& s )
-throw ( ConfigError& )
+throw ( ConfigError )
 { QF_STACK_PUSH(ThreadedSocketInitiator::onConfigure)
 
   try { m_reconnectInterval = s.get().getLong( "ReconnectInterval" ); }
@@ -61,7 +61,7 @@ throw ( ConfigError& )
 }
 
 void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) 
-throw ( RuntimeError& )
+throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketInitiator::onInitialize)
   QF_STACK_POP
 }

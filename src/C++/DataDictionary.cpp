@@ -100,7 +100,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
 }
 
 void DataDictionary::validate( const Message& message )
-throw( std::exception& )
+throw( std::exception )
 { QF_STACK_PUSH(DataDictionary::validate)
 
   BeginString beginString;

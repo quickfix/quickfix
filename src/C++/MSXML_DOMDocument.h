@@ -69,7 +69,7 @@ namespace FIX
   class MSXML_DOMDocument : public DOMDocument
   {
   public:
-    MSXML_DOMDocument() throw( ConfigError& );
+    MSXML_DOMDocument() throw( ConfigError );
     ~MSXML_DOMDocument();
 
     bool load( std::istream& );

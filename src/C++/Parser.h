@@ -57,10 +57,10 @@ public:
   void allocate( int ); 
   bool extractLength( int& length, std::string::size_type& pos,
                       const std::string& buffer )
-  throw ( MessageParseError& );
+  throw ( MessageParseError );
   bool readFixMessage( std::string& str )
-  throw ( MessageParseError&, RecvFailed& );
-  bool readFromStream() throw ( RecvFailed& );
+  throw ( MessageParseError, RecvFailed );
+  bool readFromStream() throw ( RecvFailed );
 
   void setStream( std::istream& stream ) { m_pStream = &stream; }
   void addToStream( const char* str ) { m_buffer += str; }

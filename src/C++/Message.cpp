@@ -39,7 +39,7 @@ Message::Message()
   m_validStructure( true ) {}
 
 Message::Message( const std::string& string, bool validate )
-throw( InvalidMessage& )
+throw( InvalidMessage )
 : m_header( message_order( message_order::header ) ),
   m_trailer( message_order( message_order::trailer ) ),
   m_validStructure( true )
@@ -50,7 +50,7 @@ throw( InvalidMessage& )
 Message::Message( const std::string& string,
                   const DataDictionary& dataDictionary,
                   bool validate )
-throw( InvalidMessage& )
+throw( InvalidMessage )
 : m_header( message_order( message_order::header ) ),
   m_trailer( message_order( message_order::trailer ) ),
   m_validStructure( true )
@@ -272,7 +272,7 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
 void Message::setString( const std::string& string,
                          bool doValidation,
                          const DataDictionary* pDataDictionary )
-throw( InvalidMessage& )
+throw( InvalidMessage )
 { QF_STACK_PUSH(Message::setString)
 
   clear();
@@ -479,7 +479,7 @@ bool Message::isTrailerField( const FieldBase& field,
   QF_STACK_POP
 }
 
-SessionID Message::getSessionID() throw( FieldNotFound& )
+SessionID Message::getSessionID() throw( FieldNotFound )
 { QF_STACK_PUSH(Message::getSessionID)
 
   BeginString beginString;

@@ -34,7 +34,7 @@ void Group::addGroup( Group& group )
   QF_STACK_POP
 }
 
-Group& Group::getGroup( unsigned num, Group& group ) const throw( FieldNotFound& )
+Group& Group::getGroup( unsigned num, Group& group ) const throw( FieldNotFound )
 { QF_STACK_PUSH(Group::getGroup)
   return static_cast < Group& > ( FieldMap::getGroup( num, group.field(), group ) );
   QF_STACK_POP

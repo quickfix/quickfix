@@ -72,22 +72,22 @@ public:
   virtual ~MessageStore() {}
 
   virtual bool set( int, const std::string& )
-  throw ( IOException& ) = 0;
+  throw ( IOException ) = 0;
   virtual bool get( int, std::string& ) const
-  throw ( IOException& ) = 0;
+  throw ( IOException ) = 0;
   virtual void get( int, int, std::vector < std::string > & ) const
-  throw ( IOException& ) = 0;
+  throw ( IOException ) = 0;
 
-  virtual int getNextSenderMsgSeqNum() const throw ( IOException& ) = 0;
-  virtual int getNextTargetMsgSeqNum() const throw ( IOException& ) = 0;
-  virtual void setNextSenderMsgSeqNum( int ) throw ( IOException& ) = 0;
-  virtual void setNextTargetMsgSeqNum( int ) throw ( IOException& ) = 0;
-  virtual void incrNextSenderMsgSeqNum() throw ( IOException& ) = 0;
-  virtual void incrNextTargetMsgSeqNum() throw ( IOException& ) = 0;
+  virtual int getNextSenderMsgSeqNum() const throw ( IOException ) = 0;
+  virtual int getNextTargetMsgSeqNum() const throw ( IOException ) = 0;
+  virtual void setNextSenderMsgSeqNum( int ) throw ( IOException ) = 0;
+  virtual void setNextTargetMsgSeqNum( int ) throw ( IOException ) = 0;
+  virtual void incrNextSenderMsgSeqNum() throw ( IOException ) = 0;
+  virtual void incrNextTargetMsgSeqNum() throw ( IOException ) = 0;
 
-  virtual UtcTimeStamp getCreationTime() const throw ( IOException& ) = 0;
+  virtual UtcTimeStamp getCreationTime() const throw ( IOException ) = 0;
 
-  virtual void reset() throw ( IOException& ) = 0;
+  virtual void reset() throw ( IOException ) = 0;
 };
 /*! @} */
 
@@ -102,29 +102,29 @@ class MemoryStore : public MessageStore
 public:
   MemoryStore() : m_nextSenderMsgSeqNum( 1 ), m_nextTargetMsgSeqNum( 1 ) {}
 
-  bool set( int, const std::string& ) throw ( IOException& );
-  bool get( int, std::string& ) const throw ( IOException& );
-  void get( int, int, std::vector < std::string > & ) const throw ( IOException& );
+  bool set( int, const std::string& ) throw ( IOException );
+  bool get( int, std::string& ) const throw ( IOException );
+  void get( int, int, std::vector < std::string > & ) const throw ( IOException );
 
-  int getNextSenderMsgSeqNum() const throw ( IOException& )
+  int getNextSenderMsgSeqNum() const throw ( IOException )
   { return m_nextSenderMsgSeqNum; }
-  int getNextTargetMsgSeqNum() const throw ( IOException& )
+  int getNextTargetMsgSeqNum() const throw ( IOException )
   { return m_nextTargetMsgSeqNum; }
-  void setNextSenderMsgSeqNum( int value ) throw ( IOException& )
+  void setNextSenderMsgSeqNum( int value ) throw ( IOException )
   { m_nextSenderMsgSeqNum = value; }
-  void setNextTargetMsgSeqNum( int value ) throw ( IOException& )
+  void setNextTargetMsgSeqNum( int value ) throw ( IOException )
   { m_nextTargetMsgSeqNum = value; }
-  void incrNextSenderMsgSeqNum() throw ( IOException& )
+  void incrNextSenderMsgSeqNum() throw ( IOException )
   { ++m_nextSenderMsgSeqNum; }
-  void incrNextTargetMsgSeqNum() throw ( IOException& )
+  void incrNextTargetMsgSeqNum() throw ( IOException )
   { ++m_nextTargetMsgSeqNum; }
 
-  void setCreationTime( const UtcTimeStamp& creationTime ) throw ( IOException& )
+  void setCreationTime( const UtcTimeStamp& creationTime ) throw ( IOException )
   { m_creationTime = creationTime; }
-  UtcTimeStamp getCreationTime() const throw ( IOException& )
+  UtcTimeStamp getCreationTime() const throw ( IOException )
   { return m_creationTime; }
 
-  void reset() throw ( IOException& )
+  void reset() throw ( IOException )
   {
     m_nextSenderMsgSeqNum = 1; m_nextTargetMsgSeqNum = 1;
     m_messages.clear(); m_creationTime.setCurrent();

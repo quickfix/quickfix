@@ -40,10 +40,10 @@ class ThreadedSocketInitiator : public Initiator
 {
 public:
   ThreadedSocketInitiator( Application&, MessageStoreFactory&,
-                           const SessionSettings& ) throw( ConfigError& );
+                           const SessionSettings& ) throw( ConfigError );
   ThreadedSocketInitiator( Application&, MessageStoreFactory&,
                            const SessionSettings&,
-                           LogFactory& ) throw( ConfigError& );
+                           LogFactory& ) throw( ConfigError );
 
   virtual ~ThreadedSocketInitiator();
 
@@ -51,8 +51,8 @@ private:
   typedef std::map < int, int > SocketToThread;
   typedef std::map < SessionID, int > SessionToHostNum;
 
-  void onConfigure( const SessionSettings& ) throw ( ConfigError& );
-  void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
+  void onConfigure( const SessionSettings& ) throw ( ConfigError );
+  void onInitialize( const SessionSettings& ) throw ( RuntimeError );
 
   void onStart();
   bool onPoll();

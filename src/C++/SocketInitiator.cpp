@@ -33,7 +33,7 @@ namespace FIX
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
                                   const SessionSettings& settings )
-throw( ConfigError& ) 
+throw( ConfigError ) 
 : Initiator( application, factory, settings ),
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_stop( false ) {}
@@ -42,7 +42,7 @@ SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
                                   const SessionSettings& settings,
                                   LogFactory& logFactory )
-throw( ConfigError& )
+throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_stop( false ) {}
@@ -50,7 +50,7 @@ throw( ConfigError& )
 SocketInitiator::~SocketInitiator() {}
 
 void SocketInitiator::onConfigure( const SessionSettings& s )
-throw ( ConfigError& )
+throw ( ConfigError )
 { QF_STACK_PUSH(SocketInitiator::onConfigure)
 
   try { m_reconnectInterval = s.get().getLong( RECONNECT_INTERVAL ); }
@@ -60,7 +60,7 @@ throw ( ConfigError& )
 }
 
 void SocketInitiator::onInitialize( const SessionSettings& s ) 
-throw ( RuntimeError& )
+throw ( RuntimeError )
 { QF_STACK_PUSH(SocketInitiator::onInitialize)
   QF_STACK_POP
 }

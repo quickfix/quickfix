@@ -166,7 +166,7 @@ void MySQLStoreFactory::destroy( MessageStore* pStore )
 }
 
 bool MySQLStore::set( int msgSeqNum, const std::string& msg )
-throw ( IOException& )
+throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::set)
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
@@ -197,7 +197,7 @@ throw ( IOException& )
 }
 
 bool MySQLStore::get( int msgSeqNum, std::string& msg ) const
-throw ( IOException& )
+throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::get)
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
@@ -221,7 +221,7 @@ throw ( IOException& )
 
 void MySQLStore::get( int begin, int end,
                       std::vector < std::string > & result ) const
-throw ( IOException& )
+throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::get)
 
   result.clear();
@@ -245,19 +245,19 @@ throw ( IOException& )
   QF_STACK_POP
 }
 
-int MySQLStore::getNextSenderMsgSeqNum() const throw ( IOException& )
+int MySQLStore::getNextSenderMsgSeqNum() const throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::getNextSenderMsgSeqNum)
   return m_cache.getNextSenderMsgSeqNum();
   QF_STACK_POP
 }
 
-int MySQLStore::getNextTargetMsgSeqNum() const throw ( IOException& )
+int MySQLStore::getNextTargetMsgSeqNum() const throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::getNextTargetMsgSeqNum)
   return m_cache.getNextTargetMsgSeqNum();
   QF_STACK_POP
 }
 
-void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException& )
+void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::setNextSenderMsgSeqNum)
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
@@ -273,7 +273,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException& )
   QF_STACK_POP
 }
 
-void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException& )
+void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::setNextTargetMsgSeqNum)
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
@@ -289,27 +289,27 @@ void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException& )
   QF_STACK_POP
 }
 
-void MySQLStore::incrNextSenderMsgSeqNum() throw ( IOException& )
+void MySQLStore::incrNextSenderMsgSeqNum() throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::incrNextSenderMsgSeqNum)
   m_cache.incrNextSenderMsgSeqNum();
   setNextSenderMsgSeqNum( m_cache.getNextSenderMsgSeqNum() );
   QF_STACK_POP
 }
 
-void MySQLStore::incrNextTargetMsgSeqNum() throw ( IOException& )
+void MySQLStore::incrNextTargetMsgSeqNum() throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::incrNextTargetMsgSeqNum)
   m_cache.incrNextTargetMsgSeqNum();
   setNextTargetMsgSeqNum( m_cache.getNextTargetMsgSeqNum() );
   QF_STACK_POP
 }
 
-UtcTimeStamp MySQLStore::getCreationTime() const throw ( IOException& )
+UtcTimeStamp MySQLStore::getCreationTime() const throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::getCreationTime)
   return m_cache.getCreationTime();
   QF_STACK_POP
 }
 
-void MySQLStore::reset() throw ( IOException& )
+void MySQLStore::reset() throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::reset)
 
   MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );

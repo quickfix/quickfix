@@ -35,7 +35,7 @@ namespace FIX
 {
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
-                      const SessionSettings& settings ) throw( ConfigError& )
+                      const SessionSettings& settings ) throw( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -46,7 +46,7 @@ Initiator::Initiator( Application& application,
 Initiator::Initiator( Application& application,
                       MessageStoreFactory& messageStoreFactory,
                       const SessionSettings& settings,
-                      LogFactory& logFactory ) throw( ConfigError& )
+                      LogFactory& logFactory ) throw( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -54,7 +54,7 @@ Initiator::Initiator( Application& application,
   m_pLogFactory( &logFactory )
 { initialize(); }
 
-void Initiator::initialize() throw ( ConfigError& )
+void Initiator::initialize() throw ( ConfigError )
 { QF_STACK_PUSH(Initiator::initialize)
 
   std::set < SessionID > sessions = m_settings.getSessions();
@@ -142,7 +142,7 @@ bool Initiator::isConnected( const SessionID& sessionID )
   QF_STACK_POP
 }
 
-void Initiator::start() throw ( ConfigError&, RuntimeError& )
+void Initiator::start() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH(Initiator::start)
 
   onConfigure( m_settings );
@@ -155,7 +155,7 @@ void Initiator::start() throw ( ConfigError&, RuntimeError& )
 }
 
 
-void Initiator::block() throw ( ConfigError&, RuntimeError& )
+void Initiator::block() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH(Initiator::block)
 
   onConfigure( m_settings );
@@ -166,7 +166,7 @@ void Initiator::block() throw ( ConfigError&, RuntimeError& )
   QF_STACK_POP
 }
 
-bool Initiator::poll() throw ( ConfigError&, RuntimeError& )
+bool Initiator::poll() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH(Initiator::poll)
 
   if( m_firstPoll )

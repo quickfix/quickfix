@@ -38,17 +38,17 @@ public:
   void onLogout( const FIX::SessionID& );
   void toAdmin( FIX::Message&, const FIX::SessionID& );
   void toApp( FIX::Message&, const FIX::SessionID& )
-  throw( FIX::DoNotSend& );
+  throw( FIX::DoNotSend );
   void fromAdmin( const FIX::Message&, const FIX::SessionID& )
-  throw( FIX::FieldNotFound&, 
-         FIX::IncorrectDataFormat&,
-         FIX::IncorrectTagValue&,
-         FIX::RejectLogon& );
+  throw( FIX::FieldNotFound, 
+         FIX::IncorrectDataFormat,
+         FIX::IncorrectTagValue,
+         FIX::RejectLogon );
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, 
-         FIX::IncorrectDataFormat&,
-         FIX::IncorrectTagValue&,
-         FIX::UnsupportedMessageType& );  
+  throw( FIX::FieldNotFound, 
+         FIX::IncorrectDataFormat,
+         FIX::IncorrectTagValue,
+         FIX::UnsupportedMessageType );  
 
 private:
   struct Exceptions

@@ -52,7 +52,7 @@ public:
   void onTimeout();
 
 private:
-  bool readMessage( std::string& msg ) throw( RecvFailed& );
+  bool readMessage( std::string& msg ) throw( RecvFailed );
   bool send( const std::string& );
   void disconnect();
 

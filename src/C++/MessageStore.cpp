@@ -41,7 +41,7 @@ void MemoryStoreFactory::destroy( MessageStore* pStore )
 }
 
 bool MemoryStore::set( int msgSeqNum, const std::string& msg )
-throw( IOException& )
+throw( IOException )
 { QF_STACK_PUSH(MemoryStore::set)
   m_messages[ msgSeqNum ] = msg;
   return true;
@@ -49,7 +49,7 @@ throw( IOException& )
 }
 
 bool MemoryStore::get( int msgSeqNum, std::string& msg ) const
-throw( IOException& )
+throw( IOException )
 { QF_STACK_PUSH(MemoryStore::get)
 
   Messages::const_iterator find = m_messages.find( msgSeqNum );
@@ -62,7 +62,7 @@ throw( IOException& )
 
 void MemoryStore::get( int begin, int end,
                        std::vector < std::string > & messages ) const
-throw( IOException& )
+throw( IOException )
 { QF_STACK_PUSH(MemoryStore::get)
 
   messages.clear();

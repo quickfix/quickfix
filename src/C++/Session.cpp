@@ -1186,7 +1186,7 @@ void Session::next( const Message& message )
 }
 
 bool Session::sendToTarget( Message& message )
-throw( SessionNotFound& )
+throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   try
@@ -1203,7 +1203,7 @@ throw( SessionNotFound& )
 }
 
 bool Session::sendToTarget( Message& message, const SessionID& sessionID )
-throw( SessionNotFound& )
+throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   message.setSessionID( sessionID );
@@ -1215,7 +1215,7 @@ throw( SessionNotFound& )
 bool Session::sendToTarget
 ( Message& message, const SenderCompID& senderCompID,
   const TargetCompID& targetCompID )
-throw( SessionNotFound& )
+throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   message.getHeader().setField( senderCompID );
@@ -1227,7 +1227,7 @@ throw( SessionNotFound& )
 
 bool Session::sendToTarget
 ( Message& message, const std::string& sender, const std::string& target )
-throw( SessionNotFound& )
+throw( SessionNotFound )
 { QF_STACK_PUSH(Session::sendToTarget)
 
   return sendToTarget( message, SenderCompID( sender ),

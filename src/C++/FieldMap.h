@@ -74,7 +74,7 @@ public:
 
   /// Set a field without type checking
   void setField( const FieldBase& field, bool overwrite = true )
-  throw( RepeatedTag& )
+  throw( RepeatedTag )
   {
     Fields::iterator i = m_fields.find( field.getField() );
     if( i == m_fields.end() )
@@ -96,7 +96,7 @@ public:
 
   /// Get a field without type checking
   FieldBase& getField( FieldBase& field )
-  const throw( FieldNotFound& )
+  const throw( FieldNotFound )
   {
     Fields::const_iterator iter = m_fields.find( field.getField() );
     if ( iter == m_fields.end() )
@@ -106,7 +106,7 @@ public:
   }
   /// Get a field without a field class
   std::string getField( int field )
-  const throw( FieldNotFound& )
+  const throw( FieldNotFound )
   {
     FieldBase fieldBase( field, "" );
     getField( fieldBase );
@@ -127,7 +127,7 @@ public:
   void addGroup( int field, const FieldMap& group, bool setCount = true );
 
   FieldMap& getGroup( int num, int field, FieldMap& group ) const
-    throw( FieldNotFound& );
+    throw( FieldNotFound );
 
   /// Remove a field. If field is not present, this is a no-op.
   void removeField( int field );

@@ -51,11 +51,11 @@ public:
   int delim() const { return m_delim; }
 
   void addGroup( Group& group );
-  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound& );
+  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound );
   bool hasGroup( unsigned num, Group& group );
 
   void setComponent( const Component& component );
-  Component& getComponent( Component& component ) const throw( FieldNotFound& );
+  Component& getComponent( Component& component ) const throw( FieldNotFound );
 
 private:
   int m_field;

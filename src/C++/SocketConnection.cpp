@@ -105,7 +105,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
 }
 
 bool SocketConnection::readMessage( std::string& msg )
-throw( RecvFailed& )
+throw( RecvFailed )
 { QF_STACK_PUSH(SocketConnection::readMessage)
 
   try

@@ -30,7 +30,7 @@
 namespace FIX
 {
 std::string Dictionary::getString( const std::string& key ) const
-throw( ConfigError&, FieldConvertError& )
+throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getString)
 
   Data::const_iterator i = m_data.find( key );
@@ -41,7 +41,7 @@ throw( ConfigError&, FieldConvertError& )
 }
 
 long Dictionary::getLong( const std::string& key ) const
-throw( ConfigError&, FieldConvertError& )
+throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getLong)
 
   Data::const_iterator i = m_data.find( key );
@@ -59,7 +59,7 @@ throw( ConfigError&, FieldConvertError& )
 }
 
 double Dictionary::getDouble( const std::string& key ) const
-throw( ConfigError&, FieldConvertError& )
+throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getDouble)
 
   Data::const_iterator i = m_data.find( key );
@@ -77,7 +77,7 @@ throw( ConfigError&, FieldConvertError& )
 }
 
 bool Dictionary::getBool( const std::string& key ) const
-throw( ConfigError&, FieldConvertError& )
+throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getBool)
 
   Data::const_iterator i = m_data.find( key );

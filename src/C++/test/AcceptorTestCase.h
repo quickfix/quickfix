@@ -30,7 +30,7 @@ namespace FIX
 class TestApplication : public NullApplication
 {
   void fromApp( const Message&, const SessionID& )
-  throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) {}
+  throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) {}
   void onRun() {}}
 ;
 
@@ -41,7 +41,7 @@ public:
                 MemoryStoreFactory& factory )
 : Acceptor( *( m_pApp = new TestApplication() ), factory, settings ) {}
   ~TestAcceptor() { delete m_pApp; }
-  void onInitialize( const SessionSettings& ) throw( RuntimeError& ) {}
+  void onInitialize( const SessionSettings& ) throw( RuntimeError ) {}
   void onStart() {}
   bool onPoll() { return false; }
   void onStop() {}

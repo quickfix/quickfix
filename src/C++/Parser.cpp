@@ -49,7 +49,7 @@ void Parser::allocate( int length )
 
 bool Parser::extractLength( int& length, std::string::size_type& pos,
                             const std::string& buffer )
-throw( MessageParseError& )
+throw( MessageParseError )
 { QF_STACK_PUSH(Parser::extractLength)
 
   if( !buffer.size() ) return false;
@@ -77,7 +77,7 @@ throw( MessageParseError& )
 }
 
 bool Parser::readFixMessage( std::string& str )
-throw( MessageParseError&, RecvFailed& )
+throw( MessageParseError, RecvFailed )
 { QF_STACK_PUSH(Parser::readFixMessage)
 
   readFromStream();
@@ -123,7 +123,7 @@ throw( MessageParseError&, RecvFailed& )
   QF_STACK_POP
 }
 
-bool Parser::readFromStream() throw( RecvFailed& )
+bool Parser::readFromStream() throw( RecvFailed )
 { QF_STACK_PUSH(Parser::readFromStream)
 
   int size = 0;

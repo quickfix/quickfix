@@ -32,19 +32,19 @@ public:
   virtual ~JavaMessageStore();
 
   virtual bool set( int seq, const std::string& message )
-  throw ( FIX::IOException& );
+  throw ( FIX::IOException );
   virtual bool get( int seq, std::string& message ) const
-  throw ( FIX::IOException& );
+  throw ( FIX::IOException );
   virtual void get( int start, int end, std::vector < std::string > & ) const
-  throw ( FIX::IOException& );
-  virtual int getNextSenderMsgSeqNum() const throw ( FIX::IOException& );
-  virtual int getNextTargetMsgSeqNum() const throw ( FIX::IOException& );
-  virtual void setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOException& );
-  virtual void setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOException& );
-  virtual void incrNextSenderMsgSeqNum() throw ( FIX::IOException& );
-  virtual void incrNextTargetMsgSeqNum() throw ( FIX::IOException& );
-  virtual FIX::UtcTimeStamp getCreationTime() const throw ( FIX::IOException& );
-  virtual void reset() throw ( FIX::IOException& );
+  throw ( FIX::IOException );
+  virtual int getNextSenderMsgSeqNum() const throw ( FIX::IOException );
+  virtual int getNextTargetMsgSeqNum() const throw ( FIX::IOException );
+  virtual void setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOException );
+  virtual void setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOException );
+  virtual void incrNextSenderMsgSeqNum() throw ( FIX::IOException );
+  virtual void incrNextTargetMsgSeqNum() throw ( FIX::IOException );
+  virtual FIX::UtcTimeStamp getCreationTime() const throw ( FIX::IOException );
+  virtual void reset() throw ( FIX::IOException );
 
 private:
   struct Exceptions

@@ -50,7 +50,7 @@ public:
   bool read();
 
 private:
-  bool readMessage( std::string& msg ) throw( MessageParseError& );
+  bool readMessage( std::string& msg ) throw( MessageParseError );
   void readQueue();
   void processStream();
   bool send( const std::string& );

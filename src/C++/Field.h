@@ -157,6 +157,19 @@ public:
   friend bool operator<=( const char*, const StringField& );
   friend bool operator>=( const StringField&, const char* );
   friend bool operator>=( const char*, const StringField& );
+
+  friend bool operator<( const StringField&, const std::string& );
+  friend bool operator<( const std::string&, const StringField& );
+  friend bool operator>( const StringField&, const std::string& );
+  friend bool operator>( const std::string&, const StringField& );
+  friend bool operator==( const StringField&, const std::string& );
+  friend bool operator==( const std::string&, const StringField& );
+  friend bool operator!=( const StringField&, const std::string& );
+  friend bool operator!=( const std::string&, const StringField& );
+  friend bool operator<=( const StringField&, const std::string& );
+  friend bool operator<=( const std::string&, const StringField& );
+  friend bool operator>=( const StringField&, const std::string& );
+  friend bool operator>=( const std::string&, const StringField& );
 };
 
 inline bool operator<( const StringField& lhs, const char* rhs )
@@ -184,6 +197,31 @@ inline bool operator>=( const StringField& lhs, const char* rhs )
 inline bool operator>=( const char* lhs, const StringField& rhs )
   { return lhs >= rhs.getValue(); }
 
+inline bool operator<( const StringField& lhs, const std::string& rhs )
+  { return lhs.getValue() < rhs; }
+inline bool operator<( const std::string& lhs, const StringField& rhs )
+  { return lhs < rhs.getValue(); }
+inline bool operator>( const StringField& lhs, const std::string& rhs )
+  { return lhs.getValue() > rhs; }
+inline bool operator>( const std::string& lhs, const StringField& rhs )
+  { return lhs > rhs.getValue(); }
+inline bool operator==( const StringField& lhs, const std::string& rhs )
+  { return lhs.getValue() == rhs; }
+inline bool operator==( const std::string& lhs, const StringField& rhs )
+  { return lhs == rhs.getValue(); }
+inline bool operator!=( const StringField& lhs, const std::string& rhs )
+  { return lhs.getValue() != rhs; }
+inline bool operator!=( const std::string& lhs, const StringField& rhs )
+  { return lhs != rhs.getValue(); }
+inline bool operator<=( const StringField& lhs, const std::string& rhs )
+  { return lhs.getValue() <= rhs; }
+inline bool operator<=( const std::string& lhs, const StringField& rhs )
+  { return lhs <= rhs.getValue(); }
+inline bool operator>=( const StringField& lhs, const std::string& rhs )
+  { return lhs.getValue() >= rhs; }
+inline bool operator>=( const std::string& lhs, const StringField& rhs )
+  { return lhs >= rhs.getValue(); }
+
 class CharField : public FieldBase
 {
 public:
@@ -194,7 +232,7 @@ public:
 
   void setValue( char value )
     { setString( CharConvertor::convert( value ) ); }
-  const char getValue() const throw ( IncorrectDataFormat& )
+  const char getValue() const throw ( IncorrectDataFormat )
     { try 
       { return CharConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -213,7 +251,7 @@ public:
 
   void setValue( double value )
     { setString( DoubleConvertor::convert( value ) ); }
-  const double getValue() const throw ( IncorrectDataFormat& )
+  const double getValue() const throw ( IncorrectDataFormat )
     { try 
       { return DoubleConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -232,7 +270,7 @@ public:
 
   void setValue( int value )
     { setString( IntConvertor::convert( value ) ); }
-  const int getValue() const throw ( IncorrectDataFormat& )
+  const int getValue() const throw ( IncorrectDataFormat )
     { try 
       { return IntConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -251,7 +289,7 @@ public:
 
   void setValue( bool value )
     { setString( BoolConvertor::convert( value ) ); }
-  const bool getValue() const throw ( IncorrectDataFormat& )
+  const bool getValue() const throw ( IncorrectDataFormat )
     { try 
       { return BoolConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -270,7 +308,7 @@ public:
 
   void setValue( UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
-  const UtcTimeStamp getValue() const throw ( IncorrectDataFormat& )
+  const UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
     { try 
       { return UtcTimeStampConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -296,7 +334,7 @@ public:
 
   void setValue( UtcDate& value )
     { setString( UtcDateConvertor::convert( value ) ); }
-  const UtcDate getValue() const throw ( IncorrectDataFormat& )
+  const UtcDate getValue() const throw ( IncorrectDataFormat )
     { try 
       { return UtcDateConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -322,7 +360,7 @@ public:
 
   void setValue( UtcTimeOnly& value )
     { setString( UtcTimeOnlyConvertor::convert( value ) ); }
-  const UtcTimeOnly getValue() const throw ( IncorrectDataFormat& )
+  const UtcTimeOnly getValue() const throw ( IncorrectDataFormat )
     { try 
       { return UtcTimeOnlyConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -348,7 +386,7 @@ public:
 
   void setValue( int value )
     { setString( CheckSumConvertor::convert( value ) ); }
-  const int getValue() const throw ( IncorrectDataFormat& )
+  const int getValue() const throw ( IncorrectDataFormat )
     { try 
       { return CheckSumConvertor::convert( getString() ); }
       catch( FieldConvertError& ) 
@@ -381,7 +419,7 @@ typedef StringField CountryField;
 #define DEFINE_FIELD_CLASS_NUM( NAME, TOK, TYPE, NUM ) \
 class NAME : public TOK##Field { public: \
 NAME() : TOK##Field(NUM) {} \
-NAME(TYPE value) : TOK##Field(NUM, value) {} \
+NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
 };
 
 #define DEFINE_FIELD_CLASS( NAME, TOK, TYPE ) \
@@ -391,90 +429,90 @@ DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, FIELD::NAME)
 DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 
 #define DEFINE_CHECKSUM( NAME ) \
-DEFINE_FIELD_CLASS(NAME, CheckSum, INT)
-#define DEFINE_STRING( NAME ) DEFINE_FIELD_CLASS(NAME, String, STRING)
-#define DEFINE_CHAR( NAME ) DEFINE_FIELD_CLASS(NAME, Char, CHAR)
-#define DEFINE_PRICE( NAME ) DEFINE_FIELD_CLASS(NAME, Price, PRICE)
-#define DEFINE_INT( NAME ) DEFINE_FIELD_CLASS(NAME, Int, INT)
-#define DEFINE_AMT( NAME ) DEFINE_FIELD_CLASS(NAME, Amt, AMT)
-#define DEFINE_QTY( NAME ) DEFINE_FIELD_CLASS(NAME, Qty, QTY)
-#define DEFINE_CURRENCY( NAME ) DEFINE_FIELD_CLASS(NAME, Currency, CURRENCY)
+DEFINE_FIELD_CLASS(NAME, CheckSum, int)
+#define DEFINE_STRING( NAME ) DEFINE_FIELD_CLASS(NAME, String, std::string)
+#define DEFINE_CHAR( NAME ) DEFINE_FIELD_CLASS(NAME, Char, char)
+#define DEFINE_PRICE( NAME ) DEFINE_FIELD_CLASS(NAME, Price, double)
+#define DEFINE_INT( NAME ) DEFINE_FIELD_CLASS(NAME, Int, int)
+#define DEFINE_AMT( NAME ) DEFINE_FIELD_CLASS(NAME, Amt, double)
+#define DEFINE_QTY( NAME ) DEFINE_FIELD_CLASS(NAME, Qty, double)
+#define DEFINE_CURRENCY( NAME ) DEFINE_FIELD_CLASS(NAME, Currency, std::string)
 #define DEFINE_MULTIPLEVALUESTRING( NAME ) \
-DEFINE_FIELD_CLASS(NAME, MultipleValueString, MULTIPLEVALUESTRING)
-#define DEFINE_EXCHANGE( NAME ) DEFINE_FIELD_CLASS(NAME, Exchange, EXCHANGE)
+DEFINE_FIELD_CLASS(NAME, MultipleValueString, std::string)
+#define DEFINE_EXCHANGE( NAME ) DEFINE_FIELD_CLASS(NAME, Exchange, std::string)
 #define DEFINE_UTCTIMESTAMP( NAME ) \
-DEFINE_FIELD_CLASS(NAME, UtcTimeStamp, UTCTIMESTAMP)
-#define DEFINE_BOOLEAN( NAME ) DEFINE_FIELD_CLASS(NAME, Bool, BOOLEAN)
+DEFINE_FIELD_CLASS(NAME, UtcTimeStamp, UtcTimeStamp)
+#define DEFINE_BOOLEAN( NAME ) DEFINE_FIELD_CLASS(NAME, Bool, bool)
 #define DEFINE_LOCALMKTDATE( NAME ) \
-DEFINE_FIELD_CLASS(NAME, String, LOCALMKTDATE)
-#define DEFINE_DATA( NAME ) DEFINE_FIELD_CLASS(NAME, Data, DATA)
-#define DEFINE_FLOAT( NAME ) DEFINE_FIELD_CLASS(NAME, Float, FLOAT)
+DEFINE_FIELD_CLASS(NAME, String, std::string)
+#define DEFINE_DATA( NAME ) DEFINE_FIELD_CLASS(NAME, Data, std::string)
+#define DEFINE_FLOAT( NAME ) DEFINE_FIELD_CLASS(NAME, Float, double)
 #define DEFINE_PRICEOFFSET( NAME ) \
-DEFINE_FIELD_CLASS(NAME, PriceOffset, PRICEOFFSET)
+DEFINE_FIELD_CLASS(NAME, PriceOffset, double)
 #define DEFINE_MONTHYEAR( NAME ) \
-DEFINE_FIELD_CLASS(NAME, MonthYear, MONTHYEAR)
+DEFINE_FIELD_CLASS(NAME, MonthYear, std::string)
 #define DEFINE_DAYOFMONTH( NAME ) \
-DEFINE_FIELD_CLASS(NAME, DayOfMonth, DAYOFMONTH)
-#define DEFINE_UTCDATE( NAME ) DEFINE_FIELD_CLASS(NAME, UtcDate, UTCDATE)
-#define DEFINE_UTCDATEONLY( NAME ) DEFINE_FIELD_CLASS(NAME, UtcDateOnly, UTCDATEONLY)
+DEFINE_FIELD_CLASS(NAME, DayOfMonth, std::string)
+#define DEFINE_UTCDATE( NAME ) DEFINE_FIELD_CLASS(NAME, UtcDate, UtcDate)
+#define DEFINE_UTCDATEONLY( NAME ) DEFINE_FIELD_CLASS(NAME, UtcDateOnly, UtcDateOnly)
 #define DEFINE_UTCTIMEONLY( NAME ) \
-DEFINE_FIELD_CLASS(NAME, UtcTimeOnly, UTCTIMEONLY)
-#define DEFINE_NUMINGROUP( NAME ) DEFINE_FIELD_CLASS(NAME, NumInGroup, NUMINGROUP)
-#define DEFINE_SEQNUM( NAME ) DEFINE_FIELD_CLASS(NAME, SeqNum, SEQNUM)
-#define DEFINE_LENGTH( NAME ) DEFINE_FIELD_CLASS(NAME, Length, LENGTH)
-#define DEFINE_PERCENTAGE( NAME ) DEFINE_FIELD_CLASS(NAME, Percentage, PERCENTAGE)
-#define DEFINE_COUNTRY( NAME ) DEFINE_FIELD_CLASS(NAME, Country, COUNTRY)
+DEFINE_FIELD_CLASS(NAME, UtcTimeOnly, UtcTimeOnly)
+#define DEFINE_NUMINGROUP( NAME ) DEFINE_FIELD_CLASS(NAME, NumInGroup, int)
+#define DEFINE_SEQNUM( NAME ) DEFINE_FIELD_CLASS(NAME, SeqNum, int)
+#define DEFINE_LENGTH( NAME ) DEFINE_FIELD_CLASS(NAME, Length, int)
+#define DEFINE_PERCENTAGE( NAME ) DEFINE_FIELD_CLASS(NAME, Percentage, double)
+#define DEFINE_COUNTRY( NAME ) DEFINE_FIELD_CLASS(NAME, Country, std::string)
 
 #define USER_DEFINE_STRING( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, String, STRING, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, String, std::string, NUM);
 #define USER_DEFINE_CHAR( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Char, CHAR, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Char, char, NUM);
 #define USER_DEFINE_PRICE( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Price, PRICE, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Price, double, NUM);
 #define USER_DEFINE_INT( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Int, INT, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Int, int, NUM);
 #define USER_DEFINE_AMT( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Amt, AMT, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Amt, double, NUM);
 #define USER_DEFINE_QTY( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Qty, QTY, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Qty, double, NUM);
 #define USER_DEFINE_CURRENCY( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Currency, CURRENCY, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Currency, std::string, NUM);
 #define USER_DEFINE_MULTIPLEVALUESTRING( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, MultipleValueString, MULTIPLEVALUESTRING, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, MultipleValueString, std::string, NUM);
 #define USER_DEFINE_EXCHANGE( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Exchange, EXCHANGE, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Exchange, std::string, NUM);
 #define USER_DEFINE_UTCTIMESTAMP( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, UtcTimeStamp, UTCTIMESTAMP, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, UtcTimeStamp, UtcTimeStamp, NUM);
 #define USER_DEFINE_BOOLEAN( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Bool, BOOLEAN, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Bool, bool, NUM);
 #define USER_DEFINE_LOCALMKTDATE( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, String, STRING, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, String, std::string, NUM);
 #define USER_DEFINE_DATA( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Data, DATA, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Data, std::string, NUM);
 #define USER_DEFINE_FLOAT( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Float, FLOAT, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Float, double, NUM);
 #define USER_DEFINE_PRICEOFFSET( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, PriceOffset, PRICEOFFSET, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, PriceOffset, double, NUM);
 #define USER_DEFINE_MONTHYEAR( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, MonthYear, MONTHYEAR, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, MonthYear, std::string, NUM);
 #define USER_DEFINE_DAYOFMONTH( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, DayOfMonth, DAYOFMONTH, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, DayOfMonth, std::string, NUM);
 #define USER_DEFINE_UTCDATE( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, UtcDate, UTCDATE, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, UtcDate, UtcDate, NUM);
 #define USER_DEFINE_UTCDATEONLY( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, UtcDateOnly, UTCDATEONLY, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, UtcDateOnly, UtcDateOnly, NUM);
 #define USER_DEFINE_UTCTIMEONLY( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, UtcTimeOnly, UTCTIMEONLY, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, UtcTimeOnly, UtcTimeOnly, NUM);
 #define USER_DEFINE_NUMINGROUP( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, NumInGroup, NUMINGROUP, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, NumInGroup, int, NUM);
 #define USER_DEFINE_SEQNUM( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, SeqNum, SEQNUM, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, SeqNum, int, NUM);
 #define USER_DEFINE_LENGTH( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Length, LENGTH, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Length, int, NUM);
 #define USER_DEFINE_PERCENTAGE( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Percentage, PERCENTAGE, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Percentage, double, NUM);
 #define USER_DEFINE_COUNTRY( NAME, NUM ) \
-DEFINE_FIELD_CLASS_NUM(NAME, Country, COUNTRY, NUM);
+DEFINE_FIELD_CLASS_NUM(NAME, Country, std::string, NUM);
 
 #endif
 

@@ -65,7 +65,7 @@ struct IntConvertor
   }
 
   static long convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     long result = 0;
     if ( !convert( value, result ) )
@@ -78,7 +78,7 @@ struct IntConvertor
 struct CheckSumConvertor
 {
   static std::string convert( long value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     if ( value > 255 || value < 0 ) throw FieldConvertError();
     std::stringstream stream;
@@ -92,7 +92,7 @@ struct CheckSumConvertor
   }
 
   static long convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     return IntConvertor::convert( value );
   }
@@ -154,7 +154,7 @@ struct DoubleConvertor
   }
 
   static double convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     double result = 0.0;
     if ( !convert( value, result ) )
@@ -183,7 +183,7 @@ struct CharConvertor
   }
 
   static char convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     char result = '\0';
     if ( !convert( value, result ) )
@@ -210,7 +210,7 @@ struct BoolConvertor
   }
 
   static bool convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     bool result = false;
     if ( !convert( value, result ) )
@@ -224,7 +224,7 @@ struct BoolConvertor
 struct UtcTimeStampConvertor
 {
   static std::string convert( const UtcTimeStamp& value, bool showMilliseconds=false)
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     char result[ 18+4 ];
     int len = strftime( result, 18, "%Y%m%d-%H:%M:%S", value );
@@ -239,7 +239,7 @@ struct UtcTimeStampConvertor
   }
 
   static UtcTimeStamp convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     UtcTimeStamp result;
     const char* val = value.c_str();
@@ -263,7 +263,7 @@ struct UtcTimeStampConvertor
 struct UtcTimeOnlyConvertor
 {
   static std::string convert( const UtcTimeOnly& value, bool showMilliseconds=false)
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     char result[ 9+4 ];
     int len = strftime( result, 9, "%H:%M:%S", value );
@@ -279,7 +279,7 @@ struct UtcTimeOnlyConvertor
   }
 
   static UtcTimeOnly convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     UtcTimeOnly result;
     const char* val = value.c_str();
@@ -303,7 +303,7 @@ struct UtcTimeOnlyConvertor
 struct UtcDateConvertor
 {
   static std::string convert( const UtcDate& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     char result[ 9 ];
     int len = strftime( result, 9, "%Y%m%d", value );
@@ -312,7 +312,7 @@ struct UtcDateConvertor
   }
 
   static UtcDate convert( const std::string& value )
-  throw( FieldConvertError& )
+  throw( FieldConvertError )
   {
     UtcDate result;
     const char* val = value.c_str();

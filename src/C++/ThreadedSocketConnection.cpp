@@ -112,7 +112,7 @@ bool ThreadedSocketConnection::read()
 }
 
 bool ThreadedSocketConnection::readMessage( std::string& msg )
-throw( MessageParseError& )
+throw( MessageParseError )
 { QF_STACK_PUSH(ThreadedSocketConnection::readMessage)
 
   try

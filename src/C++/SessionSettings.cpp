@@ -31,13 +31,13 @@
 namespace FIX
 {
 SessionSettings::SessionSettings( std::istream& stream )
-throw( ConfigError& )
+throw( ConfigError )
 {
   stream >> *this;
 }
 
 SessionSettings::SessionSettings( const std::string& file )
-throw( ConfigError& )
+throw( ConfigError )
 {
   std::ifstream fstream( file.c_str() );
   if ( !fstream.is_open() )
@@ -46,7 +46,7 @@ throw( ConfigError& )
 }
 
 std::istream& operator>>( std::istream& stream, SessionSettings& s )
-throw( ConfigError& )
+throw( ConfigError )
 {
   Settings settings;
   stream >> settings;
@@ -79,7 +79,7 @@ throw( ConfigError& )
 }
 
 Dictionary SessionSettings::get( const SessionID& sessionID ) const
-throw( ConfigError& )
+throw( ConfigError )
 { QF_STACK_PUSH(SessionSettings::get)
 
   Dictionaries::const_iterator i;

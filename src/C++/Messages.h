@@ -26,6 +26,7 @@
 #include "fix41/Messages.h"
 #include "fix42/Messages.h"
 #include "fix43/Messages.h"
+#include "fix44/Messages.h"
 
 #endif //FIX_MESSAGES_H
 

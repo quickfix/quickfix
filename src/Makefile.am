@@ -1,8 +1,12 @@
 if HAVE_JNI
-SUBDIRS = C++ java
-else
-SUBDIRS = C++
+JAVA_DIR = java
 endif
+
+if HAVE_PYTHON
+PYTHON_DIR = python
+endif
+
+SUBDIRS = C++ ${JAVA_DIR} ${PYTHON_DIR}
 
 noinst_PROGRAMS = at ut pt
 

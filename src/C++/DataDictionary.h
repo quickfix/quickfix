@@ -254,7 +254,7 @@ public:
   { m_checkFieldsHaveValues = value; }
 
   /// Validate a message.
-  void validate( const Message& message ) throw( std::exception& );
+  void validate( const Message& message ) throw( std::exception );
   DataDictionary& operator=( const DataDictionary& rhs );
 
 private:
@@ -270,14 +270,14 @@ private:
 
   /// Check if field tag number is defined in spec.
   void checkValidTagNumber( const FieldBase& field ) const
-  throw( InvalidTagNumber& )
+  throw( InvalidTagNumber )
   {
     if( m_fields.find( field.getField() ) == m_fields.end() )
       throw InvalidTagNumber( field.getField() );
   }
 
   void checkValidFormat( const FieldBase& field ) const
-  throw( IncorrectDataFormat& )
+  throw( IncorrectDataFormat )
   {
     try
     {
@@ -341,7 +341,7 @@ private:
   }
 
   void checkValue( const FieldBase& field ) const
-  throw( IncorrectTagValue& )
+  throw( IncorrectTagValue )
   {
     if ( !hasFieldValue( field.getField() ) ) return ;
 
@@ -352,7 +352,7 @@ private:
 
   /// Check if a field has a value.
   void checkHasValue( const FieldBase& field ) const
-  throw( NoTagValue& )
+  throw( NoTagValue )
   {
     if ( m_checkFieldsHaveValues && !field.getString().length() )
       throw NoTagValue( field.getField() );
@@ -361,7 +361,7 @@ private:
   /// Check if a field is in this message type.
   void checkIsInMessage
   ( const FieldBase& field, const MsgType& msgType ) const
-  throw( TagNotDefinedForMessage& )
+  throw( TagNotDefinedForMessage )
   {
     if ( !isMsgField( msgType, field.getField() ) )
       throw TagNotDefinedForMessage( field.getField() );
@@ -370,7 +370,7 @@ private:
   /// Check if group count matches number of groups in
   void checkGroupCount
   ( const FieldBase& field, const FieldMap& fieldMap, const MsgType& msgType ) const
-  throw( RepeatingGroupCountMismatch& )
+  throw( RepeatingGroupCountMismatch )
   {
     int fieldNum = field.getField();
     if( isGroup(msgType, fieldNum) )
@@ -384,7 +384,7 @@ private:
   /// Check if a message has all required fields.
   void checkHasRequired
   ( const FieldMap& fieldMap, const MsgType& msgType ) const
-  throw( RequiredTagMissing& )
+  throw( RequiredTagMissing )
   {
     MsgTypeToField::const_iterator iM
     = m_requiredFields.find( msgType.getValue() );

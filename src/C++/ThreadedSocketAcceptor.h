@@ -41,10 +41,10 @@ class ThreadedSocketAcceptor : public Acceptor
   friend class SocketConnection;
 public:
   ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
-                          const SessionSettings& ) throw( ConfigError& );
+                          const SessionSettings& ) throw( ConfigError );
   ThreadedSocketAcceptor( Application&, MessageStoreFactory&,
                           const SessionSettings&,
-                          LogFactory& ) throw( ConfigError& );
+                          LogFactory& ) throw( ConfigError );
 
   virtual ~ThreadedSocketAcceptor();
 
@@ -56,8 +56,8 @@ private:
   typedef std::map < int, int > SocketToThread;
   typedef std::pair < ThreadedSocketAcceptor*, ThreadedSocketConnection* > ThreadPair;
 
-  void onConfigure( const SessionSettings& ) throw ( ConfigError& );
-  void onInitialize( const SessionSettings& ) throw ( RuntimeError& );
+  void onConfigure( const SessionSettings& ) throw ( ConfigError );
+  void onInitialize( const SessionSettings& ) throw ( RuntimeError );
 
   void onStart();
   bool onPoll();

@@ -50,16 +50,16 @@ Dictionary( const std::string& name ) : m_name( name ) {}
 
   /// Get a value as a string.
   std::string getString( const std::string& ) const
-  throw( ConfigError&, FieldConvertError& );
+  throw( ConfigError, FieldConvertError );
   /// Get a value as a long.
   long getLong( const std::string& ) const
-  throw( ConfigError&, FieldConvertError& );
+  throw( ConfigError, FieldConvertError );
   /// Get a value as a double.
   double getDouble( const std::string& ) const
-  throw( ConfigError&, FieldConvertError& );
+  throw( ConfigError, FieldConvertError );
   /// Get a value as a bool
   bool getBool( const std::string& ) const
-  throw( ConfigError&, FieldConvertError& );
+  throw( ConfigError, FieldConvertError );
 
   /// Set a value from a string.
   void setString( const std::string&, const std::string& );

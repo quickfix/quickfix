@@ -67,7 +67,7 @@ void FieldMap::addGroup( int field, const FieldMap& group, bool setCount )
 }
 
 FieldMap& FieldMap::getGroup( int num, int field, FieldMap& group ) const
-throw( FieldNotFound& )
+throw( FieldNotFound )
 { QF_STACK_PUSH(FieldMap::getGroup)
 
   Groups::const_iterator i = m_groups.find( field );

@@ -68,12 +68,12 @@ public:
 
   /// Construct a message from a string
   Message( const std::string& string, bool validate = true )
-  throw( InvalidMessage& );
+  throw( InvalidMessage );
 
   /// Construct a message from a string using a data dictionary
   Message( const std::string& string, const DataDictionary& dataDictionary,
            bool validate = true )
-  throw( InvalidMessage& );
+  throw( InvalidMessage );
 
   /// Set global data dictionary for encoding messages into XML
   static bool InitializeXML( const std::string& string );
@@ -81,7 +81,7 @@ public:
   void addGroup( Group& group )
   { FieldMap::addGroup( group.field(), group ); }
 
-  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound& )
+  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound )
   { group.clear();
     return static_cast < Group& >
       ( FieldMap::getGroup( num, group.field(), group ) );
@@ -129,7 +129,7 @@ public:
   void setString( const std::string& string,
                   bool validate = true,
                   const DataDictionary* pDataDictionary = 0 )
-  throw( InvalidMessage& );
+  throw( InvalidMessage );
 
   void setGroup( const std::string& msg, const FieldBase& field,
                  const std::string& string, std::string::size_type& pos,
@@ -204,7 +204,7 @@ public:
                               const DataDictionary* pD = 0 );
 
   /// Returns the session ID of the intended recipient
-  SessionID getSessionID() throw( FieldNotFound& );
+  SessionID getSessionID() throw( FieldNotFound );
   /// Sets the session ID of the intended recipient
   void setSessionID( const SessionID& sessionID );
 
@@ -236,7 +236,7 @@ inline std::ostream& operator <<
 
 /// Parse the type of a message from a string.
 inline MsgType identifyType( const std::string& message )
-throw( MessageParseError& )
+throw( MessageParseError )
 {
   std::string::size_type pos = message.find( "\00135=" );
   if ( pos == std::string::npos ) throw MessageParseError();

@@ -102,7 +102,7 @@ namespace FIX
     QF_STACK_POP
   }
 
-  LIBXML_DOMDocument::LIBXML_DOMDocument() throw( ConfigError& )
+  LIBXML_DOMDocument::LIBXML_DOMDocument() throw( ConfigError )
   : m_pDoc(NULL)
   {
   }

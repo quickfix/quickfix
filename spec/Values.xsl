@@ -33,11 +33,11 @@
 
 namespace FIX
 {
-  const char BeginString_FIX44[] = "FIX.4.4";
-  const char BeginString_FIX43[] = "FIX.4.3";
-  const char BeginString_FIX42[] = "FIX.4.2";
-  const char BeginString_FIX41[] = "FIX.4.1";
-  const char BeginString_FIX40[] = "FIX.4.0";
+  const std::string BeginString_FIX44 = "FIX.4.4";
+  const std::string BeginString_FIX43 = "FIX.4.3";
+  const std::string BeginString_FIX42 = "FIX.4.2";
+  const std::string BeginString_FIX41 = "FIX.4.1";
+  const std::string BeginString_FIX40 = "FIX.4.0";
   <xsl:apply-templates/>
   <xsl:if test="not(/fix/fields/field[@name='SecurityType']/value[@description='OPTION'])"> 
   const std::string SecurityType_OPTION = "OPT";</xsl:if>
@@ -74,6 +74,6 @@ namespace FIX
 </xsl:template>
  
 <xsl:template match="fix/messages/message">
- const char MsgType_<xsl:value-of select="@name"/>[] = "<xsl:value-of select="@msgtype"/>";</xsl:template>
+ const std::string MsgType_<xsl:value-of select="@name"/> = "<xsl:value-of select="@msgtype"/>";</xsl:template>
 
 </xsl:stylesheet>

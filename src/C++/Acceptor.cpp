@@ -36,7 +36,7 @@ namespace FIX
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
                     const SessionSettings& settings )
-throw( ConfigError& )
+throw( ConfigError )
   : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -51,7 +51,7 @@ Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
                     const SessionSettings& settings,
                     LogFactory& logFactory )
-throw( ConfigError& )
+throw( ConfigError )
 : m_threadid( 0 ),
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -62,7 +62,7 @@ throw( ConfigError& )
   initialize(); 
 }
 
-void Acceptor::initialize() throw ( ConfigError& ) 
+void Acceptor::initialize() throw ( ConfigError ) 
 { QF_STACK_PUSH( Acceptor::initialize )
 
   std::set < SessionID > sessions = m_settings.getSessions();
@@ -131,7 +131,7 @@ Session* Acceptor::getSession
   QF_STACK_POP
 }
 
-void Acceptor::start() throw ( ConfigError&, RuntimeError& )
+void Acceptor::start() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH( Acceptor::start )
 
   onConfigure( m_settings );
@@ -143,7 +143,7 @@ void Acceptor::start() throw ( ConfigError&, RuntimeError& )
   QF_STACK_POP
 }
 
-void Acceptor::block() throw ( ConfigError&, RuntimeError& )
+void Acceptor::block() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH( Acceptor::start )
 
   onConfigure( m_settings );
@@ -154,7 +154,7 @@ void Acceptor::block() throw ( ConfigError&, RuntimeError& )
   QF_STACK_POP
 }
 
-bool Acceptor::poll() throw ( ConfigError&, RuntimeError& )
+bool Acceptor::poll() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH( Acceptor::poll )
 
   if( m_firstPoll )

@@ -41,7 +41,7 @@ struct Exception : public std::logic_error
 /// Field not found inside a message
 struct FieldNotFound : public Exception
 {
-  FieldNotFound( int f, const std::string& what = "" )
+  FieldNotFound( int f = 0, const std::string& what = "" )
     : Exception( "Field not found", what ), 
                  field( f ) {}
   int field;
@@ -85,55 +85,55 @@ struct RuntimeError : public Exception
 /// Tag number does not exist in specification
 struct InvalidTagNumber : public Exception
 {
-  InvalidTagNumber( int f, const std::string& what = "" )
+  InvalidTagNumber( int f = 0, const std::string& what = "" )
     : Exception( "Invalid tag number", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Required field is not in message
 struct RequiredTagMissing : public Exception
 {
-  RequiredTagMissing( int f, const std::string& what = "" ) 
+  RequiredTagMissing( int f = 0, const std::string& what = "" ) 
     : Exception( "Required tag missing", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Field does not belong to message
 struct TagNotDefinedForMessage : public Exception
 {
-  TagNotDefinedForMessage( int f, const std::string& what = "" ) 
+  TagNotDefinedForMessage( int f = 0, const std::string& what = "" ) 
     : Exception( "Tag not defined for this message type", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Field exists in message without a value
 struct NoTagValue : public Exception
 {
-  NoTagValue( int f, const std::string& what = "" )
+  NoTagValue( int f = 0, const std::string& what = "" )
     : Exception( "Tag specified without a value", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Field has a value that is out of range
 struct IncorrectTagValue : public Exception
 {
-  IncorrectTagValue( int f, const std::string& what = "" ) 
+  IncorrectTagValue( int f = 0, const std::string& what = "" ) 
     : Exception( "Value is incorrect (out of range) for this tag", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Field has a badly formatted value
 struct IncorrectDataFormat : public Exception
 {
-  IncorrectDataFormat( int f, const std::string& what = "" )
+  IncorrectDataFormat( int f = 0, const std::string& what = "" )
     : Exception( "Incorrect data format for value", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Message is not structured correctly
@@ -174,28 +174,28 @@ struct UnsupportedVersion : public Exception
 /// Tag is not in the correct order
 struct TagOutOfOrder : public Exception
 {
-  TagOutOfOrder( int f, const std::string& what = "" ) 
+  TagOutOfOrder( int f = 0, const std::string& what = "" ) 
     : Exception( "Tag specified out of required order", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Repeated tag not part of repeating group
 struct RepeatedTag : public Exception
 {
-  RepeatedTag( int f, const std::string& what = "" )
+  RepeatedTag( int f = 0, const std::string& what = "" )
     : Exception( "Repeated tag not part of repeating group", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Repeated group count not equal to actual count 
 struct RepeatingGroupCountMismatch : public Exception
 {
-  RepeatingGroupCountMismatch( int f, const std::string& what = "" )
+  RepeatingGroupCountMismatch( int f = 0, const std::string& what = "" )
     : Exception( "Repeating group count mismatch", what ), 
                  field( f ) {}
-  const int field;
+  int field;
 };
 
 /// Indicates user does not want to send a message

@@ -33,7 +33,7 @@ namespace FIX
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
-  const SessionSettings& settings ) throw( ConfigError& )
+  const SessionSettings& settings ) throw( ConfigError )
 : Acceptor( application, factory, settings ),
   m_port( 0 ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
@@ -42,7 +42,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
   const SessionSettings& settings,
-  LogFactory& logFactory ) throw( ConfigError& )
+  LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
     m_port( 0 ), m_socket( 0 ), m_stop( false )
 { socket_init(); }
@@ -51,7 +51,7 @@ ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 { socket_term(); }
 
 void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )
-throw ( ConfigError& )
+throw ( ConfigError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onConfigure)
 
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
@@ -62,7 +62,7 @@ throw ( ConfigError& )
 }
 
 void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) 
-throw ( RuntimeError& )
+throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
 
   m_socket = socket_createAcceptor( m_port, m_reuseAddress );

@@ -33,14 +33,14 @@ namespace FIX
 {
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
-                                const SessionSettings& settings ) throw( ConfigError& )
+                                const SessionSettings& settings ) throw( ConfigError )
 : Acceptor( application, factory, settings ),
   m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings,
-                                LogFactory& logFactory ) throw( ConfigError& )
+                                LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
   m_port( 0 ), m_pServer( 0 ), m_stop( false ) {}
 
@@ -52,7 +52,7 @@ SocketAcceptor::~SocketAcceptor()
 }
 
 void SocketAcceptor::onConfigure( const SessionSettings& s )
-throw ( ConfigError& )
+throw ( ConfigError )
 { QF_STACK_PUSH(SocketAcceptor::onConfigure)
 
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
@@ -63,7 +63,7 @@ throw ( ConfigError& )
 }
 
 void SocketAcceptor::onInitialize( const SessionSettings& s ) 
-throw ( RuntimeError& )
+throw ( RuntimeError )
 { QF_STACK_PUSH(SocketAcceptor::onInitialize)
 
   try

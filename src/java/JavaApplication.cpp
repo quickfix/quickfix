@@ -102,7 +102,7 @@ void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionI
 }
 
 void JavaApplication::toApp( FIX::Message& msg, const FIX::SessionID& sessionID )
-throw( FIX::DoNotSend& )
+throw( FIX::DoNotSend )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
@@ -118,10 +118,10 @@ throw( FIX::DoNotSend& )
 }
 
 void JavaApplication::fromAdmin( const FIX::Message& msg, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, 
-         FIX::IncorrectDataFormat&,
-         FIX::IncorrectTagValue&,
-         FIX::RejectLogon& )
+  throw( FIX::FieldNotFound, 
+         FIX::IncorrectDataFormat,
+         FIX::IncorrectTagValue,
+         FIX::RejectLogon )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
@@ -136,10 +136,10 @@ void JavaApplication::fromAdmin( const FIX::Message& msg, const FIX::SessionID& 
 }
 
 void JavaApplication::fromApp( const FIX::Message& msg, const FIX::SessionID& sessionID )
-throw( FIX::FieldNotFound&, 
-       FIX::IncorrectDataFormat&,
-       FIX::IncorrectTagValue&,
-       FIX::UnsupportedMessageType& )
+throw( FIX::FieldNotFound, 
+       FIX::IncorrectDataFormat,
+       FIX::IncorrectTagValue,
+       FIX::UnsupportedMessageType )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();

@@ -67,7 +67,7 @@ JavaMessageStore::JavaMessageStore( JVMObject object )
 JavaMessageStore::~JavaMessageStore() { messageStore.deleteGlobalRef(); }
 
 bool JavaMessageStore::set( int seq, const std::string& message )
-throw ( FIX::IOException& )
+throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   jstring jstr = newString( message );
@@ -80,7 +80,7 @@ throw ( FIX::IOException& )
 }
 
 bool JavaMessageStore::get( int seq, std::string& message ) const
-throw ( FIX::IOException& )
+throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   jstring string = newString( "" );
@@ -99,7 +99,7 @@ throw ( FIX::IOException& )
 
 void JavaMessageStore::get( int start, int end,
                             std::vector < std::string > & messages ) const
-throw ( FIX::IOException& )
+throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   JVMObject collection( newCollection() );
@@ -124,7 +124,7 @@ throw ( FIX::IOException& )
   pEnv->DeleteLocalRef( collection );
 }
 
-int JavaMessageStore::getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
+int JavaMessageStore::getNextSenderMsgSeqNum() const throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
@@ -133,7 +133,7 @@ int JavaMessageStore::getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
   return result;
 }
 
-int JavaMessageStore::getNextTargetMsgSeqNum() const throw ( FIX::IOException& )
+int JavaMessageStore::getNextTargetMsgSeqNum() const throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
@@ -142,7 +142,7 @@ int JavaMessageStore::getNextTargetMsgSeqNum() const throw ( FIX::IOException& )
   return result;
 }
 
-void JavaMessageStore::setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOException& )
+void JavaMessageStore::setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
@@ -150,7 +150,7 @@ void JavaMessageStore::setNextSenderMsgSeqNum( int seq ) throw ( FIX::IOExceptio
   handleException( pEnv, e );
 }
 
-void JavaMessageStore::setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOException& )
+void JavaMessageStore::setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
@@ -158,7 +158,7 @@ void JavaMessageStore::setNextTargetMsgSeqNum( int seq ) throw ( FIX::IOExceptio
   handleException( pEnv, e );
 }
 
-void JavaMessageStore::incrNextSenderMsgSeqNum() throw ( FIX::IOException& )
+void JavaMessageStore::incrNextSenderMsgSeqNum() throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
@@ -166,7 +166,7 @@ void JavaMessageStore::incrNextSenderMsgSeqNum() throw ( FIX::IOException& )
   handleException( pEnv, e );
 }
 
-void JavaMessageStore::incrNextTargetMsgSeqNum() throw ( FIX::IOException& )
+void JavaMessageStore::incrNextTargetMsgSeqNum() throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
@@ -175,7 +175,7 @@ void JavaMessageStore::incrNextTargetMsgSeqNum() throw ( FIX::IOException& )
 }
 
 FIX::UtcTimeStamp JavaMessageStore::getCreationTime() const
-throw ( FIX::IOException& )
+throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
@@ -186,7 +186,7 @@ throw ( FIX::IOException& )
   return FIX::UtcTimeStamp( longTime );
 }
 
-void JavaMessageStore::reset() throw ( FIX::IOException& )
+void JavaMessageStore::reset() throw ( FIX::IOException )
 {
   JNIEnv * pEnv = ENV::get();
   Exceptions e;

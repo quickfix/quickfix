@@ -69,11 +69,11 @@ class SessionSettings
 {
 public:
   SessionSettings() {}
-  SessionSettings( std::istream& stream ) throw( ConfigError& );
-  SessionSettings( const std::string& file ) throw( ConfigError& );
+  SessionSettings( std::istream& stream ) throw( ConfigError );
+  SessionSettings( const std::string& file ) throw( ConfigError );
 
   /// Get a dictionary for a session.
-  Dictionary get( const SessionID& ) const throw( ConfigError& );
+  Dictionary get( const SessionID& ) const throw( ConfigError );
   /// Set a dictionary for a session
   void set( const SessionID&, const Dictionary& );
 
@@ -95,7 +95,7 @@ private:
 /*! @} */
 
 std::istream& operator>>( std::istream&, SessionSettings& )
-throw( ConfigError& );
+throw( ConfigError );
 }
 
 #endif //FIX_SESSIONSETTINGS_H

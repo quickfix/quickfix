@@ -114,7 +114,7 @@ namespace FIX
     QF_STACK_POP
   }
 
-  MSXML_DOMDocument::MSXML_DOMDocument() throw( ConfigError& )
+  MSXML_DOMDocument::MSXML_DOMDocument() throw( ConfigError )
   : m_pDoc(NULL)
   {
     if(FAILED(CoInitialize(NULL)))

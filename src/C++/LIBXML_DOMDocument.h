@@ -67,7 +67,7 @@ namespace FIX
   class LIBXML_DOMDocument : public DOMDocument
   {
   public:
-    LIBXML_DOMDocument() throw( ConfigError& );
+    LIBXML_DOMDocument() throw( ConfigError );
     ~LIBXML_DOMDocument();
 
     bool load( std::istream& );

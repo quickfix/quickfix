@@ -87,20 +87,20 @@ public:
   FileStore( std::string, const SessionID& s );
   virtual ~FileStore();
 
-  bool set( int, const std::string& ) throw ( IOException& );
-  bool get( int, std::string& ) const throw ( IOException& );
-  void get( int, int, std::vector < std::string > & ) const throw ( IOException& );
+  bool set( int, const std::string& ) throw ( IOException );
+  bool get( int, std::string& ) const throw ( IOException );
+  void get( int, int, std::vector < std::string > & ) const throw ( IOException );
 
-  int getNextSenderMsgSeqNum() const throw ( IOException& );
-  int getNextTargetMsgSeqNum() const throw ( IOException& );
-  void setNextSenderMsgSeqNum( int value ) throw ( IOException& );
-  void setNextTargetMsgSeqNum( int value ) throw ( IOException& );
-  void incrNextSenderMsgSeqNum() throw ( IOException& );
-  void incrNextTargetMsgSeqNum() throw ( IOException& );
+  int getNextSenderMsgSeqNum() const throw ( IOException );
+  int getNextTargetMsgSeqNum() const throw ( IOException );
+  void setNextSenderMsgSeqNum( int value ) throw ( IOException );
+  void setNextTargetMsgSeqNum( int value ) throw ( IOException );
+  void incrNextSenderMsgSeqNum() throw ( IOException );
+  void incrNextTargetMsgSeqNum() throw ( IOException );
 
-  UtcTimeStamp getCreationTime() const throw ( IOException& );
+  UtcTimeStamp getCreationTime() const throw ( IOException );
 
-  void reset() throw ( IOException& );
+  void reset() throw ( IOException );
 
 private:
   typedef std::pair < int, int > OffsetSize;
