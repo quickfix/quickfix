@@ -174,11 +174,11 @@ inline void setUtcTimeOnly( FIX::FieldMap& map, jint field, jobject value )
   map.setField( field, FIX::UtcTimeOnlyConvertor::convert( timeOnly ) );
 }
 
-inline void setUtcDate( FIX::FieldMap& map, jint field, jobject value )
+inline void setUtcDateOnly( FIX::FieldMap& map, jint field, jobject value )
 {
   JVMObject date( value );
-  FIX::UtcDate utcDate( date.callLongMethod( "getTime" ) / 1000 );
-  map.setField( field, FIX::UtcDateConvertor::convert( utcDate ) );
+  FIX::UtcDateOnly dateOnly( date.callLongMethod( "getTime" ) / 1000 );
+  map.setField( field, FIX::UtcDateOnlyConvertor::convert( dateOnly ) );
 }
 
 inline jstring getString( FIX::FieldMap& map, jint field )
@@ -260,13 +260,13 @@ inline jobject newUtcTimeOnly( FIX::FieldMap& map, jint field )
   return 0;
 }
 
-inline jobject newUtcDate( FIX::FieldMap& map, jint field )
+inline jobject newUtcDateOnly( FIX::FieldMap& map, jint field )
 {
   try
   {
-    FIX::UtcDate utcDate;
-    utcDate = FIX::UtcDateConvertor::convert( map.getField( field ) );
-    FIX::UtcTimeStamp* p = reinterpret_cast < FIX::UtcTimeStamp* > ( &utcDate );
+    FIX::UtcDateOnly dateOnly;
+    dateOnly = FIX::UtcDateOnlyConvertor::convert( map.getField( field ) );
+    FIX::UtcTimeStamp* p = reinterpret_cast < FIX::UtcTimeStamp* > ( &dateOnly );
     return newDate( *p );
   }
   catch( FIX::FieldNotFound& e ) 

@@ -322,6 +322,8 @@ struct UtcDateConvertor
   }
 };
 
+typedef UtcDateConvertor UtcDateOnlyConvertor;
+
 typedef StringConvertor STRING_CONVERTOR;
 typedef CharConvertor CHAR_CONVERTOR;
 typedef DoubleConvertor PRICE_CONVERTOR;
