@@ -422,15 +422,15 @@ bool Session::sendRaw( Message& message, int num )
         || msgType == "2" || msgType == "4"
         || isLoggedOn()
       )
-        result = send( message.toString(messageString) );
+      result = send( message.toString(messageString) );
     }
     else
     {
       try
       {
         m_application.toApp( message, m_sessionID );
-	message.toString( messageString );
-        if ( isLoggedOn() ) result = 
+        message.toString( messageString );
+        if ( isLoggedOn() || num ) result = 
           send( messageString );
       }
       catch ( DoNotSend& ) {}}
