@@ -68,6 +68,7 @@ int main( int argc, char** argv )
   {
     std::cout << "usage: " << argv[ 0 ]
     << " FILE." << std::endl;
+    return 0;
   }
   std::string file = argv[ 1 ];
 
