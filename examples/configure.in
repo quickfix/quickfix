@@ -1,5 +1,5 @@
-	dnl I got a big bag of -*- Sh -*- for you right here
 # Process this file with autoconf to produce a configure script.
+
 AC_INIT(ordermatch/Application.h)
 AM_INIT_AUTOMAKE(ordermatch, 1.0.0)
 AM_CONFIG_HEADER(config.h)
@@ -84,7 +84,6 @@ AC_OUTPUT(
 	tradeclientgui/banzai/Makefile
 	tradeclientgui/banzai/test/Makefile
 	tradeclientgui/banzai/src/Makefile
-	tradeclientgui/banzai/src/org/Makefile
 	tradeclientgui/banzai/src/quickfix/Makefile
 	tradeclientgui/banzai/src/quickfix/banzai/Makefile
 	tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile )
