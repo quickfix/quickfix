@@ -440,12 +440,14 @@ bool Session::sendRaw( Message& message, int num )
     if ( Message::isAdminMsgType( msgType ) )
     {
       m_application.toAdmin( message, m_sessionID );
+      message.toString( messageString );
       if (
         msgType == "A" || msgType == "5"
         || msgType == "2" || msgType == "4"
-        || isLoggedOn()
-      )
-      result = send( message.toString(messageString) );
+        || isLoggedOn() )
+      {
+        result = send( messageString );
+      }
     }
     else
     {
@@ -453,10 +455,10 @@ bool Session::sendRaw( Message& message, int num )
       {
         m_application.toApp( message, m_sessionID );
         message.toString( messageString );
-        if ( isLoggedOn() ) result = 
-          send( messageString );
+        if ( isLoggedOn() ) 
+          result = send( messageString );
       }
-      catch ( DoNotSend& ) {}
+      catch ( DoNotSend& ) { return false; }
     }
 
     if ( !num )
