@@ -28,6 +28,8 @@ libquickfixcpptest_la_SOURCES = \
 	SocketUtilitiesTestCase.h \
 	FileUtilitiesTestCase.cpp \
 	FileUtilitiesTestCase.h \
+	StringUtilitiesTestCase.cpp \
+	StringUtilitiesTestCase.h \
 	SocketServerTestCase.cpp \
 	SocketServerTestCase.h \
 	SocketConnectorTestCase.cpp \

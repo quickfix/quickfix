@@ -56,6 +56,10 @@ typedef int socklen_t;
 
 namespace FIX
 {
+void string_replace( const std::string& oldValue, 
+		     const std::string& newValue,
+		     std::string& value );
+
 void socket_init();
 void socket_term();
 int socket_createAcceptor( int port, bool reuse = false );

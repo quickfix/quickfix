@@ -35,6 +35,22 @@
 
 namespace FIX
 {
+void string_replace( const std::string& oldValue, 
+		     const std::string& newValue,
+		     std::string& value )
+{ QF_STACK_PUSH(string_replace)
+
+  for( std::string::size_type pos = value.find(oldValue); 
+       pos != std::string::npos; 
+       pos = value.find(oldValue, pos) )
+  {
+    value.replace( pos, oldValue.size(), newValue );
+    pos += newValue.size();
+  }
+
+  QF_STACK_POP
+}
+
 void socket_init()
 { QF_STACK_PUSH(socket_init)
 
