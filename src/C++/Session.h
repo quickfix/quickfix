@@ -106,7 +106,7 @@ public:
   void setMillisecondsInTimeStamp ( bool value ) 
     { m_millisecondsInTimeStamp = value; }
 
-  void setResponder( Responder* pR ) { m_pResponder = pR; }
+  void setResponder( Responder* pR ) { next(); m_pResponder = pR; }
   bool send( Message& );
   void next();
   void next( const std::string& );
