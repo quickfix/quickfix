@@ -108,7 +108,7 @@ void file_unlink( const char* path );
 std::string file_appendpath( const std::string& path, const std::string& file );
 }
 
-#if !defined(_MSC_VER) || _MSC_VER >= 1300
+#if (!defined(_MSC_VER) || (_MSC_VER >= 1300)) && !defined(HAVE_STLPORT)
 using std::abort;
 using std::sprintf;
 using std::atoi;
