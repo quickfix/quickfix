@@ -85,11 +85,10 @@ throw( MessageParseError& )
   if( !buffer.size() ) return false;
   
   std::string::size_type startPos = buffer.find( "\0019=", 0 );
-  if( pos == std::string::npos ) return false;
+  if( startPos == std::string::npos ) return false;
   startPos += 3;
   std::string::size_type endPos = buffer.find( "\001", startPos );
-  if( pos == std::string::npos ) return false;
-  pos = endPos + 1;
+  if( endPos == std::string::npos ) return false;
 
   std::string strLength( buffer, startPos, endPos - startPos );
 
@@ -101,6 +100,7 @@ throw( MessageParseError& )
   catch( FieldConvertError& )
   { throw MessageParseError(); }
 
+  pos = endPos + 1;
   return true;
 
   QF_STACK_POP

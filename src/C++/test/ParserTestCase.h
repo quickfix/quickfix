@@ -84,6 +84,8 @@ class extractLength : public Test
     std::string m_normalLength;
     std::string m_badLength;
     std::string m_negativeLength;
+    std::string m_incomplete_1;
+    std::string m_incomplete_2;
   }
   m_extractLength;
 

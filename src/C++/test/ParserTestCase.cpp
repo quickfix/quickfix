@@ -62,9 +62,11 @@ namespace FIX
 {
 bool ParserTestCase::extractLength::onSetup( Parser*& pObject )
 {
-  m_normalLength = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
-  m_badLength = "8=FIX.4.2\0019=A\00135=A\001108=30\00110=31\001";
+  m_normalLength   = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
+  m_badLength      = "8=FIX.4.2\0019=A\00135=A\001108=30\00110=31\001";
   m_negativeLength = "8=FIX.4.2\0019=-1\00135=A\001108=30\00110=31\001";
+  m_incomplete_1   = "8=FIX.4.2";
+  m_incomplete_2   = "8=FIX.4.2\0019=12";
   return true;
 }
 
@@ -77,13 +79,24 @@ void ParserTestCase::extractLength::onRun( Parser& object )
   assert( length == 12 );
   assert( pos == 15 );
 
+  pos = 0;
   try { object.extractLength(length, pos, m_badLength);
         assert(false); }
   catch( MessageParseError& ) {}
 
+  assert(pos == 0);
   try { object.extractLength(length, pos, m_negativeLength);
         assert(false); }
   catch( MessageParseError& ) {}
+
+  assert(pos == 0);
+  try { assert( object.extractLength(length, pos, m_incomplete_1) == false);
+        assert(pos == 0); }
+  catch( MessageParseError& ) { assert(false) }
+
+  try { assert( object.extractLength(length, pos, m_incomplete_2) == false);
+        assert(pos == 0); }
+  catch( MessageParseError& ) { assert(false) }
 
   assert( !object.extractLength(length, pos, "") );
 }
