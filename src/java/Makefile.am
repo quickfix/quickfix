@@ -21,48 +21,48 @@ libquickfix_jni_la_SOURCES = \
 	JavaMessageStore.cpp \
 	JavaMessageStoreFactory.h \
 	JavaMessageStoreFactory.cpp \
-	org_quickfix_DataDictionary.h \
-	org_quickfix_DataDictionary.cpp \
-	org_quickfix_FileStore.h \
-	org_quickfix_FileStore.cpp \
-	org_quickfix_FileStoreFactory.h \
-	org_quickfix_FileStoreFactory.cpp \
-	org_quickfix_FileLog.h \
-	org_quickfix_FileLog.cpp \
-	org_quickfix_FileLogFactory.h \
-	org_quickfix_FileLogFactory.cpp \
-	org_quickfix_Group.h \
-	org_quickfix_Group.cpp \
-	org_quickfix_MemoryStore.h \
-	org_quickfix_MemoryStore.cpp \
-	org_quickfix_Message.h \
-	org_quickfix_Message.cpp \
-	org_quickfix_MySQLStore.h \
-	org_quickfix_MySQLStore.cpp \
-	org_quickfix_MySQLStoreFactory.h \
-	org_quickfix_MySQLStoreFactory.cpp \
-	org_quickfix_MySQLLog.h \
-	org_quickfix_MySQLLog.cpp \
-	org_quickfix_MySQLLogFactory.h \
-	org_quickfix_MySQLLogFactory.cpp \
-	org_quickfix_ScreenLog.h \
-	org_quickfix_ScreenLog.cpp \
-	org_quickfix_ScreenLogFactory.h \
-	org_quickfix_ScreenLogFactory.cpp \
-	org_quickfix_Session.h \
-	org_quickfix_Session.cpp \
-	org_quickfix_SessionID.h \
-	org_quickfix_SessionID.cpp \
-	org_quickfix_SessionSettings.h \
-	org_quickfix_SessionSettings.cpp \
-	org_quickfix_SocketAcceptor.h \
-	org_quickfix_SocketAcceptor.cpp \
-	org_quickfix_SocketInitiator.h \
-	org_quickfix_SocketInitiator.cpp \
-	org_quickfix_ThreadedSocketAcceptor.h \
-	org_quickfix_ThreadedSocketAcceptor.cpp \
-	org_quickfix_ThreadedSocketInitiator.h \
-	org_quickfix_ThreadedSocketInitiator.cpp
+	quickfix_DataDictionary.h \
+	quickfix_DataDictionary.cpp \
+	quickfix_FileStore.h \
+	quickfix_FileStore.cpp \
+	quickfix_FileStoreFactory.h \
+	quickfix_FileStoreFactory.cpp \
+	quickfix_FileLog.h \
+	quickfix_FileLog.cpp \
+	quickfix_FileLogFactory.h \
+	quickfix_FileLogFactory.cpp \
+	quickfix_Group.h \
+	quickfix_Group.cpp \
+	quickfix_MemoryStore.h \
+	quickfix_MemoryStore.cpp \
+	quickfix_Message.h \
+	quickfix_Message.cpp \
+	quickfix_MySQLStore.h \
+	quickfix_MySQLStore.cpp \
+	quickfix_MySQLStoreFactory.h \
+	quickfix_MySQLStoreFactory.cpp \
+	quickfix_MySQLLog.h \
+	quickfix_MySQLLog.cpp \
+	quickfix_MySQLLogFactory.h \
+	quickfix_MySQLLogFactory.cpp \
+	quickfix_ScreenLog.h \
+	quickfix_ScreenLog.cpp \
+	quickfix_ScreenLogFactory.h \
+	quickfix_ScreenLogFactory.cpp \
+	quickfix_Session.h \
+	quickfix_Session.cpp \
+	quickfix_SessionID.h \
+	quickfix_SessionID.cpp \
+	quickfix_SessionSettings.h \
+	quickfix_SessionSettings.cpp \
+	quickfix_SocketAcceptor.h \
+	quickfix_SocketAcceptor.cpp \
+	quickfix_SocketInitiator.h \
+	quickfix_SocketInitiator.cpp \
+	quickfix_ThreadedSocketAcceptor.h \
+	quickfix_ThreadedSocketAcceptor.cpp \
+	quickfix_ThreadedSocketInitiator.h \
+	quickfix_ThreadedSocketInitiator.cpp
 
 libquickfix_jni_la_LDFLAGS = -version-info 4:0:1
 libquickfix_jni_la_LIBADD = -L../../src/C++ -lquickfix -lstdc++
