@@ -545,6 +545,59 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveField
   QF_STACK_CATCH
 }
 
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorCreate
+( JNIEnv *pEnv, jobject obj, jobject iterator )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jiterator( iterator );
+  JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  jiterator.setInt( "cppPointer", (int)new FIX::Header::iterator( pMessage->getHeader().begin()) );
+  return jiterator;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
+( JNIEnv *pEnv, jobject obj, jobject iterator )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jiterator( iterator );
+  JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Header::iterator* i = ( FIX::Header::iterator* ) jiterator.getInt( "cppPointer" );
+  return( *i != pMessage->getHeader().end() );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
+( JNIEnv *pEnv, jobject obj, jobject iterator )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jiterator( iterator );
+  JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Header::iterator* i = ( FIX::Header::iterator* ) jiterator.getInt( "cppPointer" );
+  if( *i == pMessage->getHeader().end() ) {
+    throwNew( "Ljava/util/NoSuchElementException;", "" );
+    return 0;
+  }
+  const FIX::FieldBase& field = (*i)->second;
+  (*i)++;
+  try {
+    return newField( field );
+  } catch( std::exception& e ) {
+    std::cout << e.what() << std::endl;
+    return 0;
+  }
+
+  QF_STACK_CATCH
+}
+
 // Trailer Methods
 
 JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetString

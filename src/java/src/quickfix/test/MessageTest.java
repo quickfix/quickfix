@@ -180,6 +180,25 @@ public class MessageTest extends TestCase {
                 assertNull(i.next());
                 fail("exception not thrown");
             } catch(java.util.NoSuchElementException e) {}
+
+	    java.util.Iterator j = message.getHeader().iterator();
+	    assertTrue(j.hasNext());
+	    field = (StringField)j.next();
+	    assertEquals(8, field.getField());
+	    assertEquals("FIX.4.2", field.getValue());
+	    field = (StringField)j.next();
+	    assertEquals(9, field.getField());
+	    assertEquals("12", field.getValue());
+	    field = (StringField)j.next();
+	    assertEquals(35, field.getField());
+	    assertEquals("A", field.getValue());
+
+            assertEquals(false, j.hasNext());
+            try {
+                assertNull(j.next());
+                fail("exception not thrown");
+            } catch(java.util.NoSuchElementException e) {}
+
         } catch( InvalidMessage e ) {
             fail("exception thrown");
         }

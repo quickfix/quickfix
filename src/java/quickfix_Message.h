@@ -401,19 +401,27 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveField
 
 /*
  * Class:     quickfix_Message
+ * Method:    headerIteratorCreate
+ * Signature: (Lquickfix/Message$Header$Iterator;)Lquickfix/Message$Iterator;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorCreate
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
  * Method:    headerIteratorHasNext
- * Signature: ()Z
+ * Signature: (Lquickfix/Message$Header$Iterator;)Z
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Message
  * Method:    headerIteratorNext
- * Signature: ()Ljava/lang/Object;
+ * Signature: (Lquickfix/Message$Header$Iterator;)Ljava/lang/Object;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Message
@@ -561,19 +569,27 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveField
 
 /*
  * Class:     quickfix_Message
+ * Method:    trailerIteratorCreate
+ * Signature: (Lquickfix/Message$Trailer$Iterator;)Lquickfix/Message$Iterator;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
  * Method:    trailerIteratorHasNext
- * Signature: ()Z
+ * Signature: (Lquickfix/Message$Trailer$Iterator;)Z
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Message
  * Method:    trailerIteratorNext
- * Signature: ()Ljava/lang/Object;
+ * Signature: (Lquickfix/Message$Trailer$Iterator;)Ljava/lang/Object;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorNext
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jobject);
 
 #ifdef __cplusplus
 }

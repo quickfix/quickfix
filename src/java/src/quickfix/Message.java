@@ -58,8 +58,8 @@ public class Message extends FieldMap {
 
     public Message() {
         create();
-        header = new Header();
-        trailer = new Trailer();
+        header = new Header( this );
+        trailer = new Trailer( this );
     }
 
     public Message(String string) throws InvalidMessage {
@@ -71,15 +71,15 @@ public class Message extends FieldMap {
     }
 
     public Message(String string, DataDictionary dd) throws InvalidMessage {
-            initFromString(string, dd);
+        initFromString(string, dd);
     }
 
     private void initFromString(String string, boolean validate) 
         throws InvalidMessage {
 
         create();
-        header = new Header();
-        trailer = new Trailer();
+        header = new Header( this );
+        trailer = new Trailer( this );
         fromString(string, validate);
     }
 
@@ -87,8 +87,8 @@ public class Message extends FieldMap {
         throws InvalidMessage {
         
         create();
-        header = new Header();
-        trailer = new Trailer();
+        header = new Header( this );
+        trailer = new Trailer( this );
         fromString(string, dd);
     }
 
@@ -233,21 +233,27 @@ public class Message extends FieldMap {
     }
     
     public class Header extends FieldMap {
+	private Message message = null;
+
+	public Header( Message aMessage ) {
+	    message = aMessage;
+	}
 
         public class Iterator implements java.util.Iterator {
-            private Header header;
+            private Message message;
             private int cppPointer;
             
-            public Iterator( Header aHeader ) {
-                header = aHeader;
+            public Iterator( Message aMessage ) {
+                message = aMessage;
+		headerIteratorCreate( this );
             }
             
             public boolean hasNext() {
-                return headerIteratorHasNext();
+                return headerIteratorHasNext( this );
             }
             
             public Object next() {
-                return headerIteratorNext();
+                return headerIteratorNext( this );
             }
             
             public void remove() {}
@@ -372,26 +378,31 @@ public class Message extends FieldMap {
         }
 
         public java.util.Iterator iterator() {
-            return new Iterator( this );
+            return new Iterator( message );
         }
     }
 
     public class Trailer extends FieldMap {
+	private Message message = null;
 
+	public Trailer( Message aMessage ) {
+	    message = aMessage;
+	}
         public class Iterator implements java.util.Iterator {
-            private Trailer trailer;
+            private Message message;
             private int cppPointer;
             
-            public Iterator( Trailer aTrailer ) {
-                trailer = aTrailer;
+            public Iterator( Message aMessage ) {
+                message = aMessage;
+		trailerIteratorCreate( this );
             }
             
             public boolean hasNext() {
-                return trailerIteratorHasNext();
+                return trailerIteratorHasNext( this );
             }
             
             public Object next() {
-                return trailerIteratorNext();
+                return trailerIteratorNext( this );
             }
             
             public void remove() {}
@@ -516,7 +527,7 @@ public class Message extends FieldMap {
         }
 
         public java.util.Iterator iterator() {
-            return new Iterator( this );
+            return new Iterator( message );
         }
     }
 
@@ -545,8 +556,9 @@ public class Message extends FieldMap {
     private native boolean headerIsSetField(int field);
     private native void headerRemoveField(int field);
 
-    private native boolean headerIteratorHasNext();
-    private native Object headerIteratorNext();
+    private native Iterator headerIteratorCreate( Header.Iterator i );
+    private native boolean headerIteratorHasNext( Header.Iterator i );
+    private native Object headerIteratorNext( Header.Iterator i );
 
     private native void trailerSetString(int field, String value);
     private native void trailerSetBoolean(int field, boolean value);
@@ -569,6 +581,7 @@ public class Message extends FieldMap {
     private native boolean trailerIsSetField(int field);
     private native void trailerRemoveField(int field);
 
-    private native boolean trailerIteratorHasNext();
-    private native Object trailerIteratorNext();
+    private native Iterator trailerIteratorCreate( Trailer.Iterator i );
+    private native boolean trailerIteratorHasNext( Trailer.Iterator i );
+    private native Object trailerIteratorNext( Trailer.Iterator i );
 }
