@@ -103,20 +103,21 @@ namespace FIX43
   virtual void onMessage( const Message&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
  virtual void onMessage( const Heartbeat&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
+    {}
   virtual void onMessage( const Logon&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
+    {}
   virtual void onMessage( const TestRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
+    {}
   virtual void onMessage( const ResendRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
+    {}
   virtual void onMessage( const Reject&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
+    {}
   virtual void onMessage( const SequenceReset&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
+    {}
   virtual void onMessage( const Logout&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
+    {}
   virtual void onMessage( const BusinessMessageReject&, const FIX::SessionID& ) 
+    {}
     {}
   virtual void onMessage( const Advertisement&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
