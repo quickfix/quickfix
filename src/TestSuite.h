@@ -97,6 +97,7 @@ public:
     add( &m_orderCancelRejectParse );
     add( &m_orderStatusRequestParse );
     add( &m_newOrderListParse );
+    add( &m_massQuoteParse );
     add( &m_session );
     add( &m_parser );
     add( &m_settings );
@@ -138,6 +139,7 @@ private:
   FIX::OrderCancelRejectParseTestCase m_orderCancelRejectParse;
   FIX::OrderStatusRequestParseTestCase m_orderStatusRequestParse;
   FIX::NewOrderListParseTestCase m_newOrderListParse;
+  FIX::MassQuoteParseTestCase m_massQuoteParse;
   FIX::SessionTestCase m_session;
   FIX::ParserTestCase m_parser;
   FIX::SettingsTestCase m_settings;

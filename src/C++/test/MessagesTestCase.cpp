@@ -749,4 +749,57 @@ void NewOrderListParseTestCase::setString::onRun
   catch ( ... )
   { assert(false); }
 }
+
+void MassQuoteParseTestCase::getString::onRun
+( MassQuote& object )
+{
+  object.set( QuoteID( "1" ) );
+
+  MassQuote::NoQuoteSets group;
+  group.set( QuoteSetID( "A" ) );
+  group.set( UnderlyingSymbol( "DELL" ) );
+  group.set( EncodedUnderlyingSecurityDescLen( 10 ) );
+  group.set( EncodedUnderlyingSecurityDesc( "DELL\001COMP\001" ) );
+  object.addGroup( group );
+
+  assert( object.toString() ==
+          ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
+            "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001" ) );
+}
+
+void MassQuoteParseTestCase::setString::onRun
+( MassQuote& object )
+{
+  DataDictionary dataDictionary( "spec/FIX42.xml" );
+  try
+  {
+    assert( object.setString
+            ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
+              "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001", 
+              true, &dataDictionary ) );
+  }
+  catch ( ... )
+  { assert(false); }
+
+  QuoteID quoteID;
+
+  object.get( quoteID );
+
+  QuoteSetID quoteSetID;
+  UnderlyingSymbol underlyingSymbol;
+  EncodedUnderlyingSecurityDescLen encLen;
+  EncodedUnderlyingSecurityDesc encDesc;
+
+  MassQuote::NoQuoteSets group;
+  object.getGroup( 1, group );
+  group.get( quoteSetID );
+  group.get( underlyingSymbol );
+  group.get( encLen );
+  group.get( encDesc );
+
+  assert( quoteSetID == "A" );
+  assert( underlyingSymbol == "DELL" );
+  assert( encLen == 10 );
+  assert( encDesc == "DELL\001COMP\001" );
+}
 }

@@ -210,7 +210,8 @@ public:
 
 private:
   FieldBase extractField
-  ( const std::string& string, std::string::size_type& pos );
+  ( const std::string& string, std::string::size_type& pos, 
+    const DataDictionary* pDD = 0, const Group* pGroup = 0 );
 
   void clear();
   bool validate();

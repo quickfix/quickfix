@@ -223,7 +223,7 @@ bool Message::setString( const std::string& string,
   {
     try
     {
-      FieldBase field = extractField( string, pos );
+      FieldBase field = extractField( string, pos, pDataDictionary );
 
       if ( count < 3 && headerOrder[ count++ ] != field.getField() )
         if ( doValidation ) return false;
@@ -286,7 +286,7 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   while ( pos < string.size() )
   {
     std::string::size_type oldPos = pos;
-    FieldBase field = extractField( string, pos );
+    FieldBase field = extractField( string, pos, &dataDictionary, pGroup );
     if ( field.getField() == delim )
     {
       if ( pGroup ) { map.addGroup( group, *pGroup ); delete pGroup; }
@@ -464,7 +464,8 @@ bool Message::validate()
 }
 
 FieldBase Message::extractField
-( const std::string& string, std::string::size_type& pos )
+( const std::string& string, std::string::size_type& pos,
+  const DataDictionary* pDD, const Group* pGroup )
 { QF_STACK_PUSH(Message::extractField)
 
   std::string::size_type equalSign = string.find_first_of( '=', pos );
@@ -474,7 +475,27 @@ FieldBase Message::extractField
     string.find_first_of( '\001', equalSign + 1 );
   if ( soh == std::string::npos )
     throw InvalidMessage();
-  
+
+  if ( pDD && pDD->isDataField(field) )
+  {
+    std::string fieldLength;
+    /* Assume length field is 1 less. */
+    int lenField = field - 1;     
+    /* Special case for Signature which violates above assumption. */
+    if ( field == 89 ) lenField = 93;
+
+    if ( pGroup && pGroup->isSetField( lenField ) )
+    {
+	    fieldLength = pGroup->getField( lenField);
+	    soh = equalSign + 1 + atol( fieldLength.c_str() );
+    }
+    else if ( isSetField( lenField ) )
+    {
+	    fieldLength = getField( lenField );
+	    soh = equalSign + 1 + atol( fieldLength.c_str() );
+    }
+  }
+
   pos = soh + 1;
   return FieldBase ( 
     field, 

@@ -248,6 +248,12 @@ public:
     return true;
   }
 
+  bool isDataField( int field ) const
+  {
+    FieldTypes::const_iterator i = m_fieldTypes.find( field );
+    return i != m_fieldTypes.end() && i->second == TYPE::Data;
+  }
+
   void checkFieldsOutOfOrder( bool value )
   { m_checkFieldsOutOfOrder = value; }
   void checkFieldsHaveValues( bool value )

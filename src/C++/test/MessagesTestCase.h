@@ -186,6 +186,8 @@ typedef MessageParseTestCase < FIX42::OrderStatusRequest >
 OrderStatusRequestParseTestCase;
 typedef MessageParseTestCase < FIX42::NewOrderList >
 NewOrderListParseTestCase;
+typedef MessageParseTestCase < FIX42::MassQuote >
+MassQuoteParseTestCase;
 }
 
 #endif //FIX_MESSAGESTESTCASE_H
