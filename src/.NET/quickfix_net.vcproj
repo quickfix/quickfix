@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="Windows-1252"?>
+<?xml version="1.0" encoding = "Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.10"
+	Version="7.00"
 	Name="quickfix_net"
 	ProjectGUID="{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
 	Keyword="ManagedCProj">
@@ -51,13 +51,7 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -99,17 +93,9 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
-				Name="VCXMLDataGeneratorTool"/>
-			<Tool
 				Name="VCWebDeploymentTool"/>
-			<Tool
-				Name="VCManagedWrapperGeneratorTool"/>
-			<Tool
-				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
-	<References>
-	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -151,9 +137,6 @@
 				RelativePath="MySQLMessageStore.cpp">
 			</File>
 			<File
-				RelativePath="quickfix_net.cpp">
-			</File>
-			<File
 				RelativePath="ScreenLog.cpp">
 			</File>
 			<File
@@ -173,6 +156,9 @@
 						Name="VCCLCompilerTool"
 						UsePrecompiledHeader="1"/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath="quickfix_net.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -233,22 +219,19 @@
 				RelativePath="MessageFactory.h">
 			</File>
 			<File
-				RelativePath="Messages.h">
-			</File>
-			<File
 				RelativePath="MessageStore.h">
 			</File>
 			<File
 				RelativePath="MessageStoreFactory.h">
 			</File>
 			<File
+				RelativePath="Messages.h">
+			</File>
+			<File
 				RelativePath="MySQLLog.h">
 			</File>
 			<File
 				RelativePath="MySQLMessageStore.h">
-			</File>
-			<File
-				RelativePath="quickfix_net.h">
 			</File>
 			<File
 				RelativePath="ScreenLog.h">
@@ -276,6 +259,9 @@
 			</File>
 			<File
 				RelativePath="ThreadedSocketInitiator.h">
+			</File>
+			<File
+				RelativePath="quickfix_net.h">
 			</File>
 		</Filter>
 		<Filter

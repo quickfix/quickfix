@@ -1081,6 +1081,12 @@ del /F EXCLUDE
 						RelativePath="src\C++\fix42\AllocationACK.h">
 					</File>
 					<File
+						RelativePath="src\C++\fix42\BidRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\BidResponse.h">
+					</File>
+					<File
 						RelativePath="src\C++\fix42\BusinessMessageReject.h">
 					</File>
 					<File
@@ -1109,6 +1115,9 @@ del /F EXCLUDE
 					</File>
 					<File
 						RelativePath="src\C++\fix42\ListStatusRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix42\ListStrikePrice.h">
 					</File>
 					<File
 						RelativePath="src\C++\fix42\Logon.h">

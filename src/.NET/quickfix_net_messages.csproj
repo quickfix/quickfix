@@ -1,8 +1,8 @@
 <VisualStudioProject>
     <CSHARP
         ProjectType = "Local"
-        ProductVersion = "7.10.3077"
-        SchemaVersion = "2.0"
+        ProductVersion = "7.0.9466"
+        SchemaVersion = "1.0"
         ProjectGuid = "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
     >
         <Build>
@@ -16,10 +16,7 @@
                 DefaultTargetSchema = "IE50"
                 DelaySign = "false"
                 OutputType = "Library"
-                PreBuildEvent = ""
-                PostBuildEvent = ""
                 RootNamespace = "QuickFix"
-                RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
             >
                 <Config
@@ -33,8 +30,6 @@
                     DebugSymbols = "true"
                     FileAlignment = "4096"
                     IncrementalBuild = "true"
-                    NoStdLib = "false"
-                    NoWarn = ""
                     Optimize = "false"
                     OutputPath = "..\..\lib\debug\"
                     RegisterForComInterop = "false"
@@ -53,8 +48,6 @@
                     DebugSymbols = "false"
                     FileAlignment = "4096"
                     IncrementalBuild = "false"
-                    NoStdLib = "false"
-                    NoWarn = ""
                     Optimize = "true"
                     OutputPath = "..\..\lib\"
                     RegisterForComInterop = "false"
@@ -454,6 +447,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "fix42\BidRequest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "fix42\BidResponse.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "fix42\BusinessMessageReject.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
@@ -500,6 +503,11 @@
                 />
                 <File
                     RelPath = "fix42\ListStatusRequest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "fix42\ListStrikePrice.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
                 />

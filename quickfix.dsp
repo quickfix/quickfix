@@ -593,6 +593,14 @@ SOURCE=".\src\C++\fix42\AllocationACK.h"
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\fix42\BidRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\BidResponse.h"
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\fix42\BusinessMessageReject.h"
 # End Source File
 # Begin Source File
@@ -630,6 +638,10 @@ SOURCE=".\src\C++\fix42\ListStatus.h"
 # Begin Source File
 
 SOURCE=".\src\C++\fix42\ListStatusRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix42\ListStrikePrice.h"
 # End Source File
 # Begin Source File
 
