@@ -4,11 +4,18 @@ Multi-character Currencies will no longer be rejected
 
 Fixed problems with MySQLStore loading in the wrong fields on startup.
 
+MySQLStore queries will retry once if connection to the daemon got dropped.
+
 Fixed link errors when building with some versions of Visual Studio.
 
 Fixed compilation errors when using STLPort
 
 Applied patches for SUNPro support
+
+Message::toXML() will place field values in a CDATA section in the text 
+element so it can handle special XML characters. Placing XML strings that
+contain CDATA sections into a xmldata field will still cause
+problems but I'm not sure much can be done about that.
 
 1.9.0
 -----
