@@ -84,4 +84,7 @@ public class Session {
 
     public native int getExpectedSenderNum();
     public native int getExpectedTargetNum();
+
+    public native Log getLog();
+    public native MessageStore getStore();
 }

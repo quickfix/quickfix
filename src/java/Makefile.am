@@ -33,6 +33,8 @@ libquickfix_jni_la_SOURCES = \
 	quickfix_FileLogFactory.cpp \
 	quickfix_Group.h \
 	quickfix_Group.cpp \
+	quickfix_CppMessageStore.h \
+	quickfix_CppMessageStore.cpp \
 	quickfix_MemoryStore.h \
 	quickfix_MemoryStore.cpp \
 	quickfix_Message.h \
@@ -41,6 +43,8 @@ libquickfix_jni_la_SOURCES = \
 	quickfix_MySQLStore.cpp \
 	quickfix_MySQLStoreFactory.h \
 	quickfix_MySQLStoreFactory.cpp \
+	quickfix_CppLog.h \
+	quickfix_CppLog.cpp \
 	quickfix_MySQLLog.h \
 	quickfix_MySQLLog.cpp \
 	quickfix_MySQLLogFactory.h \

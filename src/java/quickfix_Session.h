@@ -135,6 +135,22 @@ JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedSenderNum
 JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedTargetNum
   (JNIEnv *, jobject);
 
+/*
+ * Class:     quickfix_Session
+ * Method:    getLog
+ * Signature: ()Lquickfix/Log;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getLog
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    getStore
+ * Signature: ()Lquickfix/MessageStore;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getStore
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

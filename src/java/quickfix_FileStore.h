@@ -9,86 +9,6 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_FileStore
- * Method:    set
- * Signature: (ILjava/lang/String;)Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_FileStore_set
-  (JNIEnv *, jobject, jint, jstring);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    get
- * Signature: (ILjava/lang/String;)Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_FileStore_get__ILjava_lang_String_2
-  (JNIEnv *, jobject, jint, jstring);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    get
- * Signature: (IILjava/util/Collection;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileStore_get__IILjava_util_Collection_2
-  (JNIEnv *, jobject, jint, jint, jobject);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    getNextSenderMsgSeqNum
- * Signature: ()I
- */
-JNIEXPORT jint JNICALL Java_quickfix_FileStore_getNextSenderMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    getNextTargetMsgSeqNum
- * Signature: ()I
- */
-JNIEXPORT jint JNICALL Java_quickfix_FileStore_getNextTargetMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    setNextSenderMsgSeqNum
- * Signature: (I)V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileStore_setNextSenderMsgSeqNum
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    setNextTargetMsgSeqNum
- * Signature: (I)V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileStore_setNextTargetMsgSeqNum
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    incrNextSenderMsgSeqNum
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileStore_incrNextSenderMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    incrNextTargetMsgSeqNum
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileStore_incrNextTargetMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    reset
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileStore_reset
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_FileStore
  * Method:    create
  * Signature: ()V
  */
@@ -101,14 +21,6 @@ JNIEXPORT void JNICALL Java_quickfix_FileStore_create
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_quickfix_FileStore_destroy
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_FileStore
- * Method:    getCreationTime0
- * Signature: ()Ljava/util/Date;
- */
-JNIEXPORT jobject JNICALL Java_quickfix_FileStore_getCreationTime0
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

@@ -76,6 +76,7 @@ FIX::MessageStore* JavaMessageStoreFactory::create
 
   ENV::get()->DeleteLocalRef( jsessionid );
   if ( !obj ) throw FIX::ConfigError();
+
   return new JavaMessageStore( JVMObject( obj ) );
 }
 

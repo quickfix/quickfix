@@ -334,3 +334,32 @@ JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedTargetNum
   QF_STACK_CATCH
 }
 
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getLog
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  JVMClass type( "Lquickfix/CppLog;" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+  JVMObject result = pEnv->NewObject( type, method, ( jint ) pSession->getLog() );
+  return result;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getStore
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  JVMClass type( "Lquickfix/CppMessageStore;" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+  JVMObject result = pEnv->NewObject( type, method, ( jint ) pSession->getStore() );
+  return result;
+
+  QF_STACK_CATCH
+}

@@ -53,39 +53,20 @@ import java.util.Collection;
 import java.util.Date;
 import java.io.IOException;
 
-public class MemoryStore implements MessageStore {
-    private int cppPointer;
-    private Date creationTime;
+public class MemoryStore extends CppMessageStore {
 
     public MemoryStore() {
         create();
+    }
+
+    public MemoryStore( int cppPointer ) {
+	super( cppPointer );
     }
 
     protected void finalize() {
         destroy();
     }
 
-    public native boolean set(int sequence, String message ) throws IOException;
-    public native boolean get(int sequence, String message ) throws IOException;
-    public native void get(int startSequence, int endSequence,
-                    Collection messages ) throws IOException;
-
-    public native int getNextSenderMsgSeqNum() throws IOException;
-    public native int getNextTargetMsgSeqNum() throws IOException;
-    public native void setNextSenderMsgSeqNum(int next) throws IOException;
-    public native void setNextTargetMsgSeqNum(int next) throws IOException;
-    public native void incrNextSenderMsgSeqNum() throws IOException;
-    public native void incrNextTargetMsgSeqNum() throws IOException;
-    public Date getCreationTime() throws IOException {
-    	if( creationTime == null )
-	    creationTime = getCreationTime0();
-	return creationTime;
-    }
-
-    public native void reset() throws IOException;
-
     private native void create();
     private native void destroy();
-
-    private native Date getCreationTime0() throws IOException;
 }

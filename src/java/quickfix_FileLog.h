@@ -23,30 +23,6 @@ JNIEXPORT void JNICALL Java_quickfix_FileLog_create
 JNIEXPORT void JNICALL Java_quickfix_FileLog_destroy
   (JNIEnv *, jobject);
 
-/*
- * Class:     quickfix_FileLog
- * Method:    onIncoming0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileLog_onIncoming0
-  (JNIEnv *, jobject, jstring);
-
-/*
- * Class:     quickfix_FileLog
- * Method:    onOutgoing0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileLog_onOutgoing0
-  (JNIEnv *, jobject, jstring);
-
-/*
- * Class:     quickfix_FileLog
- * Method:    onEvent0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_FileLog_onEvent0
-  (JNIEnv *, jobject, jstring);
-
 #ifdef __cplusplus
 }
 #endif

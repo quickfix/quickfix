@@ -23,30 +23,6 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLog_create
 JNIEXPORT void JNICALL Java_quickfix_MySQLLog_destroy
   (JNIEnv *, jobject);
 
-/*
- * Class:     quickfix_MySQLLog
- * Method:    onIncoming0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_MySQLLog_onIncoming0
-  (JNIEnv *, jobject, jstring);
-
-/*
- * Class:     quickfix_MySQLLog
- * Method:    onOutgoing0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_MySQLLog_onOutgoing0
-  (JNIEnv *, jobject, jstring);
-
-/*
- * Class:     quickfix_MySQLLog
- * Method:    onEvent0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_MySQLLog_onEvent0
-  (JNIEnv *, jobject, jstring);
-
 #ifdef __cplusplus
 }
 #endif

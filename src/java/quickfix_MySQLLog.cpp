@@ -80,48 +80,4 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLog_destroy
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MySQLLog_onIncoming0
-( JNIEnv * pEnv, jobject obj, jstring string )
-{ QF_STACK_TRY
-
-  JVM::set( pEnv );
-  JVMObject jobject( obj );
-  FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
-
-  const char* ustring = pEnv->GetStringUTFChars( string, 0 );
-  pLog->onIncoming( ustring );
-  pEnv->ReleaseStringUTFChars( string, ustring );
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT void JNICALL Java_quickfix_MySQLLog_onOutgoing0
-( JNIEnv * pEnv, jobject obj, jstring string )
-{ QF_STACK_TRY
-
-  JVM::set( pEnv );
-  JVMObject jobject( obj );
-  FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
-
-  const char* ustring = pEnv->GetStringUTFChars( string, 0 );
-  pLog->onOutgoing( ustring );
-  pEnv->ReleaseStringUTFChars( string, ustring );
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT void JNICALL Java_quickfix_MySQLLog_onEvent0
-( JNIEnv * pEnv, jobject obj, jstring string )
-{ QF_STACK_TRY
-
-  JVM::set( pEnv );
-  JVMObject jobject( obj );
-  FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
-
-  const char* ustring = pEnv->GetStringUTFChars( string, 0 );
-  pLog->onEvent( ustring );
-  pEnv->ReleaseStringUTFChars( string, ustring );
-
-  QF_STACK_CATCH
-}
 #endif //HAVE_MYSQL

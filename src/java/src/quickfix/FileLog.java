@@ -49,37 +49,20 @@
 
 package quickfix;
 
-public class FileLog implements Log {
-    private int cppPointer;
+public class FileLog extends CppLog {
 
     private FileLog() {
         create();
     }
 
     private FileLog(int cppPointer) {
-        this.cppPointer = cppPointer;
+	super( cppPointer );
     }
 
     protected void finalize() {
         destroy();
     }
 
-    public void onIncoming( String string ) {
-        onIncoming0(string);
-    }
-
-    public void onOutgoing( String string ) {
-        onOutgoing0(string);
-    }
-
-    public void onEvent( String string ) {
-        onEvent0(string);
-    }
-
     private native void create();
     private native void destroy();
-
-    private native void onIncoming0( String string );
-    private native void onOutgoing0( String string );
-    private native void onEvent0( String string );
 }

@@ -9,86 +9,6 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_MemoryStore
- * Method:    set
- * Signature: (ILjava/lang/String;)Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_MemoryStore_set
-  (JNIEnv *, jobject, jint, jstring);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    get
- * Signature: (ILjava/lang/String;)Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_MemoryStore_get__ILjava_lang_String_2
-  (JNIEnv *, jobject, jint, jstring);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    get
- * Signature: (IILjava/util/Collection;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_get__IILjava_util_Collection_2
-  (JNIEnv *, jobject, jint, jint, jobject);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    getNextSenderMsgSeqNum
- * Signature: ()I
- */
-JNIEXPORT jint JNICALL Java_quickfix_MemoryStore_getNextSenderMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    getNextTargetMsgSeqNum
- * Signature: ()I
- */
-JNIEXPORT jint JNICALL Java_quickfix_MemoryStore_getNextTargetMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    setNextSenderMsgSeqNum
- * Signature: (I)V
- */
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_setNextSenderMsgSeqNum
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    setNextTargetMsgSeqNum
- * Signature: (I)V
- */
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_setNextTargetMsgSeqNum
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    incrNextSenderMsgSeqNum
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_incrNextSenderMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    incrNextTargetMsgSeqNum
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_incrNextTargetMsgSeqNum
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    reset
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_reset
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_MemoryStore
  * Method:    create
  * Signature: ()V
  */
@@ -101,14 +21,6 @@ JNIEXPORT void JNICALL Java_quickfix_MemoryStore_create
  * Signature: ()V
  */
 JNIEXPORT void JNICALL Java_quickfix_MemoryStore_destroy
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_MemoryStore
- * Method:    getCreationTime0
- * Signature: ()Ljava/util/Date;
- */
-JNIEXPORT jobject JNICALL Java_quickfix_MemoryStore_getCreationTime0
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

@@ -23,30 +23,6 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLog_create
 JNIEXPORT void JNICALL Java_quickfix_ScreenLog_destroy
   (JNIEnv *, jobject);
 
-/*
- * Class:     quickfix_ScreenLog
- * Method:    onIncoming0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_ScreenLog_onIncoming0
-  (JNIEnv *, jobject, jstring);
-
-/*
- * Class:     quickfix_ScreenLog
- * Method:    onOutgoing0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_ScreenLog_onOutgoing0
-  (JNIEnv *, jobject, jstring);
-
-/*
- * Class:     quickfix_ScreenLog
- * Method:    onEvent0
- * Signature: (Ljava/lang/String;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_ScreenLog_onEvent0
-  (JNIEnv *, jobject, jstring);
-
 #ifdef __cplusplus
 }
 #endif
