@@ -5,7 +5,9 @@ executor_SOURCES = \
 	Application.h \
 	Application.cpp
 
-executor_LDADD = -lquickfix
+executor_LDADD = -L$(top_builddir)/src/C++ -lquickfix -lstdc++
+
+INCLUDES = -I$(top_builddir)/include
 
 all-local:
 	rm -f ../../../bin/executor
