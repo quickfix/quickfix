@@ -78,13 +78,13 @@ public:
   {
     Fields::iterator i = m_fields.find( field.getField() );
     if( i == m_fields.end() )
-      m_fields.insert( std::make_pair( field.getField(), field ) );
+      m_fields.insert( Fields::value_type( field.getField(), field ) );
     else
     {
       if( overwrite )
         i->second = field;
       else
-        m_fields.insert( std::make_pair( field.getField(), field ) );
+        m_fields.insert( Fields::value_type( field.getField(), field ) );
     }
   }
   /// Set a field without a field class
