@@ -1,4 +1,4 @@
-SUBDIRS = cfg src test
+SUBDIRS = cfg src
 EXTRA_DIST = *.h *.cpp *.bat *.xml *.properties *.dsp *.dsw
 
 lib_LTLIBRARIES = libquickfix_jni.la
@@ -21,6 +21,8 @@ libquickfix_jni_la_SOURCES = \
 	JavaMessageStore.cpp \
 	JavaMessageStoreFactory.h \
 	JavaMessageStoreFactory.cpp \
+	org_quickfix_DataDictionary.h \
+	org_quickfix_DataDictionary.cpp \
 	org_quickfix_FileStore.h \
 	org_quickfix_FileStore.cpp \
 	org_quickfix_FileStoreFactory.h \
