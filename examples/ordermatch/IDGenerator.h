@@ -52,7 +52,7 @@
 #define ORDERMATCH_IDGENERATOR_H
 
 #include <string>
-#include <strstream>
+#include <sstream>
 
 class IDGenerator
 {
