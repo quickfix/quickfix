@@ -92,8 +92,8 @@ void MySQLStore::populateCache()
       std::string sqlTime = row[ 3 ];
       strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
       m_cache.setCreationTime( time );
-      m_cache.setNextSenderMsgSeqNum( atol( row[ 4 ] ) );
-      m_cache.setNextTargetMsgSeqNum( atol( row[ 5 ] ) );
+      m_cache.setNextTargetMsgSeqNum( atol( row[ 4 ] ) );
+      m_cache.setNextSenderMsgSeqNum( atol( row[ 5 ] ) );
     }
     else
     {
