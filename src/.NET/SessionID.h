@@ -56,7 +56,7 @@ using namespace System;
 
 #include "quickfix/include/SessionID.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class SessionID
 {

@@ -60,7 +60,7 @@ using namespace System::IO;
 #include "quickfix/include/MessageStore.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class MemoryStore : public MessageStore
 {

@@ -56,140 +56,140 @@
 #include "Exceptions.h"
 #include "FIX42_MessageCracker.h"
 
-namespace Fix43
+namespace QuickFix43
 {
-  public __gc class MessageCracker : public Fix42::MessageCracker
+  public __gc class MessageCracker : public QuickFix42::MessageCracker
   {
   public:
   virtual ~MessageCracker() {}
-  virtual void onMessage( Fix::Message*, Fix::SessionID* )
-    { throw new Fix::UnsupportedMessageType(); }
- virtual void onMessage( Advertisement*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( IndicationOfInterest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( News*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( Email*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( QuoteRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( QuoteRequestReject*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( RFQRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( Quote*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( QuoteCancel*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( QuoteStatusRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( QuoteStatusReport*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( MassQuote*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( MassQuoteAcknowledgement*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( MarketDataRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( MarketDataSnapshotFullRefresh*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( MarketDataIncrementalRefresh*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( MarketDataRequestReject*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityDefinitionRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityDefinition*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityTypeRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityTypes*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityListRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityList*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( DerivativeSecurityListRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( DerivativeSecurityList*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityStatusRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SecurityStatus*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( TradingSessionStatusRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( TradingSessionStatus*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( NewOrderSingle*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( ExecutionReport*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( DontKnowTrade*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( OrderCancelReplaceRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( OrderCancelRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( OrderCancelReject*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( OrderStatusRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( OrderMassCancelRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( OrderMassCancelReport*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( OrderMassStatusRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( NewOrderCross*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( CrossOrderCancelReplaceRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( CrossOrderCancelRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( NewOrderMultileg*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( MultilegOrderCancelReplaceRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( BidRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( BidResponse*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( NewOrderList*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( ListStrikePrice*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( ListExecute*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( ListCancelRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( ListStatusRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( ListStatus*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( Allocation*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( AllocationACK*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( SettlementInstructions*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( TradeCaptureReportRequest*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( TradeCaptureReport*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( RegistrationInstructions*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
-  virtual void onMessage( RegistrationInstructionsResponse*, Fix::SessionID* ) 
-    { throw new Fix::UnsupportedMessageType(); }
+  virtual void onMessage( QuickFix::Message*, QuickFix::SessionID* )
+    { throw new QuickFix::UnsupportedMessageType(); }
+ virtual void onMessage( Advertisement*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( IndicationOfInterest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( News*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( Email*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteRequestReject*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( RFQRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( Quote*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteCancel*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteStatusRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteStatusReport*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( MassQuote*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( MassQuoteAcknowledgement*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataSnapshotFullRefresh*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataIncrementalRefresh*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataRequestReject*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityDefinitionRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityDefinition*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityTypeRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityTypes*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityListRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityList*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( DerivativeSecurityListRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( DerivativeSecurityList*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityStatusRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityStatus*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( TradingSessionStatusRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( TradingSessionStatus*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderSingle*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( ExecutionReport*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( DontKnowTrade*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( OrderCancelReplaceRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( OrderCancelRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( OrderCancelReject*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( OrderStatusRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( OrderMassCancelRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( OrderMassCancelReport*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( OrderMassStatusRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderCross*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( CrossOrderCancelReplaceRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( CrossOrderCancelRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderMultileg*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( MultilegOrderCancelReplaceRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( BidRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( BidResponse*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderList*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( ListStrikePrice*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( ListExecute*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( ListCancelRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( ListStatusRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( ListStatus*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( Allocation*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( AllocationACK*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( SettlementInstructions*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( TradeCaptureReportRequest*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( TradeCaptureReport*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( RegistrationInstructions*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
+  virtual void onMessage( RegistrationInstructionsResponse*, QuickFix::SessionID* ) 
+    { throw new QuickFix::UnsupportedMessageType(); }
  
 public:
-  void crack( Fix::Message* message, 
-              Fix::SessionID* sessionID )
+  void crack( QuickFix::Message* message, 
+              QuickFix::SessionID* sessionID )
   {
-    Fix::MsgType* msgType = new Fix::MsgType();
+    QuickFix::MsgType* msgType = new QuickFix::MsgType();
     message->getHeader()->getField(msgType);
-    std::string msgTypeValue = Fix::convertString(msgType->getValue());
+    std::string msgTypeValue = QuickFix::convertString(msgType->getValue());
 
     if( msgTypeValue == "0" )
       onMessage( dynamic_cast<Heartbeat*>(message), sessionID );

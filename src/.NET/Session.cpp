@@ -51,7 +51,7 @@
 
 #include "Session.h"
 
-namespace Fix
+namespace QuickFix
 {
 bool Session::sendToTarget( Message* message )
 throw( SessionNotFound* )

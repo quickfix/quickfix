@@ -59,7 +59,7 @@ using namespace System;
 #include "quickfix/include/MessageStore.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc __interface MessageStoreFactory
 {
@@ -70,14 +70,14 @@ public __gc __interface MessageStoreFactory
 class MessageStoreFactory : public FIX::MessageStoreFactory
 {
 public:
-  MessageStoreFactory( Fix::MessageStoreFactory* factory )
+  MessageStoreFactory( QuickFix::MessageStoreFactory* factory )
 : m_factory( factory ) {}
 
   FIX::MessageStore* create( const FIX::SessionID& sessionID )
-  { return new MessageStore( m_factory->create( new Fix::SessionID( sessionID ) ) ); }
+  { return new MessageStore( m_factory->create( new QuickFix::SessionID( sessionID ) ) ); }
   void destroy( FIX::MessageStore* pStore )
   { delete pStore; }
 
 private:
-  gcroot < Fix::MessageStoreFactory* > m_factory;
+  gcroot < QuickFix::MessageStoreFactory* > m_factory;
 };

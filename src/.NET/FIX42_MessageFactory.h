@@ -51,187 +51,187 @@
 #include "Message.h"
 #include "MessageFactory.h"
 
-namespace Fix42
+namespace QuickFix42
 {
 
-  public __gc class MessageFactory : public Fix::MessageFactory
+  public __gc class MessageFactory : public QuickFix::MessageFactory
   {
   public:
-    Fix::Message* create( String* beginString, String* msgType ) {
+    QuickFix::Message* create( String* beginString, String* msgType ) {
     
      if(msgType->Equals("0")) {
-       return new Fix42::Heartbeat();
+       return new QuickFix42::Heartbeat();
      }
    
      if(msgType->Equals("A")) {
-       return new Fix42::Logon();
+       return new QuickFix42::Logon();
      }
    
      if(msgType->Equals("1")) {
-       return new Fix42::TestRequest();
+       return new QuickFix42::TestRequest();
      }
    
      if(msgType->Equals("2")) {
-       return new Fix42::ResendRequest();
+       return new QuickFix42::ResendRequest();
      }
    
      if(msgType->Equals("3")) {
-       return new Fix42::Reject();
+       return new QuickFix42::Reject();
      }
    
      if(msgType->Equals("4")) {
-       return new Fix42::SequenceReset();
+       return new QuickFix42::SequenceReset();
      }
    
      if(msgType->Equals("5")) {
-       return new Fix42::Logout();
+       return new QuickFix42::Logout();
      }
    
      if(msgType->Equals("7")) {
-       return new Fix42::Advertisement();
+       return new QuickFix42::Advertisement();
      }
    
      if(msgType->Equals("6")) {
-       return new Fix42::IndicationofInterest();
+       return new QuickFix42::IndicationofInterest();
      }
    
      if(msgType->Equals("B")) {
-       return new Fix42::News();
+       return new QuickFix42::News();
      }
    
      if(msgType->Equals("C")) {
-       return new Fix42::Email();
+       return new QuickFix42::Email();
      }
    
      if(msgType->Equals("R")) {
-       return new Fix42::QuoteRequest();
+       return new QuickFix42::QuoteRequest();
      }
    
      if(msgType->Equals("S")) {
-       return new Fix42::Quote();
+       return new QuickFix42::Quote();
      }
    
      if(msgType->Equals("i")) {
-       return new Fix42::MassQuote();
+       return new QuickFix42::MassQuote();
      }
    
      if(msgType->Equals("Z")) {
-       return new Fix42::QuoteCancel();
+       return new QuickFix42::QuoteCancel();
      }
    
      if(msgType->Equals("a")) {
-       return new Fix42::QuoteStatusRequest();
+       return new QuickFix42::QuoteStatusRequest();
      }
    
      if(msgType->Equals("b")) {
-       return new Fix42::QuoteAcknowledgement();
+       return new QuickFix42::QuoteAcknowledgement();
      }
    
      if(msgType->Equals("V")) {
-       return new Fix42::MarketDataRequest();
+       return new QuickFix42::MarketDataRequest();
      }
    
      if(msgType->Equals("W")) {
-       return new Fix42::MarketDataSnapshotFullRefresh();
+       return new QuickFix42::MarketDataSnapshotFullRefresh();
      }
    
      if(msgType->Equals("X")) {
-       return new Fix42::MarketDataIncrementalRefresh();
+       return new QuickFix42::MarketDataIncrementalRefresh();
      }
    
      if(msgType->Equals("Y")) {
-       return new Fix42::MarketDataRequestReject();
+       return new QuickFix42::MarketDataRequestReject();
      }
    
      if(msgType->Equals("c")) {
-       return new Fix42::SecurityDefinitionRequest();
+       return new QuickFix42::SecurityDefinitionRequest();
      }
    
      if(msgType->Equals("d")) {
-       return new Fix42::SecurityDefinition();
+       return new QuickFix42::SecurityDefinition();
      }
    
      if(msgType->Equals("e")) {
-       return new Fix42::SecurityStatusRequest();
+       return new QuickFix42::SecurityStatusRequest();
      }
    
      if(msgType->Equals("f")) {
-       return new Fix42::SecurityStatus();
+       return new QuickFix42::SecurityStatus();
      }
    
      if(msgType->Equals("g")) {
-       return new Fix42::TradingSessionStatusRequest();
+       return new QuickFix42::TradingSessionStatusRequest();
      }
    
      if(msgType->Equals("h")) {
-       return new Fix42::TradingSessionStatus();
+       return new QuickFix42::TradingSessionStatus();
      }
    
      if(msgType->Equals("D")) {
-       return new Fix42::NewOrderSingle();
+       return new QuickFix42::NewOrderSingle();
      }
    
      if(msgType->Equals("8")) {
-       return new Fix42::ExecutionReport();
+       return new QuickFix42::ExecutionReport();
      }
    
      if(msgType->Equals("Q")) {
-       return new Fix42::DontKnowTrade();
+       return new QuickFix42::DontKnowTrade();
      }
    
      if(msgType->Equals("G")) {
-       return new Fix42::OrderCancelReplaceRequest();
+       return new QuickFix42::OrderCancelReplaceRequest();
      }
    
      if(msgType->Equals("F")) {
-       return new Fix42::OrderCancelRequest();
+       return new QuickFix42::OrderCancelRequest();
      }
    
      if(msgType->Equals("9")) {
-       return new Fix42::OrderCancelReject();
+       return new QuickFix42::OrderCancelReject();
      }
    
      if(msgType->Equals("H")) {
-       return new Fix42::OrderStatusRequest();
+       return new QuickFix42::OrderStatusRequest();
      }
    
      if(msgType->Equals("J")) {
-       return new Fix42::Allocation();
+       return new QuickFix42::Allocation();
      }
    
      if(msgType->Equals("P")) {
-       return new Fix42::AllocationACK();
+       return new QuickFix42::AllocationACK();
      }
    
      if(msgType->Equals("T")) {
-       return new Fix42::SettlementInstructions();
+       return new QuickFix42::SettlementInstructions();
      }
    
      if(msgType->Equals("E")) {
-       return new Fix42::NewOrderList();
+       return new QuickFix42::NewOrderList();
      }
    
      if(msgType->Equals("N")) {
-       return new Fix42::ListStatus();
+       return new QuickFix42::ListStatus();
      }
    
      if(msgType->Equals("L")) {
-       return new Fix42::ListExecute();
+       return new QuickFix42::ListExecute();
      }
    
      if(msgType->Equals("K")) {
-       return new Fix42::ListCancelRequest();
+       return new QuickFix42::ListCancelRequest();
      }
    
      if(msgType->Equals("M")) {
-       return new Fix42::ListStatusRequest();
+       return new QuickFix42::ListStatusRequest();
      }
    
      if(msgType->Equals("j")) {
-       return new Fix42::BusinessMessageReject();
+       return new QuickFix42::BusinessMessageReject();
      }
    
-    return new Fix42::Message();
+    return new QuickFix42::Message();
     }
   };
 }

@@ -58,7 +58,7 @@ using namespace System;
 
 #include "quickfix/include/Group.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class Group : public IDisposable
 {

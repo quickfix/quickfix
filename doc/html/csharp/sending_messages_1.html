@@ -1,10 +1,10 @@
 <B><CODE><PRE>
-static bool sendToTarget(Fix.Message message)
-  throw(Fix.SessionNotFound);
+static bool sendToTarget(QuickFix.Message message)
+  throw(QuickFix.SessionNotFound);
 
-static bool sendToTarget(Fix.Message message, Fix.SessionID sessionID)
-  throw(Fix.SessionNotFound);
+static bool sendToTarget(QuickFix.Message message, QuickFix.SessionID sessionID)
+  throw(QuickFix.SessionNotFound);
 
-static bool sendToTarget(Fix.Message message, String senderCompID, String targetCompID)
-  throw(Fix.SessionNotFound);
+static bool sendToTarget(QuickFix.Message message, String senderCompID, String targetCompID)
+  throw(QuickFix.SessionNotFound);
 </PRE></CODE></B>

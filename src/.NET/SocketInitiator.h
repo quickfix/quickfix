@@ -61,7 +61,7 @@ using namespace System;
 #include "Initiator.h"
 #include "quickfix/include/SocketInitiator.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class SocketInitiator : public Initiator
 {

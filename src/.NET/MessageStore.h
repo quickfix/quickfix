@@ -61,7 +61,7 @@ using namespace System::IO;
 #include "quickfix/include/MessageStore.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc __interface MessageStore
 {
@@ -85,7 +85,7 @@ public __gc __interface MessageStore
 class MessageStore : public FIX::MessageStore
 {
 public:
-MessageStore( Fix::MessageStore* store ) : m_store( store ) {}
+MessageStore( QuickFix::MessageStore* store ) : m_store( store ) {}
 
   bool set( int num, const std::string& message ) throw ( FIX::IOException& )
   {
@@ -114,9 +114,9 @@ MessageStore( Fix::MessageStore* store ) : m_store( store ) {}
       while ( e->MoveNext() )
       {
         String * message = dynamic_cast < String* > ( e->get_Current() );
-        char* umessage = Fix::createUnmanagedString( message );
+        char* umessage = QuickFix::createUnmanagedString( message );
         messages.push_back( umessage );
-        Fix::destroyUnmanagedString( umessage );
+        QuickFix::destroyUnmanagedString( umessage );
       }
     }
     catch ( IOException * e )
@@ -191,5 +191,5 @@ MessageStore( Fix::MessageStore* store ) : m_store( store ) {}
     { throw FIX::IOException(); }
   }
 
-  gcroot < Fix::MessageStore* > m_store;
+  gcroot < QuickFix::MessageStore* > m_store;
 };

@@ -54,7 +54,7 @@
 #include "Field.h"
 #include "DeprecatedFields.h"
 
-namespace Fix
+namespace QuickFix
 {
   
   public __gc class Account : public StringField

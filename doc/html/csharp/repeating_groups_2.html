@@ -1,13 +1,13 @@
 <B><CODE><PRE>
-Fix.NoMDEntries noMDEntries = new Fix.NoMDEntries();
+QuickFix.NoMDEntries noMDEntries = new QuickFix.NoMDEntries();
 message.get(noMDEntries);
 
-Fix42.MarketDataSnapshotFullRefresh.NoMDEntries group =
-new Fix42.MarketDataSnapshotFullRefresh.NoMDEntries();
-Fix.MDEntryType MDEntryType = new Fix.MDEntryType();
-Fix.MDEntryPx MDEntryPx = new Fix.MDEntryPx();
-Fix.MDEntrySize MDEntrySize = new Fix.MDEntrySize();
-Fix.OrderID orderID = new Fix.OrderID();
+QuickFix42.MarketDataSnapshotFullRefresh.NoMDEntries group =
+new QuickFix42.MarketDataSnapshotFullRefresh.NoMDEntries();
+QuickFix.MDEntryType MDEntryType = new Fix.MDEntryType();
+QuickFix.MDEntryPx MDEntryPx = new Fix.MDEntryPx();
+QuickFix.MDEntrySize MDEntrySize = new Fix.MDEntrySize();
+QuickFix.OrderID orderID = new Fix.OrderID();
 
 message.getGroup(1, group);
 group.get(MDEntryType);

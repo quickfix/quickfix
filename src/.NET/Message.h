@@ -59,7 +59,7 @@ using namespace System;
 
 #include "quickfix/include/Message.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class BeginString;
 public __gc class MsgType;
@@ -297,10 +297,10 @@ private:
 }
 
 #define NET_FIELD_SET( FIELD )                                \
-void set(Fix::FIELD* value)                                   \
+void set(QuickFix::FIELD* value)                                   \
 { setField(value); }                                          \
-Fix::FIELD* get(Fix::FIELD* value) throw(Fix::FieldNotFound*) \
+QuickFix::FIELD* get(QuickFix::FIELD* value) throw(QuickFix::FieldNotFound*) \
 { getField(value); return value; }                            \
-Fix::FIELD* get##FIELD() throw(Fix::FieldNotFound*)           \
-{ Fix::FIELD* value = new Fix::FIELD();                       \
+QuickFix::FIELD* get##FIELD() throw(QuickFix::FieldNotFound*)           \
+{ QuickFix::FIELD* value = new QuickFix::FIELD();                       \
 getField(value); return value; }

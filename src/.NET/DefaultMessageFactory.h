@@ -55,20 +55,20 @@
 #include "FIX42_MessageFactory.h"
 #include "FIX43_MessageFactory.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class DefaultMessageFactory : public MessageFactory
 {
 public:
   DefaultMessageFactory()
   {
-    fix40Factory = new Fix40::MessageFactory();
-    fix41Factory = new Fix41::MessageFactory();
-    fix42Factory = new Fix42::MessageFactory();
-    fix43Factory = new Fix43::MessageFactory();
+    fix40Factory = new QuickFix40::MessageFactory();
+    fix41Factory = new QuickFix41::MessageFactory();
+    fix42Factory = new QuickFix42::MessageFactory();
+    fix43Factory = new QuickFix43::MessageFactory();
   }
 
-  Fix::Message* create( String* beginString, String* msgType )
+  QuickFix::Message* create( String* beginString, String* msgType )
   {
     if ( beginString->Equals( "FIX.4.0" ) )
       return fix40Factory->create( beginString, msgType );
@@ -82,9 +82,9 @@ public:
   }
 
 private:
-  Fix40::MessageFactory* fix40Factory;
-  Fix41::MessageFactory* fix41Factory;
-  Fix42::MessageFactory* fix42Factory;
-  Fix43::MessageFactory* fix43Factory;
+  QuickFix40::MessageFactory* fix40Factory;
+  QuickFix41::MessageFactory* fix41Factory;
+  QuickFix42::MessageFactory* fix42Factory;
+  QuickFix43::MessageFactory* fix43Factory;
 };
 }

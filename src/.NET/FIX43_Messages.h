@@ -54,12 +54,12 @@
 #include "Group.h"
 #include "Fields.h"
 
-namespace Fix43
+namespace QuickFix43
 {
-  public __gc class Header : public Fix::Message::Header
+  public __gc class Header : public QuickFix::Message::Header
   {
   public:
-    Header(Fix::Message* message) : Fix::Message::Header(message) {}
+    Header(QuickFix::Message* message) : QuickFix::Message::Header(message) {}
     
     NET_FIELD_SET(BeginString);
     NET_FIELD_SET(BodyLength);
@@ -89,7 +89,7 @@ namespace Fix43
     NET_FIELD_SET(LastMsgSeqNumProcessed);
     NET_FIELD_SET(OnBehalfOfSendingTime);
     NET_FIELD_SET(NoHops);
-    __gc class NoHops : public Fix::Group
+    __gc class NoHops : public QuickFix::Group
     {
     public:
       NoHops() : Group(627, 628, message_order ) {}
@@ -104,41 +104,41 @@ namespace Fix43
     };
   };
   
-  public __gc class Trailer : public Fix::Message::Trailer
+  public __gc class Trailer : public QuickFix::Message::Trailer
   {
   public:
-    Trailer(Fix::Message* message) : Fix::Message::Trailer(message) {}
+    Trailer(QuickFix::Message* message) : QuickFix::Message::Trailer(message) {}
     
     NET_FIELD_SET(SignatureLength);
     NET_FIELD_SET(Signature);
     NET_FIELD_SET(CheckSum);
   };
   
-  public __gc class Message : public Fix::Message
+  public __gc class Message : public QuickFix::Message
   {
   public: 
-    Message() : Fix::Message(new Fix::BeginString("FIX.4.3"))
+    Message() : QuickFix::Message(new QuickFix::BeginString("FIX.4.3"))
     {
       m_header = new Header(this);
       m_trailer = new Trailer(this);
     }
 
-    Message( Fix::MsgType* msgType ) 
-    : Fix::Message(
-      new Fix::BeginString("FIX.4.3"),msgType ) 
+    Message( QuickFix::MsgType* msgType ) 
+    : QuickFix::Message(
+      new QuickFix::BeginString("FIX.4.3"),msgType ) 
       { 
         m_header = new Header(this); 
         m_trailer = new Trailer(this);
       }
 
-    Header* getHeader() { return dynamic_cast<Header*>(Fix::Message::getHeader()); }
+    Header* getHeader() { return dynamic_cast<Header*>(QuickFix::Message::getHeader()); }
   };
 
   public __gc class Heartbeat : public Message
   {
   public: 
     Heartbeat() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("0"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("0"); }
   
     NET_FIELD_SET(TestReqID);
   };
@@ -147,11 +147,11 @@ namespace Fix43
   {
   public: 
     Logon() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("A"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("A"); }
     //
     Logon(
-      Fix::EncryptMethod* aEncryptMethod,
-      Fix::HeartBtInt* aHeartBtInt )
+      QuickFix::EncryptMethod* aEncryptMethod,
+      QuickFix::HeartBtInt* aHeartBtInt )
     : Message(MsgType())
     
     {
@@ -166,7 +166,7 @@ namespace Fix43
     NET_FIELD_SET(ResetSeqNumFlag);
     NET_FIELD_SET(MaxMessageSize);
     NET_FIELD_SET(NoMsgTypes);
-    __gc class NoMsgTypes : public Fix::Group
+    __gc class NoMsgTypes : public QuickFix::Group
     {
     public:
       NoMsgTypes() : Group(384, 372, message_order ) {}
@@ -186,10 +186,10 @@ namespace Fix43
   {
   public: 
     TestRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("1"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("1"); }
     //
     TestRequest(
-      Fix::TestReqID* aTestReqID )
+      QuickFix::TestReqID* aTestReqID )
     : Message(MsgType())
     
     {
@@ -203,11 +203,11 @@ namespace Fix43
   {
   public: 
     ResendRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("2"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("2"); }
     //
     ResendRequest(
-      Fix::BeginSeqNo* aBeginSeqNo,
-      Fix::EndSeqNo* aEndSeqNo )
+      QuickFix::BeginSeqNo* aBeginSeqNo,
+      QuickFix::EndSeqNo* aEndSeqNo )
     : Message(MsgType())
     
     {
@@ -223,10 +223,10 @@ namespace Fix43
   {
   public: 
     Reject() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("3"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("3"); }
     //
     Reject(
-      Fix::RefSeqNum* aRefSeqNum )
+      QuickFix::RefSeqNum* aRefSeqNum )
     : Message(MsgType())
     
     {
@@ -246,10 +246,10 @@ namespace Fix43
   {
   public: 
     SequenceReset() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("4"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("4"); }
     //
     SequenceReset(
-      Fix::NewSeqNo* aNewSeqNo )
+      QuickFix::NewSeqNo* aNewSeqNo )
     : Message(MsgType())
     
     {
@@ -264,7 +264,7 @@ namespace Fix43
   {
   public: 
     Logout() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("5"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("5"); }
   
     NET_FIELD_SET(Text);
     NET_FIELD_SET(EncodedTextLen);
@@ -275,11 +275,11 @@ namespace Fix43
   {
   public: 
     BusinessMessageReject() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("j"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("j"); }
     //
     BusinessMessageReject(
-      Fix::RefMsgType* aRefMsgType,
-      Fix::BusinessRejectReason* aBusinessRejectReason )
+      QuickFix::RefMsgType* aRefMsgType,
+      QuickFix::BusinessRejectReason* aBusinessRejectReason )
     : Message(MsgType())
     
     {
@@ -300,13 +300,13 @@ namespace Fix43
   {
   public: 
     Advertisement() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("7"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("7"); }
     //
     Advertisement(
-      Fix::AdvId* aAdvId,
-      Fix::AdvTransType* aAdvTransType,
-      Fix::AdvSide* aAdvSide,
-      Fix::Quantity* aQuantity )
+      QuickFix::AdvId* aAdvId,
+      QuickFix::AdvTransType* aAdvTransType,
+      QuickFix::AdvSide* aAdvSide,
+      QuickFix::Quantity* aQuantity )
     : Message(MsgType())
     
     {
@@ -352,7 +352,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -382,13 +382,13 @@ namespace Fix43
   {
   public: 
     IndicationOfInterest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("6"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("6"); }
     //
     IndicationOfInterest(
-      Fix::IOIid* aIOIid,
-      Fix::IOITransType* aIOITransType,
-      Fix::Side* aSide,
-      Fix::IOIQty* aIOIQty )
+      QuickFix::IOIid* aIOIid,
+      QuickFix::IOITransType* aIOITransType,
+      QuickFix::Side* aSide,
+      QuickFix::IOIQty* aIOIQty )
     : Message(MsgType())
     
     {
@@ -434,7 +434,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -455,7 +455,7 @@ namespace Fix43
     NET_FIELD_SET(IOIQltyInd);
     NET_FIELD_SET(IOINaturalFlag);
     NET_FIELD_SET(NoIOIQualifiers);
-    __gc class NoIOIQualifiers : public Fix::Group
+    __gc class NoIOIQualifiers : public QuickFix::Group
     {
     public:
       NoIOIQualifiers() : Group(199, 104, message_order ) {}
@@ -470,7 +470,7 @@ namespace Fix43
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(URLLink);
     NET_FIELD_SET(NoRoutingIDs);
-    __gc class NoRoutingIDs : public Fix::Group
+    __gc class NoRoutingIDs : public QuickFix::Group
     {
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
@@ -492,10 +492,10 @@ namespace Fix43
   {
   public: 
     News() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("B"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("B"); }
     //
     News(
-      Fix::Headline* aHeadline )
+      QuickFix::Headline* aHeadline )
     : Message(MsgType())
     
     {
@@ -508,7 +508,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedHeadlineLen);
     NET_FIELD_SET(EncodedHeadline);
     NET_FIELD_SET(NoRoutingIDs);
-    __gc class NoRoutingIDs : public Fix::Group
+    __gc class NoRoutingIDs : public QuickFix::Group
     {
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
@@ -520,7 +520,7 @@ namespace Fix43
       NET_FIELD_SET(RoutingID);
     };
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 55, message_order ) {}
@@ -561,7 +561,7 @@ namespace Fix43
           NET_FIELD_SET(EncodedSecurityDesc);
     };
     NET_FIELD_SET(LinesOfText);
-    __gc class LinesOfText : public Fix::Group
+    __gc class LinesOfText : public QuickFix::Group
     {
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
@@ -583,12 +583,12 @@ namespace Fix43
   {
   public: 
     Email() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("C"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("C"); }
     //
     Email(
-      Fix::EmailThreadID* aEmailThreadID,
-      Fix::EmailType* aEmailType,
-      Fix::Subject* aSubject )
+      QuickFix::EmailThreadID* aEmailThreadID,
+      QuickFix::EmailType* aEmailType,
+      QuickFix::Subject* aSubject )
     : Message(MsgType())
     
     {
@@ -604,7 +604,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSubjectLen);
     NET_FIELD_SET(EncodedSubject);
     NET_FIELD_SET(NoRoutingIDs);
-    __gc class NoRoutingIDs : public Fix::Group
+    __gc class NoRoutingIDs : public QuickFix::Group
     {
     public:
       NoRoutingIDs() : Group(215, 216, message_order ) {}
@@ -616,7 +616,7 @@ namespace Fix43
       NET_FIELD_SET(RoutingID);
     };
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 55, message_order ) {}
@@ -659,7 +659,7 @@ namespace Fix43
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(LinesOfText);
-    __gc class LinesOfText : public Fix::Group
+    __gc class LinesOfText : public QuickFix::Group
     {
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
@@ -680,10 +680,10 @@ namespace Fix43
   {
   public: 
     QuoteRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("R"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("R"); }
     //
     QuoteRequest(
-      Fix::QuoteReqID* aQuoteReqID )
+      QuickFix::QuoteReqID* aQuoteReqID )
     : Message(MsgType())
     
     {
@@ -693,7 +693,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteReqID);
     NET_FIELD_SET(RFQReqID);
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
@@ -793,11 +793,11 @@ namespace Fix43
   {
   public: 
     QuoteRequestReject() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AG"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AG"); }
     //
     QuoteRequestReject(
-      Fix::QuoteReqID* aQuoteReqID,
-      Fix::QuoteRequestRejectReason* aQuoteRequestRejectReason )
+      QuickFix::QuoteReqID* aQuoteReqID,
+      QuickFix::QuoteRequestRejectReason* aQuoteRequestRejectReason )
     : Message(MsgType())
     
     {
@@ -809,7 +809,7 @@ namespace Fix43
     NET_FIELD_SET(RFQReqID);
     NET_FIELD_SET(QuoteRequestRejectReason);
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
@@ -876,10 +876,10 @@ namespace Fix43
   {
   public: 
     RFQRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AH"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AH"); }
     //
     RFQRequest(
-      Fix::RFQReqID* aRFQReqID )
+      QuickFix::RFQReqID* aRFQReqID )
     : Message(MsgType())
     
     {
@@ -888,7 +888,7 @@ namespace Fix43
   
     NET_FIELD_SET(RFQReqID);
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 140, message_order ) {}
@@ -945,10 +945,10 @@ namespace Fix43
   {
   public: 
     Quote() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("S"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("S"); }
     //
     Quote(
-      Fix::QuoteID* aQuoteID )
+      QuickFix::QuoteID* aQuoteID )
     : Message(MsgType())
     
     {
@@ -960,7 +960,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteType);
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -1012,7 +1012,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -1065,11 +1065,11 @@ namespace Fix43
   {
   public: 
     QuoteCancel() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("Z"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("Z"); }
     //
     QuoteCancel(
-      Fix::QuoteID* aQuoteID,
-      Fix::QuoteCancelType* aQuoteCancelType )
+      QuickFix::QuoteID* aQuoteID,
+      QuickFix::QuoteCancelType* aQuoteCancelType )
     : Message(MsgType())
     
     {
@@ -1082,7 +1082,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteCancelType);
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -1102,7 +1102,7 @@ namespace Fix43
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(TradingSessionSubID);
     NET_FIELD_SET(NoQuoteEntries);
-    __gc class NoQuoteEntries : public Fix::Group
+    __gc class NoQuoteEntries : public QuickFix::Group
     {
     public:
       NoQuoteEntries() : Group(295, 55, message_order ) {}
@@ -1148,7 +1148,7 @@ namespace Fix43
   {
   public: 
     QuoteStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("a"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("a"); }
   
     NET_FIELD_SET(QuoteStatusReqID);
     NET_FIELD_SET(QuoteID);   
@@ -1185,7 +1185,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -1197,7 +1197,7 @@ namespace Fix43
       NET_FIELD_SET(SecurityAltIDSource);
     };
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -1223,10 +1223,10 @@ namespace Fix43
   {
   public: 
     QuoteStatusReport() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AI"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AI"); }
     //
     QuoteStatusReport(
-      Fix::QuoteID* aQuoteID )
+      QuickFix::QuoteID* aQuoteID )
     : Message(MsgType())
     
     {
@@ -1238,7 +1238,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteID);
     NET_FIELD_SET(QuoteType);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -1290,7 +1290,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -1340,10 +1340,10 @@ namespace Fix43
   {
   public: 
     MassQuote() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("i"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("i"); }
     //
     MassQuote(
-      Fix::QuoteID* aQuoteID )
+      QuickFix::QuoteID* aQuoteID )
     : Message(MsgType())
     
     {
@@ -1355,7 +1355,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteType);
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -1375,7 +1375,7 @@ namespace Fix43
     NET_FIELD_SET(DefBidSize);
     NET_FIELD_SET(DefOfferSize);
     NET_FIELD_SET(NoQuoteSets);
-    __gc class NoQuoteSets : public Fix::Group
+    __gc class NoQuoteSets : public QuickFix::Group
     {
     public:
       NoQuoteSets() : Group(296, 302, message_order ) {}
@@ -1416,7 +1416,7 @@ namespace Fix43
       NET_FIELD_SET(QuoteSetValidUntilTime);
       NET_FIELD_SET(TotQuoteEntries);
     NET_FIELD_SET(NoQuoteEntries);
-    __gc class NoQuoteEntries : public Fix::Group
+    __gc class NoQuoteEntries : public QuickFix::Group
     {
     public:
       NoQuoteEntries() : Group(295, 15, message_order ) {}
@@ -1544,10 +1544,10 @@ namespace Fix43
   {
   public: 
     MassQuoteAcknowledgement() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("b"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("b"); }
     //
     MassQuoteAcknowledgement(
-      Fix::QuoteStatus* aQuoteStatus )
+      QuickFix::QuoteStatus* aQuoteStatus )
     : Message(MsgType())
     
     {
@@ -1561,7 +1561,7 @@ namespace Fix43
     NET_FIELD_SET(QuoteResponseLevel);
     NET_FIELD_SET(QuoteType);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -1580,7 +1580,7 @@ namespace Fix43
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(Text);
     NET_FIELD_SET(NoQuoteSets);
-    __gc class NoQuoteSets : public Fix::Group
+    __gc class NoQuoteSets : public QuickFix::Group
     {
     public:
       NoQuoteSets() : Group(296, 302, message_order ) {}
@@ -1620,7 +1620,7 @@ namespace Fix43
       NET_FIELD_SET(QuoteSetID);
       NET_FIELD_SET(TotQuoteEntries);
     NET_FIELD_SET(NoQuoteEntries);
-    __gc class NoQuoteEntries : public Fix::Group
+    __gc class NoQuoteEntries : public QuickFix::Group
     {
     public:
       NoQuoteEntries() : Group(295, 15, message_order ) {}
@@ -1750,12 +1750,12 @@ namespace Fix43
   {
   public: 
     MarketDataRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("V"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("V"); }
     //
     MarketDataRequest(
-      Fix::MDReqID* aMDReqID,
-      Fix::SubscriptionRequestType* aSubscriptionRequestType,
-      Fix::MarketDepth* aMarketDepth )
+      QuickFix::MDReqID* aMDReqID,
+      QuickFix::SubscriptionRequestType* aSubscriptionRequestType,
+      QuickFix::MarketDepth* aMarketDepth )
     : Message(MsgType())
     
     {
@@ -1773,7 +1773,7 @@ namespace Fix43
     NET_FIELD_SET(Scope);
     NET_FIELD_SET(MDImplicitDelete);
     NET_FIELD_SET(NoMDEntryTypes);
-    __gc class NoMDEntryTypes : public Fix::Group
+    __gc class NoMDEntryTypes : public QuickFix::Group
     {
     public:
       NoMDEntryTypes() : Group(267, 269, message_order ) {}
@@ -1783,7 +1783,7 @@ namespace Fix43
       NET_FIELD_SET(MDEntryType);
     };
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 55, message_order ) {}
@@ -1824,7 +1824,7 @@ namespace Fix43
           NET_FIELD_SET(EncodedSecurityDesc);
     };
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -1841,7 +1841,7 @@ namespace Fix43
   {
   public: 
     MarketDataSnapshotFullRefresh() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("W"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("W"); }
   
     NET_FIELD_SET(MDReqID);   
     NET_FIELD_SET(Symbol);   
@@ -1877,7 +1877,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -1895,7 +1895,7 @@ namespace Fix43
     NET_FIELD_SET(TotalVolumeTradedTime);
     NET_FIELD_SET(NetChgPrevDay);
     NET_FIELD_SET(NoMDEntries);
-    __gc class NoMDEntries : public Fix::Group
+    __gc class NoMDEntries : public QuickFix::Group
     {
     public:
       NoMDEntries() : Group(268, 15, message_order ) {}
@@ -1972,11 +1972,11 @@ namespace Fix43
   {
   public: 
     MarketDataIncrementalRefresh() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("X"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("X"); }
   
     NET_FIELD_SET(MDReqID);
     NET_FIELD_SET(NoMDEntries);
-    __gc class NoMDEntries : public Fix::Group
+    __gc class NoMDEntries : public QuickFix::Group
     {
     public:
       NoMDEntries() : Group(268, 15, message_order ) {}
@@ -2106,10 +2106,10 @@ namespace Fix43
   {
   public: 
     MarketDataRequestReject() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("Y"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("Y"); }
     //
     MarketDataRequestReject(
-      Fix::MDReqID* aMDReqID )
+      QuickFix::MDReqID* aMDReqID )
     : Message(MsgType())
     
     {
@@ -2127,11 +2127,11 @@ namespace Fix43
   {
   public: 
     SecurityDefinitionRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("c"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("c"); }
     //
     SecurityDefinitionRequest(
-      Fix::SecurityReqID* aSecurityReqID,
-      Fix::SecurityRequestType* aSecurityRequestType )
+      QuickFix::SecurityReqID* aSecurityReqID,
+      QuickFix::SecurityRequestType* aSecurityRequestType )
     : Message(MsgType())
     
     {
@@ -2174,7 +2174,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -2192,7 +2192,7 @@ namespace Fix43
     NET_FIELD_SET(TradingSessionID);
     NET_FIELD_SET(TradingSessionSubID);
     NET_FIELD_SET(NoLegs);
-    __gc class NoLegs : public Fix::Group
+    __gc class NoLegs : public QuickFix::Group
     {
     public:
       NoLegs() : Group(555, 556, message_order ) {}
@@ -2243,12 +2243,12 @@ namespace Fix43
   {
   public: 
     SecurityDefinition() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("d"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("d"); }
     //
     SecurityDefinition(
-      Fix::SecurityReqID* aSecurityReqID,
-      Fix::SecurityResponseID* aSecurityResponseID,
-      Fix::SecurityResponseType* aSecurityResponseType )
+      QuickFix::SecurityReqID* aSecurityReqID,
+      QuickFix::SecurityResponseID* aSecurityResponseID,
+      QuickFix::SecurityResponseType* aSecurityResponseType )
     : Message(MsgType())
     
     {
@@ -2293,7 +2293,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -2311,7 +2311,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedTextLen);
     NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(NoLegs);
-    __gc class NoLegs : public Fix::Group
+    __gc class NoLegs : public QuickFix::Group
     {
     public:
       NoLegs() : Group(555, 556, message_order ) {}
@@ -2363,10 +2363,10 @@ namespace Fix43
   {
   public: 
     SecurityTypeRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("v"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("v"); }
     //
     SecurityTypeRequest(
-      Fix::SecurityReqID* aSecurityReqID )
+      QuickFix::SecurityReqID* aSecurityReqID )
     : Message(MsgType())
     
     {
@@ -2385,12 +2385,12 @@ namespace Fix43
   {
   public: 
     SecurityTypes() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("w"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("w"); }
     //
     SecurityTypes(
-      Fix::SecurityReqID* aSecurityReqID,
-      Fix::SecurityResponseID* aSecurityResponseID,
-      Fix::SecurityResponseType* aSecurityResponseType )
+      QuickFix::SecurityReqID* aSecurityReqID,
+      QuickFix::SecurityResponseID* aSecurityResponseID,
+      QuickFix::SecurityResponseType* aSecurityResponseType )
     : Message(MsgType())
     
     {
@@ -2404,7 +2404,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityResponseType);
     NET_FIELD_SET(TotalNumSecurityTypes);
     NET_FIELD_SET(NoSecurityTypes);
-    __gc class NoSecurityTypes : public Fix::Group
+    __gc class NoSecurityTypes : public QuickFix::Group
     {
     public:
       NoSecurityTypes() : Group(558, 167, message_order ) {}
@@ -2429,11 +2429,11 @@ namespace Fix43
   {
   public: 
     SecurityListRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("x"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("x"); }
     //
     SecurityListRequest(
-      Fix::SecurityReqID* aSecurityReqID,
-      Fix::SecurityListRequestType* aSecurityListRequestType )
+      QuickFix::SecurityReqID* aSecurityReqID,
+      QuickFix::SecurityListRequestType* aSecurityListRequestType )
     : Message(MsgType())
     
     {
@@ -2476,7 +2476,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -2500,12 +2500,12 @@ namespace Fix43
   {
   public: 
     SecurityList() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("y"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("y"); }
     //
     SecurityList(
-      Fix::SecurityReqID* aSecurityReqID,
-      Fix::SecurityResponseID* aSecurityResponseID,
-      Fix::SecurityRequestResult* aSecurityRequestResult )
+      QuickFix::SecurityReqID* aSecurityReqID,
+      QuickFix::SecurityResponseID* aSecurityResponseID,
+      QuickFix::SecurityRequestResult* aSecurityRequestResult )
     : Message(MsgType())
     
     {
@@ -2519,7 +2519,7 @@ namespace Fix43
     NET_FIELD_SET(SecurityRequestResult);
     NET_FIELD_SET(TotalNumSecurities);
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
@@ -2547,7 +2547,7 @@ namespace Fix43
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(NoLegs);
-    __gc class NoLegs : public Fix::Group
+    __gc class NoLegs : public QuickFix::Group
     {
     public:
       NoLegs() : Group(555, 556, message_order ) {}
@@ -2630,11 +2630,11 @@ namespace Fix43
   {
   public: 
     DerivativeSecurityListRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("z"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("z"); }
     //
     DerivativeSecurityListRequest(
-      Fix::SecurityReqID* aSecurityReqID,
-      Fix::SecurityListRequestType* aSecurityListRequestType )
+      QuickFix::SecurityReqID* aSecurityReqID,
+      QuickFix::SecurityListRequestType* aSecurityListRequestType )
     : Message(MsgType())
     
     {
@@ -2678,7 +2678,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
     NET_FIELD_SET(NoUnderlyingSecurityAltID);
-    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    __gc class NoUnderlyingSecurityAltID : public QuickFix::Group
     {
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
@@ -2702,12 +2702,12 @@ namespace Fix43
   {
   public: 
     DerivativeSecurityList() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AA"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AA"); }
     //
     DerivativeSecurityList(
-      Fix::SecurityReqID* aSecurityReqID,
-      Fix::SecurityResponseID* aSecurityResponseID,
-      Fix::SecurityRequestResult* aSecurityRequestResult )
+      QuickFix::SecurityReqID* aSecurityReqID,
+      QuickFix::SecurityResponseID* aSecurityResponseID,
+      QuickFix::SecurityRequestResult* aSecurityRequestResult )
     : Message(MsgType())
     
     {
@@ -2753,7 +2753,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
     NET_FIELD_SET(NoUnderlyingSecurityAltID);
-    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    __gc class NoUnderlyingSecurityAltID : public QuickFix::Group
     {
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
@@ -2766,7 +2766,7 @@ namespace Fix43
     };
     NET_FIELD_SET(TotalNumSecurities);
     NET_FIELD_SET(NoRelatedSym);
-    __gc class NoRelatedSym : public Fix::Group
+    __gc class NoRelatedSym : public QuickFix::Group
     {
     public:
       NoRelatedSym() : Group(146, 15, message_order ) {}
@@ -2790,7 +2790,7 @@ namespace Fix43
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
     NET_FIELD_SET(NoLegs);
-    __gc class NoLegs : public Fix::Group
+    __gc class NoLegs : public QuickFix::Group
     {
     public:
       NoLegs() : Group(555, 556, message_order ) {}
@@ -2873,11 +2873,11 @@ namespace Fix43
   {
   public: 
     SecurityStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("e"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("e"); }
     //
     SecurityStatusRequest(
-      Fix::SecurityStatusReqID* aSecurityStatusReqID,
-      Fix::SubscriptionRequestType* aSubscriptionRequestType )
+      QuickFix::SecurityStatusReqID* aSecurityStatusReqID,
+      QuickFix::SubscriptionRequestType* aSubscriptionRequestType )
     : Message(MsgType())
     
     {
@@ -2919,7 +2919,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -2940,7 +2940,7 @@ namespace Fix43
   {
   public: 
     SecurityStatus() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("f"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("f"); }
   
     NET_FIELD_SET(SecurityStatusReqID);   
     NET_FIELD_SET(Symbol);   
@@ -2976,7 +2976,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -3013,11 +3013,11 @@ namespace Fix43
   {
   public: 
     TradingSessionStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("g"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("g"); }
     //
     TradingSessionStatusRequest(
-      Fix::TradSesReqID* aTradSesReqID,
-      Fix::SubscriptionRequestType* aSubscriptionRequestType )
+      QuickFix::TradSesReqID* aTradSesReqID,
+      QuickFix::SubscriptionRequestType* aSubscriptionRequestType )
     : Message(MsgType())
     
     {
@@ -3037,11 +3037,11 @@ namespace Fix43
   {
   public: 
     TradingSessionStatus() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("h"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("h"); }
     //
     TradingSessionStatus(
-      Fix::TradingSessionID* aTradingSessionID,
-      Fix::TradSesStatus* aTradSesStatus )
+      QuickFix::TradingSessionID* aTradingSessionID,
+      QuickFix::TradSesStatus* aTradSesStatus )
     : Message(MsgType())
     
     {
@@ -3072,14 +3072,14 @@ namespace Fix43
   {
   public: 
     NewOrderSingle() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("D"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("D"); }
     //
     NewOrderSingle(
-      Fix::ClOrdID* aClOrdID,
-      Fix::HandlInst* aHandlInst,
-      Fix::Side* aSide,
-      Fix::TransactTime* aTransactTime,
-      Fix::OrdType* aOrdType )
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::Side* aSide,
+      QuickFix::TransactTime* aTransactTime,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -3094,7 +3094,7 @@ namespace Fix43
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -3116,7 +3116,7 @@ namespace Fix43
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -3140,7 +3140,7 @@ namespace Fix43
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -3185,7 +3185,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -3201,7 +3201,7 @@ namespace Fix43
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(NoStipulations);
-    __gc class NoStipulations : public Fix::Group
+    __gc class NoStipulations : public QuickFix::Group
     {
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
@@ -3273,17 +3273,17 @@ namespace Fix43
   {
   public: 
     ExecutionReport() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("8"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("8"); }
     //
     ExecutionReport(
-      Fix::OrderID* aOrderID,
-      Fix::ExecID* aExecID,
-      Fix::ExecType* aExecType,
-      Fix::OrdStatus* aOrdStatus,
-      Fix::Side* aSide,
-      Fix::LeavesQty* aLeavesQty,
-      Fix::CumQty* aCumQty,
-      Fix::AvgPx* aAvgPx )
+      QuickFix::OrderID* aOrderID,
+      QuickFix::ExecID* aExecID,
+      QuickFix::ExecType* aExecType,
+      QuickFix::OrdStatus* aOrdStatus,
+      QuickFix::Side* aSide,
+      QuickFix::LeavesQty* aLeavesQty,
+      QuickFix::CumQty* aCumQty,
+      QuickFix::AvgPx* aAvgPx )
     : Message(MsgType())
     
     {
@@ -3305,7 +3305,7 @@ namespace Fix43
     NET_FIELD_SET(OrigClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -3322,7 +3322,7 @@ namespace Fix43
     };
     NET_FIELD_SET(TradeOriginationDate);
     NET_FIELD_SET(NoContraBrokers);
-    __gc class NoContraBrokers : public Fix::Group
+    __gc class NoContraBrokers : public QuickFix::Group
     {
     public:
       NoContraBrokers() : Group(382, 337, message_order ) {}
@@ -3392,7 +3392,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -3405,7 +3405,7 @@ namespace Fix43
     };
     NET_FIELD_SET(Side);
     NET_FIELD_SET(NoStipulations);
-    __gc class NoStipulations : public Fix::Group
+    __gc class NoStipulations : public QuickFix::Group
     {
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
@@ -3509,7 +3509,7 @@ namespace Fix43
     NET_FIELD_SET(PriorityIndicator);
     NET_FIELD_SET(PriceImprovement);
     NET_FIELD_SET(NoContAmts);
-    __gc class NoContAmts : public Fix::Group
+    __gc class NoContAmts : public QuickFix::Group
     {
     public:
       NoContAmts() : Group(518, 519, message_order ) {}
@@ -3523,7 +3523,7 @@ namespace Fix43
       NET_FIELD_SET(ContAmtCurr);
     };
     NET_FIELD_SET(NoLegs);
-    __gc class NoLegs : public Fix::Group
+    __gc class NoLegs : public QuickFix::Group
     {
     public:
       NoLegs() : Group(555, 564, message_order ) {}
@@ -3586,13 +3586,13 @@ namespace Fix43
   {
   public: 
     DontKnowTrade() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("Q"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("Q"); }
     //
     DontKnowTrade(
-      Fix::OrderID* aOrderID,
-      Fix::ExecID* aExecID,
-      Fix::DKReason* aDKReason,
-      Fix::Side* aSide )
+      QuickFix::OrderID* aOrderID,
+      QuickFix::ExecID* aExecID,
+      QuickFix::DKReason* aDKReason,
+      QuickFix::Side* aSide )
     : Message(MsgType())
     
     {
@@ -3638,7 +3638,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -3666,15 +3666,15 @@ namespace Fix43
   {
   public: 
     OrderCancelReplaceRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("G"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("G"); }
     //
     OrderCancelReplaceRequest(
-      Fix::OrigClOrdID* aOrigClOrdID,
-      Fix::ClOrdID* aClOrdID,
-      Fix::HandlInst* aHandlInst,
-      Fix::Side* aSide,
-      Fix::TransactTime* aTransactTime,
-      Fix::OrdType* aOrdType )
+      QuickFix::OrigClOrdID* aOrigClOrdID,
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::Side* aSide,
+      QuickFix::TransactTime* aTransactTime,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -3688,7 +3688,7 @@ namespace Fix43
   
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -3716,7 +3716,7 @@ namespace Fix43
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -3740,7 +3740,7 @@ namespace Fix43
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -3784,7 +3784,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -3857,13 +3857,13 @@ namespace Fix43
   {
   public: 
     OrderCancelRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("F"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("F"); }
     //
     OrderCancelRequest(
-      Fix::OrigClOrdID* aOrigClOrdID,
-      Fix::ClOrdID* aClOrdID,
-      Fix::Side* aSide,
-      Fix::TransactTime* aTransactTime )
+      QuickFix::OrigClOrdID* aOrigClOrdID,
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::Side* aSide,
+      QuickFix::TransactTime* aTransactTime )
     : Message(MsgType())
     
     {
@@ -3883,7 +3883,7 @@ namespace Fix43
     NET_FIELD_SET(Account);
     NET_FIELD_SET(AccountType);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -3931,7 +3931,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -3959,14 +3959,14 @@ namespace Fix43
   {
   public: 
     OrderCancelReject() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("9"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("9"); }
     //
     OrderCancelReject(
-      Fix::OrderID* aOrderID,
-      Fix::ClOrdID* aClOrdID,
-      Fix::OrigClOrdID* aOrigClOrdID,
-      Fix::OrdStatus* aOrdStatus,
-      Fix::CxlRejResponseTo* aCxlRejResponseTo )
+      QuickFix::OrderID* aOrderID,
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::OrigClOrdID* aOrigClOrdID,
+      QuickFix::OrdStatus* aOrdStatus,
+      QuickFix::CxlRejResponseTo* aCxlRejResponseTo )
     : Message(MsgType())
     
     {
@@ -4002,11 +4002,11 @@ namespace Fix43
   {
   public: 
     OrderStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("H"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("H"); }
     //
     OrderStatusRequest(
-      Fix::ClOrdID* aClOrdID,
-      Fix::Side* aSide )
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::Side* aSide )
     : Message(MsgType())
     
     {
@@ -4019,7 +4019,7 @@ namespace Fix43
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -4068,7 +4068,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -4086,12 +4086,12 @@ namespace Fix43
   {
   public: 
     OrderMassCancelRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("q"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("q"); }
     //
     OrderMassCancelRequest(
-      Fix::ClOrdID* aClOrdID,
-      Fix::MassCancelRequestType* aMassCancelRequestType,
-      Fix::TransactTime* aTransactTime )
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::MassCancelRequestType* aMassCancelRequestType,
+      QuickFix::TransactTime* aTransactTime )
     : Message(MsgType())
     
     {
@@ -4138,7 +4138,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -4183,7 +4183,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
     NET_FIELD_SET(NoUnderlyingSecurityAltID);
-    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    __gc class NoUnderlyingSecurityAltID : public QuickFix::Group
     {
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
@@ -4205,12 +4205,12 @@ namespace Fix43
   {
   public: 
     OrderMassCancelReport() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("r"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("r"); }
     //
     OrderMassCancelReport(
-      Fix::OrderID* aOrderID,
-      Fix::MassCancelRequestType* aMassCancelRequestType,
-      Fix::MassCancelResponse* aMassCancelResponse )
+      QuickFix::OrderID* aOrderID,
+      QuickFix::MassCancelRequestType* aMassCancelRequestType,
+      QuickFix::MassCancelResponse* aMassCancelResponse )
     : Message(MsgType())
     
     {
@@ -4228,7 +4228,7 @@ namespace Fix43
     NET_FIELD_SET(MassCancelRejectReason);
     NET_FIELD_SET(TotalAffectedOrders);
     NET_FIELD_SET(NoAffectedOrders);
-    __gc class NoAffectedOrders : public Fix::Group
+    __gc class NoAffectedOrders : public QuickFix::Group
     {
     public:
       NoAffectedOrders() : Group(534, 41, message_order ) {}
@@ -4276,7 +4276,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -4321,7 +4321,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
     NET_FIELD_SET(NoUnderlyingSecurityAltID);
-    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    __gc class NoUnderlyingSecurityAltID : public QuickFix::Group
     {
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
@@ -4343,11 +4343,11 @@ namespace Fix43
   {
   public: 
     OrderMassStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AF"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AF"); }
     //
     OrderMassStatusRequest(
-      Fix::MassStatusReqID* aMassStatusReqID,
-      Fix::MassStatusReqType* aMassStatusReqType )
+      QuickFix::MassStatusReqID* aMassStatusReqID,
+      QuickFix::MassStatusReqType* aMassStatusReqType )
     : Message(MsgType())
     
     {
@@ -4358,7 +4358,7 @@ namespace Fix43
     NET_FIELD_SET(MassStatusReqID);
     NET_FIELD_SET(MassStatusReqType);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -4409,7 +4409,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -4454,7 +4454,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedUnderlyingSecurityDescLen);   
     NET_FIELD_SET(EncodedUnderlyingSecurityDesc);
     NET_FIELD_SET(NoUnderlyingSecurityAltID);
-    __gc class NoUnderlyingSecurityAltID : public Fix::Group
+    __gc class NoUnderlyingSecurityAltID : public QuickFix::Group
     {
     public:
       NoUnderlyingSecurityAltID() : Group(457, 458, message_order ) {}
@@ -4472,15 +4472,15 @@ namespace Fix43
   {
   public: 
     NewOrderCross() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("s"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("s"); }
     //
     NewOrderCross(
-      Fix::CrossID* aCrossID,
-      Fix::CrossType* aCrossType,
-      Fix::CrossPrioritization* aCrossPrioritization,
-      Fix::HandlInst* aHandlInst,
-      Fix::TransactTime* aTransactTime,
-      Fix::OrdType* aOrdType )
+      QuickFix::CrossID* aCrossID,
+      QuickFix::CrossType* aCrossType,
+      QuickFix::CrossPrioritization* aCrossPrioritization,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::TransactTime* aTransactTime,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -4496,7 +4496,7 @@ namespace Fix43
     NET_FIELD_SET(CrossType);
     NET_FIELD_SET(CrossPrioritization);
     NET_FIELD_SET(NoSides);
-    __gc class NoSides : public Fix::Group
+    __gc class NoSides : public QuickFix::Group
     {
     public:
       NoSides() : Group(552, 1, message_order ) {}
@@ -4562,7 +4562,7 @@ namespace Fix43
       NET_FIELD_SET(SolicitedFlag);
       NET_FIELD_SET(SideComplianceID);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -4619,7 +4619,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -4638,7 +4638,7 @@ namespace Fix43
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -4654,7 +4654,7 @@ namespace Fix43
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(NoStipulations);
-    __gc class NoStipulations : public Fix::Group
+    __gc class NoStipulations : public QuickFix::Group
     {
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
@@ -4701,16 +4701,16 @@ namespace Fix43
   {
   public: 
     CrossOrderCancelReplaceRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("t"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("t"); }
     //
     CrossOrderCancelReplaceRequest(
-      Fix::CrossID* aCrossID,
-      Fix::OrigCrossID* aOrigCrossID,
-      Fix::CrossType* aCrossType,
-      Fix::CrossPrioritization* aCrossPrioritization,
-      Fix::HandlInst* aHandlInst,
-      Fix::TransactTime* aTransactTime,
-      Fix::OrdType* aOrdType )
+      QuickFix::CrossID* aCrossID,
+      QuickFix::OrigCrossID* aOrigCrossID,
+      QuickFix::CrossType* aCrossType,
+      QuickFix::CrossPrioritization* aCrossPrioritization,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::TransactTime* aTransactTime,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -4729,7 +4729,7 @@ namespace Fix43
     NET_FIELD_SET(CrossType);
     NET_FIELD_SET(CrossPrioritization);
     NET_FIELD_SET(NoSides);
-    __gc class NoSides : public Fix::Group
+    __gc class NoSides : public QuickFix::Group
     {
     public:
       NoSides() : Group(552, 1, message_order ) {}
@@ -4799,7 +4799,7 @@ namespace Fix43
       NET_FIELD_SET(SolicitedFlag);
       NET_FIELD_SET(SideComplianceID);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -4856,7 +4856,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -4875,7 +4875,7 @@ namespace Fix43
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -4891,7 +4891,7 @@ namespace Fix43
     NET_FIELD_SET(LocateReqd);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(NoStipulations);
-    __gc class NoStipulations : public Fix::Group
+    __gc class NoStipulations : public QuickFix::Group
     {
     public:
       NoStipulations() : Group(232, 233, message_order ) {}
@@ -4938,14 +4938,14 @@ namespace Fix43
   {
   public: 
     CrossOrderCancelRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("u"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("u"); }
     //
     CrossOrderCancelRequest(
-      Fix::CrossID* aCrossID,
-      Fix::OrigCrossID* aOrigCrossID,
-      Fix::CrossType* aCrossType,
-      Fix::CrossPrioritization* aCrossPrioritization,
-      Fix::TransactTime* aTransactTime )
+      QuickFix::CrossID* aCrossID,
+      QuickFix::OrigCrossID* aOrigCrossID,
+      QuickFix::CrossType* aCrossType,
+      QuickFix::CrossPrioritization* aCrossPrioritization,
+      QuickFix::TransactTime* aTransactTime )
     : Message(MsgType())
     
     {
@@ -4962,7 +4962,7 @@ namespace Fix43
     NET_FIELD_SET(CrossType);
     NET_FIELD_SET(CrossPrioritization);
     NET_FIELD_SET(NoSides);
-    __gc class NoSides : public Fix::Group
+    __gc class NoSides : public QuickFix::Group
     {
     public:
       NoSides() : Group(552, 11, message_order ) {}
@@ -5031,7 +5031,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -5049,14 +5049,14 @@ namespace Fix43
   {
   public: 
     NewOrderMultileg() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AB"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AB"); }
     //
     NewOrderMultileg(
-      Fix::ClOrdID* aClOrdID,
-      Fix::HandlInst* aHandlInst,
-      Fix::Side* aSide,
-      Fix::TransactTime* aTransactTime,
-      Fix::OrdType* aOrdType )
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::Side* aSide,
+      QuickFix::TransactTime* aTransactTime,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -5071,7 +5071,7 @@ namespace Fix43
     NET_FIELD_SET(SecondaryClOrdID);
     NET_FIELD_SET(ClOrdLinkID);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -5092,7 +5092,7 @@ namespace Fix43
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -5115,7 +5115,7 @@ namespace Fix43
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -5161,7 +5161,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -5174,7 +5174,7 @@ namespace Fix43
     };
     NET_FIELD_SET(PrevClosePx);
     NET_FIELD_SET(NoLegs);
-    __gc class NoLegs : public Fix::Group
+    __gc class NoLegs : public QuickFix::Group
     {
     public:
       NoLegs() : Group(555, 564, message_order ) {}
@@ -5281,15 +5281,15 @@ namespace Fix43
   {
   public: 
     MultilegOrderCancelReplaceRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AC"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AC"); }
     //
     MultilegOrderCancelReplaceRequest(
-      Fix::OrigClOrdID* aOrigClOrdID,
-      Fix::ClOrdID* aClOrdID,
-      Fix::HandlInst* aHandlInst,
-      Fix::Side* aSide,
-      Fix::TransactTime* aTransactTime,
-      Fix::OrdType* aOrdType )
+      QuickFix::OrigClOrdID* aOrigClOrdID,
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::Side* aSide,
+      QuickFix::TransactTime* aTransactTime,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -5308,7 +5308,7 @@ namespace Fix43
     NET_FIELD_SET(ClOrdLinkID);
     NET_FIELD_SET(OrigOrdModTime);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -5329,7 +5329,7 @@ namespace Fix43
     NET_FIELD_SET(BookingUnit);
     NET_FIELD_SET(PreallocMethod);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -5352,7 +5352,7 @@ namespace Fix43
     NET_FIELD_SET(MaxFloor);
     NET_FIELD_SET(ExDestination);
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -5398,7 +5398,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -5411,7 +5411,7 @@ namespace Fix43
     };
     NET_FIELD_SET(PrevClosePx);
     NET_FIELD_SET(NoLegs);
-    __gc class NoLegs : public Fix::Group
+    __gc class NoLegs : public QuickFix::Group
     {
     public:
       NoLegs() : Group(555, 564, message_order ) {}
@@ -5518,15 +5518,15 @@ namespace Fix43
   {
   public: 
     BidRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("k"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("k"); }
     //
     BidRequest(
-      Fix::ClientBidID* aClientBidID,
-      Fix::BidRequestTransType* aBidRequestTransType,
-      Fix::TotalNumSecurities* aTotalNumSecurities,
-      Fix::BidType* aBidType,
-      Fix::TradeType* aTradeType,
-      Fix::BasisPxType* aBasisPxType )
+      QuickFix::ClientBidID* aClientBidID,
+      QuickFix::BidRequestTransType* aBidRequestTransType,
+      QuickFix::TotalNumSecurities* aTotalNumSecurities,
+      QuickFix::BidType* aBidType,
+      QuickFix::TradeType* aTradeType,
+      QuickFix::BasisPxType* aBasisPxType )
     : Message(MsgType())
     
     {
@@ -5549,7 +5549,7 @@ namespace Fix43
     NET_FIELD_SET(SideValue1);
     NET_FIELD_SET(SideValue2);
     NET_FIELD_SET(NoBidDescriptors);
-    __gc class NoBidDescriptors : public Fix::Group
+    __gc class NoBidDescriptors : public QuickFix::Group
     {
     public:
       NoBidDescriptors() : Group(398, 399, message_order ) {}
@@ -5579,7 +5579,7 @@ namespace Fix43
       NET_FIELD_SET(ValueOfFutures);
     };
     NET_FIELD_SET(NoBidComponents);
-    __gc class NoBidComponents : public Fix::Group
+    __gc class NoBidComponents : public QuickFix::Group
     {
     public:
       NoBidComponents() : Group(420, 1, message_order ) {}
@@ -5625,12 +5625,12 @@ namespace Fix43
   {
   public: 
     BidResponse() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("l"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("l"); }
   
     NET_FIELD_SET(BidID);
     NET_FIELD_SET(ClientBidID);
     NET_FIELD_SET(NoBidComponents);
-    __gc class NoBidComponents : public Fix::Group
+    __gc class NoBidComponents : public QuickFix::Group
     {
     public:
       NoBidComponents() : Group(420, 44, message_order ) {}
@@ -5676,12 +5676,12 @@ namespace Fix43
   {
   public: 
     NewOrderList() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("E"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("E"); }
     //
     NewOrderList(
-      Fix::ListID* aListID,
-      Fix::BidType* aBidType,
-      Fix::TotNoOrders* aTotNoOrders )
+      QuickFix::ListID* aListID,
+      QuickFix::BidType* aBidType,
+      QuickFix::TotNoOrders* aTotNoOrders )
     : Message(MsgType())
     
     {
@@ -5705,7 +5705,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedListExecInst);
     NET_FIELD_SET(TotNoOrders);
     NET_FIELD_SET(NoOrders);
-    __gc class NoOrders : public Fix::Group
+    __gc class NoOrders : public QuickFix::Group
     {
     public:
       NoOrders() : Group(73, 1, message_order ) {}
@@ -5855,7 +5855,7 @@ namespace Fix43
       NET_FIELD_SET(AccruedInterestAmt);
       NET_FIELD_SET(NetMoney);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -5870,7 +5870,7 @@ namespace Fix43
       NET_FIELD_SET(AllocQty);
     };
     NET_FIELD_SET(NoTradingSessions);
-    __gc class NoTradingSessions : public Fix::Group
+    __gc class NoTradingSessions : public QuickFix::Group
     {
     public:
       NoTradingSessions() : Group(386, 336, message_order ) {}
@@ -5935,11 +5935,11 @@ namespace Fix43
   {
   public: 
     ListStrikePrice() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("m"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("m"); }
     //
     ListStrikePrice(
-      Fix::ListID* aListID,
-      Fix::TotNoStrikes* aTotNoStrikes )
+      QuickFix::ListID* aListID,
+      QuickFix::TotNoStrikes* aTotNoStrikes )
     : Message(MsgType())
     
     {
@@ -5950,7 +5950,7 @@ namespace Fix43
     NET_FIELD_SET(ListID);
     NET_FIELD_SET(TotNoStrikes);
     NET_FIELD_SET(NoStrikes);
-    __gc class NoStrikes : public Fix::Group
+    __gc class NoStrikes : public QuickFix::Group
     {
     public:
       NoStrikes() : Group(428, 11, message_order ) {}
@@ -6014,11 +6014,11 @@ namespace Fix43
   {
   public: 
     ListExecute() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("L"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("L"); }
     //
     ListExecute(
-      Fix::ListID* aListID,
-      Fix::TransactTime* aTransactTime )
+      QuickFix::ListID* aListID,
+      QuickFix::TransactTime* aTransactTime )
     : Message(MsgType())
     
     {
@@ -6039,11 +6039,11 @@ namespace Fix43
   {
   public: 
     ListCancelRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("K"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("K"); }
     //
     ListCancelRequest(
-      Fix::ListID* aListID,
-      Fix::TransactTime* aTransactTime )
+      QuickFix::ListID* aListID,
+      QuickFix::TransactTime* aTransactTime )
     : Message(MsgType())
     
     {
@@ -6063,10 +6063,10 @@ namespace Fix43
   {
   public: 
     ListStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("M"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("M"); }
     //
     ListStatusRequest(
-      Fix::ListID* aListID )
+      QuickFix::ListID* aListID )
     : Message(MsgType())
     
     {
@@ -6083,15 +6083,15 @@ namespace Fix43
   {
   public: 
     ListStatus() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("N"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("N"); }
     //
     ListStatus(
-      Fix::ListID* aListID,
-      Fix::ListStatusType* aListStatusType,
-      Fix::NoRpts* aNoRpts,
-      Fix::ListOrderStatus* aListOrderStatus,
-      Fix::RptSeq* aRptSeq,
-      Fix::TotNoOrders* aTotNoOrders )
+      QuickFix::ListID* aListID,
+      QuickFix::ListStatusType* aListStatusType,
+      QuickFix::NoRpts* aNoRpts,
+      QuickFix::ListOrderStatus* aListOrderStatus,
+      QuickFix::RptSeq* aRptSeq,
+      QuickFix::TotNoOrders* aTotNoOrders )
     : Message(MsgType())
     
     {
@@ -6114,7 +6114,7 @@ namespace Fix43
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(TotNoOrders);
     NET_FIELD_SET(NoOrders);
-    __gc class NoOrders : public Fix::Group
+    __gc class NoOrders : public QuickFix::Group
     {
     public:
       NoOrders() : Group(73, 6, message_order ) {}
@@ -6151,16 +6151,16 @@ namespace Fix43
   {
   public: 
     Allocation() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("J"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("J"); }
     //
     Allocation(
-      Fix::AllocID* aAllocID,
-      Fix::AllocTransType* aAllocTransType,
-      Fix::AllocType* aAllocType,
-      Fix::Side* aSide,
-      Fix::Quantity* aQuantity,
-      Fix::AvgPx* aAvgPx,
-      Fix::TradeDate* aTradeDate )
+      QuickFix::AllocID* aAllocID,
+      QuickFix::AllocTransType* aAllocTransType,
+      QuickFix::AllocType* aAllocType,
+      QuickFix::Side* aSide,
+      QuickFix::Quantity* aQuantity,
+      QuickFix::AvgPx* aAvgPx,
+      QuickFix::TradeDate* aTradeDate )
     : Message(MsgType())
     
     {
@@ -6181,7 +6181,7 @@ namespace Fix43
     NET_FIELD_SET(AllocLinkType);
     NET_FIELD_SET(BookingRefID);
     NET_FIELD_SET(NoOrders);
-    __gc class NoOrders : public Fix::Group
+    __gc class NoOrders : public QuickFix::Group
     {
     public:
       NoOrders() : Group(73, 11, message_order ) {}
@@ -6199,7 +6199,7 @@ namespace Fix43
       NET_FIELD_SET(ListID);
     };
     NET_FIELD_SET(NoExecs);
-    __gc class NoExecs : public Fix::Group
+    __gc class NoExecs : public QuickFix::Group
     {
     public:
       NoExecs() : Group(124, 17, message_order ) {}
@@ -6250,7 +6250,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -6271,7 +6271,7 @@ namespace Fix43
     NET_FIELD_SET(Currency);
     NET_FIELD_SET(AvgPrxPrecision);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -6303,7 +6303,7 @@ namespace Fix43
     NET_FIELD_SET(TotalAccruedInterestAmt);
     NET_FIELD_SET(LegalConfirm);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 79, message_order ) {}
@@ -6353,7 +6353,7 @@ namespace Fix43
       NET_FIELD_SET(AccruedInterestAmt);
       NET_FIELD_SET(SettlInstMode);
     NET_FIELD_SET(NoMiscFees);
-    __gc class NoMiscFees : public Fix::Group
+    __gc class NoMiscFees : public QuickFix::Group
     {
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
@@ -6377,12 +6377,12 @@ namespace Fix43
   {
   public: 
     AllocationACK() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("P"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("P"); }
     //
     AllocationACK(
-      Fix::AllocID* aAllocID,
-      Fix::TradeDate* aTradeDate,
-      Fix::AllocStatus* aAllocStatus )
+      QuickFix::AllocID* aAllocID,
+      QuickFix::TradeDate* aTradeDate,
+      QuickFix::AllocStatus* aAllocStatus )
     : Message(MsgType())
     
     {
@@ -6392,7 +6392,7 @@ namespace Fix43
     }
   
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -6422,16 +6422,16 @@ namespace Fix43
   {
   public: 
     SettlementInstructions() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("T"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("T"); }
     //
     SettlementInstructions(
-      Fix::SettlInstID* aSettlInstID,
-      Fix::SettlInstTransType* aSettlInstTransType,
-      Fix::SettlInstRefID* aSettlInstRefID,
-      Fix::SettlInstMode* aSettlInstMode,
-      Fix::SettlInstSource* aSettlInstSource,
-      Fix::AllocAccount* aAllocAccount,
-      Fix::TransactTime* aTransactTime )
+      QuickFix::SettlInstID* aSettlInstID,
+      QuickFix::SettlInstTransType* aSettlInstTransType,
+      QuickFix::SettlInstRefID* aSettlInstRefID,
+      QuickFix::SettlInstMode* aSettlInstMode,
+      QuickFix::SettlInstSource* aSettlInstSource,
+      QuickFix::AllocAccount* aAllocAccount,
+      QuickFix::TransactTime* aTransactTime )
     : Message(MsgType())
     
     {
@@ -6462,7 +6462,7 @@ namespace Fix43
     NET_FIELD_SET(EffectiveTime);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -6511,11 +6511,11 @@ namespace Fix43
   {
   public: 
     TradeCaptureReportRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AD"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AD"); }
     //
     TradeCaptureReportRequest(
-      Fix::TradeRequestID* aTradeRequestID,
-      Fix::TradeRequestType* aTradeRequestType )
+      QuickFix::TradeRequestID* aTradeRequestID,
+      QuickFix::TradeRequestType* aTradeRequestType )
     : Message(MsgType())
     
     {
@@ -6531,7 +6531,7 @@ namespace Fix43
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(MatchStatus);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -6579,7 +6579,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -6591,7 +6591,7 @@ namespace Fix43
       NET_FIELD_SET(SecurityAltIDSource);
     };
     NET_FIELD_SET(NoDates);
-    __gc class NoDates : public Fix::Group
+    __gc class NoDates : public QuickFix::Group
     {
     public:
       NoDates() : Group(580, 60, message_order ) {}
@@ -6614,16 +6614,16 @@ namespace Fix43
   {
   public: 
     TradeCaptureReport() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("AE"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("AE"); }
     //
     TradeCaptureReport(
-      Fix::TradeReportID* aTradeReportID,
-      Fix::ExecType* aExecType,
-      Fix::PreviouslyReported* aPreviouslyReported,
-      Fix::LastQty* aLastQty,
-      Fix::LastPx* aLastPx,
-      Fix::TradeDate* aTradeDate,
-      Fix::TransactTime* aTransactTime )
+      QuickFix::TradeReportID* aTradeReportID,
+      QuickFix::ExecType* aExecType,
+      QuickFix::PreviouslyReported* aPreviouslyReported,
+      QuickFix::LastQty* aLastQty,
+      QuickFix::LastPx* aLastPx,
+      QuickFix::TradeDate* aTradeDate,
+      QuickFix::TransactTime* aTransactTime )
     : Message(MsgType())
     
     {
@@ -6678,7 +6678,7 @@ namespace Fix43
     NET_FIELD_SET(EncodedSecurityDescLen);   
     NET_FIELD_SET(EncodedSecurityDesc);
     NET_FIELD_SET(NoSecurityAltID);
-    __gc class NoSecurityAltID : public Fix::Group
+    __gc class NoSecurityAltID : public QuickFix::Group
     {
     public:
       NoSecurityAltID() : Group(454, 455, message_order ) {}
@@ -6706,7 +6706,7 @@ namespace Fix43
     NET_FIELD_SET(MatchStatus);
     NET_FIELD_SET(MatchType);
     NET_FIELD_SET(NoSides);
-    __gc class NoSides : public Fix::Group
+    __gc class NoSides : public QuickFix::Group
     {
     public:
       NoSides() : Group(552, 1, message_order ) {}
@@ -6802,7 +6802,7 @@ namespace Fix43
       NET_FIELD_SET(EncodedText);
       NET_FIELD_SET(MultiLegReportingType);
     NET_FIELD_SET(NoClearingInstructions);
-    __gc class NoClearingInstructions : public Fix::Group
+    __gc class NoClearingInstructions : public QuickFix::Group
     {
     public:
       NoClearingInstructions() : Group(576, 577, message_order ) {}
@@ -6812,7 +6812,7 @@ namespace Fix43
       NET_FIELD_SET(ClearingInstruction);
     };
     NET_FIELD_SET(NoContAmts);
-    __gc class NoContAmts : public Fix::Group
+    __gc class NoContAmts : public QuickFix::Group
     {
     public:
       NoContAmts() : Group(518, 519, message_order ) {}
@@ -6826,7 +6826,7 @@ namespace Fix43
       NET_FIELD_SET(ContAmtCurr);
     };
     NET_FIELD_SET(NoMiscFees);
-    __gc class NoMiscFees : public Fix::Group
+    __gc class NoMiscFees : public QuickFix::Group
     {
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
@@ -6850,12 +6850,12 @@ namespace Fix43
   {
   public: 
     RegistrationInstructions() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("o"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("o"); }
     //
     RegistrationInstructions(
-      Fix::RegistID* aRegistID,
-      Fix::RegistTransType* aRegistTransType,
-      Fix::RegistRefID* aRegistRefID )
+      QuickFix::RegistID* aRegistID,
+      QuickFix::RegistTransType* aRegistTransType,
+      QuickFix::RegistRefID* aRegistRefID )
     : Message(MsgType())
     
     {
@@ -6869,7 +6869,7 @@ namespace Fix43
     NET_FIELD_SET(RegistRefID);
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}
@@ -6889,7 +6889,7 @@ namespace Fix43
     NET_FIELD_SET(TaxAdvantageType);
     NET_FIELD_SET(OwnershipType);
     NET_FIELD_SET(NoRegistDtls);
-    __gc class NoRegistDtls : public Fix::Group
+    __gc class NoRegistDtls : public QuickFix::Group
     {
     public:
       NoRegistDtls() : Group(473, 474, message_order ) {}
@@ -6912,7 +6912,7 @@ namespace Fix43
       NET_FIELD_SET(InvestorCountryOfResidence);
     };
     NET_FIELD_SET(NoDistribInsts);
-    __gc class NoDistribInsts : public Fix::Group
+    __gc class NoDistribInsts : public QuickFix::Group
     {
     public:
       NoDistribInsts() : Group(510, 477, message_order ) {}
@@ -6941,13 +6941,13 @@ namespace Fix43
   {
   public: 
     RegistrationInstructionsResponse() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("p"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("p"); }
     //
     RegistrationInstructionsResponse(
-      Fix::RegistID* aRegistID,
-      Fix::RegistTransType* aRegistTransType,
-      Fix::RegistRefID* aRegistRefID,
-      Fix::RegistStatus* aRegistStatus )
+      QuickFix::RegistID* aRegistID,
+      QuickFix::RegistTransType* aRegistTransType,
+      QuickFix::RegistRefID* aRegistRefID,
+      QuickFix::RegistStatus* aRegistStatus )
     : Message(MsgType())
     
     {
@@ -6962,7 +6962,7 @@ namespace Fix43
     NET_FIELD_SET(RegistRefID);
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(NoPartyIDs);
-    __gc class NoPartyIDs : public Fix::Group
+    __gc class NoPartyIDs : public QuickFix::Group
     {
     public:
       NoPartyIDs() : Group(453, 447, message_order ) {}

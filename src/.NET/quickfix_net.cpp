@@ -59,7 +59,7 @@
 #include "MessageFactory.h"
 #include "MessageCracker.h"
 
-namespace Fix
+namespace QuickFix
 {
 char* createUnmanagedString( String* s )
 {

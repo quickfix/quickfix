@@ -1,6 +1,6 @@
 <!--
   ====================================================================
-  The QuickFIX Software License, Version 1.0
+  The QuickFix Software License, Version 1.0
  
   Copyright (c) 2001 ThoughtWorks, Inc.  All rights
   reserved.
@@ -24,13 +24,13 @@
      Alternately, this acknowledgment may appear in the software itself,
      if and wherever such third-party acknowledgments normally appear.
  
-  4. The names "QuickFIX" and "ThoughtWorks, Inc." must
+  4. The names "QuickFix" and "ThoughtWorks, Inc." must
      not be used to endorse or promote products derived from this
      software without prior written permission. For written
      permission, please contact quickfix-users@lists.sourceforge.net.
  
-  5. Products derived from this software may not be called "QuickFIX",
-     nor may "QuickFIX" appear in their name, without prior written
+  5. Products derived from this software may not be called "QuickFix",
+     nor may "QuickFix" appear in their name, without prior written
      permission of ThoughtWorks, Inc.
  
   THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
@@ -61,7 +61,7 @@
 #include "Field.h"
 #include "DeprecatedFields.h"
 
-namespace Fix
+namespace QuickFix
 {
   <xsl:apply-templates/>
 }

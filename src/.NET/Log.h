@@ -58,7 +58,7 @@ using namespace System;
 #include "quickfix/include/Log.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc __interface Log
 {
@@ -71,7 +71,7 @@ public __gc __interface Log
 class Log : public FIX::Log
 {
 public:
-Log( Fix::Log* log ) : m_log( log ) {}
+Log( QuickFix::Log* log ) : m_log( log ) {}
 
   void onIncoming( const std::string& string )
   { m_log->onIncoming( string.c_str() ); }
@@ -80,5 +80,5 @@ Log( Fix::Log* log ) : m_log( log ) {}
   void onEvent( const std::string& string )
   { m_log->onEvent( string.c_str() ); }
 
-  gcroot < Fix::Log* > m_log;
+  gcroot < QuickFix::Log* > m_log;
 };

@@ -59,7 +59,7 @@ using namespace System;
 #include "quickfix/include/Log.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc __interface LogFactory
 {
@@ -70,14 +70,14 @@ public __gc __interface LogFactory
 class LogFactory : public FIX::LogFactory
 {
 public:
-  LogFactory( Fix::LogFactory* factory )
+  LogFactory( QuickFix::LogFactory* factory )
 : m_factory( factory ) {}
 
   FIX::Log* create( const FIX::SessionID& sessionID )
-  { return new Log( m_factory->create( new Fix::SessionID( sessionID ) ) ); }
+  { return new Log( m_factory->create( new QuickFix::SessionID( sessionID ) ) ); }
   void destroy( FIX::Log* pLog )
   { delete pLog; }
 
 private:
-  gcroot < Fix::LogFactory* > m_factory;
+  gcroot < QuickFix::LogFactory* > m_factory;
 };

@@ -1,6 +1,6 @@
 <!--
   ====================================================================
-  The QuickFIX Software License, Version 1.0
+  The QuickFix Software License, Version 1.0
  
   Copyright (c) 2001 ThoughtWorks, Inc.  All rights
   reserved.
@@ -24,13 +24,13 @@
      Alternately, this acknowledgment may appear in the software itself,
      if and wherever such third-party acknowledgments normally appear.
  
-  4. The names "QuickFIX" and "ThoughtWorks, Inc." must
+  4. The names "QuickFix" and "ThoughtWorks, Inc." must
      not be used to endorse or promote products derived from this
      software without prior written permission. For written
      permission, please contact quickfix-users@lists.sourceforge.net.
  
-  5. Products derived from this software may not be called "QuickFIX",
-     nor may "QuickFIX" appear in their name, without prior written
+  5. Products derived from this software may not be called "QuickFix",
+     nor may "QuickFix" appear in their name, without prior written
      permission of ThoughtWorks, Inc.
  
   THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
@@ -66,48 +66,48 @@
  </xsl:template>
 
  <xsl:template match="fix">
-namespace Fix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
+namespace QuickFix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
 {<xsl:apply-templates/></xsl:template>
 
  <xsl:template match="header">
-  public __gc class Header : public Fix::Message::Header
+  public __gc class Header : public QuickFix::Message::Header
   {
   public:
-    Header(Fix::Message* message) : Fix::Message::Header(message) {}
+    Header(QuickFix::Message* message) : QuickFix::Message::Header(message) {}
     <xsl:apply-templates/>
   };</xsl:template>
  
  <xsl:template match="trailer">
   
-  public __gc class Trailer : public Fix::Message::Trailer
+  public __gc class Trailer : public QuickFix::Message::Trailer
   {
   public:
-    Trailer(Fix::Message* message) : Fix::Message::Trailer(message) {}
+    Trailer(QuickFix::Message* message) : QuickFix::Message::Trailer(message) {}
     <xsl:apply-templates/>
   };</xsl:template>
 
  <xsl:template match="messages">
   
-  public __gc class Message : public Fix::Message
+  public __gc class Message : public QuickFix::Message
   {
   public: 
-    Message() : Fix::Message(new Fix::BeginString("FIX.<xsl:value-of select
+    Message() : QuickFix::Message(new QuickFix::BeginString("FIX.<xsl:value-of select
       ="//fix/@major"/>.<xsl:value-of select="//fix/@minor"/>"))
     {
       m_header = new Header(this);
       m_trailer = new Trailer(this);
     }
 
-    Message( Fix::MsgType* msgType ) 
-    : Fix::Message(
-      new Fix::BeginString("FIX.<xsl:value-of select
+    Message( QuickFix::MsgType* msgType ) 
+    : QuickFix::Message(
+      new QuickFix::BeginString("FIX.<xsl:value-of select
       ="//fix/@major"/>.<xsl:value-of select="//fix/@minor"/>"),msgType ) 
       { 
         m_header = new Header(this); 
         m_trailer = new Trailer(this);
       }
 
-    Header* getHeader() { return dynamic_cast&lt;Header*&gt;(Fix::Message::getHeader()); }
+    Header* getHeader() { return dynamic_cast&lt;Header*&gt;(QuickFix::Message::getHeader()); }
   };<xsl:apply-templates/></xsl:template>
 
  <xsl:template match="messages/message">
@@ -118,7 +118,7 @@ namespace Fix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
   {
   public: 
     <xsl:value-of select="@name"/>() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("<xsl:value-of select="@msgtype"/>"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("<xsl:value-of select="@msgtype"/>"); }
   <xsl:call-template name="constructor-def"/>
   <xsl:apply-templates/>
   </xsl:template>
@@ -127,7 +127,7 @@ namespace Fix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
    <xsl:for-each select="field[@required='Y']">
     <xsl:if test="(position()=1)">  //
     <xsl:value-of select="../@name"/>(</xsl:if>
-      Fix::<xsl:value-of select="@name"/>* a<xsl:value-of select=
+      QuickFix::<xsl:value-of select="@name"/>* a<xsl:value-of select=
       "@name"/>
     <xsl:if test="(position()!=last())">,</xsl:if>
     <xsl:if test="(position()=last())"> )
@@ -149,7 +149,7 @@ namespace Fix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
   
   <xsl:template name="group">
     NET_FIELD_SET(<xsl:value-of select="@name"/>);
-    __gc class <xsl:value-of select="@name"/> : public Fix::Group
+    __gc class <xsl:value-of select="@name"/> : public QuickFix::Group
     {
     public:
       <xsl:variable name="name" select="@name"/>

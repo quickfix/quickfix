@@ -60,7 +60,7 @@ using namespace System::IO;
 #include "quickfix/include/SessionID.h"
 #include "quickfix/include/Session.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class Session
 {

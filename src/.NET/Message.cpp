@@ -52,7 +52,7 @@
 #include "Message.h"
 #include "Fields.h"
 
-namespace Fix
+namespace QuickFix
 {
 Message::Message( BeginString* beginString ) : disposed( false )
 {

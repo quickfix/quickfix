@@ -51,127 +51,127 @@
 #include "Message.h"
 #include "MessageFactory.h"
 
-namespace Fix41
+namespace QuickFix41
 {
 
-  public __gc class MessageFactory : public Fix::MessageFactory
+  public __gc class MessageFactory : public QuickFix::MessageFactory
   {
   public:
-    Fix::Message* create( String* beginString, String* msgType ) {
+    QuickFix::Message* create( String* beginString, String* msgType ) {
     
      if(msgType->Equals("0")) {
-       return new Fix41::Heartbeat();
+       return new QuickFix41::Heartbeat();
      }
    
      if(msgType->Equals("A")) {
-       return new Fix41::Logon();
+       return new QuickFix41::Logon();
      }
    
      if(msgType->Equals("1")) {
-       return new Fix41::TestRequest();
+       return new QuickFix41::TestRequest();
      }
    
      if(msgType->Equals("2")) {
-       return new Fix41::ResendRequest();
+       return new QuickFix41::ResendRequest();
      }
    
      if(msgType->Equals("3")) {
-       return new Fix41::Reject();
+       return new QuickFix41::Reject();
      }
    
      if(msgType->Equals("4")) {
-       return new Fix41::SequenceReset();
+       return new QuickFix41::SequenceReset();
      }
    
      if(msgType->Equals("5")) {
-       return new Fix41::Logout();
+       return new QuickFix41::Logout();
      }
    
      if(msgType->Equals("7")) {
-       return new Fix41::Advertisement();
+       return new QuickFix41::Advertisement();
      }
    
      if(msgType->Equals("6")) {
-       return new Fix41::IndicationofInterest();
+       return new QuickFix41::IndicationofInterest();
      }
    
      if(msgType->Equals("B")) {
-       return new Fix41::News();
+       return new QuickFix41::News();
      }
    
      if(msgType->Equals("C")) {
-       return new Fix41::Email();
+       return new QuickFix41::Email();
      }
    
      if(msgType->Equals("R")) {
-       return new Fix41::QuoteRequest();
+       return new QuickFix41::QuoteRequest();
      }
    
      if(msgType->Equals("S")) {
-       return new Fix41::Quote();
+       return new QuickFix41::Quote();
      }
    
      if(msgType->Equals("D")) {
-       return new Fix41::NewOrderSingle();
+       return new QuickFix41::NewOrderSingle();
      }
    
      if(msgType->Equals("8")) {
-       return new Fix41::ExecutionReport();
+       return new QuickFix41::ExecutionReport();
      }
    
      if(msgType->Equals("Q")) {
-       return new Fix41::DontKnowTrade();
+       return new QuickFix41::DontKnowTrade();
      }
    
      if(msgType->Equals("G")) {
-       return new Fix41::OrderCancelReplaceRequest();
+       return new QuickFix41::OrderCancelReplaceRequest();
      }
    
      if(msgType->Equals("F")) {
-       return new Fix41::OrderCancelRequest();
+       return new QuickFix41::OrderCancelRequest();
      }
    
      if(msgType->Equals("9")) {
-       return new Fix41::OrderCancelReject();
+       return new QuickFix41::OrderCancelReject();
      }
    
      if(msgType->Equals("H")) {
-       return new Fix41::OrderStatusRequest();
+       return new QuickFix41::OrderStatusRequest();
      }
    
      if(msgType->Equals("J")) {
-       return new Fix41::Allocation();
+       return new QuickFix41::Allocation();
      }
    
      if(msgType->Equals("P")) {
-       return new Fix41::AllocationACK();
+       return new QuickFix41::AllocationACK();
      }
    
      if(msgType->Equals("T")) {
-       return new Fix41::SettlementInstructions();
+       return new QuickFix41::SettlementInstructions();
      }
    
      if(msgType->Equals("E")) {
-       return new Fix41::NewOrderList();
+       return new QuickFix41::NewOrderList();
      }
    
      if(msgType->Equals("N")) {
-       return new Fix41::ListStatus();
+       return new QuickFix41::ListStatus();
      }
    
      if(msgType->Equals("L")) {
-       return new Fix41::ListExecute();
+       return new QuickFix41::ListExecute();
      }
    
      if(msgType->Equals("K")) {
-       return new Fix41::ListCancelRequest();
+       return new QuickFix41::ListCancelRequest();
      }
    
      if(msgType->Equals("M")) {
-       return new Fix41::ListStatusRequest();
+       return new QuickFix41::ListStatusRequest();
      }
    
-    return new Fix41::Message();
+    return new QuickFix41::Message();
     }
   };
 }

@@ -61,7 +61,7 @@ using namespace System;
 #include "Acceptor.h"
 #include "quickfix/include/ThreadedSocketAcceptor.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class ThreadedSocketAcceptor : public Acceptor
 {

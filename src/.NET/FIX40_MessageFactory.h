@@ -51,123 +51,123 @@
 #include "Message.h"
 #include "MessageFactory.h"
 
-namespace Fix40
+namespace QuickFix40
 {
 
-  public __gc class MessageFactory : public Fix::MessageFactory
+  public __gc class MessageFactory : public QuickFix::MessageFactory
   {
   public:
-    Fix::Message* create( String* beginString, String* msgType ) {
+    QuickFix::Message* create( String* beginString, String* msgType ) {
     
      if(msgType->Equals("0")) {
-       return new Fix40::Heartbeat();
+       return new QuickFix40::Heartbeat();
      }
    
      if(msgType->Equals("A")) {
-       return new Fix40::Logon();
+       return new QuickFix40::Logon();
      }
    
      if(msgType->Equals("1")) {
-       return new Fix40::TestRequest();
+       return new QuickFix40::TestRequest();
      }
    
      if(msgType->Equals("2")) {
-       return new Fix40::ResendRequest();
+       return new QuickFix40::ResendRequest();
      }
    
      if(msgType->Equals("3")) {
-       return new Fix40::Reject();
+       return new QuickFix40::Reject();
      }
    
      if(msgType->Equals("4")) {
-       return new Fix40::SequenceReset();
+       return new QuickFix40::SequenceReset();
      }
    
      if(msgType->Equals("5")) {
-       return new Fix40::Logout();
+       return new QuickFix40::Logout();
      }
    
      if(msgType->Equals("7")) {
-       return new Fix40::Advertisement();
+       return new QuickFix40::Advertisement();
      }
    
      if(msgType->Equals("6")) {
-       return new Fix40::IndicationofInterest();
+       return new QuickFix40::IndicationofInterest();
      }
    
      if(msgType->Equals("B")) {
-       return new Fix40::News();
+       return new QuickFix40::News();
      }
    
      if(msgType->Equals("C")) {
-       return new Fix40::Email();
+       return new QuickFix40::Email();
      }
    
      if(msgType->Equals("R")) {
-       return new Fix40::QuoteRequest();
+       return new QuickFix40::QuoteRequest();
      }
    
      if(msgType->Equals("S")) {
-       return new Fix40::Quote();
+       return new QuickFix40::Quote();
      }
    
      if(msgType->Equals("D")) {
-       return new Fix40::NewOrderSingle();
+       return new QuickFix40::NewOrderSingle();
      }
    
      if(msgType->Equals("8")) {
-       return new Fix40::ExecutionReport();
+       return new QuickFix40::ExecutionReport();
      }
    
      if(msgType->Equals("Q")) {
-       return new Fix40::DontKnowTrade();
+       return new QuickFix40::DontKnowTrade();
      }
    
      if(msgType->Equals("G")) {
-       return new Fix40::OrderCancelReplaceRequest();
+       return new QuickFix40::OrderCancelReplaceRequest();
      }
    
      if(msgType->Equals("F")) {
-       return new Fix40::OrderCancelRequest();
+       return new QuickFix40::OrderCancelRequest();
      }
    
      if(msgType->Equals("9")) {
-       return new Fix40::OrderCancelReject();
+       return new QuickFix40::OrderCancelReject();
      }
    
      if(msgType->Equals("H")) {
-       return new Fix40::OrderStatusRequest();
+       return new QuickFix40::OrderStatusRequest();
      }
    
      if(msgType->Equals("J")) {
-       return new Fix40::Allocation();
+       return new QuickFix40::Allocation();
      }
    
      if(msgType->Equals("P")) {
-       return new Fix40::AllocationACK();
+       return new QuickFix40::AllocationACK();
      }
    
      if(msgType->Equals("E")) {
-       return new Fix40::NewOrderList();
+       return new QuickFix40::NewOrderList();
      }
    
      if(msgType->Equals("N")) {
-       return new Fix40::ListStatus();
+       return new QuickFix40::ListStatus();
      }
    
      if(msgType->Equals("L")) {
-       return new Fix40::ListExecute();
+       return new QuickFix40::ListExecute();
      }
    
      if(msgType->Equals("K")) {
-       return new Fix40::ListCancelRequest();
+       return new QuickFix40::ListCancelRequest();
      }
    
      if(msgType->Equals("M")) {
-       return new Fix40::ListStatusRequest();
+       return new QuickFix40::ListStatusRequest();
      }
    
-    return new Fix40::Message();
+    return new QuickFix40::Message();
     }
   };
 }

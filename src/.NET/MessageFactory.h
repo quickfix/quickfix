@@ -59,10 +59,10 @@ using namespace System;
 #include "FIX42_Messages.h"
 #include "FIX43_Messages.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc __interface MessageFactory
 {
-  virtual Fix::Message* create( String* beginString, String* msgType ) = 0;
+  virtual QuickFix::Message* create( String* beginString, String* msgType ) = 0;
 };
 }

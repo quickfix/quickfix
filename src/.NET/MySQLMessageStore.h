@@ -63,7 +63,7 @@ using namespace System;
 #include "quickfix/include/Settings.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class MySQLStore : public MessageStore
 {

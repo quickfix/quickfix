@@ -56,7 +56,7 @@ using namespace System;
 
 #include "quickfix/include/exceptions.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class FieldNotFound : public Exception
 {

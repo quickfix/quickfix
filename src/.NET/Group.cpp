@@ -51,7 +51,7 @@
 
 #include "Group.h"
 
-namespace Fix
+namespace QuickFix
 {
 void Group::setField( StringField* field )
 {

@@ -1,6 +1,6 @@
 <!--
   ====================================================================
-  The QuickFIX Software License, Version 1.0
+  The QuickFix Software License, Version 1.0
  
   Copyright (c) 2001 ThoughtWorks, Inc.  All rights
   reserved.
@@ -24,13 +24,13 @@
      Alternately, this acknowledgment may appear in the software itself,
      if and wherever such third-party acknowledgments normally appear.
  
-  4. The names "QuickFIX" and "ThoughtWorks, Inc." must
+  4. The names "QuickFix" and "ThoughtWorks, Inc." must
      not be used to endorse or promote products derived from this
      software without prior written permission. For written
      permission, please contact quickfix-users@lists.sourceforge.net.
  
-  5. Products derived from this software may not be called "QuickFIX",
-     nor may "QuickFIX" appear in their name, without prior written
+  5. Products derived from this software may not be called "QuickFix",
+     nor may "QuickFix" appear in their name, without prior written
      permission of ThoughtWorks, Inc.
  
   THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
@@ -63,14 +63,14 @@
 #include "Exceptions.h"
 <xsl:call-template name="includes"/>
 
-namespace Fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
+namespace QuickFix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
 {
   public __gc class MessageCracker <xsl:call-template name="base-class"/>
   {
   public:
   virtual ~MessageCracker() {}
-  virtual void onMessage( Fix::Message*, Fix::SessionID* )
-    { throw new Fix::UnsupportedMessageType(); }
+  virtual void onMessage( QuickFix::Message*, QuickFix::SessionID* )
+    { throw new QuickFix::UnsupportedMessageType(); }
 <xsl:call-template name="virtual-functions"/>
 <xsl:call-template name="switch-statement"/>
   };
@@ -79,8 +79,8 @@ namespace Fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
 </xsl:template>
 
 <xsl:template name="virtual-functions">
- <xsl:for-each select="//fix/messages/message[@msgcat='app']"> virtual void onMessage( <xsl:value-of select="@name"/>*, Fix::SessionID* ) 
- <xsl:if test="@name!='BusinessMessageReject'">   { throw new Fix::UnsupportedMessageType(); }
+ <xsl:for-each select="//fix/messages/message[@msgcat='app']"> virtual void onMessage( <xsl:value-of select="@name"/>*, QuickFix::SessionID* ) 
+ <xsl:if test="@name!='BusinessMessageReject'">   { throw new QuickFix::UnsupportedMessageType(); }
  </xsl:if>
  <xsl:if test="@name='BusinessMessageReject'">   {}
  </xsl:if>
@@ -89,12 +89,12 @@ namespace Fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
 
 <xsl:template name="switch-statement">
 public:
-  void crack( Fix::Message* message, 
-              Fix::SessionID* sessionID )
+  void crack( QuickFix::Message* message, 
+              QuickFix::SessionID* sessionID )
   {
-    Fix::MsgType* msgType = new Fix::MsgType();
+    QuickFix::MsgType* msgType = new QuickFix::MsgType();
     message->getHeader()->getField(msgType);
-    std::string msgTypeValue = Fix::convertString(msgType->getValue());
+    std::string msgTypeValue = QuickFix::convertString(msgType->getValue());
 
     <xsl:for-each select="//fix/messages/message">
     <xsl:if test="position()!=1">
@@ -115,9 +115,9 @@ public:
 
 <xsl:template name="base-class">
  <xsl:if test="//fix/@major='4'">
-   <xsl:if test="//fix/@minor='1'">: public Fix40::MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='2'">: public Fix41::MessageCracker</xsl:if>
-   <xsl:if test="//fix/@minor='3'">: public Fix42::MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='1'">: public QuickFix40::MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='2'">: public QuickFix41::MessageCracker</xsl:if>
+   <xsl:if test="//fix/@minor='3'">: public QuickFix42::MessageCracker</xsl:if>
  </xsl:if>
 </xsl:template>
 

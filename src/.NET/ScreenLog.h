@@ -59,7 +59,7 @@ using namespace System;
 #include "quickfix/include/Log.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class ScreenLog : public Log
 {

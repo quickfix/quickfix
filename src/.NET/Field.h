@@ -54,7 +54,7 @@ using namespace System;
 
 #include "quickfix_net.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class Field
 {

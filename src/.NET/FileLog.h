@@ -60,7 +60,7 @@ using namespace System;
 #include "quickfix/include/FileLog.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class FileLog : public Log
 {

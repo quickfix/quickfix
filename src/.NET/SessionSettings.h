@@ -58,7 +58,7 @@ using namespace System::IO;
 #include "quickfix/include/SessionSettings.h"
 #include "Exceptions.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc class SessionSettings
 {

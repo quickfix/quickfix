@@ -54,12 +54,12 @@
 #include "Group.h"
 #include "Fields.h"
 
-namespace Fix40
+namespace QuickFix40
 {
-  public __gc class Header : public Fix::Message::Header
+  public __gc class Header : public QuickFix::Message::Header
   {
   public:
-    Header(Fix::Message* message) : Fix::Message::Header(message) {}
+    Header(QuickFix::Message* message) : QuickFix::Message::Header(message) {}
     
     NET_FIELD_SET(BeginString);
     NET_FIELD_SET(BodyLength);
@@ -81,41 +81,41 @@ namespace Fix40
     NET_FIELD_SET(OrigSendingTime);
   };
   
-  public __gc class Trailer : public Fix::Message::Trailer
+  public __gc class Trailer : public QuickFix::Message::Trailer
   {
   public:
-    Trailer(Fix::Message* message) : Fix::Message::Trailer(message) {}
+    Trailer(QuickFix::Message* message) : QuickFix::Message::Trailer(message) {}
     
     NET_FIELD_SET(SignatureLength);
     NET_FIELD_SET(Signature);
     NET_FIELD_SET(CheckSum);
   };
   
-  public __gc class Message : public Fix::Message
+  public __gc class Message : public QuickFix::Message
   {
   public: 
-    Message() : Fix::Message(new Fix::BeginString("FIX.4.0"))
+    Message() : QuickFix::Message(new QuickFix::BeginString("FIX.4.0"))
     {
       m_header = new Header(this);
       m_trailer = new Trailer(this);
     }
 
-    Message( Fix::MsgType* msgType ) 
-    : Fix::Message(
-      new Fix::BeginString("FIX.4.0"),msgType ) 
+    Message( QuickFix::MsgType* msgType ) 
+    : QuickFix::Message(
+      new QuickFix::BeginString("FIX.4.0"),msgType ) 
       { 
         m_header = new Header(this); 
         m_trailer = new Trailer(this);
       }
 
-    Header* getHeader() { return dynamic_cast<Header*>(Fix::Message::getHeader()); }
+    Header* getHeader() { return dynamic_cast<Header*>(QuickFix::Message::getHeader()); }
   };
 
   public __gc class Heartbeat : public Message
   {
   public: 
     Heartbeat() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("0"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("0"); }
   
     NET_FIELD_SET(TestReqID);
   };
@@ -124,11 +124,11 @@ namespace Fix40
   {
   public: 
     Logon() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("A"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("A"); }
     //
     Logon(
-      Fix::EncryptMethod* aEncryptMethod,
-      Fix::HeartBtInt* aHeartBtInt )
+      QuickFix::EncryptMethod* aEncryptMethod,
+      QuickFix::HeartBtInt* aHeartBtInt )
     : Message(MsgType())
     
     {
@@ -146,10 +146,10 @@ namespace Fix40
   {
   public: 
     TestRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("1"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("1"); }
     //
     TestRequest(
-      Fix::TestReqID* aTestReqID )
+      QuickFix::TestReqID* aTestReqID )
     : Message(MsgType())
     
     {
@@ -163,11 +163,11 @@ namespace Fix40
   {
   public: 
     ResendRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("2"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("2"); }
     //
     ResendRequest(
-      Fix::BeginSeqNo* aBeginSeqNo,
-      Fix::EndSeqNo* aEndSeqNo )
+      QuickFix::BeginSeqNo* aBeginSeqNo,
+      QuickFix::EndSeqNo* aEndSeqNo )
     : Message(MsgType())
     
     {
@@ -183,10 +183,10 @@ namespace Fix40
   {
   public: 
     Reject() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("3"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("3"); }
     //
     Reject(
-      Fix::RefSeqNum* aRefSeqNum )
+      QuickFix::RefSeqNum* aRefSeqNum )
     : Message(MsgType())
     
     {
@@ -201,10 +201,10 @@ namespace Fix40
   {
   public: 
     SequenceReset() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("4"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("4"); }
     //
     SequenceReset(
-      Fix::NewSeqNo* aNewSeqNo )
+      QuickFix::NewSeqNo* aNewSeqNo )
     : Message(MsgType())
     
     {
@@ -219,7 +219,7 @@ namespace Fix40
   {
   public: 
     Logout() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("5"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("5"); }
   
     NET_FIELD_SET(Text);
   };
@@ -228,14 +228,14 @@ namespace Fix40
   {
   public: 
     Advertisement() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("7"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("7"); }
     //
     Advertisement(
-      Fix::AdvId* aAdvId,
-      Fix::AdvTransType* aAdvTransType,
-      Fix::Symbol* aSymbol,
-      Fix::AdvSide* aAdvSide,
-      Fix::Shares* aShares )
+      QuickFix::AdvId* aAdvId,
+      QuickFix::AdvTransType* aAdvTransType,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::AdvSide* aAdvSide,
+      QuickFix::Shares* aShares )
     : Message(MsgType())
     
     {
@@ -267,14 +267,14 @@ namespace Fix40
   {
   public: 
     IndicationofInterest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("6"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("6"); }
     //
     IndicationofInterest(
-      Fix::IOIid* aIOIid,
-      Fix::IOITransType* aIOITransType,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide,
-      Fix::IOIShares* aIOIShares )
+      QuickFix::IOIid* aIOIid,
+      QuickFix::IOITransType* aIOITransType,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide,
+      QuickFix::IOIShares* aIOIShares )
     : Message(MsgType())
     
     {
@@ -310,13 +310,13 @@ namespace Fix40
   {
   public: 
     News() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("B"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("B"); }
   
     NET_FIELD_SET(OrigTime);
     NET_FIELD_SET(Urgency);
     NET_FIELD_SET(RelatdSym);
     NET_FIELD_SET(LinesOfText);
-    __gc class LinesOfText : public Fix::Group
+    __gc class LinesOfText : public QuickFix::Group
     {
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
@@ -333,10 +333,10 @@ namespace Fix40
   {
   public: 
     Email() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("C"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("C"); }
     //
     Email(
-      Fix::EmailType* aEmailType )
+      QuickFix::EmailType* aEmailType )
     : Message(MsgType())
     
     {
@@ -349,7 +349,7 @@ namespace Fix40
     NET_FIELD_SET(OrderID);
     NET_FIELD_SET(ClOrdID);
     NET_FIELD_SET(LinesOfText);
-    __gc class LinesOfText : public Fix::Group
+    __gc class LinesOfText : public QuickFix::Group
     {
     public:
       LinesOfText() : Group(33, 58, message_order ) {}
@@ -366,11 +366,11 @@ namespace Fix40
   {
   public: 
     QuoteRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("R"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("R"); }
     //
     QuoteRequest(
-      Fix::QuoteReqID* aQuoteReqID,
-      Fix::Symbol* aSymbol )
+      QuickFix::QuoteReqID* aQuoteReqID,
+      QuickFix::Symbol* aSymbol )
     : Message(MsgType())
     
     {
@@ -394,12 +394,12 @@ namespace Fix40
   {
   public: 
     Quote() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("S"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("S"); }
     //
     Quote(
-      Fix::QuoteID* aQuoteID,
-      Fix::Symbol* aSymbol,
-      Fix::BidPx* aBidPx )
+      QuickFix::QuoteID* aQuoteID,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::BidPx* aBidPx )
     : Message(MsgType())
     
     {
@@ -427,15 +427,15 @@ namespace Fix40
   {
   public: 
     NewOrderSingle() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("D"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("D"); }
     //
     NewOrderSingle(
-      Fix::ClOrdID* aClOrdID,
-      Fix::HandlInst* aHandlInst,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide,
-      Fix::OrderQty* aOrderQty,
-      Fix::OrdType* aOrdType )
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide,
+      QuickFix::OrderQty* aOrderQty,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -489,20 +489,20 @@ namespace Fix40
   {
   public: 
     ExecutionReport() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("8"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("8"); }
     //
     ExecutionReport(
-      Fix::OrderID* aOrderID,
-      Fix::ExecID* aExecID,
-      Fix::ExecTransType* aExecTransType,
-      Fix::OrdStatus* aOrdStatus,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide,
-      Fix::OrderQty* aOrderQty,
-      Fix::LastShares* aLastShares,
-      Fix::LastPx* aLastPx,
-      Fix::CumQty* aCumQty,
-      Fix::AvgPx* aAvgPx )
+      QuickFix::OrderID* aOrderID,
+      QuickFix::ExecID* aExecID,
+      QuickFix::ExecTransType* aExecTransType,
+      QuickFix::OrdStatus* aOrdStatus,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide,
+      QuickFix::OrderQty* aOrderQty,
+      QuickFix::LastShares* aLastShares,
+      QuickFix::LastPx* aLastPx,
+      QuickFix::CumQty* aCumQty,
+      QuickFix::AvgPx* aAvgPx )
     : Message(MsgType())
     
     {
@@ -560,7 +560,7 @@ namespace Fix40
     NET_FIELD_SET(Commission);
     NET_FIELD_SET(CommType);
     NET_FIELD_SET(NoMiscFees);
-    __gc class NoMiscFees : public Fix::Group
+    __gc class NoMiscFees : public QuickFix::Group
     {
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
@@ -583,15 +583,15 @@ namespace Fix40
   {
   public: 
     DontKnowTrade() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("Q"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("Q"); }
     //
     DontKnowTrade(
-      Fix::DKReason* aDKReason,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide,
-      Fix::OrderQty* aOrderQty,
-      Fix::LastShares* aLastShares,
-      Fix::LastPx* aLastPx )
+      QuickFix::DKReason* aDKReason,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide,
+      QuickFix::OrderQty* aOrderQty,
+      QuickFix::LastShares* aLastShares,
+      QuickFix::LastPx* aLastPx )
     : Message(MsgType())
     
     {
@@ -618,16 +618,16 @@ namespace Fix40
   {
   public: 
     OrderCancelReplaceRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("G"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("G"); }
     //
     OrderCancelReplaceRequest(
-      Fix::OrigClOrdID* aOrigClOrdID,
-      Fix::ClOrdID* aClOrdID,
-      Fix::HandlInst* aHandlInst,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide,
-      Fix::OrderQty* aOrderQty,
-      Fix::OrdType* aOrdType )
+      QuickFix::OrigClOrdID* aOrigClOrdID,
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide,
+      QuickFix::OrderQty* aOrderQty,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -680,15 +680,15 @@ namespace Fix40
   {
   public: 
     OrderCancelRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("F"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("F"); }
     //
     OrderCancelRequest(
-      Fix::OrigClOrdID* aOrigClOrdID,
-      Fix::ClOrdID* aClOrdID,
-      Fix::CxlType* aCxlType,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide,
-      Fix::OrderQty* aOrderQty )
+      QuickFix::OrigClOrdID* aOrigClOrdID,
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::CxlType* aCxlType,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide,
+      QuickFix::OrderQty* aOrderQty )
     : Message(MsgType())
     
     {
@@ -722,11 +722,11 @@ namespace Fix40
   {
   public: 
     OrderCancelReject() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("9"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("9"); }
     //
     OrderCancelReject(
-      Fix::OrderID* aOrderID,
-      Fix::ClOrdID* aClOrdID )
+      QuickFix::OrderID* aOrderID,
+      QuickFix::ClOrdID* aClOrdID )
     : Message(MsgType())
     
     {
@@ -747,12 +747,12 @@ namespace Fix40
   {
   public: 
     OrderStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("H"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("H"); }
     //
     OrderStatusRequest(
-      Fix::ClOrdID* aClOrdID,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide )
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide )
     : Message(MsgType())
     
     {
@@ -776,16 +776,16 @@ namespace Fix40
   {
   public: 
     Allocation() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("J"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("J"); }
     //
     Allocation(
-      Fix::AllocID* aAllocID,
-      Fix::AllocTransType* aAllocTransType,
-      Fix::Side* aSide,
-      Fix::Symbol* aSymbol,
-      Fix::Shares* aShares,
-      Fix::AvgPx* aAvgPx,
-      Fix::TradeDate* aTradeDate )
+      QuickFix::AllocID* aAllocID,
+      QuickFix::AllocTransType* aAllocTransType,
+      QuickFix::Side* aSide,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Shares* aShares,
+      QuickFix::AvgPx* aAvgPx,
+      QuickFix::TradeDate* aTradeDate )
     : Message(MsgType())
     
     {
@@ -802,7 +802,7 @@ namespace Fix40
     NET_FIELD_SET(AllocTransType);
     NET_FIELD_SET(RefAllocID);
     NET_FIELD_SET(NoOrders);
-    __gc class NoOrders : public Fix::Group
+    __gc class NoOrders : public QuickFix::Group
     {
     public:
       NoOrders() : Group(73, 11, message_order ) {}
@@ -818,7 +818,7 @@ namespace Fix40
       NET_FIELD_SET(WaveNo);
     };
     NET_FIELD_SET(NoExecs);
-    __gc class NoExecs : public Fix::Group
+    __gc class NoExecs : public QuickFix::Group
     {
     public:
       NoExecs() : Group(124, 17, message_order ) {}
@@ -850,7 +850,7 @@ namespace Fix40
     NET_FIELD_SET(FutSettDate);
     NET_FIELD_SET(NetMoney);
     NET_FIELD_SET(NoMiscFees);
-    __gc class NoMiscFees : public Fix::Group
+    __gc class NoMiscFees : public QuickFix::Group
     {
     public:
       NoMiscFees() : Group(136, 137, message_order ) {}
@@ -868,7 +868,7 @@ namespace Fix40
     NET_FIELD_SET(OpenClose);
     NET_FIELD_SET(Text);
     NET_FIELD_SET(NoAllocs);
-    __gc class NoAllocs : public Fix::Group
+    __gc class NoAllocs : public QuickFix::Group
     {
     public:
       NoAllocs() : Group(78, 12, message_order ) {}
@@ -893,7 +893,7 @@ namespace Fix40
       NET_FIELD_SET(Commission);
       NET_FIELD_SET(CommType);
     NET_FIELD_SET(NoDlvyInst);
-    __gc class NoDlvyInst : public Fix::Group
+    __gc class NoDlvyInst : public QuickFix::Group
     {
     public:
       NoDlvyInst() : Group(85, 86, message_order ) {}
@@ -911,12 +911,12 @@ namespace Fix40
   {
   public: 
     AllocationACK() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("P"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("P"); }
     //
     AllocationACK(
-      Fix::AllocID* aAllocID,
-      Fix::TradeDate* aTradeDate,
-      Fix::AllocStatus* aAllocStatus )
+      QuickFix::AllocID* aAllocID,
+      QuickFix::TradeDate* aTradeDate,
+      QuickFix::AllocStatus* aAllocStatus )
     : Message(MsgType())
     
     {
@@ -939,18 +939,18 @@ namespace Fix40
   {
   public: 
     NewOrderList() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("E"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("E"); }
     //
     NewOrderList(
-      Fix::ListID* aListID,
-      Fix::ListSeqNo* aListSeqNo,
-      Fix::ListNoOrds* aListNoOrds,
-      Fix::ClOrdID* aClOrdID,
-      Fix::HandlInst* aHandlInst,
-      Fix::Symbol* aSymbol,
-      Fix::Side* aSide,
-      Fix::OrderQty* aOrderQty,
-      Fix::OrdType* aOrdType )
+      QuickFix::ListID* aListID,
+      QuickFix::ListSeqNo* aListSeqNo,
+      QuickFix::ListNoOrds* aListNoOrds,
+      QuickFix::ClOrdID* aClOrdID,
+      QuickFix::HandlInst* aHandlInst,
+      QuickFix::Symbol* aSymbol,
+      QuickFix::Side* aSide,
+      QuickFix::OrderQty* aOrderQty,
+      QuickFix::OrdType* aOrdType )
     : Message(MsgType())
     
     {
@@ -1010,12 +1010,12 @@ namespace Fix40
   {
   public: 
     ListStatus() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("N"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("N"); }
     //
     ListStatus(
-      Fix::ListID* aListID,
-      Fix::NoRpts* aNoRpts,
-      Fix::RptSeq* aRptSeq )
+      QuickFix::ListID* aListID,
+      QuickFix::NoRpts* aNoRpts,
+      QuickFix::RptSeq* aRptSeq )
     : Message(MsgType())
     
     {
@@ -1029,7 +1029,7 @@ namespace Fix40
     NET_FIELD_SET(NoRpts);
     NET_FIELD_SET(RptSeq);
     NET_FIELD_SET(NoOrders);
-    __gc class NoOrders : public Fix::Group
+    __gc class NoOrders : public QuickFix::Group
     {
     public:
       NoOrders() : Group(73, 6, message_order ) {}
@@ -1050,10 +1050,10 @@ namespace Fix40
   {
   public: 
     ListExecute() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("L"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("L"); }
     //
     ListExecute(
-      Fix::ListID* aListID )
+      QuickFix::ListID* aListID )
     : Message(MsgType())
     
     {
@@ -1069,10 +1069,10 @@ namespace Fix40
   {
   public: 
     ListCancelRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("K"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("K"); }
     //
     ListCancelRequest(
-      Fix::ListID* aListID )
+      QuickFix::ListID* aListID )
     : Message(MsgType())
     
     {
@@ -1088,10 +1088,10 @@ namespace Fix40
   {
   public: 
     ListStatusRequest() : Message(MsgType()) {}
-    static Fix::MsgType* MsgType() { return new Fix::MsgType("M"); }
+    static QuickFix::MsgType* MsgType() { return new QuickFix::MsgType("M"); }
     //
     ListStatusRequest(
-      Fix::ListID* aListID )
+      QuickFix::ListID* aListID )
     : Message(MsgType())
     
     {

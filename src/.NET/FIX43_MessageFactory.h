@@ -51,283 +51,283 @@
 #include "Message.h"
 #include "MessageFactory.h"
 
-namespace Fix43
+namespace QuickFix43
 {
 
-  public __gc class MessageFactory : public Fix::MessageFactory
+  public __gc class MessageFactory : public QuickFix::MessageFactory
   {
   public:
-    Fix::Message* create( String* beginString, String* msgType ) {
+    QuickFix::Message* create( String* beginString, String* msgType ) {
     
      if(msgType->Equals("0")) {
-       return new Fix43::Heartbeat();
+       return new QuickFix43::Heartbeat();
      }
    
      if(msgType->Equals("A")) {
-       return new Fix43::Logon();
+       return new QuickFix43::Logon();
      }
    
      if(msgType->Equals("1")) {
-       return new Fix43::TestRequest();
+       return new QuickFix43::TestRequest();
      }
    
      if(msgType->Equals("2")) {
-       return new Fix43::ResendRequest();
+       return new QuickFix43::ResendRequest();
      }
    
      if(msgType->Equals("3")) {
-       return new Fix43::Reject();
+       return new QuickFix43::Reject();
      }
    
      if(msgType->Equals("4")) {
-       return new Fix43::SequenceReset();
+       return new QuickFix43::SequenceReset();
      }
    
      if(msgType->Equals("5")) {
-       return new Fix43::Logout();
+       return new QuickFix43::Logout();
      }
    
      if(msgType->Equals("j")) {
-       return new Fix43::BusinessMessageReject();
+       return new QuickFix43::BusinessMessageReject();
      }
    
      if(msgType->Equals("7")) {
-       return new Fix43::Advertisement();
+       return new QuickFix43::Advertisement();
      }
    
      if(msgType->Equals("6")) {
-       return new Fix43::IndicationOfInterest();
+       return new QuickFix43::IndicationOfInterest();
      }
    
      if(msgType->Equals("B")) {
-       return new Fix43::News();
+       return new QuickFix43::News();
      }
    
      if(msgType->Equals("C")) {
-       return new Fix43::Email();
+       return new QuickFix43::Email();
      }
    
      if(msgType->Equals("R")) {
-       return new Fix43::QuoteRequest();
+       return new QuickFix43::QuoteRequest();
      }
    
      if(msgType->Equals("AG")) {
-       return new Fix43::QuoteRequestReject();
+       return new QuickFix43::QuoteRequestReject();
      }
    
      if(msgType->Equals("AH")) {
-       return new Fix43::RFQRequest();
+       return new QuickFix43::RFQRequest();
      }
    
      if(msgType->Equals("S")) {
-       return new Fix43::Quote();
+       return new QuickFix43::Quote();
      }
    
      if(msgType->Equals("Z")) {
-       return new Fix43::QuoteCancel();
+       return new QuickFix43::QuoteCancel();
      }
    
      if(msgType->Equals("a")) {
-       return new Fix43::QuoteStatusRequest();
+       return new QuickFix43::QuoteStatusRequest();
      }
    
      if(msgType->Equals("AI")) {
-       return new Fix43::QuoteStatusReport();
+       return new QuickFix43::QuoteStatusReport();
      }
    
      if(msgType->Equals("i")) {
-       return new Fix43::MassQuote();
+       return new QuickFix43::MassQuote();
      }
    
      if(msgType->Equals("b")) {
-       return new Fix43::MassQuoteAcknowledgement();
+       return new QuickFix43::MassQuoteAcknowledgement();
      }
    
      if(msgType->Equals("V")) {
-       return new Fix43::MarketDataRequest();
+       return new QuickFix43::MarketDataRequest();
      }
    
      if(msgType->Equals("W")) {
-       return new Fix43::MarketDataSnapshotFullRefresh();
+       return new QuickFix43::MarketDataSnapshotFullRefresh();
      }
    
      if(msgType->Equals("X")) {
-       return new Fix43::MarketDataIncrementalRefresh();
+       return new QuickFix43::MarketDataIncrementalRefresh();
      }
    
      if(msgType->Equals("Y")) {
-       return new Fix43::MarketDataRequestReject();
+       return new QuickFix43::MarketDataRequestReject();
      }
    
      if(msgType->Equals("c")) {
-       return new Fix43::SecurityDefinitionRequest();
+       return new QuickFix43::SecurityDefinitionRequest();
      }
    
      if(msgType->Equals("d")) {
-       return new Fix43::SecurityDefinition();
+       return new QuickFix43::SecurityDefinition();
      }
    
      if(msgType->Equals("v")) {
-       return new Fix43::SecurityTypeRequest();
+       return new QuickFix43::SecurityTypeRequest();
      }
    
      if(msgType->Equals("w")) {
-       return new Fix43::SecurityTypes();
+       return new QuickFix43::SecurityTypes();
      }
    
      if(msgType->Equals("x")) {
-       return new Fix43::SecurityListRequest();
+       return new QuickFix43::SecurityListRequest();
      }
    
      if(msgType->Equals("y")) {
-       return new Fix43::SecurityList();
+       return new QuickFix43::SecurityList();
      }
    
      if(msgType->Equals("z")) {
-       return new Fix43::DerivativeSecurityListRequest();
+       return new QuickFix43::DerivativeSecurityListRequest();
      }
    
      if(msgType->Equals("AA")) {
-       return new Fix43::DerivativeSecurityList();
+       return new QuickFix43::DerivativeSecurityList();
      }
    
      if(msgType->Equals("e")) {
-       return new Fix43::SecurityStatusRequest();
+       return new QuickFix43::SecurityStatusRequest();
      }
    
      if(msgType->Equals("f")) {
-       return new Fix43::SecurityStatus();
+       return new QuickFix43::SecurityStatus();
      }
    
      if(msgType->Equals("g")) {
-       return new Fix43::TradingSessionStatusRequest();
+       return new QuickFix43::TradingSessionStatusRequest();
      }
    
      if(msgType->Equals("h")) {
-       return new Fix43::TradingSessionStatus();
+       return new QuickFix43::TradingSessionStatus();
      }
    
      if(msgType->Equals("D")) {
-       return new Fix43::NewOrderSingle();
+       return new QuickFix43::NewOrderSingle();
      }
    
      if(msgType->Equals("8")) {
-       return new Fix43::ExecutionReport();
+       return new QuickFix43::ExecutionReport();
      }
    
      if(msgType->Equals("Q")) {
-       return new Fix43::DontKnowTrade();
+       return new QuickFix43::DontKnowTrade();
      }
    
      if(msgType->Equals("G")) {
-       return new Fix43::OrderCancelReplaceRequest();
+       return new QuickFix43::OrderCancelReplaceRequest();
      }
    
      if(msgType->Equals("F")) {
-       return new Fix43::OrderCancelRequest();
+       return new QuickFix43::OrderCancelRequest();
      }
    
      if(msgType->Equals("9")) {
-       return new Fix43::OrderCancelReject();
+       return new QuickFix43::OrderCancelReject();
      }
    
      if(msgType->Equals("H")) {
-       return new Fix43::OrderStatusRequest();
+       return new QuickFix43::OrderStatusRequest();
      }
    
      if(msgType->Equals("q")) {
-       return new Fix43::OrderMassCancelRequest();
+       return new QuickFix43::OrderMassCancelRequest();
      }
    
      if(msgType->Equals("r")) {
-       return new Fix43::OrderMassCancelReport();
+       return new QuickFix43::OrderMassCancelReport();
      }
    
      if(msgType->Equals("AF")) {
-       return new Fix43::OrderMassStatusRequest();
+       return new QuickFix43::OrderMassStatusRequest();
      }
    
      if(msgType->Equals("s")) {
-       return new Fix43::NewOrderCross();
+       return new QuickFix43::NewOrderCross();
      }
    
      if(msgType->Equals("t")) {
-       return new Fix43::CrossOrderCancelReplaceRequest();
+       return new QuickFix43::CrossOrderCancelReplaceRequest();
      }
    
      if(msgType->Equals("u")) {
-       return new Fix43::CrossOrderCancelRequest();
+       return new QuickFix43::CrossOrderCancelRequest();
      }
    
      if(msgType->Equals("AB")) {
-       return new Fix43::NewOrderMultileg();
+       return new QuickFix43::NewOrderMultileg();
      }
    
      if(msgType->Equals("AC")) {
-       return new Fix43::MultilegOrderCancelReplaceRequest();
+       return new QuickFix43::MultilegOrderCancelReplaceRequest();
      }
    
      if(msgType->Equals("k")) {
-       return new Fix43::BidRequest();
+       return new QuickFix43::BidRequest();
      }
    
      if(msgType->Equals("l")) {
-       return new Fix43::BidResponse();
+       return new QuickFix43::BidResponse();
      }
    
      if(msgType->Equals("E")) {
-       return new Fix43::NewOrderList();
+       return new QuickFix43::NewOrderList();
      }
    
      if(msgType->Equals("m")) {
-       return new Fix43::ListStrikePrice();
+       return new QuickFix43::ListStrikePrice();
      }
    
      if(msgType->Equals("L")) {
-       return new Fix43::ListExecute();
+       return new QuickFix43::ListExecute();
      }
    
      if(msgType->Equals("K")) {
-       return new Fix43::ListCancelRequest();
+       return new QuickFix43::ListCancelRequest();
      }
    
      if(msgType->Equals("M")) {
-       return new Fix43::ListStatusRequest();
+       return new QuickFix43::ListStatusRequest();
      }
    
      if(msgType->Equals("N")) {
-       return new Fix43::ListStatus();
+       return new QuickFix43::ListStatus();
      }
    
      if(msgType->Equals("J")) {
-       return new Fix43::Allocation();
+       return new QuickFix43::Allocation();
      }
    
      if(msgType->Equals("P")) {
-       return new Fix43::AllocationACK();
+       return new QuickFix43::AllocationACK();
      }
    
      if(msgType->Equals("T")) {
-       return new Fix43::SettlementInstructions();
+       return new QuickFix43::SettlementInstructions();
      }
    
      if(msgType->Equals("AD")) {
-       return new Fix43::TradeCaptureReportRequest();
+       return new QuickFix43::TradeCaptureReportRequest();
      }
    
      if(msgType->Equals("AE")) {
-       return new Fix43::TradeCaptureReport();
+       return new QuickFix43::TradeCaptureReport();
      }
    
      if(msgType->Equals("o")) {
-       return new Fix43::RegistrationInstructions();
+       return new QuickFix43::RegistrationInstructions();
      }
    
      if(msgType->Equals("p")) {
-       return new Fix43::RegistrationInstructionsResponse();
+       return new QuickFix43::RegistrationInstructionsResponse();
      }
    
-    return new Fix43::Message();
+    return new QuickFix43::Message();
     }
   };
 }

@@ -56,7 +56,7 @@ using System::Runtime::InteropServices::Marshal;
 #include <string>
 #include <iostream>
 
-namespace Fix
+namespace QuickFix
 {
 char* createUnmanagedString( String* s );
 void destroyUnmanagedString( char* s );

@@ -60,7 +60,7 @@ using namespace System;
 #include "quickfix/include/Application.h"
 #include "vcclr.h"
 
-namespace Fix
+namespace QuickFix
 {
 public __gc __interface Application
 {
@@ -81,84 +81,84 @@ public __gc __interface Application
 class Application : public FIX::Application
 {
 public:
-  Application( Fix::Application* application, Fix::MessageFactory* factory )
+  Application( QuickFix::Application* application, QuickFix::MessageFactory* factory )
 : m_application( application ), m_factory( factory ) {}
   void onCreate( const FIX::SessionID& sessionID )
-  { m_application->onCreate( new Fix::SessionID( sessionID ) ); }
+  { m_application->onCreate( new QuickFix::SessionID( sessionID ) ); }
 
   void onLogon( const FIX::SessionID& sessionID )
-  { m_application->onLogon( new Fix::SessionID( sessionID ) ); }
+  { m_application->onLogon( new QuickFix::SessionID( sessionID ) ); }
 
   void onLogout( const FIX::SessionID& sessionID )
-  { m_application->onLogout( new Fix::SessionID( sessionID ) ); }
+  { m_application->onLogout( new QuickFix::SessionID( sessionID ) ); }
 
   void toAdmin( FIX::Message& message, const FIX::SessionID& sessionID )
   {
-    Fix::Message * toMessage = create( message );
-    m_application->toAdmin( toMessage, new Fix::SessionID( sessionID ) );
+    QuickFix::Message * toMessage = create( message );
+    m_application->toAdmin( toMessage, new QuickFix::SessionID( sessionID ) );
     message = toMessage->unmanaged();
   }
 
   void toApp( FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::DoNotSend& )
   {
-    Fix::Message * toMessage = create( message );
+    QuickFix::Message * toMessage = create( message );
     try
     {
-      m_application->toApp( toMessage, new Fix::SessionID( sessionID ) );
+      m_application->toApp( toMessage, new QuickFix::SessionID( sessionID ) );
     }
-    catch ( Fix::DoNotSend* ) { throw FIX::DoNotSend(); }
+    catch ( QuickFix::DoNotSend* ) { throw FIX::DoNotSend(); }
     message = toMessage->unmanaged();
   }
 
   void fromAdmin( const FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound&, FIX::RejectLogon& )
   {
-    Fix::Message * toMessage = create( message );
+    QuickFix::Message * toMessage = create( message );
     try
     {
-      m_application->fromAdmin( toMessage, new Fix::SessionID( sessionID ) );
+      m_application->fromAdmin( toMessage, new QuickFix::SessionID( sessionID ) );
     }
-    catch ( Fix::FieldNotFound * e )
+    catch ( QuickFix::FieldNotFound * e )
     {
       throw FIX::FieldNotFound( e->field );
     }
-    catch ( Fix::RejectLogon* ) { throw FIX::RejectLogon(); }
+    catch ( QuickFix::RejectLogon* ) { throw FIX::RejectLogon(); }
   }
 
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue& )
   {
-    Fix::Message * toMessage = create( message );
+    QuickFix::Message * toMessage = create( message );
     try
     {
-      m_application->fromApp( toMessage, new Fix::SessionID( sessionID ) );
+      m_application->fromApp( toMessage, new QuickFix::SessionID( sessionID ) );
     }
-    catch ( Fix::FieldNotFound * e )
+    catch ( QuickFix::FieldNotFound * e )
     {
       throw FIX::FieldNotFound( e->field );
     }
-    catch ( Fix::UnsupportedMessageType* )
+    catch ( QuickFix::UnsupportedMessageType* )
     {
       throw FIX::UnsupportedMessageType();
     }
-    catch ( Fix::IncorrectTagValue * e ) { throw FIX::IncorrectTagValue( e->field ); }
+    catch ( QuickFix::IncorrectTagValue * e ) { throw FIX::IncorrectTagValue( e->field ); }
   }
 
   void onRun() { m_application->onRun(); }
 
 private:
-  Fix::Message* create( const FIX::Message& unmanaged )
+  QuickFix::Message* create( const FIX::Message& unmanaged )
   {
     FIX::BeginString beginString;
     FIX::MsgType msgType;
     unmanaged.getHeader().getField( beginString );
     unmanaged.getHeader().getField( msgType );
-    Fix::Message* message = m_factory->create( beginString.getValue().c_str(), msgType.getValue().c_str() );
+    QuickFix::Message* message = m_factory->create( beginString.getValue().c_str(), msgType.getValue().c_str() );
     message->setUnmanaged( unmanaged );
     return message;
   }
 
-  gcroot < Fix::Application* > m_application;
-  gcroot < Fix::MessageFactory* > m_factory;
+  gcroot < QuickFix::Application* > m_application;
+  gcroot < QuickFix::MessageFactory* > m_factory;
 };

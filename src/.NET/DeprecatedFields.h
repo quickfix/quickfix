@@ -52,7 +52,7 @@
 
 #include "Field.h"
 
-namespace Fix
+namespace QuickFix
 {
   public __gc class IDSource : public StringField
   {

@@ -60,22 +60,22 @@ using namespace System;
 #include "FIX43_MessageCracker.h"
 #include "quickfix/include/Values.h"
 
-namespace Fix
+namespace QuickFix
 {
-public __gc class MessageCracker : public Fix43::MessageCracker
+public __gc class MessageCracker : public QuickFix43::MessageCracker
 {
-  void crack( Fix::Message* message, Fix::SessionID* sessionID )
+  void crack( QuickFix::Message* message, QuickFix::SessionID* sessionID )
   {
     BeginString * beginString = new BeginString();
     message->getHeader() ->getField( beginString );
     if ( beginString->Equals( new String( FIX::BeginString_FIX40 ) ) )
-      ( static_cast < Fix40::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix40::MessageCracker* > ( this ) ) ->crack( message, sessionID );
     else if ( beginString->Equals( new String( FIX::BeginString_FIX41 ) ) )
-      ( static_cast < Fix41::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix41::MessageCracker* > ( this ) ) ->crack( message, sessionID );
     else if ( beginString->Equals( new String( FIX::BeginString_FIX42 ) ) )
-      ( static_cast < Fix42::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix42::MessageCracker* > ( this ) ) ->crack( message, sessionID );
     else if ( beginString->Equals( new String( FIX::BeginString_FIX43 ) ) )
-      ( static_cast < Fix43::MessageCracker* > ( this ) ) ->crack( message, sessionID );
+      ( static_cast < QuickFix43::MessageCracker* > ( this ) ) ->crack( message, sessionID );
     else
       onMessage( message, sessionID );
   }
