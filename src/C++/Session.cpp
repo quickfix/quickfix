@@ -1191,6 +1191,7 @@ void Session::next( const Message& message )
   }
 
   nextQueued();
+  next();
 
   QF_STACK_POP
 }
