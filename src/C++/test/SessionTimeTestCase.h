@@ -35,6 +35,7 @@ public:
     add( &m_isSessionTime );
     add( &m_isSessionTimeWithDay );
     add( &m_isSameSession );
+    add( &m_isSameSessionWithDay );
   }
 
 private:
@@ -54,6 +55,11 @@ private:
   {
     void onRun( SessionTime& object );
   } m_isSameSession;
+
+  class isSameSessionWithDay : public Test
+  {
+    void onRun( SessionTime& object );
+  } m_isSameSessionWithDay;
 };
 }
 

@@ -47,14 +47,35 @@ public:
                              int endDay,
                              const UtcTimeStamp& time );
 
-  static bool isSameSession( const UtcTimeOnly& start, const UtcTimeOnly& end,
+  static bool isSameSession( const UtcTimeOnly& start, 
+                             const UtcTimeOnly& end,
+                             const UtcTimeStamp& time1,
+                             const UtcTimeStamp& time2 );
+
+  static bool isSameSession( const UtcTimeOnly& startTime,
+                             const UtcTimeOnly& endTime,
+                             int startDay,
+                             int endDay,
                              const UtcTimeStamp& time1,
                              const UtcTimeStamp& time2 );
 
   bool isSessionTime() 
-    { return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() ); }
+  { 
+    if( m_startDay < 0 && m_endDay < 0 )
+      return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() ); 
+    else
+      return isSessionTime
+        ( m_startTime, m_endTime, m_startDay, m_endDay, UtcTimeStamp() );
+  }
+
   bool isSameSession( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
-    { return isSameSession( m_startTime, m_endTime, time1, time2 ); }
+  { 
+    if( m_startDay < 0 && m_endDay < 0 )
+      return isSameSession( m_startTime, m_endTime, time1, time2 );
+    else
+      return isSameSession
+        ( m_startTime, m_endTime, m_startDay, m_endDay, time1, time2 );
+  }
 
 private:
   UtcTimeOnly m_startTime;

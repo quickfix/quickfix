@@ -191,4 +191,53 @@ void SessionTimeTestCase::isSameSession::onRun( SessionTime& object )
   assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
   assert( !SessionTime::isSameSession( start, end, time2, time1 ) );
 }
+
+void SessionTimeTestCase::isSameSessionWithDay::onRun( SessionTime& object )
+{
+  UtcTimeOnly startTime( 3, 0, 0 );
+  UtcTimeOnly endTime( 18, 0, 0 );
+  int startDay = 2;
+  int endDay = 5;
+
+  UtcTimeStamp time1( 3, 0, 0, 27, 7, 2004 );
+  UtcTimeStamp time2( 3, 0, 0, 25, 7, 2004 );
+  assert( !SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 3, 0, 0, 31, 7, 2004 );
+  time2 = UtcTimeStamp( 3, 0, 0, 27, 7, 2004 );
+  assert( !SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 3, 0, 0, 27, 7, 2004 );
+  time2 = UtcTimeStamp( 3, 0, 0, 27, 7, 2004 );
+  assert( SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 10, 0, 0, 26, 7, 2004 );
+  time2 = UtcTimeStamp( 3, 0, 0, 27, 7, 2004 );
+  assert( SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 10, 0, 0, 27, 7, 2004 );
+  time2 = UtcTimeStamp( 2, 0, 0, 29, 7, 2004 );
+  assert( SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 10, 0, 0, 27, 7, 2004 );
+  time2 = UtcTimeStamp( 3, 0, 0, 20, 7, 2004 );
+  assert( !SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 2, 0, 0, 27, 7, 2004 );
+  time2 = UtcTimeStamp( 3, 0, 0, 20, 7, 2004 );
+  assert( !SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 2, 0, 0, 26, 7, 2004 );
+  time2 = UtcTimeStamp( 3, 0, 0, 19, 7, 2004 );
+  assert( !SessionTime::isSameSession
+    ( startTime, endTime, startDay, endDay, time1, time2 ) );
+}
+
 }

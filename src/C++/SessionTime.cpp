@@ -117,4 +117,49 @@ namespace FIX
     QF_STACK_POP
   }
 
+  bool SessionTime::isSameSession( const UtcTimeOnly& startTime,
+                                   const UtcTimeOnly& endTime,
+                                   int startDay,
+                                   int endDay,
+                                   const UtcTimeStamp& time1,
+                                   const UtcTimeStamp& time2 )
+  { QF_STACK_PUSH(SessionTime::isSameSession)
+
+    if( !isSessionTime( startTime, endTime, startDay, endDay, time1 ) )
+      return false;
+    if( !isSessionTime( startTime, endTime, startDay, endDay, time2 ) )
+      return false;
+
+    if( time1 == time2 ) return true;
+
+    int time1Range = time1.getWeekDay() - startDay;
+    int time2Range = time2.getWeekDay() - startDay;
+
+    if( time1Range == 0 )
+    {
+      UtcTimeOnly timeOnly = UtcTimeOnly( time1, 0 );
+      if( timeOnly < startTime )
+        time1Range = 7;
+    }
+
+    if( time2Range == 0 )
+    {
+      UtcTimeOnly timeOnly = UtcTimeOnly( time2, 0 );
+      if( timeOnly < startTime )
+        time2Range = 7;
+    }
+
+    time_t t1 = mktime( (tm*)&time1 ) - UTC_DAY * time1Range;
+    time_t t2 = mktime( (tm*)&time2 ) - UTC_DAY * time2Range;
+    
+    tm tm1;
+    localtime_r( &t1, &tm1 );
+    tm tm2;
+    localtime_r( &t2, &tm2 );
+
+    return tm1.tm_year == tm2.tm_year
+           && tm1.tm_yday == tm2.tm_yday;
+
+    QF_STACK_POP
+  }
 }
