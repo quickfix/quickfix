@@ -63,7 +63,7 @@
 #include "Conversions.h"
 #include <iostream>
 
-JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfix_Message_2
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2
 ( JNIEnv *pEnv, jclass cls, jobject msg )
 {
   JVM::set( pEnv );
@@ -92,7 +92,7 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfi
   return FIX::Session::sendToTarget( *pMessage );
 }
 
-JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfix_Message_2Lorg_quickfix_SessionID_2
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2Lorg_quickfix_SessionID_2
 ( JNIEnv *pEnv, jclass cls, jobject msg, jobject sID )
 {
   JVM::set( pEnv );
@@ -110,7 +110,7 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfi
   return FIX::Session::sendToTarget( *pMessage, *pSessionID );
 }
 
-JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2
 ( JNIEnv *pEnv, jclass cls, jobject msg, jstring sender, jstring target )
 {
   JVM::set( pEnv );
@@ -142,4 +142,28 @@ JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfi
   return FIX::Session::sendToTarget( *pMessage,
                                      FIX::SenderCompID( senderCompID ),
                                      FIX::TargetCompID( targetCompID ) );
+}
+
+JNIEXPORT jobject JNICALL Java_org_quickfix_Session_lookupSession
+(JNIEnv *pEnv, jclass cls, jobject sID)
+{
+  JVM::set( pEnv );
+  JVMObject jsessionid( sID );
+
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getInt( "cppPointer" );
+  FIX::Session* pSession = FIX::Session::lookupSession( *pSessionID );
+  if( !pSession ) return 0;
+  JVMClass type( "Lorg/quickfix/Session;" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+  return pEnv->NewObject( type, method, ( jint ) pSession );
+}
+
+JNIEXPORT void JNICALL Java_org_quickfix_Session_reset
+(JNIEnv *pEnv, jobject obj)
+{
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  pSession->reset();
 }

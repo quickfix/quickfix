@@ -9,27 +9,43 @@ extern "C" {
 #endif
 /*
  * Class:     org_quickfix_Session
- * Method:    sendToTarget0
+ * Method:    sendToTarget
  * Signature: (Lorg/quickfix/Message;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfix_Message_2
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2
   (JNIEnv *, jclass, jobject);
 
 /*
  * Class:     org_quickfix_Session
- * Method:    sendToTarget0
+ * Method:    sendToTarget
  * Signature: (Lorg/quickfix/Message;Lorg/quickfix/SessionID;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfix_Message_2Lorg_quickfix_SessionID_2
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2Lorg_quickfix_SessionID_2
   (JNIEnv *, jclass, jobject, jobject);
 
 /*
  * Class:     org_quickfix_Session
- * Method:    sendToTarget0
+ * Method:    sendToTarget
  * Signature: (Lorg/quickfix/Message;Ljava/lang/String;Ljava/lang/String;)Z
  */
-JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget0__Lorg_quickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Session_sendToTarget__Lorg_quickfix_Message_2Ljava_lang_String_2Ljava_lang_String_2
   (JNIEnv *, jclass, jobject, jstring, jstring);
+
+/*
+ * Class:     org_quickfix_Session
+ * Method:    lookupSession
+ * Signature: (Lorg/quickfix/SessionID;)Lorg/quickfix/Session;
+ */
+JNIEXPORT jobject JNICALL Java_org_quickfix_Session_lookupSession
+  (JNIEnv *, jclass, jobject);
+
+/*
+ * Class:     org_quickfix_Session
+ * Method:    reset
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_Session_reset
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }
