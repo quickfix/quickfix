@@ -60,18 +60,6 @@ private:
   }
   m_setGet;
 
-  class getRange : public MessageStoreTestCase::getRange
-  {
-  public:
-    getRange() : m_factory() {}
-    bool onSetup( MessageStore*& pObject );
-    void onTeardown( MessageStore* pObject );
-
-  private:
-    MySQLStoreFactory m_factory;
-  }
-  m_getRange;
-
   class other : public MessageStoreTestCase::other
   {
   public:
