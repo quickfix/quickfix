@@ -71,8 +71,8 @@ message_order& message_order::operator=( const message_order& rhs )
   {
     if ( m_groupOrder ) delete [] m_groupOrder;
     m_groupOrder = new int[ m_largest + 1 ];
-    std::memcpy( m_groupOrder, rhs.m_groupOrder, 
-                 ( m_largest + 1 ) * sizeof( int ) );
+    memcpy( m_groupOrder, rhs.m_groupOrder, 
+            ( m_largest + 1 ) * sizeof( int ) );
   }
   return *this;
 
@@ -98,7 +98,7 @@ void message_order::setOrder( int size, const int order[] )
 
   // populate array with field number as key and position as value
   m_groupOrder = new int[ m_largest + 1 ];
-  std::memset( m_groupOrder, 0, ( m_largest + 1 ) * sizeof( int ) );
+  memset( m_groupOrder, 0, ( m_largest + 1 ) * sizeof( int ) );
   for ( i = 1; i <= size; ++i )
     m_groupOrder[ fields[ i ] ] = i;
   delete [] fields;

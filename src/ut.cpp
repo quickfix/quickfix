@@ -29,6 +29,10 @@
 #include <CPPTest/TestXMLFileOutputDisplay.h>
 #include "getopt-repl.h"
 
+#if !defined(_MSC_VER) || _MSC_VER >= 1300
+using std::atol;
+#endif
+
 int main( int argc, char** argv )
 {
   CPPTest::TestDisplay * display;
@@ -44,7 +48,7 @@ int main( int argc, char** argv )
 
   display = new CPPTest::TestXMLFileOutputDisplay();
 
-  TestSuite suite( *display, ( short ) std::atol( port.c_str() ) );
+  TestSuite suite( *display, ( short ) atol( port.c_str() ) );
   suite.run();
 
   delete display;

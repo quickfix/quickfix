@@ -59,6 +59,10 @@ int testValidateQuoteRequest( int );
 int testValidateDictQuoteRequest( int );
 void report( int, int );
 
+#if !defined(_MSC_VER) || _MSC_VER >= 1300
+using std::atol;
+#endif
+
 #ifndef _MSC_VER
 #include <sys/time.h>
 int GetTickCount()
@@ -82,7 +86,7 @@ int main( int argc, char** argv )
     << " -c count" << std::endl;
     return 1;
   }
-  count = std::atol( optarg );
+  count = atol( optarg );
 
   std::cout << "Converting integers to strings: ";
   report( testIntegerToString( count ), count );
@@ -593,7 +597,7 @@ int testValidateQuoteRequest( int count )
   count = count - 1;
 
   int start = GetTickCount();
-  for ( int i = 0; i <= count; ++i )
+  for ( int j = 0; j <= count; ++j )
   {
     dataDictionary.validate( message );
   }
@@ -622,7 +626,7 @@ int testValidateDictQuoteRequest( int count )
   count = count - 1;
 
   int start = GetTickCount();
-  for ( int i = 0; i <= count; ++i )
+  for ( int j = 0; j <= count; ++j )
   {
     dataDictionary.validate( message );
   }

@@ -37,7 +37,7 @@ void Parser::allocate( int length )
   char* newBuffer = new char[length+1];
   if( m_readBuffer && m_bufferSize )
   {
-    std::strncpy(newBuffer, m_readBuffer, length);
+    strncpy(newBuffer, m_readBuffer, length);
     newBuffer[length] = '\0';
     delete [] m_readBuffer;
   }

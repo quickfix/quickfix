@@ -68,7 +68,7 @@ LINK32=link.exe
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "./" /I "./src" /I "./src/c++" /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /FD /I /src/socket" /GZ " /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "./" /I "./src" /I "./src/c++" /D "_CONSOLE" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /I /src/socket" /GZ " /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -151,6 +151,10 @@ SOURCE=".\src\C++\Test\SessionSettingsTestCase.cpp"
 # Begin Source File
 
 SOURCE=".\src\C++\Test\SessionTestCase.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\test\SessionTimeTestCase.cpp"
 # End Source File
 # Begin Source File
 
@@ -247,6 +251,10 @@ SOURCE=".\src\C++\Test\SessionSettingsTestCase.h"
 # Begin Source File
 
 SOURCE=".\src\C++\Test\SessionTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\test\SessionTimeTestCase.h"
 # End Source File
 # Begin Source File
 

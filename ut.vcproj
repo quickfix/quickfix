@@ -322,6 +322,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="src\C++\test\SessionTimeTestCase.cpp">
+			</File>
+			<File
 				RelativePath=".\src\C++\Test\SettingsTestCase.cpp">
 				<FileConfiguration
 					Name="Release|Win32">
@@ -480,6 +483,9 @@
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\SessionTestCase.h">
+			</File>
+			<File
+				RelativePath="src\C++\test\SessionTimeTestCase.h">
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\SettingsTestCase.h">

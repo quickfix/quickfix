@@ -53,6 +53,8 @@ typedef int socklen_t;
 #endif
 
 #include <string>
+#include <cctype>
+#include <ctime>
 
 namespace FIX
 {
@@ -105,5 +107,21 @@ void file_mkdir( const char* path, mode_t mode );
 void file_unlink( const char* path );
 std::string file_appendpath( const std::string& path, const std::string& file );
 }
+
+#if !defined(_MSC_VER) || _MSC_VER >= 1300
+using std::abort;
+using std::sprintf;
+using std::atoi;
+using std::atol;
+using std::atof;
+using std::isdigit;
+using std::strcmp;
+using std::strftime;
+using std::strlen;
+using std::abs;
+using std::labs;
+using std::memcpy;
+using std::memset;
+#endif
 
 #endif
