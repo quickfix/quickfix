@@ -9,3 +9,6 @@
 /* Version number of package */
 #undef VERSION
 
+/* Define if you have stlport library (-lstlport_gcc) */
+#undef HAVE_STLPORT
+
