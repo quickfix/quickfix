@@ -100,7 +100,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_FileLogFactory_create__Lorg_quickfix
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lorg/quickfix/FileLog;" );
     jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-    return pEnv->NewObject( type, method, ( jint ) pLog );
+    JVMObject result =  pEnv->NewObject( type, method, ( jint ) pLog );
+    return result;
   }
   catch ( FIX::ConfigError & e )
   {

@@ -110,5 +110,6 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_FileStoreFactory_create__Lorg_quickf
 
   JVMClass type( "Lorg/quickfix/FileStore;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-  return pEnv->NewObject( type, method, ( jint ) pWrapper );
+  JVMObject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
+  return result;
 }

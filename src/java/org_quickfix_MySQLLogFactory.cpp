@@ -103,7 +103,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLLogFactory_create__Lorg_quickfi
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lorg/quickfix/MySQLLog;" );
     jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-    return pEnv->NewObject( type, method, ( jint ) pLog );
+    jobject result = pEnv->NewObject( type, method, ( jint ) pLog );
+    return result;
   }
   catch ( FIX::ConfigError & e )
   {

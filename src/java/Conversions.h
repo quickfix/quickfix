@@ -85,11 +85,15 @@ inline jobject newSessionID( const FIX::SessionID& sessionID )
   JNIEnv * pEnv = ENV::get();
   JVMClass type( "Lorg/quickfix/SessionID;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" );
-  jobject result = pEnv->NewObject( type, method,
-                                    newString( sessionID.getBeginString().getValue() ),
-                                    newString( sessionID.getSenderCompID().getValue() ),
-                                    newString( sessionID.getTargetCompID().getValue() ) );
+  
+  jstring beginString = newString( sessionID.getBeginString().getValue() );
+  jstring senderCompID = newString( sessionID.getSenderCompID().getValue() );
+  jstring targetCompID = newString( sessionID.getTargetCompID().getValue() );
+  jobject result = pEnv->NewObject( type, method, beginString, senderCompID, targetCompID );
 
+  pEnv->DeleteLocalRef( beginString );
+  pEnv->DeleteLocalRef( senderCompID );
+  pEnv->DeleteLocalRef( targetCompID );
   return result;
 }
 
@@ -120,6 +124,8 @@ inline jobject newMessage( const FIX::Message& message, JVMObject factory )
   JVMObject result( pEnv->CallObjectMethod
                     ( factory, method, jBeginString, jMsgType ) );
 
+  pEnv->DeleteLocalRef( jBeginString );
+  pEnv->DeleteLocalRef( jMsgType );
   FIX::Message* pMessage = ( FIX::Message* ) result.getInt( "cppPointer" );
   *pMessage = message;
   return result;
@@ -192,7 +198,11 @@ inline void setUtcDate( FIX::FieldMap& map, jint field, jobject value )
 
 inline jstring getString( FIX::FieldMap& map, jint field )
 {
-  if ( map.isSetField( field ) ) return newString( map.getField( field ) );
+  if ( map.isSetField( field ) )
+  {
+    jstring result = newString( map.getField( field ) );
+    return result;
+  }
   throwNew( "Lorg/quickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() );
   return 0;
 }
@@ -225,7 +235,7 @@ inline jdouble getDouble( FIX::FieldMap& map, jint field )
   return 0;
 }
 
-inline jobject getUtcTimeStamp( FIX::FieldMap& map, jint field )
+inline jobject newUtcTimeStamp( FIX::FieldMap& map, jint field )
 {
   if ( map.isSetField( field ) )
   {
@@ -237,7 +247,7 @@ inline jobject getUtcTimeStamp( FIX::FieldMap& map, jint field )
   return 0;
 }
 
-inline jobject getUtcTimeOnly( FIX::FieldMap& map, jint field )
+inline jobject newUtcTimeOnly( FIX::FieldMap& map, jint field )
 {
   if ( map.isSetField( field ) )
   {
@@ -250,7 +260,7 @@ inline jobject getUtcTimeOnly( FIX::FieldMap& map, jint field )
   return 0;
 }
 
-inline jobject getUtcDate( FIX::FieldMap& map, jint field )
+inline jobject newUtcDate( FIX::FieldMap& map, jint field )
 {
   if ( map.isSetField( field ) )
   {

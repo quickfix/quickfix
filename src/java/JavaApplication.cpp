@@ -94,24 +94,27 @@ void JavaApplication::onCreate( const FIX::SessionID& sessionID )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
-  pEnv->CallVoidMethod( m_object, onCreateId,
-                        newSessionID( sessionID ) );
+  jobject jsessionid = newSessionID( sessionID );
+  pEnv->CallVoidMethod( m_object, onCreateId, jsessionid );
+  pEnv->DeleteLocalRef( jsessionid );
 };
 
 void JavaApplication::onLogon( const FIX::SessionID& sessionID )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
-  pEnv->CallVoidMethod( m_object, onLogonId,
-                        newSessionID( sessionID ) );
+  jobject jsessionid = newSessionID( sessionID );
+  pEnv->CallVoidMethod( m_object, onLogonId, jsessionid );
+  pEnv->DeleteLocalRef( jsessionid );
 };
 
 void JavaApplication::onLogout( const FIX::SessionID& sessionID )
 {
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
-  pEnv->CallVoidMethod( m_object, onLogoutId,
-                        newSessionID( sessionID ) );
+  jobject jsessionid = newSessionID( sessionID );
+  pEnv->CallVoidMethod( m_object, onLogoutId, jsessionid );
+  pEnv->DeleteLocalRef( jsessionid );
 };
 
 void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionID )
@@ -119,8 +122,11 @@ void JavaApplication::toAdmin( FIX::Message& msg, const FIX::SessionID& sessionI
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   JVMObject jmsg = newMessage( msg, m_factory );
-  pEnv->CallVoidMethod( m_object, notifyToAdminId, jmsg, newSessionID( sessionID ) );
+  JVMObject jsessionid = newSessionID( sessionID );
+  pEnv->CallVoidMethod( m_object, notifyToAdminId, jmsg, jsessionid );
   msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
+  jsessionid.deleteLocalRef();
+  jmsg.deleteLocalRef();
 }
 
 void JavaApplication::toApp( FIX::Message& msg, const FIX::SessionID& sessionID )
@@ -130,8 +136,11 @@ throw( FIX::DoNotSend& )
   JNIEnv* pEnv = ENV::get();
   setupExceptions();
   JVMObject jmsg = newMessage( msg, m_factory );
-  pEnv->CallVoidMethod( m_object, notifyToAppId, jmsg, newSessionID( sessionID ) );
+  JVMObject jsessionid = newSessionID( sessionID );
+  pEnv->CallVoidMethod( m_object, notifyToAppId, jmsg, jsessionid );
   msg = *((FIX::Message*)jmsg.getInt( "cppPointer" ));
+  jsessionid.deleteLocalRef();
+  jmsg.deleteLocalRef();
   handleException( pEnv );
 }
 
@@ -141,9 +150,12 @@ throw( FIX::FieldNotFound&, FIX::RejectLogon& )
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   setupExceptions();
+  jobject jmessage = newMessage( msg, m_factory );
+  jobject jsessionid = newSessionID( sessionID );
   pEnv->CallVoidMethod
-  ( m_object, notifyFromAdminId,
-    newMessage( msg, m_factory ), newSessionID( sessionID ) );
+  ( m_object, notifyFromAdminId, jmessage, jsessionid );
+  pEnv->DeleteLocalRef(jsessionid);
+  pEnv->DeleteLocalRef(jmessage);
   handleException( pEnv );
 }
 
@@ -153,9 +165,12 @@ throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue
   FIX::Locker locker( m_mutex );
   JNIEnv* pEnv = ENV::get();
   setupExceptions();
+  jobject jmessage = newMessage( msg, m_factory );
+  jobject jsessionid = newSessionID( sessionID );
   pEnv->CallVoidMethod
-  ( m_object, notifyFromAppId,
-    newMessage( msg, m_factory ), newSessionID( sessionID ) );
+  ( m_object, notifyFromAppId, jmessage, jsessionid );
+  pEnv->DeleteLocalRef(jsessionid);
+  pEnv->DeleteLocalRef(jmessage);
   handleException( pEnv );
 };
 

@@ -155,7 +155,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Session_lookupSession
   if( !pSession ) return 0;
   JVMClass type( "Lorg/quickfix/Session;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-  return pEnv->NewObject( type, method, ( jint ) pSession );
+  jobject result = pEnv->NewObject( type, method, ( jint ) pSession );
+  return result;
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_Session_reset

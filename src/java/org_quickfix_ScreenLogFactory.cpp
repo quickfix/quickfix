@@ -96,7 +96,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_ScreenLogFactory_create__Lorg_quickf
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lorg/quickfix/ScreenLog;" );
     jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-    return pEnv->NewObject( type, method, ( jint ) pLog );
+    JVMObject result = pEnv->NewObject( type, method, ( jint ) pLog );
+    return result;
   }
   catch ( FIX::ConfigError & e )
   {

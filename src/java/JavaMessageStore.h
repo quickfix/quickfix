@@ -79,9 +79,7 @@ private:
   void setupExceptions() const;
   void handleException( JNIEnv* ) const;
 
-  jobject messageToJavaMessage( const FIX::Message& message );
-  jobject createJavaMessage() const;
-  jobject createCollection() const;
+  jobject newCollection() const;
 
   mutable JVMObject messageStore;
 

@@ -229,7 +229,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Group_getUtcTimeStamp0
 {
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
-  return getUtcTimeStamp( *pGroup, field );
+  jobject result = newUtcTimeStamp( *pGroup, field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Group_getUtcTimeOnly0
@@ -237,7 +238,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Group_getUtcTimeOnly0
 {
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
-  return getUtcTimeOnly( *pGroup, field );
+  jobject result = newUtcTimeOnly( *pGroup, field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Group_getUtcDate0
@@ -245,5 +247,6 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Group_getUtcDate0
 {
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
-  return getUtcDate( *pGroup, field );
+  jobject result = newUtcDate( *pGroup, field );
+  return result;
 }

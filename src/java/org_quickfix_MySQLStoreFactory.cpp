@@ -112,7 +112,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLStoreFactory_create__Lorg_quick
 
   JVMClass type( "Lorg/quickfix/FileStore;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
-  return pEnv->NewObject( type, method, ( jint ) pWrapper );
+  jobject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
+  return result;
 }
 
 #endif //HAVE_MYSQL

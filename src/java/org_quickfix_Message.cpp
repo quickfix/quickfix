@@ -237,7 +237,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getUtcTimeStamp0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcTimeStamp( *pMessage, field );
+  jobject result = newUtcTimeStamp( *pMessage, field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getUtcTimeOnly0
@@ -245,7 +246,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getUtcTimeOnly0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcTimeOnly( *pMessage, field );
+  jobject result = newUtcTimeOnly( *pMessage, field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getUtcDate0
@@ -253,7 +255,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getUtcDate0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcDate( *pMessage, field );
+  jobject result = newUtcDate( *pMessage, field );
+  return result;
 }
 
 // Header Methods
@@ -363,7 +366,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getHeaderUtcTimeStamp0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcTimeStamp( pMessage->getHeader(), field );
+  jobject result = newUtcTimeStamp( pMessage->getHeader(), field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getHeaderUtcTimeOnly0
@@ -371,7 +375,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getHeaderUtcTimeOnly0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcTimeOnly( pMessage->getHeader(), field );
+  jobject result = newUtcTimeOnly( pMessage->getHeader(), field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getHeaderUtcDate0
@@ -379,7 +384,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getHeaderUtcDate0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcDate( pMessage->getHeader(), field );
+  jobject result = newUtcDate( pMessage->getHeader(), field );
+  return result;
 }
 
 // Trailer Methods
@@ -489,7 +495,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcTimeStamp0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcTimeStamp( pMessage->getTrailer(), field );
+  jobject result = newUtcTimeStamp( pMessage->getTrailer(), field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcTimeOnly0
@@ -497,7 +504,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcTimeOnly0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcTimeOnly( pMessage->getTrailer(), field );
+  jobject result = newUtcTimeOnly( pMessage->getTrailer(), field );
+  return result;
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcDate0
@@ -505,7 +513,8 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcDate0
 {
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  return getUtcDate( pMessage->getTrailer(), field );
+  jobject result = newUtcDate( pMessage->getTrailer(), field );
+  return result;
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString
@@ -514,7 +523,8 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  return newString( pMessage->toString() );
+  jstring result = newString( pMessage->toString() );
+  return result;
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toXML
@@ -523,7 +533,8 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toXML
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  return newString( pMessage->toXML() );
+  jstring result = newString( pMessage->toXML() );
+  return result;
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString

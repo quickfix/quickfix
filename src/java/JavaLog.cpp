@@ -72,17 +72,23 @@ JavaLog::~JavaLog() { m_object.deleteGlobalRef(); }
 void JavaLog::onIncoming( const std::string& string )
 {
   JNIEnv * pEnv = ENV::get();
-  pEnv->CallVoidMethod( m_object, onIncomingId, newString( string ) );
+  jstring jstr = newString( string );
+  pEnv->CallVoidMethod( m_object, onIncomingId, jstr );
+  pEnv->DeleteLocalRef( jstr );
 }
 
 void JavaLog::onOutgoing( const std::string& string )
 {
   JNIEnv * pEnv = ENV::get();
-  pEnv->CallVoidMethod( m_object, onOutgoingId, newString( string ) );
+  jstring jstr = newString( string );
+  pEnv->CallVoidMethod( m_object, onOutgoingId, jstr );
+  pEnv->DeleteLocalRef( jstr );
 }
 
 void JavaLog::onEvent( const std::string& string )
 {
   JNIEnv * pEnv = ENV::get();
-  pEnv->CallVoidMethod( m_object, onEventId, newString( string ) );
+  jstring jstr = newString( string );
+  pEnv->CallVoidMethod( m_object, onEventId, jstr );
+  pEnv->DeleteLocalRef( jstr );
 }

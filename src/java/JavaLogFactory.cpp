@@ -70,9 +70,11 @@ JavaLogFactory::~JavaLogFactory() { m_object.deleteGlobalRef(); }
 FIX::Log* JavaLogFactory::create
 ( const FIX::SessionID& sessionID )
 {
+  jobject jsessionID = newSessionID( sessionID );
   jobject obj =
-    ENV::get() ->CallObjectMethod( m_object, createId,
-                                   newSessionID( sessionID ) );
+    ENV::get() ->CallObjectMethod( m_object, createId, jsessionID );
+
+  ENV::get()->DeleteLocalRef( jsessionID );
   return new JavaLog( JVMObject( obj ) );
 }
 

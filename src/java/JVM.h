@@ -143,16 +143,18 @@ class JVMObject
 {
 public:
   JVMObject( jobject obj )
-: m_obj( obj )
+  : m_obj( obj )
   {
     if ( !obj ) throw JVMException( "Object not found" );
   }
-
-JVMObject( JVMObject& copy ) : m_obj( copy.m_obj ) {}
+  
+  JVMObject( JVMObject& copy ) : m_obj(copy) {}
 
   JVMClass getClass() { return JVMClass( ENV::get() ->GetObjectClass( m_obj ) ); }
   JVMObject newGlobalRef() { return JVMObject( ENV::get() ->NewGlobalRef( m_obj ) ); }
   void deleteGlobalRef() { ENV::get() ->DeleteGlobalRef( m_obj ); }
+  JVMObject newLocalRef() { return JVMObject( ENV::get() ->NewLocalRef( m_obj ) ); }
+  void deleteLocalRef() { ENV::get() ->DeleteLocalRef( m_obj ); }
 
   std::string getString( const std::string& name );
   char getChar( const std::string& name );

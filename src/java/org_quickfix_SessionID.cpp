@@ -100,7 +100,8 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getBeginString0
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::SessionID* pSession = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
-  return newString( pSession->getBeginString().getValue() );
+  jstring result = newString( pSession->getBeginString().getValue() );
+  return result;
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getSenderCompID0
@@ -109,7 +110,8 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getSenderCompID0
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::SessionID* pSession = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
-  return newString( pSession->getSenderCompID().getValue() );
+  jstring result = newString( pSession->getSenderCompID().getValue() );
+  return result;
 }
 
 JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getTargetCompID0
@@ -118,5 +120,6 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_SessionID_getTargetCompID0
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::SessionID* pSession = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
-  return newString( pSession->getTargetCompID().getValue() );
+  jstring result = newString( pSession->getTargetCompID().getValue() );
+  return result;
 }

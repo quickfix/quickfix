@@ -70,9 +70,11 @@ JavaMessageStoreFactory::~JavaMessageStoreFactory() { m_object.deleteGlobalRef()
 FIX::MessageStore* JavaMessageStoreFactory::create
 ( const FIX::SessionID& sessionID )
 {
+  jobject jsessionid = newSessionID( sessionID );
   jobject obj =
-    ENV::get() ->CallObjectMethod( m_object, createId,
-                                   newSessionID( sessionID ) );
+    ENV::get() ->CallObjectMethod( m_object, createId, jsessionid );
+
+  ENV::get()->DeleteLocalRef( jsessionid );
   if ( !obj ) throw FIX::ConfigError();
   return new JavaMessageStore( JVMObject( obj ) );
 }

@@ -102,8 +102,10 @@ throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
   setupExceptions();
+  jstring jstr = newString( message );
   bool result = pEnv->CallBooleanMethod( messageStore, setId,
-                                         seq, newString( message ) ) != 0;
+                                         seq, jstr ) != 0;  
+  pEnv->DeleteLocalRef( jstr );
   handleException( pEnv );
   return result;
 }
@@ -120,6 +122,7 @@ throw ( FIX::IOException& )
   const char* ustring = pEnv->GetStringUTFChars( string, 0 );
   message = ustring;
   pEnv->ReleaseStringUTFChars( string, ustring );
+  pEnv->DeleteLocalRef( string );
 
   handleException( pEnv );
   return result;
@@ -130,7 +133,7 @@ void JavaMessageStore::get( int start, int end,
 throw ( FIX::IOException& )
 {
   JNIEnv * pEnv = ENV::get();
-  JVMObject collection( createCollection() );
+  JVMObject collection( newCollection() );
 
   setupExceptions();
   pEnv->CallVoidMethod( messageStore, getRangeId,
@@ -147,7 +150,9 @@ throw ( FIX::IOException& )
     const char* umessage = pEnv->GetStringUTFChars( message, 0 );
     messages.push_back( umessage );
     pEnv->ReleaseStringUTFChars( message, umessage );
+    pEnv->DeleteLocalRef( message );    
   }
+  pEnv->DeleteLocalRef( collection );
 }
 
 int JavaMessageStore::getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
@@ -207,7 +212,9 @@ throw ( FIX::IOException& )
   setupExceptions();
   JVMObject date( pEnv->CallObjectMethod( messageStore, getCreationTimeId ) );
   handleException( pEnv );
-  return FIX::UtcTimeStamp( date.callLongMethod( "getTime" ) / 1000 );
+  long longTime = date.callLongMethod( "getTime" ) / 1000;
+  date.deleteLocalRef();
+  return FIX::UtcTimeStamp( longTime );
 }
 
 void JavaMessageStore::reset() throw ( FIX::IOException& )
@@ -218,25 +225,7 @@ void JavaMessageStore::reset() throw ( FIX::IOException& )
   handleException( pEnv );
 }
 
-jobject JavaMessageStore::messageToJavaMessage( const FIX::Message& message )
-{
-  JNIEnv * pEnv = ENV::get();
-  JVMClass type( "Lorg/quickfix/Message;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
-  jobject result = pEnv->NewObject( type, method );
-  return result;
-}
-
-jobject JavaMessageStore::createJavaMessage() const
-{
-  JNIEnv * pEnv = ENV::get();
-  JVMClass type( "Lorg/quickfix/Message;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
-  jobject result = pEnv->NewObject( type, method );
-  return result;
-}
-
-jobject JavaMessageStore::createCollection() const
+jobject JavaMessageStore::newCollection() const
 {
   JNIEnv * pEnv = ENV::get();
   JVMClass type( "Ljava/util/ArrayList;" );
@@ -330,7 +319,11 @@ jboolean JNICALL JavaMessageStore_get0__ILjava_lang_String_2
     return 0;
   }
 
-  if ( result ) message = newString( msg );
+  if ( result )
+  {
+    message = newString( msg );
+    pEnv->DeleteLocalRef( message );
+  }
   return result;
 }
 
@@ -356,7 +349,11 @@ void JNICALL JavaMessageStore_get0__IILjava_util_Collection_2
   jmethodID methodID = jarray.getClass().getMethodID( "add", "(Ljava/lang/Object;)Z" );
   std::vector < std::string > ::iterator i;
   for ( i = messages.begin(); i != messages.end(); ++i )
-    pEnv->CallVoidMethod( jarray, methodID, newString( *i ) );
+  {
+    jstring jstr = newString( *i );
+    pEnv->CallVoidMethod( jarray, methodID, jstr );
+    pEnv->DeleteLocalRef( jstr );
+  }
 }
 
 jint JNICALL JavaMessageStore_getNextSenderMsgSeqNum0
