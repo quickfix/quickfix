@@ -278,7 +278,8 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   {
     std::string::size_type oldPos = pos;
     FieldBase field = extractField( string, pos, &dataDictionary, pGroup );
-    if ( (field.getField() == delim) || (pGroup == 0) )
+    if ( (field.getField() == delim) 
+        || (pGroup == 0 && pDD->isField(field.getField())) )
     {
       if ( pGroup ) 
       { 
