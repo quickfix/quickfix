@@ -69,6 +69,7 @@
 #include "C++/test/DataDictionaryTestCase.h"
 #include "C++/test/SocketConnectorTestCase.h"
 #include "C++/test/SocketServerTestCase.h"
+#include "C++/test/FieldBaseTestCase.h"
 
 class TestSuite : public CPPTest::TestSuite
 {
@@ -116,6 +117,7 @@ public:
     add( &m_dataDictionary );
     add( &m_socketConnector );
     add( &m_socketServer );
+    add( &m_fieldBase );
   }
 
   ~TestSuite() { FIX::socket_term(); }
@@ -158,4 +160,5 @@ private:
   FIX::SessionIDTestCase m_sessionID;
   FIX::DictionaryTestCase m_dictionary;
   FIX::DataDictionaryTestCase m_dataDictionary;
+  FIX::FieldBaseTestCase m_fieldBase;
 };

@@ -77,21 +77,19 @@ class FieldBase
   friend class Message;
 public:
   FieldBase( int field, const std::string& string )
-  : m_field( field ), m_length( 0 ), m_total( 0 )
-    { setString( string ); }
+  : m_field( field ), m_string(string), m_length( 0 ), m_total( 0 )
+    { calculate(); }
 
   void setField( int field )
-    { m_field = field; }
+  { 
+    m_field = field; 
+    calculate();
+  }
 
   void setString( const std::string& string )
   { 
     m_string = string;
-    m_data = IntConvertor::convert(m_field) + "=" + string + "\001";
-    m_length = m_data.length();
-    const char* iter = m_data.c_str();
-    const char* end = iter + m_data.length();
-    while( iter != end )
-      m_total += *iter++;
+    calculate();
   }
 
   /// Get the fields integer tag.
@@ -119,6 +117,17 @@ public:
     { return m_field < field.m_field; }
 
 private:
+  void calculate()
+  {
+    m_data = IntConvertor::convert(m_field) + "=" + m_string + "\001";
+    m_length = m_data.length();
+    const char* iter = m_data.c_str();
+    const char* end = iter + m_data.length();
+    m_total = 0;
+    while( iter != end )
+      m_total += *iter++;
+  }
+
   int m_field;
   std::string m_data;
   std::string m_string;

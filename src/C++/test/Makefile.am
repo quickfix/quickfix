@@ -1,5 +1,7 @@
 noinst_LTLIBRARIES = libquickfixcpptest.la
 libquickfixcpptest_la_SOURCES = \
+	FieldBaseTestCase.cpp \
+	FieldBaseTestCase.h \
 	FieldConvertorsTestCase.cpp \
 	FieldConvertorsTestCase.h \
 	MessagesTestCase.cpp \
