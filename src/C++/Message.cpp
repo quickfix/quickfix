@@ -111,7 +111,7 @@ std::string Message::getXML() const
 {
   FieldMap::iterator i;
   std::stringstream stream;
-  stream << "\n<message>"                       << "\n"
+  stream << "<message>"                         << "\n"
          << std::setw(2) << " " << "<header>"   << "\n"  
          << getXMLFields(getHeader(), 4)
          << std::setw(2) << " " << "</header>"  << "\n"
@@ -121,7 +121,7 @@ std::string Message::getXML() const
          << std::setw(2) << " " << "<trailer>"  << "\n"
          << getXMLFields(getTrailer(), 4)
          << std::setw(2) << " " << "</trailer>" << "\n"
-         << "</message>"                        << "\n";
+         << "</message>";
 
   return stream.str();
 }
