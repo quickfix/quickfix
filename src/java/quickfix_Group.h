@@ -199,6 +199,30 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField__Lquickfix_Field_2
 JNIEXPORT void JNICALL Java_quickfix_Group_removeField
   (JNIEnv *, jobject, jint);
 
+/*
+ * Class:     quickfix_Group
+ * Method:    groupIteratorCreate
+ * Signature: (Lquickfix/Group$Iterator;)Lquickfix/Group$Iterator;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorCreate
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    groupIteratorHasNext
+ * Signature: (Lquickfix/Group$Iterator;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_groupIteratorHasNext
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    groupIteratorNext
+ * Signature: (Lquickfix/Group$Iterator;)Ljava/lang/Object;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorNext
+  (JNIEnv *, jobject, jobject);
+
 #ifdef __cplusplus
 }
 #endif

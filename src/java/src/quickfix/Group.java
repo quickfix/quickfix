@@ -153,6 +153,32 @@ public class Group extends FieldMap {
     public native void removeField(int field);
 
     public java.util.Iterator iterator() {
-        return null;
+        return new Iterator( this );
     }
+
+    public class Iterator implements java.util.Iterator {
+        private Group group;
+        private int cppPointer;
+
+        public Iterator( Group aGroup ) {
+            group = aGroup;
+            groupIteratorCreate( this );
+        }
+
+        public boolean hasNext() {
+            return groupIteratorHasNext( this );
+        }
+
+        public Object next() {
+            return groupIteratorNext( this );
+        }
+
+        public void remove() {
+            throw new java.lang.UnsupportedOperationException();
+        }
+    }
+
+    private native Iterator groupIteratorCreate( Iterator i );
+    private native boolean groupIteratorHasNext( Iterator i );
+    private native Object groupIteratorNext( Iterator i );
 }
