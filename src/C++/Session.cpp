@@ -429,8 +429,9 @@ bool Session::sendRaw( Message& message, int num )
       try
       {
         m_application.toApp( message, m_sessionID );
+	message.toString( messageString );
         if ( isLoggedOn() ) result = 
-          send( message.toString(messageString) );
+          send( messageString );
       }
       catch ( DoNotSend& ) {}}
 
