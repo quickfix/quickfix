@@ -125,14 +125,16 @@ namespace FIX
       ( void ** ) & m_pDoc );
 
     if ( hr != S_OK )
-      throw( ConfigError( "MSXML SAX Parser could not be created" ) );
+      throw( ConfigError( "MSXML DOM Document could not be created" ) );
   }
 
   MSXML_DOMDocument::~MSXML_DOMDocument()
   { QF_STACK_IGNORE_BEGIN
+
     if(m_pDoc != NULL)
       m_pDoc->Release();
     CoUninitialize();
+
     QF_STACK_IGNORE_END
   }
 
@@ -150,7 +152,7 @@ namespace FIX
 
       VARIANT_BOOL success = FALSE;
       m_pDoc->loadXML(_bstr_t(sstream.str().c_str()), &success);
-      return success != TRUE;
+      return success != FALSE;
     }
     catch( ... ) { return false; }
 
@@ -168,7 +170,7 @@ namespace FIX
 
       VARIANT_BOOL success = FALSE;
       m_pDoc->load(_variant_t(url.c_str()), &success);
-      return success != TRUE;
+      return success != FALSE;
     }
     catch( ... ) { return false; }
 
