@@ -57,7 +57,9 @@
    ="document('../LICENSE.xml')"/>
 #pragma once
 
+#undef Yield
 #include "Field.h"
+#include "DeprecatedFields.h"
 
 namespace Fix
 {
