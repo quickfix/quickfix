@@ -147,9 +147,10 @@ public:
    * that is passed in.  It will return true on success and false
    * on failure.
    */
-  bool setString( const std::string& string,
+  void setString( const std::string& string,
                   bool validate = true,
-                  const DataDictionary* pDataDictionary = 0 );
+                  const DataDictionary* pDataDictionary = 0 )
+  throw( InvalidMessage& );
 
   void setGroup( const std::string& msg, const FieldBase& field,
                  const std::string& string, std::string::size_type& pos,
@@ -214,7 +215,7 @@ private:
     const DataDictionary* pDD = 0, const Group* pGroup = 0 );
 
   void clear();
-  bool validate();
+  void validate();
   std::string toXMLFields(const FieldMap& fields, int space) const;
 
 protected:

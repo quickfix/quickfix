@@ -73,8 +73,7 @@ throw( InvalidMessage& )
   m_trailer( message_order( message_order::trailer ) ),
   m_validStructure( true )
 {
-  if ( !setString( string, validate ) )
-    throw InvalidMessage();
+  setString( string, validate );
 }
 
 Message::Message( const std::string& string,
@@ -84,8 +83,7 @@ throw( InvalidMessage& )
   m_trailer( message_order( message_order::trailer ) ),
   m_validStructure( true )
 {
-  if ( !setString( string, true, &dataDictionary ) )
-    throw InvalidMessage();
+  setString( string, true, &dataDictionary );
 }
 
 bool Message::InitializeXML( const std::string& url )
@@ -199,9 +197,10 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
   QF_STACK_POP
 }
 
-bool Message::setString( const std::string& string,
+void Message::setString( const std::string& string,
                          bool doValidation,
                          const DataDictionary* pDataDictionary )
+throw( InvalidMessage& )
 { QF_STACK_PUSH(Message::setString)
 
   clear();
@@ -221,52 +220,44 @@ bool Message::setString( const std::string& string,
 
   while ( pos < string.size() )
   {
-    try
+    FieldBase field = extractField( string, pos, pDataDictionary );
+    if ( count < 3 && headerOrder[ count++ ] != field.getField() )
+      if ( doValidation ) throw InvalidMessage();
+
+    if ( isHeaderField( field, pDataDictionary ) )
     {
-      FieldBase field = extractField( string, pos, pDataDictionary );
-
-      if ( count < 3 && headerOrder[ count++ ] != field.getField() )
-        if ( doValidation ) return false;
-
-      if ( isHeaderField( field, pDataDictionary ) )
+      if ( type != header )
       {
-        if ( type != header )
-        {
-          if(m_field == 0) m_field = field.getField();
-          m_validStructure = false;
-        }
-        if ( field.getField() == FIELD::MsgType )
-          msg = field.getString();
-        m_header.setField( field, false );
+        if(m_field == 0) m_field = field.getField();
+        m_validStructure = false;
       }
-      else if ( isTrailerField( field, pDataDictionary ) )
-      {
-        type = trailer;
-        m_trailer.setField( field, false );
-      }
-      else
-      {
-        if ( type == trailer )
-        {
-          if(m_field == 0) m_field = field.getField();
-          m_validStructure = false;
-        }
-        type = body;
-        setField( field, false );
-        if ( pDataDictionary )
-        {
-          setGroup( msg, field, string, pos, *this, *pDataDictionary );
-        }
-      }
+      if ( field.getField() == FIELD::MsgType )
+        msg = field.getString();
+      m_header.setField( field, false );
     }
-    catch( InvalidMessage& )
+    else if ( isTrailerField( field, pDataDictionary ) )
     {
-      return false;
+      type = trailer;
+      m_trailer.setField( field, false );
+    }
+    else
+    {
+      if ( type == trailer )
+      {
+        if(m_field == 0) m_field = field.getField();
+        m_validStructure = false;
+      }
+      type = body;
+      setField( field, false );
+      if ( pDataDictionary )
+      {
+        setGroup( msg, field, string, pos, *this, *pDataDictionary );
+      }
     }
   }
+
   if ( doValidation ) 
-    return validate();
-  return true;
+    validate();
 
   QF_STACK_POP
 }
@@ -453,7 +444,7 @@ void Message::clear()
   QF_STACK_POP
 }
 
-bool Message::validate()
+void Message::validate()
 { QF_STACK_PUSH(Message::validate)
 
   try
@@ -461,13 +452,27 @@ bool Message::validate()
     BodyLength aBodyLength;
     m_header.getField( aBodyLength );
     if ( aBodyLength != bodyLength() )
-      return false;
+    {
+      std::stringstream text;
+      text << "Expected BodyLength=" << bodyLength()
+           << ", Recieved BodyLength=" << (int)aBodyLength;
+      throw InvalidMessage(text.str());
+    }	
 
     CheckSum aCheckSum;
     m_trailer.getField( aCheckSum );
-    return aCheckSum == checkSum();
+    if ( aCheckSum != checkSum() )
+    {
+      std::stringstream text;
+      text << "Expected CheckSum=" << checkSum()
+           << ", Recieved CheckSum=" << (int)aCheckSum;
+      throw InvalidMessage(text.str());
+    }
   }
-  catch ( FieldNotFound& ) { return false; }
+  catch ( FieldNotFound& ) 
+  {
+    throw InvalidMessage("BodyLength or CheckSum missing");
+  }
 
   QF_STACK_POP
 }
@@ -495,13 +500,13 @@ FieldBase Message::extractField
 
     if ( pGroup && pGroup->isSetField( lenField ) )
     {
-	    fieldLength = pGroup->getField( lenField);
-	    soh = equalSign + 1 + atol( fieldLength.c_str() );
+      fieldLength = pGroup->getField( lenField);
+      soh = equalSign + 1 + atol( fieldLength.c_str() );
     }
     else if ( isSetField( lenField ) )
     {
-	    fieldLength = getField( lenField );
-	    soh = equalSign + 1 + atol( fieldLength.c_str() );
+      fieldLength = getField( lenField );
+      soh = equalSign + 1 + atol( fieldLength.c_str() );
     }
   }
 
