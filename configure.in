@@ -134,8 +134,8 @@ AC_SUBST(CXXFLAGS)
 # Checks for libraries.
 AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
 AC_CHECK_LIB(c,inet_addr,true,AC_CHECK_LIB(nsl,inet_addr))
+AC_CHECK_LIB(c,nanosleep,true,AC_CHECK_LIB(rt,nanosleep))
 AC_CHECK_LIB(compat,ftime)
-
 
 AC_MSG_CHECKING([which threading environment to use])
 # each host OS needs special threading flags
