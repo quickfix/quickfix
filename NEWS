@@ -21,7 +21,7 @@ up.
 
 Message and Parser can now handle messages with null characters.
 
-All signatures of Session::sendToTarget can take a session qualifier
+Session::sendToTarget is now able to route orders using a session qualifier.
 
 Message will be invalid in setString if it has trailing characters extra
 trailing characters that do not belong to a field.
