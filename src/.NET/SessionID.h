@@ -44,13 +44,27 @@ public:
     QF_STACK_CATCH
   }
 
+  SessionID( String* beginString, String* senderCompID, 
+             String* targetCompID, String* sessionQualifier )
+  { QF_STACK_TRY
+    
+    m_pUnmanaged = new FIX::SessionID(
+                     FIX::BeginString( convertString( beginString ) ),
+                     FIX::SenderCompID( convertString( senderCompID ) ),
+                     FIX::TargetCompID( convertString( targetCompID ) ),
+                     convertString( sessionQualifier ) );
+
+    QF_STACK_CATCH
+  }
+
   SessionID( const FIX::SessionID& sessionID )
   { QF_STACK_TRY
 
     m_pUnmanaged = new FIX::SessionID(
                      sessionID.getBeginString(),
                      sessionID.getSenderCompID(),
-                     sessionID.getTargetCompID() );
+                     sessionID.getTargetCompID(),
+                     sessionID.getSessionQualifier() );
 
     QF_STACK_CATCH
   }
@@ -65,11 +79,7 @@ public:
 
   String* ToString()
   { QF_STACK_TRY
-
-    return ( m_pUnmanaged->getBeginString().getValue() + ": "
-             + m_pUnmanaged->getSenderCompID().getValue() + "->"
-             + m_pUnmanaged->getTargetCompID().getValue() ).c_str();
-
+    return m_pUnmanaged->toString().c_str();
     QF_STACK_CATCH
   }
 
