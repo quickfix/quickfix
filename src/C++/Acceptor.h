@@ -89,6 +89,9 @@ public:
 
   /// Start acceptor.
   void start() throw ( ConfigError&, RuntimeError& );
+  void blockingStart() throw ( ConfigError&, RuntimeError& );
+
+
   /// Stop acceptor.
   void stop();
 

@@ -170,6 +170,17 @@ void Acceptor::start() throw ( ConfigError&, RuntimeError& )
   QF_STACK_POP
 }
 
+void Acceptor::blockingStart() throw ( ConfigError&, RuntimeError& )
+{ QF_STACK_PUSH( Acceptor::start )
+
+  onConfigure( m_settings );
+  onInitialize( m_settings );
+
+  startThread(this);
+
+  QF_STACK_POP
+}
+
 void Acceptor::stop() 
 { QF_STACK_PUSH( Acceptor::stop ) 
 
