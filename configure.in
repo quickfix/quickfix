@@ -15,6 +15,23 @@ AM_PROG_LIBTOOL
 AM_PROG_LEX
 
 ########################################
+# CALLSTACK
+########################################
+use_callstack=no
+AC_ARG_ENABLE(callstack,
+    [  --enable-callstack      display c++ call stack after crashing],
+    [use_callstack=$enableval],
+    use_callstack=no
+)
+
+if test $use_callstack = yes
+then
+    AC_DEFINE(USING_CALLSTACK, 1, 
+	Define if you want a C++ callstack to be displayed after crashing)
+fi
+########################################
+
+########################################
 # RUBY
 ########################################
 RUBYDIR=[`ruby -e 'require "rbconfig"; print Config::CONFIG["archdir"], "\n"'`]
@@ -39,7 +56,7 @@ AC_SUBST(JNI_CFLAGS)
 ########################################
 has_mysql=false
 AC_ARG_WITH(mysql,
-    [ --with-mysql=<path> prefix of MySQL installation. e.g. /usr/local or /usr], 
+    [  --with-mysql=<path>     prefix of MySQL installation. e.g. /usr/local or /usr], 
     [has_mysql=true],
     has_mysql=false
 )
@@ -61,7 +78,7 @@ fi
 ########################################
 has_stlport=false
 AC_ARG_WITH(stlport,
-    [ --with-stlport=<path> prefix of stlport installation. e.g. /usr/local or /usr], 
+    [  --with-stlport=<path>   prefix of stlport installation. e.g. /usr/local or /usr], 
     [has_stlport=true],
     has_stlport=false
 )
@@ -76,8 +93,6 @@ then
     AC_SUBST(STLPORT_LIBS)
     AC_DEFINE(HAVE_STLPORT, 1, Define if you have stlport library (-lstlport_gcc))
 fi
-########################################
-
 ########################################
 
 ########################################
@@ -201,6 +216,7 @@ AC_OUTPUT(
 	src/java/src/org/quickfix/fix40/Makefile
 	src/java/src/org/quickfix/fix41/Makefile
 	src/java/src/org/quickfix/fix42/Makefile
+	src/java/src/org/quickfix/fix43/Makefile
 	cfg/Makefile
 	bin/Makefile
 	bin/cfg/Makefile
