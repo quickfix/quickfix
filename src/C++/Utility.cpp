@@ -349,6 +349,16 @@ void thread_join( unsigned thread )
   QF_STACK_POP
 }
 
+void thread_detach( unsigned thread )
+{ QF_STACK_PUSH(thread_detach)
+
+#ifndef _MSC_VER
+  pthread_detach( thread );
+#endif
+
+  QF_STACK_POP
+}
+
 unsigned thread_self()
 {
 #ifdef _MSC_VER 

@@ -106,6 +106,7 @@ tm time_localtime( const time_t* t);
 bool thread_spawn( void*( *func ) ( void* ), void* var, unsigned& thread );
 bool thread_spawn( void*( *func ) ( void* ), void* var );
 void thread_join( unsigned thread );
+void thread_detach( unsigned thread );
 unsigned thread_self();
 
 void process_sleep( double s );

@@ -167,6 +167,7 @@ void ThreadedSocketInitiator::removeThread( int s )
 #ifdef _MSV_VER
     CloseHandle( ( HANDLE ) i->second );
 #endif
+    thread_detach( i->second );
     m_threads.erase( i );
   }
 

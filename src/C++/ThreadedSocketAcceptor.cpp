@@ -152,6 +152,7 @@ void ThreadedSocketAcceptor::removeThread( int s )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::removeThread)
 
   Locker l(m_mutex);
+  thread_detach(m_threads[s]);
   m_threads.erase( s );
 
   QF_STACK_POP
