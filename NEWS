@@ -1,3 +1,15 @@
+1.9.1
+-----
+Multi-character Currencies will no longer be rejected
+
+Fixed problems with MySQLStore loading in the wrong fields on startup.
+
+Fixed link errors when building with some versions of Visual Studio.
+
+Fixed compilation errors when using STLPort
+
+Applied patches for SUNPro support
+
 1.9.0
 -----
 Session time logic pulled out into new SessionTime class.  Now supports 
