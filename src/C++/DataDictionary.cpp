@@ -72,8 +72,13 @@
 
 namespace FIX
 {
+DataDictionary::DataDictionary()
+: m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
+  m_checkFieldsHaveValues( true ) {}
+
 DataDictionary::DataDictionary( const std::string& url )
-    : m_hasVersion( false ), m_checkFieldsOutOfOrder( true )
+: m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
+  m_checkFieldsHaveValues( true )
 {
   readFromURL( url );
 }
@@ -94,6 +99,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
 {
   m_hasVersion = rhs.m_hasVersion;
   m_checkFieldsOutOfOrder = rhs.m_checkFieldsOutOfOrder;
+  m_checkFieldsHaveValues = rhs.m_checkFieldsHaveValues;
   m_beginString = rhs.m_beginString;
   m_messageFields = rhs.m_messageFields;
   m_requiredFields = rhs.m_requiredFields;

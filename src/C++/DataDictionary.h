@@ -82,7 +82,7 @@ class DataDictionary
   std::pair < int, DataDictionary* > > FieldToGroup;
 
 public:
-  DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ) {}
+  DataDictionary();
   DataDictionary( const DataDictionary& );
   DataDictionary( const std::string& url );
   virtual ~DataDictionary();
@@ -249,7 +249,9 @@ public:
   }
 
   void checkFieldsOutOfOrder( bool value )
-{ m_checkFieldsOutOfOrder = value; }
+  { m_checkFieldsOutOfOrder = value; }
+  void checkFieldsHaveValues( bool value )
+  { m_checkFieldsHaveValues = value; }
 
   /// Validate a message.
   void validate( const Message& message ) throw( std::exception& );
@@ -351,8 +353,8 @@ private:
   /// Check if a field has a value.
   void checkHasValue( const FieldBase& field )
   throw( NoTagValue& )
-  {
-    if ( !field.getString().length() )
+  {  
+    if ( m_checkFieldsHaveValues && !field.getString().length() )
       throw NoTagValue( field.getField() );
   }
 
@@ -396,6 +398,7 @@ private:
 
   bool m_hasVersion;
   bool m_checkFieldsOutOfOrder;
+  bool m_checkFieldsHaveValues;
   BeginString m_beginString;
   MsgTypeToField m_messageFields;
   MsgTypeToField m_requiredFields;

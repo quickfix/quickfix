@@ -88,9 +88,16 @@ Session* SessionFactory::create( const SessionID& sessionID,
     }
   }
 
-  if ( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
+  if( settings.has( VALIDATE_FIELDS_OUT_OF_ORDER ) )
+  {
     dataDictionary.checkFieldsOutOfOrder
     ( settings.getBool( VALIDATE_FIELDS_OUT_OF_ORDER ) );
+  }
+  if( settings.has( VALIDATE_FIELDS_HAVE_VALUES ) )
+  {
+    dataDictionary.checkFieldsHaveValues
+    ( settings.getBool( VALIDATE_FIELDS_HAVE_VALUES ) );
+  }
 
   UtcTimeOnly startTime;
   UtcTimeOnly endTime;
