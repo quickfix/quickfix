@@ -10,6 +10,9 @@ setNextSenderMsgSeqNum and setNextTargetMsgSeqNum available on session in all AP
 
 Changes made to messages in toAdmin and toApp in JAVA are correctly applied when sending
 
+new throw specifiers on fromAdmin and fromApp message. Prevents crashes from occuring when
+no data dictionary is used.
+
 isSetField method added to JAVA API. Methods in version specific messages also have
 methods to check if fields are set.
 
@@ -42,6 +45,9 @@ empty fields.
 MySQL MessageStore will properly reset sequence numbers
 
 Java field classes have final integers which identify the tag number of the field.
+
+Java and .NET will no longer crash when a incorrectly formatted field is read from a
+session without a data dictionary.
 
 1.3.2
 -----
