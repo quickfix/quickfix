@@ -64,7 +64,7 @@ public:
   : m_fields( message_order(order) ) {}
 
   FieldMap( const FieldMap& copy )
-  : m_fields( copy.m_fields ), m_groups( copy.m_groups ) {}
+  { *this = copy; }
 
   virtual ~FieldMap();
 
