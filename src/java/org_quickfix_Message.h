@@ -9,6 +9,14 @@ extern "C" {
 #endif
 /*
  * Class:     org_quickfix_Message
+ * Method:    InitializeXML
+ * Signature: (Ljava/lang/String;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_InitializeXML
+  (JNIEnv *, jclass, jstring);
+
+/*
+ * Class:     org_quickfix_Message
  * Method:    create
  * Signature: ()V
  */
@@ -22,6 +30,30 @@ JNIEXPORT void JNICALL Java_org_quickfix_Message_create
  */
 JNIEXPORT void JNICALL Java_org_quickfix_Message_destroy
   (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_Message
+ * Method:    toString
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_Message
+ * Method:    toXML
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toXML
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     org_quickfix_Message
+ * Method:    fromString
+ * Signature: (Ljava/lang/String;Z)V
+ */
+JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString
+  (JNIEnv *, jobject, jstring, jboolean);
 
 /*
  * Class:     org_quickfix_Message
@@ -422,22 +454,6 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcTimeOnly0
  */
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcDate0
   (JNIEnv *, jobject, jint);
-
-/*
- * Class:     org_quickfix_Message
- * Method:    toString0
- * Signature: ()Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString0
-  (JNIEnv *, jobject);
-
-/*
- * Class:     org_quickfix_Message
- * Method:    fromString0
- * Signature: (Ljava/lang/String;Z)V
- */
-JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString0
-  (JNIEnv *, jobject, jstring, jboolean);
 
 #ifdef __cplusplus
 }

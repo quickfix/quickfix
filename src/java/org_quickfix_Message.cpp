@@ -66,6 +66,13 @@ FIX::Message* getCPPMessage( jobject obj )
   return ( FIX::Message* ) jobject.getInt( "cppPointer" );
 }
 
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_InitializeXML
+( JNIEnv *pEnv, jclass type, jstring url )
+{
+  JVM::set( pEnv );
+  return FIX::Message::InitializeXML(ENV::get() ->GetStringUTFChars( url, 0 ));
+}
+
 JNIEXPORT void JNICALL Java_org_quickfix_Message_create
 ( JNIEnv *pEnv, jobject obj )
 {
@@ -486,7 +493,7 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcDate0
   return getUtcDate( pMessage->getTrailer(), field );
 }
 
-JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString0
+JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
@@ -495,7 +502,16 @@ JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toString0
   return newString( pMessage->getString() );
 }
 
-JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString0
+JNIEXPORT jstring JNICALL Java_org_quickfix_Message_toXML
+( JNIEnv *pEnv, jobject obj )
+{
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  return newString( pMessage->getXML() );
+}
+
+JNIEXPORT void JNICALL Java_org_quickfix_Message_fromString
 ( JNIEnv *pEnv, jobject obj, jstring value, jboolean validate )
 {
   JVM::set( pEnv );

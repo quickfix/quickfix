@@ -83,6 +83,8 @@ public class Message extends FieldMap {
         this.trailer = trailer;
     }
 
+    public native static boolean InitializeXML(String url);
+
     protected void finalize() {
         destroy();
     }
@@ -206,12 +208,10 @@ public class Message extends FieldMap {
         return field;
     }
 
-    public String toString() {
-        return toString0();
-    }
-    private void fromString(String string, boolean validate) throws InvalidMessage {
-        fromString0(string, validate);
-    }
+    public native String toString();
+    public native String toXML();
+    private native void fromString(String string, boolean validate) throws InvalidMessage;
+
     public final Header getHeader() {
         return header;
     }
@@ -495,7 +495,4 @@ public class Message extends FieldMap {
     private native Date getTrailerUtcTimeStamp0(int field) throws FieldNotFound;
     private native Date getTrailerUtcTimeOnly0(int field)  throws FieldNotFound;
     private native Date getTrailerUtcDate0(int field)      throws FieldNotFound;
-
-    private native String toString0();
-    private native void fromString0(String string, boolean validate) throws InvalidMessage;
 }
