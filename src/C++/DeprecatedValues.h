@@ -68,7 +68,7 @@ namespace FIX
   const std::string IOIShares_MEDIUM = "M";
   const std::string IOIShares_LARGE = "L";
   const char OpenClose_OPEN = 'O';
-  const char OpenClose_CLOSE = 'C';  
+  const char OpenClose_CLOSE = 'C';
 }
 
 #endif

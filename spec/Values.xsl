@@ -86,21 +86,21 @@ namespace FIX
   const std::string SessionRejectReason_INVALID_MSGTYPE_TEXT = "Invalid MsgType";
   const std::string SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT = "Tag specified out of required order";
 }
-#endif //FIX_VALUES_H
- </xsl:template>
+#endif //FIX_VALUES_H&#013;
+</xsl:template>
  
- <xsl:template match="fix/fields/field/value">
- <xsl:choose>
-   <xsl:when test="../@type='INT'">
-  const int <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = <xsl:value-of select="@enum"/>;</xsl:when>
-   <xsl:when test="../@type='STRING'">
-  const std::string <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = "<xsl:value-of select="@enum"/>";</xsl:when>
-   <xsl:otherwise>
-  const char <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = '<xsl:value-of select="@enum"/>';</xsl:otherwise>
- </xsl:choose>
- </xsl:template>
+<xsl:template match="fix/fields/field/value">
+<xsl:choose>
+  <xsl:when test="../@type='INT'">
+ const int <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = <xsl:value-of select="@enum"/>;</xsl:when>
+  <xsl:when test="../@type='STRING'">
+ const std::string <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = "<xsl:value-of select="@enum"/>";</xsl:when>
+  <xsl:otherwise>
+ const char <xsl:value-of select="../@name"/>_<xsl:value-of select="@description"/> = '<xsl:value-of select="@enum"/>';</xsl:otherwise>
+</xsl:choose>
+</xsl:template>
  
- <xsl:template match="fix/messages/message">
-  const char MsgType_<xsl:value-of select="@name"/>[] = "<xsl:value-of select="@msgtype"/>";</xsl:template>
+<xsl:template match="fix/messages/message">
+ const char MsgType_<xsl:value-of select="@name"/>[] = "<xsl:value-of select="@msgtype"/>";</xsl:template>
 
 </xsl:stylesheet>

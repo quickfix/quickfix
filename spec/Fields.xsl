@@ -66,15 +66,15 @@ namespace FIX
 {
   <xsl:apply-templates/>
 }
-#endif //FIX_FIELDS_H
- </xsl:template>
+#endif //FIX_FIELDS_H&#013;
+</xsl:template>
 
- <xsl:template match="fields/field[@name='CheckSum']">
-  DEFINE_CHECKSUM(CheckSum);</xsl:template>
+<xsl:template match="fields/field[@name='CheckSum']">
+ DEFINE_CHECKSUM(CheckSum);</xsl:template>
 
- <xsl:template match="fields/field[@name!='CheckSum']">
-  DEFINE_<xsl:value-of select="@type"/>(<xsl:value-of select="@name"/>);<xsl:if test="@name='TotNoOrders'">
-  DEFINE_<xsl:value-of select="@type"/>(ListNoOrds);</xsl:if></xsl:template>
+<xsl:template match="fields/field[@name!='CheckSum']">
+ DEFINE_<xsl:value-of select="@type"/>(<xsl:value-of select="@name"/>);<xsl:if test="@name='TotNoOrders'">
+ DEFINE_<xsl:value-of select="@type"/>(ListNoOrds);</xsl:if></xsl:template>
     
 </xsl:stylesheet>
 

@@ -89,18 +89,16 @@ namespace FIX
   }
 }
 
-#endif //FIX_FIELDNUMBERS_H
- </xsl:template>
-
- <xsl:template match="fields/field[position()=1]">
-      <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
- </xsl:template>
- <xsl:template match="fields/field[position()!=1]">
-      ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
- </xsl:template>
- <xsl:template match="fields/field[@name='TotNoOrders']">
-      ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
-      ,ListNoOrds = <xsl:value-of select="@number"/>
- </xsl:template>
-
+#endif //FIX_FIELDNUMBERS_H&#013;
+</xsl:template>
+<xsl:template match="fields/field[position()=1]">
+     <xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
+</xsl:template>
+<xsl:template match="fields/field[position()!=1]">
+     ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
+</xsl:template>
+<xsl:template match="fields/field[@name='TotNoOrders']">
+     ,<xsl:value-of select="@name"/> = <xsl:value-of select="@number"/>
+     ,ListNoOrds = <xsl:value-of select="@number"/>
+</xsl:template>
 </xsl:stylesheet>

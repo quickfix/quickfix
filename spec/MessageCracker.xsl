@@ -75,8 +75,7 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
   };
 }
 
-#endif //FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
-
+#endif //FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H&#013;
 </xsl:template>
 
 <xsl:template name="virtual-functions">

@@ -54,7 +54,7 @@
 #include "Field.h"
 #include "DeprecatedFieldNumbers.h"
 
-namespace FIX 
+namespace FIX
 {
   DEFINE_STRING(IDSource);
   DEFINE_STRING(IOIShares);

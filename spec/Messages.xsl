@@ -63,8 +63,8 @@
 <xsl:apply-templates/>
 }
 
-#endif //FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGES_H
- </xsl:template>
+#endif //FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGES_H&#013;
+</xsl:template>
 
  <xsl:template match="fix">
 namespace FIX<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
