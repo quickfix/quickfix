@@ -459,6 +459,8 @@ bool Session::send( const std::string string )
 void Session::disconnect()
 { QF_STACK_PUSH(Session::disconnect)
 
+  Locker l(m_mutex);
+
   if ( m_pResponder )
   {
     m_state.onEvent( "Disconnecting" );
