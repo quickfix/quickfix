@@ -446,9 +446,10 @@ TYPE::Type DataDictionary::XMLTypeToType( const std::string& type )
   if ( type == "UTCDATE" ) return TYPE::UtcDate;
   if ( type == "UTCTIMEONLY" ) return TYPE::UtcTimeOnly;
   if ( type == "NUMINGROUP" ) return TYPE::NumInGroup;
-  if ( type == "COUNTRY" ) return TYPE::Country;
   if ( type == "PERCENTAGE" ) return TYPE::Percentage;
+  if ( type == "SEQNUM" ) return TYPE::SeqNum;
   if ( type == "LENGTH" ) return TYPE::Length;
+  if ( type == "COUNTRY" ) return TYPE::Country;
   return TYPE::Unknown;
 }
 }
