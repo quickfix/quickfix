@@ -1,6 +1,7 @@
 package quickfix;
 
 import java.util.Date;
+import java.util.Iterator;
 
 public abstract class FieldMap {
 
@@ -36,6 +37,8 @@ public abstract class FieldMap {
     public abstract UtcTimeStampField getField(UtcTimeStampField field) throws FieldNotFound;
     public abstract UtcTimeOnlyField getField(UtcTimeOnlyField field) throws FieldNotFound;
     public abstract UtcDateField getField(UtcDateField field) throws FieldNotFound;
-	public abstract boolean isSetField(int field);
-	public abstract boolean isSetField(Field field);
+    public abstract boolean isSetField(int field);
+    public abstract boolean isSetField(Field field);
+    public abstract void removeField(int field);
+    public abstract Iterator iterator();
 }

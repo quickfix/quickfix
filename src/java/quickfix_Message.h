@@ -41,6 +41,166 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_clone
 
 /*
  * Class:     quickfix_Message
+ * Method:    addGroup
+ * Signature: (Lquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getGroup
+ * Signature: (ILquickfix/Group;)Lquickfix/Group;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setString
+ * Signature: (ILjava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setString
+  (JNIEnv *, jobject, jint, jstring);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setBoolean
+ * Signature: (IZ)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setBoolean
+  (JNIEnv *, jobject, jint, jboolean);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setChar
+ * Signature: (IC)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setChar
+  (JNIEnv *, jobject, jint, jchar);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setInt
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setInt
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setDouble
+ * Signature: (ID)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setDouble
+  (JNIEnv *, jobject, jint, jdouble);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setUtcTimeStamp
+ * Signature: (ILjava/util/Date;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeStamp
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setUtcTimeOnly
+ * Signature: (ILjava/util/Date;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeOnly
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setUtcDate
+ * Signature: (ILjava/util/Date;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setUtcDate
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getString
+ * Signature: (I)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_Message_getString
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getBoolean
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_getBoolean
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getChar
+ * Signature: (I)C
+ */
+JNIEXPORT jchar JNICALL Java_quickfix_Message_getChar
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getInt
+ * Signature: (I)I
+ */
+JNIEXPORT jint JNICALL Java_quickfix_Message_getInt
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getDouble
+ * Signature: (I)D
+ */
+JNIEXPORT jdouble JNICALL Java_quickfix_Message_getDouble
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getUtcTimeStamp
+ * Signature: (I)Ljava/util/Date;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcTimeStamp
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getUtcTimeOnly
+ * Signature: (I)Ljava/util/Date;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcTimeOnly
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getUtcDate
+ * Signature: (I)Ljava/util/Date;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcDate
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    isSetField
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_isSetField
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    removeField
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_removeField
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
  * Method:    toString
  * Signature: ()Ljava/lang/String;
  */
@@ -73,427 +233,347 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
 
 /*
  * Class:     quickfix_Message
- * Method:    addGroup0
- * Signature: (Lquickfix/Group;)V
+ * Method:    messageIteratorCreate
+ * Signature: (Lquickfix/Message$Iterator;)Lquickfix/Message$Iterator;
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_addGroup0
+JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorCreate
   (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    getGroup0
- * Signature: (ILquickfix/Group;)Lquickfix/Group;
+ * Method:    messageIteratorHasNext
+ * Signature: (Lquickfix/Message$Iterator;)Z
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup0
-  (JNIEnv *, jobject, jint, jobject);
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_messageIteratorHasNext
+  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    setString0
+ * Method:    messageIteratorNext
+ * Signature: (Lquickfix/Message$Iterator;)Ljava/lang/Object;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorNext
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerSetString
  * Signature: (ILjava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setString0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetString
   (JNIEnv *, jobject, jint, jstring);
 
 /*
  * Class:     quickfix_Message
- * Method:    setBoolean0
+ * Method:    headerSetBoolean
  * Signature: (IZ)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setBoolean0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetBoolean
   (JNIEnv *, jobject, jint, jboolean);
 
 /*
  * Class:     quickfix_Message
- * Method:    setChar0
+ * Method:    headerSetChar
  * Signature: (IC)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setChar0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetChar
   (JNIEnv *, jobject, jint, jchar);
 
 /*
  * Class:     quickfix_Message
- * Method:    setInt0
+ * Method:    headerSetInt
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setInt0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetInt
   (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    setDouble0
+ * Method:    headerSetDouble
  * Signature: (ID)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setDouble0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetDouble
   (JNIEnv *, jobject, jint, jdouble);
 
 /*
  * Class:     quickfix_Message
- * Method:    setUtcTimeStamp0
+ * Method:    headerSetUtcTimeStamp
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeStamp0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcTimeStamp
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    setUtcTimeOnly0
+ * Method:    headerSetUtcTimeOnly
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setUtcTimeOnly0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcTimeOnly
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    setUtcDate0
+ * Method:    headerSetUtcDate
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setUtcDate0
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetUtcDate
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    getString0
+ * Method:    headerGetString
  * Signature: (I)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_quickfix_Message_getString0
+JNIEXPORT jstring JNICALL Java_quickfix_Message_headerGetString
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getBoolean0
+ * Method:    headerGetBoolean
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Message_getBoolean0
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerGetBoolean
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getChar0
+ * Method:    headerGetChar
  * Signature: (I)C
  */
-JNIEXPORT jchar JNICALL Java_quickfix_Message_getChar0
+JNIEXPORT jchar JNICALL Java_quickfix_Message_headerGetChar
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getInt0
+ * Method:    headerGetInt
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_quickfix_Message_getInt0
+JNIEXPORT jint JNICALL Java_quickfix_Message_headerGetInt
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getDouble0
+ * Method:    headerGetDouble
  * Signature: (I)D
  */
-JNIEXPORT jdouble JNICALL Java_quickfix_Message_getDouble0
+JNIEXPORT jdouble JNICALL Java_quickfix_Message_headerGetDouble
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getUtcTimeStamp0
+ * Method:    headerGetUtcTimeStamp
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcTimeStamp0
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcTimeStamp
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getUtcTimeOnly0
+ * Method:    headerGetUtcTimeOnly
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcTimeOnly0
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcTimeOnly
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getUtcDate0
+ * Method:    headerGetUtcDate
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getUtcDate0
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetUtcDate
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    isSetField0
+ * Method:    headerIsSetField
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Message_isSetField0
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIsSetField
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderString0
+ * Method:    headerRemoveField
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveField
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerIteratorHasNext
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerIteratorNext
+ * Signature: ()Ljava/lang/Object;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerSetString
  * Signature: (ILjava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderString0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetString
   (JNIEnv *, jobject, jint, jstring);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderBoolean0
+ * Method:    trailerSetBoolean
  * Signature: (IZ)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderBoolean0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetBoolean
   (JNIEnv *, jobject, jint, jboolean);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderChar0
+ * Method:    trailerSetChar
  * Signature: (IC)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderChar0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetChar
   (JNIEnv *, jobject, jint, jchar);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderInt0
+ * Method:    trailerSetInt
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderInt0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetInt
   (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderDouble0
+ * Method:    trailerSetDouble
  * Signature: (ID)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderDouble0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetDouble
   (JNIEnv *, jobject, jint, jdouble);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderUtcTimeStamp0
+ * Method:    trailerSetUtcTimeStamp
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderUtcTimeStamp0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcTimeStamp
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderUtcTimeOnly0
+ * Method:    trailerSetUtcTimeOnly
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderUtcTimeOnly0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcTimeOnly
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    setHeaderUtcDate0
+ * Method:    trailerSetUtcDate
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setHeaderUtcDate0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetUtcDate
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderString0
+ * Method:    trailerGetString
  * Signature: (I)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_quickfix_Message_getHeaderString0
+JNIEXPORT jstring JNICALL Java_quickfix_Message_trailerGetString
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderBoolean0
+ * Method:    trailerGetBoolean
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Message_getHeaderBoolean0
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerGetBoolean
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderChar0
+ * Method:    trailerGetChar
  * Signature: (I)C
  */
-JNIEXPORT jchar JNICALL Java_quickfix_Message_getHeaderChar0
+JNIEXPORT jchar JNICALL Java_quickfix_Message_trailerGetChar
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderInt0
+ * Method:    trailerGetInt
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_quickfix_Message_getHeaderInt0
+JNIEXPORT jint JNICALL Java_quickfix_Message_trailerGetInt
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderDouble0
+ * Method:    trailerGetDouble
  * Signature: (I)D
  */
-JNIEXPORT jdouble JNICALL Java_quickfix_Message_getHeaderDouble0
+JNIEXPORT jdouble JNICALL Java_quickfix_Message_trailerGetDouble
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderUtcTimeStamp0
+ * Method:    trailerGetUtcTimeStamp
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getHeaderUtcTimeStamp0
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcTimeStamp
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderUtcTimeOnly0
+ * Method:    trailerGetUtcTimeOnly
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getHeaderUtcTimeOnly0
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcTimeOnly
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getHeaderUtcDate0
+ * Method:    trailerGetUtcDate
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getHeaderUtcDate0
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetUtcDate
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    isSetHeaderField0
+ * Method:    trailerIsSetField
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Message_isSetHeaderField0
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIsSetField
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    setTrailerString0
- * Signature: (ILjava/lang/String;)V
+ * Method:    trailerRemoveField
+ * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerString0
-  (JNIEnv *, jobject, jint, jstring);
-
-/*
- * Class:     quickfix_Message
- * Method:    setTrailerBoolean0
- * Signature: (IZ)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerBoolean0
-  (JNIEnv *, jobject, jint, jboolean);
-
-/*
- * Class:     quickfix_Message
- * Method:    setTrailerChar0
- * Signature: (IC)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerChar0
-  (JNIEnv *, jobject, jint, jchar);
-
-/*
- * Class:     quickfix_Message
- * Method:    setTrailerInt0
- * Signature: (II)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerInt0
-  (JNIEnv *, jobject, jint, jint);
-
-/*
- * Class:     quickfix_Message
- * Method:    setTrailerDouble0
- * Signature: (ID)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerDouble0
-  (JNIEnv *, jobject, jint, jdouble);
-
-/*
- * Class:     quickfix_Message
- * Method:    setTrailerUtcTimeStamp0
- * Signature: (ILjava/util/Date;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerUtcTimeStamp0
-  (JNIEnv *, jobject, jint, jobject);
-
-/*
- * Class:     quickfix_Message
- * Method:    setTrailerUtcTimeOnly0
- * Signature: (ILjava/util/Date;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerUtcTimeOnly0
-  (JNIEnv *, jobject, jint, jobject);
-
-/*
- * Class:     quickfix_Message
- * Method:    setTrailerUtcDate0
- * Signature: (ILjava/util/Date;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_setTrailerUtcDate0
-  (JNIEnv *, jobject, jint, jobject);
-
-/*
- * Class:     quickfix_Message
- * Method:    getTrailerString0
- * Signature: (I)Ljava/lang/String;
- */
-JNIEXPORT jstring JNICALL Java_quickfix_Message_getTrailerString0
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveField
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Message
- * Method:    getTrailerBoolean0
- * Signature: (I)Z
+ * Method:    trailerIteratorHasNext
+ * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Message_getTrailerBoolean0
-  (JNIEnv *, jobject, jint);
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
+  (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_Message
- * Method:    getTrailerChar0
- * Signature: (I)C
+ * Method:    trailerIteratorNext
+ * Signature: ()Ljava/lang/Object;
  */
-JNIEXPORT jchar JNICALL Java_quickfix_Message_getTrailerChar0
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_Message
- * Method:    getTrailerInt0
- * Signature: (I)I
- */
-JNIEXPORT jint JNICALL Java_quickfix_Message_getTrailerInt0
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_Message
- * Method:    getTrailerDouble0
- * Signature: (I)D
- */
-JNIEXPORT jdouble JNICALL Java_quickfix_Message_getTrailerDouble0
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_Message
- * Method:    getTrailerUtcTimeStamp0
- * Signature: (I)Ljava/util/Date;
- */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getTrailerUtcTimeStamp0
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_Message
- * Method:    getTrailerUtcTimeOnly0
- * Signature: (I)Ljava/util/Date;
- */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getTrailerUtcTimeOnly0
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_Message
- * Method:    getTrailerUtcDate0
- * Signature: (I)Ljava/util/Date;
- */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getTrailerUtcDate0
-  (JNIEnv *, jobject, jint);
-
-/*
- * Class:     quickfix_Message
- * Method:    isSetTrailerField0
- * Signature: (I)Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_Message_isSetTrailerField0
-  (JNIEnv *, jobject, jint);
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorNext
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }

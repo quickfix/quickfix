@@ -22,10 +22,10 @@ public class OrderTest extends TestCase {
     class QuickFixThread extends Thread {
 
         public void run() {
-	    try {
-		initiator.start();
-	    } catch( Exception e ) {
-	    }
+            try {
+                initiator.start();
+            } catch( Exception e ) {
+            }
         }
     }
 
@@ -54,7 +54,7 @@ public class OrderTest extends TestCase {
 
         quickFixThread = new QuickFixThread();
         server = Runtime.getRuntime().exec
-            ("..\\..\\bin\\at_server_debug -f cfg\\at_server.cfg", null);
+            ("../../bin/at -f cfg/at_server.cfg", null);
         quickFixThread.start();
 
         for(int i = 0;i < 50;++i) {

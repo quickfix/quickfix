@@ -71,17 +71,21 @@ public class Message extends FieldMap {
     }
 
     public Message(String string, DataDictionary dd) throws InvalidMessage {
-	    initFromString(string, dd);
+            initFromString(string, dd);
     }
 
-    private void initFromString(String string, boolean validate) throws InvalidMessage {
+    private void initFromString(String string, boolean validate) 
+        throws InvalidMessage {
+
         create();
         header = new Header();
         trailer = new Trailer();
         fromString(string, validate);
     }
 
-    private void initFromString(String string, DataDictionary dd) throws InvalidMessage {
+    private void initFromString(String string, DataDictionary dd) 
+        throws InvalidMessage {
+        
         create();
         header = new Header();
         trailer = new Trailer();
@@ -105,87 +109,50 @@ public class Message extends FieldMap {
 
     public native Object clone();
 
-    public void addGroup(Group group) {
-        addGroup0(group);
-    }
+    public native void addGroup(Group group);
+    public native Group getGroup(int num, Group group) throws FieldNotFound;
 
-    public Group getGroup(int num, Group group) throws FieldNotFound {
-        return getGroup0(num, group);
-    }
+    public native void setString(int field, String value);
+    public native void setBoolean(int field, boolean value);
+    public native void setChar(int field, char value);
+    public native void setInt(int field, int value);
+    public native void setDouble(int field, double value);
+    public native void setUtcTimeStamp(int field, Date value);
+    public native void setUtcTimeOnly(int field, Date value);
+    public native void setUtcDate(int field, Date value);
 
-    public void setString(int field, String value) {
-        setString0(field, value);
-    }
-    public void setBoolean(int field, boolean value) {
-        setBoolean0(field, value);
-    }
-    public void setChar(int field, char value) {
-        setChar0(field, value);
-    }
-    public void setInt(int field, int value) {
-        setInt0(field, value);
-    }
-    public void setDouble(int field, double value) {
-        setDouble0(field, value);
-    }
-    public void setUtcTimeStamp(int field, Date value) {
-        setUtcTimeStamp0(field, value);
-    }
-    public void setUtcTimeOnly(int field, Date value) {
-        setUtcTimeOnly0(field, value);
-    }
-    public void setUtcDate(int field, Date value) {
-        setUtcDate0(field, value);
-    }
-
-    public String getString(int field) throws FieldNotFound {
-        return getString0(field);
-    }
-    public boolean getBoolean(int field) throws FieldNotFound {
-        return getBoolean0(field);
-    }
-    public char getChar(int field) throws FieldNotFound {
-        return getChar0(field);
-    }
-    public int getInt(int field) throws FieldNotFound {
-        return getInt0(field);
-    }
-    public double getDouble(int field) throws FieldNotFound {
-        return getDouble0(field);
-    }
-    public Date getUtcTimeStamp(int field) throws FieldNotFound {
-        return getUtcTimeStamp0(field);
-    }
-    public Date getUtcTimeOnly(int field) throws FieldNotFound {
-        return getUtcTimeOnly0(field);
-    }
-    public Date getUtcDate(int field) throws FieldNotFound {
-        return getUtcDate0(field);
-    }
+    public native String getString(int field) throws FieldNotFound;
+    public native boolean getBoolean(int field) throws FieldNotFound;
+    public native char getChar(int field) throws FieldNotFound;
+    public native int getInt(int field) throws FieldNotFound;
+    public native double getDouble(int field) throws FieldNotFound;
+    public native Date getUtcTimeStamp(int field) throws FieldNotFound;
+    public native Date getUtcTimeOnly(int field) throws FieldNotFound;
+    public native Date getUtcDate(int field) throws FieldNotFound;
 
     public void setField(StringField field) {
-        setString(field.getField(), field.getValue());
+        setString( field.getField(), field.getValue() );
     }
     public void setField(BooleanField field) {
-        setBoolean(field.getField(), field.getValue());
+        setBoolean( field.getField(), field.getValue() );
     }
     public void setField(CharField field) {
-        setChar(field.getField(), field.getValue());
+        setChar( field.getField(), field.getValue() );
     }
     public void setField(IntField field) {
-        setInt(field.getField(), field.getValue());
+        setInt( field.getField(), field.getValue() );
     }
     public void setField(DoubleField field) {
-        setDouble(field.getField(), field.getValue());
+        setDouble( field.getField(), field.getValue() );
     }
     public void setField(UtcTimeStampField field) {
-        setUtcTimeStamp(field.getField(), field.getValue());
+        setUtcTimeStamp( field.getField(), field.getValue() );
     }
     public void setField(UtcTimeOnlyField field) {
-        setUtcTimeOnly(field.getField(), field.getValue());
+        setUtcTimeOnly( field.getField(), field.getValue() );
     }
     public void setField(UtcDateField field) {
-        setUtcDate(field.getField(), field.getValue());
+        setUtcDate( field.getField(), field.getValue() );
     }
 
     public StringField getField(StringField field) throws FieldNotFound {
@@ -221,13 +188,16 @@ public class Message extends FieldMap {
         return field;
     }
 
-    public boolean isSetField(int field) {
-		return isSetField0(field);
-	}
-	public boolean isSetField(Field field) {
-		return isSetField0(field.getField());
-	}
+    public native boolean isSetField(int field);
+    public boolean isSetField(Field field) {
+        return isSetField( field.getField() );
+    }
+    public native void removeField(int field);
 
+    public java.util.Iterator iterator() {
+        return new Iterator( this );
+    }
+    
     public native String toString();
     public native String toXML();
     private native void fromString(String string, boolean validate) throws InvalidMessage;
@@ -240,300 +210,365 @@ public class Message extends FieldMap {
         return trailer;
     }
 
+    public class Iterator implements java.util.Iterator {
+        private Message message;
+        private int cppPointer;
+
+        public Iterator( Message aMessage ) {
+            message = aMessage;
+            messageIteratorCreate( this );
+        }
+
+        public boolean hasNext() {
+            return messageIteratorHasNext( this );
+        }
+
+        public Object next() {
+            return messageIteratorNext( this );
+        }
+
+        public void remove() {
+            throw new java.lang.UnsupportedOperationException();
+        }
+    }
+    
     public class Header extends FieldMap {
+
+        public class Iterator implements java.util.Iterator {
+            private Header header;
+            private int cppPointer;
+            
+            public Iterator( Header aHeader ) {
+                header = aHeader;
+            }
+            
+            public boolean hasNext() {
+                return headerIteratorHasNext();
+            }
+            
+            public Object next() {
+                return headerIteratorNext();
+            }
+            
+            public void remove() {}
+        }
+
         public void setString(int field, String value) {
-            setHeaderString0(field, value);
+            headerSetString( field, value );
         }
         public void setBoolean(int field, boolean value) {
-            setHeaderBoolean0(field, value);
+            headerSetBoolean( field, value );
         }
         public void setChar(int field, char value) {
-            setHeaderChar0(field, value);
+            headerSetChar( field, value );
         }
         public void setInt(int field, int value) {
-            setHeaderInt0(field, value);
+            headerSetInt( field, value );
         }
         public void setDouble(int field, double value) {
-            setHeaderDouble0(field, value);
+            headerSetDouble( field, value );
         }
         public void setUtcTimeStamp(int field, Date value) {
-            setHeaderUtcTimeStamp0(field, value);
+            headerSetUtcTimeStamp( field, value );
         }
         public void setUtcTimeOnly(int field, Date value) {
-            setHeaderUtcTimeOnly0(field, value);
+            headerSetUtcTimeOnly( field, value );
         }
         public void setUtcDate(int field, Date value) {
-            setHeaderUtcDate0(field, value);
+            headerSetUtcDate( field, value );
         }
 
         public String getString(int field) throws FieldNotFound {
-            return getHeaderString0(field);
+            return headerGetString( field );
         }
         public boolean getBoolean(int field) throws FieldNotFound {
-            return getHeaderBoolean0(field);
+            return headerGetBoolean( field );
         }
         public char getChar(int field) throws FieldNotFound {
-            return getHeaderChar0(field);
+            return headerGetChar( field );
         }
         public int getInt(int field) throws FieldNotFound {
-            return getHeaderInt0(field);
+            return headerGetInt( field );
         }
         public double getDouble(int field) throws FieldNotFound {
-            return getHeaderDouble0(field);
+            return headerGetDouble( field );
         }
         public Date getUtcTimeStamp(int field) throws FieldNotFound {
-            return getHeaderUtcTimeStamp0(field);
+            return headerGetUtcTimeStamp( field );
         }
         public Date getUtcTimeOnly(int field) throws FieldNotFound {
-            return getHeaderUtcTimeOnly0(field);
+            return headerGetUtcTimeOnly( field );
         }
         public Date getUtcDate(int field) throws FieldNotFound {
-            return getHeaderUtcDate0(field);
+            return headerGetUtcDate( field );
         }
 
         public void setField(StringField field) {
-            setHeaderString0(field.getField(), field.getValue());
+            headerSetString( field.getField(), field.getValue() );
         }
         public void setField(BooleanField field) {
-            setHeaderBoolean0(field.getField(), field.getValue());
+            headerSetBoolean( field.getField(), field.getValue() );
         }
         public void setField(CharField field) {
-            setHeaderChar0(field.getField(), field.getValue());
+            headerSetChar( field.getField(), field.getValue() );
         }
         public void setField(IntField field) {
-            setHeaderInt0(field.getField(), field.getValue());
+            headerSetInt( field.getField(), field.getValue() );
         }
         public void setField(DoubleField field) {
-            setHeaderDouble0(field.getField(), field.getValue());
+            headerSetDouble( field.getField(), field.getValue() );
         }
         public void setField(UtcTimeStampField field) {
-            setHeaderUtcTimeStamp0(field.getField(), field.getValue());
+            headerSetUtcTimeStamp( field.getField(), field.getValue() );
         }
         public void setField(UtcTimeOnlyField field) {
-            setHeaderUtcTimeOnly0(field.getField(), field.getValue());
+            headerSetUtcTimeOnly( field.getField(), field.getValue() );
         }
         public void setField(UtcDateField field) {
-            setHeaderUtcDate0(field.getField(), field.getValue());
+            headerSetUtcDate( field.getField(), field.getValue() );
         }
 
         public StringField getField(StringField field) throws FieldNotFound {
-            field.setValue(getHeaderString0(field.getField()));
+            field.setValue(getString(field.getField()));
             return field;
         }
         public BooleanField getField(BooleanField field) throws FieldNotFound {
-            field.setValue(getHeaderBoolean0(field.getField()));
+            field.setValue(getBoolean(field.getField()));
             return field;
         }
         public CharField getField(CharField field) throws FieldNotFound {
-            field.setValue(getHeaderChar0(field.getField()));
+            field.setValue(getChar(field.getField()));
             return field;
         }
         public IntField getField(IntField field) throws FieldNotFound {
-            field.setValue(getHeaderInt0(field.getField()));
+            field.setValue(getInt(field.getField()));
             return field;
         }
         public DoubleField getField(DoubleField field) throws FieldNotFound {
-            field.setValue(getHeaderDouble0(field.getField()));
+            field.setValue(getDouble(field.getField()));
             return field;
         }
         public UtcTimeStampField getField(UtcTimeStampField field) throws FieldNotFound {
-            field.setValue(getHeaderUtcTimeStamp0(field.getField()));
+            field.setValue(getUtcTimeStamp(field.getField()));
             return field;
         }
         public UtcTimeOnlyField getField(UtcTimeOnlyField field) throws FieldNotFound {
-            field.setValue(getHeaderUtcTimeOnly0(field.getField()));
+            field.setValue(getUtcTimeOnly(field.getField()));
             return field;
         }
         public UtcDateField getField(UtcDateField field) throws FieldNotFound {
-            field.setValue(getHeaderUtcDate0(field.getField()));
+            field.setValue(getUtcDate(field.getField()));
             return field;
         }
 
         public boolean isSetField(int field) {
-			return isSetHeaderField0(field);
-		}
-		public boolean isSetField(Field field) {
-			return isSetHeaderField0(field.getField());
-		}
+            return headerIsSetField( field );
+        }
+        public boolean isSetField(Field field) {
+            return headerIsSetField( field.getField() );
+        }
+        public void removeField(int field) {
+            headerRemoveField( field );
+        }
+
+        public java.util.Iterator iterator() {
+            return new Iterator( this );
+        }
     }
 
     public class Trailer extends FieldMap {
+
+        public class Iterator implements java.util.Iterator {
+            private Trailer trailer;
+            private int cppPointer;
+            
+            public Iterator( Trailer aTrailer ) {
+                trailer = aTrailer;
+            }
+            
+            public boolean hasNext() {
+                return trailerIteratorHasNext();
+            }
+            
+            public Object next() {
+                return trailerIteratorNext();
+            }
+            
+            public void remove() {}
+        }
+
         public void setString(int field, String value) {
-            setTrailerString0(field, value);
+            trailerSetString( field, value );
         }
         public void setBoolean(int field, boolean value) {
-            setTrailerBoolean0(field, value);
+            trailerSetBoolean( field, value );
         }
         public void setChar(int field, char value) {
-            setTrailerChar0(field, value);
+            trailerSetChar( field, value );
         }
         public void setInt(int field, int value) {
-            setTrailerInt0(field, value);
+            trailerSetInt( field, value );
         }
         public void setDouble(int field, double value) {
-            setTrailerDouble0(field, value);
+            trailerSetDouble( field, value );
         }
         public void setUtcTimeStamp(int field, Date value) {
-            setTrailerUtcTimeStamp0(field, value);
+            trailerSetUtcTimeStamp( field, value );
         }
         public void setUtcTimeOnly(int field, Date value) {
-            setTrailerUtcTimeOnly0(field, value);
+            trailerSetUtcTimeOnly( field, value );
         }
         public void setUtcDate(int field, Date value) {
-            setTrailerUtcDate0(field, value);
+            trailerSetUtcDate( field, value );
         }
 
         public String getString(int field) throws FieldNotFound {
-            return getTrailerString0(field);
+            return trailerGetString( field );
         }
         public boolean getBoolean(int field) throws FieldNotFound {
-            return getTrailerBoolean0(field);
+            return trailerGetBoolean( field );
         }
         public char getChar(int field) throws FieldNotFound {
-            return getTrailerChar0(field);
+            return trailerGetChar( field );
         }
         public int getInt(int field) throws FieldNotFound {
-            return getTrailerInt0(field);
+            return trailerGetInt( field );
         }
         public double getDouble(int field) throws FieldNotFound {
-            return getTrailerDouble0(field);
+            return trailerGetDouble( field );
         }
         public Date getUtcTimeStamp(int field) throws FieldNotFound {
-            return getTrailerUtcTimeStamp0(field);
+            return trailerGetUtcTimeStamp( field );
         }
         public Date getUtcTimeOnly(int field) throws FieldNotFound {
-            return getTrailerUtcTimeOnly0(field);
+            return trailerGetUtcTimeOnly( field );
         }
         public Date getUtcDate(int field) throws FieldNotFound {
-            return getTrailerUtcDate0(field);
+            return trailerGetUtcDate( field );
         }
 
         public void setField(StringField field) {
-            setTrailerString0(field.getField(), field.getValue());
+            trailerSetString( field.getField(), field.getValue() );
         }
         public void setField(BooleanField field) {
-            setTrailerBoolean0(field.getField(), field.getValue());
+            trailerSetBoolean( field.getField(), field.getValue() );
         }
         public void setField(CharField field) {
-            setTrailerChar0(field.getField(), field.getValue());
+            trailerSetChar( field.getField(), field.getValue() );
         }
         public void setField(IntField field) {
-            setTrailerInt0(field.getField(), field.getValue());
+            trailerSetInt( field.getField(), field.getValue() );
         }
         public void setField(DoubleField field) {
-            setTrailerDouble0(field.getField(), field.getValue());
+            trailerSetDouble( field.getField(), field.getValue() );
         }
         public void setField(UtcTimeStampField field) {
-            setTrailerUtcTimeStamp0(field.getField(), field.getValue());
+            trailerSetUtcTimeStamp( field.getField(), field.getValue() );
         }
         public void setField(UtcTimeOnlyField field) {
-            setTrailerUtcTimeOnly0(field.getField(), field.getValue());
+            trailerSetUtcTimeOnly( field.getField(), field.getValue() );
         }
         public void setField(UtcDateField field) {
-            setTrailerUtcDate0(field.getField(), field.getValue());
+            trailerSetUtcDate( field.getField(), field.getValue() );
         }
 
         public StringField getField(StringField field) throws FieldNotFound {
-            field.setValue(getTrailerString0(field.getField()));
+            field.setValue(getString(field.getField()));
             return field;
         }
         public BooleanField getField(BooleanField field) throws FieldNotFound {
-            field.setValue(getTrailerBoolean0(field.getField()));
+            field.setValue(getBoolean(field.getField()));
             return field;
         }
         public CharField getField(CharField field) throws FieldNotFound {
-            field.setValue(getTrailerChar0(field.getField()));
+            field.setValue(getChar(field.getField()));
             return field;
         }
         public IntField getField(IntField field) throws FieldNotFound {
-            field.setValue(getTrailerInt0(field.getField()));
+            field.setValue(getInt(field.getField()));
             return field;
         }
         public DoubleField getField(DoubleField field) throws FieldNotFound {
-            field.setValue(getTrailerDouble0(field.getField()));
+            field.setValue(getDouble(field.getField()));
             return field;
         }
         public UtcTimeStampField getField(UtcTimeStampField field) throws FieldNotFound {
-            field.setValue(getTrailerUtcTimeStamp0(field.getField()));
+            field.setValue(getUtcTimeStamp(field.getField()));
             return field;
         }
         public UtcTimeOnlyField getField(UtcTimeOnlyField field) throws FieldNotFound {
-            field.setValue(getTrailerUtcTimeOnly0(field.getField()));
+            field.setValue(getUtcTimeOnly(field.getField()));
             return field;
         }
         public UtcDateField getField(UtcDateField field) throws FieldNotFound {
-            field.setValue(getTrailerUtcDate0(field.getField()));
+            field.setValue(getUtcDate(field.getField()));
             return field;
         }
 
         public boolean isSetField(int field) {
-			return isSetTrailerField0(field);
-		}
-		public boolean isSetField(Field field) {
-			return isSetTrailerField0(field.getField());
-		}
+            return trailerIsSetField( field );
+        }
+        public boolean isSetField(Field field) {
+            return trailerIsSetField( field.getField() );
+        }
+        public void removeField(int field) {
+            trailerRemoveField( field );
+        }
+
+        public java.util.Iterator iterator() {
+            return new Iterator( this );
+        }
     }
 
-    private native void addGroup0(Group group);
-    private native Group getGroup0(int num, Group group) throws FieldNotFound;
+    private native Iterator messageIteratorCreate( Iterator i );
+    private native boolean messageIteratorHasNext( Iterator i );
+    private native Object messageIteratorNext( Iterator i );
 
-    private native void setString0(int field, String value);
-    private native void setBoolean0(int field, boolean value);
-    private native void setChar0(int field, char value);
-    private native void setInt0(int field, int value);
-    private native void setDouble0(int field, double value);
-    private native void setUtcTimeStamp0(int field, Date value);
-    private native void setUtcTimeOnly0(int field, Date value);
-    private native void setUtcDate0(int field, Date value);
+    private native void headerSetString(int field, String value);
+    private native void headerSetBoolean(int field, boolean value);
+    private native void headerSetChar(int field, char value);
+    private native void headerSetInt(int field, int value);
+    private native void headerSetDouble(int field, double value);
+    private native void headerSetUtcTimeStamp(int field, Date value);
+    private native void headerSetUtcTimeOnly(int field, Date value);
+    private native void headerSetUtcDate(int field, Date value);
+    
+    private native String headerGetString(int field) throws FieldNotFound;
+    private native boolean headerGetBoolean(int field) throws FieldNotFound;
+    private native char headerGetChar(int field) throws FieldNotFound;
+    private native int headerGetInt(int field) throws FieldNotFound;
+    private native double headerGetDouble(int field) throws FieldNotFound;
+    private native Date headerGetUtcTimeStamp(int field) throws FieldNotFound;
+    private native Date headerGetUtcTimeOnly(int field) throws FieldNotFound;
+    private native Date headerGetUtcDate(int field) throws FieldNotFound;
 
-    private native String getString0(int field)     throws FieldNotFound;
-    private native boolean getBoolean0(int field)   throws FieldNotFound;
-    private native char getChar0(int field)         throws FieldNotFound;
-    private native int getInt0(int field)           throws FieldNotFound;
-    private native double getDouble0(int field)     throws FieldNotFound;
-    private native Date getUtcTimeStamp0(int field) throws FieldNotFound;
-    private native Date getUtcTimeOnly0(int field)  throws FieldNotFound;
-    private native Date getUtcDate0(int field)      throws FieldNotFound;
+    private native boolean headerIsSetField(int field);
+    private native void headerRemoveField(int field);
 
-    private native boolean isSetField0(int field);
+    private native boolean headerIteratorHasNext();
+    private native Object headerIteratorNext();
 
-    private native void setHeaderString0(int field, String value);
-    private native void setHeaderBoolean0(int field, boolean value);
-    private native void setHeaderChar0(int field, char value);
-    private native void setHeaderInt0(int field, int value);
-    private native void setHeaderDouble0(int field, double value);
-    private native void setHeaderUtcTimeStamp0(int field, Date value);
-    private native void setHeaderUtcTimeOnly0(int field, Date value);
-    private native void setHeaderUtcDate0(int field, Date value);
+    private native void trailerSetString(int field, String value);
+    private native void trailerSetBoolean(int field, boolean value);
+    private native void trailerSetChar(int field, char value);
+    private native void trailerSetInt(int field, int value);
+    private native void trailerSetDouble(int field, double value);
+    private native void trailerSetUtcTimeStamp(int field, Date value);
+    private native void trailerSetUtcTimeOnly(int field, Date value);
+    private native void trailerSetUtcDate(int field, Date value);
+    
+    private native String trailerGetString(int field) throws FieldNotFound;
+    private native boolean trailerGetBoolean(int field) throws FieldNotFound;
+    private native char trailerGetChar(int field) throws FieldNotFound;
+    private native int trailerGetInt(int field) throws FieldNotFound;
+    private native double trailerGetDouble(int field) throws FieldNotFound;
+    private native Date trailerGetUtcTimeStamp(int field) throws FieldNotFound;
+    private native Date trailerGetUtcTimeOnly(int field) throws FieldNotFound;
+    private native Date trailerGetUtcDate(int field) throws FieldNotFound;
 
-    private native String getHeaderString0(int field)     throws FieldNotFound;
-    private native boolean getHeaderBoolean0(int field)   throws FieldNotFound;
-    private native char getHeaderChar0(int field)         throws FieldNotFound;
-    private native int getHeaderInt0(int field)           throws FieldNotFound;
-    private native double getHeaderDouble0(int field)     throws FieldNotFound;
-    private native Date getHeaderUtcTimeStamp0(int field) throws FieldNotFound;
-    private native Date getHeaderUtcTimeOnly0(int field)  throws FieldNotFound;
-    private native Date getHeaderUtcDate0(int field)      throws FieldNotFound;
+    private native boolean trailerIsSetField(int field);
+    private native void trailerRemoveField(int field);
 
-    private native boolean isSetHeaderField0(int field);
-
-    private native void setTrailerString0(int field, String value);
-    private native void setTrailerBoolean0(int field, boolean value);
-    private native void setTrailerChar0(int field, char value);
-    private native void setTrailerInt0(int field, int value);
-    private native void setTrailerDouble0(int field, double value);
-    private native void setTrailerUtcTimeStamp0(int field, Date value);
-    private native void setTrailerUtcTimeOnly0(int field, Date value);
-    private native void setTrailerUtcDate0(int field, Date value);
-
-    private native String getTrailerString0(int field)     throws FieldNotFound;
-    private native boolean getTrailerBoolean0(int field)   throws FieldNotFound;
-    private native char getTrailerChar0(int field)         throws FieldNotFound;
-    private native int getTrailerInt0(int field)           throws FieldNotFound;
-    private native double getTrailerDouble0(int field)     throws FieldNotFound;
-    private native Date getTrailerUtcTimeStamp0(int field) throws FieldNotFound;
-    private native Date getTrailerUtcTimeOnly0(int field)  throws FieldNotFound;
-    private native Date getTrailerUtcDate0(int field)      throws FieldNotFound;
-
-    private native boolean isSetTrailerField0(int field);
+    private native boolean trailerIteratorHasNext();
+    private native Object trailerIteratorNext();
 }
