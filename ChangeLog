@@ -1,3 +1,11 @@
+2004-11-18 16:45  orenmnero
+
+	* src/C++/: strptime.c, strptime.h: [no log message]
+
+2004-11-18 04:38  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-16 02:41  orenmnero
 
 	* NEWS: [no log message]

@@ -9,6 +9,9 @@ the java API, the memory is allocated in the ant script.
 
 Added mutex locker to Session::unregisterSession
 
+Added strptime implementation from PowerDog for Visual Studio. MySQL code will
+build under windows now.
+
 1.9.3
 -----
 .NET crashes do to random NullPointerExceptions has been fixed.  The
