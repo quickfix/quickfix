@@ -65,10 +65,16 @@ public:
   SessionID( const BeginString& beginString,
              const SenderCompID& senderCompID,
              const TargetCompID& targetCompID )
-: m_beginString( beginString ),
-  m_senderCompID( senderCompID ),
-  m_targetCompID( targetCompID )
-  {}
+  : m_beginString( beginString ),
+    m_senderCompID( senderCompID ),
+    m_targetCompID( targetCompID ) {}
+
+  SessionID( const std::string& beginString,
+             const std::string& senderCompID,
+             const std::string& targetCompID )
+  : m_beginString( BeginString(beginString) ),
+    m_senderCompID( SenderCompID(senderCompID) ),
+    m_targetCompID( TargetCompID(targetCompID) ) {}
 
   const BeginString& getBeginString() const { return m_beginString; }
   const SenderCompID& getSenderCompID() const { return m_senderCompID; }
