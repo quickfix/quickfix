@@ -108,8 +108,10 @@ void process_sleep( double s );
 
 #ifdef _MSC_VER
 void file_mkdir( const char* path, int mode );
+static const char* EOL = "\r\n";
 #else
 void file_mkdir( const char* path, mode_t mode );
+static const char* EOL = "\n";
 #endif
 
 void file_unlink( const char* path );

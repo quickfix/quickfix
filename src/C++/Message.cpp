@@ -54,6 +54,7 @@
 #endif
 
 #include "Message.h"
+#include "Utility.h"
 #include <iomanip>
 
 namespace FIX
@@ -112,16 +113,16 @@ std::string Message::getString() const
 std::string Message::getXML() const
 {
   std::stringstream stream;
-  stream << "<message>"                         << "\n"
-         << std::setw(2) << " " << "<header>"   << "\n"  
+  stream << "<message>"                         << EOL
+         << std::setw(2) << " " << "<header>"   << EOL  
          << getXMLFields(getHeader(), 4)
-         << std::setw(2) << " " << "</header>"  << "\n"
-         << std::setw(2) << " " << "<body>"     << "\n"
+         << std::setw(2) << " " << "</header>"  << EOL
+         << std::setw(2) << " " << "<body>"     << EOL
          << getXMLFields(*this, 4)
-         << std::setw(2) << " " << "</body>"    << "\n"
-         << std::setw(2) << " " << "<trailer>"  << "\n"
+         << std::setw(2) << " " << "</body>"    << EOL
+         << std::setw(2) << " " << "<trailer>"  << EOL
          << getXMLFields(getTrailer(), 4)
-         << std::setw(2) << " " << "</trailer>" << "\n"
+         << std::setw(2) << " " << "</trailer>" << EOL
          << "</message>";
 
   return stream.str();
@@ -143,7 +144,7 @@ std::string Message::getXMLFields(const FieldMap& fields, int space) const
     stream << "number=\"" << field << "\" value=\"" << value << "\"";
     if(s_dataDictionary.get() && s_dataDictionary->getValueName(field, value, name))
       stream << " enum=\"" << name << "\"";
-    stream << "/>\n";
+	stream << "/>" << EOL;
   }
 
   FieldMap::g_iterator j;
@@ -152,9 +153,9 @@ std::string Message::getXMLFields(const FieldMap& fields, int space) const
     std::vector<FieldMap*>::const_iterator k;
     for(k = j->second.begin(); k != j->second.end(); ++k)
     {
-      stream << std::setw(space) << " " << "<group>\n"
+		stream << std::setw(space) << " " << "<group>" << EOL
              << getXMLFields(*(*k), space+2)
-             << std::setw(space) << " " << "</group>\n";
+			 << std::setw(space) << " " << "</group>" << EOL;
     }
   }
 
