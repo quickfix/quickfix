@@ -80,7 +80,7 @@ int main( int argc, char** argv )
     << " -c count" << std::endl;
     return 1;
   }
-  count = atol( optarg );
+  count = std::atol( optarg );
 
   std::cout << "Converting integers to strings: ";
   report( testIntegerToString( count ), count );

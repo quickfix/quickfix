@@ -138,7 +138,7 @@ private:
   {
     if ( !m_checkLatency ) return true;
     UtcTimeStamp now;
-    return abs( now - sendingTime ) <= m_maxLatency;
+    return std::labs( now - sendingTime ) <= m_maxLatency;
   }
   bool checkSessionTime( const UtcTimeStamp& time )
   {

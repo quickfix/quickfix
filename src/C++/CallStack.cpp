@@ -115,7 +115,7 @@ namespace FIX
   {
     Locker locker(s_mutex);
     CallStack::output();
-    abort();
+    std::abort();
   }
 
   void CallStack::Context::caught( std::exception& e )

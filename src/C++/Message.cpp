@@ -555,7 +555,7 @@ FieldBase Message::extractField
 { QF_STACK_PUSH(Message::extractField)
 
   std::string::size_type equalSign = string.find_first_of( '=', pos );
-  int field = atol(string.substr( pos, equalSign - pos ).c_str());
+  int field = std::atol(string.substr( pos, equalSign - pos ).c_str());
 
   std::string::size_type soh =
     string.find_first_of( '\001', equalSign + 1 );
@@ -573,12 +573,12 @@ FieldBase Message::extractField
     if ( pGroup && pGroup->isSetField( lenField ) )
     {
       fieldLength = pGroup->getField( lenField);
-      soh = equalSign + 1 + atol( fieldLength.c_str() );
+      soh = equalSign + 1 + std::atol( fieldLength.c_str() );
     }
     else if ( isSetField( lenField ) )
     {
       fieldLength = getField( lenField );
-      soh = equalSign + 1 + atol( fieldLength.c_str() );
+      soh = equalSign + 1 + std::atol( fieldLength.c_str() );
     }
   }
 

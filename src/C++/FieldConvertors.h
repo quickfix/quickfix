@@ -48,7 +48,7 @@ struct IntConvertor
   {
     char temp[ 12 ];
     memset( temp, 0, 12 * sizeof( char ) );
-    sprintf( temp, "%d", ( int ) value );
+    std::sprintf( temp, "%d", ( int ) value );
     return temp;
   }
 
@@ -58,9 +58,9 @@ struct IntConvertor
     if ( *str == '-' ) ++str;
     for ( const char * p = str; *p != 0; ++p )
     {
-      if ( !isdigit( *p ) ) return false;
+      if ( !std::isdigit( *p ) ) return false;
     }
-    result = atol( value.c_str() );
+    result = std::atol( value.c_str() );
     return true;
   }
 
@@ -114,7 +114,7 @@ struct DoubleConvertor
     if ( !value.size() ) return false;
     if ( value == "." ) return false;
 
-    result = atof( const_cast < char* > ( value.c_str() ) );
+    result = std::atof( const_cast < char* > ( value.c_str() ) );
     std::string stripped = value;
 
     // add leading zero if none exists
@@ -124,7 +124,7 @@ struct DoubleConvertor
     // remove extra leading zeros
     while ( stripped.size() > 1 
             && *(stripped.begin()) == '0' 
-            && isdigit(*(stripped.begin()+1)) )
+            && std::isdigit(*(stripped.begin()+1)) )
     {
       stripped.erase( stripped.begin() );
     }
@@ -150,7 +150,7 @@ struct DoubleConvertor
     if ( stripped.size() != converted.size() ) return false;
 
     // strcmp is being used because == operator is funky under linux
-    return ( strcmp( stripped.c_str(), converted.c_str() ) == 0 );
+    return ( std::strcmp( stripped.c_str(), converted.c_str() ) == 0 );
   }
 
   static double convert( const std::string& value )
@@ -227,12 +227,12 @@ struct UtcTimeStampConvertor
   throw( FieldConvertError )
   {
     char result[ 18+4 ];
-    int len = strftime( result, 18, "%Y%m%d-%H:%M:%S", value );
+    int len = std::strftime( result, 18, "%Y%m%d-%H:%M:%S", value );
     if ( len != 17 ) throw FieldConvertError();
 
     if(true==showMilliseconds)
     {
-      len = sprintf(result+17,".%03d",value.getMillisecond());
+      len = std::sprintf(result+17,".%03d",value.getMillisecond());
       if ( len != 4) throw FieldConvertError();
     }
     return result;
@@ -248,9 +248,9 @@ struct UtcTimeStampConvertor
 
     // if we have milliseconds in the string, *len should be ".sss"
     result.setMillisecond(0);
-    if(NULL != len && strlen(len)==4 && len[0] == '.')
+    if(NULL != len && std::strlen(len)==4 && len[0] == '.')
     {
-      int ms = atoi(&len[1]);
+      int ms = std::atoi(&len[1]);
       if(ms < 0 || ms > 999) throw FieldConvertError();
         result.setMillisecond(ms);
     }
@@ -266,12 +266,12 @@ struct UtcTimeOnlyConvertor
   throw( FieldConvertError )
   {
     char result[ 9+4 ];
-    int len = strftime( result, 9, "%H:%M:%S", value );
+    int len = std::strftime( result, 9, "%H:%M:%S", value );
     if ( len != 8 ) throw FieldConvertError();
 
     if(true==showMilliseconds)
     {
-      len = sprintf(result+8,".%03d",value.getMillisecond());
+      len = std::sprintf(result+8,".%03d",value.getMillisecond());
       if ( len != 4) throw FieldConvertError();
     }
 
@@ -288,9 +288,9 @@ struct UtcTimeOnlyConvertor
 
     // if we have milliseconds in the string, *len should be ".sss"
     result.setMillisecond(0);
-    if(NULL != len && strlen(len)==4 && len[0] == '.')
+    if(NULL != len && std::strlen(len)==4 && len[0] == '.')
     {
-      int ms = atoi(&len[1]);
+      int ms = std::atoi(&len[1]);
       if(ms < 0 || ms > 999) throw FieldConvertError();
       result.setMillisecond(ms);
     }
@@ -306,7 +306,7 @@ struct UtcDateConvertor
   throw( FieldConvertError )
   {
     char result[ 9 ];
-    int len = strftime( result, 9, "%Y%m%d", value );
+    int len = std::strftime( result, 9, "%Y%m%d", value );
     if ( len != 8 ) throw FieldConvertError();
     return result;
   }

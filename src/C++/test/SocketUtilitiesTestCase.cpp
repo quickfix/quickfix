@@ -88,8 +88,8 @@ void SocketUtilitiesTestCase::send::onRun( int& )
 
 void SocketUtilitiesTestCase::hostname::onRun( int& )
 {
-  assert( !strcmp( socket_hostname( "localhost" ), "127.0.0.1" ) );
+  assert( !std::strcmp( socket_hostname( "localhost" ), "127.0.0.1" ) );
   assert( socket_hostname( "not_likely_to_be_a_real_name" ) == 0 );
-  assert( !strcmp( socket_hostname( "127.0.0.1" ), "127.0.0.1" ) );
+  assert( !std::strcmp( socket_hostname( "127.0.0.1" ), "127.0.0.1" ) );
 }
 }

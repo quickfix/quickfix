@@ -192,7 +192,7 @@ void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
     {
       env->ExceptionDescribe();
       env->ExceptionClear();
-      exit(1);
+      std::exit(1);
     }
   }
 }

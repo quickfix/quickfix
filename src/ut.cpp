@@ -44,7 +44,7 @@ int main( int argc, char** argv )
 
   display = new CPPTest::TestXMLFileOutputDisplay();
 
-  TestSuite suite( *display, ( short ) atol( port.c_str() ) );
+  TestSuite suite( *display, ( short ) std::atol( port.c_str() ) );
   suite.run();
 
   delete display;
