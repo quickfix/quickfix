@@ -67,7 +67,7 @@ FIX::Group* getCPPGroup( jobject obj )
   return ( FIX::Group* ) jobject.getInt( "cppPointer" );
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_create
+JNIEXPORT void JNICALL Java_quickfix_Group_create__II
 ( JNIEnv *pEnv, jobject obj, jint field, jint delim )
 { QF_STACK_TRY
 
