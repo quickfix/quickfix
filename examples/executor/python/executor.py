@@ -1,5 +1,6 @@
 import sys
 import time
+import thread
 import quickfix as fix
 
 class Application(fix.Application):
@@ -68,6 +69,9 @@ class Application(fix.Application):
 	def genExecID(self):
 		self.execID = self.execID+1
 		return `self.execID`
+def start(acceptor):
+    acceptor.block()
+
 try:
 	file = sys.argv[1]
 	settings = fix.SessionSettings( file )
@@ -75,7 +79,9 @@ try:
 	factory = fix.FileStoreFactory( settings )
 	logFactory = fix.ScreenLogFactory( 1, 1, 1 )
 	acceptor = fix.SocketAcceptor( application, factory, settings, logFactory )
-	acceptor.block()
+	thread.start_new_thread(start, (acceptor,))
+	while 1:
+	      time.sleep(1)
 except (fix.ConfigError, fix.RuntimeError), e:
 	print e
 
