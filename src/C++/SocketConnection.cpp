@@ -65,9 +65,21 @@ bool SocketConnection::read( SocketConnector& s )
   if ( !m_pSession ) return false;
 
   std::string msg;
-  if ( !readMessage( msg ) ) return false;
+  try
+  {
+    if ( !readMessage( msg ) ) return false;
 
-  m_pSession->next( msg );
+    m_pSession->next( msg );
+  } 
+  catch( RecvFailed& e )
+  {
+    s.getMonitor().drop( m_socket );
+  }
+  catch ( InvalidMessage& )
+  {
+    if ( !m_pSession->isLoggedOn() )
+      s.getMonitor().drop( m_socket );
+  }
   return true;
 
   QF_STACK_POP

@@ -112,7 +112,7 @@ bool ThreadedSocketConnection::read()
 }
 
 bool ThreadedSocketConnection::readMessage( std::string& msg )
-throw( MessageParseError )
+throw( RecvFailed )
 { QF_STACK_PUSH(ThreadedSocketConnection::readMessage)
 
   try
@@ -170,15 +170,20 @@ void ThreadedSocketConnection::processStream()
 { QF_STACK_PUSH(ThreadedSocketConnection::processStream)
 
   std::string msg;
-  while ( readMessage( msg ) )
+  try
   {
-    if ( !m_pSession )
+    while ( readMessage( msg ) )
     {
-      if ( !setSession( msg ) )
-      { disconnect(); continue; }
+      if ( !m_pSession )
+      {
+        if ( !setSession( msg ) )
+        { disconnect(); continue; }
+      }
+      m_pSession->next( msg );
     }
-    m_pSession->next( msg );
   }
+  catch( RecvFailed& e )
+  { disconnect(); }
 
   if ( m_pSession )
     m_pSession->next();
