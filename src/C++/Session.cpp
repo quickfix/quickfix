@@ -1369,7 +1369,16 @@ bool Session::isSameSession( const UtcTimeOnly& start,
   if ( !isSessionTime( start, end, time1 ) ) return false;
   if ( !isSessionTime( start, end, time2 ) ) return false;
 
-  return (abs(time1 - time2) <= UTC_DAY);
+  if ( time1 == time2 ) return true;
+
+  UtcDate time1Date( time1 );
+  UtcDate time2Date( time2 );
+
+  if ( start < end || start == end )
+    return time1Date == time2Date;
+  else if( start > end ) 
+    return abs(time1 - time2) < UTC_DAY;
+  return false;
 
   QF_STACK_POP
 }
