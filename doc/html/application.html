@@ -109,7 +109,7 @@
   <p>
   The sample code below shows how you might start up a FIX acceptor which listens on a socket.
   If you wanted an initiator, you would simply replace the acceptor in this code fragment with
-  a SocketInitiator. ThreadedSocketInitiator and ThreadedSocketAcceptor classes are also available.
+  a <i>SocketInitiator</i>, <i>ThreadedSocketInitiator</i> and <i>ThreadedSocketAcceptor</i> classes are also available.
   These will supply a thread to each session that is created. If you use these you must make sure
   your application is thread safe. A portable mutex class is supplied with QuickFIX.
   </p>
@@ -117,7 +117,8 @@
   See this code in <a href="java/application_2.html">JAVA</a> or <a href="csharp/application_2.html">C#</a>
   <B><CODE><PRE>
   #include "quickfix/include/FileStore.h"
-  #include "quickfix/include/SocketInitiator.h"
+  #include "quickfix/include/FileLog.h"
+  #include "quickfix/include/SocketAcceptor.h"
   #include "quickfix/include/SessionSettings.h"
 
   int main( int argc, char** argv )
@@ -130,11 +131,11 @@
       FIX::SessionSettings settings(file);
 
       MyApplication application;
-      FIX::FileStoreFactory factory(settings);
-      FIX::SocketAcceptor acceptor(application, factory, settings);
-      // or
-      // FIX::ThreadedSocketAcceptor acceptor(application, factory, settings);
-      initiator.start();
+      FIX::FileStoreFactory storeFactory(settings);
+      FIX::FileLogFactory logFactory(settings);
+      FIX::Socketacceptor acceptor
+        (application, storeFactory, settings, logFactory /*optional*/);
+      acceptor.start();
       return 0;
     }
     catch(FIX::ConfigError& e)

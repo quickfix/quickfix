@@ -12,10 +12,11 @@ class MyClass
     {
       SessionSettings settings = new SessionSettings(fileName);
       Application application = new MyApplication();
-      FileStoreFactory factory = new FileStoreFactory(settings);
+      FileStoreFactory storeFactory = new FileStoreFactory(settings);
+      FileLogFactory logFactory = new FileLogFactory(settings);
       MessageFactory messageFactory = new DefaultMessageFactory();
-      SocketAcceptor acceptor
-        = new SocketAcceptor(application, factory, settings, messageFactory);
+      SocketAcceptor acceptor = new SocketAcceptor
+        (application, factory, settings, logFactory /*optional*/, messageFactory);
       acceptor.start();
     }
     catch(ConfigError e)
