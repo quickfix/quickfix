@@ -52,7 +52,8 @@ namespace FIX
     while( attr != 0 )
     {
       std::string value;
-      std::string name = (char*)attr->name;
+      std::string name;
+      if( attr->name ) name = (char*)attr->name;
       get(name, value);
       map[name] = value;
       attr = attr->next;
@@ -63,10 +64,10 @@ namespace FIX
   }
 
   DOMNodePtr LIBXML_DOMNode::getFirstChildNode()
-  { QF_STACK_PUSH(LIBXML_DOMAttributes::getFirstChildNode)
+  { QF_STACK_PUSH(LIBXML_DOMNode::getFirstChildNode)
 
     if( !m_pNode->children ) return DOMNodePtr();
-    xmlNodePtr pNode = m_pNode->children->next;
+    xmlNodePtr pNode = m_pNode->children;
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new LIBXML_DOMNode(pNode));
 
@@ -77,7 +78,7 @@ namespace FIX
   { QF_STACK_PUSH(LIBXML_DOMAttributes::getNextSiblingNode)
 
     if( !m_pNode->next ) return DOMNodePtr();
-    xmlNodePtr pNode = m_pNode->next->next;
+    xmlNodePtr pNode = m_pNode->next;
     if( pNode == NULL ) return DOMNodePtr();
     return DOMNodePtr(new LIBXML_DOMNode(pNode));
 
@@ -92,13 +93,13 @@ namespace FIX
 
   std::string LIBXML_DOMNode::getName()
   { QF_STACK_PUSH(LIBXML_DOMAttributes::getName)
-    return (char*)m_pNode->name;
+    return m_pNode->name ? (char*)m_pNode->name : "";
     QF_STACK_POP
   }
 
   std::string LIBXML_DOMNode::getText()
   { QF_STACK_PUSH(LIBXML_DOMAttributes::getText)
-    return (char*)m_pNode->content;
+    return m_pNode->content ? (char*)m_pNode->content : "";
     QF_STACK_POP
   }
 
