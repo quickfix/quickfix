@@ -347,15 +347,12 @@ void process_sleep( double s )
 #ifdef _MSC_VER
   Sleep( ( long ) s * 1000 );
 #else
-  /* this causes random wierdness under Solaris
-  timespec time;
+  timespec time, remainder;
   double intpart;
-  time.tv_nsec = (int)modf(s, &intpart);
-  time.tv_nsec *= 1000000000;
+  time.tv_nsec = (long)(modf(s, &intpart) * 1e9);
   time.tv_sec = (int)intpart;
-  timespec* actual;
-  nanosleep(&time, actual);*/
-  sleep( ( long ) s );
+  while( nanosleep(&time, &remainder) == -1 )
+    time = remainder;
 #endif
 
   QF_STACK_POP
