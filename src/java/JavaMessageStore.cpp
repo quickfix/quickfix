@@ -272,7 +272,7 @@ void JNICALL JavaMessageStore_destroy
   delete pWrapper;
 }
 
-jboolean JNICALL JavaMessageStore_set0
+jboolean JNICALL JavaMessageStore_set
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
 {
   JVM::set( pEnv );
@@ -296,7 +296,7 @@ jboolean JNICALL JavaMessageStore_set0
 
 }
 
-jboolean JNICALL JavaMessageStore_get0__ILjava_lang_String_2
+jboolean JNICALL JavaMessageStore_get__ILjava_lang_String_2
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
 {
   JVM::set( pEnv );
@@ -322,7 +322,7 @@ jboolean JNICALL JavaMessageStore_get0__ILjava_lang_String_2
   return result;
 }
 
-void JNICALL JavaMessageStore_get0__IILjava_util_Collection_2
+void JNICALL JavaMessageStore_get__IILjava_util_Collection_2
 ( JNIEnv *pEnv, jobject obj, jint start, jint end, jobject array )
 {
   JVM::set( pEnv );
@@ -351,7 +351,7 @@ void JNICALL JavaMessageStore_get0__IILjava_util_Collection_2
   }
 }
 
-jint JNICALL JavaMessageStore_getNextSenderMsgSeqNum0
+jint JNICALL JavaMessageStore_getNextSenderMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
@@ -369,7 +369,7 @@ jint JNICALL JavaMessageStore_getNextSenderMsgSeqNum0
   return result;
 }
 
-jint JNICALL JavaMessageStore_getNextTargetMsgSeqNum0
+jint JNICALL JavaMessageStore_getNextTargetMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
@@ -387,7 +387,7 @@ jint JNICALL JavaMessageStore_getNextTargetMsgSeqNum0
   return result;
 }
 
-void JNICALL JavaMessageStore_setNextSenderMsgSeqNum0
+void JNICALL JavaMessageStore_setNextSenderMsgSeqNum
 ( JNIEnv *pEnv, jobject obj, jint seq )
 {
   JVM::set( pEnv );
@@ -404,7 +404,7 @@ void JNICALL JavaMessageStore_setNextSenderMsgSeqNum0
   }
 }
 
-void JNICALL JavaMessageStore_setNextTargetMsgSeqNum0
+void JNICALL JavaMessageStore_setNextTargetMsgSeqNum
 ( JNIEnv *pEnv, jobject obj, jint seq )
 {
   JVM::set( pEnv );
@@ -421,7 +421,7 @@ void JNICALL JavaMessageStore_setNextTargetMsgSeqNum0
   }
 }
 
-void JNICALL JavaMessageStore_incrNextSenderMsgSeqNum0
+void JNICALL JavaMessageStore_incrNextSenderMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
@@ -438,7 +438,7 @@ void JNICALL JavaMessageStore_incrNextSenderMsgSeqNum0
   }
 }
 
-void JNICALL JavaMessageStore_incrNextTargetMsgSeqNum0
+void JNICALL JavaMessageStore_incrNextTargetMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
@@ -455,7 +455,7 @@ void JNICALL JavaMessageStore_incrNextTargetMsgSeqNum0
   }
 }
 
-jobject JNICALL JavaMessageStore_getCreationTime0
+jobject JNICALL JavaMessageStore_getCreationTime
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );
@@ -473,7 +473,7 @@ jobject JNICALL JavaMessageStore_getCreationTime0
   return result;
 }
 
-void JNICALL JavaMessageStore_reset0
+void JNICALL JavaMessageStore_reset
 ( JNIEnv *pEnv, jobject obj )
 {
   JVM::set( pEnv );

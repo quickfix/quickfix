@@ -104,27 +104,27 @@ void JNICALL JavaMessageStore_create
 ( JNIEnv *, jobject, FIX::MessageStore* );
 void JNICALL JavaMessageStore_destroy
 ( JNIEnv *, jobject );
-jboolean JNICALL JavaMessageStore_set0
+jboolean JNICALL JavaMessageStore_set
 ( JNIEnv *, jobject, jint, jstring );
-jboolean JNICALL JavaMessageStore_get0__ILjava_lang_String_2
+jboolean JNICALL JavaMessageStore_get__ILjava_lang_String_2
 ( JNIEnv *, jobject, jint, jstring );
-void JNICALL JavaMessageStore_get0__IILjava_util_Collection_2
+void JNICALL JavaMessageStore_get__IILjava_util_Collection_2
 ( JNIEnv *, jobject, jint, jint, jobject );
-jint JNICALL JavaMessageStore_getNextSenderMsgSeqNum0
+jint JNICALL JavaMessageStore_getNextSenderMsgSeqNum
 ( JNIEnv *, jobject );
-jint JNICALL JavaMessageStore_getNextTargetMsgSeqNum0
+jint JNICALL JavaMessageStore_getNextTargetMsgSeqNum
 ( JNIEnv *, jobject );
-void JNICALL JavaMessageStore_setNextSenderMsgSeqNum0
+void JNICALL JavaMessageStore_setNextSenderMsgSeqNum
 ( JNIEnv *, jobject, jint );
-void JNICALL JavaMessageStore_setNextTargetMsgSeqNum0
+void JNICALL JavaMessageStore_setNextTargetMsgSeqNum
 ( JNIEnv *, jobject, jint );
-void JNICALL JavaMessageStore_incrNextSenderMsgSeqNum0
+void JNICALL JavaMessageStore_incrNextSenderMsgSeqNum
 ( JNIEnv *, jobject );
-void JNICALL JavaMessageStore_incrNextTargetMsgSeqNum0
+void JNICALL JavaMessageStore_incrNextTargetMsgSeqNum
 ( JNIEnv *, jobject );
-jobject JNICALL JavaMessageStore_getCreationTime0
+jobject JNICALL JavaMessageStore_getCreationTime
 ( JNIEnv *, jobject );
-void JNICALL JavaMessageStore_reset0
+void JNICALL JavaMessageStore_reset
 ( JNIEnv *, jobject );
 
 #endif

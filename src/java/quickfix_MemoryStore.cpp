@@ -77,79 +77,79 @@ JNIEXPORT void JNICALL Java_quickfix_MemoryStore_destroy
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_MemoryStore_set0
+JNIEXPORT jboolean JNICALL Java_quickfix_MemoryStore_set
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
 { QF_STACK_TRY
-  return JavaMessageStore_set0( pEnv, obj, seq, message );
+  return JavaMessageStore_set( pEnv, obj, seq, message );
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_MemoryStore_get0__ILjava_lang_String_2
+JNIEXPORT jboolean JNICALL Java_quickfix_MemoryStore_get__ILjava_lang_String_2
 ( JNIEnv *pEnv, jobject obj, jint seq, jstring message )
 { QF_STACK_TRY
-  return JavaMessageStore_get0__ILjava_lang_String_2( pEnv, obj, seq, message );
+  return JavaMessageStore_get__ILjava_lang_String_2( pEnv, obj, seq, message );
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_get0__IILjava_util_Collection_2
+JNIEXPORT void JNICALL Java_quickfix_MemoryStore_get__IILjava_util_Collection_2
 ( JNIEnv *pEnv, jobject obj, jint start, jint end, jobject array )
 { QF_STACK_TRY
-  JavaMessageStore_get0__IILjava_util_Collection_2( pEnv, obj, start, end, array );
+  JavaMessageStore_get__IILjava_util_Collection_2( pEnv, obj, start, end, array );
   QF_STACK_CATCH
 }
 
-JNIEXPORT jint JNICALL Java_quickfix_MemoryStore_getNextSenderMsgSeqNum0
+JNIEXPORT jint JNICALL Java_quickfix_MemoryStore_getNextSenderMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-  return JavaMessageStore_getNextSenderMsgSeqNum0( pEnv, obj );
+  return JavaMessageStore_getNextSenderMsgSeqNum( pEnv, obj );
   QF_STACK_CATCH
 }
 
-JNIEXPORT jint JNICALL Java_quickfix_MemoryStore_getNextTargetMsgSeqNum0
+JNIEXPORT jint JNICALL Java_quickfix_MemoryStore_getNextTargetMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-  return JavaMessageStore_getNextTargetMsgSeqNum0( pEnv, obj );
+  return JavaMessageStore_getNextTargetMsgSeqNum( pEnv, obj );
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_setNextSenderMsgSeqNum0
+JNIEXPORT void JNICALL Java_quickfix_MemoryStore_setNextSenderMsgSeqNum
 ( JNIEnv *pEnv, jobject obj, jint seq )
 { QF_STACK_TRY
-  JavaMessageStore_setNextSenderMsgSeqNum0( pEnv, obj, seq );
+  JavaMessageStore_setNextSenderMsgSeqNum( pEnv, obj, seq );
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_setNextTargetMsgSeqNum0
+JNIEXPORT void JNICALL Java_quickfix_MemoryStore_setNextTargetMsgSeqNum
 ( JNIEnv *pEnv, jobject obj, jint seq )
 { QF_STACK_TRY
-  JavaMessageStore_setNextTargetMsgSeqNum0( pEnv, obj, seq );
+  JavaMessageStore_setNextTargetMsgSeqNum( pEnv, obj, seq );
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_incrNextSenderMsgSeqNum0
+JNIEXPORT void JNICALL Java_quickfix_MemoryStore_incrNextSenderMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-  JavaMessageStore_incrNextSenderMsgSeqNum0( pEnv, obj );
+  JavaMessageStore_incrNextSenderMsgSeqNum( pEnv, obj );
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_incrNextTargetMsgSeqNum0
+JNIEXPORT void JNICALL Java_quickfix_MemoryStore_incrNextTargetMsgSeqNum
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-  JavaMessageStore_incrNextTargetMsgSeqNum0( pEnv, obj );
+  JavaMessageStore_incrNextTargetMsgSeqNum( pEnv, obj );
   QF_STACK_CATCH
 }
 
 JNIEXPORT jobject JNICALL Java_quickfix_MemoryStore_getCreationTime0
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-  return JavaMessageStore_getCreationTime0( pEnv, obj );
+  return JavaMessageStore_getCreationTime( pEnv, obj );
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MemoryStore_reset0
+JNIEXPORT void JNICALL Java_quickfix_MemoryStore_reset
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-  JavaMessageStore_reset0( pEnv, obj );
+  JavaMessageStore_reset( pEnv, obj );
   QF_STACK_CATCH
 }
