@@ -88,21 +88,29 @@ void Message::setField( UtcDateField* field )
 void Message::setField( UtcTimeOnlyField* field )
 { checkDisposed(); setField( field, *m_pUnmanaged ); }
 
-StringField* Message::getField( StringField* field ) throw( FieldNotFound* )
+StringField* Message::getField( StringField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
-BooleanField* Message::getField( BooleanField* field ) throw( FieldNotFound* )
+BooleanField* Message::getField( BooleanField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
-CharField* Message::getField( CharField* field ) throw( FieldNotFound* )
+CharField* Message::getField( CharField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
-IntField* Message::getField( IntField* field ) throw( FieldNotFound* )
+IntField* Message::getField( IntField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
-DoubleField* Message::getField( DoubleField* field ) throw( FieldNotFound* )
+DoubleField* Message::getField( DoubleField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
-UtcTimeStampField* Message::getField( UtcTimeStampField* field ) throw( FieldNotFound* )
+UtcTimeStampField* Message::getField( UtcTimeStampField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
-UtcDateField* Message::getField( UtcDateField* field ) throw( FieldNotFound* )
+UtcDateField* Message::getField( UtcDateField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
-UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field ) throw( FieldNotFound* )
+UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return getField( field, *m_pUnmanaged ); }
 
 void Message::Header::setField( StringField* field )
@@ -122,21 +130,29 @@ void Message::Header::setField( UtcDateField* field )
 void Message::Header::setField( UtcTimeOnlyField* field )
 { checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); }
 
-StringField* Message::Header::getField( StringField* field ) throw( FieldNotFound* )
+StringField* Message::Header::getField( StringField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
-BooleanField* Message::Header::getField( BooleanField* field ) throw( FieldNotFound* )
+BooleanField* Message::Header::getField( BooleanField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
-CharField* Message::Header::getField( CharField* field ) throw( FieldNotFound* )
+CharField* Message::Header::getField( CharField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
-IntField* Message::Header::getField( IntField* field ) throw( FieldNotFound* )
+IntField* Message::Header::getField( IntField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
-DoubleField* Message::Header::getField( DoubleField* field ) throw( FieldNotFound* )
+DoubleField* Message::Header::getField( DoubleField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
-UtcTimeStampField* Message::Header::getField( UtcTimeStampField* field ) throw( FieldNotFound* )
+UtcTimeStampField* Message::Header::getField( UtcTimeStampField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
-UtcDateField* Message::Header::getField( UtcDateField* field ) throw( FieldNotFound* )
+UtcDateField* Message::Header::getField( UtcDateField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
-UtcTimeOnlyField* Message::Header::getField( UtcTimeOnlyField* field ) throw( FieldNotFound* )
+UtcTimeOnlyField* Message::Header::getField( UtcTimeOnlyField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); }
 
 void Message::Trailer::setField( StringField* field )
@@ -156,21 +172,29 @@ void Message::Trailer::setField( UtcDateField* field )
 void Message::Trailer::setField( UtcTimeOnlyField* field )
 { checkDisposed(); m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); }
 
-StringField* Message::Trailer::getField( StringField* field ) throw( FieldNotFound* )
+StringField* Message::Trailer::getField( StringField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
-BooleanField* Message::Trailer::getField( BooleanField* field ) throw( FieldNotFound* )
+BooleanField* Message::Trailer::getField( BooleanField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
-CharField* Message::Trailer::getField( CharField* field ) throw( FieldNotFound* )
+CharField* Message::Trailer::getField( CharField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
-IntField* Message::Trailer::getField( IntField* field ) throw( FieldNotFound* )
+IntField* Message::Trailer::getField( IntField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
-DoubleField* Message::Trailer::getField( DoubleField* field ) throw( FieldNotFound* )
+DoubleField* Message::Trailer::getField( DoubleField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
-UtcTimeStampField* Message::Trailer::getField( UtcTimeStampField* field ) throw( FieldNotFound* )
+UtcTimeStampField* Message::Trailer::getField( UtcTimeStampField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
-UtcDateField* Message::Trailer::getField( UtcDateField* field ) throw( FieldNotFound* )
+UtcDateField* Message::Trailer::getField( UtcDateField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
-UtcTimeOnlyField* Message::Trailer::getField( UtcTimeOnlyField* field ) throw( FieldNotFound* )
+UtcTimeOnlyField* Message::Trailer::getField( UtcTimeOnlyField* field )
+throw( FieldNotFound*, IncorrectDataFormat* )
 { checkDisposed(); return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); }
 
 void Message::setField( StringField* field, FIX::FieldMap& map )
@@ -224,7 +248,8 @@ void Message::setField( UtcTimeOnlyField* field, FIX::FieldMap& map )
                   FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ) ) );
 }
 
-StringField* Message::getField( StringField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+StringField* Message::getField( StringField* field, FIX::FieldMap& map ) 
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -235,7 +260,8 @@ StringField* Message::getField( StringField* field, FIX::FieldMap& map ) throw( 
   { throw new FieldNotFound( e.field ); }
 }
 
-BooleanField* Message::getField( BooleanField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+BooleanField* Message::getField( BooleanField* field, FIX::FieldMap& map )
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -244,9 +270,12 @@ BooleanField* Message::getField( BooleanField* field, FIX::FieldMap& map ) throw
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+  catch ( FIX::FieldConvertError & e )
+  { throw new IncorrectDataFormat( field->getField() ); }
 }
 
-CharField* Message::getField( CharField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+CharField* Message::getField( CharField* field, FIX::FieldMap& map )
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -255,9 +284,12 @@ CharField* Message::getField( CharField* field, FIX::FieldMap& map ) throw( Fiel
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+  catch ( FIX::FieldConvertError & e )
+  { throw new IncorrectDataFormat( field->getField() ); }
 }
 
-IntField* Message::getField( IntField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+IntField* Message::getField( IntField* field, FIX::FieldMap& map )
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -266,9 +298,12 @@ IntField* Message::getField( IntField* field, FIX::FieldMap& map ) throw( FieldN
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+  catch ( FIX::FieldConvertError & e )
+  { throw new IncorrectDataFormat( field->getField() ); }
 }
 
-DoubleField* Message::getField( DoubleField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+DoubleField* Message::getField( DoubleField* field, FIX::FieldMap& map )
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -277,9 +312,12 @@ DoubleField* Message::getField( DoubleField* field, FIX::FieldMap& map ) throw( 
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+  catch ( FIX::FieldConvertError & e )
+  { throw new IncorrectDataFormat( field->getField() ); }
 }
 
-UtcTimeStampField* Message::getField( UtcTimeStampField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+UtcTimeStampField* Message::getField( UtcTimeStampField* field, FIX::FieldMap& map )
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -292,9 +330,12 @@ UtcTimeStampField* Message::getField( UtcTimeStampField* field, FIX::FieldMap& m
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+  catch ( FIX::FieldConvertError & e )
+  { throw new IncorrectDataFormat( field->getField() ); }
 }
 
-UtcDateField* Message::getField( UtcDateField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+UtcDateField* Message::getField( UtcDateField* field, FIX::FieldMap& map )
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -306,9 +347,12 @@ UtcDateField* Message::getField( UtcDateField* field, FIX::FieldMap& map ) throw
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+  catch ( FIX::FieldConvertError & e )
+  { throw new IncorrectDataFormat( field->getField() ); }
 }
 
-UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field, FIX::FieldMap& map ) throw( FieldNotFound* )
+UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field, FIX::FieldMap& map )
+throw( FieldNotFound*, IncorrectDataFormat* )
 {
   try
   {
@@ -320,5 +364,7 @@ UtcTimeOnlyField* Message::getField( UtcTimeOnlyField* field, FIX::FieldMap& map
   }
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
+  catch ( FIX::FieldConvertError & e )
+  { throw new IncorrectDataFormat( field->getField() ); }
 }
 }
