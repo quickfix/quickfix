@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="iso-8859-1"?>
-<fix xmlns:java="http://xml.apache.org/xslt/java" major="4" minor="3">
+<fix major="4" minor="3">
   <header>
     <field name="BeginString" required="Y" />
     <field name="BodyLength" required="Y" />
@@ -870,7 +869,7 @@
         <field name="ContAmtType" required="N" />
         <field name="ContAmtValue" required="N" />
         <field name="ContAmtCurr" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -993,7 +992,7 @@
         <field name="ContAmtType" required="N" />
         <field name="ContAmtValue" required="N" />
         <field name="ContAmtCurr" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -1012,7 +1011,7 @@
         <field name="ContAmtType" required="N" />
         <field name="ContAmtValue" required="N" />
         <field name="ContAmtCurr" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -1509,7 +1508,7 @@
         <field name="AllocQty" required="N" />
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -1533,7 +1532,7 @@
         <field name="AllocQty" required="N" />
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -1552,7 +1551,7 @@
         <field name="AllocQty" required="N" />
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -1620,7 +1619,7 @@
         <field name="AllocQty" required="N" />
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -1644,7 +1643,7 @@
         <field name="AllocQty" required="N" />
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
@@ -1663,7 +1662,7 @@
         <field name="AllocQty" required="N" />
         <field name="TradingSessionID" required="N" />
         <field name="TradingSessionSubID" required="N" />
-        <component name="Instrument Leg" required="N" />
+        <component name="InstrumentLeg" required="N" />
         <field name="LegPositionEffect" required="N" />
         <field name="LegCoveredOrUncovered" required="N" />
         <component name="NestedParties" required="N" />
