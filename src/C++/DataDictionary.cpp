@@ -366,9 +366,7 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       int field = lookupXMLFieldNumber(pDoc, name);
 
       std::string required;
-      if(attrs->get("required", required) && (required == "Y" || required == "y"))    
-        addRequiredField(msgtype, field);
-      else if((required == "Y" || required =="y") && componentRequired)
+      if(attrs->get("required", required) && (required == "Y" || required =="y") && componentRequired)
         addRequiredField(msgtype, field);
 
       DD.addField(field);
