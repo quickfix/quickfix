@@ -1,0 +1,26 @@
+<B><CODE><PRE>
+import quickfix
+
+def sendOrderCancelRequest:
+	message = quickfix.Message()
+	# BeginString
+	message.getHeader().setField(quickfix.StringField(8, "FIX.4.2"))
+	# SenderCompID
+	message.getHeader().setField(quickfix.StringField(49, "TW"))
+	# TargetCompID, with enumeration
+	message.getHeader().setField(quickfix.StringField(56, "TARGET"))
+	# MsgType
+	message.getHeader().setField(quickfix.CharField(35, 'F'))
+	# OrigClOrdID
+	message.setField(quickfix.StringField(41, "123"))
+	# ClOrdID
+	message.setField(quickfix.StringField(11, "321"))
+	# Symbol
+	message.setField(quickfix.StringField(55, "LNUX"))
+	# Side, with value enumeration
+	message.setField(quickfix.CharField(54, quickfix.Side_BUY))
+	# Text
+	message.setField(quickfix.StringField(58, "Cancel My Order!"))
+
+	Session.sendToTarget(message);
+</PRE></CODE></B>

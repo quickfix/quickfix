@@ -10,7 +10,7 @@
     Messages can be sent to a counter party with the static <B>Session::sendToTarget</B> methods.
     This method has several signitures. They are:
     </p>
-	See this code in <a href="java/sending_messages_1.html">JAVA</a>, <a href="csharp/sending_messages_1.html">C#</a> or <a href="vbnet/sending_messages_1.html">VB.NET</a>
+	See this code in <a href="java/sending_messages_1.html">JAVA</a>, <a href="csharp/sending_messages_1.html">C#</a>, <a href="vbnet/sending_messages_1.html">VB.NET</a>, <a href="python/sending_messages_1.html">PYTHON</a>
     <PRE>
     // send a message that already contains a <I>BeginString</I>, <I>SenderCompID</I>, and a <I>TargetCompID</I>
     <B>static bool sendToTarget( Message& )
@@ -41,7 +41,7 @@
     Once again. This should only be used for low level interface to other languages and middleware.
     <B>do not</B> use this for writing applications.
     </p>
-    See this code in <a href="java/sending_messages_2.html">JAVA</a>, <a href="csharp/sending_messages_2.html">C#</a> or <a href="vbnet/sending_messages_2.html">VB.NET</a>
+    See this code in <a href="java/sending_messages_2.html">JAVA</a>, <a href="csharp/sending_messages_2.html">C#</a>, <a href="vbnet/sending_messages_2.html">VB.NET</a>, <a href="python/sending_messages_2.html">PYTHON</a>
     <B><PRE>
     void sendOrderCancelRequest()
     {
@@ -75,7 +75,7 @@
     is something you usually use for code that needs to work with multiple messages types or multiple
     FIX versions.
     </p>
-    See this code in <a href="java/sending_messages_3.html">JAVA</a>, <a href="csharp/sending_messages_3.html">C#</a> or <a href="vbnet/sending_messages_3.html">VB.NET</a>
+    See this code in <a href="java/sending_messages_3.html">JAVA</a>, <a href="csharp/sending_messages_3.html">C#</a>, <a href="vbnet/sending_messages_3.html">VB.NET</a>, <a href="python/sending_messages_3.html">PYTHON</a>
     <PRE><B>
     void sendOrderCancelRequest()
     {
@@ -105,7 +105,7 @@
 	you add a field that is not a part of a <I>OrderCancelRequest</I> based on the FIX4.1 specs. Keep in
 	mind you can still use <B>setField</B> if you want to force any field you want into the message.
 	</p>
-	See this code in <a href="java/sending_messages_4.html">JAVA</a>, <a href="csharp/sending_messages_4.html">C#</a> or <a href="vbnet/sending_messages_4.html">VB.NET</a>
+	See this code in <a href="java/sending_messages_4.html">JAVA</a>, <a href="csharp/sending_messages_4.html">C#</a>, <a href="vbnet/sending_messages_4.html">VB.NET</a>, PYTHON(not supported)
 	<B><PRE>
     void sendOrderCancelRequest()
     {

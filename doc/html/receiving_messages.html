@@ -24,7 +24,7 @@
     </p>
     Here is a sample code segment for this type of retrieval:
     </p>
-    See this code in <a href="java/receiving_messages_1.html">JAVA</a>, <a href="csharp/receiving_messages_1.html">C#</a> or <a href="vbnet/receiving_messages_1.html">VB.NET</a>
+    See this code in <a href="java/receiving_messages_1.html">JAVA</a>, <a href="csharp/receiving_messages_1.html">C#</a>, <a href="vbnet/receiving_messages_1.html">VB.NET</a>, <a href="python/receiving_messages_1.html">PYTHON</a>
     <B><PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
       throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
@@ -50,7 +50,7 @@
     Session class is implemented using mostly these. It is generally not recomended for most
     applications. This will also get fields as their appropriate type, not just as strings.
     </p>
-    See this code in <a href="java/receiving_messages_2.html">JAVA</a> or <a href="csharp/receiving_messages_2.html">C#</a> or <a href="vbnet/receiving_messages_2.html">VB.NET</a>
+    See this code in <a href="java/receiving_messages_2.html">JAVA</a>, <a href="csharp/receiving_messages_2.html">C#</a>, <a href="vbnet/receiving_messages_2.html">VB.NET</a>, <a href="python/receiving_messages_2.html">PYTHON</a>
     <B><PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
       throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
@@ -74,7 +74,7 @@
 	using a generic <B>Message</B> class and we are now using <B>get</B> instead of <B>getField</B>. Keep
 	in mind you can still use <B>getField</B> as all of these classes derive from <B>Message</B>
 	</p>
-    See this code in <a href="java/receiving_messages_3.html">JAVA</a> or <a href="csharp/receiving_messages_3.html">C#</a> or <a href="vbnet/receiving_messages_3.html">VB.NET</a>
+    See this code in <a href="java/receiving_messages_3.html">JAVA</a>, <a href="csharp/receiving_messages_3.html">C#</a>, <a href="vbnet/receiving_messages_3.html">VB.NET</a>, PYTHON(not supported)
     <B><PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
       throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
@@ -119,7 +119,7 @@
     exception<br><br>
     Define your application like this:
     </p>
-    See this code in <a href="java/receiving_messages_4.html">JAVA</a> or <a href="csharp/receiving_messages_4.html">C#</a> or <a href="vbnet/receiving_messages_4.html">VB.NET</a>
+    See this code in <a href="java/receiving_messages_4.html">JAVA</a>, <a href="csharp/receiving_messages_4.html">C#</a>, <a href="vbnet/receiving_messages_4.html">VB.NET</a>, PYTHON(not supported)
     <B><PRE>
     #include "quickfix/Application.h"
     #include "quickfix/MessageCracker.h"

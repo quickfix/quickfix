@@ -1,0 +1,19 @@
+<B><CODE><PRE>
+import quickfix
+
+if len(sys.argv) < 2: return
+fileName = sys.argv[1]
+
+try:
+	settings = quickfix.SessionSettings(fileName)
+	application = quickfix.MyApplication()
+	storeFactory = quickfix.FileStoreFactory(settings)
+	logFactory = quickfix.FileLogFactory(settings)
+	messageFactory = quickfix.DefaultMessageFactory()
+	acceptor = quickfix.SocketAcceptor(application, factory, settings, logFactory, messageFactory)
+	acceptor.start()
+	# while condition == true: do something
+	acceptor.stop()
+except quickfix.ConfigError, e:
+	print e
+</PRE></CODE></B>

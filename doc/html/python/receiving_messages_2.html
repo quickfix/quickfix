@@ -1,0 +1,10 @@
+<B><CODE><PRE>
+import quickfix
+
+def fromApp(self, message, sessionID):
+	price = quickfix.Price()
+	message.getField(price)
+
+	clOrdID = quickfix.ClOrdID()
+	message.getField(clOrdID)
+</PRE></CODE></B>
