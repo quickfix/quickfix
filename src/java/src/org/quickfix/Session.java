@@ -50,25 +50,22 @@
 package org.quickfix;
 
 public class Session {
-    public static boolean sendToTarget(Message message)
-    throws SessionNotFound {
-        return sendToTarget0(message);
-    }
-    public static boolean sendToTarget(Message message, SessionID sessionID)
-    throws SessionNotFound {
-        return sendToTarget0(message, sessionID);
-    }
-    public static boolean sendToTarget
-    (Message message, String senderCompID, String targetCompID)
-    throws SessionNotFound {
-        return sendToTarget0(message, senderCompID, targetCompID);
-    }
+	private int cppPointer;
+	private Session(int cppPointer) {
+		this.cppPointer = cppPointer;
+	}
 
-    static native boolean sendToTarget0(Message message)
+    public static native boolean sendToTarget(Message message)
     throws SessionNotFound;
-    static native boolean sendToTarget0(Message message, SessionID sessionID)
+
+    public static native boolean sendToTarget(Message message, SessionID sessionID)
     throws SessionNotFound;
-    static native boolean sendToTarget0
+
+    public static native boolean sendToTarget
     (Message message, String senderCompID, String targetCompID)
     throws SessionNotFound;
+
+    public static native Session lookupSession(SessionID sessionID);
+
+    public native void reset();
 }
