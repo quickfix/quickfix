@@ -24490,6 +24490,7 @@ class SessionID(_object):
     def getBeginString(*args): return _quickfix.SessionID_getBeginString(*args)
     def getSenderCompID(*args): return _quickfix.SessionID_getSenderCompID(*args)
     def getTargetCompID(*args): return _quickfix.SessionID_getTargetCompID(*args)
+    def getSessionQualifier(*args): return _quickfix.SessionID_getSessionQualifier(*args)
     def fromString(*args): return _quickfix.SessionID_fromString(*args)
     def toString(*args): return _quickfix.SessionID_toString(*args)
     def __invert__(*args): return _quickfix.SessionID___invert__(*args)
@@ -26253,6 +26254,10 @@ __eq__ = _quickfix.__eq__
 __ne__ = _quickfix.__ne__
 
 __lshift__ = _quickfix.__lshift__
+BEGINSTRING = cvar.BEGINSTRING
+SENDERCOMPID = cvar.SENDERCOMPID
+TARGETCOMPID = cvar.TARGETCOMPID
+SESSION_QUALIFIER = cvar.SESSION_QUALIFIER
 CONNECTION_TYPE = cvar.CONNECTION_TYPE
 USE_DATA_DICTIONARY = cvar.USE_DATA_DICTIONARY
 DATA_DICTIONARY = cvar.DATA_DICTIONARY
