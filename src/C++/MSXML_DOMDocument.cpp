@@ -74,7 +74,7 @@ namespace FIX
     MSXML2::IXMLDOMNode* pNode = NULL;
     m_pNodeMap->getNamedItem(_bstr_t(name.c_str()), &pNode);
     if( pNode == NULL ) return false;
-    
+
     BSTR result;
     pNode->get_text(&result);
     value = (char*)_bstr_t(result);
@@ -86,7 +86,7 @@ namespace FIX
 
   MSXML_DOMNode::~MSXML_DOMNode()
   { QF_STACK_IGNORE_BEGIN
-    m_pNode->Release(); 
+    m_pNode->Release();
     QF_STACK_IGNORE_END
   }
 
@@ -174,7 +174,7 @@ namespace FIX
 
       VARIANT_BOOL success = FALSE;
       m_pDoc->loadXML(_bstr_t(sstream.str().c_str()), &success);
-		  return success != TRUE;
+      return success != TRUE;
     }
     catch( ... ) { return false; }
 

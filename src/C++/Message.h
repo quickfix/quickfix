@@ -78,7 +78,7 @@ static FIELD::Field const headerOrder[] =
 
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /**
  * Base class for all %FIX messages.
  *
@@ -111,7 +111,7 @@ public:
 
   Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound& )
   { group.clear();
-    return static_cast < Group& > 
+    return static_cast < Group& >
       ( FieldMap::getGroup( num, group.field(), group ) );
   }
 
@@ -147,8 +147,8 @@ public:
                   bool validate = true,
                   const DataDictionary* pDataDictionary = 0 );
 
-  void setGroup( const std::string& msg, const FieldBase& field, 
-                 const std::string& string, std::string::size_type& pos, 
+  void setGroup( const std::string& msg, const FieldBase& field,
+                 const std::string& string, std::string::size_type& pos,
                  FieldMap& map, const DataDictionary& dataDictionary );
 
   /**
@@ -167,9 +167,9 @@ public:
   /// Mutable getter for the message trailer
   Trailer& getTrailer() { return m_trailer; }
 
-  bool hasValidStructure(int& field) const 
+  bool hasValidStructure(int& field) const
   { field = m_field;
-    return m_validStructure; 
+    return m_validStructure;
   }
 
   int bodyLength() const
@@ -192,12 +192,12 @@ public:
   }
 
   static bool isHeaderField( int field );
-  static bool isHeaderField( const FieldBase& field, 
-			     const DataDictionary* pD = 0 );
+  static bool isHeaderField( const FieldBase& field,
+                             const DataDictionary* pD = 0 );
 
   static bool isTrailerField( int field );
-  static bool isTrailerField( const FieldBase& field, 
-			      const DataDictionary* pD = 0 );
+  static bool isTrailerField( const FieldBase& field,
+                              const DataDictionary* pD = 0 );
 
   /// Returns the session ID of the intended recipient
   SessionID getSessionID() throw( FieldNotFound& );

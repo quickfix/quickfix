@@ -82,7 +82,7 @@ namespace FIX
     MSXML_DOMNode( MSXML2::IXMLDOMNode* pNode )
     : m_pNode( pNode ) {}
 
-	~MSXML_DOMNode();
+    ~MSXML_DOMNode();
 
     DOMNodePtr getFirstChildNode();
     DOMNodePtr getNextSiblingNode();

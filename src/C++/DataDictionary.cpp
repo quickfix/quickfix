@@ -90,11 +90,11 @@ DataDictionary::DataDictionary( const DataDictionary& copy )
 }
 
 DataDictionary::~DataDictionary()
-{ 
+{
   FieldToGroup::iterator i;
   for ( i = m_groups.begin(); i != m_groups.end(); ++i )
     delete i->second.second;
-  
+
 }
 
 DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
@@ -208,7 +208,7 @@ void DataDictionary::readFromURL( const std::string& url )
 
   // FIELDS
   DOMNodePtr pFieldsNode = pDoc->getNode("/fix/fields");
-  if(!pFieldsNode.get()) 
+  if(!pFieldsNode.get())
     throw ConfigError("Fields section not found in data dictionary");
 
   DOMNodePtr pFieldNode = pFieldsNode->getFirstChildNode();
@@ -232,7 +232,7 @@ void DataDictionary::readFromURL( const std::string& url )
       if(!attrs->get("name", name))
         throw ConfigError("Field does not have a name attribute");
       addFieldName(num, name);
-      
+
       DOMNodePtr pFieldValueNode = pFieldNode->getFirstChildNode();
       while(pFieldValueNode.get())
       {
@@ -252,11 +252,11 @@ void DataDictionary::readFromURL( const std::string& url )
 
   // HEADER
   DOMNodePtr pHeaderNode = pDoc->getNode("/fix/header");
-  if(!pHeaderNode.get()) 
+  if(!pHeaderNode.get())
     throw ConfigError("Header section not found in data dictionary");
 
   DOMNodePtr pHeaderFieldNode = pHeaderNode->getFirstChildNode();
-  if(!pHeaderFieldNode.get()) throw ConfigError("No header fields defined");  
+  if(!pHeaderFieldNode.get()) throw ConfigError("No header fields defined");
 
   while(pHeaderFieldNode.get())
   {
@@ -273,7 +273,7 @@ void DataDictionary::readFromURL( const std::string& url )
 
   // TRAILER
   DOMNodePtr pTrailerNode = pDoc->getNode("/fix/trailer");
-  if(!pTrailerNode.get()) 
+  if(!pTrailerNode.get())
     throw ConfigError("Trailer section not found in data dictionary");
 
   DOMNodePtr pTrailerFieldNode = pTrailerNode->getFirstChildNode();
@@ -291,14 +291,14 @@ void DataDictionary::readFromURL( const std::string& url )
     }
     RESET_AUTO_PTR(pTrailerFieldNode, pTrailerFieldNode->getNextSiblingNode());
   }
-  
+
   // MSGTYPE
   DOMNodePtr pMessagesNode = pDoc->getNode("/fix/messages");
-  if(!pMessagesNode.get()) 
+  if(!pMessagesNode.get())
     throw ConfigError("Messages section not found in data dictionary");
 
   DOMNodePtr pMessageNode = pMessagesNode->getFirstChildNode();
-  if(!pMessageNode.get()) throw ConfigError("No messages defined");  
+  if(!pMessageNode.get()) throw ConfigError("No messages defined");
 
   while(pMessageNode.get())
   {
@@ -315,46 +315,46 @@ void DataDictionary::readFromURL( const std::string& url )
         addValueName( 35, msgtype, name );
 
       DOMNodePtr pMessageFieldNode = pMessageNode->getFirstChildNode();
-      if( !pMessageFieldNode.get() ) 
-	throw ConfigError("Message contains no fields");
+      if( !pMessageFieldNode.get() )
+        throw ConfigError("Message contains no fields");
       while( pMessageFieldNode.get() )
       {
-        if(pMessageFieldNode->getName() == "field" 
-	   || pMessageFieldNode->getName() == "group")
+        if(pMessageFieldNode->getName() == "field"
+           || pMessageFieldNode->getName() == "group")
         {
-          DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();  
+          DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();
           std::string name;
           if(!attrs->get("name", name))
             throw ConfigError("Field does not have a name attribute");
           int num = lookupXMLFieldNumber(pDoc.get(), name);
           addMsgField(msgtype, num);
-          
+
           std::string required;
-          if(attrs->get("required", required) 
-	     && (required == "Y" || required == "y"))
-	  {
+          if(attrs->get("required", required)
+             && (required == "Y" || required == "y"))
+          {
             addRequiredField(msgtype, num);
-	  }
+          }
         }
         else if(pMessageFieldNode->getName() == "component")
         {
-          DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();  
+          DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();
           std::string required;
           attrs->get("required", required);
           bool isRequired = (required == "Y" || required == "y");
-          addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(), 
-				msgtype, *this, isRequired);
+          addXMLComponentFields(pDoc.get(), pMessageFieldNode.get(),
+                                msgtype, *this, isRequired);
         }
         if(pMessageFieldNode->getName() == "group")
         {
           addXMLGroup(pDoc.get(), pMessageFieldNode.get(), msgtype, *this);
         }
-        RESET_AUTO_PTR(pMessageFieldNode, 
-		       pMessageFieldNode->getNextSiblingNode());
+        RESET_AUTO_PTR(pMessageFieldNode,
+                       pMessageFieldNode->getNextSiblingNode());
       }
     }
     RESET_AUTO_PTR(pMessageNode, pMessageNode->getNextSiblingNode());
-  } 
+  }
 
   QF_STACK_POP
 }
@@ -371,38 +371,38 @@ int DataDictionary::lookupXMLFieldNumber
   QF_STACK_POP
 }
 
-void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode, 
-                                            const std::string& msgtype, 
-					    DataDictionary& DD,
+void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
+                                            const std::string& msgtype,
+                                            DataDictionary& DD,
                                             bool componentRequired )
 { QF_STACK_PUSH(DataDictionary::addXMLComponentFields)
 
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
-  if(!attrs->get("name", name)) 
+  if(!attrs->get("name", name))
     throw ConfigError("No name given to component");
 
   DOMNodePtr pComponentNode =
     pDoc->getNode("/fix/components/component[@name='" + name + "']");
   if(pComponentNode.get() == 0)
     throw ConfigError("Component not found");
-  
+
   DOMNodePtr pComponentFieldNode = pComponentNode->getFirstChildNode();
   while(pComponentFieldNode.get())
   {
-    if(pComponentFieldNode->getName() == "field" 
+    if(pComponentFieldNode->getName() == "field"
        || pComponentFieldNode->getName() == "group")
     {
       DOMAttributesPtr attrs = pComponentFieldNode->getAttributes();
       std::string name;
-      if(!attrs->get("name", name)) 
-        throw ConfigError("No name given to field");      
+      if(!attrs->get("name", name))
+        throw ConfigError("No name given to field");
       int field = lookupXMLFieldNumber(pDoc, name);
 
       std::string required;
-      if(attrs->get("required", required) 
-	 && (required == "Y" || required =="y") 
-	 && componentRequired)
+      if(attrs->get("required", required)
+         && (required == "Y" || required =="y")
+         && componentRequired)
       {
         addRequiredField(msgtype, field);
       }
@@ -410,21 +410,21 @@ void DataDictionary::addXMLComponentFields( DOMDocument* pDoc, DOMNode* pNode,
       DD.addField(field);
       DD.addMsgField(msgtype, field);
     }
-    RESET_AUTO_PTR(pComponentFieldNode, 
-		   pComponentFieldNode->getNextSiblingNode());
+    RESET_AUTO_PTR(pComponentFieldNode,
+      pComponentFieldNode->getNextSiblingNode());
   }
 
   QF_STACK_POP
 }
 
-void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode, 
-                                  const std::string& msgtype, 
-				  DataDictionary& DD )
+void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
+                                  const std::string& msgtype,
+                                  DataDictionary& DD )
 { QF_STACK_PUSH(DataDictionary::addXMLGroup)
 
   DOMAttributesPtr attrs = pNode->getAttributes();
   std::string name;
-  if(!attrs->get("name", name)) 
+  if(!attrs->get("name", name))
     throw ConfigError("No name given to group");
 
   int group = lookupXMLFieldNumber( pDoc, name );
@@ -437,7 +437,7 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
     {
       DOMAttributesPtr attrs = node->getAttributes();
       std::string name;
-      if(!attrs->get("name", name)) 
+      if(!attrs->get("name", name))
         throw ConfigError("No name given to field");
       int field = lookupXMLFieldNumber( pDoc, name );
       if( delim == 0 ) delim = field;

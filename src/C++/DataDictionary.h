@@ -76,7 +76,7 @@ class DataDictionary
   typedef std::map < int, Values > FieldToValue;
   typedef std::map < int, std::string > FieldToName;
   typedef std::map < std::string, int > NameToField;
-  typedef std::map < std::pair < int, std::string > , 
+  typedef std::map < std::pair < int, std::string > ,
   std::string  > ValueToName;
   typedef std::map < std::pair < std::string, int > ,
   std::pair < int, DataDictionary* > > FieldToGroup;
@@ -324,15 +324,15 @@ private:
       case TYPE::UtcTimeOnly:
         UTCTIMEONLY_CONVERTOR::convert( field.getString() ); break;
       case TYPE::NumInGroup:
-	      NUMINGROUP_CONVERTOR::convert( field.getString() ); break;
+        NUMINGROUP_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Percentage:
-	      PERCENTAGE_CONVERTOR::convert( field.getString() ); break;
+        PERCENTAGE_CONVERTOR::convert( field.getString() ); break;
       case TYPE::SeqNum:
-	      SEQNUM_CONVERTOR::convert( field.getString() ); break;
+        SEQNUM_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Length:
-	      LENGTH_CONVERTOR::convert( field.getString() ); break;
+        LENGTH_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Country:
-	      COUNTRY_CONVERTOR::convert( field.getString() ); break;
+        COUNTRY_CONVERTOR::convert( field.getString() ); break;
       case TYPE::Unknown: break;
       }
     }
@@ -353,7 +353,7 @@ private:
   /// Check if a field has a value.
   void checkHasValue( const FieldBase& field )
   throw( NoTagValue& )
-  {  
+  {
     if ( m_checkFieldsHaveValues && !field.getString().length() )
       throw NoTagValue( field.getField() );
   }

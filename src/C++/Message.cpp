@@ -65,7 +65,7 @@ std::auto_ptr<DataDictionary> Message::s_dataDictionary;
 Message::Message()
 : m_header( message_order( message_order::header ) ),
   m_trailer( message_order( message_order::trailer ) ),
-m_validStructure( true ) {}
+  m_validStructure( true ) {}
 
 Message::Message( const std::string& string, bool validate )
 throw( InvalidMessage& )
@@ -77,8 +77,8 @@ throw( InvalidMessage& )
     throw InvalidMessage();
 }
 
-Message::Message( const std::string& string, 
-		  const DataDictionary& dataDictionary )
+Message::Message( const std::string& string,
+                  const DataDictionary& dataDictionary )
 throw( InvalidMessage& )
 : m_header( message_order( message_order::header ) ),
   m_trailer( message_order( message_order::trailer ) ),
@@ -123,7 +123,7 @@ std::string Message::toXML() const
 
   std::stringstream stream;
   stream << "<message>"                         << EOL
-         << std::setw(2) << " " << "<header>"   << EOL  
+         << std::setw(2) << " " << "<header>"   << EOL
          << toXMLFields(getHeader(), 4)
          << std::setw(2) << " " << "</header>"  << EOL
          << std::setw(2) << " " << "<body>"     << EOL
@@ -146,7 +146,7 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
   FieldMap::iterator i;
   std::string name;
   for(i = fields.begin(); i != fields.end(); ++i)
-  {       
+  {
     int field = i->first;
     std::string value = i->second.getString();
 
@@ -156,7 +156,7 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
       stream << "name=\"" << name << "\" ";
     }
     stream << "number=\"" << field << "\" value=\"" << value << "\"";
-    if(s_dataDictionary.get() 
+    if(s_dataDictionary.get()
        && s_dataDictionary->getValueName(field, value, name))
     {
       stream << " enum=\"" << name << "\"";
@@ -170,9 +170,9 @@ std::string Message::toXMLFields(const FieldMap& fields, int space) const
     std::vector<FieldMap*>::const_iterator k;
     for(k = j->second.begin(); k != j->second.end(); ++k)
     {
-		stream << std::setw(space) << " " << "<group>" << EOL
-           << toXMLFields(*(*k), space+2)
-	    		 << std::setw(space) << " " << "</group>" << EOL;
+      stream << std::setw(space) << " " << "<group>" << EOL
+             << toXMLFields(*(*k), space+2)
+             << std::setw(space) << " " << "</group>" << EOL;
     }
   }
 
@@ -203,10 +203,10 @@ bool Message::setString( const std::string& string,
 
   while ( pos < string.size() )
   {
-    try 
+    try
     {
       FieldBase field = extractField( string, pos );
-    
+
       if ( count < 3 && headerOrder[ count++ ] != field.getField() )
         if ( doValidation ) return false;
 
@@ -230,7 +230,7 @@ bool Message::setString( const std::string& string,
       {
         if ( type == trailer )
         {
-          if(m_field == 0) m_field = field.getField(); 
+          if(m_field == 0) m_field = field.getField();
           m_validStructure = false;
         }
         type = body;
@@ -252,8 +252,8 @@ bool Message::setString( const std::string& string,
   QF_STACK_POP
 }
 
-void Message::setGroup( const std::string& msg, const FieldBase& field, 
-			const std::string& string,
+void Message::setGroup( const std::string& msg, const FieldBase& field,
+                        const std::string& string,
                         std::string::size_type& pos, FieldMap& map,
                         const DataDictionary& dataDictionary )
 { QF_STACK_PUSH(Message::setGroup)
@@ -351,8 +351,8 @@ bool Message::isHeaderField( int field )
   QF_STACK_POP
 }
 
-bool Message::isHeaderField( const FieldBase& field, 
-			     const DataDictionary* pD )
+bool Message::isHeaderField( const FieldBase& field,
+                             const DataDictionary* pD )
 { QF_STACK_PUSH(Message::isHeaderField)
 
   if ( isHeaderField( field.getField() ) ) return true;
@@ -378,8 +378,8 @@ bool Message::isTrailerField( int field )
   QF_STACK_POP
 }
 
-bool Message::isTrailerField( const FieldBase& field, 
-			      const DataDictionary* pD )
+bool Message::isTrailerField( const FieldBase& field,
+                              const DataDictionary* pD )
 { QF_STACK_PUSH(Message::isTrailerField)
 
   if ( isTrailerField( field.getField() ) ) return true;
@@ -458,7 +458,7 @@ FieldBase Message::extractField
 
   std::string::size_type soh =
     string.find_first_of( '\001', equalSign + 1 );
-  if ( soh == std::string::npos ) 
+  if ( soh == std::string::npos )
     throw InvalidMessage();
   valueString = string.substr( equalSign + 1, soh - ( equalSign + 1 ) );
 

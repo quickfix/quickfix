@@ -163,9 +163,9 @@ namespace FIX
     xmlXPathContextPtr context = xmlXPathNewContext(m_pDoc);
     xmlXPathObjectPtr xpathObject = xmlXPathEval((xmlChar*)XPath.c_str(), context);
 
-    if( xpathObject == NULL 
-	      || xpathObject->nodesetval == NULL 
-	      || xpathObject->nodesetval->nodeNr != 1 )
+    if( xpathObject == NULL
+        || xpathObject->nodesetval == NULL
+        || xpathObject->nodesetval->nodeNr != 1 )
     {
       xmlXPathFreeContext(context);
       return DOMNodePtr();
