@@ -1,3 +1,4 @@
+echo off
 set PORT=%1
 echo [DEFAULT] > cfg\at.cfg
 echo ConnectionType=acceptor >> cfg\at.cfg
