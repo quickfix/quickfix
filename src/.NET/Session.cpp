@@ -56,7 +56,11 @@ namespace Fix
 bool Session::sendToTarget( Message* message )
 throw( SessionNotFound* )
 {
-  return FIX::Session::sendToTarget( message->unmanaged() );
+  try
+  {
+    return FIX::Session::sendToTarget( message->unmanaged() );
+  }
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); };
 }
 
 bool Session::sendToTarget( Message* message, SessionID* sessionID )
@@ -74,9 +78,13 @@ bool Session::sendToTarget
 ( Message* message, String* senderCompID, String* targetCompID )
 throw( SessionNotFound* )
 {
-  return FIX::Session::sendToTarget
-         ( message->unmanaged(),
-           FIX::SenderCompID( convertString( senderCompID ) ),
-           FIX::TargetCompID( convertString( targetCompID ) ) );
+  try
+  {
+    return FIX::Session::sendToTarget
+           ( message->unmanaged(),
+             FIX::SenderCompID( convertString( senderCompID ) ),
+             FIX::TargetCompID( convertString( targetCompID ) ) );
+  }
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }
 }
 }
