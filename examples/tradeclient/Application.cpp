@@ -72,7 +72,7 @@ void Application::fromApp( const FIX::Message& message, const FIX::SessionID& se
 throw( FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue& )
 {
   crack( message, sessionID );
-  std::cout << std::endl << "IN: " << message.getString() << std::endl;
+  std::cout << std::endl << "IN: " << message << std::endl;
 }
 
 void Application::toApp( FIX::Message& message, const FIX::SessionID& sessionID )
@@ -87,7 +87,7 @@ throw( FIX::DoNotSend& )
 catch ( FIX::FieldNotFound& ) {}
 
   std::cout << std::endl
-  << "OUT: " << message.getString() << std::endl;
+  << "OUT: " << message << std::endl;
 }
 
 void Application::onMessage
