@@ -106,6 +106,9 @@ class ReflectorClient
     end
 
     def @reflector.initiateAction(msg, cid)
+      if( @sockets[cid] == nil )
+        raise "Unable to send message because connection was dropped"
+      end
       @sockets[cid].write(msg)
       @client.initiateAction(msg, cid)
     end
@@ -116,9 +119,8 @@ class ReflectorClient
       @client.compareAction(msg, m)
     end
 
-    def @reflector.errorAction(line, msg)
-      error = "Error processing line: " + String(line) + msg;
-      throw error
+    def @reflector.errorAction(lineNum, line)
+      @client.errorAction(lineNum, line)
     end
 
     @reflector.client = self

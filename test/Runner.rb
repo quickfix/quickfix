@@ -50,6 +50,13 @@ require 'ReflectorClient'
 require 'Comparator'
 
 def extendProcess(c)
+
+  def c.errorAction(lineNum, line)
+    report =  "    " + $!.to_s + "\n"    
+    report += "    <line>" + lineNum.to_s + "</line>\n"
+    raise report
+  end
+
   def c.compareAction(e, a)
     if( !defined? @patterns )
       @patterns = "10=\\d{1,3}\n52=\\d{8}-\\d{2}:\\d{2}:\\d{2}\n";
@@ -61,10 +68,13 @@ def extendProcess(c)
     if( !@comp.compare(e,a) )
        e.tr!("\001", "*")
        a.tr!("\001", "*")
-       raise "\t\t<E><![CDATA[" + e + "]]></E>\n\t\t<A><![CDATA[" + a + "]]></A>\n\t\t<R><![CDATA[" + @comp.reason + "]]></R>"
+       report =  "@comp.reason\n"
+       report += "    <expected><![CDATA[" + e + "]]></expected>\n"
+       report += "    <received><![CDATA[" + a + "]]></received>"
+       raise report
     end
   end
-  
+    
   def c.patterns=(p)
     @patterns = p
   end
@@ -73,16 +83,16 @@ def extendProcess(c)
 end
 
 def printResult(test, exception)
-  print "  <test name='", test,  "' result='"
+  print "<test name='", test,  "' result='"
   if exception == nil then
     print "success'/>\n"
   else
     print "failure' >\n"
-    print "\t<message>\n", $!, "\n\t</message>\n"
-    #print "<trace><![CDATA["
-    #print $!.backtrace.join("]]></trace>\n<trace><![CDATA[")
-    #print "]]></trace>\n"
-    print "  </test>\n"
+    print "  <message>\n", $!, "  </message>\n"
+    #print "  <trace><![CDATA["
+    #print $!.backtrace.join("]]></trace>\n  <trace><![CDATA[")
+    #print "  ]]></trace>\n"
+    print "</test>\n"
   end
   STDOUT.flush
 end
@@ -93,7 +103,6 @@ def createProcess(file, address, port)
     | num |
     begin
       socket = TCPSocket.open(address, port);
-    rescue
     end
     if socket == nil 
       sleep 1
@@ -121,38 +130,43 @@ exitValue = 0
 total = 0
 failures = 0
 
-print "<at>\n"
-newarray.each do
-  |v |
-  file = File.open(v, "r")
-  process = createProcess(file, ARGV[0], ARGV[1])
-  if process.nil? then
-    print "  <test name='", v,  "' result='", "failure' >\n"
-    print "    <message><![CDATA[Test definition did "
-    print "not contain iCONNECT or eCONNECT]]></message>\n"
-    print "  </test>\n"
-    exitValue += 1
-    next
-  end
-  file.rewind
-  extendProcess(process)
+begin
+  print "<at>\n"
+  newarray.each do
+    | v |
+    file = File.open(v, "r")
+    process = createProcess(file, ARGV[0], ARGV[1])
+    if process.nil? then
+      print "  <test name='", v,  "' result='", "failure' >\n"
+      print "    <message><![CDATA[Test definition did "
+      print "not contain iCONNECT or eCONNECT]]></message>\n"
+      print "  </test>\n"
+      exitValue += 1
+      next
+    end
+    file.rewind
+    extendProcess(process)
 
-sleep(.1)
-  total += 1
-  begin
-    process.start
-    printResult(v, nil)
-    process.stop
-  rescue
-    failures += 1
-    exitValue += 1
-    printResult(v, $!)
-    process.stop
+  sleep(.1)
+    total += 1
+    begin
+      process.start
+      printResult(v, nil)
+      process.stop
+    rescue
+      failures += 1
+      exitValue += 1
+      printResult(v, $!)
+      process.stop
+    end
   end
+  print "\n<results total='", total, "' failures='", failures, "'/>\n"
+  print "</at>\n"
+rescue
+  print "  ",$!,"\n"
+  print "</at>\n"
 end
 
-print "  <results total='", total, "' failures='", failures, "'/>\n"
-print "</at>\n"
 exit exitValue
 
 if not Object.respond_to?("is_testing") or not Object.is_testing then

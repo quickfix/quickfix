@@ -71,30 +71,39 @@ class Reflector < Array
 	body = fixify!(timify!(line[1, line.length]))
       end
 
-      if line.empty?
-      elsif line[0] == ?\#
-      elsif identifyMessage(line) == ?I
-	initiateAction(body, cid)
-      elsif identifyMessage(line) == ?E
-	expectedAction(body, cid)
-      elsif identifyMessage(line) == ?i
-	if body == "CONNECT"
-	  connectAction(cid)
-	elsif body == "DISCONNECT"
-	  disconnectAction(cid)
-	else errorAction(lineNum, line)
-	end
-      elsif identifyMessage(line) == ?e
-	if body == "CONNECT"
-	  waitConnectAction(cid)
-	elsif body == "DISCONNECT"
-	  waitDisconnectAction(cid)
-	else
-	  errorAction(lineNum, line)
-	end
-      else
-	errorAction(lineNum, line)
+      begin
+        processLine(lineNum, line, body, cid)      
+      rescue
+        errorAction(lineNum, line);
       end
+    end
+  end
+  
+  def processLine(lineNum, line, body, cid)
+    if line.empty?
+    elsif line[0] == ?\#
+    elsif identifyMessage(line) == ?I
+      initiateAction(body, cid)
+    elsif identifyMessage(line) == ?E
+      expectedAction(body, cid)
+    elsif identifyMessage(line) == ?i
+      if body == "CONNECT"
+        connectAction(cid)
+      elsif body == "DISCONNECT"
+        disconnectAction(cid)
+      else 
+        raise "Syntax error"
+      end
+    elsif identifyMessage(line) == ?e
+      if body == "CONNECT"
+        waitConnectAction(cid)
+      elsif body == "DISCONNECT"
+        waitDisconnectAction(cid)
+      else
+        raise "Syntax error"
+      end
+    else
+      raise "Syntax error"
     end
   end
 
