@@ -9,9 +9,9 @@ public interface Application {
   void toApp(Message message, SessionID sessionId)
     throws DoNotSend;
   void fromAdmin(Message message, SessionID sessionId)
-    throws FieldNotFound, RejectLogon;
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon;
   void fromApp(Message message, SessionID sessionId)
-    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue;
+    throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType;
   void onRun();
 }
 </PRE></CODE></B>

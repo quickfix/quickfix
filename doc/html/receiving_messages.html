@@ -27,7 +27,7 @@
     See this code in <a href="java/receiving_messages_1.html">JAVA</a> or <a href="csharp/receiving_messages_1.html">C#</a>
     <B><PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-      throw(FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue&)
+      throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
     {
       </B>// retreive value into string with integer field ID<B>
       std::string value;
@@ -53,7 +53,7 @@
     See this code in <a href="java/receiving_messages_2.html">JAVA</a> or <a href="csharp/receiving_messages_2.html">C#</a>
     <B><PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-      throw(FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue&)
+      throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
     {
       </B>// retreive value into field class<B>
       FIX::Price price;
@@ -77,7 +77,7 @@
     See this code in <a href="java/receiving_messages_3.html">JAVA</a> or <a href="csharp/receiving_messages_3.html">C#</a>
     <B><PRE>
     void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-      throw(FIX::FieldNotFound&, FIX::UnsupportedMessageType&, FIX::IncorrectTagValue&)
+      throw( FIX::FieldNotFound&, FIX::IncorrectDataFormat&, FIX::IncorrectTagValue&, FIX::UnsupportedMessageType& )
     {
       crack(message, sessionID);
     }
