@@ -103,6 +103,11 @@ namespace Fix
      <xsl:when test="@type='BOOL'">bool</xsl:when>
      <xsl:when test="@type='FLOAT'">double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">double</xsl:when>
+     <xsl:when test="@type='NUMINGROUP'">int</xsl:when>
+     <xsl:when test="@type='PERCENTAGE'">double</xsl:when>
+     <xsl:when test="@type='SEQNUM'">int</xsl:when>
+     <xsl:when test="@type='LENGTH'">int</xsl:when>
+     <xsl:when test="@type='COUNTRY'">String*</xsl:when>
      <xsl:otherwise>String*</xsl:otherwise>
    </xsl:choose>
 </xsl:template>
@@ -123,6 +128,11 @@ namespace Fix
      <xsl:when test="@type='BOOL'">Bool</xsl:when>
      <xsl:when test="@type='FLOAT'">Double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">Double</xsl:when>
+     <xsl:when test="@type='NUMINGROUP'">Int</xsl:when>
+     <xsl:when test="@type='PERCENTAGE'">Double</xsl:when>
+     <xsl:when test="@type='SEQNUM'">Int</xsl:when>
+     <xsl:when test="@type='LENGTH'">Int</xsl:when>
+     <xsl:when test="@type='COUNTRY'">String</xsl:when>
      <xsl:otherwise>String</xsl:otherwise>
    </xsl:choose>
 </xsl:template>
