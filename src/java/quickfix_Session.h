@@ -41,6 +41,62 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_lookupSession
 
 /*
  * Class:     quickfix_Session
+ * Method:    logon
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Session_logon
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    logout
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Session_logout
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    isEnabled
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_isEnabled
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    sentLogon
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sentLogon
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    sentLogout
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sentLogout
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    receivedLogon
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_receivedLogon
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    isLoggedOn
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_isLoggedOn
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
  * Method:    reset
  * Signature: ()V
  */
@@ -62,6 +118,22 @@ JNIEXPORT void JNICALL Java_quickfix_Session_setNextSenderMsgSeqNum
  */
 JNIEXPORT void JNICALL Java_quickfix_Session_setNextTargetMsgSeqNum
   (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    getExpectedSenderNum
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedSenderNum
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    getExpectedTargetNum
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedTargetNum
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }

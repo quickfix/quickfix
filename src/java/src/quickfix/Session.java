@@ -52,24 +52,36 @@ package quickfix;
 import java.io.IOException;
 
 public class Session {
-	private int cppPointer;
-	private Session(int cppPointer) {
-		this.cppPointer = cppPointer;
-	}
-
+    private int cppPointer;
+    private Session(int cppPointer) {
+	this.cppPointer = cppPointer;
+    }
+    
     public static native boolean sendToTarget(Message message)
-    throws SessionNotFound;
-
-    public static native boolean sendToTarget(Message message, SessionID sessionID)
-    throws SessionNotFound;
-
+	throws SessionNotFound;
+    
     public static native boolean sendToTarget
-    (Message message, String senderCompID, String targetCompID)
-    throws SessionNotFound;
-
+	(Message message, SessionID sessionID)
+	throws SessionNotFound;
+    
+    public static native boolean sendToTarget
+	(Message message, String senderCompID, String targetCompID)
+	throws SessionNotFound;
+    
     public static native Session lookupSession(SessionID sessionID);
+    
+    public native void logon();
+    public native void logout();
+    public native boolean isEnabled();
 
+    public native boolean sentLogon();
+    public native boolean sentLogout();
+    public native boolean receivedLogon();
+    public native boolean isLoggedOn();
     public native void reset() throws IOException;
     public native void setNextSenderMsgSeqNum( int num ) throws IOException;
     public native void setNextTargetMsgSeqNum( int num ) throws IOException;
+
+    public native int getExpectedSenderNum();
+    public native int getExpectedTargetNum();
 }

@@ -162,6 +162,94 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_lookupSession
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Session_logon
+(JNIEnv* pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  pSession->logon();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Session_logout
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  pSession->logout();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_isEnabled
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  return pSession->isEnabled();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sentLogon
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  return pSession->sentLogon();
+
+  QF_STACK_CATCH
+}
+
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_sentLogout
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  return pSession->sentLogout();
+
+  QF_STACK_CATCH
+}
+
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_receivedLogon
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  return pSession->receivedLogon();
+
+  QF_STACK_CATCH
+}
+
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_isLoggedOn
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  return pSession->isLoggedOn();
+
+  QF_STACK_CATCH
+}
+
+
 JNIEXPORT void JNICALL Java_quickfix_Session_reset
 (JNIEnv *pEnv, jobject obj)
 { QF_STACK_TRY
@@ -221,3 +309,28 @@ JNIEXPORT void JNICALL Java_quickfix_Session_setNextTargetMsgSeqNum
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedSenderNum
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  return pSession->getExpectedSenderNum();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedTargetNum
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  return pSession->getExpectedTargetNum();
+
+  QF_STACK_CATCH
+}
+
