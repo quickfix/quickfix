@@ -110,7 +110,7 @@ private:
     if( 13 + m_string.length() < sizeof(buf) )
     {
       m_length = sprintf( buf, "%d=%*.*s\001", m_field,
-                          m_string.length(), m_string.length(),
+                          (int)m_string.length(), (int)m_string.length(),
                           m_string.data() );
       m_data.assign( buf, m_length );
     }
