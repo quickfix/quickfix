@@ -5,53 +5,95 @@
     <title>FAQ</title>
     <H1>FAQ</H1>
   </head>
+  <p>
+  Building
+  <UL>
+  <LI><A HREF="#B1">Why does my IDE mysteriously dissapear when I browse QuickFIX in MSDEV?</A></LI>
+  <LI><A HREF="#B2">When building QuickFIX with gcc, the compiler complains it cannot find &lt;sstream&gt;</A></LI>
+  <LI><A HREF="#B3">Under Visual Studio .NET, my build fails during the custom build step.</A></LI>
+  <LI><A HREF="#B4">After running <I>./configure</I> on *nix, the test checking for recursive mutex fails.</A></LI>
+  <LI><A HREF="#B5">After running <I>make</I> on *nix, I get an error that says <I>libtool: ltconfig version `' does not match ltmain.sh version `1.3.5'</I></A></LI>
+  <LI><A HREF="#B6">During compilation, the compiler has errors in MessageValidator.cpp pertaining to the xml code.</A></LI>
+  <LI><A HREF="#B7">When I try to compile my application, it complains PTHREAD_MUTEX_RECURSIVE is not defined.</A></LI>
+  <LI><A HREF="#B8">Can I build quickfix on *nix with a compiler other than gcc?</A></LI>
+  </UL>
+  </p>
+  <p>
+  Running
+  <UL>
+  <LI><A HREF="#R1">When trying to connect to a FIX engine running on another machine, QuickFIX immediately drops the connection when it receives a logon.</A></LI>
+  <LI><A HREF="#R2">QuickFIX seems very unstable on a multiprocessor machine.</A></LI>
+  <LI><A HREF="#R3">When running my application under *nix, it crashes with a segmentation fault.</A></LI>
+  <LI><A HREF="#R4">When running my application under Linux, it crashes with a SIG_ABRT.</A></LI>
+  </UL>
+  </p>
 
-  <U><B>When trying to connect to a FIX engine running on another machine, QuickFIX immediately drops the connection when it receives a logon</B></U><br>
-  Chances are the clocks on the machines are not synchronized. Either synchronize the clocks
-  or use the CheckLatency and MaxLatency settings to allow the processing of older messages.
-
-  <br><br>
-  <U><B>Why does my IDE mysteriously dissapear when I browse the QuickFIX in MSDEV?</B></U><br>
+  <H2>Building</H2>
+  <A NAME="B1"/>
+  <B><FONT color="#FF0000">Why does my IDE mysteriously dissapear when I browse QuickFIX in MSDEV?</FONT></B><br>
   Microsoft Visual Studio's Statement completion options do not play very well with C++ templates.
   You can resolve this issues simply by turning this feature off. Do this by going to the
   <B>Tools->Options</B> menu. Under the <B>Editor</B> tab, uncheck all the <B>Statement completion
   options</B>.
 
   <br><br>
-  <U><B>When building QuickFIX with gcc, the compiler complains it cannot find &lt;sstream&gt;</U></B><br>
+  <A NAME="B2"/>
+  <B><FONT color="#FF0000">When building QuickFIX with gcc, the compiler complains it cannot find &lt;sstream&gt;</FONT></B><br>
   Some earlier versions of gcc were not supplied with the sstream include file. You can get it
   <a href="http://gcc.gnu.org/ml/libstdc++/2000-q2/msg00700/sstream">here</a>
 
   <br><br>
-  <U><B>Under Visual Studio .NET, my build fails during the custom build step</U></B><br>
+  <A NAME="B3"/>
+  <B><FONT color="#FF0000">Under Visual Studio .NET, my build fails during the custom build step.</FONT></B><br>
   For some reason Visual Studio .NET reacts differently to errors in the custom build step then
   MSDEV 6.0. The easiest fix is to simply copy all the header files from your <I>quickfix/src/C++</I>
   directory to your <I>quickfix/include</I> directory. The build should be succesful on your next attempt.
   <body>
 
   <br><br>
-  <U><B>After running <I>./configure</I> on *nix, the test checking for recursive mutex fails.</U></B><br>
-  Currently, QuickFIX relies on the presence of recursive mutexes for synchronization. Some versions
-  of some unices may not support these. One example would be Solaris 2.6. This will limit the ability
-  to use QuickFIX on some systems until we implement a more portable solution. Linux and Solaris 8.0/SunOS 5.6
-  do support recursive mutexes.
+  <A NAME="B4"/>
+  <B><FONT color="#FF0000">After running <I>./configure</I> on *nix, the test checking for recursive mutex fails.</FONT></B><br>
+  Older versions of QuickFIX relied on the presence of recursive mutexes for synchronization. Some versions
+  of some unices may not support these. One example would be Solaris 2.6.
 
   <br><br>
-  <U><B>After running <I>make</I> on *nix, I get an error that says <I>libtool: ltconfig version `' does not match ltmain.sh version `1.3.5'</I></U></B><br>
-  Run the <I>./bootstrap</I> script, then run <I>make</I> again.
+  <A NAME="B5"/>
+  <B><FONT color="#FF0000">After running <I>make</I> on *nix, I get an error that says <I>libtool: ltconfig version `' does not match ltmain.sh version `1.3.5'</I></FONT></B><br>
+  Run the <I>./bootstrap</I> script, then run <I>./configure</I> and <I>make</I> again.
 
   <br><br>
-  <U><B>During compilation, the compiler has errors in MessageValidator.cpp pertaining to the xml code</U></B><br>
+  <A NAME="B6"/>
+  <B><FONT color="#FF0000">During compilation, the compiler has errors in MessageValidator.cpp pertaining to the xml code.</FONT></B><br>
   QuickFIX is not yet searching for libxml in the configure script. Check to make sure that libxml is installed
   and that the correct include and library directories are being passed into the compiler.  You may have to
   modify the configure.in file to do this.
 
   <br><br>
-  <U><B>When I try to compile my application, it complains PTHREAD_MUTEX_RECURSIVE is not defined</U></B><br>
+  <A NAME="B7"/>
+  <B><FONT color="#FF0000">When I try to compile my application, it complains PTHREAD_MUTEX_RECURSIVE is not defined.</FONT></B><br>
   On some systems, you need to define _XOPEN_SOURCE as 500 in order to use recursive mutexes.
 
   <br><br>
-  <U><B>When running my application under *nix, it crashes with a segmentation fault.</U></B><br>
+  <A NAME="B8"/>
+  <B><FONT color="#FF0000">Can I build quickfix on *nix with a compiler other than gcc?</FONT></B><br>
+  Probably. We have been able to compile it with icc as well. You can always verify your compilation
+  by running the suite of unit and acceptance tests against your build.
+
+  <H2>Running</H2>
+  <A NAME="R1"/>
+  <B><FONT color="#FF0000">When trying to connect to a FIX engine running on another machine, QuickFIX immediately drops the connection when it receives a logon.</FONT></B><br>
+  Chances are the clocks on the machines are not synchronized. Either synchronize the clocks
+  or use the CheckLatency and MaxLatency settings to allow the processing of older messages.
+
+  <br><br>
+  <A NAME="R2"/>
+  <B><FONT color="#FF0000">QuickFIX seems very unstable on a multiprocessor machine.</FONT></B><br>
+  If you are using gcc 2.95.x, you need to use another STL library like
+  <a href="http://www.stlport.org/download.html">STLport</a>
+
+  <br><br>
+  <A NAME="R3"/>
+  <B><FONT color="#FF0000">When running my application under *nix, it crashes with a segmentation fault.</FONT></B><br>
   Make sure you have exceptions enabled with the <I>-fexceptions</I> flag. Also make sure you
   are catching any exceptions which need to be handled. QuickFIX does make use of the <I>throw</I>
   specifier in all function definitions which throw exceptions. If you are still having problems,
@@ -59,15 +101,12 @@
   with exception handling.
 
   <br><br>
-  <U><B>When running my application under Linux, it crashes with a SIG_ABRT.</U></B><br>
+  <A NAME="R4"/>
+  <B><FONT color="#FF0000">When running my application under Linux, it crashes with a SIG_ABRT.</FONT></B><br>
   Linux will always crash with a SIG_ABRT if an exception is thrown from a shared library. Under Linux
   you cannot link QuickFIX dynamically, nor can you use it inside a dynamically loaded code segment.
   QuickFIX must be linked statically into your application. We are currently investigating possible
   workarounds for this.
 
-  <br><br>
-  <U><B>Can I build quickfix on *nix with a compiler other than gcc?</U></B><br>
-  Probably. We have been able to compile it with icc as well. You can always verify your compilation
-  by running the suite of unit and acceptance tests against your build.
   </body>
 </html>

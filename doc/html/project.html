@@ -20,6 +20,17 @@
       modern compilers will have no problem however there are some caveats which will be listed
       in the following sections.
     </p>
+
+    <p>
+    <UL>
+      <LI><A HREF="#Windows (C++)">Windows (C++)</A></LI>
+      <LI><A HREF="#Windows (.NET)">Windows (.NET)</A></LI>
+      <LI><A HREF="#Linux/Solaris (C++)">Linux/Solaris (C++)</A></LI>
+      <LI><A HREF="#Java">Java</A></LI>
+    </UL>
+    </p>
+
+    <A NAME="Windows (C++)"/>
     <H3>Windows (C++)</H3>
     <p>
       The following settings concerning quickfix can all be found under the <B>project|settings</B>
@@ -48,6 +59,8 @@
                <I>quickfix_debug.lib</I> reside.
       </UL>
     </p>
+
+    <A NAME="Windows (.NET)"/>
     <H3>Windows (.NET)</H3>
     <p>
     This couldn't be simpler.
@@ -57,6 +70,8 @@
         section of your projects.
      </UL>
     </p>
+
+    <A NAME="Linux/Solaris (C++)"/>
     <H3>Linux/Solaris</H3>
     <p>
       Linux/Solaris have several caveats. Using GCC you have to keep a few things in mind. Support
@@ -94,8 +109,6 @@
         <LI>Quickfix library must be linked in with <B>-lquickfix</B>
         <LI>Quickfix makes use of pthreads and libxml.  These must be linked in with <B>-lpthread</B>,
             <B>-lxml2</B> and <B>-lz</B>
-        <LI>Currently, QuickFIX relies on the use of recursive mutexes. In order for your compiler to
-            use these you must pass in <B>-D_XOPEN_SOURCE=500</B>
         <LI>In addition to the above, on Solaris you must link with <B>-lnsl</B> and <B>-lsocket</B>
         <BR><B>NB</B>: GNU <TT>ld</TT> is a one-pass linker, so order is important.  Put more generally
         useful libraries (libsocket) last on the command line.
@@ -105,20 +118,21 @@
       when you ran <B>make install</B> after building quickfix.
     </p>
   </body>
+
+  <A NAME="Java"/>
   <H3>Java</H3>
     <p>
-    Remember, currently JAVA support is only available under Windows. This is what you must do
-    to access QuickFIX from Java.
+      This is what you must do to access QuickFIX from Java.
     </p>
     <p>
       <UL>
 	    <LI>Create a static initializer on your class containing your main method. Add the line
 	    <B>System.loadLibrary("quickfix_jni");</B> or <B>System.loadLibrary("quickfix_jni_debug");</B>
-	    in order to load the appropriate QuickFIX DLL.
+	    in order to load the appropriate QuickFIX DLL or shared object.
 	    <LI>When compiling, make sure <B>quickfix.jar</B> is in your classpath.
-	    <LI>When running your application, add <I>-Djava.library.path=&lt;DLL directory>;</I>
-	        so the QuickFIX JNI DLL can be found. Alternatively, make sure that QuickFIX JNI DLL is in
-	        your working directory.
+	    <LI>When running your application, add <I>-Djava.library.path=&lt;directory>;</I>
+	        so the QuickFIX JNI DLL or shared object can be found. Alternatively, make sure
+	        that QuickFIX JNI library is in your working directory.
 	  </UL>
 	</p>
 </html>
