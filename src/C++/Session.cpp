@@ -80,7 +80,8 @@ Session::Session( Application& application,
   m_dataDictionary( dataDictionary ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
-  m_pResponder( 0 )
+  m_pResponder( 0 ),
+  m_millisecondsInTimeStamp( true )
 {
   m_state.heartBtInt( heartBtInt );
   m_state.initiate( heartBtInt != 0 );
@@ -117,7 +118,7 @@ void Session::fill( Header& header )
 
   // Use miliseconds if FIX.4.2 or later
   if(m_sessionID.getBeginString() >= BeginString_FIX42)
-	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,true));
+	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,m_millisecondsInTimeStamp));
   else
 	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,false));
 
@@ -510,7 +511,7 @@ bool Session::resend( Message& message )
   // Use miliseconds if FIX.4.2 or later
   UtcTimeStamp now;
   if(m_sessionID.getBeginString() >= BeginString_FIX42)
-	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,true));
+	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,m_millisecondsInTimeStamp));
   else
 	  header.setField(FIELD::SendingTime, UtcTimeStampConvertor::convert(now,false));
 

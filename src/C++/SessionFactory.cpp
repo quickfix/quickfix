@@ -139,6 +139,9 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setResetOnLogout( settings.getBool( RESET_ON_LOGOUT ) );
   if ( settings.has( RESET_ON_DISCONNECT ) )
     pSession->setResetOnDisconnect( settings.getBool( RESET_ON_DISCONNECT ) );
+  if ( settings.has( MILLISECONDS_IN_TIMESTAMP ) )
+    pSession->millisecondsInTimeStamp( settings.getBool( MILLISECONDS_IN_TIMESTAMP ) );
+
   return pSession;
 
   QF_STACK_POP

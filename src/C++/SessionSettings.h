@@ -88,6 +88,7 @@ static const std::string MYSQL_STORE_PORT = "MySQLStorePort";
 static const std::string FILE_LOG_PATH = "FileLogPath";
 static const std::string RESET_ON_LOGOUT = "ResetOnLogout";
 static const std::string RESET_ON_DISCONNECT = "ResetOnDisconnect";
+static const std::string MILLISECONDS_IN_TIMESTAMP = "MillisecondsInTimeStamp";
 
 /*! \addtogroup user
  *  @{

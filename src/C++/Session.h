@@ -125,6 +125,8 @@ public:
   void setLogonTimeout ( int value ) { m_state.logonTimeout( value ); }
   void setResetOnLogout ( bool value ) { m_resetOnLogout = value; }
   void setResetOnDisconnect( bool value ) { m_resetOnDisconnect = value; }
+  void millisecondsInTimeStamp ( bool value ) { m_millisecondsInTimeStamp = value; }
+
 
   void setResponder( Responder* pR ) { m_pResponder = pR; }
   bool send( Message& );
@@ -224,6 +226,7 @@ private:
   int m_maxLatency;
   bool m_resetOnLogout;
   bool m_resetOnDisconnect;
+  bool m_millisecondsInTimeStamp;
 
   SessionState m_state;
   DataDictionary m_dataDictionary;
