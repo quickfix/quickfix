@@ -24,7 +24,7 @@ class ComparatorTestCase < RUNIT::TestCase
     assert(comp.reason == "Expected field (2) but found field (1)")
     # different number of fields
     assert(!comp.compare("1=hello\001", "1=hello\0012=goodbye\001"))
-    assert(comp.reason == "Number of fields do no match")
+    assert(comp.reason == "Number of fields do not match")
     # mathing non-deterministic field
     assert(comp.compare(
 	"1=hello\0012=goodbye\00152=12345678-12:23:34\001", "1=hello\0012=goodbye\00152=87654321-98:87:76\001"))

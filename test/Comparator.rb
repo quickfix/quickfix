@@ -35,7 +35,7 @@ class Comparator < Hash
     right_array = right.split("\001")
     # check for number of fields
     if left_array.size != right_array.size
-      @reason = "Number of fields do no match"
+      @reason = "Number of fields do not match"
       return false
     end
     left_array.each_index do
