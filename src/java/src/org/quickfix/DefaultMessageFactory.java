@@ -58,6 +58,8 @@ public class DefaultMessageFactory implements org.quickfix.MessageFactory {
         new org.quickfix.fix42.MessageFactory();
     private org.quickfix.fix43.MessageFactory fix43Factory =
         new org.quickfix.fix43.MessageFactory();
+    private org.quickfix.fix44.MessageFactory fix44Factory =
+    	new org.quickfix.fix44.MessageFactory();
 
     public Message create(String beginString, String msgType) {
         if("FIX.4.0".equals(beginString)) {
@@ -71,6 +73,9 @@ public class DefaultMessageFactory implements org.quickfix.MessageFactory {
         }
         if("FIX.4.3".equals(beginString)) {
             return fix43Factory.create(beginString, msgType);
+        }
+        if("FIX.4.4".equals(beginString)) {
+		    return fix44Factory.create(beginString, msgType);
         }
         return new Message();
     }
