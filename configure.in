@@ -135,6 +135,15 @@ AC_TRY_COMPILE(
 	The system supports AT&T STREAMS, presumably standard),
 	AC_MSG_RESULT(no))
 
+AC_MSG_CHECKING(for socklen_t)
+AC_TRY_COMPILE(
+	[#include <unistd.h>],
+	[socklen_t t = 1;],
+	AC_MSG_RESULT(yes),
+	AC_MSG_RESULT(no)
+	AC_DEFINE(socklen_t, int,
+	socklen_t needs to be defined if the system doesn't define it))
+
 #AC_MSG_CHECKING(for recursive mutexes)
 #AC_TRY_COMPILE(
 #	 [#include <pthread.h>],
