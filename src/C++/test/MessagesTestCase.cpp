@@ -219,7 +219,8 @@ void MessageTestCase::getXML::onRun( Message& object )
   Message message;
   message.getHeader().setField(BeginString("FIX.4.2"));
   message.getHeader().setField(SenderCompID("SENDER"));
-  message.getHeader().setField(TargetCompID("TARGET"));  
+  message.getHeader().setField(TargetCompID("TARGET"));
+  message.getHeader().setField(MsgType(MsgType_Logon));
   message.setField(Account("ACCOUNT"));
   message.setField(ClOrdID("CLORDID"));
   message.setField(IDSource(IDSource_CUSIP));
@@ -237,6 +238,7 @@ void MessageTestCase::getXML::onRun( Message& object )
   stream  <<  "<message>" << EOL
               << "  <header>" << EOL
 		          << "    <field name=\042BeginString\042 number=\0428\042 value=\042FIX.4.2\042/>" << EOL
+              << "    <field name=\042MsgType\042 number=\04235\042 value=\042A\042 enum=\042Logon\042/>" << EOL
 			        << "    <field name=\042SenderCompID\042 number=\04249\042 value=\042SENDER\042/>" << EOL
 			        << "    <field name=\042TargetCompID\042 number=\04256\042 value=\042TARGET\042/>" << EOL
 			        << "  </header>" << EOL

@@ -149,6 +149,10 @@ public:
     if ( !getValue( *m_pAttrs, "msgtype", m_msgtype ) )
       throw std::runtime_error( "No MsgType" );
     m_dataDictionary.addMsgType( m_msgtype );
+
+    std::string name;
+    if ( getValue( *m_pAttrs, "name", name ) )
+      m_dataDictionary.addValueName( 35, m_msgtype, name );
   }
 
   void doFixMessagesMessageField()
