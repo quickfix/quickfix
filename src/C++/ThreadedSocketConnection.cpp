@@ -182,7 +182,7 @@ void ThreadedSocketConnection::processStream()
       m_pSession->next( msg );
     }
   }
-  catch( RecvFailed& e )
+  catch( RecvFailed& )
   { disconnect(); }
 
   if ( m_pSession )

@@ -71,7 +71,7 @@ bool SocketConnection::read( SocketConnector& s )
 
     m_pSession->next( msg );
   } 
-  catch( RecvFailed& e )
+  catch( RecvFailed& )
   {
     s.getMonitor().drop( m_socket );
   }
