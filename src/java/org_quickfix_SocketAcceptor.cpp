@@ -180,14 +180,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doBlock
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_doPoll
+JNIEXPORT jboolean JNICALL Java_org_quickfix_SocketAcceptor_doPoll
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   try
   {
-    getCPPSocketAcceptor( obj ) ->poll();
+    return getCPPSocketAcceptor( obj ) ->poll();
   }
   catch( FIX::ConfigError &e )
   {

@@ -189,14 +189,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doBlock
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doPoll
+JNIEXPORT jboolean JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doPoll
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   try
   {
-    getCPPThreadedSocketAcceptor( obj ) ->poll();
+    return getCPPThreadedSocketAcceptor( obj ) ->poll();
   }
   catch( FIX::ConfigError &e )
   {

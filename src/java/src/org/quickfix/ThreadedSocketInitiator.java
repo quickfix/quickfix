@@ -98,8 +98,8 @@ public class ThreadedSocketInitiator implements Initiator {
         doBlock();
     }
 
-    public void poll() throws ConfigError, RuntimeError {
-        doPoll();
+    public boolean poll() throws ConfigError, RuntimeError {
+        return doPoll();
     }
 
     public void stop() {
@@ -108,6 +108,6 @@ public class ThreadedSocketInitiator implements Initiator {
 
     private native void doStart() throws ConfigError, RuntimeError;
     private native void doBlock() throws ConfigError, RuntimeError;
-    private native void doPoll() throws ConfigError, RuntimeError;
+    private native boolean doPoll() throws ConfigError, RuntimeError;
     private native void doStop();
 }

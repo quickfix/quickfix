@@ -98,8 +98,8 @@ public class SocketAcceptor implements Acceptor {
         doBlock();
     }
 
-    public void poll() throws RuntimeError, ConfigError {
-	doPoll();
+    public boolean poll() throws RuntimeError, ConfigError {
+        return doPoll();
     }
 
     public void stop() {
@@ -108,6 +108,6 @@ public class SocketAcceptor implements Acceptor {
 
     private native void doStart() throws RuntimeError, ConfigError;
     private native void doBlock() throws RuntimeError, ConfigError;
-    private native void doPoll() throws RuntimeError, ConfigError;
+    private native boolean doPoll() throws RuntimeError, ConfigError;
     private native void doStop();
 }

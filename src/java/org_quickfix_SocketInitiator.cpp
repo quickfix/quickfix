@@ -192,14 +192,14 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doBlock
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_doPoll
+JNIEXPORT jboolean JNICALL Java_org_quickfix_SocketInitiator_doPoll
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   try
   {
-    getCPPSocketInitiator( obj ) ->poll();
+    return getCPPSocketInitiator( obj ) ->poll();
   }
   catch( FIX::ConfigError &e )
   {

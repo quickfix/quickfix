@@ -42,9 +42,9 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doBlock
 /*
  * Class:     org_quickfix_ThreadedSocketInitiator
  * Method:    doPoll
- * Signature: ()V
+ * Signature: ()Z
  */
-JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_doPoll
+JNIEXPORT jboolean JNICALL Java_org_quickfix_ThreadedSocketInitiator_doPoll
   (JNIEnv *, jobject);
 
 /*

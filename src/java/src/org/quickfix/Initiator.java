@@ -53,6 +53,6 @@ public interface Initiator {
 
     void start() throws ConfigError, RuntimeError;
     void block() throws ConfigError, RuntimeError;
-    void poll() throws ConfigError, RuntimeError;
+    boolean poll() throws ConfigError, RuntimeError;
     void stop();
 }

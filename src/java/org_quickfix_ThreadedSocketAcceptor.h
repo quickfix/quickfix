@@ -42,9 +42,9 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doBlock
 /*
  * Class:     org_quickfix_ThreadedSocketAcceptor
  * Method:    doPoll
- * Signature: ()V
+ * Signature: ()Z
  */
-JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doPoll
+JNIEXPORT jboolean JNICALL Java_org_quickfix_ThreadedSocketAcceptor_doPoll
   (JNIEnv *, jobject);
 
 /*
