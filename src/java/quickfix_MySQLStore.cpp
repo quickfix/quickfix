@@ -27,8 +27,8 @@
 
 #include "JVM.h"
 #include "quickfix_MySQLStore.h"
-#include "MySQLStore.h"
-#include "CallStack.h"
+#include <quickfix/MySQLStore.h>
+#include <quickfix/CallStack.h>
 #include "Conversions.h"
 #include "JavaMessageStore.h"
 
