@@ -35,6 +35,9 @@ Session::Sessions Session::s_sessions;
 Session::Sessions Session::s_registered;
 Mutex Session::s_mutex;
 
+#define LOGEX( method ) try { method; } catch( std::exception& e ) \
+  { m_state.onEvent( e.what() ); }
+
 Session::Session( Application& application,
                   MessageStoreFactory& messageStoreFactory,
                   const SessionID& sessionID,
@@ -652,10 +655,7 @@ void Session::generateReject( const Message& message, int err, int field )
 { QF_STACK_PUSH(Session::generateReject)
 
   if ( !m_state.receivedLogon() )
-  {
-    m_state.onEvent( "Tried to send a reject while not logged on" );
-    return;
-  }
+    throw std::exception( "Tried to send a reject while not logged on" );
 
   std::string beginString = m_sessionID.getBeginString();
 
@@ -1150,10 +1150,10 @@ void Session::next( const Message& message )
   catch ( MessageParseError& e ) 
   { m_state.onEvent( e.what() ); }
   catch ( RequiredTagMissing & e )
-  { generateReject( message, 1, e.field ); }
+  { LOGEX( generateReject( message, 1, e.field ) ); }
   catch ( FieldNotFound & e )
   {
-    generateReject( message, 1, e.field );
+    LOGEX( generateReject( message, 1, e.field ) );
     if ( msgType == MsgType_Logon )
     {
       m_state.onEvent( "Required field missing from logon" );
@@ -1161,30 +1161,30 @@ void Session::next( const Message& message )
     }
   }
   catch ( InvalidTagNumber & e )
-  { generateReject( message, 0, e.field ); }
+  { LOGEX( generateReject( message, 0, e.field ) ); }
   catch ( NoTagValue & e )
-  { generateReject( message, 4, e.field ); }
+  { LOGEX( generateReject( message, 4, e.field ) ); }
   catch ( TagNotDefinedForMessage & e )
-  { generateReject( message, 2, e.field ); }
+  { LOGEX( generateReject( message, 2, e.field ) ); }
   catch ( InvalidMessageType& )
-  { generateReject( message, 11 ); }
+  { LOGEX( generateReject( message, 11 ) ); }
   catch ( UnsupportedMessageType& )
   {
     if ( beginString >= FIX::BeginString_FIX42 )
-      generateBusinessReject( message, 3 );
+      { LOGEX( generateBusinessReject( message, 3 ) ); }
     else
-      generateReject( message, "Unsupported message type" );
+      { LOGEX( generateReject( message, "Unsupported message type" ) ); }
   }
   catch ( TagOutOfOrder & e )
-  { generateReject( message, 14, e.field ); }
+  { LOGEX( generateReject( message, 14, e.field ) ); }
   catch ( IncorrectDataFormat & e )
-  { generateReject( message, 6, e.field ); }
+  { LOGEX( generateReject( message, 6, e.field ) ); }
   catch ( IncorrectTagValue & e )
-  { generateReject( message, 5, e.field ); }
+  { LOGEX( generateReject( message, 5, e.field ) ); }
   catch ( RepeatedTag & e )
-  { generateReject( message, 13, e.field ); }
+  { LOGEX( generateReject( message, 13, e.field ) ); }
   catch ( RepeatingGroupCountMismatch & e )
-  { generateReject( message, 16, e.field ); }
+  { LOGEX( generateReject( message, 16, e.field ) ); }
   catch ( InvalidMessage& e )
   { m_state.onEvent( e.what() ); }
   catch ( RejectLogon& )
