@@ -109,9 +109,16 @@ NewOrderSingle createNewOrderSingle( const char* sender, const char* target, int
   return newOrderSingle;
 }
 
-bool SessionTestCase::Test::onSetup( Session*& pObject )
+bool SessionTestCase::InitiatorTest::onSetup( Session*& pObject )
 {
-  pObject = createSession();
+  pObject = createInitiatorSession();
+  pObject->setResponder( this );
+  return true;
+}
+
+bool SessionTestCase::AcceptorTest::onSetup( Session*& pObject )
+{
+  pObject = createAcceptorSession();
   pObject->setResponder( this );
   return true;
 }
@@ -449,6 +456,19 @@ void SessionTestCase::logout::onRun( Session& object )
   assert( m_fromLogout == 1 );
 }
 
+void SessionTestCase::logoutInitiator::onRun( Session& object )
+{
+  object.setResponder( this );
+  object.next();
+  object.next( createLogon( "ISLD", "TW", 1 ) );
+  assert( object.getExpectedSenderNum() == 2 );
+  assert( object.getExpectedTargetNum() == 2 );
+  
+  object.next( createLogout( "ISLD", "TW", 2 ) );
+  assert( object.getExpectedSenderNum() == 3 );
+  assert( object.getExpectedTargetNum() == 3 );
+}
+
 void SessionTestCase::badOrigSendingTime::onRun( Session& object )
 {
   object.setResponder( this );
@@ -714,7 +734,7 @@ bool SessionTestCase::resetOnEndTime::onSetup( Session*& pObject )
   m_endTime.setMillisecond(0);
 
   m_endTime += 2;
-  return Test::onSetup( pObject );
+  return AcceptorTest::onSetup( pObject );
 }
 
 void SessionTestCase::resetOnEndTime::onRun( Session& object )
@@ -737,7 +757,7 @@ bool SessionTestCase::disconnectBeforeStartTime::onSetup( Session*& pObject )
   m_startTime += 1;
   m_endTime.setCurrent();
   m_endTime += 4;
-  return Test::onSetup( pObject );
+  return AcceptorTest::onSetup( pObject );
 }
 
 void SessionTestCase::disconnectBeforeStartTime::onRun( Session& object )
@@ -756,7 +776,7 @@ bool SessionTestCase::resetOnNewSession::onSetup( Session*& pObject )
   m_endTime = m_startTime;
   m_endTime += 2;
   m_startTime += -2;  
-  return Test::onSetup( pObject );
+  return AcceptorTest::onSetup( pObject );
 }
 
 void SessionTestCase::resetOnNewSession::onRun( Session& object )

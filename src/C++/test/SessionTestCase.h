@@ -44,6 +44,7 @@ public:
     add( &m_nextTestRequest );
     add( &m_outOfOrder );
     add( &m_logout );
+    add( &m_logoutInitiator );
     add( &m_badOrigSendingTime );
     add( &m_noOrigSendingTime );
     add( &m_badCompID );
@@ -85,7 +86,6 @@ class Test : public CPPTest::Test < Session > ,
     m_disconnect( 0 )
     {}
 
-    bool onSetup( Session*& pObject );
     void onTeardown( Session* pObject ) { delete pObject; }
 
     bool send( const std::string& ) { return true; }
@@ -155,7 +155,7 @@ class Test : public CPPTest::Test < Session > ,
 
   void disconnect() { m_disconnect++; }
 
-  virtual Session* createSession()
+  virtual Session* createAcceptorSession()
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
@@ -163,6 +163,16 @@ class Test : public CPPTest::Test < Session > ,
 
     return new Session( *this, m_factory, sessionID, DataDictionary(),
                         sessionTime, 0, 0 );
+  }
+
+  virtual Session* createInitiatorSession()
+  {
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
+    SessionTime sessionTime( m_startTime, m_endTime );
+
+    return new Session( *this, m_factory, sessionID, DataDictionary(),
+                        sessionTime, 1, 0 );
   }
 
   protected:
@@ -186,49 +196,61 @@ class Test : public CPPTest::Test < Session > ,
     MemoryStoreFactory m_factory;
   };
 
-class EmptyTest : public Test
+  class AcceptorTest : public Test
+  {
+  public:
+    bool onSetup( Session*& pObject );
+  };
+
+  class InitiatorTest : public Test
+  {
+  public:
+    bool onSetup( Session*& pObject );
+  };
+
+  class EmptyTest : public AcceptorTest
   {
     bool onSetup( Session*& pObject ) { return true; }
     void onTeardown( Session* pObject ) {}}
   ;
 
-class nextLogon : public Test
+  class nextLogon : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_nextLogon;
 
-class nextLogonNoEncryptMethod : public Test
+  class nextLogonNoEncryptMethod : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_nextLogonNoEncryptMethod;
 
-class notifyResendRequest : public Test
+  class notifyResendRequest : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_notifyResendRequest;
 
-class incrMsgSeqNum : public Test
+  class incrMsgSeqNum : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_incrMsgSeqNum;
 
-class callDisconnect : public Test
+  class callDisconnect : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_callDisconnect;
 
-class doesSessionExist : public EmptyTest
+  class doesSessionExist : public EmptyTest
   {
     void onRun( Session& object );
   }
   m_doesSessionExist;
 
-class lookupSession : public EmptyTest
+  class lookupSession : public EmptyTest
   {
     bool onSetup( Session*& pObject );
     void onRun( Session& object );
@@ -238,7 +260,7 @@ class lookupSession : public EmptyTest
   }
   m_lookupSession;
 
-class registerSession : public EmptyTest
+  class registerSession : public EmptyTest
   {
     bool onSetup( Session*& pObject );
     void onRun( Session& object );
@@ -246,100 +268,106 @@ class registerSession : public EmptyTest
   }
   m_registerSession;
 
-class nextTestRequest : public Test
+  class nextTestRequest : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_nextTestRequest;
 
-class outOfOrder : public Test
+  class outOfOrder : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_outOfOrder;
 
-class logout : public Test
+  class logout : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_logout;
 
-class badOrigSendingTime : public Test
+  class logoutInitiator : public InitiatorTest
+  {
+    void onRun( Session& object );
+  }
+  m_logoutInitiator;
+
+  class badOrigSendingTime : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_badOrigSendingTime;
 
-class noOrigSendingTime : public Test
+  class noOrigSendingTime : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_noOrigSendingTime;
 
-class badCompID : public Test
+  class badCompID : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_badCompID;
 
-class nextReject : public Test
+  class nextReject : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_nextReject;
 
-class badMsgType : public Test
+  class badMsgType : public AcceptorTest
   {
     bool onSetup( Session*& pObject );
     void onRun( Session& object );
   }
   m_badMsgType;
 
-class nextSequenceReset : public Test
+  class nextSequenceReset : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_nextSequenceReset;
 
-class nextGapFill : public Test
+  class nextGapFill : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_nextGapFill;
 
-class nextResendRequest : public Test
+  class nextResendRequest : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_nextResendRequest;
 
-class badBeginString : public Test
+  class badBeginString : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_badBeginString;
 
-class unsupportedMsgType : public Test
+  class unsupportedMsgType : public AcceptorTest
   {
     void onRun( Session& object );
   }
   m_unsupportedMsgType;
 
-class resetOnEndTime : public Test
+  class resetOnEndTime : public AcceptorTest
   {
     bool onSetup( Session*& pObject );
     void onRun( Session& object );
   }
   m_resetOnEndTime;
 
-class disconnectBeforeStartTime : public Test
+  class disconnectBeforeStartTime : public AcceptorTest
   {
     bool onSetup( Session*& pObject );
     void onRun( Session& object );
   }
   m_disconnectBeforeStartTime;
 
-class resetOnNewSession : public Test
+  class resetOnNewSession : public AcceptorTest
   {
   class Factory : public MemoryStoreFactory
     {

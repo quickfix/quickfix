@@ -1209,7 +1209,8 @@ void Session::next( const Message& message )
   }
 
   nextQueued();
-  next();
+  if( isLoggedOn() )
+    next();
 
   QF_STACK_POP
 }
