@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "quickfix_jni"=.\quickfix_jni.dsp - Package Owner=<4>
+Project: "quickfix_jni"=.\src\java\quickfix_jni.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
