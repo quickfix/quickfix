@@ -54,7 +54,8 @@ public:
   FileStoreFactory( SessionSettings* settings )
   : m_path( 0 ), m_settings( settings ) {}
 
-  FileStoreFactory( String* path ) : m_path( path ) {}
+  FileStoreFactory( String* path ) 
+  : m_path( path ), m_settings( 0 ) {}
 
   MessageStore* create( SessionID* sessionID )
   { QF_STACK_TRY
