@@ -1,3 +1,86 @@
+1.7.0
+-----
+FIX 4.4 support added to .NET! The .NET API had to be segmented into two
+assemblies: quickfix_net and quickfix_net_messages.  Why?  Well, the Managed
+C++ compiler has a bug that causes it to choke on any class with more than 17
+nested classes.  FIX 4.4 being the monster that it is, has several messages
+with more than 17 repeating groups (yikes!), so the generated code choked.
+This caused me some pain but eventually I came up with the less than ideal
+but workable solution of generating the message code as C#, which does not
+suffer from this problem.  So part of the .NET API is implemented in Managed
+C++ and part of it in C#.
+
+Java package changed from org.quickfix to just quickfix.  I know this is a
+horrible thing to do to you but the fact is we just don't have the domain
+name.  In the meantime I have registered quickfixengine.org (nothing is there yet)
+
+Session mutex is locked during a resend request.  This will prevent new messages
+from being sent in the middle of a resend request, which could cause all sorts
+of havoc.
+
+Support added for Mac OS X and FreeBSD. Mac OS X doesn't currently support
+sending milliseconds in UtcTimeStamps.  Some of the documentation for these
+two systems isn't complete, so you should follow the linux documentation.
+
+Session more gracefully handles sending of messages during the logon process.
+
+Session will disconnect instead of sending a reject message on a bad logon.
+In the future we may want to provide and option to send a logout with an
+error message, although this is not generally recommended.
+
+reverseRoute added to message which will fill in inversed routing information
+based on another message, allowing you to conveniently send a response.  The
+Session class uses this for reject messages in order to ensure optional routing
+tags are included in rejects.
+
+Acceptance test runner ported to ruby 1.8.
+
+For windows, debug libraries are placed into a separate debug directory instead
+of being named things like quickfix_debug.lib.  The reason is that .NET projects
+don't seem to support the notion of different versions of a build having different
+file names, just different directories.  So in order to standardize I had to
+change everything to follow this format.
+
+DataDictionary class has been wrapped for Java and .NET.  This allows you to
+pass a DD into a message constructor along with a string.  This will allow you 
+to parse messages with repeating groups.
+
+Fixed problems with Session states not automatically resetting to prepare for
+the start of a new session.  Sessions should now reset their state at the 
+correct times.
+
+Added toString() call to SessionID
+
+SessionID's can now be streamed in from a string. Useful if you want to stream out
+a list of sessions to a file and recreate the objects from that file.
+
+Values in the settings file are read by a more inclusive regexp so many more
+special characters can be used.
+
+UtcTimeStamps now support milliseconds.  SendingTimes for FIX versions
+4.2 and higher will be sent with millisecond resolution.  A new session level
+setting MillisecondsInTimestamp is provided.  The default value is Y.
+
+Messages will be correctly parsed if it receives a partial BodyLength field.  
+The parser will make sure the complete field has been received before parsing
+the rest of the message.
+
+The blockingStart call has been renamed to simply block, and a new poll call
+has been added to Initiator and Acceptor.  So options for running quickfix are
+through the start(), block(), and poll(), commands.
+
+getYearDay added to UtcTimeStamp and UtcTimeDate which returns the current day
+of the year. (e.g. January 31 = 31, Febuary 1 = 32 )
+
+Floating point fields will be accepted with multiple leading 0's.
+
+.NET now has wrappers for the low-level C++ accessors for Message and Group.
+
+Added support for isSetField to java.
+
+Corrected some threading issues in windows by switching from _beginthread to 
+beginthreadex and from GetCurrentThread to GetCurrentThreadId
+
 1.6.0
 -----
 FIX 4.4 support for C++ and Java APIs, with .NET on the way.  You can
