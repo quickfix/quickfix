@@ -657,6 +657,9 @@ void Session::generateTestRequest( const std::string& id )
 void Session::generateReject( const Message& message, int err, int field )
 { QF_STACK_PUSH(Session::generateReject)
 
+  if ( !m_state.receivedLogon() )
+    throw std::exception();
+
   std::string beginString = m_sessionID.getBeginString();
 
   Message reject;
@@ -936,8 +939,6 @@ void Session::doBadTime( const Message& msg )
 void Session::doBadCompID( const Message& msg )
 { QF_STACK_PUSH(Session::doBadCompID)
 
-  if ( !m_state.receivedLogon() )
-    throw std::exception();
   generateReject( msg, 9 );
   generateLogout();
 
