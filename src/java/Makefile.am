@@ -3,6 +3,9 @@ EXTRA_DIST = *.h *.cpp *.bat *.xml *.properties *.dsp *.dsw
 
 lib_LTLIBRARIES = libquickfix_jni.la
 
+jardir = $(libdir)
+jar_DATA = ../../lib/quickfix.jar
+
 libquickfix_jni_la_SOURCES = \
 	JVM.h \
 	JVM.cpp \
