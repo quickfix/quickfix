@@ -7,15 +7,15 @@ if "%1" == "release" goto release:
 goto usage
 
 :debug
-set EX=_debug
+set DIR=bin\debug
 goto start
 :release
-set EX=
+set DIR=bin
 goto start
 
 :start
 pushd ..
-bin\ut%EX%.exe -p %2
+%DIR%\ut.exe -p %2
 popd
 goto quit
 
