@@ -587,7 +587,9 @@ void SessionTestCase::badMsgType::onRun( Session& object )
 
   MsgWithBadType msgWithBadType;
   fillHeader( msgWithBadType.getHeader(), "ISLD", "TW", 2 );
+
   object.next( msgWithBadType );
+
   assert( m_toReject == 1 );
   assert( m_disconnect == 0 );
   assert( m_toLogout == 0 );

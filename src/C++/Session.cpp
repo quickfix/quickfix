@@ -1378,7 +1378,7 @@ bool Session::isSameSession( const UtcTimeOnly& start,
 
   if ( start < end || start == end )
     return time1Date == time2Date;
-  else if( start > end ) 
+  else if( start > end )
     return abs(time1 - time2) < UTC_DAY;
   return false;
 

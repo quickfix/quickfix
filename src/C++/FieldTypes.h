@@ -75,7 +75,7 @@ const int UTC_DAY = 86400;
 class UtcTimeStamp : protected tm
 {
 protected:
-	int m_ms;  // milliseconds
+  int m_ms;
 public:
   /// Defaults to the current date and time
   UtcTimeStamp()
@@ -84,13 +84,13 @@ public:
   }
 
   /// Defaults to the current date
-  UtcTimeStamp( int hour, int minute, int second, int ms=0)
+  UtcTimeStamp( int hour, int minute, int second, int millisecond = 0 )
   {
     setCurrent();
     setHour( hour );
     setMinute( minute );
     setSecond( second );
-    setMillisecond( ms );
+    setMillisecond( millisecond );
   }
 
 
@@ -107,29 +107,31 @@ public:
     setYear( year );
   }
 
-  UtcTimeStamp( int hour, int minute, int second, int ms,
+  UtcTimeStamp( int hour, int minute, int second, int millisecond,
                 int date, int month, int year )
   {
     setCurrent();
     setHour( hour );
     setMinute( minute );
     setSecond( second );
-    setMillisecond( ms );
+    setMillisecond( millisecond );
     setDate( date );
     setMonth( month );
     setYear( year );
   }
 
-  UtcTimeStamp( long sec , int ms=0)
+  UtcTimeStamp( time_t time, int millisecond = 0 )
   {
-    time_t t = (time_t)sec;
-    *static_cast < tm* > ( this ) = time_gmtime( &t );
-	m_ms = ms;
+    *static_cast<tm*>(this) = time_gmtime( &time );
+      setMillisecond(millisecond);
   }
 
-  UtcTimeStamp( const tm* time, int ms=0 ) { *static_cast < tm* > ( this ) = *time; m_ms = ms;}
+  UtcTimeStamp( const tm* time, int millisecond = 0 ) 
+  { 
+    *static_cast<tm*>(this) = *time;
+      setMillisecond(millisecond);
+  }
  
-
   operator tm*() { return this; }
   operator const tm*() const { return this; }
 
@@ -149,7 +151,8 @@ public:
   int getDate() const { return tm_mday; }
   int getMonth() const { return tm_mon + 1; }
   int getYear() const { return tm_year + 1900; }
-  int getYday() const { return tm_yday + 1; }
+  int getWeekDay() const { return tm_wday + 1; }
+  int getYearDay() const { return tm_yday + 1; }
 
   friend bool operator==( const UtcTimeStamp&, const UtcTimeStamp& );
   friend bool operator<( const UtcTimeStamp&, const UtcTimeStamp& );
@@ -162,15 +165,17 @@ public:
   /// Set to the current date and time.
   void setCurrent()
   { 
-	// Oct 2003, Daniel May moved to ftime() so we can store milliseconds	    
+#ifdef HAS_FTIME
     timeb tb;
-	ftime(&tb);
-    *static_cast < tm* > ( this ) = time_gmtime( &tb.time );
-	m_ms = tb.millitm;
-	// even though the field tb.dstflag is available, set tm_isdst to zero to
-	// be consistent will previous behavior
-	tm_isdst = 0;
-	
+    ftime(&tb);
+    time_t& time = tb.time;
+    m_ms = tb.millitm;
+#else
+    time_t time;
+    ::time(&time);
+#endif
+    *static_cast<tm*>(this) = time_gmtime( &time );
+    tm_isdst = -1;
   }
 };
 
@@ -184,14 +189,23 @@ public:
     clearDate();
   }
 
-  UtcTimeOnly( int hour, int minute, int second, int ms=0)
-  : UtcTimeStamp( hour, minute, second, ms)
+  UtcTimeOnly( int hour, int minute, int second, int millisecond = 0 )
+  : UtcTimeStamp( hour, minute, second, millisecond )
   {
     clearDate();
   }
 
-  UtcTimeOnly( long sec, int ms=0 ) : UtcTimeStamp( sec, ms ) { clearDate(); }
-  UtcTimeOnly( const tm* time, int ms=0 ) : UtcTimeStamp( time, ms ) { clearDate(); }
+  UtcTimeOnly( time_t time, int millisecond = 0 ) 
+  : UtcTimeStamp( time, millisecond ) 
+  { 
+    clearDate(); 
+  }
+
+  UtcTimeOnly( const tm* time, int millisecond = 0 ) 
+  : UtcTimeStamp( time, millisecond ) 
+  { 
+    clearDate(); 
+  }
 
   operator tm*() { return UtcTimeStamp::operator tm*(); }
   operator const tm*() const { return UtcTimeStamp::operator const tm*(); }
@@ -231,6 +245,8 @@ private:
     tm_year = 70;
     tm_wday = 0;
     tm_yday = 0;
+    tm_isdst = -1;
+    m_ms = 0;
   }
 };
 
@@ -263,7 +279,8 @@ public:
   int getDate() const { return UtcTimeStamp::getDate(); }
   int getMonth() const { return UtcTimeStamp::getMonth(); }
   int getYear() const { return UtcTimeStamp::getYear(); }
-  int getYday() const { return UtcTimeStamp::getYday(); }
+  int getWeekDay() const { return UtcTimeStamp::getWeekDay(); }
+  int getYearDay() const { return UtcTimeStamp::getYearDay(); }
 
   friend bool operator==( const UtcDate&, const UtcDate& );
   friend bool operator<( const UtcDate&, const UtcDate& );
@@ -314,7 +331,7 @@ inline bool operator<( const UtcTimeStamp& lhs, const UtcTimeStamp& rhs )
   double diff = difftime( l_time, r_time );
 
   if(diff==0.0)
-	  return (lhs.m_ms - rhs.m_ms) < 0;
+     return (lhs.m_ms - rhs.m_ms) < 0;
   else
      return diff < 0;
 }
@@ -345,7 +362,7 @@ inline long operator-( const UtcTimeStamp& lhs, const UtcTimeStamp& rhs )
 inline bool operator==( const UtcTimeOnly& lhs, const UtcTimeOnly& rhs )
 {
   return
-	   lhs.m_ms == rhs.m_ms
+    lhs.m_ms == rhs.m_ms
     && lhs.tm_sec == rhs.tm_sec
     && lhs.tm_min == rhs.tm_min
     && lhs.tm_hour == rhs.tm_hour;
