@@ -4766,11 +4766,11 @@ namespace QuickFix
     LegCurrency(String* data) : StringField(556, data) {}
   };
   
-  public __gc class TotNoSecurityType : public IntField
+  public __gc class TotNoSecurityTypes : public IntField
   {
   public:
-  TotNoSecurityType() : IntField(557) {}
-    TotNoSecurityType(int data) : IntField(557, data) {}
+  TotNoSecurityTypes() : IntField(557) {}
+    TotNoSecurityTypes(int data) : IntField(557, data) {}
   };
   
   public __gc class NoSecurityTypes : public IntField

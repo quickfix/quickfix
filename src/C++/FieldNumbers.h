@@ -577,7 +577,7 @@ namespace FIX
      ,Password = 554
      ,NoLegs = 555
      ,LegCurrency = 556
-     ,TotNoSecurityType = 557
+     ,TotNoSecurityTypes = 557
      ,NoSecurityTypes = 558
      ,SecurityListRequestType = 559
      ,SecurityRequestResult = 560

@@ -5,7 +5,7 @@ import java.util.Date;
 public class MassCancelRequestType extends CharField 
 { 
   public static final int FIELD = 530; 
-public static final char CANCEL_ORDERS_FOR_A__SECURITY = '1'; 
+public static final char CANCEL_ORDERS_FOR_A_SECURITY = '1'; 
 public static final char CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY = '2'; 
 public static final char CANCEL_ORDERS_FOR_A_PRODUCT = '3'; 
 public static final char CANCEL_ORDERS_FOR_A_CFICODE = '4'; 

@@ -3003,7 +3003,7 @@ public static class NoSides extends Group {
                752, 
                825, 
                826, 
-               , 
+               591, 
                70, 
                0 } 
 ); 
@@ -3618,7 +3618,7 @@ public static class NoSides extends Group {
   public boolean isSet(org.quickfix.field.PreallocMethod field) 
   { return isSetField(field); } 
   public boolean isSetPreallocMethod() 
-  { return isSetField(); } 
+  { return isSetField(591); } 
 
   public void set(org.quickfix.field.AllocID value) 
   { setField(value); } 

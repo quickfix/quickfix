@@ -1,8 +1,8 @@
 package org.quickfix.field; 
-import org.quickfix.StringField; 
+import org.quickfix.CharField; 
 import java.util.Date; 
 
-public class SettlType extends StringField 
+public class SettlType extends CharField 
 { 
   public static final int FIELD = 63; 
 public static final char REGULAR = '0'; 
@@ -20,7 +20,7 @@ public static final char T_PLUS_5 = '9';
   { 
     super(63);
   } 
-  public SettlType(String data) 
+  public SettlType(char data) 
   { 
     super(63, data);
   } 

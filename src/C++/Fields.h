@@ -575,7 +575,7 @@ namespace FIX
  DEFINE_STRING(Password);
  DEFINE_NUMINGROUP(NoLegs);
  DEFINE_CURRENCY(LegCurrency);
- DEFINE_INT(TotNoSecurityType);
+ DEFINE_INT(TotNoSecurityTypes);
  DEFINE_NUMINGROUP(NoSecurityTypes);
  DEFINE_INT(SecurityListRequestType);
  DEFINE_INT(SecurityRequestResult);

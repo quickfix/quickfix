@@ -4,14 +4,14 @@ import java.util.Date;
 
 public class SettlDate extends StringField 
 { 
-  public static final int FIELD = 193; 
+  public static final int FIELD = 64; 
 
   public SettlDate() 
   { 
-    super(193);
+    super(64);
   } 
   public SettlDate(String data) 
   { 
-    super(193, data);
+    super(64, data);
   } 
 } 

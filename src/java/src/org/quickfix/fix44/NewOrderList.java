@@ -265,7 +265,7 @@ public static class NoOrders extends Group {
                589, 
                590, 
                70, 
-               , 
+               591, 
                63, 
                64, 
                544, 
@@ -369,7 +369,7 @@ public static class NoOrders extends Group {
                58, 
                354, 
                355, 
-               , 
+               193, 
                192, 
                640, 
                77, 
@@ -561,7 +561,7 @@ public static class NoOrders extends Group {
   public boolean isSet(org.quickfix.field.PreallocMethod field) 
   { return isSetField(field); } 
   public boolean isSetPreallocMethod() 
-  { return isSetField(); } 
+  { return isSetField(591); } 
 
   public void set(org.quickfix.field.SettlType value) 
   { setField(value); } 
@@ -1041,7 +1041,7 @@ public static class NoOrders extends Group {
   public boolean isSet(org.quickfix.field.SettlDate2 field) 
   { return isSetField(field); } 
   public boolean isSetSettlDate2() 
-  { return isSetField(); } 
+  { return isSetField(193); } 
 
   public void set(org.quickfix.field.OrderQty2 value) 
   { setField(value); } 

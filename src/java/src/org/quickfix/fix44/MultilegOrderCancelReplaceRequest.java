@@ -296,7 +296,7 @@ public static class NoPartySubIDs extends Group {
   public boolean isSet(org.quickfix.field.PreallocMethod field) 
   { return isSetField(field); } 
   public boolean isSetPreallocMethod() 
-  { return isSetField(); } 
+  { return isSetField(591); } 
 
   public void set(org.quickfix.field.AllocID value) 
   { setField(value); } 

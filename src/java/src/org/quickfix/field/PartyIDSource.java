@@ -10,7 +10,6 @@ public static final char GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = 'C';
 public static final char PROPRIETARY_CUSTOM_CODE = 'D'; 
 public static final char ISO_COUNTRY_CODE = 'E'; 
 public static final char SETTLEMENT_ENTITY_LOCATION = 'F'; 
-public static final char ISO_COUNTRY_CODE = 'E'; 
 public static final char MIC = 'G'; 
 public static final char CSD_PARTICIPANT_MEMBER_CODE = 'H'; 
 public static final char KOREAN_INVESTOR_ID = '1'; 

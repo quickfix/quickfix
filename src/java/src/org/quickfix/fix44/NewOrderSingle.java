@@ -258,7 +258,7 @@ public static class NoPartySubIDs extends Group {
   public boolean isSet(org.quickfix.field.PreallocMethod field) 
   { return isSetField(field); } 
   public boolean isSetPreallocMethod() 
-  { return isSetField(); } 
+  { return isSetField(591); } 
 
   public void set(org.quickfix.field.AllocID value) 
   { setField(value); } 
@@ -2535,7 +2535,7 @@ public static class NoStipulations extends Group {
   public boolean isSet(org.quickfix.field.SettlDate2 field) 
   { return isSetField(field); } 
   public boolean isSetSettlDate2() 
-  { return isSetField(); } 
+  { return isSetField(193); } 
 
   public void set(org.quickfix.field.OrderQty2 value) 
   { setField(value); } 
