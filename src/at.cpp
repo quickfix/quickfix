@@ -21,7 +21,6 @@
 #include "SocketAcceptor.h"
 #include "SessionSettings.h"
 #include "FileStore.h"
-#include "Log.h"
 #include "Utility.h"
 #include <iostream>
 #include <fstream>
@@ -57,21 +56,20 @@ int main( int argc, char** argv )
     FIX::SessionSettings settings( file );
     Application application;
     FIX::FileStoreFactory factory( "store" );
-    FIX::ScreenLogFactory logFactory( false, false, true );
 
     AcceptorPtr pAcceptor;
     if ( threaded )
     {
       AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
                       ( new FIX::ThreadedSocketAcceptor
-                        ( application, factory, settings, logFactory ) );
+                        ( application, factory, settings ) );
       pAcceptor = p;
     }
     else
     {
       AcceptorPtr p = std::auto_ptr < FIX::Acceptor >
                       ( new FIX::SocketAcceptor
-                        ( application, factory, settings, logFactory ) );
+                        ( application, factory, settings ) );
       pAcceptor = p;
     }
 
