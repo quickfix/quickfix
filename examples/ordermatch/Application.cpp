@@ -47,16 +47,16 @@
 * ====================================================================
 */
 
-#include "Application.h"
-#include "quickfix/Session.h"
-
-#include "quickfix/fix42/ExecutionReport.h"
-
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )
 #else
 #include "config.h"
 #endif
+
+#include "Application.h"
+#include "quickfix/Session.h"
+
+#include "quickfix/fix42/ExecutionReport.h"
 
 void Application::onLogon( const FIX::SessionID& sessionID )
 {
