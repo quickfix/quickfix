@@ -183,7 +183,7 @@ void Acceptor::block() throw ( ConfigError&, RuntimeError& )
 }
 
 bool Acceptor::poll() throw ( ConfigError&, RuntimeError& )
-{ QF_STACK_PUSH(Initiator::poll)
+{ QF_STACK_PUSH( Acceptor::poll )
 
   onConfigure( m_settings );
   onInitialize( m_settings ); 
