@@ -1,3 +1,15 @@
+2004-11-16 02:41  orenmnero
+
+	* NEWS: [no log message]
+
+2004-11-16 02:32  orenmnero
+
+	* src/C++/Session.cpp: lock mutex when unregistering session
+
+2004-11-15 16:37  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-15 16:30  orenmnero
 
 	* quickfix.dsp, quickfix.vcproj, src/.NET/MySQLLog.h,
