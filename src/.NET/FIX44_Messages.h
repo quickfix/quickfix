@@ -8094,11 +8094,10 @@ namespace QuickFix44
     NET_FIELD_SET(ExpireDate);
     NET_FIELD_SET(ExpireTime);
     NET_FIELD_SET(GTBookingInst);   
-    NET_FIELD_SET(OrderQty);   
-    NET_FIELD_SET(CashOrderQty);   
-    NET_FIELD_SET(OrderPercent);   
-    NET_FIELD_SET(RoundingDirection);   
-    NET_FIELD_SET(RoundingModulus);
+    NET_FIELD_SET(Commission);   
+    NET_FIELD_SET(CommType);   
+    NET_FIELD_SET(CommCurrency);   
+    NET_FIELD_SET(FundRenewWaiv);
     NET_FIELD_SET(OrderCapacity);
     NET_FIELD_SET(OrderRestrictions);
     NET_FIELD_SET(CustOrderCapacity);
@@ -8463,11 +8462,10 @@ namespace QuickFix44
     NET_FIELD_SET(TradeDate);
     NET_FIELD_SET(TransactTime);
     NET_FIELD_SET(ReportToExch);   
-    NET_FIELD_SET(OrderQty);   
-    NET_FIELD_SET(CashOrderQty);   
-    NET_FIELD_SET(OrderPercent);   
-    NET_FIELD_SET(RoundingDirection);   
-    NET_FIELD_SET(RoundingModulus);   
+    NET_FIELD_SET(Commission);   
+    NET_FIELD_SET(CommType);   
+    NET_FIELD_SET(CommCurrency);   
+    NET_FIELD_SET(FundRenewWaiv);   
     NET_FIELD_SET(Spread);   
     NET_FIELD_SET(BenchmarkCurveCurrency);   
     NET_FIELD_SET(BenchmarkCurveName);   
@@ -9244,11 +9242,10 @@ namespace QuickFix44
     NET_FIELD_SET(ExpireDate);
     NET_FIELD_SET(ExpireTime);
     NET_FIELD_SET(GTBookingInst);   
-    NET_FIELD_SET(OrderQty);   
-    NET_FIELD_SET(CashOrderQty);   
-    NET_FIELD_SET(OrderPercent);   
-    NET_FIELD_SET(RoundingDirection);   
-    NET_FIELD_SET(RoundingModulus);
+    NET_FIELD_SET(Commission);   
+    NET_FIELD_SET(CommType);   
+    NET_FIELD_SET(CommCurrency);   
+    NET_FIELD_SET(FundRenewWaiv);
     NET_FIELD_SET(OrderCapacity);
     NET_FIELD_SET(OrderRestrictions);
     NET_FIELD_SET(CustOrderCapacity);
@@ -10290,7 +10287,7 @@ namespace QuickFix44
       
       854,
       38,152,516,468,469,
-      38,152,516,468,469,
+      12,13,479,497,
       528,
       529,
       582,
@@ -10420,11 +10417,10 @@ namespace QuickFix44
           NET_FIELD_SET(OrderPercent);
           NET_FIELD_SET(RoundingDirection);
           NET_FIELD_SET(RoundingModulus);
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
+          NET_FIELD_SET(Commission);
+          NET_FIELD_SET(CommType);
+          NET_FIELD_SET(CommCurrency);
+          NET_FIELD_SET(FundRenewWaiv);
     };   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
@@ -10767,7 +10763,7 @@ namespace QuickFix44
       
       854,
       38,152,516,468,469,
-      38,152,516,468,469,
+      12,13,479,497,
       528,
       529,
       582,
@@ -10899,11 +10895,10 @@ namespace QuickFix44
           NET_FIELD_SET(OrderPercent);
           NET_FIELD_SET(RoundingDirection);
           NET_FIELD_SET(RoundingModulus);
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
+          NET_FIELD_SET(Commission);
+          NET_FIELD_SET(CommType);
+          NET_FIELD_SET(CommCurrency);
+          NET_FIELD_SET(FundRenewWaiv);
     };   
     NET_FIELD_SET(Symbol);   
     NET_FIELD_SET(SymbolSfx);   
@@ -11948,11 +11943,10 @@ namespace QuickFix44
     NET_FIELD_SET(ExpireDate);
     NET_FIELD_SET(ExpireTime);
     NET_FIELD_SET(GTBookingInst);   
-    NET_FIELD_SET(OrderQty);   
-    NET_FIELD_SET(CashOrderQty);   
-    NET_FIELD_SET(OrderPercent);   
-    NET_FIELD_SET(RoundingDirection);   
-    NET_FIELD_SET(RoundingModulus);
+    NET_FIELD_SET(Commission);   
+    NET_FIELD_SET(CommType);   
+    NET_FIELD_SET(CommCurrency);   
+    NET_FIELD_SET(FundRenewWaiv);
     NET_FIELD_SET(OrderCapacity);
     NET_FIELD_SET(OrderRestrictions);
     NET_FIELD_SET(CustOrderCapacity);
@@ -12462,11 +12456,10 @@ namespace QuickFix44
     NET_FIELD_SET(ExpireDate);
     NET_FIELD_SET(ExpireTime);
     NET_FIELD_SET(GTBookingInst);   
-    NET_FIELD_SET(OrderQty);   
-    NET_FIELD_SET(CashOrderQty);   
-    NET_FIELD_SET(OrderPercent);   
-    NET_FIELD_SET(RoundingDirection);   
-    NET_FIELD_SET(RoundingModulus);
+    NET_FIELD_SET(Commission);   
+    NET_FIELD_SET(CommType);   
+    NET_FIELD_SET(CommCurrency);   
+    NET_FIELD_SET(FundRenewWaiv);
     NET_FIELD_SET(OrderCapacity);
     NET_FIELD_SET(OrderRestrictions);
     NET_FIELD_SET(CustOrderCapacity);
@@ -12625,7 +12618,7 @@ namespace QuickFix44
     public:
       NoBidComponents() : Group(420, 44, message_order ) {}
         static int message_order __gc[] = {
-      38,152,516,468,469,
+      12,13,479,497,
       66,
       421,
       54,
@@ -12655,11 +12648,10 @@ namespace QuickFix44
       NET_FIELD_SET(Text);
       NET_FIELD_SET(EncodedTextLen);
       NET_FIELD_SET(EncodedText);
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
+          NET_FIELD_SET(Commission);
+          NET_FIELD_SET(CommType);
+          NET_FIELD_SET(CommCurrency);
+          NET_FIELD_SET(FundRenewWaiv);
     };
   };
 
@@ -12770,7 +12762,7 @@ namespace QuickFix44
       432,
       126,
       427,
-      38,152,516,468,469,
+      12,13,479,497,
       528,
       529,
       582,
@@ -13111,11 +13103,10 @@ namespace QuickFix44
           NET_FIELD_SET(YieldRedemptionDate);
           NET_FIELD_SET(YieldRedemptionPrice);
           NET_FIELD_SET(YieldRedemptionPriceType);
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
+          NET_FIELD_SET(Commission);
+          NET_FIELD_SET(CommType);
+          NET_FIELD_SET(CommCurrency);
+          NET_FIELD_SET(FundRenewWaiv);
           NET_FIELD_SET(PegOffsetValue);
           NET_FIELD_SET(PegMoveType);
           NET_FIELD_SET(PegOffsetType);
@@ -13899,7 +13890,7 @@ namespace QuickFix44
       161,
       360,
       361,
-      38,152,516,468,469,
+      12,13,479,497,
       153,
       154,
       119,
@@ -13998,11 +13989,10 @@ namespace QuickFix44
       NET_FIELD_SET(NestedPartySubIDType);
     };
     };
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
+          NET_FIELD_SET(Commission);
+          NET_FIELD_SET(CommType);
+          NET_FIELD_SET(CommCurrency);
+          NET_FIELD_SET(FundRenewWaiv);
           NET_FIELD_SET(SettlDeliveryType);
           NET_FIELD_SET(StandInstDbType);
           NET_FIELD_SET(StandInstDbName);
@@ -14594,7 +14584,7 @@ namespace QuickFix44
       161,
       360,
       361,
-      38,152,516,468,469,
+      12,13,479,497,
       153,
       154,
       119,
@@ -14698,11 +14688,10 @@ namespace QuickFix44
       NET_FIELD_SET(NestedPartySubIDType);
     };
     };
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
+          NET_FIELD_SET(Commission);
+          NET_FIELD_SET(CommType);
+          NET_FIELD_SET(CommCurrency);
+          NET_FIELD_SET(FundRenewWaiv);
           NET_FIELD_SET(SettlDeliveryType);
           NET_FIELD_SET(StandInstDbType);
           NET_FIELD_SET(StandInstDbName);
@@ -15321,11 +15310,10 @@ namespace QuickFix44
     };
     };
     };   
-    NET_FIELD_SET(OrderQty);   
-    NET_FIELD_SET(CashOrderQty);   
-    NET_FIELD_SET(OrderPercent);   
-    NET_FIELD_SET(RoundingDirection);   
-    NET_FIELD_SET(RoundingModulus);
+    NET_FIELD_SET(Commission);   
+    NET_FIELD_SET(CommType);   
+    NET_FIELD_SET(CommCurrency);   
+    NET_FIELD_SET(FundRenewWaiv);
     NET_FIELD_SET(SharedCommission);
     NET_FIELD_SET(NoStipulations);
     __gc class NoStipulations : public QuickFix::Group
@@ -16635,7 +16623,7 @@ namespace QuickFix44
       336,
       625,
       943,
-      38,152,516,468,469,
+      12,13,479,497,
       381,
       157,
       230,
@@ -16853,11 +16841,10 @@ namespace QuickFix44
       NET_FIELD_SET(PartySubIDType);
     };
     };
-          NET_FIELD_SET(OrderQty);
-          NET_FIELD_SET(CashOrderQty);
-          NET_FIELD_SET(OrderPercent);
-          NET_FIELD_SET(RoundingDirection);
-          NET_FIELD_SET(RoundingModulus);
+          NET_FIELD_SET(Commission);
+          NET_FIELD_SET(CommType);
+          NET_FIELD_SET(CommCurrency);
+          NET_FIELD_SET(FundRenewWaiv);
     NET_FIELD_SET(NoStipulations);
     __gc class NoStipulations : public QuickFix::Group
     {
