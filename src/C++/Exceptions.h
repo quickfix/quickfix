@@ -344,6 +344,7 @@ struct SocketException : public Exception
   std::string errorToWhat( int error )
   {
     this->error = error;
+    return strerror (error);
   }
 
   int error;
