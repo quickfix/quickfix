@@ -178,6 +178,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="src\C++\test\FieldBaseTestCase.cpp">
+			</File>
+			<File
 				RelativePath=".\src\C++\Test\FieldConvertorsTestCase.cpp">
 				<FileConfiguration
 					Name="Release|Win32">
