@@ -60,6 +60,7 @@
 #include <Winsock2.h>
 #include <process.h>
 #include <direct.h>
+#include <time.h>
 typedef int socklen_t;
 /////////////////////////////////////////////
 #else 
