@@ -209,19 +209,13 @@ int testStringToDouble( int count )
 
 int testCreateHeartbeat( int count )
 {
-  std::vector < FIX42::Heartbeat* > vector;
-  vector.reserve( count );
   count = count - 1;
 
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
-    vector.push_back( new FIX42::Heartbeat() );
+    FIX42::Heartbeat();
   }
-
-  std::vector < FIX42::Heartbeat* > ::iterator iter;
-  for ( iter = vector.begin(); iter != vector.end(); ++iter )
-    delete *iter;
 
   return GetTickCount() - start;
 }
@@ -263,10 +257,6 @@ int testSerializeFromStringHeartbeat( int count )
 
 int testCreateNewOrderSingle( int count )
 {
-  std::vector < FIX42::NewOrderSingle* > vector;
-  vector.reserve( count );
-  count = count - 1;
-
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
@@ -276,13 +266,8 @@ int testCreateNewOrderSingle( int count )
     FIX::Side side( FIX::Side_BUY );
     FIX::TransactTime transactTime;
     FIX::OrdType ordType( FIX::OrdType_MARKET );
-    vector.push_back( new FIX42::NewOrderSingle
-                      ( clOrdID, handlInst, symbol, side, transactTime, ordType ) );
+    FIX42::NewOrderSingle( clOrdID, handlInst, symbol, side, transactTime, ordType );
   }
-
-  std::vector < FIX42::NewOrderSingle* > ::iterator iter;
-  for ( iter = vector.begin(); iter != vector.end(); ++iter )
-    delete *iter;
 
   return GetTickCount() - start;
 }
