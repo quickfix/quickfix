@@ -122,12 +122,16 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketAcceptor_destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
-  FIX::SocketAcceptor * p = getCPPSocketAcceptor( obj );
-  if ( p == 0 ) return ;
+  try
+  {
+    FIX::SocketAcceptor * p = getCPPSocketAcceptor( obj );
+    if ( p == 0 ) return ;
 
-  delete & p ->getApplication();
-  delete &p ->getMessageStoreFactory();
-  delete p;
+    delete &p ->getApplication();
+    delete &p ->getMessageStoreFactory();
+    delete p;
+  } 
+  catch( ... ) {}
 
   QF_STACK_CATCH
 }

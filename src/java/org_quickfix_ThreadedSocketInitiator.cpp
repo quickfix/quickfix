@@ -133,12 +133,16 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketInitiator_destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
-  FIX::ThreadedSocketInitiator * p = getCPPThreadedSocketInitiator( obj );
-  if ( p == 0 ) return ;
+  try
+  {
+    FIX::ThreadedSocketInitiator * p = getCPPThreadedSocketInitiator( obj );
+    if ( p == 0 ) return ;
 
-  delete & p ->getApplication();
-  delete &p ->getMessageStoreFactory();
-  delete p;
+    delete &p ->getApplication();
+    delete &p ->getMessageStoreFactory();
+    delete p;
+  }
+  catch( ... ) {}
 
   QF_STACK_CATCH
 }

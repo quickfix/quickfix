@@ -68,6 +68,9 @@
 #include <quickfix/Utility.h>
 #include <quickfix/CallStack.h>
 #include <sstream>
+#include <iostream>
+
+#define PRINT_LOCATION std::cout << __FILE__ << ":" << __LINE__ << std::endl;
 
 FIX::SocketInitiator* getCPPSocketInitiator( jobject obj )
 {
@@ -133,12 +136,16 @@ JNIEXPORT void JNICALL Java_org_quickfix_SocketInitiator_destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
-  FIX::SocketInitiator * p = getCPPSocketInitiator( obj );
-  if ( p == 0 ) return ;
+  try 
+  {
+    FIX::SocketInitiator * p = getCPPSocketInitiator( obj );
+    if ( p == 0 ) return ;
 
-  delete & p ->getApplication();
-  delete &p ->getMessageStoreFactory();
-  delete p;
+    delete &p ->getApplication();
+    delete &p ->getMessageStoreFactory();
+    delete p;
+  } 
+  catch( ... ) {}
 
   QF_STACK_CATCH
 }

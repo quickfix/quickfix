@@ -133,12 +133,16 @@ JNIEXPORT void JNICALL Java_org_quickfix_ThreadedSocketAcceptor_destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
-  FIX::ThreadedSocketAcceptor * p = getCPPThreadedSocketAcceptor( obj );
-  if ( p == 0 ) return ;
+  try
+  {
+    FIX::ThreadedSocketAcceptor * p = getCPPThreadedSocketAcceptor( obj );
+    if ( p == 0 ) return ;
 
-  delete & p ->getApplication();
-  delete &p ->getMessageStoreFactory();
-  delete p;
+    delete &p ->getApplication();
+    delete &p ->getMessageStoreFactory();
+    delete p;
+  } 
+  catch(...) {}
 
   QF_STACK_CATCH
 }
