@@ -55,6 +55,8 @@ using namespace System;
 
 #include "quickfix_net.h"
 
+#include "Log.h"
+#include "LogFactory.h"
 #include "MessageStore.h"
 #include "SessionID.h"
 #include "SessionSettings.h"

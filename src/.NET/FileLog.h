@@ -56,6 +56,7 @@ using namespace System;
 
 #include "Log.h"
 #include "LogFactory.h"
+#include "SessionSettings.h"
 #include "quickfix/include/FileLog.h"
 #include "vcclr.h"
 

@@ -56,6 +56,7 @@ using namespace System::IO;
 #include "quickfix_net.h"
 
 #include "quickfix/include/SessionSettings.h"
+#include "Exceptions.h"
 
 namespace Fix
 {

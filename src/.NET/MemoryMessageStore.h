@@ -56,6 +56,7 @@ using namespace System::IO;
 #include "quickfix_net.h"
 
 #include "MessageStore.h"
+#include "MessageStoreFactory.h"
 #include "quickfix/include/MessageStore.h"
 #include "vcclr.h"
 

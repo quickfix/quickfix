@@ -55,6 +55,7 @@ using namespace System;
 #include "quickfix_net.h"
 
 #include "MessageStore.h"
+#include "MessageStoreFactory.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
 #include "quickfix/include/FileStore.h"
