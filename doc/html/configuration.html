@@ -9,10 +9,11 @@
   <p>
   A quickfix acceptor or initiator can maintain as many FIX sessions as you would like. A FIX
   session is defined in QuickFIX as a unique combination of a <B>BeginString</B> (the FIX version number),
-  a <B>SenderCompID</B> (your ID), and a <B>TargetCompID</B> (the ID of your counterparty).
+  a <B>SenderCompID</B> (your ID), and a <B>TargetCompID</B> (the ID of your counterparty). A <B>SessionQualifier</B>
+  can also be use to disambiguate otherwise identical sessions.
   </p>
   <p>
-  Each of the sessions can have several settings associated with them. Some of these setting may
+  Each of the sessions can have several settings associated with them. Some of these settings may
   not be known at compile time and are therefore passed around in a class called SessionSettings
   which acts as a data dictionary that can be queried.
   </p>
@@ -75,6 +76,12 @@
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>SessionQualifier</I> </TD>
+    <TD> additional qualifier to disambiguate otherwise identical sessions </TD>
+    <TD> case-sensitive alpha-numeric string </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>ConnectionType</I> </TD>
     <TD> Defines if session will act as an acceptor or an initiator </TD>
     <TD> initiator <br> acceptor </TD>
@@ -90,6 +97,18 @@
     <TD> <I>EndTime</I> </TD>
     <TD> Time of day that this FIX session becomes deactivated </TD>
     <TD> time in the format of HH:MM:SS, time is represented in UTC </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>StartDay</I> </TD>
+    <TD> For week long sessions, the starting day of week for the session. Use in combination with StartTime. </TD>
+    <TD> Day of week in English using any abbreviation (i.e. mo, mon, mond, monda, monday are all valid) </TD>
+    <TD> </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>EndDay</I> </TD>
+    <TD> For week long sessions, the ending day of week for the session. Use in combination with EndTime. </TD>
+    <TD> Day of week in English using any abbreviation (i.e. mo, mon, mond, monda, monday are all valid) </TD>
     <TD> </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
@@ -226,7 +245,7 @@
     <TD> <I>MySQLStoreUser</I> </TD>
     <TD> User name logging in to MySQL database. Only used with MySQLStoreFactory. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
-    <TD> current user </TD>
+    <TD> root </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStorePassword</I> </TD>
@@ -266,7 +285,7 @@
     <TD> <I>MySQLLogUser</I> </TD>
     <TD> User name logging in to MySQL database. Only used with MySQLLogFactory. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
-    <TD> current user </TD>
+    <TD> root </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLLogPassword</I> </TD>
