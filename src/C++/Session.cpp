@@ -678,57 +678,57 @@ void Session::generateReject( const Message& message, int err, int field )
        && msgSeqNum == getExpectedTargetNum() )
   { m_state.incrNextTargetMsgSeqNum(); }
 
-  const std::string* reason = 0;
+  const char* reason = 0;
   switch ( err )
   {
     case SessionRejectReason_INVALID_TAG_NUMBER:
-    reason = &SessionRejectReason_INVALID_TAG_NUMBER_TEXT;
+    reason = SessionRejectReason_INVALID_TAG_NUMBER_TEXT;
     break;
     case SessionRejectReason_REQUIRED_TAG_MISSING:
-    reason = &SessionRejectReason_REQUIRED_TAG_MISSING_TEXT;
+    reason = SessionRejectReason_REQUIRED_TAG_MISSING_TEXT;
     break;
     case SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE:
-    reason = &SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT;
+    reason = SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT;
     break;
     case SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE:
-    reason = &SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE_TEXT;
+    reason = SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE_TEXT;
     break;
     case SessionRejectReason_VALUE_IS_INCORRECT:
-    reason = &SessionRejectReason_VALUE_IS_INCORRECT_TEXT;
+    reason = SessionRejectReason_VALUE_IS_INCORRECT_TEXT;
     break;
     case SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE:
-    reason = &SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE_TEXT;
+    reason = SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE_TEXT;
     break;
     case SessionRejectReason_COMPID_PROBLEM:
-    reason = &SessionRejectReason_COMPID_PROBLEM_TEXT;
+    reason = SessionRejectReason_COMPID_PROBLEM_TEXT;
     break;
     case SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM:
-    reason = &SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT;
+    reason = SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM_TEXT;
     break;
     case SessionRejectReason_INVALID_MSGTYPE:
-    reason = &SessionRejectReason_INVALID_MSGTYPE_TEXT;
+    reason = SessionRejectReason_INVALID_MSGTYPE_TEXT;
     break;
     case SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE:
-    reason = &SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT;
+    reason = SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT;
     break;
     case SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER:
-    reason = &SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT;
+    reason = SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT;
     break;
     case SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP:
-    reason = &SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT;
+    reason = SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT;
   };
 
   if ( reason && ( field || err == SessionRejectReason_INVALID_TAG_NUMBER ) )
   {
-    populateRejectReason( reject, field, *reason );
+    populateRejectReason( reject, field, reason );
     m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected: "
-                     + *reason + ":" + IntConvertor::convert( field ) );
+                     + reason + ":" + IntConvertor::convert( field ) );
   }
   else if ( reason )
   {
-    populateRejectReason( reject, *reason );
+    populateRejectReason( reject, reason );
     m_state.onEvent( "Message " + msgSeqNum.getString()
-         + " Rejected: " + *reason );
+         + " Rejected: " + reason );
   }
   else
     m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected" );

@@ -22,26 +22,24 @@
 #ifndef FIX_DEPRECATED_VALUES_H
 #define FIX_DEPRECATED_VALUES_H
 
-#include <string>
-
 namespace FIX
 {
   const char ExecTransType_NEW = '0';
   const char ExecTransType_CANCEL = '1';
   const char ExecTransType_CORRECT = '2';
   const char ExecTransType_STATUS = '3';
-  const std::string IDSource_CUSIP = "1";
-  const std::string IDSource_SEDOL = "2";
-  const std::string IDSource_QUIK = "3";
-  const std::string IDSource_ISIN_NUMBER = "4";
-  const std::string IDSource_RIC_CODE = "5";
-  const std::string IDSource_ISO_CURRENCY_CODE = "6";
-  const std::string IDSource_ISO_COUNTRY_CODE = "7";
-  const std::string IDSource_EXCHANGE_SYMBOL = "8";
-  const std::string IDSource_CONSOLIDATED_TAPE_ASSOCIATION = "9";
-  const std::string IOIShares_SMALL = "S";
-  const std::string IOIShares_MEDIUM = "M";
-  const std::string IOIShares_LARGE = "L";
+  const char IDSource_CUSIP[] = "1";
+  const char IDSource_SEDOL[] = "2";
+  const char IDSource_QUIK[] = "3";
+  const char IDSource_ISIN_NUMBER[] = "4";
+  const char IDSource_RIC_CODE[] = "5";
+  const char IDSource_ISO_CURRENCY_CODE[] = "6";
+  const char IDSource_ISO_COUNTRY_CODE[] = "7";
+  const char IDSource_EXCHANGE_SYMBOL[] = "8";
+  const char IDSource_CONSOLIDATED_TAPE_ASSOCIATION[] = "9";
+  const char IOIShares_SMALL[] = "S";
+  const char IOIShares_MEDIUM[] = "M";
+  const char IOIShares_LARGE[] = "L";
   const char Rule80A_AGENCY_SINGLE_ORDER = 'A';
   const char Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE = 'B';
   const char Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM = 'C';
@@ -80,12 +78,12 @@ namespace FIX
   const char OpenClose_CLOSE = 'C';
   const char CxlType_PARTIAL_CANCEL = 'P';
   const char CxlType_FULL_REMAINING_QUANTITY = 'F';
-  const std::string SettlLocation_CEDEL = "CED";
-  const std::string SettlLocation_DEPOSITORY_TRUST_COMPANY = "DTC";
-  const std::string SettlLocation_EUROCLEAR = "EUR";
-  const std::string SettlLocation_FEDERAL_BOOK_ENTRY = "FED";
-  const std::string SettlLocation_PHYSICAL = "PED";
-  const std::string SettlLocation_PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY = "PTC";
+  const char SettlLocation_CEDEL[] = "CED";
+  const char SettlLocation_DEPOSITORY_TRUST_COMPANY[] = "DTC";
+  const char SettlLocation_EUROCLEAR[] = "EUR";
+  const char SettlLocation_FEDERAL_BOOK_ENTRY[] = "FED";
+  const char SettlLocation_PHYSICAL[] = "PED";
+  const char SettlLocation_PARTICIPANT_TRUST_COMPANY_ISO_COUNTRY[] = "PTC";
   const int PutOrCall_PUT = 0;
   const int PutOrCall_CALL = 1;
   const int CustomerOrFirm_CUSTOMER = 0;
