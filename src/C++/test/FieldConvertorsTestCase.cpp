@@ -196,7 +196,17 @@ void FieldConvertorsTestCase::utcTimeStampConvertFrom::onRun( void*& )
   assert( result.getYear() == 2000 );
   assert( result.getMonth() == 4 );
   assert( result.getDate() == 26 );
-  //assert( result.getYearDay() == 117 );
+
+  UtcTimeStamp result2 = UtcTimeStampConvertor::convert
+                         ( std::string( "20000426-12:05:06.555" ), true );
+  assert( result2.getHour() == 12 );
+  assert( result2.getMinute() == 5 );
+  assert( result2.getSecond() == 6 );
+  assert( result2.getMillisecond() == 555 );
+  assert( result2.getYear() == 2000 );
+  assert( result2.getMonth() == 4 );
+  assert( result2.getDate() == 26 );
+  assert( result2.getYearDay() == 117 );
 }
 
 void FieldConvertorsTestCase::utcTimeOnlyConvertTo::onRun( void*& )

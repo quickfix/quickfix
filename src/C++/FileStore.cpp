@@ -159,7 +159,7 @@ void FileStore::populateCache()
     char time[ 20 ];
     if ( fscanf( sessionFile, "%s", time ) == 1 )
     {
-      m_cache.setCreationTime( UtcTimeStampConvertor::convert( time ) );
+      m_cache.setCreationTime( UtcTimeStampConvertor::convert( time, true ) );
     }
     fclose( sessionFile );
   }

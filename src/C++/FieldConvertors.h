@@ -307,7 +307,8 @@ struct BoolConvertor
 /// Converts a UtcTimeStamp to/from a string
 struct UtcTimeStampConvertor
 {
-  static std::string convert( const UtcTimeStamp& value, bool showMilliseconds=false)
+  static std::string convert( const UtcTimeStamp& value, 
+                              bool showMilliseconds = false )
   throw( FieldConvertError )
   {
     char result[ 18+4 ];
@@ -333,7 +334,8 @@ struct UtcTimeStampConvertor
     return result;
   }
 
-  static UtcTimeStamp convert( const std::string& value )
+  static UtcTimeStamp convert( const std::string& value, 
+                               bool calculateDays = false )
   throw( FieldConvertError )
   {
     UtcTimeStamp result;
@@ -420,6 +422,13 @@ struct UtcTimeStampConvertor
 
     result_tm.tm_isdst = -1;
 
+    if( calculateDays )
+    {
+      time_t t = mktime( &result_tm );
+      localtime_r( &t, &result_tm );
+      result_tm.tm_isdst = -1;
+    }
+
     return result;
   }
 };
@@ -427,7 +436,8 @@ struct UtcTimeStampConvertor
 /// Converts a UtcTimeOnly to/from a string
 struct UtcTimeOnlyConvertor
 {
-  static std::string convert( const UtcTimeOnly& value, bool showMilliseconds = false)
+  static std::string convert( const UtcTimeOnly& value, 
+                              bool showMilliseconds = false)
   throw( FieldConvertError )
   {
     char result[ 9+4 ];
