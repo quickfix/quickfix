@@ -449,23 +449,18 @@ FieldBase Message::extractField
 ( const std::string& string, std::string::size_type& pos )
 { QF_STACK_PUSH(Message::extractField)
 
-  int field;
-  std::string fieldString;
-  std::string valueString;
-
   std::string::size_type equalSign = string.find_first_of( '=', pos );
-  fieldString = string.substr( pos, equalSign - pos );
+  int field = atol(string.substr( pos, equalSign - pos ).c_str());
 
   std::string::size_type soh =
     string.find_first_of( '\001', equalSign + 1 );
   if ( soh == std::string::npos )
     throw InvalidMessage();
-  valueString = string.substr( equalSign + 1, soh - ( equalSign + 1 ) );
-
-  field = atol( fieldString.c_str() );
-
+  
   pos = soh + 1;
-  return FieldBase( field, valueString );
+  return FieldBase ( 
+    field, 
+    string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
 
   QF_STACK_POP
 }
