@@ -25,4 +25,5 @@ public interface Acceptor {
     void block() throws ConfigError, RuntimeError;
     boolean poll() throws ConfigError, RuntimeError;
     void stop();
+	void stop( boolean force );
 }

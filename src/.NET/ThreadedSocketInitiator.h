@@ -112,6 +112,12 @@ public:
     QF_STACK_CATCH
   }
 
+  void stop( bool force )
+  { QF_STACK_TRY
+    m_pUnmanaged->stop( force ); 
+    QF_STACK_CATCH
+  }
+
 private:
   FIX::ThreadedSocketInitiator* m_pUnmanaged;
   ::Application* m_application;

@@ -76,8 +76,13 @@ public class SocketAcceptor implements Acceptor {
         doStop();
     }
 
+    public void stop( boolean force ) {
+        doStop( force );
+    }
+
     private native void doStart() throws RuntimeError, ConfigError;
     private native void doBlock() throws RuntimeError, ConfigError;
     private native boolean doPoll() throws RuntimeError, ConfigError;
     private native void doStop();
+    private native void doStop( boolean force );
 }

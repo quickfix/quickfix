@@ -186,7 +186,17 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop
 { QF_STACK_TRY
 
   JVM::set( pEnv );
-  getCPPThreadedSocketAcceptor( obj ) ->stop();
+  getCPPThreadedSocketAcceptor( obj )->stop();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__Z
+( JNIEnv *pEnv, jobject obj, jboolean force )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  getCPPThreadedSocketAcceptor( obj )->stop( force );
 
   QF_STACK_CATCH
 }

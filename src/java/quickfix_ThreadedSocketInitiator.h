@@ -52,8 +52,16 @@ JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doPoll
  * Method:    doStop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__
   (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketInitiator
+ * Method:    doStop
+ * Signature: (Z)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__Z
+  (JNIEnv *, jobject, jboolean);
 
 #ifdef __cplusplus
 }

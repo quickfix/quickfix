@@ -189,7 +189,17 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop
 { QF_STACK_TRY
 
   JVM::set( pEnv );
-  getCPPSocketInitiator( obj ) ->stop();
+  getCPPSocketInitiator( obj )->stop();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__Z
+( JNIEnv *pEnv, jobject obj, jboolean force )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  getCPPSocketInitiator( obj )->stop( force );
 
   QF_STACK_CATCH
 }

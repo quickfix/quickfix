@@ -76,8 +76,13 @@ public class ThreadedSocketAcceptor implements Acceptor {
         doStop();
     }
 
+    public void stop( boolean force ) {
+        doStop( force );
+    }
+
     private native void doStart() throws ConfigError, RuntimeError;
     private native void doBlock() throws ConfigError, RuntimeError;
     private native boolean doPoll() throws ConfigError, RuntimeError;
     private native void doStop();
+    private native void doStop( boolean force );
 }

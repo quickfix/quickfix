@@ -31,5 +31,6 @@ public __gc __interface Acceptor
 {
   void start() throw ( ConfigError*, RuntimeError* );
   void stop() = 0;
+  void stop( bool force ) = 0;
 };
 }

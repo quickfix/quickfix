@@ -190,3 +190,13 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__Z
+( JNIEnv *pEnv, jobject obj, jboolean force )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  getCPPThreadedSocketInitiator( obj )->stop( force );
+
+  QF_STACK_CATCH
+}

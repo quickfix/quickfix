@@ -31,5 +31,6 @@ public __gc __interface Initiator
 {
   void start() throw ( ConfigError*, RuntimeError* ) = 0;
   void stop() = 0;
+  void stop( bool force ) = 0;
 };
 }

@@ -52,8 +52,16 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doPoll
  * Method:    doStop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__
   (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_SocketInitiator
+ * Method:    doStop
+ * Signature: (Z)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__Z
+  (JNIEnv *, jobject, jboolean);
 
 #ifdef __cplusplus
 }
