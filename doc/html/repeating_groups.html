@@ -13,11 +13,14 @@
 
     <H2>Creating Messages With Repeating Groups</H2>
 
+    <p>
     Here is an example of a message that distributes market data. When the message is created
     the required field with the number of repeating groups is set to zero. This is because
     QuickFIX will automatically set this field for you when you add groups. This way there is
     never an inconsistancy between the number of entries in the field and in the message.
+    </p>
 
+    See this code in <a href="java/repeating_groups_1.html">JAVA</a> or <a href="csharp/repeating_groups_1.html">C#</a>
     <PRE>
     // create a market data message
     <B>FIX42::MarketDataSnapshotFullRefresh message(
@@ -25,14 +28,14 @@
 
     // repeating group in the form of MessageName::NoField
     <B>FIX42::MarketDataSnapshotFullRefresh::NoMDEntries group;
-    group.set(FIX::MDEntryType(0));
+    group.set(FIX::MDEntryType('0'));
     group.set(FIX::MDEntryPx(12.32));
     group.set(FIX::MDEntrySize(100));
     group.set(FIX::OrderID("ORDERID"));
     message.addGroup(group);</B>
 
     // no need to create a new group class if we are reusing the fields
-    <B>group.set(FIX::MDEntryType(1));
+    <B>group.set(FIX::MDEntryType('1'));
     group.set(FIX::MDEntryPx(12.32));
     group.set(FIX::MDEntrySize(100));
     group.set(FIX::OrderID("ORDERID"));
@@ -41,10 +44,13 @@
 
     <H2>Reading Messages With Repeating Groups</H2>
 
+    <p>
     To pull a group out of a message you need to supply the group you wish to pull out. You should
     first inspect the number of entries field (which the group is named after) to get the total number
     of groups. The message that was created above is now parsed back out below.
+    </p>
 
+    See this code in <a href="java/repeating_groups_2.html">JAVA</a> or <a href="csharp/repeating_groups_2.html">C#</a>
     <PRE>
     // should be 2
     <B>FIX::NoMDEntries noMDEntries;

@@ -1,0 +1,18 @@
+<B><CODE><PRE>
+Fix42.MarketDataSnapshotFullRefresh message =
+  new Fix42.MarketDataSnapshotFullRefresh(new Fix.Symbol("QF"), new Fix.NoMDEntries(0));
+Fix42.MarketDataSnapshotFullRefresh.NoMDEntries group =
+  new Fix42.MarketDataSnapshotFullRefresh.NoMDEntries();
+
+group.set(new Fix.MDEntryType('0'));
+group.set(new Fix.MDEntryPx(12.32));
+group.set(new Fix.MDEntrySize(100));
+group.set(new Fix.OrderID("ORDERID"));
+message.addGroup(group);
+
+group.set(new Fix.MDEntryType('1'));
+group.set(new Fix.MDEntryPx(12.32));
+group.set(new Fix.MDEntrySize(100));
+group.set(new Fix.OrderID("ORDERID"));
+message.addGroup(group);
+</PRE></CODE></B>

@@ -1,0 +1,24 @@
+<B><CODE><PRE>
+package org.quickfix;
+
+NoMDEntries noMDEntries = new NoMDEntries();
+message.get(noMDEntries);
+
+org.quickfix.fix42.MarketDataSnapshotFullRefresh.NoMDEntries group =
+  new org.quickfix.fix42.MarketDataSnapshotFullRefresh.NoMDEntries();
+MDEntryType MDEntryType = new MDEntryType();
+MDEntryPx MDEntryPx = new MDEntryPx();
+MDEntrySize MDEntrySize = new MDEntrySize();
+OrderID orderID = new OrderID();
+
+message.getGroup(1, group);
+group.get(MDEntryType);
+group.get(MDEntryPx);
+group.get(MDEntrySize);
+group.get(orderID);
+
+message.getGroup(2, group);
+group.get(MDEntryType);
+group.get(MDEntryPx);
+group.get(MDEntrySize);
+</PRE></CODE></B>
