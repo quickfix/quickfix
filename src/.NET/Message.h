@@ -64,14 +64,14 @@ namespace Fix
 public __gc class Message : public IDisposable
 {
 public:
-Message() : disposed( false )
+  Message() : disposed( false )
   {
     m_pUnmanaged = new FIX::Message();
     m_header = new Header( this );
     m_trailer = new Trailer( this );
   }
 
-Message( String* string ) : disposed( false )
+  Message( String* string ) : disposed( false )
   {
     try
     {
@@ -86,7 +86,7 @@ Message( String* string ) : disposed( false )
     { throw new InvalidMessage(); }
   }
 
-Message( const FIX::Message& message ) : disposed( false )
+  Message( const FIX::Message& message ) : disposed( false )
   {
     m_pUnmanaged = new FIX::Message();
     *m_pUnmanaged = message;
@@ -94,7 +94,7 @@ Message( const FIX::Message& message ) : disposed( false )
     m_trailer = new Trailer( this );
   }
 
-Message( BeginString* beginString ) : disposed( false )
+  Message( BeginString* beginString ) : disposed( false )
   {
     m_pUnmanaged = new FIX::Message();
     m_header = new Header( this );
@@ -102,13 +102,18 @@ Message( BeginString* beginString ) : disposed( false )
     setField( beginString, m_pUnmanaged->getHeader() );
   }
 
-Message( BeginString* beginString, MsgType* msgType ) : disposed( false )
+  Message( BeginString* beginString, MsgType* msgType ) : disposed( false )
   {
     m_pUnmanaged = new FIX::Message();
     m_header = new Header( this );
     m_trailer = new Trailer( this );
     setField( beginString, m_pUnmanaged->getHeader() );
     setField( msgType, m_pUnmanaged->getHeader() );
+  }
+
+  static bool Message::InitializeXML( String* url )
+  {
+    return FIX::Message::InitializeXML(convertString(url));
   }
 
   ~Message()
@@ -136,7 +141,7 @@ Message( BeginString* beginString, MsgType* msgType ) : disposed( false )
   }
 
   FIX::Message& unmanaged()
-{ return * m_pUnmanaged; }
+  { return * m_pUnmanaged; }
 
   void setUnmanaged( const FIX::Message& message )
   { *m_pUnmanaged = message; }
@@ -144,6 +149,11 @@ Message( BeginString* beginString, MsgType* msgType ) : disposed( false )
   String* ToString()
   {
     return m_pUnmanaged->getString().c_str();
+  }
+
+  String* ToXML()
+  {
+    return m_pUnmanaged->getXML().c_str();
   }
 
   void setField( StringField* field );
@@ -227,7 +237,7 @@ __gc class Header : public IDisposable
 __gc class Trailer : public IDisposable
   {
   public:
-  Trailer( Message* message ) : m_message( message ), disposed( false ) {}
+    Trailer( Message* message ) : m_message( message ), disposed( false ) {}
     void setField( StringField* field );
     void setField( BooleanField* field );
     void setField( CharField* field );
@@ -266,7 +276,7 @@ __gc class Trailer : public IDisposable
     bool disposed;
   };
 
-Header* getHeader() { checkDisposed(); return m_header; }
+  Header* getHeader() { checkDisposed(); return m_header; }
   Trailer* getTrailer() { checkDisposed(); return m_trailer; }
 
 private:
