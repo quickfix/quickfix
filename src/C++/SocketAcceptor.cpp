@@ -97,9 +97,13 @@ SocketAcceptor::~SocketAcceptor()
 void SocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
 {
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
+  bool reuseAddress = false;
+  if( s.get().has( SOCKET_REUSE_ADDRESS ) )
+    reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+
   try
   {
-    m_pServer = new SocketServer( m_port, 1 );    
+    m_pServer = new SocketServer( m_port, 1, reuseAddress );
   }
   catch( std::exception& )
   {

@@ -17,6 +17,7 @@ goto start
 echo [DEFAULT] > cfg\at_server.cfg
 echo ConnectionType=acceptor >> cfg\at_server.cfg
 echo SocketAcceptPort=%2 >> cfg\at_server.cfg
+echo SocketReuseAddress=Y >> cfg\at_server.cfg
 echo StartTime=00:00:00 >> cfg\at_server.cfg
 echo EndTime=00:00:00 >> cfg\at_server.cfg
 echo SenderCompID=ISLD >> cfg\at_server.cfg

@@ -101,7 +101,11 @@ ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) throw ( RuntimeError& )
 {
   m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
-  m_socket = socket_createAcceptor( m_port );
+  bool reuseAddress = false;
+  if( s.get().has( SOCKET_REUSE_ADDRESS ) )
+    reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+
+  m_socket = socket_createAcceptor( m_port, reuseAddress );
   if( m_socket < 0 )
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
 }

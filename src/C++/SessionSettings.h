@@ -71,6 +71,7 @@ static const std::string CHECK_LATENCY = "CheckLatency";
 static const std::string MAX_LATENCY = "MaxLatency";
 static const std::string HEARTBTINT = "HeartBtInt";
 static const std::string SOCKET_ACCEPT_PORT = "SocketAcceptPort";
+static const std::string SOCKET_REUSE_ADDRESS = "SocketReuseAddress";
 static const std::string SOCKET_CONNECT_HOST = "SocketConnectHost";
 static const std::string SOCKET_CONNECT_PORT = "SocketConnectPort";
 static const std::string RECONNECT_INTERVAL = "ReconnectInterval";
