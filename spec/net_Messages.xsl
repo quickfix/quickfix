@@ -148,7 +148,7 @@ namespace Fix<xsl:value-of select="@major"/><xsl:value-of select="@minor"/>
   <xsl:template mode="group" match="group/component"><xsl:variable name="name" select="@name"/><xsl:for-each select="//fix/components/component[@name=$name]"><xsl:for-each select="field"><xsl:variable name="field_name" select="@name"/><xsl:value-of select="//fix/fields/field[@name=$field_name]/@number"/>,</xsl:for-each></xsl:for-each></xsl:template>
   
   <xsl:template name="group">
-  
+    NET_FIELD_SET(<xsl:value-of select="@name"/>);
     __gc class <xsl:value-of select="@name"/> : public Fix::Group
     {
     public:
