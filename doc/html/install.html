@@ -144,9 +144,14 @@
     <p>
       Compile time options are controlled from the <I>config_windows.h</I> file in the <I>src</I>
       directory. The following options are supported:<br><br>
-      <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT> -
+      <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT>
       Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
-      library directories must be in the Visual Studio search paths.
+      library directories must be in the Visual Studio search paths.<br/>
+      <FONT color="#0000FF">#define HAVE_LIBXML 1</FONT>
+      Compile and link XML parsing code against the libxml library instead of the default MSXML3.<br/>
+      <FONT color="#0000FF">#define ENABLE_CALLSTACK 1</FONT>
+      Tells QuickFIX to keep track of a C++ callstack that will be printed out in the event of
+      a the process crashing.<br/>
     </p>
     <A NAME="Windows (.NET)"/>
     <H3>Windows (.NET)</H3>
@@ -183,9 +188,8 @@
     <H3>Linux/Solaris (C++/Java)</H3>
     <p>
       QuickFIX uses GNU autotools (autoconf, automake, and libtool) in conjunction with make to
-      build on unix systems.  You do not need to have autotools installed before you build but
-      if you plan to contribute to its development, you will need it.  If you also want to
-      reuse our makefiles for developing your own application, you will find it useful. Also note
+      build on unix systems. If you also want to reuse our makefiles for developing your own application, 
+      you will find it useful. Also note
       that if your version of gcc does not come with sstream, you will need to download it from
       the link above and put it in the correct include directory. Also please note for Solaris
       you must use GNU make, the make that comes with Solaris will not work.
