@@ -1,3 +1,16 @@
+2004-11-04 17:01  orenmnero
+
+	* NEWS: [no log message]
+
+2004-11-04 16:59  orenmnero
+
+	* src/C++/: Session.cpp, test/SessionTestCase.cpp: accept
+	  SequenceReset message with GapFill set to N and no MsgSeqNum
+
+2004-11-03 21:14  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-03 21:07  orenmnero
 
 	* NEWS: [no log message]
