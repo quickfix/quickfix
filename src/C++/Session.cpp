@@ -146,7 +146,11 @@ void Session::next()
     if( !m_enabled )
     {
       if( isLoggedOn() )
+      {
+        if( !m_state.sentLogout() )
+          m_state.onEvent( "Initiated logout request" );
         generateLogout();
+      }
       else
         return;
     }

@@ -60,174 +60,199 @@ namespace FIX
  *  @{
  */
 
-/// Field not found inside a message
-struct FieldNotFound : public std::logic_error
+struct Exception : public std::logic_error
 {
-  FieldNotFound( int f )
-    : std::logic_error( "Field not found" ), field( f ) {}
+  Exception( const std::string& what, const std::string& detail )
+    : std::logic_error( detail.size() ? what + ": " + detail : what )
+  {}
+};
+
+/// Field not found inside a message
+struct FieldNotFound : public Exception
+{
+  FieldNotFound( int f, const std::string& what = "" )
+    : Exception( "Field not found", what ), 
+                 field( f ) {}
   int field;
 };
 
 /// Unable to convert field into its native format
-struct FieldConvertError : public std::logic_error
+struct FieldConvertError : public Exception
 {
-  FieldConvertError() : std::logic_error( "Could not convert field" ) {}
+  FieldConvertError( const std::string& what = "" ) 
+    : Exception( "Could not convert field", what ) {}
 };
 
 /// Unable to parse message
-struct MessageParseError : public std::logic_error
+struct MessageParseError : public Exception
 {
-  MessageParseError() : std::logic_error( "Could not parse message" ) {}
+  MessageParseError( const std::string& what = "" ) 
+    : Exception( "Could not parse message", what ) {}
 };
 
 /// Not a recognizable message
-struct InvalidMessage : public std::logic_error
+struct InvalidMessage : public Exception
 {
-  InvalidMessage() : std::logic_error( "Invalid message" ) {}
-  InvalidMessage( const std::string& what ) : std::logic_error( what ) {}
+  InvalidMessage( const std::string& what = "" ) 
+    : Exception( "Invalid message", what ) {}
 };
 
 /// %Application is not configured correctly
-struct ConfigError : public std::logic_error
+struct ConfigError : public Exception
 {
-  ConfigError() : std::logic_error( "Configuration failed" ) {}
-  ConfigError( const std::string& what ) : std::logic_error( what ) {}
+  ConfigError( const std::string& what = "" ) 
+    : Exception( "Configuration failed", what ) {}
 };
 
 /// %Application encountered serious error during runtime
-struct RuntimeError : public std::logic_error
+struct RuntimeError : public Exception
 {
-  RuntimeError() : std::logic_error( "Runtime error" ) {}
-  RuntimeError( const std::string& what ) : std::logic_error( what ) {}
+  RuntimeError( const std::string& what = "" ) 
+    : Exception( "Runtime error", what ) {}
 };
 
 /// Tag number does not exist in specification
-struct InvalidTagNumber : public std::logic_error
+struct InvalidTagNumber : public Exception
 {
-  InvalidTagNumber( int f )
-    : std::logic_error( "Invalid tag number" ), field( f ) {}
+  InvalidTagNumber( int f, const std::string& what = "" )
+    : Exception( "Invalid tag number", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Required field is not in message
-struct RequiredTagMissing : public std::logic_error
+struct RequiredTagMissing : public Exception
 {
-  RequiredTagMissing( int f ) : std::logic_error
-  ( "Required tag missing" ), field( f ) {}
+  RequiredTagMissing( int f, const std::string& what = "" ) 
+    : Exception( "Required tag missing", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Field does not belong to message
-struct TagNotDefinedForMessage : public std::logic_error
+struct TagNotDefinedForMessage : public Exception
 {
-  TagNotDefinedForMessage( int f ) : std::logic_error
-  ( "Tag not defined for this message type" ), field( f ) {}
+  TagNotDefinedForMessage( int f, const std::string& what = "" ) 
+    : Exception( "Tag not defined for this message type", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Field exists in message without a value
-struct NoTagValue : public std::logic_error
+struct NoTagValue : public Exception
 {
-  NoTagValue( int f )
-    : std::logic_error( "Tag specified without a value" ), field( f ) {}
+  NoTagValue( int f, const std::string& what = "" )
+    : Exception( "Tag specified without a value", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Field has a value that is out of range
-struct IncorrectTagValue : public std::logic_error
+struct IncorrectTagValue : public Exception
 {
-  IncorrectTagValue( int f ) : std::logic_error
-  ( "Value is incorrect (out of range) for this tag" ), field( f ) {}
+  IncorrectTagValue( int f, const std::string& what = "" ) 
+    : Exception( "Value is incorrect (out of range) for this tag", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Field has a badly formatted value
-struct IncorrectDataFormat : public std::logic_error
+struct IncorrectDataFormat : public Exception
 {
-  IncorrectDataFormat( int f )
-    : std::logic_error( "Incorrect data format for value" ), field( f ) {}
+  IncorrectDataFormat( int f, const std::string& what = "" )
+    : Exception( "Incorrect data format for value", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Message is not structured correctly
-struct IncorrectMessageStructure : public std::logic_error
+struct IncorrectMessageStructure : public Exception
 {
-  IncorrectMessageStructure() : std::logic_error
-  ( "Incorrect message structure" ) {}
+  IncorrectMessageStructure( const std::string& what = "" ) 
+    : Exception( "Incorrect message structure", what ) {}
 };
 
 /// Field shows up twice in the message
-struct DuplicateFieldNumber : public std::logic_error
+struct DuplicateFieldNumber : public Exception
 {
-  DuplicateFieldNumber() : std::logic_error( "Duplicate field number" ) {}
+  DuplicateFieldNumber( const std::string& what = "" ) 
+    : Exception( "Duplicate field number", what ) {}
 };
 
 /// Not a known message type
-struct InvalidMessageType : public std::logic_error
+struct InvalidMessageType : public Exception
 {
-  InvalidMessageType () : std::logic_error( "Invalid Message Type" ) {}
+  InvalidMessageType( const std::string& what = "" ) 
+    : Exception( "Invalid Message Type", what ) {}
 };
 
 /// Message type not supported by application
-struct UnsupportedMessageType : public std::logic_error
+struct UnsupportedMessageType : public Exception
 {
-  UnsupportedMessageType() : std::logic_error
-  ( "Unsupported Message Type" ) {}
+  UnsupportedMessageType( const std::string& what = "" ) 
+    : Exception( "Unsupported Message Type", what ) {}
 };
 
 /// Version of %FIX is not supported
-struct UnsupportedVersion : public std::logic_error
+struct UnsupportedVersion : public Exception
 {
-  UnsupportedVersion() : std::logic_error
-  ( "Unsupported Version" ) {}
+  UnsupportedVersion( const std::string& what = "" ) 
+    : Exception( "Unsupported Version", what ) {}
 };
 
 /// Tag is not in the correct order
-struct TagOutOfOrder : public std::logic_error
+struct TagOutOfOrder : public Exception
 {
-  TagOutOfOrder( int f ) 
-    : std::logic_error( "Tag specified out of required order" ), field( f ) {}
+  TagOutOfOrder( int f, const std::string& what = "" ) 
+    : Exception( "Tag specified out of required order", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Repeated tag not part of repeating group
-struct RepeatedTag : public std::logic_error
+struct RepeatedTag : public Exception
 {
-  RepeatedTag( int f )
-    : std::logic_error( "Repeated tag not part of repeating group" ), field( f ) {}
+  RepeatedTag( int f, const std::string& what = "" )
+    : Exception( "Repeated tag not part of repeating group", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Repeated group count not equal to actual count 
-struct RepeatingGroupCountMismatch : public std::logic_error
+struct RepeatingGroupCountMismatch : public Exception
 {
-  RepeatingGroupCountMismatch( int f )
-    : std::logic_error( "Repeating group count mismatch" ), field( f ) {}
+  RepeatingGroupCountMismatch( int f, const std::string& what = "" )
+    : Exception( "Repeating group count mismatch", what ), 
+                 field( f ) {}
   const int field;
 };
 
 /// Indicates user does not want to send a message
-struct DoNotSend : public std::logic_error
+struct DoNotSend : public Exception
 {
-  DoNotSend() : std::logic_error( "Do Not Send Message" ) {}
+  DoNotSend( const std::string& what = "" ) 
+    : Exception( "Do Not Send Message", what ) {}
 };
 
 /// User wants to reject permission to logon
-struct RejectLogon : public std::logic_error
+struct RejectLogon : public Exception
 {
-  RejectLogon() : std::logic_error( "Reject Logon Attempt" ) {}
+  RejectLogon( const std::string& what = "" ) 
+    : Exception( "Reject Logon Attempt", what ) {}
 };
 
 /// Session cannot be found for specified action
-struct SessionNotFound : public std::logic_error
+struct SessionNotFound : public Exception
 {
-  SessionNotFound() : std::logic_error( "Session Not Found" ) {}
+  SessionNotFound( const std::string& what = "" ) 
+    : Exception( "Session Not Found", what ) {}
 };
 
 /// IO Error
-struct IOException : public std::runtime_error
+struct IOException : public Exception
 {
-  IOException() : std::runtime_error( "IO Error" ) {}
+  IOException( const std::string& what = "" ) 
+    : Exception( "IO Error", what ) {}
 };
 /*! @} */
 }
