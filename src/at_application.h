@@ -55,8 +55,10 @@
 #include "fix41/NewOrderSingle.h"
 #include "fix42/NewOrderSingle.h"
 #include "fix43/NewOrderSingle.h"
+#include "fix44/NewOrderSingle.h"
 #include "fix42/SecurityDefinition.h"
 #include "fix43/SecurityDefinition.h"
+#include "fix44/SecurityDefinition.h"
 #include <map>
 
 class MessageCracker : public FIX::MessageCracker
@@ -80,6 +82,19 @@ class MessageCracker : public FIX::MessageCracker
         return ;
     }
     m_orderIDs.insert( pair );
+    FIX::Session::sendToTarget( echo, sessionID );
+  }
+
+  void onMessage( const FIX44::NewOrderSingle& message,
+                  const FIX::SessionID& sessionID )
+  {
+    process( message, sessionID );    
+  }
+
+  void onMessage( const FIX44::SecurityDefinition& message,
+                  const FIX::SessionID& sessionID )
+  {
+    FIX44::SecurityDefinition echo = message;
     FIX::Session::sendToTarget( echo, sessionID );
   }
 
