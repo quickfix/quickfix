@@ -54,7 +54,7 @@
 #include "config.h"
 #endif
 
-#include "TestSuite.h"
+#include "C++/test/TestSuite.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
 #include "getopt-repl.h"
