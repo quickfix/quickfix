@@ -94,26 +94,26 @@ using namespace FIX;
 %}
 
 %extend FIX::Exception {
-  char *__str__() {
-    return (char*)self->what();
+  std::string __str__() {
+    return self->what();
   }
 }
 
 %extend FIX::Message {
-  char *__str__() {
-    return (char*)self->toString().c_str();
+  std::string __str__() {
+    return self->toString();
   }
 }
 
 %extend FIX::SessionID {
-  char *__str__() {
-    return (char*)self->toString().c_str();
+  std::string __str__() {
+    return self->toString();
   }
 }
 
 %extend FIX::FieldBase {
-  char *__str__() {
-    return (char*)self->getValue().c_str();
+  std::string __str__() {
+    return self->getValue();
   }
 }
 
