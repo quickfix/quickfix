@@ -11,6 +11,8 @@ instead of FieldConvertError.
 QuickFIX C++ call stack is available by running configure with the
 --enable-callstack option, or defining USING_CALLSTACK in windows_config.h
 
+Engine will no longer crash when specifying an invalid hostname
+
 Added ConfigError throw specifier to Initiator/Acceptor start method. 
 
 Removed ^M characters from install-sh which caused compile problems on
