@@ -44,6 +44,10 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     {}
   public void onMessage( BusinessMessageReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     {}
+  public void onMessage( UserRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( UserResponse message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( Advertisement message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
   public void onMessage( IndicationOfInterest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
@@ -239,6 +243,12 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     else
     if( msgTypeValue.equals("j") )
       onMessage( (BusinessMessageReject)message, sessionID );
+    else
+    if( msgTypeValue.equals("BE") )
+      onMessage( (UserRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("BF") )
+      onMessage( (UserResponse)message, sessionID );
     else
     if( msgTypeValue.equals("7") )
       onMessage( (Advertisement)message, sessionID );

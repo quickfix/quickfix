@@ -36,6 +36,8 @@ namespace FIX44
   class SequenceReset; 
   class Logout; 
   class BusinessMessageReject; 
+  class UserRequest; 
+  class UserResponse; 
   class Advertisement; 
   class IndicationOfInterest; 
   class News; 
@@ -139,6 +141,10 @@ namespace FIX44
     {}
   virtual void onMessage( const BusinessMessageReject&, const FIX::SessionID& ) 
     {}
+  virtual void onMessage( const UserRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const UserResponse&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const Advertisement&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const IndicationOfInterest&, const FIX::SessionID& ) 
@@ -331,6 +337,12 @@ public:
     else
     if( msgTypeValue == "j" )
       onMessage( (BusinessMessageReject&)message, sessionID );
+    else
+    if( msgTypeValue == "BE" )
+      onMessage( (UserRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "BF" )
+      onMessage( (UserResponse&)message, sessionID );
     else
     if( msgTypeValue == "7" )
       onMessage( (Advertisement&)message, sessionID );

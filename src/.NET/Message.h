@@ -134,7 +134,7 @@ public:
   { return * m_pUnmanaged; }
 
   void setUnmanaged( const FIX::Message& message )
-  { *m_pUnmanaged = message; }
+  { delete m_pUnmanaged; m_pUnmanaged = new FIX::Message(); *m_pUnmanaged = message; }
 
   String* ToString()
   { QF_STACK_TRY

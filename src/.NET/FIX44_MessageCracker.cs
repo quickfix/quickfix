@@ -43,6 +43,10 @@ namespace QuickFix44
     {}
   public virtual void onMessage( BusinessMessageReject message, QuickFix.SessionID session ) 
     {}
+  public virtual void onMessage( UserRequest message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( UserResponse message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( Advertisement message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( IndicationOfInterest message, QuickFix.SessionID session ) 
@@ -234,6 +238,12 @@ namespace QuickFix44
     else
     if( msgTypeValue == "j" )
       onMessage( (BusinessMessageReject)(message), sessionID );
+    else
+    if( msgTypeValue == "BE" )
+      onMessage( (UserRequest)(message), sessionID );
+    else
+    if( msgTypeValue == "BF" )
+      onMessage( (UserResponse)(message), sessionID );
     else
     if( msgTypeValue == "7" )
       onMessage( (Advertisement)(message), sessionID );

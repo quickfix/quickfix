@@ -1688,6 +1688,12 @@ del /F EXCLUDE
 					<File
 						RelativePath="src\C++\fix44\TradingSessionStatusRequest.h">
 					</File>
+					<File
+						RelativePath="src\C++\fix44\UserRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix44\UserResponse.h">
+					</File>
 				</Filter>
 			</Filter>
 			<Filter

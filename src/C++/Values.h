@@ -41,6 +41,8 @@ namespace FIX
  const char MsgType_SequenceReset[] = "4";
  const char MsgType_Logout[] = "5";
  const char MsgType_BusinessMessageReject[] = "j";
+ const char MsgType_UserRequest[] = "BE";
+ const char MsgType_UserResponse[] = "BF";
  const char MsgType_Advertisement[] = "7";
  const char MsgType_IndicationOfInterest[] = "6";
  const char MsgType_News[] = "B";

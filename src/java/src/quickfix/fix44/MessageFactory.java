@@ -59,6 +59,14 @@ public class MessageFactory implements quickfix.MessageFactory
      return new quickfix.fix44.BusinessMessageReject();
    }
  
+   if("BE".equals(msgType)) {
+     return new quickfix.fix44.UserRequest();
+   }
+ 
+   if("BF".equals(msgType)) {
+     return new quickfix.fix44.UserResponse();
+   }
+ 
    if("7".equals(msgType)) {
      return new quickfix.fix44.Advertisement();
    }

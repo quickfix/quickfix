@@ -1399,6 +1399,14 @@ SOURCE=".\src\C++\fix44\TradingSessionStatus.h"
 
 SOURCE=".\src\C++\fix44\TradingSessionStatusRequest.h"
 # End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\UserRequest.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\src\C++\fix44\UserResponse.h"
+# End Source File
 # End Group
 # Begin Source File
 

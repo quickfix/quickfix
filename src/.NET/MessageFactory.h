@@ -29,6 +29,6 @@ namespace QuickFix
 {
 public __gc __interface MessageFactory
 {
-  virtual QuickFix::Message* create( String* beginString,  String* msgType ) = 0;
+  virtual QuickFix::Message * create( String* beginString,  String* msgType ) = 0;
 };
 }

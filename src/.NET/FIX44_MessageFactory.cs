@@ -60,6 +60,14 @@ namespace QuickFix44
        return new QuickFix44.BusinessMessageReject();
      }
    
+     if(msgType.Equals("BE")) {
+       return new QuickFix44.UserRequest();
+     }
+   
+     if(msgType.Equals("BF")) {
+       return new QuickFix44.UserResponse();
+     }
+   
      if(msgType.Equals("7")) {
        return new QuickFix44.Advertisement();
      }
