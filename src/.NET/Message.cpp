@@ -189,7 +189,7 @@ throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 void Message::removeField( int field ) 
-throw( FieldNotFound )
+throw( FieldNotFound* )
 { QF_STACK_TRY
   checkDisposed(); return removeField( field, *m_pUnmanaged );
   QF_STACK_CATCH
@@ -337,7 +337,7 @@ throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 void Message::Header::removeField( int field ) 
-throw( FieldNotFound )
+throw( FieldNotFound* )
 { QF_STACK_TRY
   checkDisposed(); 
   return m_message->removeField( field, m_message->m_pUnmanaged->getHeader() );
@@ -488,7 +488,7 @@ throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 void Message::Trailer::removeField( int field ) 
-throw( FieldNotFound )
+throw( FieldNotFound* )
 { QF_STACK_TRY
   checkDisposed(); 
   return m_message->removeField( field, m_message->m_pUnmanaged->getTrailer() );
