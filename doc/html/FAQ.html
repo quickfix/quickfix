@@ -16,6 +16,7 @@
   <LI><A HREF="#B6">During compilation, the compiler has errors in MessageValidator.cpp pertaining to the xml code.</A></LI>
   <LI><A HREF="#B7">When I try to compile my application, it complains PTHREAD_MUTEX_RECURSIVE is not defined.</A></LI>
   <LI><A HREF="#B8">Can I build quickfix on *nix with a compiler other than gcc?</A></LI>
+  <LI><A HREF="#B9">The <I>./configure</I> script fails or make fails.</A></LI>
   </UL>
   </p>
   <p>
@@ -25,6 +26,7 @@
   <LI><A HREF="#R2">QuickFIX seems very unstable on a multiprocessor machine.</A></LI>
   <LI><A HREF="#R3">When running my application under *nix, it crashes with a segmentation fault.</A></LI>
   <LI><A HREF="#R4">When running my application under Linux, it crashes with a SIG_ABRT.</A></LI>
+  <LI><A HREF="#R4">Use of MySQL code under Java results in a <I>UnsatisfiedLinkError</I>.</A></LI>
   </UL>
   </p>
 
@@ -64,7 +66,7 @@
   <br><br>
   <A NAME="B6"/>
   <B><FONT color="#FF0000">During compilation, the compiler has errors in MessageValidator.cpp pertaining to the xml code.</FONT></B><br>
-  QuickFIX is not yet searching for libxml in the configure script. Check to make sure that libxml is installed
+  Older versions of QuickFIX did not search for libxml in the configure script. Check to make sure that libxml is installed
   and that the correct include and library directories are being passed into the compiler.  You may have to
   modify the configure.in file to do this.
 
@@ -78,6 +80,11 @@
   <B><FONT color="#FF0000">Can I build quickfix on *nix with a compiler other than gcc?</FONT></B><br>
   Probably. We have been able to compile it with icc as well. You can always verify your compilation
   by running the suite of unit and acceptance tests against your build.
+
+  <br><br>
+  <A NAME="B9"/>
+  <B><FONT color="#FF0000">The <I>./configure</I> script fails or make fails.</FONT></B><br>
+  Run the <I>./bootstrap</I> script, then run <I>./configure</I> and <I>make</I> again.
 
   <H2>Running</H2>
   <A NAME="R1"/>
@@ -107,6 +114,12 @@
   you cannot link QuickFIX dynamically, nor can you use it inside a dynamically loaded code segment.
   QuickFIX must be linked statically into your application. We are currently investigating possible
   workarounds for this.
+
+  <br><br>
+  <A NAME="R4"/>
+  <B><FONT color="#FF0000">Use of MySQL code under Java results in a <I>UnsatisfiedLinkError</I>.</FONT></B><br>
+  You havn't built quickfix or the JNI wrapper with MySQL support.  See the installation instructions for building
+  with MySQL on your system.
 
   </body>
 </html>
