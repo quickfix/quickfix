@@ -210,6 +210,13 @@ public class Message extends FieldMap {
         return field;
     }
 
+    public boolean isSetField(int field) {
+		return isSetField0(field);
+	}
+	public boolean isSetField(Field field) {
+		return isSetField0(field.getField());
+	}
+
     public native String toString();
     public native String toXML();
     private native void fromString(String string, boolean validate) throws InvalidMessage;
@@ -329,6 +336,13 @@ public class Message extends FieldMap {
             field.setValue(getHeaderUtcDate0(field.getField()));
             return field;
         }
+
+        public boolean isSetField(int field) {
+			return isSetHeaderField0(field);
+		}
+		public boolean isSetField(Field field) {
+			return isSetHeaderField0(field.getField());
+		}
     }
 
     public class Trailer extends FieldMap {
@@ -439,6 +453,13 @@ public class Message extends FieldMap {
             field.setValue(getTrailerUtcDate0(field.getField()));
             return field;
         }
+
+        public boolean isSetField(int field) {
+			return isSetTrailerField0(field);
+		}
+		public boolean isSetField(Field field) {
+			return isSetTrailerField0(field.getField());
+		}
     }
 
     private native void addGroup0(Group group);
@@ -462,6 +483,8 @@ public class Message extends FieldMap {
     private native Date getUtcTimeOnly0(int field)  throws FieldNotFound;
     private native Date getUtcDate0(int field)      throws FieldNotFound;
 
+    private native boolean isSetField0(int field);
+
     private native void setHeaderString0(int field, String value);
     private native void setHeaderBoolean0(int field, boolean value);
     private native void setHeaderChar0(int field, char value);
@@ -480,6 +503,8 @@ public class Message extends FieldMap {
     private native Date getHeaderUtcTimeOnly0(int field)  throws FieldNotFound;
     private native Date getHeaderUtcDate0(int field)      throws FieldNotFound;
 
+    private native boolean isSetHeaderField0(int field);
+
     private native void setTrailerString0(int field, String value);
     private native void setTrailerBoolean0(int field, boolean value);
     private native void setTrailerChar0(int field, char value);
@@ -497,4 +522,6 @@ public class Message extends FieldMap {
     private native Date getTrailerUtcTimeStamp0(int field) throws FieldNotFound;
     private native Date getTrailerUtcTimeOnly0(int field)  throws FieldNotFound;
     private native Date getTrailerUtcDate0(int field)      throws FieldNotFound;
+
+    private native boolean isSetTrailerField0(int field);
 }

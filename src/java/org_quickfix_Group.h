@@ -177,6 +177,14 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Group_getUtcDate0
 
 /*
  * Class:     org_quickfix_Group
+ * Method:    isSetField0
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Group_isSetField0
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     org_quickfix_Group
  * Method:    toString0
  * Signature: ()Ljava/lang/String;
  */

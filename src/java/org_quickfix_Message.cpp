@@ -324,6 +324,17 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getUtcDate0
   QF_STACK_CATCH
 }
 
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_isSetField0
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  return pMessage->isSetField( field );
+
+  QF_STACK_CATCH
+}
+
 // Header Methods
 
 JNIEXPORT void JNICALL Java_org_quickfix_Message_setHeaderString0
@@ -501,6 +512,18 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getHeaderUtcDate0
   QF_STACK_CATCH
 }
 
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_isSetHeaderField0
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  return pMessage->getHeader().isSetField( field );
+
+  QF_STACK_CATCH
+}
+
+
 // Trailer Methods
 
 JNIEXPORT void JNICALL Java_org_quickfix_Message_setTrailerString0
@@ -674,6 +697,17 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcDate0
   FIX::Message* pMessage = getCPPMessage( obj );
   jobject result = newUtcDate( pMessage->getTrailer(), field );
   return result;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_isSetTrailerField0
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  return pMessage->getTrailer().isSetField( field );
 
   QF_STACK_CATCH
 }

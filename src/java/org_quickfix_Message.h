@@ -209,6 +209,14 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getUtcDate0
 
 /*
  * Class:     org_quickfix_Message
+ * Method:    isSetField0
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_isSetField0
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     org_quickfix_Message
  * Method:    setHeaderString0
  * Signature: (ILjava/lang/String;)V
  */
@@ -337,6 +345,14 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getHeaderUtcDate0
 
 /*
  * Class:     org_quickfix_Message
+ * Method:    isSetHeaderField0
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_isSetHeaderField0
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     org_quickfix_Message
  * Method:    setTrailerString0
  * Signature: (ILjava/lang/String;)V
  */
@@ -461,6 +477,14 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcTimeOnly0
  * Signature: (I)Ljava/util/Date;
  */
 JNIEXPORT jobject JNICALL Java_org_quickfix_Message_getTrailerUtcDate0
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     org_quickfix_Message
+ * Method:    isSetTrailerField0
+ * Signature: (I)Z
+ */
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Message_isSetTrailerField0
   (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus

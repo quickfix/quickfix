@@ -185,6 +185,14 @@ public class Group extends FieldMap {
         return field;
     }
 
+    public boolean isSetField(int field) {
+		return isSetField0(field);
+	}
+	public boolean isSetField(Field field) {
+		return isSetField0(field.getField());
+	}
+
+
     private native void addGroup0(Group group);
     private native Group getGroup0(int num, Group group) throws FieldNotFound;
 
@@ -205,6 +213,8 @@ public class Group extends FieldMap {
     private native Date getUtcTimeStamp0(int field) throws FieldNotFound;
     private native Date getUtcTimeOnly0(int field)  throws FieldNotFound;
     private native Date getUtcDate0(int field)      throws FieldNotFound;
+
+    private native boolean isSetField0(int field);
 
     private native String toString0();
     private native void fromString0(String string, boolean validate) throws InvalidMessage;

@@ -312,3 +312,15 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_Group_getUtcDate0
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT jboolean JNICALL Java_org_quickfix_Group_isSetField0
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Group* pGroup = getCPPGroup( obj );
+  return pGroup->isSetField( field );
+
+  QF_STACK_CATCH
+}
+

@@ -55,6 +55,7 @@ import java.io.IOException;
 
 public class FileStore implements MessageStore {
     private int cppPointer;
+    private Date creationTime;
 
     private FileStore() {
         create();
@@ -108,7 +109,9 @@ public class FileStore implements MessageStore {
     }
 
     public Date getCreationTime() throws IOException {
-        return getCreationTime0();
+        if( creationTime == null )
+        	creationTime = getCreationTime0();
+        return creationTime;
     }
 
     public void reset() throws IOException {
