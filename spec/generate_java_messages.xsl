@@ -69,7 +69,7 @@ echo on
  </xsl:template>
 
  <xsl:template name="field">
- <xsl:param name = "file" /> 
+ <xsl:param name="file"/> 
 echo   public void set(org.quickfix.field.<xsl:value-of select="@name"/> value) &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   { setField(value); } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   public org.quickfix.field.<xsl:value-of select="@name"/> get(org.quickfix.field.<xsl:value-of select="@name"/> value) throws FieldNotFound &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
@@ -77,6 +77,21 @@ echo   { getField(value); return value; } &gt;&gt; <xsl:call-template name="path
 echo   public org.quickfix.field.<xsl:value-of select="@name"/> get<xsl:value-of select="@name"/>() throws FieldNotFound &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   { org.quickfix.field.<xsl:value-of select="@name"/> value = new org.quickfix.field.<xsl:value-of select="@name"/>(); &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo     getField(value); return value; } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
+ </xsl:template>
+ 
+ <xsl:template name="component">
+ <xsl:param name="file"/>
+   <xsl:variable name="component_name" select="@name"/>
+   <xsl:for-each select="//fix/components/component[@name=$component_name]/field">
+   <xsl:call-template name="field">
+     <xsl:with-param name="file"><xsl:value-of select="$file"/></xsl:with-param>
+   </xsl:call-template>
+   </xsl:for-each>
+   <xsl:for-each select="//fix/components/component[@name=$component_name]/group">   
+     <xsl:call-template name="group">
+       <xsl:with-param name="file"><xsl:value-of select="$file"/></xsl:with-param> 
+     </xsl:call-template>
+   </xsl:for-each>
  </xsl:template>
  
  <xsl:template match="fix/messages/message">
@@ -96,33 +111,43 @@ echo   } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/
 <xsl:apply-templates/>
 echo } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
  </xsl:template>  
+
  <xsl:template match="message/field">
 type blankline.txt &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="../@name"/>.java
 <xsl:call-template name="field">
-  <xsl:with-param name = "file" ><xsl:value-of select="../@name"/></xsl:with-param> 
+  <xsl:with-param name="file"><xsl:value-of select="../@name"/></xsl:with-param> 
 </xsl:call-template>
 REM
  </xsl:template>
+
+<xsl:template match="message/component">
+<xsl:call-template name="component">
+  <xsl:with-param name="file"><xsl:value-of select="../@name"/></xsl:with-param>
+</xsl:call-template>
+</xsl:template>
+
+<xsl:template match="component/group"></xsl:template>
+
 <xsl:template match="group">
-<xsl:variable name = "file"></xsl:variable>
+<xsl:variable name="file"></xsl:variable>
 <xsl:call-template name="group">
-  <xsl:with-param name = "file" ><xsl:value-of select="../@name"/></xsl:with-param> 
+  <xsl:with-param name="file"><xsl:value-of select="../@name"/></xsl:with-param> 
 </xsl:call-template>
  </xsl:template>
 
 <xsl:template name="group-constructor-impl">
   <xsl:param name = "file" />
 echo     new int[] { &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
-<xsl:apply-templates mode="group"><xsl:with-param name = "file" ><xsl:value-of select="../@name"/></xsl:with-param></xsl:apply-templates>
+<xsl:apply-templates mode="group"><xsl:with-param name="file"><xsl:value-of select="$file"/></xsl:with-param></xsl:apply-templates>
 echo                0 } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 </xsl:template>
 <xsl:template mode="group" match="group/field">
-  <xsl:param name = "file" />
+  <xsl:param name="file"/>
 <xsl:variable name="name" select="@name"/>
   echo                <xsl:value-of select="//fix/fields/field[@name=$name]/@number"/>, &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 </xsl:template>
 <xsl:template mode="group" match="group/component">
-  <xsl:param name = "file" />
+  <xsl:param name="file"/>
 <xsl:variable name="name" select="@name"/>
 <xsl:for-each select="//fix/components/component[@name=$name]">
   <xsl:for-each select="field"><xsl:variable name="field_name" select="@name"/>
@@ -132,7 +157,10 @@ echo                0 } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of 
 </xsl:template>
  
 <xsl:template name="group">
-   <xsl:param name = "file" /> 
+   <xsl:param name="file"/> 
+<xsl:call-template name="field">
+  <xsl:with-param name="file"><xsl:value-of select="$file"/></xsl:with-param>
+</xsl:call-template>
 type blankline.txt &gt;&gt; <xsl:call-template name="path"/>\ &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo public static class <xsl:value-of select="@name"/> extends Group { &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 echo   public <xsl:value-of select="@name"/>() { &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
@@ -159,16 +187,21 @@ type blankline.txt &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of selec
 </xsl:for-each>
 <xsl:for-each select="group">
   <xsl:call-template name="group">
-    <xsl:with-param name = "file" ><xsl:value-of select="$file"/></xsl:with-param> 
+    <xsl:with-param name="file"><xsl:value-of select="$file"/></xsl:with-param> 
   </xsl:call-template>
 </xsl:for-each>
 <xsl:for-each select="component">
   <xsl:variable name="component_name" select="@name"/>
   <xsl:for-each select="//fix/components/component[@name=$component_name]/field">
-  <xsl:call-template name="field">
-    <xsl:with-param name = "file" ><xsl:value-of select="$file"/></xsl:with-param>
-  </xsl:call-template></xsl:for-each>
-  <xsl:for-each select="group"><xsl:call-template name="group"/></xsl:for-each>
+    <xsl:call-template name="field">
+      <xsl:with-param name="file"><xsl:value-of select="$file"/></xsl:with-param>
+    </xsl:call-template>
+  </xsl:for-each>
+  <xsl:for-each select="//fix/components/component[@name=$component_name]/group">
+    <xsl:call-template name="group">
+      <xsl:with-param name="file"><xsl:value-of select="$file"/></xsl:with-param>
+    </xsl:call-template>
+  </xsl:for-each>
 </xsl:for-each>
 echo } &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="$file"/>.java
 </xsl:template>
