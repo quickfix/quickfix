@@ -516,6 +516,8 @@ void Session::disconnect()
   if ( m_resetOnDisconnect && m_state.connected() )
   { m_state.connected( false ); reset(); }
 
+  m_state.resendRange( 0, 0 );
+
   QF_STACK_POP
 }
 
@@ -591,9 +593,12 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
   resendRequest.setField( endSeqNo );
   fill( resendRequest.getHeader() );
   sendRaw( resendRequest );
+
   m_state.onEvent( "Sent ResendRequest FROM: "
                    + IntConvertor::convert( beginSeqNo ) +
                    " TO: " + IntConvertor::convert( endSeqNo ) );
+
+  m_state.resendRange( beginSeqNo, endSeqNo );
 
   QF_STACK_POP
 }
@@ -1043,6 +1048,22 @@ void Session::doTargetTooHigh( const Message& msg )
                    + IntConvertor::convert( msgSeqNum ) );
 
   m_state.queue( msgSeqNum, msg );
+
+  if( m_state.resendRequested() )
+  {
+    SessionState::ResendRange range = m_state.resendRange();
+
+    if( msgSeqNum > range.first 
+        && (range.second == 0 || msgSeqNum < range.second) )
+    {
+          m_state.onEvent ("Already sent ResendRequest FROM: " +
+                           IntConvertor::convert (range.first) + " TO: " +
+                           IntConvertor::convert (range.second) +
+                           ".  Not sending another.");
+          return;
+    }
+  }
+
   generateResendRequest( beginString, msgSeqNum );
 
   QF_STACK_POP
@@ -1060,12 +1081,15 @@ bool Session::nextQueued( int num )
   Message msg;
   MsgType msgType;
 
-  if ( m_state.retreive( num, msg ) )
+  if( m_state.retreive( num, msg ) )
   {
+    if( m_state.resendRequested() )
+      m_state.resendRange( 0, 0 );
+
     m_state.onEvent( "Processing QUEUED message: "
                      + IntConvertor::convert( num ) );
     msg.getHeader().getField( msgType );
-    if ( msgType == MsgType_Logon
+    if( msgType == MsgType_Logon
         || msgType == MsgType_ResendRequest )
     {
       m_state.incrNextTargetMsgSeqNum();
@@ -1073,7 +1097,7 @@ bool Session::nextQueued( int num )
     else
     {
       std::string msgString;
-      next( msg.toString(msgString) );
+      next( msg.toString(msgString), true );
     }
     return true;
   }
@@ -1082,13 +1106,13 @@ bool Session::nextQueued( int num )
   QF_STACK_POP
 }
 
-void Session::next( const std::string& msg )
+void Session::next( const std::string& msg, bool queued )
 { QF_STACK_PUSH(Session::next)
 
   try
   {
     m_state.onIncoming( msg );
-    next( Message( msg, m_dataDictionary ) );
+    next( Message( msg, m_dataDictionary ), queued );
   } 
   catch( InvalidMessage& e )
   {
@@ -1108,7 +1132,7 @@ void Session::next( const std::string& msg )
   QF_STACK_POP
 }
 
-void Session::next( const Message& message )
+void Session::next( const Message& message, bool queued )
 { QF_STACK_PUSH(Session::next)
 
   MsgType msgType;
@@ -1219,7 +1243,9 @@ void Session::next( const Message& message )
     disconnect();
   }
 
-  nextQueued();
+  if( !queued )
+    nextQueued();
+
   if( isLoggedOn() )
     next();
 

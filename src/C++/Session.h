@@ -120,8 +120,8 @@ public:
 
   bool send( Message& );
   void next();
-  void next( const std::string& );
-  void next( const Message& );
+  void next( const std::string&, bool queued = false );
+  void next( const Message&, bool queued = false );
   void disconnect();
 
   long getExpectedSenderNum() { return m_state.getNextSenderMsgSeqNum(); }

@@ -59,6 +59,7 @@ public:
     add( &m_resetOnEndTime );
     add( &m_disconnectBeforeStartTime );
     add( &m_resetOnNewSession );
+    add( &m_processQueuedMessages );
   }
 
 private:
@@ -395,6 +396,13 @@ class Test : public CPPTest::Test < Session > ,
     Session* createSession();
   }
   m_resetOnNewSession;
+
+  class processQueuedMessages : public AcceptorTest
+  {
+    bool onSetup( Session*& pObject );
+    void onRun( Session& object );
+  }
+  m_processQueuedMessages;
 };
 }
 

@@ -36,12 +36,13 @@ namespace FIX
 class SessionState : public MessageStore, public Log
 {
   typedef std::map < int, Message > Messages;
+
 public:
   SessionState() 
 : m_connected( false ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
-  m_pStore( 0 ), m_pLog( 0 ) {}
+  m_pStore( 0 ), m_pLog( 0 ), m_resendRequested( 0 ) {}
 
   bool connected() const { return m_connected; }
   void connected( bool value ) { m_connected = value; }
@@ -57,6 +58,14 @@ public:
   void logonTimeout( int value ) { m_logonTimeout = value; }
   int testRequest() const { return m_testRequest; }
   void testRequest( int value ) { m_testRequest = value; }
+  bool resendRequested() const 
+  { return !(m_resendRange.first == 0 && m_resendRange.second == 0); }
+
+  typedef std::pair<int, int> ResendRange;
+
+  ResendRange resendRange () const { return m_resendRange; }
+  void resendRange (int begin, int end)
+  { m_resendRange = std::make_pair( begin, end ); }
 
   MessageStore* store() { return m_pStore; }
   void store( MessageStore* pValue ) { m_pStore = pValue; }
@@ -173,6 +182,8 @@ private:
   bool m_initiate;
   int m_logonTimeout;
   int m_testRequest;
+  int m_resendRequested;
+  ResendRange m_resendRange;
   HeartBtInt m_heartBtInt;
   UtcTimeStamp m_lastSentTime;
   UtcTimeStamp m_lastReceivedTime;

@@ -810,6 +810,29 @@ void SessionTestCase::resetOnNewSession::onRun( Session& object )
   assert( m_disconnect == 1 );
 }
 
+bool SessionTestCase::processQueuedMessages::onSetup( Session*& pObject )
+{
+  return AcceptorTest::onSetup( pObject );
+}
+
+void SessionTestCase::processQueuedMessages::onRun( Session& object )
+{
+  object.setResponder( this );
+  object.next( createLogon( "ISLD", "TW", 1 ) );
+  assert( m_disconnect == 0 );
+
+  for( int i = 3; i <= 5003; ++i )
+  {
+    object.next( createNewOrderSingle( "ISLD", "TW", i ) );
+  }
+  assert( 2 == object.getExpectedTargetNum() );
+  assert( 1 == m_toResendRequest );
+  object.next( createNewOrderSingle( "ISLD", "TW", 2 ) );
+  assert( 5004 == object.getExpectedTargetNum() );
+  object.next( createNewOrderSingle( "ISLD", "TW", 5006 ) );
+  assert( 2 == m_toResendRequest );
+}
+
 Session* SessionTestCase::resetOnNewSession::createSession()
 {
   SessionID sessionID( BeginString( "FIX.4.2" ),
