@@ -77,9 +77,6 @@ public:
   SocketMonitor& getMonitor() { return m_monitor; }
 
 private:
-  bool bind();
-  bool listen();
-
   int m_port;
   int m_socket;
   sockaddr_in m_address;

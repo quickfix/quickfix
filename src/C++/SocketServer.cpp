@@ -106,35 +106,11 @@ private:
 };
 
 SocketServer::SocketServer( int port, int timeout )
-    : m_port( port ), m_monitor( timeout )
+: m_port( port ), m_monitor( timeout )
 {
-  m_socket = socket( PF_INET, SOCK_STREAM, 0 );
+  m_socket = socket_createAcceptor( port ); 
   if ( m_socket < 0 ) throw std::exception();
-
-  m_address.sin_family = PF_INET;
-  m_address.sin_port = htons( port );
-  m_address.sin_addr.s_addr = INADDR_ANY;
-  m_socklen = sizeof( m_address );
-
-  socket_setsockopt( m_socket );
-  if ( !bind() ) throw std::exception();
-  if ( !listen() ) throw std::exception();
   m_monitor.add( m_socket );
-}
-
-bool SocketServer::bind()
-{
-  int result = ::bind( m_socket,
-                       reinterpret_cast < sockaddr* > ( &m_address ),
-                       m_socklen );
-  return result >= 0;
-}
-
-bool SocketServer::listen()
-{
-  int result = ::listen( m_socket,
-                         SOMAXCONN );
-  return result >= 0;
 }
 
 int SocketServer::accept()
