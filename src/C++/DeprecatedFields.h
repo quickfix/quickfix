@@ -59,12 +59,32 @@ namespace FIX
   DEFINE_STRING(IDSource);
   DEFINE_STRING(IOIShares);
   DEFINE_QTY(LastShares);
+  DEFINE_STRING(RelatedSym);
+  DEFINE_CHAR(Rule80A);
   DEFINE_QTY(Shares);
+  DEFINE_CHAR(SettlmntTyp);
+  DEFINE_LOCALMKTDATE(FutSettDate);
+  DEFINE_STRING(ExecBroker);
   DEFINE_CHAR(OpenClose);
   DEFINE_INT(AllocShares);
+  DEFINE_STRING(ClientID);
+  DEFINE_LOCALMKTDATE(FutSettDate2);
+  DEFINE_INT(PutOrCall);
+  DEFINE_INT(CustomerOrFirm);
+  DEFINE_DAYOFMONTH(MaturityDay);
+  DEFINE_PRICEOFFSET(PegDifference);
   DEFINE_PRICEOFFSET(SpreadToBenchmark);
   DEFINE_STRING(UnderlyingIDSource);
   DEFINE_INT(QuoteAckStatus);
+  DEFINE_INT(TotQuoteEntries);
+  DEFINE_DAYOFMONTH(UnderlyingMaturityDay);
+  DEFINE_INT(UnderlyingPutOrCall);
+  DEFINE_QTY(RatioQty);
+  DEFINE_UTCTIMESTAMP(OnBehalfOfSendingTime);
+  DEFINE_PRICEOFFSET(DiscretionOffset);
+  DEFINE_INT(TotalNumSecurities);
+  DEFINE_STRING(ClearingFirm);
+  DEFINE_STRING(ClearingAccount);
 }
 
 #endif

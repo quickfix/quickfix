@@ -1,4 +1,3 @@
-
 /* -*- C++ -*- */
 /* ====================================================================
 * The QuickFIX Software License, Version 1.0
@@ -61,12 +60,32 @@ namespace FIX
       IDSource = 22,
       IOIShares = 27,
       LastShares = 32,
+      RelatedSym = 46,
+      Rule80A = 47,
       Shares = 53,
+      SettlmntTyp = 63,
+      FutSettDate = 64,
+      ExecBroker = 76,
       OpenClose = 77,
       AllocShares = 80,
+      ClientID = 109,
+      FutSettDate2 = 193,
+      PutOrCall = 201,
+      CustomerOrFirm = 204,
+      MaturityDay = 205,
+      PegDifference = 211,
       SpreadToBenchmark = 218,
+      QuoteAckStatus = 297,
+      TotQuoteEntries = 304,
       UnderlyingIDSource = 305,
-      QuoteAckStatus = 297
+      UnderlyingMaturityDay = 314,
+      UnderlyingPutOrCall = 315,
+      RatioQty = 319,
+      OnBehalfOfSendingTime = 370,
+      DiscretionOffset = 389,
+      TotalNumSecurities = 393,
+      ClearingFirm = 439,
+      ClearingAccount = 440
     };
   }
 }

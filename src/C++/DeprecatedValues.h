@@ -67,8 +67,46 @@ namespace FIX
   const std::string IOIShares_SMALL = "S";
   const std::string IOIShares_MEDIUM = "M";
   const std::string IOIShares_LARGE = "L";
+  const char Rule80A_AGENCY_SINGLE_ORDER = 'A';
+  const char Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE = 'B';
+  const char Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM = 'C';
+  const char Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRM = 'D';
+  const char Rule80A_SHORT_EXEMPT_TRANSACTION_FOR_PRINCIPAL = 'E';
+  const char Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_W_TYPE = 'F';
+  const char Rule80A_SHORT_EXEMPT_TRANSACTION_REFER_TO_I_TYPE = 'H';
+  const char Rule80A_INDIVIDUAL_INVESTOR = 'I';
+  const char Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'J';
+  const char Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER = 'K';
+  const char Rule80A_SHORT_EXEMPT_AFFILIATED = 'L';
+  const char Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_MEMBER = 'M';
+  const char Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_MEMBER = 'N';
+  const char Rule80A_PROPRIETARY_AFFILIATED = 'O';
+  const char Rule80A_PRINCIPAL = 'P';
+  const char Rule80A_TRANSACTIONS_NON_MEMBER = 'R';
+  const char Rule80A_SPECIALIST_TRADES = 'S';
+  const char Rule80A_TRANSACTIONS_UNAFFILIATED_MEMBER = 'T';
+  const char Rule80A_PROGRAM_ORDER_INDEX_ARB_FOR_OTHER_AGENCY = 'U';
+  const char Rule80A_ALL_OTHER_ORDERS_AS_AGENT_FOR_OTHER_MEMBER = 'W';
+  const char Rule80A_SHORT_EXEMPT_NOT_AFFILIATED = 'X';
+  const char Rule80A_PROGRAM_ORDER_NON_INDEX_ARB_FOR_OTHER_AGENCY = 'Y';
+  const char Rule80A_SHORT_EXEMPT_NONMEMBER = 'Z';
+  const char SettlmntTyp_REGULAR = '0';
+  const char SettlmntTyp_CASH = '1';
+  const char SettlmntTyp_NEXT_DAY = '2';
+  const char SettlmntTyp_T_PLUS_2 = '3';
+  const char SettlmntTyp_T_PLUS_3 = '4';
+  const char SettlmntTyp_T_PLUS_4 = '5';
+  const char SettlmntTyp_FUTURE = '6';
+  const char SettlmntTyp_WHEN_AND_IF_ISSUED = '7';
+  const char SettlmntTyp_SELLERS_OPTION = '8';
+  const char SettlmntTyp_T_PLUS_5 = '9';
+  const char SettlmntTyp_T_PLUS_1 = 'A';
   const char OpenClose_OPEN = 'O';
   const char OpenClose_CLOSE = 'C';
+  const int PutOrCall_PUT = 0;
+  const int PutOrCall_CALL = 1;
+  const int CustomerOrFirm_CUSTOMER = 0;
+  const int CustomerOrFirm_FIRM = 1;
 }
 
 #endif
