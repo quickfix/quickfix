@@ -50,7 +50,28 @@ public class MessageTest extends TestCase {
         message.addGroup(numAllocs);
         numAllocs.set( new AllocAccount("AllocACC2") );
         numAllocs.set( new AllocShares(2020.20) );
-        message.addGroup(numAllocs);        
+        message.addGroup(numAllocs);
+
+        try {
+            message.getGroup( 1, numAllocs );
+            assertEquals( "AllocACC1", 
+                          numAllocs.getField( new AllocAccount() ).getValue() );
+            assertTrue( 1010.10 ==
+                    numAllocs.getField( new AllocShares() ).getValue() );
+            message.getGroup( 2, numAllocs );
+            assertEquals( "AllocACC2", 
+                          numAllocs.getField( new AllocAccount() ).getValue() );
+            assertTrue( 2020.20 ==
+                    numAllocs.getField( new AllocShares() ).getValue() );
+        } catch( FieldNotFound e ) {
+            fail( "no exception should be thrown" );
+        }
+
+        try {
+            message.getGroup( 3, numAllocs );
+            fail( "exception should be thrown" );
+        } catch( FieldNotFound e ) {
+        }
     }
 
     public void testMessageSetGetString() {
@@ -181,17 +202,17 @@ public class MessageTest extends TestCase {
                 fail("exception not thrown");
             } catch(java.util.NoSuchElementException e) {}
 
-	    java.util.Iterator j = message.getHeader().iterator();
-	    assertTrue(j.hasNext());
-	    field = (StringField)j.next();
-	    assertEquals(8, field.getField());
-	    assertEquals("FIX.4.2", field.getValue());
-	    field = (StringField)j.next();
-	    assertEquals(9, field.getField());
-	    assertEquals("12", field.getValue());
-	    field = (StringField)j.next();
-	    assertEquals(35, field.getField());
-	    assertEquals("A", field.getValue());
+            java.util.Iterator j = message.getHeader().iterator();
+            assertTrue(j.hasNext());
+            field = (StringField)j.next();
+            assertEquals(8, field.getField());
+            assertEquals("FIX.4.2", field.getValue());
+            field = (StringField)j.next();
+            assertEquals(9, field.getField());
+            assertEquals("12", field.getValue());
+            field = (StringField)j.next();
+            assertEquals(35, field.getField());
+            assertEquals("A", field.getValue());
 
             assertEquals(false, j.hasNext());
             try {

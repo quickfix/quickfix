@@ -33,171 +33,171 @@ JNIEXPORT void JNICALL Java_quickfix_Group_destroy
 
 /*
  * Class:     quickfix_Group
- * Method:    addGroup0
+ * Method:    addGroup
  * Signature: (Lquickfix/Group;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_addGroup0
+JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
   (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Group
- * Method:    getGroup0
+ * Method:    getGroup
  * Signature: (ILquickfix/Group;)Lquickfix/Group;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Group
- * Method:    setString0
+ * Method:    setString
  * Signature: (ILjava/lang/String;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setString0
+JNIEXPORT void JNICALL Java_quickfix_Group_setString
   (JNIEnv *, jobject, jint, jstring);
 
 /*
  * Class:     quickfix_Group
- * Method:    setBoolean0
+ * Method:    setBoolean
  * Signature: (IZ)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setBoolean0
+JNIEXPORT void JNICALL Java_quickfix_Group_setBoolean
   (JNIEnv *, jobject, jint, jboolean);
 
 /*
  * Class:     quickfix_Group
- * Method:    setChar0
+ * Method:    setChar
  * Signature: (IC)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setChar0
+JNIEXPORT void JNICALL Java_quickfix_Group_setChar
   (JNIEnv *, jobject, jint, jchar);
 
 /*
  * Class:     quickfix_Group
- * Method:    setInt0
+ * Method:    setInt
  * Signature: (II)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setInt0
+JNIEXPORT void JNICALL Java_quickfix_Group_setInt
   (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    setDouble0
+ * Method:    setDouble
  * Signature: (ID)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setDouble0
+JNIEXPORT void JNICALL Java_quickfix_Group_setDouble
   (JNIEnv *, jobject, jint, jdouble);
 
 /*
  * Class:     quickfix_Group
- * Method:    setUtcTimeStamp0
+ * Method:    setUtcTimeStamp
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp0
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Group
- * Method:    setUtcTimeOnly0
+ * Method:    setUtcTimeOnly
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly0
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Group
- * Method:    setUtcDate0
+ * Method:    setUtcDate
  * Signature: (ILjava/util/Date;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDate0
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDate
   (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Group
- * Method:    getString0
+ * Method:    getString
  * Signature: (I)Ljava/lang/String;
  */
-JNIEXPORT jstring JNICALL Java_quickfix_Group_getString0
+JNIEXPORT jstring JNICALL Java_quickfix_Group_getString
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    getBoolean0
+ * Method:    getBoolean
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Group_getBoolean0
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_getBoolean
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    getChar0
+ * Method:    getChar
  * Signature: (I)C
  */
-JNIEXPORT jchar JNICALL Java_quickfix_Group_getChar0
+JNIEXPORT jchar JNICALL Java_quickfix_Group_getChar
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    getInt0
+ * Method:    getInt
  * Signature: (I)I
  */
-JNIEXPORT jint JNICALL Java_quickfix_Group_getInt0
+JNIEXPORT jint JNICALL Java_quickfix_Group_getInt
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    getDouble0
+ * Method:    getDouble
  * Signature: (I)D
  */
-JNIEXPORT jdouble JNICALL Java_quickfix_Group_getDouble0
+JNIEXPORT jdouble JNICALL Java_quickfix_Group_getDouble
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    getUtcTimeStamp0
+ * Method:    getUtcTimeStamp
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeStamp0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeStamp
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    getUtcTimeOnly0
+ * Method:    getUtcTimeOnly
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeOnly0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeOnly
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    getUtcDate0
+ * Method:    getUtcDate
  * Signature: (I)Ljava/util/Date;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    isSetField0
+ * Method:    isSetField
  * Signature: (I)Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField0
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField__I
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
- * Method:    toString0
- * Signature: ()Ljava/lang/String;
+ * Method:    isSetField
+ * Signature: (Lquickfix/Field;)Z
  */
-JNIEXPORT jstring JNICALL Java_quickfix_Group_toString0
-  (JNIEnv *, jobject);
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField__Lquickfix_Field_2
+  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_Group
- * Method:    fromString0
- * Signature: (Ljava/lang/String;Z)V
+ * Method:    removeField
+ * Signature: (I)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_fromString0
-  (JNIEnv *, jobject, jstring, jboolean);
+JNIEXPORT void JNICALL Java_quickfix_Group_removeField
+  (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus
 }

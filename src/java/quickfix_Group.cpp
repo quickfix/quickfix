@@ -104,7 +104,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_destroy
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_addGroup0
+JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
 ( JNIEnv *pEnv, jobject obj, jobject group )
 { QF_STACK_TRY
 
@@ -116,7 +116,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_addGroup0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
 ( JNIEnv *pEnv, jobject obj, jint num, jobject group )
 { QF_STACK_TRY
 
@@ -124,21 +124,21 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup0
   FIX::Group* pThis = getCPPGroup( obj );
   FIX::Group* pGroup = getCPPGroup( group );
 
-  if ( pThis->hasGroup( num, *pGroup ) )
+  try
   {
     pThis->getGroup( num, *pGroup );
     return group;
   }
-  else
+  catch( FIX::FieldNotFound& e )
   {
-    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( num ).c_str() );
+    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( e.field ).c_str() );
     return 0;
   }
 
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setString0
+JNIEXPORT void JNICALL Java_quickfix_Group_setString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
 
@@ -149,7 +149,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setString0
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setBoolean0
+JNIEXPORT void JNICALL Java_quickfix_Group_setBoolean
 ( JNIEnv *pEnv, jobject obj, jint field, jboolean value )
 { QF_STACK_TRY
 
@@ -159,7 +159,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setBoolean0
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setChar0
+JNIEXPORT void JNICALL Java_quickfix_Group_setChar
 ( JNIEnv *pEnv, jobject obj, jint field, jchar value )
 { QF_STACK_TRY
 
@@ -169,7 +169,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setChar0
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setInt0
+JNIEXPORT void JNICALL Java_quickfix_Group_setInt
 ( JNIEnv *pEnv, jobject obj, jint field, jint value )
 { QF_STACK_TRY
 
@@ -179,7 +179,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setInt0
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setDouble0
+JNIEXPORT void JNICALL Java_quickfix_Group_setDouble
 ( JNIEnv *pEnv, jobject obj, jint field, jdouble value )
 { QF_STACK_TRY
 
@@ -189,7 +189,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setDouble0
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp0
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
@@ -200,7 +200,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp0
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly0
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
@@ -211,7 +211,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly0
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDate0
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDate
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
@@ -222,7 +222,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcDate0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jstring JNICALL Java_quickfix_Group_getString0
+JNIEXPORT jstring JNICALL Java_quickfix_Group_getString
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -233,7 +233,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_Group_getString0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_Group_getBoolean0
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_getBoolean
 ( JNIEnv * pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -244,7 +244,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_getBoolean0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jchar JNICALL Java_quickfix_Group_getChar0
+JNIEXPORT jchar JNICALL Java_quickfix_Group_getChar
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -255,7 +255,7 @@ JNIEXPORT jchar JNICALL Java_quickfix_Group_getChar0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jint JNICALL Java_quickfix_Group_getInt0
+JNIEXPORT jint JNICALL Java_quickfix_Group_getInt
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -266,7 +266,7 @@ JNIEXPORT jint JNICALL Java_quickfix_Group_getInt0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jdouble JNICALL Java_quickfix_Group_getDouble0
+JNIEXPORT jdouble JNICALL Java_quickfix_Group_getDouble
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -277,7 +277,7 @@ JNIEXPORT jdouble JNICALL Java_quickfix_Group_getDouble0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeStamp0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeStamp
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -289,7 +289,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeStamp0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeOnly0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeOnly
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -301,7 +301,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcTimeOnly0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate0
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
@@ -313,7 +313,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getUtcDate0
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField0
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 

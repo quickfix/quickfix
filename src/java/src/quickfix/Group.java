@@ -69,63 +69,26 @@ public class Group extends FieldMap {
     private native void create(int field, int delim, int[] order);
     private native void destroy();
 
-    public void addGroup(Group group) {
-        addGroup0(group);
-    }
+    public native void addGroup(Group group);
+    public native Group getGroup(int num, Group group) throws FieldNotFound;
 
-    public Group getGroup(int num, Group group) throws FieldNotFound {
-        return getGroup0(num, group);
-    }
+    public native void setString(int field, String value);
+    public native void setBoolean(int field, boolean value);
+    public native void setChar(int field, char value);
+    public native void setInt(int field, int value);
+    public native void setDouble(int field, double value);
+    public native void setUtcTimeStamp(int field, Date value);
+    public native void setUtcTimeOnly(int field, Date value);
+    public native void setUtcDate(int field, Date value);
 
-    public void setString(int field, String value) {
-        setString0(field, value);
-    }
-    public void setBoolean(int field, boolean value) {
-        setBoolean0(field, value);
-    }
-    public void setChar(int field, char value) {
-        setChar0(field, value);
-    }
-    public void setInt(int field, int value) {
-        setInt0(field, value);
-    }
-    public void setDouble(int field, double value) {
-        setDouble0(field, value);
-    }
-    public void setUtcTimeStamp(int field, Date value) {
-        setUtcTimeStamp0(field, value);
-    }
-    public void setUtcTimeOnly(int field, Date value) {
-        setUtcTimeOnly0(field, value);
-    }
-    public void setUtcDate(int field, Date value) {
-        setUtcDate0(field, value);
-    }
-
-    public String getString(int field) throws FieldNotFound {
-        return getString0(field);
-    }
-    public boolean getBoolean(int field) throws FieldNotFound {
-        return getBoolean0(field);
-    }
-    public char getChar(int field) throws FieldNotFound {
-        return getChar0(field);
-    }
-    public int getInt(int field) throws FieldNotFound {
-        return getInt0(field);
-    }
-    public double getDouble(int field) throws FieldNotFound {
-        return getDouble0(field);
-    }
-    public Date getUtcTimeStamp(int field) throws FieldNotFound {
-        return getUtcTimeStamp0(field);
-    }
-    public Date getUtcTimeOnly(int field) throws FieldNotFound {
-        return getUtcTimeOnly0(field);
-    }
-    public Date getUtcDate(int field) throws FieldNotFound {
-        return getUtcDate0(field);
-    }
+    public native String getString(int field) throws FieldNotFound;
+    public native boolean getBoolean(int field) throws FieldNotFound;
+    public native char getChar(int field) throws FieldNotFound;
+    public native int getInt(int field) throws FieldNotFound;
+    public native double getDouble(int field) throws FieldNotFound;
+    public native Date getUtcTimeStamp(int field) throws FieldNotFound;
+    public native Date getUtcTimeOnly(int field) throws FieldNotFound;
+    public native Date getUtcDate(int field) throws FieldNotFound;
 
     public void setField(StringField field) {
         setString(field.getField(), field.getValue());
@@ -185,41 +148,11 @@ public class Group extends FieldMap {
         return field;
     }
 
-    public boolean isSetField(int field) {
-        return isSetField0(field);
-    }
-    public boolean isSetField(Field field) {
-        return isSetField0(field.getField());
-    }
-    public void removeField(int field) {
-    }
+    public native boolean isSetField(int field);
+    public native boolean isSetField(Field field);
+    public native void removeField(int field);
+
     public java.util.Iterator iterator() {
         return null;
     }
-
-    private native void addGroup0(Group group);
-    private native Group getGroup0(int num, Group group) throws FieldNotFound;
-
-    private native void setString0(int field, String value);
-    private native void setBoolean0(int field, boolean value);
-    private native void setChar0(int field, char value);
-    private native void setInt0(int field, int value);
-    private native void setDouble0(int field, double value);
-    private native void setUtcTimeStamp0(int field, Date value);
-    private native void setUtcTimeOnly0(int field, Date value);
-    private native void setUtcDate0(int field, Date value);
-
-    private native String getString0(int field)     throws FieldNotFound;
-    private native boolean getBoolean0(int field)   throws FieldNotFound;
-    private native char getChar0(int field)         throws FieldNotFound;
-    private native int getInt0(int field)           throws FieldNotFound;
-    private native double getDouble0(int field)     throws FieldNotFound;
-    private native Date getUtcTimeStamp0(int field) throws FieldNotFound;
-    private native Date getUtcTimeOnly0(int field)  throws FieldNotFound;
-    private native Date getUtcDate0(int field)      throws FieldNotFound;
-
-    private native boolean isSetField0(int field);
-
-    private native String toString0();
-    private native void fromString0(String string, boolean validate) throws InvalidMessage;
 }

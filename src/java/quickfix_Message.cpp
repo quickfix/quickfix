@@ -135,14 +135,15 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
   FIX::Message* pMessage = getCPPMessage( obj );
   JVMObject jgroup( group );
   FIX::Group* pGroup = ( FIX::Group* ) jgroup.getInt( "cppPointer" );
-  if ( pMessage->hasGroup( num, *pGroup ) )
+
+  try
   {
     pMessage->getGroup( num, *pGroup );
     return group;
-  }
-  else
+  } 
+  catch( FIX::FieldNotFound& e )
   {
-    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( num ).c_str() );
+    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( e.field ).c_str() );
     return 0;
   }
 
