@@ -183,7 +183,7 @@ void ThreadedSocketInitiator::removeThread( int s )
   QF_STACK_POP
 }
 
-void* ThreadedSocketInitiator::socketThread( void* p )
+THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(ThreadedSocketInitiator::socketThread)
 

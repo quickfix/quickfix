@@ -103,8 +103,16 @@ const char* socket_hostname( const char* name );
 tm time_gmtime( const time_t* t );
 tm time_localtime( const time_t* t);
 
-bool thread_spawn( void*( *func ) ( void* ), void* var, unsigned& thread );
-bool thread_spawn( void*( *func ) ( void* ), void* var );
+#ifdef _MSC_VER
+typedef unsigned int (_stdcall THREAD_START_ROUTINE)(void *);
+#define  THREAD_PROC unsigned int _stdcall 
+#else
+typedef void * (THREAD_START_ROUTINE)(void *);
+#define THREAD_PROC void *
+#endif
+
+bool thread_spawn( THREAD_START_ROUTINE func, void* var, unsigned& thread );
+bool thread_spawn( THREAD_START_ROUTINE func, void* var );
 void thread_join( unsigned thread );
 void thread_detach( unsigned thread );
 unsigned thread_self();

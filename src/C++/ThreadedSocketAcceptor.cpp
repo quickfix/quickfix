@@ -158,7 +158,7 @@ void ThreadedSocketAcceptor::removeThread( int s )
   QF_STACK_POP
 }
 
-void* ThreadedSocketAcceptor::socketThread( void* p )
+THREAD_PROC ThreadedSocketAcceptor::socketThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(ThreadedSocketAcceptor::socketThread)
 

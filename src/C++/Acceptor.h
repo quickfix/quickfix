@@ -115,7 +115,7 @@ private:
   /// Implemented to stop a running acceptor.
   virtual void onStop() = 0;
 
-  static void* startThread( void* p );
+  static THREAD_PROC startThread( void* p );
 
   typedef std::map < SessionID, Session* > Sessions;
 

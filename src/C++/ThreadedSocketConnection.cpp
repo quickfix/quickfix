@@ -236,7 +236,7 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
   QF_STACK_POP
 }
 
-void* ThreadedSocketConnection::queueThread( void* p )
+THREAD_PROC ThreadedSocketConnection::queueThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(ThreadedSocketConnection::queueThread)
 

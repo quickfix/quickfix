@@ -217,7 +217,7 @@ void Initiator::stop()
   QF_STACK_POP
 }
 
-void* Initiator::startThread( void* p )
+THREAD_PROC Initiator::startThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(Initiator::startThread)
 

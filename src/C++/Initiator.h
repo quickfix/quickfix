@@ -127,7 +127,7 @@ private:
   /// Implemented to connect a session to its target.
   virtual bool doConnect( const SessionID&, const Dictionary& ) = 0;
 
-  static void* startThread( void* p );
+  static THREAD_PROC startThread( void* p );
 
   typedef std::set < SessionID > SessionIDs;
   typedef std::map < SessionID, int > SessionState;

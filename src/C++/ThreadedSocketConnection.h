@@ -86,7 +86,7 @@ private:
   void disconnect();
   bool setSession( const std::string& msg );
 
-  static void* queueThread( void* p );
+  static THREAD_PROC queueThread( void* p );
 
   int m_socket;
   Application& m_application;

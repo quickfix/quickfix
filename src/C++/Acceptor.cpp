@@ -192,7 +192,7 @@ void Acceptor::stop()
   QF_STACK_POP
 }
 
-void* Acceptor::startThread( void* p )
+THREAD_PROC Acceptor::startThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH( Acceptor::startThread )
 

@@ -93,7 +93,7 @@ private:
 
   void addThread( int s, int t );
   void removeThread( int s );
-  static void* socketThread( void* p );
+  static THREAD_PROC socketThread( void* p );
 
   short m_port;
   bool m_reuseAddress;
