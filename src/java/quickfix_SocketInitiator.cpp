@@ -184,7 +184,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doPoll
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -228,7 +228,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_SocketInitiator_doGetSessions
     pEnv->CallVoidMethod( result, methodID, sessionid );
     pEnv->DeleteLocalRef( sessionid );
   }
-  pEnv->DeleteLocalRef( result );
   return result;
 
   QF_STACK_CATCH
