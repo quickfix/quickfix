@@ -118,12 +118,20 @@ public:
     if ( !m_cls ) throw JVMException(
         std::string( "Could not find class " ) + name );
   }
-JVMClass( jclass cls ) : m_cls( cls )
+  JVMClass( jclass cls ) : m_cls( cls )
   {
     if ( !cls ) throw JVMException( "Class not found" );
   }
 
-JVMClass( JVMClass& copy ) : m_cls( copy.m_cls ) {}
+  JVMClass( JVMClass& copy ) : m_cls( copy.m_cls ) 
+  {
+    ENV::get()->NewLocalRef( m_cls );
+  }
+
+  ~JVMClass()
+  {
+    ENV::get()->DeleteLocalRef( m_cls );
+  }
 
   int getInt( const std::string& name );
 

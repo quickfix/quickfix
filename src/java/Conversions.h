@@ -68,6 +68,7 @@ inline bool throwNew( const char* name, const char* message )
   jclass exception = pEnv->FindClass( name );
   if ( exception == 0 ) return false;
   pEnv->ThrowNew( exception, message );
+  pEnv->DeleteLocalRef( exception );
   return true;
 }
 
