@@ -3541,7 +3541,6 @@
       <value enum="D" description="PROPRIETARY" />
       <value enum="E" description="ISO_COUNTRY_CODE" />
       <value enum="F" description="SETTLEMENT_ENTITY_LOCATION" />
-      <value enum="E" description="ISO_COUNTRY_CODE_" />
       <value enum="1" description="KOREAN_INVESTOR_ID" />
       <value enum="2" description="TAIWANESE_QUALIFIED_FOREIGN_INVESTOR_ID_QFII" />
       <value enum="3" description="TAIWANESE_TRADING_ACCOUNT" />
