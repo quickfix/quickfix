@@ -14,8 +14,7 @@ AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 AM_PROG_LEX
 
-AC_DEFINE(__FD_SETSIZE, 4096, Maximum socket for select call for older versions of linux)
-AC_DEFINE(FD_SETSIZE, 4096, Maximum socket for select call)
+AC_DEFINE(_XOPEN_SOURCE, 1, "Define _XOPEN_SOURCE to make sure we get strptime")
 
 ########################################
 # CALLSTACK
@@ -92,6 +91,8 @@ if test $has_python = true
 then
     PYTHON_CFLAGS="-I${PYTHON_PREFIX}" 
     AC_SUBST(PYTHON_CFLAGS)
+    PYTHON_SITE_PACKAGES=`$PYTHON -c "from distutils import sysconfig; print sysconfig.get_python_lib()"`
+    AC_SUBST(PYTHON_SITE_PACKAGES)
     AC_DEFINE(HAVE_PYTHON, 1, Define if you have python)
 fi
 AM_CONDITIONAL(HAVE_PYTHON, $has_python)
