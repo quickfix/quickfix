@@ -396,7 +396,7 @@ bool Session::send( Message& message )
 }
 
 bool Session::sendRaw( Message& message, int num )
-{ QF_STACK_PUSH(Session::nextSequenceReset)
+{ QF_STACK_PUSH(Session::sendRaw)
 
   Locker l( m_mutex );
 
