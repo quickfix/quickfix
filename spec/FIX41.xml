@@ -107,7 +107,7 @@
       <field name="Currency" required="N"/>
       <field name="ValidUntilTime" required="N"/>
       <field name="IOIQltyInd" required="N"/>
-      <field name="IOIOthSvc" type="CHAR"/>
+      <field name="IOIOthSvc" required="N"/>
       <field name="IOINaturalFlag" required="N"/>
       <group name="NoIOIQualifiers" required="N">
         <field name="IOIQualifier" required="N"/>
