@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     RFQRequest() : Message(MsgType()) {}
+    RFQRequest(const FIX::Message& m) : Message(m) {}
     RFQRequest(const Message& m) : Message(m) {}
+    RFQRequest(const RFQRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AH"); }
 
     RFQRequest(

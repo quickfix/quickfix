@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     Advertisement() : Message(MsgType()) {}
+    Advertisement(const FIX::Message& m) : Message(m) {}
     Advertisement(const Message& m) : Message(m) {}
+    Advertisement(const Advertisement& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("7"); }
 
     Advertisement(

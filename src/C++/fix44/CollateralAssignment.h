@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     CollateralAssignment() : Message(MsgType()) {}
+    CollateralAssignment(const FIX::Message& m) : Message(m) {}
     CollateralAssignment(const Message& m) : Message(m) {}
+    CollateralAssignment(const CollateralAssignment& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AY"); }
 
     CollateralAssignment(

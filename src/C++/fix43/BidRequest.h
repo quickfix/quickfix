@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     BidRequest() : Message(MsgType()) {}
+    BidRequest(const FIX::Message& m) : Message(m) {}
     BidRequest(const Message& m) : Message(m) {}
+    BidRequest(const BidRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("k"); }
 
     BidRequest(

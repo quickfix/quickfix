@@ -78,6 +78,8 @@ class GeneratorCPP
     @f.puts tabs + ": FIX::Message("
     @f.puts tabs + "  FIX::BeginString(\"" + @beginstring + "\"), msgtype ) {}"
     @f.puts
+    @f.puts tabs + "Message(const FIX::Message& m) : FIX::Message(m) {}"
+    @f.puts tabs + "Message(const Message& m) : FIX::Message(m) {}"
     @f.puts tabs + "Header& getHeader() { return (Header&)m_header; }"
     @f.puts tabs + "const Header& getHeader() const { return (Header&)m_header; }"
     @f.puts tabs + "Trailer& getTrailer() { return (Trailer&)m_trailer; }"
@@ -123,7 +125,9 @@ class GeneratorCPP
     @f.puts tabs + "public:"
     @depth += 1
     @f.puts tabs + name + "() : Message(MsgType()) {}"
+    @f.puts tabs + name + "(const FIX::Message& m) : Message(m) {}"
     @f.puts tabs + name + "(const Message& m) : Message(m) {}"
+    @f.puts tabs + name + "(const #{name}& m) : Message(m) {}"
     @f.puts tabs + "static FIX::MsgType MsgType() { return FIX::MsgType(" + "\"" + msgtype + "\"); }"
 
     if( required.size > 0 )
@@ -131,20 +135,20 @@ class GeneratorCPP
       @f.puts tabs + name + "("
       @depth += 1
       required.each_index { |i|
-	field = required[i]
-	@f.print tabs + "const FIX::" + field + "& a" + field 
-	if(i != required.size-1)
-	  @f.puts ","
-	else
-	  @f.puts " )"
-	end
+  field = required[i]
+  @f.print tabs + "const FIX::" + field + "& a" + field 
+  if(i != required.size-1)
+    @f.puts ","
+  else
+    @f.puts " )"
+  end
       }
       @depth -= 1
       @f.puts tabs + ": Message(MsgType())"
       @f.puts tabs + "{"
       @depth += 1
       required.each { |field|
-	@f.puts tabs + "set(a" + field + ");" }
+  @f.puts tabs + "set(a" + field + ");" }
       @depth -= 1
       @f.puts tabs + "}"
     end

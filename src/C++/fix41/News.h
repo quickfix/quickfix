@@ -10,7 +10,9 @@ namespace FIX41
   {
   public:
     News() : Message(MsgType()) {}
+    News(const FIX::Message& m) : Message(m) {}
     News(const Message& m) : Message(m) {}
+    News(const News& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("B"); }
 
     News(

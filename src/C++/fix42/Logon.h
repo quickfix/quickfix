@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     Logon() : Message(MsgType()) {}
+    Logon(const FIX::Message& m) : Message(m) {}
     Logon(const Message& m) : Message(m) {}
+    Logon(const Logon& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("A"); }
 
     Logon(

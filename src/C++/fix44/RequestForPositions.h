@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     RequestForPositions() : Message(MsgType()) {}
+    RequestForPositions(const FIX::Message& m) : Message(m) {}
     RequestForPositions(const Message& m) : Message(m) {}
+    RequestForPositions(const RequestForPositions& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AN"); }
 
     RequestForPositions(

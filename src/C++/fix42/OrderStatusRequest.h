@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     OrderStatusRequest() : Message(MsgType()) {}
+    OrderStatusRequest(const FIX::Message& m) : Message(m) {}
     OrderStatusRequest(const Message& m) : Message(m) {}
+    OrderStatusRequest(const OrderStatusRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("H"); }
 
     OrderStatusRequest(

@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     QuoteStatusRequest() : Message(MsgType()) {}
+    QuoteStatusRequest(const FIX::Message& m) : Message(m) {}
     QuoteStatusRequest(const Message& m) : Message(m) {}
+    QuoteStatusRequest(const QuoteStatusRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("a"); }
 
     FIELD_SET(*this, FIX::QuoteStatusReqID);

@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     QuoteRequestReject() : Message(MsgType()) {}
+    QuoteRequestReject(const FIX::Message& m) : Message(m) {}
     QuoteRequestReject(const Message& m) : Message(m) {}
+    QuoteRequestReject(const QuoteRequestReject& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AG"); }
 
     QuoteRequestReject(

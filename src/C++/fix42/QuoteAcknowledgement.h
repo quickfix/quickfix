@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     QuoteAcknowledgement() : Message(MsgType()) {}
+    QuoteAcknowledgement(const FIX::Message& m) : Message(m) {}
     QuoteAcknowledgement(const Message& m) : Message(m) {}
+    QuoteAcknowledgement(const QuoteAcknowledgement& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("b"); }
 
     QuoteAcknowledgement(

@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     SecurityTypeRequest() : Message(MsgType()) {}
+    SecurityTypeRequest(const FIX::Message& m) : Message(m) {}
     SecurityTypeRequest(const Message& m) : Message(m) {}
+    SecurityTypeRequest(const SecurityTypeRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("v"); }
 
     SecurityTypeRequest(

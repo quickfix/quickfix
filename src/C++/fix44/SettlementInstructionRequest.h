@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     SettlementInstructionRequest() : Message(MsgType()) {}
+    SettlementInstructionRequest(const FIX::Message& m) : Message(m) {}
     SettlementInstructionRequest(const Message& m) : Message(m) {}
+    SettlementInstructionRequest(const SettlementInstructionRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AV"); }
 
     SettlementInstructionRequest(

@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     RegistrationInstructions() : Message(MsgType()) {}
+    RegistrationInstructions(const FIX::Message& m) : Message(m) {}
     RegistrationInstructions(const Message& m) : Message(m) {}
+    RegistrationInstructions(const RegistrationInstructions& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("o"); }
 
     RegistrationInstructions(

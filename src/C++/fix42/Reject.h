@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     Reject() : Message(MsgType()) {}
+    Reject(const FIX::Message& m) : Message(m) {}
     Reject(const Message& m) : Message(m) {}
+    Reject(const Reject& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("3"); }
 
     Reject(

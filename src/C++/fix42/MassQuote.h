@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     MassQuote() : Message(MsgType()) {}
+    MassQuote(const FIX::Message& m) : Message(m) {}
     MassQuote(const Message& m) : Message(m) {}
+    MassQuote(const MassQuote& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("i"); }
 
     MassQuote(

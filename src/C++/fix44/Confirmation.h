@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     Confirmation() : Message(MsgType()) {}
+    Confirmation(const FIX::Message& m) : Message(m) {}
     Confirmation(const Message& m) : Message(m) {}
+    Confirmation(const Confirmation& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AK"); }
 
     Confirmation(

@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     MultilegOrderCancelReplaceRequest() : Message(MsgType()) {}
+    MultilegOrderCancelReplaceRequest(const FIX::Message& m) : Message(m) {}
     MultilegOrderCancelReplaceRequest(const Message& m) : Message(m) {}
+    MultilegOrderCancelReplaceRequest(const MultilegOrderCancelReplaceRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AC"); }
 
     MultilegOrderCancelReplaceRequest(

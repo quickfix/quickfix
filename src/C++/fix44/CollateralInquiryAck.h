@@ -10,8 +10,10 @@ namespace FIX44
   {
   public:
     CollateralInquiryAck() : Message(MsgType()) {}
+    CollateralInquiryAck(const FIX::Message& m) : Message(m) {}
     CollateralInquiryAck(const Message& m) : Message(m) {}
-    static FIX::MsgType MsgType() { return FIX::MsgType("BB"); }
+    CollateralInquiryAck(const CollateralInquiryAck& m) : Message(m) {}
+    static FIX::MsgType MsgType() { return FIX::MsgType("BG"); }
 
     CollateralInquiryAck(
       const FIX::CollInquiryID& aCollInquiryID,

@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     QuoteCancel() : Message(MsgType()) {}
+    QuoteCancel(const FIX::Message& m) : Message(m) {}
     QuoteCancel(const Message& m) : Message(m) {}
+    QuoteCancel(const QuoteCancel& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("Z"); }
 
     QuoteCancel(

@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     AllocationReport() : Message(MsgType()) {}
+    AllocationReport(const FIX::Message& m) : Message(m) {}
     AllocationReport(const Message& m) : Message(m) {}
+    AllocationReport(const AllocationReport& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AS"); }
 
     AllocationReport(

@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     CollateralResponse() : Message(MsgType()) {}
+    CollateralResponse(const FIX::Message& m) : Message(m) {}
     CollateralResponse(const Message& m) : Message(m) {}
+    CollateralResponse(const CollateralResponse& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AZ"); }
 
     CollateralResponse(

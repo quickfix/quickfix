@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     OrderMassCancelReport() : Message(MsgType()) {}
+    OrderMassCancelReport(const FIX::Message& m) : Message(m) {}
     OrderMassCancelReport(const Message& m) : Message(m) {}
+    OrderMassCancelReport(const OrderMassCancelReport& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("r"); }
 
     OrderMassCancelReport(

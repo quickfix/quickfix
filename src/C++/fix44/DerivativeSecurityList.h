@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     DerivativeSecurityList() : Message(MsgType()) {}
+    DerivativeSecurityList(const FIX::Message& m) : Message(m) {}
     DerivativeSecurityList(const Message& m) : Message(m) {}
+    DerivativeSecurityList(const DerivativeSecurityList& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AA"); }
 
     DerivativeSecurityList(

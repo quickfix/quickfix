@@ -10,7 +10,9 @@ namespace FIX40
   {
   public:
     DontKnowTrade() : Message(MsgType()) {}
+    DontKnowTrade(const FIX::Message& m) : Message(m) {}
     DontKnowTrade(const Message& m) : Message(m) {}
+    DontKnowTrade(const DontKnowTrade& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("Q"); }
 
     DontKnowTrade(

@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     DerivativeSecurityListRequest() : Message(MsgType()) {}
+    DerivativeSecurityListRequest(const FIX::Message& m) : Message(m) {}
     DerivativeSecurityListRequest(const Message& m) : Message(m) {}
+    DerivativeSecurityListRequest(const DerivativeSecurityListRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("z"); }
 
     DerivativeSecurityListRequest(

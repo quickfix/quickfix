@@ -10,7 +10,9 @@ namespace FIX41
   {
   public:
     TestRequest() : Message(MsgType()) {}
+    TestRequest(const FIX::Message& m) : Message(m) {}
     TestRequest(const Message& m) : Message(m) {}
+    TestRequest(const TestRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("1"); }
 
     TestRequest(

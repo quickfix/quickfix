@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     NewOrderList() : Message(MsgType()) {}
+    NewOrderList(const FIX::Message& m) : Message(m) {}
     NewOrderList(const Message& m) : Message(m) {}
+    NewOrderList(const NewOrderList& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("E"); }
 
     NewOrderList(

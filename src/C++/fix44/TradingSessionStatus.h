@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     TradingSessionStatus() : Message(MsgType()) {}
+    TradingSessionStatus(const FIX::Message& m) : Message(m) {}
     TradingSessionStatus(const Message& m) : Message(m) {}
+    TradingSessionStatus(const TradingSessionStatus& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("h"); }
 
     TradingSessionStatus(

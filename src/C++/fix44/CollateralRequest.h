@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     CollateralRequest() : Message(MsgType()) {}
+    CollateralRequest(const FIX::Message& m) : Message(m) {}
     CollateralRequest(const Message& m) : Message(m) {}
+    CollateralRequest(const CollateralRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AX"); }
 
     CollateralRequest(

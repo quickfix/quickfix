@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     TradeCaptureReport() : Message(MsgType()) {}
+    TradeCaptureReport(const FIX::Message& m) : Message(m) {}
     TradeCaptureReport(const Message& m) : Message(m) {}
+    TradeCaptureReport(const TradeCaptureReport& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AE"); }
 
     TradeCaptureReport(

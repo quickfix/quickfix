@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     SecurityStatusRequest() : Message(MsgType()) {}
+    SecurityStatusRequest(const FIX::Message& m) : Message(m) {}
     SecurityStatusRequest(const Message& m) : Message(m) {}
+    SecurityStatusRequest(const SecurityStatusRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("e"); }
 
     SecurityStatusRequest(

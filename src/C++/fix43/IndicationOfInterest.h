@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     IndicationOfInterest() : Message(MsgType()) {}
+    IndicationOfInterest(const FIX::Message& m) : Message(m) {}
     IndicationOfInterest(const Message& m) : Message(m) {}
+    IndicationOfInterest(const IndicationOfInterest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("6"); }
 
     IndicationOfInterest(

@@ -10,8 +10,10 @@ namespace FIX44
   {
   public:
     AllocationReportAck() : Message(MsgType()) {}
+    AllocationReportAck(const FIX::Message& m) : Message(m) {}
     AllocationReportAck(const Message& m) : Message(m) {}
-    static FIX::MsgType MsgType() { return FIX::MsgType("AS"); }
+    AllocationReportAck(const AllocationReportAck& m) : Message(m) {}
+    static FIX::MsgType MsgType() { return FIX::MsgType("AT"); }
 
     AllocationReportAck(
       const FIX::AllocReportID& aAllocReportID,

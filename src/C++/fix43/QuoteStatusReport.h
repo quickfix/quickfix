@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     QuoteStatusReport() : Message(MsgType()) {}
+    QuoteStatusReport(const FIX::Message& m) : Message(m) {}
     QuoteStatusReport(const Message& m) : Message(m) {}
+    QuoteStatusReport(const QuoteStatusReport& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AI"); }
 
     QuoteStatusReport(

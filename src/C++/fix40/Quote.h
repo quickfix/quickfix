@@ -10,7 +10,9 @@ namespace FIX40
   {
   public:
     Quote() : Message(MsgType()) {}
+    Quote(const FIX::Message& m) : Message(m) {}
     Quote(const Message& m) : Message(m) {}
+    Quote(const Quote& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("S"); }
 
     Quote(

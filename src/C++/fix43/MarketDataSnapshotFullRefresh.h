@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     MarketDataSnapshotFullRefresh() : Message(MsgType()) {}
+    MarketDataSnapshotFullRefresh(const FIX::Message& m) : Message(m) {}
     MarketDataSnapshotFullRefresh(const Message& m) : Message(m) {}
+    MarketDataSnapshotFullRefresh(const MarketDataSnapshotFullRefresh& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("W"); }
 
     FIELD_SET(*this, FIX::MDReqID);

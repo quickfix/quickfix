@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     MassQuoteAcknowledgement() : Message(MsgType()) {}
+    MassQuoteAcknowledgement(const FIX::Message& m) : Message(m) {}
     MassQuoteAcknowledgement(const Message& m) : Message(m) {}
+    MassQuoteAcknowledgement(const MassQuoteAcknowledgement& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("b"); }
 
     MassQuoteAcknowledgement(

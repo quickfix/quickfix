@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     BusinessMessageReject() : Message(MsgType()) {}
+    BusinessMessageReject(const FIX::Message& m) : Message(m) {}
     BusinessMessageReject(const Message& m) : Message(m) {}
+    BusinessMessageReject(const BusinessMessageReject& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("j"); }
 
     BusinessMessageReject(

@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     OrderCancelReplaceRequest() : Message(MsgType()) {}
+    OrderCancelReplaceRequest(const FIX::Message& m) : Message(m) {}
     OrderCancelReplaceRequest(const Message& m) : Message(m) {}
+    OrderCancelReplaceRequest(const OrderCancelReplaceRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("G"); }
 
     OrderCancelReplaceRequest(

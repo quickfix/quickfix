@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     ResendRequest() : Message(MsgType()) {}
+    ResendRequest(const FIX::Message& m) : Message(m) {}
     ResendRequest(const Message& m) : Message(m) {}
+    ResendRequest(const ResendRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("2"); }
 
     ResendRequest(

@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     MarketDataIncrementalRefresh() : Message(MsgType()) {}
+    MarketDataIncrementalRefresh(const FIX::Message& m) : Message(m) {}
     MarketDataIncrementalRefresh(const Message& m) : Message(m) {}
+    MarketDataIncrementalRefresh(const MarketDataIncrementalRefresh& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("X"); }
 
     FIELD_SET(*this, FIX::MDReqID);

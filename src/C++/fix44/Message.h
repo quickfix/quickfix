@@ -61,6 +61,8 @@ namespace FIX44
     : FIX::Message(
       FIX::BeginString("FIX.4.4"), msgtype ) {}
 
+    Message(const FIX::Message& m) : FIX::Message(m) {}
+    Message(const Message& m) : FIX::Message(m) {}
     Header& getHeader() { return (Header&)m_header; }
     const Header& getHeader() const { return (Header&)m_header; }
     Trailer& getTrailer() { return (Trailer&)m_trailer; }

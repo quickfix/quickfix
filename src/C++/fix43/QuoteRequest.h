@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     QuoteRequest() : Message(MsgType()) {}
+    QuoteRequest(const FIX::Message& m) : Message(m) {}
     QuoteRequest(const Message& m) : Message(m) {}
+    QuoteRequest(const QuoteRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("R"); }
 
     QuoteRequest(

@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     MarketDataRequestReject() : Message(MsgType()) {}
+    MarketDataRequestReject(const FIX::Message& m) : Message(m) {}
     MarketDataRequestReject(const Message& m) : Message(m) {}
+    MarketDataRequestReject(const MarketDataRequestReject& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("Y"); }
 
     MarketDataRequestReject(

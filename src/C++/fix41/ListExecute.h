@@ -10,7 +10,9 @@ namespace FIX41
   {
   public:
     ListExecute() : Message(MsgType()) {}
+    ListExecute(const FIX::Message& m) : Message(m) {}
     ListExecute(const Message& m) : Message(m) {}
+    ListExecute(const ListExecute& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("L"); }
 
     ListExecute(

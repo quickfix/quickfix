@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     NewOrderCross() : Message(MsgType()) {}
+    NewOrderCross(const FIX::Message& m) : Message(m) {}
     NewOrderCross(const Message& m) : Message(m) {}
+    NewOrderCross(const NewOrderCross& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("s"); }
 
     NewOrderCross(

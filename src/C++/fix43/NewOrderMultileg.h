@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     NewOrderMultileg() : Message(MsgType()) {}
+    NewOrderMultileg(const FIX::Message& m) : Message(m) {}
     NewOrderMultileg(const Message& m) : Message(m) {}
+    NewOrderMultileg(const NewOrderMultileg& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AB"); }
 
     NewOrderMultileg(

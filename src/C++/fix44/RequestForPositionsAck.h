@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     RequestForPositionsAck() : Message(MsgType()) {}
+    RequestForPositionsAck(const FIX::Message& m) : Message(m) {}
     RequestForPositionsAck(const Message& m) : Message(m) {}
+    RequestForPositionsAck(const RequestForPositionsAck& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("AO"); }
 
     RequestForPositionsAck(

@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     SecurityList() : Message(MsgType()) {}
+    SecurityList(const FIX::Message& m) : Message(m) {}
     SecurityList(const Message& m) : Message(m) {}
+    SecurityList(const SecurityList& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("y"); }
 
     SecurityList(

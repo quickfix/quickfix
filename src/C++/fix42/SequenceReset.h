@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     SequenceReset() : Message(MsgType()) {}
+    SequenceReset(const FIX::Message& m) : Message(m) {}
     SequenceReset(const Message& m) : Message(m) {}
+    SequenceReset(const SequenceReset& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("4"); }
 
     SequenceReset(

@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     ListStrikePrice() : Message(MsgType()) {}
+    ListStrikePrice(const FIX::Message& m) : Message(m) {}
     ListStrikePrice(const Message& m) : Message(m) {}
+    ListStrikePrice(const ListStrikePrice& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("m"); }
 
     ListStrikePrice(

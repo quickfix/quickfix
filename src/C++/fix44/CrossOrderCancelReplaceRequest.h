@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     CrossOrderCancelReplaceRequest() : Message(MsgType()) {}
+    CrossOrderCancelReplaceRequest(const FIX::Message& m) : Message(m) {}
     CrossOrderCancelReplaceRequest(const Message& m) : Message(m) {}
+    CrossOrderCancelReplaceRequest(const CrossOrderCancelReplaceRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("t"); }
 
     CrossOrderCancelReplaceRequest(

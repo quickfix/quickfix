@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     AllocationInstructionAck() : Message(MsgType()) {}
+    AllocationInstructionAck(const FIX::Message& m) : Message(m) {}
     AllocationInstructionAck(const Message& m) : Message(m) {}
+    AllocationInstructionAck(const AllocationInstructionAck& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("P"); }
 
     AllocationInstructionAck(

@@ -10,8 +10,10 @@ namespace FIX44
   {
   public:
     PositionReport() : Message(MsgType()) {}
+    PositionReport(const FIX::Message& m) : Message(m) {}
     PositionReport(const Message& m) : Message(m) {}
-    static FIX::MsgType MsgType() { return FIX::MsgType("AO"); }
+    PositionReport(const PositionReport& m) : Message(m) {}
+    static FIX::MsgType MsgType() { return FIX::MsgType("AP"); }
 
     PositionReport(
       const FIX::PosMaintRptID& aPosMaintRptID,

@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     CollateralInquiry() : Message(MsgType()) {}
+    CollateralInquiry(const FIX::Message& m) : Message(m) {}
     CollateralInquiry(const Message& m) : Message(m) {}
+    CollateralInquiry(const CollateralInquiry& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("BB"); }
 
     FIELD_SET(*this, FIX::CollInquiryID);

@@ -10,7 +10,9 @@ namespace FIX40
   {
   public:
     ExecutionReport() : Message(MsgType()) {}
+    ExecutionReport(const FIX::Message& m) : Message(m) {}
     ExecutionReport(const Message& m) : Message(m) {}
+    ExecutionReport(const ExecutionReport& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("8"); }
 
     ExecutionReport(

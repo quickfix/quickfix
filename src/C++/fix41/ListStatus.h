@@ -10,7 +10,9 @@ namespace FIX41
   {
   public:
     ListStatus() : Message(MsgType()) {}
+    ListStatus(const FIX::Message& m) : Message(m) {}
     ListStatus(const Message& m) : Message(m) {}
+    ListStatus(const ListStatus& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("N"); }
 
     ListStatus(

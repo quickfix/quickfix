@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     CollateralReport() : Message(MsgType()) {}
+    CollateralReport(const FIX::Message& m) : Message(m) {}
     CollateralReport(const Message& m) : Message(m) {}
+    CollateralReport(const CollateralReport& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("BA"); }
 
     CollateralReport(

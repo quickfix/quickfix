@@ -10,7 +10,9 @@ namespace FIX41
   {
   public:
     SettlementInstructions() : Message(MsgType()) {}
+    SettlementInstructions(const FIX::Message& m) : Message(m) {}
     SettlementInstructions(const Message& m) : Message(m) {}
+    SettlementInstructions(const SettlementInstructions& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("T"); }
 
     SettlementInstructions(

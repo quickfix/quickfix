@@ -10,7 +10,9 @@ namespace FIX44
   {
   public:
     BidResponse() : Message(MsgType()) {}
+    BidResponse(const FIX::Message& m) : Message(m) {}
     BidResponse(const Message& m) : Message(m) {}
+    BidResponse(const BidResponse& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("l"); }
 
     FIELD_SET(*this, FIX::BidID);

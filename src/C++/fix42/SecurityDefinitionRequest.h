@@ -10,7 +10,9 @@ namespace FIX42
   {
   public:
     SecurityDefinitionRequest() : Message(MsgType()) {}
+    SecurityDefinitionRequest(const FIX::Message& m) : Message(m) {}
     SecurityDefinitionRequest(const Message& m) : Message(m) {}
+    SecurityDefinitionRequest(const SecurityDefinitionRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("c"); }
 
     SecurityDefinitionRequest(

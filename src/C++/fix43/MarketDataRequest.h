@@ -10,7 +10,9 @@ namespace FIX43
   {
   public:
     MarketDataRequest() : Message(MsgType()) {}
+    MarketDataRequest(const FIX::Message& m) : Message(m) {}
     MarketDataRequest(const Message& m) : Message(m) {}
+    MarketDataRequest(const MarketDataRequest& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("V"); }
 
     MarketDataRequest(

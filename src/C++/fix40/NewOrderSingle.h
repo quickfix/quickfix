@@ -10,7 +10,9 @@ namespace FIX40
   {
   public:
     NewOrderSingle() : Message(MsgType()) {}
+    NewOrderSingle(const FIX::Message& m) : Message(m) {}
     NewOrderSingle(const Message& m) : Message(m) {}
+    NewOrderSingle(const NewOrderSingle& m) : Message(m) {}
     static FIX::MsgType MsgType() { return FIX::MsgType("D"); }
 
     NewOrderSingle(
