@@ -25,13 +25,10 @@
 #endif
 
 #include "C++/test/TestSuite.h"
+#include "C++/Utility.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
 #include "getopt-repl.h"
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1300
-using std::atol;
-#endif
 
 int main( int argc, char** argv )
 {

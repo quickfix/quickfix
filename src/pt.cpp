@@ -34,6 +34,7 @@
 #include "SessionID.h"
 #include "DataDictionary.h"
 #include "Parser.h"
+#include "Utility.h"
 #include "fix42/Heartbeat.h"
 #include "fix42/NewOrderSingle.h"
 #include "fix42/QuoteRequest.h"
@@ -58,10 +59,6 @@ int testValidateDictNewOrderSingle( int );
 int testValidateQuoteRequest( int );
 int testValidateDictQuoteRequest( int );
 void report( int, int );
-
-#if !defined(_MSC_VER) || _MSC_VER >= 1300
-using std::atol;
-#endif
 
 #ifndef _MSC_VER
 #include <sys/time.h>
