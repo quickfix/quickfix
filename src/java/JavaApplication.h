@@ -78,7 +78,6 @@ public:
          FIX::IncorrectDataFormat&,
          FIX::IncorrectTagValue&,
          FIX::UnsupportedMessageType& );  
-  void onRun();
 
 private:
   struct Exceptions
@@ -111,7 +110,6 @@ private:
   jmethodID notifyToAppId;
   jmethodID notifyFromAdminId;
   jmethodID notifyFromAppId;
-  jmethodID onRunId;  
 
   FIX::Mutex m_mutex;
 };

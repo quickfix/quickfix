@@ -80,7 +80,6 @@ public __gc __interface Application
 	 IncorrectDataFormat*, 
 	 IncorrectTagValue*, 
 	 UnsupportedMessageType* ) = 0;
-  virtual void onRun() = 0;
 };
 }
 
@@ -175,8 +174,6 @@ public:
       throw FIX::UnsupportedMessageType();
     }    
   }
-
-  void onRun() { m_application->onRun(); }
 
 private:
   QuickFix::Message* create( const FIX::Message& unmanaged )

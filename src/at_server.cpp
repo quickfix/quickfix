@@ -102,7 +102,10 @@ int main( int argc, char** argv )
                         ( application, factory, settings ) );
       pAcceptor = p;
     }
+
     pAcceptor->start();
+    while ( true ) FIX::process_sleep( 1 );
+    pAcceptor->stop();
   }
   catch ( std::exception & e )
   {

@@ -161,11 +161,19 @@ void Acceptor::start() throw ( ConfigError&, RuntimeError& )
 
   onConfigure( m_settings );
   onInitialize( m_settings );
-  unsigned threadid;
-  if( !thread_spawn( &startThread, this, threadid ) )
+
+  if( !thread_spawn( &startThread, this, m_threadid ) )
     throw RuntimeError("Unable to spawn thread");
-  onStart();
-  thread_join( threadid );
+
+  QF_STACK_POP
+}
+
+void Acceptor::stop() 
+{ QF_STACK_PUSH( Acceptor::stop ) 
+
+  if( !m_threadid ) return;
+  onStop();
+  thread_join( m_threadid );
 
   QF_STACK_POP
 }
@@ -175,8 +183,7 @@ void* Acceptor::startThread( void* p )
   QF_STACK_PUSH( Acceptor::startThread )
 
   Acceptor * pAcceptor = static_cast < Acceptor* > ( p );
-  pAcceptor->getApplication().onRun();
-  pAcceptor->stop();
+  pAcceptor->onStart();
   return 0;
 
   QF_STACK_POP

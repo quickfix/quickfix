@@ -63,7 +63,6 @@ struct fix_Application
   void(*toApp)(fix_Application*, fix_Message, fix_SessionID);
   void(*fromAdmin)(fix_Application*, fix_Message, fix_SessionID);
   void(*fromApp)(fix_Application*, fix_Message, fix_SessionID);
-  void(*onRun)(fix_Application*);
   fix_Application* self;
   void* data;
 };

@@ -38,7 +38,7 @@ public class ApplicationImpl implements Application {
         this.message = message;
     }
 
-    public void onRun() {
+    public void run() {
         while(true) {
             try {
                 if(stopRunning) return;

@@ -68,7 +68,8 @@ Initiator::Initiator( Application& application,
 : m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( 0 )
+  m_pLogFactory( 0 ),
+  m_threadid( 0 )
 { initialize(); }
 
 Initiator::Initiator( Application& application,
@@ -78,7 +79,8 @@ Initiator::Initiator( Application& application,
 : m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( &logFactory )
+  m_pLogFactory( &logFactory ),
+  m_threadid( 0 )
 { initialize(); }
 
 void Initiator::initialize() throw ( ConfigError& )
@@ -174,11 +176,19 @@ void Initiator::start() throw ( ConfigError&, RuntimeError& )
 
   onConfigure( m_settings );
   onInitialize( m_settings );
-  unsigned threadid;
-  if( !thread_spawn( &startThread, this, threadid ) )
+
+  if( !thread_spawn( &startThread, this, m_threadid ) )
     throw RuntimeError("Unable to spawn thread");
-  onStart();
-  thread_join( threadid );
+
+  QF_STACK_POP
+}
+
+void Initiator::stop() 
+{ QF_STACK_PUSH( Acceptor::stop ) 
+  
+  if( !m_threadid ) return;
+  onStop();
+  thread_join( m_threadid );
 
   QF_STACK_POP
 }
@@ -188,8 +198,7 @@ void* Initiator::startThread( void* p )
   QF_STACK_PUSH(Initiator::startThread)
 
   Initiator * pInitiator = static_cast < Initiator* > ( p );
-  pInitiator->getApplication().onRun();
-  pInitiator->stop();
+  pInitiator->onStart();
   return 0;
 
   QF_STACK_POP

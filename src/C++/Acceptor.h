@@ -90,7 +90,7 @@ public:
   /// Start acceptor.
   void start() throw ( ConfigError&, RuntimeError& );
   /// Stop acceptor.
-  void stop() { onStop(); }
+  void stop();
 
   Session* getSession( const std::string& msg, Session::Responder& );
   bool has( const SessionID& id )
@@ -117,6 +117,7 @@ private:
 
   typedef std::map < SessionID, Session* > Sessions;
 
+  unsigned m_threadid;
   Sessions m_sessions;
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;

@@ -74,7 +74,4 @@ public interface Application {
     /// Notification of app message being received from target
     void fromApp(Message message, SessionID sessionId)
     throws FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType;
-
-    /// Implmentation of application loop
-    void onRun();
 }

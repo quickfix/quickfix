@@ -92,7 +92,7 @@ public:
   /// Start initiator.
   void start() throw ( ConfigError&, RuntimeError& );
   /// Stop initiator.
-  void stop() { onStop(); }
+  void stop();
 
   Session* getSession( const SessionID& sessionID, Session::Responder& );
 
@@ -131,6 +131,7 @@ private:
   SessionIDs m_disconnected;
   SessionState m_sessionState;
 
+  unsigned m_threadid;
   Application& m_application;
   MessageStoreFactory& m_messageStoreFactory;
   SessionSettings m_settings;

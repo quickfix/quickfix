@@ -64,12 +64,7 @@ namespace FIX
  * This interface must be implemented to define what your %FIX application
  * does.
  *
- * The onRun function is called in a spawned thread which must
- * contain your event based loop. If your application has no need for
- * monitoring events, it should just sleep periodically.  As soon as onRun
- * is complete, the application will be shut down.
- *
- * The other functions notify your application about events that happen on
+ * These methods notify your application about events that happen on
  * active %FIX sessions. There is no guarantee how many threads will be calling
  * these functions. If the application is sharing resources among multiple sessions,
  * you must synchronize those resources. You can also use the SynchronizedApplication
@@ -98,8 +93,6 @@ public:
   /// Notification of app message being received from target
   virtual void fromApp( const Message&, const SessionID& )
   throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) = 0;
-  /// Implmentation of application loop
-  virtual void onRun() = 0;
 };
 
 /**
@@ -134,7 +127,6 @@ public:
   void fromApp( const Message& message, const SessionID& sessionID )
   throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& )
   { Locker l( m_mutex ); app().fromApp( message, sessionID ); }
-  void onRun() { app().onRun(); }
 
   Mutex m_mutex;
 
@@ -154,7 +146,6 @@ class NullApplication : public Application
   throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, RejectLogon& ) {}
   void fromApp( const Message&, const SessionID& )
   throw( FieldNotFound&, IncorrectDataFormat&, IncorrectTagValue&, UnsupportedMessageType& ) {}
-  void onRun() = 0;
 };
 /*! @} */
 }

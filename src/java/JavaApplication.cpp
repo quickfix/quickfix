@@ -79,8 +79,6 @@ JavaApplication::JavaApplication( JVMObject object, JVMObject factory )
 
   notifyFromAppId = object.getClass()
                     .getMethodID( "fromApp", "(Lorg/quickfix/Message;Lorg/quickfix/SessionID;)V" );
-
-  onRunId = object.getClass().getMethodID( "onRun", "()V" );
 }
 
 JavaApplication::~JavaApplication() { m_factory.deleteGlobalRef(); m_object.deleteGlobalRef(); }
@@ -181,15 +179,6 @@ throw( FIX::FieldNotFound&,
   pEnv->DeleteLocalRef(jsessionid);
   pEnv->DeleteLocalRef(jmessage);
   handleException( pEnv, e );
-};
-
-void JavaApplication::onRun()
-{
-  JNIEnv * pEnv = ENV::get();
-  Exceptions e;
-  pEnv->CallVoidMethod( m_object, onRunId );
-  handleException( pEnv, e );
-  JVM::get() ->DetachCurrentThread();
 };
 
 void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const

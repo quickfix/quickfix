@@ -150,11 +150,5 @@ class Application : public FIX::Application
     m_cracker.crack( message, sessionID );
   }
 
-  void onRun()
-  {
-    while ( true )
-      FIX::process_sleep( 1 );
-  }
-
   MessageCracker m_cracker;
 };
