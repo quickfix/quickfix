@@ -2,7 +2,10 @@ package quickfix.test;
 
 import junit.framework.TestCase;
 import org.apache.log4j.Category;
+import quickfix.Message;
 import quickfix.fix42.Heartbeat;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 public class PerformanceTest extends TestCase {
 
@@ -37,11 +40,11 @@ public class PerformanceTest extends TestCase {
         Heartbeat heartbeat = null;
 
         long begin = System.currentTimeMillis();
-        for(int i = 1; i < 5000; ++i)
+        for(int i = 1; i < 50000; ++i)
             heartbeat = new Heartbeat();
         long end = System.currentTimeMillis();
 
-        report(end - begin, 5000);
+        report(end - begin, 50000);
     }
 
     public void testSerializeToStringHeartbeat() {
@@ -49,11 +52,29 @@ public class PerformanceTest extends TestCase {
         Heartbeat heartbeat = new Heartbeat();
 
         long begin = System.currentTimeMillis();
-        for(int i = 1; i < 5000; ++i)
+        for(int i = 1; i < 50000; ++i)
           heartbeat.toString();
         long end = System.currentTimeMillis();
 
-        report(end- begin, 5000);
+        report(end- begin, 50000);
+    }
+
+    public void testSerializeFromStringHeartbeat() {
+        System.out.println("Serializing Heartbeat messages from strings: ");
+
+        Heartbeat message = new Heartbeat();
+        String s = message.toString();
+
+        long begin = System.currentTimeMillis();
+        for( int i = 1; i <= 50000; i++ )
+        {
+            try { Message heartbeat = new Message( s, true ); }
+            catch( quickfix.InvalidMessage e ) {}
+        }
+
+        long end = System.currentTimeMillis();
+
+        report(end- begin, 50000);
     }
 }
 
