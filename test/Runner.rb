@@ -105,7 +105,7 @@ def createProcess(file, address, port)
       socket = TCPSocket.open(address, port);
     end
     if socket == nil 
-      sleep 1
+      sleep 3
       next
     else
       socket.close
