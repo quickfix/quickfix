@@ -52,8 +52,8 @@
 #define FIX_SESSIONTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../Session.h"
-#include "../Responder.h"
+#include "Session.h"
+#include "Responder.h"
 
 namespace FIX
 {

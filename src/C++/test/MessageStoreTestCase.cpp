@@ -55,7 +55,9 @@
 #endif
 
 #include "MessageStoreTestCase.h"
-#include "Messages.h"
+#include "fix42/Logon.h"
+#include "fix42/Heartbeat.h"
+#include "fix42/NewOrderSingle.h"
 
 namespace FIX
 {

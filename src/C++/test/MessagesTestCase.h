@@ -52,7 +52,22 @@
 #define FIX_MESSAGESTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../Messages.h"
+#include "Message.h"
+#include "fix42/Logon.h"
+#include "fix42/TestRequest.h"
+#include "fix42/ResendRequest.h"
+#include "fix42/Reject.h"
+#include "fix42/SequenceReset.h"
+#include "fix42/Logout.h"
+#include "fix42/NewOrderSingle.h"
+#include "fix42/ExecutionReport.h"
+#include "fix42/DontKnowTrade.h"
+#include "fix42/OrderCancelReplaceRequest.h"
+#include "fix42/OrderCancelRequest.h"
+#include "fix42/OrderCancelReject.h"
+#include "fix42/OrderStatusRequest.h"
+#include "fix42/NewOrderList.h"
+#include "fix42/MassQuote.h"
 
 namespace FIX
 {

@@ -106,7 +106,8 @@ all-local:
 	ln -s ../src/C++/.libs/libquickfix.a ../../lib/libquickfix.a
 	ln -s ../src/C++/.libs/libquickfix.la ../../lib/libquickfix.la
 	ln -s ../src/C++/.libs/libquickfix.so ../../lib/libquickfix.so
-	bash ./copy.sh *.h
+	bash ./copy.sh ../../include/quickfix *.h
+	bash ./copy.sh ../../include/quickfix fix*/*.h
 
 clean-local:
 	rm -rf ../../lib/libquickfix.a
@@ -116,7 +117,15 @@ clean-local:
 install-exec-local: *.h
 	rm -rf $(pkgincludedir)
 	mkdir $(pkgincludedir)
+	mkdir $(pkgincludedir)/fix40
+	mkdir $(pkgincludedir)/fix41
+	mkdir $(pkgincludedir)/fix42
+	mkdir $(pkgincludedir)/fix43
 	cp *.h $(pkgincludedir)
+	cp fix40/*.h $(pkgincludedir)/fix40
+	cp fix41/*.h $(pkgincludedir)/fix41
+	cp fix42/*.h $(pkgincludedir)/fix42
+	cp fix43/*.h $(pkgincludedir)/fix43
 
 uninstall-local:
 	rm -rf $(pkgincludedir)

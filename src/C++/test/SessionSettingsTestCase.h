@@ -52,7 +52,7 @@
 #define FIX_SESSIONSETTINGSTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../SessionSettings.h"
+#include "SessionSettings.h"
 
 namespace FIX
 {

@@ -52,7 +52,7 @@
 #define FIX_UTCTIMEONLYTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../FieldTypes.h"
+#include "FieldTypes.h"
 
 namespace FIX
 {

@@ -53,8 +53,8 @@
 
 #include <CPPTest/TestCase.h>
 #include "MessageStoreTestCase.h"
-#include "../FileStore.h"
-#include "../Utility.h"
+#include "FileStore.h"
+#include "Utility.h"
 
 #include <stdio.h>
 #ifndef _MSC_VER

@@ -63,10 +63,10 @@
 #include "JavaApplication.h"
 #include "JavaMessageStoreFactory.h"
 #include "JavaLogFactory.h"
-#include "quickfix/ThreadedSocketAcceptor.h"
-#include "quickfix/Settings.h"
-#include "quickfix/Utility.h"
-#include "quickfix/CallStack.h"
+#include "ThreadedSocketAcceptor.h"
+#include "Settings.h"
+#include "Utility.h"
+#include "CallStack.h"
 #include <sstream>
 
 FIX::ThreadedSocketAcceptor* getCPPThreadedSocketAcceptor( jobject obj )

@@ -55,8 +55,8 @@
 
 #include "JVM.h"
 #include "org_quickfix_SessionSettings.h"
-#include "quickfix/SessionSettings.h"
-#include "quickfix/CallStack.h"
+#include "SessionSettings.h"
+#include "CallStack.h"
 #include "Conversions.h"
 
 FIX::SessionSettings* getCPPSessionSettings( jobject obj )

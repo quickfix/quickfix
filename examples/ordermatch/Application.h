@@ -51,16 +51,22 @@
 #ifndef ORDERMATCH_APPLICATION_H
 #define ORDERMATCH_APPLICATION_H
 
-#include "quickfix/Application.h"
-#include "quickfix/MessageCracker.h"
-#include "quickfix/Values.h"
-#include "quickfix/Utility.h"
-#include "quickfix/Mutex.h"
 #include "IDGenerator.h"
 #include "OrderMatcher.h"
 #include "Order.h"
 #include <queue>
 #include <iostream>
+
+#include "quickfix/Application.h"
+#include "quickfix/MessageCracker.h"
+#include "quickfix/Values.h"
+#include "quickfix/Utility.h"
+#include "quickfix/Mutex.h"
+
+#include "quickfix/fix42/NewOrderSingle.h"
+#include "quickfix/fix42/OrderCancelRequest.h"
+#include "quickfix/fix42/MarketDataRequest.h"
+#include "quickfix/fix43/MarketDataRequest.h"
 
 class Application
       : public FIX::Application,

@@ -54,8 +54,32 @@
 #include "quickfix/Application.h"
 #include "quickfix/MessageCracker.h"
 #include "quickfix/Values.h"
-#include "quickfix/Messages.h"
 #include "quickfix/Mutex.h"
+
+#include "quickfix/fix40/NewOrderSingle.h"
+#include "quickfix/fix40/ExecutionReport.h"
+#include "quickfix/fix40/OrderCancelRequest.h"
+#include "quickfix/fix40/OrderCancelReject.h"
+#include "quickfix/fix40/OrderCancelReplaceRequest.h"
+
+#include "quickfix/fix41/NewOrderSingle.h"
+#include "quickfix/fix41/ExecutionReport.h"
+#include "quickfix/fix41/OrderCancelRequest.h"
+#include "quickfix/fix41/OrderCancelReject.h"
+#include "quickfix/fix41/OrderCancelReplaceRequest.h"
+
+#include "quickfix/fix42/NewOrderSingle.h"
+#include "quickfix/fix42/ExecutionReport.h"
+#include "quickfix/fix42/OrderCancelRequest.h"
+#include "quickfix/fix42/OrderCancelReject.h"
+#include "quickfix/fix42/OrderCancelReplaceRequest.h"
+
+#include "quickfix/fix43/NewOrderSingle.h"
+#include "quickfix/fix43/ExecutionReport.h"
+#include "quickfix/fix43/OrderCancelRequest.h"
+#include "quickfix/fix43/OrderCancelReject.h"
+#include "quickfix/fix43/OrderCancelReplaceRequest.h"
+#include "quickfix/fix43/MarketDataRequest.h"
 
 #include <queue>
 

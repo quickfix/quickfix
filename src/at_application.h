@@ -51,6 +51,12 @@
 #include "Application.h"
 #include "MessageCracker.h"
 #include "Session.h"
+#include "fix40/NewOrderSingle.h"
+#include "fix41/NewOrderSingle.h"
+#include "fix42/NewOrderSingle.h"
+#include "fix43/NewOrderSingle.h"
+#include "fix42/SecurityDefinition.h"
+#include "fix43/SecurityDefinition.h"
 #include <map>
 
 class MessageCracker : public FIX::MessageCracker

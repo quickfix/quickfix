@@ -55,8 +55,16 @@
 #endif
 
 #include "SessionTestCase.h"
-#include "../FIX42_Messages.h"
-#include "../Values.h"
+#include "Values.h"
+#include "fix42/Logon.h"
+#include "fix42/Logout.h"
+#include "fix42/Heartbeat.h"
+#include "fix42/TestRequest.h"
+#include "fix42/SequenceReset.h"
+#include "fix42/ResendRequest.h"
+#include "fix42/Reject.h"
+#include "fix42/NewOrderSingle.h"
+#include "fix42/ExecutionReport.h"
 
 namespace FIX
 {

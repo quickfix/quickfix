@@ -52,7 +52,7 @@
 #define FIX_SETTINGSTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../Settings.h"
+#include "Settings.h"
 
 namespace FIX
 {

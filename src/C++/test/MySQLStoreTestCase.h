@@ -54,8 +54,8 @@
 
 #include <CPPTest/TestCase.h>
 #include "MessageStoreTestCase.h"
-#include "../MySQLStore.h"
-#include "../Utility.h"
+#include "MySQLStore.h"
+#include "Utility.h"
 
 #include <stdio.h>
 #ifndef _MSC_VER

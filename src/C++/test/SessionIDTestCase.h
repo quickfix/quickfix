@@ -52,7 +52,7 @@
 #define FIX_SESSIONIDTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../SessionID.h"
+#include "SessionID.h"
 #include <string>
 #include <sstream>
 

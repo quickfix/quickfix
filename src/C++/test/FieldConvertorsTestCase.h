@@ -52,7 +52,7 @@
 #define FIX_FIELDCONVERTORSTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../FieldConvertors.h"
+#include "FieldConvertors.h"
 
 namespace FIX
 {

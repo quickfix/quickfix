@@ -52,7 +52,7 @@
 #define FIX_MESSAGESTORETESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../MessageStore.h"
+#include "MessageStore.h"
 
 namespace FIX
 {

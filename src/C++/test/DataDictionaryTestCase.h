@@ -52,7 +52,7 @@
 #define FIX_DATADICTIONARYTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../DataDictionary.h"
+#include "DataDictionary.h"
 
 namespace FIX
 {

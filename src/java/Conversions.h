@@ -52,10 +52,10 @@
 #define JAVA_CONVERSIONS
 
 #include "JVM.h"
-#include "quickfix/SessionID.h"
-#include "quickfix/FieldTypes.h"
-#include "quickfix/Message.h"
-#include "quickfix/SessionSettings.h"
+#include "SessionID.h"
+#include "FieldTypes.h"
+#include "Message.h"
+#include "SessionSettings.h"
 #include "JavaApplication.h"
 #include "JavaMessageStoreFactory.h"
 #include "JavaLogFactory.h"

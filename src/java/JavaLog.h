@@ -51,7 +51,7 @@
 #ifndef JAVA_LOG
 #define JAVA_LOG
 
-#include "quickfix/Log.h"
+#include "Log.h"
 #include "JVM.h"
 
 class JavaLog : public FIX::Log

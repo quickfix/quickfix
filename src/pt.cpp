@@ -56,13 +56,15 @@
 
 #include "getopt-repl.h"
 #include <iostream>
-#include "FIX42_Messages.h"
 #include "FieldConvertors.h"
 #include "Values.h"
 #include "FileStore.h"
 #include "SessionID.h"
 #include "DataDictionary.h"
 #include "Parser.h"
+#include "fix42/Heartbeat.h"
+#include "fix42/NewOrderSingle.h"
+#include "fix42/QuoteRequest.h"
 
 int testIntegerToString( int );
 int testStringToInteger( int );

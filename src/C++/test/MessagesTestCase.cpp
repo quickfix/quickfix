@@ -55,8 +55,8 @@
 #endif
 
 #include "MessagesTestCase.h"
-#include "../Values.h"
-#include "../Utility.h"
+#include "Values.h"
+#include "Utility.h"
 
 namespace FIX
 {

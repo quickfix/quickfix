@@ -40,4 +40,4 @@ libquickfixcpptest_la_SOURCES = \
 	DataDictionaryTestCase.h \
 	MemoryStoreTestCase.h
 
-INCLUDES = -I.. -I../.. -I../../..
+INCLUDES = -I..

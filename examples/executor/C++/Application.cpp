@@ -50,6 +50,11 @@
 #include "Application.h"
 #include "quickfix/Session.h"
 
+#include "quickfix/fix40/ExecutionReport.h"
+#include "quickfix/fix41/ExecutionReport.h"
+#include "quickfix/fix42/ExecutionReport.h"
+#include "quickfix/fix43/ExecutionReport.h"
+
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )
 #else

@@ -58,12 +58,13 @@
 #ifndef FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
 #define FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H
 
-#include "Messages.h"
-#include "SessionID.h"
-#include "Exceptions.h"
+#include "../SessionID.h"
+#include "../Exceptions.h"
+#include "../fix<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>/Message.h"
 
 namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>
-{
+{ <xsl:call-template name="forward-declarations"/>
+
   class MessageCracker
   {
   public:
@@ -78,8 +79,12 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
 #endif //FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@minor"/>_MESSAGECRACKER_H&#013;
 </xsl:template>
 
+<xsl:template name="forward-declarations"><xsl:for-each select="//fix/messages/message"> 
+  class <xsl:value-of select="@name"/>;</xsl:for-each>
+</xsl:template>
+
 <xsl:template name="virtual-functions">
- <xsl:for-each select="//fix/messages/message[@msgcat='app']"> virtual void onMessage( const <xsl:value-of select="@name"/>&amp;, const FIX::SessionID&amp; ) 
+ <xsl:for-each select="//fix/messages/message"> virtual void onMessage( const <xsl:value-of select="@name"/>&amp;, const FIX::SessionID&amp; ) 
  <xsl:if test="@name!='BusinessMessageReject'">   { throw FIX::UnsupportedMessageType(); }
  </xsl:if>
  <xsl:if test="@name='BusinessMessageReject'">   {}

@@ -52,7 +52,7 @@
 #define FIX_SOCKETCONNECTORTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../SocketConnector.h"
+#include "SocketConnector.h"
 
 namespace FIX
 {

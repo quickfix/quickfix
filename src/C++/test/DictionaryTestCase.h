@@ -52,7 +52,7 @@
 #define FIX_DICTIONARYTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../Dictionary.h"
+#include "Dictionary.h"
 
 namespace FIX
 {

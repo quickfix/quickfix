@@ -55,7 +55,7 @@
 #endif
 
 #include "SocketConnectorTestCase.h"
-#include "../SocketServer.h"
+#include "SocketServer.h"
 #ifdef _MSC_VER
 #include <stdlib.h>
 #endif

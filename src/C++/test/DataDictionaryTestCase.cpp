@@ -56,9 +56,11 @@
 #endif
 
 #include "DataDictionaryTestCase.h"
-#include "../FieldNumbers.h"
-#include "../Values.h"
-#include "../Messages.h"
+#include "FieldNumbers.h"
+#include "Values.h"
+#include "fix40/TestRequest.h"
+#include "fix42/TestRequest.h"
+#include "fix40/NewOrderSingle.h"
 
 namespace FIX
 {
@@ -238,7 +240,8 @@ void DataDictionaryTestCase::checkValidTagNumber::onRun
   message.setField( TooHigh( "value" ) );
 
   try{ object.validate( message ); assert( false ); }
-  catch ( InvalidTagNumber& ) {}}
+  catch ( InvalidTagNumber& ) {}
+}
 
 bool DataDictionaryTestCase::checkHasValue::onSetup
 ( DataDictionary*& pObject )

@@ -57,6 +57,11 @@
 #include "quickfix/Utility.h"
 #include "quickfix/Mutex.h"
 
+#include "quickfix/fix40/NewOrderSingle.h"
+#include "quickfix/fix41/NewOrderSingle.h"
+#include "quickfix/fix42/NewOrderSingle.h"
+#include "quickfix/fix43/NewOrderSingle.h"
+
 class Application
 : public FIX::Application, public FIX::MessageCracker
 {

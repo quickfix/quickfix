@@ -52,8 +52,8 @@
 #define FIX_SOCKETUTILITIESTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../Utility.h"
-#include "../SocketServer.h"
+#include "Utility.h"
+#include "SocketServer.h"
 
 namespace FIX
 {

@@ -16,7 +16,7 @@ at_LDADD = C++/libquickfix.la
 ut_LDADD = C++/test/libquickfixcpptest.la C++/libquickfix.la
 pt_LDADD = C++/libquickfix.la
 
-INCLUDES =-I. -I.. -I../.. -IC++
+INCLUDES =-IC++
 
 all-local:
 	rm -f ../bin/ut ../bin/pt ../bin/at

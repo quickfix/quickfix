@@ -56,7 +56,7 @@
 
 #include "FileStoreTestCase.h"
 #include "FileStoreFactoryTestCase.h"
-#include "../Session.h"
+#include "Session.h"
 
 #include <fstream>
 

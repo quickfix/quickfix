@@ -51,10 +51,10 @@
 #ifndef FIX_MESSAGES_H
 #define FIX_MESSAGES_H
 
-#include "FIX40_Messages.h"
-#include "FIX41_Messages.h"
-#include "FIX42_Messages.h"
-#include "FIX43_Messages.h"
+#include "fix40/Messages.h"
+#include "fix41/Messages.h"
+#include "fix42/Messages.h"
+#include "fix43/Messages.h"
 
 #endif //FIX_MESSAGES_H
 

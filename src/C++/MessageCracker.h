@@ -51,10 +51,10 @@
 #ifndef FIX_MESSAGECRACKER_H
 #define FIX_MESSAGECRACKER_H
 
-#include "FIX40_MessageCracker.h"
-#include "FIX41_MessageCracker.h"
-#include "FIX42_MessageCracker.h"
-#include "FIX43_MessageCracker.h"
+#include "fix40/MessageCracker.h"
+#include "fix41/MessageCracker.h"
+#include "fix42/MessageCracker.h"
+#include "fix43/MessageCracker.h"
 #include "Values.h"
 
 namespace FIX

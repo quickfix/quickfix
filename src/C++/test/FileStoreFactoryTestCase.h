@@ -52,9 +52,9 @@
 #define FIX_FILESTOREFACTORYTESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "../FileStore.h"
-#include "../Application.h"
-#include "../Responder.h"
+#include "FileStore.h"
+#include "Application.h"
+#include "Responder.h"
 
 namespace FIX
 {
