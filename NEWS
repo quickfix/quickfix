@@ -1,3 +1,7 @@
+1.3.2
+-----
+More portable file copies during build process on unix
+
 1.3.1
 -----
 Fixed memory leak in repeating groups caused by FieldMap not calling clear() in destructor.
