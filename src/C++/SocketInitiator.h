@@ -99,7 +99,7 @@ private:
   SessionToHostNum m_sessionToHostNum;
   SocketConnector m_connector;
   SocketConnections m_connections;
-  int m_elapsedTimeouts;
+  time_t m_lastConnect;
   int m_reconnectInterval;
   bool m_stop;
 };

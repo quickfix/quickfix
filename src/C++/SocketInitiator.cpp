@@ -65,7 +65,7 @@ SocketInitiator::SocketInitiator( Application& application,
                                   const SessionSettings& settings )
 throw( ConfigError& ) 
 : Initiator( application, factory, settings ),
-  m_connector( 1 ), m_elapsedTimeouts( 0 ),
+  m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_stop( false ) {}
 
 SocketInitiator::SocketInitiator( Application& application,
@@ -74,7 +74,7 @@ SocketInitiator::SocketInitiator( Application& application,
                                   LogFactory& logFactory )
 throw( ConfigError& )
 : Initiator( application, factory, settings, logFactory ),
-  m_connector( 1 ), m_elapsedTimeouts( 0 ),
+  m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_stop( false ) {}
 
 SocketInitiator::~SocketInitiator() {}
@@ -191,11 +191,14 @@ void SocketInitiator::onError( SocketConnector& ) {}
 void SocketInitiator::onTimeout( SocketConnector& )
 { QF_STACK_PUSH(SocketInitiator::onTimeout)
 
-  if ( ++m_elapsedTimeouts >= m_reconnectInterval )
-  {
-    connect();
-    m_elapsedTimeouts = 0;
-  }
+  time_t now;
+  ::time( &now );
+
+   if ( (now - m_lastConnect) >= m_reconnectInterval )
+   {
+     connect();
+     m_lastConnect = now;
+   }
 
   SocketConnections::iterator i;
   for ( i = m_connections.begin(); i != m_connections.end(); ++i )
