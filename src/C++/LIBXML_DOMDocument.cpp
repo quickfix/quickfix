@@ -122,6 +122,16 @@ namespace FIX
     catch( ... ) { return false; }
   }
 
+  bool LIBXML_DOMDocument::load( const std::string& url )
+  {
+    try
+    {
+      m_pDoc = xmlParseFile(url.c_str());
+      return m_pDoc != NULL;
+    }
+    catch( ... ) { return false; }
+  }
+
   bool LIBXML_DOMDocument::xml( std::ostream& out )
   {
     return false;
