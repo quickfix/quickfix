@@ -1,1 +1,1 @@
-SUBDIRS = org
+SUBDIRS = quickfix

@@ -278,13 +278,12 @@ AC_OUTPUT(
 	src/java/Makefile
 	src/java/cfg/Makefile
 	src/java/src/Makefile
-	src/java/src/org/Makefile
-	src/java/src/org/quickfix/Makefile
-	src/java/src/org/quickfix/field/Makefile
-	src/java/src/org/quickfix/fix40/Makefile
-	src/java/src/org/quickfix/fix41/Makefile
-	src/java/src/org/quickfix/fix42/Makefile
-	src/java/src/org/quickfix/fix43/Makefile
+	src/java/src/quickfix/Makefile
+	src/java/src/quickfix/field/Makefile
+	src/java/src/quickfix/fix40/Makefile
+	src/java/src/quickfix/fix41/Makefile
+	src/java/src/quickfix/fix42/Makefile
+	src/java/src/quickfix/fix43/Makefile
 	cfg/Makefile
 	bin/Makefile
 	bin/cfg/Makefile

@@ -113,48 +113,48 @@ libquickfix_jni_la_SOURCES = \
 	JavaMessageStore.cpp \
 	JavaMessageStoreFactory.h \
 	JavaMessageStoreFactory.cpp \
-	org_quickfix_DataDictionary.h \
-	org_quickfix_DataDictionary.cpp \
-	org_quickfix_FileStore.h \
-	org_quickfix_FileStore.cpp \
-	org_quickfix_FileStoreFactory.h \
-	org_quickfix_FileStoreFactory.cpp \
-	org_quickfix_FileLog.h \
-	org_quickfix_FileLog.cpp \
-	org_quickfix_FileLogFactory.h \
-	org_quickfix_FileLogFactory.cpp \
-	org_quickfix_Group.h \
-	org_quickfix_Group.cpp \
-	org_quickfix_MemoryStore.h \
-	org_quickfix_MemoryStore.cpp \
-	org_quickfix_Message.h \
-	org_quickfix_Message.cpp \
-	org_quickfix_MySQLStore.h \
-	org_quickfix_MySQLStore.cpp \
-	org_quickfix_MySQLStoreFactory.h \
-	org_quickfix_MySQLStoreFactory.cpp \
-	org_quickfix_MySQLLog.h \
-	org_quickfix_MySQLLog.cpp \
-	org_quickfix_MySQLLogFactory.h \
-	org_quickfix_MySQLLogFactory.cpp \
-	org_quickfix_ScreenLog.h \
-	org_quickfix_ScreenLog.cpp \
-	org_quickfix_ScreenLogFactory.h \
-	org_quickfix_ScreenLogFactory.cpp \
-	org_quickfix_Session.h \
-	org_quickfix_Session.cpp \
-	org_quickfix_SessionID.h \
-	org_quickfix_SessionID.cpp \
-	org_quickfix_SessionSettings.h \
-	org_quickfix_SessionSettings.cpp \
-	org_quickfix_SocketAcceptor.h \
-	org_quickfix_SocketAcceptor.cpp \
-	org_quickfix_SocketInitiator.h \
-	org_quickfix_SocketInitiator.cpp \
-	org_quickfix_ThreadedSocketAcceptor.h \
-	org_quickfix_ThreadedSocketAcceptor.cpp \
-	org_quickfix_ThreadedSocketInitiator.h \
-	org_quickfix_ThreadedSocketInitiator.cpp
+	quickfix_DataDictionary.h \
+	quickfix_DataDictionary.cpp \
+	quickfix_FileStore.h \
+	quickfix_FileStore.cpp \
+	quickfix_FileStoreFactory.h \
+	quickfix_FileStoreFactory.cpp \
+	quickfix_FileLog.h \
+	quickfix_FileLog.cpp \
+	quickfix_FileLogFactory.h \
+	quickfix_FileLogFactory.cpp \
+	quickfix_Group.h \
+	quickfix_Group.cpp \
+	quickfix_MemoryStore.h \
+	quickfix_MemoryStore.cpp \
+	quickfix_Message.h \
+	quickfix_Message.cpp \
+	quickfix_MySQLStore.h \
+	quickfix_MySQLStore.cpp \
+	quickfix_MySQLStoreFactory.h \
+	quickfix_MySQLStoreFactory.cpp \
+	quickfix_MySQLLog.h \
+	quickfix_MySQLLog.cpp \
+	quickfix_MySQLLogFactory.h \
+	quickfix_MySQLLogFactory.cpp \
+	quickfix_ScreenLog.h \
+	quickfix_ScreenLog.cpp \
+	quickfix_ScreenLogFactory.h \
+	quickfix_ScreenLogFactory.cpp \
+	quickfix_Session.h \
+	quickfix_Session.cpp \
+	quickfix_SessionID.h \
+	quickfix_SessionID.cpp \
+	quickfix_SessionSettings.h \
+	quickfix_SessionSettings.cpp \
+	quickfix_SocketAcceptor.h \
+	quickfix_SocketAcceptor.cpp \
+	quickfix_SocketInitiator.h \
+	quickfix_SocketInitiator.cpp \
+	quickfix_ThreadedSocketAcceptor.h \
+	quickfix_ThreadedSocketAcceptor.cpp \
+	quickfix_ThreadedSocketInitiator.h \
+	quickfix_ThreadedSocketInitiator.cpp
 
 
 libquickfix_jni_la_LDFLAGS = -version-info 4:0:1
@@ -174,18 +174,16 @@ LIBS = @LIBS@
 libquickfix_jni_la_DEPENDENCIES = 
 libquickfix_jni_la_OBJECTS =  JVM.lo Conversions.lo JavaApplication.lo \
 JavaLog.lo JavaLogFactory.lo JavaMessageStore.lo \
-JavaMessageStoreFactory.lo org_quickfix_DataDictionary.lo \
-org_quickfix_FileStore.lo org_quickfix_FileStoreFactory.lo \
-org_quickfix_FileLog.lo org_quickfix_FileLogFactory.lo \
-org_quickfix_Group.lo org_quickfix_MemoryStore.lo \
-org_quickfix_Message.lo org_quickfix_MySQLStore.lo \
-org_quickfix_MySQLStoreFactory.lo org_quickfix_MySQLLog.lo \
-org_quickfix_MySQLLogFactory.lo org_quickfix_ScreenLog.lo \
-org_quickfix_ScreenLogFactory.lo org_quickfix_Session.lo \
-org_quickfix_SessionID.lo org_quickfix_SessionSettings.lo \
-org_quickfix_SocketAcceptor.lo org_quickfix_SocketInitiator.lo \
-org_quickfix_ThreadedSocketAcceptor.lo \
-org_quickfix_ThreadedSocketInitiator.lo
+JavaMessageStoreFactory.lo quickfix_DataDictionary.lo \
+quickfix_FileStore.lo quickfix_FileStoreFactory.lo quickfix_FileLog.lo \
+quickfix_FileLogFactory.lo quickfix_Group.lo quickfix_MemoryStore.lo \
+quickfix_Message.lo quickfix_MySQLStore.lo \
+quickfix_MySQLStoreFactory.lo quickfix_MySQLLog.lo \
+quickfix_MySQLLogFactory.lo quickfix_ScreenLog.lo \
+quickfix_ScreenLogFactory.lo quickfix_Session.lo quickfix_SessionID.lo \
+quickfix_SessionSettings.lo quickfix_SocketAcceptor.lo \
+quickfix_SocketInitiator.lo quickfix_ThreadedSocketAcceptor.lo \
+quickfix_ThreadedSocketInitiator.lo
 CXXCOMPILE = $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
 LTCXXCOMPILE = $(LIBTOOL) --mode=compile $(CXX) $(DEFS) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(AM_CXXFLAGS) $(CXXFLAGS)
 CXXLD = $(CXX)
@@ -205,19 +203,18 @@ TAR = gtar
 GZIP_ENV = --best
 DEP_FILES =  .deps/Conversions.P .deps/JVM.P .deps/JavaApplication.P \
 .deps/JavaLog.P .deps/JavaLogFactory.P .deps/JavaMessageStore.P \
-.deps/JavaMessageStoreFactory.P .deps/org_quickfix_DataDictionary.P \
-.deps/org_quickfix_FileLog.P .deps/org_quickfix_FileLogFactory.P \
-.deps/org_quickfix_FileStore.P .deps/org_quickfix_FileStoreFactory.P \
-.deps/org_quickfix_Group.P .deps/org_quickfix_MemoryStore.P \
-.deps/org_quickfix_Message.P .deps/org_quickfix_MySQLLog.P \
-.deps/org_quickfix_MySQLLogFactory.P .deps/org_quickfix_MySQLStore.P \
-.deps/org_quickfix_MySQLStoreFactory.P .deps/org_quickfix_ScreenLog.P \
-.deps/org_quickfix_ScreenLogFactory.P .deps/org_quickfix_Session.P \
-.deps/org_quickfix_SessionID.P .deps/org_quickfix_SessionSettings.P \
-.deps/org_quickfix_SocketAcceptor.P \
-.deps/org_quickfix_SocketInitiator.P \
-.deps/org_quickfix_ThreadedSocketAcceptor.P \
-.deps/org_quickfix_ThreadedSocketInitiator.P
+.deps/JavaMessageStoreFactory.P .deps/quickfix_DataDictionary.P \
+.deps/quickfix_FileLog.P .deps/quickfix_FileLogFactory.P \
+.deps/quickfix_FileStore.P .deps/quickfix_FileStoreFactory.P \
+.deps/quickfix_Group.P .deps/quickfix_MemoryStore.P \
+.deps/quickfix_Message.P .deps/quickfix_MySQLLog.P \
+.deps/quickfix_MySQLLogFactory.P .deps/quickfix_MySQLStore.P \
+.deps/quickfix_MySQLStoreFactory.P .deps/quickfix_ScreenLog.P \
+.deps/quickfix_ScreenLogFactory.P .deps/quickfix_Session.P \
+.deps/quickfix_SessionID.P .deps/quickfix_SessionSettings.P \
+.deps/quickfix_SocketAcceptor.P .deps/quickfix_SocketInitiator.P \
+.deps/quickfix_ThreadedSocketAcceptor.P \
+.deps/quickfix_ThreadedSocketInitiator.P
 SOURCES = $(libquickfix_jni_la_SOURCES)
 OBJECTS = $(libquickfix_jni_la_OBJECTS)
 

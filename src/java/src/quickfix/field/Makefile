@@ -15,7 +15,7 @@
 SHELL = /bin/sh
 
 srcdir = .
-top_srcdir = ../../../../../..
+top_srcdir = ../../../../..
 prefix = /usr/local
 exec_prefix = ${prefix}
 
@@ -38,7 +38,7 @@ pkgdatadir = $(datadir)/quickfix
 pkglibdir = $(libdir)/quickfix
 pkgincludedir = $(includedir)/quickfix
 
-top_builddir = ../../../../../..
+top_builddir = ../../../../..
 
 ACLOCAL = aclocal
 AUTOCONF = autoconf
@@ -61,9 +61,9 @@ host_alias = i686-pc-linux-gnu
 host_triplet = i686-pc-linux-gnu
 AS = as
 CC = gcc
-CFLAGS = -g -O2 -Wall -I/usr/local/include/stlport  -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux
+CFLAGS = -g -O2 -Wall   -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux
 CXX = c++
-CXXFLAGS = -O0 -Wall -I/usr/local/include/stlport  -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux -Wall -I/usr/local/include/stlport  -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux
+CXXFLAGS = -O0 -Wall   -I/usr/include/libxml2 -I/export/usr/j2sdk1.4.1_03/include -I/export/usr/j2sdk1.4.1_03/include/linux
 DLLTOOL = dlltool
 ECHO = echo
 EXEEXT = 
@@ -80,9 +80,9 @@ OBJEXT = o
 PACKAGE = quickfix
 RANLIB = ranlib
 RUBYDIR = /usr/lib/ruby/1.6/i386-linux
-STLPORT_CFLAGS = -I/usr/local/include/stlport
-STLPORT_LIBS = -L/usr/local/lib -lstlport_gcc
-STLPORT_PREFIX = /usr/local
+STLPORT_CFLAGS = 
+STLPORT_LIBS = 
+STLPORT_PREFIX = 
 STRIP = strip
 VERSION = 1.6.0
 XML2_CONFIG = /usr/bin/xml2-config
@@ -92,7 +92,7 @@ XML_LIBS = -L/usr/lib -lxml2 -lz -lm
 
 EXTRA_DIST = *.java
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
-CONFIG_HEADER = ../../../../../../config.h
+CONFIG_HEADER = ../../../../../config.h
 CONFIG_CLEAN_FILES = 
 DIST_COMMON =  Makefile.am Makefile.in
 
@@ -104,7 +104,7 @@ GZIP_ENV = --best
 all: all-redirect
 .SUFFIXES:
 $(srcdir)/Makefile.in: Makefile.am $(top_srcdir)/configure.in $(ACLOCAL_M4) 
-	cd $(top_srcdir) && $(AUTOMAKE) --foreign src/java/src/org/quickfix/field/Makefile
+	cd $(top_srcdir) && $(AUTOMAKE) --foreign src/java/src/quickfix/field/Makefile
 
 Makefile: $(srcdir)/Makefile.in  $(top_builddir)/config.status $(BUILT_SOURCES)
 	cd $(top_builddir) \
@@ -116,14 +116,14 @@ TAGS:
 
 distdir = $(top_builddir)/$(PACKAGE)-$(VERSION)/$(subdir)
 
-subdir = src/java/src/org/quickfix/field
+subdir = src/java/src/quickfix/field
 
 distdir: $(DISTFILES)
 	here=`cd $(top_builddir) && pwd`; \
 	top_distdir=`cd $(top_distdir) && pwd`; \
 	distdir=`cd $(distdir) && pwd`; \
 	cd $(top_srcdir) \
-	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --foreign src/java/src/org/quickfix/field/Makefile
+	  && $(AUTOMAKE) --include-deps --build-dir=$$here --srcdir-name=$(top_srcdir) --output-dir=$$top_distdir --foreign src/java/src/quickfix/field/Makefile
 	@for file in $(DISTFILES); do \
 	  d=$(srcdir); \
 	  if test -d $$d/$$file; then \
