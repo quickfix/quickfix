@@ -76,7 +76,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_MySQLStoreFactory_create__
   FIX::MessageStoreFactory* pFactory = new FIX::MySQLStoreFactory( *pSettings );
   object.setInt( "cppPointer", ( int ) pFactory );
 
-  QF_STACK_CATC
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_org_quickfix_MySQLStoreFactory_destroy
@@ -89,7 +89,7 @@ JNIEXPORT void JNICALL Java_org_quickfix_MySQLStoreFactory_destroy
   = ( FIX::MySQLStoreFactory* ) jobject.getInt( "cppPointer" );
   delete pFactory;
 
-  QF_STACK_CATC
+  QF_STACK_CATCH
 }
 
 JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLStoreFactory_create__Lorg_quickfix_SessionID_2
@@ -123,7 +123,7 @@ JNIEXPORT jobject JNICALL Java_org_quickfix_MySQLStoreFactory_create__Lorg_quick
   jobject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
   return result;
 
-  QF_STACK_CATC
+  QF_STACK_CATCH
 }
 
 #endif //HAVE_MYSQL
