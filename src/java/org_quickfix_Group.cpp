@@ -55,9 +55,9 @@
 
 #include "JVM.h"
 #include "org_quickfix_Group.h"
-#include "Utility.h"
-#include "Group.h"
-#include "CallStack.h"
+#include <quickfix/Utility.h>
+#include <quickfix/Group.h>
+#include <quickfix/CallStack.h>
 #include "Conversions.h"
 #include <iostream>
 

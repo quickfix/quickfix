@@ -56,8 +56,8 @@
 #include "JVM.h"
 #include "Conversions.h"
 #include "org_quickfix_ScreenLog.h"
-#include "Log.h"
-#include "CallStack.h"
+#include <quickfix/Log.h>
+#include <quickfix/CallStack.h>
 
 JNIEXPORT void JNICALL Java_org_quickfix_ScreenLog_create
 ( JNIEnv *, jobject )

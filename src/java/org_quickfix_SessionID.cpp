@@ -56,8 +56,8 @@
 #include "JVM.h"
 #include "Conversions.h"
 #include "org_quickfix_SessionID.h"
-#include "SessionID.h"
-#include "CallStack.h"
+#include <quickfix/SessionID.h>
+#include <quickfix/CallStack.h>
 #include <string>
 
 JNIEXPORT void JNICALL Java_org_quickfix_SessionID_create

@@ -63,10 +63,10 @@
 #include "JavaApplication.h"
 #include "JavaMessageStoreFactory.h"
 #include "JavaLogFactory.h"
-#include "SocketAcceptor.h"
-#include "Settings.h"
-#include "Utility.h"
-#include "CallStack.h"
+#include <quickfix/SocketAcceptor.h>
+#include <quickfix/Settings.h>
+#include <quickfix/Utility.h>
+#include <quickfix/CallStack.h>
 #include <sstream>
 
 FIX::SocketAcceptor* getCPPSocketAcceptor( jobject obj )

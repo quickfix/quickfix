@@ -51,7 +51,7 @@
 #ifndef JAVA_LOG_FACTORY
 #define JAVA_LOG_FACTORY
 
-#include "Log.h"
+#include <quickfix/Log.h>
 #include "JVM.h"
 
 class JavaLogFactory : public FIX::LogFactory

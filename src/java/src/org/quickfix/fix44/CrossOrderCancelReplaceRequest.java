@@ -123,11 +123,10 @@ public static class NoSides extends Group {
              516, 
              468, 
              469, 
-             38, 
-             152, 
-             516, 
-             468, 
-             469, 
+             12, 
+             13, 
+             479, 
+             497, 
                528, 
                529, 
                582, 
@@ -868,61 +867,50 @@ public static class NoPartySubIDs extends Group {
   { return isSetField(field); } 
   public boolean isSetRoundingModulus() 
   { return isSetField(469); } 
-  public void set(org.quickfix.field.OrderQty value) 
+  public void set(org.quickfix.field.Commission value) 
   { setField(value); } 
-  public org.quickfix.field.OrderQty get(org.quickfix.field.OrderQty value) throws FieldNotFound 
+  public org.quickfix.field.Commission get(org.quickfix.field.Commission value) throws FieldNotFound 
   { getField(value); return value; } 
-  public org.quickfix.field.OrderQty getOrderQty() throws FieldNotFound 
-  { org.quickfix.field.OrderQty value = new org.quickfix.field.OrderQty(); 
+  public org.quickfix.field.Commission getCommission() throws FieldNotFound 
+  { org.quickfix.field.Commission value = new org.quickfix.field.Commission(); 
     getField(value); return value; } 
-  public boolean isSet(org.quickfix.field.OrderQty field) 
+  public boolean isSet(org.quickfix.field.Commission field) 
   { return isSetField(field); } 
-  public boolean isSetOrderQty() 
-  { return isSetField(38); } 
-  public void set(org.quickfix.field.CashOrderQty value) 
+  public boolean isSetCommission() 
+  { return isSetField(12); } 
+  public void set(org.quickfix.field.CommType value) 
   { setField(value); } 
-  public org.quickfix.field.CashOrderQty get(org.quickfix.field.CashOrderQty value) throws FieldNotFound 
+  public org.quickfix.field.CommType get(org.quickfix.field.CommType value) throws FieldNotFound 
   { getField(value); return value; } 
-  public org.quickfix.field.CashOrderQty getCashOrderQty() throws FieldNotFound 
-  { org.quickfix.field.CashOrderQty value = new org.quickfix.field.CashOrderQty(); 
+  public org.quickfix.field.CommType getCommType() throws FieldNotFound 
+  { org.quickfix.field.CommType value = new org.quickfix.field.CommType(); 
     getField(value); return value; } 
-  public boolean isSet(org.quickfix.field.CashOrderQty field) 
+  public boolean isSet(org.quickfix.field.CommType field) 
   { return isSetField(field); } 
-  public boolean isSetCashOrderQty() 
-  { return isSetField(152); } 
-  public void set(org.quickfix.field.OrderPercent value) 
+  public boolean isSetCommType() 
+  { return isSetField(13); } 
+  public void set(org.quickfix.field.CommCurrency value) 
   { setField(value); } 
-  public org.quickfix.field.OrderPercent get(org.quickfix.field.OrderPercent value) throws FieldNotFound 
+  public org.quickfix.field.CommCurrency get(org.quickfix.field.CommCurrency value) throws FieldNotFound 
   { getField(value); return value; } 
-  public org.quickfix.field.OrderPercent getOrderPercent() throws FieldNotFound 
-  { org.quickfix.field.OrderPercent value = new org.quickfix.field.OrderPercent(); 
+  public org.quickfix.field.CommCurrency getCommCurrency() throws FieldNotFound 
+  { org.quickfix.field.CommCurrency value = new org.quickfix.field.CommCurrency(); 
     getField(value); return value; } 
-  public boolean isSet(org.quickfix.field.OrderPercent field) 
+  public boolean isSet(org.quickfix.field.CommCurrency field) 
   { return isSetField(field); } 
-  public boolean isSetOrderPercent() 
-  { return isSetField(516); } 
-  public void set(org.quickfix.field.RoundingDirection value) 
+  public boolean isSetCommCurrency() 
+  { return isSetField(479); } 
+  public void set(org.quickfix.field.FundRenewWaiv value) 
   { setField(value); } 
-  public org.quickfix.field.RoundingDirection get(org.quickfix.field.RoundingDirection value) throws FieldNotFound 
+  public org.quickfix.field.FundRenewWaiv get(org.quickfix.field.FundRenewWaiv value) throws FieldNotFound 
   { getField(value); return value; } 
-  public org.quickfix.field.RoundingDirection getRoundingDirection() throws FieldNotFound 
-  { org.quickfix.field.RoundingDirection value = new org.quickfix.field.RoundingDirection(); 
+  public org.quickfix.field.FundRenewWaiv getFundRenewWaiv() throws FieldNotFound 
+  { org.quickfix.field.FundRenewWaiv value = new org.quickfix.field.FundRenewWaiv(); 
     getField(value); return value; } 
-  public boolean isSet(org.quickfix.field.RoundingDirection field) 
+  public boolean isSet(org.quickfix.field.FundRenewWaiv field) 
   { return isSetField(field); } 
-  public boolean isSetRoundingDirection() 
-  { return isSetField(468); } 
-  public void set(org.quickfix.field.RoundingModulus value) 
-  { setField(value); } 
-  public org.quickfix.field.RoundingModulus get(org.quickfix.field.RoundingModulus value) throws FieldNotFound 
-  { getField(value); return value; } 
-  public org.quickfix.field.RoundingModulus getRoundingModulus() throws FieldNotFound 
-  { org.quickfix.field.RoundingModulus value = new org.quickfix.field.RoundingModulus(); 
-    getField(value); return value; } 
-  public boolean isSet(org.quickfix.field.RoundingModulus field) 
-  { return isSetField(field); } 
-  public boolean isSetRoundingModulus() 
-  { return isSetField(469); } 
+  public boolean isSetFundRenewWaiv() 
+  { return isSetField(497); } 
 } 
   public void set(org.quickfix.field.Symbol value) 
   { setField(value); } 
