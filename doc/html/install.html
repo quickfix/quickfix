@@ -183,8 +183,7 @@
       <FONT color="#0000FF">#define HAVE_LIBXML 1</FONT>
       Compile and link XML parsing code against the libxml library instead of the default MSXML3.<br/>
       <FONT color="#0000FF">#define ENABLE_CALLSTACK 1</FONT>
-      Tells QuickFIX to keep track of a C++ callstack that will be printed out in the event of
-      a the process crashing.<br/>
+      Tells QuickFIX to keep track of a C++ callstack that will be printed out in the event of a the process crashing.  Only use this when trying to track down a repeatable problem.<br/>
     </p>
     <A NAME="Windows (.NET)"/>
     <H3>Windows (.NET)</H3>
@@ -240,7 +239,7 @@
       <FONT color="#0000FF">--with-mysql=&lt;base directory&gt;</FONT> - Compile in mysql support<br>
       <FONT color="#0000FF">--with-stlport=&lt;base directory&gt;</FONT> - Compile with stlport instead of
       standard gcc STL implementation (recommended for multiprocessor machines running gcc 2.95.x)<br>
-      <FONT color="#0000FF">--enable-callstack</FONT> - Display C++ call stack after abnormal termination<br>
+      <FONT color="#0000FF">--enable-callstack</FONT> - Display C++ call stack after abnormal termination. Only use this when trying to track down a repeatable problem.<br>
     </p>
     <p>
       After succesfully building QuickFIX, you should run <B>make install</B> as root.
