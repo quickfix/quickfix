@@ -11,7 +11,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atrun", "test\atrun\atrun.v
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ut", "ut.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickfix_net_messages", "src\quickfix_net_messages.csproj", "{417816C8-A3EF-40C0-892B-FCBBE95698BE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickfix_net_messages", "src\.NET\quickfix_net_messages.csproj", "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
 EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
@@ -23,7 +23,6 @@ Global
 		{63CC102A-A3CD-43CC-9535-A91E67256360}.0 = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 		{4E6CE474-47A1-4AC8-8161-9CD214664EBB}.0 = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.0 = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
-		{417816C8-A3EF-40C0-892B-FCBBE95698BE}.0 = {FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug.ActiveCfg = Debug|Win32
@@ -50,10 +49,10 @@ Global
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Debug.Build.0 = Debug|Win32
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Release.ActiveCfg = Release|Win32
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Release.Build.0 = Release|Win32
-		{417816C8-A3EF-40C0-892B-FCBBE95698BE}.Debug.ActiveCfg = Debug|.NET
-		{417816C8-A3EF-40C0-892B-FCBBE95698BE}.Debug.Build.0 = Debug|.NET
-		{417816C8-A3EF-40C0-892B-FCBBE95698BE}.Release.ActiveCfg = Release|.NET
-		{417816C8-A3EF-40C0-892B-FCBBE95698BE}.Release.Build.0 = Release|.NET
+		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Debug.ActiveCfg = Debug|.NET
+		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Debug.Build.0 = Debug|.NET
+		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Release.ActiveCfg = Release|.NET
+		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
