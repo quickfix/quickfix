@@ -46,9 +46,18 @@ be sent out with incorrect lenths or checksums.
 Fixed bug that cause the sendToTarget( Message, String, String )
 signature would always fail from the Java API.
 
+Fixed incomplete copy operator for DataDictionary.
+
 ScreenLog now displays proper timestamps.
 
+libxml2 can be linked into windows build as an alternative to MSXML.
+
+Added accessor to Session class for the DataDictionary.
+
 Banzai should load correctly with the supplied configuration file.
+
+socket_t will be defined as int if not defined by the system. This
+allows QF to be compiled on older systems such as Solaris 2.6
 
 1.5.0
 -----

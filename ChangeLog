@@ -1,3 +1,53 @@
+2003-08-18 10:11  orenmnero
+
+	* examples/: executor/C++/Application.cpp,
+	  ordermatch/Application.cpp, tradeclient/Application.cpp: moved
+	  pragmas up above includes to get rid of warnings
+
+2003-08-18 10:11  orenmnero
+
+	* examples/ordermatch/test/ordermatch_ut.cpp: removed extra
+	  linefeeds
+
+2003-08-18 10:10  orenmnero
+
+	* test/runat_threaded.bat: passes port to setup.bat, runs FIX4.4
+	  tests
+
+2003-08-17 22:55  orenmnero
+
+	* src/C++/: DataDictionary.cpp, LIBXML_DOMDocument.cpp,
+	  LIBXML_DOMDocument.h, MSXML_DOMDocument.cpp: added windows
+	  support for libxml
+
+2003-08-17 22:54  orenmnero
+
+	* src/C++/ThreadedSocketInitiator.cpp: corrected typo _MSV_VER
+
+2003-08-17 22:53  orenmnero
+
+	* src/C++/Session.h: added accessor for Datadictionary
+
+2003-08-17 22:52  orenmnero
+
+	* src/C++/DataDictionary.h: marked appropriate methods as const
+
+2003-08-17 22:50  orenmnero
+
+	* quickfix.dsp, quickfix.vcproj, src/config_windows.h: added
+	  windows support for libxml
+
+2003-08-15 01:44  orenmnero
+
+	* configure.in: define socklen_t as int if undefined
+
+2003-08-10 20:56  orenmnero
+
+	* ChangeLog, NEWS, configure.in, src/C++/Makefile.am,
+	  src/java/Makefile.am,
+	  test/definitions/server/future/14k_EmbeddedSOH.def: [no log
+	  message]
+
 2003-08-10 20:29  orenmnero
 
 	* doc/html/FAQ.html: [no log message]
