@@ -1,3 +1,32 @@
+2003-08-27 14:07  orenmnero
+
+	* NEWS: [no log message]
+
+2003-08-27 14:01  orenmnero
+
+	* NEWS: removed double negative
+
+2003-08-27 13:59  orenmnero
+
+	* src/java/: org_quickfix_SocketAcceptor.cpp,
+	  org_quickfix_SocketInitiator.cpp,
+	  org_quickfix_ThreadedSocketAcceptor.cpp,
+	  org_quickfix_ThreadedSocketInitiator.cpp: trapping exceptions
+	  thrown when shutting down acceptor/initiator
+
+2003-08-26 15:40  orenmnero
+
+	* src/C++/FieldMap.cpp: throw exception when trying to pull out
+	  group <= 0
+
+2003-08-26 15:38  orenmnero
+
+	* src/C++/DataDictionary.h: ensures field names are unique
+
+2003-08-18 10:26  orenmnero
+
+	* ChangeLog, NEWS: [no log message]
+
 2003-08-18 10:11  orenmnero
 
 	* examples/: executor/C++/Application.cpp,
