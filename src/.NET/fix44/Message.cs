@@ -316,21 +316,21 @@ namespace QuickFix44
       public bool isSetLastMsgSeqNumProcessed()
       { return isSetField(369); }
 
-      public void set(QuickFix.HopCompID value)
+      public void set(QuickFix.NoHops value)
       { setField(value); }
-      public QuickFix.HopCompID get(QuickFix.HopCompID  value)
+      public QuickFix.NoHops get(QuickFix.NoHops  value)
       { getField(value); return value; }
-      public QuickFix.HopCompID getHopCompID()
-      { QuickFix.HopCompID value = new QuickFix.HopCompID();
+      public QuickFix.NoHops getNoHops()
+      { QuickFix.NoHops value = new QuickFix.NoHops();
         getField(value); return value; }
-      public bool isSet(QuickFix.HopCompID field)
+      public bool isSet(QuickFix.NoHops field)
       { return isSetField(field); }
-      public bool isSetHopCompID()
-      { return isSetField(628); }
+      public bool isSetNoHops()
+      { return isSetField(627); }
 
-      public class HopCompID: QuickFix.Group
+      public class NoHops: QuickFix.Group
       {
-      public HopCompID() : base(628,628,message_order ) {}
+      public NoHops() : base(627,628,message_order ) {}
       static int[] message_order = new int[] {628,629,630,0};
         public void set(QuickFix.HopCompID value)
         { setField(value); }

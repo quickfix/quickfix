@@ -3907,6 +3907,10 @@ namespace QuickFix
   static const int INDEX = 7;
   static const int LOAN = 8;
   static const int MONEYMARKET = 9;
+  static const int MORTGAGE = 10;
+  static const int MUNICIPAL = 11;
+  static const int OTHER = 12;
+  static const int FINANCING = 13;
   Product() : IntField(460) {}
     Product(int data) : IntField(460, data) {}
   };

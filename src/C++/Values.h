@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 #ifndef FIX_VALUES_H
 #define FIX_VALUES_H
 
@@ -1055,6 +1055,10 @@ namespace FIX
  const int Product_INDEX = 7;
  const int Product_LOAN = 8;
  const int Product_MONEYMARKET = 9;
+ const int Product_MORTGAGE = 10;
+ const int Product_MUNICIPAL = 11;
+ const int Product_OTHER = 12;
+ const int Product_FINANCING = 13;
  const int QuantityType_SHARES = 1;
  const int QuantityType_BONDS = 2;
  const int QuantityType_CURRENTFACE = 3;
@@ -1667,3 +1671,4 @@ namespace FIX
   const char SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT[] = "Incorrect NumInGroup count for repeating group";
 }
 #endif //FIX_VALUES_H
+

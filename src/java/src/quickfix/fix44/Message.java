@@ -326,22 +326,22 @@ public class Message extends quickfix.Message {
       { return isSetField(field); }
       public boolean isSetLastMsgSeqNumProcessed()
       { return isSetField(369); }
-      public void set(quickfix.field.HopCompID value)
+      public void set(quickfix.field.NoHops value)
       { setField(value); }
-      public quickfix.field.HopCompID get(quickfix.field.HopCompID  value)
+      public quickfix.field.NoHops get(quickfix.field.NoHops  value)
         throws FieldNotFound
       { getField(value); return value; }
-      public quickfix.field.HopCompID getHopCompID() throws FieldNotFound
-      { quickfix.field.HopCompID value = new quickfix.field.HopCompID();
+      public quickfix.field.NoHops getNoHops() throws FieldNotFound
+      { quickfix.field.NoHops value = new quickfix.field.NoHops();
         getField(value); return value; }
-      public boolean isSet(quickfix.field.HopCompID field)
+      public boolean isSet(quickfix.field.NoHops field)
       { return isSetField(field); }
-      public boolean isSetHopCompID()
-      { return isSetField(628); }
+      public boolean isSetNoHops()
+      { return isSetField(627); }
 /*
-      public static class HopCompID extends Group {
-        public HopCompID() {
-          super(628,628,
+      public static class NoHops extends Group {
+        public NoHops() {
+          super(627,628,
           new int[] {628,629,630,0 } ); }
         public void set(quickfix.field.HopCompID value)
         { setField(value); }
