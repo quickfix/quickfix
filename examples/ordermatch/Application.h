@@ -82,6 +82,7 @@ class Application
   void onMessage( const FIX42::NewOrderSingle&, const FIX::SessionID& );
   void onMessage( const FIX42::OrderCancelRequest&, const FIX::SessionID& );
   void onMessage( const FIX42::MarketDataRequest&, const FIX::SessionID& );
+  void onMessage( const FIX43::MarketDataRequest&, const FIX::SessionID& );
 
   // Order functionality
   void processOrder( const Order& );

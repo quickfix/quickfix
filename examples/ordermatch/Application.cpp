@@ -153,6 +153,11 @@ void Application::onMessage( const FIX42::MarketDataRequest& message, const FIX:
   }
 }
 
+void Application::onMessage( const FIX43::MarketDataRequest& message, const FIX::SessionID& )
+{
+    std::cout << message.toXML() << std::endl;
+}
+
 void Application::updateOrder( const Order& order, char status )
 {
   FIX::TargetCompID targetCompID( order.getOwner() );
