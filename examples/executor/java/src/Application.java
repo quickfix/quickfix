@@ -72,6 +72,88 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         crack(message, sessionID);
     }
 
+	public void onMessage( org.quickfix.fix40.NewOrderSingle order, SessionID sessionID )
+    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+        Symbol symbol = new Symbol();
+        Side side = new Side();
+        OrdType ordType = new OrdType();
+        OrderQty orderQty = new OrderQty();
+        Price price = new Price();
+        ClOrdID clOrdID = new ClOrdID();
+
+        order.get(ordType);
+
+        if(ordType.getValue() != OrdType.LIMIT)
+            throw new IncorrectTagValue(ordType.getField());
+
+        order.get(symbol);
+        order.get(side);
+        order.get(orderQty);
+        order.get(price);
+        order.get(clOrdID);
+
+        org.quickfix.fix40.ExecutionReport executionReport = new org.quickfix.fix40.ExecutionReport
+                ( genOrderID(),
+                  genExecID(),
+                  new ExecTransType( ExecTransType.NEW ),
+                  new OrdStatus    ( OrdStatus.FILLED ),
+                  symbol,
+                  side,
+                  orderQty,
+                  new LastShares   ( orderQty.getValue() ),
+                  new LastPx       ( price.getValue() ),
+                  new CumQty       ( orderQty.getValue() ),
+                  new AvgPx        ( price.getValue() ));
+
+        executionReport.set(clOrdID);
+
+        try {
+            Session.sendToTarget(executionReport, sessionID);
+        } catch(SessionNotFound e) {}
+    }
+
+	public void onMessage( org.quickfix.fix41.NewOrderSingle order, SessionID sessionID )
+    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+        Symbol symbol = new Symbol();
+        Side side = new Side();
+        OrdType ordType = new OrdType();
+        OrderQty orderQty = new OrderQty();
+        Price price = new Price();
+        ClOrdID clOrdID = new ClOrdID();
+
+        order.get(ordType);
+
+        if(ordType.getValue() != OrdType.LIMIT)
+            throw new IncorrectTagValue(ordType.getField());
+
+        order.get(symbol);
+        order.get(side);
+        order.get(orderQty);
+        order.get(price);
+        order.get(clOrdID);
+
+        org.quickfix.fix41.ExecutionReport executionReport = new org.quickfix.fix41.ExecutionReport
+                ( genOrderID(),
+                  genExecID(),
+                  new ExecTransType( ExecTransType.NEW ),
+                  new ExecType     ( ExecType.FILL ),
+                  new OrdStatus    ( OrdStatus.FILLED ),
+                  symbol,
+                  side,
+                  orderQty,
+                  new LastShares   ( orderQty.getValue() ),
+                  new LastPx       ( price.getValue() ),
+                  new LeavesQty    ( 0 ),
+                  new CumQty       ( orderQty.getValue() ),
+                  new AvgPx        ( price.getValue() ));
+
+        executionReport.set(clOrdID);
+
+        try {
+            Session.sendToTarget(executionReport, sessionID);
+        } catch(SessionNotFound e) {}
+    }
+
     public void onMessage( org.quickfix.fix42.NewOrderSingle order, SessionID sessionID )
     throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
         Symbol symbol = new Symbol();
@@ -95,9 +177,9 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         org.quickfix.fix42.ExecutionReport executionReport = new org.quickfix.fix42.ExecutionReport
                 ( genOrderID(),
                   genExecID(),
-                  new ExecTransType( '0' ),
-                  new ExecType     ( ExecType.NEW ),
-                  new OrdStatus    ( OrdStatus.NEW ),
+                  new ExecTransType( ExecTransType.NEW ),
+                  new ExecType     ( ExecType.FILL ),
+                  new OrdStatus    ( OrdStatus.FILLED ),
                   symbol,
                   side,
                   new LeavesQty    ( 0 ),
@@ -107,6 +189,88 @@ public class Application extends org.quickfix.MessageCracker implements org.quic
         executionReport.set(clOrdID);
         executionReport.set(orderQty);
         executionReport.set(new LastShares(orderQty.getValue()));
+        executionReport.set(new LastPx(price.getValue()));
+
+        try {
+            Session.sendToTarget(executionReport, sessionID);
+        } catch(SessionNotFound e) {}
+    }
+
+    public void onMessage( org.quickfix.fix43.NewOrderSingle order, SessionID sessionID )
+    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+        Symbol symbol = new Symbol();
+        Side side = new Side();
+        OrdType ordType = new OrdType();
+        OrderQty orderQty = new OrderQty();
+        Price price = new Price();
+        ClOrdID clOrdID = new ClOrdID();
+
+        order.get(ordType);
+
+        if(ordType.getValue() != OrdType.LIMIT)
+            throw new IncorrectTagValue(ordType.getField());
+
+        order.get(symbol);
+        order.get(side);
+        order.get(orderQty);
+        order.get(price);
+        order.get(clOrdID);
+
+        org.quickfix.fix43.ExecutionReport executionReport = new org.quickfix.fix43.ExecutionReport
+                ( genOrderID(),
+                  genExecID(),
+                  new ExecType     ( ExecType.FILL ),
+                  new OrdStatus    ( OrdStatus.FILLED ),
+                  side,
+                  new LeavesQty    ( 0 ),
+                  new CumQty       ( orderQty.getValue() ),
+                  new AvgPx        ( price.getValue() ));
+
+        executionReport.set(clOrdID);
+        executionReport.set(symbol);
+        executionReport.set(orderQty);
+        executionReport.set(new LastQty(orderQty.getValue()));
+        executionReport.set(new LastPx(price.getValue()));
+
+        try {
+            Session.sendToTarget(executionReport, sessionID);
+        } catch(SessionNotFound e) {}
+    }
+
+    public void onMessage( org.quickfix.fix44.NewOrderSingle order, SessionID sessionID )
+    throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue {
+        Symbol symbol = new Symbol();
+        Side side = new Side();
+        OrdType ordType = new OrdType();
+        OrderQty orderQty = new OrderQty();
+        Price price = new Price();
+        ClOrdID clOrdID = new ClOrdID();
+
+        order.get(ordType);
+
+        if(ordType.getValue() != OrdType.LIMIT)
+            throw new IncorrectTagValue(ordType.getField());
+
+        order.get(symbol);
+        order.get(side);
+        order.get(orderQty);
+        order.get(price);
+        order.get(clOrdID);
+
+        org.quickfix.fix44.ExecutionReport executionReport = new org.quickfix.fix44.ExecutionReport
+                ( genOrderID(),
+                  genExecID(),
+                  new ExecType     ( ExecType.FILL ),
+                  new OrdStatus    ( OrdStatus.FILLED ),
+                  side,
+                  new LeavesQty    ( 0 ),
+                  new CumQty       ( orderQty.getValue() ),
+                  new AvgPx        ( price.getValue() ));
+
+        executionReport.set(clOrdID);
+        executionReport.set(symbol);
+        executionReport.set(orderQty);
+        executionReport.set(new LastQty(orderQty.getValue()));
         executionReport.set(new LastPx(price.getValue()));
 
         try {

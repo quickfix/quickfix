@@ -81,6 +81,13 @@
 #include "quickfix/fix43/OrderCancelReplaceRequest.h"
 #include "quickfix/fix43/MarketDataRequest.h"
 
+#include "quickfix/fix44/NewOrderSingle.h"
+#include "quickfix/fix44/ExecutionReport.h"
+#include "quickfix/fix44/OrderCancelRequest.h"
+#include "quickfix/fix44/OrderCancelReject.h"
+#include "quickfix/fix44/OrderCancelReplaceRequest.h"
+#include "quickfix/fix44/MarketDataRequest.h"
+
 #include <queue>
 
 class Application :
@@ -108,23 +115,33 @@ private:
   void onMessage( const FIX41::OrderCancelReject&, const FIX::SessionID& );
   void onMessage( const FIX42::ExecutionReport&, const FIX::SessionID& );
   void onMessage( const FIX42::OrderCancelReject&, const FIX::SessionID& );
+  void onMessage( const FIX43::ExecutionReport&, const FIX::SessionID& );
+  void onMessage( const FIX43::OrderCancelReject&, const FIX::SessionID& );
+  void onMessage( const FIX44::ExecutionReport&, const FIX::SessionID& );
+  void onMessage( const FIX44::OrderCancelReject&, const FIX::SessionID& );
 
   void queryEnterOrder();
   void queryCancelOrder();
   void queryReplaceOrder();
   void queryMarketDataRequest();
 
-  FIX43::MarketDataRequest queryMarketDataRequest43();
-
   FIX40::NewOrderSingle queryNewOrderSingle40();
   FIX41::NewOrderSingle queryNewOrderSingle41();
   FIX42::NewOrderSingle queryNewOrderSingle42();
+  FIX43::NewOrderSingle queryNewOrderSingle43();
+  FIX44::NewOrderSingle queryNewOrderSingle44();
   FIX40::OrderCancelRequest queryOrderCancelRequest40();
   FIX41::OrderCancelRequest queryOrderCancelRequest41();
   FIX42::OrderCancelRequest queryOrderCancelRequest42();
+  FIX43::OrderCancelRequest queryOrderCancelRequest43();
+  FIX44::OrderCancelRequest queryOrderCancelRequest44();
   FIX40::OrderCancelReplaceRequest queryCancelReplaceRequest40();
   FIX41::OrderCancelReplaceRequest queryCancelReplaceRequest41();
   FIX42::OrderCancelReplaceRequest queryCancelReplaceRequest42();
+  FIX43::OrderCancelReplaceRequest queryCancelReplaceRequest43();
+  FIX44::OrderCancelReplaceRequest queryCancelReplaceRequest44();
+  FIX43::MarketDataRequest queryMarketDataRequest43();
+  FIX44::MarketDataRequest queryMarketDataRequest44();
 
   void queryHeader( FIX::Header& header );
   char queryAction();
