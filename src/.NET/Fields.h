@@ -1004,6 +1004,13 @@ namespace QuickFix
   static const int DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER = 7;
   static const int STALE_ORDER = 8;
   static const int TRADE_ALONG_REQUIRED = 9;
+  static const int INVALID_INVESTOR_ID = 10;
+  static const int UNSUPPORTED_ORDER_CHARACTERISTIC = 11;
+  static const int SURVEILLENCE_OPTION = 12;
+  static const int INCORRECT_QUANTITY = 13;
+  static const int INCORRECT_ALLOCATED_QUANTITY = 14;
+  static const int UNKNOWN_ACCOUNT = 15;
+  static const int OTHER = 99;
   OrdRejReason() : IntField(103) {}
     OrdRejReason(int data) : IntField(103, data) {}
   };

@@ -436,6 +436,13 @@ namespace FIX
  const int OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER = 7;
  const int OrdRejReason_STALE_ORDER = 8;
  const int OrdRejReason_TRADE_ALONG_REQUIRED = 9;
+ const int OrdRejReason_INVALID_INVESTOR_ID = 10;
+ const int OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC = 11;
+ const int OrdRejReason_SURVEILLENCE_OPTION = 12;
+ const int OrdRejReason_INCORRECT_QUANTITY = 13;
+ const int OrdRejReason_INCORRECT_ALLOCATED_QUANTITY = 14;
+ const int OrdRejReason_UNKNOWN_ACCOUNT = 15;
+ const int OrdRejReason_OTHER = 99;
  const char IOIQualifier_ALL_OR_NONE = 'A';
  const char IOIQualifier_MARKET_ON_CLOSE = 'B';
  const char IOIQualifier_AT_THE_CLOSE = 'C';
