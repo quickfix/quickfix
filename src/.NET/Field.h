@@ -131,12 +131,12 @@ public:
   { return * dynamic_cast < DateTime* > ( getObject() ); }
 };
 
-public __gc class UtcDateField : public Field
+public __gc class UtcDateOnlyField : public Field
 {
 public:
-  UtcDateField( int field )
+  UtcDateOnlyField( int field )
 : Field( field, __box( DateTime::Now.ToUniversalTime() ) ) {}
-  UtcDateField( int field, DateTime data )
+  UtcDateOnlyField( int field, DateTime data )
 : Field( field, __box( data ) ) {}
 
   void setValue( DateTime value )
@@ -144,6 +144,15 @@ public:
   DateTime getValue()
   { return * dynamic_cast < DateTime* > ( getObject() ); }
 };
+
+public __gc class UtcDateField : public UtcDateOnlyField
+{
+public:
+  UtcDateField( int field )
+: UtcDateOnlyField( field ) {}
+  UtcDateField( int field, DateTime data )
+: UtcDateOnlyField( field, data ) {}
+}; 
 
 public __gc class UtcTimeOnlyField : public Field
 {

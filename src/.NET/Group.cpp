@@ -83,12 +83,12 @@ void Group::setField( UtcTimeStampField* field )
   QF_STACK_CATCH 
 }
 
-void Group::setField( UtcDateField* field )
+void Group::setField( UtcDateOnlyField* field )
 { QF_STACK_TRY
 
   DateTime value = field->getValue();
   m_pUnmanaged->setField
-    ( FIX::UtcDateField
+    ( FIX::UtcDateOnlyField
       ( field->getField(),
         FIX::UtcDate( value.Day, value.Month, value.Year ) ) );
 
@@ -205,7 +205,7 @@ throw( FieldNotFound* )
   QF_STACK_CATCH 
 }
 
-UtcDateField* Group::getField( UtcDateField* field ) throw( FieldNotFound* )
+UtcDateOnlyField* Group::getField( UtcDateOnlyField* field ) throw( FieldNotFound* )
 { QF_STACK_TRY
 
   try

@@ -80,7 +80,7 @@ void Message::setField( UtcTimeStampField* field )
   checkDisposed(); setField( field, *m_pUnmanaged ); 
   QF_STACK_CATCH 
 }
-void Message::setField( UtcDateField* field )
+void Message::setField( UtcDateOnlyField* field )
 { QF_STACK_TRY
   checkDisposed(); setField( field, *m_pUnmanaged ); 
   QF_STACK_CATCH 
@@ -127,7 +127,7 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   checkDisposed(); return getField( field, *m_pUnmanaged ); 
   QF_STACK_CATCH 
 }
-UtcDateField* Message::getField( UtcDateField* field )
+UtcDateOnlyField* Message::getField( UtcDateOnlyField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
 { QF_STACK_TRY
   checkDisposed(); return getField( field, *m_pUnmanaged ); 
@@ -216,7 +216,7 @@ void Message::Header::setField( UtcTimeStampField* field )
   m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
   QF_STACK_CATCH
 }
-void Message::Header::setField( UtcDateField* field )
+void Message::Header::setField( UtcDateOnlyField* field )
 { QF_STACK_TRY
   checkDisposed(); 
   m_message->setField( field, m_message->m_pUnmanaged->getHeader() ); 
@@ -271,7 +271,7 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   return m_message->getField( field, m_message->m_pUnmanaged->getHeader() ); 
   QF_STACK_CATCH
 }
-UtcDateField* Message::Header::getField( UtcDateField* field )
+UtcDateOnlyField* Message::Header::getField( UtcDateOnlyField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
 { QF_STACK_TRY
   checkDisposed(); 
@@ -367,7 +367,7 @@ void Message::Trailer::setField( UtcTimeStampField* field )
   m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
   QF_STACK_CATCH
 }
-void Message::Trailer::setField( UtcDateField* field )
+void Message::Trailer::setField( UtcDateOnlyField* field )
 { QF_STACK_TRY
   checkDisposed(); 
   m_message->setField( field, m_message->m_pUnmanaged->getTrailer() ); 
@@ -422,7 +422,7 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   return m_message->getField( field, m_message->m_pUnmanaged->getTrailer() ); 
   QF_STACK_CATCH
 }
-UtcDateField* Message::Trailer::getField( UtcDateField* field )
+UtcDateOnlyField* Message::Trailer::getField( UtcDateOnlyField* field )
 throw( FieldNotFound*, IncorrectDataFormat* )
 { QF_STACK_TRY
   checkDisposed(); 
@@ -525,11 +525,11 @@ void Message::setField( UtcTimeStampField* field, FIX::FieldMap& map )
   QF_STACK_CATCH
 }
 
-void Message::setField( UtcDateField* field, FIX::FieldMap& map )
+void Message::setField( UtcDateOnlyField* field, FIX::FieldMap& map )
 { QF_STACK_TRY
 
   DateTime value = field->getValue();
-  map.setField( FIX::UtcDateField(
+  map.setField( FIX::UtcDateOnlyField(
                   field->getField(),
                   FIX::UtcDate( value.Day, value.Month, value.Year ) ) );
   QF_STACK_CATCH
@@ -657,7 +657,7 @@ throw( FieldNotFound*, IncorrectDataFormat* )
   QF_STACK_CATCH
 }
 
-UtcDateField* Message::getField( UtcDateField* field, FIX::FieldMap& map )
+UtcDateOnlyField* Message::getField( UtcDateOnlyField* field, FIX::FieldMap& map )
 throw( FieldNotFound*, IncorrectDataFormat* )
 { QF_STACK_TRY
 

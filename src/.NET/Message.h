@@ -154,7 +154,7 @@ public:
   void setField( IntField* field );
   void setField( DoubleField* field );
   void setField( UtcTimeStampField* field );
-  void setField( UtcDateField* field );
+  void setField( UtcDateOnlyField* field );
   void setField( UtcTimeOnlyField* field );
 
   StringField* getField( StringField* field ) throw( FieldNotFound* );
@@ -164,7 +164,7 @@ public:
   DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
   UtcTimeStampField* getField( UtcTimeStampField* field ) 
     throw( FieldNotFound* );
-  UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
+  UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
   UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
     throw( FieldNotFound* );
 
@@ -209,7 +209,7 @@ public:
     void setField( IntField* field );
     void setField( DoubleField* field );
     void setField( UtcTimeStampField* field );
-    void setField( UtcDateField* field );
+    void setField( UtcDateOnlyField* field );
     void setField( UtcTimeOnlyField* field );
 
     StringField* getField( StringField* field ) throw( FieldNotFound* );
@@ -219,7 +219,7 @@ public:
     DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
     UtcTimeStampField* getField( UtcTimeStampField* field ) 
       throw( FieldNotFound* );
-    UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
+    UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
     UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
       throw( FieldNotFound* );
 
@@ -262,7 +262,7 @@ public:
     void setField( IntField* field );
     void setField( DoubleField* field );
     void setField( UtcTimeStampField* field );
-    void setField( UtcDateField* field );
+    void setField( UtcDateOnlyField* field );
     void setField( UtcTimeOnlyField* field );
 
     StringField* getField( StringField* field ) throw( FieldNotFound* );
@@ -272,7 +272,7 @@ public:
     DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
     UtcTimeStampField* getField( UtcTimeStampField* field ) 
       throw( FieldNotFound* );
-    UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
+    UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
     UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
       throw( FieldNotFound* );
 
@@ -315,7 +315,7 @@ private:
   void setField( IntField* field, FIX::FieldMap& map );
   void setField( DoubleField* field, FIX::FieldMap& map );
   void setField( UtcTimeStampField* field, FIX::FieldMap& map );
-  void setField( UtcDateField* field, FIX::FieldMap& map );
+  void setField( UtcDateOnlyField* field, FIX::FieldMap& map );
   void setField( UtcTimeOnlyField* field, FIX::FieldMap& map );
 
   StringField* getField( StringField* field, FIX::FieldMap& map ) 
@@ -330,7 +330,7 @@ private:
     throw( FieldNotFound* );
   UtcTimeStampField* getField( UtcTimeStampField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
-  UtcDateField* getField( UtcDateField* field, FIX::FieldMap& map ) 
+  UtcDateOnlyField* getField( UtcDateOnlyField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );
   UtcTimeOnlyField* getField( UtcTimeOnlyField* field, FIX::FieldMap& map ) 
     throw( FieldNotFound* );

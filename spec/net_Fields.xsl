@@ -72,6 +72,7 @@ namespace QuickFix
      <xsl:when test="@type='UTCTIMESTAMP'">DateTime</xsl:when>
      <xsl:when test="@type='UTCTIMEONLY'">DateTime</xsl:when>
      <xsl:when test="@type='UTCDATE'">DateTime</xsl:when>
+     <xsl:when test="@type='UTCDATEONLY'">DateTime</xsl:when>
      <xsl:when test="@type='BOOL'">bool</xsl:when>
      <xsl:when test="@type='FLOAT'">double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">double</xsl:when>
@@ -96,7 +97,8 @@ namespace QuickFix
      <xsl:when test="@type='CURRENCY'">String</xsl:when>
      <xsl:when test="@type='UTCTIMESTAMP'">UtcTimeStamp</xsl:when>
      <xsl:when test="@type='UTCTIMEONLY'">UtcTimeOnly</xsl:when>
-     <xsl:when test="@type='UTCDATE'">UtcDate</xsl:when>
+     <xsl:when test="@type='UTCDATE'">UtcDateOnly</xsl:when>
+     <xsl:when test="@type='UTCDATEONLY'">UtcDateOnly</xsl:when>
      <xsl:when test="@type='BOOL'">Bool</xsl:when>
      <xsl:when test="@type='FLOAT'">Double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">Double</xsl:when>

@@ -102,7 +102,7 @@ public:
   void setField( IntField* field );
   void setField( DoubleField* field );
   void setField( UtcTimeStampField* field );
-  void setField( UtcDateField* field );
+  void setField( UtcDateOnlyField* field );
   void setField( UtcTimeOnlyField* field );
 
   StringField* getField( StringField* field ) throw( FieldNotFound* );
@@ -112,7 +112,7 @@ public:
   DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
   UtcTimeStampField* getField( UtcTimeStampField* field ) 
     throw( FieldNotFound* );
-  UtcDateField* getField( UtcDateField* field ) throw( FieldNotFound* );
+  UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
   UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) 
     throw( FieldNotFound* );
   bool isSetField( Field* field );

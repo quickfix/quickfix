@@ -2334,11 +2334,11 @@ namespace QuickFix
     MDEntrySize(double data) : DoubleField(271, data) {}
   };
   
-  public __gc class MDEntryDate : public StringField
+  public __gc class MDEntryDate : public UtcDateOnlyField
   {
   public:
-  MDEntryDate() : StringField(272) {}
-    MDEntryDate(String* data) : StringField(272, data) {}
+  MDEntryDate() : UtcDateOnlyField(272) {}
+    MDEntryDate(DateTime data) : UtcDateOnlyField(272, data) {}
   };
   
   public __gc class MDEntryTime : public UtcTimeOnlyField
