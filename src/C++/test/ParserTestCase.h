@@ -41,6 +41,7 @@ public:
     add( &m_extractLength );
     add( &m_readFixMessage );
     add( &m_readPartialFixMessage );
+    add( &m_readMessageWithBadLength );
     add( &m_readFromSocket );
   }
 
@@ -83,6 +84,18 @@ private:
     std::stringstream* m_pStream;
   }
   m_readPartialFixMessage;
+
+  class readMessageWithBadLength : public Test
+  {
+    bool onSetup( Parser*& pObject );
+    void onRun( Parser& object );
+    void onTeardown( Parser* pObject )
+    { delete pObject; delete m_pStream; }
+
+    std::string m_fixMsg;
+    std::stringstream* m_pStream;
+  }
+  m_readMessageWithBadLength;
 
   class readFromSocket : public Test
   {

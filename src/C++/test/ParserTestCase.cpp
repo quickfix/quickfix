@@ -118,6 +118,36 @@ void ParserTestCase::readPartialFixMessage::onRun( Parser& object )
   assert( partFixMsg == ( m_partFixMsg1 + m_partFixMsg2 ) );
 }
 
+bool ParserTestCase::readMessageWithBadLength::onSetup( Parser*& pObject )
+{
+  m_fixMsg = "8=TEST\0019=TEST\00135=TEST\00149=SS1\00156=RORE\00134=3\00152=20050222-16:45:53\00110=TEST\001";
+
+  m_pStream = new std::stringstream( m_fixMsg );
+
+  pObject = new Parser( *m_pStream );
+  return true;
+}
+
+void ParserTestCase::readMessageWithBadLength::onRun( Parser& object )
+{
+  std::string fixMsg;
+  try
+  {
+    object.readFixMessage( fixMsg );
+    assert( false );
+  }
+  catch( MessageParseError& ) {}
+
+  try
+  {
+    assert( !object.readFixMessage( fixMsg ) );
+  }
+  catch( MessageParseError& ) 
+  {
+    assert( false );
+  }
+}
+
 bool ParserTestCase::readFromSocket::onSetup( Parser*& pObject )
 {
   m_fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";

@@ -114,7 +114,11 @@ throw( MessageParseError, SocketRecvFailed )
   }
   catch( MessageParseError& e )
   {
-    m_buffer.erase( 0, pos + length );
+    if( length > 0 )
+      m_buffer.erase( 0, pos + length );
+    else
+      m_buffer.erase();
+
     throw e;
   }
 
