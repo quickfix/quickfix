@@ -44,6 +44,29 @@ const std::string MySQLStoreFactory::DEFAULT_PASSWORD = "";
 const std::string MySQLStoreFactory::DEFAULT_HOST = "localhost";
 const short MySQLStoreFactory::DEFAULT_PORT = 0;
 
+int safe_query( MYSQL* dbms, const std::string& sql )
+{
+  int retry = 0;
+  int errcode = 0;
+  int mysqlerrno = 0;
+  std::string errmsg;
+
+  do
+  {
+    errcode = mysql_query( dbms, sql.c_str() );
+    if( errcode == 0 )
+      return 0;
+    mysqlerrno = mysql_errno( dbms );
+    if( errcode != 0 )
+    {
+      if( !(mysqlerrno == CR_SERVER_GONE_ERROR || mysqlerrno == CR_SERVER_LOST) )
+        return errcode;
+    }
+    ++retry;
+  } while( retry <= 1 );
+  return errcode;
+}
+
 MySQLStore::MySQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
@@ -79,7 +102,7 @@ void MySQLStore::populateCache()
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
 
-  if ( mysql_query( pConnection, query.str().c_str() ) )
+  if ( safe_query( pConnection, query.str() ) )
     throw ConfigError( "Unable to connect to database" );
   MYSQL_RES* result = mysql_store_result( pConnection );
   if ( result )
@@ -113,9 +136,10 @@ void MySQLStore::populateCache()
       << "'" << sqlTime << "',"
       << m_cache.getNextTargetMsgSeqNum() << ","
       << m_cache.getNextSenderMsgSeqNum() << ")";
-      if ( mysql_query( pConnection, query2.str().c_str() ) )
+      if ( safe_query( pConnection, query2.str() ) )
         throw ConfigError( "Unable to create session in database" );
     }
+    mysql_free_result( result );
   }
 
   QF_STACK_POP
@@ -188,7 +212,7 @@ throw ( IOException )
   << msgSeqNum << ","
   << "\"" << msgCopy << "\")";
 
-  if ( mysql_query( pConnection, query.str().c_str() ) )
+  if ( safe_query( pConnection, query.str() ) )
   {
     std::stringstream query2;
     query2 << "UPDATE messages SET message=\"" << msg << "\" WHERE "
@@ -197,7 +221,7 @@ throw ( IOException )
     << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
     << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
     << "msgseqnum=" << msgSeqNum;
-    if ( mysql_query( pConnection, query2.str().c_str() ) )
+    if ( safe_query( pConnection, query2.str() ) )
       throw IOException();
   }
   return true;
@@ -218,12 +242,13 @@ throw ( IOException )
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
   << "msgseqnum=" << msgSeqNum;
 
-  if ( mysql_query( pConnection, query.str().c_str() ) )
+  if ( safe_query( pConnection, query.str() ) )
     throw IOException();
   MYSQL_RES* result = mysql_store_result( pConnection );
   if ( mysql_num_rows( result ) != 1 ) return false;
   MYSQL_ROW row = mysql_fetch_row( result );
   msg = row[ 0 ];
+  mysql_free_result( result );
   return true;
 
   QF_STACK_POP
@@ -245,14 +270,14 @@ throw ( IOException )
   << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
   << "ORDER BY msgseqnum";
 
-  if ( mysql_query( pConnection, query.str().c_str() ) )
+  if ( safe_query( pConnection, query.str() ) )
     throw IOException();
 
   MYSQL_RES* sqlResult = mysql_store_result( pConnection );
 
   while ( MYSQL_ROW row = mysql_fetch_row( sqlResult ) )
     result.push_back( row[ 0 ] );
-
+  mysql_free_result( sqlResult );
   QF_STACK_POP
 }
 
@@ -278,7 +303,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( mysql_query( pConnection, query.str().c_str() ) )
+  if ( safe_query( pConnection, query.str() ) )
     throw IOException();
   m_cache.setNextSenderMsgSeqNum( value );
 
@@ -295,7 +320,7 @@ void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( mysql_query( pConnection, query.str().c_str() ) )
+  if ( safe_query( pConnection, query.str() ) )
     throw IOException();
   m_cache.setNextTargetMsgSeqNum( value );
 
@@ -332,7 +357,7 @@ void MySQLStore::reset() throw ( IOException )
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( mysql_query( pConnection, query.str().c_str() ) )
+  if ( safe_query( pConnection, query.str() ) )
     throw IOException();
 
   m_cache.reset();
@@ -348,7 +373,7 @@ void MySQLStore::reset() throw ( IOException )
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( mysql_query( pConnection, query2.str().c_str() ) )
+  if ( safe_query( pConnection, query2.str() ) )
     throw IOException();
 
   QF_STACK_POP
