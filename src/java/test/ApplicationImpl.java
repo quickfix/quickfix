@@ -15,33 +15,26 @@ public class ApplicationImpl implements Application {
 
     public void onCreate(SessionID sessionId) {
         created = true;
-        category.debug("onCreate");
     }
 
     public void onLogon(SessionID sessionId) {
         loggedOn = true;
-        category.debug("onLogon");
     }
 
     public void onLogout(SessionID sessionId) {
         loggedOn = false;
-        category.debug("onLogout");
     }
 
     public void toAdmin(Message message, SessionID sessionId) {
-        category.debug(message);
     }
 
     public void toApp(Message message, SessionID sessionId) {
-        category.debug(message);
     }
 
     public void fromAdmin(Message message, SessionID sessionId) {
-        category.debug(message);
     }
 
     public void fromApp(Message message, SessionID sessionId) {
-        category.debug(message);
         this.message = message;
     }
 
