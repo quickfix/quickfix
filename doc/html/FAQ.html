@@ -27,6 +27,8 @@
   <LI><A HREF="#R3">When running my application under *nix, it crashes with a segmentation fault.</A></LI>
   <LI><A HREF="#R4">When running my application under Linux, it crashes with a SIG_ABRT.</A></LI>
   <LI><A HREF="#R4">Use of MySQL code under Java results in a <I>UnsatisfiedLinkError</I>.</A></LI>
+  <LI><A HREF="#R5">My QuickFIX application crashed immediately on startup when using a DataDictionary.</A></LI>
+  <LI><A HREF="#R6">QuickFIX is dropping messages with repeating groups when not using a DataDictionary.</A></LI>
   </UL>
   </p>
 
@@ -120,6 +122,19 @@
   <B><FONT color="#FF0000">Use of MySQL code under Java results in a <I>UnsatisfiedLinkError</I>.</FONT></B><br>
   You havn't built quickfix or the JNI wrapper with MySQL support.  See the installation instructions for building
   with MySQL on your system.
+
+  <br><br>
+  <A NAME="R5"/>
+  <B><FONT color="#FF0000">My QuickFIX application crashed immediately on startup when using a DataDictionary.</FONT></B><br>
+  Older versions of QuickFIX crash if the DataDictionary is poorly formed XML.  Check for errors
+  in your data dictionary.  This was fixed in 1.6.
+
+  <br><br>
+  <A NAME="R6"/>
+  <B><FONT color="#FF0000">QuickFIX is dropping messages with repeating groups when not using a DataDictionary.</FONT></B><br>
+  Older versions of QuickFIX could not tell the difference between garbled messages and 
+  these messages.  Make sure you are using a DataDictionary if you intend on receiving
+  repeating groups.  Newer versions will accept these messages and send proper rejects.
 
   </body>
 </html>
