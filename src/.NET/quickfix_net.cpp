@@ -50,6 +50,7 @@
 #include "stdafx.h"
 
 #include "quickfix_net.h"
+#include "DataDictionary.h"
 #include "Application.h"
 #include "SocketInitiator.h"
 #include "SocketAcceptor.h"

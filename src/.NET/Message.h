@@ -56,6 +56,7 @@ using namespace System;
 #include "Field.h"
 #include "Exceptions.h"
 #include "Group.h"
+#include "DataDictionary.h"
 
 #include "quickfix/Message.h"
 #include "quickfix/CallStack.h"
@@ -87,6 +88,24 @@ public:
         m_pUnmanaged = new FIX::Message();
       else
         m_pUnmanaged = new FIX::Message( convertString( string ) );
+      m_header = new Header( this );
+      m_trailer = new Trailer( this );
+    }
+    catch ( FIX::InvalidMessage & e )
+    { throw new InvalidMessage(); }
+
+    QF_STACK_CATCH
+  }
+
+  Message( String* string, DataDictionary* dataDictionary ) : disposed( false )
+  { QF_STACK_TRY
+
+    try
+    {
+      if ( !String::Compare( string, String::Empty ) )
+        m_pUnmanaged = new FIX::Message();
+      else
+        m_pUnmanaged = new FIX::Message( convertString(string), dataDictionary->unmanaged() );
       m_header = new Header( this );
       m_trailer = new Trailer( this );
     }
