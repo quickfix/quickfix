@@ -159,6 +159,7 @@ class GeneratorCPP
     @f.puts tabs + "}"
     @f.puts
     @f.puts tabs + "#endif"
+    @f.close
   end
 
   def back
