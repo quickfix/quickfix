@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocType extends IntField 
 { 
+  public static final int FIELD = 626; 
 public static final int BUYSIDE_CALCULATED = 1; 
 public static final int BUYSIDE_PRELIMINARY = 2; 
 public static final int SELLSIDE_CALCULATED_USING_PRELIMINARY = 3; 

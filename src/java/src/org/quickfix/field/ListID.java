@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ListID extends StringField 
 { 
+  public static final int FIELD = 66; 
 
   public ListID() 
   { 

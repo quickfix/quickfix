@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegSide extends CharField 
 { 
+  public static final int FIELD = 624; 
 
   public LegSide() 
   { 

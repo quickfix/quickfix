@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RoutingID extends StringField 
 { 
+  public static final int FIELD = 217; 
 
   public RoutingID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ClearingFeeIndicator extends StringField 
 { 
+  public static final int FIELD = 635; 
 
   public ClearingFeeIndicator() 
   { 

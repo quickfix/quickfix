@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeRequestID extends StringField 
 { 
+  public static final int FIELD = 568; 
 
   public TradeRequestID() 
   { 

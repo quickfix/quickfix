@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TickDirection extends CharField 
 { 
+  public static final int FIELD = 274; 
 public static final char PLUS_TICK = '0'; 
 public static final char ZERO_PLUS_TICK = '1'; 
 public static final char MINUS_TICK = '2'; 

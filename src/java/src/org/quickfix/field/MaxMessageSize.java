@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MaxMessageSize extends IntField 
 { 
+  public static final int FIELD = 383; 
 
   public MaxMessageSize() 
   { 

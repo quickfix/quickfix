@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AffectedSecondaryOrderID extends StringField 
 { 
+  public static final int FIELD = 536; 
 
   public AffectedSecondaryOrderID() 
   { 

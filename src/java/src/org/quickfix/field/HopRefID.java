@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class HopRefID extends IntField 
 { 
+  public static final int FIELD = 630; 
 
   public HopRefID() 
   { 

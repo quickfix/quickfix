@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ContraLegRefID extends StringField 
 { 
+  public static final int FIELD = 655; 
 
   public ContraLegRefID() 
   { 

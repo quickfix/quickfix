@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Account extends StringField 
 { 
+  public static final int FIELD = 1; 
 
   public Account() 
   { 

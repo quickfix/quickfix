@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeOriginationDate extends UtcDateField 
 { 
+  public static final int FIELD = 229; 
 
   public TradeOriginationDate() 
   { 

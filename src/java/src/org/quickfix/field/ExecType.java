@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExecType extends CharField 
 { 
+  public static final int FIELD = 150; 
 public static final char NEW = '0'; 
 public static final char PARTIAL_FILL = '1'; 
 public static final char FILL = '2'; 

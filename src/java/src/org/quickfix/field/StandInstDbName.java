@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class StandInstDbName extends StringField 
 { 
+  public static final int FIELD = 170; 
 
   public StandInstDbName() 
   { 

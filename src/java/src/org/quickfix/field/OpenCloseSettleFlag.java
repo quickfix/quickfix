@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OpenCloseSettleFlag extends StringField 
 { 
+  public static final int FIELD = 286; 
 public static final char DAILY_OPEN = '0'; 
 public static final char SESSION_OPEN = '1'; 
 public static final char DELIVERY_SETTLEMENT_PRICE = '2'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Subject extends StringField 
 { 
+  public static final int FIELD = 147; 
 
   public Subject() 
   { 

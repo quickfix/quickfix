@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MultiLegReportingType extends CharField 
 { 
+  public static final int FIELD = 442; 
 
   public MultiLegReportingType() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class XmlDataLen extends IntField 
 { 
+  public static final int FIELD = 212; 
 
   public XmlDataLen() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LastShares extends DoubleField 
 { 
+  public static final int FIELD = 32; 
 
   public LastShares() 
   { 

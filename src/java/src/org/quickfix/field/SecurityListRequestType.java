@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityListRequestType extends IntField 
 { 
+  public static final int FIELD = 559; 
 public static final int SYMBOL = 0; 
 public static final int SECURITYTYPE_AND = 1; 
 public static final int PRODUCT = 2; 

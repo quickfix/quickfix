@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Password extends StringField 
 { 
+  public static final int FIELD = 554; 
 
   public Password() 
   { 

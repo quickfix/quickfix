@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SendingDate extends StringField 
 { 
+  public static final int FIELD = 51; 
 
   public SendingDate() 
   { 

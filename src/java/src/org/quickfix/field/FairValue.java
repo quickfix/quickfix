@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class FairValue extends DoubleField 
 { 
+  public static final int FIELD = 406; 
 
   public FairValue() 
   { 

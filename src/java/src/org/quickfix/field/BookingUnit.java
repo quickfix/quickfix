@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BookingUnit extends CharField 
 { 
+  public static final int FIELD = 590; 
 
   public BookingUnit() 
   { 

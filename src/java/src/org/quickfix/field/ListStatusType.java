@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ListStatusType extends IntField 
 { 
+  public static final int FIELD = 429; 
 public static final int ACK = 1; 
 public static final int RESPONSE = 2; 
 public static final int TIMED = 3; 

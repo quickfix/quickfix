@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExpireTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 126; 
 
   public ExpireTime() 
   { 

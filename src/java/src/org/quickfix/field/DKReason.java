@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DKReason extends CharField 
 { 
+  public static final int FIELD = 127; 
 public static final char UNKNOWN_SYMBOL = 'A'; 
 public static final char WRONG_SIDE = 'B'; 
 public static final char QUANTITY_EXCEEDS_ORDER = 'C'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegCouponRate extends DoubleField 
 { 
+  public static final int FIELD = 615; 
 
   public LegCouponRate() 
   { 

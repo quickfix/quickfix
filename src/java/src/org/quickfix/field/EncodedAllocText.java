@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedAllocText extends StringField 
 { 
+  public static final int FIELD = 361; 
 
   public EncodedAllocText() 
   { 

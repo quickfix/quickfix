@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MktBidPx extends DoubleField 
 { 
+  public static final int FIELD = 645; 
 
   public MktBidPx() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DateOfBirth extends StringField 
 { 
+  public static final int FIELD = 486; 
 
   public DateOfBirth() 
   { 

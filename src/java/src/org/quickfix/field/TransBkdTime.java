@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TransBkdTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 483; 
 
   public TransBkdTime() 
   { 

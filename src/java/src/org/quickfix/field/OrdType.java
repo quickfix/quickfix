@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrdType extends CharField 
 { 
+  public static final int FIELD = 40; 
 public static final char MARKET = '1'; 
 public static final char LIMIT = '2'; 
 public static final char STOP = '3'; 

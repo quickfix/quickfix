@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CommType extends CharField 
 { 
+  public static final int FIELD = 13; 
 public static final char PER_SHARE = '1'; 
 public static final char PERCENTAGE = '2'; 
 public static final char ABSOLUTE = '3'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocRejCode extends IntField 
 { 
+  public static final int FIELD = 88; 
 public static final int UNKNOWN_ACCOUNT = 0; 
 public static final int INCORRECT_QUANTITY = 1; 
 public static final int INCORRECT_AVERAGE_PRICE = 2; 

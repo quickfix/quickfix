@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DefOfferSize extends DoubleField 
 { 
+  public static final int FIELD = 294; 
 
   public DefOfferSize() 
   { 

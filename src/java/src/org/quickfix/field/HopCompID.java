@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class HopCompID extends StringField 
 { 
+  public static final int FIELD = 628; 
 
   public HopCompID() 
   { 

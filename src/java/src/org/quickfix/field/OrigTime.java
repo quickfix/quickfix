@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrigTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 42; 
 
   public OrigTime() 
   { 

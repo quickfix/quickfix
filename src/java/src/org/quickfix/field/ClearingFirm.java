@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ClearingFirm extends StringField 
 { 
+  public static final int FIELD = 439; 
 
   public ClearingFirm() 
   { 

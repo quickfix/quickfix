@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingSecurityType extends StringField 
 { 
+  public static final int FIELD = 310; 
 
   public UnderlyingSecurityType() 
   { 

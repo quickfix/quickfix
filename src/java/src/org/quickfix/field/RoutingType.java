@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RoutingType extends IntField 
 { 
+  public static final int FIELD = 216; 
 public static final int TARGET_FIRM = 1; 
 public static final int TARGET_LIST = 2; 
 public static final int BLOCK_FIRM = 3; 

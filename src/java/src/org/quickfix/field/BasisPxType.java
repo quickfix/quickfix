@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BasisPxType extends CharField 
 { 
+  public static final int FIELD = 419; 
 public static final char CLOSING_PRICE_AT_MORNING_SESSION = '2'; 
 public static final char CLOSING_PRICE = '3'; 
 public static final char CURRENT_PRICE = '4'; 

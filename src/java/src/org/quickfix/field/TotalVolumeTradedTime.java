@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TotalVolumeTradedTime extends UtcTimeOnlyField 
 { 
+  public static final int FIELD = 450; 
 
   public TotalVolumeTradedTime() 
   { 

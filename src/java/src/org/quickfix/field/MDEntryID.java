@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDEntryID extends StringField 
 { 
+  public static final int FIELD = 278; 
 
   public MDEntryID() 
   { 

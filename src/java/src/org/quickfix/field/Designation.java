@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Designation extends StringField 
 { 
+  public static final int FIELD = 494; 
 
   public Designation() 
   { 

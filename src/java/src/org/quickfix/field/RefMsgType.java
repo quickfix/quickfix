@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RefMsgType extends StringField 
 { 
+  public static final int FIELD = 372; 
 
   public RefMsgType() 
   { 

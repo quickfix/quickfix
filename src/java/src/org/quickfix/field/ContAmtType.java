@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ContAmtType extends IntField 
 { 
+  public static final int FIELD = 519; 
 
   public ContAmtType() 
   { 

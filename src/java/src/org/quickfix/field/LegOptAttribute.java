@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegOptAttribute extends CharField 
 { 
+  public static final int FIELD = 613; 
 
   public LegOptAttribute() 
   { 

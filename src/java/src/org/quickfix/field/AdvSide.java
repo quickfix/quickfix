@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AdvSide extends CharField 
 { 
+  public static final int FIELD = 4; 
 public static final char BUY = 'B'; 
 public static final char SELL = 'S'; 
 public static final char CROSS = 'X'; 

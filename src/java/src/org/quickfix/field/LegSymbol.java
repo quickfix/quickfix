@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegSymbol extends StringField 
 { 
+  public static final int FIELD = 600; 
 
   public LegSymbol() 
   { 

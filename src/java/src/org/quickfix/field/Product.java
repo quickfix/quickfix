@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Product extends IntField 
 { 
+  public static final int FIELD = 460; 
 public static final int AGENCY = 1; 
 public static final int COMMODITY = 2; 
 public static final int CORPORATE = 3; 

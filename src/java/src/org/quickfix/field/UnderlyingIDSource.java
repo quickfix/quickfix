@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingIDSource extends StringField 
 { 
+  public static final int FIELD = 305; 
 
   public UnderlyingIDSource() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ClientID extends StringField 
 { 
+  public static final int FIELD = 109; 
 
   public ClientID() 
   { 

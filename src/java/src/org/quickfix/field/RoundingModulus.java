@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RoundingModulus extends DoubleField 
 { 
+  public static final int FIELD = 469; 
 
   public RoundingModulus() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LiquidityNumSecurities extends IntField 
 { 
+  public static final int FIELD = 441; 
 
   public LiquidityNumSecurities() 
   { 

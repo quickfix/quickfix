@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegInstrRegistry extends StringField 
 { 
+  public static final int FIELD = 599; 
 
   public LegInstrRegistry() 
   { 

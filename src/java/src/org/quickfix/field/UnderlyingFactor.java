@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingFactor extends DoubleField 
 { 
+  public static final int FIELD = 246; 
 
   public UnderlyingFactor() 
   { 

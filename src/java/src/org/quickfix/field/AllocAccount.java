@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocAccount extends StringField 
 { 
+  public static final int FIELD = 79; 
 
   public AllocAccount() 
   { 

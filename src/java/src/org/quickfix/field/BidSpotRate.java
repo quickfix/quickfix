@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BidSpotRate extends DoubleField 
 { 
+  public static final int FIELD = 188; 
 
   public BidSpotRate() 
   { 

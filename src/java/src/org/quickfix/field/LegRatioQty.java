@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegRatioQty extends DoubleField 
 { 
+  public static final int FIELD = 623; 
 
   public LegRatioQty() 
   { 

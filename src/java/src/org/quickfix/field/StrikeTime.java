@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class StrikeTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 443; 
 
   public StrikeTime() 
   { 

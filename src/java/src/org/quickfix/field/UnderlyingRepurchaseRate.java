@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingRepurchaseRate extends DoubleField 
 { 
+  public static final int FIELD = 245; 
 
   public UnderlyingRepurchaseRate() 
   { 

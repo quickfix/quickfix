@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RefTagID extends IntField 
 { 
+  public static final int FIELD = 371; 
 
   public RefTagID() 
   { 

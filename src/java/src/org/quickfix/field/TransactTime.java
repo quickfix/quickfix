@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TransactTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 60; 
 
   public TransactTime() 
   { 

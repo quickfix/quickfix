@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrderID extends StringField 
 { 
+  public static final int FIELD = 37; 
 
   public OrderID() 
   { 

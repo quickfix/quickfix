@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PartySubID extends StringField 
 { 
+  public static final int FIELD = 523; 
 
   public PartySubID() 
   { 

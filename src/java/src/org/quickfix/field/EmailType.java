@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EmailType extends CharField 
 { 
+  public static final int FIELD = 94; 
 public static final char NEW = '0'; 
 public static final char REPLY = '1'; 
 public static final char ADMIN_REPLY = '2'; 

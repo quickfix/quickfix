@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BidRequestTransType extends CharField 
 { 
+  public static final int FIELD = 374; 
 public static final char NEW = 'N'; 
 public static final char CANCEL = 'C'; 
 

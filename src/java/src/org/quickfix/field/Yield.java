@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Yield extends DoubleField 
 { 
+  public static final int FIELD = 236; 
 
   public Yield() 
   { 

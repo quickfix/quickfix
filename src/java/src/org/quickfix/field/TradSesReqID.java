@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradSesReqID extends StringField 
 { 
+  public static final int FIELD = 335; 
 
   public TradSesReqID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MailingInst extends StringField 
 { 
+  public static final int FIELD = 482; 
 
   public MailingInst() 
   { 

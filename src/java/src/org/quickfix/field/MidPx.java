@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MidPx extends DoubleField 
 { 
+  public static final int FIELD = 631; 
 
   public MidPx() 
   { 

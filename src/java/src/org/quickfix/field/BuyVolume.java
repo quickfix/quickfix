@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BuyVolume extends DoubleField 
 { 
+  public static final int FIELD = 330; 
 
   public BuyVolume() 
   { 

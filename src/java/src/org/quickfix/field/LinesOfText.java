@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LinesOfText extends IntField 
 { 
+  public static final int FIELD = 33; 
 
   public LinesOfText() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoPartyIDs extends IntField 
 { 
+  public static final int FIELD = 453; 
 
   public NoPartyIDs() 
   { 

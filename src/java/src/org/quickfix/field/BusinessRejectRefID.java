@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BusinessRejectRefID extends StringField 
 { 
+  public static final int FIELD = 379; 
 
   public BusinessRejectRefID() 
   { 

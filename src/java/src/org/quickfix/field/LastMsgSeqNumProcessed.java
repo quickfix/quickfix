@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LastMsgSeqNumProcessed extends IntField 
 { 
+  public static final int FIELD = 369; 
 
   public LastMsgSeqNumProcessed() 
   { 

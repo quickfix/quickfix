@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NetChgPrevDay extends DoubleField 
 { 
+  public static final int FIELD = 451; 
 
   public NetChgPrevDay() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegSettlmntTyp extends CharField 
 { 
+  public static final int FIELD = 587; 
 
   public LegSettlmntTyp() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OnBehalfOfSendingTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 370; 
 
   public OnBehalfOfSendingTime() 
   { 

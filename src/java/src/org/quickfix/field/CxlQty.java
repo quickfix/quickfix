@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CxlQty extends DoubleField 
 { 
+  public static final int FIELD = 84; 
 
   public CxlQty() 
   { 

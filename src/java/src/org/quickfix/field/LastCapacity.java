@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LastCapacity extends CharField 
 { 
+  public static final int FIELD = 29; 
 public static final char AGENT = '1'; 
 public static final char CROSS_AS_AGENT = '2'; 
 public static final char CROSS_AS_PRINCIPAL = '3'; 

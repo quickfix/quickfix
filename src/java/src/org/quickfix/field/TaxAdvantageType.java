@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TaxAdvantageType extends IntField 
 { 
+  public static final int FIELD = 495; 
 
   public TaxAdvantageType() 
   { 

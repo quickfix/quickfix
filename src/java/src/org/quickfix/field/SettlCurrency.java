@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlCurrency extends StringField 
 { 
+  public static final int FIELD = 120; 
 
   public SettlCurrency() 
   { 

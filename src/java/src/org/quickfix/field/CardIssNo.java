@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CardIssNo extends StringField 
 { 
+  public static final int FIELD = 491; 
 
   public CardIssNo() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeRequestType extends IntField 
 { 
+  public static final int FIELD = 569; 
 public static final int ALL_TRADES = 0; 
 public static final int MATCHED_TRADES_MATCHING_CRITERIA_PROVIDED_ON_REQUEST = 1; 
 public static final int UNMATCHED_TRADES_THAT_MATCH_CRITERIA = 2; 

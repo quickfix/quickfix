@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RegistStatus extends CharField 
 { 
+  public static final int FIELD = 506; 
 
   public RegistStatus() 
   { 

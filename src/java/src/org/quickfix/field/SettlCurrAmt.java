@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlCurrAmt extends DoubleField 
 { 
+  public static final int FIELD = 119; 
 
   public SettlCurrAmt() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DistribPercentage extends DoubleField 
 { 
+  public static final int FIELD = 512; 
 
   public DistribPercentage() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class GapFillFlag extends BooleanField 
 { 
+  public static final int FIELD = 123; 
 public static final boolean GAP_FILL_MESSAGE = true; 
 public static final boolean SEQUENCE_RESET = false; 
 

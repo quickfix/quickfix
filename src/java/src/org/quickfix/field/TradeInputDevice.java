@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeInputDevice extends StringField 
 { 
+  public static final int FIELD = 579; 
 
   public TradeInputDevice() 
   { 

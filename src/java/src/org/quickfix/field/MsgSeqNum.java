@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MsgSeqNum extends IntField 
 { 
+  public static final int FIELD = 34; 
 
   public MsgSeqNum() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PaymentDate extends StringField 
 { 
+  public static final int FIELD = 504; 
 
   public PaymentDate() 
   { 

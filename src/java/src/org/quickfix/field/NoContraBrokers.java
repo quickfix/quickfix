@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoContraBrokers extends IntField 
 { 
+  public static final int FIELD = 382; 
 
   public NoContraBrokers() 
   { 

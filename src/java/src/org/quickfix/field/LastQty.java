@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LastQty extends DoubleField 
 { 
+  public static final int FIELD = 32; 
 
   public LastQty() 
   { 

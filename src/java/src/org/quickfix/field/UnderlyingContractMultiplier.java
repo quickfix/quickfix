@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingContractMultiplier extends DoubleField 
 { 
+  public static final int FIELD = 436; 
 
   public UnderlyingContractMultiplier() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoBidComponents extends IntField 
 { 
+  public static final int FIELD = 420; 
 
   public NoBidComponents() 
   { 

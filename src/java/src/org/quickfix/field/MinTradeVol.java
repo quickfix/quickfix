@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MinTradeVol extends DoubleField 
 { 
+  public static final int FIELD = 562; 
 
   public MinTradeVol() 
   { 

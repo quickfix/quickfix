@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DeskID extends StringField 
 { 
+  public static final int FIELD = 284; 
 
   public DeskID() 
   { 

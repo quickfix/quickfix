@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocNetMoney extends DoubleField 
 { 
+  public static final int FIELD = 154; 
 
   public AllocNetMoney() 
   { 

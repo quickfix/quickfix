@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Currency extends StringField 
 { 
+  public static final int FIELD = 15; 
 
   public Currency() 
   { 

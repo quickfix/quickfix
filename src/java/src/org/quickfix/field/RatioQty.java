@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RatioQty extends DoubleField 
 { 
+  public static final int FIELD = 319; 
 
   public RatioQty() 
   { 

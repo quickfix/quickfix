@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityExchange extends StringField 
 { 
+  public static final int FIELD = 207; 
 
   public SecurityExchange() 
   { 

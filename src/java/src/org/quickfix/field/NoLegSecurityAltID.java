@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoLegSecurityAltID extends StringField 
 { 
+  public static final int FIELD = 604; 
 
   public NoLegSecurityAltID() 
   { 

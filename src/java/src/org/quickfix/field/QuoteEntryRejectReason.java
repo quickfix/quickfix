@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class QuoteEntryRejectReason extends IntField 
 { 
+  public static final int FIELD = 368; 
 public static final int UNKNOWN_SYMBOL = 1; 
 public static final int EXCHANGE = 2; 
 public static final int QUOTE_EXCEEDS_LIMIT = 3; 

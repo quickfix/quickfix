@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeReportRefID extends StringField 
 { 
+  public static final int FIELD = 572; 
 
   public TradeReportRefID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingIssueDate extends UtcDateField 
 { 
+  public static final int FIELD = 242; 
 
   public UnderlyingIssueDate() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingOptAttribute extends CharField 
 { 
+  public static final int FIELD = 317; 
 
   public UnderlyingOptAttribute() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OnBehalfOfCompID extends StringField 
 { 
+  public static final int FIELD = 115; 
 
   public OnBehalfOfCompID() 
   { 

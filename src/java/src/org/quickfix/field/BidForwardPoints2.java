@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BidForwardPoints2 extends DoubleField 
 { 
+  public static final int FIELD = 642; 
 
   public BidForwardPoints2() 
   { 

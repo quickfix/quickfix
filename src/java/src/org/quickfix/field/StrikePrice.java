@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class StrikePrice extends DoubleField 
 { 
+  public static final int FIELD = 202; 
 
   public StrikePrice() 
   { 

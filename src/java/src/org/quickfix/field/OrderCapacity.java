@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrderCapacity extends CharField 
 { 
+  public static final int FIELD = 528; 
 public static final char AGENCY = 'A'; 
 public static final char PROPRIETARY = 'G'; 
 public static final char INDIVIDUAL = 'I'; 

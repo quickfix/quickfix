@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegFactor extends DoubleField 
 { 
+  public static final int FIELD = 253; 
 
   public LegFactor() 
   { 

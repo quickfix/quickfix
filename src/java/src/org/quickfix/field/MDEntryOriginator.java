@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDEntryOriginator extends StringField 
 { 
+  public static final int FIELD = 282; 
 
   public MDEntryOriginator() 
   { 

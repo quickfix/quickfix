@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoHops extends IntField 
 { 
+  public static final int FIELD = 627; 
 
   public NoHops() 
   { 

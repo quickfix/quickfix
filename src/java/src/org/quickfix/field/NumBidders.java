@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NumBidders extends IntField 
 { 
+  public static final int FIELD = 417; 
 
   public NumBidders() 
   { 

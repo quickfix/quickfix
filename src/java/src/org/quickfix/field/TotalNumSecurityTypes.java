@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TotalNumSecurityTypes extends IntField 
 { 
+  public static final int FIELD = 557; 
 
   public TotalNumSecurityTypes() 
   { 

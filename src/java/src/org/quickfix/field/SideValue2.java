@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SideValue2 extends DoubleField 
 { 
+  public static final int FIELD = 397; 
 
   public SideValue2() 
   { 

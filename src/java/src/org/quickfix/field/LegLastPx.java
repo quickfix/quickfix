@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegLastPx extends DoubleField 
 { 
+  public static final int FIELD = 637; 
 
   public LegLastPx() 
   { 

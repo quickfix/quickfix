@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PegDifference extends DoubleField 
 { 
+  public static final int FIELD = 211; 
 
   public PegDifference() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CustOrderCapacity extends IntField 
 { 
+  public static final int FIELD = 582; 
 
   public CustOrderCapacity() 
   { 

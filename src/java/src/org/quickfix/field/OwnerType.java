@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OwnerType extends IntField 
 { 
+  public static final int FIELD = 522; 
 public static final int INDIVIDUAL_INVESTOR = 1; 
 public static final int PUBLIC_COMPANY = 2; 
 public static final int PRIVATE_COMPANY = 3; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MailingDtls extends StringField 
 { 
+  public static final int FIELD = 474; 
 
   public MailingDtls() 
   { 

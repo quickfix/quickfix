@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Concession extends DoubleField 
 { 
+  public static final int FIELD = 238; 
 
   public Concession() 
   { 

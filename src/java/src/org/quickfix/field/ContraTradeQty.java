@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ContraTradeQty extends DoubleField 
 { 
+  public static final int FIELD = 437; 
 
   public ContraTradeQty() 
   { 

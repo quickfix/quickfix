@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CrossPercent extends DoubleField 
 { 
+  public static final int FIELD = 413; 
 
   public CrossPercent() 
   { 

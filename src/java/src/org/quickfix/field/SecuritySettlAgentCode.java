@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecuritySettlAgentCode extends StringField 
 { 
+  public static final int FIELD = 177; 
 
   public SecuritySettlAgentCode() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegCountryOfIssue extends StringField 
 { 
+  public static final int FIELD = 596; 
 
   public LegCountryOfIssue() 
   { 

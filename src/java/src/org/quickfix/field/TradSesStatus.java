@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradSesStatus extends IntField 
 { 
+  public static final int FIELD = 340; 
 public static final int UNKNOWN = 0; 
 public static final int HALTED = 1; 
 public static final int OPEN = 2; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedListExecInstLen extends IntField 
 { 
+  public static final int FIELD = 352; 
 
   public EncodedListExecInstLen() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RegistRejReasonText extends StringField 
 { 
+  public static final int FIELD = 496; 
 
   public RegistRejReasonText() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RawDataLength extends IntField 
 { 
+  public static final int FIELD = 95; 
 
   public RawDataLength() 
   { 

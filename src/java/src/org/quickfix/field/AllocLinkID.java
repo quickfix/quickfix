@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocLinkID extends StringField 
 { 
+  public static final int FIELD = 196; 
 
   public AllocLinkID() 
   { 

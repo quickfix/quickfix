@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDEntrySize extends DoubleField 
 { 
+  public static final int FIELD = 271; 
 
   public MDEntrySize() 
   { 

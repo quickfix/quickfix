@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OnBehalfOfSubID extends StringField 
 { 
+  public static final int FIELD = 116; 
 
   public OnBehalfOfSubID() 
   { 

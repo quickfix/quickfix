@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MaxShow extends DoubleField 
 { 
+  public static final int FIELD = 210; 
 
   public MaxShow() 
   { 

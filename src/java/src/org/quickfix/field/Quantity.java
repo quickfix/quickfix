@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Quantity extends DoubleField 
 { 
+  public static final int FIELD = 53; 
 
   public Quantity() 
   { 

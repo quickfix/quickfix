@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedIssuer extends StringField 
 { 
+  public static final int FIELD = 349; 
 
   public EncodedIssuer() 
   { 

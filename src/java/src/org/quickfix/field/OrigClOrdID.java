@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrigClOrdID extends StringField 
 { 
+  public static final int FIELD = 41; 
 
   public OrigClOrdID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PriceType extends IntField 
 { 
+  public static final int FIELD = 423; 
 public static final int PERCENTAGE = 1; 
 public static final int PER_SHARE = 2; 
 public static final int FIXED_AMOUNT = 3; 

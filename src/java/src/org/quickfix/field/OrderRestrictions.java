@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrderRestrictions extends StringField 
 { 
+  public static final int FIELD = 529; 
 public static final char PROGRAM_TRADE = '1'; 
 public static final char INDEX_ARBITRAGE = '2'; 
 public static final char NON_INDEX_ARBITRAGE = '3'; 

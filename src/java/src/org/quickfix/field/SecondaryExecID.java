@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecondaryExecID extends StringField 
 { 
+  public static final int FIELD = 527; 
 
   public SecondaryExecID() 
   { 

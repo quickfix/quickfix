@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RegistAcctType extends StringField 
 { 
+  public static final int FIELD = 493; 
 
   public RegistAcctType() 
   { 

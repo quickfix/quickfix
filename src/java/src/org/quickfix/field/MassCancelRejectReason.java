@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MassCancelRejectReason extends CharField 
 { 
+  public static final int FIELD = 532; 
 
   public MassCancelRejectReason() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ProgPeriodInterval extends IntField 
 { 
+  public static final int FIELD = 415; 
 
   public ProgPeriodInterval() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MsgType extends StringField 
 { 
+  public static final int FIELD = 35; 
 public static final String HEARTBEAT = "0"; 
 public static final String TEST_REQUEST = "1"; 
 public static final String RESEND_REQUEST = "2"; 

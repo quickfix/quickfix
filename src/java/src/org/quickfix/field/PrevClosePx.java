@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PrevClosePx extends DoubleField 
 { 
+  public static final int FIELD = 140; 
 
   public PrevClosePx() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MoneyLaunderingStatus extends CharField 
 { 
+  public static final int FIELD = 481; 
 public static final char PASSED = 'Y'; 
 public static final char NOT_CHECKED = 'N'; 
 public static final char EXEMPT_BELOW_THE_LIMIT = '1'; 

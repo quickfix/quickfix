@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TotalVolumeTradedDate extends UtcDateField 
 { 
+  public static final int FIELD = 449; 
 
   public TotalVolumeTradedDate() 
   { 

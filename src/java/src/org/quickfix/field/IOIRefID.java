@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class IOIRefID extends StringField 
 { 
+  public static final int FIELD = 26; 
 
   public IOIRefID() 
   { 

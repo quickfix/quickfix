@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExecBroker extends StringField 
 { 
+  public static final int FIELD = 76; 
 
   public ExecBroker() 
   { 

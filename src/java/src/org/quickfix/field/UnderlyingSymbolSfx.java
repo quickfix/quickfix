@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingSymbolSfx extends StringField 
 { 
+  public static final int FIELD = 312; 
 
   public UnderlyingSymbolSfx() 
   { 

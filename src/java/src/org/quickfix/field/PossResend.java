@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PossResend extends BooleanField 
 { 
+  public static final int FIELD = 97; 
 
   public PossResend() 
   { 

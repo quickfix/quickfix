@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Signature extends StringField 
 { 
+  public static final int FIELD = 89; 
 
   public Signature() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ClOrdLinkID extends StringField 
 { 
+  public static final int FIELD = 583; 
 
   public ClOrdLinkID() 
   { 

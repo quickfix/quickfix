@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDReqID extends StringField 
 { 
+  public static final int FIELD = 262; 
 
   public MDReqID() 
   { 

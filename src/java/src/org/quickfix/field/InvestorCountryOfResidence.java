@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class InvestorCountryOfResidence extends StringField 
 { 
+  public static final int FIELD = 475; 
 
   public InvestorCountryOfResidence() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoQuoteSets extends IntField 
 { 
+  public static final int FIELD = 296; 
 
   public NoQuoteSets() 
   { 

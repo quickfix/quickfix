@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingSymbol extends StringField 
 { 
+  public static final int FIELD = 311; 
 
   public UnderlyingSymbol() 
   { 

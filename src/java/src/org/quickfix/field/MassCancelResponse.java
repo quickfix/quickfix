@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MassCancelResponse extends CharField 
 { 
+  public static final int FIELD = 531; 
 public static final char CANCEL_REQUEST_REJECTED = '0'; 
 public static final char CANCEL_ORDERS_FOR_A_SECURITY = '1'; 
 public static final char CANCEL_ORDERS_FOR_AN_UNDERLYING_SECURITY = '2'; 

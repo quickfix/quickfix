@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class WaveNo extends StringField 
 { 
+  public static final int FIELD = 105; 
 
   public WaveNo() 
   { 

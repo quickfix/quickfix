@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingCouponRate extends DoubleField 
 { 
+  public static final int FIELD = 435; 
 
   public UnderlyingCouponRate() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegIssueDate extends UtcDateField 
 { 
+  public static final int FIELD = 249; 
 
   public LegIssueDate() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingProduct extends IntField 
 { 
+  public static final int FIELD = 462; 
 
   public UnderlyingProduct() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDReqRejReason extends CharField 
 { 
+  public static final int FIELD = 281; 
 public static final char UNKNOWN_SYMBOL = '0'; 
 public static final char DUPLICATE_MDREQID = '1'; 
 public static final char INSUFFICIENT_BANDWIDTH = '2'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoSecurityAltID extends IntField 
 { 
+  public static final int FIELD = 454; 
 
   public NoSecurityAltID() 
   { 

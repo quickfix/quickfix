@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BasisFeaturePrice extends DoubleField 
 { 
+  public static final int FIELD = 260; 
 
   public BasisFeaturePrice() 
   { 

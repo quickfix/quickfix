@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegCurrency extends StringField 
 { 
+  public static final int FIELD = 556; 
 
   public LegCurrency() 
   { 

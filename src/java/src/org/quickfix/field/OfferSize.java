@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OfferSize extends DoubleField 
 { 
+  public static final int FIELD = 135; 
 
   public OfferSize() 
   { 

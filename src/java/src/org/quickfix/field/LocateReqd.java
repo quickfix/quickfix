@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LocateReqd extends BooleanField 
 { 
+  public static final int FIELD = 114; 
 public static final boolean YES = true; 
 public static final boolean NO = false; 
 

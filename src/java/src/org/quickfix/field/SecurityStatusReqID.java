@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityStatusReqID extends StringField 
 { 
+  public static final int FIELD = 324; 
 
   public SecurityStatusReqID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TestMessageIndicator extends BooleanField 
 { 
+  public static final int FIELD = 464; 
 public static final boolean TRUE = true; 
 public static final boolean FALSE = false; 
 

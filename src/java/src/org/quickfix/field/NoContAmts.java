@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoContAmts extends IntField 
 { 
+  public static final int FIELD = 518; 
 
   public NoContAmts() 
   { 

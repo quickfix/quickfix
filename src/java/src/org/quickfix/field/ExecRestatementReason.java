@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExecRestatementReason extends IntField 
 { 
+  public static final int FIELD = 378; 
 public static final int GT_CORPORATE_ACTION = 0; 
 public static final int GT_RENEWAL = 1; 
 public static final int VERBAL_CHANGE = 2; 

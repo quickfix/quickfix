@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ListExecInst extends StringField 
 { 
+  public static final int FIELD = 69; 
 
   public ListExecInst() 
   { 

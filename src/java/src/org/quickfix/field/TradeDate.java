@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeDate extends StringField 
 { 
+  public static final int FIELD = 75; 
 
   public TradeDate() 
   { 

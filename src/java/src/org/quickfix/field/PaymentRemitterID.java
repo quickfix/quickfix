@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PaymentRemitterID extends StringField 
 { 
+  public static final int FIELD = 505; 
 
   public PaymentRemitterID() 
   { 

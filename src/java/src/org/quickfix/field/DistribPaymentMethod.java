@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DistribPaymentMethod extends IntField 
 { 
+  public static final int FIELD = 477; 
 
   public DistribPaymentMethod() 
   { 

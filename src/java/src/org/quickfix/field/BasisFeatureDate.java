@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BasisFeatureDate extends UtcDateField 
 { 
+  public static final int FIELD = 259; 
 
   public BasisFeatureDate() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ClearingInstruction extends IntField 
 { 
+  public static final int FIELD = 577; 
 public static final int PROCESS_NORMALLY = 0; 
 public static final int EXCLUDE_FROM_ALL_NETTING = 1; 
 public static final int BILATERAL_NETTING_ONLY = 2; 

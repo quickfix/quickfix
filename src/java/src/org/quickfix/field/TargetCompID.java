@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TargetCompID extends StringField 
 { 
+  public static final int FIELD = 56; 
 
   public TargetCompID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PreallocMethod extends CharField 
 { 
+  public static final int FIELD = 591; 
 
   public PreallocMethod() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegSecurityExchange extends StringField 
 { 
+  public static final int FIELD = 616; 
 
   public LegSecurityExchange() 
   { 

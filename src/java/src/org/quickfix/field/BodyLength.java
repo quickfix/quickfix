@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BodyLength extends IntField 
 { 
+  public static final int FIELD = 9; 
 
   public BodyLength() 
   { 

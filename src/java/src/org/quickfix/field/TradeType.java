@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeType extends CharField 
 { 
+  public static final int FIELD = 418; 
 
   public TradeType() 
   { 

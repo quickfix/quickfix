@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeReportTransType extends CharField 
 { 
+  public static final int FIELD = 487; 
 public static final char NEW = 'N'; 
 public static final char CANCEL = 'C'; 
 public static final char REPLACE = 'R'; 

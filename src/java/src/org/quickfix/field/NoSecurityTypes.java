@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoSecurityTypes extends IntField 
 { 
+  public static final int FIELD = 558; 
 
   public NoSecurityTypes() 
   { 

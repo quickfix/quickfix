@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlmntTyp extends CharField 
 { 
+  public static final int FIELD = 63; 
 public static final char REGULAR = '0'; 
 public static final char CASH = '1'; 
 public static final char NEXT_DAY = '2'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SendingTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 52; 
 
   public SendingTime() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CancellationRights extends CharField 
 { 
+  public static final int FIELD = 480; 
 
   public CancellationRights() 
   { 

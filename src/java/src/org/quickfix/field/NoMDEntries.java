@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoMDEntries extends IntField 
 { 
+  public static final int FIELD = 268; 
 
   public NoMDEntries() 
   { 

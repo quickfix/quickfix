@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExpireDate extends StringField 
 { 
+  public static final int FIELD = 432; 
 
   public ExpireDate() 
   { 

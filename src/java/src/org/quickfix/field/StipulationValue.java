@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class StipulationValue extends StringField 
 { 
+  public static final int FIELD = 234; 
 
   public StipulationValue() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Side extends CharField 
 { 
+  public static final int FIELD = 54; 
 public static final char BUY = '1'; 
 public static final char SELL = '2'; 
 public static final char BUY_MINUS = '3'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradingSessionSubID extends StringField 
 { 
+  public static final int FIELD = 625; 
 
   public TradingSessionSubID() 
   { 

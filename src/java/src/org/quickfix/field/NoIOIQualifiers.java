@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoIOIQualifiers extends IntField 
 { 
+  public static final int FIELD = 199; 
 
   public NoIOIQualifiers() 
   { 

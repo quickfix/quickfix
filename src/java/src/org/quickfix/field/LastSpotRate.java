@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LastSpotRate extends DoubleField 
 { 
+  public static final int FIELD = 194; 
 
   public LastSpotRate() 
   { 

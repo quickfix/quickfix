@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingStateOrProvinceOfIssue extends StringField 
 { 
+  public static final int FIELD = 593; 
 
   public UnderlyingStateOrProvinceOfIssue() 
   { 

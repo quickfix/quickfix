@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SenderCompID extends StringField 
 { 
+  public static final int FIELD = 49; 
 
   public SenderCompID() 
   { 

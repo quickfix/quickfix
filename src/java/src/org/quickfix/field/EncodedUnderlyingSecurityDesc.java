@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedUnderlyingSecurityDesc extends StringField 
 { 
+  public static final int FIELD = 365; 
 
   public EncodedUnderlyingSecurityDesc() 
   { 

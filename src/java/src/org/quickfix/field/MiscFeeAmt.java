@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MiscFeeAmt extends DoubleField 
 { 
+  public static final int FIELD = 137; 
 
   public MiscFeeAmt() 
   { 

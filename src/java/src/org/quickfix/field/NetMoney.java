@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NetMoney extends DoubleField 
 { 
+  public static final int FIELD = 118; 
 
   public NetMoney() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DayOrderQty extends DoubleField 
 { 
+  public static final int FIELD = 424; 
 
   public DayOrderQty() 
   { 

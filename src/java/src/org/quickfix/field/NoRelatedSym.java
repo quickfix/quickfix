@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoRelatedSym extends IntField 
 { 
+  public static final int FIELD = 146; 
 
   public NoRelatedSym() 
   { 

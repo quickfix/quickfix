@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AvgPx extends DoubleField 
 { 
+  public static final int FIELD = 6; 
 
   public AvgPx() 
   { 

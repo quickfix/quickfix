@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MatchType extends StringField 
 { 
+  public static final int FIELD = 574; 
 public static final String EXACT_MATCH_PLUS_FOUR_BADGES_AND_EXECUTION_TIME = "A1"; 
 public static final String EXACT_MATCH_PLUS_FOUR_BADGES = "A2"; 
 public static final String EXACT_MATCH_PLUS_TWO_BADGES_AND_EXECUTION_TIME = "A3"; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class QuoteReqID extends StringField 
 { 
+  public static final int FIELD = 131; 
 
   public QuoteReqID() 
   { 

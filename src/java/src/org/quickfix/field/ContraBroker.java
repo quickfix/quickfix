@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ContraBroker extends StringField 
 { 
+  public static final int FIELD = 375; 
 
   public ContraBroker() 
   { 

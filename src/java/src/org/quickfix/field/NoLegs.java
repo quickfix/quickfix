@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoLegs extends IntField 
 { 
+  public static final int FIELD = 555; 
 
   public NoLegs() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MiscFeeType extends CharField 
 { 
+  public static final int FIELD = 139; 
 public static final char REGULATORY = '1'; 
 public static final char TAX = '2'; 
 public static final char LOCAL_COMMISSION = '3'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegIssuer extends StringField 
 { 
+  public static final int FIELD = 617; 
 
   public LegIssuer() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDMkt extends StringField 
 { 
+  public static final int FIELD = 275; 
 
   public MDMkt() 
   { 

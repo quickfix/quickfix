@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AvgPrxPrecision extends IntField 
 { 
+  public static final int FIELD = 74; 
 
   public AvgPrxPrecision() 
   { 

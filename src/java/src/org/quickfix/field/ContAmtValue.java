@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ContAmtValue extends DoubleField 
 { 
+  public static final int FIELD = 520; 
 
   public ContAmtValue() 
   { 

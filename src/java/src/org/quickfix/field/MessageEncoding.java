@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MessageEncoding extends StringField 
 { 
+  public static final int FIELD = 347; 
 
   public MessageEncoding() 
   { 

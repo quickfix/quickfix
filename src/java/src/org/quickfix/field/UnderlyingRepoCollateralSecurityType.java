@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingRepoCollateralSecurityType extends IntField 
 { 
+  public static final int FIELD = 243; 
 
   public UnderlyingRepoCollateralSecurityType() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityIDSource extends StringField 
 { 
+  public static final int FIELD = 22; 
 public static final String CUSIP = "1"; 
 public static final String SEDOL = "2"; 
 public static final String QUIK = "3"; 

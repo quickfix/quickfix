@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OrdStatus extends CharField 
 { 
+  public static final int FIELD = 39; 
 public static final char NEW = '0'; 
 public static final char PARTIALLY_FILLED = '1'; 
 public static final char FILLED = '2'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CxlType extends CharField 
 { 
+  public static final int FIELD = 125; 
 
   public CxlType() 
   { 

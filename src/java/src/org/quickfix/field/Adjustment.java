@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Adjustment extends IntField 
 { 
+  public static final int FIELD = 334; 
 public static final int CANCEL = 1; 
 public static final int ERROR = 2; 
 public static final int CORRECTION = 3; 

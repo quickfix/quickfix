@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlLocation extends StringField 
 { 
+  public static final int FIELD = 166; 
 public static final String CEDEL = "CED"; 
 public static final String DEPOSITORY_TRUST_COMPANY = "DTC"; 
 public static final String EUROCLEAR = "EUR"; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingCreditRating extends StringField 
 { 
+  public static final int FIELD = 256; 
 
   public UnderlyingCreditRating() 
   { 

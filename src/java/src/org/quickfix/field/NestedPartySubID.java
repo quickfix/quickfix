@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NestedPartySubID extends StringField 
 { 
+  public static final int FIELD = 545; 
 
   public NestedPartySubID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Rule80A extends CharField 
 { 
+  public static final int FIELD = 47; 
 public static final char AGENCY_SINGLE_ORDER = 'A'; 
 public static final char SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE = 'B'; 
 public static final char PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM = 'C'; 

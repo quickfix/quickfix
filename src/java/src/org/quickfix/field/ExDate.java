@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExDate extends UtcDateField 
 { 
+  public static final int FIELD = 230; 
 
   public ExDate() 
   { 

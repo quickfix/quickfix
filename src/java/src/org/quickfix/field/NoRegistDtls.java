@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoRegistDtls extends IntField 
 { 
+  public static final int FIELD = 473; 
 
   public NoRegistDtls() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BeginString extends StringField 
 { 
+  public static final int FIELD = 8; 
 
   public BeginString() 
   { 

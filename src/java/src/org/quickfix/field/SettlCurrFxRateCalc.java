@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlCurrFxRateCalc extends CharField 
 { 
+  public static final int FIELD = 156; 
 
   public SettlCurrFxRateCalc() 
   { 

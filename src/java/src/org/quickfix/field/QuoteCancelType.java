@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class QuoteCancelType extends IntField 
 { 
+  public static final int FIELD = 298; 
 
   public QuoteCancelType() 
   { 

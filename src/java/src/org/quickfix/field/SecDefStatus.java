@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecDefStatus extends IntField 
 { 
+  public static final int FIELD = 653; 
 public static final int PENDING_APPROVAL = 0; 
 public static final int APPROVED = 1; 
 public static final int REJECTED = 2; 

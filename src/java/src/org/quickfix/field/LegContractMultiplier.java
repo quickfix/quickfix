@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegContractMultiplier extends DoubleField 
 { 
+  public static final int FIELD = 614; 
 
   public LegContractMultiplier() 
   { 

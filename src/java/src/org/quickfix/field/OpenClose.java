@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OpenClose extends CharField 
 { 
+  public static final int FIELD = 77; 
 public static final char OPEN = 'O'; 
 public static final char CLOSE = 'C'; 
 

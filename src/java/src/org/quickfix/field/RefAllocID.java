@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RefAllocID extends StringField 
 { 
+  public static final int FIELD = 72; 
 
   public RefAllocID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NumDaysInterest extends IntField 
 { 
+  public static final int FIELD = 157; 
 
   public NumDaysInterest() 
   { 

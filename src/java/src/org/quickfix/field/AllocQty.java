@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocQty extends DoubleField 
 { 
+  public static final int FIELD = 80; 
 
   public AllocQty() 
   { 

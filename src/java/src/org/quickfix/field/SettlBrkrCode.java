@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlBrkrCode extends StringField 
 { 
+  public static final int FIELD = 174; 
 
   public SettlBrkrCode() 
   { 

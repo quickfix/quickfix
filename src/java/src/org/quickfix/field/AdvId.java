@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AdvId extends StringField 
 { 
+  public static final int FIELD = 2; 
 
   public AdvId() 
   { 

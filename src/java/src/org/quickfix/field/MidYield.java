@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MidYield extends DoubleField 
 { 
+  public static final int FIELD = 633; 
 
   public MidYield() 
   { 

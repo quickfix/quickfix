@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDEntryType extends CharField 
 { 
+  public static final int FIELD = 269; 
 public static final char BID = '0'; 
 public static final char OFFER = '1'; 
 public static final char TRADE = '2'; 

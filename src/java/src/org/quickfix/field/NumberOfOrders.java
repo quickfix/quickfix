@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NumberOfOrders extends IntField 
 { 
+  public static final int FIELD = 346; 
 
   public NumberOfOrders() 
   { 

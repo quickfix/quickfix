@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Benchmark extends CharField 
 { 
+  public static final int FIELD = 219; 
 public static final char CURVE = '1'; 
 public static final char FIVEYR = '2'; 
 public static final char OLD5 = '3'; 

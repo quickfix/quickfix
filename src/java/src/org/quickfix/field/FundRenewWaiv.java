@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class FundRenewWaiv extends CharField 
 { 
+  public static final int FIELD = 497; 
 
   public FundRenewWaiv() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class YieldType extends StringField 
 { 
+  public static final int FIELD = 235; 
 public static final String AFTER_TAX_YIELD = "AFTERTAX"; 
 public static final String ANNUAL_YIELD = "ANNUAL"; 
 public static final String YIELD_AT_ISSUE = "ATISSUE"; 

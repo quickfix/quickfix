@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingInstrRegistry extends StringField 
 { 
+  public static final int FIELD = 595; 
 
   public UnderlyingInstrRegistry() 
   { 

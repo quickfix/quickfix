@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BusinessRejectReason extends IntField 
 { 
+  public static final int FIELD = 380; 
 public static final int OTHER = 0; 
 public static final int UNKOWN_ID = 1; 
 public static final int UNKNOWN_SECURITY = 2; 

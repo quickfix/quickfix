@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedLegSecurityDesc extends StringField 
 { 
+  public static final int FIELD = 622; 
 
   public EncodedLegSecurityDesc() 
   { 

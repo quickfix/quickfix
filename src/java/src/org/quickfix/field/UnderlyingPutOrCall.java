@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingPutOrCall extends IntField 
 { 
+  public static final int FIELD = 315; 
 
   public UnderlyingPutOrCall() 
   { 

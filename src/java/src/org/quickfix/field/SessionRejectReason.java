@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SessionRejectReason extends IntField 
 { 
+  public static final int FIELD = 373; 
 public static final int INVALID_TAG_NUMBER = 0; 
 public static final int REQUIRED_TAG_MISSING = 1; 
 public static final int TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE = 2; 

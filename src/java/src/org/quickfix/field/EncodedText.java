@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedText extends StringField 
 { 
+  public static final int FIELD = 355; 
 
   public EncodedText() 
   { 

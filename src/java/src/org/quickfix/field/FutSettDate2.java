@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class FutSettDate2 extends StringField 
 { 
+  public static final int FIELD = 193; 
 
   public FutSettDate2() 
   { 

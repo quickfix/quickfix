@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingMaturityDay extends StringField 
 { 
+  public static final int FIELD = 314; 
 
   public UnderlyingMaturityDay() 
   { 

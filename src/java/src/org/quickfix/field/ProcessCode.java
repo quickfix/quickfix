@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ProcessCode extends CharField 
 { 
+  public static final int FIELD = 81; 
 public static final char REGULAR = '0'; 
 public static final char SOFT_DOLLAR = '1'; 
 public static final char STEP_IN = '2'; 

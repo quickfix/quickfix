@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingLastPx extends DoubleField 
 { 
+  public static final int FIELD = 651; 
 
   public UnderlyingLastPx() 
   { 

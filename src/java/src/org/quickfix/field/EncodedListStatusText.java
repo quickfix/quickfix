@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedListStatusText extends StringField 
 { 
+  public static final int FIELD = 446; 
 
   public EncodedListStatusText() 
   { 

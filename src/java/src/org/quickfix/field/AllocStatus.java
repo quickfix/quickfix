@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocStatus extends IntField 
 { 
+  public static final int FIELD = 87; 
 public static final int ACCEPTED = 0; 
 public static final int REJECTED = 1; 
 public static final int PARTIAL_ACCEPT = 2; 

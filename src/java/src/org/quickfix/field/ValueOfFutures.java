@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ValueOfFutures extends DoubleField 
 { 
+  public static final int FIELD = 408; 
 
   public ValueOfFutures() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class IssueDate extends UtcDateField 
 { 
+  public static final int FIELD = 225; 
 
   public IssueDate() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoAffectedOrders extends IntField 
 { 
+  public static final int FIELD = 534; 
 
   public NoAffectedOrders() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RFQReqID extends StringField 
 { 
+  public static final int FIELD = 644; 
 
   public RFQReqID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegRefID extends StringField 
 { 
+  public static final int FIELD = 654; 
 
   public LegRefID() 
   { 

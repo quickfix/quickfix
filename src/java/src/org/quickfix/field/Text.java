@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Text extends StringField 
 { 
+  public static final int FIELD = 58; 
 
   public Text() 
   { 

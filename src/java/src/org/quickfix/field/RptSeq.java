@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RptSeq extends IntField 
 { 
+  public static final int FIELD = 83; 
 
   public RptSeq() 
   { 

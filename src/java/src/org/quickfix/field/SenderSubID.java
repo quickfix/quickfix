@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SenderSubID extends StringField 
 { 
+  public static final int FIELD = 50; 
 
   public SenderSubID() 
   { 

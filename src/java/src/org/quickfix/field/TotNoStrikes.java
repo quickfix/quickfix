@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TotNoStrikes extends IntField 
 { 
+  public static final int FIELD = 422; 
 
   public TotNoStrikes() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CashDistribPayRef extends StringField 
 { 
+  public static final int FIELD = 501; 
 
   public CashDistribPayRef() 
   { 

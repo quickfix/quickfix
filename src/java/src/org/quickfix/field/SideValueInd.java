@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SideValueInd extends IntField 
 { 
+  public static final int FIELD = 401; 
 public static final int SIDEVALUE1 = 1; 
 public static final int SIDEVALUE_2 = 2; 
 

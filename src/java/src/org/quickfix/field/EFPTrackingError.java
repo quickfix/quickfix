@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EFPTrackingError extends DoubleField 
 { 
+  public static final int FIELD = 405; 
 
   public EFPTrackingError() 
   { 

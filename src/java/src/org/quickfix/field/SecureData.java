@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecureData extends StringField 
 { 
+  public static final int FIELD = 91; 
 
   public SecureData() 
   { 

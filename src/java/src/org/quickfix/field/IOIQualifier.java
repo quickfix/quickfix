@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class IOIQualifier extends CharField 
 { 
+  public static final int FIELD = 104; 
 public static final char ALL_OR_NONE = 'A'; 
 public static final char MARKET_ON_CLOSE = 'B'; 
 public static final char AT_THE_CLOSE = 'C'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlCurrFxRate extends DoubleField 
 { 
+  public static final int FIELD = 155; 
 
   public SettlCurrFxRate() 
   { 

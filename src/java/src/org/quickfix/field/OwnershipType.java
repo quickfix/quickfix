@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OwnershipType extends CharField 
 { 
+  public static final int FIELD = 517; 
 
   public OwnershipType() 
   { 

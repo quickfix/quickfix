@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SpreadToBenchmark extends DoubleField 
 { 
+  public static final int FIELD = 218; 
 
   public SpreadToBenchmark() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class XmlData extends StringField 
 { 
+  public static final int FIELD = 213; 
 
   public XmlData() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RedemptionDate extends UtcDateField 
 { 
+  public static final int FIELD = 240; 
 
   public RedemptionDate() 
   { 

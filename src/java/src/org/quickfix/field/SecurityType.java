@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityType extends StringField 
 { 
+  public static final int FIELD = 167; 
 public static final String CORPORATE_BOND = "CORP"; 
 public static final String CORPORATE_PRIVATE_PLACEMENT = "CPP"; 
 public static final String CONVERTABLE_BOND = "CB"; 

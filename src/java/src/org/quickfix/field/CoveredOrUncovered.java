@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CoveredOrUncovered extends IntField 
 { 
+  public static final int FIELD = 203; 
 public static final int COVERED = 0; 
 public static final int UNCOVERED = 1; 
 

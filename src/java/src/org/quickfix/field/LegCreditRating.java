@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegCreditRating extends StringField 
 { 
+  public static final int FIELD = 257; 
 
   public LegCreditRating() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoExecs extends IntField 
 { 
+  public static final int FIELD = 124; 
 
   public NoExecs() 
   { 

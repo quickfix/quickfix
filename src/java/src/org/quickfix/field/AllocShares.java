@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocShares extends DoubleField 
 { 
+  public static final int FIELD = 80; 
 
   public AllocShares() 
   { 

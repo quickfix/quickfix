@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class WtAverageLiquidity extends DoubleField 
 { 
+  public static final int FIELD = 410; 
 
   public WtAverageLiquidity() 
   { 

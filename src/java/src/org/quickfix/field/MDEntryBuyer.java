@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDEntryBuyer extends StringField 
 { 
+  public static final int FIELD = 288; 
 
   public MDEntryBuyer() 
   { 

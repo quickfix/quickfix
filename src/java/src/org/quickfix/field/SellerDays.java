@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SellerDays extends IntField 
 { 
+  public static final int FIELD = 287; 
 
   public SellerDays() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingIssuer extends StringField 
 { 
+  public static final int FIELD = 306; 
 
   public UnderlyingIssuer() 
   { 

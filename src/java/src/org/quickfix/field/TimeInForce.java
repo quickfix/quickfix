@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TimeInForce extends CharField 
 { 
+  public static final int FIELD = 59; 
 public static final char DAY = '0'; 
 public static final char GOOD_TILL_CANCEL = '1'; 
 public static final char AT_THE_OPENING = '2'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CrossID extends StringField 
 { 
+  public static final int FIELD = 548; 
 
   public CrossID() 
   { 

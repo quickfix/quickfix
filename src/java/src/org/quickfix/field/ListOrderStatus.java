@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ListOrderStatus extends IntField 
 { 
+  public static final int FIELD = 431; 
 public static final int INBIDDINGPROCESS = 1; 
 public static final int RECEIVEDFOREXECUTION = 2; 
 public static final int EXECUTING = 3; 

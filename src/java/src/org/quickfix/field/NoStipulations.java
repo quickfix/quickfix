@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoStipulations extends IntField 
 { 
+  public static final int FIELD = 232; 
 
   public NoStipulations() 
   { 

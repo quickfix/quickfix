@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegRepurchaseTerm extends IntField 
 { 
+  public static final int FIELD = 251; 
 
   public LegRepurchaseTerm() 
   { 

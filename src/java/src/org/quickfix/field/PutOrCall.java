@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PutOrCall extends IntField 
 { 
+  public static final int FIELD = 201; 
 public static final int PUT = 0; 
 public static final int CALL = 1; 
 

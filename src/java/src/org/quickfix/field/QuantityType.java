@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class QuantityType extends IntField 
 { 
+  public static final int FIELD = 465; 
 public static final int SHARES = 1; 
 public static final int BONDS = 2; 
 public static final int CURRENTFACE = 3; 

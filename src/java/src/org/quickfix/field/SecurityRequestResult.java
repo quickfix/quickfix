@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityRequestResult extends IntField 
 { 
+  public static final int FIELD = 560; 
 public static final int VALID_REQUEST = 0; 
 public static final int INVALID_OR_UNSUPPORTED_REQUEST = 1; 
 public static final int NO_INSTRUMENTS_FOUND_THAT_MATCH_SELECTION_CRITERIA = 2; 

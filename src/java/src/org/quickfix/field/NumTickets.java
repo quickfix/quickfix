@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NumTickets extends IntField 
 { 
+  public static final int FIELD = 395; 
 
   public NumTickets() 
   { 

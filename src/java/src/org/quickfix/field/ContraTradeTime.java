@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ContraTradeTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 438; 
 
   public ContraTradeTime() 
   { 

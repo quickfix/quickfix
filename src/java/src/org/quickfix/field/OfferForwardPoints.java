@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OfferForwardPoints extends DoubleField 
 { 
+  public static final int FIELD = 191; 
 
   public OfferForwardPoints() 
   { 

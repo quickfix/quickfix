@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MinBidSize extends DoubleField 
 { 
+  public static final int FIELD = 647; 
 
   public MinBidSize() 
   { 

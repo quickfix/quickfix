@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExDestination extends StringField 
 { 
+  public static final int FIELD = 100; 
 
   public ExDestination() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PossDupFlag extends BooleanField 
 { 
+  public static final int FIELD = 43; 
 public static final boolean POSSIBLE_DUPLICATE = true; 
 public static final boolean ORIGINAL_TRANSMISSION = false; 
 

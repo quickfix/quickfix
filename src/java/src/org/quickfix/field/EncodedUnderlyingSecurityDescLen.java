@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedUnderlyingSecurityDescLen extends IntField 
 { 
+  public static final int FIELD = 364; 
 
   public EncodedUnderlyingSecurityDescLen() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDEntryTime extends UtcTimeOnlyField 
 { 
+  public static final int FIELD = 273; 
 
   public MDEntryTime() 
   { 

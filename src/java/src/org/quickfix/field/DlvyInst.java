@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DlvyInst extends StringField 
 { 
+  public static final int FIELD = 86; 
 
   public DlvyInst() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ClOrdID extends StringField 
 { 
+  public static final int FIELD = 11; 
 
   public ClOrdID() 
   { 

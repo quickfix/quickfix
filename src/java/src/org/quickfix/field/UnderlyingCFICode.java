@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingCFICode extends StringField 
 { 
+  public static final int FIELD = 463; 
 
   public UnderlyingCFICode() 
   { 

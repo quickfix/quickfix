@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoOrders extends IntField 
 { 
+  public static final int FIELD = 73; 
 
   public NoOrders() 
   { 

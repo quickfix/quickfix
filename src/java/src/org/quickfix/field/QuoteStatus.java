@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class QuoteStatus extends IntField 
 { 
+  public static final int FIELD = 297; 
 public static final int ACCEPTED = 0; 
 public static final int CANCELED_FOR_SYMBOL = 1; 
 public static final int CANCELED_FOR_SECURITY_TYPE = 2; 

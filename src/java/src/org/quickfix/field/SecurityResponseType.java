@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityResponseType extends IntField 
 { 
+  public static final int FIELD = 323; 
 public static final int ACCEPT_SECURITY_PROPOSAL_AS_IS = 1; 
 public static final int ACCEPT_SECURITY_PROPOSAL_WITH_REVISIONS_AS_INDICATED_IN_THE_MESSAGE = 2; 
 public static final int LIST_OF_SECURITY_TYPES_RETURNED_PER_REQUEST = 3; 

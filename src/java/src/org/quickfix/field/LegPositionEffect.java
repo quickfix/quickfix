@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegPositionEffect extends CharField 
 { 
+  public static final int FIELD = 564; 
 
   public LegPositionEffect() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExecPriceAdjustment extends DoubleField 
 { 
+  public static final int FIELD = 485; 
 
   public ExecPriceAdjustment() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Commission extends DoubleField 
 { 
+  public static final int FIELD = 12; 
 
   public Commission() 
   { 

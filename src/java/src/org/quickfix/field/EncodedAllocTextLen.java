@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedAllocTextLen extends IntField 
 { 
+  public static final int FIELD = 360; 
 
   public EncodedAllocTextLen() 
   { 

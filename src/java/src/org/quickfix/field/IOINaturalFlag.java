@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class IOINaturalFlag extends BooleanField 
 { 
+  public static final int FIELD = 130; 
 public static final boolean NATURAL = true; 
 public static final boolean NOT_NATURAL = false; 
 

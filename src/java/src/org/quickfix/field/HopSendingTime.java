@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class HopSendingTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 629; 
 
   public HopSendingTime() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradSesPreCloseTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 343; 
 
   public TradSesPreCloseTime() 
   { 

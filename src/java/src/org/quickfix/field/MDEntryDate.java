@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDEntryDate extends UtcDateField 
 { 
+  public static final int FIELD = 272; 
 
   public MDEntryDate() 
   { 

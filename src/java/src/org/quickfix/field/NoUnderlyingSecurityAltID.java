@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoUnderlyingSecurityAltID extends IntField 
 { 
+  public static final int FIELD = 457; 
 
   public NoUnderlyingSecurityAltID() 
   { 

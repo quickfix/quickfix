@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MDUpdateType extends IntField 
 { 
+  public static final int FIELD = 265; 
 public static final int FULL_REFRESH = 0; 
 public static final int INCREMENTAL_REFRESH = 1; 
 

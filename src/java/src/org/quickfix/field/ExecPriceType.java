@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExecPriceType extends CharField 
 { 
+  public static final int FIELD = 484; 
 
   public ExecPriceType() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecondaryOrderID extends StringField 
 { 
+  public static final int FIELD = 198; 
 
   public SecondaryOrderID() 
   { 

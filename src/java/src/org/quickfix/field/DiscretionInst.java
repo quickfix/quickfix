@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DiscretionInst extends CharField 
 { 
+  public static final int FIELD = 388; 
 public static final char RELATED_TO_DISPLAYED_PRICE = '0'; 
 public static final char RELATED_TO_MARKET_PRICE = '1'; 
 public static final char RELATED_TO_PRIMARY_PRICE = '2'; 

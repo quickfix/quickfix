@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradSesMethod extends IntField 
 { 
+  public static final int FIELD = 338; 
 public static final int ELECTRONIC = 1; 
 public static final int OPEN_OUTCRY = 2; 
 public static final int TWO_PARTY = 3; 

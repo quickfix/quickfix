@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ListName extends StringField 
 { 
+  public static final int FIELD = 392; 
 
   public ListName() 
   { 

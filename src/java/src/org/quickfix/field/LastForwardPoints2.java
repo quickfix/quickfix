@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LastForwardPoints2 extends DoubleField 
 { 
+  public static final int FIELD = 641; 
 
   public LastForwardPoints2() 
   { 

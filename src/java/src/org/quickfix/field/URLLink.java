@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class URLLink extends StringField 
 { 
+  public static final int FIELD = 149; 
 
   public URLLink() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class IOITransType extends CharField 
 { 
+  public static final int FIELD = 28; 
 public static final char NEW = 'N'; 
 public static final char CANCEL = 'C'; 
 public static final char REPLACE = 'R'; 

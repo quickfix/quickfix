@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecureDataLen extends IntField 
 { 
+  public static final int FIELD = 90; 
 
   public SecureDataLen() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CrossPrioritization extends IntField 
 { 
+  public static final int FIELD = 550; 
 
   public CrossPrioritization() 
   { 

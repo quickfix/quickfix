@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LocaleOfIssue extends StringField 
 { 
+  public static final int FIELD = 472; 
 
   public LocaleOfIssue() 
   { 

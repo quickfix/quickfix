@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MaturityDate extends StringField 
 { 
+  public static final int FIELD = 541; 
 
   public MaturityDate() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExecID extends StringField 
 { 
+  public static final int FIELD = 17; 
 
   public ExecID() 
   { 

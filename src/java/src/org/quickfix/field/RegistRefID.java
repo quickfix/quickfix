@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RegistRefID extends StringField 
 { 
+  public static final int FIELD = 508; 
 
   public RegistRefID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoClearingInstructions extends IntField 
 { 
+  public static final int FIELD = 576; 
 
   public NoClearingInstructions() 
   { 

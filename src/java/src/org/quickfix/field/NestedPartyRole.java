@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NestedPartyRole extends IntField 
 { 
+  public static final int FIELD = 538; 
 
   public NestedPartyRole() 
   { 

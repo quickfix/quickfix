@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DiscretionOffset extends DoubleField 
 { 
+  public static final int FIELD = 389; 
 
   public DiscretionOffset() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CashDistribCurr extends StringField 
 { 
+  public static final int FIELD = 478; 
 
   public CashDistribCurr() 
   { 

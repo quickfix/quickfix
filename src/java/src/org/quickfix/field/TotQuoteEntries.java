@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TotQuoteEntries extends IntField 
 { 
+  public static final int FIELD = 304; 
 
   public TotQuoteEntries() 
   { 

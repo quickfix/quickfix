@@ -72,6 +72,7 @@ echo import java.util.Date; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value
 type blankline.txt &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
 echo public class <xsl:value-of select="@name"/> extends <xsl:call-template name="get-field-type"/>Field &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
 echo { &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
+echo   public static final int FIELD = <xsl:value-of select="@number"/>; &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
 <xsl:call-template name="values"/>
 type blankline.txt &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java
 echo   public <xsl:value-of select="@name"/>() &gt;&gt; <xsl:call-template name="path"/>\<xsl:value-of select="@name"/>.java

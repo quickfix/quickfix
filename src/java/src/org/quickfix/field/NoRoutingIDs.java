@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoRoutingIDs extends IntField 
 { 
+  public static final int FIELD = 215; 
 
   public NoRoutingIDs() 
   { 

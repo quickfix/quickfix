@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoTradingSessions extends IntField 
 { 
+  public static final int FIELD = 386; 
 
   public NoTradingSessions() 
   { 

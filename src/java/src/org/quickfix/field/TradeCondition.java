@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradeCondition extends StringField 
 { 
+  public static final int FIELD = 277; 
 public static final char CASH = 'A'; 
 public static final char AVERAGE_PRICE_TRADE = 'B'; 
 public static final char CASH_TRADE = 'C'; 

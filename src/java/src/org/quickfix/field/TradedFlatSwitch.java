@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradedFlatSwitch extends BooleanField 
 { 
+  public static final int FIELD = 258; 
 
   public TradedFlatSwitch() 
   { 

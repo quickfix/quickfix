@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OnBehalfOfLocationID extends StringField 
 { 
+  public static final int FIELD = 144; 
 
   public OnBehalfOfLocationID() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MassStatusReqType extends IntField 
 { 
+  public static final int FIELD = 585; 
 public static final int STATUS_FOR_ORDERS_FOR_A_SECURITY = 1; 
 public static final int STATUS_FOR_ORDERS_FOR_AN_UNDERLYING_SECURITY = 2; 
 public static final int STATUS_FOR_ORDERS_FOR_A_PRODUCT = 3; 

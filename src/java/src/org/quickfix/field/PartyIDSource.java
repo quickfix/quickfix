@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PartyIDSource extends CharField 
 { 
+  public static final int FIELD = 447; 
 public static final char BIC = 'B'; 
 public static final char GENERALLY_ACCEPTED_MARKET_PARTICIPANT_IDENTIFIER = 'C'; 
 public static final char PROPRIETARY = 'D'; 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BeginSeqNo extends IntField 
 { 
+  public static final int FIELD = 7; 
 
   public BeginSeqNo() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ListStatusText extends StringField 
 { 
+  public static final int FIELD = 444; 
 
   public ListStatusText() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BidDescriptor extends StringField 
 { 
+  public static final int FIELD = 400; 
 
   public BidDescriptor() 
   { 

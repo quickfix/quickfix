@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CxlRejReason extends IntField 
 { 
+  public static final int FIELD = 102; 
 public static final int TOO_LATE_TO_CANCEL = 0; 
 public static final int UNKNOWN_ORDER = 1; 
 public static final int BROKER = 2; 

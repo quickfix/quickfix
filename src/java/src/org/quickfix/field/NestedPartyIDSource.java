@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NestedPartyIDSource extends CharField 
 { 
+  public static final int FIELD = 525; 
 
   public NestedPartyIDSource() 
   { 

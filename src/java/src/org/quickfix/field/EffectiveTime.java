@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EffectiveTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 168; 
 
   public EffectiveTime() 
   { 

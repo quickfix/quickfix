@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Symbol extends StringField 
 { 
+  public static final int FIELD = 55; 
 
   public Symbol() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LeavesQty extends DoubleField 
 { 
+  public static final int FIELD = 151; 
 
   public LeavesQty() 
   { 

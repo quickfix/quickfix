@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RelatdSym extends StringField 
 { 
+  public static final int FIELD = 46; 
 
   public RelatdSym() 
   { 

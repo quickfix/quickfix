@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LiquidityPctHigh extends DoubleField 
 { 
+  public static final int FIELD = 403; 
 
   public LiquidityPctHigh() 
   { 

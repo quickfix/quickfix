@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class QuoteRejectReason extends IntField 
 { 
+  public static final int FIELD = 300; 
 
   public QuoteRejectReason() 
   { 

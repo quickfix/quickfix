@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TotalTakedown extends DoubleField 
 { 
+  public static final int FIELD = 237; 
 
   public TotalTakedown() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MultiLegRptTypeReq extends IntField 
 { 
+  public static final int FIELD = 563; 
 
   public MultiLegRptTypeReq() 
   { 

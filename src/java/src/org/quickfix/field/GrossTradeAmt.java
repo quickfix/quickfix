@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class GrossTradeAmt extends DoubleField 
 { 
+  public static final int FIELD = 381; 
 
   public GrossTradeAmt() 
   { 

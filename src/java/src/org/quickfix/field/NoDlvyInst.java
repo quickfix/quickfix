@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoDlvyInst extends IntField 
 { 
+  public static final int FIELD = 85; 
 
   public NoDlvyInst() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AccruedInterestRate extends DoubleField 
 { 
+  public static final int FIELD = 158; 
 
   public AccruedInterestRate() 
   { 

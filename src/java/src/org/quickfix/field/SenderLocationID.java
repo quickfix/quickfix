@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SenderLocationID extends StringField 
 { 
+  public static final int FIELD = 142; 
 
   public SenderLocationID() 
   { 

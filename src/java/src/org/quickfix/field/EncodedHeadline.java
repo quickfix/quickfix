@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncodedHeadline extends StringField 
 { 
+  public static final int FIELD = 359; 
 
   public EncodedHeadline() 
   { 

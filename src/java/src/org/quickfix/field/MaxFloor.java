@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MaxFloor extends DoubleField 
 { 
+  public static final int FIELD = 111; 
 
   public MaxFloor() 
   { 

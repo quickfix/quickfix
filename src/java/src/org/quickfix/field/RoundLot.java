@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class RoundLot extends DoubleField 
 { 
+  public static final int FIELD = 561; 
 
   public RoundLot() 
   { 

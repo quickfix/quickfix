@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AccountType extends IntField 
 { 
+  public static final int FIELD = 581; 
 public static final int ACCOUNT_IS_CARRIED_ON_CUSTOMER_SIDE_OF_BOOKS = 1; 
 public static final int ACCOUNT_IS_CARRIED_ON_NON_CUSTOMER_SIDE_OF_BOOKS = 2; 
 public static final int HOUSE_TRADER = 3; 

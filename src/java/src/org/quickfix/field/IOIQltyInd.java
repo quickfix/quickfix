@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class IOIQltyInd extends CharField 
 { 
+  public static final int FIELD = 25; 
 public static final char LOW = 'L'; 
 public static final char MEDIUM = 'M'; 
 public static final char HIGH = 'H'; 

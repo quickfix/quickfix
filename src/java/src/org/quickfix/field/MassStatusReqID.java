@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MassStatusReqID extends StringField 
 { 
+  public static final int FIELD = 584; 
 
   public MassStatusReqID() 
   { 

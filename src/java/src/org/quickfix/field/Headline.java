@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class Headline extends StringField 
 { 
+  public static final int FIELD = 148; 
 
   public Headline() 
   { 

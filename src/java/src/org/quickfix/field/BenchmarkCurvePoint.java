@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BenchmarkCurvePoint extends StringField 
 { 
+  public static final int FIELD = 222; 
 
   public BenchmarkCurvePoint() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LastMkt extends StringField 
 { 
+  public static final int FIELD = 30; 
 
   public LastMkt() 
   { 

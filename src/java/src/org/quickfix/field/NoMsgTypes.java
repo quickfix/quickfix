@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class NoMsgTypes extends IntField 
 { 
+  public static final int FIELD = 384; 
 
   public NoMsgTypes() 
   { 

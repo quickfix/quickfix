@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class StateOrProvinceOfIssue extends StringField 
 { 
+  public static final int FIELD = 471; 
 
   public StateOrProvinceOfIssue() 
   { 

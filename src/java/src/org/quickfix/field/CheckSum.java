@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CheckSum extends StringField 
 { 
+  public static final int FIELD = 10; 
 
   public CheckSum() 
   { 

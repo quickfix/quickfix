@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityTradingStatus extends IntField 
 { 
+  public static final int FIELD = 326; 
 public static final int OPENING_DELAY = 1; 
 public static final int TRADING_HALT = 2; 
 public static final int RESUME = 3; 

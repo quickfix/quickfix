@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LowPx extends DoubleField 
 { 
+  public static final int FIELD = 333; 
 
   public LowPx() 
   { 

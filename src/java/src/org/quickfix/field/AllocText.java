@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class AllocText extends StringField 
 { 
+  public static final int FIELD = 161; 
 
   public AllocText() 
   { 

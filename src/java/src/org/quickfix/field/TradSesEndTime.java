@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TradSesEndTime extends UtcTimeStampField 
 { 
+  public static final int FIELD = 345; 
 
   public TradSesEndTime() 
   { 

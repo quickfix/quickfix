@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PartyRole extends IntField 
 { 
+  public static final int FIELD = 452; 
 public static final int EXECUTING_FIRM = 1; 
 public static final int BROKER_OF_CREDIT = 2; 
 public static final int CLIENT_ID = 3; 

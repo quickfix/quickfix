@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegRepoCollateralSecurityType extends IntField 
 { 
+  public static final int FIELD = 250; 
 
   public LegRepoCollateralSecurityType() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegSecurityIDSource extends StringField 
 { 
+  public static final int FIELD = 603; 
 
   public LegSecurityIDSource() 
   { 

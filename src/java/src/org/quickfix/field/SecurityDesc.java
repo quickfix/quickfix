@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SecurityDesc extends StringField 
 { 
+  public static final int FIELD = 107; 
 
   public SecurityDesc() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class ExecInst extends StringField 
 { 
+  public static final int FIELD = 18; 
 public static final char NOT_HELD = '1'; 
 public static final char WORK = '2'; 
 public static final char GO_ALONG = '3'; 

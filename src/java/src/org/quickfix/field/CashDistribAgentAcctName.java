@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class CashDistribAgentAcctName extends StringField 
 { 
+  public static final int FIELD = 502; 
 
   public CashDistribAgentAcctName() 
   { 

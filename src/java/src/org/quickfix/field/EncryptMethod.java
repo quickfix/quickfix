@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class EncryptMethod extends IntField 
 { 
+  public static final int FIELD = 98; 
 public static final int NONE = 0; 
 public static final int PKCS_PROPRIETARY = 1; 
 public static final int DES = 2; 

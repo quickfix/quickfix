@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegFutSettDate extends StringField 
 { 
+  public static final int FIELD = 588; 
 
   public LegFutSettDate() 
   { 

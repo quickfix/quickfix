@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class OddLot extends BooleanField 
 { 
+  public static final int FIELD = 575; 
 
   public OddLot() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class IOIOthSvc extends CharField 
 { 
+  public static final int FIELD = 24; 
 
   public IOIOthSvc() 
   { 

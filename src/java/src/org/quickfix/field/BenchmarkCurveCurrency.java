@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BenchmarkCurveCurrency extends StringField 
 { 
+  public static final int FIELD = 220; 
 
   public BenchmarkCurveCurrency() 
   { 

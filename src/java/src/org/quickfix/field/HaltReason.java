@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class HaltReason extends CharField 
 { 
+  public static final int FIELD = 327; 
 public static final char ORDER_IMBALANCE = 'I'; 
 public static final char EQUIPMENT_CHANGEOVER = 'X'; 
 public static final char NEWS_PENDING = 'P'; 

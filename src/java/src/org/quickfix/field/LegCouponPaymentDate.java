@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class LegCouponPaymentDate extends UtcDateField 
 { 
+  public static final int FIELD = 248; 
 
   public LegCouponPaymentDate() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class PriceImprovement extends DoubleField 
 { 
+  public static final int FIELD = 639; 
 
   public PriceImprovement() 
   { 

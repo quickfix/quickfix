@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class UnderlyingSecurityAltIDSource extends StringField 
 { 
+  public static final int FIELD = 459; 
 
   public UnderlyingSecurityAltIDSource() 
   { 

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class SettlInstCode extends StringField 
 { 
+  public static final int FIELD = 175; 
 
   public SettlInstCode() 
   { 

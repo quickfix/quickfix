@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class HeartBtInt extends IntField 
 { 
+  public static final int FIELD = 108; 
 
   public HeartBtInt() 
   { 

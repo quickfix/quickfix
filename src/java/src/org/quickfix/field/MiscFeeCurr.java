@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MiscFeeCurr extends StringField 
 { 
+  public static final int FIELD = 138; 
 
   public MiscFeeCurr() 
   { 

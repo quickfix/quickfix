@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class TotalAffectedOrders extends IntField 
 { 
+  public static final int FIELD = 533; 
 
   public TotalAffectedOrders() 
   { 
