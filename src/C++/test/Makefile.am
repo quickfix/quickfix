@@ -50,6 +50,7 @@ libquickfixcpptest_la_SOURCES = \
 	SessionSettingsTestCase.h \
 	DataDictionaryTestCase.cpp \
 	DataDictionaryTestCase.h \
+	MemoryStoreTestCase.cpp \
 	MemoryStoreTestCase.h
 
 INCLUDES = -I..
