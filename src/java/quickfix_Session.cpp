@@ -330,7 +330,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getStore
   JVMClass type( "Lquickfix/CppMessageStore;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
   JVMObject result = pEnv->NewObject( type, method );
-  JavaMessageStore_create( pEnv, result, pSession->getStore() );
+  JavaMessageStore_create( pEnv, result, const_cast<FIX::MessageStore*>(pSession->getStore()) );
   return result;
 
   QF_STACK_CATCH
