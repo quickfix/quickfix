@@ -29,10 +29,11 @@ namespace FIX
 {
 class TestApplication : public NullApplication
 {
+public:
   void fromApp( const Message&, const SessionID& )
   throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) {}
-  void onRun() {}}
-;
+  void onRun() {}
+};
 
 class TestAcceptor : public Acceptor
 {
