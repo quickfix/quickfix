@@ -334,6 +334,8 @@ void Session::nextResendRequest( const Message& resendRequest )
 
   if ( !verify( resendRequest, false, false ) ) return ;
 
+  Locker l( m_mutex );
+
   BeginSeqNo beginSeqNo;
   EndSeqNo endSeqNo;
   resendRequest.getField( beginSeqNo );
