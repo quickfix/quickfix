@@ -84,6 +84,7 @@ struct MessageParseError : public std::logic_error
 struct InvalidMessage : public std::logic_error
 {
   InvalidMessage() : std::logic_error( "Invalid message" ) {}
+  InvalidMessage( const std::string& what ) : std::logic_error( what ) {}
 };
 
 /// %Application is not configured correctly
