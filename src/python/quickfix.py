@@ -26852,7 +26852,6 @@ class Initiator(_object):
         try:
             if self.thisown: destroy(self)
         except: pass
-    def start(*args): return _quickfix.Initiator_start(*args)
     def block(*args): return _quickfix.Initiator_block(*args)
     def poll(*args): return _quickfix.Initiator_poll(*args)
     def stop(*args): return _quickfix.Initiator_stop(*args)
@@ -26904,7 +26903,6 @@ class Acceptor(_object):
         try:
             if self.thisown: destroy(self)
         except: pass
-    def start(*args): return _quickfix.Acceptor_start(*args)
     def block(*args): return _quickfix.Acceptor_block(*args)
     def poll(*args): return _quickfix.Acceptor_poll(*args)
     def stop(*args): return _quickfix.Acceptor_stop(*args)

@@ -6,6 +6,7 @@
 
 %feature("director") FIX::Application;
 %feature("classic") FIX::Exception;
+%ignore start;
 
 %{
 #include "../C++/Exceptions.h"
@@ -34,6 +35,16 @@
 #include "../C++/Acceptor.h"
 #include "../C++/SocketAcceptor.h"
 using namespace FIX;
+%}
+
+%init %{
+#ifndef _MSV_VER
+      struct sigaction new_action, old_action;
+      new_action.sa_handler = SIG_DFL;
+      sigemptyset( &new_action.sa_mask );
+      new_action.sa_flags = 0;
+      sigaction( SIGINT, &new_action, &old_action );
+#endif
 %}
 
 %extend FIX::Exception {
