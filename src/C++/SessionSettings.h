@@ -64,6 +64,7 @@
 namespace FIX
 {
 static const std::string CONNECTION_TYPE = "ConnectionType";
+static const std::string USE_DATA_DICTIONARY = "UseDataDictionary";
 static const std::string DATA_DICTIONARY = "DataDictionary";
 static const std::string START_TIME = "StartTime";
 static const std::string END_TIME = "EndTime";

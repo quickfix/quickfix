@@ -76,8 +76,12 @@ Session* SessionFactory::create( const SessionID& sessionID,
   if ( connectionType != "acceptor" && connectionType != "initiator" )
     throw ConfigError( "Invalid ConnectionType" );
 
+  bool useDataDictionary = true;
+  if ( settings.has( USE_DATA_DICTIONARY ) )
+    useDataDictionary = settings.getBool( USE_DATA_DICTIONARY );
+
   DataDictionary dataDictionary;
-  if ( settings.has( DATA_DICTIONARY ) )
+  if ( useDataDictionary )
   {
     std::string path = settings.getString( DATA_DICTIONARY );
     Dictionaries::iterator i = m_dictionaries.find( path );
