@@ -1,11 +1,11 @@
 echo off
 
-set DIR=../src/java
+set DIR=..\src\java
 goto start
 
 :start
 pushd %DIR%
-runut_java
+call test.bat quickfix.test.AllTests
 popd
 goto quit
 

@@ -3,6 +3,7 @@
 	ProjectType="Visual C++"
 	Version="7.00"
 	Name="quickfix_jni"
+	ProjectGUID="{562C1936-7288-48EF-ACB5-E8516CE776DC}"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
