@@ -652,7 +652,10 @@ void Session::generateReject( const Message& message, int err, int field )
 { QF_STACK_PUSH(Session::generateReject)
 
   if ( !m_state.receivedLogon() )
-    throw std::logic_error( "Tried to send a reject while not logged on" );
+  {
+    m_state.onEvent( "Tried to send a reject while not logged on" );
+    return;
+  }
 
   std::string beginString = m_sessionID.getBeginString();
 
