@@ -103,6 +103,7 @@ def createProcess(file, address, port)
     | num |
     begin
       socket = TCPSocket.open(address, port);
+    rescue
     end
     if socket == nil 
       sleep 3
