@@ -1,3 +1,28 @@
+2004-11-03 18:18  orenmnero
+
+	* NEWS: [no log message]
+
+2004-11-03 18:14  orenmnero
+
+	* src/C++/Session.cpp: differentiate between normal and abnormal
+	  disconnect
+
+2004-11-03 16:31  orenmnero
+
+	* src/java/: Conversions.h, quickfix_CppLog.cpp,
+	  quickfix_CppMessageStore.cpp, quickfix_DataDictionary.cpp,
+	  quickfix_FileLogFactory.cpp, quickfix_FileStore.cpp,
+	  quickfix_FileStoreFactory.cpp, quickfix_Group.cpp,
+	  quickfix_Message.cpp, quickfix_MySQLLogFactory.cpp,
+	  quickfix_MySQLStoreFactory.cpp, quickfix_ScreenLogFactory.cpp,
+	  quickfix_Session.cpp, quickfix_SessionID.cpp,
+	  quickfix_SessionSettings.cpp, src/quickfix/test/MessageTest.java:
+	  check for null values in JNI library
+
+2004-11-02 21:34  orenmnero
+
+	* ChangeLog: [no log message]
+
 2004-11-02 21:25  orenmnero
 
 	* src/: .NET/fix44/UserRequest.cs, .NET/fix44/UserResponse.cs,
