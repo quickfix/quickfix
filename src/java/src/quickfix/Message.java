@@ -74,6 +74,10 @@ public class Message extends FieldMap {
         initFromString(string, dd);
     }
 
+    public Message(String string, DataDictionary dd, boolean validate) throws InvalidMessage {
+        initFromString(string, dd, validate);
+    }
+
     private void initFromString(String string, boolean validate) 
         throws InvalidMessage {
 
@@ -90,6 +94,15 @@ public class Message extends FieldMap {
         header = new Header( this );
         trailer = new Trailer( this );
         fromString(string, dd);
+    }
+
+    private void initFromString(String string, DataDictionary dd, boolean validate) 
+        throws InvalidMessage {
+        
+        create();
+        header = new Header( this );
+        trailer = new Trailer( this );
+        fromString(string, dd, validate);
     }
 
     protected Message(Header header, Trailer trailer) {
@@ -202,6 +215,7 @@ public class Message extends FieldMap {
     public native String toXML();
     private native void fromString(String string, boolean validate) throws InvalidMessage;
     private native void fromString(String string, DataDictionary dd) throws InvalidMessage;
+    private native void fromString(String string, DataDictionary dd, boolean validate) throws InvalidMessage;
 
     public final Header getHeader() {
         return header;
@@ -209,6 +223,9 @@ public class Message extends FieldMap {
     public final Trailer getTrailer() {
         return trailer;
     }
+
+    public native boolean isAdmin();
+    public native boolean isApp();
 
     public class Iterator implements java.util.Iterator {
         private Message message;

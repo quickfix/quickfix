@@ -233,6 +233,30 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
 
 /*
  * Class:     quickfix_Message
+ * Method:    fromString
+ * Signature: (Ljava/lang/String;Lquickfix/DataDictionary;Z)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lquickfix_DataDictionary_2Z
+  (JNIEnv *, jobject, jstring, jobject, jboolean);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    isAdmin
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_isAdmin
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    isApp
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_isApp
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Message
  * Method:    messageIteratorCreate
  * Signature: (Lquickfix/Message$Iterator;)Lquickfix/Message$Iterator;
  */

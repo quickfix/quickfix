@@ -591,7 +591,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
   try {
     return newField( field );
   } catch( std::exception& e ) {
-    std::cout << e.what() << std::endl;
     return 0;
   }
 
@@ -797,6 +796,58 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveField
   QF_STACK_CATCH
 }
 
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
+( JNIEnv *pEnv, jobject obj, jobject iterator )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jiterator( iterator );
+  JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  jiterator.setInt( "cppPointer", (int)new FIX::Header::iterator( pMessage->getTrailer().begin()) );
+  return jiterator;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
+( JNIEnv *pEnv, jobject obj, jobject iterator )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jiterator( iterator );
+  JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Trailer::iterator* i = ( FIX::Trailer::iterator* ) jiterator.getInt( "cppPointer" );
+  return( *i != pMessage->getTrailer().end() );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorNext
+( JNIEnv *pEnv, jobject obj, jobject iterator )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jiterator( iterator );
+  JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Trailer::iterator* i = ( FIX::Trailer::iterator* ) jiterator.getInt( "cppPointer" );
+  if( *i == pMessage->getTrailer().end() ) {
+    throwNew( "Ljava/util/NoSuchElementException;", "" );
+    return 0;
+  }
+  const FIX::FieldBase& field = (*i)->second;
+  (*i)++;
+  try {
+    return newField( field );
+  } catch( std::exception& e ) {
+    return 0;
+  }
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jstring JNICALL Java_quickfix_Message_toString
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
@@ -892,7 +943,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorNext
   try {
     return newField( field );
   } catch( std::exception& e ) {
-    std::cout << e.what() << std::endl;
     return 0;
   }
 
@@ -923,3 +973,53 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lquickfix_DataDictionary_2Z
+( JNIEnv *pEnv, jobject obj, jstring value, jobject dd, jboolean validate )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  JVMObject jdd( dd );
+
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jdd.getInt( "cppPointer" );
+
+  const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
+  try
+  {
+    pMessage->setString( uvalue, validate, pDataDictionary );
+  }
+  catch( FIX::InvalidMessage& e )
+  {
+    throwNew( "Lquickfix/InvalidMessage;", e.what() );
+  }
+  ENV::get()->ReleaseStringUTFChars( value, uvalue );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_isAdmin
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  return pMessage->isAdmin();
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_isApp
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  return pMessage->isApp();
+
+  QF_STACK_CATCH
+}
+
