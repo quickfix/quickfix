@@ -179,7 +179,7 @@ public:
              + m_trailer.calculateTotal() ) % 256;
   }
 
-  bool isAdmin()
+  bool isAdmin() const
   { MsgType msgType;
     if( m_header.isSetField(msgType) )
     {
@@ -189,7 +189,7 @@ public:
     return false;
   }
 
-  bool isApp()
+  bool isApp() const
   { MsgType msgType;
     if( m_header.isSetField(msgType) )
     {

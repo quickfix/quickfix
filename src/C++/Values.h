@@ -1671,6 +1671,14 @@ namespace FIX
   const char SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT[] = "Tag appears more than once";
   const char SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT[] = "Tag specified out of required order";
   const char SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT[] = "Incorrect NumInGroup count for repeating group";
+  const char BusinessRejectReason_OTHER_TEXT[] = "Other";
+  const char BusinessRejectReason_UNKNOWN_ID_TEXT[] = "Unknown ID";
+  const char BusinessRejectReason_UNKNOWN_SECURITY_TEXT[] = "Unknown Security";
+  const char BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT[] = "Unsupported Message Type";
+  const char BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT[] = "Application Not Available";
+  const char BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT[] = "Conditionally Required Field Missing";
+  const char BusinessRejectReason_NOT_AUTHORIZED_TEXT[] = "Not Authorized";
+  const char BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT[] = "Deliver to firm not available at this time";
 }
 #endif //FIX_VALUES_H
 

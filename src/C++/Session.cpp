@@ -795,8 +795,8 @@ void Session::generateReject( const Message& message, const std::string& str )
 
   reject.setField( Text( str ) );
   sendRaw( reject );
-  m_state.onEvent( "Rejecting Message: "
-                   + IntConvertor::convert( msgSeqNum ) );
+  m_state.onEvent( "Message " + msgSeqNum.getString()
+                   + " Rejected: " + str );
 
   QF_STACK_POP
 }
@@ -816,11 +816,39 @@ void Session::generateBusinessReject( const Message& message, int err )
   reject.setField( BusinessRejectReason( err ) );
   m_state.incrNextTargetMsgSeqNum();
 
-  if ( err == 3 )
-    reject.setField( Text( "Unsupported Message Type" ) );
+  const char* reason = 0;
+  switch ( err )
+  {
+    case BusinessRejectReason_OTHER:
+    reason = BusinessRejectReason_OTHER_TEXT;
+    break;
+    case BusinessRejectReason_UNKOWN_ID:
+    reason = BusinessRejectReason_UNKNOWN_ID_TEXT;
+    break;
+    case BusinessRejectReason_UNKNOWN_SECURITY:
+    reason = BusinessRejectReason_UNKNOWN_SECURITY_TEXT;
+    break;
+    case BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE:
+    reason = BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT;
+    break;
+    case BusinessRejectReason_APPLICATION_NOT_AVAILABLE:
+    reason = BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT;
+    break;
+    case BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING:
+    reason = BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT;
+    break;
+    case BusinessRejectReason_NOT_AUTHORIZED:
+    reason = BusinessRejectReason_NOT_AUTHORIZED_TEXT;
+    break;
+    case BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME:
+    reason = BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT;
+    break;
+  };
+
+  populateRejectReason( reject, reason );
   sendRaw( reject );
-  m_state.onEvent( "Rejecting Message: "
-       + IntConvertor::convert( msgSeqNum ) );
+  m_state.onEvent( "Message " + msgSeqNum.getString()
+                   + " Rejected: " + reason );
 
   QF_STACK_POP
 }
@@ -1188,11 +1216,18 @@ void Session::next( const Message& message, bool queued )
   { LOGEX( generateReject( message, 1, e.field ) ); }
   catch ( FieldNotFound & e )
   {
-    LOGEX( generateReject( message, 1, e.field ) );
-    if ( msgType == MsgType_Logon )
+    if( beginString >= FIX::BeginString_FIX42 && message.isApp() )
     {
-      m_state.onEvent( "Required field missing from logon" );
-      disconnect();
+      LOGEX( generateBusinessReject( message, 5 ) );
+    }
+    else
+    {
+      LOGEX( generateReject( message, 1, e.field ) );
+      if ( msgType == MsgType_Logon )
+      {
+        m_state.onEvent( "Required field missing from logon" );
+        disconnect();
+      }
     }
   }
   catch ( InvalidTagNumber & e )
