@@ -379,11 +379,11 @@ void DataDictionaryTestCase::checkValue::onRun
   message.setField( OrdType( '1' ) );
   message.setField( OrderRestrictions("1 2 3") );
   try{ object.validate( message ); }
-  catch ( IncorrectTagValue& e ) { assert(false); }
+  catch ( IncorrectTagValue& ) { assert(false); }
 
   message.setField( OrderRestrictions("1 4 3") );
   try{ object.validate( message ); assert(false); }
-  catch ( IncorrectTagValue& e ) {}
+  catch ( IncorrectTagValue& ) {}
 }
 
 bool DataDictionaryTestCase::readFromFile::onSetup
