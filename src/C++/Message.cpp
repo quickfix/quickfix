@@ -189,10 +189,11 @@ std::string& Message::toString( std::string& str ) const
   m_header.setField( BodyLength( bodyLength() ) );
   m_trailer.setField( CheckSum( checkSum() ) );
 
-  return str =
-    m_header.calculateString() +
-    FieldMap::calculateString() +
-    m_trailer.calculateString();
+  m_header.calculateString( str, true );
+  FieldMap::calculateString( str, false );
+  m_trailer.calculateString( str, false );
+
+  return str;
 
   QF_STACK_POP
 }

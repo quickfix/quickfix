@@ -139,7 +139,7 @@ public:
   /// Clear all fields from the map
   void clear();
 
-  std::string calculateString() const;
+  std::string& calculateString( std::string&, bool clear = true ) const;
   int calculateLength() const;
   int calculateTotal() const;
 

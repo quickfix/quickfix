@@ -127,10 +127,11 @@ void FieldMap::clear()
   QF_STACK_POP
 }
 
-std::string FieldMap::calculateString() const
+std::string& FieldMap::calculateString( std::string& result, bool clear ) const
 { QF_STACK_PUSH(FieldMap::calculateString)
 
-  std::string result;
+  if( clear ) result.clear();
+  result.reserve( result.size() + m_fields.size() * 20 );
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
@@ -141,7 +142,7 @@ std::string FieldMap::calculateString() const
     if ( j == m_groups.end() ) continue;
     std::vector < FieldMap* > ::const_iterator k;
     for ( k = j->second.begin(); k != j->second.end(); ++k )
-      result += ( *k ) ->calculateString();
+      ( *k ) ->calculateString( result, false );
   }
   return result;
 
