@@ -227,7 +227,7 @@ FIX43::MarketDataRequest Application::queryMarketDataRequest43()
 {
   FIX::MDReqID mdReqID( "MARKETDATAID" );
   FIX::SubscriptionRequestType subType( FIX::SubscriptionRequestType_SNAPSHOT );
-  FIX::MarketDepth marketDepth( FIX::MarketDepth_TOP_OF_BOOK );
+  FIX::MarketDepth marketDepth( 0 );
 
   FIX43::MarketDataRequest::NoMDEntryTypes marketDataEntryGroup;
   FIX::MDEntryType mdEntryType( FIX::MDEntryType_BID );
