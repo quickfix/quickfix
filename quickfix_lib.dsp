@@ -153,10 +153,10 @@ SOURCE=".\src\C++\Acceptor.h"
 InputPath=".\src\C++\Acceptor.h"
 InputName=Acceptor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -166,10 +166,10 @@ InputName=Acceptor
 InputPath=".\src\C++\Acceptor.h"
 InputName=Acceptor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -186,10 +186,10 @@ SOURCE=".\src\C++\Application.h"
 InputPath=".\src\C++\Application.h"
 InputName=Application
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -199,10 +199,10 @@ InputName=Application
 InputPath=".\src\C++\Application.h"
 InputName=Application
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -219,10 +219,10 @@ SOURCE=".\src\C++\CallStack.h"
 InputPath=".\src\C++\CallStack.h"
 InputName=CallStack
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -232,10 +232,10 @@ InputName=CallStack
 InputPath=".\src\C++\CallStack.h"
 InputName=CallStack
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -252,10 +252,10 @@ SOURCE=".\src\C++\ConfigLexer.h"
 InputPath=".\src\C++\ConfigLexer.h"
 InputName=ConfigLexer
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -265,10 +265,10 @@ InputName=ConfigLexer
 InputPath=".\src\C++\ConfigLexer.h"
 InputName=ConfigLexer
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -285,10 +285,10 @@ SOURCE=".\src\C++\Dictionary.h"
 InputPath=".\src\C++\Dictionary.h"
 InputName=Dictionary
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -298,10 +298,10 @@ InputName=Dictionary
 InputPath=".\src\C++\Dictionary.h"
 InputName=Dictionary
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -318,10 +318,10 @@ SOURCE=".\src\C++\DOMDocument.h"
 InputPath=".\src\C++\DOMDocument.h"
 InputName=DOMDocument
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -331,10 +331,10 @@ InputName=DOMDocument
 InputPath=".\src\C++\DOMDocument.h"
 InputName=DOMDocument
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -351,10 +351,10 @@ SOURCE=".\src\C++\Event.h"
 InputPath=".\src\C++\Event.h"
 InputName=Event
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -364,10 +364,10 @@ InputName=Event
 InputPath=".\src\C++\Event.h"
 InputName=Event
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -384,10 +384,10 @@ SOURCE=".\src\C++\Exceptions.h"
 InputPath=".\src\C++\Exceptions.h"
 InputName=Exceptions
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -397,10 +397,10 @@ InputName=Exceptions
 InputPath=".\src\C++\Exceptions.h"
 InputName=Exceptions
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -417,10 +417,10 @@ SOURCE=".\src\C++\FlexLexer.h"
 InputPath=".\src\C++\FlexLexer.h"
 InputName=FlexLexer
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -430,10 +430,10 @@ InputName=FlexLexer
 InputPath=".\src\C++\FlexLexer.h"
 InputName=FlexLexer
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -450,10 +450,10 @@ SOURCE=".\src\C++\index.h"
 InputPath=".\src\C++\index.h"
 InputName=index
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -463,10 +463,10 @@ InputName=index
 InputPath=".\src\C++\index.h"
 InputName=index
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -483,10 +483,10 @@ SOURCE=".\src\C++\Initiator.h"
 InputPath=".\src\C++\Initiator.h"
 InputName=Initiator
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -496,10 +496,10 @@ InputName=Initiator
 InputPath=".\src\C++\Initiator.h"
 InputName=Initiator
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -516,10 +516,10 @@ SOURCE=".\src\C++\MSXML_DOMDocument.h"
 InputPath=".\src\C++\MSXML_DOMDocument.h"
 InputName=MSXML_DOMDocument
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -529,10 +529,10 @@ InputName=MSXML_DOMDocument
 InputPath=".\src\C++\MSXML_DOMDocument.h"
 InputName=MSXML_DOMDocument
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -549,10 +549,10 @@ SOURCE=".\src\C++\Mutex.h"
 InputPath=".\src\C++\Mutex.h"
 InputName=Mutex
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -562,10 +562,10 @@ InputName=Mutex
 InputPath=".\src\C++\Mutex.h"
 InputName=Mutex
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -582,10 +582,10 @@ SOURCE=".\src\C++\Parser.h"
 InputPath=".\src\C++\Parser.h"
 InputName=Parser
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -595,10 +595,10 @@ InputName=Parser
 InputPath=".\src\C++\Parser.h"
 InputName=Parser
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -615,10 +615,10 @@ SOURCE=".\src\C++\Queue.h"
 InputPath=".\src\C++\Queue.h"
 InputName=Queue
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -628,10 +628,10 @@ InputName=Queue
 InputPath=".\src\C++\Queue.h"
 InputName=Queue
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -648,10 +648,10 @@ SOURCE=".\src\C++\Session.h"
 InputPath=".\src\C++\Session.h"
 InputName=Session
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -661,10 +661,10 @@ InputName=Session
 InputPath=".\src\C++\Session.h"
 InputName=Session
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -681,10 +681,10 @@ SOURCE=".\src\C++\SessionFactory.h"
 InputPath=".\src\C++\SessionFactory.h"
 InputName=SessionFactory
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -694,10 +694,10 @@ InputName=SessionFactory
 InputPath=".\src\C++\SessionFactory.h"
 InputName=SessionFactory
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -714,10 +714,10 @@ SOURCE=".\src\C++\SessionID.h"
 InputPath=".\src\C++\SessionID.h"
 InputName=SessionID
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -727,10 +727,10 @@ InputName=SessionID
 InputPath=".\src\C++\SessionID.h"
 InputName=SessionID
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -747,10 +747,10 @@ SOURCE=".\src\C++\SessionSettings.h"
 InputPath=".\src\C++\SessionSettings.h"
 InputName=SessionSettings
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -760,10 +760,10 @@ InputName=SessionSettings
 InputPath=".\src\C++\SessionSettings.h"
 InputName=SessionSettings
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -780,10 +780,10 @@ SOURCE=".\src\C++\SessionState.h"
 InputPath=".\src\C++\SessionState.h"
 InputName=SessionState
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -793,10 +793,10 @@ InputName=SessionState
 InputPath=".\src\C++\SessionState.h"
 InputName=SessionState
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -813,10 +813,10 @@ SOURCE=".\src\C++\Settings.h"
 InputPath=".\src\C++\Settings.h"
 InputName=Settings
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -826,10 +826,10 @@ InputName=Settings
 InputPath=".\src\C++\Settings.h"
 InputName=Settings
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -846,10 +846,10 @@ SOURCE=".\src\C++\strptime.h"
 InputPath=".\src\C++\strptime.h"
 InputName=strptime
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -859,10 +859,10 @@ InputName=strptime
 InputPath=".\src\C++\strptime.h"
 InputName=strptime
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -879,10 +879,10 @@ SOURCE=".\src\C++\Utility.h"
 InputPath=".\src\C++\Utility.h"
 InputName=Utility
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -892,10 +892,10 @@ InputName=Utility
 InputPath=".\src\C++\Utility.h"
 InputName=Utility
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -909,6 +909,10 @@ InputName=Utility
 # Begin Group "Field Source Files"
 
 # PROP Default_Filter "*.cpp"
+# Begin Source File
+
+SOURCE=".\src\C++\FieldMap.cpp"
+# End Source File
 # Begin Source File
 
 SOURCE=".\src\C++\FieldTypes.cpp"
@@ -927,10 +931,10 @@ SOURCE=".\src\C++\DeprecatedFieldNumbers.h"
 InputPath=".\src\C++\DeprecatedFieldNumbers.h"
 InputName=DeprecatedFieldNumbers
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -940,10 +944,10 @@ InputName=DeprecatedFieldNumbers
 InputPath=".\src\C++\DeprecatedFieldNumbers.h"
 InputName=DeprecatedFieldNumbers
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -960,10 +964,10 @@ SOURCE=".\src\C++\DeprecatedFields.h"
 InputPath=".\src\C++\DeprecatedFields.h"
 InputName=DeprecatedFields
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -973,10 +977,10 @@ InputName=DeprecatedFields
 InputPath=".\src\C++\DeprecatedFields.h"
 InputName=DeprecatedFields
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -993,10 +997,10 @@ SOURCE=".\src\C++\DeprecatedValues.h"
 InputPath=".\src\C++\DeprecatedValues.h"
 InputName=DeprecatedValues
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1006,10 +1010,10 @@ InputName=DeprecatedValues
 InputPath=".\src\C++\DeprecatedValues.h"
 InputName=DeprecatedValues
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1026,10 +1030,10 @@ SOURCE=".\src\C++\Field.h"
 InputPath=".\src\C++\Field.h"
 InputName=Field
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1039,10 +1043,10 @@ InputName=Field
 InputPath=".\src\C++\Field.h"
 InputName=Field
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1059,10 +1063,10 @@ SOURCE=".\src\C++\FieldConvertors.h"
 InputPath=".\src\C++\FieldConvertors.h"
 InputName=FieldConvertors
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1072,10 +1076,10 @@ InputName=FieldConvertors
 InputPath=".\src\C++\FieldConvertors.h"
 InputName=FieldConvertors
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1092,10 +1096,10 @@ SOURCE=".\src\C++\FieldMap.h"
 InputPath=".\src\C++\FieldMap.h"
 InputName=FieldMap
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1105,10 +1109,10 @@ InputName=FieldMap
 InputPath=".\src\C++\FieldMap.h"
 InputName=FieldMap
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1125,10 +1129,10 @@ SOURCE=".\src\C++\FieldNumbers.h"
 InputPath=".\src\C++\FieldNumbers.h"
 InputName=FieldNumbers
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1138,10 +1142,10 @@ InputName=FieldNumbers
 InputPath=".\src\C++\FieldNumbers.h"
 InputName=FieldNumbers
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1158,10 +1162,10 @@ SOURCE=".\src\C++\Fields.h"
 InputPath=".\src\C++\Fields.h"
 InputName=Fields
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1171,10 +1175,10 @@ InputName=Fields
 InputPath=".\src\C++\Fields.h"
 InputName=Fields
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1191,10 +1195,10 @@ SOURCE=".\src\C++\FieldTypes.h"
 InputPath=".\src\C++\FieldTypes.h"
 InputName=FieldTypes
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1204,10 +1208,10 @@ InputName=FieldTypes
 InputPath=".\src\C++\FieldTypes.h"
 InputName=FieldTypes
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1224,10 +1228,10 @@ SOURCE=".\src\C++\Values.h"
 InputPath=".\src\C++\Values.h"
 InputName=Values
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1237,10 +1241,10 @@ InputName=Values
 InputPath=".\src\C++\Values.h"
 InputName=Values
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1248,10 +1252,6 @@ InputName=Values
 
 # End Source File
 # End Group
-# Begin Source File
-
-SOURCE=".\src\C++\FieldMap.cpp"
-# End Source File
 # End Group
 # Begin Group "Message"
 
@@ -1269,10 +1269,10 @@ SOURCE=".\src\C++\DataDictionary.h"
 InputPath=".\src\C++\DataDictionary.h"
 InputName=DataDictionary
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1282,10 +1282,10 @@ InputName=DataDictionary
 InputPath=".\src\C++\DataDictionary.h"
 InputName=DataDictionary
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1302,10 +1302,10 @@ SOURCE=".\src\C++\FIX40_MessageCracker.h"
 InputPath=".\src\C++\FIX40_MessageCracker.h"
 InputName=FIX40_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1315,10 +1315,10 @@ InputName=FIX40_MessageCracker
 InputPath=".\src\C++\FIX40_MessageCracker.h"
 InputName=FIX40_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1335,10 +1335,10 @@ SOURCE=".\src\C++\FIX40_Messages.h"
 InputPath=".\src\C++\FIX40_Messages.h"
 InputName=FIX40_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1348,10 +1348,10 @@ InputName=FIX40_Messages
 InputPath=".\src\C++\FIX40_Messages.h"
 InputName=FIX40_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1368,10 +1368,10 @@ SOURCE=".\src\C++\FIX41_MessageCracker.h"
 InputPath=".\src\C++\FIX41_MessageCracker.h"
 InputName=FIX41_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1381,10 +1381,10 @@ InputName=FIX41_MessageCracker
 InputPath=".\src\C++\FIX41_MessageCracker.h"
 InputName=FIX41_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1401,10 +1401,10 @@ SOURCE=".\src\C++\FIX41_Messages.h"
 InputPath=".\src\C++\FIX41_Messages.h"
 InputName=FIX41_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1414,10 +1414,10 @@ InputName=FIX41_Messages
 InputPath=".\src\C++\FIX41_Messages.h"
 InputName=FIX41_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1434,10 +1434,10 @@ SOURCE=".\src\C++\FIX42_MessageCracker.h"
 InputPath=".\src\C++\FIX42_MessageCracker.h"
 InputName=FIX42_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1447,10 +1447,10 @@ InputName=FIX42_MessageCracker
 InputPath=".\src\C++\FIX42_MessageCracker.h"
 InputName=FIX42_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1467,10 +1467,10 @@ SOURCE=".\src\C++\FIX42_Messages.h"
 InputPath=".\src\C++\FIX42_Messages.h"
 InputName=FIX42_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1480,10 +1480,10 @@ InputName=FIX42_Messages
 InputPath=".\src\C++\FIX42_Messages.h"
 InputName=FIX42_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1500,10 +1500,10 @@ SOURCE=".\src\C++\FIX43_MessageCracker.h"
 InputPath=".\src\C++\FIX43_MessageCracker.h"
 InputName=FIX43_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1513,10 +1513,10 @@ InputName=FIX43_MessageCracker
 InputPath=".\src\C++\FIX43_MessageCracker.h"
 InputName=FIX43_MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1533,10 +1533,10 @@ SOURCE=".\src\C++\FIX43_Messages.h"
 InputPath=".\src\C++\FIX43_Messages.h"
 InputName=FIX43_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1546,10 +1546,10 @@ InputName=FIX43_Messages
 InputPath=".\src\C++\FIX43_Messages.h"
 InputName=FIX43_Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1566,10 +1566,10 @@ SOURCE=".\src\C++\Group.h"
 InputPath=".\src\C++\Group.h"
 InputName=Group
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1579,10 +1579,10 @@ InputName=Group
 InputPath=".\src\C++\Group.h"
 InputName=Group
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1599,10 +1599,10 @@ SOURCE=".\src\C++\Message.h"
 InputPath=".\src\C++\Message.h"
 InputName=Message
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1612,10 +1612,10 @@ InputName=Message
 InputPath=".\src\C++\Message.h"
 InputName=Message
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1632,10 +1632,10 @@ SOURCE=".\src\C++\MessageCracker.h"
 InputPath=".\src\C++\MessageCracker.h"
 InputName=MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1645,10 +1645,10 @@ InputName=MessageCracker
 InputPath=".\src\C++\MessageCracker.h"
 InputName=MessageCracker
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1665,10 +1665,10 @@ SOURCE=".\src\C++\Messages.h"
 InputPath=".\src\C++\Messages.h"
 InputName=Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1678,10 +1678,10 @@ InputName=Messages
 InputPath=".\src\C++\Messages.h"
 InputName=Messages
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1698,10 +1698,10 @@ SOURCE=".\src\C++\MessageSorters.h"
 InputPath=".\src\C++\MessageSorters.h"
 InputName=MessageSorters
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1711,10 +1711,10 @@ InputName=MessageSorters
 InputPath=".\src\C++\MessageSorters.h"
 InputName=MessageSorters
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1799,10 +1799,10 @@ SOURCE=".\src\C++\SocketAcceptor.h"
 InputPath=".\src\C++\SocketAcceptor.h"
 InputName=SocketAcceptor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1812,10 +1812,10 @@ InputName=SocketAcceptor
 InputPath=".\src\C++\SocketAcceptor.h"
 InputName=SocketAcceptor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1832,10 +1832,10 @@ SOURCE=".\src\C++\SocketConnection.h"
 InputPath=".\src\C++\SocketConnection.h"
 InputName=SocketConnection
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1845,10 +1845,10 @@ InputName=SocketConnection
 InputPath=".\src\C++\SocketConnection.h"
 InputName=SocketConnection
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1865,10 +1865,10 @@ SOURCE=".\src\C++\SocketConnector.h"
 InputPath=".\src\C++\SocketConnector.h"
 InputName=SocketConnector
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1878,10 +1878,10 @@ InputName=SocketConnector
 InputPath=".\src\C++\SocketConnector.h"
 InputName=SocketConnector
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1898,10 +1898,10 @@ SOURCE=".\src\C++\SocketInitiator.h"
 InputPath=".\src\C++\SocketInitiator.h"
 InputName=SocketInitiator
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1911,10 +1911,10 @@ InputName=SocketInitiator
 InputPath=".\src\C++\SocketInitiator.h"
 InputName=SocketInitiator
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1931,10 +1931,10 @@ SOURCE=".\src\C++\SocketMonitor.h"
 InputPath=".\src\C++\SocketMonitor.h"
 InputName=SocketMonitor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1944,10 +1944,10 @@ InputName=SocketMonitor
 InputPath=".\src\C++\SocketMonitor.h"
 InputName=SocketMonitor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1964,10 +1964,10 @@ SOURCE=".\src\C++\SocketServer.h"
 InputPath=".\src\C++\SocketServer.h"
 InputName=SocketServer
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1977,10 +1977,10 @@ InputName=SocketServer
 InputPath=".\src\C++\SocketServer.h"
 InputName=SocketServer
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -1997,10 +1997,10 @@ SOURCE=".\src\C++\ThreadedSocketAcceptor.h"
 InputPath=".\src\C++\ThreadedSocketAcceptor.h"
 InputName=ThreadedSocketAcceptor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2010,10 +2010,10 @@ InputName=ThreadedSocketAcceptor
 InputPath=".\src\C++\ThreadedSocketAcceptor.h"
 InputName=ThreadedSocketAcceptor
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2030,10 +2030,10 @@ SOURCE=".\src\C++\ThreadedSocketConnection.h"
 InputPath=".\src\C++\ThreadedSocketConnection.h"
 InputName=ThreadedSocketConnection
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2043,10 +2043,10 @@ InputName=ThreadedSocketConnection
 InputPath=".\src\C++\ThreadedSocketConnection.h"
 InputName=ThreadedSocketConnection
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2063,10 +2063,10 @@ SOURCE=".\src\C++\ThreadedSocketInitiator.h"
 InputPath=".\src\C++\ThreadedSocketInitiator.h"
 InputName=ThreadedSocketInitiator
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2076,10 +2076,10 @@ InputName=ThreadedSocketInitiator
 InputPath=".\src\C++\ThreadedSocketInitiator.h"
 InputName=ThreadedSocketInitiator
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2132,10 +2132,10 @@ SOURCE=".\src\C++\FileLog.h"
 InputPath=".\src\C++\FileLog.h"
 InputName=FileLog
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2145,10 +2145,10 @@ InputName=FileLog
 InputPath=".\src\C++\FileLog.h"
 InputName=FileLog
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2165,10 +2165,10 @@ SOURCE=".\src\C++\FileStore.h"
 InputPath=".\src\C++\FileStore.h"
 InputName=FileStore
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2178,10 +2178,10 @@ InputName=FileStore
 InputPath=".\src\C++\FileStore.h"
 InputName=FileStore
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2198,10 +2198,10 @@ SOURCE=".\src\C++\Log.h"
 InputPath=".\src\C++\Log.h"
 InputName=Log
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2211,10 +2211,10 @@ InputName=Log
 InputPath=".\src\C++\Log.h"
 InputName=Log
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2231,10 +2231,10 @@ SOURCE=".\src\C++\MessageStore.h"
 InputPath=".\src\C++\MessageStore.h"
 InputName=MessageStore
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2244,10 +2244,10 @@ InputName=MessageStore
 InputPath=".\src\C++\MessageStore.h"
 InputName=MessageStore
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2264,10 +2264,10 @@ SOURCE=".\src\C++\MySQLLog.h"
 InputPath=".\src\C++\MySQLLog.h"
 InputName=MySQLLog
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2277,10 +2277,10 @@ InputName=MySQLLog
 InputPath=".\src\C++\MySQLLog.h"
 InputName=MySQLLog
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2297,10 +2297,10 @@ SOURCE=".\src\C++\MySQLStore.h"
 InputPath=".\src\C++\MySQLStore.h"
 InputName=MySQLStore
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
@@ -2310,10 +2310,10 @@ InputName=MySQLStore
 InputPath=".\src\C++\MySQLStore.h"
 InputName=MySQLStore
 
-"include\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
 	echo off 
-	IF EXIST include\$(InputName).h (del include\$(InputName).h) 
-	xcopy "$(InputPath)" include 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
 	
 # End Custom Build
 
