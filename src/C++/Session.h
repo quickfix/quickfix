@@ -117,7 +117,7 @@ public:
   static bool isSameSession( const UtcTimeOnly& start, const UtcTimeOnly& end,
                              const UtcTimeStamp& time1,
                              const UtcTimeStamp& time2 );
-  bool isSessionTime() { return checkSessionTime( UtcTimeStamp() ); }
+  bool isSessionTime() { return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() ); }
 
   void checkLatency ( bool value ) { m_checkLatency = value; }
   void setMaxLatency ( int value ) { m_maxLatency = value; }
@@ -156,15 +156,10 @@ private:
   bool checkSessionTime( const UtcTimeStamp& time )
   {
     UtcTimeStamp creationTime = m_state.getCreationTime();
-
-    if ( !isSessionTime( m_startTime, m_endTime, time ) )
-      return false;
-    if ( ( time - creationTime ) > UTC_DAY )
-      return false;
-    return true;
+    return isSameSession(m_startTime, m_endTime, time, creationTime);
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
-{ return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }
+  { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }
   bool isTargetTooLow( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum < ( m_state.getNextTargetMsgSeqNum() ); }
   bool isCorrectCompID( const SenderCompID& senderCompID,

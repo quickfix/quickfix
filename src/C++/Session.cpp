@@ -87,16 +87,8 @@ Session::Session( Application& application,
   if ( m_pLogFactory )
     m_state.log( m_pLogFactory->create( m_sessionID ) );
 
-
-  UtcTimeStamp creationTime = m_state.getCreationTime();
-  UtcTimeStamp now;
-
-  if ( creationTime > now ||
-       !isSessionTime( m_startTime, m_endTime, now ) ||
-       !isSameSession( m_startTime, m_endTime, now, creationTime ) )
-  {
+  if( !checkSessionTime( UtcTimeStamp() ) )
     reset();
-  }
 
   addSession( *this );
   m_application.onCreate( m_sessionID );
@@ -1144,11 +1136,10 @@ bool Session::isSameSession( const UtcTimeOnly& start,
   UtcDate time1Date( time1 );
   UtcDate time2Date( time2 );
 
-  if ( start < end )
+  if ( start < end || start == end )
     return time1Date == time2Date;
-  else
+  else if( start > end )
     return abs( time1Date - time2Date ) <= 1;
-
   return false;
 }
 }
