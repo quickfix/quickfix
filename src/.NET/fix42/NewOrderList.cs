@@ -160,7 +160,7 @@ namespace QuickFix42
     public bool isSetNoOrders()
     { return isSetField(73); }
 
-    class NoOrders: QuickFix.Group
+    public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
     static int[] message_order = new int[] {11,67,160,109,76,1,63,64,21,18,110,111,100,81,55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,140,54,401,114,60,38,152,40,44,99,15,376,377,23,117,59,168,432,126,427,12,13,47,121,120,58,354,355,193,192,77,203,204,210,211,388,389,439,440,0};
@@ -1040,7 +1040,7 @@ namespace QuickFix42
       public bool isSetNoAllocs()
       { return isSetField(78); }
 
-      class NoAllocs: QuickFix.Group
+      public class NoAllocs: QuickFix.Group
       {
       public NoAllocs() : base(78,79,message_order ) {}
       static int[] message_order = new int[] {79,80,0};
@@ -1081,7 +1081,7 @@ namespace QuickFix42
       public bool isSetNoTradingSessions()
       { return isSetField(386); }
 
-      class NoTradingSessions: QuickFix.Group
+      public class NoTradingSessions: QuickFix.Group
       {
       public NoTradingSessions() : base(386,336,message_order ) {}
       static int[] message_order = new int[] {336,0};

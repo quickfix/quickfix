@@ -338,7 +338,7 @@ namespace QuickFix42
     public bool isSetNoRelatedSym()
     { return isSetField(146); }
 
-    class NoRelatedSym: QuickFix.Group
+    public class NoRelatedSym: QuickFix.Group
     {
     public NoRelatedSym() : base(146,311,message_order ) {}
     static int[] message_order = new int[] {311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,319,54,318,0};

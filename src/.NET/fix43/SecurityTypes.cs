@@ -148,7 +148,7 @@ namespace QuickFix43
     public bool isSetNoSecurityTypes()
     { return isSetField(558); }
 
-    class NoSecurityTypes: QuickFix.Group
+    public class NoSecurityTypes: QuickFix.Group
     {
     public NoSecurityTypes() : base(558,167,message_order ) {}
     static int[] message_order = new int[] {167,460,461,0};

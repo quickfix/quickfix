@@ -312,7 +312,7 @@ namespace QuickFix40
     public bool isSetNoOrders()
     { return isSetField(73); }
 
-    class NoOrders: QuickFix.Group
+    public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
     static int[] message_order = new int[] {11,37,66,105,0};
@@ -377,7 +377,7 @@ namespace QuickFix40
     public bool isSetNoExecs()
     { return isSetField(124); }
 
-    class NoExecs: QuickFix.Group
+    public class NoExecs: QuickFix.Group
     {
     public NoExecs() : base(124,17,message_order ) {}
     static int[] message_order = new int[] {17,32,31,30,0};
@@ -442,7 +442,7 @@ namespace QuickFix40
     public bool isSetNoMiscFees()
     { return isSetField(136); }
 
-    class NoMiscFees: QuickFix.Group
+    public class NoMiscFees: QuickFix.Group
     {
     public NoMiscFees() : base(136,137,message_order ) {}
     static int[] message_order = new int[] {137,138,139,0};
@@ -495,7 +495,7 @@ namespace QuickFix40
     public bool isSetNoAllocs()
     { return isSetField(78); }
 
-    class NoAllocs: QuickFix.Group
+    public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
     static int[] message_order = new int[] {79,80,81,76,109,12,13,0};
@@ -595,7 +595,7 @@ namespace QuickFix40
       public bool isSetNoDlvyInst()
       { return isSetField(85); }
 
-      class NoDlvyInst: QuickFix.Group
+      public class NoDlvyInst: QuickFix.Group
       {
       public NoDlvyInst() : base(85,92,message_order ) {}
       static int[] message_order = new int[] {92,86,0};

@@ -76,7 +76,7 @@ namespace QuickFix44
     public bool isSetNoPartyIDs()
     { return isSetField(453); }
 
-    class NoPartyIDs: QuickFix.Group
+    public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
     static int[] message_order = new int[] {448,447,452,0};
@@ -128,7 +128,7 @@ namespace QuickFix44
       public bool isSetNoPartySubIDs()
       { return isSetField(802); }
 
-      class NoPartySubIDs: QuickFix.Group
+      public class NoPartySubIDs: QuickFix.Group
       {
       public NoPartySubIDs() : base(802,523,message_order ) {}
       static int[] message_order = new int[] {523,803,0};
@@ -230,7 +230,7 @@ namespace QuickFix44
     public bool isSetNoRegistDtls()
     { return isSetField(473); }
 
-    class NoRegistDtls: QuickFix.Group
+    public class NoRegistDtls: QuickFix.Group
     {
     public NoRegistDtls() : base(473,509,message_order ) {}
     static int[] message_order = new int[] {509,511,474,482,522,486,475,0};
@@ -294,7 +294,7 @@ namespace QuickFix44
       public bool isSetNoNestedPartyIDs()
       { return isSetField(539); }
 
-      class NoNestedPartyIDs: QuickFix.Group
+      public class NoNestedPartyIDs: QuickFix.Group
       {
       public NoNestedPartyIDs() : base(539,524,message_order ) {}
       static int[] message_order = new int[] {524,525,538,0};
@@ -346,7 +346,7 @@ namespace QuickFix44
         public bool isSetNoNestedPartySubIDs()
         { return isSetField(804); }
 
-        class NoNestedPartySubIDs: QuickFix.Group
+        public class NoNestedPartySubIDs: QuickFix.Group
         {
         public NoNestedPartySubIDs() : base(804,545,message_order ) {}
         static int[] message_order = new int[] {545,805,0};
@@ -425,7 +425,7 @@ namespace QuickFix44
     public bool isSetNoDistribInsts()
     { return isSetField(510); }
 
-    class NoDistribInsts: QuickFix.Group
+    public class NoDistribInsts: QuickFix.Group
     {
     public NoDistribInsts() : base(510,477,message_order ) {}
     static int[] message_order = new int[] {477,512,478,498,499,500,501,502,0};

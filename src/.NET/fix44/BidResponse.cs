@@ -42,7 +42,7 @@ namespace QuickFix44
     public bool isSetNoBidComponents()
     { return isSetField(420); }
 
-    class NoBidComponents: QuickFix.Group
+    public class NoBidComponents: QuickFix.Group
     {
     public NoBidComponents() : base(420,12,message_order ) {}
     static int[] message_order = new int[] {12,13,479,497,66,421,54,44,423,406,430,63,64,336,625,58,354,355,0};

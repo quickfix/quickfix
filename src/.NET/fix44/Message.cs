@@ -328,7 +328,7 @@ namespace QuickFix44
       public bool isSetHopCompID()
       { return isSetField(628); }
 
-      class HopCompID: QuickFix.Group
+      public class HopCompID: QuickFix.Group
       {
       public HopCompID() : base(628,628,message_order ) {}
       static int[] message_order = new int[] {628,629,630,0};

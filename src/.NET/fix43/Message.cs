@@ -340,7 +340,7 @@ namespace QuickFix43
       public bool isSetNoHops()
       { return isSetField(627); }
 
-      class NoHops: QuickFix.Group
+      public class NoHops: QuickFix.Group
       {
       public NoHops() : base(627,628,message_order ) {}
       static int[] message_order = new int[] {628,629,630,0};

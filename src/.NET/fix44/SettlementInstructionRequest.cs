@@ -50,7 +50,7 @@ namespace QuickFix44
     public bool isSetNoPartyIDs()
     { return isSetField(453); }
 
-    class NoPartyIDs: QuickFix.Group
+    public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
     static int[] message_order = new int[] {448,447,452,0};
@@ -102,7 +102,7 @@ namespace QuickFix44
       public bool isSetNoPartySubIDs()
       { return isSetField(802); }
 
-      class NoPartySubIDs: QuickFix.Group
+      public class NoPartySubIDs: QuickFix.Group
       {
       public NoPartySubIDs() : base(802,523,message_order ) {}
       static int[] message_order = new int[] {523,803,0};

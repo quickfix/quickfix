@@ -450,7 +450,7 @@ namespace QuickFix43
     public bool isSetNoSecurityAltID()
     { return isSetField(454); }
 
-    class NoSecurityAltID: QuickFix.Group
+    public class NoSecurityAltID: QuickFix.Group
     {
     public NoSecurityAltID() : base(454,455,message_order ) {}
     static int[] message_order = new int[] {455,456,0};
@@ -719,7 +719,7 @@ namespace QuickFix43
     public bool isSetNoIOIQualifiers()
     { return isSetField(199); }
 
-    class NoIOIQualifiers: QuickFix.Group
+    public class NoIOIQualifiers: QuickFix.Group
     {
     public NoIOIQualifiers() : base(199,104,message_order ) {}
     static int[] message_order = new int[] {104,0};
@@ -748,7 +748,7 @@ namespace QuickFix43
     public bool isSetNoRoutingIDs()
     { return isSetField(215); }
 
-    class NoRoutingIDs: QuickFix.Group
+    public class NoRoutingIDs: QuickFix.Group
     {
     public NoRoutingIDs() : base(215,216,message_order ) {}
     static int[] message_order = new int[] {216,217,0};

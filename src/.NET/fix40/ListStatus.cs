@@ -76,7 +76,7 @@ namespace QuickFix40
     public bool isSetNoOrders()
     { return isSetField(73); }
 
-    class NoOrders: QuickFix.Group
+    public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
     static int[] message_order = new int[] {11,14,84,6,0};

@@ -358,7 +358,7 @@ namespace QuickFix43
     public bool isSetNoBidDescriptors()
     { return isSetField(398); }
 
-    class NoBidDescriptors: QuickFix.Group
+    public class NoBidDescriptors: QuickFix.Group
     {
     public NoBidDescriptors() : base(398,399,message_order ) {}
     static int[] message_order = new int[] {399,400,401,404,441,402,403,405,406,407,408,0};
@@ -507,7 +507,7 @@ namespace QuickFix43
     public bool isSetNoBidComponents()
     { return isSetField(420); }
 
-    class NoBidComponents: QuickFix.Group
+    public class NoBidComponents: QuickFix.Group
     {
     public NoBidComponents() : base(420,66,message_order ) {}
     static int[] message_order = new int[] {66,54,336,625,430,63,64,1,0};

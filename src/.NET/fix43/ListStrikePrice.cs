@@ -50,7 +50,7 @@ namespace QuickFix43
     public bool isSetNoStrikes()
     { return isSetField(428); }
 
-    class NoStrikes: QuickFix.Group
+    public class NoStrikes: QuickFix.Group
     {
     public NoStrikes() : base(428,55,message_order ) {}
     static int[] message_order = new int[] {55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,140,11,526,54,44,15,58,354,355,0};
@@ -450,7 +450,7 @@ namespace QuickFix43
       public bool isSetNoSecurityAltID()
       { return isSetField(454); }
 
-      class NoSecurityAltID: QuickFix.Group
+      public class NoSecurityAltID: QuickFix.Group
       {
       public NoSecurityAltID() : base(454,455,message_order ) {}
       static int[] message_order = new int[] {455,456,0};

@@ -572,7 +572,7 @@ namespace QuickFix40
     public bool isSetNoMiscFees()
     { return isSetField(136); }
 
-    class NoMiscFees: QuickFix.Group
+    public class NoMiscFees: QuickFix.Group
     {
     public NoMiscFees() : base(136,137,message_order ) {}
     static int[] message_order = new int[] {137,138,139,0};

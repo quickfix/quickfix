@@ -558,7 +558,7 @@ namespace QuickFix44
     public bool isSetNoSecurityAltID()
     { return isSetField(454); }
 
-    class NoSecurityAltID: QuickFix.Group
+    public class NoSecurityAltID: QuickFix.Group
     {
     public NoSecurityAltID() : base(454,455,message_order ) {}
     static int[] message_order = new int[] {455,456,0};
@@ -599,7 +599,7 @@ namespace QuickFix44
     public bool isSetNoEvents()
     { return isSetField(864); }
 
-    class NoEvents: QuickFix.Group
+    public class NoEvents: QuickFix.Group
     {
     public NoEvents() : base(864,865,message_order ) {}
     static int[] message_order = new int[] {865,866,867,868,0};
@@ -796,7 +796,7 @@ namespace QuickFix44
     public bool isSetNoUnderlyings()
     { return isSetField(711); }
 
-    class NoUnderlyings: QuickFix.Group
+    public class NoUnderlyings: QuickFix.Group
     {
     public NoUnderlyings() : base(711,311,message_order ) {}
     static int[] message_order = new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0};
@@ -1340,7 +1340,7 @@ namespace QuickFix44
       public bool isSetNoUnderlyingSecurityAltID()
       { return isSetField(457); }
 
-      class NoUnderlyingSecurityAltID: QuickFix.Group
+      public class NoUnderlyingSecurityAltID: QuickFix.Group
       {
       public NoUnderlyingSecurityAltID() : base(457,458,message_order ) {}
       static int[] message_order = new int[] {458,459,0};
@@ -1382,7 +1382,7 @@ namespace QuickFix44
     public bool isSetNoLegs()
     { return isSetField(555); }
 
-    class NoLegs: QuickFix.Group
+    public class NoLegs: QuickFix.Group
     {
     public NoLegs() : base(555,600,message_order ) {}
     static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0};
@@ -1890,7 +1890,7 @@ namespace QuickFix44
       public bool isSetNoLegSecurityAltID()
       { return isSetField(604); }
 
-      class NoLegSecurityAltID: QuickFix.Group
+      public class NoLegSecurityAltID: QuickFix.Group
       {
       public NoLegSecurityAltID() : base(604,605,message_order ) {}
       static int[] message_order = new int[] {605,606,0};

@@ -356,7 +356,7 @@ namespace QuickFix41
     public bool isSetNoIOIQualifiers()
     { return isSetField(199); }
 
-    class NoIOIQualifiers: QuickFix.Group
+    public class NoIOIQualifiers: QuickFix.Group
     {
     public NoIOIQualifiers() : base(199,104,message_order ) {}
     static int[] message_order = new int[] {104,0};

@@ -44,7 +44,7 @@ namespace QuickFix44
     public bool isSetNoPartyIDs()
     { return isSetField(453); }
 
-    class NoPartyIDs: QuickFix.Group
+    public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
     static int[] message_order = new int[] {448,447,452,0};
@@ -96,7 +96,7 @@ namespace QuickFix44
       public bool isSetNoPartySubIDs()
       { return isSetField(802); }
 
-      class NoPartySubIDs: QuickFix.Group
+      public class NoPartySubIDs: QuickFix.Group
       {
       public NoPartySubIDs() : base(802,523,message_order ) {}
       static int[] message_order = new int[] {523,803,0};
@@ -906,7 +906,7 @@ namespace QuickFix44
     public bool isSetNoSecurityAltID()
     { return isSetField(454); }
 
-    class NoSecurityAltID: QuickFix.Group
+    public class NoSecurityAltID: QuickFix.Group
     {
     public NoSecurityAltID() : base(454,455,message_order ) {}
     static int[] message_order = new int[] {455,456,0};
@@ -947,7 +947,7 @@ namespace QuickFix44
     public bool isSetNoEvents()
     { return isSetField(864); }
 
-    class NoEvents: QuickFix.Group
+    public class NoEvents: QuickFix.Group
     {
     public NoEvents() : base(864,865,message_order ) {}
     static int[] message_order = new int[] {865,866,867,868,0};
@@ -2008,7 +2008,7 @@ namespace QuickFix44
     public bool isSetNoAllocs()
     { return isSetField(78); }
 
-    class NoAllocs: QuickFix.Group
+    public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
     static int[] message_order = new int[] {79,661,736,467,80,0};
@@ -2072,7 +2072,7 @@ namespace QuickFix44
       public bool isSetNoNestedPartyIDs()
       { return isSetField(539); }
 
-      class NoNestedPartyIDs: QuickFix.Group
+      public class NoNestedPartyIDs: QuickFix.Group
       {
       public NoNestedPartyIDs() : base(539,524,message_order ) {}
       static int[] message_order = new int[] {524,525,538,0};
@@ -2124,7 +2124,7 @@ namespace QuickFix44
         public bool isSetNoNestedPartySubIDs()
         { return isSetField(804); }
 
-        class NoNestedPartySubIDs: QuickFix.Group
+        public class NoNestedPartySubIDs: QuickFix.Group
         {
         public NoNestedPartySubIDs() : base(804,545,message_order ) {}
         static int[] message_order = new int[] {545,805,0};
@@ -2179,7 +2179,7 @@ namespace QuickFix44
     public bool isSetNoTradingSessions()
     { return isSetField(386); }
 
-    class NoTradingSessions: QuickFix.Group
+    public class NoTradingSessions: QuickFix.Group
     {
     public NoTradingSessions() : base(386,336,message_order ) {}
     static int[] message_order = new int[] {336,625,0};
@@ -2220,7 +2220,7 @@ namespace QuickFix44
     public bool isSetNoUnderlyings()
     { return isSetField(711); }
 
-    class NoUnderlyings: QuickFix.Group
+    public class NoUnderlyings: QuickFix.Group
     {
     public NoUnderlyings() : base(711,311,message_order ) {}
     static int[] message_order = new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0};
@@ -2764,7 +2764,7 @@ namespace QuickFix44
       public bool isSetNoUnderlyingSecurityAltID()
       { return isSetField(457); }
 
-      class NoUnderlyingSecurityAltID: QuickFix.Group
+      public class NoUnderlyingSecurityAltID: QuickFix.Group
       {
       public NoUnderlyingSecurityAltID() : base(457,458,message_order ) {}
       static int[] message_order = new int[] {458,459,0};

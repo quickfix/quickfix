@@ -516,7 +516,7 @@ namespace QuickFix43
     public bool isSetNoSecurityAltID()
     { return isSetField(454); }
 
-    class NoSecurityAltID: QuickFix.Group
+    public class NoSecurityAltID: QuickFix.Group
     {
     public NoSecurityAltID() : base(454,455,message_order ) {}
     static int[] message_order = new int[] {455,456,0};
@@ -665,7 +665,7 @@ namespace QuickFix43
     public bool isSetNoPartyIDs()
     { return isSetField(453); }
 
-    class NoPartyIDs: QuickFix.Group
+    public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
     static int[] message_order = new int[] {448,447,452,523,0};
@@ -922,7 +922,7 @@ namespace QuickFix43
     public bool isSetNoOrders()
     { return isSetField(73); }
 
-    class NoOrders: QuickFix.Group
+    public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
     static int[] message_order = new int[] {11,37,198,526,66,0};
@@ -999,7 +999,7 @@ namespace QuickFix43
     public bool isSetNoExecs()
     { return isSetField(124); }
 
-    class NoExecs: QuickFix.Group
+    public class NoExecs: QuickFix.Group
     {
     public NoExecs() : base(124,32,message_order ) {}
     static int[] message_order = new int[] {32,17,527,31,29,0};
@@ -1076,7 +1076,7 @@ namespace QuickFix43
     public bool isSetNoAllocs()
     { return isSetField(78); }
 
-    class NoAllocs: QuickFix.Group
+    public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
     static int[] message_order = new int[] {79,366,80,467,81,208,209,161,360,361,12,13,479,497,153,154,119,120,155,156,159,160,0};
@@ -1152,7 +1152,7 @@ namespace QuickFix43
       public bool isSetNoNestedPartyIDs()
       { return isSetField(539); }
 
-      class NoNestedPartyIDs: QuickFix.Group
+      public class NoNestedPartyIDs: QuickFix.Group
       {
       public NoNestedPartyIDs() : base(539,524,message_order ) {}
       static int[] message_order = new int[] {524,525,538,545,0};
@@ -1421,7 +1421,7 @@ namespace QuickFix43
       public bool isSetNoMiscFees()
       { return isSetField(136); }
 
-      class NoMiscFees: QuickFix.Group
+      public class NoMiscFees: QuickFix.Group
       {
       public NoMiscFees() : base(136,137,message_order ) {}
       static int[] message_order = new int[] {137,138,139,0};

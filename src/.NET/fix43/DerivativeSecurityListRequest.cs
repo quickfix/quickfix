@@ -446,7 +446,7 @@ namespace QuickFix43
     public bool isSetNoUnderlyingSecurityAltID()
     { return isSetField(457); }
 
-    class NoUnderlyingSecurityAltID: QuickFix.Group
+    public class NoUnderlyingSecurityAltID: QuickFix.Group
     {
     public NoUnderlyingSecurityAltID() : base(457,458,message_order ) {}
     static int[] message_order = new int[] {458,459,0};

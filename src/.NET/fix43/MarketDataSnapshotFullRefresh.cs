@@ -414,7 +414,7 @@ namespace QuickFix43
     public bool isSetNoSecurityAltID()
     { return isSetField(454); }
 
-    class NoSecurityAltID: QuickFix.Group
+    public class NoSecurityAltID: QuickFix.Group
     {
     public NoSecurityAltID() : base(454,455,message_order ) {}
     static int[] message_order = new int[] {455,456,0};
@@ -527,7 +527,7 @@ namespace QuickFix43
     public bool isSetNoMDEntries()
     { return isSetField(268); }
 
-    class NoMDEntries: QuickFix.Group
+    public class NoMDEntries: QuickFix.Group
     {
     public NoMDEntries() : base(268,269,message_order ) {}
     static int[] message_order = new int[] {269,270,15,271,272,273,274,275,336,625,276,277,282,283,284,286,59,432,126,110,18,287,37,299,288,289,346,290,546,58,354,355,0};

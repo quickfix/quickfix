@@ -134,7 +134,7 @@ namespace QuickFix43
     public bool isSetNoMsgTypes()
     { return isSetField(384); }
 
-    class NoMsgTypes: QuickFix.Group
+    public class NoMsgTypes: QuickFix.Group
     {
     public NoMsgTypes() : base(384,372,message_order ) {}
     static int[] message_order = new int[] {372,385,0};

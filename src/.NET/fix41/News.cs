@@ -96,7 +96,7 @@ namespace QuickFix41
     public bool isSetNoRelatedSym()
     { return isSetField(146); }
 
-    class NoRelatedSym: QuickFix.Group
+    public class NoRelatedSym: QuickFix.Group
     {
     public NoRelatedSym() : base(146,46,message_order ) {}
     static int[] message_order = new int[] {46,65,48,22,167,200,205,201,202,206,207,106,107,0};
@@ -269,7 +269,7 @@ namespace QuickFix41
     public bool isSetLinesOfText()
     { return isSetField(33); }
 
-    class LinesOfText: QuickFix.Group
+    public class LinesOfText: QuickFix.Group
     {
     public LinesOfText() : base(33,58,message_order ) {}
     static int[] message_order = new int[] {58,0};

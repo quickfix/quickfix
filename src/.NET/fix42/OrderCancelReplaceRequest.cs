@@ -852,7 +852,7 @@ namespace QuickFix42
     public bool isSetNoAllocs()
     { return isSetField(78); }
 
-    class NoAllocs: QuickFix.Group
+    public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
     static int[] message_order = new int[] {79,80,0};
@@ -893,7 +893,7 @@ namespace QuickFix42
     public bool isSetNoTradingSessions()
     { return isSetField(386); }
 
-    class NoTradingSessions: QuickFix.Group
+    public class NoTradingSessions: QuickFix.Group
     {
     public NoTradingSessions() : base(386,336,message_order ) {}
     static int[] message_order = new int[] {336,0};

@@ -84,7 +84,7 @@ namespace QuickFix44
     public bool isSetNoAltMDSource()
     { return isSetField(816); }
 
-    class NoAltMDSource: QuickFix.Group
+    public class NoAltMDSource: QuickFix.Group
     {
     public NoAltMDSource() : base(816,817,message_order ) {}
     static int[] message_order = new int[] {817,0};

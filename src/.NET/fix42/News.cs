@@ -120,7 +120,7 @@ namespace QuickFix42
     public bool isSetNoRoutingIDs()
     { return isSetField(215); }
 
-    class NoRoutingIDs: QuickFix.Group
+    public class NoRoutingIDs: QuickFix.Group
     {
     public NoRoutingIDs() : base(215,216,message_order ) {}
     static int[] message_order = new int[] {216,217,0};
@@ -161,7 +161,7 @@ namespace QuickFix42
     public bool isSetNoRelatedSym()
     { return isSetField(146); }
 
-    class NoRelatedSym: QuickFix.Group
+    public class NoRelatedSym: QuickFix.Group
     {
     public NoRelatedSym() : base(146,46,message_order ) {}
     static int[] message_order = new int[] {46,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,0};
@@ -406,7 +406,7 @@ namespace QuickFix42
     public bool isSetLinesOfText()
     { return isSetField(33); }
 
-    class LinesOfText: QuickFix.Group
+    public class LinesOfText: QuickFix.Group
     {
     public LinesOfText() : base(33,58,message_order ) {}
     static int[] message_order = new int[] {58,354,355,0};

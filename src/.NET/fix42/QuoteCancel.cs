@@ -86,7 +86,7 @@ namespace QuickFix42
     public bool isSetNoQuoteEntries()
     { return isSetField(295); }
 
-    class NoQuoteEntries: QuickFix.Group
+    public class NoQuoteEntries: QuickFix.Group
     {
     public NoQuoteEntries() : base(295,55,message_order ) {}
     static int[] message_order = new int[] {55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,311,0};

@@ -1110,7 +1110,7 @@ namespace QuickFix42
     public bool isSetNoContraBrokers()
     { return isSetField(382); }
 
-    class NoContraBrokers: QuickFix.Group
+    public class NoContraBrokers: QuickFix.Group
     {
     public NoContraBrokers() : base(382,375,message_order ) {}
     static int[] message_order = new int[] {375,337,437,438,0};

@@ -108,7 +108,7 @@ namespace QuickFix40
     public bool isSetLinesOfText()
     { return isSetField(33); }
 
-    class LinesOfText: QuickFix.Group
+    public class LinesOfText: QuickFix.Group
     {
     public LinesOfText() : base(33,58,message_order ) {}
     static int[] message_order = new int[] {58,0};

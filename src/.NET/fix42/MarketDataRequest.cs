@@ -88,7 +88,7 @@ namespace QuickFix42
     public bool isSetNoMDEntryTypes()
     { return isSetField(267); }
 
-    class NoMDEntryTypes: QuickFix.Group
+    public class NoMDEntryTypes: QuickFix.Group
     {
     public NoMDEntryTypes() : base(267,269,message_order ) {}
     static int[] message_order = new int[] {269,0};
@@ -117,7 +117,7 @@ namespace QuickFix42
     public bool isSetNoRelatedSym()
     { return isSetField(146); }
 
-    class NoRelatedSym: QuickFix.Group
+    public class NoRelatedSym: QuickFix.Group
     {
     public NoRelatedSym() : base(146,55,message_order ) {}
     static int[] message_order = new int[] {55,65,48,22,167,200,205,201,202,206,231,223,207,106,348,349,107,350,351,336,0};

@@ -464,7 +464,7 @@ namespace QuickFix42
     public bool isSetNoIOIQualifiers()
     { return isSetField(199); }
 
-    class NoIOIQualifiers: QuickFix.Group
+    public class NoIOIQualifiers: QuickFix.Group
     {
     public NoIOIQualifiers() : base(199,104,message_order ) {}
     static int[] message_order = new int[] {104,0};
@@ -493,7 +493,7 @@ namespace QuickFix42
     public bool isSetNoRoutingIDs()
     { return isSetField(215); }
 
-    class NoRoutingIDs: QuickFix.Group
+    public class NoRoutingIDs: QuickFix.Group
     {
     public NoRoutingIDs() : base(215,216,message_order ) {}
     static int[] message_order = new int[] {216,217,0};

@@ -148,7 +148,7 @@ namespace QuickFix44
     public bool isSetNoSettlInst()
     { return isSetField(778); }
 
-    class NoSettlInst: QuickFix.Group
+    public class NoSettlInst: QuickFix.Group
     {
     public NoSettlInst() : base(778,162,message_order ) {}
     static int[] message_order = new int[] {162,163,214,54,460,167,461,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,0};
@@ -200,7 +200,7 @@ namespace QuickFix44
       public bool isSetNoPartyIDs()
       { return isSetField(453); }
 
-      class NoPartyIDs: QuickFix.Group
+      public class NoPartyIDs: QuickFix.Group
       {
       public NoPartyIDs() : base(453,448,message_order ) {}
       static int[] message_order = new int[] {448,447,452,0};
@@ -252,7 +252,7 @@ namespace QuickFix44
         public bool isSetNoPartySubIDs()
         { return isSetField(802); }
 
-        class NoPartySubIDs: QuickFix.Group
+        public class NoPartySubIDs: QuickFix.Group
         {
         public NoPartySubIDs() : base(802,523,message_order ) {}
         static int[] message_order = new int[] {523,803,0};
@@ -426,7 +426,7 @@ namespace QuickFix44
       public bool isSetNoDlvyInst()
       { return isSetField(85); }
 
-      class NoDlvyInst: QuickFix.Group
+      public class NoDlvyInst: QuickFix.Group
       {
       public NoDlvyInst() : base(85,165,message_order ) {}
       static int[] message_order = new int[] {165,787,0};
@@ -466,7 +466,7 @@ namespace QuickFix44
         public bool isSetNoSettlPartyIDs()
         { return isSetField(781); }
 
-        class NoSettlPartyIDs: QuickFix.Group
+        public class NoSettlPartyIDs: QuickFix.Group
         {
         public NoSettlPartyIDs() : base(781,782,message_order ) {}
         static int[] message_order = new int[] {782,783,784,0};
@@ -518,7 +518,7 @@ namespace QuickFix44
           public bool isSetNoSettlPartySubIDs()
           { return isSetField(801); }
 
-          class NoSettlPartySubIDs: QuickFix.Group
+          public class NoSettlPartySubIDs: QuickFix.Group
           {
           public NoSettlPartySubIDs() : base(801,785,message_order ) {}
           static int[] message_order = new int[] {785,786,0};

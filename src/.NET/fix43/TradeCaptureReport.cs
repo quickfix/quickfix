@@ -528,7 +528,7 @@ namespace QuickFix43
     public bool isSetNoSecurityAltID()
     { return isSetField(454); }
 
-    class NoSecurityAltID: QuickFix.Group
+    public class NoSecurityAltID: QuickFix.Group
     {
     public NoSecurityAltID() : base(454,455,message_order ) {}
     static int[] message_order = new int[] {455,456,0};
@@ -761,7 +761,7 @@ namespace QuickFix43
     public bool isSetNoSides()
     { return isSetField(552); }
 
-    class NoSides: QuickFix.Group
+    public class NoSides: QuickFix.Group
     {
     public NoSides() : base(552,54,message_order ) {}
     static int[] message_order = new int[] {54,37,198,11,1,581,81,575,635,578,579,15,376,377,528,529,582,483,336,625,12,13,479,497,381,157,230,158,159,238,237,118,119,120,155,156,77,58,354,355,442,0};
@@ -825,7 +825,7 @@ namespace QuickFix43
       public bool isSetNoPartyIDs()
       { return isSetField(453); }
 
-      class NoPartyIDs: QuickFix.Group
+      public class NoPartyIDs: QuickFix.Group
       {
       public NoPartyIDs() : base(453,448,message_order ) {}
       static int[] message_order = new int[] {448,447,452,523,0};
@@ -1334,7 +1334,7 @@ namespace QuickFix43
       public bool isSetNoClearingInstructions()
       { return isSetField(576); }
 
-      class NoClearingInstructions: QuickFix.Group
+      public class NoClearingInstructions: QuickFix.Group
       {
       public NoClearingInstructions() : base(576,577,message_order ) {}
       static int[] message_order = new int[] {577,0};
@@ -1363,7 +1363,7 @@ namespace QuickFix43
       public bool isSetNoContAmts()
       { return isSetField(518); }
 
-      class NoContAmts: QuickFix.Group
+      public class NoContAmts: QuickFix.Group
       {
       public NoContAmts() : base(518,519,message_order ) {}
       static int[] message_order = new int[] {519,520,521,0};
@@ -1416,7 +1416,7 @@ namespace QuickFix43
       public bool isSetNoMiscFees()
       { return isSetField(136); }
 
-      class NoMiscFees: QuickFix.Group
+      public class NoMiscFees: QuickFix.Group
       {
       public NoMiscFees() : base(136,137,message_order ) {}
       static int[] message_order = new int[] {137,138,139,0};

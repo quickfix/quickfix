@@ -98,7 +98,7 @@ namespace QuickFix43
     public bool isSetNoRelatedSym()
     { return isSetField(146); }
 
-    class NoRelatedSym: QuickFix.Group
+    public class NoRelatedSym: QuickFix.Group
     {
     public NoRelatedSym() : base(146,140,message_order ) {}
     static int[] message_order = new int[] {140,303,537,336,625,229,54,465,38,152,63,64,40,193,192,126,60,15,218,220,221,222,423,44,640,235,236,0};
@@ -186,7 +186,7 @@ namespace QuickFix43
       public bool isSetNoStipulations()
       { return isSetField(232); }
 
-      class NoStipulations: QuickFix.Group
+      public class NoStipulations: QuickFix.Group
       {
       public NoStipulations() : base(232,233,message_order ) {}
       static int[] message_order = new int[] {233,234,0};
