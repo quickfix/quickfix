@@ -5,7 +5,7 @@ tradeclient_SOURCES = \
 	Application.h \
 	Application.cpp
 
-tradeclient_LDADD = ../../src/C++/libquickfix.la -lpthread
+tradeclient_LDADD = -lquickfix -lpthread
 
 all-local:
 	rm -f ../../bin/tradeclient
