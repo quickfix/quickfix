@@ -21,7 +21,7 @@
     </target>
 
     <target name="compile" depends="init">
-        <javac destdir="${build}" failonerror="true">
+        <javac destdir="${build}" failonerror="true" memoryMaximumSize="256m" fork="true">
             <src path="${src}"/>
             <classpath>
                 <fileset dir="${lib}">
