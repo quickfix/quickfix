@@ -263,18 +263,54 @@ void socket_invalidate( int& socket )
 const char* socket_hostname( const char* name )
 { QF_STACK_PUSH(socket_hostname)
 
-  struct hostent * buf;
-  struct in_addr **paddr;
+  struct hostent* host_ptr = 0;
+  struct in_addr** paddr;
   struct in_addr saddr;
+  hostent host;
+  char buf[1024];
+  int error;
 
   saddr.s_addr = inet_addr( name );
   if ( saddr.s_addr != ( unsigned ) - 1 ) return name;
 
-  buf = gethostbyname( name );
-  if ( buf == 0 ) return 0;
+#if GETHOSTBYNAME_R_INPUTS_RESULT
+  gethostbyname_r( name, &host, buf, sizeof(buf), &host_ptr, &error );
+#elif GETHOSTBYNAME_R_RETURNS_RESULT
+  host_ptr = gethostbyname_r( name, &host, buf, sizeof(buf), &error );
+#else
+  host_ptr = gethostbyname( name );
+#endif 
 
-  paddr = ( struct in_addr ** ) buf->h_addr_list;
+  if ( host_ptr == 0 ) return 0;
+
+  paddr = ( struct in_addr ** ) host_ptr->h_addr_list;
   return inet_ntoa( **paddr );
+
+  QF_STACK_POP
+}
+
+tm time_gmtime( const time_t* t )
+{ QF_STACK_PUSH(time_gmtime)
+
+#ifdef _MSC_VER
+  return *gmtime( t );
+#else
+  tm result;
+  return *gmtime_r( t, &result );
+#endif
+
+  QF_STACK_POP
+}
+
+tm time_localtime( const time_t* t)
+{ QF_STACK_PUSH(time_localtime)
+
+#ifdef _MSC_VER
+  return *localtime( t );
+#else
+  tm result;
+  return *localtime_r( t, &result );
+#endif
 
   QF_STACK_POP
 }

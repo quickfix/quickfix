@@ -99,6 +99,9 @@ bool socket_isBad( int s );
 void socket_invalidate( int& socket );
 const char* socket_hostname( const char* name );
 
+tm time_gmtime( const time_t* t );
+tm time_localtime( const time_t* t);
+
 bool thread_spawn( void*( *func ) ( void* ), void* var, unsigned& thread );
 bool thread_spawn( void*( *func ) ( void* ), void* var );
 void thread_join( unsigned thread );

@@ -55,6 +55,7 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
+#include "Utility.h"
 #include <string>
 #include "strptime.h"
 #include <time.h>
@@ -102,7 +103,7 @@ public:
 
   UtcTimeStamp( long sec )
   {
-    *static_cast < tm* > ( this ) = *gmtime( &sec );
+    *static_cast < tm* > ( this ) = time_gmtime( &sec );
   }
 
   UtcTimeStamp( const tm* time ) { *static_cast < tm* > ( this ) = *time; }
@@ -136,7 +137,7 @@ public:
     tm copy = *this;
     time_t time = mktime( const_cast < tm* > ( &copy ) );
     time += ( seconds - ( copy.tm_isdst * 3600 ) );
-    *static_cast < tm* > ( this ) = *localtime( &time );
+    *static_cast < tm* > ( this ) = time_localtime( &time );
     tm_isdst = 0;
   }
 
@@ -145,7 +146,7 @@ public:
   {
     time_t t;
     time( &t );
-    *static_cast < tm* > ( this ) = *gmtime( &t );
+    *static_cast < tm* > ( this ) = time_gmtime( &t );
     tm_isdst = 0;
   }
 };
