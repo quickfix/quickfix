@@ -1,6 +1,6 @@
 1.3.0
 -----
-Support for java on linux! Note some compilers/linux distributions
+Support for java on linux and solaris! Note some compilers/linux distributions
 dont seem to do as well with this as others.
 
 Added support for repeating groups in .NET and java APIs.
@@ -12,7 +12,12 @@ a state mechanism.
 MySQLFileStore added.  Now QuickFIX can maintain state in a production quality
 open source database right out of the box.
 
+--with-stlport configure option added for building with STLport.  This fixes stability 
+problems that users have been experiencing on multi-processor machines with 2.95.x compilers.
+
 Message decoding has been optimized. Decoding FIX messages is now 3 times faster than before.
+
+Message class can now output FIX messages as XML.
 
 Fixed copy operator for FieldMaps that contain repeating groups.
 
@@ -50,7 +55,10 @@ Rejecting a resent message will no longer increment the expected sequence number
 
 Can now properly accept a message with repeating group where the counter is set to zero.
 
-Continuous builds now being run on windows-vc6, windows-vc7, and linux-pgcc-2-95-2
+Continuous builds now being run on windows-vc6, windows-vc7, and linux-pgcc-2-95-2, and
+solaris-gcc-2-95-3-stlport
+
+Message::getString() deprecated in favor of Message::toString()
 
 1.2.1
 -----
