@@ -1034,21 +1034,14 @@ void Session::next( const std::string& msg )
   } 
   catch( InvalidMessage& e )
   {
-    Message message;
-    message.setString( msg );
-    std::stringstream text;
-    text << e.what()
-         << ": expected BeginLength=" << message.bodyLength()
-         << ", expected CheckSum=" << message.checkSum();
-    m_state.onEvent( text.str() );
+    m_state.onEvent( e.what() );
 
     try
     {
-      MsgType msgType;
-      message.getHeader().getField( msgType );
-      if( msgType == MsgType_Logon )
+      if( identifyType(msg) == MsgType_Logon )
         disconnect();
-    } catch( FieldNotFound& ) {}
+    } catch( MessageParseError& ) {}
+    throw e;
   }
 
   QF_STACK_POP
