@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_lib", "quickfix_li
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atrun", "test\atrun\atrun.vcproj", "{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ut", "ut.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
+EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		ConfigName.0 = Debug
@@ -47,6 +49,10 @@ Global
 		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Debug.Build.0 = Debug|Win32
 		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release.ActiveCfg = Release|Win32
 		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release.Build.0 = Release|Win32
+		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Debug.ActiveCfg = Debug|Win32
+		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Debug.Build.0 = Debug|Win32
+		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Release.ActiveCfg = Release|Win32
+		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Release.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
