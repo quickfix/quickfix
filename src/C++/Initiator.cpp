@@ -199,8 +199,12 @@ void Initiator::block() throw ( ConfigError&, RuntimeError& )
 bool Initiator::poll() throw ( ConfigError&, RuntimeError& )
 { QF_STACK_PUSH(Initiator::poll)
 
-  onConfigure( m_settings );
-  onInitialize( m_settings ); 
+  if( m_firstPoll )
+  {
+    onConfigure( m_settings );
+    onInitialize( m_settings );
+    m_firstPoll = false;
+  }
 
   return onPoll();
 

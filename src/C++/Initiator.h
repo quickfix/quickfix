@@ -143,6 +143,7 @@ private:
   MessageStoreFactory& m_messageStoreFactory;
   SessionSettings m_settings;
   LogFactory* m_pLogFactory;
+  bool m_firstPoll;
 };
 /*! @} */
 }

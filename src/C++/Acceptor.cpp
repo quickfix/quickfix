@@ -71,7 +71,8 @@ throw( ConfigError& )
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( 0 )
+  m_pLogFactory( 0 ),
+  m_firstPoll( true )
 {
   initialize(); 
 } 
@@ -85,7 +86,8 @@ throw( ConfigError& )
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( &logFactory )
+  m_pLogFactory( &logFactory ),
+  m_firstPoll( true )
 {
   initialize(); 
 }
@@ -185,8 +187,12 @@ void Acceptor::block() throw ( ConfigError&, RuntimeError& )
 bool Acceptor::poll() throw ( ConfigError&, RuntimeError& )
 { QF_STACK_PUSH( Acceptor::poll )
 
-  onConfigure( m_settings );
-  onInitialize( m_settings ); 
+  if( m_firstPoll )
+  {
+    onConfigure( m_settings );
+    onInitialize( m_settings ); 
+    m_firstPoll = false;
+  }
 
   return onPoll();
 
