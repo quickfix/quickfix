@@ -188,8 +188,14 @@ public:
     std::string enumeration;
     if ( !getValue( *m_pAttrs, "enum", enumeration ) )
       throw std::runtime_error( "No Enum Value" );
-
     m_dataDictionary.addFieldValue( atol( m_field.c_str() ), enumeration );
+
+    std::string description;
+    if ( getValue( *m_pAttrs, "description", description ) )
+    {
+      m_dataDictionary.addValueName
+        ( atol( m_field.c_str() ), enumeration, description );
+    }
   }
 
   void doGroup()

@@ -70,6 +70,7 @@ public:
     add( &m_addFieldValue );
     add( &m_addGroup );
     add( &m_addFieldName );
+    add( &m_addValueName );
     add( &m_checkValidTagNumber );
     add( &m_checkHasValue );
     add( &m_checkIsInMessage );
@@ -137,6 +138,12 @@ class addFieldName : public SimpleTest
     void onRun( DataDictionary& object );
   }
   m_addFieldName;
+
+class addValueName : public SimpleTest
+  {
+    void onRun( DataDictionary& object );
+  }
+  m_addValueName;
 
 class checkValidTagNumber : public Test
   {

@@ -74,8 +74,10 @@ class DataDictionary
   typedef std::set < std::string > Values;
   typedef std::map < int, Values > FieldToValue;
   typedef std::map < int, std::string > FieldToName;
+  typedef std::map < std::pair < int, std::string > , 
+  std::string  > ValueToName;
   typedef std::map < std::pair < std::string, int > ,
-  std::pair < int, DataDictionary* > > FieldToGroup;  
+  std::pair < int, DataDictionary* > > FieldToGroup;
 
 public:
 DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
@@ -121,6 +123,19 @@ DataDictionary() : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
   {
     FieldToName::const_iterator i = m_fieldNames.find( field );
     if(i == m_fieldNames.end()) return false;
+    name = i->second;
+    return true;
+  }
+
+  void addValueName( int field, const std::string& value, const std::string& name )
+  {
+    m_valueNames[std::make_pair(field, value)] = name;
+  }
+
+  bool getValueName( int field, const std::string& value, std::string& name )
+  {
+    ValueToName::const_iterator i = m_valueNames.find( std::make_pair(field, value) );
+    if(i == m_valueNames.end()) return false;
     name = i->second;
     return true;
   }
@@ -386,6 +401,7 @@ private:
   FieldTypes m_fieldTypes;
   FieldToValue m_fieldValues;
   FieldToName m_fieldNames;
+  ValueToName m_valueNames;
   FieldToGroup m_groups;
 };
 }

@@ -55,6 +55,7 @@
 #endif
 
 #include "MessagesTestCase.h"
+#include "../Values.h"
 
 namespace FIX
 {
@@ -220,6 +221,7 @@ void MessageTestCase::getXML::onRun( Message& object )
   message.getHeader().setField(TargetCompID("TARGET"));  
   message.setField(Account("ACCOUNT"));
   message.setField(ClOrdID("CLORDID"));
+  message.setField(IDSource(IDSource_CUSIP));
   message.setField(NoMsgTypes(2));
   Group group(384, 372);
   group.setField(RefMsgType("A"));
@@ -240,6 +242,7 @@ void MessageTestCase::getXML::onRun( Message& object )
     "  <body>\n"
     "    <field name=\042Account\042 number=\0421\042 value=\042ACCOUNT\042/>\n"
     "    <field name=\042ClOrdID\042 number=\04211\042 value=\042CLORDID\042/>\n"
+    "    <field name=\042IDSource\042 number=\04222\042 value=\0421\042 enum=\042CUSIP\042/>\n"
     "    <field name=\042NoMsgTypes\042 number=\042384\042 value=\0422\042/>\n"
     "    <group>\n"
     "      <field name=\042RefMsgType\042 number=\042372\042 value=\042A\042/>\n"

@@ -186,8 +186,6 @@ void DataDictionaryTestCase::addFieldName::onRun( DataDictionary& object )
   object.addFieldName( 11, "ClOrdID" );
   object.addFieldName( 8, "BeginString" );
 
-  const DataDictionary* pDD = 0;
-
   std::string name;
   assert( object.getFieldName( 1, name ) );
   assert( name == "Account" );
@@ -195,6 +193,23 @@ void DataDictionaryTestCase::addFieldName::onRun( DataDictionary& object )
   assert( name == "ClOrdID" );
   assert( object.getFieldName( 8, name ) );
   assert( name == "BeginString" );
+}
+
+void DataDictionaryTestCase::addValueName::onRun( DataDictionary& object )
+{
+  object.setVersion( "FIX.4.2" );
+
+  object.addValueName( 12, "0", "VALUE_12_0" );
+  object.addValueName( 12, "B", "VALUE_12_B" );
+  object.addValueName( 23, "BOO", "VALUE_23_BOO" );
+
+  std::string name;
+  assert( object.getValueName( 12, "0", name ) );
+  assert( name == "VALUE_12_0" );
+  assert( object.getValueName( 12, "B", name ) );
+  assert( name == "VALUE_12_B" );
+  assert( object.getValueName( 23, "BOO", name ) );
+  assert( name == "VALUE_23_BOO" );
 }
 
 bool DataDictionaryTestCase::checkValidTagNumber::onSetup
@@ -368,6 +383,13 @@ void DataDictionaryTestCase::readFromFile::onRun
   assert( name == "ClOrdID" );
   assert( object.getFieldName( 8, name ) );
   assert( name == "BeginString" );
+
+  assert( object.getValueName( 18, "1", name ) );
+  assert( name == "NOT_HELD" );
+  assert( object.getValueName( 18, "2", name ) );
+  assert( name == "WORK" );
+  assert( object.getValueName( 18, "W", name ) );
+  assert( name == "PEG_TO_VWAP" );
 }
 
 bool DataDictionaryTestCase::copy::onSetup

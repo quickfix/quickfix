@@ -134,10 +134,16 @@ std::string Message::getXMLFields(const FieldMap& fields, int space) const
   std::string name;
   for(i = fields.begin(); i != fields.end(); ++i)
   {       
+    int field = i->first;
+    std::string value = i->second.getString();
+
     stream << std::setw(space) << " " << "<field ";
-    if(s_dataDictionary.get() && s_dataDictionary->getFieldName(i->first, name))
+    if(s_dataDictionary.get() && s_dataDictionary->getFieldName(field, name))
       stream << "name=\"" << name << "\" ";
-    stream << "number=\"" << i->first << "\" value=\"" << i->second.getString() << "\"/>" << "\n";
+    stream << "number=\"" << field << "\" value=\"" << value << "\"";
+    if(s_dataDictionary.get() && s_dataDictionary->getValueName(field, value, name))
+      stream << " enum=\"" << name << "\"";
+    stream << "/>\n";
   }
 
   FieldMap::g_iterator j;
