@@ -135,6 +135,8 @@ public:
   long getExpectedSenderNum() { return m_state.getNextSenderMsgSeqNum(); }
   long getExpectedTargetNum() { return m_state.getNextTargetMsgSeqNum(); }
 
+  Log* getLog() { return &m_state; }
+
 private:
   void initialize( int );
 
