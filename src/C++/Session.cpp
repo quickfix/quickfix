@@ -691,8 +691,14 @@ void Session::generateReject( const Message& message, int err, int field )
     case SessionRejectReason_INVALID_MSGTYPE:
     reason = &SessionRejectReason_INVALID_MSGTYPE_TEXT;
     break;
+    case SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE:
+    reason = &SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT;
+    break;
     case SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER:
     reason = &SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT;
+    break;
+    case SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP:
+    reason = &SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT;
   };
 
   if ( reason && ( field || err == SessionRejectReason_INVALID_TAG_NUMBER ) )
@@ -1021,8 +1027,29 @@ bool Session::nextQueued( int num )
 void Session::next( const std::string& msg )
 { QF_STACK_PUSH(Session::next)
 
-  m_state.onIncoming( msg );
-  next( Message( msg, m_dataDictionary ) );
+  try
+  {
+    m_state.onIncoming( msg );
+    next( Message( msg, m_dataDictionary ) );
+  } 
+  catch( InvalidMessage& e )
+  {
+    Message message;
+    message.setString( msg );
+    std::stringstream text;
+    text << e.what()
+         << ": expected BeginLength=" << message.bodyLength()
+         << ", expected CheckSum=" << message.checkSum();
+    m_state.onEvent( text.str() );
+
+    try
+    {
+      MsgType msgType;
+      message.getHeader().getField( msgType );
+      if( msgType == MsgType_Logon )
+        disconnect();
+    } catch( FieldNotFound& ) {}
+  }
 
   QF_STACK_POP
 }
@@ -1103,6 +1130,10 @@ void Session::next( const Message& message )
   { generateReject( message, 6, e.field ); }
   catch ( IncorrectTagValue & e )
   { generateReject( message, 5, e.field ); }
+  catch ( RepeatedTag & e )
+  { generateReject( message, 13, e.field ); }
+  catch ( RepeatingGroupCountMismatch & e )
+  { generateReject( message, 16, e.field ); }
   catch ( InvalidMessage& ) {}
   catch ( RejectLogon& )
   {
