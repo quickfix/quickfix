@@ -109,7 +109,7 @@ bool SocketInitiator::onPoll()
 { QF_STACK_PUSH(SocketInitiator::onPoll)
 
   if( m_stop ) 
-    return false;
+    return false;   
    m_connector.block( *this, true );
    return true;
 
@@ -135,6 +135,7 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int result = m_connector.connect( address, port );
+
     if ( !result ) 
     { 
       log->onEvent( "Connection failed" );

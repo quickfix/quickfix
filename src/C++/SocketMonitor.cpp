@@ -188,6 +188,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
   }
 
   int result = select( FD_SETSIZE, &watchSet, 0, 0, getTimeval(poll) );
+
   if ( result == 0 )
   {
     strategy.onTimeout( *this );
@@ -200,7 +201,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
     {
       int s = watchSet.fd_array[ i ];
 #else
-Sockets::iterator i;
+    Sockets::iterator i;
     Sockets sockets = m_sockets;
     for ( i = sockets.begin(); i != sockets.end(); ++i )
     {
@@ -240,8 +241,9 @@ void SocketMonitor::buildSet( fd_set& watchSet )
 
   FD_ZERO( &watchSet );
   Sockets::iterator iter;
-  for ( iter = m_sockets.begin(); iter != m_sockets.end(); ++iter )
+  for ( iter = m_sockets.begin(); iter != m_sockets.end(); ++iter ) {
     FD_SET( *iter, &watchSet );
+  }
 
   QF_STACK_POP
 }
