@@ -5,7 +5,7 @@ executor_SOURCES = \
 	Application.h \
 	Application.cpp
 
-executor_LDADD = -lquickfix -lpthread
+executor_LDADD = -lquickfix
 
 all-local:
 	rm -f ../../../bin/executor

@@ -42,6 +42,9 @@ fi
 AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
+# Checks for libraries.
+AC_CHECK_LIB(pthread,pthread_create)
+
 LIBS="$LIBS $XML_LIBS $STLPORT_LIBS"
 CXXFLAGS="-Wall -fexceptions -finline-functions $XML_CFLAGS $STLPORT_CFLAGS"
 AC_SUBST(CXXFLAGS)

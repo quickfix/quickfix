@@ -90,7 +90,7 @@ noinst_PROGRAMS = tradeclient
 tradeclient_SOURCES =  	tradeclient.cpp 	Application.h 	Application.cpp
 
 
-tradeclient_LDADD = -lquickfix -lpthread
+tradeclient_LDADD = -lquickfix
 mkinstalldirs = $(SHELL) $(top_srcdir)/../mkinstalldirs
 CONFIG_HEADER = ../config.h
 CONFIG_CLEAN_FILES = 

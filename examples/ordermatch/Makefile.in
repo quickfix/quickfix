@@ -92,7 +92,7 @@ noinst_PROGRAMS = ordermatch
 ordermatch_SOURCES =  	ordermatch.cpp 	Application.h 	Application.cpp 	IDGenerator.h 	Market.h 	Market.cpp 	Order.h 	OrderMatcher.h
 
 
-ordermatch_LDADD = ../../src/C++/libquickfix.la -lpthread
+ordermatch_LDADD = ../../src/C++/libquickfix.la
 mkinstalldirs = $(SHELL) $(top_srcdir)/../mkinstalldirs
 CONFIG_HEADER = ../config.h
 CONFIG_CLEAN_FILES = 

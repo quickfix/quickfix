@@ -97,8 +97,6 @@ libquickfix_la_SOURCES = \
 	CallStack.h \
 	CallStack.cpp
 
-libquickfix_la_LIBADD = -lpthread
-
 all-local:
 	rm -rf ../../lib/libquickfix.a
 	rm -rf ../../lib/libquickfix.la

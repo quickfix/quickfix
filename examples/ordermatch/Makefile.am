@@ -12,7 +12,7 @@ ordermatch_SOURCES = \
 	Order.h \
 	OrderMatcher.h
 
-ordermatch_LDADD = ../../src/C++/libquickfix.la -lpthread
+ordermatch_LDADD = ../../src/C++/libquickfix.la
 
 all-local:
 	rm -f ../../bin/ordermatch

@@ -106,10 +106,10 @@ at_client_LDFLAGS = -static
 ut_LDFLAGS = -static
 pt_LDFLAGS = -static
 
-at_server_LDADD = C++/libquickfix.la -lxml2 -lpthread
-at_client_LDADD = C++/libquickfix.la -lxml2 -lpthread
-ut_LDADD = C++/test/libquickfixcpptest.la C++/libquickfix.la -lxml2 -lpthread
-pt_LDADD = C++/libquickfix.la -lxml2 -lpthread
+at_server_LDADD = C++/libquickfix.la
+at_client_LDADD = C++/libquickfix.la
+ut_LDADD = C++/test/libquickfixcpptest.la C++/libquickfix.la
+pt_LDADD = C++/libquickfix.la
 
 INCLUDES = -I. -I.. -I../.. -IC++
 mkinstalldirs = $(SHELL) $(top_srcdir)/mkinstalldirs
