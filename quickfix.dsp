@@ -640,6 +640,39 @@ InputName=Queue
 # End Source File
 # Begin Source File
 
+SOURCE=".\src\C++\Responder.h"
+
+!IF  "$(CFG)" == "quickfix - Win32 Release"
+
+# Begin Custom Build
+InputPath=.\src\C++\Responder.h
+InputName=Responder
+
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
+	
+# End Custom Build
+
+!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
+
+# Begin Custom Build
+InputPath=.\src\C++\Responder.h
+InputName=Responder
+
+"include\quickfix\$(InputName).h" : $(SOURCE) "$(INTDIR)" "$(OUTDIR)"
+	echo off 
+	IF EXIST include\quickfix\$(InputName).h (del include\quickfix\$(InputName).h) 
+	xcopy "$(InputPath)" include\quickfix 
+	
+# End Custom Build
+
+!ENDIF 
+
+# End Source File
+# Begin Source File
+
 SOURCE=".\src\C++\Session.h"
 
 !IF  "$(CFG)" == "quickfix - Win32 Release"
