@@ -58,12 +58,12 @@
 jobject newDate( const FIX::UtcTimeStamp& date )
 {
   JNIEnv * pEnv = ENV::get();
-  JVMClass calType( JVM::calendarType.c_str() );
-  JVMClass zoneType( JVM::timezoneType.c_str() );
+  JVMClass calType( CALENDAR_TYPE );
+  JVMClass zoneType( TIMEZONE_TYPE );
 
   // get timezone from static instance method
   jmethodID method = pEnv->GetStaticMethodID( zoneType, "getTimeZone",
-                     ( "(" + JVM::stringType + ")" + JVM::timezoneType ).c_str() );
+                     ( std::string("(") + STRING_TYPE + ")" + TIMEZONE_TYPE ).c_str() );
   if ( !method ) throw JVMException( "Could not find method getTimeZone" );
   jobject zoneStr = newString( "GMT+0" );
   JVMObject zone( pEnv->CallStaticObjectMethod( zoneType, method, zoneStr ) );
@@ -71,7 +71,7 @@ jobject newDate( const FIX::UtcTimeStamp& date )
 
   // get calendar from static instance method
   method = pEnv->GetStaticMethodID( calType, "getInstance",
-                                    ( "(" + JVM::timezoneType + ")" + JVM::calendarType ).c_str() );
+                                    ( std::string("(") + TIMEZONE_TYPE + ")" + CALENDAR_TYPE ).c_str() );
   if ( !method ) throw JVMException( "Could not find method getInstance" );
   JVMObject cal( pEnv->CallStaticObjectMethod( calType, method, ( jobject ) zone ) );
 
@@ -88,7 +88,7 @@ jobject newDate( const FIX::UtcTimeStamp& date )
   pEnv->CallVoidMethod( cal, method, MILLISECOND, 0 );
 
   // get date out of calendar, thank you SUN!
-  method = pEnv->GetMethodID( calType, "getTime", ( "()" + JVM::dateType ).c_str() );
+  method = pEnv->GetMethodID( calType, "getTime", ( std::string("()") + DATE_TYPE ).c_str() );
   if ( !method ) throw JVMException( "Could not find method getTime" );
   JVMObject result( pEnv->CallObjectMethod( cal, method ) );
   zone.deleteLocalRef();

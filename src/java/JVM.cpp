@@ -61,16 +61,6 @@
 #include <windows.h>
 #endif
 
-const std::string JVM::dateType = "Ljava/util/Date;";
-const std::string JVM::calendarType = "Ljava/util/Calendar;";
-const std::string JVM::timezoneType = "Ljava/util/TimeZone;";
-const std::string JVM::stringType = "Ljava/lang/String;";
-const std::string JVM::charType = "C";
-const std::string JVM::intType = "I";
-const std::string JVM::longMethodType = "()J";
-const std::string JVM::intMethodType = "()I";
-const std::string JVM::stringMethodType = "()Ljava/util/String;";
-
 JavaVM* JVM::jvm = 0;
 
 void JVM::set( JNIEnv* pEnv )
@@ -154,7 +144,7 @@ bool JVMClass::IsInstanceOf( jobject obj )
 int JVMClass::getInt( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
-  jfieldID fid = getStaticFieldID( name.c_str(), JVM::intType.c_str() );
+  jfieldID fid = getStaticFieldID( name.c_str(), INT_TYPE );
   if ( fid == 0 ) throw std::logic_error( "char field " + name + " not found" );
 
   return pEnv->GetStaticIntField( m_cls, fid );
@@ -181,7 +171,7 @@ jfieldID JVMClass::getStaticFieldID( const char* name, const char* type )
 jlong JVMObject::callLongMethod( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
-  jmethodID mid = getClass().getMethodID( name.c_str(), JVM::longMethodType.c_str() );
+  jmethodID mid = getClass().getMethodID( name.c_str(), LONGMETHOD_TYPE );
   if ( mid == 0 ) throw std::logic_error( "method " + name + " is not found" );
 
   return pEnv->CallLongMethod( m_obj, mid );
@@ -190,7 +180,7 @@ jlong JVMObject::callLongMethod( const std::string& name )
 jint JVMObject::callIntMethod( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
-  jmethodID mid = getClass().getMethodID( name.c_str(), JVM::intMethodType.c_str() );
+  jmethodID mid = getClass().getMethodID( name.c_str(), INTMETHOD_TYPE );
   if ( mid == 0 ) throw std::logic_error( "method " + name + " is not found" );
 
   return pEnv->CallIntMethod( m_obj, mid );
@@ -205,7 +195,7 @@ JVMObject JVMObject::getObjectField( jfieldID fid )
 void JVMObject::setInt( const std::string& name, int value )
 {
   JNIEnv * pEnv = ENV::get();
-  jfieldID fid = getClass().getFieldID( name.c_str(), JVM::intType.c_str() );
+  jfieldID fid = getClass().getFieldID( name.c_str(), INT_TYPE );
   if ( fid == 0 )
     throw std::logic_error( "string field " + name + " not found" );
 
@@ -215,7 +205,7 @@ void JVMObject::setInt( const std::string& name, int value )
 std::string JVMObject::getString( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
-  jfieldID fid = getClass().getFieldID( name.c_str(), JVM::stringType.c_str() );
+  jfieldID fid = getClass().getFieldID( name.c_str(), STRING_TYPE );
   if ( fid == 0 )
     throw std::logic_error( "string field " + name + " not found" );
 
@@ -231,7 +221,7 @@ std::string JVMObject::getString( const std::string& name )
 char JVMObject::getChar( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
-  jfieldID fid = getClass().getFieldID( name.c_str(), JVM::charType.c_str() );
+  jfieldID fid = getClass().getFieldID( name.c_str(), CHAR_TYPE );
   if ( fid == 0 ) throw std::logic_error( "char field " + name + " not found" );
 
   return ( char ) ( pEnv->GetCharField( m_obj, fid ) );
@@ -240,7 +230,7 @@ char JVMObject::getChar( const std::string& name )
 int JVMObject::getInt( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
-  jfieldID fid = getClass().getFieldID( name.c_str(), JVM::intType.c_str() );
+  jfieldID fid = getClass().getFieldID( name.c_str(), INT_TYPE );
   if ( fid == 0 ) throw std::logic_error( "char field " + name + " not found" );
 
   return pEnv->GetIntField( m_obj, fid );
@@ -248,7 +238,7 @@ int JVMObject::getInt( const std::string& name )
 
 JVMObject JVMObject::getDate( const std::string& name )
 {
-  jfieldID fid = getClass().getFieldID( name.c_str(), JVM::dateType.c_str() );
+  jfieldID fid = getClass().getFieldID( name.c_str(), DATE_TYPE );
   if ( fid == 0 ) throw std::logic_error( "date field " + name + " not found" );
 
   JVMObject jobj = getObjectField( fid );

@@ -66,15 +66,15 @@ JVMException( const std::string& message ) : std::logic_error( message ) {}}
 class JVM
 {
 public:
-  static const std::string dateType;
-  static const std::string calendarType;
-  static const std::string timezoneType;
-  static const std::string stringType;
-  static const std::string charType;
-  static const std::string intType;
-  static const std::string longMethodType;
-  static const std::string intMethodType;
-  static const std::string stringMethodType;
+  #define DATE_TYPE "Ljava/util/Date;"
+  #define CALENDAR_TYPE "Ljava/util/Calendar;"
+  #define TIMEZONE_TYPE "Ljava/util/TimeZone;"
+  #define STRING_TYPE "Ljava/lang/String;"
+  #define CHAR_TYPE "C"
+  #define INT_TYPE "I"
+  #define LONGMETHOD_TYPE "()J"
+  #define INTMETHOD_TYPE "()I"
+  #define STRINGMETHOD_TYPE "()Ljava/util/String;"
 
   static void set( JNIEnv* );
   static void set( JavaVM* );
