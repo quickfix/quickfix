@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "executor_cpp"=".\EXECUTOR\C++\executor_cpp\executor_cpp.dsp" - Package Owner=<4>
+Project: "executor_cpp"=.\EXECUTOR\executor_cpp.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
