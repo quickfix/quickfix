@@ -1,7 +1,7 @@
 1.8.0
 -----
-Completed python API. Now QuickFIX can be used to FIX enable python scripts. This
-is currently only tested on linux.  It will probably work on solaris, and 
+Completed python API. Now QuickFIX can be used to FIX enable python scripts. 
+This is currently only tested on linux.  It will probably work on solaris, and 
 FreeBSD. To enable the python interface, run configure with 
 --with-python=<dir containing Python.h>. Most of the python API is generated
 with SWIG (www.swig.org), thanks to them for updating their software to 
@@ -10,7 +10,15 @@ SWIG interface definition file, you must get the latest SWIG from cvs.
 
 VB.NET API works again.
 
+Logout message with message indicated expected and received MsgSeqNum is sent
+if a too low sequence number is received.
+
 Initiator and Acceptor poll() commands now work under Windows.
+
+MySQL log and store will use proper escape sequences if any double quotes
+appear in the message.  Previously, these resulted in I/O errors.
+
+UtcDate becomes UtcDateOnly as per FIX.4.4
 
 Executor example application implemented in VB.NET and python. Documentation now
 includes VB.NET and python code snippets.
@@ -36,6 +44,13 @@ library will build normally without having to modify the workspace.
 The first message received within the sessions time frame should always be
 processed. There were some circumstances where it would not correctly identify
 itself as being in the session time until the second message.
+
+Fixed some minor issues with the libxml based parse to make it more generally
+useful.
+
+process_sleep can sleep for sub-second timespans again.
+
+Added constructor which takes in SessionSettings to .NET FileLogFactory
 
 1.7.1
 -----
