@@ -72,7 +72,7 @@ ant-all:
 	ln -s ../src/java/.libs/libquickfix_jni.so ../../lib/libquickfix_jni.so
 	./build.sh
 
-all: ant-all
+all-am: ant-all
 
 clean-local:
 	rm -f ../../lib/libquickfix_jni.so
