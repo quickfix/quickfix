@@ -1,5 +1,9 @@
 2003-05-06 Alex Hornby <alex@anvil.com>
 
+	* configure.ac: removed, and reverted to configure.in
+
+2003-05-06 Alex Hornby <alex@anvil.com>
+
 	* src/java/org_quickfix_SocketAcceptor.cpp: add blockingStart
 
 	* src/java/org_quickfix_SocketAcceptor.h: add blockingStart
