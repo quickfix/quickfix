@@ -154,8 +154,8 @@ AC_TRY_COMPILE(
 
 AC_MSG_CHECKING(for ftime)
 AC_TRY_COMPILE(
-	[#include <sys/timeb>],
-	[const timeb tb;
+	[#include <sys/timeb.h>],
+	[timeb tb;
          ftime(&tb)],
 	has_ftime=true, has_ftime=false)
 
@@ -298,6 +298,7 @@ AC_OUTPUT(
 	src/java/src/quickfix/fix41/Makefile
 	src/java/src/quickfix/fix42/Makefile
 	src/java/src/quickfix/fix43/Makefile
+	src/java/src/quickfix/fix44/Makefile
 	cfg/Makefile
 	bin/Makefile
 	bin/cfg/Makefile
