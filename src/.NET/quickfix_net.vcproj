@@ -19,6 +19,7 @@
 			ManagedExtensions="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/Zm1000"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\..\"
 				PreprocessorDefinitions="WIN32;_DEBUG"
@@ -61,6 +62,7 @@
 			ManagedExtensions="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/Zm1000"
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="..\..\..\"
