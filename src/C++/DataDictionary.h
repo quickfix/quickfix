@@ -124,7 +124,7 @@ public:
     m_valueNames[std::make_pair(field, value)] = name;
   }
 
-  bool getValueName( int field, const std::string& value, std::string& name )
+  bool getValueName( int field, const std::string& value, std::string& name ) const
   {
     ValueToName::const_iterator i = m_valueNames.find( std::make_pair(field, value) );
     if(i == m_valueNames.end()) return false;
@@ -290,21 +290,21 @@ private:
   void iterate( const FieldMap& map, const MsgType& msgType );
 
   /// Check if message type is defined in spec.
-  void checkMsgType( const MsgType& msgType )
+  void checkMsgType( const MsgType& msgType ) const
   {
     if ( !isMsgType( msgType.getValue() ) )
       throw InvalidMessageType();
   }
 
   /// Check if field tag number is defined in spec.
-  void checkValidTagNumber( const FieldBase& field )
+  void checkValidTagNumber( const FieldBase& field ) const
   throw( InvalidTagNumber& )
   {
     if( m_fields.find( field.getField() ) == m_fields.end() )
       throw InvalidTagNumber( field.getField() );
   }
 
-  void checkValidFormat( const FieldBase& field )
+  void checkValidFormat( const FieldBase& field ) const
   throw( IncorrectDataFormat& )
   {
     try
@@ -368,7 +368,7 @@ private:
     { throw IncorrectDataFormat( field.getField() ); }
   }
 
-  void checkValue( const FieldBase& field )
+  void checkValue( const FieldBase& field ) const
   throw( IncorrectTagValue& )
   {
     if ( !hasFieldValue( field.getField() ) ) return ;
@@ -379,7 +379,7 @@ private:
   }
 
   /// Check if a field has a value.
-  void checkHasValue( const FieldBase& field )
+  void checkHasValue( const FieldBase& field ) const
   throw( NoTagValue& )
   {
     if ( m_checkFieldsHaveValues && !field.getString().length() )
@@ -388,7 +388,7 @@ private:
 
   /// Check if a field is in this message type.
   void checkIsInMessage
-  ( const FieldBase& field, const MsgType& msgType )
+  ( const FieldBase& field, const MsgType& msgType ) const
   throw( TagNotDefinedForMessage& )
   {
     if ( !isMsgField( msgType, field.getField() ) )
@@ -397,7 +397,7 @@ private:
 
   /// Check if group count matches number of groups in
   void checkGroupCount
-  ( const FieldBase& field, const FieldMap& fieldMap, const MsgType& msgType )
+  ( const FieldBase& field, const FieldMap& fieldMap, const MsgType& msgType ) const
   throw( RepeatingGroupCountMismatch& )
   {
     int fieldNum = field.getField();
@@ -411,7 +411,7 @@ private:
 
   /// Check if a message has all required fields.
   void checkHasRequired
-  ( const FieldMap& fieldMap, const MsgType& msgType )
+  ( const FieldMap& fieldMap, const MsgType& msgType ) const
   throw( RequiredTagMissing& )
   {
     MsgTypeToField::const_iterator iM
@@ -433,11 +433,11 @@ private:
   /// Read XML file using libXML.
   void readLibXml( const std::string& );
 
-  int lookupXMLFieldNumber( DOMDocument*, DOMNode* );
-  int lookupXMLFieldNumber( DOMDocument*, const std::string& name );
+  int lookupXMLFieldNumber( DOMDocument*, DOMNode* ) const;
+  int lookupXMLFieldNumber( DOMDocument*, const std::string& name ) const;
   int addXMLComponentFields( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary&, bool );
   void addXMLGroup( DOMDocument*, DOMNode*, const std::string& msgtype, DataDictionary& );
-  TYPE::Type XMLTypeToType( const std::string& xmlType );
+  TYPE::Type XMLTypeToType( const std::string& xmlType ) const;
 
   bool m_hasVersion;
   bool m_checkFieldsOutOfOrder;
