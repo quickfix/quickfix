@@ -156,7 +156,7 @@ void FileStore::populateCache()
   sessionFile = fopen( m_sessionFileName.c_str(), "r+" );
   if ( sessionFile )
   {
-    char time[ 20 ];
+    char time[ 22 ];
     if ( fscanf( sessionFile, "%s", time ) == 1 )
     {
       m_cache.setCreationTime( UtcTimeStampConvertor::convert( time, true ) );
