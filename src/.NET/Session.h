@@ -57,6 +57,8 @@ using namespace System::IO;
 
 #include "Message.h"
 #include "SessionID.h"
+#include "CPPLog.h"
+#include "CPPMessageStore.h"
 #include "quickfix/SessionID.h"
 #include "quickfix/Session.h"
 
@@ -75,9 +77,25 @@ public:
 
   static Session* lookupSession( SessionID* sessionID );
 
+  void logon();
+  void logout();
+  bool isEnabled();
+
+  bool sentLogon();
+  bool sentLogout();
+  bool receivedLogon();
+  bool isLoggedOn();
   void reset() throw( IOException* );
   void setNextSenderMsgSeqNum( int num ) throw( IOException* );
   void setNextTargetMsgSeqNum( int num ) throw( IOException* );
+
+  int getExpectedSenderNum();
+  int getExpectedTargetNum();
+  
+  Log* getLog()
+  { return new CPPLog(unmanaged().getLog()); }
+  MessageStore* getStore()
+  { return new CPPMessageStore((FIX::MessageStore*)unmanaged().getStore()); }
 
 private:
   Session(FIX::Session* unmanaged) : m_pUnmanaged(unmanaged) {}

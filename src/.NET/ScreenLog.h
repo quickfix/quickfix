@@ -54,7 +54,7 @@ using namespace System;
 
 #include "quickfix_net.h"
 
-#include "Log.h"
+#include "CPPLog.h"
 #include "LogFactory.h"
 #include "quickfix/Log.h"
 #include "quickfix/CallStack.h"
@@ -62,7 +62,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class ScreenLog : public Log
+public __gc class ScreenLog : public CPPLog
 {
 public:
   ScreenLog( SessionID* sessionID, bool incoming, bool outgoing, bool event )
@@ -72,39 +72,6 @@ public:
     QF_STACK_CATCH
   }
   ~ScreenLog() { delete m_pUnmanaged; }
-
-  void onIncoming( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onIncoming( us ); 
-    destroyUnmanagedString( us );
-    
-    QF_STACK_CATCH
-  }
-
-  void onOutgoing( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onOutgoing( us ); 
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-  void onEvent( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onEvent( us ); 
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-private:
-  FIX::ScreenLog* m_pUnmanaged;
 };
 
 public __gc class ScreenLogFactory : public LogFactory

@@ -55,7 +55,7 @@ using namespace System;
 
 #include "quickfix_net.h"
 
-#include "Log.h"
+#include "CPPLog.h"
 #include "LogFactory.h"
 #include "MessageStore.h"
 #include "SessionID.h"
@@ -67,11 +67,11 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class MySQLLog : public Log
+public __gc class MySQLLog : public CPPLog
 {
 public:
   MySQLLog( SessionID* sessionID, String* database, String* user, 
-	    String* password, String* host, short port )
+            String* password, String* host, short port )
   { QF_STACK_TRY
 
     m_pUnmanaged = new FIX::MySQLLog( sessionID->unmanaged(), 
@@ -86,39 +86,6 @@ public:
   MySQLLog( FIX::Log* pUnmanaged ) : m_pUnmanaged(pUnmanaged) {}
 
   ~MySQLLog() { delete m_pUnmanaged; }
-
-  void onIncoming( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onIncoming( us ); 
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-  void onOutgoing( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onOutgoing( us ); 
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-  void onEvent( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onEvent( us ); 
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-private:
-  FIX::Log* m_pUnmanaged;
 };
 
 public __gc class MySQLLogFactory : public LogFactory

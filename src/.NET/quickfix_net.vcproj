@@ -104,6 +104,9 @@
 				RelativePath="AssemblyInfo.cpp">
 			</File>
 			<File
+				RelativePath="CPPMessageStore.cpp">
+			</File>
+			<File
 				RelativePath="Fields.cpp">
 			</File>
 			<File
@@ -166,6 +169,12 @@
 			</File>
 			<File
 				RelativePath="Application.h">
+			</File>
+			<File
+				RelativePath="CPPLog.h">
+			</File>
+			<File
+				RelativePath="CPPMessageStore.h">
 			</File>
 			<File
 				RelativePath="DataDictionary.h">

@@ -108,6 +108,48 @@ Session* Session::lookupSession( SessionID* sessionID )
   QF_STACK_CATCH
 }
 
+void Session::logon()
+{ QF_STACK_TRY
+  unmanaged().logon();
+  QF_STACK_CATCH
+}
+
+void Session::logout()
+{ QF_STACK_TRY
+  unmanaged().logout();
+  QF_STACK_CATCH
+}
+
+bool Session::isEnabled()
+{ QF_STACK_TRY
+  return unmanaged().isEnabled();
+  QF_STACK_CATCH
+}
+
+bool Session::sentLogon()
+{ QF_STACK_TRY
+  return unmanaged().sentLogon();
+  QF_STACK_CATCH
+}
+
+bool Session::sentLogout()
+{ QF_STACK_TRY
+  return unmanaged().sentLogout();
+  QF_STACK_CATCH
+}
+
+bool Session::receivedLogon()
+{ QF_STACK_TRY
+  return unmanaged().receivedLogon();
+  QF_STACK_CATCH
+}
+
+bool Session::isLoggedOn()
+{ QF_STACK_TRY
+  return unmanaged().isLoggedOn();
+  QF_STACK_CATCH
+}
+
 void Session::reset() throw( IOException* )
 { QF_STACK_TRY
 
@@ -152,4 +194,17 @@ void Session::setNextTargetMsgSeqNum( int num ) throw( IOException* )
 
   QF_STACK_CATCH
 }
+
+int Session::getExpectedSenderNum()
+{ QF_STACK_TRY
+  return unmanaged().getExpectedSenderNum();
+  QF_STACK_CATCH
+}
+
+int Session::getExpectedTargetNum()
+{ QF_STACK_TRY
+  return unmanaged().getExpectedTargetNum();
+  QF_STACK_CATCH
+}
+
 }

@@ -2,7 +2,7 @@
 /* ====================================================================
  * The QuickFIX Software License, Version 1.0
  *
- * Copyright (c) 2002 ThoughtWorks, Inc.  All rights
+ * Copyright (c) 2001 ThoughtWorks, Inc.  All rights
  * reserved.
  *
  * Redistribution and use in source and binary forms, with or without
@@ -48,66 +48,63 @@
  * ====================================================================
  */
 
-#ifdef HAVE_MYSQL
 #pragma once
 
 using namespace System;
 
 #include "quickfix_net.h"
 
-#include "CPPMessageStore.h"
-#include "MessageStoreFactory.h"
-#include "SessionID.h"
+#include "Log.h"
+#include "LogFactory.h"
 #include "SessionSettings.h"
-#include "quickfix/MySQLStore.h"
-#include "quickfix/Settings.h"
+#include "quickfix/FileLog.h"
 #include "quickfix/CallStack.h"
 #include "vcclr.h"
 
 namespace QuickFix
 {
-public __gc class MySQLStore : public CPPMessageStore
+public __gc class CPPLog : public Log
 {
 public:
-  MySQLStore( SessionID* sessionID, String* database, String* user, 
-      	      String* password, String* host, short port )
-  : CPPMessageStore( new FIX::MySQLStore
-    ( sessionID->unmanaged(),
-      convertString(database),
-      convertString(user),
-      convertString(password),
-      convertString(host),
-      port )
+  CPPLog() {}
+  CPPLog( FIX::Log* pUnmanaged )
   { QF_STACK_TRY
+    m_pUnmanaged = pUnmanaged;
+    QF_STACK_CATCH
+  }
+  virtual ~CPPLog() { delete m_pUnmanaged; }
+
+  void onIncoming( String* s )
+  { QF_STACK_TRY
+
+    char* us = createUnmanagedString( s );
+    m_pUnmanaged->onIncoming( us ); 
+    destroyUnmanagedString( us );
+
     QF_STACK_CATCH
   }
 
-  MySQLStore( FIX::MessageStore* pUnmanaged ) 
-  : CPPMessageStore( pUnmanaged ) {}
-
-  ~MySQLStore() { delete m_pUnmanaged; }
-};
-
-public __gc class MySQLStoreFactory : public MessageStoreFactory
-{
-public:
-  MySQLStoreFactory( SessionSettings* settings )
+  void onOutgoing( String* s )
   { QF_STACK_TRY
-    m_pUnmanaged = new FIX::MySQLStoreFactory(settings->unmanaged());
+
+    char* us = createUnmanagedString( s );
+    m_pUnmanaged->onOutgoing( us ); 
+    destroyUnmanagedString( us );
+
     QF_STACK_CATCH
   }
 
-  ~MySQLStoreFactory() { delete m_pUnmanaged; }
-
-  MessageStore* create( SessionID* sessionID )
+  void onEvent( String* s )
   { QF_STACK_TRY
-    return new MySQLStore(m_pUnmanaged->create(sessionID->unmanaged()));
+
+    char* us = createUnmanagedString( s );
+    m_pUnmanaged->onEvent( us ); 
+    destroyUnmanagedString( us );
+
     QF_STACK_CATCH
   }
 
-private:
-  FIX::MySQLStoreFactory* m_pUnmanaged;
+protected:
+  FIX::Log* m_pUnmanaged;
 };
 }
-
-#endif //HAVE_MYSQL
