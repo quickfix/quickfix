@@ -19,14 +19,13 @@
 			ManagedExtensions="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/Zm200"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\..\"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				MinimalRebuild="FALSE"
 				BasicRuntimeChecks="0"
 				RuntimeLibrary="3"
-				UsePrecompiledHeader="3"
+				UsePrecompiledHeader="0"
 				WarningLevel="2"
 				DebugInformationFormat="3"/>
 			<Tool
@@ -62,14 +61,13 @@
 			ManagedExtensions="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalOptions="/Zm200"
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="..\..\..\"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				MinimalRebuild="FALSE"
 				RuntimeLibrary="2"
-				UsePrecompiledHeader="3"
+				UsePrecompiledHeader="0"
 				WarningLevel="2"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
