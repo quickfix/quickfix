@@ -90,7 +90,7 @@ public:
   virtual ~Initiator();
 
   /// Start initiator.
-  void start() throw ( RuntimeError& );
+  void start() throw ( ConfigError&, RuntimeError& );
   /// Stop initiator.
   void stop() { onStop(); }
 

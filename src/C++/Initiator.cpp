@@ -105,8 +105,6 @@ void Initiator::initialize() throw ( ConfigError& )
   if ( !m_sessions.size() )
     throw ConfigError( "No sessions defined for initiator" );
 
-  onConfigure( m_settings );
-
   QF_STACK_POP
 }
 
@@ -171,9 +169,10 @@ bool Initiator::isConnected( const SessionID& sessionID )
   QF_STACK_POP
 }
 
-void Initiator::start() throw ( RuntimeError& )
+void Initiator::start() throw ( ConfigError&, RuntimeError& )
 { QF_STACK_PUSH(Initiator::start)
 
+  onConfigure( m_settings );
   onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );
   if ( !threadid ) throw RuntimeError("Unable to spawn thread");

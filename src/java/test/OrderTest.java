@@ -22,10 +22,10 @@ public class OrderTest extends TestCase {
     class QuickFixThread extends Thread {
 
         public void run() {
-			try {
-	            initiator.start();
-			} catch( RuntimeError e ) {
-			}
+	    try {
+		initiator.start();
+	    } catch( Exception e ) {
+	    }
         }
     }
 

@@ -107,8 +107,6 @@ void Acceptor::initialize() throw ( ConfigError& )
 
   if ( !m_sessions.size() )
     throw ConfigError( "No sessions defined for acceptor" );
-  
-  onConfigure( m_settings );
 
   QF_STACK_POP
 }
@@ -158,9 +156,10 @@ Session* Acceptor::getSession
   QF_STACK_POP
 }
 
-void Acceptor::start() throw ( RuntimeError& )
+void Acceptor::start() throw ( ConfigError&, RuntimeError& )
 { QF_STACK_PUSH( Acceptor::start )
 
+  onConfigure( m_settings );
   onInitialize( m_settings );
   int threadid = thread_spawn( &startThread, this );
   if ( !threadid ) throw RuntimeError("Unable to spawn thread");

@@ -86,7 +86,7 @@ throw ( ConfigError& )
 
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
-    m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+  m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
 
   QF_STACK_POP
 }
