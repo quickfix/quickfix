@@ -19,6 +19,7 @@
 			ManagedExtensions="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/Zm200"
 				Optimization="0"
 				AdditionalIncludeDirectories="..\..\..\"
 				PreprocessorDefinitions="WIN32;_DEBUG"
@@ -61,6 +62,7 @@
 			ManagedExtensions="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
+				AdditionalOptions="/Zm200"
 				Optimization="2"
 				InlineFunctionExpansion="1"
 				AdditionalIncludeDirectories="..\..\..\"
@@ -102,10 +104,37 @@
 				RelativePath="AssemblyInfo.cpp">
 			</File>
 			<File
+				RelativePath="Fields.cpp">
+			</File>
+			<File
+				RelativePath="FileLog.cpp">
+			</File>
+			<File
+				RelativePath="FileMessageStore.cpp">
+			</File>
+			<File
 				RelativePath="Group.cpp">
 			</File>
 			<File
+				RelativePath="MemoryMessageStore.cpp">
+			</File>
+			<File
 				RelativePath="Message.cpp">
+			</File>
+			<File
+				RelativePath="MessageStore.cpp">
+			</File>
+			<File
+				RelativePath="MessageStoreFactory.cpp">
+			</File>
+			<File
+				RelativePath="MySQLLog.cpp">
+			</File>
+			<File
+				RelativePath="MySQLMessageStore.cpp">
+			</File>
+			<File
+				RelativePath="ScreenLog.cpp">
 			</File>
 			<File
 				RelativePath="Session.cpp">
@@ -142,6 +171,9 @@
 				RelativePath="DefaultMessageFactory.h">
 			</File>
 			<File
+				RelativePath="DeprecatedFields.h">
+			</File>
+			<File
 				RelativePath="Exceptions.h">
 			</File>
 			<File
@@ -170,6 +202,15 @@
 			</File>
 			<File
 				RelativePath="FIX42_Messages.h">
+			</File>
+			<File
+				RelativePath="FIX43_MessageCracker.h">
+			</File>
+			<File
+				RelativePath="FIX43_MessageFactory.h">
+			</File>
+			<File
+				RelativePath="FIX43_Messages.h">
 			</File>
 			<File
 				RelativePath="Field.h">
