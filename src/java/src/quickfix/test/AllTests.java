@@ -8,9 +8,9 @@ public class AllTests {
     public static Test suite() {
         TestSuite suite = new TestSuite();
 
-        suite.addTest(new TestSuite(OrderTest.class));
         suite.addTest(new TestSuite(MessageTest.class));
         suite.addTest(new TestSuite(FieldTest.class));
+	suite.addTest(new TestSuite(DataDictionaryTest.class));
 
         return suite;
     }
