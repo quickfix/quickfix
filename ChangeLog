@@ -1,5 +1,9 @@
 2003-05-06 Alex Hornby <alex@anvil.com>
 
+	* quickfix.pc.in: add pkg-config support
+
+2003-05-06 Alex Hornby <alex@anvil.com>
+
 	* *.cpp: Fix include path to be quickfix/foo.h rather than
 	quickfix/include/foo.h
 

@@ -114,6 +114,7 @@ AC_SUBST(CXXFLAGS)
 # Checks for libraries.
 AC_CHECK_LIB(c,shutdown,true,AC_CHECK_LIB(socket,shutdown))
 AC_CHECK_LIB(c,inet_addr,true,AC_CHECK_LIB(nsl,inet_addr))
+AC_CHECK_LIB(pthread, pthread_create)
 # Checks for header files.
 AC_CHECK_HEADERS(stdio.h)
 
@@ -260,6 +261,7 @@ AC_MSG_RESULT(no),
 AC_MSG_RESULT(unable to determine, assuming no...))
 
 AC_OUTPUT( 
+	quickfix.pc
 	Makefile
 	src/Makefile
 	src/C++/Makefile
