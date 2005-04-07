@@ -35,7 +35,7 @@ jobject newDate( const FIX::UtcTimeStamp& date )
   jmethodID method = pEnv->GetStaticMethodID( zoneType, "getTimeZone",
                      ( std::string("(") + STRING_TYPE + ")" + TIMEZONE_TYPE ).c_str() );
   if ( !method ) throw JVMException( "Could not find method getTimeZone" );
-  jobject zoneStr = newString( "GMT+0" );
+  jobject zoneStr = newString( "GMT" );
   JVMObject zone( pEnv->CallStaticObjectMethod( zoneType, method, zoneStr ) );
   pEnv->DeleteLocalRef( zoneStr );
 
