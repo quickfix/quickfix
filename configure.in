@@ -14,8 +14,6 @@ AC_LIBTOOL_WIN32_DLL
 AM_PROG_LIBTOOL
 AM_PROG_LEX
 
-AC_DEFINE(_XOPEN_SOURCE, 500, "Define _XOPEN_SOURCE to make sure we get strptime")
-
 ########################################
 # CALLSTACK
 ########################################
