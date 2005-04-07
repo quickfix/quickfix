@@ -95,17 +95,17 @@ AC_ARG_WITH(java,
     has_java=false
 )
 
-JAVA_PREFIX=$with_python
-AC_SUBST(JAVA_PREFIX)
-
 if test $has_java = true
 then
+  jarlib=$libdir
   jni_mt=$build_os
   case $build_os in
     linux-*) jni_mt=linux;;
     solaris*.*) jni_mt=solaris;;
+    darwin*) jarlib=/Library/Java/Extensions;;
   esac
 
+  AC_SUBST(jarlib)
   JAVA_CFLAGS="-I$JAVA_HOME/include -I$JAVA_HOME/include/$jni_mt"
   AC_SUBST(JAVA_CFLAGS)
   AC_DEFINE(HAVE_JAVA, 1, Define if you have java)
