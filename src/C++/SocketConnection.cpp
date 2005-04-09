@@ -140,7 +140,8 @@ throw( SocketRecvFailed )
 { QF_STACK_PUSH(SocketConnection::readMessage)
 
   int size = recv( m_socket, m_buffer, 4095, 0 );
-  if( size <= 0 ) throw SocketRecvFailed();
+  if( size <= 0 ) 
+    throw SocketRecvFailed( size );
 
   m_buffer[ size ] = '\0';
 

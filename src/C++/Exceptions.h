@@ -228,45 +228,53 @@ struct IOException : public Exception
 };
 
 /// Socket Error
-#ifdef _MSC_VER 
 struct SocketException : public Exception
 {
   SocketException()
-    : Exception( "Socket Error", errorToWhat(WSAGetLastError()) )
-  {}
+    : Exception( "Socket Error", errorToWhat() ) {}
 
-  std::string errorToWhat( int error )
+  SocketException( const std::string& what )
+    : Exception( "Socket Error", what ) {}
+
+  std::string errorToWhat()
   {
-    this->error = error;
+#ifdef _MSC_VER
+    error = WSAGetLastError();
     char buffer[2048];
     FormatMessage( FORMAT_MESSAGE_FROM_SYSTEM, NULL, error,
                    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT),
                    buffer, 2048, NULL );
     return buffer;
-  }
-
-  int error;
-};
 #else
-struct SocketException : public Exception
-{
-  SocketException()
-    : Exception( "Socket Error", errorToWhat(errno) )
-  {}
-
-  std::string errorToWhat( int error )
-  {
-    this->error = error;
-    return strerror (error);
+    error = errno;
+    return strerror( error );
+#endif
   }
 
   int error;
 };
-#endif
 
-struct SocketSendFailed : public SocketException {};
-struct SocketRecvFailed : public SocketException {};
-struct SocketCloseFailed : public SocketException {};
+struct SocketSendFailed : public SocketException 
+{
+  SocketSendFailed() {}
+  SocketSendFailed( const std::string& what )
+    : SocketException( what ) {}
+};
+
+struct SocketRecvFailed : public SocketException 
+{
+  SocketRecvFailed( int size )
+    : SocketException( size == 0 ? "Connection reset by peer." : size < 0 ? "" : "Success." ) {}
+  SocketRecvFailed( const std::string& what )
+    : SocketException( what ) {}
+};
+
+struct SocketCloseFailed : public SocketException 
+{
+  SocketCloseFailed() {}
+  SocketCloseFailed( const std::string& what )
+    : SocketException( what ) {}
+};
 
 /*! @} */
 }

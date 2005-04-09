@@ -90,7 +90,7 @@ bool ThreadedSocketConnection::read()
 
     buffer = new char[ 4096 ];
     int result = recv( m_socket, buffer, 4095, 0 );
-    if ( result <= 0 ) { throw SocketRecvFailed(); }
+    if ( result <= 0 ) { throw SocketRecvFailed( result ); }
     buffer[ result ] = '\0';
     m_queue.push( std::make_pair((size_t)result, buffer) );
     return true;
