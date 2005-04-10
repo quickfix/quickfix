@@ -398,29 +398,6 @@ private:
     }
   }
 
-  /// Check to see if a required field is in the body or repeating group
-  bool checkRequiredField( const FieldMap& fieldMap, int field ) const
-  {
-	  if( fieldMap.isSetField(field) )
-		  return true;
-
-	  FieldMap::g_iterator j;
-	  bool hasGroups = false;
-
-	  for( j = fieldMap.g_begin(); j != fieldMap.g_end(); ++j )
-	  {
-      hasGroups = true;
-		  std::vector<FieldMap*>::const_iterator k;
-		  for(k = j->second.begin(); k != j->second.end(); ++k)
-		  {
-			  if( !checkRequiredField(*(*k), field) )
-				  return false;
-		  }  
-	  }
-
-    return hasGroups;
-  }
-
   /// Check if a message has all required fields.
   void checkHasRequired
   ( const FieldMap& header, const FieldMap& body, const FieldMap& trailer,
@@ -448,8 +425,21 @@ private:
     MsgFields::const_iterator iF;
     for( iF = fields.begin(); iF != fields.end(); ++iF )
     {
-      if( !checkRequiredField(body, *iF) )
+      if( !body.isSetField(*iF) )
         throw RequiredTagMissing( *iF );
+    }
+
+    FieldMap::g_iterator groups;
+	  for( groups = body.g_begin(); groups != body.g_end(); ++groups )
+	  {
+      int delim;
+      DataDictionary* DD;
+      if( getGroup( msgType.getValue(), groups->first, delim, DD ) )
+      {
+        std::vector<FieldMap*>::const_iterator group;
+        for( group = groups->second.begin(); group != groups->second.end(); ++group )
+          DD->checkHasRequired( **group, **group, **group, msgType );
+	    }
     }
   }
 

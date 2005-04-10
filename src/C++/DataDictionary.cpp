@@ -485,7 +485,7 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
          && ( required == "Y" || required =="y" )
          && groupRequired )
       {
-        addRequiredField(msgtype, field);
+        groupDD.addRequiredField(msgtype, field);
       }
     }
     else if( node->getName() == "component" )
@@ -502,7 +502,7 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
          && ( required == "Y" || required =="y" )
          && groupRequired)
       {
-        addRequiredField(msgtype, field);
+        groupDD.addRequiredField(msgtype, field);
       }
 	    bool isRequired = false;
 	    if( attrs->get("required", required) )

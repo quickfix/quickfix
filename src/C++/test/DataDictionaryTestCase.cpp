@@ -31,7 +31,8 @@
 #include "fix42/TestRequest.h"
 #include "fix42/NewOrderSingle.h"
 #include "fix40/NewOrderSingle.h"
-#include "fix42/NewOrderList.h"
+#include "fix44/NewOrderList.h"
+#include "fix44/MarketDataRequest.h"
 
 namespace FIX
 {
@@ -433,25 +434,52 @@ void DataDictionaryTestCase::checkGroupCount::onRun
 bool DataDictionaryTestCase::checkGroupRequiredFields::onSetup
 ( DataDictionary*& pObject )
 {
-  pObject = new DataDictionary( "spec/FIX42.xml" );
+  pObject = new DataDictionary( "spec/FIX44.xml" );
   return true;
 }
 
 void DataDictionaryTestCase::checkGroupRequiredFields::onRun
 ( DataDictionary& object )
 {
-  FIX42::NewOrderList message;
-  message.setString("8=FIX.4.29=18635=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=111=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD47=A10=119", false, &object);
-  try{ object.validate( message ); }
+  FIX44::NewOrderList newOrderList;
+  newOrderList.setString("8=FIX.4.49=18635=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=111=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD10=119", false, &object);
+  try{ object.validate( newOrderList ); }
   catch ( RequiredTagMissing& ) { assert(false); }
 
-  message.setString("8=FIX.4.29=15835=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=163=021=381=060=20050225-16:54:3238=1000040=115=USD47=A10=036", false, &object);
-  try{ object.validate( message ); assert(false); }
+  newOrderList.setString("8=FIX.4.49=15835=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=163=021=381=060=20050225-16:54:3238=1000040=115=USD10=036", false, &object);
+  try{ object.validate( newOrderList ); assert(false); }
   catch ( RequiredTagMissing& ) {}
 
-  message.setString("8=FIX.4.29=26935=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=211=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD47=A11=SE104555=MSFT67=163=021=381=060=20050225-16:54:3238=1000040=115=USD47=A10=109", false, &object);
-  try{ object.validate( message ); assert(false); }
+  newOrderList.setString("8=FIX.4.49=26935=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=211=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD11=SE104555=MSFT67=163=021=381=060=20050225-16:54:3238=1000040=115=USD47=A10=109", false, &object);
+  try{ object.validate( newOrderList ); assert(false); }
   catch ( RequiredTagMissing& ) {}
+
+  FIX44::MarketDataRequest marketDataRequest(
+    MDReqID("1"),
+    SubscriptionRequestType( SubscriptionRequestType_SNAPSHOT_PLUS_UPDATES ),
+    MarketDepth( 9999 ) );
+
+  marketDataRequest.set( MDUpdateType( MDUpdateType_INCREMENTAL_REFRESH ) );
+  marketDataRequest.set( AggregatedBook( true ) );
+  marketDataRequest.set( MDImplicitDelete( true ) );
+
+  FIX44::MarketDataRequest::NoRelatedSym noRelatedSym;
+
+  noRelatedSym.set( Symbol( "QQQQ" ) );
+  marketDataRequest.addGroup( noRelatedSym );
+
+  FIX44::MarketDataRequest::NoMDEntryTypes noMDEntryTypes;
+
+  noMDEntryTypes.set( MDEntryType( MDEntryType_BID ) );
+  marketDataRequest.addGroup( noMDEntryTypes );
+
+  noMDEntryTypes.set( MDEntryType( MDEntryType_OFFER ) );
+  marketDataRequest.addGroup( noMDEntryTypes );
+
+  noMDEntryTypes.set( MDEntryType( MDEntryType_TRADE ) );
+  marketDataRequest.addGroup( noMDEntryTypes );
+
+  object.validate( marketDataRequest );
 }
 
 bool DataDictionaryTestCase::readFromFile::onSetup
