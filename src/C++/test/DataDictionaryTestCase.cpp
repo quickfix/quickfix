@@ -479,7 +479,13 @@ void DataDictionaryTestCase::checkGroupRequiredFields::onRun
   noMDEntryTypes.set( MDEntryType( MDEntryType_TRADE ) );
   marketDataRequest.addGroup( noMDEntryTypes );
 
-  object.validate( marketDataRequest );
+  try{ object.validate( marketDataRequest ); }
+  catch ( RequiredTagMissing& ) { assert(false); }
+
+  noMDEntryTypes.removeField( FIELD::MDEntryType );
+  marketDataRequest.addGroup( noMDEntryTypes );
+  try{ object.validate( marketDataRequest ); assert(false); }
+  catch ( RequiredTagMissing& ) {}
 }
 
 bool DataDictionaryTestCase::readFromFile::onSetup
