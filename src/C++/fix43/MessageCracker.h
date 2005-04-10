@@ -102,6 +102,8 @@ namespace FIX43
   virtual ~MessageCracker() {}
   virtual void onMessage( const Message&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( Message&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
  virtual void onMessage( const Heartbeat&, const FIX::SessionID& ) 
     {}
   virtual void onMessage( const Logon&, const FIX::SessionID& ) 
@@ -236,9 +238,353 @@ namespace FIX43
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const RegistrationInstructionsResponse&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( Heartbeat&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( Logon&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( TestRequest&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( ResendRequest&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( Reject&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( SequenceReset&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( Logout&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( BusinessMessageReject&, const FIX::SessionID& ) 
+    {}
+  virtual void onMessage( Advertisement&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( IndicationOfInterest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( News&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( Email&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteRequestReject&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( RFQRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( Quote&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteCancel&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( QuoteStatusReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( MassQuote&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( MassQuoteAcknowledgement&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataSnapshotFullRefresh&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataIncrementalRefresh&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( MarketDataRequestReject&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityDefinitionRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityDefinition&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityTypeRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityTypes&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityListRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityList&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( DerivativeSecurityListRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( DerivativeSecurityList&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SecurityStatus&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( TradingSessionStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( TradingSessionStatus&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderSingle&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( OrderCancelReplaceRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( OrderCancelRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( OrderCancelReject&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( OrderStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( OrderMassCancelRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( OrderMassCancelReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( OrderMassStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderCross&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( CrossOrderCancelRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderMultileg&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( MultilegOrderCancelReplaceRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( BidRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( BidResponse&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( NewOrderList&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( ListStrikePrice&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( ListExecute&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( ListCancelRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( ListStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( ListStatus&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( Allocation&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( AllocationACK&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( SettlementInstructions&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( TradeCaptureReportRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( TradeCaptureReport&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( RegistrationInstructions&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( RegistrationInstructionsResponse&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
  
 public:
   void crack( const Message& message, 
+              const FIX::SessionID& sessionID )
+  {
+    FIX::MsgType msgType;
+    message.getHeader().getField(msgType);
+    std::string msgTypeValue = msgType.getValue();
+    
+    if( msgTypeValue == "0" )
+      onMessage( (const Heartbeat&)message, sessionID );
+    else
+    if( msgTypeValue == "A" )
+      onMessage( (const Logon&)message, sessionID );
+    else
+    if( msgTypeValue == "1" )
+      onMessage( (const TestRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "2" )
+      onMessage( (const ResendRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "3" )
+      onMessage( (const Reject&)message, sessionID );
+    else
+    if( msgTypeValue == "4" )
+      onMessage( (const SequenceReset&)message, sessionID );
+    else
+    if( msgTypeValue == "5" )
+      onMessage( (const Logout&)message, sessionID );
+    else
+    if( msgTypeValue == "j" )
+      onMessage( (const BusinessMessageReject&)message, sessionID );
+    else
+    if( msgTypeValue == "7" )
+      onMessage( (const Advertisement&)message, sessionID );
+    else
+    if( msgTypeValue == "6" )
+      onMessage( (const IndicationOfInterest&)message, sessionID );
+    else
+    if( msgTypeValue == "B" )
+      onMessage( (const News&)message, sessionID );
+    else
+    if( msgTypeValue == "C" )
+      onMessage( (const Email&)message, sessionID );
+    else
+    if( msgTypeValue == "R" )
+      onMessage( (const QuoteRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "AG" )
+      onMessage( (const QuoteRequestReject&)message, sessionID );
+    else
+    if( msgTypeValue == "AH" )
+      onMessage( (const RFQRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "S" )
+      onMessage( (const Quote&)message, sessionID );
+    else
+    if( msgTypeValue == "Z" )
+      onMessage( (const QuoteCancel&)message, sessionID );
+    else
+    if( msgTypeValue == "a" )
+      onMessage( (const QuoteStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "AI" )
+      onMessage( (const QuoteStatusReport&)message, sessionID );
+    else
+    if( msgTypeValue == "i" )
+      onMessage( (const MassQuote&)message, sessionID );
+    else
+    if( msgTypeValue == "b" )
+      onMessage( (const MassQuoteAcknowledgement&)message, sessionID );
+    else
+    if( msgTypeValue == "V" )
+      onMessage( (const MarketDataRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "W" )
+      onMessage( (const MarketDataSnapshotFullRefresh&)message, sessionID );
+    else
+    if( msgTypeValue == "X" )
+      onMessage( (const MarketDataIncrementalRefresh&)message, sessionID );
+    else
+    if( msgTypeValue == "Y" )
+      onMessage( (const MarketDataRequestReject&)message, sessionID );
+    else
+    if( msgTypeValue == "c" )
+      onMessage( (const SecurityDefinitionRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "d" )
+      onMessage( (const SecurityDefinition&)message, sessionID );
+    else
+    if( msgTypeValue == "v" )
+      onMessage( (const SecurityTypeRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "w" )
+      onMessage( (const SecurityTypes&)message, sessionID );
+    else
+    if( msgTypeValue == "x" )
+      onMessage( (const SecurityListRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "y" )
+      onMessage( (const SecurityList&)message, sessionID );
+    else
+    if( msgTypeValue == "z" )
+      onMessage( (const DerivativeSecurityListRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "AA" )
+      onMessage( (const DerivativeSecurityList&)message, sessionID );
+    else
+    if( msgTypeValue == "e" )
+      onMessage( (const SecurityStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "f" )
+      onMessage( (const SecurityStatus&)message, sessionID );
+    else
+    if( msgTypeValue == "g" )
+      onMessage( (const TradingSessionStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "h" )
+      onMessage( (const TradingSessionStatus&)message, sessionID );
+    else
+    if( msgTypeValue == "D" )
+      onMessage( (const NewOrderSingle&)message, sessionID );
+    else
+    if( msgTypeValue == "8" )
+      onMessage( (const ExecutionReport&)message, sessionID );
+    else
+    if( msgTypeValue == "Q" )
+      onMessage( (const DontKnowTrade&)message, sessionID );
+    else
+    if( msgTypeValue == "G" )
+      onMessage( (const OrderCancelReplaceRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "F" )
+      onMessage( (const OrderCancelRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "9" )
+      onMessage( (const OrderCancelReject&)message, sessionID );
+    else
+    if( msgTypeValue == "H" )
+      onMessage( (const OrderStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "q" )
+      onMessage( (const OrderMassCancelRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "r" )
+      onMessage( (const OrderMassCancelReport&)message, sessionID );
+    else
+    if( msgTypeValue == "AF" )
+      onMessage( (const OrderMassStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "s" )
+      onMessage( (const NewOrderCross&)message, sessionID );
+    else
+    if( msgTypeValue == "t" )
+      onMessage( (const CrossOrderCancelReplaceRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "u" )
+      onMessage( (const CrossOrderCancelRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "AB" )
+      onMessage( (const NewOrderMultileg&)message, sessionID );
+    else
+    if( msgTypeValue == "AC" )
+      onMessage( (const MultilegOrderCancelReplaceRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "k" )
+      onMessage( (const BidRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "l" )
+      onMessage( (const BidResponse&)message, sessionID );
+    else
+    if( msgTypeValue == "E" )
+      onMessage( (const NewOrderList&)message, sessionID );
+    else
+    if( msgTypeValue == "m" )
+      onMessage( (const ListStrikePrice&)message, sessionID );
+    else
+    if( msgTypeValue == "L" )
+      onMessage( (const ListExecute&)message, sessionID );
+    else
+    if( msgTypeValue == "K" )
+      onMessage( (const ListCancelRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "M" )
+      onMessage( (const ListStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "N" )
+      onMessage( (const ListStatus&)message, sessionID );
+    else
+    if( msgTypeValue == "J" )
+      onMessage( (const Allocation&)message, sessionID );
+    else
+    if( msgTypeValue == "P" )
+      onMessage( (const AllocationACK&)message, sessionID );
+    else
+    if( msgTypeValue == "T" )
+      onMessage( (const SettlementInstructions&)message, sessionID );
+    else
+    if( msgTypeValue == "AD" )
+      onMessage( (const TradeCaptureReportRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "AE" )
+      onMessage( (const TradeCaptureReport&)message, sessionID );
+    else
+    if( msgTypeValue == "o" )
+      onMessage( (const RegistrationInstructions&)message, sessionID );
+    else
+    if( msgTypeValue == "p" )
+      onMessage( (const RegistrationInstructionsResponse&)message, sessionID );
+    else onMessage( message, sessionID );
+  }
+  
+  void crack( Message& message, 
               const FIX::SessionID& sessionID )
   {
     FIX::MsgType msgType;

@@ -41,6 +41,9 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
   virtual ~MessageCracker() {}
   virtual void onMessage( const Message&amp;, const FIX::SessionID&amp; )
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( Message&amp;, const FIX::SessionID&amp; )
+    { throw FIX::UnsupportedMessageType(); }
+<xsl:call-template name="virtual-const-functions"/>
 <xsl:call-template name="virtual-functions"/>
 <xsl:call-template name="switch-statement"/>
   };
@@ -53,8 +56,19 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
   class <xsl:value-of select="@name"/>;</xsl:for-each>
 </xsl:template>
 
-<xsl:template name="virtual-functions">
+<xsl:template name="virtual-const-functions">
  <xsl:for-each select="//fix/messages/message"> virtual void onMessage( const <xsl:value-of select="@name"/>&amp;, const FIX::SessionID&amp; ) 
+ <xsl:if test="@msgcat='app' and @name!='BusinessMessageReject'">   { throw FIX::UnsupportedMessageType(); }
+ </xsl:if>
+ <xsl:if test="@msgcat='app' and @name='BusinessMessageReject'">   {}
+ </xsl:if>
+ <xsl:if test="@msgcat='admin'">   {}
+ </xsl:if>
+</xsl:for-each>
+</xsl:template>
+
+<xsl:template name="virtual-functions">
+ <xsl:for-each select="//fix/messages/message"> virtual void onMessage( <xsl:value-of select="@name"/>&amp;, const FIX::SessionID&amp; ) 
  <xsl:if test="@msgcat='app' and @name!='BusinessMessageReject'">   { throw FIX::UnsupportedMessageType(); }
  </xsl:if>
  <xsl:if test="@msgcat='app' and @name='BusinessMessageReject'">   {}
@@ -67,6 +81,21 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
 <xsl:template name="switch-statement">
 public:
   void crack( const Message&amp; message, 
+              const FIX::SessionID&amp; sessionID )
+  {
+    FIX::MsgType msgType;
+    message.getHeader().getField(msgType);
+    std::string msgTypeValue = msgType.getValue();
+    
+    <xsl:for-each select="//fix/messages/message">
+    <xsl:if test="position()!=1">
+    else
+    </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
+      onMessage( (const <xsl:value-of select="@name"/>&amp;)message, sessionID );</xsl:for-each>
+    else onMessage( message, sessionID );
+  }
+  
+  void crack( Message&amp; message, 
               const FIX::SessionID&amp; sessionID )
   {
     FIX::MsgType msgType;
