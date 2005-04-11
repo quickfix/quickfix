@@ -47,27 +47,27 @@ public:
     if ( beginString == BeginString_FIX40 )
     {
       ( ( FIX40::MessageCracker& ) ( *this ) )
-      .crack( ( FIX40::Message& ) message, sessionID );
+      .crack( ( const FIX40::Message& ) message, sessionID );
     }
     else if ( beginString == BeginString_FIX41 )
     {
       ( ( FIX41::MessageCracker& ) ( *this ) )
-      .crack( ( FIX41::Message& ) message, sessionID );
+      .crack( ( const FIX41::Message& ) message, sessionID );
     }
     else if ( beginString == BeginString_FIX42 )
     {
       ( ( FIX42::MessageCracker& ) ( *this ) )
-      .crack( ( FIX42::Message& ) message, sessionID );
+      .crack( ( const FIX42::Message& ) message, sessionID );
     }
     else if ( beginString == BeginString_FIX43 )
     {
       ( ( FIX43::MessageCracker& ) ( *this ) )
-      .crack( ( FIX43::Message& ) message, sessionID );
+      .crack( ( const FIX43::Message& ) message, sessionID );
     }
     else if ( beginString == BeginString_FIX44 )
     {
       ( ( FIX44::MessageCracker& ) ( *this ) )
-      .crack( ( FIX44::Message& ) message, sessionID );
+      .crack( ( const FIX44::Message& ) message, sessionID );
     }
   }
 };
