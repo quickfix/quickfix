@@ -430,16 +430,17 @@ private:
     }
 
     FieldMap::g_iterator groups;
-	  for( groups = body.g_begin(); groups != body.g_end(); ++groups )
-	  {
+    for( groups = body.g_begin(); groups != body.g_end(); ++groups )
+    {
       int delim;
-      DataDictionary* DD;
-      if( getGroup( msgType.getValue(), groups->first, delim, DD ) )
+      const DataDictionary* DD;
+      int field = groups->first;
+      if( getGroup( msgType.getValue(), field, delim, DD ) )
       {
         std::vector<FieldMap*>::const_iterator group;
         for( group = groups->second.begin(); group != groups->second.end(); ++group )
           DD->checkHasRequired( **group, **group, **group, msgType );
-	    }
+      }
     }
   }
 
