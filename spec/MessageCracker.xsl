@@ -44,7 +44,7 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
   virtual void onMessage( Message&amp;, const FIX::SessionID&amp; )
     { throw FIX::UnsupportedMessageType(); }
 <xsl:call-template name="virtual-const-functions"/>
-<xsl:call-template name="virtual-functions"/>
+<!-- <xsl:call-template name="virtual-functions"/> -->
 <xsl:call-template name="switch-statement"/>
   };
 }
@@ -67,7 +67,7 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
 </xsl:for-each>
 </xsl:template>
 
-<xsl:template name="virtual-functions">
+<!-- <xsl:template name="virtual-functions">
  <xsl:for-each select="//fix/messages/message"> virtual void onMessage( <xsl:value-of select="@name"/>&amp;, const FIX::SessionID&amp; ) 
  <xsl:if test="@msgcat='app' and @name!='BusinessMessageReject'">   { throw FIX::UnsupportedMessageType(); }
  </xsl:if>
@@ -76,7 +76,7 @@ namespace FIX<xsl:value-of select="//fix/@major"/><xsl:value-of select="//fix/@m
  <xsl:if test="@msgcat='admin'">   {}
  </xsl:if>
 </xsl:for-each>
-</xsl:template>
+</xsl:template> -->
 
 <xsl:template name="switch-statement">
 public:
@@ -95,7 +95,7 @@ public:
     else onMessage( message, sessionID );
   }
   
-  void crack( Message&amp; message, 
+<!--  void crack( Message&amp; message, 
               const FIX::SessionID&amp; sessionID )
   {
     FIX::MsgType msgType;
@@ -108,7 +108,7 @@ public:
     </xsl:if>if( msgTypeValue == "<xsl:value-of select="@msgtype"/>" )
       onMessage( (<xsl:value-of select="@name"/>&amp;)message, sessionID );</xsl:for-each>
     else onMessage( message, sessionID );
-  }
+  } -->
 </xsl:template>
 
 </xsl:stylesheet>
