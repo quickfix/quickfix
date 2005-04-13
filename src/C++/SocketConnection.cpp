@@ -120,7 +120,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       m_pSession->getLog()->onEvent( e.what() );
     s.getMonitor().drop( m_socket );
   }
-  catch ( InvalidMessage& e )
+  catch ( InvalidMessage& )
   {
     s.getMonitor().drop( m_socket );
   }
@@ -129,7 +129,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   QF_STACK_POP
 }
 
-bool SocketConnection::readFromSocket()
+void SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
 {
   int size = recv( m_socket, m_buffer, 4095, 0 );
@@ -164,7 +164,7 @@ void SocketConnection::readMessages( SocketMonitor& s )
     {
       m_pSession->next( msg );
     }
-    catch ( InvalidMessage& e )
+    catch ( InvalidMessage& )
     {
       if( !m_pSession->isLoggedOn() )
         s.drop( m_socket );
