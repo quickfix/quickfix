@@ -52,7 +52,9 @@ public:
   void onTimeout();
 
 private:
-  bool readMessage( std::string& msg ) throw( SocketRecvFailed );
+  bool readFromSocket() throw( SocketRecvFailed );
+  bool readMessage( std::string& msg );
+  void readMessages( SocketMonitor& s );
   bool send( const std::string& );
   void disconnect();
 

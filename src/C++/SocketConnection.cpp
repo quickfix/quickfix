@@ -69,27 +69,15 @@ bool SocketConnection::read( SocketConnector& s )
 
   if ( !m_pSession ) return false;
 
-  std::string msg;
   try
   {
-    if ( !readMessage( msg ) ) return false;
-
-    m_pSession->next( msg );
-  } 
+    readFromSocket();
+    readMessages( s.getMonitor() );
+  }
   catch( SocketRecvFailed& e )
   {
-    if( m_pSession )
-      m_pSession->getLog()->onEvent( e.what() );
+    m_pSession->getLog()->onEvent( e.what() );
     s.getMonitor().drop( m_socket );
-  }
-  catch ( InvalidMessage& e )
-  {
-    if ( !m_pSession || (m_pSession && !m_pSession->isLoggedOn()) )
-    {
-      if( m_pSession )
-        m_pSession->getLog()->onEvent( e.what() );
-      s.getMonitor().drop( m_socket );
-    }
   }
   return true;
 
@@ -102,21 +90,28 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   std::string msg;
   try
   {
-    if ( !readMessage( msg ) ) return false;
+    readFromSocket();
 
     if ( !m_pSession )
     {
+      if ( !readMessage( msg ) ) return false;
       m_pSession = Session::lookupSession( msg, true );
-      if ( m_pSession ) 
+      if( m_pSession )
         m_pSession = Session::registerSession( m_pSession->getSessionID() );
-      if ( m_pSession ) 
+      if( m_pSession )
         m_pSession = a.getSession( msg, *this );
+      if( m_pSession )
+        m_pSession->next( msg );
+      if( !m_pSession )
+      {
+        s.getMonitor().drop( m_socket );
+        return false;
+      }
     }
 
-    if ( m_pSession )
-      m_pSession->next( msg );
-    else
-      s.getMonitor().drop( m_socket );
+    if ( !m_pSession ) return false;
+
+    readMessages( s.getMonitor() );
     return true;
   }
   catch ( SocketRecvFailed& e )
@@ -125,35 +120,56 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       m_pSession->getLog()->onEvent( e.what() );
     s.getMonitor().drop( m_socket );
   }
-  catch ( InvalidMessage& )
+  catch ( InvalidMessage& e )
   {
-    if ( !m_pSession || !m_pSession->isLoggedOn() )
-      s.getMonitor().drop( m_socket );
+    s.getMonitor().drop( m_socket );
   }
   return false;
 
   QF_STACK_POP
 }
 
-bool SocketConnection::readMessage( std::string& msg )
+bool SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
-{ QF_STACK_PUSH(SocketConnection::readMessage)
-
+{
   int size = recv( m_socket, m_buffer, 4095, 0 );
   if( size <= 0 ) 
     throw SocketRecvFailed( size );
-
   m_buffer[ size ] = '\0';
+
+  m_parser.addToStream( m_buffer, size );
+}
+
+bool SocketConnection::readMessage( std::string& msg )
+{ QF_STACK_PUSH(SocketConnection::readMessage)
 
   try
   {
-    m_parser.addToStream( m_buffer, size );
     return m_parser.readFixMessage( msg );
   }
   catch ( MessageParseError& ) {}
   return true;
 
   QF_STACK_POP
+}
+
+void SocketConnection::readMessages( SocketMonitor& s )
+{
+  if( !m_pSession ) return;
+
+  std::string msg;
+  while( readMessage( msg ) )
+  {
+    try
+    {
+      m_pSession->next( msg );
+    }
+    catch ( InvalidMessage& e )
+    {
+      if( !m_pSession->isLoggedOn() )
+        s.drop( m_socket );
+    }
+  }
 }
 
 void SocketConnection::onTimeout()
