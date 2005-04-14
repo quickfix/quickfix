@@ -109,8 +109,6 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       }
     }
 
-    if ( !m_pSession ) return false;
-
     readMessages( s.getMonitor() );
     return true;
   }
