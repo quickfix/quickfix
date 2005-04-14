@@ -548,6 +548,7 @@ void Session::generateLogon()
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
+  logon.setField( ResetSeqNumFlag(shouldSendReset()) );
   fill( logon.getHeader() );
   UtcTimeStamp now;
   m_state.lastReceivedTime( now );
@@ -950,9 +951,14 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
   QF_STACK_POP
 }
 
-bool Session::get( int b, int e, std::vector < Message > &m ) const
-{ QF_STACK_PUSH(Session::get)
-  return false;
+bool Session::shouldSendReset()  
+{ QF_STACK_PUSH(Session::shouldSendReset)
+ 
+  std::string beginString = m_sessionID.getBeginString();
+  return beginString >= FIX::BeginString_FIX41 
+         && getExpectedSenderNum() == 1 
+         && getExpectedTargetNum() == 1; 
+
   QF_STACK_POP
 }
 

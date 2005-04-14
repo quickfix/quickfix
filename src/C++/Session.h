@@ -164,6 +164,7 @@ private:
       m_sessionID.getSenderCompID().getValue() == targetCompID.getValue()
       && m_sessionID.getTargetCompID().getValue() == senderCompID.getValue();
   }
+  bool shouldSendReset();
 
   bool validLogonState( const MsgType& msgType );
   void fromCallback( const MsgType& msgType, const Message& msg,
@@ -205,7 +206,6 @@ private:
 
   bool set( int s, const Message& m );
   bool get( int s, Message& m ) const;
-  bool get( int b, int e, std::vector < Message > &m ) const;
 
   Application& m_application;
   SessionID m_sessionID;
