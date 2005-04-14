@@ -29,13 +29,13 @@ using namespace System;
 #include "SessionSettings.h"
 #include "MessageStoreFactory.h"
 #include "LogFactory.h"
-#include "Initiator.h"
+#include "Acceptor.h"
 #include "quickfix/SocketAcceptor.h"
 #include "quickfix/CallStack.h"
 
 namespace QuickFix
 {
-public __gc class SocketAcceptor : public Initiator
+public __gc class SocketAcceptor : public Acceptor
 {
 public:
   SocketAcceptor( Application* application,
