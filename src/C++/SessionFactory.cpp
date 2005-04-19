@@ -130,6 +130,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setMaxLatency( settings.getLong( MAX_LATENCY ) );
   if ( settings.has( LOGON_TIMEOUT ) )
     pSession->setLogonTimeout( settings.getLong( LOGON_TIMEOUT ) );
+  if ( settings.has( SEND_RESETSEQNUMFLAG ) )
+    pSession->setResetOnLogout( settings.getBool( SEND_RESETSEQNUMFLAG ) );
   if ( settings.has( RESET_ON_LOGOUT ) )
     pSession->setResetOnLogout( settings.getBool( RESET_ON_LOGOUT ) );
   if ( settings.has( RESET_ON_DISCONNECT ) )

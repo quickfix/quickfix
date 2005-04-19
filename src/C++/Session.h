@@ -104,6 +104,8 @@ public:
     { m_maxLatency = value; }
   void setLogonTimeout ( int value ) 
     { m_state.logonTimeout( value ); }
+  void setSendResetSeqNumFlag( bool value )
+    { m_sendResetSeqNumFlag = value; }
   void setResetOnLogout ( bool value ) 
     { m_resetOnLogout = value; }
   void setResetOnDisconnect( bool value ) 
@@ -214,6 +216,7 @@ private:
 
   bool m_checkLatency;
   int m_maxLatency;
+  bool m_sendResetSeqNumFlag;
   bool m_resetOnLogout;
   bool m_resetOnDisconnect;
   bool m_millisecondsInTimeStamp;

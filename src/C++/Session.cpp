@@ -49,6 +49,7 @@ Session::Session( Application& application,
   m_sessionTime( sessionTime ),
   m_enabled( true ),
   m_checkLatency( true ), m_maxLatency( 120 ),
+  m_sendResetSeqNumFlag( false ),
   m_resetOnLogout( false ), m_resetOnDisconnect( false ),
   m_millisecondsInTimeStamp( true ),
   m_dataDictionary( dataDictionary ),
@@ -548,7 +549,8 @@ void Session::generateLogon()
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
-  logon.setField( ResetSeqNumFlag(shouldSendReset()) );
+  if( shouldSendReset() )
+    logon.setField( ResetSeqNumFlag(true) );
   fill( logon.getHeader() );
   UtcTimeStamp now;
   m_state.lastReceivedTime( now );
@@ -956,8 +958,9 @@ bool Session::shouldSendReset()
  
   std::string beginString = m_sessionID.getBeginString();
   return beginString >= FIX::BeginString_FIX41 
-         && getExpectedSenderNum() == 1 
-         && getExpectedTargetNum() == 1; 
+    && ( m_sendResetSeqNumFlag || m_resetOnLogout || m_resetOnDisconnect )
+    && getExpectedSenderNum() == 1 
+    && getExpectedTargetNum() == 1;
 
   QF_STACK_POP
 }
