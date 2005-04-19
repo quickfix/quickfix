@@ -1,3 +1,80 @@
+1.10.0
+------
+ResetSeqNumFlag is always set when expected sender and target message sequence 
+numbers are 1.  QuickFIX will also reset it's sequence numbers when it
+received a ResetSeqNumFlag set to 'Y'.
+
+ValidateUserDefinedFields configuration parameter available.  Defaults to Y
+which provides functionality of older releases.  When set to N, user defined
+fields will not be validated on incoming messages.
+
+Initiators and Acceptors can be reliably stopped and restarted as many times
+as you like.  Previously they could only be started and stopped once.
+
+Presence of required fields will be validated inside of required repeating
+groups.  Required fields will also be validated in the header and trailer.
+
+getSessions on acceptor and initiator will return a collection of managed
+sessions.
+
+Much more thorough logging inside of Session class.
+
+BusinessMessageReject, instead of Reject, will be send with a conditionally
+required field is not found.
+
+Double fields will no longer encode values less than 0.0001 in scientific
+notation.
+
+Initiator will no longer initiate socket connections outside of the session
+time.  Previously it would connect and immediately close connection during
+every retry interval.
+
+Receipt of a message without an empty MsgType field is now handled gracefully.
+
+Fixed bug where FileStore would not correctly persist numbers if set to a
+lower sequence number that contained less characters than the current
+sequence number.
+
+An exception thrown from Session::generateReject will no longer result in
+a system crash.
+
+SessionID strings can now be correctly parsed if the SenderCompID contains a
+dash.
+
+Very large resend request processing will not longer result in a stack overflow.
+
+If no length is found in the parser buffer, it will now be cleared out 
+instead of reused.
+
+SessionSettings adds extra sanity checks for configuration files, such as 
+ensuring initiator or acceptor are present and spelled correctly.
+
+Removed dependence of socket code on FIONREAD/NREAD.  The value of the recv
+call is now used to determine dropped connections. All socket code has been
+pulled out of the parser class.
+
+Logout message will be processed even if no Logon was received.
+
+C++ MessageCracker contains non-const onMessage methods for use with toAdmin 
+and toApp callbacks.
+
+Added block, poll, and isLoggedOn to initiator/acceptor for java and .NET APIs.
+
+isAdmin, isApp, and GetEnumerator available on Message class in .NET.
+GetEnumerator also available on Header and Trailer.
+
+force flag can be passed into initiator and acceptor stop methods in
+java and .NET
+
+Java will only be compiled under unix when using the -with-java configure
+directive.
+
+Bug when copying SessionIDs with SessionQualifiers has been fixed.
+
+SessionSettings can be set at runtime using setter calls from java.
+
+Apple standards used when installing java libraries under MAC OS/X.
+
 1.9.4
 -----
 Fixed compilation and linking errors in .NET library.
