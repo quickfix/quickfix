@@ -33,6 +33,7 @@
 #include "fix40/NewOrderSingle.h"
 #include "fix44/NewOrderList.h"
 #include "fix44/MarketDataRequest.h"
+#include "fix44/MarketDataSnapshotFullRefresh.h"
 
 namespace FIX
 {
@@ -486,6 +487,26 @@ void DataDictionaryTestCase::checkGroupRequiredFields::onRun
   marketDataRequest.addGroup( noMDEntryTypes );
   try{ object.validate( marketDataRequest ); assert(false); }
   catch ( RequiredTagMissing& ) {}
+
+  FIX44::MarketDataSnapshotFullRefresh md;
+  md.set( MDReqID("1") );
+  md.set( Symbol("QQQQ") );
+
+  FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
+
+  entry.set( MDEntryType( MDEntryType_OFFER ) );
+  entry.set( MDEntryPx( 41.48 ) );
+  entry.set( MDEntrySize( 500 ) );
+  md.addGroup( entry );
+
+  entry.set( MDEntryType( MDEntryType_BID ) );
+  entry.set( MDEntryPx( 41.2 ) );
+  entry.set( MDEntrySize( 300 ) );
+  md.addGroup( entry );
+
+  Message message( md.toString(), object );
+  object.validate( message );
+  //object.validate( md );
 }
 
 bool DataDictionaryTestCase::readFromFile::onSetup
