@@ -41,18 +41,10 @@ namespace QuickFix
 public __gc class MySQLLog : public CPPLog
 {
 public:
-  MySQLLog( SessionID* sessionID, String* database, String* user, 
-            String* password, String* host, short port )
-  : CPPLog( new FIX::MySQLLog
-    ( sessionID->unmanaged(),
-      convertString(database),
-      convertString(user),
-      convertString(password),
-      convertString(host),
-      port ) ) {}
-
   MySQLLog( FIX::Log* pUnmanaged )
-  : CPPLog( m_pUnmanaged ) {}
+  {
+    m_pUnmanaged = pUnmanaged;
+  }
 
   ~MySQLLog() { delete m_pUnmanaged; }
 };
