@@ -674,37 +674,37 @@
     </message>
   </messages>
   <fields>
-    <field number="1" name="Account" type="CHAR"/>
-    <field number="2" name="AdvId" type="CHAR"/>
-    <field number="3" name="AdvRefID" type="CHAR"/>
-    <field number="4" name="AdvSide" type="CHAR">
+    <field number="1" name="Account" type="STRING"/>
+    <field number="2" name="AdvId" type="STRING"/>
+    <field number="3" name="AdvRefID" type="STRING"/>
+    <field number="4" name="AdvSide" type="STRING">
       <value enum="B" description="BUY"/>
       <value enum="S" description="SELL"/>
       <value enum="X" description="CROSS"/>
       <value enum="T" description="TRADE"/>
     </field>
-    <field number="5" name="AdvTransType" type="CHAR">
+    <field number="5" name="AdvTransType" type="STRING">
       <value enum="N" description="NEW"/>
       <value enum="C" description="CANCEL"/>
       <value enum="R" description="REPLACE"/>
     </field>
     <field number="6" name="AvgPx" type="FLOAT"/>
     <field number="7" name="BeginSeqNo" type="INT"/>
-    <field number="8" name="BeginString" type="CHAR"/>
+    <field number="8" name="BeginString" type="STRING"/>
     <field number="9" name="BodyLength" type="INT"/>
-    <field number="10" name="CheckSum" type="CHAR"/>
-    <field number="11" name="ClOrdID" type="CHAR"/>
+    <field number="10" name="CheckSum" type="STRING"/>
+    <field number="11" name="ClOrdID" type="STRING"/>
     <field number="12" name="Commission" type="FLOAT"/>
-    <field number="13" name="CommType" type="CHAR">
+    <field number="13" name="CommType" type="STRING">
       <value enum="1" description="PER_SHARE"/>
       <value enum="2" description="PERCENTAGE"/>
       <value enum="3" description="ABSOLUTE"/>
     </field>
     <field number="14" name="CumQty" type="INT"/>
-    <field number="15" name="Currency" type="CHAR"/>
+    <field number="15" name="Currency" type="STRING"/>
     <field number="16" name="EndSeqNo" type="INT"/>
-    <field number="17" name="ExecID" type="CHAR"/>
-    <field number="18" name="ExecInst" type="CHAR">
+    <field number="17" name="ExecID" type="STRING"/>
+    <field number="18" name="ExecInst" type="MULTIPLEVALUESTRING">
       <value enum="1" description="NOT_HELD"/>
       <value enum="2" description="WORK"/>
       <value enum="3" description="GO_ALONG"/>
@@ -733,19 +733,19 @@
       <value enum="U" description="CUSTOMER_DISPLAY_INSTRUCTION"/>
       <value enum="V" description="NETTING"/>
     </field>
-    <field number="19" name="ExecRefID" type="CHAR"/>
-    <field number="20" name="ExecTransType" type="CHAR">
+    <field number="19" name="ExecRefID" type="STRING"/>
+    <field number="20" name="ExecTransType" type="STRING">
       <value enum="0" description="NEW"/>
       <value enum="1" description="CANCEL"/>
       <value enum="2" description="CORRECT"/>
       <value enum="3" description="STATUS"/>
     </field>
-    <field number="21" name="HandlInst" type="CHAR">
+    <field number="21" name="HandlInst" type="STRING">
       <value enum="1" description="AUTOMATED_EXECUTION_ORDER_PRIVATE_NO_BROKER_INTERVENTION"/>
       <value enum="2" description="AUTOMATED_EXECUTION_ORDER_PUBLIC_BROKER_INTERVENTION_OK"/>
       <value enum="3" description="MANUAL_ORDER_BEST_EXECUTION"/>
     </field>
-    <field number="22" name="IDSource" type="CHAR">
+    <field number="22" name="IDSource" type="STRING">
       <value enum="1" description="CUSIP"/>
       <value enum="2" description="SEDOL"/>
       <value enum="3" description="QUIK"/>
@@ -754,36 +754,36 @@
       <value enum="6" description="ISO_CURRENCY_CODE"/>
       <value enum="7" description="ISO_COUNTRY_CODE"/>
     </field>
-    <field number="23" name="IOIid" type="CHAR"/>
-    <field number="24" name="IOIOthSvc" type="CHAR"/>
-    <field number="25" name="IOIQltyInd" type="CHAR">
+    <field number="23" name="IOIid" type="STRING"/>
+    <field number="24" name="IOIOthSvc" type="STRING"/>
+    <field number="25" name="IOIQltyInd" type="STRING">
       <value enum="L" description="LOW"/>
       <value enum="M" description="MEDIUM"/>
       <value enum="H" description="HIGH"/>
     </field>
-    <field number="26" name="IOIRefID" type="CHAR"/>
-    <field number="27" name="IOIShares" type="CHAR"/>
-    <field number="28" name="IOITransType" type="CHAR">
+    <field number="26" name="IOIRefID" type="STRING"/>
+    <field number="27" name="IOIShares" type="STRING"/>
+    <field number="28" name="IOITransType" type="STRING">
       <value enum="N" description="NEW"/>
       <value enum="C" description="CANCEL"/>
       <value enum="R" description="REPLACE"/>
     </field>
-    <field number="29" name="LastCapacity" type="CHAR">
+    <field number="29" name="LastCapacity" type="STRING">
       <value enum="1" description="AGENT"/>
       <value enum="2" description="CROSS_AS_AGENT"/>
       <value enum="3" description="CROSS_AS_PRINCIPAL"/>
       <value enum="4" description="PRINCIPAL"/>
     </field>
-    <field number="30" name="LastMkt" type="CHAR"/>
+    <field number="30" name="LastMkt" type="STRING"/>
     <field number="31" name="LastPx" type="FLOAT"/>
     <field number="32" name="LastShares" type="INT"/>
     <field number="33" name="LinesOfText" type="INT"/>
     <field number="34" name="MsgSeqNum" type="INT"/>
-    <field number="35" name="MsgType" type="CHAR"/>
+    <field number="35" name="MsgType" type="STRING"/>
     <field number="36" name="NewSeqNo" type="INT"/>
-    <field number="37" name="OrderID" type="CHAR"/>
+    <field number="37" name="OrderID" type="STRING"/>
     <field number="38" name="OrderQty" type="INT"/>
-    <field number="39" name="OrdStatus" type="CHAR">
+    <field number="39" name="OrdStatus" type="STRING">
       <value enum="0" description="NEW"/>
       <value enum="1" description="PARTIALLY_FILLED"/>
       <value enum="2" description="FILLED"/>
@@ -798,7 +798,7 @@
       <value enum="B" description="CALCULATED"/>
       <value enum="C" description="EXPIRED"/>
     </field>
-    <field number="40" name="OrdType" type="CHAR">
+    <field number="40" name="OrdType" type="STRING">
       <value enum="1" description="MARKET"/>
       <value enum="2" description="LIMIT"/>
       <value enum="3" description="STOP"/>
@@ -818,16 +818,16 @@
       <value enum="H" description="FOREX_PREVIOUSLY_QUOTED"/>
       <value enum="P" description="PEGGED"/>
     </field>
-    <field number="41" name="OrigClOrdID" type="CHAR"/>
+    <field number="41" name="OrigClOrdID" type="STRING"/>
     <field number="42" name="OrigTime" type="TIME"/>
-    <field number="43" name="PossDupFlag" type="CHAR">
+    <field number="43" name="PossDupFlag" type="STRING">
       <value enum="Y" description="POSSIBLE_DUPLICATE"/>
       <value enum="N" description="ORIGINAL_TRANSMISSION"/>
     </field>
     <field number="44" name="Price" type="FLOAT"/>
     <field number="45" name="RefSeqNum" type="INT"/>
-    <field number="46" name="RelatdSym" type="CHAR"/>
-    <field number="47" name="Rule80A" type="CHAR">
+    <field number="46" name="RelatdSym" type="STRING"/>
+    <field number="47" name="Rule80A" type="STRING">
       <value enum="A" description="AGENCY_SINGLE_ORDER"/>
       <value enum="B" description="SHORT_EXEMPT_TRANSACTION_B"/>
       <value enum="C" description="PROGRAM_ORDER_NONINDEX_ARB_FOR_MEMBER_FIRMORG"/>
@@ -851,12 +851,12 @@
       <value enum="Y" description="PROGRAM_ORDER_NONINDEX_ARB_FOR_OTHER_AGENCY"/>
       <value enum="Z" description="SHORT_EXEMPT_NONMEMBER"/>
     </field>
-    <field number="48" name="SecurityID" type="CHAR"/>
-    <field number="49" name="SenderCompID" type="CHAR"/>
-    <field number="50" name="SenderSubID" type="CHAR"/>
+    <field number="48" name="SecurityID" type="STRING"/>
+    <field number="49" name="SenderCompID" type="STRING"/>
+    <field number="50" name="SenderSubID" type="STRING"/>
     <field number="52" name="SendingTime" type="TIME"/>
     <field number="53" name="Shares" type="INT"/>
-    <field number="54" name="Side" type="CHAR">
+    <field number="54" name="Side" type="STRING">
       <value enum="1" description="BUY"/>
       <value enum="2" description="SELL"/>
       <value enum="3" description="BUY_MINUS"/>
@@ -866,11 +866,11 @@
       <value enum="7" description="D"/>
       <value enum="8" description="CROSS"/>
     </field>
-    <field number="55" name="Symbol" type="CHAR"/>
-    <field number="56" name="TargetCompID" type="CHAR"/>
-    <field number="57" name="TargetSubID" type="CHAR"/>
-    <field number="58" name="Text" type="CHAR"/>
-    <field number="59" name="TimeInForce" type="CHAR">
+    <field number="55" name="Symbol" type="STRING"/>
+    <field number="56" name="TargetCompID" type="STRING"/>
+    <field number="57" name="TargetSubID" type="STRING"/>
+    <field number="58" name="Text" type="STRING"/>
+    <field number="59" name="TimeInForce" type="STRING">
       <value enum="0" description="DAY"/>
       <value enum="1" description="GOOD_TILL_CANCEL"/>
       <value enum="2" description="AT_THE_OPENING"/>
@@ -880,13 +880,13 @@
       <value enum="6" description="GOOD_TILL_DATE"/>
     </field>
     <field number="60" name="TransactTime" type="TIME"/>
-    <field number="61" name="Urgency" type="CHAR">
+    <field number="61" name="Urgency" type="STRING">
       <value enum="0" description="NORMAL"/>
       <value enum="1" description="FLASH"/>
       <value enum="2" description="BACKGROUND"/>
     </field>
     <field number="62" name="ValidUntilTime" type="TIME"/>
-    <field number="63" name="SettlmntTyp" type="CHAR">
+    <field number="63" name="SettlmntTyp" type="STRING">
       <value enum="0" description="REGULAR"/>
       <value enum="1" description="CASH"/>
       <value enum="2" description="NEXT_DAY"/>
@@ -899,29 +899,29 @@
       <value enum="9" description="TPLUS5"/>
     </field>
     <field number="64" name="FutSettDate" type="DATE"/>
-    <field number="65" name="SymbolSfx" type="CHAR"/>
-    <field number="66" name="ListID" type="CHAR"/>
+    <field number="65" name="SymbolSfx" type="STRING"/>
+    <field number="66" name="ListID" type="STRING"/>
     <field number="67" name="ListSeqNo" type="INT"/>
     <field number="68" name="ListNoOrds" type="INT"/>
-    <field number="69" name="ListExecInst" type="CHAR"/>
-    <field number="70" name="AllocID" type="CHAR"/>
-    <field number="71" name="AllocTransType" type="CHAR">
+    <field number="69" name="ListExecInst" type="STRING"/>
+    <field number="70" name="AllocID" type="STRING"/>
+    <field number="71" name="AllocTransType" type="STRING">
       <value enum="0" description="NEW"/>
       <value enum="1" description="REPLACE"/>
       <value enum="2" description="CANCEL"/>
       <value enum="3" description="PRELIMINARY"/>
       <value enum="4" description="CALCULATED"/>
     </field>
-    <field number="72" name="RefAllocID" type="CHAR"/>
+    <field number="72" name="RefAllocID" type="STRING"/>
     <field number="73" name="NoOrders" type="INT"/>
     <field number="74" name="AvgPrxPrecision" type="INT"/>
     <field number="75" name="TradeDate" type="DATE"/>
-    <field number="76" name="ExecBroker" type="CHAR"/>
-    <field number="77" name="OpenClose" type="CHAR"/>
+    <field number="76" name="ExecBroker" type="STRING"/>
+    <field number="77" name="OpenClose" type="STRING"/>
     <field number="78" name="NoAllocs" type="INT"/>
-    <field number="79" name="AllocAccount" type="CHAR"/>
+    <field number="79" name="AllocAccount" type="STRING"/>
     <field number="80" name="AllocShares" type="INT"/>
-    <field number="81" name="ProcessCode" type="CHAR">
+    <field number="81" name="ProcessCode" type="STRING">
       <value enum="0" description="REGULAR"/>
       <value enum="1" description="SOFT_DOLLAR"/>
       <value enum="2" description="STEPIN"/>
@@ -934,7 +934,7 @@
     <field number="83" name="RptSeq" type="INT"/>
     <field number="84" name="CxlQty" type="INT"/>
     <field number="85" name="NoDlvyInst" type="INT"/>
-    <field number="86" name="DlvyInst" type="CHAR"/>
+    <field number="86" name="DlvyInst" type="STRING"/>
     <field number="87" name="AllocStatus" type="INT">
       <value enum="0" description="ACCEPTED"/>
       <value enum="1" description="REJECTED"/>
@@ -954,16 +954,16 @@
     <field number="89" name="Signature" type="DATA"/>
     <field number="90" name="SecureDataLen" type="INT"/>
     <field number="91" name="SecureData" type="DATA"/>
-    <field number="92" name="BrokerOfCredit" type="CHAR"/>
+    <field number="92" name="BrokerOfCredit" type="STRING"/>
     <field number="93" name="SignatureLength" type="INT"/>
-    <field number="94" name="EmailType" type="CHAR">
+    <field number="94" name="EmailType" type="STRING">
       <value enum="0" description="NEW"/>
       <value enum="1" description="REPLY"/>
       <value enum="2" description="ADMIN_REPLY"/>
     </field>
     <field number="95" name="RawDataLength" type="INT"/>
     <field number="96" name="RawData" type="DATA"/>
-    <field number="97" name="PossResend" type="CHAR"/>
+    <field number="97" name="PossResend" type="STRING"/>
     <field number="98" name="EncryptMethod" type="INT">
       <value enum="0" description="NONE_OTHER"/>
       <value enum="1" description="PKCS"/>
@@ -974,7 +974,7 @@
       <value enum="6" description="PEMDESMD5"/>
     </field>
     <field number="99" name="StopPx" type="FLOAT"/>
-    <field number="100" name="ExDestination" type="CHAR"/>
+    <field number="100" name="ExDestination" type="STRING"/>
     <field number="102" name="CxlRejReason" type="INT">
       <value enum="0" description="TOO_LATE_TO_CANCEL"/>
       <value enum="1" description="UNKNOWN_ORDER"/>
@@ -988,7 +988,7 @@
       <value enum="5" description="UNKNOWN_ORDER"/>
       <value enum="6" description="DUPLICATE_ORDER"/>
     </field>
-    <field number="104" name="IOIQualifier" type="CHAR">
+    <field number="104" name="IOIQualifier" type="STRING">
       <value enum="X" description="CROSSING_OPPORTUNITY"/>
       <value enum="O" description="AT_THE_OPEN"/>
       <value enum="M" description="MORE_BEHIND"/>
@@ -1005,41 +1005,41 @@
       <value enum="Y" description="AT_THE_MIDPOINT"/>
       <value enum="Z" description="PREOPEN"/>
     </field>
-    <field number="105" name="WaveNo" type="CHAR"/>
-    <field number="106" name="Issuer" type="CHAR"/>
-    <field number="107" name="SecurityDesc" type="CHAR"/>
+    <field number="105" name="WaveNo" type="STRING"/>
+    <field number="106" name="Issuer" type="STRING"/>
+    <field number="107" name="SecurityDesc" type="STRING"/>
     <field number="108" name="HeartBtInt" type="INT"/>
-    <field number="109" name="ClientID" type="CHAR"/>
+    <field number="109" name="ClientID" type="STRING"/>
     <field number="110" name="MinQty" type="INT"/>
     <field number="111" name="MaxFloor" type="INT"/>
-    <field number="112" name="TestReqID" type="CHAR"/>
-    <field number="113" name="ReportToExch" type="CHAR">
+    <field number="112" name="TestReqID" type="STRING"/>
+    <field number="113" name="ReportToExch" type="STRING">
       <value enum="Y" description="YES"/>
       <value enum="N" description="NO"/>
     </field>
-    <field number="114" name="LocateReqd" type="CHAR">
+    <field number="114" name="LocateReqd" type="STRING">
       <value enum="Y" description="YES"/>
       <value enum="N" description="NO"/>
     </field>
-    <field number="115" name="OnBehalfOfCompID" type="CHAR"/>
-    <field number="116" name="OnBehalfOfSubID" type="CHAR"/>
-    <field number="117" name="QuoteID" type="CHAR"/>
+    <field number="115" name="OnBehalfOfCompID" type="STRING"/>
+    <field number="116" name="OnBehalfOfSubID" type="STRING"/>
+    <field number="117" name="QuoteID" type="STRING"/>
     <field number="118" name="NetMoney" type="FLOAT"/>
     <field number="119" name="SettlCurrAmt" type="FLOAT"/>
-    <field number="120" name="SettlCurrency" type="CHAR"/>
-    <field number="121" name="ForexReq" type="CHAR">
+    <field number="120" name="SettlCurrency" type="STRING"/>
+    <field number="121" name="ForexReq" type="STRING">
       <value enum="Y" description="YES"/>
       <value enum="N" description="NO"/>
     </field>
     <field number="122" name="OrigSendingTime" type="TIME"/>
-    <field number="123" name="GapFillFlag" type="CHAR">
+    <field number="123" name="GapFillFlag" type="STRING">
       <value enum="Y" description="GAP_FILL_MESSAGE_MSGSEQNUM_FIELD_VALID"/>
       <value enum="N" description="SEQUENCE_RESET_IGNORE_MSGSEQNUM"/>
     </field>
     <field number="124" name="NoExecs" type="INT"/>
-    <field number="125" name="CxlType" type="CHAR"/>
+    <field number="125" name="CxlType" type="STRING"/>
     <field number="126" name="ExpireTime" type="TIME"/>
-    <field number="127" name="DKReason" type="CHAR">
+    <field number="127" name="DKReason" type="STRING">
       <value enum="A" description="UNKNOWN_SYMBOL"/>
       <value enum="B" description="WRONG_SIDE"/>
       <value enum="C" description="QUANTITY_EXCEEDS_ORDER"/>
@@ -1047,21 +1047,21 @@
       <value enum="E" description="PRICE_EXCEEDS_LIMIT"/>
       <value enum="Z" description="OTHER" />
     </field>
-    <field number="128" name="DeliverToCompID" type="CHAR"/>
-    <field number="129" name="DeliverToSubID" type="CHAR"/>
-    <field number="130" name="IOINaturalFlag" type="CHAR">
+    <field number="128" name="DeliverToCompID" type="STRING"/>
+    <field number="129" name="DeliverToSubID" type="STRING"/>
+    <field number="130" name="IOINaturalFlag" type="STRING">
       <value enum="Y" description="NATURAL"/>
       <value enum="N" description="NOT_NATURAL"/>
     </field>
-    <field number="131" name="QuoteReqID" type="CHAR"/>
+    <field number="131" name="QuoteReqID" type="STRING"/>
     <field number="132" name="BidPx" type="FLOAT"/>
     <field number="133" name="OfferPx" type="FLOAT"/>
     <field number="134" name="BidSize" type="INT"/>
     <field number="135" name="OfferSize" type="INT"/>
     <field number="136" name="NoMiscFees" type="INT"/>
     <field number="137" name="MiscFeeAmt" type="FLOAT"/>
-    <field number="138" name="MiscFeeCurr" type="CHAR"/>
-    <field number="139" name="MiscFeeType" type="CHAR">
+    <field number="138" name="MiscFeeCurr" type="STRING"/>
+    <field number="139" name="MiscFeeType" type="STRING">
       <value enum="1" description="REGULATORY"/>
       <value enum="2" description="TAX"/>
       <value enum="3" description="LOCAL_COMMISSION"/>
@@ -1072,19 +1072,19 @@
       <value enum="8" description="MARKUP"/>
     </field>
     <field number="140" name="PrevClosePx" type="FLOAT"/>
-    <field number="141" name="ResetSeqNumFlag" type="CHAR">
+    <field number="141" name="ResetSeqNumFlag" type="STRING">
       <value enum="Y" description="YES_RESET_SEQUENCE_NUMBERS"/>
       <value enum="N" description="NO"/>
     </field>
-    <field number="142" name="SenderLocationID" type="CHAR"/>
-    <field number="143" name="TargetLocationID" type="CHAR"/>
-    <field number="144" name="OnBehalfOfLocationID" type="CHAR"/>
-    <field number="145" name="DeliverToLocationID" type="CHAR"/>
+    <field number="142" name="SenderLocationID" type="STRING"/>
+    <field number="143" name="TargetLocationID" type="STRING"/>
+    <field number="144" name="OnBehalfOfLocationID" type="STRING"/>
+    <field number="145" name="DeliverToLocationID" type="STRING"/>
     <field number="146" name="NoRelatedSym" type="INT"/>
-    <field number="147" name="Subject" type="CHAR"/>
-    <field number="148" name="Headline" type="CHAR"/>
-    <field number="149" name="URLLink" type="CHAR"/>
-    <field number="150" name="ExecType" type="CHAR">
+    <field number="147" name="Subject" type="STRING"/>
+    <field number="148" name="Headline" type="STRING"/>
+    <field number="149" name="URLLink" type="STRING"/>
+    <field number="150" name="ExecType" type="STRING">
       <value enum="0" description="NEW"/>
       <value enum="1" description="PARTIAL_FILL"/>
       <value enum="2" description="FILL"/>
@@ -1104,29 +1104,29 @@
     <field number="153" name="AllocAvgPx" type="FLOAT"/>
     <field number="154" name="AllocNetMoney" type="FLOAT"/>
     <field number="155" name="SettlCurrFxRate" type="FLOAT"/>
-    <field number="156" name="SettlCurrFxRateCalc" type="CHAR"/>
+    <field number="156" name="SettlCurrFxRateCalc" type="STRING"/>
     <field number="157" name="NumDaysInterest" type="INT"/>
     <field number="158" name="AccruedInterestRate" type="FLOAT"/>
     <field number="159" name="AccruedInterestAmt" type="FLOAT"/>
-    <field number="160" name="SettlInstMode" type="CHAR">
+    <field number="160" name="SettlInstMode" type="STRING">
       <value enum="0" description="DEFAULT"/>
       <value enum="1" description="STANDING_INSTRUCTIONS_PROVIDED"/>
       <value enum="2" description="SPECIFIC_ALLOCATION_ACCOUNT_OVERRIDING"/>
       <value enum="3" description="SPECIFIC_ALLOCATION_ACCOUNT_STANDING"/>
     </field>
-    <field number="161" name="AllocText" type="CHAR"/>
-    <field number="162" name="SettlInstID" type="CHAR"/>
-    <field number="163" name="SettlInstTransType" type="CHAR">
+    <field number="161" name="AllocText" type="STRING"/>
+    <field number="162" name="SettlInstID" type="STRING"/>
+    <field number="163" name="SettlInstTransType" type="STRING">
       <value enum="N" description="NEW"/>
       <value enum="C" description="CANCEL"/>
       <value enum="R" description="REPLACE"/>
     </field>
-    <field number="164" name="EmailThreadID" type="CHAR"/>
-    <field number="165" name="SettlInstSource" type="CHAR">
+    <field number="164" name="EmailThreadID" type="STRING"/>
+    <field number="165" name="SettlInstSource" type="STRING">
       <value enum="1" description="BROKER"/>
       <value enum="2" description="INSTITUTION"/>
     </field>
-    <field number="166" name="SettlLocation" type="CHAR">
+    <field number="166" name="SettlLocation" type="STRING">
       <value enum="CED" description="CEDEL"/>
       <value enum="DTC" description="DEPOSITORY_TRUST_COMPANY"/>
       <value enum="EUR" description="EUROCLEAR"/>
@@ -1135,7 +1135,7 @@
       <value enum="PTC" description="PARTICIPANT_TRUST_COMPANY"/>
       <value enum="ISO" description="LOCAL_MARKET_SETTLE_LOCATION"/>
     </field>
-    <field number="167" name="SecurityType" type="CHAR">
+    <field number="167" name="SecurityType" type="STRING">
       <value enum="BA" description="BANKERS_ACCEPTANCE"/>
       <value enum="CD" description="CERTIFICATE_OF_DEPOSIT"/>
       <value enum="CMO" description="COLLATERALIZE_MORTGAGE_OBLIGATION"/>
@@ -1174,24 +1174,24 @@
       <value enum="2" description="THOMSON_ALERT"/>
       <value enum="3" description="A_GLOBAL_CUSTODIAN"/>
     </field>
-    <field number="170" name="StandInstDbName" type="CHAR"/>
-    <field number="171" name="StandInstDbID" type="CHAR"/>
+    <field number="170" name="StandInstDbName" type="STRING"/>
+    <field number="171" name="StandInstDbID" type="STRING"/>
     <field number="172" name="SettlDeliveryType" type="INT"/>
-    <field number="173" name="SettlDepositoryCode" type="CHAR"/>
-    <field number="174" name="SettlBrkrCode" type="CHAR"/>
-    <field number="175" name="SettlInstCode" type="CHAR"/>
-    <field number="176" name="SecuritySettlAgentName" type="CHAR"/>
-    <field number="177" name="SecuritySettlAgentCode" type="CHAR"/>
-    <field number="178" name="SecuritySettlAgentAcctNum" type="CHAR"/>
-    <field number="179" name="SecuritySettlAgentAcctName" type="CHAR"/>
-    <field number="180" name="SecuritySettlAgentContactName" type="CHAR"/>
-    <field number="181" name="SecuritySettlAgentContactPhone" type="CHAR"/>
-    <field number="182" name="CashSettlAgentName" type="CHAR"/>
-    <field number="183" name="CashSettlAgentCode" type="CHAR"/>
-    <field number="184" name="CashSettlAgentAcctNum" type="CHAR"/>
-    <field number="185" name="CashSettlAgentAcctName" type="CHAR"/>
-    <field number="186" name="CashSettlAgentContactName" type="CHAR"/>
-    <field number="187" name="CashSettlAgentContactPhone" type="CHAR"/>
+    <field number="173" name="SettlDepositoryCode" type="STRING"/>
+    <field number="174" name="SettlBrkrCode" type="STRING"/>
+    <field number="175" name="SettlInstCode" type="STRING"/>
+    <field number="176" name="SecuritySettlAgentName" type="STRING"/>
+    <field number="177" name="SecuritySettlAgentCode" type="STRING"/>
+    <field number="178" name="SecuritySettlAgentAcctNum" type="STRING"/>
+    <field number="179" name="SecuritySettlAgentAcctName" type="STRING"/>
+    <field number="180" name="SecuritySettlAgentContactName" type="STRING"/>
+    <field number="181" name="SecuritySettlAgentContactPhone" type="STRING"/>
+    <field number="182" name="CashSettlAgentName" type="STRING"/>
+    <field number="183" name="CashSettlAgentCode" type="STRING"/>
+    <field number="184" name="CashSettlAgentAcctNum" type="STRING"/>
+    <field number="185" name="CashSettlAgentAcctName" type="STRING"/>
+    <field number="186" name="CashSettlAgentContactName" type="STRING"/>
+    <field number="187" name="CashSettlAgentContactPhone" type="STRING"/>
     <field number="188" name="BidSpotRate" type="FLOAT"/>
     <field number="189" name="BidForwardPoints" type="FLOAT"/>
     <field number="190" name="OfferSpotRate" type="FLOAT"/>
@@ -1200,12 +1200,12 @@
     <field number="193" name="FutSettDate2" type="DATE"/>
     <field number="194" name="LastSpotRate" type="FLOAT"/>
     <field number="195" name="LastForwardPoints" type="FLOAT"/>
-    <field number="196" name="AllocLinkID" type="CHAR"/>
+    <field number="196" name="AllocLinkID" type="STRING"/>
     <field number="197" name="AllocLinkType" type="INT">
       <value enum="0" description="FX_NETTING"/>
       <value enum="1" description="FX_SWAP"/>
     </field>
-    <field number="198" name="SecondaryOrderID" type="CHAR"/>
+    <field number="198" name="SecondaryOrderID" type="STRING"/>
     <field number="199" name="NoIOIQualifiers" type="INT"/>
     <field number="200" name="MaturityMonthYear" type="MONTHYEAR"/>
     <field number="201" name="PutOrCall" type="INT">
@@ -1222,9 +1222,9 @@
       <value enum="1" description="FIRM"/>
     </field>
     <field number="205" name="MaturityDay" type="DAYOFMONTH"/>
-    <field number="206" name="OptAttribute" type="CHAR"/>
-    <field number="207" name="SecurityExchange" type="CHAR"/>
-    <field number="208" name="NotifyBrokerOfCredit" type="CHAR">
+    <field number="206" name="OptAttribute" type="STRING"/>
+    <field number="207" name="SecurityExchange" type="STRING"/>
+    <field number="208" name="NotifyBrokerOfCredit" type="STRING">
       <value enum="Y" description="DETAILS_SHOULD_BE_COMMUNICATED"/>
       <value enum="N" description="DETAILS_SHOULD_NOT_BE_COMMUNICATED"/>
     </field>
