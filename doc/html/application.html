@@ -123,7 +123,7 @@
       if(argc &lt; 2) return 1;
       std::string fileName = argv[0];
 
-      FIX::SessionSettings settings(file);
+      FIX::SessionSettings settings(fileName);
 
       MyApplication application;
       FIX::FileStoreFactory storeFactory(settings);
