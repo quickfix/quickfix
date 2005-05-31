@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="ut"
 	ProjectGUID="{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
 	SccProjectName=""
@@ -66,7 +66,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
@@ -125,9 +131,17 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -229,10 +243,7 @@
 				RelativePath="src\C++\test\FileUtilitiesTestCase.cpp">
 			</File>
 			<File
-				RelativePath="src\C++\test\MemoryStoreTestCase.cpp">
-			</File>
-			<File
-				RelativePath=".\src\C++\Test\MessageStoreTestCase.cpp">
+				RelativePath=".\src\getopt.c">
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
@@ -247,7 +258,25 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="src\C++\test\MemoryStoreTestCase.cpp">
+			</File>
+			<File
 				RelativePath=".\src\C++\Test\MessagesTestCase.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Test\MessageStoreTestCase.cpp">
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
@@ -394,40 +423,25 @@
 				RelativePath="src\C++\test\StringUtilitiesTestCase.cpp">
 			</File>
 			<File
+				RelativePath=".\src\ut.cpp">
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCLCompilerTool"
+						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
+				</FileConfiguration>
+			</File>
+			<File
 				RelativePath="src\C++\test\UtcTimeOnlyTestCase.cpp">
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\UtcTimeStampTestCase.cpp">
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\src\getopt.c">
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCLCompilerTool"
-						AdditionalOptions="&quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot;  &quot;  /I /src/socket&quot; "/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\src\ut.cpp">
 				<FileConfiguration
 					Name="Release|Win32">
 					<Tool
@@ -470,10 +484,10 @@
 				RelativePath=".\src\C++\Test\MemoryStoreTestCase.h">
 			</File>
 			<File
-				RelativePath=".\src\C++\Test\MessageStoreTestCase.h">
+				RelativePath=".\src\C++\Test\MessagesTestCase.h">
 			</File>
 			<File
-				RelativePath=".\src\C++\Test\MessagesTestCase.h">
+				RelativePath=".\src\C++\Test\MessageStoreTestCase.h">
 			</File>
 			<File
 				RelativePath="src\C++\test\MySQLStoreTestCase.h">

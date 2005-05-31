@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="atrun"
 	ProjectGUID="{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
 	SccProjectName=""
@@ -64,7 +64,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -118,24 +124,32 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath=".\Process.cpp">
-			</File>
-			<File
-				RelativePath=".\test\ProcessTestCase.cpp">
-			</File>
-			<File
 				RelativePath="..\..\src\getopt.c">
 			</File>
 			<File
 				RelativePath=".\main.cpp">
+			</File>
+			<File
+				RelativePath=".\Process.cpp">
+			</File>
+			<File
+				RelativePath=".\test\ProcessTestCase.cpp">
 			</File>
 		</Filter>
 		<Filter

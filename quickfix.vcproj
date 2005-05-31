@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="quickfix"
 	ProjectGUID="{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
 	SccProjectName=""
@@ -64,6 +64,12 @@ del /F EXCLUDE
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -117,8 +123,16 @@ del /F EXCLUDE
 				Culture="1033"/>
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
+			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
@@ -163,10 +177,10 @@ del /F EXCLUDE
 				RelativePath=".\src\C++\Settings.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\Utility.cpp">
+				RelativePath="src\C++\strptime.c">
 			</File>
 			<File
-				RelativePath="src\C++\strptime.c">
+				RelativePath=".\src\C++\Utility.cpp">
 			</File>
 		</Filter>
 		<Filter
@@ -241,7 +255,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\C++\DOMDocument.h">
+				RelativePath=".\src\C++\Dictionary.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -258,7 +272,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Dictionary.h">
+				RelativePath="src\C++\DOMDocument.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -310,6 +324,23 @@ del /F EXCLUDE
 			</File>
 			<File
 				RelativePath=".\src\C++\FlexLexer.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\index.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -536,41 +567,24 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Utility.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\src\C++\index.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-			</File>
-			<File
 				RelativePath=".\src\C++\strptime.h">
+				<FileConfiguration
+					Name="Debug|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""/>
+				</FileConfiguration>
+				<FileConfiguration
+					Name="Release|Win32">
+					<Tool
+						Name="VCCustomBuildTool"
+						CommandLine=""
+						Outputs=""/>
+				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\src\C++\Utility.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -723,7 +737,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\FieldTypes.h">
+					RelativePath=".\src\C++\Fields.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -740,7 +754,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Fields.h">
+					RelativePath=".\src\C++\FieldTypes.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -850,7 +864,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\MessageSorters.h">
+					RelativePath=".\src\C++\Messages.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -867,7 +881,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Messages.h">
+					RelativePath=".\src\C++\MessageSorters.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1367,9 +1381,6 @@ del /F EXCLUDE
 						RelativePath="src\C++\fix43\QuoteStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\RFQRequest.h">
-					</File>
-					<File
 						RelativePath="src\C++\fix43\RegistrationInstructions.h">
 					</File>
 					<File
@@ -1380,6 +1391,9 @@ del /F EXCLUDE
 					</File>
 					<File
 						RelativePath="src\C++\fix43\ResendRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix43\RFQRequest.h">
 					</File>
 					<File
 						RelativePath="src\C++\fix43\SecurityDefinition.h">
@@ -1626,9 +1640,6 @@ del /F EXCLUDE
 						RelativePath="src\C++\fix44\QuoteStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\RFQRequest.h">
-					</File>
-					<File
 						RelativePath="src\C++\fix44\RegistrationInstructions.h">
 					</File>
 					<File
@@ -1645,6 +1656,9 @@ del /F EXCLUDE
 					</File>
 					<File
 						RelativePath="src\C++\fix44\ResendRequest.h">
+					</File>
+					<File
+						RelativePath="src\C++\fix44\RFQRequest.h">
 					</File>
 					<File
 						RelativePath="src\C++\fix44\SecurityDefinition.h">

@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding = "Windows-1252"?>
+<?xml version="1.0" encoding="Windows-1252"?>
 <VisualStudioProject
 	ProjectType="Visual C++"
-	Version="7.00"
+	Version="7.10"
 	Name="quickfix_jni"
 	ProjectGUID="{562C1936-7288-48EF-ACB5-E8516CE776DC}"
 	SccProjectName=""
@@ -68,7 +68,13 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
@@ -126,18 +132,23 @@
 			<Tool
 				Name="VCWebServiceProxyGeneratorTool"/>
 			<Tool
+				Name="VCXMLDataGeneratorTool"/>
+			<Tool
 				Name="VCWebDeploymentTool"/>
+			<Tool
+				Name="VCManagedWrapperGeneratorTool"/>
+			<Tool
+				Name="VCAuxiliaryManagedWrapperGeneratorTool"/>
 		</Configuration>
 	</Configurations>
+	<References>
+	</References>
 	<Files>
 		<Filter
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
 				RelativePath="Conversions.cpp">
-			</File>
-			<File
-				RelativePath=".\JVM.cpp">
 			</File>
 			<File
 				RelativePath=".\JavaApplication.cpp">
@@ -155,7 +166,7 @@
 				RelativePath=".\JavaMessageStoreFactory.cpp">
 			</File>
 			<File
-				RelativePath="Stdafx.cpp">
+				RelativePath=".\JVM.cpp">
 			</File>
 			<File
 				RelativePath="quickfix_CppLog.cpp">
@@ -226,15 +237,15 @@
 			<File
 				RelativePath="quickfix_ThreadedSocketInitiator.cpp">
 			</File>
+			<File
+				RelativePath="Stdafx.cpp">
+			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
 			<File
 				RelativePath=".\Conversions.h">
-			</File>
-			<File
-				RelativePath=".\JVM.h">
 			</File>
 			<File
 				RelativePath=".\JavaApplication.h">
@@ -252,7 +263,7 @@
 				RelativePath=".\JavaMessageStoreFactory.h">
 			</File>
 			<File
-				RelativePath="Stdafx.h">
+				RelativePath=".\JVM.h">
 			</File>
 			<File
 				RelativePath="quickfix_CppLog.h">
@@ -322,6 +333,9 @@
 			</File>
 			<File
 				RelativePath="quickfix_ThreadedSocketInitiator.h">
+			</File>
+			<File
+				RelativePath="Stdafx.h">
 			</File>
 		</Filter>
 		<Filter

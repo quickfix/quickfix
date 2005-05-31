@@ -1,28 +1,40 @@
-Microsoft Visual Studio Solution File, Format Version 7.00
+Microsoft Visual Studio Solution File, Format Version 8.00
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_net", "src\.NET\quickfix_net.vcproj", "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "at", "at.vcproj", "{63CC102A-A3CD-43CC-9535-A91E67256360}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pt", "pt.vcproj", "{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix", "quickfix.vcproj", "{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atrun", "test\atrun\atrun.vcproj", "{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ut", "ut.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickfix_net_messages", "src\.NET\quickfix_net_messages.csproj", "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
-		ConfigName.0 = Debug
-		ConfigName.1 = Release
-	EndGlobalSection
-	GlobalSection(ProjectDependencies) = postSolution
-		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.0 = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
-		{63CC102A-A3CD-43CC-9535-A91E67256360}.0 = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
-		{4E6CE474-47A1-4AC8-8161-9CD214664EBB}.0 = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
-		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.0 = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
+		Debug = Debug
+		Release = Release
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
 		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug.ActiveCfg = Debug|Win32
