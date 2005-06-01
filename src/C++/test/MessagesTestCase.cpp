@@ -28,6 +28,7 @@
 #include "Values.h"
 #include "Utility.h"
 #include "fix44/MarketDataRequest.h"
+#include "fix42/News.h"
 
 namespace FIX
 {
@@ -168,6 +169,33 @@ void MessageTestCase::setStringWithGroup::onRun( Message& object )
       object.setString( str, true, &dataDictionary );
       assert( object.toString() == str );
     } catch( InvalidMessage& ) { assert(false); }
+}
+
+void MessageTestCase::setStringWithHighBit::onRun( Message& object )
+{
+  DataDictionary dataDictionary( "spec/FIX42.xml" );
+  
+  FIX::Headline headline = "client";
+  FIX42::News msg( headline );
+
+  FIX::RawDataLength data_len = rand() % 100;
+  FIX::RawData data;
+
+  std::string s;
+  char cc = -92;
+  s.assign(data_len, cc);
+
+  data.setValue(s);
+
+  msg.set(data_len);
+  msg.set(data);
+  std::string str = msg.getString();
+
+  try 
+  {
+    object.setString( str, true, &dataDictionary );
+    assert( object.toString() == str );
+  } catch( InvalidMessage& ) { assert(false); }
 }
 
 void MessageTestCase::copy::onRun( Message& object )

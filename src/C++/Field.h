@@ -121,7 +121,8 @@ private:
       m_length = m_data.length();
     }
 
-    const char* iter = m_data.c_str();
+    const unsigned char* iter = 
+      reinterpret_cast<const unsigned char*>( m_data.c_str() );
     m_total = std::accumulate( iter, iter + m_length, 0 );
 
     m_calculated = true;
