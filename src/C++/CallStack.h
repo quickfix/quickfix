@@ -35,9 +35,11 @@
 
 namespace FIX
 {
+/// Keeps track of callstacks for multiple threads.
 class CallStack
 {
 public:
+  /// Represents a method in the CallStack.
   struct Method
   {
     Method() {}
@@ -60,6 +62,7 @@ public:
     friend std::ostream& operator<<( std::ostream&, const Method& );
   };
 
+  /// A single CallStack context (thread of execution).
   class Context : public std::stack<Method>
   {
   public:
@@ -71,6 +74,7 @@ public:
     bool ignore;
   };
 
+  /// Use this in a code block that should ignore CallStack traces.
   class Ignore
   {
   public:

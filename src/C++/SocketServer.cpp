@@ -36,6 +36,7 @@
 
 namespace FIX
 {
+/// Handles events from SocketMonitor for server connections.
 class ServerWrapper : public SocketMonitor::Strategy
 {
 public:
