@@ -2990,10 +2990,10 @@ namespace QuickFix
   public __gc class MessageEncoding : public StringField
   {
   public:
-  static const String* ISO_2022_JP = "ISO_2022_JP";
-  static const String* EUC_JP = "EUC_JP";
+  static const String* ISO_2022_JP = "ISO-2022-JP";
+  static const String* EUC_JP = "EUC-JP";
   static const String* SHIFT_JIS = "SHIFT_JIS";
-  static const String* UTF_8 = "UTF_8";
+  static const String* UTF_8 = "UTF-8";
   MessageEncoding() : StringField(347) {}
     MessageEncoding(String* data) : StringField(347, data) {}
   };

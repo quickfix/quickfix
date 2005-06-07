@@ -896,10 +896,10 @@ namespace FIX
  const int TradSesStatus_PRE_OPEN = 4;
  const int TradSesStatus_PRE_CLOSE = 5;
  const int TradSesStatus_REQUEST_REJECTED = 6;
- const char MessageEncoding_ISO_2022_JP[] = "ISO_2022_JP";
- const char MessageEncoding_EUC_JP[] = "EUC_JP";
+ const char MessageEncoding_ISO_2022_JP[] = "ISO-2022-JP";
+ const char MessageEncoding_EUC_JP[] = "EUC-JP";
  const char MessageEncoding_SHIFT_JIS[] = "SHIFT_JIS";
- const char MessageEncoding_UTF_8[] = "UTF_8";
+ const char MessageEncoding_UTF_8[] = "UTF-8";
  const int QuoteEntryRejectReason_UNKNOWN_SYMBOL = 1;
  const int QuoteEntryRejectReason_EXCHANGE_CLOSED = 2;
  const int QuoteEntryRejectReason_QUOTE_EXCEEDS_LIMIT = 3;

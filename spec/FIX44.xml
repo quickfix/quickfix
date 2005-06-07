@@ -5114,10 +5114,10 @@
     <field number="345" name="TradSesEndTime" type="UTCTIMESTAMP" />
     <field number="346" name="NumberOfOrders" type="INT" />
     <field number="347" name="MessageEncoding" type="STRING">
-      <value enum="ISO_2022_JP" description="ISO_2022_JP" />
-      <value enum="EUC_JP" description="EUC_JP" />
+      <value enum="ISO-2022-JP" description="ISO_2022_JP" />
+      <value enum="EUC-JP" description="EUC_JP" />
       <value enum="SHIFT_JIS" description="SHIFT_JIS" />
-      <value enum="UTF_8" description="UTF_8" />
+      <value enum="UTF-8" description="UTF_8" />
     </field>
     <field number="348" name="EncodedIssuerLen" type="LENGTH" />
     <field number="349" name="EncodedIssuer" type="DATA" />
