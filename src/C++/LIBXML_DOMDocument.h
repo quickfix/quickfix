@@ -34,6 +34,7 @@
 
 namespace FIX
 {
+  /// XML attribute as represented by libxml.
   class LIBXML_DOMAttributes : public DOMAttributes
   {
   public:
@@ -47,6 +48,7 @@ namespace FIX
     xmlNodePtr m_pNode;
   };
 
+  /// XML node as represented by libxml.
   class LIBXML_DOMNode : public DOMNode
   {
   public:
@@ -64,6 +66,7 @@ namespace FIX
     xmlNodePtr m_pNode;
   };
 
+  /// XML document as represented by libxml.
   class LIBXML_DOMDocument : public DOMDocument
   {
   public:

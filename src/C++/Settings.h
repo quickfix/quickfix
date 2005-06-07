@@ -34,6 +34,7 @@
 
 namespace FIX
 {
+/// Internal representation of QuickFIX configuration settings.
 class Settings
 {
 public:

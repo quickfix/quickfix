@@ -252,6 +252,7 @@ inline bool operator>=( const StringField& lhs, const std::string& rhs )
 inline bool operator>=( const std::string& lhs, const StringField& rhs )
   { return lhs >= rhs.getValue(); }
 
+/// Field that contains a character value
 class CharField : public FieldBase
 {
 public:
@@ -271,6 +272,7 @@ public:
     { return getValue(); }
 };
 
+/// Field that contains a double value
 class DoubleField : public FieldBase
 {
 public:
@@ -290,6 +292,7 @@ public:
     { return getValue(); }
 };
 
+/// Field that contains an integer value
 class IntField : public FieldBase
 {
 public:
@@ -309,6 +312,7 @@ public:
     { return getValue(); }
 };
 
+/// Field that contains a boolean value
 class BoolField : public FieldBase
 {
 public:
@@ -328,6 +332,7 @@ public:
     { return getValue(); }
 };
 
+/// Field that contains a UTC time stamp value
 class UtcTimeStampField : public FieldBase
 {
 public:
@@ -354,6 +359,7 @@ public:
     { return getValue() != rhs.getValue(); }
 };
 
+/// Field that contains a UTC date value
 class UtcDateField : public FieldBase
 {
 public:
@@ -380,6 +386,7 @@ public:
     { return getValue() != rhs.getValue(); }
 };
 
+/// Field that contains a UTC time value
 class UtcTimeOnlyField : public FieldBase
 {
 public:
@@ -406,6 +413,7 @@ public:
     { return getValue() != rhs.getValue(); }
 };
 
+/// Field that contains a checksum value
 class CheckSumField : public FieldBase
 {
 public:

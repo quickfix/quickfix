@@ -32,6 +32,7 @@ namespace FIX
  *  @{
  */
 
+/// Base QuickFIX exception type.
 struct Exception : public std::logic_error
 {
   Exception( const std::string& what, const std::string& detail )
@@ -254,6 +255,7 @@ struct SocketException : public Exception
   int error;
 };
 
+/// Socket send operation failed
 struct SocketSendFailed : public SocketException 
 {
   SocketSendFailed() {}
@@ -261,6 +263,7 @@ struct SocketSendFailed : public SocketException
     : SocketException( what ) {}
 };
 
+/// Socket recv operation failed
 struct SocketRecvFailed : public SocketException 
 {
   SocketRecvFailed( int size )
@@ -269,6 +272,7 @@ struct SocketRecvFailed : public SocketException
     : SocketException( what ) {}
 };
 
+/// Socket close operation failed
 struct SocketCloseFailed : public SocketException 
 {
   SocketCloseFailed() {}

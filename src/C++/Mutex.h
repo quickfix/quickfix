@@ -92,6 +92,7 @@ private:
 #endif
 };
 
+/// Locks/Unlocks a mutex using RAII.
 class Locker
 {
 public:
@@ -109,6 +110,7 @@ private:
   Mutex& m_mutex;
 };
 
+/// Does the opposite of the Locker to ensure mutex ends up in a locked state.
 class ReverseLocker
 {
 public:

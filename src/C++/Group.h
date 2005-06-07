@@ -34,6 +34,11 @@ namespace FIX
 {
 class Component;
 
+/**
+ * Base class for all %FIX repeating groups.
+ *
+ * A group consists of a count field, deliminator, and a sorting order.
+ */
 class Group : public FieldMap
 {
 public:

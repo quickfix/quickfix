@@ -170,6 +170,7 @@ struct IntConvertor
   }
 };
 
+/// Converts checksum to/from a string
 struct CheckSumConvertor
 {
   static std::string convert( long value )

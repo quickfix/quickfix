@@ -33,6 +33,7 @@
 
 namespace FIX
 {
+/// Maintains all of state for the Session class.
 class SessionState : public MessageStore, public Log
 {
   typedef std::map < int, Message > Messages;

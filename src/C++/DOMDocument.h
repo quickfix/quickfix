@@ -29,6 +29,7 @@
 
 namespace FIX
 {
+  /// Interface that represents attribute from underlying XML parser.
   class DOMAttributes
   {
   public:
@@ -41,6 +42,7 @@ namespace FIX
   };
   typedef std::auto_ptr<DOMAttributes> DOMAttributesPtr;
 
+  /// Interface that represents node from underlying XML parser.
   class DOMNode
   {
   public:
@@ -54,6 +56,7 @@ namespace FIX
   };
   typedef std::auto_ptr<DOMNode> DOMNodePtr;
 
+  /// Interface that represents document of underlying XML parser.
   class DOMDocument
   {
   public:

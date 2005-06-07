@@ -31,6 +31,9 @@
 
 namespace FIX
 {
+/** Takes in a generic Message and produces an object that represents
+ *  its specific version and message type.
+ */
 class MessageCracker
       : public FIX40::MessageCracker,
       public FIX41::MessageCracker,

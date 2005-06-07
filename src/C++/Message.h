@@ -53,7 +53,7 @@ static FIELD::Field const headerOrder[] =
 /**
  * Base class for all %FIX messages.
  *
- * A message consists of a three field maps.  On for the header, the body,
+ * A message consists of three field maps.  One for the header, the body,
  * and the trailer.
  */
 class Message : public FieldMap
@@ -129,7 +129,7 @@ public:
    * This can be used to add routing informations like OnBehalfOfCompID
    * and DeliverToCompID to a message.
    */
-  void Message::reverseRoute( const Header& );
+  void reverseRoute( const Header& );
 
   /**
    * Set a message based on a string representation

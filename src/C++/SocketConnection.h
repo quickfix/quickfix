@@ -39,6 +39,7 @@ class SocketMonitor;
 class Session;
 class SessionID;
 
+/// Encapsulates a socket file descriptor (single-threaded).
 class SocketConnection : Responder
 {
 public:

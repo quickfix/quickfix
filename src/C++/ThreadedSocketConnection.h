@@ -39,6 +39,7 @@ class Session;
 class SessionID;
 class Application;
 
+/// Encapsulates a socket file descriptor (multi-threaded).
 class ThreadedSocketConnection : Responder
 {
 public:

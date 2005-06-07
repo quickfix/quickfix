@@ -31,6 +31,7 @@
 
 namespace FIX
 {
+  /// XML attribute as represented by msxml.
   class MSXML_DOMAttributes : public DOMAttributes
   {
   public:
@@ -48,6 +49,7 @@ namespace FIX
     MSXML2::IXMLDOMNamedNodeMap* m_pNodeMap;
   };
 
+  /// XML node as represented by msxml.
   class MSXML_DOMNode : public DOMNode
   {
   public:
@@ -66,6 +68,7 @@ namespace FIX
     MSXML2::IXMLDOMNode* m_pNode;
   };
 
+  /// XML document as represented by msxml.
   class MSXML_DOMDocument : public DOMDocument
   {
   public:

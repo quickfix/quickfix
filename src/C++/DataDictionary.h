@@ -37,6 +37,13 @@ namespace FIX
 {
 class FieldMap;
 
+/** 
+ * Represents a data dictionary for a version of %FIX. 
+ *  
+ * Generally loaded from an XML document.  The DataDictionary is also
+ * responsible for validation beyond the basic structure of a message.
+ */
+
 class DataDictionary
 {
   typedef std::set < int > MsgFields;
