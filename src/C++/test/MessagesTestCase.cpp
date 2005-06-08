@@ -175,7 +175,7 @@ void MessageTestCase::setStringWithHighBit::onRun( Message& object )
 {
   DataDictionary dataDictionary( "spec/FIX42.xml" );
   
-  FIX::Headline headline = "client";
+  FIX::Headline headline( "client" );
   FIX42::News msg( headline );
 
   FIX::RawDataLength data_len = rand() % 100;
