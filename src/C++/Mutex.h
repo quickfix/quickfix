@@ -23,7 +23,6 @@
 #define FIX_MUTEX_H
 
 #include "Utility.h"
-#include "CallStack.h"
 
 namespace FIX
 {
