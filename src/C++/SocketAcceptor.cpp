@@ -73,7 +73,7 @@ throw ( RuntimeError )
   }
   catch( std::exception& )
   {
-    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)m_port ) );
   }
   
   QF_STACK_POP

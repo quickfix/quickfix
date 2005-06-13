@@ -70,7 +70,7 @@ throw ( RuntimeError )
   m_socket = socket_createAcceptor( m_port, m_reuseAddress );
   
   if( m_socket < 0 )
-    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert(m_port) );
+    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)m_port ) );
   if( m_noDelay )
     socket_setsockopt( m_socket, TCP_NODELAY );
 
