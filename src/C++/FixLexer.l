@@ -88,4 +88,5 @@ int main()
   puts("</fix>");
 
   fclose(yyout);
+  return 0;
 }

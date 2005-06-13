@@ -81,7 +81,6 @@ void ThreadedSocketConnection::disconnect()
 bool ThreadedSocketConnection::read()
 { QF_STACK_PUSH(ThreadedSocketConnection::read)
 
-  int bytes = 0;
   char* buffer = 0;
   try
   {

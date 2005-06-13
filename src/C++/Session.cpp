@@ -1387,11 +1387,9 @@ Session* Session::lookupSession( const std::string& string, bool reverse )
     return lookupSession( SessionID( beginString, SenderCompID( targetCompID ),
                                      TargetCompID( senderCompID ) ) );
   }
-  else
-  {
-    return lookupSession( SessionID( beginString, senderCompID,
-                          targetCompID ) );
-  }
+
+  return lookupSession( SessionID( beginString, senderCompID,
+                        targetCompID ) );
 
   QF_STACK_POP
 }
