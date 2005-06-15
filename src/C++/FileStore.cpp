@@ -35,7 +35,7 @@ namespace FIX
 FileStore::FileStore( std::string path, const SessionID& s )
 : m_msgFile( 0 ), m_headerFile( 0 ), m_seqNumsFile( 0 ), m_sessionFile( 0 )
 {
-  file_mkdir( path.c_str(), 0700 );
+  file_mkdir( path.c_str() );
 
   if ( path.empty() ) path = ".";
   const std::string& begin =

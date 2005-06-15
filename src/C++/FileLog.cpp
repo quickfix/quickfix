@@ -49,7 +49,7 @@ void FileLogFactory::destroy( Log* pLog )
 FileLog::FileLog( std::string path, const SessionID& s )
 : m_sessionID( s )
 {
-  file_mkdir( path.c_str(), 0700 );
+  file_mkdir( path.c_str() );
 
   if ( path.empty() ) path = ".";
   const std::string& begin =

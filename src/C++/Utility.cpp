@@ -386,15 +386,16 @@ std::string file_separator()
 }
 
 #ifdef _MSC_VER
-void file_mkdir( const char* path, int mode )
+void file_mkdir( const char* path )
 { QF_STACK_PUSH(file_mkdir)
   _mkdir( path ); 
   QF_STACK_POP
 }
 #else
-void file_mkdir( const char* path, mode_t mode )
+void file_mkdir( const char* path )
 { QF_STACK_PUSH(file_mkdir)
-  mkdir( path, mode ); 
+  // use umask to override rwx for all
+  mkdir( path, 0777 ); 
   QF_STACK_POP
 }
 #endif
