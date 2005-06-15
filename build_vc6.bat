@@ -1,4 +1,4 @@
-REM echo off
+echo off
 set COMMAND=%1
 if "%1" == "" set COMMAND=BUILD
 if "%2" == "" set PROFILE=Release
