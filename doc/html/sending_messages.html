@@ -13,7 +13,7 @@
 	See this code in <a href="java/sending_messages_1.html">JAVA</a>, <a href="csharp/sending_messages_1.html">C#</a>, <a href="vbnet/sending_messages_1.html">VB.NET</a>, <a href="python/sending_messages_1.html">PYTHON</a>
     <PRE>
     // send a message that already contains a <I>BeginString</I>, <I>SenderCompID</I>, and a <I>TargetCompID</I>
-    <B>static bool sendToTarget( Message& )
+    <B>static bool sendToTarget( Message&, const std::string& qualifier = "" )
         throw(SessionNotFound&);</B>
 
     // send a message based on the sessionID, convenient for use
@@ -23,11 +23,11 @@
       throw(SessionNotFound&);</B>
 
     // append a <I>SenderCompID</I> and <I>TargetCompID</I> before sending
-    <B>static bool sendToTarget( Message&, const SenderCompID&, const TargetCompID& )
+    <B>static bool sendToTarget( Message&, const SenderCompID&, const TargetCompID&, const std::string& qualifier = "" )
       throw(SessionNotFound&);</B>
 
     // pass SenderCompID and TargetCompID in as strings
-    <B>static bool sendToTarget( Message&, const std::string&, const std::string& )
+    <B>static bool sendToTarget( Message&, const std::string&, const std::string&, const std::string& qualifier = "" )
       throw(SessionNotFound&);</B>
     </PRE>
 

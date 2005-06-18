@@ -168,9 +168,10 @@
     <H3>Windows (C++)</H3>
     <p>
       QuickFIX comes with a .dsw and a few .dsp files for building under DevStudio.  Simply open
-      the <I>quickfix.dsw</I> file and do a batch build of all the projects.  This will create
-      <I>lib\quickfix.lib</I> and <I>lib\debug\quickfix.lib</I> which can be linked into your
+      the <B>quickfix.dsw</B> file and do a batch build of all the projects.  This will create
+      <B>lib\quickfix.lib</B> and <B>lib\debug\quickfix.lib</B> which can be linked into your
       applications. The header files will also be copied to the <I>include</I> directory.
+      If you have Visual Studio .NET, you should instead use <B>quickfix.sln</B>.
     </p>
     <p>
       Since windows does not have a standard system for storing header and library files, you
@@ -206,8 +207,8 @@
     <H3>Windows (Java)</H3>
 	<p>
 	  To build the JNI layer, make sure you have completed the build/installation of the C++ quickfix
-	  library. Now open the <I>quickfix_jni.dsw</I> workspace in MSDev Studio.
-	  (or <I>quickfix_jni.sln</I> if building under Visual Studio .NET).
+	  library. Now open the <B>quickfix_jni.dsw</B> workspace in MSDev Studio.
+	  (or <B>quickfix_jni.sln</B> if building under Visual Studio .NET).
 	  Before building, make sure to add the JNI include directories to your include search path. Do this by opening up the
 	  <B>Tools->Options</B> menu and selecting the <B>Directories</B> tab (<B>Project->VC++ Directories</B>
 	  under Visual Studio .NET).  Make sure the <B>Show directories
@@ -225,7 +226,7 @@
     <H3>Linux / Solaris / FreeBSD / Mac OS X (C++/Java)</H3>
     <p>
       QuickFIX uses GNU autotools (autoconf, automake, and libtool) in conjunction with make to
-      build on unix systems. If you also want to reuse our makefiles for developing your own application, 
+      build on unix systems. If you also want to reuse our makefiles for developing your own application,
       you will find it useful. Also note
       that if your version of gcc does not come with sstream, you will need to download it from
       the link above and put it in the correct include directory. Also please note for Solaris
@@ -260,22 +261,22 @@
     </p>
     <p>
       After succesfully building QuickFIX, you should run <B>make install</B> as root.
-      This will place the library <I>libquickfix.so</I> and <I>libquickfix_jni.so</I> if java is
+      This will place the library <B>libquickfix.so</B> and <B>libquickfix_jni.so</B> if java is
       detected, and the quickfix header files into the appropriate directories.  If you do not
       have root access, you can also run configure with the
       <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option, where the base directory
       is some directory which your account has write
       access. <B>note: </b> under Mac OS X, the files are
-      called <I>libquickfix.dylib</I>
-      and <I>libquickfix_jni.jnilib</I>, you may need to create a
-      symlink to <I>libquickfix_jni.so</I>.
+      called <B>libquickfix.dylib</B>
+      and <B>libquickfix_jni.jnilib</B>, you may need to create a
+      symlink to <B>libquickfix_jni.so</B>.
     </p>
 
     <hr>
     <A NAME="Generating MySQL Database">
     <H2>Generating MySQL Database</H2>
     <p>
-      First, make sure you have compiled QuickFIX with MySQL support.  If you have not done this, 
+      First, make sure you have compiled QuickFIX with MySQL support.  If you have not done this,
       go back to the build instructions for your system and follow the instructions.  Also, make
       sure you have installed MySQL and have the deamon running.
     </p>

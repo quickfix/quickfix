@@ -50,7 +50,7 @@
         <LI><B>C/C++ | Preprocessor | Additional Include directories</B>, must have a directory
                for accessing the QuickFIX header files. We reccomend setting this to a couple
                directories above the header files so your includes can look like <B>#include
-               quickfix/Application.h</B>. This helps resolves ambiguities between your
+               &lt;quickfix/Application.h&gt;</B>. This helps resolves ambiguities between your
                application and other third party libraries.
         <LI><B>Link | Input | Object/library modules</B>, must contain the <I>quickfix.lib</I>
                file. It must also have <I>ws2_32.lib</I>. This library links the winsock library into your
@@ -84,7 +84,7 @@
         by some of the commercially available compilers. If you feel you need more performance, you may
         want to try one of these compilers. If you do this, please run the unit tests and acceptance
         tests to verify everything works as it should. We only currently do our testing with GCC.
-        <LI>STL implementations that come with Versions of GCC 2.95.x, are not safe for use on 
+        <LI>STL implementations that come with Versions of GCC 2.95.x, are not safe for use on
         multi-processor machines.  Use STLport or upgrade to a version
         3.x.x.  STLport also tends to be faster then the
         implementation that comes with GCC.

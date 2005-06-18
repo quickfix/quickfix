@@ -4,10 +4,17 @@ package quickfix;
 public static boolean sendToTarget(Message message)
   throws SessionNotFound
 
+public static boolean sendToTarget(Message message, String qualifier)
+  throws SessionNotFound
+
 public static boolean sendToTarget(Message message, SessionID sessionID)
   throws SessionNotFound
 
 public static boolean sendToTarget
   (Message message, String senderCompID, String targetCompID)
+  throws SessionNotFound
+
+public static boolean sendToTarget
+  (Message message, String senderCompID, String targetCompID, String qualifier)
   throws SessionNotFound
 </PRE></CODE></B>

@@ -29,6 +29,8 @@
   <LI><A HREF="#R4">Use of MySQL code under Java results in a <I>UnsatisfiedLinkError</I>.</A></LI>
   <LI><A HREF="#R5">My QuickFIX application crashed immediately on startup when using a DataDictionary.</A></LI>
   <LI><A HREF="#R6">QuickFIX is dropping messages with repeating groups when not using a DataDictionary.</A></LI>
+  <LI><A HREF="#R7">Why does getGroup throw an exception.  I know the group is there!</A></LI>
+  <LI><A HREF="#R8">How can I append fields to the Logon message</A></LI>
   </UL>
   </p>
 
@@ -132,9 +134,23 @@
   <br><br>
   <A NAME="R6"/>
   <B><FONT color="#FF0000">QuickFIX is dropping messages with repeating groups when not using a DataDictionary.</FONT></B><br>
-  Older versions of QuickFIX could not tell the difference between garbled messages and 
+  Older versions of QuickFIX could not tell the difference between garbled messages and
   these messages.  Make sure you are using a DataDictionary if you intend on receiving
   repeating groups.  Newer versions will accept these messages and send proper rejects.
+
+  <br><br>
+  <A NAME="R7"/>
+  <B><FONT color="#FF0000">Why does getGroup throw an exception?  I know the group is there!</FONT></B><br>
+  Repeating groups are <I>not</I> 0 based, they are 1 based.  Make sure you start with 1 when pulling
+  groups out of a message.
+
+  <br><br>
+  <A NAME="R8"/>
+  <B><FONT color="#FF0000">How can I append fields to the Logon message?</FONT></B><br>
+  Before an administrative message is sent, it makes it's way through the toAdmin callback.  This
+  gives you the opportunity to modify the message in any way you like.  Here you can add things like
+  passwords or other fields a counterparty may require.  This can be done for any message, including
+  application messages via the toApp callback.
 
   </body>
 </html>
