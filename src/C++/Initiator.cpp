@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -183,7 +183,7 @@ bool Initiator::poll() throw ( ConfigError, RuntimeError )
 }
 
 void Initiator::stop( bool force )
-{ QF_STACK_PUSH(Initiator::stop) 
+{ QF_STACK_PUSH(Initiator::stop)
 
   std::vector<Session*> enabledSessions;
 
@@ -204,10 +204,10 @@ void Initiator::stop( bool force )
     for ( int second = 1; second <= 10 && isLoggedOn(); ++second )
       process_sleep( 1 );
   }
-  
+
   for ( i = connected.begin(); i != connected.end(); ++i )
     setConnected( Session::lookupSession(*i)->getSessionID(), false );
-  
+
   onStop();
   if( m_threadid )
     thread_join( m_threadid );

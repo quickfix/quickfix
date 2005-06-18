@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -87,12 +87,12 @@ public:
     delete m_logFactory;
   }
 
-  void start() throw ( ConfigError*, RuntimeError* ) 
+  void start() throw ( ConfigError*, RuntimeError* )
   { QF_STACK_TRY
 
     try
     {
-      m_pUnmanaged->start(); 
+      m_pUnmanaged->start();
     }
     catch( FIX::ConfigError& e )
     {
@@ -106,12 +106,12 @@ public:
     QF_STACK_CATCH
   }
 
-  void block() throw ( ConfigError*, RuntimeError* ) 
+  void block() throw ( ConfigError*, RuntimeError* )
   { QF_STACK_TRY
 
     try
     {
-      m_pUnmanaged->block(); 
+      m_pUnmanaged->block();
     }
     catch( FIX::ConfigError& e )
     {
@@ -125,12 +125,12 @@ public:
     QF_STACK_CATCH
   }
 
-  bool poll() throw ( ConfigError*, RuntimeError* ) 
+  bool poll() throw ( ConfigError*, RuntimeError* )
   { QF_STACK_TRY
 
     try
     {
-      return m_pUnmanaged->poll(); 
+      return m_pUnmanaged->poll();
     }
     catch( FIX::ConfigError& e )
     {
@@ -146,13 +146,13 @@ public:
 
   void stop()
   { QF_STACK_TRY
-    m_pUnmanaged->stop(); 
+    m_pUnmanaged->stop();
     QF_STACK_CATCH
   }
 
   void stop( bool force )
   { QF_STACK_TRY
-    m_pUnmanaged->stop( force ); 
+    m_pUnmanaged->stop( force );
     QF_STACK_CATCH
   }
 

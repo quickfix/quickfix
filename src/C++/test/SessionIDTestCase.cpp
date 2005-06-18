@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -115,7 +115,7 @@ bool SessionIDTestCase::streamIn::onSetup( SessionID*& pObject )
 }
 
 void SessionIDTestCase::streamIn::onRun( SessionID& object )
-{  
+{
   std::stringstream strstream;
   strstream << "FIX.4.2:SENDER->TARGET";
   strstream >> object;

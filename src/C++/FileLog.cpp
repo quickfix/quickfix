@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -65,7 +65,7 @@ FileLog::FileLog( std::string path, const SessionID& s )
   if( qualifier.size() )
     sessionid += "-" + qualifier;
 
-  std::string prefix 
+  std::string prefix
     = file_appendpath(path, sessionid + ".");
 
   std::string incomingFileName = prefix + "incoming";

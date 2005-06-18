@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -35,7 +35,7 @@ public __gc class DataDictionary
 public:
   DataDictionary()
   { QF_STACK_TRY
-    
+
     m_pUnmanaged = new FIX::DataDictionary();
 
     QF_STACK_CATCH

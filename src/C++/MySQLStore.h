@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -41,7 +41,7 @@ namespace FIX
 {
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /// Creates a MySQL based implementation of MessageStore.
 class MySQLStoreFactory : public MessageStoreFactory
 {

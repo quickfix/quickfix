@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
- 
+
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 #ifndef FIX44_MESSAGECRACKER_H
 #define FIX44_MESSAGECRACKER_H
 
@@ -27,96 +27,96 @@
 #include "../fix44/Message.h"
 
 namespace FIX44
-{  
-  class Heartbeat; 
-  class Logon; 
-  class TestRequest; 
-  class ResendRequest; 
-  class Reject; 
-  class SequenceReset; 
-  class Logout; 
-  class BusinessMessageReject; 
-  class UserRequest; 
-  class UserResponse; 
-  class Advertisement; 
-  class IndicationOfInterest; 
-  class News; 
-  class Email; 
-  class QuoteRequest; 
-  class QuoteResponse; 
-  class QuoteRequestReject; 
-  class RFQRequest; 
-  class Quote; 
-  class QuoteCancel; 
-  class QuoteStatusRequest; 
-  class QuoteStatusReport; 
-  class MassQuote; 
-  class MassQuoteAcknowledgement; 
-  class MarketDataRequest; 
-  class MarketDataSnapshotFullRefresh; 
-  class MarketDataIncrementalRefresh; 
-  class MarketDataRequestReject; 
-  class SecurityDefinitionRequest; 
-  class SecurityDefinition; 
-  class SecurityTypeRequest; 
-  class SecurityTypes; 
-  class SecurityListRequest; 
-  class SecurityList; 
-  class DerivativeSecurityListRequest; 
-  class DerivativeSecurityList; 
-  class SecurityStatusRequest; 
-  class SecurityStatus; 
-  class TradingSessionStatusRequest; 
-  class TradingSessionStatus; 
-  class NewOrderSingle; 
-  class ExecutionReport; 
-  class DontKnowTrade; 
-  class OrderCancelReplaceRequest; 
-  class OrderCancelRequest; 
-  class OrderCancelReject; 
-  class OrderStatusRequest; 
-  class OrderMassCancelRequest; 
-  class OrderMassCancelReport; 
-  class OrderMassStatusRequest; 
-  class NewOrderCross; 
-  class CrossOrderCancelReplaceRequest; 
-  class CrossOrderCancelRequest; 
-  class NewOrderMultileg; 
-  class MultilegOrderCancelReplaceRequest; 
-  class BidRequest; 
-  class BidResponse; 
-  class NewOrderList; 
-  class ListStrikePrice; 
-  class ListStatus; 
-  class ListExecute; 
-  class ListCancelRequest; 
-  class ListStatusRequest; 
-  class AllocationInstruction; 
-  class AllocationInstructionAck; 
-  class AllocationReport; 
-  class AllocationReportAck; 
-  class Confirmation; 
-  class ConfirmationAck; 
-  class ConfirmationRequest; 
-  class SettlementInstructions; 
-  class SettlementInstructionRequest; 
-  class TradeCaptureReportRequest; 
-  class TradeCaptureReportRequestAck; 
-  class TradeCaptureReport; 
-  class TradeCaptureReportAck; 
-  class RegistrationInstructions; 
-  class RegistrationInstructionsResponse; 
-  class PositionMaintenanceRequest; 
-  class PositionMaintenanceReport; 
-  class RequestForPositions; 
-  class RequestForPositionsAck; 
-  class PositionReport; 
-  class AssignmentReport; 
-  class CollateralRequest; 
-  class CollateralAssignment; 
-  class CollateralResponse; 
-  class CollateralReport; 
-  class CollateralInquiry; 
+{
+  class Heartbeat;
+  class Logon;
+  class TestRequest;
+  class ResendRequest;
+  class Reject;
+  class SequenceReset;
+  class Logout;
+  class BusinessMessageReject;
+  class UserRequest;
+  class UserResponse;
+  class Advertisement;
+  class IndicationOfInterest;
+  class News;
+  class Email;
+  class QuoteRequest;
+  class QuoteResponse;
+  class QuoteRequestReject;
+  class RFQRequest;
+  class Quote;
+  class QuoteCancel;
+  class QuoteStatusRequest;
+  class QuoteStatusReport;
+  class MassQuote;
+  class MassQuoteAcknowledgement;
+  class MarketDataRequest;
+  class MarketDataSnapshotFullRefresh;
+  class MarketDataIncrementalRefresh;
+  class MarketDataRequestReject;
+  class SecurityDefinitionRequest;
+  class SecurityDefinition;
+  class SecurityTypeRequest;
+  class SecurityTypes;
+  class SecurityListRequest;
+  class SecurityList;
+  class DerivativeSecurityListRequest;
+  class DerivativeSecurityList;
+  class SecurityStatusRequest;
+  class SecurityStatus;
+  class TradingSessionStatusRequest;
+  class TradingSessionStatus;
+  class NewOrderSingle;
+  class ExecutionReport;
+  class DontKnowTrade;
+  class OrderCancelReplaceRequest;
+  class OrderCancelRequest;
+  class OrderCancelReject;
+  class OrderStatusRequest;
+  class OrderMassCancelRequest;
+  class OrderMassCancelReport;
+  class OrderMassStatusRequest;
+  class NewOrderCross;
+  class CrossOrderCancelReplaceRequest;
+  class CrossOrderCancelRequest;
+  class NewOrderMultileg;
+  class MultilegOrderCancelReplaceRequest;
+  class BidRequest;
+  class BidResponse;
+  class NewOrderList;
+  class ListStrikePrice;
+  class ListStatus;
+  class ListExecute;
+  class ListCancelRequest;
+  class ListStatusRequest;
+  class AllocationInstruction;
+  class AllocationInstructionAck;
+  class AllocationReport;
+  class AllocationReportAck;
+  class Confirmation;
+  class ConfirmationAck;
+  class ConfirmationRequest;
+  class SettlementInstructions;
+  class SettlementInstructionRequest;
+  class TradeCaptureReportRequest;
+  class TradeCaptureReportRequestAck;
+  class TradeCaptureReport;
+  class TradeCaptureReportAck;
+  class RegistrationInstructions;
+  class RegistrationInstructionsResponse;
+  class PositionMaintenanceRequest;
+  class PositionMaintenanceReport;
+  class RequestForPositions;
+  class RequestForPositionsAck;
+  class PositionReport;
+  class AssignmentReport;
+  class CollateralRequest;
+  class CollateralAssignment;
+  class CollateralResponse;
+  class CollateralReport;
+  class CollateralInquiry;
   class CollateralInquiryAck;
 
   class MessageCracker
@@ -127,285 +127,285 @@ namespace FIX44
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( Message&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
- virtual void onMessage( const Heartbeat&, const FIX::SessionID& ) 
+ virtual void onMessage( const Heartbeat&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const Logon&, const FIX::SessionID& ) 
+  virtual void onMessage( const Logon&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const TestRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const TestRequest&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const ResendRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const ResendRequest&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const Reject&, const FIX::SessionID& ) 
+  virtual void onMessage( const Reject&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const SequenceReset&, const FIX::SessionID& ) 
+  virtual void onMessage( const SequenceReset&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const Logout&, const FIX::SessionID& ) 
+  virtual void onMessage( const Logout&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const BusinessMessageReject&, const FIX::SessionID& ) 
+  virtual void onMessage( const BusinessMessageReject&, const FIX::SessionID& )
     {}
-  virtual void onMessage( const UserRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const UserRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const UserResponse&, const FIX::SessionID& ) 
+  virtual void onMessage( const UserResponse&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const Advertisement&, const FIX::SessionID& ) 
+  virtual void onMessage( const Advertisement&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const IndicationOfInterest&, const FIX::SessionID& ) 
+  virtual void onMessage( const IndicationOfInterest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const News&, const FIX::SessionID& ) 
+  virtual void onMessage( const News&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const Email&, const FIX::SessionID& ) 
+  virtual void onMessage( const Email&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const QuoteRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const QuoteRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const QuoteResponse&, const FIX::SessionID& ) 
+  virtual void onMessage( const QuoteResponse&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const QuoteRequestReject&, const FIX::SessionID& ) 
+  virtual void onMessage( const QuoteRequestReject&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const RFQRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const RFQRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const Quote&, const FIX::SessionID& ) 
+  virtual void onMessage( const Quote&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const QuoteCancel&, const FIX::SessionID& ) 
+  virtual void onMessage( const QuoteCancel&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const QuoteStatusRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const QuoteStatusRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const QuoteStatusReport&, const FIX::SessionID& ) 
+  virtual void onMessage( const QuoteStatusReport&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MassQuote&, const FIX::SessionID& ) 
+  virtual void onMessage( const MassQuote&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MassQuoteAcknowledgement&, const FIX::SessionID& ) 
+  virtual void onMessage( const MassQuoteAcknowledgement&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MarketDataRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const MarketDataRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MarketDataSnapshotFullRefresh&, const FIX::SessionID& ) 
+  virtual void onMessage( const MarketDataSnapshotFullRefresh&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MarketDataIncrementalRefresh&, const FIX::SessionID& ) 
+  virtual void onMessage( const MarketDataIncrementalRefresh&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MarketDataRequestReject&, const FIX::SessionID& ) 
+  virtual void onMessage( const MarketDataRequestReject&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityDefinitionRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityDefinitionRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityDefinition&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityDefinition&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityTypeRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityTypeRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityTypes&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityTypes&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityListRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityListRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityList&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityList&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const DerivativeSecurityListRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const DerivativeSecurityListRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const DerivativeSecurityList&, const FIX::SessionID& ) 
+  virtual void onMessage( const DerivativeSecurityList&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityStatusRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityStatusRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SecurityStatus&, const FIX::SessionID& ) 
+  virtual void onMessage( const SecurityStatus&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const TradingSessionStatusRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const TradingSessionStatusRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const TradingSessionStatus&, const FIX::SessionID& ) 
+  virtual void onMessage( const TradingSessionStatus&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const NewOrderSingle&, const FIX::SessionID& ) 
+  virtual void onMessage( const NewOrderSingle&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ExecutionReport&, const FIX::SessionID& ) 
+  virtual void onMessage( const ExecutionReport&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const DontKnowTrade&, const FIX::SessionID& ) 
+  virtual void onMessage( const DontKnowTrade&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderCancelReplaceRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderCancelReplaceRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderCancelRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderCancelRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderCancelReject&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderCancelReject&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderStatusRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderStatusRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderMassCancelRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderMassCancelRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderMassCancelReport&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderMassCancelReport&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const OrderMassStatusRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const OrderMassStatusRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const NewOrderCross&, const FIX::SessionID& ) 
+  virtual void onMessage( const NewOrderCross&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const CrossOrderCancelReplaceRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CrossOrderCancelRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const CrossOrderCancelRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const NewOrderMultileg&, const FIX::SessionID& ) 
+  virtual void onMessage( const NewOrderMultileg&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const MultilegOrderCancelReplaceRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const MultilegOrderCancelReplaceRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const BidRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const BidRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const BidResponse&, const FIX::SessionID& ) 
+  virtual void onMessage( const BidResponse&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const NewOrderList&, const FIX::SessionID& ) 
+  virtual void onMessage( const NewOrderList&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ListStrikePrice&, const FIX::SessionID& ) 
+  virtual void onMessage( const ListStrikePrice&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ListStatus&, const FIX::SessionID& ) 
+  virtual void onMessage( const ListStatus&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ListExecute&, const FIX::SessionID& ) 
+  virtual void onMessage( const ListExecute&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ListCancelRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const ListCancelRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ListStatusRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const ListStatusRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const AllocationInstruction&, const FIX::SessionID& ) 
+  virtual void onMessage( const AllocationInstruction&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const AllocationInstructionAck&, const FIX::SessionID& ) 
+  virtual void onMessage( const AllocationInstructionAck&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const AllocationReport&, const FIX::SessionID& ) 
+  virtual void onMessage( const AllocationReport&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const AllocationReportAck&, const FIX::SessionID& ) 
+  virtual void onMessage( const AllocationReportAck&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const Confirmation&, const FIX::SessionID& ) 
+  virtual void onMessage( const Confirmation&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ConfirmationAck&, const FIX::SessionID& ) 
+  virtual void onMessage( const ConfirmationAck&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const ConfirmationRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const ConfirmationRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SettlementInstructions&, const FIX::SessionID& ) 
+  virtual void onMessage( const SettlementInstructions&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const SettlementInstructionRequest&, const FIX::SessionID& ) 
+  virtual void onMessage( const SettlementInstructionRequest&, const FIX::SessionID& )
     { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const TradeCaptureReportRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const TradeCaptureReportRequestAck&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const TradeCaptureReport&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const TradeCaptureReportAck&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const RegistrationInstructions&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const RegistrationInstructionsResponse&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const PositionMaintenanceRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const PositionMaintenanceReport&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const RequestForPositions&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const RequestForPositionsAck&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const PositionReport&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const AssignmentReport&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CollateralRequest&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CollateralAssignment&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CollateralResponse&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CollateralReport&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CollateralInquiry&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( const CollateralInquiryAck&, const FIX::SessionID& ) 
-    { throw FIX::UnsupportedMessageType(); }
-  virtual void onMessage( Heartbeat&, const FIX::SessionID& ) {} 
- virtual void onMessage( Logon&, const FIX::SessionID& ) {} 
- virtual void onMessage( TestRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( ResendRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( Reject&, const FIX::SessionID& ) {} 
- virtual void onMessage( SequenceReset&, const FIX::SessionID& ) {} 
- virtual void onMessage( Logout&, const FIX::SessionID& ) {} 
- virtual void onMessage( BusinessMessageReject&, const FIX::SessionID& ) {} 
- virtual void onMessage( UserRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( UserResponse&, const FIX::SessionID& ) {} 
- virtual void onMessage( Advertisement&, const FIX::SessionID& ) {} 
- virtual void onMessage( IndicationOfInterest&, const FIX::SessionID& ) {} 
- virtual void onMessage( News&, const FIX::SessionID& ) {} 
- virtual void onMessage( Email&, const FIX::SessionID& ) {} 
- virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( QuoteResponse&, const FIX::SessionID& ) {} 
- virtual void onMessage( QuoteRequestReject&, const FIX::SessionID& ) {} 
- virtual void onMessage( RFQRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( Quote&, const FIX::SessionID& ) {} 
- virtual void onMessage( QuoteCancel&, const FIX::SessionID& ) {} 
- virtual void onMessage( QuoteStatusRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( QuoteStatusReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( MassQuote&, const FIX::SessionID& ) {} 
- virtual void onMessage( MassQuoteAcknowledgement&, const FIX::SessionID& ) {} 
- virtual void onMessage( MarketDataRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( MarketDataSnapshotFullRefresh&, const FIX::SessionID& ) {} 
- virtual void onMessage( MarketDataIncrementalRefresh&, const FIX::SessionID& ) {} 
- virtual void onMessage( MarketDataRequestReject&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityDefinitionRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityDefinition&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityTypeRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityTypes&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityListRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityList&, const FIX::SessionID& ) {} 
- virtual void onMessage( DerivativeSecurityListRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( DerivativeSecurityList&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityStatusRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( SecurityStatus&, const FIX::SessionID& ) {} 
- virtual void onMessage( TradingSessionStatusRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( TradingSessionStatus&, const FIX::SessionID& ) {} 
- virtual void onMessage( NewOrderSingle&, const FIX::SessionID& ) {} 
- virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderCancelReplaceRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderCancelRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderCancelReject&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderStatusRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderMassCancelRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderMassCancelReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( OrderMassStatusRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( NewOrderCross&, const FIX::SessionID& ) {} 
- virtual void onMessage( CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( CrossOrderCancelRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( NewOrderMultileg&, const FIX::SessionID& ) {} 
- virtual void onMessage( MultilegOrderCancelReplaceRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( BidRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( BidResponse&, const FIX::SessionID& ) {} 
- virtual void onMessage( NewOrderList&, const FIX::SessionID& ) {} 
- virtual void onMessage( ListStrikePrice&, const FIX::SessionID& ) {} 
- virtual void onMessage( ListStatus&, const FIX::SessionID& ) {} 
- virtual void onMessage( ListExecute&, const FIX::SessionID& ) {} 
- virtual void onMessage( ListCancelRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( ListStatusRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( AllocationInstruction&, const FIX::SessionID& ) {} 
- virtual void onMessage( AllocationInstructionAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( AllocationReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( AllocationReportAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( Confirmation&, const FIX::SessionID& ) {} 
- virtual void onMessage( ConfirmationAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( ConfirmationRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( SettlementInstructions&, const FIX::SessionID& ) {} 
- virtual void onMessage( SettlementInstructionRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( TradeCaptureReportRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( TradeCaptureReportRequestAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( TradeCaptureReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( TradeCaptureReportAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( RegistrationInstructions&, const FIX::SessionID& ) {} 
- virtual void onMessage( RegistrationInstructionsResponse&, const FIX::SessionID& ) {} 
- virtual void onMessage( PositionMaintenanceRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( PositionMaintenanceReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( RequestForPositions&, const FIX::SessionID& ) {} 
- virtual void onMessage( RequestForPositionsAck&, const FIX::SessionID& ) {} 
- virtual void onMessage( PositionReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( AssignmentReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( CollateralRequest&, const FIX::SessionID& ) {} 
- virtual void onMessage( CollateralAssignment&, const FIX::SessionID& ) {} 
- virtual void onMessage( CollateralResponse&, const FIX::SessionID& ) {} 
- virtual void onMessage( CollateralReport&, const FIX::SessionID& ) {} 
- virtual void onMessage( CollateralInquiry&, const FIX::SessionID& ) {} 
- virtual void onMessage( CollateralInquiryAck&, const FIX::SessionID& ) {} 
+  virtual void onMessage( const TradeCaptureReportRequest&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const TradeCaptureReportRequestAck&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const TradeCaptureReport&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const TradeCaptureReportAck&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const RegistrationInstructions&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const RegistrationInstructionsResponse&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PositionMaintenanceRequest&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PositionMaintenanceReport&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const RequestForPositions&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const RequestForPositionsAck&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const PositionReport&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const AssignmentReport&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CollateralRequest&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CollateralAssignment&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CollateralResponse&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CollateralReport&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CollateralInquiry&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const CollateralInquiryAck&, const FIX::SessionID& )
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( Heartbeat&, const FIX::SessionID& ) {}
+ virtual void onMessage( Logon&, const FIX::SessionID& ) {}
+ virtual void onMessage( TestRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( ResendRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( Reject&, const FIX::SessionID& ) {}
+ virtual void onMessage( SequenceReset&, const FIX::SessionID& ) {}
+ virtual void onMessage( Logout&, const FIX::SessionID& ) {}
+ virtual void onMessage( BusinessMessageReject&, const FIX::SessionID& ) {}
+ virtual void onMessage( UserRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( UserResponse&, const FIX::SessionID& ) {}
+ virtual void onMessage( Advertisement&, const FIX::SessionID& ) {}
+ virtual void onMessage( IndicationOfInterest&, const FIX::SessionID& ) {}
+ virtual void onMessage( News&, const FIX::SessionID& ) {}
+ virtual void onMessage( Email&, const FIX::SessionID& ) {}
+ virtual void onMessage( QuoteRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( QuoteResponse&, const FIX::SessionID& ) {}
+ virtual void onMessage( QuoteRequestReject&, const FIX::SessionID& ) {}
+ virtual void onMessage( RFQRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( Quote&, const FIX::SessionID& ) {}
+ virtual void onMessage( QuoteCancel&, const FIX::SessionID& ) {}
+ virtual void onMessage( QuoteStatusRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( QuoteStatusReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( MassQuote&, const FIX::SessionID& ) {}
+ virtual void onMessage( MassQuoteAcknowledgement&, const FIX::SessionID& ) {}
+ virtual void onMessage( MarketDataRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( MarketDataSnapshotFullRefresh&, const FIX::SessionID& ) {}
+ virtual void onMessage( MarketDataIncrementalRefresh&, const FIX::SessionID& ) {}
+ virtual void onMessage( MarketDataRequestReject&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityDefinitionRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityDefinition&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityTypeRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityTypes&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityListRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityList&, const FIX::SessionID& ) {}
+ virtual void onMessage( DerivativeSecurityListRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( DerivativeSecurityList&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityStatusRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( SecurityStatus&, const FIX::SessionID& ) {}
+ virtual void onMessage( TradingSessionStatusRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( TradingSessionStatus&, const FIX::SessionID& ) {}
+ virtual void onMessage( NewOrderSingle&, const FIX::SessionID& ) {}
+ virtual void onMessage( ExecutionReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( DontKnowTrade&, const FIX::SessionID& ) {}
+ virtual void onMessage( OrderCancelReplaceRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( OrderCancelRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( OrderCancelReject&, const FIX::SessionID& ) {}
+ virtual void onMessage( OrderStatusRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( OrderMassCancelRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( OrderMassCancelReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( OrderMassStatusRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( NewOrderCross&, const FIX::SessionID& ) {}
+ virtual void onMessage( CrossOrderCancelReplaceRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( CrossOrderCancelRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( NewOrderMultileg&, const FIX::SessionID& ) {}
+ virtual void onMessage( MultilegOrderCancelReplaceRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( BidRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( BidResponse&, const FIX::SessionID& ) {}
+ virtual void onMessage( NewOrderList&, const FIX::SessionID& ) {}
+ virtual void onMessage( ListStrikePrice&, const FIX::SessionID& ) {}
+ virtual void onMessage( ListStatus&, const FIX::SessionID& ) {}
+ virtual void onMessage( ListExecute&, const FIX::SessionID& ) {}
+ virtual void onMessage( ListCancelRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( ListStatusRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( AllocationInstruction&, const FIX::SessionID& ) {}
+ virtual void onMessage( AllocationInstructionAck&, const FIX::SessionID& ) {}
+ virtual void onMessage( AllocationReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( AllocationReportAck&, const FIX::SessionID& ) {}
+ virtual void onMessage( Confirmation&, const FIX::SessionID& ) {}
+ virtual void onMessage( ConfirmationAck&, const FIX::SessionID& ) {}
+ virtual void onMessage( ConfirmationRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( SettlementInstructions&, const FIX::SessionID& ) {}
+ virtual void onMessage( SettlementInstructionRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( TradeCaptureReportRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( TradeCaptureReportRequestAck&, const FIX::SessionID& ) {}
+ virtual void onMessage( TradeCaptureReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( TradeCaptureReportAck&, const FIX::SessionID& ) {}
+ virtual void onMessage( RegistrationInstructions&, const FIX::SessionID& ) {}
+ virtual void onMessage( RegistrationInstructionsResponse&, const FIX::SessionID& ) {}
+ virtual void onMessage( PositionMaintenanceRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( PositionMaintenanceReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( RequestForPositions&, const FIX::SessionID& ) {}
+ virtual void onMessage( RequestForPositionsAck&, const FIX::SessionID& ) {}
+ virtual void onMessage( PositionReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( AssignmentReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( CollateralRequest&, const FIX::SessionID& ) {}
+ virtual void onMessage( CollateralAssignment&, const FIX::SessionID& ) {}
+ virtual void onMessage( CollateralResponse&, const FIX::SessionID& ) {}
+ virtual void onMessage( CollateralReport&, const FIX::SessionID& ) {}
+ virtual void onMessage( CollateralInquiry&, const FIX::SessionID& ) {}
+ virtual void onMessage( CollateralInquiryAck&, const FIX::SessionID& ) {}
 
 public:
-  void crack( const Message& message, 
+  void crack( const Message& message,
               const FIX::SessionID& sessionID )
   {
     FIX::MsgType msgType;
     message.getHeader().getField(msgType);
     std::string msgTypeValue = msgType.getValue();
-    
+
     if( msgTypeValue == "0" )
       onMessage( (const Heartbeat&)message, sessionID );
     else
@@ -677,14 +677,14 @@ public:
       onMessage( (const CollateralInquiryAck&)message, sessionID );
     else onMessage( message, sessionID );
   }
-  
-void crack( Message& message, 
+
+void crack( Message& message,
             const FIX::SessionID& sessionID )
   {
     FIX::MsgType msgType;
     message.getHeader().getField(msgType);
     std::string msgTypeValue = msgType.getValue();
-    
+
     if( msgTypeValue == "0" )
       onMessage( (Heartbeat&)message, sessionID );
     else

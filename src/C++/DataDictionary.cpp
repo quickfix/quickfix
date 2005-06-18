@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -369,7 +369,7 @@ int* DataDictionary::getOrderedFields() const
   m_orderedFieldsArray = new int[m_orderedFields.size() + 1];
 
   int* i = m_orderedFieldsArray;
-  OrderedFields::const_iterator iter;  
+  OrderedFields::const_iterator iter;
   for( iter = m_orderedFields.begin(); iter != m_orderedFields.end(); *(i++) = *(iter++) ) {}
   *i = 0;
   return m_orderedFieldsArray;
@@ -495,7 +495,7 @@ void DataDictionary::addXMLGroup( DOMDocument* pDoc, DOMNode* pNode,
     }
     else if( node->getName() == "group" )
     {
-      field = lookupXMLFieldNumber( pDoc, node.get() ); 
+      field = lookupXMLFieldNumber( pDoc, node.get() );
       groupDD.addField( field );
       DOMAttributesPtr attrs = node->getAttributes();
       std::string required;

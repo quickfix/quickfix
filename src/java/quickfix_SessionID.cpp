@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -163,5 +163,5 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_toString
   return result;
 
   QF_STACK_CATCH
-}  
+}
 

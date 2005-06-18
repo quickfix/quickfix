@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -36,7 +36,7 @@ namespace FIX
 class Parser
 {
 public:
-  Parser() 
+  Parser()
   : m_bufferSize( 0 ) {}
   ~Parser() {}
 
@@ -46,9 +46,9 @@ public:
   bool readFixMessage( std::string& str )
   throw ( MessageParseError );
 
-  void addToStream( const char* str, size_t len ) 
+  void addToStream( const char* str, size_t len )
   { m_buffer.append( str, len ); }
-  void addToStream( const std::string& str ) 
+  void addToStream( const std::string& str )
   { m_buffer.append( str ); }
 
 private:

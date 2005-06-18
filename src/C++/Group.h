@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -50,9 +50,9 @@ public:
   : FieldMap( order ), m_field( field ), m_delim( delim ) {}
 
   Group( int field, int delim, const message_order& order )
-  : FieldMap( order ), m_field( field ), m_delim( delim ) {} 
+  : FieldMap( order ), m_field( field ), m_delim( delim ) {}
 
-  Group( const Group& copy ) 
+  Group( const Group& copy )
   : FieldMap( copy ), m_field( copy.m_field ), m_delim( copy.m_delim ) {}
 
   int field() const { return m_field; }

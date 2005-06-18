@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -48,7 +48,7 @@ public class Message extends FieldMap {
         initFromString(string, dd, validate);
     }
 
-    private void initFromString(String string, boolean validate) 
+    private void initFromString(String string, boolean validate)
         throws InvalidMessage {
 
         create();
@@ -57,18 +57,18 @@ public class Message extends FieldMap {
         fromString(string, validate);
     }
 
-    private void initFromString(String string, DataDictionary dd) 
+    private void initFromString(String string, DataDictionary dd)
         throws InvalidMessage {
-        
+
         create();
         header = new Header( this );
         trailer = new Trailer( this );
         fromString(string, dd);
     }
 
-    private void initFromString(String string, DataDictionary dd, boolean validate) 
+    private void initFromString(String string, DataDictionary dd, boolean validate)
         throws InvalidMessage {
-        
+
         create();
         header = new Header( this );
         trailer = new Trailer( this );
@@ -180,7 +180,7 @@ public class Message extends FieldMap {
     public java.util.Iterator iterator() {
         return new Iterator( this );
     }
-    
+
     public native String toString();
     public native String toXML();
     private native void fromString(String string, boolean validate) throws InvalidMessage;
@@ -218,7 +218,7 @@ public class Message extends FieldMap {
             throw new java.lang.UnsupportedOperationException();
         }
     }
-    
+
     public class Header extends FieldMap {
         private Message message = null;
 
@@ -229,20 +229,20 @@ public class Message extends FieldMap {
         public class Iterator implements java.util.Iterator {
             private Message message;
             private int cppPointer;
-            
+
             public Iterator( Message aMessage ) {
                 message = aMessage;
                 headerIteratorCreate( this );
             }
-            
+
             public boolean hasNext() {
                 return headerIteratorHasNext( this );
             }
-            
+
             public Object next() {
                 return headerIteratorNext( this );
             }
-            
+
             public void remove() {}
         }
 
@@ -378,20 +378,20 @@ public class Message extends FieldMap {
         public class Iterator implements java.util.Iterator {
             private Message message;
             private int cppPointer;
-            
+
             public Iterator( Message aMessage ) {
                 message = aMessage;
                 trailerIteratorCreate( this );
             }
-            
+
             public boolean hasNext() {
                 return trailerIteratorHasNext( this );
             }
-            
+
             public Object next() {
                 return trailerIteratorNext( this );
             }
-            
+
             public void remove() {}
         }
 
@@ -530,7 +530,7 @@ public class Message extends FieldMap {
     private native void headerSetUtcTimeStamp(int field, Date value);
     private native void headerSetUtcTimeOnly(int field, Date value);
     private native void headerSetUtcDateOnly(int field, Date value);
-    
+
     private native String headerGetString(int field) throws FieldNotFound;
     private native boolean headerGetBoolean(int field) throws FieldNotFound;
     private native char headerGetChar(int field) throws FieldNotFound;
@@ -555,7 +555,7 @@ public class Message extends FieldMap {
     private native void trailerSetUtcTimeStamp(int field, Date value);
     private native void trailerSetUtcTimeOnly(int field, Date value);
     private native void trailerSetUtcDateOnly(int field, Date value);
-    
+
     private native String trailerGetString(int field) throws FieldNotFound;
     private native boolean trailerGetBoolean(int field) throws FieldNotFound;
     private native char trailerGetChar(int field) throws FieldNotFound;

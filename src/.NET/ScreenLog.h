@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -53,7 +53,7 @@ public:
 
   Log* create( SessionID* sessionID )
   { QF_STACK_TRY
-    return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event ); 
+    return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
     QF_STACK_CATCH
   }
 

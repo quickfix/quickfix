@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -152,7 +152,7 @@ public:
 : UtcDateOnlyField( field ) {}
   UtcDateField( int field, DateTime data )
 : UtcDateOnlyField( field, data ) {}
-}; 
+};
 
 public __gc class UtcTimeOnlyField : public Field
 {

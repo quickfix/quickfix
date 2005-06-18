@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -345,7 +345,7 @@ public:
   {
   public:
     Trailer( Message* message ) : m_message( message ), disposed( false ) {}
-    
+
     void setString(int field, String* value);
     void setBoolean(int field, bool value);
     void setChar(int field, char value);
@@ -555,21 +555,21 @@ private:
   void mapSetField( UtcDateOnlyField* field, FIX::FieldMap& map );
   void mapSetField( UtcTimeOnlyField* field, FIX::FieldMap& map );
 
-  StringField* mapGetField( StringField* field, FIX::FieldMap& map ) 
+  StringField* mapGetField( StringField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  BooleanField* mapGetField( BooleanField* field, FIX::FieldMap& map ) 
+  BooleanField* mapGetField( BooleanField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  CharField* mapGetField( CharField* field, FIX::FieldMap& map ) 
+  CharField* mapGetField( CharField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  IntField* mapGetField( IntField* field, FIX::FieldMap& map ) 
+  IntField* mapGetField( IntField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  DoubleField* mapGetField( DoubleField* field, FIX::FieldMap& map ) 
+  DoubleField* mapGetField( DoubleField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  UtcTimeStampField* mapGetField( UtcTimeStampField* field, FIX::FieldMap& map ) 
+  UtcTimeStampField* mapGetField( UtcTimeStampField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  UtcDateOnlyField* mapGetField( UtcDateOnlyField* field, FIX::FieldMap& map ) 
+  UtcDateOnlyField* mapGetField( UtcDateOnlyField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
-  UtcTimeOnlyField* mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& map ) 
+  UtcTimeOnlyField* mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& map )
     throw( FieldNotFound* );
 
   void mapSetField( int field, String*, FIX::FieldMap& map );

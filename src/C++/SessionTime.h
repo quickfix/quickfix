@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -37,17 +37,17 @@ public:
   SessionTime( const UtcTimeOnly& startTime, const UtcTimeOnly &endTime,
                int startDay = -1, int endDay = -1 );
 
-  static bool isSessionTime( const UtcTimeOnly& start, 
+  static bool isSessionTime( const UtcTimeOnly& start,
                              const UtcTimeOnly& end,
                              const UtcTimeStamp& time );
 
-  static bool isSessionTime( const UtcTimeOnly& startTime, 
+  static bool isSessionTime( const UtcTimeOnly& startTime,
                              const UtcTimeOnly& endTime,
                              int startDay,
                              int endDay,
                              const UtcTimeStamp& time );
 
-  static bool isSameSession( const UtcTimeOnly& start, 
+  static bool isSameSession( const UtcTimeOnly& start,
                              const UtcTimeOnly& end,
                              const UtcTimeStamp& time1,
                              const UtcTimeStamp& time2 );
@@ -59,17 +59,17 @@ public:
                              const UtcTimeStamp& time1,
                              const UtcTimeStamp& time2 );
 
-  bool isSessionTime() 
-  { 
+  bool isSessionTime()
+  {
     if( m_startDay < 0 && m_endDay < 0 )
-      return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() ); 
+      return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() );
     else
       return isSessionTime
         ( m_startTime, m_endTime, m_startDay, m_endDay, UtcTimeStamp() );
   }
 
   bool isSameSession( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
-  { 
+  {
     if( m_startDay < 0 && m_endDay < 0 )
       return isSameSession( m_startTime, m_endTime, time1, time2 );
     else

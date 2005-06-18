@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -35,13 +35,13 @@
 
 namespace FIX
 {
-void string_replace( const std::string& oldValue, 
+void string_replace( const std::string& oldValue,
 		     const std::string& newValue,
 		     std::string& value )
 { QF_STACK_PUSH(string_replace)
 
-  for( std::string::size_type pos = value.find(oldValue); 
-       pos != std::string::npos; 
+  for( std::string::size_type pos = value.find(oldValue);
+       pos != std::string::npos;
        pos = value.find(oldValue, pos) )
   {
     value.replace( pos, oldValue.size(), newValue );
@@ -77,7 +77,7 @@ void socket_term()
 #endif
 
   QF_STACK_POP
-} 
+}
 
 int socket_createAcceptor(int port, bool reuse)
 { QF_STACK_PUSH(socket_createAcceptor)
@@ -103,13 +103,13 @@ int socket_createAcceptor(int port, bool reuse)
   return socket;
 
   QF_STACK_POP
-} 
+}
 
 int socket_createConnector( const char* address, int port )
 { QF_STACK_PUSH(socket_createConnector)
 
   int socket = ::socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
-  const char* hostname = socket_hostname( address ); 
+  const char* hostname = socket_hostname( address );
   if( hostname == 0 ) return -1;
 
   sockaddr_in addr;
@@ -145,12 +145,12 @@ bool socket_send( int s, const char* msg, int length )
   return send( s, msg, length, 0 ) !=
 #ifdef _MSC_VER
   SOCKET_ERROR;
-#else 
+#else
   -1;
 #endif
 
   QF_STACK_POP
-} 
+}
 
 void socket_close( int s )
 { QF_STACK_PUSH(socket_close)
@@ -163,22 +163,22 @@ void socket_close( int s )
 #endif
 
   QF_STACK_POP
-} 
+}
 
 bool socket_fionread( int s, int& bytes )
 { QF_STACK_PUSH(socket_fionread)
 
   bytes = 0;
-#if defined(_MSC_VER) 
+#if defined(_MSC_VER)
   return ::ioctlsocket( s, FIONREAD, &( ( unsigned long& ) bytes ) ) == 0;
-#elif defined(USING_STREAMS) 
+#elif defined(USING_STREAMS)
   return ::ioctl( s, I_NREAD, &bytes ) >= 0;
-#else 
+#else
   return ::ioctl( s, FIONREAD, &bytes ) == 0;
 #endif
 
   QF_STACK_POP
-} 
+}
 
 bool socket_disconnected( int s )
 { QF_STACK_PUSH(socket_disconnected)
@@ -187,7 +187,7 @@ bool socket_disconnected( int s )
   return ::recv (s, &byte, sizeof (byte), MSG_PEEK) <= 0;
 
   QF_STACK_POP
-} 
+}
 
 int socket_setsockopt( int s, int opt )
 { QF_STACK_PUSH(socket_setsockopt)
@@ -207,19 +207,19 @@ int socket_setsockopt( int s, int opt )
 #endif
 
   QF_STACK_POP
-} 
+}
 
 bool socket_isValid( int socket )
 { QF_STACK_PUSH(socket_isValid)
 
-#ifdef _MSC_VER 
+#ifdef _MSC_VER
   return socket != INVALID_SOCKET;
-#else 
+#else
   return socket >= 0;
 #endif
 
   QF_STACK_POP
-} 
+}
 
 #ifndef _MSC_VER
 bool socket_isBad( int s )
@@ -267,7 +267,7 @@ const char* socket_hostname( const char* name )
   host_ptr = gethostbyname_r( name, &host, buf, sizeof(buf), &error );
 #else
   host_ptr = gethostbyname( name );
-#endif 
+#endif
 
   if ( host_ptr == 0 ) return 0;
 
@@ -307,7 +307,7 @@ bool thread_spawn( THREAD_START_ROUTINE func, void* var, unsigned& thread )
 {
 #ifdef _MSC_VER
   unsigned int result = 0;
-  unsigned int id = 0;  
+  unsigned int id = 0;
   result = _beginthreadex(NULL, 0, &func, var, 0, &id );
   if ( result == 0 ) return false;
 #else
@@ -349,9 +349,9 @@ void thread_detach( unsigned thread )
 
 unsigned thread_self()
 {
-#ifdef _MSC_VER 
+#ifdef _MSC_VER
   return ( unsigned ) GetCurrentThreadId();
-#else 
+#else
   return ( unsigned ) pthread_self();
 #endif
 }
@@ -388,14 +388,14 @@ std::string file_separator()
 #ifdef _MSC_VER
 void file_mkdir( const char* path )
 { QF_STACK_PUSH(file_mkdir)
-  _mkdir( path ); 
+  _mkdir( path );
   QF_STACK_POP
 }
 #else
 void file_mkdir( const char* path )
 { QF_STACK_PUSH(file_mkdir)
   // use umask to override rwx for all
-  mkdir( path, 0777 ); 
+  mkdir( path, 0777 );
   QF_STACK_POP
 }
 #endif
@@ -420,7 +420,7 @@ std::string file_appendpath( const std::string& path, const std::string& file )
     return std::string(path) + file;
   else
     return std::string(path) + file_separator() + file;
-   
+
   QF_STACK_POP
 }
 }

@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -31,7 +31,7 @@ void Group::setField( StringField* field )
     ( FIX::StringField
       ( field->getField(), convertString( field->getValue() ) ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 void Group::setField( BooleanField* field )
@@ -40,7 +40,7 @@ void Group::setField( BooleanField* field )
   m_pUnmanaged->setField
     ( FIX::BoolField( field->getField(), field->getValue() ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 void Group::setField( CharField* field )
@@ -49,7 +49,7 @@ void Group::setField( CharField* field )
   m_pUnmanaged->setField
     ( FIX::CharField( field->getField(), field->getValue() ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 void Group::setField( IntField* field )
@@ -58,7 +58,7 @@ void Group::setField( IntField* field )
   m_pUnmanaged->setField
     ( FIX::IntField( field->getField(), field->getValue() ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 void Group::setField( DoubleField* field )
@@ -67,7 +67,7 @@ void Group::setField( DoubleField* field )
   m_pUnmanaged->setField
     ( FIX::DoubleField( field->getField(), field->getValue() ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 void Group::setField( UtcTimeStampField* field )
@@ -80,7 +80,7 @@ void Group::setField( UtcTimeStampField* field )
 	FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second,
 			   value.Day, value.Month, value.Year ) ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 void Group::setField( UtcDateOnlyField* field )
@@ -92,7 +92,7 @@ void Group::setField( UtcDateOnlyField* field )
       ( field->getField(),
         FIX::UtcDate( value.Day, value.Month, value.Year ) ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 void Group::setField( UtcTimeOnlyField* field )
@@ -104,7 +104,7 @@ void Group::setField( UtcTimeOnlyField* field )
       ( field->getField(),
 	FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ) ) );
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 StringField* Group::getField( StringField* field ) throw( FieldNotFound* )
@@ -118,7 +118,7 @@ StringField* Group::getField( StringField* field ) throw( FieldNotFound* )
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 BooleanField* Group::getField( BooleanField* field ) throw( FieldNotFound* )
@@ -134,7 +134,7 @@ BooleanField* Group::getField( BooleanField* field ) throw( FieldNotFound* )
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 CharField* Group::getField( CharField* field ) throw( FieldNotFound* )
@@ -150,7 +150,7 @@ CharField* Group::getField( CharField* field ) throw( FieldNotFound* )
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 IntField* Group::getField( IntField* field ) throw( FieldNotFound* )
@@ -166,7 +166,7 @@ IntField* Group::getField( IntField* field ) throw( FieldNotFound* )
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 DoubleField* Group::getField( DoubleField* field ) throw( FieldNotFound* )
@@ -182,10 +182,10 @@ DoubleField* Group::getField( DoubleField* field ) throw( FieldNotFound* )
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
-UtcTimeStampField* Group::getField( UtcTimeStampField* field ) 
+UtcTimeStampField* Group::getField( UtcTimeStampField* field )
 throw( FieldNotFound* )
 { QF_STACK_TRY
 
@@ -202,7 +202,7 @@ throw( FieldNotFound* )
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 UtcDateOnlyField* Group::getField( UtcDateOnlyField* field ) throw( FieldNotFound* )
@@ -220,10 +220,10 @@ UtcDateOnlyField* Group::getField( UtcDateOnlyField* field ) throw( FieldNotFoun
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
-UtcTimeOnlyField* Group::getField( UtcTimeOnlyField* field ) 
+UtcTimeOnlyField* Group::getField( UtcTimeOnlyField* field )
 throw( FieldNotFound* )
 { QF_STACK_TRY
 
@@ -239,7 +239,7 @@ throw( FieldNotFound* )
   catch ( FIX::FieldNotFound & e )
   { throw new FieldNotFound( e.field ); }
 
-  QF_STACK_CATCH 
+  QF_STACK_CATCH
 }
 
 bool Group::isSetField( Field* field )
@@ -248,20 +248,20 @@ bool Group::isSetField( Field* field )
   QF_STACK_CATCH
 }
 
-String* Group::getField( int field ) 
+String* Group::getField( int field )
 throw( FieldNotFound* )
 { QF_STACK_TRY
   return m_pUnmanaged->getField( field ).c_str();
   QF_STACK_CATCH
 }
 
-void Group::setField( int field, String* value ) 
+void Group::setField( int field, String* value )
 { QF_STACK_TRY
   m_pUnmanaged->setField( field, convertString(value) );
   QF_STACK_CATCH
 }
 
-void Group::removeField( int field ) 
+void Group::removeField( int field )
 { QF_STACK_TRY
   m_pUnmanaged->removeField( field );
   QF_STACK_CATCH

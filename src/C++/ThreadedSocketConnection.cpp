@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -184,7 +184,7 @@ void ThreadedSocketConnection::processStream()
   {
     if( m_pSession )
       m_pSession->getLog()->onEvent( e.what() );
-    disconnect(); 
+    disconnect();
   }
 
   if ( m_pSession )

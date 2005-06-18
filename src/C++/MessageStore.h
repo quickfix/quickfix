@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -37,7 +37,7 @@ class MessageStore;
 
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /**
  * This interface must be implemented to create a MessageStore.
  */
@@ -141,7 +141,7 @@ class MessageStoreFactoryExceptionWrapper
 private:
   MessageStoreFactory* m_pFactory;
 public:
-  MessageStoreFactoryExceptionWrapper( MessageStoreFactory* pFactory ) 
+  MessageStoreFactoryExceptionWrapper( MessageStoreFactory* pFactory )
   : m_pFactory( pFactory ) {}
 
   MessageStore* create( const SessionID&, bool&, ConfigError& );

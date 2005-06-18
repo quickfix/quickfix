@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -116,7 +116,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
   {
     pMessage->getGroup( num, *pGroup );
     return group;
-  } 
+  }
   catch( FIX::FieldNotFound& e )
   {
     throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( e.field ).c_str() );
@@ -1034,7 +1034,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_isAdmin
   JVMObject jobject( obj );
   FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
   return pMessage->isAdmin();
-  
+
   QF_STACK_CATCH
 }
 

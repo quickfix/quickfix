@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -37,7 +37,7 @@ class Session;
 
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /// Creates a file based implementation of MessageStore.
 class FileStoreFactory : public MessageStoreFactory
 {
@@ -59,7 +59,7 @@ private:
  * File based implementation of MessageStore.
  *
  * Four files are created by this implementation.  One for storing outgoing
- * messages, one for indexing message locations, one for storing sequence numbers, 
+ * messages, one for indexing message locations, one for storing sequence numbers,
  * and one for storing the session creation time.
  *
  * The formats of the files are:<br>

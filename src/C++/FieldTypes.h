@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -102,12 +102,12 @@ public:
     setMillisecond(millisecond);
   }
 
-  UtcTimeStamp( const tm* time, int millisecond = 0 ) 
-  { 
+  UtcTimeStamp( const tm* time, int millisecond = 0 )
+  {
     *static_cast<tm*>(this) = *time;
     setMillisecond(millisecond);
   }
- 
+
   operator tm*() { return this; }
   operator const tm*() const { return this; }
 
@@ -142,7 +142,7 @@ public:
 
   /// Set to the current date and time.
   void setCurrent()
-  { 
+  {
 #ifdef HAVE_FTIME
     timeb tb;
     ftime(&tb);
@@ -174,16 +174,16 @@ public:
     clearDate();
   }
 
-  UtcTimeOnly( time_t time, int millisecond = 0 ) 
-  : UtcTimeStamp( time, millisecond ) 
-  { 
-    clearDate(); 
+  UtcTimeOnly( time_t time, int millisecond = 0 )
+  : UtcTimeStamp( time, millisecond )
+  {
+    clearDate();
   }
 
-  UtcTimeOnly( const tm* time, int millisecond = 0 ) 
-  : UtcTimeStamp( time, millisecond ) 
-  { 
-    clearDate(); 
+  UtcTimeOnly( const tm* time, int millisecond = 0 )
+  : UtcTimeStamp( time, millisecond )
+  {
+    clearDate();
   }
 
   operator tm*() { return UtcTimeStamp::operator tm*(); }

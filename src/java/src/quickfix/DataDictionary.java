@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -21,19 +21,19 @@ package quickfix;
 
 public class DataDictionary {
     private int cppPointer;
-    
+
     public DataDictionary() {
         create();
     }
-    
+
     public DataDictionary( DataDictionary dd ) {
 	create( dd );
     }
-    
+
     public DataDictionary( String url ) {
 	create( url );
     }
-    
+
     protected void finalize() {
         destroy();
     }

@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -98,7 +98,7 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_destroy
 JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getVersion
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-  
+
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
@@ -109,7 +109,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getVersion
 }
 
 JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getFieldName
-( JNIEnv *pEnv, jobject obj, jint field ) 
+( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );

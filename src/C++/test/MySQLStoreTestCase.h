@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -46,7 +46,7 @@ public:
   }
 
 private:
-  
+
   class setGet : public MessageStoreTestCase::setGet
   {
   public:
@@ -65,7 +65,7 @@ private:
     other() : m_factory() {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
-   
+
   private:
     MySQLStoreFactory m_factory;
   }
@@ -77,7 +77,7 @@ private:
     reload() : m_factory() {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
-   
+
   private:
     MySQLStoreFactory m_factory;
   }

@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -45,7 +45,7 @@ private:
   {
     void onRun( SessionTime& object );
   } m_isSessionTime;
-  
+
   class isSessionTimeWithDay : public Test
   {
     void onRun( SessionTime& object );

@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -37,7 +37,7 @@ throw( MessageParseError )
 { QF_STACK_PUSH(Parser::extractLength)
 
   if( !buffer.size() ) return false;
-  
+
   std::string::size_type startPos = buffer.find( "\0019=", 0 );
   if( startPos == std::string::npos ) return false;
   startPos += 3;

@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -70,12 +70,12 @@ public:
 
   static bool doesSessionExist( SessionID* sessionID );
   static Session* lookupSession( SessionID* sessionID );
-  
+
   static int numSessions();
 
   int getExpectedSenderNum();
   int getExpectedTargetNum();
-  
+
   Log* getLog()
   { return new CPPLog(unmanaged().getLog()); }
   MessageStore* getStore()

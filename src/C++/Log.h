@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -37,7 +37,7 @@ class Log;
 
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /**
  * This interface must be implemented to create a Log.
  */
@@ -101,9 +101,9 @@ public:
     if ( !m_incoming ) return ;
     Locker l( s_mutex );
     m_time.setCurrent();
-    std::cout << "<" << UtcTimeStampConvertor::convert(m_time) 
-              << ", " << m_sessionID 
-              << ", " << "incoming>" << std::endl 
+    std::cout << "<" << UtcTimeStampConvertor::convert(m_time)
+              << ", " << m_sessionID
+              << ", " << "incoming>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
   void onOutgoing( const std::string& value )
@@ -111,9 +111,9 @@ public:
     if ( !m_outgoing ) return ;
     Locker l( s_mutex );
     m_time.setCurrent();
-    std::cout << "<" << UtcTimeStampConvertor::convert(m_time) 
-              << ", " << m_sessionID 
-              << ", " << "outgoing>" << std::endl 
+    std::cout << "<" << UtcTimeStampConvertor::convert(m_time)
+              << ", " << m_sessionID
+              << ", " << "outgoing>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
   void onEvent( const std::string& value )
@@ -121,9 +121,9 @@ public:
     if ( !m_event ) return ;
     Locker l( s_mutex );
     m_time.setCurrent();
-    std::cout << "<" << UtcTimeStampConvertor::convert(m_time) 
-              << ", " << m_sessionID 
-              << ", " << "event>" << std::endl 
+    std::cout << "<" << UtcTimeStampConvertor::convert(m_time)
+              << ", " << m_sessionID
+              << ", " << "event>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
 

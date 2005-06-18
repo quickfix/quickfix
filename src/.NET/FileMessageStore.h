@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -54,7 +54,7 @@ public:
   FileStoreFactory( SessionSettings* settings )
   : m_path( 0 ), m_settings( settings ) {}
 
-  FileStoreFactory( String* path ) 
+  FileStoreFactory( String* path )
   : m_path( path ), m_settings( 0 ) {}
 
   MessageStore* create( SessionID* sessionID )

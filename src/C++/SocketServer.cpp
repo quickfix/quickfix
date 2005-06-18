@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -69,7 +69,7 @@ private:
 
   void onError( SocketMonitor& )
   { QF_STACK_PUSH(ServerWrapper::onEvent)
-    m_strategy.onError( m_server ); 
+    m_strategy.onError( m_server );
     QF_STACK_POP
   }
 
@@ -88,7 +88,7 @@ SocketServer::SocketServer( int port, int timeout, bool reuse, bool noDelay )
 : m_port( port ), m_monitor( timeout ), m_noDelay( noDelay )
 {
   m_socket = socket_createAcceptor( port, reuse );
-  if ( m_socket < 0 ) 
+  if ( m_socket < 0 )
     throw std::exception();
   if( m_noDelay )
     socket_setsockopt( m_socket, TCP_NODELAY );
@@ -99,9 +99,9 @@ int SocketServer::accept()
 { QF_STACK_PUSH(SocketServer::accept)
 
   int result = socket_accept( m_socket );
-  if( m_noDelay ) 
+  if( m_noDelay )
     socket_setsockopt( result, TCP_NODELAY );
-  if ( result >= 0 ) 
+  if ( result >= 0 )
     m_monitor.add( result );
   return result;
 

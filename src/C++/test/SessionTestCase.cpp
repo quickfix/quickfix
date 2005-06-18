@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -163,7 +163,7 @@ void SessionTestCase::nextLogon::onRun( Session& object )
   assert( targetCompID == "ISLD" );
   assert( heartBtInt == 30 );
   assert( encryptMethod == 0 );
-  
+
 }
 
 void SessionTestCase::nextLogonNoEncryptMethod::onRun( Session& object )
@@ -484,7 +484,7 @@ void SessionTestCase::logoutInitiator::onRun( Session& object )
   object.next( createLogon( "ISLD", "TW", 1 ) );
   assert( object.getExpectedSenderNum() == 2 );
   assert( object.getExpectedTargetNum() == 2 );
-  
+
   object.next( createLogout( "ISLD", "TW", 2 ) );
   assert( object.getExpectedSenderNum() == 3 );
   assert( object.getExpectedTargetNum() == 3 );
@@ -793,10 +793,10 @@ void SessionTestCase::disconnectBeforeStartTime::onRun( Session& object )
 
 bool SessionTestCase::resetOnNewSession::onSetup( Session*& pObject )
 {
-  m_startTime.setCurrent();  
+  m_startTime.setCurrent();
   m_endTime = m_startTime;
   m_endTime += 2;
-  m_startTime += -2;  
+  m_startTime += -2;
   return AcceptorTest::onSetup( pObject );
 }
 

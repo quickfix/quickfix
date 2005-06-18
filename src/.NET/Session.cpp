@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -120,7 +120,7 @@ throw( SessionNotFound* )
     Message __pin * pMessage = message;
     return FIX::Session::sendToTarget( pMessage->unmanaged() );
   }
-  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }; 
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); };
 
   QF_STACK_CATCH
 }
@@ -132,10 +132,10 @@ throw( SessionNotFound* )
   try
   {
     Message __pin * pMessage = message;
-    return FIX::Session::sendToTarget( pMessage->unmanaged(), 
+    return FIX::Session::sendToTarget( pMessage->unmanaged(),
                                        convertString( qualifier ) );
   }
-  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); }; 
+  catch ( FIX::SessionNotFound& ) { throw new SessionNotFound(); };
 
   QF_STACK_CATCH
 }

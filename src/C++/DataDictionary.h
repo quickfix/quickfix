@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -37,9 +37,9 @@ namespace FIX
 {
 class FieldMap;
 
-/** 
- * Represents a data dictionary for a version of %FIX. 
- *  
+/**
+ * Represents a data dictionary for a version of %FIX.
+ *
  * Generally loaded from an XML document.  The DataDictionary is also
  * responsible for validation beyond the basic structure of a message.
  */
@@ -210,7 +210,7 @@ public:
 
     // MultipleValueString
     std::string::size_type startPos = 0;
-    std::string::size_type endPos = 0; 
+    std::string::size_type endPos = 0;
     do
     {
       endPos = value.find_first_of(' ', startPos);
@@ -399,7 +399,7 @@ private:
     int fieldNum = field.getField();
     if( isGroup(msgType, fieldNum) )
     {
-      if( fieldMap.groupCount(fieldNum) 
+      if( fieldMap.groupCount(fieldNum)
         != IntConvertor::convert(field.getString()) )
       throw RepeatingGroupCountMismatch(fieldNum);
     }

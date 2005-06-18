@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -58,7 +58,7 @@ bool MySQLStoreTestCase::other::onSetup( MessageStore*& pObject )
 
   return true;
 }
- 
+
 void MySQLStoreTestCase::other::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
@@ -74,7 +74,7 @@ bool MySQLStoreTestCase::reload::onSetup( MessageStore*& pObject )
 
   return true;
 }
- 
+
 void MySQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );

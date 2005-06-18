@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -59,7 +59,7 @@ class MessageCracker : public FIX::MessageCracker
   void onMessage( const FIX44::NewOrderSingle& message,
                   const FIX::SessionID& sessionID )
   {
-    process( message, sessionID );    
+    process( message, sessionID );
   }
 
   void onMessage( const FIX44::SecurityDefinition& message,
@@ -72,7 +72,7 @@ class MessageCracker : public FIX::MessageCracker
   void onMessage( const FIX43::NewOrderSingle& message,
                   const FIX::SessionID& sessionID )
   {
-    process( message, sessionID );    
+    process( message, sessionID );
   }
 
   void onMessage( const FIX43::SecurityDefinition& message,
@@ -85,7 +85,7 @@ class MessageCracker : public FIX::MessageCracker
   void onMessage( const FIX42::NewOrderSingle& message,
                   const FIX::SessionID& sessionID )
   {
-    process( message, sessionID );    
+    process( message, sessionID );
   }
 
   void onMessage( const FIX42::SecurityDefinition& message,
@@ -136,7 +136,7 @@ class Application : public FIX::Application
   throw( FIX::DoNotSend )
   {}
   void fromAdmin( const FIX::Message& message, const FIX::SessionID& )
-  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) {}  
+  throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::RejectLogon ) {}
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
   {

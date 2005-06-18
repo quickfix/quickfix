@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -86,12 +86,12 @@ void Session::insertSendingTime( Header& header )
   // Use miliseconds if FIX.4.2 or later
   UtcTimeStamp now;
   if(m_sessionID.getBeginString() >= BeginString_FIX42)
-    header.setField( 
-      FIELD::SendingTime, 
+    header.setField(
+      FIELD::SendingTime,
       UtcTimeStampConvertor::convert(now, m_millisecondsInTimeStamp) );
   else
-    header.setField( 
-      FIELD::SendingTime, 
+    header.setField(
+      FIELD::SendingTime,
       UtcTimeStampConvertor::convert(now, false) );
 
   QF_STACK_POP
@@ -215,7 +215,7 @@ void Session::nextLogon( const Message& logon )
   }
 
   if( !verify( logon, false, true ) )
-    return;  
+    return;
   m_state.receivedLogon( true );
 
   if ( !m_state.initiate() )
@@ -377,7 +377,7 @@ void Session::nextResendRequest( const Message& resendRequest )
     {
       if ( resend( msg ) )
       {
-        if ( begin ) generateSequenceReset( begin, msgSeqNum );        
+        if ( begin ) generateSequenceReset( begin, msgSeqNum );
         send( msg.toString(messageString) );
         m_state.onEvent( "Resending Message: "
                          + IntConvertor::convert( msgSeqNum ) );
@@ -402,7 +402,7 @@ void Session::nextResendRequest( const Message& resendRequest )
     generateSequenceReset( beginSeqNo, endSeqNo );
   }
 
-  resendRequest.getHeader().getField( msgSeqNum );  
+  resendRequest.getHeader().getField( msgSeqNum );
   if( !isTargetTooHigh(msgSeqNum) && !isTargetTooLow(msgSeqNum) )
     m_state.incrNextTargetMsgSeqNum();
 
@@ -455,7 +455,7 @@ bool Session::sendRaw( Message& message, int num )
       {
         m_application.toApp( message, m_sessionID );
         message.toString( messageString );
-        if ( isLoggedOn() ) 
+        if ( isLoggedOn() )
           result = send( messageString );
       }
       catch ( DoNotSend& ) { return false; }
@@ -473,7 +473,7 @@ bool Session::sendRaw( Message& message, int num )
   catch ( IOException& )
   {
     m_state.onEvent( "Error Reading/Writing in MessageStore" );
-    return false; 
+    return false;
   }
 
   QF_STACK_POP
@@ -679,7 +679,7 @@ void Session::generateReject( const Message& message, int err, int field )
   reject.getHeader().setField( MsgType( "3" ) );
   reject.reverseRoute( message.getHeader() );
   fill( reject.getHeader() );
-  
+
   MsgSeqNum msgSeqNum;
   MsgType msgType;
   PossDupFlag possDupFlag( false );
@@ -705,7 +705,7 @@ void Session::generateReject( const Message& message, int err, int field )
       reject.setField( SessionRejectReason( err ) );
     }
   }
-  if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset 
+  if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset
        && msgSeqNum == getExpectedTargetNum() )
   { m_state.incrNextTargetMsgSeqNum(); }
 
@@ -943,8 +943,8 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
   catch ( std::exception& e )
   {
     m_state.onEvent( e.what() );
-    disconnect(); 
-    return false; 
+    disconnect();
+    return false;
   }
 
   fromCallback( msgType, msg, m_sessionID );
@@ -953,13 +953,13 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
   QF_STACK_POP
 }
 
-bool Session::shouldSendReset()  
+bool Session::shouldSendReset()
 { QF_STACK_PUSH(Session::shouldSendReset)
- 
+
   std::string beginString = m_sessionID.getBeginString();
-  return beginString >= FIX::BeginString_FIX41 
+  return beginString >= FIX::BeginString_FIX41
     && ( m_sendResetSeqNumFlag || m_resetOnLogout || m_resetOnDisconnect )
-    && getExpectedSenderNum() == 1 
+    && getExpectedSenderNum() == 1
     && getExpectedTargetNum() == 1;
 
   QF_STACK_POP
@@ -1087,7 +1087,7 @@ void Session::doTargetTooHigh( const Message& msg )
   {
     SessionState::ResendRange range = m_state.resendRange();
 
-    if( msgSeqNum > range.first 
+    if( msgSeqNum > range.first
         && (range.second == 0 || msgSeqNum < range.second) )
     {
           m_state.onEvent ("Already sent ResendRequest FROM: " +
@@ -1147,7 +1147,7 @@ void Session::next( const std::string& msg, bool queued )
   {
     m_state.onIncoming( msg );
     next( Message( msg, m_dataDictionary ), queued );
-  } 
+  }
   catch( InvalidMessage& e )
   {
     m_state.onEvent( e.what() );
@@ -1212,7 +1212,7 @@ void Session::next( const Message& message, bool queued )
       m_state.incrNextTargetMsgSeqNum();
     }
   }
-  catch ( MessageParseError& e ) 
+  catch ( MessageParseError& e )
   { m_state.onEvent( e.what() ); }
   catch ( RequiredTagMissing & e )
   { LOGEX( generateReject( message, 1, e.field ) ); }
@@ -1317,7 +1317,7 @@ throw( SessionNotFound )
 }
 
 bool Session::sendToTarget
-( Message& message, 
+( Message& message,
   const SenderCompID& senderCompID,
   const TargetCompID& targetCompID,
   const std::string& qualifier )

@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -64,7 +64,7 @@ private:
     other() : m_fileStoreFactory( "store" ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
-    
+
   private:
     FileStoreFactory m_fileStoreFactory;
   }
@@ -76,7 +76,7 @@ private:
     reload() : m_fileStoreFactory( "store" ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
-    
+
   private:
     FileStoreFactory m_fileStoreFactory;
   }

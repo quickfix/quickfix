@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -72,7 +72,7 @@ static const std::string MILLISECONDS_IN_TIMESTAMP = "MillisecondsInTimeStamp";
 
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /// Container for setting dictionaries mapped to sessions.
 class SessionSettings
 {

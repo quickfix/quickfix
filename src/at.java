@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -26,7 +26,7 @@ public class at {
         System.loadLibrary("quickfix_jni");
     }
 
-    public static void main( String[] args ) throws Exception {	
+    public static void main( String[] args ) throws Exception {
 	String file = new String();
 	boolean threaded = false;
 

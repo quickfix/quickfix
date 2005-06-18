@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -26,7 +26,7 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
-#ifdef _MSC_VER 
+#ifdef _MSC_VER
 /////////////////////////////////////////////
 #include <Winsock2.h>
 #include <process.h>
@@ -34,7 +34,7 @@
 #include <time.h>
 typedef int socklen_t;
 /////////////////////////////////////////////
-#else 
+#else
 /////////////////////////////////////////////
 #include <sys/types.h>
 #include <sys/socket.h>
@@ -49,7 +49,7 @@ typedef int socklen_t;
 #include <pthread.h>
 #include <signal.h>
 #include <errno.h>
-#include <time.h> 
+#include <time.h>
 /////////////////////////////////////////////
 #endif
 
@@ -59,7 +59,7 @@ typedef int socklen_t;
 
 namespace FIX
 {
-void string_replace( const std::string& oldValue, 
+void string_replace( const std::string& oldValue,
 		     const std::string& newValue,
 		     std::string& value );
 
@@ -85,7 +85,7 @@ tm time_localtime( const time_t* t);
 
 #ifdef _MSC_VER
 typedef unsigned int (_stdcall THREAD_START_ROUTINE)(void *);
-#define  THREAD_PROC unsigned int _stdcall 
+#define  THREAD_PROC unsigned int _stdcall
 #else
 extern "C" { typedef void * (THREAD_START_ROUTINE)(void *); }
 #define THREAD_PROC void *

@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -112,7 +112,7 @@ namespace QuickFix
   Rule80A() : CharField(47) {}
     Rule80A(__wchar_t data) : CharField(47, data) {}
   };
-  
+
   public __gc class Shares : public DoubleField
   {
   public:
@@ -158,12 +158,12 @@ namespace QuickFix
   ExecBroker() : StringField(76) {}
     ExecBroker(String* data) : StringField(76, data) {}
   };
-  
+
   public __gc class OpenClose : public CharField
   {
   public:
   static const __wchar_t OPEN = 'O';
-  static const __wchar_t CLOSE = 'C';  
+  static const __wchar_t CLOSE = 'C';
   OpenClose() : CharField(77) {}
     OpenClose(char data) : CharField(77, data) {}
   };
@@ -231,91 +231,91 @@ namespace QuickFix
   SettlBrkrCode() : StringField(174) {}
     SettlBrkrCode(String* data) : StringField(174, data) {}
   };
-  
+
   public __gc class SettlInstCode : public StringField
   {
   public:
   SettlInstCode() : StringField(175) {}
     SettlInstCode(String* data) : StringField(175, data) {}
   };
-  
+
   public __gc class SecuritySettlAgentName : public StringField
   {
   public:
   SecuritySettlAgentName() : StringField(176) {}
     SecuritySettlAgentName(String* data) : StringField(176, data) {}
   };
-  
+
   public __gc class SecuritySettlAgentCode : public StringField
   {
   public:
   SecuritySettlAgentCode() : StringField(177) {}
     SecuritySettlAgentCode(String* data) : StringField(177, data) {}
   };
-  
+
   public __gc class SecuritySettlAgentAcctNum : public StringField
   {
   public:
   SecuritySettlAgentAcctNum() : StringField(178) {}
     SecuritySettlAgentAcctNum(String* data) : StringField(178, data) {}
   };
-  
+
   public __gc class SecuritySettlAgentAcctName : public StringField
   {
   public:
   SecuritySettlAgentAcctName() : StringField(179) {}
     SecuritySettlAgentAcctName(String* data) : StringField(179, data) {}
   };
-  
+
   public __gc class SecuritySettlAgentContactName : public StringField
   {
   public:
   SecuritySettlAgentContactName() : StringField(180) {}
     SecuritySettlAgentContactName(String* data) : StringField(180, data) {}
   };
-  
+
   public __gc class SecuritySettlAgentContactPhone : public StringField
   {
   public:
   SecuritySettlAgentContactPhone() : StringField(181) {}
     SecuritySettlAgentContactPhone(String* data) : StringField(181, data) {}
   };
-  
+
   public __gc class CashSettlAgentName : public StringField
   {
   public:
   CashSettlAgentName() : StringField(182) {}
     CashSettlAgentName(String* data) : StringField(182, data) {}
   };
-  
+
   public __gc class CashSettlAgentCode : public StringField
   {
   public:
   CashSettlAgentCode() : StringField(183) {}
     CashSettlAgentCode(String* data) : StringField(183, data) {}
   };
-  
+
   public __gc class CashSettlAgentAcctNum : public StringField
   {
   public:
   CashSettlAgentAcctNum() : StringField(184) {}
     CashSettlAgentAcctNum(String* data) : StringField(184, data) {}
   };
-  
+
   public __gc class CashSettlAgentAcctName : public StringField
   {
   public:
   CashSettlAgentAcctName() : StringField(185) {}
     CashSettlAgentAcctName(String* data) : StringField(185, data) {}
   };
-  
+
   public __gc class CashSettlAgentContactName : public StringField
   {
   public:
   CashSettlAgentContactName() : StringField(186) {}
     CashSettlAgentContactName(String* data) : StringField(186, data) {}
   };
-  
+
   public __gc class CashSettlAgentContactPhone : public StringField
   {
   public:
@@ -487,7 +487,7 @@ namespace QuickFix
   TotalVolumeTradedDate() : UtcDateField(449) {}
     TotalVolumeTradedDate(DateTime data) : UtcDateField(449, data) {}
   };
-  
+
   public __gc class TotalVolumeTradedTime : public UtcTimeOnlyField
   {
   public:

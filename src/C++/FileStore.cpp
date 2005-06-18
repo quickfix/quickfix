@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -51,7 +51,7 @@ FileStore::FileStore( std::string path, const SessionID& s )
   if( qualifier.size() )
     sessionid += "-" + qualifier;
 
-  std::string prefix 
+  std::string prefix
     = file_appendpath(path, sessionid + ".");
 
   m_msgFileName = prefix + "body";
@@ -183,7 +183,7 @@ MessageStore* FileStoreFactory::create( const SessionID& s )
 void FileStoreFactory::destroy( MessageStore* pStore )
 { QF_STACK_PUSH(FileStoreFactory::destroy)
   delete pStore;
-  QF_STACK_POP 
+  QF_STACK_POP
 }
 
 bool FileStore::set( int msgSeqNum, const std::string& msg )

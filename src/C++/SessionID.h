@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -28,7 +28,7 @@ namespace FIX
 {
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /// Unique session id consists of BeginString, SenderCompID and TargetCompID.
 class SessionID
 {
@@ -53,18 +53,18 @@ public:
     m_targetCompID( TargetCompID(targetCompID) ),
     m_sessionQualifier( sessionQualifier ) {}
 
-  const BeginString& getBeginString() const 
+  const BeginString& getBeginString() const
     { return m_beginString; }
-  const SenderCompID& getSenderCompID() const 
+  const SenderCompID& getSenderCompID() const
     { return m_senderCompID; }
-  const TargetCompID& getTargetCompID() const 
+  const TargetCompID& getTargetCompID() const
     { return m_targetCompID; }
-  const std::string& getSessionQualifier() const 
+  const std::string& getSessionQualifier() const
     { return m_sessionQualifier; }
 
   /// Get a string representation of the SessionID
   std::string toString() const
-  { 
+  {
       std::string str;
       return toString( str );
   }
@@ -97,7 +97,7 @@ public:
   }
 
   /// Get a string representation without making a copy
-  std::string& toString( std::string& str ) const 
+  std::string& toString( std::string& str ) const
   {
     str = getBeginString().getValue() + ":" +
           getSenderCompID().getValue() + "->" +

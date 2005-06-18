@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -52,7 +52,7 @@ public:
   TestSuite( CPPTest::TestDisplay& display, short port )
 : CPPTest::TestSuite( display ),
   m_parser( port ),
-  m_socketUtilities( port ), m_socketConnector( port ), 
+  m_socketUtilities( port ), m_socketConnector( port ),
   m_socketServer( port )
   {
     FIX::socket_init();

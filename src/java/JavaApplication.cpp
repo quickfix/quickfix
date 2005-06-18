@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -114,7 +114,7 @@ throw( FIX::DoNotSend )
 }
 
 void JavaApplication::fromAdmin( const FIX::Message& msg, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound, 
+  throw( FIX::FieldNotFound,
          FIX::IncorrectDataFormat,
          FIX::IncorrectTagValue,
          FIX::RejectLogon )
@@ -131,7 +131,7 @@ void JavaApplication::fromAdmin( const FIX::Message& msg, const FIX::SessionID& 
 }
 
 void JavaApplication::fromApp( const FIX::Message& msg, const FIX::SessionID& sessionID )
-throw( FIX::FieldNotFound, 
+throw( FIX::FieldNotFound,
        FIX::IncorrectDataFormat,
        FIX::IncorrectTagValue,
        FIX::UnsupportedMessageType )

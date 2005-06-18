@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -102,8 +102,8 @@ public:
   }
 
   ~Locker()
-  { 
-    m_mutex.unlock(); 
+  {
+    m_mutex.unlock();
   }
 private:
   Mutex& m_mutex;
@@ -121,7 +121,7 @@ public:
 
   ~ReverseLocker()
   {
-    m_mutex.lock(); 
+    m_mutex.lock();
   }
 private:
   Mutex& m_mutex;

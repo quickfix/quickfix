@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -33,7 +33,7 @@ namespace FIX
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
                                   const SessionSettings& settings )
-throw( ConfigError ) 
+throw( ConfigError )
 : Initiator( application, factory, settings ),
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false ) {}
@@ -61,7 +61,7 @@ throw ( ConfigError )
   QF_STACK_POP
 }
 
-void SocketInitiator::onInitialize( const SessionSettings& s ) 
+void SocketInitiator::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
 { QF_STACK_PUSH(SocketInitiator::onInitialize)
   QF_STACK_POP
@@ -77,7 +77,7 @@ void SocketInitiator::onStart()
 
   time_t start = 0;
   time_t now = 0;
-    
+
   ::time( &start );
   while ( isLoggedOn() )
   {
@@ -105,7 +105,7 @@ bool SocketInitiator::onPoll()
       return false;
   }
 
-  m_connector.block( *this, true );  
+  m_connector.block( *this, true );
   return true;
 
   QF_STACK_POP
@@ -130,12 +130,12 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     Log* log = session->getLog();
 
     getHost( s, d, address, port );
-    
+
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int result = m_connector.connect( address, port, m_noDelay );
 
-    if ( !result ) 
-    { 
+    if ( !result )
+    {
       log->onEvent( "Connection failed" );
       return false;
     }
@@ -185,7 +185,7 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
   QF_STACK_POP
 }
 
-void SocketInitiator::onError( SocketConnector& connector ) 
+void SocketInitiator::onError( SocketConnector& connector )
 { QF_STACK_PUSH(SocketInitiator::onError)
   onTimeout( connector );
   QF_STACK_POP

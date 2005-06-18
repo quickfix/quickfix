@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -48,7 +48,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
 
   if( connectionType == "acceptor" && settings.has(SESSION_QUALIFIER) )
     throw ConfigError( "SessionQualifier cannot be used with acceptor." );
-   
+
   bool useDataDictionary = true;
   if ( settings.has( USE_DATA_DICTIONARY ) )
     useDataDictionary = settings.getBool( USE_DATA_DICTIONARY );
@@ -119,9 +119,9 @@ Session* SessionFactory::create( const SessionID& sessionID,
   }
 
   Session* pSession = 0;
-  pSession = new Session( m_application, m_messageStoreFactory, 
-                          sessionID, dataDictionary, 
-                          SessionTime(startTime, endTime, startDay, endDay), 
+  pSession = new Session( m_application, m_messageStoreFactory,
+                          sessionID, dataDictionary,
+                          SessionTime(startTime, endTime, startDay, endDay),
                           heartBtInt, m_pLogFactory );
 
   if ( settings.has( CHECK_LATENCY ) )

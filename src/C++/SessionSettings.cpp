@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -95,10 +95,10 @@ throw( ConfigError )
 }
 
 void SessionSettings::set( const SessionID& sessionID,
-                           Dictionary settings ) 
+                           Dictionary settings )
 throw( ConfigError )
 { QF_STACK_PUSH(SessionSettings::set)
-  
+
   settings.setString( BEGINSTRING, sessionID.getBeginString() );
   settings.setString( SENDERCOMPID, sessionID.getSenderCompID() );
   settings.setString( TARGETCOMPID, sessionID.getTargetCompID() );

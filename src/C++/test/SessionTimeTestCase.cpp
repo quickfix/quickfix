@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -67,7 +67,7 @@ void SessionTimeTestCase::isSessionTime::onRun( SessionTime& object )
 void SessionTimeTestCase::isSessionTimeWithDay::onRun( SessionTime& object )
 {
   UtcTimeOnly startTime( 18, 0, 0 );
-  UtcTimeOnly endTime( 3, 0, 0 );  
+  UtcTimeOnly endTime( 3, 0, 0 );
   int startDay = 7;
   int endDay = 7;
 
@@ -87,7 +87,7 @@ void SessionTimeTestCase::isSessionTimeWithDay::onRun( SessionTime& object )
   assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
 
   startTime = UtcTimeOnly( 3, 0, 0 );
-  endTime = UtcTimeOnly( 18, 0, 0 );  
+  endTime = UtcTimeOnly( 18, 0, 0 );
   startDay = 2;
   endDay = 5;
 

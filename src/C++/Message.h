@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -75,11 +75,11 @@ public:
            bool validate = true )
   throw( InvalidMessage );
 
-  Message( const Message& copy ) 
+  Message( const Message& copy )
   : FieldMap( copy ),
     m_header( message_order( message_order::header ) ),
     m_trailer( message_order( message_order::trailer ) )
-  { 
+  {
     m_header = copy.m_header;
     m_trailer = copy.m_trailer;
     m_validStructure = copy.m_validStructure;
@@ -215,14 +215,14 @@ public:
                               const DataDictionary* pD = 0 );
 
   /// Returns the session ID of the intended recipient
-  SessionID getSessionID( const std::string& qualifier = "" ) 
+  SessionID getSessionID( const std::string& qualifier = "" )
   throw( FieldNotFound );
   /// Sets the session ID of the intended recipient
   void setSessionID( const SessionID& sessionID );
 
 private:
   FieldBase extractField
-  ( const std::string& string, std::string::size_type& pos, 
+  ( const std::string& string, std::string::size_type& pos,
     const DataDictionary* pDD = 0, const Group* pGroup = 0 );
 
   void clear();

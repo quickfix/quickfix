@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -95,7 +95,7 @@ public:
     if ( !cls ) throw JVMException( "Class not found" );
   }
 
-  JVMClass( const JVMClass& copy ) : m_cls( copy.m_cls ) 
+  JVMClass( const JVMClass& copy ) : m_cls( copy.m_cls )
   {
     ENV::get()->NewLocalRef( m_cls );
   }
@@ -127,7 +127,7 @@ public:
   {
     if ( !obj ) throw JVMException( "Object not found" );
   }
-  
+
   JVMObject( const JVMObject& copy ) : m_obj(copy.m_obj) {}
 
   JVMClass getClass() { return JVMClass( ENV::get() ->GetObjectClass( m_obj ) ); }

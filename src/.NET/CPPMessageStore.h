@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -48,7 +48,7 @@ public:
 
     try
     { char* umessage = createUnmanagedString( message );
-      bool result = m_pUnmanaged->set( sequence, umessage ); 
+      bool result = m_pUnmanaged->set( sequence, umessage );
       destroyUnmanagedString( umessage );
       return result;
     }

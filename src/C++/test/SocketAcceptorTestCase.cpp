@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -52,7 +52,7 @@ bool SocketAcceptorTestCase::receivePartialMessage::onSetup( SocketAcceptor*& pO
     "TargetCompID=WT\n";
   std::stringstream stream( input );
   stream >> settings;
-  
+
   m_pApplication = new TestApplication();
   m_pFactory = new MemoryStoreFactory();
   pObject = new SocketAcceptor( *m_pApplication, *m_pFactory, settings );

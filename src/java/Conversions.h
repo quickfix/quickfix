@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -79,7 +79,7 @@ inline jobject newSessionID( const FIX::SessionID& sessionID )
   JNIEnv * pEnv = ENV::get();
   JVMClass type( "Lquickfix/SessionID;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V" );
-  
+
   jstring beginString = newString( sessionID.getBeginString().getValue() );
   jstring senderCompID = newString( sessionID.getSenderCompID().getValue() );
   jstring targetCompID = newString( sessionID.getTargetCompID().getValue() );
@@ -208,15 +208,15 @@ inline void setUtcDateOnly( FIX::FieldMap& map, jint field, jobject value )
 inline jstring getString( FIX::FieldMap& map, jint field )
 {
   try { return newString( map.getField( field ) ); }
-  catch( FIX::FieldNotFound& e ) 
-  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }  
+  catch( FIX::FieldNotFound& e )
+  { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   return 0;
 }
 
 inline jboolean getBoolean( FIX::FieldMap& map, jint field )
 {
   try { return FIX::BoolConvertor::convert( map.getField( field ) ); }
-  catch( FIX::FieldNotFound& e ) 
+  catch( FIX::FieldNotFound& e )
   { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
   { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
@@ -226,7 +226,7 @@ inline jboolean getBoolean( FIX::FieldMap& map, jint field )
 inline jchar getChar( FIX::FieldMap& map, jint field )
 {
   try { return FIX::CharConvertor::convert( map.getField( field ) ); }
-  catch( FIX::FieldNotFound& e ) 
+  catch( FIX::FieldNotFound& e )
   { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
   { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
@@ -236,7 +236,7 @@ inline jchar getChar( FIX::FieldMap& map, jint field )
 inline jint getInt( FIX::FieldMap& map, jint field )
 {
   try { return FIX::IntConvertor::convert( map.getField( field ) ); }
-  catch( FIX::FieldNotFound& e ) 
+  catch( FIX::FieldNotFound& e )
   { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
   { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
@@ -246,7 +246,7 @@ inline jint getInt( FIX::FieldMap& map, jint field )
 inline jdouble getDouble( FIX::FieldMap& map, jint field )
 {
   try { return FIX::DoubleConvertor::convert( map.getField( field ) ); }
-  catch( FIX::FieldNotFound& e ) 
+  catch( FIX::FieldNotFound& e )
   { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
   { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
@@ -255,13 +255,13 @@ inline jdouble getDouble( FIX::FieldMap& map, jint field )
 
 inline jobject newUtcTimeStamp( FIX::FieldMap& map, jint field )
 {
-  try 
-  { 
+  try
+  {
     FIX::UtcTimeStamp timeStamp;
     timeStamp = FIX::UtcTimeStampConvertor::convert( map.getField( field ) );
     return newDate( timeStamp );
   }
-  catch( FIX::FieldNotFound& e ) 
+  catch( FIX::FieldNotFound& e )
   { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
   { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
@@ -277,7 +277,7 @@ inline jobject newUtcTimeOnly( FIX::FieldMap& map, jint field )
     FIX::UtcTimeStamp* p = reinterpret_cast < FIX::UtcTimeStamp* > ( &timeOnly );
     return newDate( *p );
   }
-  catch( FIX::FieldNotFound& e ) 
+  catch( FIX::FieldNotFound& e )
   { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
   { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }
@@ -293,7 +293,7 @@ inline jobject newUtcDateOnly( FIX::FieldMap& map, jint field )
     FIX::UtcTimeStamp* p = reinterpret_cast < FIX::UtcTimeStamp* > ( &dateOnly );
     return newDate( *p );
   }
-  catch( FIX::FieldNotFound& e ) 
+  catch( FIX::FieldNotFound& e )
   { throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( field ).c_str() ); }
   catch( FIX::FieldConvertError& e )
   { throwNew( "Lquickfix/IncorrectDataFormat;", FIX::IntConvertor::convert( field ).c_str() ); }

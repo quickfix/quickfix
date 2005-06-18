@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -64,7 +64,7 @@ private:
 
   void onError( SocketMonitor& )
   { QF_STACK_PUSH(ConnectorWrapper::onError)
-    m_strategy.onError( m_connector ); 
+    m_strategy.onError( m_connector );
     QF_STACK_POP
   }
 
@@ -88,7 +88,7 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
 
   if ( socket != -1 )
   {
-    if( noDelay ) 
+    if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
     m_monitor.add( socket );
     return socket;

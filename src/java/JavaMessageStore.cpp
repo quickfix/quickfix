@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -70,7 +70,7 @@ throw ( FIX::IOException )
   jstring jstr = newString( message );
   Exceptions e;
   bool result = pEnv->CallBooleanMethod( messageStore, setId,
-                                         seq, jstr ) != 0;  
+                                         seq, jstr ) != 0;
   pEnv->DeleteLocalRef( jstr );
   handleException( pEnv, e );
   return result;
@@ -98,7 +98,7 @@ throw ( FIX::IOException )
     const char* umessage = pEnv->GetStringUTFChars( message, 0 );
     messages.push_back( umessage );
     pEnv->ReleaseStringUTFChars( message, umessage );
-    pEnv->DeleteLocalRef( message );    
+    pEnv->DeleteLocalRef( message );
   }
   pEnv->DeleteLocalRef( collection );
 }

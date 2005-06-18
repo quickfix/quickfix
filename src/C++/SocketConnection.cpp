@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -131,7 +131,7 @@ void SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
 {
   int size = recv( m_socket, m_buffer, 4095, 0 );
-  if( size <= 0 ) 
+  if( size <= 0 )
     throw SocketRecvFailed( size );
   m_buffer[ size ] = '\0';
 

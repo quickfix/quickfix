@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -344,7 +344,7 @@ bool DataDictionaryTestCase::checkValue::onSetup
 ( DataDictionary*& pObject )
 {
   pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );  
+  pObject->setVersion( BeginString_FIX40 );
   pObject->addField( FIELD::BeginString );
   pObject->addField( FIELD::BodyLength );
   pObject->addField( FIELD::MsgType );
@@ -406,7 +406,7 @@ bool DataDictionaryTestCase::checkGroupCount::onSetup
 ( DataDictionary*& pObject )
 {
   pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX42 );  
+  pObject->setVersion( BeginString_FIX42 );
   pObject->addField( FIELD::BeginString );
   pObject->addField( FIELD::BodyLength );
   pObject->addField( FIELD::MsgType );

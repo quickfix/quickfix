@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -133,7 +133,7 @@ throw( ConfigError, FieldConvertError )
 }
 
 void Dictionary::setString( const std::string& key, const std::string& value )
-{ QF_STACK_PUSH(Dictionary::setString)  
+{ QF_STACK_PUSH(Dictionary::setString)
   m_data[ key ] = value;
   QF_STACK_POP
 }

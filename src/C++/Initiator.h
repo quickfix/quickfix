@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -43,7 +43,7 @@ class Client;
 
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /**
  * Base for classes which act as an initiator for establishing connections.
  *

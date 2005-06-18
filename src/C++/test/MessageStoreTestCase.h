@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -44,7 +44,7 @@ public:
     void onRun( MessageStore& object );
     MessageStore* m_object;
   };
-  
+
   class other : public Test
   {
   public:
@@ -53,7 +53,7 @@ public:
     void onRun( MessageStore& object );
     MessageStore* m_object;
   };
-  
+
   class reload : public Test
   {
   public:

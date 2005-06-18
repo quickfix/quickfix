@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
- 
+
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 #ifndef FIX_VALUES_H
 #define FIX_VALUES_H
 
@@ -32,7 +32,7 @@ namespace FIX
   const char BeginString_FIX42[] = "FIX.4.2";
   const char BeginString_FIX41[] = "FIX.4.1";
   const char BeginString_FIX40[] = "FIX.4.0";
-  
+
  const char MsgType_Heartbeat[] = "0";
  const char MsgType_Logon[] = "A";
  const char MsgType_TestRequest[] = "1";

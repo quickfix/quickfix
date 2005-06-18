@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -36,7 +36,7 @@ namespace FIX
 {
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /**
  * Base representation of all Field classes.
  *
@@ -54,14 +54,14 @@ public:
   {}
 
   void setField( int field )
-  { 
-    m_field = field; 
+  {
+    m_field = field;
     m_calculated = false;
     calculate();
   }
 
   void setString( const std::string& string )
-  { 
+  {
     m_string = string;
     m_calculated = false;
     calculate();
@@ -79,21 +79,21 @@ public:
   const std::string& getValue() const
   {
     const_cast<FieldBase*>(this)->calculate();
-    return m_data; 
+    return m_data;
   }
 
   /// Get the length of the fields string representation
   int getLength() const
   {
-    const_cast<FieldBase*>(this)->calculate(); 
-    return m_length; 
+    const_cast<FieldBase*>(this)->calculate();
+    return m_length;
   }
 
   /// Get the total value the fields characters added together
   int getTotal() const
   {
-    const_cast<FieldBase*>(this)->calculate(); 
-    return m_total; 
+    const_cast<FieldBase*>(this)->calculate();
+    return m_total;
   }
 
   /// Compares fields based on thier tag numbers
@@ -121,7 +121,7 @@ private:
       m_length = m_data.length();
     }
 
-    const unsigned char* iter = 
+    const unsigned char* iter =
       reinterpret_cast<const unsigned char*>( m_data.c_str() );
     m_total = std::accumulate( iter, iter + m_length, 0 );
 
@@ -264,9 +264,9 @@ public:
   void setValue( char value )
     { setString( CharConvertor::convert( value ) ); }
   const char getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return CharConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const char() const
     { return getValue(); }
@@ -284,9 +284,9 @@ public:
   void setValue( double value )
     { setString( DoubleConvertor::convert( value ) ); }
   const double getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return DoubleConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const double() const
     { return getValue(); }
@@ -304,9 +304,9 @@ public:
   void setValue( int value )
     { setString( IntConvertor::convert( value ) ); }
   const int getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return IntConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const int() const
     { return getValue(); }
@@ -324,9 +324,9 @@ public:
   void setValue( bool value )
     { setString( BoolConvertor::convert( value ) ); }
   const bool getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return BoolConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const bool() const
     { return getValue(); }
@@ -344,9 +344,9 @@ public:
   void setValue( UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
   const UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return UtcTimeStampConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const UtcTimeStamp() const
     { return getValue(); }
@@ -371,9 +371,9 @@ public:
   void setValue( UtcDate& value )
     { setString( UtcDateConvertor::convert( value ) ); }
   const UtcDate getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return UtcDateConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const UtcDate() const
     { return getValue(); }
@@ -398,9 +398,9 @@ public:
   void setValue( UtcTimeOnly& value )
     { setString( UtcTimeOnlyConvertor::convert( value ) ); }
   const UtcTimeOnly getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return UtcTimeOnlyConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const UtcTimeOnly() const
     { return getValue(); }
@@ -425,9 +425,9 @@ public:
   void setValue( int value )
     { setString( CheckSumConvertor::convert( value ) ); }
   const int getValue() const throw ( IncorrectDataFormat )
-    { try 
+    { try
       { return CheckSumConvertor::convert( getString() ); }
-      catch( FieldConvertError& ) 
+      catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
   operator const int() const
     { return getValue(); }

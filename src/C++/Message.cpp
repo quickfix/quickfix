@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -73,7 +73,7 @@ bool Message::InitializeXML( const std::string& url )
 
   QF_STACK_POP
 }
-        
+
 void Message::reverseRoute( const Header& header )
 { QF_STACK_PUSH(Message::reverseRoute)
 
@@ -89,12 +89,12 @@ void Message::reverseRoute( const Header& header )
   if( header.isSetField( beginString ) )
   {
     header.getField( beginString );
-    if( beginString.getValue().size() )   
+    if( beginString.getValue().size() )
       m_header.setField( beginString );
 
     OnBehalfOfLocationID onBehalfOfLocationID;
     DeliverToLocationID deliverToLocationID;
-    
+
     m_header.removeField( onBehalfOfLocationID.getField() );
     m_header.removeField( deliverToLocationID.getField() );
 
@@ -154,7 +154,7 @@ void Message::reverseRoute( const Header& header )
     if( onBehalfOfSubID.getValue().size() )
       m_header.setField( DeliverToSubID( onBehalfOfSubID ) );
   }
-        
+
   if( header.isSetField( deliverToCompID ) )
   {
     header.getField( deliverToCompID );
@@ -331,7 +331,7 @@ throw( InvalidMessage )
     }
   }
 
-  if ( doValidation ) 
+  if ( doValidation )
     validate();
 
   QF_STACK_POP
@@ -353,12 +353,12 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
   {
     std::string::size_type oldPos = pos;
     FieldBase field = extractField( string, pos, &dataDictionary, pGroup );
-    if ( (field.getField() == delim) 
+    if ( (field.getField() == delim)
         || (pGroup == 0 && pDD->isField(field.getField())) )
     {
-      if ( pGroup ) 
-      { 
-        map.addGroup( group, *pGroup, false ); 
+      if ( pGroup )
+      {
+        map.addGroup( group, *pGroup, false );
         delete pGroup; pGroup = 0;
       }
       pGroup = new Group( field.getField(), delim, pDD->getOrderedFields()  );
@@ -366,8 +366,8 @@ void Message::setGroup( const std::string& msg, const FieldBase& field,
     else if ( !pDD->isField( field.getField() ) )
     {
       if ( pGroup )
-      { 
-        map.addGroup( group, *pGroup, false ); 
+      {
+        map.addGroup( group, *pGroup, false );
         delete pGroup; pGroup = 0;
       }
       pos = oldPos;
@@ -482,7 +482,7 @@ bool Message::isTrailerField( const FieldBase& field,
   QF_STACK_POP
 }
 
-SessionID Message::getSessionID( const std::string& qualifier ) 
+SessionID Message::getSessionID( const std::string& qualifier )
 throw( FieldNotFound )
 { QF_STACK_PUSH(Message::getSessionID)
 
@@ -533,7 +533,7 @@ void Message::validate()
       text << "Expected BodyLength=" << bodyLength()
            << ", Recieved BodyLength=" << (int)aBodyLength;
       throw InvalidMessage(text.str());
-    }   
+    }
 
     CheckSum aCheckSum;
     m_trailer.getField( aCheckSum );
@@ -545,7 +545,7 @@ void Message::validate()
       throw InvalidMessage(text.str());
     }
   }
-  catch ( FieldNotFound& ) 
+  catch ( FieldNotFound& )
   {
     throw InvalidMessage("BodyLength or CheckSum missing");
   }
@@ -558,9 +558,9 @@ FieldBase Message::extractField
   const DataDictionary* pDD, const Group* pGroup )
 { QF_STACK_PUSH(Message::extractField)
 
-  std::string::size_type equalSign 
+  std::string::size_type equalSign
     = string.find_first_of( '=', pos );
-  if( equalSign == std::string::npos) 
+  if( equalSign == std::string::npos)
     throw InvalidMessage("Equal sign not found in field");
 
   int field = atol(string.substr( pos, equalSign - pos ).c_str());
@@ -574,7 +574,7 @@ FieldBase Message::extractField
   {
     std::string fieldLength;
     /* Assume length field is 1 less. */
-    int lenField = field - 1;     
+    int lenField = field - 1;
     /* Special case for Signature which violates above assumption. */
     if ( field == 89 ) lenField = 93;
 
@@ -591,8 +591,8 @@ FieldBase Message::extractField
   }
 
   pos = soh + 1;
-  return FieldBase ( 
-    field, 
+  return FieldBase (
+    field,
     string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
 
   QF_STACK_POP

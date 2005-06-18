@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -108,7 +108,7 @@ void SessionSettingsTestCase::validate::onRun( SessionSettings& object )
   {
     object.set( sessionID, dictionary );
   }
-  catch( ConfigError& ) 
+  catch( ConfigError& )
   {
     assert( false );
   }
@@ -120,7 +120,7 @@ void SessionSettingsTestCase::validate::onRun( SessionSettings& object )
     object.set( sessionID, dictionary );
     assert( false );
   }
-  catch( ConfigError& ) 
+  catch( ConfigError& )
   {
   }
 }

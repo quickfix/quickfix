@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -40,7 +40,7 @@ namespace QuickFix
 public __gc class MySQLStore : public CPPMessageStore
 {
 public:
-  MySQLStore( SessionID* sessionID, String* database, String* user, 
+  MySQLStore( SessionID* sessionID, String* database, String* user,
       	      String* password, String* host, short port )
   : CPPMessageStore( new FIX::MySQLStore
     ( sessionID->unmanaged(),
@@ -50,7 +50,7 @@ public:
       convertString(host),
       port ) ) {}
 
-  MySQLStore( FIX::MessageStore* pUnmanaged ) 
+  MySQLStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
 
   ~MySQLStore() { delete m_pUnmanaged; }

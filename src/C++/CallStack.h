@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -78,8 +78,8 @@ public:
   class Ignore
   {
   public:
-    Ignore() 
-    { s_count++; 
+    Ignore()
+    { s_count++;
       CallStack::ignore(true);
     }
     ~Ignore()
@@ -90,11 +90,11 @@ public:
 
   private:
     static int s_count;
-  };  
+  };
 
-  CallStack(const std::string& name, const std::string& file, int line);  
+  CallStack(const std::string& name, const std::string& file, int line);
   ~CallStack();
-  
+
   static void output();
   static void ignore( bool );
   static void caught( std::exception& e );

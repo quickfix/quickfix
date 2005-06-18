@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -64,7 +64,7 @@ public class SocketAcceptor implements Acceptor {
     public void start() throws RuntimeError, ConfigError {
         doStart();
     }
-    
+
     public void block() throws RuntimeError, ConfigError {
         doBlock();
     }

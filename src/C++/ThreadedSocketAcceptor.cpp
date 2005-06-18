@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -63,12 +63,12 @@ throw ( ConfigError )
   QF_STACK_POP
 }
 
-void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s ) 
+void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
 
   m_socket = socket_createAcceptor( m_port, m_reuseAddress );
-  
+
   if( m_socket < 0 )
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)m_port ) );
   if( m_noDelay )
@@ -119,7 +119,7 @@ void ThreadedSocketAcceptor::onStop()
 
   time_t start = 0;
   time_t now = 0;
-    
+
   ::time( &start );
   while ( isLoggedOn() )
   {

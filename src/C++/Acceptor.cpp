@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -44,8 +44,8 @@ throw( ConfigError )
   m_pLogFactory( 0 ),
   m_firstPoll( true )
 {
-  initialize(); 
-} 
+  initialize();
+}
 
 Acceptor::Acceptor( Application& application,
                     MessageStoreFactory& messageStoreFactory,
@@ -59,10 +59,10 @@ throw( ConfigError )
   m_pLogFactory( &logFactory ),
   m_firstPoll( true )
 {
-  initialize(); 
+  initialize();
 }
 
-void Acceptor::initialize() throw ( ConfigError ) 
+void Acceptor::initialize() throw ( ConfigError )
 { QF_STACK_PUSH( Acceptor::initialize )
 
   std::set < SessionID > sessions = m_settings.getSessions();
@@ -163,7 +163,7 @@ bool Acceptor::poll() throw ( ConfigError, RuntimeError )
   if( m_firstPoll )
   {
     onConfigure( m_settings );
-    onInitialize( m_settings ); 
+    onInitialize( m_settings );
     m_firstPoll = false;
   }
 
@@ -172,8 +172,8 @@ bool Acceptor::poll() throw ( ConfigError, RuntimeError )
   QF_STACK_POP
 }
 
-void Acceptor::stop( bool force ) 
-{ QF_STACK_PUSH( Acceptor::stop ) 
+void Acceptor::stop( bool force )
+{ QF_STACK_PUSH( Acceptor::stop )
 
   std::vector<Session*> enabledSessions;
 

@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -30,7 +30,7 @@ namespace FIX
 {
 /*! \addtogroup user
  *  @{
- */ 
+ */
 /**
  * This interface must be implemented to define what your %FIX application
  * does.
@@ -40,7 +40,7 @@ namespace FIX
  * these functions. If the application is sharing resources among multiple sessions,
  * you must synchronize those resources. You can also use the SynchronizedApplication
  * class to automatically synchronize all function calls into your application.
- * The various MessageCracker classes can be used to parse the generic message 
+ * The various MessageCracker classes can be used to parse the generic message
  * structure into specific %FIX messages.
  */
 class Application
@@ -68,7 +68,7 @@ public:
 
 /**
 * This is a special implementation of the Application interface that takes
-* in another Application interface and synchronizes all of its callbacks. This 
+* in another Application interface and synchronizes all of its callbacks. This
 * will guarantee that only one thread will access the applications code at a time.
 *
 * This class is a great convenience for writing applications where you
@@ -109,7 +109,7 @@ public:
 * An empty implementation of an Application. This can be used if you
 * do not want to provide an implementation for all the callback methods.
 * It is also useful for unit tests writing unit tests where the callback
-* values of some or all methods are not of interest. 
+* values of some or all methods are not of interest.
 */
 class NullApplication : public Application
 {

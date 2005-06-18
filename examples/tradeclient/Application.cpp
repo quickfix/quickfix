@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -88,7 +88,7 @@ void Application::run()
   {
     try
     {
-      char action = queryAction();      
+      char action = queryAction();
 
       if ( action == '1' )
         queryEnterOrder();
@@ -212,7 +212,7 @@ void Application::queryMarketDataRequest()
     break;
   case 44:
     md = queryMarketDataRequest44();
-    break;  
+    break;
   default:
     std::cerr << "No test for version " << version << std::endl;
     break;

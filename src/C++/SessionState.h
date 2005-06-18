@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -39,7 +39,7 @@ class SessionState : public MessageStore, public Log
   typedef std::map < int, Message > Messages;
 
 public:
-  SessionState() 
+  SessionState()
 : m_connected( false ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
@@ -59,7 +59,7 @@ public:
   void logonTimeout( int value ) { m_logonTimeout = value; }
   int testRequest() const { return m_testRequest; }
   void testRequest( int value ) { m_testRequest = value; }
-  bool resendRequested() const 
+  bool resendRequested() const
   { return !(m_resendRange.first == 0 && m_resendRange.second == 0); }
 
   typedef std::pair<int, int> ResendRange;

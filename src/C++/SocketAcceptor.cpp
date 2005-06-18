@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -63,7 +63,7 @@ throw ( ConfigError )
   QF_STACK_POP
 }
 
-void SocketAcceptor::onInitialize( const SessionSettings& s ) 
+void SocketAcceptor::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
 { QF_STACK_PUSH(SocketAcceptor::onInitialize)
 
@@ -75,7 +75,7 @@ throw ( RuntimeError )
   {
     throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)m_port ) );
   }
-  
+
   QF_STACK_POP
 }
 
@@ -85,12 +85,12 @@ void SocketAcceptor::onStart()
   m_stop = false;
   while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
 
-  if( !m_pServer ) 
+  if( !m_pServer )
     return;
 
   time_t start = 0;
   time_t now = 0;
-    
+
   ::time( &start );
   while ( isLoggedOn() )
   {

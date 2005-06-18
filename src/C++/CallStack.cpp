@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -39,9 +39,9 @@ namespace FIX
     Locker locker(s_mutex);
 
     #if TERMINATE_IN_STD
-      std::set_terminate(FIX::CallStack::terminate);  
+      std::set_terminate(FIX::CallStack::terminate);
     #else
-      set_terminate(FIX::CallStack::terminate);  
+      set_terminate(FIX::CallStack::terminate);
     #endif
 
     Context& c = getContext();
@@ -53,7 +53,7 @@ namespace FIX
   }
 
   CallStack::~CallStack()
-  { 
+  {
     Locker locker(s_mutex);
     Context& c = getContext();
     if( !c.ignore )
@@ -100,7 +100,7 @@ namespace FIX
   }
 
   CallStack::Context& CallStack::getContext()
-  {    
+  {
     Locker locker(s_mutex);
     return s_stack[thread_self()];
   }

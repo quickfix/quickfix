@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -53,7 +53,7 @@ public:
   { QF_STACK_TRY
 
     char* us = createUnmanagedString( s );
-    m_pUnmanaged->onIncoming( us ); 
+    m_pUnmanaged->onIncoming( us );
     destroyUnmanagedString( us );
 
     QF_STACK_CATCH
@@ -63,7 +63,7 @@ public:
   { QF_STACK_TRY
 
     char* us = createUnmanagedString( s );
-    m_pUnmanaged->onOutgoing( us ); 
+    m_pUnmanaged->onOutgoing( us );
     destroyUnmanagedString( us );
 
     QF_STACK_CATCH
@@ -73,7 +73,7 @@ public:
   { QF_STACK_TRY
 
     char* us = createUnmanagedString( s );
-    m_pUnmanaged->onEvent( us ); 
+    m_pUnmanaged->onEvent( us );
     destroyUnmanagedString( us );
 
     QF_STACK_CATCH
@@ -86,10 +86,10 @@ private:
 public __gc class FileLogFactory : public LogFactory
 {
 public:
-  FileLogFactory( SessionSettings* settings ) 
+  FileLogFactory( SessionSettings* settings )
   : m_path( 0 ), m_settings( settings ) {}
 
-  FileLogFactory( String* path ) 
+  FileLogFactory( String* path )
   : m_path( path ), m_settings( 0 ) {}
 
   Log* create( SessionID* sessionID )

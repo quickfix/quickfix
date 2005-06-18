@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -70,12 +70,12 @@ public:
   {
     void onRun( Message& object );
   } m_identifyType;
-  
+
   class isAdminMsgType : public EmptyTest
   {
     void onRun( Message& object );
   } m_isAdminMsgType;
-  
+
   class isAdmin : public SimpleTest
   {
     void onRun( Message& object );
@@ -110,12 +110,12 @@ public:
   {
     void onRun( Message& object );
   } m_checkSum;
-  
+
   class headerFieldsFirst : public SimpleTest
   {
     void onRun( Message& object );
   } m_headerFieldsFirst;
-  
+
   class noEndingDelim : public SimpleTest
   {
     void onRun( Message& object );

@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -26,17 +26,17 @@ public class Session {
     private Session(int cppPointer) {
 	this.cppPointer = cppPointer;
     }
-    
+
     public static native boolean sendToTarget(Message message)
 	throws SessionNotFound;
 
     public static native boolean sendToTarget(Message message, String qualifier)
 	throws SessionNotFound;
-    
+
     public static native boolean sendToTarget
 	(Message message, SessionID sessionID)
 	throws SessionNotFound;
-    
+
     public static native boolean sendToTarget
 	(Message message, String senderCompID, String targetCompID)
 	throws SessionNotFound;
@@ -45,9 +45,9 @@ public class Session {
 	(Message message, String senderCompID, String targetCompID,
          String qualifier)
 	throws SessionNotFound;
-    
+
     public static native Session lookupSession(SessionID sessionID);
-    
+
     public native void logon();
     public native void logout();
     public native boolean isEnabled();

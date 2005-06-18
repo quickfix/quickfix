@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -39,20 +39,20 @@ public:
   void toApp( FIX::Message&, const FIX::SessionID& )
   throw( FIX::DoNotSend );
   void fromAdmin( const FIX::Message&, const FIX::SessionID& )
-  throw( FIX::FieldNotFound, 
+  throw( FIX::FieldNotFound,
          FIX::IncorrectDataFormat,
          FIX::IncorrectTagValue,
          FIX::RejectLogon );
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound, 
+  throw( FIX::FieldNotFound,
          FIX::IncorrectDataFormat,
          FIX::IncorrectTagValue,
-         FIX::UnsupportedMessageType );  
+         FIX::UnsupportedMessageType );
 
 private:
   struct Exceptions
   {
-    Exceptions() : 
+    Exceptions() :
       doNotSend("Lquickfix/DoNotSend;"),
       rejectLogon("Lquickfix/RejectLogon;"),
       unsupportedMessageType("Lquickfix/UnsupportedMessageType;"),

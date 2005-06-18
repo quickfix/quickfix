@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -60,7 +60,7 @@ throw ( ConfigError )
   QF_STACK_POP
 }
 
-void ThreadedSocketInitiator::onInitialize( const SessionSettings& s ) 
+void ThreadedSocketInitiator::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketInitiator::onInitialize)
   QF_STACK_POP
@@ -96,7 +96,7 @@ void ThreadedSocketInitiator::onStop()
 
   time_t start = 0;
   time_t now = 0;
-    
+
   ::time( &start );
   while ( isLoggedOn() )
   {
@@ -193,7 +193,7 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
     pInitiator->getHost( sessionID, dictionary, address, port );
 
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
-    int socket = socket_createConnector( address.c_str(), port );    
+    int socket = socket_createConnector( address.c_str(), port );
     if ( socket < 0 )
     {
       log->onEvent( "Connection failed" );

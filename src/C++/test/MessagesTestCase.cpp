@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -118,7 +118,7 @@ void MessageTestCase::setString::onRun( Message& object )
   static const char* strJunk =
     "paste your FIX message here, then hit ENTER";
 
-  try 
+  try
   {
     object.setString( strGood );
     object.setString( std::string(strNull, 68) );
@@ -164,7 +164,7 @@ void MessageTestCase::setStringWithGroup::onRun( Message& object )
     "350460\00167=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110="
     "138\001";
 
-    try 
+    try
     {
       object.setString( str, true, &dataDictionary );
       assert( object.toString() == str );
@@ -174,7 +174,7 @@ void MessageTestCase::setStringWithGroup::onRun( Message& object )
 void MessageTestCase::setStringWithHighBit::onRun( Message& object )
 {
   DataDictionary dataDictionary( "spec/FIX42.xml" );
-  
+
   FIX::Headline headline( "client" );
   FIX42::News msg( headline );
 
@@ -191,7 +191,7 @@ void MessageTestCase::setStringWithHighBit::onRun( Message& object )
   msg.set(data);
   std::string str = msg.getString();
 
-  try 
+  try
   {
     object.setString( str, true, &dataDictionary );
     assert( object.toString() == str );
@@ -360,7 +360,7 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   header.setField( deliverToCompID );
   header.setField( deliverToSubID );
   header.setField( deliverToLocationID );
-  
+
   reversedMessage.reverseRoute( header );
   assert( reversedHeader.getField( beginString ).getString() == "FIX.4.2" );
   assert( reversedHeader.getField( senderCompID ).getString() == "TargetCompID" );
@@ -548,7 +548,7 @@ void NewOrderSingleParseTestCase::setString::onRun( NewOrderSingle& object )
   Side side;
   TransactTime transactTime;
   OrdType ordType;
-  assert( object.get( clOrdID ) == "ORDERID" ); 
+  assert( object.get( clOrdID ) == "ORDERID" );
   assert( object.get( handlInst ) == '3' );
   assert( object.get( symbol ) == "MSFT" );
   assert( object.get( side ) == '1' );
@@ -902,7 +902,7 @@ void MassQuoteParseTestCase::setString::onRun
   {
     object.setString
       ( "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
-        "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001", 
+        "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001",
          true, &dataDictionary );
   }
   catch ( ... )

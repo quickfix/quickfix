@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -29,42 +29,42 @@
 
 namespace FIX
 {
-  SessionTime::SessionTime( const UtcTimeOnly& startTime, 
+  SessionTime::SessionTime( const UtcTimeOnly& startTime,
                             const UtcTimeOnly& endTime,
                             int startDay,
                             int endDay )
   : m_startTime( startTime ), m_endTime( endTime ),
-    m_startDay( startDay ), m_endDay( endDay ) 
+    m_startDay( startDay ), m_endDay( endDay )
   {
-    if( startDay > 0 
-        && endDay > 0 
+    if( startDay > 0
+        && endDay > 0
         && startDay == endDay
         && endTime > startTime )
       { m_endTime = m_startTime; }
   }
 
-  bool SessionTime::isSessionTime( const UtcTimeOnly& start, 
+  bool SessionTime::isSessionTime( const UtcTimeOnly& start,
                                    const UtcTimeOnly& end,
                                    const UtcTimeStamp& time )
   { QF_STACK_PUSH(SessionTime::isSessionTime)
 
     UtcTimeOnly timeOnly( time, 0 );
-    
+
     if ( start < end )
       return ( timeOnly >= start && timeOnly <= end );
     else
       return ( timeOnly >= start || timeOnly <= end );
-    
+
     QF_STACK_POP
   }
 
-  bool SessionTime::isSessionTime( const UtcTimeOnly& startTime, 
+  bool SessionTime::isSessionTime( const UtcTimeOnly& startTime,
                                    const UtcTimeOnly& endTime,
                                    int startDay,
                                    int endDay,
                                    const UtcTimeStamp& time )
   { QF_STACK_PUSH(SessionTime::isSessionTime)
-    
+
     int currentDay = time.getWeekDay();
     UtcTimeOnly timeOnly( time, 0 );
 
@@ -114,7 +114,7 @@ namespace FIX
     else if( start > end )
       return labs(time1 - time2) < UTC_DAY;
     return false;
-    
+
     QF_STACK_POP
   }
 
@@ -152,7 +152,7 @@ namespace FIX
 
     time_t t1 = mktime( (tm*)&time1 ) - UTC_DAY * time1Range;
     time_t t2 = mktime( (tm*)&time2 ) - UTC_DAY * time2Range;
-    
+
     tm tm1 = time_localtime( &t1 );
     tm tm2 = time_localtime( &t2 );
 

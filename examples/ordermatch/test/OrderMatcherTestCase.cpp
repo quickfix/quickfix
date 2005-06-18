@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -27,11 +27,11 @@
 
 void OrderMatcherTestCase::matchFull::onRun( OrderMatcher& object )
 {
-  Order order1("1", "LNUX", "OWNER1", "TARGET", 
+  Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
-  Order order2("2", "LNUX", "OWNER2", "TARGET", 
+  Order order2("2", "LNUX", "OWNER2", "TARGET",
                Order::sell, Order::limit, 12.32, 100);
-  
+
   assert(object.insert(order1));
   assert(object.insert(order2));
 
@@ -65,13 +65,13 @@ void OrderMatcherTestCase::matchFull::onRun( OrderMatcher& object )
 
 void OrderMatcherTestCase::matchPartial::onRun( OrderMatcher& object )
 {
-  Order order1("1", "LNUX", "OWNER1", "TARGET", 
+  Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
-  Order order2("2", "LNUX", "OWNER2", "TARGET", 
+  Order order2("2", "LNUX", "OWNER2", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
-  Order order3("3", "LNUX", "OWNER3", "TARGET", 
+  Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::sell, Order::limit, 12.30, 50);
-  
+
   assert(object.insert(order1));
   assert(object.insert(order2));
 
@@ -132,11 +132,11 @@ void OrderMatcherTestCase::matchPartial::onRun( OrderMatcher& object )
 
 void OrderMatcherTestCase::matchTimePriority::onRun( OrderMatcher& object )
 {
-  Order order1("1", "LNUX", "OWNER1", "TARGET", 
+  Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
-  Order order2("2", "LNUX", "OWNER2", "TARGET", 
+  Order order2("2", "LNUX", "OWNER2", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
-  Order order3("3", "LNUX", "OWNER3", "TARGET", 
+  Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 50);
 
   assert(object.insert(order1));
@@ -162,11 +162,11 @@ void OrderMatcherTestCase::matchTimePriority::onRun( OrderMatcher& object )
 
 void OrderMatcherTestCase::matchPricePriority::onRun( OrderMatcher& object )
 {
-  Order order1("1", "LNUX", "OWNER1", "TARGET", 
+  Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
-  Order order2("2", "LNUX", "OWNER2", "TARGET", 
+  Order order2("2", "LNUX", "OWNER2", "TARGET",
                Order::sell, Order::limit, 12.31, 50);
-  Order order3("3", "LNUX", "OWNER3", "TARGET", 
+  Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 50);
 
   assert(object.insert(order1));
@@ -192,11 +192,11 @@ void OrderMatcherTestCase::matchPricePriority::onRun( OrderMatcher& object )
 
 void OrderMatcherTestCase::matchMultiple::onRun( OrderMatcher& object )
 {
-  Order order1("1", "LNUX", "OWNER1", "TARGET", 
+  Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::sell, Order::limit, 12.32, 50);
-  Order order2("2", "LNUX", "OWNER2", "TARGET", 
+  Order order2("2", "LNUX", "OWNER2", "TARGET",
                Order::sell, Order::limit, 12.30, 50);
-  Order order3("3", "LNUX", "OWNER3", "TARGET", 
+  Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
 
   assert(object.insert(order1));
@@ -255,11 +255,11 @@ void OrderMatcherTestCase::matchMultiple::onRun( OrderMatcher& object )
 
 void OrderMatcherTestCase::overMatch::onRun( OrderMatcher& object )
 {
-  Order order1("1", "LNUX", "OWNER1", "TARGET", 
+  Order order1("1", "LNUX", "OWNER1", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
-  Order order2("2", "LNUX", "OWNER2", "TARGET", 
+  Order order2("2", "LNUX", "OWNER2", "TARGET",
                Order::sell, Order::limit, 12.32, 110);
-  Order order3("3", "LNUX", "OWNER3", "TARGET", 
+  Order order3("3", "LNUX", "OWNER3", "TARGET",
                Order::buy, Order::limit, 12.32, 100);
 
   assert(object.insert(order1));
@@ -273,7 +273,7 @@ void OrderMatcherTestCase::overMatch::onRun( OrderMatcher& object )
   orders.pop();
   Order matchedOrder2 = orders.front();
   orders.pop();
-  
+
   assert(matchedOrder1.getClientID() == "1");
   assert(matchedOrder1.isFilled());
   assert(matchedOrder1.isClosed());

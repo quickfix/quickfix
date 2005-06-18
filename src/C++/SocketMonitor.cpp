@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -122,7 +122,7 @@ double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
 
 bool SocketMonitor::sleepIfEmpty( bool poll )
 { QF_STACK_PUSH(SocketMonitor::sleepIfEmpty)
-  
+
   if( poll )
     return false;
 
@@ -181,7 +181,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
 #endif
       strategy.onEvent( *this, s );
     }
-#ifdef _MSC_VER 
+#ifdef _MSC_VER
     // need this for emacs to format correctly
   }
 #else

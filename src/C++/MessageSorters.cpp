@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -46,7 +46,7 @@ message_order::message_order( int first, ... )
   int* order = new int[size];
   order[0] = first;
   for ( int i = 1; i < size; ++i )
-    order[ i ] = va_arg( arguments, int );  
+    order[ i ] = va_arg( arguments, int );
   setOrder(size, order);
   delete [] order;
 
@@ -71,7 +71,7 @@ message_order& message_order::operator=( const message_order& rhs )
   {
     if ( m_groupOrder ) delete [] m_groupOrder;
     m_groupOrder = new int[ m_largest + 1 ];
-    memcpy( m_groupOrder, rhs.m_groupOrder, 
+    memcpy( m_groupOrder, rhs.m_groupOrder,
             ( m_largest + 1 ) * sizeof( int ) );
   }
   return *this;
@@ -84,7 +84,7 @@ void message_order::setOrder( int size, const int order[] )
 
   if(size < 1) return;
   m_largest = m_delim = order[0];
-  
+
   int* fields = new int[ size + 1 ];
   fields[ 1 ] = m_delim;
   // collect all fields and find the largest field number

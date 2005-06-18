@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -30,7 +30,7 @@ public class Group extends FieldMap {
     public Group(int field, int delim, int[] order) {
         create(field, delim, order);
     }
-    
+
     protected void finalize() {
         destroy();
     }

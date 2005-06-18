@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -42,14 +42,14 @@ public __gc __interface Application
   virtual void toApp( Message*, SessionID* )
   throw( DoNotSend* ) = 0;
   virtual void fromAdmin( Message*, SessionID* )
-  throw( FieldNotFound*, 
-	 IncorrectDataFormat*, 
-	 IncorrectTagValue*, 
+  throw( FieldNotFound*,
+	 IncorrectDataFormat*,
+	 IncorrectTagValue*,
 	 RejectLogon* ) = 0;
   virtual void fromApp( Message*, SessionID* )
-  throw( FieldNotFound*, 
-	 IncorrectDataFormat*, 
-	 IncorrectTagValue*, 
+  throw( FieldNotFound*,
+	 IncorrectDataFormat*,
+	 IncorrectTagValue*,
 	 UnsupportedMessageType* ) = 0;
 };
 }
@@ -57,7 +57,7 @@ public __gc __interface Application
 class Application : public FIX::Application
 {
 public:
-  Application( QuickFix::Application* application, 
+  Application( QuickFix::Application* application,
 	       QuickFix::MessageFactory* factory )
   : m_application( application ), m_factory( factory ) {}
   void onCreate( const FIX::SessionID& sessionID )
@@ -88,11 +88,11 @@ public:
     message = toMessage->unmanaged();
   }
 
-  void fromAdmin( const FIX::Message& message, 
+  void fromAdmin( const FIX::Message& message,
 		              const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, 
-	       FIX::IncorrectDataFormat&, 
-	       FIX::IncorrectTagValue&, 
+  throw( FIX::FieldNotFound&,
+	       FIX::IncorrectDataFormat&,
+	       FIX::IncorrectTagValue&,
 	       FIX::RejectLogon& )
   {
     QuickFix::Message __pin * toMessage = create( message );
@@ -116,9 +116,9 @@ public:
   }
 
   void fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )
-  throw( FIX::FieldNotFound&, 
-	       FIX::IncorrectDataFormat&, 
-	       FIX::IncorrectTagValue&, 
+  throw( FIX::FieldNotFound&,
+	       FIX::IncorrectDataFormat&,
+	       FIX::IncorrectTagValue&,
 	       FIX::UnsupportedMessageType& )
   {
     QuickFix::Message __pin * toMessage = create( message );
@@ -134,14 +134,14 @@ public:
     {
       throw FIX::IncorrectDataFormat( e->field );
     }
-    catch ( QuickFix::IncorrectTagValue * e ) 
-    { 
-      throw FIX::IncorrectTagValue( e->field ); 
+    catch ( QuickFix::IncorrectTagValue * e )
+    {
+      throw FIX::IncorrectTagValue( e->field );
     }
     catch ( QuickFix::UnsupportedMessageType* )
     {
       throw FIX::UnsupportedMessageType();
-    }    
+    }
   }
 
 private:
@@ -151,7 +151,7 @@ private:
     FIX::MsgType msgType;
     unmanaged.getHeader().getField( beginString );
     unmanaged.getHeader().getField( msgType );
-    QuickFix::Message __pin * message 
+    QuickFix::Message __pin * message
       = m_factory->create
       ( beginString.getValue().c_str(), msgType.getValue().c_str() );
     message->setUnmanaged( unmanaged );

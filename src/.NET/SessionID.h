@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -35,7 +35,7 @@ public __gc class SessionID
 public:
   SessionID( String* beginString, String* senderCompID, String* targetCompID )
   { QF_STACK_TRY
-    
+
     m_pUnmanaged = new FIX::SessionID(
                      FIX::BeginString( convertString( beginString ) ),
                      FIX::SenderCompID( convertString( senderCompID ) ),
@@ -44,10 +44,10 @@ public:
     QF_STACK_CATCH
   }
 
-  SessionID( String* beginString, String* senderCompID, 
+  SessionID( String* beginString, String* senderCompID,
              String* targetCompID, String* sessionQualifier )
   { QF_STACK_TRY
-    
+
     m_pUnmanaged = new FIX::SessionID(
                      FIX::BeginString( convertString( beginString ) ),
                      FIX::SenderCompID( convertString( senderCompID ) ),
@@ -85,17 +85,17 @@ public:
 
   String* getBeginString()
   { QF_STACK_TRY
-    return m_pUnmanaged->getBeginString().getValue().c_str(); 
+    return m_pUnmanaged->getBeginString().getValue().c_str();
     QF_STACK_CATCH
   }
   String* getSenderCompID()
   { QF_STACK_TRY
-    return m_pUnmanaged->getSenderCompID().getValue().c_str(); 
+    return m_pUnmanaged->getSenderCompID().getValue().c_str();
     QF_STACK_CATCH
   }
   String* getTargetCompID()
   { QF_STACK_TRY
-    return m_pUnmanaged->getTargetCompID().getValue().c_str(); 
+    return m_pUnmanaged->getTargetCompID().getValue().c_str();
     QF_STACK_CATCH
   }
 

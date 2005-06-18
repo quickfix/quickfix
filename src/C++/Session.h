@@ -1,7 +1,7 @@
 /* -*- C++ -*- */
 
 /****************************************************************************
-** Copyright (c) 2001-2004 quickfixengine.org  All rights reserved.
+** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -46,7 +46,7 @@ class Session
 {
 public:
   Session( Application&, MessageStoreFactory&,
-           const SessionID&, 
+           const SessionID&,
            const DataDictionary&,
            const SessionTime&,
            int heartBtInt, LogFactory* pLogFactory );
@@ -66,22 +66,22 @@ public:
   void setNextTargetMsgSeqNum( int num ) throw( IOException )
   { m_state.setNextTargetMsgSeqNum( num ); }
 
-  const SessionID& getSessionID() const 
+  const SessionID& getSessionID() const
   { return m_sessionID; }
-  const DataDictionary& getDataDictionary() const 
+  const DataDictionary& getDataDictionary() const
   { return m_dataDictionary; }
 
-  static bool sendToTarget( Message& message, 
+  static bool sendToTarget( Message& message,
                             const std::string& qualifier = "" )
-  throw( SessionNotFound ); 
+  throw( SessionNotFound );
   static bool sendToTarget( Message& message, const SessionID& sessionID )
   throw( SessionNotFound );
-  static bool sendToTarget( Message&, 
+  static bool sendToTarget( Message&,
                             const SenderCompID& senderCompID,
                             const TargetCompID& targetCompID,
                             const std::string& qualifier = "" )
   throw( SessionNotFound );
-  static bool sendToTarget( Message& message, 
+  static bool sendToTarget( Message& message,
                             const std::string& senderCompID,
                             const std::string& targetCompID,
                             const std::string& qualifier = "" )
@@ -98,23 +98,23 @@ public:
 
   bool isSessionTime()
     { return m_sessionTime.isSessionTime(); }
-  void checkLatency ( bool value ) 
+  void checkLatency ( bool value )
     { m_checkLatency = value; }
-  void setMaxLatency ( int value ) 
+  void setMaxLatency ( int value )
     { m_maxLatency = value; }
-  void setLogonTimeout ( int value ) 
+  void setLogonTimeout ( int value )
     { m_state.logonTimeout( value ); }
   void setSendResetSeqNumFlag( bool value )
     { m_sendResetSeqNumFlag = value; }
-  void setResetOnLogout ( bool value ) 
+  void setResetOnLogout ( bool value )
     { m_resetOnLogout = value; }
-  void setResetOnDisconnect( bool value ) 
+  void setResetOnDisconnect( bool value )
     { m_resetOnDisconnect = value; }
-  void setMillisecondsInTimeStamp ( bool value ) 
+  void setMillisecondsInTimeStamp ( bool value )
     { m_millisecondsInTimeStamp = value; }
 
-  void setResponder( Responder* pR ) 
-  { 
+  void setResponder( Responder* pR )
+  {
     if ( !checkSessionTime( UtcTimeStamp() ) )
       reset();
     m_pResponder = pR;
@@ -140,10 +140,10 @@ private:
   bool send( const std::string );
   bool sendRaw( Message&, int msgSeqNum = 0 );
   bool resend( Message& message );
-  
+
   void insertSendingTime( Header& );
   void fill( Header& );
-  
+
   bool isGoodTime( const SendingTime& sendingTime )
   {
     if ( !m_checkLatency ) return true;
