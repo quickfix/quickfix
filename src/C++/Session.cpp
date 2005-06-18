@@ -1259,9 +1259,10 @@ void Session::next( const Message& message, bool queued )
   { LOGEX( generateReject( message, 16, e.field ) ); }
   catch ( InvalidMessage& e )
   { m_state.onEvent( e.what() ); }
-  catch ( RejectLogon& )
+  catch ( RejectLogon& e )
   {
-    m_state.onEvent( "Logon rejected" );
+    m_state.onEvent( e.what() );
+    generateLogout( e.what() );
     disconnect();
   }
   catch ( UnsupportedVersion& )

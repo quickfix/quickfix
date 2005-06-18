@@ -211,7 +211,7 @@ struct DoNotSend : public Exception
 struct RejectLogon : public Exception
 {
   RejectLogon( const std::string& what = "" ) 
-    : Exception( "Reject Logon Attempt", what ) {}
+    : Exception( "Rejected Logon Attempt", what ) {}
 };
 
 /// Session cannot be found for specified action
