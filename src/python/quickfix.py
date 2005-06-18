@@ -4,7 +4,7 @@
 
 import _quickfix
 
-def _swig_setattr(self,class_type,name,value):
+def _swig_setattr_nondynamic(self,class_type,name,value,static=1):
     if (name == "this"):
         if isinstance(value, class_type):
             self.__dict__[name] = value.this
@@ -13,7 +13,13 @@ def _swig_setattr(self,class_type,name,value):
             return
     method = class_type.__swig_setmethods__.get(name,None)
     if method: return method(self,value)
-    self.__dict__[name] = value
+    if (not static) or hasattr(self,name) or (name == "thisown"):
+        self.__dict__[name] = value
+    else:
+        raise AttributeError("You cannot add attributes to %s" % self)
+
+def _swig_setattr(self,class_type,name,value):
+    return _swig_setattr_nondynamic(self,class_type,name,value,0)
 
 def _swig_getattr(self,class_type,name):
     method = class_type.__swig_getmethods__.get(name,None)
@@ -42,15 +48,16 @@ class Exception:
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Exception, name)
     def __repr__(self):
-        return "<C FIX::Exception instance at %s>" % (self.this,)
-    def __str__(*args): return _quickfix.Exception___str__(*args)
+        return "<%s.%s; proxy of C++ FIX::Exception instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Exception, 'this', _quickfix.new_Exception(*args))
         _swig_setattr(self, Exception, 'thisown', 1)
+    def __str__(*args): return _quickfix.Exception___str__(*args)
     def __del__(self, destroy=_quickfix.delete_Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExceptionPtr(Exception):
     def __init__(self, this):
@@ -67,7 +74,7 @@ class FieldNotFound(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FieldNotFound, name)
     def __repr__(self):
-        return "<C FIX::FieldNotFound instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FieldNotFound instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FieldNotFound, 'this', _quickfix.new_FieldNotFound(*args))
         _swig_setattr(self, FieldNotFound, 'thisown', 1)
@@ -77,6 +84,7 @@ class FieldNotFound(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FieldNotFoundPtr(FieldNotFound):
     def __init__(self, this):
@@ -93,7 +101,7 @@ class FieldConvertError(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FieldConvertError, name)
     def __repr__(self):
-        return "<C FIX::FieldConvertError instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FieldConvertError instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FieldConvertError, 'this', _quickfix.new_FieldConvertError(*args))
         _swig_setattr(self, FieldConvertError, 'thisown', 1)
@@ -101,6 +109,7 @@ class FieldConvertError(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FieldConvertErrorPtr(FieldConvertError):
     def __init__(self, this):
@@ -117,7 +126,7 @@ class MessageParseError(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MessageParseError, name)
     def __repr__(self):
-        return "<C FIX::MessageParseError instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MessageParseError instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MessageParseError, 'this', _quickfix.new_MessageParseError(*args))
         _swig_setattr(self, MessageParseError, 'thisown', 1)
@@ -125,6 +134,7 @@ class MessageParseError(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MessageParseErrorPtr(MessageParseError):
     def __init__(self, this):
@@ -141,7 +151,7 @@ class InvalidMessage(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidMessage, name)
     def __repr__(self):
-        return "<C FIX::InvalidMessage instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InvalidMessage instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InvalidMessage, 'this', _quickfix.new_InvalidMessage(*args))
         _swig_setattr(self, InvalidMessage, 'thisown', 1)
@@ -149,6 +159,7 @@ class InvalidMessage(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InvalidMessagePtr(InvalidMessage):
     def __init__(self, this):
@@ -165,7 +176,7 @@ class ConfigError(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfigError, name)
     def __repr__(self):
-        return "<C FIX::ConfigError instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfigError instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfigError, 'this', _quickfix.new_ConfigError(*args))
         _swig_setattr(self, ConfigError, 'thisown', 1)
@@ -173,6 +184,7 @@ class ConfigError(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfigErrorPtr(ConfigError):
     def __init__(self, this):
@@ -189,7 +201,7 @@ class RuntimeError(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RuntimeError, name)
     def __repr__(self):
-        return "<C FIX::RuntimeError instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RuntimeError instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RuntimeError, 'this', _quickfix.new_RuntimeError(*args))
         _swig_setattr(self, RuntimeError, 'thisown', 1)
@@ -197,6 +209,7 @@ class RuntimeError(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RuntimeErrorPtr(RuntimeError):
     def __init__(self, this):
@@ -213,7 +226,7 @@ class InvalidTagNumber(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidTagNumber, name)
     def __repr__(self):
-        return "<C FIX::InvalidTagNumber instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InvalidTagNumber instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InvalidTagNumber, 'this', _quickfix.new_InvalidTagNumber(*args))
         _swig_setattr(self, InvalidTagNumber, 'thisown', 1)
@@ -224,6 +237,7 @@ class InvalidTagNumber(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InvalidTagNumberPtr(InvalidTagNumber):
     def __init__(self, this):
@@ -240,7 +254,7 @@ class RequiredTagMissing(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RequiredTagMissing, name)
     def __repr__(self):
-        return "<C FIX::RequiredTagMissing instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RequiredTagMissing instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RequiredTagMissing, 'this', _quickfix.new_RequiredTagMissing(*args))
         _swig_setattr(self, RequiredTagMissing, 'thisown', 1)
@@ -251,6 +265,7 @@ class RequiredTagMissing(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RequiredTagMissingPtr(RequiredTagMissing):
     def __init__(self, this):
@@ -267,7 +282,7 @@ class TagNotDefinedForMessage(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TagNotDefinedForMessage, name)
     def __repr__(self):
-        return "<C FIX::TagNotDefinedForMessage instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TagNotDefinedForMessage instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TagNotDefinedForMessage, 'this', _quickfix.new_TagNotDefinedForMessage(*args))
         _swig_setattr(self, TagNotDefinedForMessage, 'thisown', 1)
@@ -278,6 +293,7 @@ class TagNotDefinedForMessage(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TagNotDefinedForMessagePtr(TagNotDefinedForMessage):
     def __init__(self, this):
@@ -294,7 +310,7 @@ class NoTagValue(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoTagValue, name)
     def __repr__(self):
-        return "<C FIX::NoTagValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoTagValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoTagValue, 'this', _quickfix.new_NoTagValue(*args))
         _swig_setattr(self, NoTagValue, 'thisown', 1)
@@ -305,6 +321,7 @@ class NoTagValue(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoTagValuePtr(NoTagValue):
     def __init__(self, this):
@@ -321,7 +338,7 @@ class IncorrectTagValue(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectTagValue, name)
     def __repr__(self):
-        return "<C FIX::IncorrectTagValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IncorrectTagValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IncorrectTagValue, 'this', _quickfix.new_IncorrectTagValue(*args))
         _swig_setattr(self, IncorrectTagValue, 'thisown', 1)
@@ -331,6 +348,7 @@ class IncorrectTagValue(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IncorrectTagValuePtr(IncorrectTagValue):
     def __init__(self, this):
@@ -347,7 +365,7 @@ class IncorrectDataFormat(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectDataFormat, name)
     def __repr__(self):
-        return "<C FIX::IncorrectDataFormat instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IncorrectDataFormat instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IncorrectDataFormat, 'this', _quickfix.new_IncorrectDataFormat(*args))
         _swig_setattr(self, IncorrectDataFormat, 'thisown', 1)
@@ -357,6 +375,7 @@ class IncorrectDataFormat(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IncorrectDataFormatPtr(IncorrectDataFormat):
     def __init__(self, this):
@@ -373,7 +392,7 @@ class IncorrectMessageStructure(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IncorrectMessageStructure, name)
     def __repr__(self):
-        return "<C FIX::IncorrectMessageStructure instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IncorrectMessageStructure instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IncorrectMessageStructure, 'this', _quickfix.new_IncorrectMessageStructure(*args))
         _swig_setattr(self, IncorrectMessageStructure, 'thisown', 1)
@@ -381,6 +400,7 @@ class IncorrectMessageStructure(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IncorrectMessageStructurePtr(IncorrectMessageStructure):
     def __init__(self, this):
@@ -397,7 +417,7 @@ class DuplicateFieldNumber(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DuplicateFieldNumber, name)
     def __repr__(self):
-        return "<C FIX::DuplicateFieldNumber instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DuplicateFieldNumber instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DuplicateFieldNumber, 'this', _quickfix.new_DuplicateFieldNumber(*args))
         _swig_setattr(self, DuplicateFieldNumber, 'thisown', 1)
@@ -405,6 +425,7 @@ class DuplicateFieldNumber(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DuplicateFieldNumberPtr(DuplicateFieldNumber):
     def __init__(self, this):
@@ -421,7 +442,7 @@ class InvalidMessageType(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InvalidMessageType, name)
     def __repr__(self):
-        return "<C FIX::InvalidMessageType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InvalidMessageType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InvalidMessageType, 'this', _quickfix.new_InvalidMessageType(*args))
         _swig_setattr(self, InvalidMessageType, 'thisown', 1)
@@ -429,6 +450,7 @@ class InvalidMessageType(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InvalidMessageTypePtr(InvalidMessageType):
     def __init__(self, this):
@@ -445,7 +467,7 @@ class UnsupportedMessageType(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnsupportedMessageType, name)
     def __repr__(self):
-        return "<C FIX::UnsupportedMessageType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnsupportedMessageType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnsupportedMessageType, 'this', _quickfix.new_UnsupportedMessageType(*args))
         _swig_setattr(self, UnsupportedMessageType, 'thisown', 1)
@@ -453,6 +475,7 @@ class UnsupportedMessageType(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnsupportedMessageTypePtr(UnsupportedMessageType):
     def __init__(self, this):
@@ -469,7 +492,7 @@ class UnsupportedVersion(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnsupportedVersion, name)
     def __repr__(self):
-        return "<C FIX::UnsupportedVersion instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnsupportedVersion instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnsupportedVersion, 'this', _quickfix.new_UnsupportedVersion(*args))
         _swig_setattr(self, UnsupportedVersion, 'thisown', 1)
@@ -477,6 +500,7 @@ class UnsupportedVersion(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnsupportedVersionPtr(UnsupportedVersion):
     def __init__(self, this):
@@ -493,7 +517,7 @@ class TagOutOfOrder(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TagOutOfOrder, name)
     def __repr__(self):
-        return "<C FIX::TagOutOfOrder instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TagOutOfOrder instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TagOutOfOrder, 'this', _quickfix.new_TagOutOfOrder(*args))
         _swig_setattr(self, TagOutOfOrder, 'thisown', 1)
@@ -504,6 +528,7 @@ class TagOutOfOrder(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TagOutOfOrderPtr(TagOutOfOrder):
     def __init__(self, this):
@@ -520,7 +545,7 @@ class RepeatedTag(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RepeatedTag, name)
     def __repr__(self):
-        return "<C FIX::RepeatedTag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RepeatedTag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RepeatedTag, 'this', _quickfix.new_RepeatedTag(*args))
         _swig_setattr(self, RepeatedTag, 'thisown', 1)
@@ -530,6 +555,7 @@ class RepeatedTag(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RepeatedTagPtr(RepeatedTag):
     def __init__(self, this):
@@ -546,7 +572,7 @@ class RepeatingGroupCountMismatch(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RepeatingGroupCountMismatch, name)
     def __repr__(self):
-        return "<C FIX::RepeatingGroupCountMismatch instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RepeatingGroupCountMismatch instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RepeatingGroupCountMismatch, 'this', _quickfix.new_RepeatingGroupCountMismatch(*args))
         _swig_setattr(self, RepeatingGroupCountMismatch, 'thisown', 1)
@@ -557,6 +583,7 @@ class RepeatingGroupCountMismatch(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RepeatingGroupCountMismatchPtr(RepeatingGroupCountMismatch):
     def __init__(self, this):
@@ -573,7 +600,7 @@ class DoNotSend(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DoNotSend, name)
     def __repr__(self):
-        return "<C FIX::DoNotSend instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DoNotSend instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DoNotSend, 'this', _quickfix.new_DoNotSend(*args))
         _swig_setattr(self, DoNotSend, 'thisown', 1)
@@ -581,6 +608,7 @@ class DoNotSend(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DoNotSendPtr(DoNotSend):
     def __init__(self, this):
@@ -597,7 +625,7 @@ class RejectLogon(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RejectLogon, name)
     def __repr__(self):
-        return "<C FIX::RejectLogon instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RejectLogon instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RejectLogon, 'this', _quickfix.new_RejectLogon(*args))
         _swig_setattr(self, RejectLogon, 'thisown', 1)
@@ -605,6 +633,7 @@ class RejectLogon(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RejectLogonPtr(RejectLogon):
     def __init__(self, this):
@@ -621,7 +650,7 @@ class SessionNotFound(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SessionNotFound, name)
     def __repr__(self):
-        return "<C FIX::SessionNotFound instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SessionNotFound instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SessionNotFound, 'this', _quickfix.new_SessionNotFound(*args))
         _swig_setattr(self, SessionNotFound, 'thisown', 1)
@@ -629,6 +658,7 @@ class SessionNotFound(Exception):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SessionNotFoundPtr(SessionNotFound):
     def __init__(self, this):
@@ -645,7 +675,7 @@ class IOException(Exception):
     for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOException, name)
     def __repr__(self):
-        return "<C FIX::IOException instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOException instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOException, 'this', _quickfix.new_IOException(*args))
         _swig_setattr(self, IOException, 'thisown', 1)
@@ -654,6 +684,7 @@ class IOException(Exception):
             if self.thisown: destroy(self)
         except: pass
 
+
 class IOExceptionPtr(IOException):
     def __init__(self, this):
         _swig_setattr(self, IOException, 'this', this)
@@ -661,14 +692,117 @@ class IOExceptionPtr(IOException):
         _swig_setattr(self, IOException,self.__class__,IOException)
 _quickfix.IOException_swigregister(IOExceptionPtr)
 
+class SocketException(Exception):
+    __swig_setmethods__ = {}
+    for _s in [Exception]: __swig_setmethods__.update(_s.__swig_setmethods__)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketException, name, value)
+    __swig_getmethods__ = {}
+    for _s in [Exception]: __swig_getmethods__.update(_s.__swig_getmethods__)
+    __getattr__ = lambda self, name: _swig_getattr(self, SocketException, name)
+    def __repr__(self):
+        return "<%s.%s; proxy of C++ FIX::SocketException instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
+    def __init__(self, *args):
+        _swig_setattr(self, SocketException, 'this', _quickfix.new_SocketException(*args))
+        _swig_setattr(self, SocketException, 'thisown', 1)
+    def errorToWhat(*args): return _quickfix.SocketException_errorToWhat(*args)
+    __swig_setmethods__["error"] = _quickfix.SocketException_error_set
+    __swig_getmethods__["error"] = _quickfix.SocketException_error_get
+    if _newclass:error = property(_quickfix.SocketException_error_get, _quickfix.SocketException_error_set)
+    def __del__(self, destroy=_quickfix.delete_SocketException):
+        try:
+            if self.thisown: destroy(self)
+        except: pass
+
+
+class SocketExceptionPtr(SocketException):
+    def __init__(self, this):
+        _swig_setattr(self, SocketException, 'this', this)
+        if not hasattr(self,"thisown"): _swig_setattr(self, SocketException, 'thisown', 0)
+        _swig_setattr(self, SocketException,self.__class__,SocketException)
+_quickfix.SocketException_swigregister(SocketExceptionPtr)
+
+class SocketSendFailed(SocketException):
+    __swig_setmethods__ = {}
+    for _s in [SocketException]: __swig_setmethods__.update(_s.__swig_setmethods__)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketSendFailed, name, value)
+    __swig_getmethods__ = {}
+    for _s in [SocketException]: __swig_getmethods__.update(_s.__swig_getmethods__)
+    __getattr__ = lambda self, name: _swig_getattr(self, SocketSendFailed, name)
+    def __repr__(self):
+        return "<%s.%s; proxy of C++ FIX::SocketSendFailed instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
+    def __init__(self, *args):
+        _swig_setattr(self, SocketSendFailed, 'this', _quickfix.new_SocketSendFailed(*args))
+        _swig_setattr(self, SocketSendFailed, 'thisown', 1)
+    def __del__(self, destroy=_quickfix.delete_SocketSendFailed):
+        try:
+            if self.thisown: destroy(self)
+        except: pass
+
+
+class SocketSendFailedPtr(SocketSendFailed):
+    def __init__(self, this):
+        _swig_setattr(self, SocketSendFailed, 'this', this)
+        if not hasattr(self,"thisown"): _swig_setattr(self, SocketSendFailed, 'thisown', 0)
+        _swig_setattr(self, SocketSendFailed,self.__class__,SocketSendFailed)
+_quickfix.SocketSendFailed_swigregister(SocketSendFailedPtr)
+
+class SocketRecvFailed(SocketException):
+    __swig_setmethods__ = {}
+    for _s in [SocketException]: __swig_setmethods__.update(_s.__swig_setmethods__)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketRecvFailed, name, value)
+    __swig_getmethods__ = {}
+    for _s in [SocketException]: __swig_getmethods__.update(_s.__swig_getmethods__)
+    __getattr__ = lambda self, name: _swig_getattr(self, SocketRecvFailed, name)
+    def __repr__(self):
+        return "<%s.%s; proxy of C++ FIX::SocketRecvFailed instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
+    def __init__(self, *args):
+        _swig_setattr(self, SocketRecvFailed, 'this', _quickfix.new_SocketRecvFailed(*args))
+        _swig_setattr(self, SocketRecvFailed, 'thisown', 1)
+    def __del__(self, destroy=_quickfix.delete_SocketRecvFailed):
+        try:
+            if self.thisown: destroy(self)
+        except: pass
+
+
+class SocketRecvFailedPtr(SocketRecvFailed):
+    def __init__(self, this):
+        _swig_setattr(self, SocketRecvFailed, 'this', this)
+        if not hasattr(self,"thisown"): _swig_setattr(self, SocketRecvFailed, 'thisown', 0)
+        _swig_setattr(self, SocketRecvFailed,self.__class__,SocketRecvFailed)
+_quickfix.SocketRecvFailed_swigregister(SocketRecvFailedPtr)
+
+class SocketCloseFailed(SocketException):
+    __swig_setmethods__ = {}
+    for _s in [SocketException]: __swig_setmethods__.update(_s.__swig_setmethods__)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketCloseFailed, name, value)
+    __swig_getmethods__ = {}
+    for _s in [SocketException]: __swig_getmethods__.update(_s.__swig_getmethods__)
+    __getattr__ = lambda self, name: _swig_getattr(self, SocketCloseFailed, name)
+    def __repr__(self):
+        return "<%s.%s; proxy of C++ FIX::SocketCloseFailed instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
+    def __init__(self, *args):
+        _swig_setattr(self, SocketCloseFailed, 'this', _quickfix.new_SocketCloseFailed(*args))
+        _swig_setattr(self, SocketCloseFailed, 'thisown', 1)
+    def __del__(self, destroy=_quickfix.delete_SocketCloseFailed):
+        try:
+            if self.thisown: destroy(self)
+        except: pass
+
+
+class SocketCloseFailedPtr(SocketCloseFailed):
+    def __init__(self, this):
+        _swig_setattr(self, SocketCloseFailed, 'this', this)
+        if not hasattr(self,"thisown"): _swig_setattr(self, SocketCloseFailed, 'thisown', 0)
+        _swig_setattr(self, SocketCloseFailed,self.__class__,SocketCloseFailed)
+_quickfix.SocketCloseFailed_swigregister(SocketCloseFailedPtr)
+
 class FieldBase(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, FieldBase, name, value)
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, FieldBase, name)
     def __repr__(self):
-        return "<C FIX::FieldBase instance at %s>" % (self.this,)
-    def __str__(*args): return _quickfix.FieldBase___str__(*args)
+        return "<%s.%s; proxy of C++ FIX::FieldBase instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FieldBase, 'this', _quickfix.new_FieldBase(*args))
         _swig_setattr(self, FieldBase, 'thisown', 1)
@@ -680,10 +814,12 @@ class FieldBase(_object):
     def getLength(*args): return _quickfix.FieldBase_getLength(*args)
     def getTotal(*args): return _quickfix.FieldBase_getTotal(*args)
     def __lt__(*args): return _quickfix.FieldBase___lt__(*args)
+    def __str__(*args): return _quickfix.FieldBase___str__(*args)
     def __del__(self, destroy=_quickfix.delete_FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FieldBasePtr(FieldBase):
     def __init__(self, this):
@@ -700,7 +836,7 @@ class StringField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StringField, name)
     def __repr__(self):
-        return "<C FIX::StringField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StringField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StringField, 'this', _quickfix.new_StringField(*args))
         _swig_setattr(self, StringField, 'thisown', 1)
@@ -717,6 +853,7 @@ class StringField(FieldBase):
             if self.thisown: destroy(self)
         except: pass
 
+
 class StringFieldPtr(StringField):
     def __init__(self, this):
         _swig_setattr(self, StringField, 'this', this)
@@ -732,7 +869,7 @@ class CharField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CharField, name)
     def __repr__(self):
-        return "<C FIX::CharField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CharField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CharField, 'this', _quickfix.new_CharField(*args))
         _swig_setattr(self, CharField, 'thisown', 1)
@@ -742,6 +879,7 @@ class CharField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CharFieldPtr(CharField):
     def __init__(self, this):
@@ -764,7 +902,7 @@ class DoubleField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DoubleField, name)
     def __repr__(self):
-        return "<C FIX::DoubleField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DoubleField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DoubleField, 'this', _quickfix.new_DoubleField(*args))
         _swig_setattr(self, DoubleField, 'thisown', 1)
@@ -774,6 +912,7 @@ class DoubleField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DoubleFieldPtr(DoubleField):
     def __init__(self, this):
@@ -790,7 +929,7 @@ class IntField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IntField, name)
     def __repr__(self):
-        return "<C FIX::IntField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IntField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IntField, 'this', _quickfix.new_IntField(*args))
         _swig_setattr(self, IntField, 'thisown', 1)
@@ -800,6 +939,7 @@ class IntField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IntFieldPtr(IntField):
     def __init__(self, this):
@@ -816,7 +956,7 @@ class BoolField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BoolField, name)
     def __repr__(self):
-        return "<C FIX::BoolField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BoolField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BoolField, 'this', _quickfix.new_BoolField(*args))
         _swig_setattr(self, BoolField, 'thisown', 1)
@@ -826,6 +966,7 @@ class BoolField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BoolFieldPtr(BoolField):
     def __init__(self, this):
@@ -842,7 +983,7 @@ class UtcTimeStampField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeStampField, name)
     def __repr__(self):
-        return "<C FIX::UtcTimeStampField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UtcTimeStampField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UtcTimeStampField, 'this', _quickfix.new_UtcTimeStampField(*args))
         _swig_setattr(self, UtcTimeStampField, 'thisown', 1)
@@ -855,6 +996,7 @@ class UtcTimeStampField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UtcTimeStampFieldPtr(UtcTimeStampField):
     def __init__(self, this):
@@ -871,7 +1013,7 @@ class UtcDateField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UtcDateField, name)
     def __repr__(self):
-        return "<C FIX::UtcDateField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UtcDateField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UtcDateField, 'this', _quickfix.new_UtcDateField(*args))
         _swig_setattr(self, UtcDateField, 'thisown', 1)
@@ -884,6 +1026,7 @@ class UtcDateField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UtcDateFieldPtr(UtcDateField):
     def __init__(self, this):
@@ -900,7 +1043,7 @@ class UtcTimeOnlyField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UtcTimeOnlyField, name)
     def __repr__(self):
-        return "<C FIX::UtcTimeOnlyField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UtcTimeOnlyField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UtcTimeOnlyField, 'this', _quickfix.new_UtcTimeOnlyField(*args))
         _swig_setattr(self, UtcTimeOnlyField, 'thisown', 1)
@@ -913,6 +1056,7 @@ class UtcTimeOnlyField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UtcTimeOnlyFieldPtr(UtcTimeOnlyField):
     def __init__(self, this):
@@ -929,7 +1073,7 @@ class CheckSumField(FieldBase):
     for _s in [FieldBase]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CheckSumField, name)
     def __repr__(self):
-        return "<C FIX::CheckSumField instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CheckSumField instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CheckSumField, 'this', _quickfix.new_CheckSumField(*args))
         _swig_setattr(self, CheckSumField, 'thisown', 1)
@@ -939,6 +1083,7 @@ class CheckSumField(FieldBase):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CheckSumFieldPtr(CheckSumField):
     def __init__(self, this):
@@ -953,7 +1098,7 @@ class FieldMap(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, FieldMap, name)
     def __repr__(self):
-        return "<C FIX::FieldMap instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FieldMap instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FieldMap, 'this', _quickfix.new_FieldMap(*args))
         _swig_setattr(self, FieldMap, 'thisown', 1)
@@ -961,6 +1106,7 @@ class FieldMap(_object):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def setField(*args): return _quickfix.FieldMap_setField(*args)
     def getField(*args): return _quickfix.FieldMap_getField(*args)
     def isSetField(*args): return _quickfix.FieldMap_isSetField(*args)
@@ -993,8 +1139,7 @@ class Message(FieldMap):
     for _s in [FieldMap]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Message, name)
     def __repr__(self):
-        return "<C FIX::Message instance at %s>" % (self.this,)
-    def __str__(*args): return _quickfix.Message___str__(*args)
+        return "<%s.%s; proxy of C++ FIX::Message instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Message, 'this', _quickfix.new_Message(*args))
         _swig_setattr(self, Message, 'thisown', 1)
@@ -1006,6 +1151,7 @@ class Message(FieldMap):
     def toString(*args): return _quickfix.Message_toString(*args)
     def getString(*args): return _quickfix.Message_getString(*args)
     def toXML(*args): return _quickfix.Message_toXML(*args)
+    def reverseRoute(*args): return _quickfix.Message_reverseRoute(*args)
     def setString(*args): return _quickfix.Message_setString(*args)
     def setGroup(*args): return _quickfix.Message_setGroup(*args)
     def setStringHeader(*args): return _quickfix.Message_setStringHeader(*args)
@@ -1020,18 +1166,16 @@ class Message(FieldMap):
     if _newclass:isAdminMsgType = staticmethod(_quickfix.Message_isAdminMsgType)
     __swig_getmethods__["isHeaderField"] = lambda x: _quickfix.Message_isHeaderField
     if _newclass:isHeaderField = staticmethod(_quickfix.Message_isHeaderField)
-    __swig_getmethods__["isHeaderField"] = lambda x: _quickfix.Message_isHeaderField
-    if _newclass:isHeaderField = staticmethod(_quickfix.Message_isHeaderField)
-    __swig_getmethods__["isTrailerField"] = lambda x: _quickfix.Message_isTrailerField
-    if _newclass:isTrailerField = staticmethod(_quickfix.Message_isTrailerField)
     __swig_getmethods__["isTrailerField"] = lambda x: _quickfix.Message_isTrailerField
     if _newclass:isTrailerField = staticmethod(_quickfix.Message_isTrailerField)
     def getSessionID(*args): return _quickfix.Message_getSessionID(*args)
     def setSessionID(*args): return _quickfix.Message_setSessionID(*args)
+    def __str__(*args): return _quickfix.Message___str__(*args)
     def __del__(self, destroy=_quickfix.delete_Message):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MessagePtr(Message):
     def __init__(self, this):
@@ -1060,7 +1204,7 @@ class Account(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Account, name)
     def __repr__(self):
-        return "<C FIX::Account instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Account instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Account, 'this', _quickfix.new_Account(*args))
         _swig_setattr(self, Account, 'thisown', 1)
@@ -1068,6 +1212,7 @@ class Account(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AccountPtr(Account):
     def __init__(self, this):
@@ -1084,7 +1229,7 @@ class AdvId(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AdvId, name)
     def __repr__(self):
-        return "<C FIX::AdvId instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AdvId instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AdvId, 'this', _quickfix.new_AdvId(*args))
         _swig_setattr(self, AdvId, 'thisown', 1)
@@ -1092,6 +1237,7 @@ class AdvId(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AdvIdPtr(AdvId):
     def __init__(self, this):
@@ -1108,7 +1254,7 @@ class AdvRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AdvRefID, name)
     def __repr__(self):
-        return "<C FIX::AdvRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AdvRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AdvRefID, 'this', _quickfix.new_AdvRefID(*args))
         _swig_setattr(self, AdvRefID, 'thisown', 1)
@@ -1116,6 +1262,7 @@ class AdvRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AdvRefIDPtr(AdvRefID):
     def __init__(self, this):
@@ -1132,7 +1279,7 @@ class AdvSide(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AdvSide, name)
     def __repr__(self):
-        return "<C FIX::AdvSide instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AdvSide instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AdvSide, 'this', _quickfix.new_AdvSide(*args))
         _swig_setattr(self, AdvSide, 'thisown', 1)
@@ -1140,6 +1287,7 @@ class AdvSide(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AdvSidePtr(AdvSide):
     def __init__(self, this):
@@ -1156,7 +1304,7 @@ class AdvTransType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AdvTransType, name)
     def __repr__(self):
-        return "<C FIX::AdvTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AdvTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AdvTransType, 'this', _quickfix.new_AdvTransType(*args))
         _swig_setattr(self, AdvTransType, 'thisown', 1)
@@ -1164,6 +1312,7 @@ class AdvTransType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AdvTransTypePtr(AdvTransType):
     def __init__(self, this):
@@ -1180,7 +1329,7 @@ class AvgPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPx, name)
     def __repr__(self):
-        return "<C FIX::AvgPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AvgPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AvgPx, 'this', _quickfix.new_AvgPx(*args))
         _swig_setattr(self, AvgPx, 'thisown', 1)
@@ -1188,6 +1337,7 @@ class AvgPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AvgPxPtr(AvgPx):
     def __init__(self, this):
@@ -1204,7 +1354,7 @@ class BeginSeqNo(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BeginSeqNo, name)
     def __repr__(self):
-        return "<C FIX::BeginSeqNo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BeginSeqNo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BeginSeqNo, 'this', _quickfix.new_BeginSeqNo(*args))
         _swig_setattr(self, BeginSeqNo, 'thisown', 1)
@@ -1212,6 +1362,7 @@ class BeginSeqNo(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BeginSeqNoPtr(BeginSeqNo):
     def __init__(self, this):
@@ -1228,7 +1379,7 @@ class BeginString(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BeginString, name)
     def __repr__(self):
-        return "<C FIX::BeginString instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BeginString instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BeginString, 'this', _quickfix.new_BeginString(*args))
         _swig_setattr(self, BeginString, 'thisown', 1)
@@ -1236,6 +1387,7 @@ class BeginString(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BeginStringPtr(BeginString):
     def __init__(self, this):
@@ -1252,7 +1404,7 @@ class BodyLength(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BodyLength, name)
     def __repr__(self):
-        return "<C FIX::BodyLength instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BodyLength instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BodyLength, 'this', _quickfix.new_BodyLength(*args))
         _swig_setattr(self, BodyLength, 'thisown', 1)
@@ -1260,6 +1412,7 @@ class BodyLength(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BodyLengthPtr(BodyLength):
     def __init__(self, this):
@@ -1276,7 +1429,7 @@ class CheckSum(CheckSumField):
     for _s in [CheckSumField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CheckSum, name)
     def __repr__(self):
-        return "<C FIX::CheckSum instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CheckSum instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CheckSum, 'this', _quickfix.new_CheckSum(*args))
         _swig_setattr(self, CheckSum, 'thisown', 1)
@@ -1284,6 +1437,7 @@ class CheckSum(CheckSumField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CheckSumPtr(CheckSum):
     def __init__(self, this):
@@ -1300,7 +1454,7 @@ class ClOrdID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClOrdID, name)
     def __repr__(self):
-        return "<C FIX::ClOrdID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClOrdID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClOrdID, 'this', _quickfix.new_ClOrdID(*args))
         _swig_setattr(self, ClOrdID, 'thisown', 1)
@@ -1308,6 +1462,7 @@ class ClOrdID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClOrdIDPtr(ClOrdID):
     def __init__(self, this):
@@ -1324,7 +1479,7 @@ class Commission(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Commission, name)
     def __repr__(self):
-        return "<C FIX::Commission instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Commission instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Commission, 'this', _quickfix.new_Commission(*args))
         _swig_setattr(self, Commission, 'thisown', 1)
@@ -1332,6 +1487,7 @@ class Commission(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CommissionPtr(Commission):
     def __init__(self, this):
@@ -1348,7 +1504,7 @@ class CommType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CommType, name)
     def __repr__(self):
-        return "<C FIX::CommType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CommType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CommType, 'this', _quickfix.new_CommType(*args))
         _swig_setattr(self, CommType, 'thisown', 1)
@@ -1356,6 +1512,7 @@ class CommType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CommTypePtr(CommType):
     def __init__(self, this):
@@ -1372,7 +1529,7 @@ class CumQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CumQty, name)
     def __repr__(self):
-        return "<C FIX::CumQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CumQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CumQty, 'this', _quickfix.new_CumQty(*args))
         _swig_setattr(self, CumQty, 'thisown', 1)
@@ -1380,6 +1537,7 @@ class CumQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CumQtyPtr(CumQty):
     def __init__(self, this):
@@ -1396,7 +1554,7 @@ class Currency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Currency, name)
     def __repr__(self):
-        return "<C FIX::Currency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Currency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Currency, 'this', _quickfix.new_Currency(*args))
         _swig_setattr(self, Currency, 'thisown', 1)
@@ -1404,6 +1562,7 @@ class Currency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CurrencyPtr(Currency):
     def __init__(self, this):
@@ -1420,7 +1579,7 @@ class EndSeqNo(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EndSeqNo, name)
     def __repr__(self):
-        return "<C FIX::EndSeqNo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EndSeqNo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EndSeqNo, 'this', _quickfix.new_EndSeqNo(*args))
         _swig_setattr(self, EndSeqNo, 'thisown', 1)
@@ -1428,6 +1587,7 @@ class EndSeqNo(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EndSeqNoPtr(EndSeqNo):
     def __init__(self, this):
@@ -1444,7 +1604,7 @@ class ExecID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecID, name)
     def __repr__(self):
-        return "<C FIX::ExecID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecID, 'this', _quickfix.new_ExecID(*args))
         _swig_setattr(self, ExecID, 'thisown', 1)
@@ -1452,6 +1612,7 @@ class ExecID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecIDPtr(ExecID):
     def __init__(self, this):
@@ -1468,7 +1629,7 @@ class ExecInst(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecInst, name)
     def __repr__(self):
-        return "<C FIX::ExecInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecInst, 'this', _quickfix.new_ExecInst(*args))
         _swig_setattr(self, ExecInst, 'thisown', 1)
@@ -1476,6 +1637,7 @@ class ExecInst(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecInstPtr(ExecInst):
     def __init__(self, this):
@@ -1492,7 +1654,7 @@ class ExecRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecRefID, name)
     def __repr__(self):
-        return "<C FIX::ExecRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecRefID, 'this', _quickfix.new_ExecRefID(*args))
         _swig_setattr(self, ExecRefID, 'thisown', 1)
@@ -1500,6 +1662,7 @@ class ExecRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecRefIDPtr(ExecRefID):
     def __init__(self, this):
@@ -1516,7 +1679,7 @@ class HandlInst(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, HandlInst, name)
     def __repr__(self):
-        return "<C FIX::HandlInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::HandlInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, HandlInst, 'this', _quickfix.new_HandlInst(*args))
         _swig_setattr(self, HandlInst, 'thisown', 1)
@@ -1524,6 +1687,7 @@ class HandlInst(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HandlInstPtr(HandlInst):
     def __init__(self, this):
@@ -1540,7 +1704,7 @@ class SecurityIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityIDSource, name)
     def __repr__(self):
-        return "<C FIX::SecurityIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityIDSource, 'this', _quickfix.new_SecurityIDSource(*args))
         _swig_setattr(self, SecurityIDSource, 'thisown', 1)
@@ -1548,6 +1712,7 @@ class SecurityIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityIDSourcePtr(SecurityIDSource):
     def __init__(self, this):
@@ -1564,7 +1729,7 @@ class IOIid(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOIid, name)
     def __repr__(self):
-        return "<C FIX::IOIid instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOIid instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOIid, 'this', _quickfix.new_IOIid(*args))
         _swig_setattr(self, IOIid, 'thisown', 1)
@@ -1572,6 +1737,7 @@ class IOIid(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOIidPtr(IOIid):
     def __init__(self, this):
@@ -1588,7 +1754,7 @@ class IOIQltyInd(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOIQltyInd, name)
     def __repr__(self):
-        return "<C FIX::IOIQltyInd instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOIQltyInd instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOIQltyInd, 'this', _quickfix.new_IOIQltyInd(*args))
         _swig_setattr(self, IOIQltyInd, 'thisown', 1)
@@ -1596,6 +1762,7 @@ class IOIQltyInd(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOIQltyIndPtr(IOIQltyInd):
     def __init__(self, this):
@@ -1612,7 +1779,7 @@ class IOIRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOIRefID, name)
     def __repr__(self):
-        return "<C FIX::IOIRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOIRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOIRefID, 'this', _quickfix.new_IOIRefID(*args))
         _swig_setattr(self, IOIRefID, 'thisown', 1)
@@ -1620,6 +1787,7 @@ class IOIRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOIRefIDPtr(IOIRefID):
     def __init__(self, this):
@@ -1636,7 +1804,7 @@ class IOIQty(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOIQty, name)
     def __repr__(self):
-        return "<C FIX::IOIQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOIQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOIQty, 'this', _quickfix.new_IOIQty(*args))
         _swig_setattr(self, IOIQty, 'thisown', 1)
@@ -1644,6 +1812,7 @@ class IOIQty(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOIQtyPtr(IOIQty):
     def __init__(self, this):
@@ -1660,7 +1829,7 @@ class IOITransType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOITransType, name)
     def __repr__(self):
-        return "<C FIX::IOITransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOITransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOITransType, 'this', _quickfix.new_IOITransType(*args))
         _swig_setattr(self, IOITransType, 'thisown', 1)
@@ -1668,6 +1837,7 @@ class IOITransType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOITransTypePtr(IOITransType):
     def __init__(self, this):
@@ -1684,7 +1854,7 @@ class LastCapacity(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastCapacity, name)
     def __repr__(self):
-        return "<C FIX::LastCapacity instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastCapacity instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastCapacity, 'this', _quickfix.new_LastCapacity(*args))
         _swig_setattr(self, LastCapacity, 'thisown', 1)
@@ -1692,6 +1862,7 @@ class LastCapacity(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastCapacityPtr(LastCapacity):
     def __init__(self, this):
@@ -1708,7 +1879,7 @@ class LastMkt(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastMkt, name)
     def __repr__(self):
-        return "<C FIX::LastMkt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastMkt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastMkt, 'this', _quickfix.new_LastMkt(*args))
         _swig_setattr(self, LastMkt, 'thisown', 1)
@@ -1716,6 +1887,7 @@ class LastMkt(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastMktPtr(LastMkt):
     def __init__(self, this):
@@ -1732,7 +1904,7 @@ class LastPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastPx, name)
     def __repr__(self):
-        return "<C FIX::LastPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastPx, 'this', _quickfix.new_LastPx(*args))
         _swig_setattr(self, LastPx, 'thisown', 1)
@@ -1740,6 +1912,7 @@ class LastPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastPxPtr(LastPx):
     def __init__(self, this):
@@ -1756,7 +1929,7 @@ class LastQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastQty, name)
     def __repr__(self):
-        return "<C FIX::LastQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastQty, 'this', _quickfix.new_LastQty(*args))
         _swig_setattr(self, LastQty, 'thisown', 1)
@@ -1764,6 +1937,7 @@ class LastQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastQtyPtr(LastQty):
     def __init__(self, this):
@@ -1780,7 +1954,7 @@ class LinesOfText(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LinesOfText, name)
     def __repr__(self):
-        return "<C FIX::LinesOfText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LinesOfText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LinesOfText, 'this', _quickfix.new_LinesOfText(*args))
         _swig_setattr(self, LinesOfText, 'thisown', 1)
@@ -1788,6 +1962,7 @@ class LinesOfText(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LinesOfTextPtr(LinesOfText):
     def __init__(self, this):
@@ -1804,7 +1979,7 @@ class MsgSeqNum(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MsgSeqNum, name)
     def __repr__(self):
-        return "<C FIX::MsgSeqNum instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MsgSeqNum instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MsgSeqNum, 'this', _quickfix.new_MsgSeqNum(*args))
         _swig_setattr(self, MsgSeqNum, 'thisown', 1)
@@ -1812,6 +1987,7 @@ class MsgSeqNum(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MsgSeqNumPtr(MsgSeqNum):
     def __init__(self, this):
@@ -1828,7 +2004,7 @@ class MsgType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MsgType, name)
     def __repr__(self):
-        return "<C FIX::MsgType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MsgType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MsgType, 'this', _quickfix.new_MsgType(*args))
         _swig_setattr(self, MsgType, 'thisown', 1)
@@ -1836,6 +2012,7 @@ class MsgType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MsgTypePtr(MsgType):
     def __init__(self, this):
@@ -1852,7 +2029,7 @@ class NewSeqNo(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NewSeqNo, name)
     def __repr__(self):
-        return "<C FIX::NewSeqNo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NewSeqNo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NewSeqNo, 'this', _quickfix.new_NewSeqNo(*args))
         _swig_setattr(self, NewSeqNo, 'thisown', 1)
@@ -1860,6 +2037,7 @@ class NewSeqNo(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NewSeqNoPtr(NewSeqNo):
     def __init__(self, this):
@@ -1876,7 +2054,7 @@ class OrderID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderID, name)
     def __repr__(self):
-        return "<C FIX::OrderID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderID, 'this', _quickfix.new_OrderID(*args))
         _swig_setattr(self, OrderID, 'thisown', 1)
@@ -1884,6 +2062,7 @@ class OrderID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderIDPtr(OrderID):
     def __init__(self, this):
@@ -1900,7 +2079,7 @@ class OrderQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderQty, name)
     def __repr__(self):
-        return "<C FIX::OrderQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderQty, 'this', _quickfix.new_OrderQty(*args))
         _swig_setattr(self, OrderQty, 'thisown', 1)
@@ -1908,6 +2087,7 @@ class OrderQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderQtyPtr(OrderQty):
     def __init__(self, this):
@@ -1924,7 +2104,7 @@ class OrdStatus(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrdStatus, name)
     def __repr__(self):
-        return "<C FIX::OrdStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrdStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrdStatus, 'this', _quickfix.new_OrdStatus(*args))
         _swig_setattr(self, OrdStatus, 'thisown', 1)
@@ -1932,6 +2112,7 @@ class OrdStatus(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrdStatusPtr(OrdStatus):
     def __init__(self, this):
@@ -1948,7 +2129,7 @@ class OrdType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrdType, name)
     def __repr__(self):
-        return "<C FIX::OrdType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrdType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrdType, 'this', _quickfix.new_OrdType(*args))
         _swig_setattr(self, OrdType, 'thisown', 1)
@@ -1956,6 +2137,7 @@ class OrdType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrdTypePtr(OrdType):
     def __init__(self, this):
@@ -1972,7 +2154,7 @@ class OrigClOrdID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrigClOrdID, name)
     def __repr__(self):
-        return "<C FIX::OrigClOrdID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrigClOrdID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrigClOrdID, 'this', _quickfix.new_OrigClOrdID(*args))
         _swig_setattr(self, OrigClOrdID, 'thisown', 1)
@@ -1980,6 +2162,7 @@ class OrigClOrdID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrigClOrdIDPtr(OrigClOrdID):
     def __init__(self, this):
@@ -1996,7 +2179,7 @@ class OrigTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrigTime, name)
     def __repr__(self):
-        return "<C FIX::OrigTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrigTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrigTime, 'this', _quickfix.new_OrigTime(*args))
         _swig_setattr(self, OrigTime, 'thisown', 1)
@@ -2004,6 +2187,7 @@ class OrigTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrigTimePtr(OrigTime):
     def __init__(self, this):
@@ -2020,7 +2204,7 @@ class PossDupFlag(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PossDupFlag, name)
     def __repr__(self):
-        return "<C FIX::PossDupFlag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PossDupFlag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PossDupFlag, 'this', _quickfix.new_PossDupFlag(*args))
         _swig_setattr(self, PossDupFlag, 'thisown', 1)
@@ -2028,6 +2212,7 @@ class PossDupFlag(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PossDupFlagPtr(PossDupFlag):
     def __init__(self, this):
@@ -2044,7 +2229,7 @@ class Price(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Price, name)
     def __repr__(self):
-        return "<C FIX::Price instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Price instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Price, 'this', _quickfix.new_Price(*args))
         _swig_setattr(self, Price, 'thisown', 1)
@@ -2052,6 +2237,7 @@ class Price(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PricePtr(Price):
     def __init__(self, this):
@@ -2068,7 +2254,7 @@ class RefSeqNum(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RefSeqNum, name)
     def __repr__(self):
-        return "<C FIX::RefSeqNum instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RefSeqNum instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RefSeqNum, 'this', _quickfix.new_RefSeqNum(*args))
         _swig_setattr(self, RefSeqNum, 'thisown', 1)
@@ -2076,6 +2262,7 @@ class RefSeqNum(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RefSeqNumPtr(RefSeqNum):
     def __init__(self, this):
@@ -2092,7 +2279,7 @@ class SecurityID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityID, name)
     def __repr__(self):
-        return "<C FIX::SecurityID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityID, 'this', _quickfix.new_SecurityID(*args))
         _swig_setattr(self, SecurityID, 'thisown', 1)
@@ -2100,6 +2287,7 @@ class SecurityID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityIDPtr(SecurityID):
     def __init__(self, this):
@@ -2116,7 +2304,7 @@ class SenderCompID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SenderCompID, name)
     def __repr__(self):
-        return "<C FIX::SenderCompID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SenderCompID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SenderCompID, 'this', _quickfix.new_SenderCompID(*args))
         _swig_setattr(self, SenderCompID, 'thisown', 1)
@@ -2124,6 +2312,7 @@ class SenderCompID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SenderCompIDPtr(SenderCompID):
     def __init__(self, this):
@@ -2140,7 +2329,7 @@ class SenderSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SenderSubID, name)
     def __repr__(self):
-        return "<C FIX::SenderSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SenderSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SenderSubID, 'this', _quickfix.new_SenderSubID(*args))
         _swig_setattr(self, SenderSubID, 'thisown', 1)
@@ -2148,6 +2337,7 @@ class SenderSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SenderSubIDPtr(SenderSubID):
     def __init__(self, this):
@@ -2164,7 +2354,7 @@ class SendingTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SendingTime, name)
     def __repr__(self):
-        return "<C FIX::SendingTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SendingTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SendingTime, 'this', _quickfix.new_SendingTime(*args))
         _swig_setattr(self, SendingTime, 'thisown', 1)
@@ -2172,6 +2362,7 @@ class SendingTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SendingTimePtr(SendingTime):
     def __init__(self, this):
@@ -2188,7 +2379,7 @@ class Quantity(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Quantity, name)
     def __repr__(self):
-        return "<C FIX::Quantity instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Quantity instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Quantity, 'this', _quickfix.new_Quantity(*args))
         _swig_setattr(self, Quantity, 'thisown', 1)
@@ -2196,6 +2387,7 @@ class Quantity(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuantityPtr(Quantity):
     def __init__(self, this):
@@ -2212,7 +2404,7 @@ class Side(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Side, name)
     def __repr__(self):
-        return "<C FIX::Side instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Side instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Side, 'this', _quickfix.new_Side(*args))
         _swig_setattr(self, Side, 'thisown', 1)
@@ -2220,6 +2412,7 @@ class Side(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SidePtr(Side):
     def __init__(self, this):
@@ -2236,7 +2429,7 @@ class Symbol(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Symbol, name)
     def __repr__(self):
-        return "<C FIX::Symbol instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Symbol instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Symbol, 'this', _quickfix.new_Symbol(*args))
         _swig_setattr(self, Symbol, 'thisown', 1)
@@ -2244,6 +2437,7 @@ class Symbol(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SymbolPtr(Symbol):
     def __init__(self, this):
@@ -2260,7 +2454,7 @@ class TargetCompID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TargetCompID, name)
     def __repr__(self):
-        return "<C FIX::TargetCompID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TargetCompID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TargetCompID, 'this', _quickfix.new_TargetCompID(*args))
         _swig_setattr(self, TargetCompID, 'thisown', 1)
@@ -2268,6 +2462,7 @@ class TargetCompID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TargetCompIDPtr(TargetCompID):
     def __init__(self, this):
@@ -2284,7 +2479,7 @@ class TargetSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TargetSubID, name)
     def __repr__(self):
-        return "<C FIX::TargetSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TargetSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TargetSubID, 'this', _quickfix.new_TargetSubID(*args))
         _swig_setattr(self, TargetSubID, 'thisown', 1)
@@ -2292,6 +2487,7 @@ class TargetSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TargetSubIDPtr(TargetSubID):
     def __init__(self, this):
@@ -2308,7 +2504,7 @@ class Text(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Text, name)
     def __repr__(self):
-        return "<C FIX::Text instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Text instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Text, 'this', _quickfix.new_Text(*args))
         _swig_setattr(self, Text, 'thisown', 1)
@@ -2316,6 +2512,7 @@ class Text(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TextPtr(Text):
     def __init__(self, this):
@@ -2332,7 +2529,7 @@ class TimeInForce(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TimeInForce, name)
     def __repr__(self):
-        return "<C FIX::TimeInForce instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TimeInForce instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TimeInForce, 'this', _quickfix.new_TimeInForce(*args))
         _swig_setattr(self, TimeInForce, 'thisown', 1)
@@ -2340,6 +2537,7 @@ class TimeInForce(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TimeInForcePtr(TimeInForce):
     def __init__(self, this):
@@ -2356,7 +2554,7 @@ class TransactTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TransactTime, name)
     def __repr__(self):
-        return "<C FIX::TransactTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TransactTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TransactTime, 'this', _quickfix.new_TransactTime(*args))
         _swig_setattr(self, TransactTime, 'thisown', 1)
@@ -2364,6 +2562,7 @@ class TransactTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TransactTimePtr(TransactTime):
     def __init__(self, this):
@@ -2380,7 +2579,7 @@ class Urgency(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Urgency, name)
     def __repr__(self):
-        return "<C FIX::Urgency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Urgency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Urgency, 'this', _quickfix.new_Urgency(*args))
         _swig_setattr(self, Urgency, 'thisown', 1)
@@ -2388,6 +2587,7 @@ class Urgency(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UrgencyPtr(Urgency):
     def __init__(self, this):
@@ -2404,7 +2604,7 @@ class ValidUntilTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ValidUntilTime, name)
     def __repr__(self):
-        return "<C FIX::ValidUntilTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ValidUntilTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ValidUntilTime, 'this', _quickfix.new_ValidUntilTime(*args))
         _swig_setattr(self, ValidUntilTime, 'thisown', 1)
@@ -2412,6 +2612,7 @@ class ValidUntilTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ValidUntilTimePtr(ValidUntilTime):
     def __init__(self, this):
@@ -2428,7 +2629,7 @@ class SettlType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlType, name)
     def __repr__(self):
-        return "<C FIX::SettlType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlType, 'this', _quickfix.new_SettlType(*args))
         _swig_setattr(self, SettlType, 'thisown', 1)
@@ -2436,6 +2637,7 @@ class SettlType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlTypePtr(SettlType):
     def __init__(self, this):
@@ -2452,7 +2654,7 @@ class SettlDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDate, name)
     def __repr__(self):
-        return "<C FIX::SettlDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlDate, 'this', _quickfix.new_SettlDate(*args))
         _swig_setattr(self, SettlDate, 'thisown', 1)
@@ -2460,6 +2662,7 @@ class SettlDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlDatePtr(SettlDate):
     def __init__(self, this):
@@ -2476,7 +2679,7 @@ class SymbolSfx(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SymbolSfx, name)
     def __repr__(self):
-        return "<C FIX::SymbolSfx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SymbolSfx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SymbolSfx, 'this', _quickfix.new_SymbolSfx(*args))
         _swig_setattr(self, SymbolSfx, 'thisown', 1)
@@ -2484,6 +2687,7 @@ class SymbolSfx(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SymbolSfxPtr(SymbolSfx):
     def __init__(self, this):
@@ -2500,7 +2704,7 @@ class ListID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListID, name)
     def __repr__(self):
-        return "<C FIX::ListID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListID, 'this', _quickfix.new_ListID(*args))
         _swig_setattr(self, ListID, 'thisown', 1)
@@ -2508,6 +2712,7 @@ class ListID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListIDPtr(ListID):
     def __init__(self, this):
@@ -2524,7 +2729,7 @@ class ListSeqNo(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListSeqNo, name)
     def __repr__(self):
-        return "<C FIX::ListSeqNo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListSeqNo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListSeqNo, 'this', _quickfix.new_ListSeqNo(*args))
         _swig_setattr(self, ListSeqNo, 'thisown', 1)
@@ -2532,6 +2737,7 @@ class ListSeqNo(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListSeqNoPtr(ListSeqNo):
     def __init__(self, this):
@@ -2548,7 +2754,7 @@ class TotNoOrders(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoOrders, name)
     def __repr__(self):
-        return "<C FIX::TotNoOrders instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNoOrders instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNoOrders, 'this', _quickfix.new_TotNoOrders(*args))
         _swig_setattr(self, TotNoOrders, 'thisown', 1)
@@ -2556,6 +2762,7 @@ class TotNoOrders(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNoOrdersPtr(TotNoOrders):
     def __init__(self, this):
@@ -2572,7 +2779,7 @@ class ListNoOrds(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListNoOrds, name)
     def __repr__(self):
-        return "<C FIX::ListNoOrds instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListNoOrds instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListNoOrds, 'this', _quickfix.new_ListNoOrds(*args))
         _swig_setattr(self, ListNoOrds, 'thisown', 1)
@@ -2580,6 +2787,7 @@ class ListNoOrds(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListNoOrdsPtr(ListNoOrds):
     def __init__(self, this):
@@ -2596,7 +2804,7 @@ class ListExecInst(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListExecInst, name)
     def __repr__(self):
-        return "<C FIX::ListExecInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListExecInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListExecInst, 'this', _quickfix.new_ListExecInst(*args))
         _swig_setattr(self, ListExecInst, 'thisown', 1)
@@ -2604,6 +2812,7 @@ class ListExecInst(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListExecInstPtr(ListExecInst):
     def __init__(self, this):
@@ -2620,7 +2829,7 @@ class AllocID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocID, name)
     def __repr__(self):
-        return "<C FIX::AllocID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocID, 'this', _quickfix.new_AllocID(*args))
         _swig_setattr(self, AllocID, 'thisown', 1)
@@ -2628,6 +2837,7 @@ class AllocID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocIDPtr(AllocID):
     def __init__(self, this):
@@ -2644,7 +2854,7 @@ class AllocTransType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocTransType, name)
     def __repr__(self):
-        return "<C FIX::AllocTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocTransType, 'this', _quickfix.new_AllocTransType(*args))
         _swig_setattr(self, AllocTransType, 'thisown', 1)
@@ -2652,6 +2862,7 @@ class AllocTransType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocTransTypePtr(AllocTransType):
     def __init__(self, this):
@@ -2668,7 +2879,7 @@ class RefAllocID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RefAllocID, name)
     def __repr__(self):
-        return "<C FIX::RefAllocID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RefAllocID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RefAllocID, 'this', _quickfix.new_RefAllocID(*args))
         _swig_setattr(self, RefAllocID, 'thisown', 1)
@@ -2676,6 +2887,7 @@ class RefAllocID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RefAllocIDPtr(RefAllocID):
     def __init__(self, this):
@@ -2692,7 +2904,7 @@ class NoOrders(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoOrders, name)
     def __repr__(self):
-        return "<C FIX::NoOrders instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoOrders instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoOrders, 'this', _quickfix.new_NoOrders(*args))
         _swig_setattr(self, NoOrders, 'thisown', 1)
@@ -2700,6 +2912,7 @@ class NoOrders(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoOrdersPtr(NoOrders):
     def __init__(self, this):
@@ -2716,7 +2929,7 @@ class AvgPxPrecision(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPxPrecision, name)
     def __repr__(self):
-        return "<C FIX::AvgPxPrecision instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AvgPxPrecision instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AvgPxPrecision, 'this', _quickfix.new_AvgPxPrecision(*args))
         _swig_setattr(self, AvgPxPrecision, 'thisown', 1)
@@ -2724,6 +2937,7 @@ class AvgPxPrecision(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AvgPxPrecisionPtr(AvgPxPrecision):
     def __init__(self, this):
@@ -2740,7 +2954,7 @@ class TradeDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeDate, name)
     def __repr__(self):
-        return "<C FIX::TradeDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeDate, 'this', _quickfix.new_TradeDate(*args))
         _swig_setattr(self, TradeDate, 'thisown', 1)
@@ -2748,6 +2962,7 @@ class TradeDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeDatePtr(TradeDate):
     def __init__(self, this):
@@ -2764,7 +2979,7 @@ class PositionEffect(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PositionEffect, name)
     def __repr__(self):
-        return "<C FIX::PositionEffect instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PositionEffect instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PositionEffect, 'this', _quickfix.new_PositionEffect(*args))
         _swig_setattr(self, PositionEffect, 'thisown', 1)
@@ -2772,6 +2987,7 @@ class PositionEffect(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PositionEffectPtr(PositionEffect):
     def __init__(self, this):
@@ -2788,7 +3004,7 @@ class NoAllocs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoAllocs, name)
     def __repr__(self):
-        return "<C FIX::NoAllocs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoAllocs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoAllocs, 'this', _quickfix.new_NoAllocs(*args))
         _swig_setattr(self, NoAllocs, 'thisown', 1)
@@ -2796,6 +3012,7 @@ class NoAllocs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoAllocsPtr(NoAllocs):
     def __init__(self, this):
@@ -2812,7 +3029,7 @@ class AllocAccount(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAccount, name)
     def __repr__(self):
-        return "<C FIX::AllocAccount instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocAccount instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocAccount, 'this', _quickfix.new_AllocAccount(*args))
         _swig_setattr(self, AllocAccount, 'thisown', 1)
@@ -2820,6 +3037,7 @@ class AllocAccount(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocAccountPtr(AllocAccount):
     def __init__(self, this):
@@ -2836,7 +3054,7 @@ class AllocQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocQty, name)
     def __repr__(self):
-        return "<C FIX::AllocQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocQty, 'this', _quickfix.new_AllocQty(*args))
         _swig_setattr(self, AllocQty, 'thisown', 1)
@@ -2844,6 +3062,7 @@ class AllocQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocQtyPtr(AllocQty):
     def __init__(self, this):
@@ -2860,7 +3079,7 @@ class ProcessCode(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ProcessCode, name)
     def __repr__(self):
-        return "<C FIX::ProcessCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ProcessCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ProcessCode, 'this', _quickfix.new_ProcessCode(*args))
         _swig_setattr(self, ProcessCode, 'thisown', 1)
@@ -2868,6 +3087,7 @@ class ProcessCode(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ProcessCodePtr(ProcessCode):
     def __init__(self, this):
@@ -2884,7 +3104,7 @@ class NoRpts(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoRpts, name)
     def __repr__(self):
-        return "<C FIX::NoRpts instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoRpts instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoRpts, 'this', _quickfix.new_NoRpts(*args))
         _swig_setattr(self, NoRpts, 'thisown', 1)
@@ -2892,6 +3112,7 @@ class NoRpts(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoRptsPtr(NoRpts):
     def __init__(self, this):
@@ -2908,7 +3129,7 @@ class RptSeq(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RptSeq, name)
     def __repr__(self):
-        return "<C FIX::RptSeq instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RptSeq instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RptSeq, 'this', _quickfix.new_RptSeq(*args))
         _swig_setattr(self, RptSeq, 'thisown', 1)
@@ -2916,6 +3137,7 @@ class RptSeq(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RptSeqPtr(RptSeq):
     def __init__(self, this):
@@ -2932,7 +3154,7 @@ class CxlQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CxlQty, name)
     def __repr__(self):
-        return "<C FIX::CxlQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CxlQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CxlQty, 'this', _quickfix.new_CxlQty(*args))
         _swig_setattr(self, CxlQty, 'thisown', 1)
@@ -2940,6 +3162,7 @@ class CxlQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CxlQtyPtr(CxlQty):
     def __init__(self, this):
@@ -2956,7 +3179,7 @@ class NoDlvyInst(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoDlvyInst, name)
     def __repr__(self):
-        return "<C FIX::NoDlvyInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoDlvyInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoDlvyInst, 'this', _quickfix.new_NoDlvyInst(*args))
         _swig_setattr(self, NoDlvyInst, 'thisown', 1)
@@ -2964,6 +3187,7 @@ class NoDlvyInst(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoDlvyInstPtr(NoDlvyInst):
     def __init__(self, this):
@@ -2980,7 +3204,7 @@ class AllocStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocStatus, name)
     def __repr__(self):
-        return "<C FIX::AllocStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocStatus, 'this', _quickfix.new_AllocStatus(*args))
         _swig_setattr(self, AllocStatus, 'thisown', 1)
@@ -2988,6 +3212,7 @@ class AllocStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocStatusPtr(AllocStatus):
     def __init__(self, this):
@@ -3004,7 +3229,7 @@ class AllocRejCode(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocRejCode, name)
     def __repr__(self):
-        return "<C FIX::AllocRejCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocRejCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocRejCode, 'this', _quickfix.new_AllocRejCode(*args))
         _swig_setattr(self, AllocRejCode, 'thisown', 1)
@@ -3012,6 +3237,7 @@ class AllocRejCode(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocRejCodePtr(AllocRejCode):
     def __init__(self, this):
@@ -3028,7 +3254,7 @@ class Signature(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Signature, name)
     def __repr__(self):
-        return "<C FIX::Signature instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Signature instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Signature, 'this', _quickfix.new_Signature(*args))
         _swig_setattr(self, Signature, 'thisown', 1)
@@ -3036,6 +3262,7 @@ class Signature(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SignaturePtr(Signature):
     def __init__(self, this):
@@ -3052,7 +3279,7 @@ class SecureDataLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecureDataLen, name)
     def __repr__(self):
-        return "<C FIX::SecureDataLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecureDataLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecureDataLen, 'this', _quickfix.new_SecureDataLen(*args))
         _swig_setattr(self, SecureDataLen, 'thisown', 1)
@@ -3060,6 +3287,7 @@ class SecureDataLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecureDataLenPtr(SecureDataLen):
     def __init__(self, this):
@@ -3076,7 +3304,7 @@ class SecureData(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecureData, name)
     def __repr__(self):
-        return "<C FIX::SecureData instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecureData instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecureData, 'this', _quickfix.new_SecureData(*args))
         _swig_setattr(self, SecureData, 'thisown', 1)
@@ -3084,6 +3312,7 @@ class SecureData(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecureDataPtr(SecureData):
     def __init__(self, this):
@@ -3100,7 +3329,7 @@ class SignatureLength(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SignatureLength, name)
     def __repr__(self):
-        return "<C FIX::SignatureLength instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SignatureLength instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SignatureLength, 'this', _quickfix.new_SignatureLength(*args))
         _swig_setattr(self, SignatureLength, 'thisown', 1)
@@ -3108,6 +3337,7 @@ class SignatureLength(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SignatureLengthPtr(SignatureLength):
     def __init__(self, this):
@@ -3124,7 +3354,7 @@ class EmailType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EmailType, name)
     def __repr__(self):
-        return "<C FIX::EmailType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EmailType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EmailType, 'this', _quickfix.new_EmailType(*args))
         _swig_setattr(self, EmailType, 'thisown', 1)
@@ -3132,6 +3362,7 @@ class EmailType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EmailTypePtr(EmailType):
     def __init__(self, this):
@@ -3148,7 +3379,7 @@ class RawDataLength(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RawDataLength, name)
     def __repr__(self):
-        return "<C FIX::RawDataLength instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RawDataLength instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RawDataLength, 'this', _quickfix.new_RawDataLength(*args))
         _swig_setattr(self, RawDataLength, 'thisown', 1)
@@ -3156,6 +3387,7 @@ class RawDataLength(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RawDataLengthPtr(RawDataLength):
     def __init__(self, this):
@@ -3172,7 +3404,7 @@ class RawData(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RawData, name)
     def __repr__(self):
-        return "<C FIX::RawData instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RawData instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RawData, 'this', _quickfix.new_RawData(*args))
         _swig_setattr(self, RawData, 'thisown', 1)
@@ -3180,6 +3412,7 @@ class RawData(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RawDataPtr(RawData):
     def __init__(self, this):
@@ -3196,7 +3429,7 @@ class PossResend(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PossResend, name)
     def __repr__(self):
-        return "<C FIX::PossResend instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PossResend instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PossResend, 'this', _quickfix.new_PossResend(*args))
         _swig_setattr(self, PossResend, 'thisown', 1)
@@ -3204,6 +3437,7 @@ class PossResend(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PossResendPtr(PossResend):
     def __init__(self, this):
@@ -3220,7 +3454,7 @@ class EncryptMethod(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncryptMethod, name)
     def __repr__(self):
-        return "<C FIX::EncryptMethod instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncryptMethod instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncryptMethod, 'this', _quickfix.new_EncryptMethod(*args))
         _swig_setattr(self, EncryptMethod, 'thisown', 1)
@@ -3228,6 +3462,7 @@ class EncryptMethod(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncryptMethodPtr(EncryptMethod):
     def __init__(self, this):
@@ -3244,7 +3479,7 @@ class StopPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StopPx, name)
     def __repr__(self):
-        return "<C FIX::StopPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StopPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StopPx, 'this', _quickfix.new_StopPx(*args))
         _swig_setattr(self, StopPx, 'thisown', 1)
@@ -3252,6 +3487,7 @@ class StopPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StopPxPtr(StopPx):
     def __init__(self, this):
@@ -3268,7 +3504,7 @@ class ExDestination(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExDestination, name)
     def __repr__(self):
-        return "<C FIX::ExDestination instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExDestination instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExDestination, 'this', _quickfix.new_ExDestination(*args))
         _swig_setattr(self, ExDestination, 'thisown', 1)
@@ -3276,6 +3512,7 @@ class ExDestination(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExDestinationPtr(ExDestination):
     def __init__(self, this):
@@ -3292,7 +3529,7 @@ class CxlRejReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CxlRejReason, name)
     def __repr__(self):
-        return "<C FIX::CxlRejReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CxlRejReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CxlRejReason, 'this', _quickfix.new_CxlRejReason(*args))
         _swig_setattr(self, CxlRejReason, 'thisown', 1)
@@ -3300,6 +3537,7 @@ class CxlRejReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CxlRejReasonPtr(CxlRejReason):
     def __init__(self, this):
@@ -3316,7 +3554,7 @@ class OrdRejReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrdRejReason, name)
     def __repr__(self):
-        return "<C FIX::OrdRejReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrdRejReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrdRejReason, 'this', _quickfix.new_OrdRejReason(*args))
         _swig_setattr(self, OrdRejReason, 'thisown', 1)
@@ -3324,6 +3562,7 @@ class OrdRejReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrdRejReasonPtr(OrdRejReason):
     def __init__(self, this):
@@ -3340,7 +3579,7 @@ class IOIQualifier(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOIQualifier, name)
     def __repr__(self):
-        return "<C FIX::IOIQualifier instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOIQualifier instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOIQualifier, 'this', _quickfix.new_IOIQualifier(*args))
         _swig_setattr(self, IOIQualifier, 'thisown', 1)
@@ -3348,6 +3587,7 @@ class IOIQualifier(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOIQualifierPtr(IOIQualifier):
     def __init__(self, this):
@@ -3364,7 +3604,7 @@ class WaveNo(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, WaveNo, name)
     def __repr__(self):
-        return "<C FIX::WaveNo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::WaveNo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, WaveNo, 'this', _quickfix.new_WaveNo(*args))
         _swig_setattr(self, WaveNo, 'thisown', 1)
@@ -3372,6 +3612,7 @@ class WaveNo(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class WaveNoPtr(WaveNo):
     def __init__(self, this):
@@ -3388,7 +3629,7 @@ class Issuer(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Issuer, name)
     def __repr__(self):
-        return "<C FIX::Issuer instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Issuer instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Issuer, 'this', _quickfix.new_Issuer(*args))
         _swig_setattr(self, Issuer, 'thisown', 1)
@@ -3396,6 +3637,7 @@ class Issuer(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IssuerPtr(Issuer):
     def __init__(self, this):
@@ -3412,7 +3654,7 @@ class SecurityDesc(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityDesc, name)
     def __repr__(self):
-        return "<C FIX::SecurityDesc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityDesc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityDesc, 'this', _quickfix.new_SecurityDesc(*args))
         _swig_setattr(self, SecurityDesc, 'thisown', 1)
@@ -3420,6 +3662,7 @@ class SecurityDesc(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityDescPtr(SecurityDesc):
     def __init__(self, this):
@@ -3436,7 +3679,7 @@ class HeartBtInt(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, HeartBtInt, name)
     def __repr__(self):
-        return "<C FIX::HeartBtInt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::HeartBtInt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, HeartBtInt, 'this', _quickfix.new_HeartBtInt(*args))
         _swig_setattr(self, HeartBtInt, 'thisown', 1)
@@ -3444,6 +3687,7 @@ class HeartBtInt(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HeartBtIntPtr(HeartBtInt):
     def __init__(self, this):
@@ -3460,7 +3704,7 @@ class MinQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MinQty, name)
     def __repr__(self):
-        return "<C FIX::MinQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MinQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MinQty, 'this', _quickfix.new_MinQty(*args))
         _swig_setattr(self, MinQty, 'thisown', 1)
@@ -3468,6 +3712,7 @@ class MinQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MinQtyPtr(MinQty):
     def __init__(self, this):
@@ -3484,7 +3729,7 @@ class MaxFloor(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MaxFloor, name)
     def __repr__(self):
-        return "<C FIX::MaxFloor instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MaxFloor instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MaxFloor, 'this', _quickfix.new_MaxFloor(*args))
         _swig_setattr(self, MaxFloor, 'thisown', 1)
@@ -3492,6 +3737,7 @@ class MaxFloor(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MaxFloorPtr(MaxFloor):
     def __init__(self, this):
@@ -3508,7 +3754,7 @@ class TestReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TestReqID, name)
     def __repr__(self):
-        return "<C FIX::TestReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TestReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TestReqID, 'this', _quickfix.new_TestReqID(*args))
         _swig_setattr(self, TestReqID, 'thisown', 1)
@@ -3516,6 +3762,7 @@ class TestReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TestReqIDPtr(TestReqID):
     def __init__(self, this):
@@ -3532,7 +3779,7 @@ class ReportToExch(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ReportToExch, name)
     def __repr__(self):
-        return "<C FIX::ReportToExch instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ReportToExch instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ReportToExch, 'this', _quickfix.new_ReportToExch(*args))
         _swig_setattr(self, ReportToExch, 'thisown', 1)
@@ -3540,6 +3787,7 @@ class ReportToExch(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ReportToExchPtr(ReportToExch):
     def __init__(self, this):
@@ -3556,7 +3804,7 @@ class LocateReqd(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LocateReqd, name)
     def __repr__(self):
-        return "<C FIX::LocateReqd instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LocateReqd instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LocateReqd, 'this', _quickfix.new_LocateReqd(*args))
         _swig_setattr(self, LocateReqd, 'thisown', 1)
@@ -3564,6 +3812,7 @@ class LocateReqd(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LocateReqdPtr(LocateReqd):
     def __init__(self, this):
@@ -3580,7 +3829,7 @@ class OnBehalfOfCompID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfCompID, name)
     def __repr__(self):
-        return "<C FIX::OnBehalfOfCompID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OnBehalfOfCompID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OnBehalfOfCompID, 'this', _quickfix.new_OnBehalfOfCompID(*args))
         _swig_setattr(self, OnBehalfOfCompID, 'thisown', 1)
@@ -3588,6 +3837,7 @@ class OnBehalfOfCompID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OnBehalfOfCompIDPtr(OnBehalfOfCompID):
     def __init__(self, this):
@@ -3604,7 +3854,7 @@ class OnBehalfOfSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfSubID, name)
     def __repr__(self):
-        return "<C FIX::OnBehalfOfSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OnBehalfOfSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OnBehalfOfSubID, 'this', _quickfix.new_OnBehalfOfSubID(*args))
         _swig_setattr(self, OnBehalfOfSubID, 'thisown', 1)
@@ -3612,6 +3862,7 @@ class OnBehalfOfSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OnBehalfOfSubIDPtr(OnBehalfOfSubID):
     def __init__(self, this):
@@ -3628,7 +3879,7 @@ class QuoteID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteID, name)
     def __repr__(self):
-        return "<C FIX::QuoteID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteID, 'this', _quickfix.new_QuoteID(*args))
         _swig_setattr(self, QuoteID, 'thisown', 1)
@@ -3636,6 +3887,7 @@ class QuoteID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteIDPtr(QuoteID):
     def __init__(self, this):
@@ -3652,7 +3904,7 @@ class NetMoney(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NetMoney, name)
     def __repr__(self):
-        return "<C FIX::NetMoney instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NetMoney instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NetMoney, 'this', _quickfix.new_NetMoney(*args))
         _swig_setattr(self, NetMoney, 'thisown', 1)
@@ -3660,6 +3912,7 @@ class NetMoney(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NetMoneyPtr(NetMoney):
     def __init__(self, this):
@@ -3676,7 +3929,7 @@ class SettlCurrAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrAmt, name)
     def __repr__(self):
-        return "<C FIX::SettlCurrAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlCurrAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlCurrAmt, 'this', _quickfix.new_SettlCurrAmt(*args))
         _swig_setattr(self, SettlCurrAmt, 'thisown', 1)
@@ -3684,6 +3937,7 @@ class SettlCurrAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlCurrAmtPtr(SettlCurrAmt):
     def __init__(self, this):
@@ -3700,7 +3954,7 @@ class SettlCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrency, name)
     def __repr__(self):
-        return "<C FIX::SettlCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlCurrency, 'this', _quickfix.new_SettlCurrency(*args))
         _swig_setattr(self, SettlCurrency, 'thisown', 1)
@@ -3708,6 +3962,7 @@ class SettlCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlCurrencyPtr(SettlCurrency):
     def __init__(self, this):
@@ -3724,7 +3979,7 @@ class ForexReq(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ForexReq, name)
     def __repr__(self):
-        return "<C FIX::ForexReq instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ForexReq instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ForexReq, 'this', _quickfix.new_ForexReq(*args))
         _swig_setattr(self, ForexReq, 'thisown', 1)
@@ -3732,6 +3987,7 @@ class ForexReq(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ForexReqPtr(ForexReq):
     def __init__(self, this):
@@ -3748,7 +4004,7 @@ class OrigSendingTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrigSendingTime, name)
     def __repr__(self):
-        return "<C FIX::OrigSendingTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrigSendingTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrigSendingTime, 'this', _quickfix.new_OrigSendingTime(*args))
         _swig_setattr(self, OrigSendingTime, 'thisown', 1)
@@ -3756,6 +4012,7 @@ class OrigSendingTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrigSendingTimePtr(OrigSendingTime):
     def __init__(self, this):
@@ -3772,7 +4029,7 @@ class GapFillFlag(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, GapFillFlag, name)
     def __repr__(self):
-        return "<C FIX::GapFillFlag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::GapFillFlag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, GapFillFlag, 'this', _quickfix.new_GapFillFlag(*args))
         _swig_setattr(self, GapFillFlag, 'thisown', 1)
@@ -3780,6 +4037,7 @@ class GapFillFlag(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class GapFillFlagPtr(GapFillFlag):
     def __init__(self, this):
@@ -3796,7 +4054,7 @@ class NoExecs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoExecs, name)
     def __repr__(self):
-        return "<C FIX::NoExecs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoExecs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoExecs, 'this', _quickfix.new_NoExecs(*args))
         _swig_setattr(self, NoExecs, 'thisown', 1)
@@ -3804,6 +4062,7 @@ class NoExecs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoExecsPtr(NoExecs):
     def __init__(self, this):
@@ -3820,7 +4079,7 @@ class ExpireTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExpireTime, name)
     def __repr__(self):
-        return "<C FIX::ExpireTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExpireTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExpireTime, 'this', _quickfix.new_ExpireTime(*args))
         _swig_setattr(self, ExpireTime, 'thisown', 1)
@@ -3828,6 +4087,7 @@ class ExpireTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExpireTimePtr(ExpireTime):
     def __init__(self, this):
@@ -3844,7 +4104,7 @@ class DKReason(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DKReason, name)
     def __repr__(self):
-        return "<C FIX::DKReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DKReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DKReason, 'this', _quickfix.new_DKReason(*args))
         _swig_setattr(self, DKReason, 'thisown', 1)
@@ -3852,6 +4112,7 @@ class DKReason(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DKReasonPtr(DKReason):
     def __init__(self, this):
@@ -3868,7 +4129,7 @@ class DeliverToCompID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeliverToCompID, name)
     def __repr__(self):
-        return "<C FIX::DeliverToCompID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeliverToCompID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeliverToCompID, 'this', _quickfix.new_DeliverToCompID(*args))
         _swig_setattr(self, DeliverToCompID, 'thisown', 1)
@@ -3876,6 +4137,7 @@ class DeliverToCompID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeliverToCompIDPtr(DeliverToCompID):
     def __init__(self, this):
@@ -3892,7 +4154,7 @@ class DeliverToSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeliverToSubID, name)
     def __repr__(self):
-        return "<C FIX::DeliverToSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeliverToSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeliverToSubID, 'this', _quickfix.new_DeliverToSubID(*args))
         _swig_setattr(self, DeliverToSubID, 'thisown', 1)
@@ -3900,6 +4162,7 @@ class DeliverToSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeliverToSubIDPtr(DeliverToSubID):
     def __init__(self, this):
@@ -3916,7 +4179,7 @@ class IOINaturalFlag(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOINaturalFlag, name)
     def __repr__(self):
-        return "<C FIX::IOINaturalFlag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOINaturalFlag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOINaturalFlag, 'this', _quickfix.new_IOINaturalFlag(*args))
         _swig_setattr(self, IOINaturalFlag, 'thisown', 1)
@@ -3924,6 +4187,7 @@ class IOINaturalFlag(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOINaturalFlagPtr(IOINaturalFlag):
     def __init__(self, this):
@@ -3940,7 +4204,7 @@ class QuoteReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteReqID, name)
     def __repr__(self):
-        return "<C FIX::QuoteReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteReqID, 'this', _quickfix.new_QuoteReqID(*args))
         _swig_setattr(self, QuoteReqID, 'thisown', 1)
@@ -3948,6 +4212,7 @@ class QuoteReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteReqIDPtr(QuoteReqID):
     def __init__(self, this):
@@ -3964,7 +4229,7 @@ class BidPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidPx, name)
     def __repr__(self):
-        return "<C FIX::BidPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidPx, 'this', _quickfix.new_BidPx(*args))
         _swig_setattr(self, BidPx, 'thisown', 1)
@@ -3972,6 +4237,7 @@ class BidPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidPxPtr(BidPx):
     def __init__(self, this):
@@ -3988,7 +4254,7 @@ class OfferPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OfferPx, name)
     def __repr__(self):
-        return "<C FIX::OfferPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OfferPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OfferPx, 'this', _quickfix.new_OfferPx(*args))
         _swig_setattr(self, OfferPx, 'thisown', 1)
@@ -3996,6 +4262,7 @@ class OfferPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OfferPxPtr(OfferPx):
     def __init__(self, this):
@@ -4012,7 +4279,7 @@ class BidSize(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidSize, name)
     def __repr__(self):
-        return "<C FIX::BidSize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidSize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidSize, 'this', _quickfix.new_BidSize(*args))
         _swig_setattr(self, BidSize, 'thisown', 1)
@@ -4020,6 +4287,7 @@ class BidSize(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidSizePtr(BidSize):
     def __init__(self, this):
@@ -4036,7 +4304,7 @@ class OfferSize(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OfferSize, name)
     def __repr__(self):
-        return "<C FIX::OfferSize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OfferSize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OfferSize, 'this', _quickfix.new_OfferSize(*args))
         _swig_setattr(self, OfferSize, 'thisown', 1)
@@ -4044,6 +4312,7 @@ class OfferSize(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OfferSizePtr(OfferSize):
     def __init__(self, this):
@@ -4060,7 +4329,7 @@ class NoMiscFees(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoMiscFees, name)
     def __repr__(self):
-        return "<C FIX::NoMiscFees instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoMiscFees instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoMiscFees, 'this', _quickfix.new_NoMiscFees(*args))
         _swig_setattr(self, NoMiscFees, 'thisown', 1)
@@ -4068,6 +4337,7 @@ class NoMiscFees(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoMiscFeesPtr(NoMiscFees):
     def __init__(self, this):
@@ -4084,7 +4354,7 @@ class MiscFeeAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeAmt, name)
     def __repr__(self):
-        return "<C FIX::MiscFeeAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MiscFeeAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MiscFeeAmt, 'this', _quickfix.new_MiscFeeAmt(*args))
         _swig_setattr(self, MiscFeeAmt, 'thisown', 1)
@@ -4092,6 +4362,7 @@ class MiscFeeAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MiscFeeAmtPtr(MiscFeeAmt):
     def __init__(self, this):
@@ -4108,7 +4379,7 @@ class MiscFeeCurr(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeCurr, name)
     def __repr__(self):
-        return "<C FIX::MiscFeeCurr instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MiscFeeCurr instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MiscFeeCurr, 'this', _quickfix.new_MiscFeeCurr(*args))
         _swig_setattr(self, MiscFeeCurr, 'thisown', 1)
@@ -4116,6 +4387,7 @@ class MiscFeeCurr(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MiscFeeCurrPtr(MiscFeeCurr):
     def __init__(self, this):
@@ -4132,7 +4404,7 @@ class MiscFeeType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeType, name)
     def __repr__(self):
-        return "<C FIX::MiscFeeType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MiscFeeType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MiscFeeType, 'this', _quickfix.new_MiscFeeType(*args))
         _swig_setattr(self, MiscFeeType, 'thisown', 1)
@@ -4140,6 +4412,7 @@ class MiscFeeType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MiscFeeTypePtr(MiscFeeType):
     def __init__(self, this):
@@ -4156,7 +4429,7 @@ class PrevClosePx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PrevClosePx, name)
     def __repr__(self):
-        return "<C FIX::PrevClosePx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PrevClosePx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PrevClosePx, 'this', _quickfix.new_PrevClosePx(*args))
         _swig_setattr(self, PrevClosePx, 'thisown', 1)
@@ -4164,6 +4437,7 @@ class PrevClosePx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PrevClosePxPtr(PrevClosePx):
     def __init__(self, this):
@@ -4180,7 +4454,7 @@ class ResetSeqNumFlag(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ResetSeqNumFlag, name)
     def __repr__(self):
-        return "<C FIX::ResetSeqNumFlag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ResetSeqNumFlag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ResetSeqNumFlag, 'this', _quickfix.new_ResetSeqNumFlag(*args))
         _swig_setattr(self, ResetSeqNumFlag, 'thisown', 1)
@@ -4188,6 +4462,7 @@ class ResetSeqNumFlag(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ResetSeqNumFlagPtr(ResetSeqNumFlag):
     def __init__(self, this):
@@ -4204,7 +4479,7 @@ class SenderLocationID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SenderLocationID, name)
     def __repr__(self):
-        return "<C FIX::SenderLocationID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SenderLocationID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SenderLocationID, 'this', _quickfix.new_SenderLocationID(*args))
         _swig_setattr(self, SenderLocationID, 'thisown', 1)
@@ -4212,6 +4487,7 @@ class SenderLocationID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SenderLocationIDPtr(SenderLocationID):
     def __init__(self, this):
@@ -4228,7 +4504,7 @@ class TargetLocationID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TargetLocationID, name)
     def __repr__(self):
-        return "<C FIX::TargetLocationID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TargetLocationID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TargetLocationID, 'this', _quickfix.new_TargetLocationID(*args))
         _swig_setattr(self, TargetLocationID, 'thisown', 1)
@@ -4236,6 +4512,7 @@ class TargetLocationID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TargetLocationIDPtr(TargetLocationID):
     def __init__(self, this):
@@ -4252,7 +4529,7 @@ class OnBehalfOfLocationID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfLocationID, name)
     def __repr__(self):
-        return "<C FIX::OnBehalfOfLocationID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OnBehalfOfLocationID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OnBehalfOfLocationID, 'this', _quickfix.new_OnBehalfOfLocationID(*args))
         _swig_setattr(self, OnBehalfOfLocationID, 'thisown', 1)
@@ -4260,6 +4537,7 @@ class OnBehalfOfLocationID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OnBehalfOfLocationIDPtr(OnBehalfOfLocationID):
     def __init__(self, this):
@@ -4276,7 +4554,7 @@ class DeliverToLocationID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeliverToLocationID, name)
     def __repr__(self):
-        return "<C FIX::DeliverToLocationID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeliverToLocationID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeliverToLocationID, 'this', _quickfix.new_DeliverToLocationID(*args))
         _swig_setattr(self, DeliverToLocationID, 'thisown', 1)
@@ -4284,6 +4562,7 @@ class DeliverToLocationID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeliverToLocationIDPtr(DeliverToLocationID):
     def __init__(self, this):
@@ -4300,7 +4579,7 @@ class NoRelatedSym(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoRelatedSym, name)
     def __repr__(self):
-        return "<C FIX::NoRelatedSym instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoRelatedSym instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoRelatedSym, 'this', _quickfix.new_NoRelatedSym(*args))
         _swig_setattr(self, NoRelatedSym, 'thisown', 1)
@@ -4308,6 +4587,7 @@ class NoRelatedSym(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoRelatedSymPtr(NoRelatedSym):
     def __init__(self, this):
@@ -4324,7 +4604,7 @@ class Subject(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Subject, name)
     def __repr__(self):
-        return "<C FIX::Subject instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Subject instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Subject, 'this', _quickfix.new_Subject(*args))
         _swig_setattr(self, Subject, 'thisown', 1)
@@ -4332,6 +4612,7 @@ class Subject(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SubjectPtr(Subject):
     def __init__(self, this):
@@ -4348,7 +4629,7 @@ class Headline(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Headline, name)
     def __repr__(self):
-        return "<C FIX::Headline instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Headline instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Headline, 'this', _quickfix.new_Headline(*args))
         _swig_setattr(self, Headline, 'thisown', 1)
@@ -4356,6 +4637,7 @@ class Headline(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HeadlinePtr(Headline):
     def __init__(self, this):
@@ -4372,7 +4654,7 @@ class URLLink(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, URLLink, name)
     def __repr__(self):
-        return "<C FIX::URLLink instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::URLLink instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, URLLink, 'this', _quickfix.new_URLLink(*args))
         _swig_setattr(self, URLLink, 'thisown', 1)
@@ -4380,6 +4662,7 @@ class URLLink(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class URLLinkPtr(URLLink):
     def __init__(self, this):
@@ -4396,7 +4679,7 @@ class ExecType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecType, name)
     def __repr__(self):
-        return "<C FIX::ExecType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecType, 'this', _quickfix.new_ExecType(*args))
         _swig_setattr(self, ExecType, 'thisown', 1)
@@ -4404,6 +4687,7 @@ class ExecType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecTypePtr(ExecType):
     def __init__(self, this):
@@ -4420,7 +4704,7 @@ class LeavesQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LeavesQty, name)
     def __repr__(self):
-        return "<C FIX::LeavesQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LeavesQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LeavesQty, 'this', _quickfix.new_LeavesQty(*args))
         _swig_setattr(self, LeavesQty, 'thisown', 1)
@@ -4428,6 +4712,7 @@ class LeavesQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LeavesQtyPtr(LeavesQty):
     def __init__(self, this):
@@ -4444,7 +4729,7 @@ class CashOrderQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashOrderQty, name)
     def __repr__(self):
-        return "<C FIX::CashOrderQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashOrderQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashOrderQty, 'this', _quickfix.new_CashOrderQty(*args))
         _swig_setattr(self, CashOrderQty, 'thisown', 1)
@@ -4452,6 +4737,7 @@ class CashOrderQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashOrderQtyPtr(CashOrderQty):
     def __init__(self, this):
@@ -4468,7 +4754,7 @@ class AllocAvgPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAvgPx, name)
     def __repr__(self):
-        return "<C FIX::AllocAvgPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocAvgPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocAvgPx, 'this', _quickfix.new_AllocAvgPx(*args))
         _swig_setattr(self, AllocAvgPx, 'thisown', 1)
@@ -4476,6 +4762,7 @@ class AllocAvgPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocAvgPxPtr(AllocAvgPx):
     def __init__(self, this):
@@ -4492,7 +4779,7 @@ class AllocNetMoney(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocNetMoney, name)
     def __repr__(self):
-        return "<C FIX::AllocNetMoney instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocNetMoney instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocNetMoney, 'this', _quickfix.new_AllocNetMoney(*args))
         _swig_setattr(self, AllocNetMoney, 'thisown', 1)
@@ -4500,6 +4787,7 @@ class AllocNetMoney(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocNetMoneyPtr(AllocNetMoney):
     def __init__(self, this):
@@ -4516,7 +4804,7 @@ class SettlCurrFxRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrFxRate, name)
     def __repr__(self):
-        return "<C FIX::SettlCurrFxRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlCurrFxRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlCurrFxRate, 'this', _quickfix.new_SettlCurrFxRate(*args))
         _swig_setattr(self, SettlCurrFxRate, 'thisown', 1)
@@ -4524,6 +4812,7 @@ class SettlCurrFxRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlCurrFxRatePtr(SettlCurrFxRate):
     def __init__(self, this):
@@ -4540,7 +4829,7 @@ class SettlCurrFxRateCalc(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrFxRateCalc, name)
     def __repr__(self):
-        return "<C FIX::SettlCurrFxRateCalc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlCurrFxRateCalc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlCurrFxRateCalc, 'this', _quickfix.new_SettlCurrFxRateCalc(*args))
         _swig_setattr(self, SettlCurrFxRateCalc, 'thisown', 1)
@@ -4548,6 +4837,7 @@ class SettlCurrFxRateCalc(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlCurrFxRateCalcPtr(SettlCurrFxRateCalc):
     def __init__(self, this):
@@ -4564,7 +4854,7 @@ class NumDaysInterest(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NumDaysInterest, name)
     def __repr__(self):
-        return "<C FIX::NumDaysInterest instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NumDaysInterest instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NumDaysInterest, 'this', _quickfix.new_NumDaysInterest(*args))
         _swig_setattr(self, NumDaysInterest, 'thisown', 1)
@@ -4572,6 +4862,7 @@ class NumDaysInterest(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NumDaysInterestPtr(NumDaysInterest):
     def __init__(self, this):
@@ -4588,7 +4879,7 @@ class AccruedInterestRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AccruedInterestRate, name)
     def __repr__(self):
-        return "<C FIX::AccruedInterestRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AccruedInterestRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AccruedInterestRate, 'this', _quickfix.new_AccruedInterestRate(*args))
         _swig_setattr(self, AccruedInterestRate, 'thisown', 1)
@@ -4596,6 +4887,7 @@ class AccruedInterestRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AccruedInterestRatePtr(AccruedInterestRate):
     def __init__(self, this):
@@ -4612,7 +4904,7 @@ class AccruedInterestAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AccruedInterestAmt, name)
     def __repr__(self):
-        return "<C FIX::AccruedInterestAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AccruedInterestAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AccruedInterestAmt, 'this', _quickfix.new_AccruedInterestAmt(*args))
         _swig_setattr(self, AccruedInterestAmt, 'thisown', 1)
@@ -4620,6 +4912,7 @@ class AccruedInterestAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AccruedInterestAmtPtr(AccruedInterestAmt):
     def __init__(self, this):
@@ -4636,7 +4929,7 @@ class SettlInstMode(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstMode, name)
     def __repr__(self):
-        return "<C FIX::SettlInstMode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstMode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstMode, 'this', _quickfix.new_SettlInstMode(*args))
         _swig_setattr(self, SettlInstMode, 'thisown', 1)
@@ -4644,6 +4937,7 @@ class SettlInstMode(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstModePtr(SettlInstMode):
     def __init__(self, this):
@@ -4660,7 +4954,7 @@ class AllocText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocText, name)
     def __repr__(self):
-        return "<C FIX::AllocText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocText, 'this', _quickfix.new_AllocText(*args))
         _swig_setattr(self, AllocText, 'thisown', 1)
@@ -4668,6 +4962,7 @@ class AllocText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocTextPtr(AllocText):
     def __init__(self, this):
@@ -4684,7 +4979,7 @@ class SettlInstID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstID, name)
     def __repr__(self):
-        return "<C FIX::SettlInstID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstID, 'this', _quickfix.new_SettlInstID(*args))
         _swig_setattr(self, SettlInstID, 'thisown', 1)
@@ -4692,6 +4987,7 @@ class SettlInstID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstIDPtr(SettlInstID):
     def __init__(self, this):
@@ -4708,7 +5004,7 @@ class SettlInstTransType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstTransType, name)
     def __repr__(self):
-        return "<C FIX::SettlInstTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstTransType, 'this', _quickfix.new_SettlInstTransType(*args))
         _swig_setattr(self, SettlInstTransType, 'thisown', 1)
@@ -4716,6 +5012,7 @@ class SettlInstTransType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstTransTypePtr(SettlInstTransType):
     def __init__(self, this):
@@ -4732,7 +5029,7 @@ class EmailThreadID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EmailThreadID, name)
     def __repr__(self):
-        return "<C FIX::EmailThreadID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EmailThreadID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EmailThreadID, 'this', _quickfix.new_EmailThreadID(*args))
         _swig_setattr(self, EmailThreadID, 'thisown', 1)
@@ -4740,6 +5037,7 @@ class EmailThreadID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EmailThreadIDPtr(EmailThreadID):
     def __init__(self, this):
@@ -4756,7 +5054,7 @@ class SettlInstSource(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstSource, name)
     def __repr__(self):
-        return "<C FIX::SettlInstSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstSource, 'this', _quickfix.new_SettlInstSource(*args))
         _swig_setattr(self, SettlInstSource, 'thisown', 1)
@@ -4764,6 +5062,7 @@ class SettlInstSource(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstSourcePtr(SettlInstSource):
     def __init__(self, this):
@@ -4780,7 +5079,7 @@ class SecurityType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityType, name)
     def __repr__(self):
-        return "<C FIX::SecurityType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityType, 'this', _quickfix.new_SecurityType(*args))
         _swig_setattr(self, SecurityType, 'thisown', 1)
@@ -4788,6 +5087,7 @@ class SecurityType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityTypePtr(SecurityType):
     def __init__(self, this):
@@ -4804,7 +5104,7 @@ class EffectiveTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EffectiveTime, name)
     def __repr__(self):
-        return "<C FIX::EffectiveTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EffectiveTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EffectiveTime, 'this', _quickfix.new_EffectiveTime(*args))
         _swig_setattr(self, EffectiveTime, 'thisown', 1)
@@ -4812,6 +5112,7 @@ class EffectiveTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EffectiveTimePtr(EffectiveTime):
     def __init__(self, this):
@@ -4828,7 +5129,7 @@ class StandInstDbType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StandInstDbType, name)
     def __repr__(self):
-        return "<C FIX::StandInstDbType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StandInstDbType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StandInstDbType, 'this', _quickfix.new_StandInstDbType(*args))
         _swig_setattr(self, StandInstDbType, 'thisown', 1)
@@ -4836,6 +5137,7 @@ class StandInstDbType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StandInstDbTypePtr(StandInstDbType):
     def __init__(self, this):
@@ -4852,7 +5154,7 @@ class StandInstDbName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StandInstDbName, name)
     def __repr__(self):
-        return "<C FIX::StandInstDbName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StandInstDbName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StandInstDbName, 'this', _quickfix.new_StandInstDbName(*args))
         _swig_setattr(self, StandInstDbName, 'thisown', 1)
@@ -4860,6 +5162,7 @@ class StandInstDbName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StandInstDbNamePtr(StandInstDbName):
     def __init__(self, this):
@@ -4876,7 +5179,7 @@ class StandInstDbID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StandInstDbID, name)
     def __repr__(self):
-        return "<C FIX::StandInstDbID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StandInstDbID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StandInstDbID, 'this', _quickfix.new_StandInstDbID(*args))
         _swig_setattr(self, StandInstDbID, 'thisown', 1)
@@ -4884,6 +5187,7 @@ class StandInstDbID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StandInstDbIDPtr(StandInstDbID):
     def __init__(self, this):
@@ -4900,7 +5204,7 @@ class SettlDeliveryType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDeliveryType, name)
     def __repr__(self):
-        return "<C FIX::SettlDeliveryType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlDeliveryType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlDeliveryType, 'this', _quickfix.new_SettlDeliveryType(*args))
         _swig_setattr(self, SettlDeliveryType, 'thisown', 1)
@@ -4908,6 +5212,7 @@ class SettlDeliveryType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlDeliveryTypePtr(SettlDeliveryType):
     def __init__(self, this):
@@ -4924,7 +5229,7 @@ class BidSpotRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidSpotRate, name)
     def __repr__(self):
-        return "<C FIX::BidSpotRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidSpotRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidSpotRate, 'this', _quickfix.new_BidSpotRate(*args))
         _swig_setattr(self, BidSpotRate, 'thisown', 1)
@@ -4932,6 +5237,7 @@ class BidSpotRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidSpotRatePtr(BidSpotRate):
     def __init__(self, this):
@@ -4948,7 +5254,7 @@ class BidForwardPoints(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidForwardPoints, name)
     def __repr__(self):
-        return "<C FIX::BidForwardPoints instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidForwardPoints instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidForwardPoints, 'this', _quickfix.new_BidForwardPoints(*args))
         _swig_setattr(self, BidForwardPoints, 'thisown', 1)
@@ -4956,6 +5262,7 @@ class BidForwardPoints(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidForwardPointsPtr(BidForwardPoints):
     def __init__(self, this):
@@ -4972,7 +5279,7 @@ class OfferSpotRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OfferSpotRate, name)
     def __repr__(self):
-        return "<C FIX::OfferSpotRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OfferSpotRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OfferSpotRate, 'this', _quickfix.new_OfferSpotRate(*args))
         _swig_setattr(self, OfferSpotRate, 'thisown', 1)
@@ -4980,6 +5287,7 @@ class OfferSpotRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OfferSpotRatePtr(OfferSpotRate):
     def __init__(self, this):
@@ -4996,7 +5304,7 @@ class OfferForwardPoints(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OfferForwardPoints, name)
     def __repr__(self):
-        return "<C FIX::OfferForwardPoints instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OfferForwardPoints instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OfferForwardPoints, 'this', _quickfix.new_OfferForwardPoints(*args))
         _swig_setattr(self, OfferForwardPoints, 'thisown', 1)
@@ -5004,6 +5312,7 @@ class OfferForwardPoints(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OfferForwardPointsPtr(OfferForwardPoints):
     def __init__(self, this):
@@ -5020,7 +5329,7 @@ class OrderQty2(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderQty2, name)
     def __repr__(self):
-        return "<C FIX::OrderQty2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderQty2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderQty2, 'this', _quickfix.new_OrderQty2(*args))
         _swig_setattr(self, OrderQty2, 'thisown', 1)
@@ -5028,6 +5337,7 @@ class OrderQty2(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderQty2Ptr(OrderQty2):
     def __init__(self, this):
@@ -5044,7 +5354,7 @@ class SettlDate2(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDate2, name)
     def __repr__(self):
-        return "<C FIX::SettlDate2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlDate2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlDate2, 'this', _quickfix.new_SettlDate2(*args))
         _swig_setattr(self, SettlDate2, 'thisown', 1)
@@ -5052,6 +5362,7 @@ class SettlDate2(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlDate2Ptr(SettlDate2):
     def __init__(self, this):
@@ -5068,7 +5379,7 @@ class LastSpotRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastSpotRate, name)
     def __repr__(self):
-        return "<C FIX::LastSpotRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastSpotRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastSpotRate, 'this', _quickfix.new_LastSpotRate(*args))
         _swig_setattr(self, LastSpotRate, 'thisown', 1)
@@ -5076,6 +5387,7 @@ class LastSpotRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastSpotRatePtr(LastSpotRate):
     def __init__(self, this):
@@ -5092,7 +5404,7 @@ class LastForwardPoints(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastForwardPoints, name)
     def __repr__(self):
-        return "<C FIX::LastForwardPoints instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastForwardPoints instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastForwardPoints, 'this', _quickfix.new_LastForwardPoints(*args))
         _swig_setattr(self, LastForwardPoints, 'thisown', 1)
@@ -5100,6 +5412,7 @@ class LastForwardPoints(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastForwardPointsPtr(LastForwardPoints):
     def __init__(self, this):
@@ -5116,7 +5429,7 @@ class AllocLinkID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocLinkID, name)
     def __repr__(self):
-        return "<C FIX::AllocLinkID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocLinkID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocLinkID, 'this', _quickfix.new_AllocLinkID(*args))
         _swig_setattr(self, AllocLinkID, 'thisown', 1)
@@ -5124,6 +5437,7 @@ class AllocLinkID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocLinkIDPtr(AllocLinkID):
     def __init__(self, this):
@@ -5140,7 +5454,7 @@ class AllocLinkType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocLinkType, name)
     def __repr__(self):
-        return "<C FIX::AllocLinkType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocLinkType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocLinkType, 'this', _quickfix.new_AllocLinkType(*args))
         _swig_setattr(self, AllocLinkType, 'thisown', 1)
@@ -5148,6 +5462,7 @@ class AllocLinkType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocLinkTypePtr(AllocLinkType):
     def __init__(self, this):
@@ -5164,7 +5479,7 @@ class SecondaryOrderID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryOrderID, name)
     def __repr__(self):
-        return "<C FIX::SecondaryOrderID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecondaryOrderID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecondaryOrderID, 'this', _quickfix.new_SecondaryOrderID(*args))
         _swig_setattr(self, SecondaryOrderID, 'thisown', 1)
@@ -5172,6 +5487,7 @@ class SecondaryOrderID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecondaryOrderIDPtr(SecondaryOrderID):
     def __init__(self, this):
@@ -5188,7 +5504,7 @@ class NoIOIQualifiers(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoIOIQualifiers, name)
     def __repr__(self):
-        return "<C FIX::NoIOIQualifiers instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoIOIQualifiers instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoIOIQualifiers, 'this', _quickfix.new_NoIOIQualifiers(*args))
         _swig_setattr(self, NoIOIQualifiers, 'thisown', 1)
@@ -5196,6 +5512,7 @@ class NoIOIQualifiers(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoIOIQualifiersPtr(NoIOIQualifiers):
     def __init__(self, this):
@@ -5212,7 +5529,7 @@ class MaturityMonthYear(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityMonthYear, name)
     def __repr__(self):
-        return "<C FIX::MaturityMonthYear instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MaturityMonthYear instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MaturityMonthYear, 'this', _quickfix.new_MaturityMonthYear(*args))
         _swig_setattr(self, MaturityMonthYear, 'thisown', 1)
@@ -5220,6 +5537,7 @@ class MaturityMonthYear(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MaturityMonthYearPtr(MaturityMonthYear):
     def __init__(self, this):
@@ -5236,7 +5554,7 @@ class StrikePrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StrikePrice, name)
     def __repr__(self):
-        return "<C FIX::StrikePrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StrikePrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StrikePrice, 'this', _quickfix.new_StrikePrice(*args))
         _swig_setattr(self, StrikePrice, 'thisown', 1)
@@ -5244,6 +5562,7 @@ class StrikePrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StrikePricePtr(StrikePrice):
     def __init__(self, this):
@@ -5260,7 +5579,7 @@ class CoveredOrUncovered(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CoveredOrUncovered, name)
     def __repr__(self):
-        return "<C FIX::CoveredOrUncovered instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CoveredOrUncovered instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CoveredOrUncovered, 'this', _quickfix.new_CoveredOrUncovered(*args))
         _swig_setattr(self, CoveredOrUncovered, 'thisown', 1)
@@ -5268,6 +5587,7 @@ class CoveredOrUncovered(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CoveredOrUncoveredPtr(CoveredOrUncovered):
     def __init__(self, this):
@@ -5284,7 +5604,7 @@ class OptAttribute(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OptAttribute, name)
     def __repr__(self):
-        return "<C FIX::OptAttribute instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OptAttribute instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OptAttribute, 'this', _quickfix.new_OptAttribute(*args))
         _swig_setattr(self, OptAttribute, 'thisown', 1)
@@ -5292,6 +5612,7 @@ class OptAttribute(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OptAttributePtr(OptAttribute):
     def __init__(self, this):
@@ -5308,7 +5629,7 @@ class SecurityExchange(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityExchange, name)
     def __repr__(self):
-        return "<C FIX::SecurityExchange instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityExchange instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityExchange, 'this', _quickfix.new_SecurityExchange(*args))
         _swig_setattr(self, SecurityExchange, 'thisown', 1)
@@ -5316,6 +5637,7 @@ class SecurityExchange(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityExchangePtr(SecurityExchange):
     def __init__(self, this):
@@ -5332,7 +5654,7 @@ class NotifyBrokerOfCredit(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NotifyBrokerOfCredit, name)
     def __repr__(self):
-        return "<C FIX::NotifyBrokerOfCredit instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NotifyBrokerOfCredit instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NotifyBrokerOfCredit, 'this', _quickfix.new_NotifyBrokerOfCredit(*args))
         _swig_setattr(self, NotifyBrokerOfCredit, 'thisown', 1)
@@ -5340,6 +5662,7 @@ class NotifyBrokerOfCredit(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NotifyBrokerOfCreditPtr(NotifyBrokerOfCredit):
     def __init__(self, this):
@@ -5356,7 +5679,7 @@ class AllocHandlInst(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocHandlInst, name)
     def __repr__(self):
-        return "<C FIX::AllocHandlInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocHandlInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocHandlInst, 'this', _quickfix.new_AllocHandlInst(*args))
         _swig_setattr(self, AllocHandlInst, 'thisown', 1)
@@ -5364,6 +5687,7 @@ class AllocHandlInst(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocHandlInstPtr(AllocHandlInst):
     def __init__(self, this):
@@ -5380,7 +5704,7 @@ class MaxShow(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MaxShow, name)
     def __repr__(self):
-        return "<C FIX::MaxShow instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MaxShow instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MaxShow, 'this', _quickfix.new_MaxShow(*args))
         _swig_setattr(self, MaxShow, 'thisown', 1)
@@ -5388,6 +5712,7 @@ class MaxShow(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MaxShowPtr(MaxShow):
     def __init__(self, this):
@@ -5404,7 +5729,7 @@ class PegOffsetValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PegOffsetValue, name)
     def __repr__(self):
-        return "<C FIX::PegOffsetValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PegOffsetValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PegOffsetValue, 'this', _quickfix.new_PegOffsetValue(*args))
         _swig_setattr(self, PegOffsetValue, 'thisown', 1)
@@ -5412,6 +5737,7 @@ class PegOffsetValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PegOffsetValuePtr(PegOffsetValue):
     def __init__(self, this):
@@ -5428,7 +5754,7 @@ class XmlDataLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, XmlDataLen, name)
     def __repr__(self):
-        return "<C FIX::XmlDataLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::XmlDataLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, XmlDataLen, 'this', _quickfix.new_XmlDataLen(*args))
         _swig_setattr(self, XmlDataLen, 'thisown', 1)
@@ -5436,6 +5762,7 @@ class XmlDataLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class XmlDataLenPtr(XmlDataLen):
     def __init__(self, this):
@@ -5452,7 +5779,7 @@ class XmlData(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, XmlData, name)
     def __repr__(self):
-        return "<C FIX::XmlData instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::XmlData instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, XmlData, 'this', _quickfix.new_XmlData(*args))
         _swig_setattr(self, XmlData, 'thisown', 1)
@@ -5460,6 +5787,7 @@ class XmlData(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class XmlDataPtr(XmlData):
     def __init__(self, this):
@@ -5476,7 +5804,7 @@ class SettlInstRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstRefID, name)
     def __repr__(self):
-        return "<C FIX::SettlInstRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstRefID, 'this', _quickfix.new_SettlInstRefID(*args))
         _swig_setattr(self, SettlInstRefID, 'thisown', 1)
@@ -5484,6 +5812,7 @@ class SettlInstRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstRefIDPtr(SettlInstRefID):
     def __init__(self, this):
@@ -5500,7 +5829,7 @@ class NoRoutingIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoRoutingIDs, name)
     def __repr__(self):
-        return "<C FIX::NoRoutingIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoRoutingIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoRoutingIDs, 'this', _quickfix.new_NoRoutingIDs(*args))
         _swig_setattr(self, NoRoutingIDs, 'thisown', 1)
@@ -5508,6 +5837,7 @@ class NoRoutingIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoRoutingIDsPtr(NoRoutingIDs):
     def __init__(self, this):
@@ -5524,7 +5854,7 @@ class RoutingType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RoutingType, name)
     def __repr__(self):
-        return "<C FIX::RoutingType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RoutingType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RoutingType, 'this', _quickfix.new_RoutingType(*args))
         _swig_setattr(self, RoutingType, 'thisown', 1)
@@ -5532,6 +5862,7 @@ class RoutingType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RoutingTypePtr(RoutingType):
     def __init__(self, this):
@@ -5548,7 +5879,7 @@ class RoutingID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RoutingID, name)
     def __repr__(self):
-        return "<C FIX::RoutingID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RoutingID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RoutingID, 'this', _quickfix.new_RoutingID(*args))
         _swig_setattr(self, RoutingID, 'thisown', 1)
@@ -5556,6 +5887,7 @@ class RoutingID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RoutingIDPtr(RoutingID):
     def __init__(self, this):
@@ -5572,7 +5904,7 @@ class Spread(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Spread, name)
     def __repr__(self):
-        return "<C FIX::Spread instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Spread instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Spread, 'this', _quickfix.new_Spread(*args))
         _swig_setattr(self, Spread, 'thisown', 1)
@@ -5580,6 +5912,7 @@ class Spread(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SpreadPtr(Spread):
     def __init__(self, this):
@@ -5596,7 +5929,7 @@ class BenchmarkCurveCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkCurveCurrency, name)
     def __repr__(self):
-        return "<C FIX::BenchmarkCurveCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BenchmarkCurveCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BenchmarkCurveCurrency, 'this', _quickfix.new_BenchmarkCurveCurrency(*args))
         _swig_setattr(self, BenchmarkCurveCurrency, 'thisown', 1)
@@ -5604,6 +5937,7 @@ class BenchmarkCurveCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkCurveCurrencyPtr(BenchmarkCurveCurrency):
     def __init__(self, this):
@@ -5620,7 +5954,7 @@ class BenchmarkCurveName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkCurveName, name)
     def __repr__(self):
-        return "<C FIX::BenchmarkCurveName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BenchmarkCurveName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BenchmarkCurveName, 'this', _quickfix.new_BenchmarkCurveName(*args))
         _swig_setattr(self, BenchmarkCurveName, 'thisown', 1)
@@ -5628,6 +5962,7 @@ class BenchmarkCurveName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkCurveNamePtr(BenchmarkCurveName):
     def __init__(self, this):
@@ -5644,7 +5979,7 @@ class BenchmarkCurvePoint(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkCurvePoint, name)
     def __repr__(self):
-        return "<C FIX::BenchmarkCurvePoint instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BenchmarkCurvePoint instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BenchmarkCurvePoint, 'this', _quickfix.new_BenchmarkCurvePoint(*args))
         _swig_setattr(self, BenchmarkCurvePoint, 'thisown', 1)
@@ -5652,6 +5987,7 @@ class BenchmarkCurvePoint(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkCurvePointPtr(BenchmarkCurvePoint):
     def __init__(self, this):
@@ -5668,7 +6004,7 @@ class CouponRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CouponRate, name)
     def __repr__(self):
-        return "<C FIX::CouponRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CouponRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CouponRate, 'this', _quickfix.new_CouponRate(*args))
         _swig_setattr(self, CouponRate, 'thisown', 1)
@@ -5676,6 +6012,7 @@ class CouponRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CouponRatePtr(CouponRate):
     def __init__(self, this):
@@ -5692,7 +6029,7 @@ class CouponPaymentDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CouponPaymentDate, name)
     def __repr__(self):
-        return "<C FIX::CouponPaymentDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CouponPaymentDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CouponPaymentDate, 'this', _quickfix.new_CouponPaymentDate(*args))
         _swig_setattr(self, CouponPaymentDate, 'thisown', 1)
@@ -5700,6 +6037,7 @@ class CouponPaymentDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CouponPaymentDatePtr(CouponPaymentDate):
     def __init__(self, this):
@@ -5716,7 +6054,7 @@ class IssueDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IssueDate, name)
     def __repr__(self):
-        return "<C FIX::IssueDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IssueDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IssueDate, 'this', _quickfix.new_IssueDate(*args))
         _swig_setattr(self, IssueDate, 'thisown', 1)
@@ -5724,6 +6062,7 @@ class IssueDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IssueDatePtr(IssueDate):
     def __init__(self, this):
@@ -5740,7 +6079,7 @@ class RepurchaseTerm(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RepurchaseTerm, name)
     def __repr__(self):
-        return "<C FIX::RepurchaseTerm instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RepurchaseTerm instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RepurchaseTerm, 'this', _quickfix.new_RepurchaseTerm(*args))
         _swig_setattr(self, RepurchaseTerm, 'thisown', 1)
@@ -5748,6 +6087,7 @@ class RepurchaseTerm(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RepurchaseTermPtr(RepurchaseTerm):
     def __init__(self, this):
@@ -5764,7 +6104,7 @@ class RepurchaseRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RepurchaseRate, name)
     def __repr__(self):
-        return "<C FIX::RepurchaseRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RepurchaseRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RepurchaseRate, 'this', _quickfix.new_RepurchaseRate(*args))
         _swig_setattr(self, RepurchaseRate, 'thisown', 1)
@@ -5772,6 +6112,7 @@ class RepurchaseRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RepurchaseRatePtr(RepurchaseRate):
     def __init__(self, this):
@@ -5788,7 +6129,7 @@ class Factor(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Factor, name)
     def __repr__(self):
-        return "<C FIX::Factor instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Factor instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Factor, 'this', _quickfix.new_Factor(*args))
         _swig_setattr(self, Factor, 'thisown', 1)
@@ -5796,6 +6137,7 @@ class Factor(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FactorPtr(Factor):
     def __init__(self, this):
@@ -5812,7 +6154,7 @@ class TradeOriginationDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeOriginationDate, name)
     def __repr__(self):
-        return "<C FIX::TradeOriginationDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeOriginationDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeOriginationDate, 'this', _quickfix.new_TradeOriginationDate(*args))
         _swig_setattr(self, TradeOriginationDate, 'thisown', 1)
@@ -5820,6 +6162,7 @@ class TradeOriginationDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeOriginationDatePtr(TradeOriginationDate):
     def __init__(self, this):
@@ -5836,7 +6179,7 @@ class ExDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExDate, name)
     def __repr__(self):
-        return "<C FIX::ExDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExDate, 'this', _quickfix.new_ExDate(*args))
         _swig_setattr(self, ExDate, 'thisown', 1)
@@ -5844,6 +6187,7 @@ class ExDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExDatePtr(ExDate):
     def __init__(self, this):
@@ -5860,7 +6204,7 @@ class ContractMultiplier(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContractMultiplier, name)
     def __repr__(self):
-        return "<C FIX::ContractMultiplier instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContractMultiplier instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContractMultiplier, 'this', _quickfix.new_ContractMultiplier(*args))
         _swig_setattr(self, ContractMultiplier, 'thisown', 1)
@@ -5868,6 +6212,7 @@ class ContractMultiplier(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContractMultiplierPtr(ContractMultiplier):
     def __init__(self, this):
@@ -5884,7 +6229,7 @@ class NoStipulations(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoStipulations, name)
     def __repr__(self):
-        return "<C FIX::NoStipulations instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoStipulations instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoStipulations, 'this', _quickfix.new_NoStipulations(*args))
         _swig_setattr(self, NoStipulations, 'thisown', 1)
@@ -5892,6 +6237,7 @@ class NoStipulations(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoStipulationsPtr(NoStipulations):
     def __init__(self, this):
@@ -5908,7 +6254,7 @@ class StipulationType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StipulationType, name)
     def __repr__(self):
-        return "<C FIX::StipulationType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StipulationType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StipulationType, 'this', _quickfix.new_StipulationType(*args))
         _swig_setattr(self, StipulationType, 'thisown', 1)
@@ -5916,6 +6262,7 @@ class StipulationType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StipulationTypePtr(StipulationType):
     def __init__(self, this):
@@ -5932,7 +6279,7 @@ class StipulationValue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StipulationValue, name)
     def __repr__(self):
-        return "<C FIX::StipulationValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StipulationValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StipulationValue, 'this', _quickfix.new_StipulationValue(*args))
         _swig_setattr(self, StipulationValue, 'thisown', 1)
@@ -5940,6 +6287,7 @@ class StipulationValue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StipulationValuePtr(StipulationValue):
     def __init__(self, this):
@@ -5956,7 +6304,7 @@ class YieldType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, YieldType, name)
     def __repr__(self):
-        return "<C FIX::YieldType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::YieldType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, YieldType, 'this', _quickfix.new_YieldType(*args))
         _swig_setattr(self, YieldType, 'thisown', 1)
@@ -5964,6 +6312,7 @@ class YieldType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class YieldTypePtr(YieldType):
     def __init__(self, this):
@@ -5980,7 +6329,7 @@ class Yield(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Yield, name)
     def __repr__(self):
-        return "<C FIX::Yield instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Yield instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Yield, 'this', _quickfix.new_Yield(*args))
         _swig_setattr(self, Yield, 'thisown', 1)
@@ -5988,6 +6337,7 @@ class Yield(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class YieldPtr(Yield):
     def __init__(self, this):
@@ -6004,7 +6354,7 @@ class TotalTakedown(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalTakedown, name)
     def __repr__(self):
-        return "<C FIX::TotalTakedown instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalTakedown instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalTakedown, 'this', _quickfix.new_TotalTakedown(*args))
         _swig_setattr(self, TotalTakedown, 'thisown', 1)
@@ -6012,6 +6362,7 @@ class TotalTakedown(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalTakedownPtr(TotalTakedown):
     def __init__(self, this):
@@ -6028,7 +6379,7 @@ class Concession(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Concession, name)
     def __repr__(self):
-        return "<C FIX::Concession instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Concession instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Concession, 'this', _quickfix.new_Concession(*args))
         _swig_setattr(self, Concession, 'thisown', 1)
@@ -6036,6 +6387,7 @@ class Concession(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConcessionPtr(Concession):
     def __init__(self, this):
@@ -6052,7 +6404,7 @@ class RepoCollateralSecurityType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RepoCollateralSecurityType, name)
     def __repr__(self):
-        return "<C FIX::RepoCollateralSecurityType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RepoCollateralSecurityType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RepoCollateralSecurityType, 'this', _quickfix.new_RepoCollateralSecurityType(*args))
         _swig_setattr(self, RepoCollateralSecurityType, 'thisown', 1)
@@ -6060,6 +6412,7 @@ class RepoCollateralSecurityType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RepoCollateralSecurityTypePtr(RepoCollateralSecurityType):
     def __init__(self, this):
@@ -6076,7 +6429,7 @@ class RedemptionDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RedemptionDate, name)
     def __repr__(self):
-        return "<C FIX::RedemptionDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RedemptionDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RedemptionDate, 'this', _quickfix.new_RedemptionDate(*args))
         _swig_setattr(self, RedemptionDate, 'thisown', 1)
@@ -6084,6 +6437,7 @@ class RedemptionDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RedemptionDatePtr(RedemptionDate):
     def __init__(self, this):
@@ -6100,7 +6454,7 @@ class UnderlyingCouponPaymentDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCouponPaymentDate, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCouponPaymentDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCouponPaymentDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCouponPaymentDate, 'this', _quickfix.new_UnderlyingCouponPaymentDate(*args))
         _swig_setattr(self, UnderlyingCouponPaymentDate, 'thisown', 1)
@@ -6108,6 +6462,7 @@ class UnderlyingCouponPaymentDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCouponPaymentDatePtr(UnderlyingCouponPaymentDate):
     def __init__(self, this):
@@ -6124,7 +6479,7 @@ class UnderlyingIssueDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingIssueDate, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingIssueDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingIssueDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingIssueDate, 'this', _quickfix.new_UnderlyingIssueDate(*args))
         _swig_setattr(self, UnderlyingIssueDate, 'thisown', 1)
@@ -6132,6 +6487,7 @@ class UnderlyingIssueDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingIssueDatePtr(UnderlyingIssueDate):
     def __init__(self, this):
@@ -6148,7 +6504,7 @@ class UnderlyingRepoCollateralSecurityType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRepoCollateralSecurityType, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingRepoCollateralSecurityType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingRepoCollateralSecurityType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingRepoCollateralSecurityType, 'this', _quickfix.new_UnderlyingRepoCollateralSecurityType(*args))
         _swig_setattr(self, UnderlyingRepoCollateralSecurityType, 'thisown', 1)
@@ -6156,6 +6512,7 @@ class UnderlyingRepoCollateralSecurityType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingRepoCollateralSecurityTypePtr(UnderlyingRepoCollateralSecurityType):
     def __init__(self, this):
@@ -6172,7 +6529,7 @@ class UnderlyingRepurchaseTerm(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRepurchaseTerm, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingRepurchaseTerm instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingRepurchaseTerm instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingRepurchaseTerm, 'this', _quickfix.new_UnderlyingRepurchaseTerm(*args))
         _swig_setattr(self, UnderlyingRepurchaseTerm, 'thisown', 1)
@@ -6180,6 +6537,7 @@ class UnderlyingRepurchaseTerm(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingRepurchaseTermPtr(UnderlyingRepurchaseTerm):
     def __init__(self, this):
@@ -6196,7 +6554,7 @@ class UnderlyingRepurchaseRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRepurchaseRate, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingRepurchaseRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingRepurchaseRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingRepurchaseRate, 'this', _quickfix.new_UnderlyingRepurchaseRate(*args))
         _swig_setattr(self, UnderlyingRepurchaseRate, 'thisown', 1)
@@ -6204,6 +6562,7 @@ class UnderlyingRepurchaseRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingRepurchaseRatePtr(UnderlyingRepurchaseRate):
     def __init__(self, this):
@@ -6220,7 +6579,7 @@ class UnderlyingFactor(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingFactor, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingFactor instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingFactor instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingFactor, 'this', _quickfix.new_UnderlyingFactor(*args))
         _swig_setattr(self, UnderlyingFactor, 'thisown', 1)
@@ -6228,6 +6587,7 @@ class UnderlyingFactor(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingFactorPtr(UnderlyingFactor):
     def __init__(self, this):
@@ -6244,7 +6604,7 @@ class UnderlyingRedemptionDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingRedemptionDate, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingRedemptionDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingRedemptionDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingRedemptionDate, 'this', _quickfix.new_UnderlyingRedemptionDate(*args))
         _swig_setattr(self, UnderlyingRedemptionDate, 'thisown', 1)
@@ -6252,6 +6612,7 @@ class UnderlyingRedemptionDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingRedemptionDatePtr(UnderlyingRedemptionDate):
     def __init__(self, this):
@@ -6268,7 +6629,7 @@ class LegCouponPaymentDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegCouponPaymentDate, name)
     def __repr__(self):
-        return "<C FIX::LegCouponPaymentDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegCouponPaymentDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegCouponPaymentDate, 'this', _quickfix.new_LegCouponPaymentDate(*args))
         _swig_setattr(self, LegCouponPaymentDate, 'thisown', 1)
@@ -6276,6 +6637,7 @@ class LegCouponPaymentDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegCouponPaymentDatePtr(LegCouponPaymentDate):
     def __init__(self, this):
@@ -6292,7 +6654,7 @@ class LegIssueDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegIssueDate, name)
     def __repr__(self):
-        return "<C FIX::LegIssueDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegIssueDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegIssueDate, 'this', _quickfix.new_LegIssueDate(*args))
         _swig_setattr(self, LegIssueDate, 'thisown', 1)
@@ -6300,6 +6662,7 @@ class LegIssueDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegIssueDatePtr(LegIssueDate):
     def __init__(self, this):
@@ -6316,7 +6679,7 @@ class LegRepoCollateralSecurityType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegRepoCollateralSecurityType, name)
     def __repr__(self):
-        return "<C FIX::LegRepoCollateralSecurityType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegRepoCollateralSecurityType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegRepoCollateralSecurityType, 'this', _quickfix.new_LegRepoCollateralSecurityType(*args))
         _swig_setattr(self, LegRepoCollateralSecurityType, 'thisown', 1)
@@ -6324,6 +6687,7 @@ class LegRepoCollateralSecurityType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegRepoCollateralSecurityTypePtr(LegRepoCollateralSecurityType):
     def __init__(self, this):
@@ -6340,7 +6704,7 @@ class LegRepurchaseTerm(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegRepurchaseTerm, name)
     def __repr__(self):
-        return "<C FIX::LegRepurchaseTerm instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegRepurchaseTerm instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegRepurchaseTerm, 'this', _quickfix.new_LegRepurchaseTerm(*args))
         _swig_setattr(self, LegRepurchaseTerm, 'thisown', 1)
@@ -6348,6 +6712,7 @@ class LegRepurchaseTerm(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegRepurchaseTermPtr(LegRepurchaseTerm):
     def __init__(self, this):
@@ -6364,7 +6729,7 @@ class LegRepurchaseRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegRepurchaseRate, name)
     def __repr__(self):
-        return "<C FIX::LegRepurchaseRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegRepurchaseRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegRepurchaseRate, 'this', _quickfix.new_LegRepurchaseRate(*args))
         _swig_setattr(self, LegRepurchaseRate, 'thisown', 1)
@@ -6372,6 +6737,7 @@ class LegRepurchaseRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegRepurchaseRatePtr(LegRepurchaseRate):
     def __init__(self, this):
@@ -6388,7 +6754,7 @@ class LegFactor(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegFactor, name)
     def __repr__(self):
-        return "<C FIX::LegFactor instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegFactor instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegFactor, 'this', _quickfix.new_LegFactor(*args))
         _swig_setattr(self, LegFactor, 'thisown', 1)
@@ -6396,6 +6762,7 @@ class LegFactor(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegFactorPtr(LegFactor):
     def __init__(self, this):
@@ -6412,7 +6779,7 @@ class LegRedemptionDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegRedemptionDate, name)
     def __repr__(self):
-        return "<C FIX::LegRedemptionDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegRedemptionDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegRedemptionDate, 'this', _quickfix.new_LegRedemptionDate(*args))
         _swig_setattr(self, LegRedemptionDate, 'thisown', 1)
@@ -6420,6 +6787,7 @@ class LegRedemptionDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegRedemptionDatePtr(LegRedemptionDate):
     def __init__(self, this):
@@ -6436,7 +6804,7 @@ class CreditRating(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CreditRating, name)
     def __repr__(self):
-        return "<C FIX::CreditRating instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CreditRating instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CreditRating, 'this', _quickfix.new_CreditRating(*args))
         _swig_setattr(self, CreditRating, 'thisown', 1)
@@ -6444,6 +6812,7 @@ class CreditRating(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CreditRatingPtr(CreditRating):
     def __init__(self, this):
@@ -6460,7 +6829,7 @@ class UnderlyingCreditRating(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCreditRating, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCreditRating instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCreditRating instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCreditRating, 'this', _quickfix.new_UnderlyingCreditRating(*args))
         _swig_setattr(self, UnderlyingCreditRating, 'thisown', 1)
@@ -6468,6 +6837,7 @@ class UnderlyingCreditRating(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCreditRatingPtr(UnderlyingCreditRating):
     def __init__(self, this):
@@ -6484,7 +6854,7 @@ class LegCreditRating(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegCreditRating, name)
     def __repr__(self):
-        return "<C FIX::LegCreditRating instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegCreditRating instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegCreditRating, 'this', _quickfix.new_LegCreditRating(*args))
         _swig_setattr(self, LegCreditRating, 'thisown', 1)
@@ -6492,6 +6862,7 @@ class LegCreditRating(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegCreditRatingPtr(LegCreditRating):
     def __init__(self, this):
@@ -6508,7 +6879,7 @@ class TradedFlatSwitch(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradedFlatSwitch, name)
     def __repr__(self):
-        return "<C FIX::TradedFlatSwitch instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradedFlatSwitch instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradedFlatSwitch, 'this', _quickfix.new_TradedFlatSwitch(*args))
         _swig_setattr(self, TradedFlatSwitch, 'thisown', 1)
@@ -6516,6 +6887,7 @@ class TradedFlatSwitch(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradedFlatSwitchPtr(TradedFlatSwitch):
     def __init__(self, this):
@@ -6532,7 +6904,7 @@ class BasisFeatureDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BasisFeatureDate, name)
     def __repr__(self):
-        return "<C FIX::BasisFeatureDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BasisFeatureDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BasisFeatureDate, 'this', _quickfix.new_BasisFeatureDate(*args))
         _swig_setattr(self, BasisFeatureDate, 'thisown', 1)
@@ -6540,6 +6912,7 @@ class BasisFeatureDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BasisFeatureDatePtr(BasisFeatureDate):
     def __init__(self, this):
@@ -6556,7 +6929,7 @@ class BasisFeaturePrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BasisFeaturePrice, name)
     def __repr__(self):
-        return "<C FIX::BasisFeaturePrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BasisFeaturePrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BasisFeaturePrice, 'this', _quickfix.new_BasisFeaturePrice(*args))
         _swig_setattr(self, BasisFeaturePrice, 'thisown', 1)
@@ -6564,6 +6937,7 @@ class BasisFeaturePrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BasisFeaturePricePtr(BasisFeaturePrice):
     def __init__(self, this):
@@ -6580,7 +6954,7 @@ class MDReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDReqID, name)
     def __repr__(self):
-        return "<C FIX::MDReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDReqID, 'this', _quickfix.new_MDReqID(*args))
         _swig_setattr(self, MDReqID, 'thisown', 1)
@@ -6588,6 +6962,7 @@ class MDReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDReqIDPtr(MDReqID):
     def __init__(self, this):
@@ -6604,7 +6979,7 @@ class SubscriptionRequestType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SubscriptionRequestType, name)
     def __repr__(self):
-        return "<C FIX::SubscriptionRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SubscriptionRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SubscriptionRequestType, 'this', _quickfix.new_SubscriptionRequestType(*args))
         _swig_setattr(self, SubscriptionRequestType, 'thisown', 1)
@@ -6612,6 +6987,7 @@ class SubscriptionRequestType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SubscriptionRequestTypePtr(SubscriptionRequestType):
     def __init__(self, this):
@@ -6628,7 +7004,7 @@ class MarketDepth(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MarketDepth, name)
     def __repr__(self):
-        return "<C FIX::MarketDepth instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MarketDepth instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MarketDepth, 'this', _quickfix.new_MarketDepth(*args))
         _swig_setattr(self, MarketDepth, 'thisown', 1)
@@ -6636,6 +7012,7 @@ class MarketDepth(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MarketDepthPtr(MarketDepth):
     def __init__(self, this):
@@ -6652,7 +7029,7 @@ class MDUpdateType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDUpdateType, name)
     def __repr__(self):
-        return "<C FIX::MDUpdateType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDUpdateType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDUpdateType, 'this', _quickfix.new_MDUpdateType(*args))
         _swig_setattr(self, MDUpdateType, 'thisown', 1)
@@ -6660,6 +7037,7 @@ class MDUpdateType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDUpdateTypePtr(MDUpdateType):
     def __init__(self, this):
@@ -6676,7 +7054,7 @@ class AggregatedBook(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AggregatedBook, name)
     def __repr__(self):
-        return "<C FIX::AggregatedBook instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AggregatedBook instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AggregatedBook, 'this', _quickfix.new_AggregatedBook(*args))
         _swig_setattr(self, AggregatedBook, 'thisown', 1)
@@ -6684,6 +7062,7 @@ class AggregatedBook(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AggregatedBookPtr(AggregatedBook):
     def __init__(self, this):
@@ -6700,7 +7079,7 @@ class NoMDEntryTypes(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoMDEntryTypes, name)
     def __repr__(self):
-        return "<C FIX::NoMDEntryTypes instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoMDEntryTypes instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoMDEntryTypes, 'this', _quickfix.new_NoMDEntryTypes(*args))
         _swig_setattr(self, NoMDEntryTypes, 'thisown', 1)
@@ -6708,6 +7087,7 @@ class NoMDEntryTypes(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoMDEntryTypesPtr(NoMDEntryTypes):
     def __init__(self, this):
@@ -6724,7 +7104,7 @@ class NoMDEntries(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoMDEntries, name)
     def __repr__(self):
-        return "<C FIX::NoMDEntries instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoMDEntries instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoMDEntries, 'this', _quickfix.new_NoMDEntries(*args))
         _swig_setattr(self, NoMDEntries, 'thisown', 1)
@@ -6732,6 +7112,7 @@ class NoMDEntries(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoMDEntriesPtr(NoMDEntries):
     def __init__(self, this):
@@ -6748,7 +7129,7 @@ class MDEntryType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryType, name)
     def __repr__(self):
-        return "<C FIX::MDEntryType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryType, 'this', _quickfix.new_MDEntryType(*args))
         _swig_setattr(self, MDEntryType, 'thisown', 1)
@@ -6756,6 +7137,7 @@ class MDEntryType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryTypePtr(MDEntryType):
     def __init__(self, this):
@@ -6772,7 +7154,7 @@ class MDEntryPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryPx, name)
     def __repr__(self):
-        return "<C FIX::MDEntryPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryPx, 'this', _quickfix.new_MDEntryPx(*args))
         _swig_setattr(self, MDEntryPx, 'thisown', 1)
@@ -6780,6 +7162,7 @@ class MDEntryPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryPxPtr(MDEntryPx):
     def __init__(self, this):
@@ -6796,7 +7179,7 @@ class MDEntrySize(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntrySize, name)
     def __repr__(self):
-        return "<C FIX::MDEntrySize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntrySize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntrySize, 'this', _quickfix.new_MDEntrySize(*args))
         _swig_setattr(self, MDEntrySize, 'thisown', 1)
@@ -6804,6 +7187,7 @@ class MDEntrySize(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntrySizePtr(MDEntrySize):
     def __init__(self, this):
@@ -6820,7 +7204,7 @@ class MDEntryDate(UtcDateField):
     for _s in [UtcDateField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryDate, name)
     def __repr__(self):
-        return "<C FIX::MDEntryDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryDate, 'this', _quickfix.new_MDEntryDate(*args))
         _swig_setattr(self, MDEntryDate, 'thisown', 1)
@@ -6828,6 +7212,7 @@ class MDEntryDate(UtcDateField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryDatePtr(MDEntryDate):
     def __init__(self, this):
@@ -6844,7 +7229,7 @@ class MDEntryTime(UtcTimeOnlyField):
     for _s in [UtcTimeOnlyField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryTime, name)
     def __repr__(self):
-        return "<C FIX::MDEntryTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryTime, 'this', _quickfix.new_MDEntryTime(*args))
         _swig_setattr(self, MDEntryTime, 'thisown', 1)
@@ -6852,6 +7237,7 @@ class MDEntryTime(UtcTimeOnlyField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryTimePtr(MDEntryTime):
     def __init__(self, this):
@@ -6868,7 +7254,7 @@ class TickDirection(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TickDirection, name)
     def __repr__(self):
-        return "<C FIX::TickDirection instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TickDirection instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TickDirection, 'this', _quickfix.new_TickDirection(*args))
         _swig_setattr(self, TickDirection, 'thisown', 1)
@@ -6876,6 +7262,7 @@ class TickDirection(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TickDirectionPtr(TickDirection):
     def __init__(self, this):
@@ -6892,7 +7279,7 @@ class MDMkt(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDMkt, name)
     def __repr__(self):
-        return "<C FIX::MDMkt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDMkt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDMkt, 'this', _quickfix.new_MDMkt(*args))
         _swig_setattr(self, MDMkt, 'thisown', 1)
@@ -6900,6 +7287,7 @@ class MDMkt(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDMktPtr(MDMkt):
     def __init__(self, this):
@@ -6916,7 +7304,7 @@ class QuoteCondition(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteCondition, name)
     def __repr__(self):
-        return "<C FIX::QuoteCondition instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteCondition instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteCondition, 'this', _quickfix.new_QuoteCondition(*args))
         _swig_setattr(self, QuoteCondition, 'thisown', 1)
@@ -6924,6 +7312,7 @@ class QuoteCondition(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteConditionPtr(QuoteCondition):
     def __init__(self, this):
@@ -6940,7 +7329,7 @@ class TradeCondition(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeCondition, name)
     def __repr__(self):
-        return "<C FIX::TradeCondition instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeCondition instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeCondition, 'this', _quickfix.new_TradeCondition(*args))
         _swig_setattr(self, TradeCondition, 'thisown', 1)
@@ -6948,6 +7337,7 @@ class TradeCondition(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeConditionPtr(TradeCondition):
     def __init__(self, this):
@@ -6964,7 +7354,7 @@ class MDEntryID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryID, name)
     def __repr__(self):
-        return "<C FIX::MDEntryID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryID, 'this', _quickfix.new_MDEntryID(*args))
         _swig_setattr(self, MDEntryID, 'thisown', 1)
@@ -6972,6 +7362,7 @@ class MDEntryID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryIDPtr(MDEntryID):
     def __init__(self, this):
@@ -6988,7 +7379,7 @@ class MDUpdateAction(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDUpdateAction, name)
     def __repr__(self):
-        return "<C FIX::MDUpdateAction instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDUpdateAction instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDUpdateAction, 'this', _quickfix.new_MDUpdateAction(*args))
         _swig_setattr(self, MDUpdateAction, 'thisown', 1)
@@ -6996,6 +7387,7 @@ class MDUpdateAction(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDUpdateActionPtr(MDUpdateAction):
     def __init__(self, this):
@@ -7012,7 +7404,7 @@ class MDEntryRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryRefID, name)
     def __repr__(self):
-        return "<C FIX::MDEntryRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryRefID, 'this', _quickfix.new_MDEntryRefID(*args))
         _swig_setattr(self, MDEntryRefID, 'thisown', 1)
@@ -7020,6 +7412,7 @@ class MDEntryRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryRefIDPtr(MDEntryRefID):
     def __init__(self, this):
@@ -7036,7 +7429,7 @@ class MDReqRejReason(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDReqRejReason, name)
     def __repr__(self):
-        return "<C FIX::MDReqRejReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDReqRejReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDReqRejReason, 'this', _quickfix.new_MDReqRejReason(*args))
         _swig_setattr(self, MDReqRejReason, 'thisown', 1)
@@ -7044,6 +7437,7 @@ class MDReqRejReason(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDReqRejReasonPtr(MDReqRejReason):
     def __init__(self, this):
@@ -7060,7 +7454,7 @@ class MDEntryOriginator(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryOriginator, name)
     def __repr__(self):
-        return "<C FIX::MDEntryOriginator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryOriginator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryOriginator, 'this', _quickfix.new_MDEntryOriginator(*args))
         _swig_setattr(self, MDEntryOriginator, 'thisown', 1)
@@ -7068,6 +7462,7 @@ class MDEntryOriginator(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryOriginatorPtr(MDEntryOriginator):
     def __init__(self, this):
@@ -7084,7 +7479,7 @@ class LocationID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LocationID, name)
     def __repr__(self):
-        return "<C FIX::LocationID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LocationID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LocationID, 'this', _quickfix.new_LocationID(*args))
         _swig_setattr(self, LocationID, 'thisown', 1)
@@ -7092,6 +7487,7 @@ class LocationID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LocationIDPtr(LocationID):
     def __init__(self, this):
@@ -7108,7 +7504,7 @@ class DeskID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeskID, name)
     def __repr__(self):
-        return "<C FIX::DeskID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeskID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeskID, 'this', _quickfix.new_DeskID(*args))
         _swig_setattr(self, DeskID, 'thisown', 1)
@@ -7116,6 +7512,7 @@ class DeskID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeskIDPtr(DeskID):
     def __init__(self, this):
@@ -7132,7 +7529,7 @@ class DeleteReason(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeleteReason, name)
     def __repr__(self):
-        return "<C FIX::DeleteReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeleteReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeleteReason, 'this', _quickfix.new_DeleteReason(*args))
         _swig_setattr(self, DeleteReason, 'thisown', 1)
@@ -7140,6 +7537,7 @@ class DeleteReason(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeleteReasonPtr(DeleteReason):
     def __init__(self, this):
@@ -7156,7 +7554,7 @@ class OpenCloseSettlFlag(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OpenCloseSettlFlag, name)
     def __repr__(self):
-        return "<C FIX::OpenCloseSettlFlag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OpenCloseSettlFlag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OpenCloseSettlFlag, 'this', _quickfix.new_OpenCloseSettlFlag(*args))
         _swig_setattr(self, OpenCloseSettlFlag, 'thisown', 1)
@@ -7164,6 +7562,7 @@ class OpenCloseSettlFlag(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OpenCloseSettlFlagPtr(OpenCloseSettlFlag):
     def __init__(self, this):
@@ -7180,7 +7579,7 @@ class SellerDays(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SellerDays, name)
     def __repr__(self):
-        return "<C FIX::SellerDays instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SellerDays instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SellerDays, 'this', _quickfix.new_SellerDays(*args))
         _swig_setattr(self, SellerDays, 'thisown', 1)
@@ -7188,6 +7587,7 @@ class SellerDays(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SellerDaysPtr(SellerDays):
     def __init__(self, this):
@@ -7204,7 +7604,7 @@ class MDEntryBuyer(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryBuyer, name)
     def __repr__(self):
-        return "<C FIX::MDEntryBuyer instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryBuyer instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryBuyer, 'this', _quickfix.new_MDEntryBuyer(*args))
         _swig_setattr(self, MDEntryBuyer, 'thisown', 1)
@@ -7212,6 +7612,7 @@ class MDEntryBuyer(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryBuyerPtr(MDEntryBuyer):
     def __init__(self, this):
@@ -7228,7 +7629,7 @@ class MDEntrySeller(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntrySeller, name)
     def __repr__(self):
-        return "<C FIX::MDEntrySeller instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntrySeller instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntrySeller, 'this', _quickfix.new_MDEntrySeller(*args))
         _swig_setattr(self, MDEntrySeller, 'thisown', 1)
@@ -7236,6 +7637,7 @@ class MDEntrySeller(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntrySellerPtr(MDEntrySeller):
     def __init__(self, this):
@@ -7252,7 +7654,7 @@ class MDEntryPositionNo(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDEntryPositionNo, name)
     def __repr__(self):
-        return "<C FIX::MDEntryPositionNo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDEntryPositionNo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDEntryPositionNo, 'this', _quickfix.new_MDEntryPositionNo(*args))
         _swig_setattr(self, MDEntryPositionNo, 'thisown', 1)
@@ -7260,6 +7662,7 @@ class MDEntryPositionNo(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDEntryPositionNoPtr(MDEntryPositionNo):
     def __init__(self, this):
@@ -7276,7 +7679,7 @@ class FinancialStatus(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FinancialStatus, name)
     def __repr__(self):
-        return "<C FIX::FinancialStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FinancialStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FinancialStatus, 'this', _quickfix.new_FinancialStatus(*args))
         _swig_setattr(self, FinancialStatus, 'thisown', 1)
@@ -7284,6 +7687,7 @@ class FinancialStatus(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FinancialStatusPtr(FinancialStatus):
     def __init__(self, this):
@@ -7300,7 +7704,7 @@ class CorporateAction(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CorporateAction, name)
     def __repr__(self):
-        return "<C FIX::CorporateAction instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CorporateAction instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CorporateAction, 'this', _quickfix.new_CorporateAction(*args))
         _swig_setattr(self, CorporateAction, 'thisown', 1)
@@ -7308,6 +7712,7 @@ class CorporateAction(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CorporateActionPtr(CorporateAction):
     def __init__(self, this):
@@ -7324,7 +7729,7 @@ class DefBidSize(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DefBidSize, name)
     def __repr__(self):
-        return "<C FIX::DefBidSize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DefBidSize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DefBidSize, 'this', _quickfix.new_DefBidSize(*args))
         _swig_setattr(self, DefBidSize, 'thisown', 1)
@@ -7332,6 +7737,7 @@ class DefBidSize(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DefBidSizePtr(DefBidSize):
     def __init__(self, this):
@@ -7348,7 +7754,7 @@ class DefOfferSize(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DefOfferSize, name)
     def __repr__(self):
-        return "<C FIX::DefOfferSize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DefOfferSize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DefOfferSize, 'this', _quickfix.new_DefOfferSize(*args))
         _swig_setattr(self, DefOfferSize, 'thisown', 1)
@@ -7356,6 +7762,7 @@ class DefOfferSize(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DefOfferSizePtr(DefOfferSize):
     def __init__(self, this):
@@ -7372,7 +7779,7 @@ class NoQuoteEntries(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoQuoteEntries, name)
     def __repr__(self):
-        return "<C FIX::NoQuoteEntries instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoQuoteEntries instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoQuoteEntries, 'this', _quickfix.new_NoQuoteEntries(*args))
         _swig_setattr(self, NoQuoteEntries, 'thisown', 1)
@@ -7380,6 +7787,7 @@ class NoQuoteEntries(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoQuoteEntriesPtr(NoQuoteEntries):
     def __init__(self, this):
@@ -7396,7 +7804,7 @@ class NoQuoteSets(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoQuoteSets, name)
     def __repr__(self):
-        return "<C FIX::NoQuoteSets instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoQuoteSets instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoQuoteSets, 'this', _quickfix.new_NoQuoteSets(*args))
         _swig_setattr(self, NoQuoteSets, 'thisown', 1)
@@ -7404,6 +7812,7 @@ class NoQuoteSets(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoQuoteSetsPtr(NoQuoteSets):
     def __init__(self, this):
@@ -7420,7 +7829,7 @@ class QuoteStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteStatus, name)
     def __repr__(self):
-        return "<C FIX::QuoteStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteStatus, 'this', _quickfix.new_QuoteStatus(*args))
         _swig_setattr(self, QuoteStatus, 'thisown', 1)
@@ -7428,6 +7837,7 @@ class QuoteStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteStatusPtr(QuoteStatus):
     def __init__(self, this):
@@ -7444,7 +7854,7 @@ class QuoteCancelType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteCancelType, name)
     def __repr__(self):
-        return "<C FIX::QuoteCancelType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteCancelType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteCancelType, 'this', _quickfix.new_QuoteCancelType(*args))
         _swig_setattr(self, QuoteCancelType, 'thisown', 1)
@@ -7452,6 +7862,7 @@ class QuoteCancelType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteCancelTypePtr(QuoteCancelType):
     def __init__(self, this):
@@ -7468,7 +7879,7 @@ class QuoteEntryID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteEntryID, name)
     def __repr__(self):
-        return "<C FIX::QuoteEntryID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteEntryID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteEntryID, 'this', _quickfix.new_QuoteEntryID(*args))
         _swig_setattr(self, QuoteEntryID, 'thisown', 1)
@@ -7476,6 +7887,7 @@ class QuoteEntryID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteEntryIDPtr(QuoteEntryID):
     def __init__(self, this):
@@ -7492,7 +7904,7 @@ class QuoteRejectReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRejectReason, name)
     def __repr__(self):
-        return "<C FIX::QuoteRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteRejectReason, 'this', _quickfix.new_QuoteRejectReason(*args))
         _swig_setattr(self, QuoteRejectReason, 'thisown', 1)
@@ -7500,6 +7912,7 @@ class QuoteRejectReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteRejectReasonPtr(QuoteRejectReason):
     def __init__(self, this):
@@ -7516,7 +7929,7 @@ class QuoteResponseLevel(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteResponseLevel, name)
     def __repr__(self):
-        return "<C FIX::QuoteResponseLevel instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteResponseLevel instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteResponseLevel, 'this', _quickfix.new_QuoteResponseLevel(*args))
         _swig_setattr(self, QuoteResponseLevel, 'thisown', 1)
@@ -7524,6 +7937,7 @@ class QuoteResponseLevel(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteResponseLevelPtr(QuoteResponseLevel):
     def __init__(self, this):
@@ -7540,7 +7954,7 @@ class QuoteSetID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteSetID, name)
     def __repr__(self):
-        return "<C FIX::QuoteSetID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteSetID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteSetID, 'this', _quickfix.new_QuoteSetID(*args))
         _swig_setattr(self, QuoteSetID, 'thisown', 1)
@@ -7548,6 +7962,7 @@ class QuoteSetID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteSetIDPtr(QuoteSetID):
     def __init__(self, this):
@@ -7564,7 +7979,7 @@ class QuoteRequestType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRequestType, name)
     def __repr__(self):
-        return "<C FIX::QuoteRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteRequestType, 'this', _quickfix.new_QuoteRequestType(*args))
         _swig_setattr(self, QuoteRequestType, 'thisown', 1)
@@ -7572,6 +7987,7 @@ class QuoteRequestType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteRequestTypePtr(QuoteRequestType):
     def __init__(self, this):
@@ -7588,7 +8004,7 @@ class TotNoQuoteEntries(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoQuoteEntries, name)
     def __repr__(self):
-        return "<C FIX::TotNoQuoteEntries instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNoQuoteEntries instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNoQuoteEntries, 'this', _quickfix.new_TotNoQuoteEntries(*args))
         _swig_setattr(self, TotNoQuoteEntries, 'thisown', 1)
@@ -7596,6 +8012,7 @@ class TotNoQuoteEntries(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNoQuoteEntriesPtr(TotNoQuoteEntries):
     def __init__(self, this):
@@ -7612,7 +8029,7 @@ class UnderlyingSecurityIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityIDSource, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecurityIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecurityIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecurityIDSource, 'this', _quickfix.new_UnderlyingSecurityIDSource(*args))
         _swig_setattr(self, UnderlyingSecurityIDSource, 'thisown', 1)
@@ -7620,6 +8037,7 @@ class UnderlyingSecurityIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecurityIDSourcePtr(UnderlyingSecurityIDSource):
     def __init__(self, this):
@@ -7636,7 +8054,7 @@ class UnderlyingIssuer(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingIssuer, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingIssuer instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingIssuer instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingIssuer, 'this', _quickfix.new_UnderlyingIssuer(*args))
         _swig_setattr(self, UnderlyingIssuer, 'thisown', 1)
@@ -7644,6 +8062,7 @@ class UnderlyingIssuer(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingIssuerPtr(UnderlyingIssuer):
     def __init__(self, this):
@@ -7660,7 +8079,7 @@ class UnderlyingSecurityDesc(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityDesc, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecurityDesc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecurityDesc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecurityDesc, 'this', _quickfix.new_UnderlyingSecurityDesc(*args))
         _swig_setattr(self, UnderlyingSecurityDesc, 'thisown', 1)
@@ -7668,6 +8087,7 @@ class UnderlyingSecurityDesc(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecurityDescPtr(UnderlyingSecurityDesc):
     def __init__(self, this):
@@ -7684,7 +8104,7 @@ class UnderlyingSecurityExchange(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityExchange, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecurityExchange instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecurityExchange instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecurityExchange, 'this', _quickfix.new_UnderlyingSecurityExchange(*args))
         _swig_setattr(self, UnderlyingSecurityExchange, 'thisown', 1)
@@ -7692,6 +8112,7 @@ class UnderlyingSecurityExchange(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecurityExchangePtr(UnderlyingSecurityExchange):
     def __init__(self, this):
@@ -7708,7 +8129,7 @@ class UnderlyingSecurityID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityID, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecurityID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecurityID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecurityID, 'this', _quickfix.new_UnderlyingSecurityID(*args))
         _swig_setattr(self, UnderlyingSecurityID, 'thisown', 1)
@@ -7716,6 +8137,7 @@ class UnderlyingSecurityID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecurityIDPtr(UnderlyingSecurityID):
     def __init__(self, this):
@@ -7732,7 +8154,7 @@ class UnderlyingSecurityType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityType, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecurityType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecurityType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecurityType, 'this', _quickfix.new_UnderlyingSecurityType(*args))
         _swig_setattr(self, UnderlyingSecurityType, 'thisown', 1)
@@ -7740,6 +8162,7 @@ class UnderlyingSecurityType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecurityTypePtr(UnderlyingSecurityType):
     def __init__(self, this):
@@ -7756,7 +8179,7 @@ class UnderlyingSymbol(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSymbol, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSymbol instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSymbol instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSymbol, 'this', _quickfix.new_UnderlyingSymbol(*args))
         _swig_setattr(self, UnderlyingSymbol, 'thisown', 1)
@@ -7764,6 +8187,7 @@ class UnderlyingSymbol(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSymbolPtr(UnderlyingSymbol):
     def __init__(self, this):
@@ -7780,7 +8204,7 @@ class UnderlyingSymbolSfx(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSymbolSfx, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSymbolSfx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSymbolSfx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSymbolSfx, 'this', _quickfix.new_UnderlyingSymbolSfx(*args))
         _swig_setattr(self, UnderlyingSymbolSfx, 'thisown', 1)
@@ -7788,6 +8212,7 @@ class UnderlyingSymbolSfx(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSymbolSfxPtr(UnderlyingSymbolSfx):
     def __init__(self, this):
@@ -7804,7 +8229,7 @@ class UnderlyingMaturityMonthYear(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingMaturityMonthYear, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingMaturityMonthYear instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingMaturityMonthYear instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingMaturityMonthYear, 'this', _quickfix.new_UnderlyingMaturityMonthYear(*args))
         _swig_setattr(self, UnderlyingMaturityMonthYear, 'thisown', 1)
@@ -7812,6 +8237,7 @@ class UnderlyingMaturityMonthYear(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingMaturityMonthYearPtr(UnderlyingMaturityMonthYear):
     def __init__(self, this):
@@ -7828,7 +8254,7 @@ class UnderlyingStrikePrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStrikePrice, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingStrikePrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingStrikePrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingStrikePrice, 'this', _quickfix.new_UnderlyingStrikePrice(*args))
         _swig_setattr(self, UnderlyingStrikePrice, 'thisown', 1)
@@ -7836,6 +8262,7 @@ class UnderlyingStrikePrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingStrikePricePtr(UnderlyingStrikePrice):
     def __init__(self, this):
@@ -7852,7 +8279,7 @@ class UnderlyingOptAttribute(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingOptAttribute, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingOptAttribute instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingOptAttribute instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingOptAttribute, 'this', _quickfix.new_UnderlyingOptAttribute(*args))
         _swig_setattr(self, UnderlyingOptAttribute, 'thisown', 1)
@@ -7860,6 +8287,7 @@ class UnderlyingOptAttribute(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingOptAttributePtr(UnderlyingOptAttribute):
     def __init__(self, this):
@@ -7876,7 +8304,7 @@ class UnderlyingCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCurrency, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCurrency, 'this', _quickfix.new_UnderlyingCurrency(*args))
         _swig_setattr(self, UnderlyingCurrency, 'thisown', 1)
@@ -7884,6 +8312,7 @@ class UnderlyingCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCurrencyPtr(UnderlyingCurrency):
     def __init__(self, this):
@@ -7900,7 +8329,7 @@ class SecurityReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityReqID, name)
     def __repr__(self):
-        return "<C FIX::SecurityReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityReqID, 'this', _quickfix.new_SecurityReqID(*args))
         _swig_setattr(self, SecurityReqID, 'thisown', 1)
@@ -7908,6 +8337,7 @@ class SecurityReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityReqIDPtr(SecurityReqID):
     def __init__(self, this):
@@ -7924,7 +8354,7 @@ class SecurityRequestType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityRequestType, name)
     def __repr__(self):
-        return "<C FIX::SecurityRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityRequestType, 'this', _quickfix.new_SecurityRequestType(*args))
         _swig_setattr(self, SecurityRequestType, 'thisown', 1)
@@ -7932,6 +8362,7 @@ class SecurityRequestType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityRequestTypePtr(SecurityRequestType):
     def __init__(self, this):
@@ -7948,7 +8379,7 @@ class SecurityResponseID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityResponseID, name)
     def __repr__(self):
-        return "<C FIX::SecurityResponseID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityResponseID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityResponseID, 'this', _quickfix.new_SecurityResponseID(*args))
         _swig_setattr(self, SecurityResponseID, 'thisown', 1)
@@ -7956,6 +8387,7 @@ class SecurityResponseID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityResponseIDPtr(SecurityResponseID):
     def __init__(self, this):
@@ -7972,7 +8404,7 @@ class SecurityResponseType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityResponseType, name)
     def __repr__(self):
-        return "<C FIX::SecurityResponseType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityResponseType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityResponseType, 'this', _quickfix.new_SecurityResponseType(*args))
         _swig_setattr(self, SecurityResponseType, 'thisown', 1)
@@ -7980,6 +8412,7 @@ class SecurityResponseType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityResponseTypePtr(SecurityResponseType):
     def __init__(self, this):
@@ -7996,7 +8429,7 @@ class SecurityStatusReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityStatusReqID, name)
     def __repr__(self):
-        return "<C FIX::SecurityStatusReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityStatusReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityStatusReqID, 'this', _quickfix.new_SecurityStatusReqID(*args))
         _swig_setattr(self, SecurityStatusReqID, 'thisown', 1)
@@ -8004,6 +8437,7 @@ class SecurityStatusReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityStatusReqIDPtr(SecurityStatusReqID):
     def __init__(self, this):
@@ -8020,7 +8454,7 @@ class UnsolicitedIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnsolicitedIndicator, name)
     def __repr__(self):
-        return "<C FIX::UnsolicitedIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnsolicitedIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnsolicitedIndicator, 'this', _quickfix.new_UnsolicitedIndicator(*args))
         _swig_setattr(self, UnsolicitedIndicator, 'thisown', 1)
@@ -8028,6 +8462,7 @@ class UnsolicitedIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnsolicitedIndicatorPtr(UnsolicitedIndicator):
     def __init__(self, this):
@@ -8044,7 +8479,7 @@ class SecurityTradingStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityTradingStatus, name)
     def __repr__(self):
-        return "<C FIX::SecurityTradingStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityTradingStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityTradingStatus, 'this', _quickfix.new_SecurityTradingStatus(*args))
         _swig_setattr(self, SecurityTradingStatus, 'thisown', 1)
@@ -8052,6 +8487,7 @@ class SecurityTradingStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityTradingStatusPtr(SecurityTradingStatus):
     def __init__(self, this):
@@ -8068,7 +8504,7 @@ class HaltReason(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, HaltReason, name)
     def __repr__(self):
-        return "<C FIX::HaltReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::HaltReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, HaltReason, 'this', _quickfix.new_HaltReason(*args))
         _swig_setattr(self, HaltReason, 'thisown', 1)
@@ -8076,6 +8512,7 @@ class HaltReason(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HaltReasonPtr(HaltReason):
     def __init__(self, this):
@@ -8092,7 +8529,7 @@ class InViewOfCommon(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InViewOfCommon, name)
     def __repr__(self):
-        return "<C FIX::InViewOfCommon instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InViewOfCommon instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InViewOfCommon, 'this', _quickfix.new_InViewOfCommon(*args))
         _swig_setattr(self, InViewOfCommon, 'thisown', 1)
@@ -8100,6 +8537,7 @@ class InViewOfCommon(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InViewOfCommonPtr(InViewOfCommon):
     def __init__(self, this):
@@ -8116,7 +8554,7 @@ class DueToRelated(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DueToRelated, name)
     def __repr__(self):
-        return "<C FIX::DueToRelated instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DueToRelated instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DueToRelated, 'this', _quickfix.new_DueToRelated(*args))
         _swig_setattr(self, DueToRelated, 'thisown', 1)
@@ -8124,6 +8562,7 @@ class DueToRelated(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DueToRelatedPtr(DueToRelated):
     def __init__(self, this):
@@ -8140,7 +8579,7 @@ class BuyVolume(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BuyVolume, name)
     def __repr__(self):
-        return "<C FIX::BuyVolume instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BuyVolume instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BuyVolume, 'this', _quickfix.new_BuyVolume(*args))
         _swig_setattr(self, BuyVolume, 'thisown', 1)
@@ -8148,6 +8587,7 @@ class BuyVolume(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BuyVolumePtr(BuyVolume):
     def __init__(self, this):
@@ -8164,7 +8604,7 @@ class SellVolume(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SellVolume, name)
     def __repr__(self):
-        return "<C FIX::SellVolume instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SellVolume instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SellVolume, 'this', _quickfix.new_SellVolume(*args))
         _swig_setattr(self, SellVolume, 'thisown', 1)
@@ -8172,6 +8612,7 @@ class SellVolume(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SellVolumePtr(SellVolume):
     def __init__(self, this):
@@ -8188,7 +8629,7 @@ class HighPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, HighPx, name)
     def __repr__(self):
-        return "<C FIX::HighPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::HighPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, HighPx, 'this', _quickfix.new_HighPx(*args))
         _swig_setattr(self, HighPx, 'thisown', 1)
@@ -8196,6 +8637,7 @@ class HighPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HighPxPtr(HighPx):
     def __init__(self, this):
@@ -8212,7 +8654,7 @@ class LowPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LowPx, name)
     def __repr__(self):
-        return "<C FIX::LowPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LowPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LowPx, 'this', _quickfix.new_LowPx(*args))
         _swig_setattr(self, LowPx, 'thisown', 1)
@@ -8220,6 +8662,7 @@ class LowPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LowPxPtr(LowPx):
     def __init__(self, this):
@@ -8236,7 +8679,7 @@ class Adjustment(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Adjustment, name)
     def __repr__(self):
-        return "<C FIX::Adjustment instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Adjustment instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Adjustment, 'this', _quickfix.new_Adjustment(*args))
         _swig_setattr(self, Adjustment, 'thisown', 1)
@@ -8244,6 +8687,7 @@ class Adjustment(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AdjustmentPtr(Adjustment):
     def __init__(self, this):
@@ -8260,7 +8704,7 @@ class TradSesReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesReqID, name)
     def __repr__(self):
-        return "<C FIX::TradSesReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesReqID, 'this', _quickfix.new_TradSesReqID(*args))
         _swig_setattr(self, TradSesReqID, 'thisown', 1)
@@ -8268,6 +8712,7 @@ class TradSesReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesReqIDPtr(TradSesReqID):
     def __init__(self, this):
@@ -8284,7 +8729,7 @@ class TradingSessionID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradingSessionID, name)
     def __repr__(self):
-        return "<C FIX::TradingSessionID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradingSessionID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradingSessionID, 'this', _quickfix.new_TradingSessionID(*args))
         _swig_setattr(self, TradingSessionID, 'thisown', 1)
@@ -8292,6 +8737,7 @@ class TradingSessionID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradingSessionIDPtr(TradingSessionID):
     def __init__(self, this):
@@ -8308,7 +8754,7 @@ class ContraTrader(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContraTrader, name)
     def __repr__(self):
-        return "<C FIX::ContraTrader instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContraTrader instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContraTrader, 'this', _quickfix.new_ContraTrader(*args))
         _swig_setattr(self, ContraTrader, 'thisown', 1)
@@ -8316,6 +8762,7 @@ class ContraTrader(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContraTraderPtr(ContraTrader):
     def __init__(self, this):
@@ -8332,7 +8779,7 @@ class TradSesMethod(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesMethod, name)
     def __repr__(self):
-        return "<C FIX::TradSesMethod instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesMethod instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesMethod, 'this', _quickfix.new_TradSesMethod(*args))
         _swig_setattr(self, TradSesMethod, 'thisown', 1)
@@ -8340,6 +8787,7 @@ class TradSesMethod(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesMethodPtr(TradSesMethod):
     def __init__(self, this):
@@ -8356,7 +8804,7 @@ class TradSesMode(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesMode, name)
     def __repr__(self):
-        return "<C FIX::TradSesMode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesMode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesMode, 'this', _quickfix.new_TradSesMode(*args))
         _swig_setattr(self, TradSesMode, 'thisown', 1)
@@ -8364,6 +8812,7 @@ class TradSesMode(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesModePtr(TradSesMode):
     def __init__(self, this):
@@ -8380,7 +8829,7 @@ class TradSesStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesStatus, name)
     def __repr__(self):
-        return "<C FIX::TradSesStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesStatus, 'this', _quickfix.new_TradSesStatus(*args))
         _swig_setattr(self, TradSesStatus, 'thisown', 1)
@@ -8388,6 +8837,7 @@ class TradSesStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesStatusPtr(TradSesStatus):
     def __init__(self, this):
@@ -8404,7 +8854,7 @@ class TradSesStartTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesStartTime, name)
     def __repr__(self):
-        return "<C FIX::TradSesStartTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesStartTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesStartTime, 'this', _quickfix.new_TradSesStartTime(*args))
         _swig_setattr(self, TradSesStartTime, 'thisown', 1)
@@ -8412,6 +8862,7 @@ class TradSesStartTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesStartTimePtr(TradSesStartTime):
     def __init__(self, this):
@@ -8428,7 +8879,7 @@ class TradSesOpenTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesOpenTime, name)
     def __repr__(self):
-        return "<C FIX::TradSesOpenTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesOpenTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesOpenTime, 'this', _quickfix.new_TradSesOpenTime(*args))
         _swig_setattr(self, TradSesOpenTime, 'thisown', 1)
@@ -8436,6 +8887,7 @@ class TradSesOpenTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesOpenTimePtr(TradSesOpenTime):
     def __init__(self, this):
@@ -8452,7 +8904,7 @@ class TradSesPreCloseTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesPreCloseTime, name)
     def __repr__(self):
-        return "<C FIX::TradSesPreCloseTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesPreCloseTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesPreCloseTime, 'this', _quickfix.new_TradSesPreCloseTime(*args))
         _swig_setattr(self, TradSesPreCloseTime, 'thisown', 1)
@@ -8460,6 +8912,7 @@ class TradSesPreCloseTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesPreCloseTimePtr(TradSesPreCloseTime):
     def __init__(self, this):
@@ -8476,7 +8929,7 @@ class TradSesCloseTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesCloseTime, name)
     def __repr__(self):
-        return "<C FIX::TradSesCloseTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesCloseTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesCloseTime, 'this', _quickfix.new_TradSesCloseTime(*args))
         _swig_setattr(self, TradSesCloseTime, 'thisown', 1)
@@ -8484,6 +8937,7 @@ class TradSesCloseTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesCloseTimePtr(TradSesCloseTime):
     def __init__(self, this):
@@ -8500,7 +8954,7 @@ class TradSesEndTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesEndTime, name)
     def __repr__(self):
-        return "<C FIX::TradSesEndTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesEndTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesEndTime, 'this', _quickfix.new_TradSesEndTime(*args))
         _swig_setattr(self, TradSesEndTime, 'thisown', 1)
@@ -8508,6 +8962,7 @@ class TradSesEndTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesEndTimePtr(TradSesEndTime):
     def __init__(self, this):
@@ -8524,7 +8979,7 @@ class NumberOfOrders(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NumberOfOrders, name)
     def __repr__(self):
-        return "<C FIX::NumberOfOrders instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NumberOfOrders instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NumberOfOrders, 'this', _quickfix.new_NumberOfOrders(*args))
         _swig_setattr(self, NumberOfOrders, 'thisown', 1)
@@ -8532,6 +8987,7 @@ class NumberOfOrders(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NumberOfOrdersPtr(NumberOfOrders):
     def __init__(self, this):
@@ -8548,7 +9004,7 @@ class MessageEncoding(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MessageEncoding, name)
     def __repr__(self):
-        return "<C FIX::MessageEncoding instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MessageEncoding instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MessageEncoding, 'this', _quickfix.new_MessageEncoding(*args))
         _swig_setattr(self, MessageEncoding, 'thisown', 1)
@@ -8556,6 +9012,7 @@ class MessageEncoding(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MessageEncodingPtr(MessageEncoding):
     def __init__(self, this):
@@ -8572,7 +9029,7 @@ class EncodedIssuerLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedIssuerLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedIssuerLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedIssuerLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedIssuerLen, 'this', _quickfix.new_EncodedIssuerLen(*args))
         _swig_setattr(self, EncodedIssuerLen, 'thisown', 1)
@@ -8580,6 +9037,7 @@ class EncodedIssuerLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedIssuerLenPtr(EncodedIssuerLen):
     def __init__(self, this):
@@ -8596,7 +9054,7 @@ class EncodedIssuer(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedIssuer, name)
     def __repr__(self):
-        return "<C FIX::EncodedIssuer instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedIssuer instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedIssuer, 'this', _quickfix.new_EncodedIssuer(*args))
         _swig_setattr(self, EncodedIssuer, 'thisown', 1)
@@ -8604,6 +9062,7 @@ class EncodedIssuer(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedIssuerPtr(EncodedIssuer):
     def __init__(self, this):
@@ -8620,7 +9079,7 @@ class EncodedSecurityDescLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSecurityDescLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedSecurityDescLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedSecurityDescLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedSecurityDescLen, 'this', _quickfix.new_EncodedSecurityDescLen(*args))
         _swig_setattr(self, EncodedSecurityDescLen, 'thisown', 1)
@@ -8628,6 +9087,7 @@ class EncodedSecurityDescLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedSecurityDescLenPtr(EncodedSecurityDescLen):
     def __init__(self, this):
@@ -8644,7 +9104,7 @@ class EncodedSecurityDesc(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSecurityDesc, name)
     def __repr__(self):
-        return "<C FIX::EncodedSecurityDesc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedSecurityDesc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedSecurityDesc, 'this', _quickfix.new_EncodedSecurityDesc(*args))
         _swig_setattr(self, EncodedSecurityDesc, 'thisown', 1)
@@ -8652,6 +9112,7 @@ class EncodedSecurityDesc(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedSecurityDescPtr(EncodedSecurityDesc):
     def __init__(self, this):
@@ -8668,7 +9129,7 @@ class EncodedListExecInstLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListExecInstLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedListExecInstLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedListExecInstLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedListExecInstLen, 'this', _quickfix.new_EncodedListExecInstLen(*args))
         _swig_setattr(self, EncodedListExecInstLen, 'thisown', 1)
@@ -8676,6 +9137,7 @@ class EncodedListExecInstLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedListExecInstLenPtr(EncodedListExecInstLen):
     def __init__(self, this):
@@ -8692,7 +9154,7 @@ class EncodedListExecInst(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListExecInst, name)
     def __repr__(self):
-        return "<C FIX::EncodedListExecInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedListExecInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedListExecInst, 'this', _quickfix.new_EncodedListExecInst(*args))
         _swig_setattr(self, EncodedListExecInst, 'thisown', 1)
@@ -8700,6 +9162,7 @@ class EncodedListExecInst(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedListExecInstPtr(EncodedListExecInst):
     def __init__(self, this):
@@ -8716,7 +9179,7 @@ class EncodedTextLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedTextLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedTextLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedTextLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedTextLen, 'this', _quickfix.new_EncodedTextLen(*args))
         _swig_setattr(self, EncodedTextLen, 'thisown', 1)
@@ -8724,6 +9187,7 @@ class EncodedTextLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedTextLenPtr(EncodedTextLen):
     def __init__(self, this):
@@ -8740,7 +9204,7 @@ class EncodedText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedText, name)
     def __repr__(self):
-        return "<C FIX::EncodedText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedText, 'this', _quickfix.new_EncodedText(*args))
         _swig_setattr(self, EncodedText, 'thisown', 1)
@@ -8748,6 +9212,7 @@ class EncodedText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedTextPtr(EncodedText):
     def __init__(self, this):
@@ -8764,7 +9229,7 @@ class EncodedSubjectLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSubjectLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedSubjectLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedSubjectLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedSubjectLen, 'this', _quickfix.new_EncodedSubjectLen(*args))
         _swig_setattr(self, EncodedSubjectLen, 'thisown', 1)
@@ -8772,6 +9237,7 @@ class EncodedSubjectLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedSubjectLenPtr(EncodedSubjectLen):
     def __init__(self, this):
@@ -8788,7 +9254,7 @@ class EncodedSubject(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedSubject, name)
     def __repr__(self):
-        return "<C FIX::EncodedSubject instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedSubject instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedSubject, 'this', _quickfix.new_EncodedSubject(*args))
         _swig_setattr(self, EncodedSubject, 'thisown', 1)
@@ -8796,6 +9262,7 @@ class EncodedSubject(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedSubjectPtr(EncodedSubject):
     def __init__(self, this):
@@ -8812,7 +9279,7 @@ class EncodedHeadlineLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedHeadlineLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedHeadlineLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedHeadlineLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedHeadlineLen, 'this', _quickfix.new_EncodedHeadlineLen(*args))
         _swig_setattr(self, EncodedHeadlineLen, 'thisown', 1)
@@ -8820,6 +9287,7 @@ class EncodedHeadlineLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedHeadlineLenPtr(EncodedHeadlineLen):
     def __init__(self, this):
@@ -8836,7 +9304,7 @@ class EncodedHeadline(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedHeadline, name)
     def __repr__(self):
-        return "<C FIX::EncodedHeadline instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedHeadline instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedHeadline, 'this', _quickfix.new_EncodedHeadline(*args))
         _swig_setattr(self, EncodedHeadline, 'thisown', 1)
@@ -8844,6 +9312,7 @@ class EncodedHeadline(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedHeadlinePtr(EncodedHeadline):
     def __init__(self, this):
@@ -8860,7 +9329,7 @@ class EncodedAllocTextLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedAllocTextLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedAllocTextLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedAllocTextLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedAllocTextLen, 'this', _quickfix.new_EncodedAllocTextLen(*args))
         _swig_setattr(self, EncodedAllocTextLen, 'thisown', 1)
@@ -8868,6 +9337,7 @@ class EncodedAllocTextLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedAllocTextLenPtr(EncodedAllocTextLen):
     def __init__(self, this):
@@ -8884,7 +9354,7 @@ class EncodedAllocText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedAllocText, name)
     def __repr__(self):
-        return "<C FIX::EncodedAllocText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedAllocText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedAllocText, 'this', _quickfix.new_EncodedAllocText(*args))
         _swig_setattr(self, EncodedAllocText, 'thisown', 1)
@@ -8892,6 +9362,7 @@ class EncodedAllocText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedAllocTextPtr(EncodedAllocText):
     def __init__(self, this):
@@ -8908,7 +9379,7 @@ class EncodedUnderlyingIssuerLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingIssuerLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedUnderlyingIssuerLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedUnderlyingIssuerLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedUnderlyingIssuerLen, 'this', _quickfix.new_EncodedUnderlyingIssuerLen(*args))
         _swig_setattr(self, EncodedUnderlyingIssuerLen, 'thisown', 1)
@@ -8916,6 +9387,7 @@ class EncodedUnderlyingIssuerLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedUnderlyingIssuerLenPtr(EncodedUnderlyingIssuerLen):
     def __init__(self, this):
@@ -8932,7 +9404,7 @@ class EncodedUnderlyingIssuer(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingIssuer, name)
     def __repr__(self):
-        return "<C FIX::EncodedUnderlyingIssuer instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedUnderlyingIssuer instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedUnderlyingIssuer, 'this', _quickfix.new_EncodedUnderlyingIssuer(*args))
         _swig_setattr(self, EncodedUnderlyingIssuer, 'thisown', 1)
@@ -8940,6 +9412,7 @@ class EncodedUnderlyingIssuer(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedUnderlyingIssuerPtr(EncodedUnderlyingIssuer):
     def __init__(self, this):
@@ -8956,7 +9429,7 @@ class EncodedUnderlyingSecurityDescLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingSecurityDescLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedUnderlyingSecurityDescLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedUnderlyingSecurityDescLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedUnderlyingSecurityDescLen, 'this', _quickfix.new_EncodedUnderlyingSecurityDescLen(*args))
         _swig_setattr(self, EncodedUnderlyingSecurityDescLen, 'thisown', 1)
@@ -8964,6 +9437,7 @@ class EncodedUnderlyingSecurityDescLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedUnderlyingSecurityDescLenPtr(EncodedUnderlyingSecurityDescLen):
     def __init__(self, this):
@@ -8980,7 +9454,7 @@ class EncodedUnderlyingSecurityDesc(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedUnderlyingSecurityDesc, name)
     def __repr__(self):
-        return "<C FIX::EncodedUnderlyingSecurityDesc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedUnderlyingSecurityDesc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedUnderlyingSecurityDesc, 'this', _quickfix.new_EncodedUnderlyingSecurityDesc(*args))
         _swig_setattr(self, EncodedUnderlyingSecurityDesc, 'thisown', 1)
@@ -8988,6 +9462,7 @@ class EncodedUnderlyingSecurityDesc(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedUnderlyingSecurityDescPtr(EncodedUnderlyingSecurityDesc):
     def __init__(self, this):
@@ -9004,7 +9479,7 @@ class AllocPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocPrice, name)
     def __repr__(self):
-        return "<C FIX::AllocPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocPrice, 'this', _quickfix.new_AllocPrice(*args))
         _swig_setattr(self, AllocPrice, 'thisown', 1)
@@ -9012,6 +9487,7 @@ class AllocPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocPricePtr(AllocPrice):
     def __init__(self, this):
@@ -9028,7 +9504,7 @@ class QuoteSetValidUntilTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteSetValidUntilTime, name)
     def __repr__(self):
-        return "<C FIX::QuoteSetValidUntilTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteSetValidUntilTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteSetValidUntilTime, 'this', _quickfix.new_QuoteSetValidUntilTime(*args))
         _swig_setattr(self, QuoteSetValidUntilTime, 'thisown', 1)
@@ -9036,6 +9512,7 @@ class QuoteSetValidUntilTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteSetValidUntilTimePtr(QuoteSetValidUntilTime):
     def __init__(self, this):
@@ -9052,7 +9529,7 @@ class QuoteEntryRejectReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteEntryRejectReason, name)
     def __repr__(self):
-        return "<C FIX::QuoteEntryRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteEntryRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteEntryRejectReason, 'this', _quickfix.new_QuoteEntryRejectReason(*args))
         _swig_setattr(self, QuoteEntryRejectReason, 'thisown', 1)
@@ -9060,6 +9537,7 @@ class QuoteEntryRejectReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteEntryRejectReasonPtr(QuoteEntryRejectReason):
     def __init__(self, this):
@@ -9076,7 +9554,7 @@ class LastMsgSeqNumProcessed(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastMsgSeqNumProcessed, name)
     def __repr__(self):
-        return "<C FIX::LastMsgSeqNumProcessed instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastMsgSeqNumProcessed instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastMsgSeqNumProcessed, 'this', _quickfix.new_LastMsgSeqNumProcessed(*args))
         _swig_setattr(self, LastMsgSeqNumProcessed, 'thisown', 1)
@@ -9084,6 +9562,7 @@ class LastMsgSeqNumProcessed(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastMsgSeqNumProcessedPtr(LastMsgSeqNumProcessed):
     def __init__(self, this):
@@ -9100,7 +9579,7 @@ class RefTagID(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RefTagID, name)
     def __repr__(self):
-        return "<C FIX::RefTagID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RefTagID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RefTagID, 'this', _quickfix.new_RefTagID(*args))
         _swig_setattr(self, RefTagID, 'thisown', 1)
@@ -9108,6 +9587,7 @@ class RefTagID(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RefTagIDPtr(RefTagID):
     def __init__(self, this):
@@ -9124,7 +9604,7 @@ class RefMsgType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RefMsgType, name)
     def __repr__(self):
-        return "<C FIX::RefMsgType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RefMsgType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RefMsgType, 'this', _quickfix.new_RefMsgType(*args))
         _swig_setattr(self, RefMsgType, 'thisown', 1)
@@ -9132,6 +9612,7 @@ class RefMsgType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RefMsgTypePtr(RefMsgType):
     def __init__(self, this):
@@ -9148,7 +9629,7 @@ class SessionRejectReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SessionRejectReason, name)
     def __repr__(self):
-        return "<C FIX::SessionRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SessionRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SessionRejectReason, 'this', _quickfix.new_SessionRejectReason(*args))
         _swig_setattr(self, SessionRejectReason, 'thisown', 1)
@@ -9156,6 +9637,7 @@ class SessionRejectReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SessionRejectReasonPtr(SessionRejectReason):
     def __init__(self, this):
@@ -9172,7 +9654,7 @@ class BidRequestTransType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidRequestTransType, name)
     def __repr__(self):
-        return "<C FIX::BidRequestTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidRequestTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidRequestTransType, 'this', _quickfix.new_BidRequestTransType(*args))
         _swig_setattr(self, BidRequestTransType, 'thisown', 1)
@@ -9180,6 +9662,7 @@ class BidRequestTransType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidRequestTransTypePtr(BidRequestTransType):
     def __init__(self, this):
@@ -9196,7 +9679,7 @@ class ContraBroker(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContraBroker, name)
     def __repr__(self):
-        return "<C FIX::ContraBroker instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContraBroker instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContraBroker, 'this', _quickfix.new_ContraBroker(*args))
         _swig_setattr(self, ContraBroker, 'thisown', 1)
@@ -9204,6 +9687,7 @@ class ContraBroker(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContraBrokerPtr(ContraBroker):
     def __init__(self, this):
@@ -9220,7 +9704,7 @@ class ComplianceID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ComplianceID, name)
     def __repr__(self):
-        return "<C FIX::ComplianceID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ComplianceID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ComplianceID, 'this', _quickfix.new_ComplianceID(*args))
         _swig_setattr(self, ComplianceID, 'thisown', 1)
@@ -9228,6 +9712,7 @@ class ComplianceID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ComplianceIDPtr(ComplianceID):
     def __init__(self, this):
@@ -9244,7 +9729,7 @@ class SolicitedFlag(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SolicitedFlag, name)
     def __repr__(self):
-        return "<C FIX::SolicitedFlag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SolicitedFlag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SolicitedFlag, 'this', _quickfix.new_SolicitedFlag(*args))
         _swig_setattr(self, SolicitedFlag, 'thisown', 1)
@@ -9252,6 +9737,7 @@ class SolicitedFlag(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SolicitedFlagPtr(SolicitedFlag):
     def __init__(self, this):
@@ -9268,7 +9754,7 @@ class ExecRestatementReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecRestatementReason, name)
     def __repr__(self):
-        return "<C FIX::ExecRestatementReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecRestatementReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecRestatementReason, 'this', _quickfix.new_ExecRestatementReason(*args))
         _swig_setattr(self, ExecRestatementReason, 'thisown', 1)
@@ -9276,6 +9762,7 @@ class ExecRestatementReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecRestatementReasonPtr(ExecRestatementReason):
     def __init__(self, this):
@@ -9292,7 +9779,7 @@ class BusinessRejectRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BusinessRejectRefID, name)
     def __repr__(self):
-        return "<C FIX::BusinessRejectRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BusinessRejectRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BusinessRejectRefID, 'this', _quickfix.new_BusinessRejectRefID(*args))
         _swig_setattr(self, BusinessRejectRefID, 'thisown', 1)
@@ -9300,6 +9787,7 @@ class BusinessRejectRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BusinessRejectRefIDPtr(BusinessRejectRefID):
     def __init__(self, this):
@@ -9316,7 +9804,7 @@ class BusinessRejectReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BusinessRejectReason, name)
     def __repr__(self):
-        return "<C FIX::BusinessRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BusinessRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BusinessRejectReason, 'this', _quickfix.new_BusinessRejectReason(*args))
         _swig_setattr(self, BusinessRejectReason, 'thisown', 1)
@@ -9324,6 +9812,7 @@ class BusinessRejectReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BusinessRejectReasonPtr(BusinessRejectReason):
     def __init__(self, this):
@@ -9340,7 +9829,7 @@ class GrossTradeAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, GrossTradeAmt, name)
     def __repr__(self):
-        return "<C FIX::GrossTradeAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::GrossTradeAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, GrossTradeAmt, 'this', _quickfix.new_GrossTradeAmt(*args))
         _swig_setattr(self, GrossTradeAmt, 'thisown', 1)
@@ -9348,6 +9837,7 @@ class GrossTradeAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class GrossTradeAmtPtr(GrossTradeAmt):
     def __init__(self, this):
@@ -9364,7 +9854,7 @@ class NoContraBrokers(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoContraBrokers, name)
     def __repr__(self):
-        return "<C FIX::NoContraBrokers instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoContraBrokers instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoContraBrokers, 'this', _quickfix.new_NoContraBrokers(*args))
         _swig_setattr(self, NoContraBrokers, 'thisown', 1)
@@ -9372,6 +9862,7 @@ class NoContraBrokers(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoContraBrokersPtr(NoContraBrokers):
     def __init__(self, this):
@@ -9388,7 +9879,7 @@ class MaxMessageSize(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MaxMessageSize, name)
     def __repr__(self):
-        return "<C FIX::MaxMessageSize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MaxMessageSize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MaxMessageSize, 'this', _quickfix.new_MaxMessageSize(*args))
         _swig_setattr(self, MaxMessageSize, 'thisown', 1)
@@ -9396,6 +9887,7 @@ class MaxMessageSize(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MaxMessageSizePtr(MaxMessageSize):
     def __init__(self, this):
@@ -9412,7 +9904,7 @@ class NoMsgTypes(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoMsgTypes, name)
     def __repr__(self):
-        return "<C FIX::NoMsgTypes instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoMsgTypes instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoMsgTypes, 'this', _quickfix.new_NoMsgTypes(*args))
         _swig_setattr(self, NoMsgTypes, 'thisown', 1)
@@ -9420,6 +9912,7 @@ class NoMsgTypes(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoMsgTypesPtr(NoMsgTypes):
     def __init__(self, this):
@@ -9436,7 +9929,7 @@ class MsgDirection(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MsgDirection, name)
     def __repr__(self):
-        return "<C FIX::MsgDirection instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MsgDirection instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MsgDirection, 'this', _quickfix.new_MsgDirection(*args))
         _swig_setattr(self, MsgDirection, 'thisown', 1)
@@ -9444,6 +9937,7 @@ class MsgDirection(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MsgDirectionPtr(MsgDirection):
     def __init__(self, this):
@@ -9460,7 +9954,7 @@ class NoTradingSessions(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoTradingSessions, name)
     def __repr__(self):
-        return "<C FIX::NoTradingSessions instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoTradingSessions instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoTradingSessions, 'this', _quickfix.new_NoTradingSessions(*args))
         _swig_setattr(self, NoTradingSessions, 'thisown', 1)
@@ -9468,6 +9962,7 @@ class NoTradingSessions(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoTradingSessionsPtr(NoTradingSessions):
     def __init__(self, this):
@@ -9484,7 +9979,7 @@ class TotalVolumeTraded(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalVolumeTraded, name)
     def __repr__(self):
-        return "<C FIX::TotalVolumeTraded instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalVolumeTraded instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalVolumeTraded, 'this', _quickfix.new_TotalVolumeTraded(*args))
         _swig_setattr(self, TotalVolumeTraded, 'thisown', 1)
@@ -9492,6 +9987,7 @@ class TotalVolumeTraded(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalVolumeTradedPtr(TotalVolumeTraded):
     def __init__(self, this):
@@ -9508,7 +10004,7 @@ class DiscretionInst(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionInst, name)
     def __repr__(self):
-        return "<C FIX::DiscretionInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionInst, 'this', _quickfix.new_DiscretionInst(*args))
         _swig_setattr(self, DiscretionInst, 'thisown', 1)
@@ -9516,6 +10012,7 @@ class DiscretionInst(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionInstPtr(DiscretionInst):
     def __init__(self, this):
@@ -9532,7 +10029,7 @@ class DiscretionOffsetValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionOffsetValue, name)
     def __repr__(self):
-        return "<C FIX::DiscretionOffsetValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionOffsetValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionOffsetValue, 'this', _quickfix.new_DiscretionOffsetValue(*args))
         _swig_setattr(self, DiscretionOffsetValue, 'thisown', 1)
@@ -9540,6 +10037,7 @@ class DiscretionOffsetValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionOffsetValuePtr(DiscretionOffsetValue):
     def __init__(self, this):
@@ -9556,7 +10054,7 @@ class BidID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidID, name)
     def __repr__(self):
-        return "<C FIX::BidID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidID, 'this', _quickfix.new_BidID(*args))
         _swig_setattr(self, BidID, 'thisown', 1)
@@ -9564,6 +10062,7 @@ class BidID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidIDPtr(BidID):
     def __init__(self, this):
@@ -9580,7 +10079,7 @@ class ClientBidID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClientBidID, name)
     def __repr__(self):
-        return "<C FIX::ClientBidID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClientBidID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClientBidID, 'this', _quickfix.new_ClientBidID(*args))
         _swig_setattr(self, ClientBidID, 'thisown', 1)
@@ -9588,6 +10087,7 @@ class ClientBidID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClientBidIDPtr(ClientBidID):
     def __init__(self, this):
@@ -9604,7 +10104,7 @@ class ListName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListName, name)
     def __repr__(self):
-        return "<C FIX::ListName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListName, 'this', _quickfix.new_ListName(*args))
         _swig_setattr(self, ListName, 'thisown', 1)
@@ -9612,6 +10112,7 @@ class ListName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListNamePtr(ListName):
     def __init__(self, this):
@@ -9628,7 +10129,7 @@ class TotNoRelatedSym(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoRelatedSym, name)
     def __repr__(self):
-        return "<C FIX::TotNoRelatedSym instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNoRelatedSym instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNoRelatedSym, 'this', _quickfix.new_TotNoRelatedSym(*args))
         _swig_setattr(self, TotNoRelatedSym, 'thisown', 1)
@@ -9636,6 +10137,7 @@ class TotNoRelatedSym(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNoRelatedSymPtr(TotNoRelatedSym):
     def __init__(self, this):
@@ -9652,7 +10154,7 @@ class BidType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidType, name)
     def __repr__(self):
-        return "<C FIX::BidType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidType, 'this', _quickfix.new_BidType(*args))
         _swig_setattr(self, BidType, 'thisown', 1)
@@ -9660,6 +10162,7 @@ class BidType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidTypePtr(BidType):
     def __init__(self, this):
@@ -9676,7 +10179,7 @@ class NumTickets(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NumTickets, name)
     def __repr__(self):
-        return "<C FIX::NumTickets instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NumTickets instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NumTickets, 'this', _quickfix.new_NumTickets(*args))
         _swig_setattr(self, NumTickets, 'thisown', 1)
@@ -9684,6 +10187,7 @@ class NumTickets(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NumTicketsPtr(NumTickets):
     def __init__(self, this):
@@ -9700,7 +10204,7 @@ class SideValue1(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SideValue1, name)
     def __repr__(self):
-        return "<C FIX::SideValue1 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SideValue1 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SideValue1, 'this', _quickfix.new_SideValue1(*args))
         _swig_setattr(self, SideValue1, 'thisown', 1)
@@ -9708,6 +10212,7 @@ class SideValue1(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SideValue1Ptr(SideValue1):
     def __init__(self, this):
@@ -9724,7 +10229,7 @@ class SideValue2(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SideValue2, name)
     def __repr__(self):
-        return "<C FIX::SideValue2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SideValue2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SideValue2, 'this', _quickfix.new_SideValue2(*args))
         _swig_setattr(self, SideValue2, 'thisown', 1)
@@ -9732,6 +10237,7 @@ class SideValue2(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SideValue2Ptr(SideValue2):
     def __init__(self, this):
@@ -9748,7 +10254,7 @@ class NoBidDescriptors(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoBidDescriptors, name)
     def __repr__(self):
-        return "<C FIX::NoBidDescriptors instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoBidDescriptors instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoBidDescriptors, 'this', _quickfix.new_NoBidDescriptors(*args))
         _swig_setattr(self, NoBidDescriptors, 'thisown', 1)
@@ -9756,6 +10262,7 @@ class NoBidDescriptors(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoBidDescriptorsPtr(NoBidDescriptors):
     def __init__(self, this):
@@ -9772,7 +10279,7 @@ class BidDescriptorType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidDescriptorType, name)
     def __repr__(self):
-        return "<C FIX::BidDescriptorType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidDescriptorType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidDescriptorType, 'this', _quickfix.new_BidDescriptorType(*args))
         _swig_setattr(self, BidDescriptorType, 'thisown', 1)
@@ -9780,6 +10287,7 @@ class BidDescriptorType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidDescriptorTypePtr(BidDescriptorType):
     def __init__(self, this):
@@ -9796,7 +10304,7 @@ class BidDescriptor(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidDescriptor, name)
     def __repr__(self):
-        return "<C FIX::BidDescriptor instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidDescriptor instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidDescriptor, 'this', _quickfix.new_BidDescriptor(*args))
         _swig_setattr(self, BidDescriptor, 'thisown', 1)
@@ -9804,6 +10312,7 @@ class BidDescriptor(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidDescriptorPtr(BidDescriptor):
     def __init__(self, this):
@@ -9820,7 +10329,7 @@ class SideValueInd(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SideValueInd, name)
     def __repr__(self):
-        return "<C FIX::SideValueInd instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SideValueInd instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SideValueInd, 'this', _quickfix.new_SideValueInd(*args))
         _swig_setattr(self, SideValueInd, 'thisown', 1)
@@ -9828,6 +10337,7 @@ class SideValueInd(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SideValueIndPtr(SideValueInd):
     def __init__(self, this):
@@ -9844,7 +10354,7 @@ class LiquidityPctLow(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityPctLow, name)
     def __repr__(self):
-        return "<C FIX::LiquidityPctLow instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LiquidityPctLow instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LiquidityPctLow, 'this', _quickfix.new_LiquidityPctLow(*args))
         _swig_setattr(self, LiquidityPctLow, 'thisown', 1)
@@ -9852,6 +10362,7 @@ class LiquidityPctLow(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LiquidityPctLowPtr(LiquidityPctLow):
     def __init__(self, this):
@@ -9868,7 +10379,7 @@ class LiquidityPctHigh(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityPctHigh, name)
     def __repr__(self):
-        return "<C FIX::LiquidityPctHigh instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LiquidityPctHigh instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LiquidityPctHigh, 'this', _quickfix.new_LiquidityPctHigh(*args))
         _swig_setattr(self, LiquidityPctHigh, 'thisown', 1)
@@ -9876,6 +10387,7 @@ class LiquidityPctHigh(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LiquidityPctHighPtr(LiquidityPctHigh):
     def __init__(self, this):
@@ -9892,7 +10404,7 @@ class LiquidityValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityValue, name)
     def __repr__(self):
-        return "<C FIX::LiquidityValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LiquidityValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LiquidityValue, 'this', _quickfix.new_LiquidityValue(*args))
         _swig_setattr(self, LiquidityValue, 'thisown', 1)
@@ -9900,6 +10412,7 @@ class LiquidityValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LiquidityValuePtr(LiquidityValue):
     def __init__(self, this):
@@ -9916,7 +10429,7 @@ class EFPTrackingError(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EFPTrackingError, name)
     def __repr__(self):
-        return "<C FIX::EFPTrackingError instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EFPTrackingError instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EFPTrackingError, 'this', _quickfix.new_EFPTrackingError(*args))
         _swig_setattr(self, EFPTrackingError, 'thisown', 1)
@@ -9924,6 +10437,7 @@ class EFPTrackingError(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EFPTrackingErrorPtr(EFPTrackingError):
     def __init__(self, this):
@@ -9940,7 +10454,7 @@ class FairValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FairValue, name)
     def __repr__(self):
-        return "<C FIX::FairValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FairValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FairValue, 'this', _quickfix.new_FairValue(*args))
         _swig_setattr(self, FairValue, 'thisown', 1)
@@ -9948,6 +10462,7 @@ class FairValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FairValuePtr(FairValue):
     def __init__(self, this):
@@ -9964,7 +10479,7 @@ class OutsideIndexPct(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OutsideIndexPct, name)
     def __repr__(self):
-        return "<C FIX::OutsideIndexPct instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OutsideIndexPct instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OutsideIndexPct, 'this', _quickfix.new_OutsideIndexPct(*args))
         _swig_setattr(self, OutsideIndexPct, 'thisown', 1)
@@ -9972,6 +10487,7 @@ class OutsideIndexPct(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OutsideIndexPctPtr(OutsideIndexPct):
     def __init__(self, this):
@@ -9988,7 +10504,7 @@ class ValueOfFutures(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ValueOfFutures, name)
     def __repr__(self):
-        return "<C FIX::ValueOfFutures instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ValueOfFutures instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ValueOfFutures, 'this', _quickfix.new_ValueOfFutures(*args))
         _swig_setattr(self, ValueOfFutures, 'thisown', 1)
@@ -9996,6 +10512,7 @@ class ValueOfFutures(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ValueOfFuturesPtr(ValueOfFutures):
     def __init__(self, this):
@@ -10012,7 +10529,7 @@ class LiquidityIndType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityIndType, name)
     def __repr__(self):
-        return "<C FIX::LiquidityIndType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LiquidityIndType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LiquidityIndType, 'this', _quickfix.new_LiquidityIndType(*args))
         _swig_setattr(self, LiquidityIndType, 'thisown', 1)
@@ -10020,6 +10537,7 @@ class LiquidityIndType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LiquidityIndTypePtr(LiquidityIndType):
     def __init__(self, this):
@@ -10036,7 +10554,7 @@ class WtAverageLiquidity(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, WtAverageLiquidity, name)
     def __repr__(self):
-        return "<C FIX::WtAverageLiquidity instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::WtAverageLiquidity instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, WtAverageLiquidity, 'this', _quickfix.new_WtAverageLiquidity(*args))
         _swig_setattr(self, WtAverageLiquidity, 'thisown', 1)
@@ -10044,6 +10562,7 @@ class WtAverageLiquidity(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class WtAverageLiquidityPtr(WtAverageLiquidity):
     def __init__(self, this):
@@ -10060,7 +10579,7 @@ class ExchangeForPhysical(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExchangeForPhysical, name)
     def __repr__(self):
-        return "<C FIX::ExchangeForPhysical instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExchangeForPhysical instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExchangeForPhysical, 'this', _quickfix.new_ExchangeForPhysical(*args))
         _swig_setattr(self, ExchangeForPhysical, 'thisown', 1)
@@ -10068,6 +10587,7 @@ class ExchangeForPhysical(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExchangeForPhysicalPtr(ExchangeForPhysical):
     def __init__(self, this):
@@ -10084,7 +10604,7 @@ class OutMainCntryUIndex(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OutMainCntryUIndex, name)
     def __repr__(self):
-        return "<C FIX::OutMainCntryUIndex instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OutMainCntryUIndex instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OutMainCntryUIndex, 'this', _quickfix.new_OutMainCntryUIndex(*args))
         _swig_setattr(self, OutMainCntryUIndex, 'thisown', 1)
@@ -10092,6 +10612,7 @@ class OutMainCntryUIndex(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OutMainCntryUIndexPtr(OutMainCntryUIndex):
     def __init__(self, this):
@@ -10108,7 +10629,7 @@ class CrossPercent(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CrossPercent, name)
     def __repr__(self):
-        return "<C FIX::CrossPercent instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CrossPercent instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CrossPercent, 'this', _quickfix.new_CrossPercent(*args))
         _swig_setattr(self, CrossPercent, 'thisown', 1)
@@ -10116,6 +10637,7 @@ class CrossPercent(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CrossPercentPtr(CrossPercent):
     def __init__(self, this):
@@ -10132,7 +10654,7 @@ class ProgRptReqs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ProgRptReqs, name)
     def __repr__(self):
-        return "<C FIX::ProgRptReqs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ProgRptReqs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ProgRptReqs, 'this', _quickfix.new_ProgRptReqs(*args))
         _swig_setattr(self, ProgRptReqs, 'thisown', 1)
@@ -10140,6 +10662,7 @@ class ProgRptReqs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ProgRptReqsPtr(ProgRptReqs):
     def __init__(self, this):
@@ -10156,7 +10679,7 @@ class ProgPeriodInterval(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ProgPeriodInterval, name)
     def __repr__(self):
-        return "<C FIX::ProgPeriodInterval instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ProgPeriodInterval instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ProgPeriodInterval, 'this', _quickfix.new_ProgPeriodInterval(*args))
         _swig_setattr(self, ProgPeriodInterval, 'thisown', 1)
@@ -10164,6 +10687,7 @@ class ProgPeriodInterval(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ProgPeriodIntervalPtr(ProgPeriodInterval):
     def __init__(self, this):
@@ -10180,7 +10704,7 @@ class IncTaxInd(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IncTaxInd, name)
     def __repr__(self):
-        return "<C FIX::IncTaxInd instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IncTaxInd instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IncTaxInd, 'this', _quickfix.new_IncTaxInd(*args))
         _swig_setattr(self, IncTaxInd, 'thisown', 1)
@@ -10188,6 +10712,7 @@ class IncTaxInd(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IncTaxIndPtr(IncTaxInd):
     def __init__(self, this):
@@ -10204,7 +10729,7 @@ class NumBidders(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NumBidders, name)
     def __repr__(self):
-        return "<C FIX::NumBidders instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NumBidders instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NumBidders, 'this', _quickfix.new_NumBidders(*args))
         _swig_setattr(self, NumBidders, 'thisown', 1)
@@ -10212,6 +10737,7 @@ class NumBidders(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NumBiddersPtr(NumBidders):
     def __init__(self, this):
@@ -10228,7 +10754,7 @@ class BidTradeType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidTradeType, name)
     def __repr__(self):
-        return "<C FIX::BidTradeType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidTradeType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidTradeType, 'this', _quickfix.new_BidTradeType(*args))
         _swig_setattr(self, BidTradeType, 'thisown', 1)
@@ -10236,6 +10762,7 @@ class BidTradeType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidTradeTypePtr(BidTradeType):
     def __init__(self, this):
@@ -10252,7 +10779,7 @@ class BasisPxType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BasisPxType, name)
     def __repr__(self):
-        return "<C FIX::BasisPxType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BasisPxType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BasisPxType, 'this', _quickfix.new_BasisPxType(*args))
         _swig_setattr(self, BasisPxType, 'thisown', 1)
@@ -10260,6 +10787,7 @@ class BasisPxType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BasisPxTypePtr(BasisPxType):
     def __init__(self, this):
@@ -10276,7 +10804,7 @@ class NoBidComponents(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoBidComponents, name)
     def __repr__(self):
-        return "<C FIX::NoBidComponents instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoBidComponents instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoBidComponents, 'this', _quickfix.new_NoBidComponents(*args))
         _swig_setattr(self, NoBidComponents, 'thisown', 1)
@@ -10284,6 +10812,7 @@ class NoBidComponents(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoBidComponentsPtr(NoBidComponents):
     def __init__(self, this):
@@ -10300,7 +10829,7 @@ class Country(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Country, name)
     def __repr__(self):
-        return "<C FIX::Country instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Country instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Country, 'this', _quickfix.new_Country(*args))
         _swig_setattr(self, Country, 'thisown', 1)
@@ -10308,6 +10837,7 @@ class Country(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CountryPtr(Country):
     def __init__(self, this):
@@ -10324,7 +10854,7 @@ class TotNoStrikes(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoStrikes, name)
     def __repr__(self):
-        return "<C FIX::TotNoStrikes instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNoStrikes instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNoStrikes, 'this', _quickfix.new_TotNoStrikes(*args))
         _swig_setattr(self, TotNoStrikes, 'thisown', 1)
@@ -10332,6 +10862,7 @@ class TotNoStrikes(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNoStrikesPtr(TotNoStrikes):
     def __init__(self, this):
@@ -10348,7 +10879,7 @@ class PriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PriceType, name)
     def __repr__(self):
-        return "<C FIX::PriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PriceType, 'this', _quickfix.new_PriceType(*args))
         _swig_setattr(self, PriceType, 'thisown', 1)
@@ -10356,6 +10887,7 @@ class PriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PriceTypePtr(PriceType):
     def __init__(self, this):
@@ -10372,7 +10904,7 @@ class DayOrderQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DayOrderQty, name)
     def __repr__(self):
-        return "<C FIX::DayOrderQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DayOrderQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DayOrderQty, 'this', _quickfix.new_DayOrderQty(*args))
         _swig_setattr(self, DayOrderQty, 'thisown', 1)
@@ -10380,6 +10912,7 @@ class DayOrderQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DayOrderQtyPtr(DayOrderQty):
     def __init__(self, this):
@@ -10396,7 +10929,7 @@ class DayCumQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DayCumQty, name)
     def __repr__(self):
-        return "<C FIX::DayCumQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DayCumQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DayCumQty, 'this', _quickfix.new_DayCumQty(*args))
         _swig_setattr(self, DayCumQty, 'thisown', 1)
@@ -10404,6 +10937,7 @@ class DayCumQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DayCumQtyPtr(DayCumQty):
     def __init__(self, this):
@@ -10420,7 +10954,7 @@ class DayAvgPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DayAvgPx, name)
     def __repr__(self):
-        return "<C FIX::DayAvgPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DayAvgPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DayAvgPx, 'this', _quickfix.new_DayAvgPx(*args))
         _swig_setattr(self, DayAvgPx, 'thisown', 1)
@@ -10428,6 +10962,7 @@ class DayAvgPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DayAvgPxPtr(DayAvgPx):
     def __init__(self, this):
@@ -10444,7 +10979,7 @@ class GTBookingInst(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, GTBookingInst, name)
     def __repr__(self):
-        return "<C FIX::GTBookingInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::GTBookingInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, GTBookingInst, 'this', _quickfix.new_GTBookingInst(*args))
         _swig_setattr(self, GTBookingInst, 'thisown', 1)
@@ -10452,6 +10987,7 @@ class GTBookingInst(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class GTBookingInstPtr(GTBookingInst):
     def __init__(self, this):
@@ -10468,7 +11004,7 @@ class NoStrikes(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoStrikes, name)
     def __repr__(self):
-        return "<C FIX::NoStrikes instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoStrikes instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoStrikes, 'this', _quickfix.new_NoStrikes(*args))
         _swig_setattr(self, NoStrikes, 'thisown', 1)
@@ -10476,6 +11012,7 @@ class NoStrikes(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoStrikesPtr(NoStrikes):
     def __init__(self, this):
@@ -10492,7 +11029,7 @@ class ListStatusType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListStatusType, name)
     def __repr__(self):
-        return "<C FIX::ListStatusType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListStatusType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListStatusType, 'this', _quickfix.new_ListStatusType(*args))
         _swig_setattr(self, ListStatusType, 'thisown', 1)
@@ -10500,6 +11037,7 @@ class ListStatusType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListStatusTypePtr(ListStatusType):
     def __init__(self, this):
@@ -10516,7 +11054,7 @@ class NetGrossInd(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NetGrossInd, name)
     def __repr__(self):
-        return "<C FIX::NetGrossInd instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NetGrossInd instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NetGrossInd, 'this', _quickfix.new_NetGrossInd(*args))
         _swig_setattr(self, NetGrossInd, 'thisown', 1)
@@ -10524,6 +11062,7 @@ class NetGrossInd(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NetGrossIndPtr(NetGrossInd):
     def __init__(self, this):
@@ -10540,7 +11079,7 @@ class ListOrderStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListOrderStatus, name)
     def __repr__(self):
-        return "<C FIX::ListOrderStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListOrderStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListOrderStatus, 'this', _quickfix.new_ListOrderStatus(*args))
         _swig_setattr(self, ListOrderStatus, 'thisown', 1)
@@ -10548,6 +11087,7 @@ class ListOrderStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListOrderStatusPtr(ListOrderStatus):
     def __init__(self, this):
@@ -10564,7 +11104,7 @@ class ExpireDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExpireDate, name)
     def __repr__(self):
-        return "<C FIX::ExpireDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExpireDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExpireDate, 'this', _quickfix.new_ExpireDate(*args))
         _swig_setattr(self, ExpireDate, 'thisown', 1)
@@ -10572,6 +11112,7 @@ class ExpireDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExpireDatePtr(ExpireDate):
     def __init__(self, this):
@@ -10588,7 +11129,7 @@ class ListExecInstType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListExecInstType, name)
     def __repr__(self):
-        return "<C FIX::ListExecInstType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListExecInstType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListExecInstType, 'this', _quickfix.new_ListExecInstType(*args))
         _swig_setattr(self, ListExecInstType, 'thisown', 1)
@@ -10596,6 +11137,7 @@ class ListExecInstType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListExecInstTypePtr(ListExecInstType):
     def __init__(self, this):
@@ -10612,7 +11154,7 @@ class CxlRejResponseTo(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CxlRejResponseTo, name)
     def __repr__(self):
-        return "<C FIX::CxlRejResponseTo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CxlRejResponseTo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CxlRejResponseTo, 'this', _quickfix.new_CxlRejResponseTo(*args))
         _swig_setattr(self, CxlRejResponseTo, 'thisown', 1)
@@ -10620,6 +11162,7 @@ class CxlRejResponseTo(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CxlRejResponseToPtr(CxlRejResponseTo):
     def __init__(self, this):
@@ -10636,7 +11179,7 @@ class UnderlyingCouponRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCouponRate, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCouponRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCouponRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCouponRate, 'this', _quickfix.new_UnderlyingCouponRate(*args))
         _swig_setattr(self, UnderlyingCouponRate, 'thisown', 1)
@@ -10644,6 +11187,7 @@ class UnderlyingCouponRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCouponRatePtr(UnderlyingCouponRate):
     def __init__(self, this):
@@ -10660,7 +11204,7 @@ class UnderlyingContractMultiplier(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingContractMultiplier, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingContractMultiplier instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingContractMultiplier instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingContractMultiplier, 'this', _quickfix.new_UnderlyingContractMultiplier(*args))
         _swig_setattr(self, UnderlyingContractMultiplier, 'thisown', 1)
@@ -10668,6 +11212,7 @@ class UnderlyingContractMultiplier(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingContractMultiplierPtr(UnderlyingContractMultiplier):
     def __init__(self, this):
@@ -10684,7 +11229,7 @@ class ContraTradeQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContraTradeQty, name)
     def __repr__(self):
-        return "<C FIX::ContraTradeQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContraTradeQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContraTradeQty, 'this', _quickfix.new_ContraTradeQty(*args))
         _swig_setattr(self, ContraTradeQty, 'thisown', 1)
@@ -10692,6 +11237,7 @@ class ContraTradeQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContraTradeQtyPtr(ContraTradeQty):
     def __init__(self, this):
@@ -10708,7 +11254,7 @@ class ContraTradeTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContraTradeTime, name)
     def __repr__(self):
-        return "<C FIX::ContraTradeTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContraTradeTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContraTradeTime, 'this', _quickfix.new_ContraTradeTime(*args))
         _swig_setattr(self, ContraTradeTime, 'thisown', 1)
@@ -10716,6 +11262,7 @@ class ContraTradeTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContraTradeTimePtr(ContraTradeTime):
     def __init__(self, this):
@@ -10732,7 +11279,7 @@ class LiquidityNumSecurities(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LiquidityNumSecurities, name)
     def __repr__(self):
-        return "<C FIX::LiquidityNumSecurities instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LiquidityNumSecurities instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LiquidityNumSecurities, 'this', _quickfix.new_LiquidityNumSecurities(*args))
         _swig_setattr(self, LiquidityNumSecurities, 'thisown', 1)
@@ -10740,6 +11287,7 @@ class LiquidityNumSecurities(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LiquidityNumSecuritiesPtr(LiquidityNumSecurities):
     def __init__(self, this):
@@ -10756,7 +11304,7 @@ class MultiLegReportingType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MultiLegReportingType, name)
     def __repr__(self):
-        return "<C FIX::MultiLegReportingType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MultiLegReportingType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MultiLegReportingType, 'this', _quickfix.new_MultiLegReportingType(*args))
         _swig_setattr(self, MultiLegReportingType, 'thisown', 1)
@@ -10764,6 +11312,7 @@ class MultiLegReportingType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MultiLegReportingTypePtr(MultiLegReportingType):
     def __init__(self, this):
@@ -10780,7 +11329,7 @@ class StrikeTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StrikeTime, name)
     def __repr__(self):
-        return "<C FIX::StrikeTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StrikeTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StrikeTime, 'this', _quickfix.new_StrikeTime(*args))
         _swig_setattr(self, StrikeTime, 'thisown', 1)
@@ -10788,6 +11337,7 @@ class StrikeTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StrikeTimePtr(StrikeTime):
     def __init__(self, this):
@@ -10804,7 +11354,7 @@ class ListStatusText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ListStatusText, name)
     def __repr__(self):
-        return "<C FIX::ListStatusText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ListStatusText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ListStatusText, 'this', _quickfix.new_ListStatusText(*args))
         _swig_setattr(self, ListStatusText, 'thisown', 1)
@@ -10812,6 +11362,7 @@ class ListStatusText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ListStatusTextPtr(ListStatusText):
     def __init__(self, this):
@@ -10828,7 +11379,7 @@ class EncodedListStatusTextLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListStatusTextLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedListStatusTextLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedListStatusTextLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedListStatusTextLen, 'this', _quickfix.new_EncodedListStatusTextLen(*args))
         _swig_setattr(self, EncodedListStatusTextLen, 'thisown', 1)
@@ -10836,6 +11387,7 @@ class EncodedListStatusTextLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedListStatusTextLenPtr(EncodedListStatusTextLen):
     def __init__(self, this):
@@ -10852,7 +11404,7 @@ class EncodedListStatusText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedListStatusText, name)
     def __repr__(self):
-        return "<C FIX::EncodedListStatusText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedListStatusText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedListStatusText, 'this', _quickfix.new_EncodedListStatusText(*args))
         _swig_setattr(self, EncodedListStatusText, 'thisown', 1)
@@ -10860,6 +11412,7 @@ class EncodedListStatusText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedListStatusTextPtr(EncodedListStatusText):
     def __init__(self, this):
@@ -10876,7 +11429,7 @@ class PartyIDSource(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PartyIDSource, name)
     def __repr__(self):
-        return "<C FIX::PartyIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PartyIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PartyIDSource, 'this', _quickfix.new_PartyIDSource(*args))
         _swig_setattr(self, PartyIDSource, 'thisown', 1)
@@ -10884,6 +11437,7 @@ class PartyIDSource(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PartyIDSourcePtr(PartyIDSource):
     def __init__(self, this):
@@ -10900,7 +11454,7 @@ class PartyID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PartyID, name)
     def __repr__(self):
-        return "<C FIX::PartyID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PartyID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PartyID, 'this', _quickfix.new_PartyID(*args))
         _swig_setattr(self, PartyID, 'thisown', 1)
@@ -10908,6 +11462,7 @@ class PartyID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PartyIDPtr(PartyID):
     def __init__(self, this):
@@ -10924,7 +11479,7 @@ class NetChgPrevDay(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NetChgPrevDay, name)
     def __repr__(self):
-        return "<C FIX::NetChgPrevDay instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NetChgPrevDay instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NetChgPrevDay, 'this', _quickfix.new_NetChgPrevDay(*args))
         _swig_setattr(self, NetChgPrevDay, 'thisown', 1)
@@ -10932,6 +11487,7 @@ class NetChgPrevDay(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NetChgPrevDayPtr(NetChgPrevDay):
     def __init__(self, this):
@@ -10948,7 +11504,7 @@ class PartyRole(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PartyRole, name)
     def __repr__(self):
-        return "<C FIX::PartyRole instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PartyRole instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PartyRole, 'this', _quickfix.new_PartyRole(*args))
         _swig_setattr(self, PartyRole, 'thisown', 1)
@@ -10956,6 +11512,7 @@ class PartyRole(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PartyRolePtr(PartyRole):
     def __init__(self, this):
@@ -10972,7 +11529,7 @@ class NoPartyIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoPartyIDs, name)
     def __repr__(self):
-        return "<C FIX::NoPartyIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoPartyIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoPartyIDs, 'this', _quickfix.new_NoPartyIDs(*args))
         _swig_setattr(self, NoPartyIDs, 'thisown', 1)
@@ -10980,6 +11537,7 @@ class NoPartyIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoPartyIDsPtr(NoPartyIDs):
     def __init__(self, this):
@@ -10996,7 +11554,7 @@ class NoSecurityAltID(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoSecurityAltID, name)
     def __repr__(self):
-        return "<C FIX::NoSecurityAltID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoSecurityAltID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoSecurityAltID, 'this', _quickfix.new_NoSecurityAltID(*args))
         _swig_setattr(self, NoSecurityAltID, 'thisown', 1)
@@ -11004,6 +11562,7 @@ class NoSecurityAltID(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoSecurityAltIDPtr(NoSecurityAltID):
     def __init__(self, this):
@@ -11020,7 +11579,7 @@ class SecurityAltID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityAltID, name)
     def __repr__(self):
-        return "<C FIX::SecurityAltID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityAltID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityAltID, 'this', _quickfix.new_SecurityAltID(*args))
         _swig_setattr(self, SecurityAltID, 'thisown', 1)
@@ -11028,6 +11587,7 @@ class SecurityAltID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityAltIDPtr(SecurityAltID):
     def __init__(self, this):
@@ -11044,7 +11604,7 @@ class SecurityAltIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityAltIDSource, name)
     def __repr__(self):
-        return "<C FIX::SecurityAltIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityAltIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityAltIDSource, 'this', _quickfix.new_SecurityAltIDSource(*args))
         _swig_setattr(self, SecurityAltIDSource, 'thisown', 1)
@@ -11052,6 +11612,7 @@ class SecurityAltIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityAltIDSourcePtr(SecurityAltIDSource):
     def __init__(self, this):
@@ -11068,7 +11629,7 @@ class NoUnderlyingSecurityAltID(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoUnderlyingSecurityAltID, name)
     def __repr__(self):
-        return "<C FIX::NoUnderlyingSecurityAltID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoUnderlyingSecurityAltID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoUnderlyingSecurityAltID, 'this', _quickfix.new_NoUnderlyingSecurityAltID(*args))
         _swig_setattr(self, NoUnderlyingSecurityAltID, 'thisown', 1)
@@ -11076,6 +11637,7 @@ class NoUnderlyingSecurityAltID(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoUnderlyingSecurityAltIDPtr(NoUnderlyingSecurityAltID):
     def __init__(self, this):
@@ -11092,7 +11654,7 @@ class UnderlyingSecurityAltID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityAltID, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecurityAltID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecurityAltID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecurityAltID, 'this', _quickfix.new_UnderlyingSecurityAltID(*args))
         _swig_setattr(self, UnderlyingSecurityAltID, 'thisown', 1)
@@ -11100,6 +11662,7 @@ class UnderlyingSecurityAltID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecurityAltIDPtr(UnderlyingSecurityAltID):
     def __init__(self, this):
@@ -11116,7 +11679,7 @@ class UnderlyingSecurityAltIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecurityAltIDSource, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecurityAltIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecurityAltIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecurityAltIDSource, 'this', _quickfix.new_UnderlyingSecurityAltIDSource(*args))
         _swig_setattr(self, UnderlyingSecurityAltIDSource, 'thisown', 1)
@@ -11124,6 +11687,7 @@ class UnderlyingSecurityAltIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecurityAltIDSourcePtr(UnderlyingSecurityAltIDSource):
     def __init__(self, this):
@@ -11140,7 +11704,7 @@ class Product(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Product, name)
     def __repr__(self):
-        return "<C FIX::Product instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Product instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Product, 'this', _quickfix.new_Product(*args))
         _swig_setattr(self, Product, 'thisown', 1)
@@ -11148,6 +11712,7 @@ class Product(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ProductPtr(Product):
     def __init__(self, this):
@@ -11164,7 +11729,7 @@ class CFICode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CFICode, name)
     def __repr__(self):
-        return "<C FIX::CFICode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CFICode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CFICode, 'this', _quickfix.new_CFICode(*args))
         _swig_setattr(self, CFICode, 'thisown', 1)
@@ -11172,6 +11737,7 @@ class CFICode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CFICodePtr(CFICode):
     def __init__(self, this):
@@ -11188,7 +11754,7 @@ class UnderlyingProduct(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingProduct, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingProduct instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingProduct instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingProduct, 'this', _quickfix.new_UnderlyingProduct(*args))
         _swig_setattr(self, UnderlyingProduct, 'thisown', 1)
@@ -11196,6 +11762,7 @@ class UnderlyingProduct(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingProductPtr(UnderlyingProduct):
     def __init__(self, this):
@@ -11212,7 +11779,7 @@ class UnderlyingCFICode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCFICode, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCFICode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCFICode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCFICode, 'this', _quickfix.new_UnderlyingCFICode(*args))
         _swig_setattr(self, UnderlyingCFICode, 'thisown', 1)
@@ -11220,6 +11787,7 @@ class UnderlyingCFICode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCFICodePtr(UnderlyingCFICode):
     def __init__(self, this):
@@ -11236,7 +11804,7 @@ class TestMessageIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TestMessageIndicator, name)
     def __repr__(self):
-        return "<C FIX::TestMessageIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TestMessageIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TestMessageIndicator, 'this', _quickfix.new_TestMessageIndicator(*args))
         _swig_setattr(self, TestMessageIndicator, 'thisown', 1)
@@ -11244,6 +11812,7 @@ class TestMessageIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TestMessageIndicatorPtr(TestMessageIndicator):
     def __init__(self, this):
@@ -11260,7 +11829,7 @@ class QuantityType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuantityType, name)
     def __repr__(self):
-        return "<C FIX::QuantityType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuantityType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuantityType, 'this', _quickfix.new_QuantityType(*args))
         _swig_setattr(self, QuantityType, 'thisown', 1)
@@ -11268,6 +11837,7 @@ class QuantityType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuantityTypePtr(QuantityType):
     def __init__(self, this):
@@ -11284,7 +11854,7 @@ class BookingRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BookingRefID, name)
     def __repr__(self):
-        return "<C FIX::BookingRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BookingRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BookingRefID, 'this', _quickfix.new_BookingRefID(*args))
         _swig_setattr(self, BookingRefID, 'thisown', 1)
@@ -11292,6 +11862,7 @@ class BookingRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BookingRefIDPtr(BookingRefID):
     def __init__(self, this):
@@ -11308,7 +11879,7 @@ class IndividualAllocID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IndividualAllocID, name)
     def __repr__(self):
-        return "<C FIX::IndividualAllocID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IndividualAllocID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IndividualAllocID, 'this', _quickfix.new_IndividualAllocID(*args))
         _swig_setattr(self, IndividualAllocID, 'thisown', 1)
@@ -11316,6 +11887,7 @@ class IndividualAllocID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IndividualAllocIDPtr(IndividualAllocID):
     def __init__(self, this):
@@ -11332,7 +11904,7 @@ class RoundingDirection(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RoundingDirection, name)
     def __repr__(self):
-        return "<C FIX::RoundingDirection instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RoundingDirection instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RoundingDirection, 'this', _quickfix.new_RoundingDirection(*args))
         _swig_setattr(self, RoundingDirection, 'thisown', 1)
@@ -11340,6 +11912,7 @@ class RoundingDirection(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RoundingDirectionPtr(RoundingDirection):
     def __init__(self, this):
@@ -11356,7 +11929,7 @@ class RoundingModulus(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RoundingModulus, name)
     def __repr__(self):
-        return "<C FIX::RoundingModulus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RoundingModulus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RoundingModulus, 'this', _quickfix.new_RoundingModulus(*args))
         _swig_setattr(self, RoundingModulus, 'thisown', 1)
@@ -11364,6 +11937,7 @@ class RoundingModulus(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RoundingModulusPtr(RoundingModulus):
     def __init__(self, this):
@@ -11380,7 +11954,7 @@ class CountryOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CountryOfIssue, name)
     def __repr__(self):
-        return "<C FIX::CountryOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CountryOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CountryOfIssue, 'this', _quickfix.new_CountryOfIssue(*args))
         _swig_setattr(self, CountryOfIssue, 'thisown', 1)
@@ -11388,6 +11962,7 @@ class CountryOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CountryOfIssuePtr(CountryOfIssue):
     def __init__(self, this):
@@ -11404,7 +11979,7 @@ class StateOrProvinceOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StateOrProvinceOfIssue, name)
     def __repr__(self):
-        return "<C FIX::StateOrProvinceOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StateOrProvinceOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StateOrProvinceOfIssue, 'this', _quickfix.new_StateOrProvinceOfIssue(*args))
         _swig_setattr(self, StateOrProvinceOfIssue, 'thisown', 1)
@@ -11412,6 +11987,7 @@ class StateOrProvinceOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StateOrProvinceOfIssuePtr(StateOrProvinceOfIssue):
     def __init__(self, this):
@@ -11428,7 +12004,7 @@ class LocaleOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LocaleOfIssue, name)
     def __repr__(self):
-        return "<C FIX::LocaleOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LocaleOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LocaleOfIssue, 'this', _quickfix.new_LocaleOfIssue(*args))
         _swig_setattr(self, LocaleOfIssue, 'thisown', 1)
@@ -11436,6 +12012,7 @@ class LocaleOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LocaleOfIssuePtr(LocaleOfIssue):
     def __init__(self, this):
@@ -11452,7 +12029,7 @@ class NoRegistDtls(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoRegistDtls, name)
     def __repr__(self):
-        return "<C FIX::NoRegistDtls instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoRegistDtls instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoRegistDtls, 'this', _quickfix.new_NoRegistDtls(*args))
         _swig_setattr(self, NoRegistDtls, 'thisown', 1)
@@ -11460,6 +12037,7 @@ class NoRegistDtls(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoRegistDtlsPtr(NoRegistDtls):
     def __init__(self, this):
@@ -11476,7 +12054,7 @@ class MailingDtls(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MailingDtls, name)
     def __repr__(self):
-        return "<C FIX::MailingDtls instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MailingDtls instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MailingDtls, 'this', _quickfix.new_MailingDtls(*args))
         _swig_setattr(self, MailingDtls, 'thisown', 1)
@@ -11484,6 +12062,7 @@ class MailingDtls(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MailingDtlsPtr(MailingDtls):
     def __init__(self, this):
@@ -11500,7 +12079,7 @@ class InvestorCountryOfResidence(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InvestorCountryOfResidence, name)
     def __repr__(self):
-        return "<C FIX::InvestorCountryOfResidence instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InvestorCountryOfResidence instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InvestorCountryOfResidence, 'this', _quickfix.new_InvestorCountryOfResidence(*args))
         _swig_setattr(self, InvestorCountryOfResidence, 'thisown', 1)
@@ -11508,6 +12087,7 @@ class InvestorCountryOfResidence(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InvestorCountryOfResidencePtr(InvestorCountryOfResidence):
     def __init__(self, this):
@@ -11524,7 +12104,7 @@ class PaymentRef(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentRef, name)
     def __repr__(self):
-        return "<C FIX::PaymentRef instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PaymentRef instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PaymentRef, 'this', _quickfix.new_PaymentRef(*args))
         _swig_setattr(self, PaymentRef, 'thisown', 1)
@@ -11532,6 +12112,7 @@ class PaymentRef(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PaymentRefPtr(PaymentRef):
     def __init__(self, this):
@@ -11548,7 +12129,7 @@ class DistribPaymentMethod(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DistribPaymentMethod, name)
     def __repr__(self):
-        return "<C FIX::DistribPaymentMethod instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DistribPaymentMethod instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DistribPaymentMethod, 'this', _quickfix.new_DistribPaymentMethod(*args))
         _swig_setattr(self, DistribPaymentMethod, 'thisown', 1)
@@ -11556,6 +12137,7 @@ class DistribPaymentMethod(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DistribPaymentMethodPtr(DistribPaymentMethod):
     def __init__(self, this):
@@ -11572,7 +12154,7 @@ class CashDistribCurr(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribCurr, name)
     def __repr__(self):
-        return "<C FIX::CashDistribCurr instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashDistribCurr instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashDistribCurr, 'this', _quickfix.new_CashDistribCurr(*args))
         _swig_setattr(self, CashDistribCurr, 'thisown', 1)
@@ -11580,6 +12162,7 @@ class CashDistribCurr(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashDistribCurrPtr(CashDistribCurr):
     def __init__(self, this):
@@ -11596,7 +12179,7 @@ class CommCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CommCurrency, name)
     def __repr__(self):
-        return "<C FIX::CommCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CommCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CommCurrency, 'this', _quickfix.new_CommCurrency(*args))
         _swig_setattr(self, CommCurrency, 'thisown', 1)
@@ -11604,6 +12187,7 @@ class CommCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CommCurrencyPtr(CommCurrency):
     def __init__(self, this):
@@ -11620,7 +12204,7 @@ class CancellationRights(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CancellationRights, name)
     def __repr__(self):
-        return "<C FIX::CancellationRights instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CancellationRights instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CancellationRights, 'this', _quickfix.new_CancellationRights(*args))
         _swig_setattr(self, CancellationRights, 'thisown', 1)
@@ -11628,6 +12212,7 @@ class CancellationRights(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CancellationRightsPtr(CancellationRights):
     def __init__(self, this):
@@ -11644,7 +12229,7 @@ class MoneyLaunderingStatus(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MoneyLaunderingStatus, name)
     def __repr__(self):
-        return "<C FIX::MoneyLaunderingStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MoneyLaunderingStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MoneyLaunderingStatus, 'this', _quickfix.new_MoneyLaunderingStatus(*args))
         _swig_setattr(self, MoneyLaunderingStatus, 'thisown', 1)
@@ -11652,6 +12237,7 @@ class MoneyLaunderingStatus(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MoneyLaunderingStatusPtr(MoneyLaunderingStatus):
     def __init__(self, this):
@@ -11668,7 +12254,7 @@ class MailingInst(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MailingInst, name)
     def __repr__(self):
-        return "<C FIX::MailingInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MailingInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MailingInst, 'this', _quickfix.new_MailingInst(*args))
         _swig_setattr(self, MailingInst, 'thisown', 1)
@@ -11676,6 +12262,7 @@ class MailingInst(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MailingInstPtr(MailingInst):
     def __init__(self, this):
@@ -11692,7 +12279,7 @@ class TransBkdTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TransBkdTime, name)
     def __repr__(self):
-        return "<C FIX::TransBkdTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TransBkdTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TransBkdTime, 'this', _quickfix.new_TransBkdTime(*args))
         _swig_setattr(self, TransBkdTime, 'thisown', 1)
@@ -11700,6 +12287,7 @@ class TransBkdTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TransBkdTimePtr(TransBkdTime):
     def __init__(self, this):
@@ -11716,7 +12304,7 @@ class ExecPriceType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecPriceType, name)
     def __repr__(self):
-        return "<C FIX::ExecPriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecPriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecPriceType, 'this', _quickfix.new_ExecPriceType(*args))
         _swig_setattr(self, ExecPriceType, 'thisown', 1)
@@ -11724,6 +12312,7 @@ class ExecPriceType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecPriceTypePtr(ExecPriceType):
     def __init__(self, this):
@@ -11740,7 +12329,7 @@ class ExecPriceAdjustment(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecPriceAdjustment, name)
     def __repr__(self):
-        return "<C FIX::ExecPriceAdjustment instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecPriceAdjustment instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecPriceAdjustment, 'this', _quickfix.new_ExecPriceAdjustment(*args))
         _swig_setattr(self, ExecPriceAdjustment, 'thisown', 1)
@@ -11748,6 +12337,7 @@ class ExecPriceAdjustment(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecPriceAdjustmentPtr(ExecPriceAdjustment):
     def __init__(self, this):
@@ -11764,7 +12354,7 @@ class DateOfBirth(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DateOfBirth, name)
     def __repr__(self):
-        return "<C FIX::DateOfBirth instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DateOfBirth instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DateOfBirth, 'this', _quickfix.new_DateOfBirth(*args))
         _swig_setattr(self, DateOfBirth, 'thisown', 1)
@@ -11772,6 +12362,7 @@ class DateOfBirth(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DateOfBirthPtr(DateOfBirth):
     def __init__(self, this):
@@ -11788,7 +12379,7 @@ class TradeReportTransType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportTransType, name)
     def __repr__(self):
-        return "<C FIX::TradeReportTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeReportTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeReportTransType, 'this', _quickfix.new_TradeReportTransType(*args))
         _swig_setattr(self, TradeReportTransType, 'thisown', 1)
@@ -11796,6 +12387,7 @@ class TradeReportTransType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeReportTransTypePtr(TradeReportTransType):
     def __init__(self, this):
@@ -11812,7 +12404,7 @@ class CardHolderName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CardHolderName, name)
     def __repr__(self):
-        return "<C FIX::CardHolderName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CardHolderName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CardHolderName, 'this', _quickfix.new_CardHolderName(*args))
         _swig_setattr(self, CardHolderName, 'thisown', 1)
@@ -11820,6 +12412,7 @@ class CardHolderName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CardHolderNamePtr(CardHolderName):
     def __init__(self, this):
@@ -11836,7 +12429,7 @@ class CardNumber(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CardNumber, name)
     def __repr__(self):
-        return "<C FIX::CardNumber instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CardNumber instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CardNumber, 'this', _quickfix.new_CardNumber(*args))
         _swig_setattr(self, CardNumber, 'thisown', 1)
@@ -11844,6 +12437,7 @@ class CardNumber(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CardNumberPtr(CardNumber):
     def __init__(self, this):
@@ -11860,7 +12454,7 @@ class CardExpDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CardExpDate, name)
     def __repr__(self):
-        return "<C FIX::CardExpDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CardExpDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CardExpDate, 'this', _quickfix.new_CardExpDate(*args))
         _swig_setattr(self, CardExpDate, 'thisown', 1)
@@ -11868,6 +12462,7 @@ class CardExpDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CardExpDatePtr(CardExpDate):
     def __init__(self, this):
@@ -11884,7 +12479,7 @@ class CardIssNum(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CardIssNum, name)
     def __repr__(self):
-        return "<C FIX::CardIssNum instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CardIssNum instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CardIssNum, 'this', _quickfix.new_CardIssNum(*args))
         _swig_setattr(self, CardIssNum, 'thisown', 1)
@@ -11892,6 +12487,7 @@ class CardIssNum(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CardIssNumPtr(CardIssNum):
     def __init__(self, this):
@@ -11908,7 +12504,7 @@ class PaymentMethod(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentMethod, name)
     def __repr__(self):
-        return "<C FIX::PaymentMethod instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PaymentMethod instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PaymentMethod, 'this', _quickfix.new_PaymentMethod(*args))
         _swig_setattr(self, PaymentMethod, 'thisown', 1)
@@ -11916,6 +12512,7 @@ class PaymentMethod(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PaymentMethodPtr(PaymentMethod):
     def __init__(self, this):
@@ -11932,7 +12529,7 @@ class RegistAcctType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistAcctType, name)
     def __repr__(self):
-        return "<C FIX::RegistAcctType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistAcctType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistAcctType, 'this', _quickfix.new_RegistAcctType(*args))
         _swig_setattr(self, RegistAcctType, 'thisown', 1)
@@ -11940,6 +12537,7 @@ class RegistAcctType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistAcctTypePtr(RegistAcctType):
     def __init__(self, this):
@@ -11956,7 +12554,7 @@ class Designation(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Designation, name)
     def __repr__(self):
-        return "<C FIX::Designation instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Designation instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Designation, 'this', _quickfix.new_Designation(*args))
         _swig_setattr(self, Designation, 'thisown', 1)
@@ -11964,6 +12562,7 @@ class Designation(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DesignationPtr(Designation):
     def __init__(self, this):
@@ -11980,7 +12579,7 @@ class TaxAdvantageType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TaxAdvantageType, name)
     def __repr__(self):
-        return "<C FIX::TaxAdvantageType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TaxAdvantageType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TaxAdvantageType, 'this', _quickfix.new_TaxAdvantageType(*args))
         _swig_setattr(self, TaxAdvantageType, 'thisown', 1)
@@ -11988,6 +12587,7 @@ class TaxAdvantageType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TaxAdvantageTypePtr(TaxAdvantageType):
     def __init__(self, this):
@@ -12004,7 +12604,7 @@ class RegistRejReasonText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistRejReasonText, name)
     def __repr__(self):
-        return "<C FIX::RegistRejReasonText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistRejReasonText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistRejReasonText, 'this', _quickfix.new_RegistRejReasonText(*args))
         _swig_setattr(self, RegistRejReasonText, 'thisown', 1)
@@ -12012,6 +12612,7 @@ class RegistRejReasonText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistRejReasonTextPtr(RegistRejReasonText):
     def __init__(self, this):
@@ -12028,7 +12629,7 @@ class FundRenewWaiv(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FundRenewWaiv, name)
     def __repr__(self):
-        return "<C FIX::FundRenewWaiv instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FundRenewWaiv instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FundRenewWaiv, 'this', _quickfix.new_FundRenewWaiv(*args))
         _swig_setattr(self, FundRenewWaiv, 'thisown', 1)
@@ -12036,6 +12637,7 @@ class FundRenewWaiv(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FundRenewWaivPtr(FundRenewWaiv):
     def __init__(self, this):
@@ -12052,7 +12654,7 @@ class CashDistribAgentName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentName, name)
     def __repr__(self):
-        return "<C FIX::CashDistribAgentName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashDistribAgentName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashDistribAgentName, 'this', _quickfix.new_CashDistribAgentName(*args))
         _swig_setattr(self, CashDistribAgentName, 'thisown', 1)
@@ -12060,6 +12662,7 @@ class CashDistribAgentName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashDistribAgentNamePtr(CashDistribAgentName):
     def __init__(self, this):
@@ -12076,7 +12679,7 @@ class CashDistribAgentCode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentCode, name)
     def __repr__(self):
-        return "<C FIX::CashDistribAgentCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashDistribAgentCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashDistribAgentCode, 'this', _quickfix.new_CashDistribAgentCode(*args))
         _swig_setattr(self, CashDistribAgentCode, 'thisown', 1)
@@ -12084,6 +12687,7 @@ class CashDistribAgentCode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashDistribAgentCodePtr(CashDistribAgentCode):
     def __init__(self, this):
@@ -12100,7 +12704,7 @@ class CashDistribAgentAcctNumber(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentAcctNumber, name)
     def __repr__(self):
-        return "<C FIX::CashDistribAgentAcctNumber instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashDistribAgentAcctNumber instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashDistribAgentAcctNumber, 'this', _quickfix.new_CashDistribAgentAcctNumber(*args))
         _swig_setattr(self, CashDistribAgentAcctNumber, 'thisown', 1)
@@ -12108,6 +12712,7 @@ class CashDistribAgentAcctNumber(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashDistribAgentAcctNumberPtr(CashDistribAgentAcctNumber):
     def __init__(self, this):
@@ -12124,7 +12729,7 @@ class CashDistribPayRef(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribPayRef, name)
     def __repr__(self):
-        return "<C FIX::CashDistribPayRef instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashDistribPayRef instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashDistribPayRef, 'this', _quickfix.new_CashDistribPayRef(*args))
         _swig_setattr(self, CashDistribPayRef, 'thisown', 1)
@@ -12132,6 +12737,7 @@ class CashDistribPayRef(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashDistribPayRefPtr(CashDistribPayRef):
     def __init__(self, this):
@@ -12148,7 +12754,7 @@ class CashDistribAgentAcctName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashDistribAgentAcctName, name)
     def __repr__(self):
-        return "<C FIX::CashDistribAgentAcctName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashDistribAgentAcctName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashDistribAgentAcctName, 'this', _quickfix.new_CashDistribAgentAcctName(*args))
         _swig_setattr(self, CashDistribAgentAcctName, 'thisown', 1)
@@ -12156,6 +12762,7 @@ class CashDistribAgentAcctName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashDistribAgentAcctNamePtr(CashDistribAgentAcctName):
     def __init__(self, this):
@@ -12172,7 +12779,7 @@ class CardStartDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CardStartDate, name)
     def __repr__(self):
-        return "<C FIX::CardStartDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CardStartDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CardStartDate, 'this', _quickfix.new_CardStartDate(*args))
         _swig_setattr(self, CardStartDate, 'thisown', 1)
@@ -12180,6 +12787,7 @@ class CardStartDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CardStartDatePtr(CardStartDate):
     def __init__(self, this):
@@ -12196,7 +12804,7 @@ class PaymentDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentDate, name)
     def __repr__(self):
-        return "<C FIX::PaymentDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PaymentDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PaymentDate, 'this', _quickfix.new_PaymentDate(*args))
         _swig_setattr(self, PaymentDate, 'thisown', 1)
@@ -12204,6 +12812,7 @@ class PaymentDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PaymentDatePtr(PaymentDate):
     def __init__(self, this):
@@ -12220,7 +12829,7 @@ class PaymentRemitterID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PaymentRemitterID, name)
     def __repr__(self):
-        return "<C FIX::PaymentRemitterID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PaymentRemitterID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PaymentRemitterID, 'this', _quickfix.new_PaymentRemitterID(*args))
         _swig_setattr(self, PaymentRemitterID, 'thisown', 1)
@@ -12228,6 +12837,7 @@ class PaymentRemitterID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PaymentRemitterIDPtr(PaymentRemitterID):
     def __init__(self, this):
@@ -12244,7 +12854,7 @@ class RegistStatus(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistStatus, name)
     def __repr__(self):
-        return "<C FIX::RegistStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistStatus, 'this', _quickfix.new_RegistStatus(*args))
         _swig_setattr(self, RegistStatus, 'thisown', 1)
@@ -12252,6 +12862,7 @@ class RegistStatus(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistStatusPtr(RegistStatus):
     def __init__(self, this):
@@ -12268,7 +12879,7 @@ class RegistRejReasonCode(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistRejReasonCode, name)
     def __repr__(self):
-        return "<C FIX::RegistRejReasonCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistRejReasonCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistRejReasonCode, 'this', _quickfix.new_RegistRejReasonCode(*args))
         _swig_setattr(self, RegistRejReasonCode, 'thisown', 1)
@@ -12276,6 +12887,7 @@ class RegistRejReasonCode(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistRejReasonCodePtr(RegistRejReasonCode):
     def __init__(self, this):
@@ -12292,7 +12904,7 @@ class RegistRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistRefID, name)
     def __repr__(self):
-        return "<C FIX::RegistRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistRefID, 'this', _quickfix.new_RegistRefID(*args))
         _swig_setattr(self, RegistRefID, 'thisown', 1)
@@ -12300,6 +12912,7 @@ class RegistRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistRefIDPtr(RegistRefID):
     def __init__(self, this):
@@ -12316,7 +12929,7 @@ class RegistDtls(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistDtls, name)
     def __repr__(self):
-        return "<C FIX::RegistDtls instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistDtls instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistDtls, 'this', _quickfix.new_RegistDtls(*args))
         _swig_setattr(self, RegistDtls, 'thisown', 1)
@@ -12324,6 +12937,7 @@ class RegistDtls(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistDtlsPtr(RegistDtls):
     def __init__(self, this):
@@ -12340,7 +12954,7 @@ class NoDistribInsts(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoDistribInsts, name)
     def __repr__(self):
-        return "<C FIX::NoDistribInsts instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoDistribInsts instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoDistribInsts, 'this', _quickfix.new_NoDistribInsts(*args))
         _swig_setattr(self, NoDistribInsts, 'thisown', 1)
@@ -12348,6 +12962,7 @@ class NoDistribInsts(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoDistribInstsPtr(NoDistribInsts):
     def __init__(self, this):
@@ -12364,7 +12979,7 @@ class RegistEmail(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistEmail, name)
     def __repr__(self):
-        return "<C FIX::RegistEmail instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistEmail instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistEmail, 'this', _quickfix.new_RegistEmail(*args))
         _swig_setattr(self, RegistEmail, 'thisown', 1)
@@ -12372,6 +12987,7 @@ class RegistEmail(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistEmailPtr(RegistEmail):
     def __init__(self, this):
@@ -12388,7 +13004,7 @@ class DistribPercentage(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DistribPercentage, name)
     def __repr__(self):
-        return "<C FIX::DistribPercentage instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DistribPercentage instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DistribPercentage, 'this', _quickfix.new_DistribPercentage(*args))
         _swig_setattr(self, DistribPercentage, 'thisown', 1)
@@ -12396,6 +13012,7 @@ class DistribPercentage(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DistribPercentagePtr(DistribPercentage):
     def __init__(self, this):
@@ -12412,7 +13029,7 @@ class RegistID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistID, name)
     def __repr__(self):
-        return "<C FIX::RegistID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistID, 'this', _quickfix.new_RegistID(*args))
         _swig_setattr(self, RegistID, 'thisown', 1)
@@ -12420,6 +13037,7 @@ class RegistID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistIDPtr(RegistID):
     def __init__(self, this):
@@ -12436,7 +13054,7 @@ class RegistTransType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistTransType, name)
     def __repr__(self):
-        return "<C FIX::RegistTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistTransType, 'this', _quickfix.new_RegistTransType(*args))
         _swig_setattr(self, RegistTransType, 'thisown', 1)
@@ -12444,6 +13062,7 @@ class RegistTransType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistTransTypePtr(RegistTransType):
     def __init__(self, this):
@@ -12460,7 +13079,7 @@ class ExecValuationPoint(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecValuationPoint, name)
     def __repr__(self):
-        return "<C FIX::ExecValuationPoint instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecValuationPoint instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecValuationPoint, 'this', _quickfix.new_ExecValuationPoint(*args))
         _swig_setattr(self, ExecValuationPoint, 'thisown', 1)
@@ -12468,6 +13087,7 @@ class ExecValuationPoint(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecValuationPointPtr(ExecValuationPoint):
     def __init__(self, this):
@@ -12484,7 +13104,7 @@ class OrderPercent(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderPercent, name)
     def __repr__(self):
-        return "<C FIX::OrderPercent instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderPercent instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderPercent, 'this', _quickfix.new_OrderPercent(*args))
         _swig_setattr(self, OrderPercent, 'thisown', 1)
@@ -12492,6 +13112,7 @@ class OrderPercent(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderPercentPtr(OrderPercent):
     def __init__(self, this):
@@ -12508,7 +13129,7 @@ class OwnershipType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OwnershipType, name)
     def __repr__(self):
-        return "<C FIX::OwnershipType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OwnershipType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OwnershipType, 'this', _quickfix.new_OwnershipType(*args))
         _swig_setattr(self, OwnershipType, 'thisown', 1)
@@ -12516,6 +13137,7 @@ class OwnershipType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OwnershipTypePtr(OwnershipType):
     def __init__(self, this):
@@ -12532,7 +13154,7 @@ class NoContAmts(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoContAmts, name)
     def __repr__(self):
-        return "<C FIX::NoContAmts instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoContAmts instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoContAmts, 'this', _quickfix.new_NoContAmts(*args))
         _swig_setattr(self, NoContAmts, 'thisown', 1)
@@ -12540,6 +13162,7 @@ class NoContAmts(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoContAmtsPtr(NoContAmts):
     def __init__(self, this):
@@ -12556,7 +13179,7 @@ class ContAmtType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContAmtType, name)
     def __repr__(self):
-        return "<C FIX::ContAmtType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContAmtType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContAmtType, 'this', _quickfix.new_ContAmtType(*args))
         _swig_setattr(self, ContAmtType, 'thisown', 1)
@@ -12564,6 +13187,7 @@ class ContAmtType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContAmtTypePtr(ContAmtType):
     def __init__(self, this):
@@ -12580,7 +13204,7 @@ class ContAmtValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContAmtValue, name)
     def __repr__(self):
-        return "<C FIX::ContAmtValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContAmtValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContAmtValue, 'this', _quickfix.new_ContAmtValue(*args))
         _swig_setattr(self, ContAmtValue, 'thisown', 1)
@@ -12588,6 +13212,7 @@ class ContAmtValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContAmtValuePtr(ContAmtValue):
     def __init__(self, this):
@@ -12604,7 +13229,7 @@ class ContAmtCurr(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContAmtCurr, name)
     def __repr__(self):
-        return "<C FIX::ContAmtCurr instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContAmtCurr instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContAmtCurr, 'this', _quickfix.new_ContAmtCurr(*args))
         _swig_setattr(self, ContAmtCurr, 'thisown', 1)
@@ -12612,6 +13237,7 @@ class ContAmtCurr(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContAmtCurrPtr(ContAmtCurr):
     def __init__(self, this):
@@ -12628,7 +13254,7 @@ class OwnerType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OwnerType, name)
     def __repr__(self):
-        return "<C FIX::OwnerType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OwnerType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OwnerType, 'this', _quickfix.new_OwnerType(*args))
         _swig_setattr(self, OwnerType, 'thisown', 1)
@@ -12636,6 +13262,7 @@ class OwnerType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OwnerTypePtr(OwnerType):
     def __init__(self, this):
@@ -12652,7 +13279,7 @@ class PartySubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PartySubID, name)
     def __repr__(self):
-        return "<C FIX::PartySubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PartySubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PartySubID, 'this', _quickfix.new_PartySubID(*args))
         _swig_setattr(self, PartySubID, 'thisown', 1)
@@ -12660,6 +13287,7 @@ class PartySubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PartySubIDPtr(PartySubID):
     def __init__(self, this):
@@ -12676,7 +13304,7 @@ class NestedPartyID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartyID, name)
     def __repr__(self):
-        return "<C FIX::NestedPartyID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NestedPartyID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NestedPartyID, 'this', _quickfix.new_NestedPartyID(*args))
         _swig_setattr(self, NestedPartyID, 'thisown', 1)
@@ -12684,6 +13312,7 @@ class NestedPartyID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NestedPartyIDPtr(NestedPartyID):
     def __init__(self, this):
@@ -12700,7 +13329,7 @@ class NestedPartyIDSource(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartyIDSource, name)
     def __repr__(self):
-        return "<C FIX::NestedPartyIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NestedPartyIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NestedPartyIDSource, 'this', _quickfix.new_NestedPartyIDSource(*args))
         _swig_setattr(self, NestedPartyIDSource, 'thisown', 1)
@@ -12708,6 +13337,7 @@ class NestedPartyIDSource(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NestedPartyIDSourcePtr(NestedPartyIDSource):
     def __init__(self, this):
@@ -12724,7 +13354,7 @@ class SecondaryClOrdID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryClOrdID, name)
     def __repr__(self):
-        return "<C FIX::SecondaryClOrdID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecondaryClOrdID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecondaryClOrdID, 'this', _quickfix.new_SecondaryClOrdID(*args))
         _swig_setattr(self, SecondaryClOrdID, 'thisown', 1)
@@ -12732,6 +13362,7 @@ class SecondaryClOrdID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecondaryClOrdIDPtr(SecondaryClOrdID):
     def __init__(self, this):
@@ -12748,7 +13379,7 @@ class SecondaryExecID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryExecID, name)
     def __repr__(self):
-        return "<C FIX::SecondaryExecID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecondaryExecID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecondaryExecID, 'this', _quickfix.new_SecondaryExecID(*args))
         _swig_setattr(self, SecondaryExecID, 'thisown', 1)
@@ -12756,6 +13387,7 @@ class SecondaryExecID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecondaryExecIDPtr(SecondaryExecID):
     def __init__(self, this):
@@ -12772,7 +13404,7 @@ class OrderCapacity(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderCapacity, name)
     def __repr__(self):
-        return "<C FIX::OrderCapacity instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderCapacity instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderCapacity, 'this', _quickfix.new_OrderCapacity(*args))
         _swig_setattr(self, OrderCapacity, 'thisown', 1)
@@ -12780,6 +13412,7 @@ class OrderCapacity(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderCapacityPtr(OrderCapacity):
     def __init__(self, this):
@@ -12796,7 +13429,7 @@ class OrderRestrictions(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderRestrictions, name)
     def __repr__(self):
-        return "<C FIX::OrderRestrictions instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderRestrictions instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderRestrictions, 'this', _quickfix.new_OrderRestrictions(*args))
         _swig_setattr(self, OrderRestrictions, 'thisown', 1)
@@ -12804,6 +13437,7 @@ class OrderRestrictions(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderRestrictionsPtr(OrderRestrictions):
     def __init__(self, this):
@@ -12820,7 +13454,7 @@ class MassCancelRequestType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MassCancelRequestType, name)
     def __repr__(self):
-        return "<C FIX::MassCancelRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MassCancelRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MassCancelRequestType, 'this', _quickfix.new_MassCancelRequestType(*args))
         _swig_setattr(self, MassCancelRequestType, 'thisown', 1)
@@ -12828,6 +13462,7 @@ class MassCancelRequestType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MassCancelRequestTypePtr(MassCancelRequestType):
     def __init__(self, this):
@@ -12844,7 +13479,7 @@ class MassCancelResponse(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MassCancelResponse, name)
     def __repr__(self):
-        return "<C FIX::MassCancelResponse instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MassCancelResponse instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MassCancelResponse, 'this', _quickfix.new_MassCancelResponse(*args))
         _swig_setattr(self, MassCancelResponse, 'thisown', 1)
@@ -12852,6 +13487,7 @@ class MassCancelResponse(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MassCancelResponsePtr(MassCancelResponse):
     def __init__(self, this):
@@ -12868,7 +13504,7 @@ class MassCancelRejectReason(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MassCancelRejectReason, name)
     def __repr__(self):
-        return "<C FIX::MassCancelRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MassCancelRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MassCancelRejectReason, 'this', _quickfix.new_MassCancelRejectReason(*args))
         _swig_setattr(self, MassCancelRejectReason, 'thisown', 1)
@@ -12876,6 +13512,7 @@ class MassCancelRejectReason(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MassCancelRejectReasonPtr(MassCancelRejectReason):
     def __init__(self, this):
@@ -12892,7 +13529,7 @@ class TotalAffectedOrders(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalAffectedOrders, name)
     def __repr__(self):
-        return "<C FIX::TotalAffectedOrders instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalAffectedOrders instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalAffectedOrders, 'this', _quickfix.new_TotalAffectedOrders(*args))
         _swig_setattr(self, TotalAffectedOrders, 'thisown', 1)
@@ -12900,6 +13537,7 @@ class TotalAffectedOrders(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalAffectedOrdersPtr(TotalAffectedOrders):
     def __init__(self, this):
@@ -12916,7 +13554,7 @@ class NoAffectedOrders(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoAffectedOrders, name)
     def __repr__(self):
-        return "<C FIX::NoAffectedOrders instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoAffectedOrders instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoAffectedOrders, 'this', _quickfix.new_NoAffectedOrders(*args))
         _swig_setattr(self, NoAffectedOrders, 'thisown', 1)
@@ -12924,6 +13562,7 @@ class NoAffectedOrders(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoAffectedOrdersPtr(NoAffectedOrders):
     def __init__(self, this):
@@ -12940,7 +13579,7 @@ class AffectedOrderID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AffectedOrderID, name)
     def __repr__(self):
-        return "<C FIX::AffectedOrderID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AffectedOrderID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AffectedOrderID, 'this', _quickfix.new_AffectedOrderID(*args))
         _swig_setattr(self, AffectedOrderID, 'thisown', 1)
@@ -12948,6 +13587,7 @@ class AffectedOrderID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AffectedOrderIDPtr(AffectedOrderID):
     def __init__(self, this):
@@ -12964,7 +13604,7 @@ class AffectedSecondaryOrderID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AffectedSecondaryOrderID, name)
     def __repr__(self):
-        return "<C FIX::AffectedSecondaryOrderID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AffectedSecondaryOrderID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AffectedSecondaryOrderID, 'this', _quickfix.new_AffectedSecondaryOrderID(*args))
         _swig_setattr(self, AffectedSecondaryOrderID, 'thisown', 1)
@@ -12972,6 +13612,7 @@ class AffectedSecondaryOrderID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AffectedSecondaryOrderIDPtr(AffectedSecondaryOrderID):
     def __init__(self, this):
@@ -12988,7 +13629,7 @@ class QuoteType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteType, name)
     def __repr__(self):
-        return "<C FIX::QuoteType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteType, 'this', _quickfix.new_QuoteType(*args))
         _swig_setattr(self, QuoteType, 'thisown', 1)
@@ -12996,6 +13637,7 @@ class QuoteType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteTypePtr(QuoteType):
     def __init__(self, this):
@@ -13012,7 +13654,7 @@ class NestedPartyRole(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartyRole, name)
     def __repr__(self):
-        return "<C FIX::NestedPartyRole instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NestedPartyRole instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NestedPartyRole, 'this', _quickfix.new_NestedPartyRole(*args))
         _swig_setattr(self, NestedPartyRole, 'thisown', 1)
@@ -13020,6 +13662,7 @@ class NestedPartyRole(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NestedPartyRolePtr(NestedPartyRole):
     def __init__(self, this):
@@ -13036,7 +13679,7 @@ class NoNestedPartyIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoNestedPartyIDs, name)
     def __repr__(self):
-        return "<C FIX::NoNestedPartyIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoNestedPartyIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoNestedPartyIDs, 'this', _quickfix.new_NoNestedPartyIDs(*args))
         _swig_setattr(self, NoNestedPartyIDs, 'thisown', 1)
@@ -13044,6 +13687,7 @@ class NoNestedPartyIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoNestedPartyIDsPtr(NoNestedPartyIDs):
     def __init__(self, this):
@@ -13060,7 +13704,7 @@ class TotalAccruedInterestAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalAccruedInterestAmt, name)
     def __repr__(self):
-        return "<C FIX::TotalAccruedInterestAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalAccruedInterestAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalAccruedInterestAmt, 'this', _quickfix.new_TotalAccruedInterestAmt(*args))
         _swig_setattr(self, TotalAccruedInterestAmt, 'thisown', 1)
@@ -13068,6 +13712,7 @@ class TotalAccruedInterestAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalAccruedInterestAmtPtr(TotalAccruedInterestAmt):
     def __init__(self, this):
@@ -13084,7 +13729,7 @@ class MaturityDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityDate, name)
     def __repr__(self):
-        return "<C FIX::MaturityDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MaturityDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MaturityDate, 'this', _quickfix.new_MaturityDate(*args))
         _swig_setattr(self, MaturityDate, 'thisown', 1)
@@ -13092,6 +13737,7 @@ class MaturityDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MaturityDatePtr(MaturityDate):
     def __init__(self, this):
@@ -13108,7 +13754,7 @@ class UnderlyingMaturityDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingMaturityDate, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingMaturityDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingMaturityDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingMaturityDate, 'this', _quickfix.new_UnderlyingMaturityDate(*args))
         _swig_setattr(self, UnderlyingMaturityDate, 'thisown', 1)
@@ -13116,6 +13762,7 @@ class UnderlyingMaturityDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingMaturityDatePtr(UnderlyingMaturityDate):
     def __init__(self, this):
@@ -13132,7 +13779,7 @@ class InstrRegistry(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InstrRegistry, name)
     def __repr__(self):
-        return "<C FIX::InstrRegistry instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InstrRegistry instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InstrRegistry, 'this', _quickfix.new_InstrRegistry(*args))
         _swig_setattr(self, InstrRegistry, 'thisown', 1)
@@ -13140,6 +13787,7 @@ class InstrRegistry(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InstrRegistryPtr(InstrRegistry):
     def __init__(self, this):
@@ -13156,7 +13804,7 @@ class CashMargin(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashMargin, name)
     def __repr__(self):
-        return "<C FIX::CashMargin instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashMargin instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashMargin, 'this', _quickfix.new_CashMargin(*args))
         _swig_setattr(self, CashMargin, 'thisown', 1)
@@ -13164,6 +13812,7 @@ class CashMargin(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashMarginPtr(CashMargin):
     def __init__(self, this):
@@ -13180,7 +13829,7 @@ class NestedPartySubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartySubID, name)
     def __repr__(self):
-        return "<C FIX::NestedPartySubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NestedPartySubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NestedPartySubID, 'this', _quickfix.new_NestedPartySubID(*args))
         _swig_setattr(self, NestedPartySubID, 'thisown', 1)
@@ -13188,6 +13837,7 @@ class NestedPartySubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NestedPartySubIDPtr(NestedPartySubID):
     def __init__(self, this):
@@ -13204,7 +13854,7 @@ class Scope(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Scope, name)
     def __repr__(self):
-        return "<C FIX::Scope instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Scope instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Scope, 'this', _quickfix.new_Scope(*args))
         _swig_setattr(self, Scope, 'thisown', 1)
@@ -13212,6 +13862,7 @@ class Scope(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ScopePtr(Scope):
     def __init__(self, this):
@@ -13228,7 +13879,7 @@ class MDImplicitDelete(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MDImplicitDelete, name)
     def __repr__(self):
-        return "<C FIX::MDImplicitDelete instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MDImplicitDelete instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MDImplicitDelete, 'this', _quickfix.new_MDImplicitDelete(*args))
         _swig_setattr(self, MDImplicitDelete, 'thisown', 1)
@@ -13236,6 +13887,7 @@ class MDImplicitDelete(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MDImplicitDeletePtr(MDImplicitDelete):
     def __init__(self, this):
@@ -13252,7 +13904,7 @@ class CrossID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CrossID, name)
     def __repr__(self):
-        return "<C FIX::CrossID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CrossID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CrossID, 'this', _quickfix.new_CrossID(*args))
         _swig_setattr(self, CrossID, 'thisown', 1)
@@ -13260,6 +13912,7 @@ class CrossID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CrossIDPtr(CrossID):
     def __init__(self, this):
@@ -13276,7 +13929,7 @@ class CrossType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CrossType, name)
     def __repr__(self):
-        return "<C FIX::CrossType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CrossType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CrossType, 'this', _quickfix.new_CrossType(*args))
         _swig_setattr(self, CrossType, 'thisown', 1)
@@ -13284,6 +13937,7 @@ class CrossType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CrossTypePtr(CrossType):
     def __init__(self, this):
@@ -13300,7 +13954,7 @@ class CrossPrioritization(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CrossPrioritization, name)
     def __repr__(self):
-        return "<C FIX::CrossPrioritization instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CrossPrioritization instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CrossPrioritization, 'this', _quickfix.new_CrossPrioritization(*args))
         _swig_setattr(self, CrossPrioritization, 'thisown', 1)
@@ -13308,6 +13962,7 @@ class CrossPrioritization(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CrossPrioritizationPtr(CrossPrioritization):
     def __init__(self, this):
@@ -13324,7 +13979,7 @@ class OrigCrossID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrigCrossID, name)
     def __repr__(self):
-        return "<C FIX::OrigCrossID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrigCrossID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrigCrossID, 'this', _quickfix.new_OrigCrossID(*args))
         _swig_setattr(self, OrigCrossID, 'thisown', 1)
@@ -13332,6 +13987,7 @@ class OrigCrossID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrigCrossIDPtr(OrigCrossID):
     def __init__(self, this):
@@ -13348,7 +14004,7 @@ class NoSides(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoSides, name)
     def __repr__(self):
-        return "<C FIX::NoSides instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoSides instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoSides, 'this', _quickfix.new_NoSides(*args))
         _swig_setattr(self, NoSides, 'thisown', 1)
@@ -13356,6 +14012,7 @@ class NoSides(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoSidesPtr(NoSides):
     def __init__(self, this):
@@ -13372,7 +14029,7 @@ class Username(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Username, name)
     def __repr__(self):
-        return "<C FIX::Username instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Username instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Username, 'this', _quickfix.new_Username(*args))
         _swig_setattr(self, Username, 'thisown', 1)
@@ -13380,6 +14037,7 @@ class Username(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UsernamePtr(Username):
     def __init__(self, this):
@@ -13396,7 +14054,7 @@ class Password(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Password, name)
     def __repr__(self):
-        return "<C FIX::Password instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Password instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Password, 'this', _quickfix.new_Password(*args))
         _swig_setattr(self, Password, 'thisown', 1)
@@ -13404,6 +14062,7 @@ class Password(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PasswordPtr(Password):
     def __init__(self, this):
@@ -13420,7 +14079,7 @@ class NoLegs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegs, name)
     def __repr__(self):
-        return "<C FIX::NoLegs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoLegs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoLegs, 'this', _quickfix.new_NoLegs(*args))
         _swig_setattr(self, NoLegs, 'thisown', 1)
@@ -13428,6 +14087,7 @@ class NoLegs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoLegsPtr(NoLegs):
     def __init__(self, this):
@@ -13444,7 +14104,7 @@ class LegCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegCurrency, name)
     def __repr__(self):
-        return "<C FIX::LegCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegCurrency, 'this', _quickfix.new_LegCurrency(*args))
         _swig_setattr(self, LegCurrency, 'thisown', 1)
@@ -13452,6 +14112,7 @@ class LegCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegCurrencyPtr(LegCurrency):
     def __init__(self, this):
@@ -13468,7 +14129,7 @@ class TotNoSecurityTypes(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoSecurityTypes, name)
     def __repr__(self):
-        return "<C FIX::TotNoSecurityTypes instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNoSecurityTypes instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNoSecurityTypes, 'this', _quickfix.new_TotNoSecurityTypes(*args))
         _swig_setattr(self, TotNoSecurityTypes, 'thisown', 1)
@@ -13476,6 +14137,7 @@ class TotNoSecurityTypes(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNoSecurityTypesPtr(TotNoSecurityTypes):
     def __init__(self, this):
@@ -13492,7 +14154,7 @@ class NoSecurityTypes(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoSecurityTypes, name)
     def __repr__(self):
-        return "<C FIX::NoSecurityTypes instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoSecurityTypes instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoSecurityTypes, 'this', _quickfix.new_NoSecurityTypes(*args))
         _swig_setattr(self, NoSecurityTypes, 'thisown', 1)
@@ -13500,6 +14162,7 @@ class NoSecurityTypes(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoSecurityTypesPtr(NoSecurityTypes):
     def __init__(self, this):
@@ -13516,7 +14179,7 @@ class SecurityListRequestType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityListRequestType, name)
     def __repr__(self):
-        return "<C FIX::SecurityListRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityListRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityListRequestType, 'this', _quickfix.new_SecurityListRequestType(*args))
         _swig_setattr(self, SecurityListRequestType, 'thisown', 1)
@@ -13524,6 +14187,7 @@ class SecurityListRequestType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityListRequestTypePtr(SecurityListRequestType):
     def __init__(self, this):
@@ -13540,7 +14204,7 @@ class SecurityRequestResult(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecurityRequestResult, name)
     def __repr__(self):
-        return "<C FIX::SecurityRequestResult instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecurityRequestResult instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecurityRequestResult, 'this', _quickfix.new_SecurityRequestResult(*args))
         _swig_setattr(self, SecurityRequestResult, 'thisown', 1)
@@ -13548,6 +14212,7 @@ class SecurityRequestResult(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecurityRequestResultPtr(SecurityRequestResult):
     def __init__(self, this):
@@ -13564,7 +14229,7 @@ class RoundLot(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RoundLot, name)
     def __repr__(self):
-        return "<C FIX::RoundLot instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RoundLot instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RoundLot, 'this', _quickfix.new_RoundLot(*args))
         _swig_setattr(self, RoundLot, 'thisown', 1)
@@ -13572,6 +14237,7 @@ class RoundLot(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RoundLotPtr(RoundLot):
     def __init__(self, this):
@@ -13588,7 +14254,7 @@ class MinTradeVol(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MinTradeVol, name)
     def __repr__(self):
-        return "<C FIX::MinTradeVol instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MinTradeVol instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MinTradeVol, 'this', _quickfix.new_MinTradeVol(*args))
         _swig_setattr(self, MinTradeVol, 'thisown', 1)
@@ -13596,6 +14262,7 @@ class MinTradeVol(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MinTradeVolPtr(MinTradeVol):
     def __init__(self, this):
@@ -13612,7 +14279,7 @@ class MultiLegRptTypeReq(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MultiLegRptTypeReq, name)
     def __repr__(self):
-        return "<C FIX::MultiLegRptTypeReq instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MultiLegRptTypeReq instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MultiLegRptTypeReq, 'this', _quickfix.new_MultiLegRptTypeReq(*args))
         _swig_setattr(self, MultiLegRptTypeReq, 'thisown', 1)
@@ -13620,6 +14287,7 @@ class MultiLegRptTypeReq(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MultiLegRptTypeReqPtr(MultiLegRptTypeReq):
     def __init__(self, this):
@@ -13636,7 +14304,7 @@ class LegPositionEffect(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegPositionEffect, name)
     def __repr__(self):
-        return "<C FIX::LegPositionEffect instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegPositionEffect instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegPositionEffect, 'this', _quickfix.new_LegPositionEffect(*args))
         _swig_setattr(self, LegPositionEffect, 'thisown', 1)
@@ -13644,6 +14312,7 @@ class LegPositionEffect(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegPositionEffectPtr(LegPositionEffect):
     def __init__(self, this):
@@ -13660,7 +14329,7 @@ class LegCoveredOrUncovered(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegCoveredOrUncovered, name)
     def __repr__(self):
-        return "<C FIX::LegCoveredOrUncovered instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegCoveredOrUncovered instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegCoveredOrUncovered, 'this', _quickfix.new_LegCoveredOrUncovered(*args))
         _swig_setattr(self, LegCoveredOrUncovered, 'thisown', 1)
@@ -13668,6 +14337,7 @@ class LegCoveredOrUncovered(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegCoveredOrUncoveredPtr(LegCoveredOrUncovered):
     def __init__(self, this):
@@ -13684,7 +14354,7 @@ class LegPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegPrice, name)
     def __repr__(self):
-        return "<C FIX::LegPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegPrice, 'this', _quickfix.new_LegPrice(*args))
         _swig_setattr(self, LegPrice, 'thisown', 1)
@@ -13692,6 +14362,7 @@ class LegPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegPricePtr(LegPrice):
     def __init__(self, this):
@@ -13708,7 +14379,7 @@ class TradSesStatusRejReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradSesStatusRejReason, name)
     def __repr__(self):
-        return "<C FIX::TradSesStatusRejReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradSesStatusRejReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradSesStatusRejReason, 'this', _quickfix.new_TradSesStatusRejReason(*args))
         _swig_setattr(self, TradSesStatusRejReason, 'thisown', 1)
@@ -13716,6 +14387,7 @@ class TradSesStatusRejReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradSesStatusRejReasonPtr(TradSesStatusRejReason):
     def __init__(self, this):
@@ -13732,7 +14404,7 @@ class TradeRequestID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestID, name)
     def __repr__(self):
-        return "<C FIX::TradeRequestID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeRequestID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeRequestID, 'this', _quickfix.new_TradeRequestID(*args))
         _swig_setattr(self, TradeRequestID, 'thisown', 1)
@@ -13740,6 +14412,7 @@ class TradeRequestID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeRequestIDPtr(TradeRequestID):
     def __init__(self, this):
@@ -13756,7 +14429,7 @@ class TradeRequestType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestType, name)
     def __repr__(self):
-        return "<C FIX::TradeRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeRequestType, 'this', _quickfix.new_TradeRequestType(*args))
         _swig_setattr(self, TradeRequestType, 'thisown', 1)
@@ -13764,6 +14437,7 @@ class TradeRequestType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeRequestTypePtr(TradeRequestType):
     def __init__(self, this):
@@ -13780,7 +14454,7 @@ class PreviouslyReported(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PreviouslyReported, name)
     def __repr__(self):
-        return "<C FIX::PreviouslyReported instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PreviouslyReported instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PreviouslyReported, 'this', _quickfix.new_PreviouslyReported(*args))
         _swig_setattr(self, PreviouslyReported, 'thisown', 1)
@@ -13788,6 +14462,7 @@ class PreviouslyReported(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PreviouslyReportedPtr(PreviouslyReported):
     def __init__(self, this):
@@ -13804,7 +14479,7 @@ class TradeReportID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportID, name)
     def __repr__(self):
-        return "<C FIX::TradeReportID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeReportID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeReportID, 'this', _quickfix.new_TradeReportID(*args))
         _swig_setattr(self, TradeReportID, 'thisown', 1)
@@ -13812,6 +14487,7 @@ class TradeReportID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeReportIDPtr(TradeReportID):
     def __init__(self, this):
@@ -13828,7 +14504,7 @@ class TradeReportRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportRefID, name)
     def __repr__(self):
-        return "<C FIX::TradeReportRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeReportRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeReportRefID, 'this', _quickfix.new_TradeReportRefID(*args))
         _swig_setattr(self, TradeReportRefID, 'thisown', 1)
@@ -13836,6 +14512,7 @@ class TradeReportRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeReportRefIDPtr(TradeReportRefID):
     def __init__(self, this):
@@ -13852,7 +14529,7 @@ class MatchStatus(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MatchStatus, name)
     def __repr__(self):
-        return "<C FIX::MatchStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MatchStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MatchStatus, 'this', _quickfix.new_MatchStatus(*args))
         _swig_setattr(self, MatchStatus, 'thisown', 1)
@@ -13860,6 +14537,7 @@ class MatchStatus(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MatchStatusPtr(MatchStatus):
     def __init__(self, this):
@@ -13876,7 +14554,7 @@ class MatchType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MatchType, name)
     def __repr__(self):
-        return "<C FIX::MatchType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MatchType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MatchType, 'this', _quickfix.new_MatchType(*args))
         _swig_setattr(self, MatchType, 'thisown', 1)
@@ -13884,6 +14562,7 @@ class MatchType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MatchTypePtr(MatchType):
     def __init__(self, this):
@@ -13900,7 +14579,7 @@ class OddLot(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OddLot, name)
     def __repr__(self):
-        return "<C FIX::OddLot instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OddLot instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OddLot, 'this', _quickfix.new_OddLot(*args))
         _swig_setattr(self, OddLot, 'thisown', 1)
@@ -13908,6 +14587,7 @@ class OddLot(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OddLotPtr(OddLot):
     def __init__(self, this):
@@ -13924,7 +14604,7 @@ class NoClearingInstructions(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoClearingInstructions, name)
     def __repr__(self):
-        return "<C FIX::NoClearingInstructions instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoClearingInstructions instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoClearingInstructions, 'this', _quickfix.new_NoClearingInstructions(*args))
         _swig_setattr(self, NoClearingInstructions, 'thisown', 1)
@@ -13932,6 +14612,7 @@ class NoClearingInstructions(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoClearingInstructionsPtr(NoClearingInstructions):
     def __init__(self, this):
@@ -13948,7 +14629,7 @@ class ClearingInstruction(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingInstruction, name)
     def __repr__(self):
-        return "<C FIX::ClearingInstruction instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClearingInstruction instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClearingInstruction, 'this', _quickfix.new_ClearingInstruction(*args))
         _swig_setattr(self, ClearingInstruction, 'thisown', 1)
@@ -13956,6 +14637,7 @@ class ClearingInstruction(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClearingInstructionPtr(ClearingInstruction):
     def __init__(self, this):
@@ -13972,7 +14654,7 @@ class TradeInputSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeInputSource, name)
     def __repr__(self):
-        return "<C FIX::TradeInputSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeInputSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeInputSource, 'this', _quickfix.new_TradeInputSource(*args))
         _swig_setattr(self, TradeInputSource, 'thisown', 1)
@@ -13980,6 +14662,7 @@ class TradeInputSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeInputSourcePtr(TradeInputSource):
     def __init__(self, this):
@@ -13996,7 +14679,7 @@ class TradeInputDevice(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeInputDevice, name)
     def __repr__(self):
-        return "<C FIX::TradeInputDevice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeInputDevice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeInputDevice, 'this', _quickfix.new_TradeInputDevice(*args))
         _swig_setattr(self, TradeInputDevice, 'thisown', 1)
@@ -14004,6 +14687,7 @@ class TradeInputDevice(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeInputDevicePtr(TradeInputDevice):
     def __init__(self, this):
@@ -14020,7 +14704,7 @@ class NoDates(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoDates, name)
     def __repr__(self):
-        return "<C FIX::NoDates instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoDates instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoDates, 'this', _quickfix.new_NoDates(*args))
         _swig_setattr(self, NoDates, 'thisown', 1)
@@ -14028,6 +14712,7 @@ class NoDates(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoDatesPtr(NoDates):
     def __init__(self, this):
@@ -14044,7 +14729,7 @@ class AccountType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AccountType, name)
     def __repr__(self):
-        return "<C FIX::AccountType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AccountType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AccountType, 'this', _quickfix.new_AccountType(*args))
         _swig_setattr(self, AccountType, 'thisown', 1)
@@ -14052,6 +14737,7 @@ class AccountType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AccountTypePtr(AccountType):
     def __init__(self, this):
@@ -14068,7 +14754,7 @@ class CustOrderCapacity(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CustOrderCapacity, name)
     def __repr__(self):
-        return "<C FIX::CustOrderCapacity instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CustOrderCapacity instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CustOrderCapacity, 'this', _quickfix.new_CustOrderCapacity(*args))
         _swig_setattr(self, CustOrderCapacity, 'thisown', 1)
@@ -14076,6 +14762,7 @@ class CustOrderCapacity(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CustOrderCapacityPtr(CustOrderCapacity):
     def __init__(self, this):
@@ -14092,7 +14779,7 @@ class ClOrdLinkID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClOrdLinkID, name)
     def __repr__(self):
-        return "<C FIX::ClOrdLinkID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClOrdLinkID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClOrdLinkID, 'this', _quickfix.new_ClOrdLinkID(*args))
         _swig_setattr(self, ClOrdLinkID, 'thisown', 1)
@@ -14100,6 +14787,7 @@ class ClOrdLinkID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClOrdLinkIDPtr(ClOrdLinkID):
     def __init__(self, this):
@@ -14116,7 +14804,7 @@ class MassStatusReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MassStatusReqID, name)
     def __repr__(self):
-        return "<C FIX::MassStatusReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MassStatusReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MassStatusReqID, 'this', _quickfix.new_MassStatusReqID(*args))
         _swig_setattr(self, MassStatusReqID, 'thisown', 1)
@@ -14124,6 +14812,7 @@ class MassStatusReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MassStatusReqIDPtr(MassStatusReqID):
     def __init__(self, this):
@@ -14140,7 +14829,7 @@ class MassStatusReqType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MassStatusReqType, name)
     def __repr__(self):
-        return "<C FIX::MassStatusReqType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MassStatusReqType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MassStatusReqType, 'this', _quickfix.new_MassStatusReqType(*args))
         _swig_setattr(self, MassStatusReqType, 'thisown', 1)
@@ -14148,6 +14837,7 @@ class MassStatusReqType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MassStatusReqTypePtr(MassStatusReqType):
     def __init__(self, this):
@@ -14164,7 +14854,7 @@ class OrigOrdModTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrigOrdModTime, name)
     def __repr__(self):
-        return "<C FIX::OrigOrdModTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrigOrdModTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrigOrdModTime, 'this', _quickfix.new_OrigOrdModTime(*args))
         _swig_setattr(self, OrigOrdModTime, 'thisown', 1)
@@ -14172,6 +14862,7 @@ class OrigOrdModTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrigOrdModTimePtr(OrigOrdModTime):
     def __init__(self, this):
@@ -14188,7 +14879,7 @@ class LegSettlType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlType, name)
     def __repr__(self):
-        return "<C FIX::LegSettlType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSettlType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSettlType, 'this', _quickfix.new_LegSettlType(*args))
         _swig_setattr(self, LegSettlType, 'thisown', 1)
@@ -14196,6 +14887,7 @@ class LegSettlType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSettlTypePtr(LegSettlType):
     def __init__(self, this):
@@ -14212,7 +14904,7 @@ class LegSettlDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlDate, name)
     def __repr__(self):
-        return "<C FIX::LegSettlDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSettlDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSettlDate, 'this', _quickfix.new_LegSettlDate(*args))
         _swig_setattr(self, LegSettlDate, 'thisown', 1)
@@ -14220,6 +14912,7 @@ class LegSettlDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSettlDatePtr(LegSettlDate):
     def __init__(self, this):
@@ -14236,7 +14929,7 @@ class DayBookingInst(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DayBookingInst, name)
     def __repr__(self):
-        return "<C FIX::DayBookingInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DayBookingInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DayBookingInst, 'this', _quickfix.new_DayBookingInst(*args))
         _swig_setattr(self, DayBookingInst, 'thisown', 1)
@@ -14244,6 +14937,7 @@ class DayBookingInst(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DayBookingInstPtr(DayBookingInst):
     def __init__(self, this):
@@ -14260,7 +14954,7 @@ class BookingUnit(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BookingUnit, name)
     def __repr__(self):
-        return "<C FIX::BookingUnit instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BookingUnit instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BookingUnit, 'this', _quickfix.new_BookingUnit(*args))
         _swig_setattr(self, BookingUnit, 'thisown', 1)
@@ -14268,6 +14962,7 @@ class BookingUnit(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BookingUnitPtr(BookingUnit):
     def __init__(self, this):
@@ -14284,7 +14979,7 @@ class PreallocMethod(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PreallocMethod, name)
     def __repr__(self):
-        return "<C FIX::PreallocMethod instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PreallocMethod instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PreallocMethod, 'this', _quickfix.new_PreallocMethod(*args))
         _swig_setattr(self, PreallocMethod, 'thisown', 1)
@@ -14292,6 +14987,7 @@ class PreallocMethod(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PreallocMethodPtr(PreallocMethod):
     def __init__(self, this):
@@ -14308,7 +15004,7 @@ class UnderlyingCountryOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCountryOfIssue, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCountryOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCountryOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCountryOfIssue, 'this', _quickfix.new_UnderlyingCountryOfIssue(*args))
         _swig_setattr(self, UnderlyingCountryOfIssue, 'thisown', 1)
@@ -14316,6 +15012,7 @@ class UnderlyingCountryOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCountryOfIssuePtr(UnderlyingCountryOfIssue):
     def __init__(self, this):
@@ -14332,7 +15029,7 @@ class UnderlyingStateOrProvinceOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStateOrProvinceOfIssue, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingStateOrProvinceOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingStateOrProvinceOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingStateOrProvinceOfIssue, 'this', _quickfix.new_UnderlyingStateOrProvinceOfIssue(*args))
         _swig_setattr(self, UnderlyingStateOrProvinceOfIssue, 'thisown', 1)
@@ -14340,6 +15037,7 @@ class UnderlyingStateOrProvinceOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingStateOrProvinceOfIssuePtr(UnderlyingStateOrProvinceOfIssue):
     def __init__(self, this):
@@ -14356,7 +15054,7 @@ class UnderlyingLocaleOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingLocaleOfIssue, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingLocaleOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingLocaleOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingLocaleOfIssue, 'this', _quickfix.new_UnderlyingLocaleOfIssue(*args))
         _swig_setattr(self, UnderlyingLocaleOfIssue, 'thisown', 1)
@@ -14364,6 +15062,7 @@ class UnderlyingLocaleOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingLocaleOfIssuePtr(UnderlyingLocaleOfIssue):
     def __init__(self, this):
@@ -14380,7 +15079,7 @@ class UnderlyingInstrRegistry(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingInstrRegistry, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingInstrRegistry instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingInstrRegistry instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingInstrRegistry, 'this', _quickfix.new_UnderlyingInstrRegistry(*args))
         _swig_setattr(self, UnderlyingInstrRegistry, 'thisown', 1)
@@ -14388,6 +15087,7 @@ class UnderlyingInstrRegistry(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingInstrRegistryPtr(UnderlyingInstrRegistry):
     def __init__(self, this):
@@ -14404,7 +15104,7 @@ class LegCountryOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegCountryOfIssue, name)
     def __repr__(self):
-        return "<C FIX::LegCountryOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegCountryOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegCountryOfIssue, 'this', _quickfix.new_LegCountryOfIssue(*args))
         _swig_setattr(self, LegCountryOfIssue, 'thisown', 1)
@@ -14412,6 +15112,7 @@ class LegCountryOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegCountryOfIssuePtr(LegCountryOfIssue):
     def __init__(self, this):
@@ -14428,7 +15129,7 @@ class LegStateOrProvinceOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegStateOrProvinceOfIssue, name)
     def __repr__(self):
-        return "<C FIX::LegStateOrProvinceOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegStateOrProvinceOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegStateOrProvinceOfIssue, 'this', _quickfix.new_LegStateOrProvinceOfIssue(*args))
         _swig_setattr(self, LegStateOrProvinceOfIssue, 'thisown', 1)
@@ -14436,6 +15137,7 @@ class LegStateOrProvinceOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegStateOrProvinceOfIssuePtr(LegStateOrProvinceOfIssue):
     def __init__(self, this):
@@ -14452,7 +15154,7 @@ class LegLocaleOfIssue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegLocaleOfIssue, name)
     def __repr__(self):
-        return "<C FIX::LegLocaleOfIssue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegLocaleOfIssue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegLocaleOfIssue, 'this', _quickfix.new_LegLocaleOfIssue(*args))
         _swig_setattr(self, LegLocaleOfIssue, 'thisown', 1)
@@ -14460,6 +15162,7 @@ class LegLocaleOfIssue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegLocaleOfIssuePtr(LegLocaleOfIssue):
     def __init__(self, this):
@@ -14476,7 +15179,7 @@ class LegInstrRegistry(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegInstrRegistry, name)
     def __repr__(self):
-        return "<C FIX::LegInstrRegistry instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegInstrRegistry instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegInstrRegistry, 'this', _quickfix.new_LegInstrRegistry(*args))
         _swig_setattr(self, LegInstrRegistry, 'thisown', 1)
@@ -14484,6 +15187,7 @@ class LegInstrRegistry(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegInstrRegistryPtr(LegInstrRegistry):
     def __init__(self, this):
@@ -14500,7 +15204,7 @@ class LegSymbol(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSymbol, name)
     def __repr__(self):
-        return "<C FIX::LegSymbol instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSymbol instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSymbol, 'this', _quickfix.new_LegSymbol(*args))
         _swig_setattr(self, LegSymbol, 'thisown', 1)
@@ -14508,6 +15212,7 @@ class LegSymbol(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSymbolPtr(LegSymbol):
     def __init__(self, this):
@@ -14524,7 +15229,7 @@ class LegSymbolSfx(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSymbolSfx, name)
     def __repr__(self):
-        return "<C FIX::LegSymbolSfx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSymbolSfx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSymbolSfx, 'this', _quickfix.new_LegSymbolSfx(*args))
         _swig_setattr(self, LegSymbolSfx, 'thisown', 1)
@@ -14532,6 +15237,7 @@ class LegSymbolSfx(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSymbolSfxPtr(LegSymbolSfx):
     def __init__(self, this):
@@ -14548,7 +15254,7 @@ class LegSecurityID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityID, name)
     def __repr__(self):
-        return "<C FIX::LegSecurityID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecurityID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecurityID, 'this', _quickfix.new_LegSecurityID(*args))
         _swig_setattr(self, LegSecurityID, 'thisown', 1)
@@ -14556,6 +15262,7 @@ class LegSecurityID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecurityIDPtr(LegSecurityID):
     def __init__(self, this):
@@ -14572,7 +15279,7 @@ class LegSecurityIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityIDSource, name)
     def __repr__(self):
-        return "<C FIX::LegSecurityIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecurityIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecurityIDSource, 'this', _quickfix.new_LegSecurityIDSource(*args))
         _swig_setattr(self, LegSecurityIDSource, 'thisown', 1)
@@ -14580,6 +15287,7 @@ class LegSecurityIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecurityIDSourcePtr(LegSecurityIDSource):
     def __init__(self, this):
@@ -14596,7 +15304,7 @@ class NoLegSecurityAltID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegSecurityAltID, name)
     def __repr__(self):
-        return "<C FIX::NoLegSecurityAltID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoLegSecurityAltID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoLegSecurityAltID, 'this', _quickfix.new_NoLegSecurityAltID(*args))
         _swig_setattr(self, NoLegSecurityAltID, 'thisown', 1)
@@ -14604,6 +15312,7 @@ class NoLegSecurityAltID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoLegSecurityAltIDPtr(NoLegSecurityAltID):
     def __init__(self, this):
@@ -14620,7 +15329,7 @@ class LegSecurityAltID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityAltID, name)
     def __repr__(self):
-        return "<C FIX::LegSecurityAltID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecurityAltID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecurityAltID, 'this', _quickfix.new_LegSecurityAltID(*args))
         _swig_setattr(self, LegSecurityAltID, 'thisown', 1)
@@ -14628,6 +15337,7 @@ class LegSecurityAltID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecurityAltIDPtr(LegSecurityAltID):
     def __init__(self, this):
@@ -14644,7 +15354,7 @@ class LegSecurityAltIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityAltIDSource, name)
     def __repr__(self):
-        return "<C FIX::LegSecurityAltIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecurityAltIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecurityAltIDSource, 'this', _quickfix.new_LegSecurityAltIDSource(*args))
         _swig_setattr(self, LegSecurityAltIDSource, 'thisown', 1)
@@ -14652,6 +15362,7 @@ class LegSecurityAltIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecurityAltIDSourcePtr(LegSecurityAltIDSource):
     def __init__(self, this):
@@ -14668,7 +15379,7 @@ class LegProduct(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegProduct, name)
     def __repr__(self):
-        return "<C FIX::LegProduct instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegProduct instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegProduct, 'this', _quickfix.new_LegProduct(*args))
         _swig_setattr(self, LegProduct, 'thisown', 1)
@@ -14676,6 +15387,7 @@ class LegProduct(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegProductPtr(LegProduct):
     def __init__(self, this):
@@ -14692,7 +15404,7 @@ class LegCFICode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegCFICode, name)
     def __repr__(self):
-        return "<C FIX::LegCFICode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegCFICode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegCFICode, 'this', _quickfix.new_LegCFICode(*args))
         _swig_setattr(self, LegCFICode, 'thisown', 1)
@@ -14700,6 +15412,7 @@ class LegCFICode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegCFICodePtr(LegCFICode):
     def __init__(self, this):
@@ -14716,7 +15429,7 @@ class LegSecurityType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityType, name)
     def __repr__(self):
-        return "<C FIX::LegSecurityType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecurityType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecurityType, 'this', _quickfix.new_LegSecurityType(*args))
         _swig_setattr(self, LegSecurityType, 'thisown', 1)
@@ -14724,6 +15437,7 @@ class LegSecurityType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecurityTypePtr(LegSecurityType):
     def __init__(self, this):
@@ -14740,7 +15454,7 @@ class LegMaturityMonthYear(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegMaturityMonthYear, name)
     def __repr__(self):
-        return "<C FIX::LegMaturityMonthYear instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegMaturityMonthYear instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegMaturityMonthYear, 'this', _quickfix.new_LegMaturityMonthYear(*args))
         _swig_setattr(self, LegMaturityMonthYear, 'thisown', 1)
@@ -14748,6 +15462,7 @@ class LegMaturityMonthYear(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegMaturityMonthYearPtr(LegMaturityMonthYear):
     def __init__(self, this):
@@ -14764,7 +15479,7 @@ class LegMaturityDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegMaturityDate, name)
     def __repr__(self):
-        return "<C FIX::LegMaturityDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegMaturityDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegMaturityDate, 'this', _quickfix.new_LegMaturityDate(*args))
         _swig_setattr(self, LegMaturityDate, 'thisown', 1)
@@ -14772,6 +15487,7 @@ class LegMaturityDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegMaturityDatePtr(LegMaturityDate):
     def __init__(self, this):
@@ -14788,7 +15504,7 @@ class LegStrikePrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegStrikePrice, name)
     def __repr__(self):
-        return "<C FIX::LegStrikePrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegStrikePrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegStrikePrice, 'this', _quickfix.new_LegStrikePrice(*args))
         _swig_setattr(self, LegStrikePrice, 'thisown', 1)
@@ -14796,6 +15512,7 @@ class LegStrikePrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegStrikePricePtr(LegStrikePrice):
     def __init__(self, this):
@@ -14812,7 +15529,7 @@ class LegOptAttribute(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegOptAttribute, name)
     def __repr__(self):
-        return "<C FIX::LegOptAttribute instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegOptAttribute instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegOptAttribute, 'this', _quickfix.new_LegOptAttribute(*args))
         _swig_setattr(self, LegOptAttribute, 'thisown', 1)
@@ -14820,6 +15537,7 @@ class LegOptAttribute(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegOptAttributePtr(LegOptAttribute):
     def __init__(self, this):
@@ -14836,7 +15554,7 @@ class LegContractMultiplier(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegContractMultiplier, name)
     def __repr__(self):
-        return "<C FIX::LegContractMultiplier instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegContractMultiplier instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegContractMultiplier, 'this', _quickfix.new_LegContractMultiplier(*args))
         _swig_setattr(self, LegContractMultiplier, 'thisown', 1)
@@ -14844,6 +15562,7 @@ class LegContractMultiplier(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegContractMultiplierPtr(LegContractMultiplier):
     def __init__(self, this):
@@ -14860,7 +15579,7 @@ class LegCouponRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegCouponRate, name)
     def __repr__(self):
-        return "<C FIX::LegCouponRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegCouponRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegCouponRate, 'this', _quickfix.new_LegCouponRate(*args))
         _swig_setattr(self, LegCouponRate, 'thisown', 1)
@@ -14868,6 +15587,7 @@ class LegCouponRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegCouponRatePtr(LegCouponRate):
     def __init__(self, this):
@@ -14884,7 +15604,7 @@ class LegSecurityExchange(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityExchange, name)
     def __repr__(self):
-        return "<C FIX::LegSecurityExchange instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecurityExchange instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecurityExchange, 'this', _quickfix.new_LegSecurityExchange(*args))
         _swig_setattr(self, LegSecurityExchange, 'thisown', 1)
@@ -14892,6 +15612,7 @@ class LegSecurityExchange(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecurityExchangePtr(LegSecurityExchange):
     def __init__(self, this):
@@ -14908,7 +15629,7 @@ class LegIssuer(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegIssuer, name)
     def __repr__(self):
-        return "<C FIX::LegIssuer instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegIssuer instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegIssuer, 'this', _quickfix.new_LegIssuer(*args))
         _swig_setattr(self, LegIssuer, 'thisown', 1)
@@ -14916,6 +15637,7 @@ class LegIssuer(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegIssuerPtr(LegIssuer):
     def __init__(self, this):
@@ -14932,7 +15654,7 @@ class EncodedLegIssuerLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegIssuerLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedLegIssuerLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedLegIssuerLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedLegIssuerLen, 'this', _quickfix.new_EncodedLegIssuerLen(*args))
         _swig_setattr(self, EncodedLegIssuerLen, 'thisown', 1)
@@ -14940,6 +15662,7 @@ class EncodedLegIssuerLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedLegIssuerLenPtr(EncodedLegIssuerLen):
     def __init__(self, this):
@@ -14956,7 +15679,7 @@ class EncodedLegIssuer(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegIssuer, name)
     def __repr__(self):
-        return "<C FIX::EncodedLegIssuer instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedLegIssuer instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedLegIssuer, 'this', _quickfix.new_EncodedLegIssuer(*args))
         _swig_setattr(self, EncodedLegIssuer, 'thisown', 1)
@@ -14964,6 +15687,7 @@ class EncodedLegIssuer(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedLegIssuerPtr(EncodedLegIssuer):
     def __init__(self, this):
@@ -14980,7 +15704,7 @@ class LegSecurityDesc(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecurityDesc, name)
     def __repr__(self):
-        return "<C FIX::LegSecurityDesc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecurityDesc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecurityDesc, 'this', _quickfix.new_LegSecurityDesc(*args))
         _swig_setattr(self, LegSecurityDesc, 'thisown', 1)
@@ -14988,6 +15712,7 @@ class LegSecurityDesc(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecurityDescPtr(LegSecurityDesc):
     def __init__(self, this):
@@ -15004,7 +15729,7 @@ class EncodedLegSecurityDescLen(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegSecurityDescLen, name)
     def __repr__(self):
-        return "<C FIX::EncodedLegSecurityDescLen instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedLegSecurityDescLen instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedLegSecurityDescLen, 'this', _quickfix.new_EncodedLegSecurityDescLen(*args))
         _swig_setattr(self, EncodedLegSecurityDescLen, 'thisown', 1)
@@ -15012,6 +15737,7 @@ class EncodedLegSecurityDescLen(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedLegSecurityDescLenPtr(EncodedLegSecurityDescLen):
     def __init__(self, this):
@@ -15028,7 +15754,7 @@ class EncodedLegSecurityDesc(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EncodedLegSecurityDesc, name)
     def __repr__(self):
-        return "<C FIX::EncodedLegSecurityDesc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EncodedLegSecurityDesc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EncodedLegSecurityDesc, 'this', _quickfix.new_EncodedLegSecurityDesc(*args))
         _swig_setattr(self, EncodedLegSecurityDesc, 'thisown', 1)
@@ -15036,6 +15762,7 @@ class EncodedLegSecurityDesc(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EncodedLegSecurityDescPtr(EncodedLegSecurityDesc):
     def __init__(self, this):
@@ -15052,7 +15779,7 @@ class LegRatioQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegRatioQty, name)
     def __repr__(self):
-        return "<C FIX::LegRatioQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegRatioQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegRatioQty, 'this', _quickfix.new_LegRatioQty(*args))
         _swig_setattr(self, LegRatioQty, 'thisown', 1)
@@ -15060,6 +15787,7 @@ class LegRatioQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegRatioQtyPtr(LegRatioQty):
     def __init__(self, this):
@@ -15076,7 +15804,7 @@ class LegSide(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSide, name)
     def __repr__(self):
-        return "<C FIX::LegSide instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSide instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSide, 'this', _quickfix.new_LegSide(*args))
         _swig_setattr(self, LegSide, 'thisown', 1)
@@ -15084,6 +15812,7 @@ class LegSide(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSidePtr(LegSide):
     def __init__(self, this):
@@ -15100,7 +15829,7 @@ class TradingSessionSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradingSessionSubID, name)
     def __repr__(self):
-        return "<C FIX::TradingSessionSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradingSessionSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradingSessionSubID, 'this', _quickfix.new_TradingSessionSubID(*args))
         _swig_setattr(self, TradingSessionSubID, 'thisown', 1)
@@ -15108,6 +15837,7 @@ class TradingSessionSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradingSessionSubIDPtr(TradingSessionSubID):
     def __init__(self, this):
@@ -15124,7 +15854,7 @@ class AllocType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocType, name)
     def __repr__(self):
-        return "<C FIX::AllocType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocType, 'this', _quickfix.new_AllocType(*args))
         _swig_setattr(self, AllocType, 'thisown', 1)
@@ -15132,6 +15862,7 @@ class AllocType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocTypePtr(AllocType):
     def __init__(self, this):
@@ -15148,7 +15879,7 @@ class NoHops(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoHops, name)
     def __repr__(self):
-        return "<C FIX::NoHops instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoHops instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoHops, 'this', _quickfix.new_NoHops(*args))
         _swig_setattr(self, NoHops, 'thisown', 1)
@@ -15156,6 +15887,7 @@ class NoHops(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoHopsPtr(NoHops):
     def __init__(self, this):
@@ -15172,7 +15904,7 @@ class HopCompID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, HopCompID, name)
     def __repr__(self):
-        return "<C FIX::HopCompID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::HopCompID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, HopCompID, 'this', _quickfix.new_HopCompID(*args))
         _swig_setattr(self, HopCompID, 'thisown', 1)
@@ -15180,6 +15912,7 @@ class HopCompID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HopCompIDPtr(HopCompID):
     def __init__(self, this):
@@ -15196,7 +15929,7 @@ class HopSendingTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, HopSendingTime, name)
     def __repr__(self):
-        return "<C FIX::HopSendingTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::HopSendingTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, HopSendingTime, 'this', _quickfix.new_HopSendingTime(*args))
         _swig_setattr(self, HopSendingTime, 'thisown', 1)
@@ -15204,6 +15937,7 @@ class HopSendingTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HopSendingTimePtr(HopSendingTime):
     def __init__(self, this):
@@ -15220,7 +15954,7 @@ class HopRefID(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, HopRefID, name)
     def __repr__(self):
-        return "<C FIX::HopRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::HopRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, HopRefID, 'this', _quickfix.new_HopRefID(*args))
         _swig_setattr(self, HopRefID, 'thisown', 1)
@@ -15228,6 +15962,7 @@ class HopRefID(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class HopRefIDPtr(HopRefID):
     def __init__(self, this):
@@ -15244,7 +15979,7 @@ class MidPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MidPx, name)
     def __repr__(self):
-        return "<C FIX::MidPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MidPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MidPx, 'this', _quickfix.new_MidPx(*args))
         _swig_setattr(self, MidPx, 'thisown', 1)
@@ -15252,6 +15987,7 @@ class MidPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MidPxPtr(MidPx):
     def __init__(self, this):
@@ -15268,7 +16004,7 @@ class BidYield(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidYield, name)
     def __repr__(self):
-        return "<C FIX::BidYield instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidYield instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidYield, 'this', _quickfix.new_BidYield(*args))
         _swig_setattr(self, BidYield, 'thisown', 1)
@@ -15276,6 +16012,7 @@ class BidYield(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidYieldPtr(BidYield):
     def __init__(self, this):
@@ -15292,7 +16029,7 @@ class MidYield(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MidYield, name)
     def __repr__(self):
-        return "<C FIX::MidYield instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MidYield instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MidYield, 'this', _quickfix.new_MidYield(*args))
         _swig_setattr(self, MidYield, 'thisown', 1)
@@ -15300,6 +16037,7 @@ class MidYield(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MidYieldPtr(MidYield):
     def __init__(self, this):
@@ -15316,7 +16054,7 @@ class OfferYield(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OfferYield, name)
     def __repr__(self):
-        return "<C FIX::OfferYield instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OfferYield instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OfferYield, 'this', _quickfix.new_OfferYield(*args))
         _swig_setattr(self, OfferYield, 'thisown', 1)
@@ -15324,6 +16062,7 @@ class OfferYield(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OfferYieldPtr(OfferYield):
     def __init__(self, this):
@@ -15340,7 +16079,7 @@ class ClearingFeeIndicator(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingFeeIndicator, name)
     def __repr__(self):
-        return "<C FIX::ClearingFeeIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClearingFeeIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClearingFeeIndicator, 'this', _quickfix.new_ClearingFeeIndicator(*args))
         _swig_setattr(self, ClearingFeeIndicator, 'thisown', 1)
@@ -15348,6 +16087,7 @@ class ClearingFeeIndicator(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClearingFeeIndicatorPtr(ClearingFeeIndicator):
     def __init__(self, this):
@@ -15364,7 +16104,7 @@ class WorkingIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, WorkingIndicator, name)
     def __repr__(self):
-        return "<C FIX::WorkingIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::WorkingIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, WorkingIndicator, 'this', _quickfix.new_WorkingIndicator(*args))
         _swig_setattr(self, WorkingIndicator, 'thisown', 1)
@@ -15372,6 +16112,7 @@ class WorkingIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class WorkingIndicatorPtr(WorkingIndicator):
     def __init__(self, this):
@@ -15388,7 +16129,7 @@ class LegLastPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegLastPx, name)
     def __repr__(self):
-        return "<C FIX::LegLastPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegLastPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegLastPx, 'this', _quickfix.new_LegLastPx(*args))
         _swig_setattr(self, LegLastPx, 'thisown', 1)
@@ -15396,6 +16137,7 @@ class LegLastPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegLastPxPtr(LegLastPx):
     def __init__(self, this):
@@ -15412,7 +16154,7 @@ class PriorityIndicator(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PriorityIndicator, name)
     def __repr__(self):
-        return "<C FIX::PriorityIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PriorityIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PriorityIndicator, 'this', _quickfix.new_PriorityIndicator(*args))
         _swig_setattr(self, PriorityIndicator, 'thisown', 1)
@@ -15420,6 +16162,7 @@ class PriorityIndicator(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PriorityIndicatorPtr(PriorityIndicator):
     def __init__(self, this):
@@ -15436,7 +16179,7 @@ class PriceImprovement(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PriceImprovement, name)
     def __repr__(self):
-        return "<C FIX::PriceImprovement instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PriceImprovement instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PriceImprovement, 'this', _quickfix.new_PriceImprovement(*args))
         _swig_setattr(self, PriceImprovement, 'thisown', 1)
@@ -15444,6 +16187,7 @@ class PriceImprovement(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PriceImprovementPtr(PriceImprovement):
     def __init__(self, this):
@@ -15460,7 +16204,7 @@ class Price2(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Price2, name)
     def __repr__(self):
-        return "<C FIX::Price2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Price2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Price2, 'this', _quickfix.new_Price2(*args))
         _swig_setattr(self, Price2, 'thisown', 1)
@@ -15468,6 +16212,7 @@ class Price2(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Price2Ptr(Price2):
     def __init__(self, this):
@@ -15484,7 +16229,7 @@ class LastForwardPoints2(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastForwardPoints2, name)
     def __repr__(self):
-        return "<C FIX::LastForwardPoints2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastForwardPoints2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastForwardPoints2, 'this', _quickfix.new_LastForwardPoints2(*args))
         _swig_setattr(self, LastForwardPoints2, 'thisown', 1)
@@ -15492,6 +16237,7 @@ class LastForwardPoints2(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastForwardPoints2Ptr(LastForwardPoints2):
     def __init__(self, this):
@@ -15508,7 +16254,7 @@ class BidForwardPoints2(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BidForwardPoints2, name)
     def __repr__(self):
-        return "<C FIX::BidForwardPoints2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BidForwardPoints2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BidForwardPoints2, 'this', _quickfix.new_BidForwardPoints2(*args))
         _swig_setattr(self, BidForwardPoints2, 'thisown', 1)
@@ -15516,6 +16262,7 @@ class BidForwardPoints2(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BidForwardPoints2Ptr(BidForwardPoints2):
     def __init__(self, this):
@@ -15532,7 +16279,7 @@ class OfferForwardPoints2(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OfferForwardPoints2, name)
     def __repr__(self):
-        return "<C FIX::OfferForwardPoints2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OfferForwardPoints2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OfferForwardPoints2, 'this', _quickfix.new_OfferForwardPoints2(*args))
         _swig_setattr(self, OfferForwardPoints2, 'thisown', 1)
@@ -15540,6 +16287,7 @@ class OfferForwardPoints2(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OfferForwardPoints2Ptr(OfferForwardPoints2):
     def __init__(self, this):
@@ -15556,7 +16304,7 @@ class RFQReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RFQReqID, name)
     def __repr__(self):
-        return "<C FIX::RFQReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RFQReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RFQReqID, 'this', _quickfix.new_RFQReqID(*args))
         _swig_setattr(self, RFQReqID, 'thisown', 1)
@@ -15564,6 +16312,7 @@ class RFQReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RFQReqIDPtr(RFQReqID):
     def __init__(self, this):
@@ -15580,7 +16329,7 @@ class MktBidPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MktBidPx, name)
     def __repr__(self):
-        return "<C FIX::MktBidPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MktBidPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MktBidPx, 'this', _quickfix.new_MktBidPx(*args))
         _swig_setattr(self, MktBidPx, 'thisown', 1)
@@ -15588,6 +16337,7 @@ class MktBidPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MktBidPxPtr(MktBidPx):
     def __init__(self, this):
@@ -15604,7 +16354,7 @@ class MktOfferPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MktOfferPx, name)
     def __repr__(self):
-        return "<C FIX::MktOfferPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MktOfferPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MktOfferPx, 'this', _quickfix.new_MktOfferPx(*args))
         _swig_setattr(self, MktOfferPx, 'thisown', 1)
@@ -15612,6 +16362,7 @@ class MktOfferPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MktOfferPxPtr(MktOfferPx):
     def __init__(self, this):
@@ -15628,7 +16379,7 @@ class MinBidSize(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MinBidSize, name)
     def __repr__(self):
-        return "<C FIX::MinBidSize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MinBidSize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MinBidSize, 'this', _quickfix.new_MinBidSize(*args))
         _swig_setattr(self, MinBidSize, 'thisown', 1)
@@ -15636,6 +16387,7 @@ class MinBidSize(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MinBidSizePtr(MinBidSize):
     def __init__(self, this):
@@ -15652,7 +16404,7 @@ class MinOfferSize(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MinOfferSize, name)
     def __repr__(self):
-        return "<C FIX::MinOfferSize instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MinOfferSize instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MinOfferSize, 'this', _quickfix.new_MinOfferSize(*args))
         _swig_setattr(self, MinOfferSize, 'thisown', 1)
@@ -15660,6 +16412,7 @@ class MinOfferSize(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MinOfferSizePtr(MinOfferSize):
     def __init__(self, this):
@@ -15676,7 +16429,7 @@ class QuoteStatusReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteStatusReqID, name)
     def __repr__(self):
-        return "<C FIX::QuoteStatusReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteStatusReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteStatusReqID, 'this', _quickfix.new_QuoteStatusReqID(*args))
         _swig_setattr(self, QuoteStatusReqID, 'thisown', 1)
@@ -15684,6 +16437,7 @@ class QuoteStatusReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteStatusReqIDPtr(QuoteStatusReqID):
     def __init__(self, this):
@@ -15700,7 +16454,7 @@ class LegalConfirm(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegalConfirm, name)
     def __repr__(self):
-        return "<C FIX::LegalConfirm instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegalConfirm instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegalConfirm, 'this', _quickfix.new_LegalConfirm(*args))
         _swig_setattr(self, LegalConfirm, 'thisown', 1)
@@ -15708,6 +16462,7 @@ class LegalConfirm(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegalConfirmPtr(LegalConfirm):
     def __init__(self, this):
@@ -15724,7 +16479,7 @@ class UnderlyingLastPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingLastPx, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingLastPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingLastPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingLastPx, 'this', _quickfix.new_UnderlyingLastPx(*args))
         _swig_setattr(self, UnderlyingLastPx, 'thisown', 1)
@@ -15732,6 +16487,7 @@ class UnderlyingLastPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingLastPxPtr(UnderlyingLastPx):
     def __init__(self, this):
@@ -15748,7 +16504,7 @@ class UnderlyingLastQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingLastQty, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingLastQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingLastQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingLastQty, 'this', _quickfix.new_UnderlyingLastQty(*args))
         _swig_setattr(self, UnderlyingLastQty, 'thisown', 1)
@@ -15756,6 +16512,7 @@ class UnderlyingLastQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingLastQtyPtr(UnderlyingLastQty):
     def __init__(self, this):
@@ -15772,7 +16529,7 @@ class LegRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegRefID, name)
     def __repr__(self):
-        return "<C FIX::LegRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegRefID, 'this', _quickfix.new_LegRefID(*args))
         _swig_setattr(self, LegRefID, 'thisown', 1)
@@ -15780,6 +16537,7 @@ class LegRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegRefIDPtr(LegRefID):
     def __init__(self, this):
@@ -15796,7 +16554,7 @@ class ContraLegRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContraLegRefID, name)
     def __repr__(self):
-        return "<C FIX::ContraLegRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContraLegRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContraLegRefID, 'this', _quickfix.new_ContraLegRefID(*args))
         _swig_setattr(self, ContraLegRefID, 'thisown', 1)
@@ -15804,6 +16562,7 @@ class ContraLegRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContraLegRefIDPtr(ContraLegRefID):
     def __init__(self, this):
@@ -15820,7 +16579,7 @@ class SettlCurrBidFxRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrBidFxRate, name)
     def __repr__(self):
-        return "<C FIX::SettlCurrBidFxRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlCurrBidFxRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlCurrBidFxRate, 'this', _quickfix.new_SettlCurrBidFxRate(*args))
         _swig_setattr(self, SettlCurrBidFxRate, 'thisown', 1)
@@ -15828,6 +16587,7 @@ class SettlCurrBidFxRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlCurrBidFxRatePtr(SettlCurrBidFxRate):
     def __init__(self, this):
@@ -15844,7 +16604,7 @@ class SettlCurrOfferFxRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlCurrOfferFxRate, name)
     def __repr__(self):
-        return "<C FIX::SettlCurrOfferFxRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlCurrOfferFxRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlCurrOfferFxRate, 'this', _quickfix.new_SettlCurrOfferFxRate(*args))
         _swig_setattr(self, SettlCurrOfferFxRate, 'thisown', 1)
@@ -15852,6 +16612,7 @@ class SettlCurrOfferFxRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlCurrOfferFxRatePtr(SettlCurrOfferFxRate):
     def __init__(self, this):
@@ -15868,7 +16629,7 @@ class QuoteRequestRejectReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRequestRejectReason, name)
     def __repr__(self):
-        return "<C FIX::QuoteRequestRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteRequestRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteRequestRejectReason, 'this', _quickfix.new_QuoteRequestRejectReason(*args))
         _swig_setattr(self, QuoteRequestRejectReason, 'thisown', 1)
@@ -15876,6 +16637,7 @@ class QuoteRequestRejectReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteRequestRejectReasonPtr(QuoteRequestRejectReason):
     def __init__(self, this):
@@ -15892,7 +16654,7 @@ class SideComplianceID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SideComplianceID, name)
     def __repr__(self):
-        return "<C FIX::SideComplianceID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SideComplianceID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SideComplianceID, 'this', _quickfix.new_SideComplianceID(*args))
         _swig_setattr(self, SideComplianceID, 'thisown', 1)
@@ -15900,6 +16662,7 @@ class SideComplianceID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SideComplianceIDPtr(SideComplianceID):
     def __init__(self, this):
@@ -15916,7 +16679,7 @@ class AcctIDSource(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AcctIDSource, name)
     def __repr__(self):
-        return "<C FIX::AcctIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AcctIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AcctIDSource, 'this', _quickfix.new_AcctIDSource(*args))
         _swig_setattr(self, AcctIDSource, 'thisown', 1)
@@ -15924,6 +16687,7 @@ class AcctIDSource(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AcctIDSourcePtr(AcctIDSource):
     def __init__(self, this):
@@ -15940,7 +16704,7 @@ class AllocAcctIDSource(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAcctIDSource, name)
     def __repr__(self):
-        return "<C FIX::AllocAcctIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocAcctIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocAcctIDSource, 'this', _quickfix.new_AllocAcctIDSource(*args))
         _swig_setattr(self, AllocAcctIDSource, 'thisown', 1)
@@ -15948,6 +16712,7 @@ class AllocAcctIDSource(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocAcctIDSourcePtr(AllocAcctIDSource):
     def __init__(self, this):
@@ -15964,7 +16729,7 @@ class BenchmarkPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkPrice, name)
     def __repr__(self):
-        return "<C FIX::BenchmarkPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BenchmarkPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BenchmarkPrice, 'this', _quickfix.new_BenchmarkPrice(*args))
         _swig_setattr(self, BenchmarkPrice, 'thisown', 1)
@@ -15972,6 +16737,7 @@ class BenchmarkPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkPricePtr(BenchmarkPrice):
     def __init__(self, this):
@@ -15988,7 +16754,7 @@ class BenchmarkPriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkPriceType, name)
     def __repr__(self):
-        return "<C FIX::BenchmarkPriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BenchmarkPriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BenchmarkPriceType, 'this', _quickfix.new_BenchmarkPriceType(*args))
         _swig_setattr(self, BenchmarkPriceType, 'thisown', 1)
@@ -15996,6 +16762,7 @@ class BenchmarkPriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkPriceTypePtr(BenchmarkPriceType):
     def __init__(self, this):
@@ -16012,7 +16779,7 @@ class ConfirmID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmID, name)
     def __repr__(self):
-        return "<C FIX::ConfirmID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfirmID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfirmID, 'this', _quickfix.new_ConfirmID(*args))
         _swig_setattr(self, ConfirmID, 'thisown', 1)
@@ -16020,6 +16787,7 @@ class ConfirmID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfirmIDPtr(ConfirmID):
     def __init__(self, this):
@@ -16036,7 +16804,7 @@ class ConfirmStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmStatus, name)
     def __repr__(self):
-        return "<C FIX::ConfirmStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfirmStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfirmStatus, 'this', _quickfix.new_ConfirmStatus(*args))
         _swig_setattr(self, ConfirmStatus, 'thisown', 1)
@@ -16044,6 +16812,7 @@ class ConfirmStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfirmStatusPtr(ConfirmStatus):
     def __init__(self, this):
@@ -16060,7 +16829,7 @@ class ConfirmTransType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmTransType, name)
     def __repr__(self):
-        return "<C FIX::ConfirmTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfirmTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfirmTransType, 'this', _quickfix.new_ConfirmTransType(*args))
         _swig_setattr(self, ConfirmTransType, 'thisown', 1)
@@ -16068,6 +16837,7 @@ class ConfirmTransType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfirmTransTypePtr(ConfirmTransType):
     def __init__(self, this):
@@ -16084,7 +16854,7 @@ class ContractSettlMonth(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContractSettlMonth, name)
     def __repr__(self):
-        return "<C FIX::ContractSettlMonth instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContractSettlMonth instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContractSettlMonth, 'this', _quickfix.new_ContractSettlMonth(*args))
         _swig_setattr(self, ContractSettlMonth, 'thisown', 1)
@@ -16092,6 +16862,7 @@ class ContractSettlMonth(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContractSettlMonthPtr(ContractSettlMonth):
     def __init__(self, this):
@@ -16108,7 +16879,7 @@ class DeliveryForm(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeliveryForm, name)
     def __repr__(self):
-        return "<C FIX::DeliveryForm instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeliveryForm instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeliveryForm, 'this', _quickfix.new_DeliveryForm(*args))
         _swig_setattr(self, DeliveryForm, 'thisown', 1)
@@ -16116,6 +16887,7 @@ class DeliveryForm(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeliveryFormPtr(DeliveryForm):
     def __init__(self, this):
@@ -16132,7 +16904,7 @@ class LastParPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastParPx, name)
     def __repr__(self):
-        return "<C FIX::LastParPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastParPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastParPx, 'this', _quickfix.new_LastParPx(*args))
         _swig_setattr(self, LastParPx, 'thisown', 1)
@@ -16140,6 +16912,7 @@ class LastParPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastParPxPtr(LastParPx):
     def __init__(self, this):
@@ -16156,7 +16929,7 @@ class NoLegAllocs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegAllocs, name)
     def __repr__(self):
-        return "<C FIX::NoLegAllocs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoLegAllocs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoLegAllocs, 'this', _quickfix.new_NoLegAllocs(*args))
         _swig_setattr(self, NoLegAllocs, 'thisown', 1)
@@ -16164,6 +16937,7 @@ class NoLegAllocs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoLegAllocsPtr(NoLegAllocs):
     def __init__(self, this):
@@ -16180,7 +16954,7 @@ class LegAllocAccount(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegAllocAccount, name)
     def __repr__(self):
-        return "<C FIX::LegAllocAccount instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegAllocAccount instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegAllocAccount, 'this', _quickfix.new_LegAllocAccount(*args))
         _swig_setattr(self, LegAllocAccount, 'thisown', 1)
@@ -16188,6 +16962,7 @@ class LegAllocAccount(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegAllocAccountPtr(LegAllocAccount):
     def __init__(self, this):
@@ -16204,7 +16979,7 @@ class LegIndividualAllocID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegIndividualAllocID, name)
     def __repr__(self):
-        return "<C FIX::LegIndividualAllocID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegIndividualAllocID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegIndividualAllocID, 'this', _quickfix.new_LegIndividualAllocID(*args))
         _swig_setattr(self, LegIndividualAllocID, 'thisown', 1)
@@ -16212,6 +16987,7 @@ class LegIndividualAllocID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegIndividualAllocIDPtr(LegIndividualAllocID):
     def __init__(self, this):
@@ -16228,7 +17004,7 @@ class LegAllocQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegAllocQty, name)
     def __repr__(self):
-        return "<C FIX::LegAllocQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegAllocQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegAllocQty, 'this', _quickfix.new_LegAllocQty(*args))
         _swig_setattr(self, LegAllocQty, 'thisown', 1)
@@ -16236,6 +17012,7 @@ class LegAllocQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegAllocQtyPtr(LegAllocQty):
     def __init__(self, this):
@@ -16252,7 +17029,7 @@ class LegAllocAcctIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegAllocAcctIDSource, name)
     def __repr__(self):
-        return "<C FIX::LegAllocAcctIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegAllocAcctIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegAllocAcctIDSource, 'this', _quickfix.new_LegAllocAcctIDSource(*args))
         _swig_setattr(self, LegAllocAcctIDSource, 'thisown', 1)
@@ -16260,6 +17037,7 @@ class LegAllocAcctIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegAllocAcctIDSourcePtr(LegAllocAcctIDSource):
     def __init__(self, this):
@@ -16276,7 +17054,7 @@ class LegSettlCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlCurrency, name)
     def __repr__(self):
-        return "<C FIX::LegSettlCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSettlCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSettlCurrency, 'this', _quickfix.new_LegSettlCurrency(*args))
         _swig_setattr(self, LegSettlCurrency, 'thisown', 1)
@@ -16284,6 +17062,7 @@ class LegSettlCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSettlCurrencyPtr(LegSettlCurrency):
     def __init__(self, this):
@@ -16300,7 +17079,7 @@ class LegBenchmarkCurveCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkCurveCurrency, name)
     def __repr__(self):
-        return "<C FIX::LegBenchmarkCurveCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegBenchmarkCurveCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegBenchmarkCurveCurrency, 'this', _quickfix.new_LegBenchmarkCurveCurrency(*args))
         _swig_setattr(self, LegBenchmarkCurveCurrency, 'thisown', 1)
@@ -16308,6 +17087,7 @@ class LegBenchmarkCurveCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegBenchmarkCurveCurrencyPtr(LegBenchmarkCurveCurrency):
     def __init__(self, this):
@@ -16324,7 +17104,7 @@ class LegBenchmarkCurveName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkCurveName, name)
     def __repr__(self):
-        return "<C FIX::LegBenchmarkCurveName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegBenchmarkCurveName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegBenchmarkCurveName, 'this', _quickfix.new_LegBenchmarkCurveName(*args))
         _swig_setattr(self, LegBenchmarkCurveName, 'thisown', 1)
@@ -16332,6 +17112,7 @@ class LegBenchmarkCurveName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegBenchmarkCurveNamePtr(LegBenchmarkCurveName):
     def __init__(self, this):
@@ -16348,7 +17129,7 @@ class LegBenchmarkCurvePoint(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkCurvePoint, name)
     def __repr__(self):
-        return "<C FIX::LegBenchmarkCurvePoint instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegBenchmarkCurvePoint instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegBenchmarkCurvePoint, 'this', _quickfix.new_LegBenchmarkCurvePoint(*args))
         _swig_setattr(self, LegBenchmarkCurvePoint, 'thisown', 1)
@@ -16356,6 +17137,7 @@ class LegBenchmarkCurvePoint(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegBenchmarkCurvePointPtr(LegBenchmarkCurvePoint):
     def __init__(self, this):
@@ -16372,7 +17154,7 @@ class LegBenchmarkPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkPrice, name)
     def __repr__(self):
-        return "<C FIX::LegBenchmarkPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegBenchmarkPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegBenchmarkPrice, 'this', _quickfix.new_LegBenchmarkPrice(*args))
         _swig_setattr(self, LegBenchmarkPrice, 'thisown', 1)
@@ -16380,6 +17162,7 @@ class LegBenchmarkPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegBenchmarkPricePtr(LegBenchmarkPrice):
     def __init__(self, this):
@@ -16396,7 +17179,7 @@ class LegBenchmarkPriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegBenchmarkPriceType, name)
     def __repr__(self):
-        return "<C FIX::LegBenchmarkPriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegBenchmarkPriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegBenchmarkPriceType, 'this', _quickfix.new_LegBenchmarkPriceType(*args))
         _swig_setattr(self, LegBenchmarkPriceType, 'thisown', 1)
@@ -16404,6 +17187,7 @@ class LegBenchmarkPriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegBenchmarkPriceTypePtr(LegBenchmarkPriceType):
     def __init__(self, this):
@@ -16420,7 +17204,7 @@ class LegBidPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegBidPx, name)
     def __repr__(self):
-        return "<C FIX::LegBidPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegBidPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegBidPx, 'this', _quickfix.new_LegBidPx(*args))
         _swig_setattr(self, LegBidPx, 'thisown', 1)
@@ -16428,6 +17212,7 @@ class LegBidPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegBidPxPtr(LegBidPx):
     def __init__(self, this):
@@ -16444,7 +17229,7 @@ class LegIOIQty(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegIOIQty, name)
     def __repr__(self):
-        return "<C FIX::LegIOIQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegIOIQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegIOIQty, 'this', _quickfix.new_LegIOIQty(*args))
         _swig_setattr(self, LegIOIQty, 'thisown', 1)
@@ -16452,6 +17237,7 @@ class LegIOIQty(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegIOIQtyPtr(LegIOIQty):
     def __init__(self, this):
@@ -16468,7 +17254,7 @@ class NoLegStipulations(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoLegStipulations, name)
     def __repr__(self):
-        return "<C FIX::NoLegStipulations instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoLegStipulations instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoLegStipulations, 'this', _quickfix.new_NoLegStipulations(*args))
         _swig_setattr(self, NoLegStipulations, 'thisown', 1)
@@ -16476,6 +17262,7 @@ class NoLegStipulations(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoLegStipulationsPtr(NoLegStipulations):
     def __init__(self, this):
@@ -16492,7 +17279,7 @@ class LegOfferPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegOfferPx, name)
     def __repr__(self):
-        return "<C FIX::LegOfferPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegOfferPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegOfferPx, 'this', _quickfix.new_LegOfferPx(*args))
         _swig_setattr(self, LegOfferPx, 'thisown', 1)
@@ -16500,6 +17287,7 @@ class LegOfferPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegOfferPxPtr(LegOfferPx):
     def __init__(self, this):
@@ -16516,7 +17304,7 @@ class LegOrderQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegOrderQty, name)
     def __repr__(self):
-        return "<C FIX::LegOrderQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegOrderQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegOrderQty, 'this', _quickfix.new_LegOrderQty(*args))
         _swig_setattr(self, LegOrderQty, 'thisown', 1)
@@ -16524,6 +17312,7 @@ class LegOrderQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegOrderQtyPtr(LegOrderQty):
     def __init__(self, this):
@@ -16540,7 +17329,7 @@ class LegPriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegPriceType, name)
     def __repr__(self):
-        return "<C FIX::LegPriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegPriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegPriceType, 'this', _quickfix.new_LegPriceType(*args))
         _swig_setattr(self, LegPriceType, 'thisown', 1)
@@ -16548,6 +17337,7 @@ class LegPriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegPriceTypePtr(LegPriceType):
     def __init__(self, this):
@@ -16564,7 +17354,7 @@ class LegQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegQty, name)
     def __repr__(self):
-        return "<C FIX::LegQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegQty, 'this', _quickfix.new_LegQty(*args))
         _swig_setattr(self, LegQty, 'thisown', 1)
@@ -16572,6 +17362,7 @@ class LegQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegQtyPtr(LegQty):
     def __init__(self, this):
@@ -16588,7 +17379,7 @@ class LegStipulationType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegStipulationType, name)
     def __repr__(self):
-        return "<C FIX::LegStipulationType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegStipulationType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegStipulationType, 'this', _quickfix.new_LegStipulationType(*args))
         _swig_setattr(self, LegStipulationType, 'thisown', 1)
@@ -16596,6 +17387,7 @@ class LegStipulationType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegStipulationTypePtr(LegStipulationType):
     def __init__(self, this):
@@ -16612,7 +17404,7 @@ class LegStipulationValue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegStipulationValue, name)
     def __repr__(self):
-        return "<C FIX::LegStipulationValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegStipulationValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegStipulationValue, 'this', _quickfix.new_LegStipulationValue(*args))
         _swig_setattr(self, LegStipulationValue, 'thisown', 1)
@@ -16620,6 +17412,7 @@ class LegStipulationValue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegStipulationValuePtr(LegStipulationValue):
     def __init__(self, this):
@@ -16636,7 +17429,7 @@ class LegSwapType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSwapType, name)
     def __repr__(self):
-        return "<C FIX::LegSwapType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSwapType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSwapType, 'this', _quickfix.new_LegSwapType(*args))
         _swig_setattr(self, LegSwapType, 'thisown', 1)
@@ -16644,6 +17437,7 @@ class LegSwapType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSwapTypePtr(LegSwapType):
     def __init__(self, this):
@@ -16660,7 +17454,7 @@ class Pool(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Pool, name)
     def __repr__(self):
-        return "<C FIX::Pool instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Pool instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Pool, 'this', _quickfix.new_Pool(*args))
         _swig_setattr(self, Pool, 'thisown', 1)
@@ -16668,6 +17462,7 @@ class Pool(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PoolPtr(Pool):
     def __init__(self, this):
@@ -16684,7 +17479,7 @@ class QuotePriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuotePriceType, name)
     def __repr__(self):
-        return "<C FIX::QuotePriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuotePriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuotePriceType, 'this', _quickfix.new_QuotePriceType(*args))
         _swig_setattr(self, QuotePriceType, 'thisown', 1)
@@ -16692,6 +17487,7 @@ class QuotePriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuotePriceTypePtr(QuotePriceType):
     def __init__(self, this):
@@ -16708,7 +17504,7 @@ class QuoteRespID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRespID, name)
     def __repr__(self):
-        return "<C FIX::QuoteRespID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteRespID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteRespID, 'this', _quickfix.new_QuoteRespID(*args))
         _swig_setattr(self, QuoteRespID, 'thisown', 1)
@@ -16716,6 +17512,7 @@ class QuoteRespID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteRespIDPtr(QuoteRespID):
     def __init__(self, this):
@@ -16732,7 +17529,7 @@ class QuoteRespType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteRespType, name)
     def __repr__(self):
-        return "<C FIX::QuoteRespType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteRespType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteRespType, 'this', _quickfix.new_QuoteRespType(*args))
         _swig_setattr(self, QuoteRespType, 'thisown', 1)
@@ -16740,6 +17537,7 @@ class QuoteRespType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteRespTypePtr(QuoteRespType):
     def __init__(self, this):
@@ -16756,7 +17554,7 @@ class QuoteQualifier(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteQualifier, name)
     def __repr__(self):
-        return "<C FIX::QuoteQualifier instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteQualifier instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteQualifier, 'this', _quickfix.new_QuoteQualifier(*args))
         _swig_setattr(self, QuoteQualifier, 'thisown', 1)
@@ -16764,6 +17562,7 @@ class QuoteQualifier(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteQualifierPtr(QuoteQualifier):
     def __init__(self, this):
@@ -16780,7 +17579,7 @@ class YieldRedemptionDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, YieldRedemptionDate, name)
     def __repr__(self):
-        return "<C FIX::YieldRedemptionDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::YieldRedemptionDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, YieldRedemptionDate, 'this', _quickfix.new_YieldRedemptionDate(*args))
         _swig_setattr(self, YieldRedemptionDate, 'thisown', 1)
@@ -16788,6 +17587,7 @@ class YieldRedemptionDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class YieldRedemptionDatePtr(YieldRedemptionDate):
     def __init__(self, this):
@@ -16804,7 +17604,7 @@ class YieldRedemptionPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, YieldRedemptionPrice, name)
     def __repr__(self):
-        return "<C FIX::YieldRedemptionPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::YieldRedemptionPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, YieldRedemptionPrice, 'this', _quickfix.new_YieldRedemptionPrice(*args))
         _swig_setattr(self, YieldRedemptionPrice, 'thisown', 1)
@@ -16812,6 +17612,7 @@ class YieldRedemptionPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class YieldRedemptionPricePtr(YieldRedemptionPrice):
     def __init__(self, this):
@@ -16828,7 +17629,7 @@ class YieldRedemptionPriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, YieldRedemptionPriceType, name)
     def __repr__(self):
-        return "<C FIX::YieldRedemptionPriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::YieldRedemptionPriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, YieldRedemptionPriceType, 'this', _quickfix.new_YieldRedemptionPriceType(*args))
         _swig_setattr(self, YieldRedemptionPriceType, 'thisown', 1)
@@ -16836,6 +17637,7 @@ class YieldRedemptionPriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class YieldRedemptionPriceTypePtr(YieldRedemptionPriceType):
     def __init__(self, this):
@@ -16852,7 +17654,7 @@ class BenchmarkSecurityID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkSecurityID, name)
     def __repr__(self):
-        return "<C FIX::BenchmarkSecurityID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BenchmarkSecurityID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BenchmarkSecurityID, 'this', _quickfix.new_BenchmarkSecurityID(*args))
         _swig_setattr(self, BenchmarkSecurityID, 'thisown', 1)
@@ -16860,6 +17662,7 @@ class BenchmarkSecurityID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkSecurityIDPtr(BenchmarkSecurityID):
     def __init__(self, this):
@@ -16876,7 +17679,7 @@ class ReversalIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ReversalIndicator, name)
     def __repr__(self):
-        return "<C FIX::ReversalIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ReversalIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ReversalIndicator, 'this', _quickfix.new_ReversalIndicator(*args))
         _swig_setattr(self, ReversalIndicator, 'thisown', 1)
@@ -16884,6 +17687,7 @@ class ReversalIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ReversalIndicatorPtr(ReversalIndicator):
     def __init__(self, this):
@@ -16900,7 +17704,7 @@ class YieldCalcDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, YieldCalcDate, name)
     def __repr__(self):
-        return "<C FIX::YieldCalcDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::YieldCalcDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, YieldCalcDate, 'this', _quickfix.new_YieldCalcDate(*args))
         _swig_setattr(self, YieldCalcDate, 'thisown', 1)
@@ -16908,6 +17712,7 @@ class YieldCalcDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class YieldCalcDatePtr(YieldCalcDate):
     def __init__(self, this):
@@ -16924,7 +17729,7 @@ class NoPositions(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoPositions, name)
     def __repr__(self):
-        return "<C FIX::NoPositions instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoPositions instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoPositions, 'this', _quickfix.new_NoPositions(*args))
         _swig_setattr(self, NoPositions, 'thisown', 1)
@@ -16932,6 +17737,7 @@ class NoPositions(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoPositionsPtr(NoPositions):
     def __init__(self, this):
@@ -16948,7 +17754,7 @@ class PosType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosType, name)
     def __repr__(self):
-        return "<C FIX::PosType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosType, 'this', _quickfix.new_PosType(*args))
         _swig_setattr(self, PosType, 'thisown', 1)
@@ -16956,6 +17762,7 @@ class PosType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosTypePtr(PosType):
     def __init__(self, this):
@@ -16972,7 +17779,7 @@ class LongQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LongQty, name)
     def __repr__(self):
-        return "<C FIX::LongQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LongQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LongQty, 'this', _quickfix.new_LongQty(*args))
         _swig_setattr(self, LongQty, 'thisown', 1)
@@ -16980,6 +17787,7 @@ class LongQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LongQtyPtr(LongQty):
     def __init__(self, this):
@@ -16996,7 +17804,7 @@ class ShortQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ShortQty, name)
     def __repr__(self):
-        return "<C FIX::ShortQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ShortQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ShortQty, 'this', _quickfix.new_ShortQty(*args))
         _swig_setattr(self, ShortQty, 'thisown', 1)
@@ -17004,6 +17812,7 @@ class ShortQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ShortQtyPtr(ShortQty):
     def __init__(self, this):
@@ -17020,7 +17829,7 @@ class PosQtyStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosQtyStatus, name)
     def __repr__(self):
-        return "<C FIX::PosQtyStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosQtyStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosQtyStatus, 'this', _quickfix.new_PosQtyStatus(*args))
         _swig_setattr(self, PosQtyStatus, 'thisown', 1)
@@ -17028,6 +17837,7 @@ class PosQtyStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosQtyStatusPtr(PosQtyStatus):
     def __init__(self, this):
@@ -17044,7 +17854,7 @@ class PosAmtType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosAmtType, name)
     def __repr__(self):
-        return "<C FIX::PosAmtType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosAmtType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosAmtType, 'this', _quickfix.new_PosAmtType(*args))
         _swig_setattr(self, PosAmtType, 'thisown', 1)
@@ -17052,6 +17862,7 @@ class PosAmtType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosAmtTypePtr(PosAmtType):
     def __init__(self, this):
@@ -17068,7 +17879,7 @@ class PosAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosAmt, name)
     def __repr__(self):
-        return "<C FIX::PosAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosAmt, 'this', _quickfix.new_PosAmt(*args))
         _swig_setattr(self, PosAmt, 'thisown', 1)
@@ -17076,6 +17887,7 @@ class PosAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosAmtPtr(PosAmt):
     def __init__(self, this):
@@ -17092,7 +17904,7 @@ class PosTransType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosTransType, name)
     def __repr__(self):
-        return "<C FIX::PosTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosTransType, 'this', _quickfix.new_PosTransType(*args))
         _swig_setattr(self, PosTransType, 'thisown', 1)
@@ -17100,6 +17912,7 @@ class PosTransType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosTransTypePtr(PosTransType):
     def __init__(self, this):
@@ -17116,7 +17929,7 @@ class PosReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqID, name)
     def __repr__(self):
-        return "<C FIX::PosReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosReqID, 'this', _quickfix.new_PosReqID(*args))
         _swig_setattr(self, PosReqID, 'thisown', 1)
@@ -17124,6 +17937,7 @@ class PosReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosReqIDPtr(PosReqID):
     def __init__(self, this):
@@ -17140,7 +17954,7 @@ class NoUnderlyings(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoUnderlyings, name)
     def __repr__(self):
-        return "<C FIX::NoUnderlyings instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoUnderlyings instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoUnderlyings, 'this', _quickfix.new_NoUnderlyings(*args))
         _swig_setattr(self, NoUnderlyings, 'thisown', 1)
@@ -17148,6 +17962,7 @@ class NoUnderlyings(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoUnderlyingsPtr(NoUnderlyings):
     def __init__(self, this):
@@ -17164,7 +17979,7 @@ class PosMaintAction(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintAction, name)
     def __repr__(self):
-        return "<C FIX::PosMaintAction instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosMaintAction instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosMaintAction, 'this', _quickfix.new_PosMaintAction(*args))
         _swig_setattr(self, PosMaintAction, 'thisown', 1)
@@ -17172,6 +17987,7 @@ class PosMaintAction(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosMaintActionPtr(PosMaintAction):
     def __init__(self, this):
@@ -17188,7 +18004,7 @@ class OrigPosReqRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrigPosReqRefID, name)
     def __repr__(self):
-        return "<C FIX::OrigPosReqRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrigPosReqRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrigPosReqRefID, 'this', _quickfix.new_OrigPosReqRefID(*args))
         _swig_setattr(self, OrigPosReqRefID, 'thisown', 1)
@@ -17196,6 +18012,7 @@ class OrigPosReqRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrigPosReqRefIDPtr(OrigPosReqRefID):
     def __init__(self, this):
@@ -17212,7 +18029,7 @@ class PosMaintRptRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintRptRefID, name)
     def __repr__(self):
-        return "<C FIX::PosMaintRptRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosMaintRptRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosMaintRptRefID, 'this', _quickfix.new_PosMaintRptRefID(*args))
         _swig_setattr(self, PosMaintRptRefID, 'thisown', 1)
@@ -17220,6 +18037,7 @@ class PosMaintRptRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosMaintRptRefIDPtr(PosMaintRptRefID):
     def __init__(self, this):
@@ -17236,7 +18054,7 @@ class ClearingBusinessDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingBusinessDate, name)
     def __repr__(self):
-        return "<C FIX::ClearingBusinessDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClearingBusinessDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClearingBusinessDate, 'this', _quickfix.new_ClearingBusinessDate(*args))
         _swig_setattr(self, ClearingBusinessDate, 'thisown', 1)
@@ -17244,6 +18062,7 @@ class ClearingBusinessDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClearingBusinessDatePtr(ClearingBusinessDate):
     def __init__(self, this):
@@ -17260,7 +18079,7 @@ class SettlSessID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlSessID, name)
     def __repr__(self):
-        return "<C FIX::SettlSessID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlSessID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlSessID, 'this', _quickfix.new_SettlSessID(*args))
         _swig_setattr(self, SettlSessID, 'thisown', 1)
@@ -17268,6 +18087,7 @@ class SettlSessID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlSessIDPtr(SettlSessID):
     def __init__(self, this):
@@ -17284,7 +18104,7 @@ class SettlSessSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlSessSubID, name)
     def __repr__(self):
-        return "<C FIX::SettlSessSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlSessSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlSessSubID, 'this', _quickfix.new_SettlSessSubID(*args))
         _swig_setattr(self, SettlSessSubID, 'thisown', 1)
@@ -17292,6 +18112,7 @@ class SettlSessSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlSessSubIDPtr(SettlSessSubID):
     def __init__(self, this):
@@ -17308,7 +18129,7 @@ class AdjustmentType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AdjustmentType, name)
     def __repr__(self):
-        return "<C FIX::AdjustmentType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AdjustmentType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AdjustmentType, 'this', _quickfix.new_AdjustmentType(*args))
         _swig_setattr(self, AdjustmentType, 'thisown', 1)
@@ -17316,6 +18137,7 @@ class AdjustmentType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AdjustmentTypePtr(AdjustmentType):
     def __init__(self, this):
@@ -17332,7 +18154,7 @@ class ContraryInstructionIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ContraryInstructionIndicator, name)
     def __repr__(self):
-        return "<C FIX::ContraryInstructionIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ContraryInstructionIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ContraryInstructionIndicator, 'this', _quickfix.new_ContraryInstructionIndicator(*args))
         _swig_setattr(self, ContraryInstructionIndicator, 'thisown', 1)
@@ -17340,6 +18162,7 @@ class ContraryInstructionIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ContraryInstructionIndicatorPtr(ContraryInstructionIndicator):
     def __init__(self, this):
@@ -17356,7 +18179,7 @@ class PriorSpreadIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PriorSpreadIndicator, name)
     def __repr__(self):
-        return "<C FIX::PriorSpreadIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PriorSpreadIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PriorSpreadIndicator, 'this', _quickfix.new_PriorSpreadIndicator(*args))
         _swig_setattr(self, PriorSpreadIndicator, 'thisown', 1)
@@ -17364,6 +18187,7 @@ class PriorSpreadIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PriorSpreadIndicatorPtr(PriorSpreadIndicator):
     def __init__(self, this):
@@ -17380,7 +18204,7 @@ class PosMaintRptID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintRptID, name)
     def __repr__(self):
-        return "<C FIX::PosMaintRptID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosMaintRptID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosMaintRptID, 'this', _quickfix.new_PosMaintRptID(*args))
         _swig_setattr(self, PosMaintRptID, 'thisown', 1)
@@ -17388,6 +18212,7 @@ class PosMaintRptID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosMaintRptIDPtr(PosMaintRptID):
     def __init__(self, this):
@@ -17404,7 +18229,7 @@ class PosMaintStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintStatus, name)
     def __repr__(self):
-        return "<C FIX::PosMaintStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosMaintStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosMaintStatus, 'this', _quickfix.new_PosMaintStatus(*args))
         _swig_setattr(self, PosMaintStatus, 'thisown', 1)
@@ -17412,6 +18237,7 @@ class PosMaintStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosMaintStatusPtr(PosMaintStatus):
     def __init__(self, this):
@@ -17428,7 +18254,7 @@ class PosMaintResult(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosMaintResult, name)
     def __repr__(self):
-        return "<C FIX::PosMaintResult instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosMaintResult instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosMaintResult, 'this', _quickfix.new_PosMaintResult(*args))
         _swig_setattr(self, PosMaintResult, 'thisown', 1)
@@ -17436,6 +18262,7 @@ class PosMaintResult(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosMaintResultPtr(PosMaintResult):
     def __init__(self, this):
@@ -17452,7 +18279,7 @@ class PosReqType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqType, name)
     def __repr__(self):
-        return "<C FIX::PosReqType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosReqType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosReqType, 'this', _quickfix.new_PosReqType(*args))
         _swig_setattr(self, PosReqType, 'thisown', 1)
@@ -17460,6 +18287,7 @@ class PosReqType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosReqTypePtr(PosReqType):
     def __init__(self, this):
@@ -17476,7 +18304,7 @@ class ResponseTransportType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ResponseTransportType, name)
     def __repr__(self):
-        return "<C FIX::ResponseTransportType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ResponseTransportType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ResponseTransportType, 'this', _quickfix.new_ResponseTransportType(*args))
         _swig_setattr(self, ResponseTransportType, 'thisown', 1)
@@ -17484,6 +18312,7 @@ class ResponseTransportType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ResponseTransportTypePtr(ResponseTransportType):
     def __init__(self, this):
@@ -17500,7 +18329,7 @@ class ResponseDestination(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ResponseDestination, name)
     def __repr__(self):
-        return "<C FIX::ResponseDestination instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ResponseDestination instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ResponseDestination, 'this', _quickfix.new_ResponseDestination(*args))
         _swig_setattr(self, ResponseDestination, 'thisown', 1)
@@ -17508,6 +18337,7 @@ class ResponseDestination(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ResponseDestinationPtr(ResponseDestination):
     def __init__(self, this):
@@ -17524,7 +18354,7 @@ class TotalNumPosReports(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNumPosReports, name)
     def __repr__(self):
-        return "<C FIX::TotalNumPosReports instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalNumPosReports instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalNumPosReports, 'this', _quickfix.new_TotalNumPosReports(*args))
         _swig_setattr(self, TotalNumPosReports, 'thisown', 1)
@@ -17532,6 +18362,7 @@ class TotalNumPosReports(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalNumPosReportsPtr(TotalNumPosReports):
     def __init__(self, this):
@@ -17548,7 +18379,7 @@ class PosReqResult(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqResult, name)
     def __repr__(self):
-        return "<C FIX::PosReqResult instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosReqResult instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosReqResult, 'this', _quickfix.new_PosReqResult(*args))
         _swig_setattr(self, PosReqResult, 'thisown', 1)
@@ -17556,6 +18387,7 @@ class PosReqResult(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosReqResultPtr(PosReqResult):
     def __init__(self, this):
@@ -17572,7 +18404,7 @@ class PosReqStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PosReqStatus, name)
     def __repr__(self):
-        return "<C FIX::PosReqStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PosReqStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PosReqStatus, 'this', _quickfix.new_PosReqStatus(*args))
         _swig_setattr(self, PosReqStatus, 'thisown', 1)
@@ -17580,6 +18412,7 @@ class PosReqStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PosReqStatusPtr(PosReqStatus):
     def __init__(self, this):
@@ -17596,7 +18429,7 @@ class SettlPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPrice, name)
     def __repr__(self):
-        return "<C FIX::SettlPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlPrice, 'this', _quickfix.new_SettlPrice(*args))
         _swig_setattr(self, SettlPrice, 'thisown', 1)
@@ -17604,6 +18437,7 @@ class SettlPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlPricePtr(SettlPrice):
     def __init__(self, this):
@@ -17620,7 +18454,7 @@ class SettlPriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPriceType, name)
     def __repr__(self):
-        return "<C FIX::SettlPriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlPriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlPriceType, 'this', _quickfix.new_SettlPriceType(*args))
         _swig_setattr(self, SettlPriceType, 'thisown', 1)
@@ -17628,6 +18462,7 @@ class SettlPriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlPriceTypePtr(SettlPriceType):
     def __init__(self, this):
@@ -17644,7 +18479,7 @@ class UnderlyingSettlPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlPrice, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSettlPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSettlPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSettlPrice, 'this', _quickfix.new_UnderlyingSettlPrice(*args))
         _swig_setattr(self, UnderlyingSettlPrice, 'thisown', 1)
@@ -17652,6 +18487,7 @@ class UnderlyingSettlPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSettlPricePtr(UnderlyingSettlPrice):
     def __init__(self, this):
@@ -17668,7 +18504,7 @@ class UnderlyingSettlPriceType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSettlPriceType, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSettlPriceType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSettlPriceType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSettlPriceType, 'this', _quickfix.new_UnderlyingSettlPriceType(*args))
         _swig_setattr(self, UnderlyingSettlPriceType, 'thisown', 1)
@@ -17676,6 +18512,7 @@ class UnderlyingSettlPriceType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSettlPriceTypePtr(UnderlyingSettlPriceType):
     def __init__(self, this):
@@ -17692,7 +18529,7 @@ class PriorSettlPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PriorSettlPrice, name)
     def __repr__(self):
-        return "<C FIX::PriorSettlPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PriorSettlPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PriorSettlPrice, 'this', _quickfix.new_PriorSettlPrice(*args))
         _swig_setattr(self, PriorSettlPrice, 'thisown', 1)
@@ -17700,6 +18537,7 @@ class PriorSettlPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PriorSettlPricePtr(PriorSettlPrice):
     def __init__(self, this):
@@ -17716,7 +18554,7 @@ class NoQuoteQualifiers(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoQuoteQualifiers, name)
     def __repr__(self):
-        return "<C FIX::NoQuoteQualifiers instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoQuoteQualifiers instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoQuoteQualifiers, 'this', _quickfix.new_NoQuoteQualifiers(*args))
         _swig_setattr(self, NoQuoteQualifiers, 'thisown', 1)
@@ -17724,6 +18562,7 @@ class NoQuoteQualifiers(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoQuoteQualifiersPtr(NoQuoteQualifiers):
     def __init__(self, this):
@@ -17740,7 +18579,7 @@ class AllocSettlCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocSettlCurrency, name)
     def __repr__(self):
-        return "<C FIX::AllocSettlCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocSettlCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocSettlCurrency, 'this', _quickfix.new_AllocSettlCurrency(*args))
         _swig_setattr(self, AllocSettlCurrency, 'thisown', 1)
@@ -17748,6 +18587,7 @@ class AllocSettlCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocSettlCurrencyPtr(AllocSettlCurrency):
     def __init__(self, this):
@@ -17764,7 +18604,7 @@ class AllocSettlCurrAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocSettlCurrAmt, name)
     def __repr__(self):
-        return "<C FIX::AllocSettlCurrAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocSettlCurrAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocSettlCurrAmt, 'this', _quickfix.new_AllocSettlCurrAmt(*args))
         _swig_setattr(self, AllocSettlCurrAmt, 'thisown', 1)
@@ -17772,6 +18612,7 @@ class AllocSettlCurrAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocSettlCurrAmtPtr(AllocSettlCurrAmt):
     def __init__(self, this):
@@ -17788,7 +18629,7 @@ class InterestAtMaturity(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InterestAtMaturity, name)
     def __repr__(self):
-        return "<C FIX::InterestAtMaturity instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InterestAtMaturity instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InterestAtMaturity, 'this', _quickfix.new_InterestAtMaturity(*args))
         _swig_setattr(self, InterestAtMaturity, 'thisown', 1)
@@ -17796,6 +18637,7 @@ class InterestAtMaturity(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InterestAtMaturityPtr(InterestAtMaturity):
     def __init__(self, this):
@@ -17812,7 +18654,7 @@ class LegDatedDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegDatedDate, name)
     def __repr__(self):
-        return "<C FIX::LegDatedDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegDatedDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegDatedDate, 'this', _quickfix.new_LegDatedDate(*args))
         _swig_setattr(self, LegDatedDate, 'thisown', 1)
@@ -17820,6 +18662,7 @@ class LegDatedDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegDatedDatePtr(LegDatedDate):
     def __init__(self, this):
@@ -17836,7 +18679,7 @@ class LegPool(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegPool, name)
     def __repr__(self):
-        return "<C FIX::LegPool instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegPool instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegPool, 'this', _quickfix.new_LegPool(*args))
         _swig_setattr(self, LegPool, 'thisown', 1)
@@ -17844,6 +18687,7 @@ class LegPool(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegPoolPtr(LegPool):
     def __init__(self, this):
@@ -17860,7 +18704,7 @@ class AllocInterestAtMaturity(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocInterestAtMaturity, name)
     def __repr__(self):
-        return "<C FIX::AllocInterestAtMaturity instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocInterestAtMaturity instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocInterestAtMaturity, 'this', _quickfix.new_AllocInterestAtMaturity(*args))
         _swig_setattr(self, AllocInterestAtMaturity, 'thisown', 1)
@@ -17868,6 +18712,7 @@ class AllocInterestAtMaturity(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocInterestAtMaturityPtr(AllocInterestAtMaturity):
     def __init__(self, this):
@@ -17884,7 +18729,7 @@ class AllocAccruedInterestAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAccruedInterestAmt, name)
     def __repr__(self):
-        return "<C FIX::AllocAccruedInterestAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocAccruedInterestAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocAccruedInterestAmt, 'this', _quickfix.new_AllocAccruedInterestAmt(*args))
         _swig_setattr(self, AllocAccruedInterestAmt, 'thisown', 1)
@@ -17892,6 +18737,7 @@ class AllocAccruedInterestAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocAccruedInterestAmtPtr(AllocAccruedInterestAmt):
     def __init__(self, this):
@@ -17908,7 +18754,7 @@ class DeliveryDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeliveryDate, name)
     def __repr__(self):
-        return "<C FIX::DeliveryDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeliveryDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeliveryDate, 'this', _quickfix.new_DeliveryDate(*args))
         _swig_setattr(self, DeliveryDate, 'thisown', 1)
@@ -17916,6 +18762,7 @@ class DeliveryDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeliveryDatePtr(DeliveryDate):
     def __init__(self, this):
@@ -17932,7 +18779,7 @@ class AssignmentMethod(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AssignmentMethod, name)
     def __repr__(self):
-        return "<C FIX::AssignmentMethod instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AssignmentMethod instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AssignmentMethod, 'this', _quickfix.new_AssignmentMethod(*args))
         _swig_setattr(self, AssignmentMethod, 'thisown', 1)
@@ -17940,6 +18787,7 @@ class AssignmentMethod(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AssignmentMethodPtr(AssignmentMethod):
     def __init__(self, this):
@@ -17956,7 +18804,7 @@ class AssignmentUnit(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AssignmentUnit, name)
     def __repr__(self):
-        return "<C FIX::AssignmentUnit instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AssignmentUnit instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AssignmentUnit, 'this', _quickfix.new_AssignmentUnit(*args))
         _swig_setattr(self, AssignmentUnit, 'thisown', 1)
@@ -17964,6 +18812,7 @@ class AssignmentUnit(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AssignmentUnitPtr(AssignmentUnit):
     def __init__(self, this):
@@ -17980,7 +18829,7 @@ class OpenInterest(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OpenInterest, name)
     def __repr__(self):
-        return "<C FIX::OpenInterest instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OpenInterest instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OpenInterest, 'this', _quickfix.new_OpenInterest(*args))
         _swig_setattr(self, OpenInterest, 'thisown', 1)
@@ -17988,6 +18837,7 @@ class OpenInterest(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OpenInterestPtr(OpenInterest):
     def __init__(self, this):
@@ -18004,7 +18854,7 @@ class ExerciseMethod(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExerciseMethod, name)
     def __repr__(self):
-        return "<C FIX::ExerciseMethod instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExerciseMethod instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExerciseMethod, 'this', _quickfix.new_ExerciseMethod(*args))
         _swig_setattr(self, ExerciseMethod, 'thisown', 1)
@@ -18012,6 +18862,7 @@ class ExerciseMethod(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExerciseMethodPtr(ExerciseMethod):
     def __init__(self, this):
@@ -18028,7 +18879,7 @@ class TotNumTradeReports(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNumTradeReports, name)
     def __repr__(self):
-        return "<C FIX::TotNumTradeReports instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNumTradeReports instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNumTradeReports, 'this', _quickfix.new_TotNumTradeReports(*args))
         _swig_setattr(self, TotNumTradeReports, 'thisown', 1)
@@ -18036,6 +18887,7 @@ class TotNumTradeReports(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNumTradeReportsPtr(TotNumTradeReports):
     def __init__(self, this):
@@ -18052,7 +18904,7 @@ class TradeRequestResult(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestResult, name)
     def __repr__(self):
-        return "<C FIX::TradeRequestResult instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeRequestResult instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeRequestResult, 'this', _quickfix.new_TradeRequestResult(*args))
         _swig_setattr(self, TradeRequestResult, 'thisown', 1)
@@ -18060,6 +18912,7 @@ class TradeRequestResult(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeRequestResultPtr(TradeRequestResult):
     def __init__(self, this):
@@ -18076,7 +18929,7 @@ class TradeRequestStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeRequestStatus, name)
     def __repr__(self):
-        return "<C FIX::TradeRequestStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeRequestStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeRequestStatus, 'this', _quickfix.new_TradeRequestStatus(*args))
         _swig_setattr(self, TradeRequestStatus, 'thisown', 1)
@@ -18084,6 +18937,7 @@ class TradeRequestStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeRequestStatusPtr(TradeRequestStatus):
     def __init__(self, this):
@@ -18100,7 +18954,7 @@ class TradeReportRejectReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportRejectReason, name)
     def __repr__(self):
-        return "<C FIX::TradeReportRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeReportRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeReportRejectReason, 'this', _quickfix.new_TradeReportRejectReason(*args))
         _swig_setattr(self, TradeReportRejectReason, 'thisown', 1)
@@ -18108,6 +18962,7 @@ class TradeReportRejectReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeReportRejectReasonPtr(TradeReportRejectReason):
     def __init__(self, this):
@@ -18124,7 +18979,7 @@ class SideMultiLegReportingType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SideMultiLegReportingType, name)
     def __repr__(self):
-        return "<C FIX::SideMultiLegReportingType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SideMultiLegReportingType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SideMultiLegReportingType, 'this', _quickfix.new_SideMultiLegReportingType(*args))
         _swig_setattr(self, SideMultiLegReportingType, 'thisown', 1)
@@ -18132,6 +18987,7 @@ class SideMultiLegReportingType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SideMultiLegReportingTypePtr(SideMultiLegReportingType):
     def __init__(self, this):
@@ -18148,7 +19004,7 @@ class NoPosAmt(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoPosAmt, name)
     def __repr__(self):
-        return "<C FIX::NoPosAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoPosAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoPosAmt, 'this', _quickfix.new_NoPosAmt(*args))
         _swig_setattr(self, NoPosAmt, 'thisown', 1)
@@ -18156,6 +19012,7 @@ class NoPosAmt(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoPosAmtPtr(NoPosAmt):
     def __init__(self, this):
@@ -18172,7 +19029,7 @@ class AutoAcceptIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AutoAcceptIndicator, name)
     def __repr__(self):
-        return "<C FIX::AutoAcceptIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AutoAcceptIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AutoAcceptIndicator, 'this', _quickfix.new_AutoAcceptIndicator(*args))
         _swig_setattr(self, AutoAcceptIndicator, 'thisown', 1)
@@ -18180,6 +19037,7 @@ class AutoAcceptIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AutoAcceptIndicatorPtr(AutoAcceptIndicator):
     def __init__(self, this):
@@ -18196,7 +19054,7 @@ class AllocReportID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocReportID, name)
     def __repr__(self):
-        return "<C FIX::AllocReportID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocReportID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocReportID, 'this', _quickfix.new_AllocReportID(*args))
         _swig_setattr(self, AllocReportID, 'thisown', 1)
@@ -18204,6 +19062,7 @@ class AllocReportID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocReportIDPtr(AllocReportID):
     def __init__(self, this):
@@ -18220,7 +19079,7 @@ class NoNested2PartyIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested2PartyIDs, name)
     def __repr__(self):
-        return "<C FIX::NoNested2PartyIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoNested2PartyIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoNested2PartyIDs, 'this', _quickfix.new_NoNested2PartyIDs(*args))
         _swig_setattr(self, NoNested2PartyIDs, 'thisown', 1)
@@ -18228,6 +19087,7 @@ class NoNested2PartyIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoNested2PartyIDsPtr(NoNested2PartyIDs):
     def __init__(self, this):
@@ -18244,7 +19104,7 @@ class Nested2PartyID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartyID, name)
     def __repr__(self):
-        return "<C FIX::Nested2PartyID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested2PartyID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested2PartyID, 'this', _quickfix.new_Nested2PartyID(*args))
         _swig_setattr(self, Nested2PartyID, 'thisown', 1)
@@ -18252,6 +19112,7 @@ class Nested2PartyID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested2PartyIDPtr(Nested2PartyID):
     def __init__(self, this):
@@ -18268,7 +19129,7 @@ class Nested2PartyIDSource(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartyIDSource, name)
     def __repr__(self):
-        return "<C FIX::Nested2PartyIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested2PartyIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested2PartyIDSource, 'this', _quickfix.new_Nested2PartyIDSource(*args))
         _swig_setattr(self, Nested2PartyIDSource, 'thisown', 1)
@@ -18276,6 +19137,7 @@ class Nested2PartyIDSource(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested2PartyIDSourcePtr(Nested2PartyIDSource):
     def __init__(self, this):
@@ -18292,7 +19154,7 @@ class Nested2PartyRole(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartyRole, name)
     def __repr__(self):
-        return "<C FIX::Nested2PartyRole instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested2PartyRole instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested2PartyRole, 'this', _quickfix.new_Nested2PartyRole(*args))
         _swig_setattr(self, Nested2PartyRole, 'thisown', 1)
@@ -18300,6 +19162,7 @@ class Nested2PartyRole(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested2PartyRolePtr(Nested2PartyRole):
     def __init__(self, this):
@@ -18316,7 +19179,7 @@ class Nested2PartySubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartySubID, name)
     def __repr__(self):
-        return "<C FIX::Nested2PartySubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested2PartySubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested2PartySubID, 'this', _quickfix.new_Nested2PartySubID(*args))
         _swig_setattr(self, Nested2PartySubID, 'thisown', 1)
@@ -18324,6 +19187,7 @@ class Nested2PartySubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested2PartySubIDPtr(Nested2PartySubID):
     def __init__(self, this):
@@ -18340,7 +19204,7 @@ class BenchmarkSecurityIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BenchmarkSecurityIDSource, name)
     def __repr__(self):
-        return "<C FIX::BenchmarkSecurityIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BenchmarkSecurityIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BenchmarkSecurityIDSource, 'this', _quickfix.new_BenchmarkSecurityIDSource(*args))
         _swig_setattr(self, BenchmarkSecurityIDSource, 'thisown', 1)
@@ -18348,6 +19212,7 @@ class BenchmarkSecurityIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkSecurityIDSourcePtr(BenchmarkSecurityIDSource):
     def __init__(self, this):
@@ -18364,7 +19229,7 @@ class SecuritySubType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySubType, name)
     def __repr__(self):
-        return "<C FIX::SecuritySubType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecuritySubType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecuritySubType, 'this', _quickfix.new_SecuritySubType(*args))
         _swig_setattr(self, SecuritySubType, 'thisown', 1)
@@ -18372,6 +19237,7 @@ class SecuritySubType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecuritySubTypePtr(SecuritySubType):
     def __init__(self, this):
@@ -18388,7 +19254,7 @@ class UnderlyingSecuritySubType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingSecuritySubType, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingSecuritySubType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingSecuritySubType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingSecuritySubType, 'this', _quickfix.new_UnderlyingSecuritySubType(*args))
         _swig_setattr(self, UnderlyingSecuritySubType, 'thisown', 1)
@@ -18396,6 +19262,7 @@ class UnderlyingSecuritySubType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingSecuritySubTypePtr(UnderlyingSecuritySubType):
     def __init__(self, this):
@@ -18412,7 +19279,7 @@ class LegSecuritySubType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSecuritySubType, name)
     def __repr__(self):
-        return "<C FIX::LegSecuritySubType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSecuritySubType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSecuritySubType, 'this', _quickfix.new_LegSecuritySubType(*args))
         _swig_setattr(self, LegSecuritySubType, 'thisown', 1)
@@ -18420,6 +19287,7 @@ class LegSecuritySubType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSecuritySubTypePtr(LegSecuritySubType):
     def __init__(self, this):
@@ -18436,7 +19304,7 @@ class AllowableOneSidednessPct(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllowableOneSidednessPct, name)
     def __repr__(self):
-        return "<C FIX::AllowableOneSidednessPct instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllowableOneSidednessPct instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllowableOneSidednessPct, 'this', _quickfix.new_AllowableOneSidednessPct(*args))
         _swig_setattr(self, AllowableOneSidednessPct, 'thisown', 1)
@@ -18444,6 +19312,7 @@ class AllowableOneSidednessPct(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllowableOneSidednessPctPtr(AllowableOneSidednessPct):
     def __init__(self, this):
@@ -18460,7 +19329,7 @@ class AllowableOneSidednessValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllowableOneSidednessValue, name)
     def __repr__(self):
-        return "<C FIX::AllowableOneSidednessValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllowableOneSidednessValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllowableOneSidednessValue, 'this', _quickfix.new_AllowableOneSidednessValue(*args))
         _swig_setattr(self, AllowableOneSidednessValue, 'thisown', 1)
@@ -18468,6 +19337,7 @@ class AllowableOneSidednessValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllowableOneSidednessValuePtr(AllowableOneSidednessValue):
     def __init__(self, this):
@@ -18484,7 +19354,7 @@ class AllowableOneSidednessCurr(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllowableOneSidednessCurr, name)
     def __repr__(self):
-        return "<C FIX::AllowableOneSidednessCurr instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllowableOneSidednessCurr instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllowableOneSidednessCurr, 'this', _quickfix.new_AllowableOneSidednessCurr(*args))
         _swig_setattr(self, AllowableOneSidednessCurr, 'thisown', 1)
@@ -18492,6 +19362,7 @@ class AllowableOneSidednessCurr(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllowableOneSidednessCurrPtr(AllowableOneSidednessCurr):
     def __init__(self, this):
@@ -18508,7 +19379,7 @@ class NoTrdRegTimestamps(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoTrdRegTimestamps, name)
     def __repr__(self):
-        return "<C FIX::NoTrdRegTimestamps instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoTrdRegTimestamps instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoTrdRegTimestamps, 'this', _quickfix.new_NoTrdRegTimestamps(*args))
         _swig_setattr(self, NoTrdRegTimestamps, 'thisown', 1)
@@ -18516,6 +19387,7 @@ class NoTrdRegTimestamps(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoTrdRegTimestampsPtr(NoTrdRegTimestamps):
     def __init__(self, this):
@@ -18532,7 +19404,7 @@ class TrdRegTimestamp(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRegTimestamp, name)
     def __repr__(self):
-        return "<C FIX::TrdRegTimestamp instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TrdRegTimestamp instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TrdRegTimestamp, 'this', _quickfix.new_TrdRegTimestamp(*args))
         _swig_setattr(self, TrdRegTimestamp, 'thisown', 1)
@@ -18540,6 +19412,7 @@ class TrdRegTimestamp(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TrdRegTimestampPtr(TrdRegTimestamp):
     def __init__(self, this):
@@ -18556,7 +19429,7 @@ class TrdRegTimestampType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRegTimestampType, name)
     def __repr__(self):
-        return "<C FIX::TrdRegTimestampType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TrdRegTimestampType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TrdRegTimestampType, 'this', _quickfix.new_TrdRegTimestampType(*args))
         _swig_setattr(self, TrdRegTimestampType, 'thisown', 1)
@@ -18564,6 +19437,7 @@ class TrdRegTimestampType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TrdRegTimestampTypePtr(TrdRegTimestampType):
     def __init__(self, this):
@@ -18580,7 +19454,7 @@ class TrdRegTimestampOrigin(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRegTimestampOrigin, name)
     def __repr__(self):
-        return "<C FIX::TrdRegTimestampOrigin instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TrdRegTimestampOrigin instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TrdRegTimestampOrigin, 'this', _quickfix.new_TrdRegTimestampOrigin(*args))
         _swig_setattr(self, TrdRegTimestampOrigin, 'thisown', 1)
@@ -18588,6 +19462,7 @@ class TrdRegTimestampOrigin(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TrdRegTimestampOriginPtr(TrdRegTimestampOrigin):
     def __init__(self, this):
@@ -18604,7 +19479,7 @@ class ConfirmRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmRefID, name)
     def __repr__(self):
-        return "<C FIX::ConfirmRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfirmRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfirmRefID, 'this', _quickfix.new_ConfirmRefID(*args))
         _swig_setattr(self, ConfirmRefID, 'thisown', 1)
@@ -18612,6 +19487,7 @@ class ConfirmRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfirmRefIDPtr(ConfirmRefID):
     def __init__(self, this):
@@ -18628,7 +19504,7 @@ class ConfirmType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmType, name)
     def __repr__(self):
-        return "<C FIX::ConfirmType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfirmType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfirmType, 'this', _quickfix.new_ConfirmType(*args))
         _swig_setattr(self, ConfirmType, 'thisown', 1)
@@ -18636,6 +19512,7 @@ class ConfirmType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfirmTypePtr(ConfirmType):
     def __init__(self, this):
@@ -18652,7 +19529,7 @@ class ConfirmRejReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmRejReason, name)
     def __repr__(self):
-        return "<C FIX::ConfirmRejReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfirmRejReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfirmRejReason, 'this', _quickfix.new_ConfirmRejReason(*args))
         _swig_setattr(self, ConfirmRejReason, 'thisown', 1)
@@ -18660,6 +19537,7 @@ class ConfirmRejReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfirmRejReasonPtr(ConfirmRejReason):
     def __init__(self, this):
@@ -18676,7 +19554,7 @@ class BookingType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BookingType, name)
     def __repr__(self):
-        return "<C FIX::BookingType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BookingType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BookingType, 'this', _quickfix.new_BookingType(*args))
         _swig_setattr(self, BookingType, 'thisown', 1)
@@ -18684,6 +19562,7 @@ class BookingType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BookingTypePtr(BookingType):
     def __init__(self, this):
@@ -18700,7 +19579,7 @@ class IndividualAllocRejCode(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IndividualAllocRejCode, name)
     def __repr__(self):
-        return "<C FIX::IndividualAllocRejCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IndividualAllocRejCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IndividualAllocRejCode, 'this', _quickfix.new_IndividualAllocRejCode(*args))
         _swig_setattr(self, IndividualAllocRejCode, 'thisown', 1)
@@ -18708,6 +19587,7 @@ class IndividualAllocRejCode(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IndividualAllocRejCodePtr(IndividualAllocRejCode):
     def __init__(self, this):
@@ -18724,7 +19604,7 @@ class SettlInstMsgID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstMsgID, name)
     def __repr__(self):
-        return "<C FIX::SettlInstMsgID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstMsgID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstMsgID, 'this', _quickfix.new_SettlInstMsgID(*args))
         _swig_setattr(self, SettlInstMsgID, 'thisown', 1)
@@ -18732,6 +19612,7 @@ class SettlInstMsgID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstMsgIDPtr(SettlInstMsgID):
     def __init__(self, this):
@@ -18748,7 +19629,7 @@ class NoSettlInst(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoSettlInst, name)
     def __repr__(self):
-        return "<C FIX::NoSettlInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoSettlInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoSettlInst, 'this', _quickfix.new_NoSettlInst(*args))
         _swig_setattr(self, NoSettlInst, 'thisown', 1)
@@ -18756,6 +19637,7 @@ class NoSettlInst(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoSettlInstPtr(NoSettlInst):
     def __init__(self, this):
@@ -18772,7 +19654,7 @@ class LastUpdateTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastUpdateTime, name)
     def __repr__(self):
-        return "<C FIX::LastUpdateTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastUpdateTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastUpdateTime, 'this', _quickfix.new_LastUpdateTime(*args))
         _swig_setattr(self, LastUpdateTime, 'thisown', 1)
@@ -18780,6 +19662,7 @@ class LastUpdateTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastUpdateTimePtr(LastUpdateTime):
     def __init__(self, this):
@@ -18796,7 +19679,7 @@ class AllocSettlInstType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocSettlInstType, name)
     def __repr__(self):
-        return "<C FIX::AllocSettlInstType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocSettlInstType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocSettlInstType, 'this', _quickfix.new_AllocSettlInstType(*args))
         _swig_setattr(self, AllocSettlInstType, 'thisown', 1)
@@ -18804,6 +19687,7 @@ class AllocSettlInstType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocSettlInstTypePtr(AllocSettlInstType):
     def __init__(self, this):
@@ -18820,7 +19704,7 @@ class NoSettlPartyIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoSettlPartyIDs, name)
     def __repr__(self):
-        return "<C FIX::NoSettlPartyIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoSettlPartyIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoSettlPartyIDs, 'this', _quickfix.new_NoSettlPartyIDs(*args))
         _swig_setattr(self, NoSettlPartyIDs, 'thisown', 1)
@@ -18828,6 +19712,7 @@ class NoSettlPartyIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoSettlPartyIDsPtr(NoSettlPartyIDs):
     def __init__(self, this):
@@ -18844,7 +19729,7 @@ class SettlPartyID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartyID, name)
     def __repr__(self):
-        return "<C FIX::SettlPartyID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlPartyID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlPartyID, 'this', _quickfix.new_SettlPartyID(*args))
         _swig_setattr(self, SettlPartyID, 'thisown', 1)
@@ -18852,6 +19737,7 @@ class SettlPartyID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlPartyIDPtr(SettlPartyID):
     def __init__(self, this):
@@ -18868,7 +19754,7 @@ class SettlPartyIDSource(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartyIDSource, name)
     def __repr__(self):
-        return "<C FIX::SettlPartyIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlPartyIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlPartyIDSource, 'this', _quickfix.new_SettlPartyIDSource(*args))
         _swig_setattr(self, SettlPartyIDSource, 'thisown', 1)
@@ -18876,6 +19762,7 @@ class SettlPartyIDSource(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlPartyIDSourcePtr(SettlPartyIDSource):
     def __init__(self, this):
@@ -18892,7 +19779,7 @@ class SettlPartyRole(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartyRole, name)
     def __repr__(self):
-        return "<C FIX::SettlPartyRole instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlPartyRole instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlPartyRole, 'this', _quickfix.new_SettlPartyRole(*args))
         _swig_setattr(self, SettlPartyRole, 'thisown', 1)
@@ -18900,6 +19787,7 @@ class SettlPartyRole(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlPartyRolePtr(SettlPartyRole):
     def __init__(self, this):
@@ -18916,7 +19804,7 @@ class SettlPartySubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartySubID, name)
     def __repr__(self):
-        return "<C FIX::SettlPartySubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlPartySubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlPartySubID, 'this', _quickfix.new_SettlPartySubID(*args))
         _swig_setattr(self, SettlPartySubID, 'thisown', 1)
@@ -18924,6 +19812,7 @@ class SettlPartySubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlPartySubIDPtr(SettlPartySubID):
     def __init__(self, this):
@@ -18940,7 +19829,7 @@ class SettlPartySubIDType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlPartySubIDType, name)
     def __repr__(self):
-        return "<C FIX::SettlPartySubIDType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlPartySubIDType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlPartySubIDType, 'this', _quickfix.new_SettlPartySubIDType(*args))
         _swig_setattr(self, SettlPartySubIDType, 'thisown', 1)
@@ -18948,6 +19837,7 @@ class SettlPartySubIDType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlPartySubIDTypePtr(SettlPartySubIDType):
     def __init__(self, this):
@@ -18964,7 +19854,7 @@ class DlvyInstType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DlvyInstType, name)
     def __repr__(self):
-        return "<C FIX::DlvyInstType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DlvyInstType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DlvyInstType, 'this', _quickfix.new_DlvyInstType(*args))
         _swig_setattr(self, DlvyInstType, 'thisown', 1)
@@ -18972,6 +19862,7 @@ class DlvyInstType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DlvyInstTypePtr(DlvyInstType):
     def __init__(self, this):
@@ -18988,7 +19879,7 @@ class TerminationType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TerminationType, name)
     def __repr__(self):
-        return "<C FIX::TerminationType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TerminationType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TerminationType, 'this', _quickfix.new_TerminationType(*args))
         _swig_setattr(self, TerminationType, 'thisown', 1)
@@ -18996,6 +19887,7 @@ class TerminationType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TerminationTypePtr(TerminationType):
     def __init__(self, this):
@@ -19012,7 +19904,7 @@ class NextExpectedMsgSeqNum(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NextExpectedMsgSeqNum, name)
     def __repr__(self):
-        return "<C FIX::NextExpectedMsgSeqNum instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NextExpectedMsgSeqNum instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NextExpectedMsgSeqNum, 'this', _quickfix.new_NextExpectedMsgSeqNum(*args))
         _swig_setattr(self, NextExpectedMsgSeqNum, 'thisown', 1)
@@ -19020,6 +19912,7 @@ class NextExpectedMsgSeqNum(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NextExpectedMsgSeqNumPtr(NextExpectedMsgSeqNum):
     def __init__(self, this):
@@ -19036,7 +19929,7 @@ class OrdStatusReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrdStatusReqID, name)
     def __repr__(self):
-        return "<C FIX::OrdStatusReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrdStatusReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrdStatusReqID, 'this', _quickfix.new_OrdStatusReqID(*args))
         _swig_setattr(self, OrdStatusReqID, 'thisown', 1)
@@ -19044,6 +19937,7 @@ class OrdStatusReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrdStatusReqIDPtr(OrdStatusReqID):
     def __init__(self, this):
@@ -19060,7 +19954,7 @@ class SettlInstReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstReqID, name)
     def __repr__(self):
-        return "<C FIX::SettlInstReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstReqID, 'this', _quickfix.new_SettlInstReqID(*args))
         _swig_setattr(self, SettlInstReqID, 'thisown', 1)
@@ -19068,6 +19962,7 @@ class SettlInstReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstReqIDPtr(SettlInstReqID):
     def __init__(self, this):
@@ -19084,7 +19979,7 @@ class SettlInstReqRejCode(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstReqRejCode, name)
     def __repr__(self):
-        return "<C FIX::SettlInstReqRejCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstReqRejCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstReqRejCode, 'this', _quickfix.new_SettlInstReqRejCode(*args))
         _swig_setattr(self, SettlInstReqRejCode, 'thisown', 1)
@@ -19092,6 +19987,7 @@ class SettlInstReqRejCode(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstReqRejCodePtr(SettlInstReqRejCode):
     def __init__(self, this):
@@ -19108,7 +20004,7 @@ class SecondaryAllocID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryAllocID, name)
     def __repr__(self):
-        return "<C FIX::SecondaryAllocID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecondaryAllocID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecondaryAllocID, 'this', _quickfix.new_SecondaryAllocID(*args))
         _swig_setattr(self, SecondaryAllocID, 'thisown', 1)
@@ -19116,6 +20012,7 @@ class SecondaryAllocID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecondaryAllocIDPtr(SecondaryAllocID):
     def __init__(self, this):
@@ -19132,7 +20029,7 @@ class AllocReportType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocReportType, name)
     def __repr__(self):
-        return "<C FIX::AllocReportType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocReportType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocReportType, 'this', _quickfix.new_AllocReportType(*args))
         _swig_setattr(self, AllocReportType, 'thisown', 1)
@@ -19140,6 +20037,7 @@ class AllocReportType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocReportTypePtr(AllocReportType):
     def __init__(self, this):
@@ -19156,7 +20054,7 @@ class AllocReportRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocReportRefID, name)
     def __repr__(self):
-        return "<C FIX::AllocReportRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocReportRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocReportRefID, 'this', _quickfix.new_AllocReportRefID(*args))
         _swig_setattr(self, AllocReportRefID, 'thisown', 1)
@@ -19164,6 +20062,7 @@ class AllocReportRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocReportRefIDPtr(AllocReportRefID):
     def __init__(self, this):
@@ -19180,7 +20079,7 @@ class AllocCancReplaceReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocCancReplaceReason, name)
     def __repr__(self):
-        return "<C FIX::AllocCancReplaceReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocCancReplaceReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocCancReplaceReason, 'this', _quickfix.new_AllocCancReplaceReason(*args))
         _swig_setattr(self, AllocCancReplaceReason, 'thisown', 1)
@@ -19188,6 +20087,7 @@ class AllocCancReplaceReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocCancReplaceReasonPtr(AllocCancReplaceReason):
     def __init__(self, this):
@@ -19204,7 +20104,7 @@ class CopyMsgIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CopyMsgIndicator, name)
     def __repr__(self):
-        return "<C FIX::CopyMsgIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CopyMsgIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CopyMsgIndicator, 'this', _quickfix.new_CopyMsgIndicator(*args))
         _swig_setattr(self, CopyMsgIndicator, 'thisown', 1)
@@ -19212,6 +20112,7 @@ class CopyMsgIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CopyMsgIndicatorPtr(CopyMsgIndicator):
     def __init__(self, this):
@@ -19228,7 +20129,7 @@ class AllocAccountType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocAccountType, name)
     def __repr__(self):
-        return "<C FIX::AllocAccountType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocAccountType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocAccountType, 'this', _quickfix.new_AllocAccountType(*args))
         _swig_setattr(self, AllocAccountType, 'thisown', 1)
@@ -19236,6 +20137,7 @@ class AllocAccountType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocAccountTypePtr(AllocAccountType):
     def __init__(self, this):
@@ -19252,7 +20154,7 @@ class OrderAvgPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderAvgPx, name)
     def __repr__(self):
-        return "<C FIX::OrderAvgPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderAvgPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderAvgPx, 'this', _quickfix.new_OrderAvgPx(*args))
         _swig_setattr(self, OrderAvgPx, 'thisown', 1)
@@ -19260,6 +20162,7 @@ class OrderAvgPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderAvgPxPtr(OrderAvgPx):
     def __init__(self, this):
@@ -19276,7 +20179,7 @@ class OrderBookingQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderBookingQty, name)
     def __repr__(self):
-        return "<C FIX::OrderBookingQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderBookingQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderBookingQty, 'this', _quickfix.new_OrderBookingQty(*args))
         _swig_setattr(self, OrderBookingQty, 'thisown', 1)
@@ -19284,6 +20187,7 @@ class OrderBookingQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderBookingQtyPtr(OrderBookingQty):
     def __init__(self, this):
@@ -19300,7 +20204,7 @@ class NoSettlPartySubIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoSettlPartySubIDs, name)
     def __repr__(self):
-        return "<C FIX::NoSettlPartySubIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoSettlPartySubIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoSettlPartySubIDs, 'this', _quickfix.new_NoSettlPartySubIDs(*args))
         _swig_setattr(self, NoSettlPartySubIDs, 'thisown', 1)
@@ -19308,6 +20212,7 @@ class NoSettlPartySubIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoSettlPartySubIDsPtr(NoSettlPartySubIDs):
     def __init__(self, this):
@@ -19324,7 +20229,7 @@ class NoPartySubIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoPartySubIDs, name)
     def __repr__(self):
-        return "<C FIX::NoPartySubIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoPartySubIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoPartySubIDs, 'this', _quickfix.new_NoPartySubIDs(*args))
         _swig_setattr(self, NoPartySubIDs, 'thisown', 1)
@@ -19332,6 +20237,7 @@ class NoPartySubIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoPartySubIDsPtr(NoPartySubIDs):
     def __init__(self, this):
@@ -19348,7 +20254,7 @@ class PartySubIDType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PartySubIDType, name)
     def __repr__(self):
-        return "<C FIX::PartySubIDType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PartySubIDType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PartySubIDType, 'this', _quickfix.new_PartySubIDType(*args))
         _swig_setattr(self, PartySubIDType, 'thisown', 1)
@@ -19356,6 +20262,7 @@ class PartySubIDType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PartySubIDTypePtr(PartySubIDType):
     def __init__(self, this):
@@ -19372,7 +20279,7 @@ class NoNestedPartySubIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoNestedPartySubIDs, name)
     def __repr__(self):
-        return "<C FIX::NoNestedPartySubIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoNestedPartySubIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoNestedPartySubIDs, 'this', _quickfix.new_NoNestedPartySubIDs(*args))
         _swig_setattr(self, NoNestedPartySubIDs, 'thisown', 1)
@@ -19380,6 +20287,7 @@ class NoNestedPartySubIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoNestedPartySubIDsPtr(NoNestedPartySubIDs):
     def __init__(self, this):
@@ -19396,7 +20304,7 @@ class NestedPartySubIDType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NestedPartySubIDType, name)
     def __repr__(self):
-        return "<C FIX::NestedPartySubIDType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NestedPartySubIDType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NestedPartySubIDType, 'this', _quickfix.new_NestedPartySubIDType(*args))
         _swig_setattr(self, NestedPartySubIDType, 'thisown', 1)
@@ -19404,6 +20312,7 @@ class NestedPartySubIDType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NestedPartySubIDTypePtr(NestedPartySubIDType):
     def __init__(self, this):
@@ -19420,7 +20329,7 @@ class NoNested2PartySubIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested2PartySubIDs, name)
     def __repr__(self):
-        return "<C FIX::NoNested2PartySubIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoNested2PartySubIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoNested2PartySubIDs, 'this', _quickfix.new_NoNested2PartySubIDs(*args))
         _swig_setattr(self, NoNested2PartySubIDs, 'thisown', 1)
@@ -19428,6 +20337,7 @@ class NoNested2PartySubIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoNested2PartySubIDsPtr(NoNested2PartySubIDs):
     def __init__(self, this):
@@ -19444,7 +20354,7 @@ class Nested2PartySubIDType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested2PartySubIDType, name)
     def __repr__(self):
-        return "<C FIX::Nested2PartySubIDType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested2PartySubIDType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested2PartySubIDType, 'this', _quickfix.new_Nested2PartySubIDType(*args))
         _swig_setattr(self, Nested2PartySubIDType, 'thisown', 1)
@@ -19452,6 +20362,7 @@ class Nested2PartySubIDType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested2PartySubIDTypePtr(Nested2PartySubIDType):
     def __init__(self, this):
@@ -19468,7 +20379,7 @@ class AllocIntermedReqType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocIntermedReqType, name)
     def __repr__(self):
-        return "<C FIX::AllocIntermedReqType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocIntermedReqType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocIntermedReqType, 'this', _quickfix.new_AllocIntermedReqType(*args))
         _swig_setattr(self, AllocIntermedReqType, 'thisown', 1)
@@ -19476,6 +20387,7 @@ class AllocIntermedReqType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocIntermedReqTypePtr(AllocIntermedReqType):
     def __init__(self, this):
@@ -19492,7 +20404,7 @@ class UnderlyingPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingPx, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingPx, 'this', _quickfix.new_UnderlyingPx(*args))
         _swig_setattr(self, UnderlyingPx, 'thisown', 1)
@@ -19500,6 +20412,7 @@ class UnderlyingPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingPxPtr(UnderlyingPx):
     def __init__(self, this):
@@ -19516,7 +20429,7 @@ class PriceDelta(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PriceDelta, name)
     def __repr__(self):
-        return "<C FIX::PriceDelta instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PriceDelta instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PriceDelta, 'this', _quickfix.new_PriceDelta(*args))
         _swig_setattr(self, PriceDelta, 'thisown', 1)
@@ -19524,6 +20437,7 @@ class PriceDelta(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PriceDeltaPtr(PriceDelta):
     def __init__(self, this):
@@ -19540,7 +20454,7 @@ class ApplQueueMax(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueMax, name)
     def __repr__(self):
-        return "<C FIX::ApplQueueMax instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ApplQueueMax instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ApplQueueMax, 'this', _quickfix.new_ApplQueueMax(*args))
         _swig_setattr(self, ApplQueueMax, 'thisown', 1)
@@ -19548,6 +20462,7 @@ class ApplQueueMax(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ApplQueueMaxPtr(ApplQueueMax):
     def __init__(self, this):
@@ -19564,7 +20479,7 @@ class ApplQueueDepth(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueDepth, name)
     def __repr__(self):
-        return "<C FIX::ApplQueueDepth instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ApplQueueDepth instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ApplQueueDepth, 'this', _quickfix.new_ApplQueueDepth(*args))
         _swig_setattr(self, ApplQueueDepth, 'thisown', 1)
@@ -19572,6 +20487,7 @@ class ApplQueueDepth(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ApplQueueDepthPtr(ApplQueueDepth):
     def __init__(self, this):
@@ -19588,7 +20504,7 @@ class ApplQueueResolution(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueResolution, name)
     def __repr__(self):
-        return "<C FIX::ApplQueueResolution instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ApplQueueResolution instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ApplQueueResolution, 'this', _quickfix.new_ApplQueueResolution(*args))
         _swig_setattr(self, ApplQueueResolution, 'thisown', 1)
@@ -19596,6 +20512,7 @@ class ApplQueueResolution(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ApplQueueResolutionPtr(ApplQueueResolution):
     def __init__(self, this):
@@ -19612,7 +20529,7 @@ class ApplQueueAction(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ApplQueueAction, name)
     def __repr__(self):
-        return "<C FIX::ApplQueueAction instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ApplQueueAction instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ApplQueueAction, 'this', _quickfix.new_ApplQueueAction(*args))
         _swig_setattr(self, ApplQueueAction, 'thisown', 1)
@@ -19620,6 +20537,7 @@ class ApplQueueAction(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ApplQueueActionPtr(ApplQueueAction):
     def __init__(self, this):
@@ -19636,7 +20554,7 @@ class NoAltMDSource(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoAltMDSource, name)
     def __repr__(self):
-        return "<C FIX::NoAltMDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoAltMDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoAltMDSource, 'this', _quickfix.new_NoAltMDSource(*args))
         _swig_setattr(self, NoAltMDSource, 'thisown', 1)
@@ -19644,6 +20562,7 @@ class NoAltMDSource(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoAltMDSourcePtr(NoAltMDSource):
     def __init__(self, this):
@@ -19660,7 +20579,7 @@ class AltMDSourceID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AltMDSourceID, name)
     def __repr__(self):
-        return "<C FIX::AltMDSourceID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AltMDSourceID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AltMDSourceID, 'this', _quickfix.new_AltMDSourceID(*args))
         _swig_setattr(self, AltMDSourceID, 'thisown', 1)
@@ -19668,6 +20587,7 @@ class AltMDSourceID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AltMDSourceIDPtr(AltMDSourceID):
     def __init__(self, this):
@@ -19684,7 +20604,7 @@ class SecondaryTradeReportID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryTradeReportID, name)
     def __repr__(self):
-        return "<C FIX::SecondaryTradeReportID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecondaryTradeReportID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecondaryTradeReportID, 'this', _quickfix.new_SecondaryTradeReportID(*args))
         _swig_setattr(self, SecondaryTradeReportID, 'thisown', 1)
@@ -19692,6 +20612,7 @@ class SecondaryTradeReportID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecondaryTradeReportIDPtr(SecondaryTradeReportID):
     def __init__(self, this):
@@ -19708,7 +20629,7 @@ class AvgPxIndicator(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPxIndicator, name)
     def __repr__(self):
-        return "<C FIX::AvgPxIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AvgPxIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AvgPxIndicator, 'this', _quickfix.new_AvgPxIndicator(*args))
         _swig_setattr(self, AvgPxIndicator, 'thisown', 1)
@@ -19716,6 +20637,7 @@ class AvgPxIndicator(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AvgPxIndicatorPtr(AvgPxIndicator):
     def __init__(self, this):
@@ -19732,7 +20654,7 @@ class TradeLinkID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeLinkID, name)
     def __repr__(self):
-        return "<C FIX::TradeLinkID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeLinkID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeLinkID, 'this', _quickfix.new_TradeLinkID(*args))
         _swig_setattr(self, TradeLinkID, 'thisown', 1)
@@ -19740,6 +20662,7 @@ class TradeLinkID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeLinkIDPtr(TradeLinkID):
     def __init__(self, this):
@@ -19756,7 +20679,7 @@ class OrderInputDevice(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderInputDevice, name)
     def __repr__(self):
-        return "<C FIX::OrderInputDevice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderInputDevice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderInputDevice, 'this', _quickfix.new_OrderInputDevice(*args))
         _swig_setattr(self, OrderInputDevice, 'thisown', 1)
@@ -19764,6 +20687,7 @@ class OrderInputDevice(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderInputDevicePtr(OrderInputDevice):
     def __init__(self, this):
@@ -19780,7 +20704,7 @@ class UnderlyingTradingSessionID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingTradingSessionID, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingTradingSessionID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingTradingSessionID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingTradingSessionID, 'this', _quickfix.new_UnderlyingTradingSessionID(*args))
         _swig_setattr(self, UnderlyingTradingSessionID, 'thisown', 1)
@@ -19788,6 +20712,7 @@ class UnderlyingTradingSessionID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingTradingSessionIDPtr(UnderlyingTradingSessionID):
     def __init__(self, this):
@@ -19804,7 +20729,7 @@ class UnderlyingTradingSessionSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingTradingSessionSubID, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingTradingSessionSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingTradingSessionSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingTradingSessionSubID, 'this', _quickfix.new_UnderlyingTradingSessionSubID(*args))
         _swig_setattr(self, UnderlyingTradingSessionSubID, 'thisown', 1)
@@ -19812,6 +20737,7 @@ class UnderlyingTradingSessionSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingTradingSessionSubIDPtr(UnderlyingTradingSessionSubID):
     def __init__(self, this):
@@ -19828,7 +20754,7 @@ class TradeLegRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeLegRefID, name)
     def __repr__(self):
-        return "<C FIX::TradeLegRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeLegRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeLegRefID, 'this', _quickfix.new_TradeLegRefID(*args))
         _swig_setattr(self, TradeLegRefID, 'thisown', 1)
@@ -19836,6 +20762,7 @@ class TradeLegRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeLegRefIDPtr(TradeLegRefID):
     def __init__(self, this):
@@ -19852,7 +20779,7 @@ class ExchangeRule(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExchangeRule, name)
     def __repr__(self):
-        return "<C FIX::ExchangeRule instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExchangeRule instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExchangeRule, 'this', _quickfix.new_ExchangeRule(*args))
         _swig_setattr(self, ExchangeRule, 'thisown', 1)
@@ -19860,6 +20787,7 @@ class ExchangeRule(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExchangeRulePtr(ExchangeRule):
     def __init__(self, this):
@@ -19876,7 +20804,7 @@ class TradeAllocIndicator(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeAllocIndicator, name)
     def __repr__(self):
-        return "<C FIX::TradeAllocIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeAllocIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeAllocIndicator, 'this', _quickfix.new_TradeAllocIndicator(*args))
         _swig_setattr(self, TradeAllocIndicator, 'thisown', 1)
@@ -19884,6 +20812,7 @@ class TradeAllocIndicator(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeAllocIndicatorPtr(TradeAllocIndicator):
     def __init__(self, this):
@@ -19900,7 +20829,7 @@ class ExpirationCycle(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExpirationCycle, name)
     def __repr__(self):
-        return "<C FIX::ExpirationCycle instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExpirationCycle instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExpirationCycle, 'this', _quickfix.new_ExpirationCycle(*args))
         _swig_setattr(self, ExpirationCycle, 'thisown', 1)
@@ -19908,6 +20837,7 @@ class ExpirationCycle(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExpirationCyclePtr(ExpirationCycle):
     def __init__(self, this):
@@ -19924,7 +20854,7 @@ class TrdType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TrdType, name)
     def __repr__(self):
-        return "<C FIX::TrdType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TrdType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TrdType, 'this', _quickfix.new_TrdType(*args))
         _swig_setattr(self, TrdType, 'thisown', 1)
@@ -19932,6 +20862,7 @@ class TrdType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TrdTypePtr(TrdType):
     def __init__(self, this):
@@ -19948,7 +20879,7 @@ class TrdSubType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TrdSubType, name)
     def __repr__(self):
-        return "<C FIX::TrdSubType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TrdSubType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TrdSubType, 'this', _quickfix.new_TrdSubType(*args))
         _swig_setattr(self, TrdSubType, 'thisown', 1)
@@ -19956,6 +20887,7 @@ class TrdSubType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TrdSubTypePtr(TrdSubType):
     def __init__(self, this):
@@ -19972,7 +20904,7 @@ class TransferReason(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TransferReason, name)
     def __repr__(self):
-        return "<C FIX::TransferReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TransferReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TransferReason, 'this', _quickfix.new_TransferReason(*args))
         _swig_setattr(self, TransferReason, 'thisown', 1)
@@ -19980,6 +20912,7 @@ class TransferReason(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TransferReasonPtr(TransferReason):
     def __init__(self, this):
@@ -19996,7 +20929,7 @@ class AsgnReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AsgnReqID, name)
     def __repr__(self):
-        return "<C FIX::AsgnReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AsgnReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AsgnReqID, 'this', _quickfix.new_AsgnReqID(*args))
         _swig_setattr(self, AsgnReqID, 'thisown', 1)
@@ -20004,6 +20937,7 @@ class AsgnReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AsgnReqIDPtr(AsgnReqID):
     def __init__(self, this):
@@ -20020,7 +20954,7 @@ class TotNumAssignmentReports(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNumAssignmentReports, name)
     def __repr__(self):
-        return "<C FIX::TotNumAssignmentReports instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNumAssignmentReports instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNumAssignmentReports, 'this', _quickfix.new_TotNumAssignmentReports(*args))
         _swig_setattr(self, TotNumAssignmentReports, 'thisown', 1)
@@ -20028,6 +20962,7 @@ class TotNumAssignmentReports(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNumAssignmentReportsPtr(TotNumAssignmentReports):
     def __init__(self, this):
@@ -20044,7 +20979,7 @@ class AsgnRptID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AsgnRptID, name)
     def __repr__(self):
-        return "<C FIX::AsgnRptID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AsgnRptID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AsgnRptID, 'this', _quickfix.new_AsgnRptID(*args))
         _swig_setattr(self, AsgnRptID, 'thisown', 1)
@@ -20052,6 +20987,7 @@ class AsgnRptID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AsgnRptIDPtr(AsgnRptID):
     def __init__(self, this):
@@ -20068,7 +21004,7 @@ class ThresholdAmount(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ThresholdAmount, name)
     def __repr__(self):
-        return "<C FIX::ThresholdAmount instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ThresholdAmount instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ThresholdAmount, 'this', _quickfix.new_ThresholdAmount(*args))
         _swig_setattr(self, ThresholdAmount, 'thisown', 1)
@@ -20076,6 +21012,7 @@ class ThresholdAmount(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ThresholdAmountPtr(ThresholdAmount):
     def __init__(self, this):
@@ -20092,7 +21029,7 @@ class PegMoveType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PegMoveType, name)
     def __repr__(self):
-        return "<C FIX::PegMoveType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PegMoveType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PegMoveType, 'this', _quickfix.new_PegMoveType(*args))
         _swig_setattr(self, PegMoveType, 'thisown', 1)
@@ -20100,6 +21037,7 @@ class PegMoveType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PegMoveTypePtr(PegMoveType):
     def __init__(self, this):
@@ -20116,7 +21054,7 @@ class PegOffsetType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PegOffsetType, name)
     def __repr__(self):
-        return "<C FIX::PegOffsetType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PegOffsetType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PegOffsetType, 'this', _quickfix.new_PegOffsetType(*args))
         _swig_setattr(self, PegOffsetType, 'thisown', 1)
@@ -20124,6 +21062,7 @@ class PegOffsetType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PegOffsetTypePtr(PegOffsetType):
     def __init__(self, this):
@@ -20140,7 +21079,7 @@ class PegLimitType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PegLimitType, name)
     def __repr__(self):
-        return "<C FIX::PegLimitType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PegLimitType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PegLimitType, 'this', _quickfix.new_PegLimitType(*args))
         _swig_setattr(self, PegLimitType, 'thisown', 1)
@@ -20148,6 +21087,7 @@ class PegLimitType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PegLimitTypePtr(PegLimitType):
     def __init__(self, this):
@@ -20164,7 +21104,7 @@ class PegRoundDirection(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PegRoundDirection, name)
     def __repr__(self):
-        return "<C FIX::PegRoundDirection instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PegRoundDirection instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PegRoundDirection, 'this', _quickfix.new_PegRoundDirection(*args))
         _swig_setattr(self, PegRoundDirection, 'thisown', 1)
@@ -20172,6 +21112,7 @@ class PegRoundDirection(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PegRoundDirectionPtr(PegRoundDirection):
     def __init__(self, this):
@@ -20188,7 +21129,7 @@ class PeggedPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PeggedPrice, name)
     def __repr__(self):
-        return "<C FIX::PeggedPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PeggedPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PeggedPrice, 'this', _quickfix.new_PeggedPrice(*args))
         _swig_setattr(self, PeggedPrice, 'thisown', 1)
@@ -20196,6 +21137,7 @@ class PeggedPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PeggedPricePtr(PeggedPrice):
     def __init__(self, this):
@@ -20212,7 +21154,7 @@ class PegScope(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PegScope, name)
     def __repr__(self):
-        return "<C FIX::PegScope instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PegScope instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PegScope, 'this', _quickfix.new_PegScope(*args))
         _swig_setattr(self, PegScope, 'thisown', 1)
@@ -20220,6 +21162,7 @@ class PegScope(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PegScopePtr(PegScope):
     def __init__(self, this):
@@ -20236,7 +21179,7 @@ class DiscretionMoveType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionMoveType, name)
     def __repr__(self):
-        return "<C FIX::DiscretionMoveType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionMoveType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionMoveType, 'this', _quickfix.new_DiscretionMoveType(*args))
         _swig_setattr(self, DiscretionMoveType, 'thisown', 1)
@@ -20244,6 +21187,7 @@ class DiscretionMoveType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionMoveTypePtr(DiscretionMoveType):
     def __init__(self, this):
@@ -20260,7 +21204,7 @@ class DiscretionOffsetType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionOffsetType, name)
     def __repr__(self):
-        return "<C FIX::DiscretionOffsetType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionOffsetType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionOffsetType, 'this', _quickfix.new_DiscretionOffsetType(*args))
         _swig_setattr(self, DiscretionOffsetType, 'thisown', 1)
@@ -20268,6 +21212,7 @@ class DiscretionOffsetType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionOffsetTypePtr(DiscretionOffsetType):
     def __init__(self, this):
@@ -20284,7 +21229,7 @@ class DiscretionLimitType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionLimitType, name)
     def __repr__(self):
-        return "<C FIX::DiscretionLimitType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionLimitType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionLimitType, 'this', _quickfix.new_DiscretionLimitType(*args))
         _swig_setattr(self, DiscretionLimitType, 'thisown', 1)
@@ -20292,6 +21237,7 @@ class DiscretionLimitType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionLimitTypePtr(DiscretionLimitType):
     def __init__(self, this):
@@ -20308,7 +21254,7 @@ class DiscretionRoundDirection(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionRoundDirection, name)
     def __repr__(self):
-        return "<C FIX::DiscretionRoundDirection instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionRoundDirection instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionRoundDirection, 'this', _quickfix.new_DiscretionRoundDirection(*args))
         _swig_setattr(self, DiscretionRoundDirection, 'thisown', 1)
@@ -20316,6 +21262,7 @@ class DiscretionRoundDirection(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionRoundDirectionPtr(DiscretionRoundDirection):
     def __init__(self, this):
@@ -20332,7 +21279,7 @@ class DiscretionPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionPrice, name)
     def __repr__(self):
-        return "<C FIX::DiscretionPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionPrice, 'this', _quickfix.new_DiscretionPrice(*args))
         _swig_setattr(self, DiscretionPrice, 'thisown', 1)
@@ -20340,6 +21287,7 @@ class DiscretionPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionPricePtr(DiscretionPrice):
     def __init__(self, this):
@@ -20356,7 +21304,7 @@ class DiscretionScope(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionScope, name)
     def __repr__(self):
-        return "<C FIX::DiscretionScope instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionScope instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionScope, 'this', _quickfix.new_DiscretionScope(*args))
         _swig_setattr(self, DiscretionScope, 'thisown', 1)
@@ -20364,6 +21312,7 @@ class DiscretionScope(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionScopePtr(DiscretionScope):
     def __init__(self, this):
@@ -20380,7 +21329,7 @@ class TargetStrategy(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TargetStrategy, name)
     def __repr__(self):
-        return "<C FIX::TargetStrategy instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TargetStrategy instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TargetStrategy, 'this', _quickfix.new_TargetStrategy(*args))
         _swig_setattr(self, TargetStrategy, 'thisown', 1)
@@ -20388,6 +21337,7 @@ class TargetStrategy(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TargetStrategyPtr(TargetStrategy):
     def __init__(self, this):
@@ -20404,7 +21354,7 @@ class TargetStrategyParameters(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TargetStrategyParameters, name)
     def __repr__(self):
-        return "<C FIX::TargetStrategyParameters instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TargetStrategyParameters instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TargetStrategyParameters, 'this', _quickfix.new_TargetStrategyParameters(*args))
         _swig_setattr(self, TargetStrategyParameters, 'thisown', 1)
@@ -20412,6 +21362,7 @@ class TargetStrategyParameters(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TargetStrategyParametersPtr(TargetStrategyParameters):
     def __init__(self, this):
@@ -20428,7 +21379,7 @@ class ParticipationRate(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ParticipationRate, name)
     def __repr__(self):
-        return "<C FIX::ParticipationRate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ParticipationRate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ParticipationRate, 'this', _quickfix.new_ParticipationRate(*args))
         _swig_setattr(self, ParticipationRate, 'thisown', 1)
@@ -20436,6 +21387,7 @@ class ParticipationRate(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ParticipationRatePtr(ParticipationRate):
     def __init__(self, this):
@@ -20452,7 +21404,7 @@ class TargetStrategyPerformance(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TargetStrategyPerformance, name)
     def __repr__(self):
-        return "<C FIX::TargetStrategyPerformance instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TargetStrategyPerformance instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TargetStrategyPerformance, 'this', _quickfix.new_TargetStrategyPerformance(*args))
         _swig_setattr(self, TargetStrategyPerformance, 'thisown', 1)
@@ -20460,6 +21412,7 @@ class TargetStrategyPerformance(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TargetStrategyPerformancePtr(TargetStrategyPerformance):
     def __init__(self, this):
@@ -20476,7 +21429,7 @@ class LastLiquidityInd(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastLiquidityInd, name)
     def __repr__(self):
-        return "<C FIX::LastLiquidityInd instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastLiquidityInd instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastLiquidityInd, 'this', _quickfix.new_LastLiquidityInd(*args))
         _swig_setattr(self, LastLiquidityInd, 'thisown', 1)
@@ -20484,6 +21437,7 @@ class LastLiquidityInd(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastLiquidityIndPtr(LastLiquidityInd):
     def __init__(self, this):
@@ -20500,7 +21454,7 @@ class PublishTrdIndicator(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PublishTrdIndicator, name)
     def __repr__(self):
-        return "<C FIX::PublishTrdIndicator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PublishTrdIndicator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PublishTrdIndicator, 'this', _quickfix.new_PublishTrdIndicator(*args))
         _swig_setattr(self, PublishTrdIndicator, 'thisown', 1)
@@ -20508,6 +21462,7 @@ class PublishTrdIndicator(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PublishTrdIndicatorPtr(PublishTrdIndicator):
     def __init__(self, this):
@@ -20524,7 +21479,7 @@ class ShortSaleReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ShortSaleReason, name)
     def __repr__(self):
-        return "<C FIX::ShortSaleReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ShortSaleReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ShortSaleReason, 'this', _quickfix.new_ShortSaleReason(*args))
         _swig_setattr(self, ShortSaleReason, 'thisown', 1)
@@ -20532,6 +21487,7 @@ class ShortSaleReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ShortSaleReasonPtr(ShortSaleReason):
     def __init__(self, this):
@@ -20548,7 +21504,7 @@ class QtyType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QtyType, name)
     def __repr__(self):
-        return "<C FIX::QtyType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QtyType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QtyType, 'this', _quickfix.new_QtyType(*args))
         _swig_setattr(self, QtyType, 'thisown', 1)
@@ -20556,6 +21512,7 @@ class QtyType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QtyTypePtr(QtyType):
     def __init__(self, this):
@@ -20572,7 +21529,7 @@ class SecondaryTrdType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryTrdType, name)
     def __repr__(self):
-        return "<C FIX::SecondaryTrdType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecondaryTrdType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecondaryTrdType, 'this', _quickfix.new_SecondaryTrdType(*args))
         _swig_setattr(self, SecondaryTrdType, 'thisown', 1)
@@ -20580,6 +21537,7 @@ class SecondaryTrdType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecondaryTrdTypePtr(SecondaryTrdType):
     def __init__(self, this):
@@ -20596,7 +21554,7 @@ class TradeReportType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeReportType, name)
     def __repr__(self):
-        return "<C FIX::TradeReportType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeReportType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeReportType, 'this', _quickfix.new_TradeReportType(*args))
         _swig_setattr(self, TradeReportType, 'thisown', 1)
@@ -20604,6 +21562,7 @@ class TradeReportType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeReportTypePtr(TradeReportType):
     def __init__(self, this):
@@ -20620,7 +21579,7 @@ class AllocNoOrdersType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocNoOrdersType, name)
     def __repr__(self):
-        return "<C FIX::AllocNoOrdersType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocNoOrdersType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocNoOrdersType, 'this', _quickfix.new_AllocNoOrdersType(*args))
         _swig_setattr(self, AllocNoOrdersType, 'thisown', 1)
@@ -20628,6 +21587,7 @@ class AllocNoOrdersType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocNoOrdersTypePtr(AllocNoOrdersType):
     def __init__(self, this):
@@ -20644,7 +21604,7 @@ class SharedCommission(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SharedCommission, name)
     def __repr__(self):
-        return "<C FIX::SharedCommission instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SharedCommission instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SharedCommission, 'this', _quickfix.new_SharedCommission(*args))
         _swig_setattr(self, SharedCommission, 'thisown', 1)
@@ -20652,6 +21612,7 @@ class SharedCommission(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SharedCommissionPtr(SharedCommission):
     def __init__(self, this):
@@ -20668,7 +21629,7 @@ class ConfirmReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ConfirmReqID, name)
     def __repr__(self):
-        return "<C FIX::ConfirmReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ConfirmReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ConfirmReqID, 'this', _quickfix.new_ConfirmReqID(*args))
         _swig_setattr(self, ConfirmReqID, 'thisown', 1)
@@ -20676,6 +21637,7 @@ class ConfirmReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ConfirmReqIDPtr(ConfirmReqID):
     def __init__(self, this):
@@ -20692,7 +21654,7 @@ class AvgParPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AvgParPx, name)
     def __repr__(self):
-        return "<C FIX::AvgParPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AvgParPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AvgParPx, 'this', _quickfix.new_AvgParPx(*args))
         _swig_setattr(self, AvgParPx, 'thisown', 1)
@@ -20700,6 +21662,7 @@ class AvgParPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AvgParPxPtr(AvgParPx):
     def __init__(self, this):
@@ -20716,7 +21679,7 @@ class ReportedPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ReportedPx, name)
     def __repr__(self):
-        return "<C FIX::ReportedPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ReportedPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ReportedPx, 'this', _quickfix.new_ReportedPx(*args))
         _swig_setattr(self, ReportedPx, 'thisown', 1)
@@ -20724,6 +21687,7 @@ class ReportedPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ReportedPxPtr(ReportedPx):
     def __init__(self, this):
@@ -20740,7 +21704,7 @@ class NoCapacities(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoCapacities, name)
     def __repr__(self):
-        return "<C FIX::NoCapacities instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoCapacities instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoCapacities, 'this', _quickfix.new_NoCapacities(*args))
         _swig_setattr(self, NoCapacities, 'thisown', 1)
@@ -20748,6 +21712,7 @@ class NoCapacities(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoCapacitiesPtr(NoCapacities):
     def __init__(self, this):
@@ -20764,7 +21729,7 @@ class OrderCapacityQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OrderCapacityQty, name)
     def __repr__(self):
-        return "<C FIX::OrderCapacityQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OrderCapacityQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OrderCapacityQty, 'this', _quickfix.new_OrderCapacityQty(*args))
         _swig_setattr(self, OrderCapacityQty, 'thisown', 1)
@@ -20772,6 +21737,7 @@ class OrderCapacityQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OrderCapacityQtyPtr(OrderCapacityQty):
     def __init__(self, this):
@@ -20788,7 +21754,7 @@ class NoEvents(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoEvents, name)
     def __repr__(self):
-        return "<C FIX::NoEvents instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoEvents instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoEvents, 'this', _quickfix.new_NoEvents(*args))
         _swig_setattr(self, NoEvents, 'thisown', 1)
@@ -20796,6 +21762,7 @@ class NoEvents(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoEventsPtr(NoEvents):
     def __init__(self, this):
@@ -20812,7 +21779,7 @@ class EventType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EventType, name)
     def __repr__(self):
-        return "<C FIX::EventType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EventType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EventType, 'this', _quickfix.new_EventType(*args))
         _swig_setattr(self, EventType, 'thisown', 1)
@@ -20820,6 +21787,7 @@ class EventType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EventTypePtr(EventType):
     def __init__(self, this):
@@ -20836,7 +21804,7 @@ class EventDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EventDate, name)
     def __repr__(self):
-        return "<C FIX::EventDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EventDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EventDate, 'this', _quickfix.new_EventDate(*args))
         _swig_setattr(self, EventDate, 'thisown', 1)
@@ -20844,6 +21812,7 @@ class EventDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EventDatePtr(EventDate):
     def __init__(self, this):
@@ -20860,7 +21829,7 @@ class EventPx(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EventPx, name)
     def __repr__(self):
-        return "<C FIX::EventPx instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EventPx instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EventPx, 'this', _quickfix.new_EventPx(*args))
         _swig_setattr(self, EventPx, 'thisown', 1)
@@ -20868,6 +21837,7 @@ class EventPx(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EventPxPtr(EventPx):
     def __init__(self, this):
@@ -20884,7 +21854,7 @@ class EventText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EventText, name)
     def __repr__(self):
-        return "<C FIX::EventText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EventText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EventText, 'this', _quickfix.new_EventText(*args))
         _swig_setattr(self, EventText, 'thisown', 1)
@@ -20892,6 +21862,7 @@ class EventText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EventTextPtr(EventText):
     def __init__(self, this):
@@ -20908,7 +21879,7 @@ class PctAtRisk(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PctAtRisk, name)
     def __repr__(self):
-        return "<C FIX::PctAtRisk instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PctAtRisk instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PctAtRisk, 'this', _quickfix.new_PctAtRisk(*args))
         _swig_setattr(self, PctAtRisk, 'thisown', 1)
@@ -20916,6 +21887,7 @@ class PctAtRisk(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PctAtRiskPtr(PctAtRisk):
     def __init__(self, this):
@@ -20932,7 +21904,7 @@ class NoInstrAttrib(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoInstrAttrib, name)
     def __repr__(self):
-        return "<C FIX::NoInstrAttrib instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoInstrAttrib instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoInstrAttrib, 'this', _quickfix.new_NoInstrAttrib(*args))
         _swig_setattr(self, NoInstrAttrib, 'thisown', 1)
@@ -20940,6 +21912,7 @@ class NoInstrAttrib(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoInstrAttribPtr(NoInstrAttrib):
     def __init__(self, this):
@@ -20956,7 +21929,7 @@ class InstrAttribType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InstrAttribType, name)
     def __repr__(self):
-        return "<C FIX::InstrAttribType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InstrAttribType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InstrAttribType, 'this', _quickfix.new_InstrAttribType(*args))
         _swig_setattr(self, InstrAttribType, 'thisown', 1)
@@ -20964,6 +21937,7 @@ class InstrAttribType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InstrAttribTypePtr(InstrAttribType):
     def __init__(self, this):
@@ -20980,7 +21954,7 @@ class InstrAttribValue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InstrAttribValue, name)
     def __repr__(self):
-        return "<C FIX::InstrAttribValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InstrAttribValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InstrAttribValue, 'this', _quickfix.new_InstrAttribValue(*args))
         _swig_setattr(self, InstrAttribValue, 'thisown', 1)
@@ -20988,6 +21962,7 @@ class InstrAttribValue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InstrAttribValuePtr(InstrAttribValue):
     def __init__(self, this):
@@ -21004,7 +21979,7 @@ class DatedDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DatedDate, name)
     def __repr__(self):
-        return "<C FIX::DatedDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DatedDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DatedDate, 'this', _quickfix.new_DatedDate(*args))
         _swig_setattr(self, DatedDate, 'thisown', 1)
@@ -21012,6 +21987,7 @@ class DatedDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DatedDatePtr(DatedDate):
     def __init__(self, this):
@@ -21028,7 +22004,7 @@ class InterestAccrualDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, InterestAccrualDate, name)
     def __repr__(self):
-        return "<C FIX::InterestAccrualDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::InterestAccrualDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, InterestAccrualDate, 'this', _quickfix.new_InterestAccrualDate(*args))
         _swig_setattr(self, InterestAccrualDate, 'thisown', 1)
@@ -21036,6 +22012,7 @@ class InterestAccrualDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class InterestAccrualDatePtr(InterestAccrualDate):
     def __init__(self, this):
@@ -21052,7 +22029,7 @@ class CPProgram(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CPProgram, name)
     def __repr__(self):
-        return "<C FIX::CPProgram instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CPProgram instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CPProgram, 'this', _quickfix.new_CPProgram(*args))
         _swig_setattr(self, CPProgram, 'thisown', 1)
@@ -21060,6 +22037,7 @@ class CPProgram(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CPProgramPtr(CPProgram):
     def __init__(self, this):
@@ -21076,7 +22054,7 @@ class CPRegType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CPRegType, name)
     def __repr__(self):
-        return "<C FIX::CPRegType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CPRegType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CPRegType, 'this', _quickfix.new_CPRegType(*args))
         _swig_setattr(self, CPRegType, 'thisown', 1)
@@ -21084,6 +22062,7 @@ class CPRegType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CPRegTypePtr(CPRegType):
     def __init__(self, this):
@@ -21100,7 +22079,7 @@ class UnderlyingCPProgram(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCPProgram, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCPProgram instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCPProgram instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCPProgram, 'this', _quickfix.new_UnderlyingCPProgram(*args))
         _swig_setattr(self, UnderlyingCPProgram, 'thisown', 1)
@@ -21108,6 +22087,7 @@ class UnderlyingCPProgram(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCPProgramPtr(UnderlyingCPProgram):
     def __init__(self, this):
@@ -21124,7 +22104,7 @@ class UnderlyingCPRegType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCPRegType, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCPRegType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCPRegType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCPRegType, 'this', _quickfix.new_UnderlyingCPRegType(*args))
         _swig_setattr(self, UnderlyingCPRegType, 'thisown', 1)
@@ -21132,6 +22112,7 @@ class UnderlyingCPRegType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCPRegTypePtr(UnderlyingCPRegType):
     def __init__(self, this):
@@ -21148,7 +22129,7 @@ class UnderlyingQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingQty, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingQty, 'this', _quickfix.new_UnderlyingQty(*args))
         _swig_setattr(self, UnderlyingQty, 'thisown', 1)
@@ -21156,6 +22137,7 @@ class UnderlyingQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingQtyPtr(UnderlyingQty):
     def __init__(self, this):
@@ -21172,7 +22154,7 @@ class TrdMatchID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TrdMatchID, name)
     def __repr__(self):
-        return "<C FIX::TrdMatchID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TrdMatchID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TrdMatchID, 'this', _quickfix.new_TrdMatchID(*args))
         _swig_setattr(self, TrdMatchID, 'thisown', 1)
@@ -21180,6 +22162,7 @@ class TrdMatchID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TrdMatchIDPtr(TrdMatchID):
     def __init__(self, this):
@@ -21196,7 +22179,7 @@ class SecondaryTradeReportRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecondaryTradeReportRefID, name)
     def __repr__(self):
-        return "<C FIX::SecondaryTradeReportRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecondaryTradeReportRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecondaryTradeReportRefID, 'this', _quickfix.new_SecondaryTradeReportRefID(*args))
         _swig_setattr(self, SecondaryTradeReportRefID, 'thisown', 1)
@@ -21204,6 +22187,7 @@ class SecondaryTradeReportRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecondaryTradeReportRefIDPtr(SecondaryTradeReportRefID):
     def __init__(self, this):
@@ -21220,7 +22204,7 @@ class UnderlyingDirtyPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingDirtyPrice, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingDirtyPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingDirtyPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingDirtyPrice, 'this', _quickfix.new_UnderlyingDirtyPrice(*args))
         _swig_setattr(self, UnderlyingDirtyPrice, 'thisown', 1)
@@ -21228,6 +22212,7 @@ class UnderlyingDirtyPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingDirtyPricePtr(UnderlyingDirtyPrice):
     def __init__(self, this):
@@ -21244,7 +22229,7 @@ class UnderlyingEndPrice(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingEndPrice, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingEndPrice instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingEndPrice instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingEndPrice, 'this', _quickfix.new_UnderlyingEndPrice(*args))
         _swig_setattr(self, UnderlyingEndPrice, 'thisown', 1)
@@ -21252,6 +22237,7 @@ class UnderlyingEndPrice(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingEndPricePtr(UnderlyingEndPrice):
     def __init__(self, this):
@@ -21268,7 +22254,7 @@ class UnderlyingStartValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStartValue, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingStartValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingStartValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingStartValue, 'this', _quickfix.new_UnderlyingStartValue(*args))
         _swig_setattr(self, UnderlyingStartValue, 'thisown', 1)
@@ -21276,6 +22262,7 @@ class UnderlyingStartValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingStartValuePtr(UnderlyingStartValue):
     def __init__(self, this):
@@ -21292,7 +22279,7 @@ class UnderlyingCurrentValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingCurrentValue, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingCurrentValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingCurrentValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingCurrentValue, 'this', _quickfix.new_UnderlyingCurrentValue(*args))
         _swig_setattr(self, UnderlyingCurrentValue, 'thisown', 1)
@@ -21300,6 +22287,7 @@ class UnderlyingCurrentValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingCurrentValuePtr(UnderlyingCurrentValue):
     def __init__(self, this):
@@ -21316,7 +22304,7 @@ class UnderlyingEndValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingEndValue, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingEndValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingEndValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingEndValue, 'this', _quickfix.new_UnderlyingEndValue(*args))
         _swig_setattr(self, UnderlyingEndValue, 'thisown', 1)
@@ -21324,6 +22312,7 @@ class UnderlyingEndValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingEndValuePtr(UnderlyingEndValue):
     def __init__(self, this):
@@ -21340,7 +22329,7 @@ class NoUnderlyingStips(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoUnderlyingStips, name)
     def __repr__(self):
-        return "<C FIX::NoUnderlyingStips instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoUnderlyingStips instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoUnderlyingStips, 'this', _quickfix.new_NoUnderlyingStips(*args))
         _swig_setattr(self, NoUnderlyingStips, 'thisown', 1)
@@ -21348,6 +22337,7 @@ class NoUnderlyingStips(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoUnderlyingStipsPtr(NoUnderlyingStips):
     def __init__(self, this):
@@ -21364,7 +22354,7 @@ class UnderlyingStipType(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStipType, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingStipType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingStipType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingStipType, 'this', _quickfix.new_UnderlyingStipType(*args))
         _swig_setattr(self, UnderlyingStipType, 'thisown', 1)
@@ -21372,6 +22362,7 @@ class UnderlyingStipType(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingStipTypePtr(UnderlyingStipType):
     def __init__(self, this):
@@ -21388,7 +22379,7 @@ class UnderlyingStipValue(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStipValue, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingStipValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingStipValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingStipValue, 'this', _quickfix.new_UnderlyingStipValue(*args))
         _swig_setattr(self, UnderlyingStipValue, 'thisown', 1)
@@ -21396,6 +22387,7 @@ class UnderlyingStipValue(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingStipValuePtr(UnderlyingStipValue):
     def __init__(self, this):
@@ -21412,7 +22404,7 @@ class MaturityNetMoney(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityNetMoney, name)
     def __repr__(self):
-        return "<C FIX::MaturityNetMoney instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MaturityNetMoney instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MaturityNetMoney, 'this', _quickfix.new_MaturityNetMoney(*args))
         _swig_setattr(self, MaturityNetMoney, 'thisown', 1)
@@ -21420,6 +22412,7 @@ class MaturityNetMoney(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MaturityNetMoneyPtr(MaturityNetMoney):
     def __init__(self, this):
@@ -21436,7 +22429,7 @@ class MiscFeeBasis(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MiscFeeBasis, name)
     def __repr__(self):
-        return "<C FIX::MiscFeeBasis instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MiscFeeBasis instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MiscFeeBasis, 'this', _quickfix.new_MiscFeeBasis(*args))
         _swig_setattr(self, MiscFeeBasis, 'thisown', 1)
@@ -21444,6 +22437,7 @@ class MiscFeeBasis(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MiscFeeBasisPtr(MiscFeeBasis):
     def __init__(self, this):
@@ -21460,7 +22454,7 @@ class TotNoAllocs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNoAllocs, name)
     def __repr__(self):
-        return "<C FIX::TotNoAllocs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNoAllocs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNoAllocs, 'this', _quickfix.new_TotNoAllocs(*args))
         _swig_setattr(self, TotNoAllocs, 'thisown', 1)
@@ -21468,6 +22462,7 @@ class TotNoAllocs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNoAllocsPtr(TotNoAllocs):
     def __init__(self, this):
@@ -21484,7 +22479,7 @@ class LastFragment(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastFragment, name)
     def __repr__(self):
-        return "<C FIX::LastFragment instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastFragment instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastFragment, 'this', _quickfix.new_LastFragment(*args))
         _swig_setattr(self, LastFragment, 'thisown', 1)
@@ -21492,6 +22487,7 @@ class LastFragment(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastFragmentPtr(LastFragment):
     def __init__(self, this):
@@ -21508,7 +22504,7 @@ class CollReqID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollReqID, name)
     def __repr__(self):
-        return "<C FIX::CollReqID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollReqID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollReqID, 'this', _quickfix.new_CollReqID(*args))
         _swig_setattr(self, CollReqID, 'thisown', 1)
@@ -21516,6 +22512,7 @@ class CollReqID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollReqIDPtr(CollReqID):
     def __init__(self, this):
@@ -21532,7 +22529,7 @@ class CollAsgnReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnReason, name)
     def __repr__(self):
-        return "<C FIX::CollAsgnReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollAsgnReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollAsgnReason, 'this', _quickfix.new_CollAsgnReason(*args))
         _swig_setattr(self, CollAsgnReason, 'thisown', 1)
@@ -21540,6 +22537,7 @@ class CollAsgnReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollAsgnReasonPtr(CollAsgnReason):
     def __init__(self, this):
@@ -21556,7 +22554,7 @@ class CollInquiryQualifier(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryQualifier, name)
     def __repr__(self):
-        return "<C FIX::CollInquiryQualifier instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollInquiryQualifier instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollInquiryQualifier, 'this', _quickfix.new_CollInquiryQualifier(*args))
         _swig_setattr(self, CollInquiryQualifier, 'thisown', 1)
@@ -21564,6 +22562,7 @@ class CollInquiryQualifier(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollInquiryQualifierPtr(CollInquiryQualifier):
     def __init__(self, this):
@@ -21580,7 +22579,7 @@ class NoTrades(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoTrades, name)
     def __repr__(self):
-        return "<C FIX::NoTrades instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoTrades instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoTrades, 'this', _quickfix.new_NoTrades(*args))
         _swig_setattr(self, NoTrades, 'thisown', 1)
@@ -21588,6 +22587,7 @@ class NoTrades(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoTradesPtr(NoTrades):
     def __init__(self, this):
@@ -21604,7 +22604,7 @@ class MarginRatio(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MarginRatio, name)
     def __repr__(self):
-        return "<C FIX::MarginRatio instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MarginRatio instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MarginRatio, 'this', _quickfix.new_MarginRatio(*args))
         _swig_setattr(self, MarginRatio, 'thisown', 1)
@@ -21612,6 +22612,7 @@ class MarginRatio(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MarginRatioPtr(MarginRatio):
     def __init__(self, this):
@@ -21628,7 +22629,7 @@ class MarginExcess(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MarginExcess, name)
     def __repr__(self):
-        return "<C FIX::MarginExcess instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MarginExcess instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MarginExcess, 'this', _quickfix.new_MarginExcess(*args))
         _swig_setattr(self, MarginExcess, 'thisown', 1)
@@ -21636,6 +22637,7 @@ class MarginExcess(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MarginExcessPtr(MarginExcess):
     def __init__(self, this):
@@ -21652,7 +22654,7 @@ class TotalNetValue(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNetValue, name)
     def __repr__(self):
-        return "<C FIX::TotalNetValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalNetValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalNetValue, 'this', _quickfix.new_TotalNetValue(*args))
         _swig_setattr(self, TotalNetValue, 'thisown', 1)
@@ -21660,6 +22662,7 @@ class TotalNetValue(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalNetValuePtr(TotalNetValue):
     def __init__(self, this):
@@ -21676,7 +22679,7 @@ class CashOutstanding(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashOutstanding, name)
     def __repr__(self):
-        return "<C FIX::CashOutstanding instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashOutstanding instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashOutstanding, 'this', _quickfix.new_CashOutstanding(*args))
         _swig_setattr(self, CashOutstanding, 'thisown', 1)
@@ -21684,6 +22687,7 @@ class CashOutstanding(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashOutstandingPtr(CashOutstanding):
     def __init__(self, this):
@@ -21700,7 +22704,7 @@ class CollAsgnID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnID, name)
     def __repr__(self):
-        return "<C FIX::CollAsgnID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollAsgnID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollAsgnID, 'this', _quickfix.new_CollAsgnID(*args))
         _swig_setattr(self, CollAsgnID, 'thisown', 1)
@@ -21708,6 +22712,7 @@ class CollAsgnID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollAsgnIDPtr(CollAsgnID):
     def __init__(self, this):
@@ -21724,7 +22729,7 @@ class CollAsgnTransType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnTransType, name)
     def __repr__(self):
-        return "<C FIX::CollAsgnTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollAsgnTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollAsgnTransType, 'this', _quickfix.new_CollAsgnTransType(*args))
         _swig_setattr(self, CollAsgnTransType, 'thisown', 1)
@@ -21732,6 +22737,7 @@ class CollAsgnTransType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollAsgnTransTypePtr(CollAsgnTransType):
     def __init__(self, this):
@@ -21748,7 +22754,7 @@ class CollRespID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollRespID, name)
     def __repr__(self):
-        return "<C FIX::CollRespID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollRespID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollRespID, 'this', _quickfix.new_CollRespID(*args))
         _swig_setattr(self, CollRespID, 'thisown', 1)
@@ -21756,6 +22762,7 @@ class CollRespID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollRespIDPtr(CollRespID):
     def __init__(self, this):
@@ -21772,7 +22779,7 @@ class CollAsgnRespType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnRespType, name)
     def __repr__(self):
-        return "<C FIX::CollAsgnRespType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollAsgnRespType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollAsgnRespType, 'this', _quickfix.new_CollAsgnRespType(*args))
         _swig_setattr(self, CollAsgnRespType, 'thisown', 1)
@@ -21780,6 +22787,7 @@ class CollAsgnRespType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollAsgnRespTypePtr(CollAsgnRespType):
     def __init__(self, this):
@@ -21796,7 +22804,7 @@ class CollAsgnRejectReason(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnRejectReason, name)
     def __repr__(self):
-        return "<C FIX::CollAsgnRejectReason instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollAsgnRejectReason instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollAsgnRejectReason, 'this', _quickfix.new_CollAsgnRejectReason(*args))
         _swig_setattr(self, CollAsgnRejectReason, 'thisown', 1)
@@ -21804,6 +22812,7 @@ class CollAsgnRejectReason(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollAsgnRejectReasonPtr(CollAsgnRejectReason):
     def __init__(self, this):
@@ -21820,7 +22829,7 @@ class CollAsgnRefID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollAsgnRefID, name)
     def __repr__(self):
-        return "<C FIX::CollAsgnRefID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollAsgnRefID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollAsgnRefID, 'this', _quickfix.new_CollAsgnRefID(*args))
         _swig_setattr(self, CollAsgnRefID, 'thisown', 1)
@@ -21828,6 +22837,7 @@ class CollAsgnRefID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollAsgnRefIDPtr(CollAsgnRefID):
     def __init__(self, this):
@@ -21844,7 +22854,7 @@ class CollRptID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollRptID, name)
     def __repr__(self):
-        return "<C FIX::CollRptID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollRptID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollRptID, 'this', _quickfix.new_CollRptID(*args))
         _swig_setattr(self, CollRptID, 'thisown', 1)
@@ -21852,6 +22862,7 @@ class CollRptID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollRptIDPtr(CollRptID):
     def __init__(self, this):
@@ -21868,7 +22879,7 @@ class CollInquiryID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryID, name)
     def __repr__(self):
-        return "<C FIX::CollInquiryID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollInquiryID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollInquiryID, 'this', _quickfix.new_CollInquiryID(*args))
         _swig_setattr(self, CollInquiryID, 'thisown', 1)
@@ -21876,6 +22887,7 @@ class CollInquiryID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollInquiryIDPtr(CollInquiryID):
     def __init__(self, this):
@@ -21892,7 +22904,7 @@ class CollStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollStatus, name)
     def __repr__(self):
-        return "<C FIX::CollStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollStatus, 'this', _quickfix.new_CollStatus(*args))
         _swig_setattr(self, CollStatus, 'thisown', 1)
@@ -21900,6 +22912,7 @@ class CollStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollStatusPtr(CollStatus):
     def __init__(self, this):
@@ -21916,7 +22929,7 @@ class TotNumReports(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotNumReports, name)
     def __repr__(self):
-        return "<C FIX::TotNumReports instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotNumReports instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotNumReports, 'this', _quickfix.new_TotNumReports(*args))
         _swig_setattr(self, TotNumReports, 'thisown', 1)
@@ -21924,6 +22937,7 @@ class TotNumReports(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotNumReportsPtr(TotNumReports):
     def __init__(self, this):
@@ -21940,7 +22954,7 @@ class LastRptRequested(BoolField):
     for _s in [BoolField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastRptRequested, name)
     def __repr__(self):
-        return "<C FIX::LastRptRequested instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastRptRequested instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastRptRequested, 'this', _quickfix.new_LastRptRequested(*args))
         _swig_setattr(self, LastRptRequested, 'thisown', 1)
@@ -21948,6 +22962,7 @@ class LastRptRequested(BoolField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastRptRequestedPtr(LastRptRequested):
     def __init__(self, this):
@@ -21964,7 +22979,7 @@ class AgreementDesc(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementDesc, name)
     def __repr__(self):
-        return "<C FIX::AgreementDesc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AgreementDesc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AgreementDesc, 'this', _quickfix.new_AgreementDesc(*args))
         _swig_setattr(self, AgreementDesc, 'thisown', 1)
@@ -21972,6 +22987,7 @@ class AgreementDesc(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AgreementDescPtr(AgreementDesc):
     def __init__(self, this):
@@ -21988,7 +23004,7 @@ class AgreementID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementID, name)
     def __repr__(self):
-        return "<C FIX::AgreementID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AgreementID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AgreementID, 'this', _quickfix.new_AgreementID(*args))
         _swig_setattr(self, AgreementID, 'thisown', 1)
@@ -21996,6 +23012,7 @@ class AgreementID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AgreementIDPtr(AgreementID):
     def __init__(self, this):
@@ -22012,7 +23029,7 @@ class AgreementDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementDate, name)
     def __repr__(self):
-        return "<C FIX::AgreementDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AgreementDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AgreementDate, 'this', _quickfix.new_AgreementDate(*args))
         _swig_setattr(self, AgreementDate, 'thisown', 1)
@@ -22020,6 +23037,7 @@ class AgreementDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AgreementDatePtr(AgreementDate):
     def __init__(self, this):
@@ -22036,7 +23054,7 @@ class StartDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StartDate, name)
     def __repr__(self):
-        return "<C FIX::StartDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StartDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StartDate, 'this', _quickfix.new_StartDate(*args))
         _swig_setattr(self, StartDate, 'thisown', 1)
@@ -22044,6 +23062,7 @@ class StartDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StartDatePtr(StartDate):
     def __init__(self, this):
@@ -22060,7 +23079,7 @@ class EndDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EndDate, name)
     def __repr__(self):
-        return "<C FIX::EndDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EndDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EndDate, 'this', _quickfix.new_EndDate(*args))
         _swig_setattr(self, EndDate, 'thisown', 1)
@@ -22068,6 +23087,7 @@ class EndDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EndDatePtr(EndDate):
     def __init__(self, this):
@@ -22084,7 +23104,7 @@ class AgreementCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AgreementCurrency, name)
     def __repr__(self):
-        return "<C FIX::AgreementCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AgreementCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AgreementCurrency, 'this', _quickfix.new_AgreementCurrency(*args))
         _swig_setattr(self, AgreementCurrency, 'thisown', 1)
@@ -22092,6 +23112,7 @@ class AgreementCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AgreementCurrencyPtr(AgreementCurrency):
     def __init__(self, this):
@@ -22108,7 +23129,7 @@ class DeliveryType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DeliveryType, name)
     def __repr__(self):
-        return "<C FIX::DeliveryType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DeliveryType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DeliveryType, 'this', _quickfix.new_DeliveryType(*args))
         _swig_setattr(self, DeliveryType, 'thisown', 1)
@@ -22116,6 +23137,7 @@ class DeliveryType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DeliveryTypePtr(DeliveryType):
     def __init__(self, this):
@@ -22132,7 +23154,7 @@ class EndAccruedInterestAmt(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EndAccruedInterestAmt, name)
     def __repr__(self):
-        return "<C FIX::EndAccruedInterestAmt instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EndAccruedInterestAmt instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EndAccruedInterestAmt, 'this', _quickfix.new_EndAccruedInterestAmt(*args))
         _swig_setattr(self, EndAccruedInterestAmt, 'thisown', 1)
@@ -22140,6 +23162,7 @@ class EndAccruedInterestAmt(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EndAccruedInterestAmtPtr(EndAccruedInterestAmt):
     def __init__(self, this):
@@ -22156,7 +23179,7 @@ class StartCash(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StartCash, name)
     def __repr__(self):
-        return "<C FIX::StartCash instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StartCash instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StartCash, 'this', _quickfix.new_StartCash(*args))
         _swig_setattr(self, StartCash, 'thisown', 1)
@@ -22164,6 +23187,7 @@ class StartCash(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StartCashPtr(StartCash):
     def __init__(self, this):
@@ -22180,7 +23204,7 @@ class EndCash(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, EndCash, name)
     def __repr__(self):
-        return "<C FIX::EndCash instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::EndCash instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, EndCash, 'this', _quickfix.new_EndCash(*args))
         _swig_setattr(self, EndCash, 'thisown', 1)
@@ -22188,6 +23212,7 @@ class EndCash(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class EndCashPtr(EndCash):
     def __init__(self, this):
@@ -22204,7 +23229,7 @@ class UserRequestID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UserRequestID, name)
     def __repr__(self):
-        return "<C FIX::UserRequestID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UserRequestID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UserRequestID, 'this', _quickfix.new_UserRequestID(*args))
         _swig_setattr(self, UserRequestID, 'thisown', 1)
@@ -22212,6 +23237,7 @@ class UserRequestID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UserRequestIDPtr(UserRequestID):
     def __init__(self, this):
@@ -22228,7 +23254,7 @@ class UserRequestType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UserRequestType, name)
     def __repr__(self):
-        return "<C FIX::UserRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UserRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UserRequestType, 'this', _quickfix.new_UserRequestType(*args))
         _swig_setattr(self, UserRequestType, 'thisown', 1)
@@ -22236,6 +23262,7 @@ class UserRequestType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UserRequestTypePtr(UserRequestType):
     def __init__(self, this):
@@ -22252,7 +23279,7 @@ class NewPassword(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NewPassword, name)
     def __repr__(self):
-        return "<C FIX::NewPassword instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NewPassword instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NewPassword, 'this', _quickfix.new_NewPassword(*args))
         _swig_setattr(self, NewPassword, 'thisown', 1)
@@ -22260,6 +23287,7 @@ class NewPassword(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NewPasswordPtr(NewPassword):
     def __init__(self, this):
@@ -22276,7 +23304,7 @@ class UserStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UserStatus, name)
     def __repr__(self):
-        return "<C FIX::UserStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UserStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UserStatus, 'this', _quickfix.new_UserStatus(*args))
         _swig_setattr(self, UserStatus, 'thisown', 1)
@@ -22284,6 +23312,7 @@ class UserStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UserStatusPtr(UserStatus):
     def __init__(self, this):
@@ -22300,7 +23329,7 @@ class UserStatusText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UserStatusText, name)
     def __repr__(self):
-        return "<C FIX::UserStatusText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UserStatusText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UserStatusText, 'this', _quickfix.new_UserStatusText(*args))
         _swig_setattr(self, UserStatusText, 'thisown', 1)
@@ -22308,6 +23337,7 @@ class UserStatusText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UserStatusTextPtr(UserStatusText):
     def __init__(self, this):
@@ -22324,7 +23354,7 @@ class StatusValue(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StatusValue, name)
     def __repr__(self):
-        return "<C FIX::StatusValue instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StatusValue instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StatusValue, 'this', _quickfix.new_StatusValue(*args))
         _swig_setattr(self, StatusValue, 'thisown', 1)
@@ -22332,6 +23362,7 @@ class StatusValue(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StatusValuePtr(StatusValue):
     def __init__(self, this):
@@ -22348,7 +23379,7 @@ class StatusText(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StatusText, name)
     def __repr__(self):
-        return "<C FIX::StatusText instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StatusText instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StatusText, 'this', _quickfix.new_StatusText(*args))
         _swig_setattr(self, StatusText, 'thisown', 1)
@@ -22356,6 +23387,7 @@ class StatusText(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StatusTextPtr(StatusText):
     def __init__(self, this):
@@ -22372,7 +23404,7 @@ class RefCompID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RefCompID, name)
     def __repr__(self):
-        return "<C FIX::RefCompID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RefCompID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RefCompID, 'this', _quickfix.new_RefCompID(*args))
         _swig_setattr(self, RefCompID, 'thisown', 1)
@@ -22380,6 +23412,7 @@ class RefCompID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RefCompIDPtr(RefCompID):
     def __init__(self, this):
@@ -22396,7 +23429,7 @@ class RefSubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RefSubID, name)
     def __repr__(self):
-        return "<C FIX::RefSubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RefSubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RefSubID, 'this', _quickfix.new_RefSubID(*args))
         _swig_setattr(self, RefSubID, 'thisown', 1)
@@ -22404,6 +23437,7 @@ class RefSubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RefSubIDPtr(RefSubID):
     def __init__(self, this):
@@ -22420,7 +23454,7 @@ class NetworkResponseID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkResponseID, name)
     def __repr__(self):
-        return "<C FIX::NetworkResponseID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NetworkResponseID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NetworkResponseID, 'this', _quickfix.new_NetworkResponseID(*args))
         _swig_setattr(self, NetworkResponseID, 'thisown', 1)
@@ -22428,6 +23462,7 @@ class NetworkResponseID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NetworkResponseIDPtr(NetworkResponseID):
     def __init__(self, this):
@@ -22444,7 +23479,7 @@ class NetworkRequestID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkRequestID, name)
     def __repr__(self):
-        return "<C FIX::NetworkRequestID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NetworkRequestID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NetworkRequestID, 'this', _quickfix.new_NetworkRequestID(*args))
         _swig_setattr(self, NetworkRequestID, 'thisown', 1)
@@ -22452,6 +23487,7 @@ class NetworkRequestID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NetworkRequestIDPtr(NetworkRequestID):
     def __init__(self, this):
@@ -22468,7 +23504,7 @@ class LastNetworkResponseID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastNetworkResponseID, name)
     def __repr__(self):
-        return "<C FIX::LastNetworkResponseID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastNetworkResponseID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastNetworkResponseID, 'this', _quickfix.new_LastNetworkResponseID(*args))
         _swig_setattr(self, LastNetworkResponseID, 'thisown', 1)
@@ -22476,6 +23512,7 @@ class LastNetworkResponseID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastNetworkResponseIDPtr(LastNetworkResponseID):
     def __init__(self, this):
@@ -22492,7 +23529,7 @@ class NetworkRequestType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkRequestType, name)
     def __repr__(self):
-        return "<C FIX::NetworkRequestType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NetworkRequestType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NetworkRequestType, 'this', _quickfix.new_NetworkRequestType(*args))
         _swig_setattr(self, NetworkRequestType, 'thisown', 1)
@@ -22500,6 +23537,7 @@ class NetworkRequestType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NetworkRequestTypePtr(NetworkRequestType):
     def __init__(self, this):
@@ -22516,7 +23554,7 @@ class NoCompIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoCompIDs, name)
     def __repr__(self):
-        return "<C FIX::NoCompIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoCompIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoCompIDs, 'this', _quickfix.new_NoCompIDs(*args))
         _swig_setattr(self, NoCompIDs, 'thisown', 1)
@@ -22524,6 +23562,7 @@ class NoCompIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoCompIDsPtr(NoCompIDs):
     def __init__(self, this):
@@ -22540,7 +23579,7 @@ class NetworkStatusResponseType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NetworkStatusResponseType, name)
     def __repr__(self):
-        return "<C FIX::NetworkStatusResponseType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NetworkStatusResponseType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NetworkStatusResponseType, 'this', _quickfix.new_NetworkStatusResponseType(*args))
         _swig_setattr(self, NetworkStatusResponseType, 'thisown', 1)
@@ -22548,6 +23587,7 @@ class NetworkStatusResponseType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NetworkStatusResponseTypePtr(NetworkStatusResponseType):
     def __init__(self, this):
@@ -22564,7 +23604,7 @@ class NoCollInquiryQualifier(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoCollInquiryQualifier, name)
     def __repr__(self):
-        return "<C FIX::NoCollInquiryQualifier instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoCollInquiryQualifier instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoCollInquiryQualifier, 'this', _quickfix.new_NoCollInquiryQualifier(*args))
         _swig_setattr(self, NoCollInquiryQualifier, 'thisown', 1)
@@ -22572,6 +23612,7 @@ class NoCollInquiryQualifier(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoCollInquiryQualifierPtr(NoCollInquiryQualifier):
     def __init__(self, this):
@@ -22588,7 +23629,7 @@ class TrdRptStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TrdRptStatus, name)
     def __repr__(self):
-        return "<C FIX::TrdRptStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TrdRptStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TrdRptStatus, 'this', _quickfix.new_TrdRptStatus(*args))
         _swig_setattr(self, TrdRptStatus, 'thisown', 1)
@@ -22596,6 +23637,7 @@ class TrdRptStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TrdRptStatusPtr(TrdRptStatus):
     def __init__(self, this):
@@ -22612,7 +23654,7 @@ class AffirmStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AffirmStatus, name)
     def __repr__(self):
-        return "<C FIX::AffirmStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AffirmStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AffirmStatus, 'this', _quickfix.new_AffirmStatus(*args))
         _swig_setattr(self, AffirmStatus, 'thisown', 1)
@@ -22620,6 +23662,7 @@ class AffirmStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AffirmStatusPtr(AffirmStatus):
     def __init__(self, this):
@@ -22636,7 +23679,7 @@ class UnderlyingStrikeCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingStrikeCurrency, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingStrikeCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingStrikeCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingStrikeCurrency, 'this', _quickfix.new_UnderlyingStrikeCurrency(*args))
         _swig_setattr(self, UnderlyingStrikeCurrency, 'thisown', 1)
@@ -22644,6 +23687,7 @@ class UnderlyingStrikeCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingStrikeCurrencyPtr(UnderlyingStrikeCurrency):
     def __init__(self, this):
@@ -22660,7 +23704,7 @@ class LegStrikeCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegStrikeCurrency, name)
     def __repr__(self):
-        return "<C FIX::LegStrikeCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegStrikeCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegStrikeCurrency, 'this', _quickfix.new_LegStrikeCurrency(*args))
         _swig_setattr(self, LegStrikeCurrency, 'thisown', 1)
@@ -22668,6 +23712,7 @@ class LegStrikeCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegStrikeCurrencyPtr(LegStrikeCurrency):
     def __init__(self, this):
@@ -22684,7 +23729,7 @@ class TimeBracket(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TimeBracket, name)
     def __repr__(self):
-        return "<C FIX::TimeBracket instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TimeBracket instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TimeBracket, 'this', _quickfix.new_TimeBracket(*args))
         _swig_setattr(self, TimeBracket, 'thisown', 1)
@@ -22692,6 +23737,7 @@ class TimeBracket(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TimeBracketPtr(TimeBracket):
     def __init__(self, this):
@@ -22708,7 +23754,7 @@ class CollAction(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollAction, name)
     def __repr__(self):
-        return "<C FIX::CollAction instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollAction instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollAction, 'this', _quickfix.new_CollAction(*args))
         _swig_setattr(self, CollAction, 'thisown', 1)
@@ -22716,6 +23762,7 @@ class CollAction(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollActionPtr(CollAction):
     def __init__(self, this):
@@ -22732,7 +23779,7 @@ class CollInquiryStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryStatus, name)
     def __repr__(self):
-        return "<C FIX::CollInquiryStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollInquiryStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollInquiryStatus, 'this', _quickfix.new_CollInquiryStatus(*args))
         _swig_setattr(self, CollInquiryStatus, 'thisown', 1)
@@ -22740,6 +23787,7 @@ class CollInquiryStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollInquiryStatusPtr(CollInquiryStatus):
     def __init__(self, this):
@@ -22756,7 +23804,7 @@ class CollInquiryResult(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CollInquiryResult, name)
     def __repr__(self):
-        return "<C FIX::CollInquiryResult instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CollInquiryResult instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CollInquiryResult, 'this', _quickfix.new_CollInquiryResult(*args))
         _swig_setattr(self, CollInquiryResult, 'thisown', 1)
@@ -22764,6 +23812,7 @@ class CollInquiryResult(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CollInquiryResultPtr(CollInquiryResult):
     def __init__(self, this):
@@ -22780,7 +23829,7 @@ class StrikeCurrency(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, StrikeCurrency, name)
     def __repr__(self):
-        return "<C FIX::StrikeCurrency instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::StrikeCurrency instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, StrikeCurrency, 'this', _quickfix.new_StrikeCurrency(*args))
         _swig_setattr(self, StrikeCurrency, 'thisown', 1)
@@ -22788,6 +23837,7 @@ class StrikeCurrency(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class StrikeCurrencyPtr(StrikeCurrency):
     def __init__(self, this):
@@ -22804,7 +23854,7 @@ class NoNested3PartyIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested3PartyIDs, name)
     def __repr__(self):
-        return "<C FIX::NoNested3PartyIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoNested3PartyIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoNested3PartyIDs, 'this', _quickfix.new_NoNested3PartyIDs(*args))
         _swig_setattr(self, NoNested3PartyIDs, 'thisown', 1)
@@ -22812,6 +23862,7 @@ class NoNested3PartyIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoNested3PartyIDsPtr(NoNested3PartyIDs):
     def __init__(self, this):
@@ -22828,7 +23879,7 @@ class Nested3PartyID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartyID, name)
     def __repr__(self):
-        return "<C FIX::Nested3PartyID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested3PartyID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested3PartyID, 'this', _quickfix.new_Nested3PartyID(*args))
         _swig_setattr(self, Nested3PartyID, 'thisown', 1)
@@ -22836,6 +23887,7 @@ class Nested3PartyID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested3PartyIDPtr(Nested3PartyID):
     def __init__(self, this):
@@ -22852,7 +23904,7 @@ class Nested3PartyIDSource(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartyIDSource, name)
     def __repr__(self):
-        return "<C FIX::Nested3PartyIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested3PartyIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested3PartyIDSource, 'this', _quickfix.new_Nested3PartyIDSource(*args))
         _swig_setattr(self, Nested3PartyIDSource, 'thisown', 1)
@@ -22860,6 +23912,7 @@ class Nested3PartyIDSource(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested3PartyIDSourcePtr(Nested3PartyIDSource):
     def __init__(self, this):
@@ -22876,7 +23929,7 @@ class Nested3PartyRole(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartyRole, name)
     def __repr__(self):
-        return "<C FIX::Nested3PartyRole instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested3PartyRole instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested3PartyRole, 'this', _quickfix.new_Nested3PartyRole(*args))
         _swig_setattr(self, Nested3PartyRole, 'thisown', 1)
@@ -22884,6 +23937,7 @@ class Nested3PartyRole(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested3PartyRolePtr(Nested3PartyRole):
     def __init__(self, this):
@@ -22900,7 +23954,7 @@ class NoNested3PartySubIDs(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NoNested3PartySubIDs, name)
     def __repr__(self):
-        return "<C FIX::NoNested3PartySubIDs instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NoNested3PartySubIDs instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NoNested3PartySubIDs, 'this', _quickfix.new_NoNested3PartySubIDs(*args))
         _swig_setattr(self, NoNested3PartySubIDs, 'thisown', 1)
@@ -22908,6 +23962,7 @@ class NoNested3PartySubIDs(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NoNested3PartySubIDsPtr(NoNested3PartySubIDs):
     def __init__(self, this):
@@ -22924,7 +23979,7 @@ class Nested3PartySubID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartySubID, name)
     def __repr__(self):
-        return "<C FIX::Nested3PartySubID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested3PartySubID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested3PartySubID, 'this', _quickfix.new_Nested3PartySubID(*args))
         _swig_setattr(self, Nested3PartySubID, 'thisown', 1)
@@ -22932,6 +23987,7 @@ class Nested3PartySubID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested3PartySubIDPtr(Nested3PartySubID):
     def __init__(self, this):
@@ -22948,7 +24004,7 @@ class Nested3PartySubIDType(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Nested3PartySubIDType, name)
     def __repr__(self):
-        return "<C FIX::Nested3PartySubIDType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Nested3PartySubIDType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Nested3PartySubIDType, 'this', _quickfix.new_Nested3PartySubIDType(*args))
         _swig_setattr(self, Nested3PartySubIDType, 'thisown', 1)
@@ -22956,6 +24012,7 @@ class Nested3PartySubIDType(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Nested3PartySubIDTypePtr(Nested3PartySubIDType):
     def __init__(self, this):
@@ -22972,7 +24029,7 @@ class LegContractSettlMonth(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegContractSettlMonth, name)
     def __repr__(self):
-        return "<C FIX::LegContractSettlMonth instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegContractSettlMonth instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegContractSettlMonth, 'this', _quickfix.new_LegContractSettlMonth(*args))
         _swig_setattr(self, LegContractSettlMonth, 'thisown', 1)
@@ -22980,6 +24037,7 @@ class LegContractSettlMonth(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegContractSettlMonthPtr(LegContractSettlMonth):
     def __init__(self, this):
@@ -22996,7 +24054,7 @@ class LegInterestAccrualDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegInterestAccrualDate, name)
     def __repr__(self):
-        return "<C FIX::LegInterestAccrualDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegInterestAccrualDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegInterestAccrualDate, 'this', _quickfix.new_LegInterestAccrualDate(*args))
         _swig_setattr(self, LegInterestAccrualDate, 'thisown', 1)
@@ -23004,6 +24062,7 @@ class LegInterestAccrualDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegInterestAccrualDatePtr(LegInterestAccrualDate):
     def __init__(self, this):
@@ -23020,7 +24079,7 @@ class ExecTransType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecTransType, name)
     def __repr__(self):
-        return "<C FIX::ExecTransType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecTransType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecTransType, 'this', _quickfix.new_ExecTransType(*args))
         _swig_setattr(self, ExecTransType, 'thisown', 1)
@@ -23028,6 +24087,7 @@ class ExecTransType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecTransTypePtr(ExecTransType):
     def __init__(self, this):
@@ -23044,7 +24104,7 @@ class IDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IDSource, name)
     def __repr__(self):
-        return "<C FIX::IDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IDSource, 'this', _quickfix.new_IDSource(*args))
         _swig_setattr(self, IDSource, 'thisown', 1)
@@ -23052,6 +24112,7 @@ class IDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IDSourcePtr(IDSource):
     def __init__(self, this):
@@ -23068,7 +24129,7 @@ class IOIOthSvc(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOIOthSvc, name)
     def __repr__(self):
-        return "<C FIX::IOIOthSvc instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOIOthSvc instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOIOthSvc, 'this', _quickfix.new_IOIOthSvc(*args))
         _swig_setattr(self, IOIOthSvc, 'thisown', 1)
@@ -23076,6 +24137,7 @@ class IOIOthSvc(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOIOthSvcPtr(IOIOthSvc):
     def __init__(self, this):
@@ -23092,7 +24154,7 @@ class IOIShares(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, IOIShares, name)
     def __repr__(self):
-        return "<C FIX::IOIShares instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::IOIShares instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, IOIShares, 'this', _quickfix.new_IOIShares(*args))
         _swig_setattr(self, IOIShares, 'thisown', 1)
@@ -23100,6 +24162,7 @@ class IOIShares(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class IOISharesPtr(IOIShares):
     def __init__(self, this):
@@ -23116,7 +24179,7 @@ class LastShares(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LastShares, name)
     def __repr__(self):
-        return "<C FIX::LastShares instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LastShares instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LastShares, 'this', _quickfix.new_LastShares(*args))
         _swig_setattr(self, LastShares, 'thisown', 1)
@@ -23124,6 +24187,7 @@ class LastShares(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LastSharesPtr(LastShares):
     def __init__(self, this):
@@ -23140,7 +24204,7 @@ class RelatdSym(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RelatdSym, name)
     def __repr__(self):
-        return "<C FIX::RelatdSym instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RelatdSym instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RelatdSym, 'this', _quickfix.new_RelatdSym(*args))
         _swig_setattr(self, RelatdSym, 'thisown', 1)
@@ -23148,6 +24212,7 @@ class RelatdSym(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RelatdSymPtr(RelatdSym):
     def __init__(self, this):
@@ -23164,7 +24229,7 @@ class Rule80A(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Rule80A, name)
     def __repr__(self):
-        return "<C FIX::Rule80A instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Rule80A instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Rule80A, 'this', _quickfix.new_Rule80A(*args))
         _swig_setattr(self, Rule80A, 'thisown', 1)
@@ -23172,6 +24237,7 @@ class Rule80A(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class Rule80APtr(Rule80A):
     def __init__(self, this):
@@ -23188,7 +24254,7 @@ class Shares(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Shares, name)
     def __repr__(self):
-        return "<C FIX::Shares instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Shares instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Shares, 'this', _quickfix.new_Shares(*args))
         _swig_setattr(self, Shares, 'thisown', 1)
@@ -23196,6 +24262,7 @@ class Shares(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SharesPtr(Shares):
     def __init__(self, this):
@@ -23212,7 +24279,7 @@ class SettlmntTyp(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlmntTyp, name)
     def __repr__(self):
-        return "<C FIX::SettlmntTyp instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlmntTyp instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlmntTyp, 'this', _quickfix.new_SettlmntTyp(*args))
         _swig_setattr(self, SettlmntTyp, 'thisown', 1)
@@ -23220,6 +24287,7 @@ class SettlmntTyp(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlmntTypPtr(SettlmntTyp):
     def __init__(self, this):
@@ -23236,7 +24304,7 @@ class FutSettDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FutSettDate, name)
     def __repr__(self):
-        return "<C FIX::FutSettDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FutSettDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FutSettDate, 'this', _quickfix.new_FutSettDate(*args))
         _swig_setattr(self, FutSettDate, 'thisown', 1)
@@ -23244,6 +24312,7 @@ class FutSettDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FutSettDatePtr(FutSettDate):
     def __init__(self, this):
@@ -23260,7 +24329,7 @@ class AvgPrxPrecision(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AvgPrxPrecision, name)
     def __repr__(self):
-        return "<C FIX::AvgPrxPrecision instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AvgPrxPrecision instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AvgPrxPrecision, 'this', _quickfix.new_AvgPrxPrecision(*args))
         _swig_setattr(self, AvgPrxPrecision, 'thisown', 1)
@@ -23268,6 +24337,7 @@ class AvgPrxPrecision(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AvgPrxPrecisionPtr(AvgPrxPrecision):
     def __init__(self, this):
@@ -23284,7 +24354,7 @@ class ExecBroker(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ExecBroker, name)
     def __repr__(self):
-        return "<C FIX::ExecBroker instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ExecBroker instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ExecBroker, 'this', _quickfix.new_ExecBroker(*args))
         _swig_setattr(self, ExecBroker, 'thisown', 1)
@@ -23292,6 +24362,7 @@ class ExecBroker(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ExecBrokerPtr(ExecBroker):
     def __init__(self, this):
@@ -23308,7 +24379,7 @@ class OpenClose(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OpenClose, name)
     def __repr__(self):
-        return "<C FIX::OpenClose instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OpenClose instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OpenClose, 'this', _quickfix.new_OpenClose(*args))
         _swig_setattr(self, OpenClose, 'thisown', 1)
@@ -23316,6 +24387,7 @@ class OpenClose(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OpenClosePtr(OpenClose):
     def __init__(self, this):
@@ -23332,7 +24404,7 @@ class AllocShares(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, AllocShares, name)
     def __repr__(self):
-        return "<C FIX::AllocShares instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::AllocShares instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, AllocShares, 'this', _quickfix.new_AllocShares(*args))
         _swig_setattr(self, AllocShares, 'thisown', 1)
@@ -23340,6 +24412,7 @@ class AllocShares(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class AllocSharesPtr(AllocShares):
     def __init__(self, this):
@@ -23356,7 +24429,7 @@ class DlvyInst(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DlvyInst, name)
     def __repr__(self):
-        return "<C FIX::DlvyInst instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DlvyInst instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DlvyInst, 'this', _quickfix.new_DlvyInst(*args))
         _swig_setattr(self, DlvyInst, 'thisown', 1)
@@ -23364,6 +24437,7 @@ class DlvyInst(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DlvyInstPtr(DlvyInst):
     def __init__(self, this):
@@ -23380,7 +24454,7 @@ class BrokerOfCredit(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, BrokerOfCredit, name)
     def __repr__(self):
-        return "<C FIX::BrokerOfCredit instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::BrokerOfCredit instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, BrokerOfCredit, 'this', _quickfix.new_BrokerOfCredit(*args))
         _swig_setattr(self, BrokerOfCredit, 'thisown', 1)
@@ -23388,6 +24462,7 @@ class BrokerOfCredit(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BrokerOfCreditPtr(BrokerOfCredit):
     def __init__(self, this):
@@ -23404,7 +24479,7 @@ class ClientID(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClientID, name)
     def __repr__(self):
-        return "<C FIX::ClientID instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClientID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClientID, 'this', _quickfix.new_ClientID(*args))
         _swig_setattr(self, ClientID, 'thisown', 1)
@@ -23412,6 +24487,7 @@ class ClientID(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClientIDPtr(ClientID):
     def __init__(self, this):
@@ -23428,7 +24504,7 @@ class CxlType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CxlType, name)
     def __repr__(self):
-        return "<C FIX::CxlType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CxlType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CxlType, 'this', _quickfix.new_CxlType(*args))
         _swig_setattr(self, CxlType, 'thisown', 1)
@@ -23436,6 +24512,7 @@ class CxlType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CxlTypePtr(CxlType):
     def __init__(self, this):
@@ -23452,7 +24529,7 @@ class SettlLocation(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlLocation, name)
     def __repr__(self):
-        return "<C FIX::SettlLocation instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlLocation instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlLocation, 'this', _quickfix.new_SettlLocation(*args))
         _swig_setattr(self, SettlLocation, 'thisown', 1)
@@ -23460,6 +24537,7 @@ class SettlLocation(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlLocationPtr(SettlLocation):
     def __init__(self, this):
@@ -23476,7 +24554,7 @@ class SettlDepositoryCode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlDepositoryCode, name)
     def __repr__(self):
-        return "<C FIX::SettlDepositoryCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlDepositoryCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlDepositoryCode, 'this', _quickfix.new_SettlDepositoryCode(*args))
         _swig_setattr(self, SettlDepositoryCode, 'thisown', 1)
@@ -23484,6 +24562,7 @@ class SettlDepositoryCode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlDepositoryCodePtr(SettlDepositoryCode):
     def __init__(self, this):
@@ -23500,7 +24579,7 @@ class SettlBrkrCode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlBrkrCode, name)
     def __repr__(self):
-        return "<C FIX::SettlBrkrCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlBrkrCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlBrkrCode, 'this', _quickfix.new_SettlBrkrCode(*args))
         _swig_setattr(self, SettlBrkrCode, 'thisown', 1)
@@ -23508,6 +24587,7 @@ class SettlBrkrCode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlBrkrCodePtr(SettlBrkrCode):
     def __init__(self, this):
@@ -23524,7 +24604,7 @@ class SettlInstCode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SettlInstCode, name)
     def __repr__(self):
-        return "<C FIX::SettlInstCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SettlInstCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SettlInstCode, 'this', _quickfix.new_SettlInstCode(*args))
         _swig_setattr(self, SettlInstCode, 'thisown', 1)
@@ -23532,6 +24612,7 @@ class SettlInstCode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SettlInstCodePtr(SettlInstCode):
     def __init__(self, this):
@@ -23548,7 +24629,7 @@ class SecuritySettlAgentName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentName, name)
     def __repr__(self):
-        return "<C FIX::SecuritySettlAgentName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecuritySettlAgentName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecuritySettlAgentName, 'this', _quickfix.new_SecuritySettlAgentName(*args))
         _swig_setattr(self, SecuritySettlAgentName, 'thisown', 1)
@@ -23556,6 +24637,7 @@ class SecuritySettlAgentName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecuritySettlAgentNamePtr(SecuritySettlAgentName):
     def __init__(self, this):
@@ -23572,7 +24654,7 @@ class SecuritySettlAgentCode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentCode, name)
     def __repr__(self):
-        return "<C FIX::SecuritySettlAgentCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecuritySettlAgentCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecuritySettlAgentCode, 'this', _quickfix.new_SecuritySettlAgentCode(*args))
         _swig_setattr(self, SecuritySettlAgentCode, 'thisown', 1)
@@ -23580,6 +24662,7 @@ class SecuritySettlAgentCode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecuritySettlAgentCodePtr(SecuritySettlAgentCode):
     def __init__(self, this):
@@ -23596,7 +24679,7 @@ class SecuritySettlAgentAcctNum(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentAcctNum, name)
     def __repr__(self):
-        return "<C FIX::SecuritySettlAgentAcctNum instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecuritySettlAgentAcctNum instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecuritySettlAgentAcctNum, 'this', _quickfix.new_SecuritySettlAgentAcctNum(*args))
         _swig_setattr(self, SecuritySettlAgentAcctNum, 'thisown', 1)
@@ -23604,6 +24687,7 @@ class SecuritySettlAgentAcctNum(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecuritySettlAgentAcctNumPtr(SecuritySettlAgentAcctNum):
     def __init__(self, this):
@@ -23620,7 +24704,7 @@ class SecuritySettlAgentAcctName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentAcctName, name)
     def __repr__(self):
-        return "<C FIX::SecuritySettlAgentAcctName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecuritySettlAgentAcctName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecuritySettlAgentAcctName, 'this', _quickfix.new_SecuritySettlAgentAcctName(*args))
         _swig_setattr(self, SecuritySettlAgentAcctName, 'thisown', 1)
@@ -23628,6 +24712,7 @@ class SecuritySettlAgentAcctName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecuritySettlAgentAcctNamePtr(SecuritySettlAgentAcctName):
     def __init__(self, this):
@@ -23644,7 +24729,7 @@ class SecuritySettlAgentContactName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentContactName, name)
     def __repr__(self):
-        return "<C FIX::SecuritySettlAgentContactName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecuritySettlAgentContactName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecuritySettlAgentContactName, 'this', _quickfix.new_SecuritySettlAgentContactName(*args))
         _swig_setattr(self, SecuritySettlAgentContactName, 'thisown', 1)
@@ -23652,6 +24737,7 @@ class SecuritySettlAgentContactName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecuritySettlAgentContactNamePtr(SecuritySettlAgentContactName):
     def __init__(self, this):
@@ -23668,7 +24754,7 @@ class SecuritySettlAgentContactPhone(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SecuritySettlAgentContactPhone, name)
     def __repr__(self):
-        return "<C FIX::SecuritySettlAgentContactPhone instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SecuritySettlAgentContactPhone instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SecuritySettlAgentContactPhone, 'this', _quickfix.new_SecuritySettlAgentContactPhone(*args))
         _swig_setattr(self, SecuritySettlAgentContactPhone, 'thisown', 1)
@@ -23676,6 +24762,7 @@ class SecuritySettlAgentContactPhone(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SecuritySettlAgentContactPhonePtr(SecuritySettlAgentContactPhone):
     def __init__(self, this):
@@ -23692,7 +24779,7 @@ class CashSettlAgentName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentName, name)
     def __repr__(self):
-        return "<C FIX::CashSettlAgentName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashSettlAgentName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashSettlAgentName, 'this', _quickfix.new_CashSettlAgentName(*args))
         _swig_setattr(self, CashSettlAgentName, 'thisown', 1)
@@ -23700,6 +24787,7 @@ class CashSettlAgentName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashSettlAgentNamePtr(CashSettlAgentName):
     def __init__(self, this):
@@ -23716,7 +24804,7 @@ class CashSettlAgentCode(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentCode, name)
     def __repr__(self):
-        return "<C FIX::CashSettlAgentCode instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashSettlAgentCode instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashSettlAgentCode, 'this', _quickfix.new_CashSettlAgentCode(*args))
         _swig_setattr(self, CashSettlAgentCode, 'thisown', 1)
@@ -23724,6 +24812,7 @@ class CashSettlAgentCode(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashSettlAgentCodePtr(CashSettlAgentCode):
     def __init__(self, this):
@@ -23740,7 +24829,7 @@ class CashSettlAgentAcctNum(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentAcctNum, name)
     def __repr__(self):
-        return "<C FIX::CashSettlAgentAcctNum instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashSettlAgentAcctNum instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashSettlAgentAcctNum, 'this', _quickfix.new_CashSettlAgentAcctNum(*args))
         _swig_setattr(self, CashSettlAgentAcctNum, 'thisown', 1)
@@ -23748,6 +24837,7 @@ class CashSettlAgentAcctNum(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashSettlAgentAcctNumPtr(CashSettlAgentAcctNum):
     def __init__(self, this):
@@ -23764,7 +24854,7 @@ class CashSettlAgentAcctName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentAcctName, name)
     def __repr__(self):
-        return "<C FIX::CashSettlAgentAcctName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashSettlAgentAcctName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashSettlAgentAcctName, 'this', _quickfix.new_CashSettlAgentAcctName(*args))
         _swig_setattr(self, CashSettlAgentAcctName, 'thisown', 1)
@@ -23772,6 +24862,7 @@ class CashSettlAgentAcctName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashSettlAgentAcctNamePtr(CashSettlAgentAcctName):
     def __init__(self, this):
@@ -23788,7 +24879,7 @@ class CashSettlAgentContactName(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentContactName, name)
     def __repr__(self):
-        return "<C FIX::CashSettlAgentContactName instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashSettlAgentContactName instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashSettlAgentContactName, 'this', _quickfix.new_CashSettlAgentContactName(*args))
         _swig_setattr(self, CashSettlAgentContactName, 'thisown', 1)
@@ -23796,6 +24887,7 @@ class CashSettlAgentContactName(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashSettlAgentContactNamePtr(CashSettlAgentContactName):
     def __init__(self, this):
@@ -23812,7 +24904,7 @@ class CashSettlAgentContactPhone(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CashSettlAgentContactPhone, name)
     def __repr__(self):
-        return "<C FIX::CashSettlAgentContactPhone instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CashSettlAgentContactPhone instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CashSettlAgentContactPhone, 'this', _quickfix.new_CashSettlAgentContactPhone(*args))
         _swig_setattr(self, CashSettlAgentContactPhone, 'thisown', 1)
@@ -23820,6 +24912,7 @@ class CashSettlAgentContactPhone(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CashSettlAgentContactPhonePtr(CashSettlAgentContactPhone):
     def __init__(self, this):
@@ -23836,7 +24929,7 @@ class FutSettDate2(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FutSettDate2, name)
     def __repr__(self):
-        return "<C FIX::FutSettDate2 instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FutSettDate2 instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FutSettDate2, 'this', _quickfix.new_FutSettDate2(*args))
         _swig_setattr(self, FutSettDate2, 'thisown', 1)
@@ -23844,6 +24937,7 @@ class FutSettDate2(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FutSettDate2Ptr(FutSettDate2):
     def __init__(self, this):
@@ -23860,7 +24954,7 @@ class PutOrCall(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PutOrCall, name)
     def __repr__(self):
-        return "<C FIX::PutOrCall instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PutOrCall instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PutOrCall, 'this', _quickfix.new_PutOrCall(*args))
         _swig_setattr(self, PutOrCall, 'thisown', 1)
@@ -23868,6 +24962,7 @@ class PutOrCall(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PutOrCallPtr(PutOrCall):
     def __init__(self, this):
@@ -23884,7 +24979,7 @@ class CustomerOrFirm(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CustomerOrFirm, name)
     def __repr__(self):
-        return "<C FIX::CustomerOrFirm instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CustomerOrFirm instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CustomerOrFirm, 'this', _quickfix.new_CustomerOrFirm(*args))
         _swig_setattr(self, CustomerOrFirm, 'thisown', 1)
@@ -23892,6 +24987,7 @@ class CustomerOrFirm(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CustomerOrFirmPtr(CustomerOrFirm):
     def __init__(self, this):
@@ -23908,7 +25004,7 @@ class MaturityDay(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MaturityDay, name)
     def __repr__(self):
-        return "<C FIX::MaturityDay instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MaturityDay instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MaturityDay, 'this', _quickfix.new_MaturityDay(*args))
         _swig_setattr(self, MaturityDay, 'thisown', 1)
@@ -23916,6 +25012,7 @@ class MaturityDay(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MaturityDayPtr(MaturityDay):
     def __init__(self, this):
@@ -23932,7 +25029,7 @@ class PegDifference(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, PegDifference, name)
     def __repr__(self):
-        return "<C FIX::PegDifference instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::PegDifference instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, PegDifference, 'this', _quickfix.new_PegDifference(*args))
         _swig_setattr(self, PegDifference, 'thisown', 1)
@@ -23940,6 +25037,7 @@ class PegDifference(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class PegDifferencePtr(PegDifference):
     def __init__(self, this):
@@ -23956,7 +25054,7 @@ class SpreadToBenchmark(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SpreadToBenchmark, name)
     def __repr__(self):
-        return "<C FIX::SpreadToBenchmark instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SpreadToBenchmark instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SpreadToBenchmark, 'this', _quickfix.new_SpreadToBenchmark(*args))
         _swig_setattr(self, SpreadToBenchmark, 'thisown', 1)
@@ -23964,6 +25062,7 @@ class SpreadToBenchmark(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SpreadToBenchmarkPtr(SpreadToBenchmark):
     def __init__(self, this):
@@ -23980,7 +25079,7 @@ class Benchmark(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Benchmark, name)
     def __repr__(self):
-        return "<C FIX::Benchmark instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Benchmark instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Benchmark, 'this', _quickfix.new_Benchmark(*args))
         _swig_setattr(self, Benchmark, 'thisown', 1)
@@ -23988,6 +25087,7 @@ class Benchmark(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class BenchmarkPtr(Benchmark):
     def __init__(self, this):
@@ -24004,7 +25104,7 @@ class OpenCloseSettleFlag(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OpenCloseSettleFlag, name)
     def __repr__(self):
-        return "<C FIX::OpenCloseSettleFlag instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OpenCloseSettleFlag instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OpenCloseSettleFlag, 'this', _quickfix.new_OpenCloseSettleFlag(*args))
         _swig_setattr(self, OpenCloseSettleFlag, 'thisown', 1)
@@ -24012,6 +25112,7 @@ class OpenCloseSettleFlag(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OpenCloseSettleFlagPtr(OpenCloseSettleFlag):
     def __init__(self, this):
@@ -24028,7 +25129,7 @@ class UnderlyingIDSource(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingIDSource, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingIDSource instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingIDSource instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingIDSource, 'this', _quickfix.new_UnderlyingIDSource(*args))
         _swig_setattr(self, UnderlyingIDSource, 'thisown', 1)
@@ -24036,6 +25137,7 @@ class UnderlyingIDSource(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingIDSourcePtr(UnderlyingIDSource):
     def __init__(self, this):
@@ -24052,7 +25154,7 @@ class QuoteAckStatus(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, QuoteAckStatus, name)
     def __repr__(self):
-        return "<C FIX::QuoteAckStatus instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::QuoteAckStatus instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, QuoteAckStatus, 'this', _quickfix.new_QuoteAckStatus(*args))
         _swig_setattr(self, QuoteAckStatus, 'thisown', 1)
@@ -24060,6 +25162,7 @@ class QuoteAckStatus(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class QuoteAckStatusPtr(QuoteAckStatus):
     def __init__(self, this):
@@ -24076,7 +25179,7 @@ class TotQuoteEntries(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotQuoteEntries, name)
     def __repr__(self):
-        return "<C FIX::TotQuoteEntries instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotQuoteEntries instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotQuoteEntries, 'this', _quickfix.new_TotQuoteEntries(*args))
         _swig_setattr(self, TotQuoteEntries, 'thisown', 1)
@@ -24084,6 +25187,7 @@ class TotQuoteEntries(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotQuoteEntriesPtr(TotQuoteEntries):
     def __init__(self, this):
@@ -24100,7 +25204,7 @@ class UnderlyingMaturityDay(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingMaturityDay, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingMaturityDay instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingMaturityDay instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingMaturityDay, 'this', _quickfix.new_UnderlyingMaturityDay(*args))
         _swig_setattr(self, UnderlyingMaturityDay, 'thisown', 1)
@@ -24108,6 +25212,7 @@ class UnderlyingMaturityDay(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingMaturityDayPtr(UnderlyingMaturityDay):
     def __init__(self, this):
@@ -24124,7 +25229,7 @@ class UnderlyingPutOrCall(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, UnderlyingPutOrCall, name)
     def __repr__(self):
-        return "<C FIX::UnderlyingPutOrCall instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::UnderlyingPutOrCall instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, UnderlyingPutOrCall, 'this', _quickfix.new_UnderlyingPutOrCall(*args))
         _swig_setattr(self, UnderlyingPutOrCall, 'thisown', 1)
@@ -24132,6 +25237,7 @@ class UnderlyingPutOrCall(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class UnderlyingPutOrCallPtr(UnderlyingPutOrCall):
     def __init__(self, this):
@@ -24148,7 +25254,7 @@ class RatioQty(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RatioQty, name)
     def __repr__(self):
-        return "<C FIX::RatioQty instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RatioQty instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RatioQty, 'this', _quickfix.new_RatioQty(*args))
         _swig_setattr(self, RatioQty, 'thisown', 1)
@@ -24156,6 +25262,7 @@ class RatioQty(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RatioQtyPtr(RatioQty):
     def __init__(self, this):
@@ -24172,7 +25279,7 @@ class OnBehalfOfSendingTime(UtcTimeStampField):
     for _s in [UtcTimeStampField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, OnBehalfOfSendingTime, name)
     def __repr__(self):
-        return "<C FIX::OnBehalfOfSendingTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::OnBehalfOfSendingTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, OnBehalfOfSendingTime, 'this', _quickfix.new_OnBehalfOfSendingTime(*args))
         _swig_setattr(self, OnBehalfOfSendingTime, 'thisown', 1)
@@ -24180,6 +25287,7 @@ class OnBehalfOfSendingTime(UtcTimeStampField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class OnBehalfOfSendingTimePtr(OnBehalfOfSendingTime):
     def __init__(self, this):
@@ -24196,7 +25304,7 @@ class DiscretionOffset(DoubleField):
     for _s in [DoubleField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, DiscretionOffset, name)
     def __repr__(self):
-        return "<C FIX::DiscretionOffset instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::DiscretionOffset instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, DiscretionOffset, 'this', _quickfix.new_DiscretionOffset(*args))
         _swig_setattr(self, DiscretionOffset, 'thisown', 1)
@@ -24204,6 +25312,7 @@ class DiscretionOffset(DoubleField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class DiscretionOffsetPtr(DiscretionOffset):
     def __init__(self, this):
@@ -24220,7 +25329,7 @@ class TotalNumSecurities(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNumSecurities, name)
     def __repr__(self):
-        return "<C FIX::TotalNumSecurities instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalNumSecurities instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalNumSecurities, 'this', _quickfix.new_TotalNumSecurities(*args))
         _swig_setattr(self, TotalNumSecurities, 'thisown', 1)
@@ -24228,6 +25337,7 @@ class TotalNumSecurities(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalNumSecuritiesPtr(TotalNumSecurities):
     def __init__(self, this):
@@ -24244,7 +25354,7 @@ class TradeType(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TradeType, name)
     def __repr__(self):
-        return "<C FIX::TradeType instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TradeType instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TradeType, 'this', _quickfix.new_TradeType(*args))
         _swig_setattr(self, TradeType, 'thisown', 1)
@@ -24252,6 +25362,7 @@ class TradeType(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TradeTypePtr(TradeType):
     def __init__(self, this):
@@ -24268,7 +25379,7 @@ class ClearingFirm(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingFirm, name)
     def __repr__(self):
-        return "<C FIX::ClearingFirm instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClearingFirm instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClearingFirm, 'this', _quickfix.new_ClearingFirm(*args))
         _swig_setattr(self, ClearingFirm, 'thisown', 1)
@@ -24276,6 +25387,7 @@ class ClearingFirm(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClearingFirmPtr(ClearingFirm):
     def __init__(self, this):
@@ -24292,7 +25404,7 @@ class ClearingAccount(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ClearingAccount, name)
     def __repr__(self):
-        return "<C FIX::ClearingAccount instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ClearingAccount instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ClearingAccount, 'this', _quickfix.new_ClearingAccount(*args))
         _swig_setattr(self, ClearingAccount, 'thisown', 1)
@@ -24300,6 +25412,7 @@ class ClearingAccount(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ClearingAccountPtr(ClearingAccount):
     def __init__(self, this):
@@ -24316,7 +25429,7 @@ class TotalVolumeTradedDate(UtcDateField):
     for _s in [UtcDateField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalVolumeTradedDate, name)
     def __repr__(self):
-        return "<C FIX::TotalVolumeTradedDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalVolumeTradedDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalVolumeTradedDate, 'this', _quickfix.new_TotalVolumeTradedDate(*args))
         _swig_setattr(self, TotalVolumeTradedDate, 'thisown', 1)
@@ -24324,6 +25437,7 @@ class TotalVolumeTradedDate(UtcDateField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalVolumeTradedDatePtr(TotalVolumeTradedDate):
     def __init__(self, this):
@@ -24340,7 +25454,7 @@ class TotalVolumeTradedTime(UtcTimeOnlyField):
     for _s in [UtcTimeOnlyField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalVolumeTradedTime, name)
     def __repr__(self):
-        return "<C FIX::TotalVolumeTradedTime instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalVolumeTradedTime instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalVolumeTradedTime, 'this', _quickfix.new_TotalVolumeTradedTime(*args))
         _swig_setattr(self, TotalVolumeTradedTime, 'thisown', 1)
@@ -24348,6 +25462,7 @@ class TotalVolumeTradedTime(UtcTimeOnlyField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalVolumeTradedTimePtr(TotalVolumeTradedTime):
     def __init__(self, this):
@@ -24364,7 +25479,7 @@ class CardIssNo(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, CardIssNo, name)
     def __repr__(self):
-        return "<C FIX::CardIssNo instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::CardIssNo instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, CardIssNo, 'this', _quickfix.new_CardIssNo(*args))
         _swig_setattr(self, CardIssNo, 'thisown', 1)
@@ -24372,6 +25487,7 @@ class CardIssNo(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class CardIssNoPtr(CardIssNo):
     def __init__(self, this):
@@ -24388,7 +25504,7 @@ class RegistDetls(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, RegistDetls, name)
     def __repr__(self):
-        return "<C FIX::RegistDetls instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::RegistDetls instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, RegistDetls, 'this', _quickfix.new_RegistDetls(*args))
         _swig_setattr(self, RegistDetls, 'thisown', 1)
@@ -24396,6 +25512,7 @@ class RegistDetls(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class RegistDetlsPtr(RegistDetls):
     def __init__(self, this):
@@ -24412,7 +25529,7 @@ class TotalNumSecurityTypes(IntField):
     for _s in [IntField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, TotalNumSecurityTypes, name)
     def __repr__(self):
-        return "<C FIX::TotalNumSecurityTypes instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::TotalNumSecurityTypes instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, TotalNumSecurityTypes, 'this', _quickfix.new_TotalNumSecurityTypes(*args))
         _swig_setattr(self, TotalNumSecurityTypes, 'thisown', 1)
@@ -24420,6 +25537,7 @@ class TotalNumSecurityTypes(IntField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class TotalNumSecurityTypesPtr(TotalNumSecurityTypes):
     def __init__(self, this):
@@ -24436,7 +25554,7 @@ class LegSettlmntTyp(CharField):
     for _s in [CharField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegSettlmntTyp, name)
     def __repr__(self):
-        return "<C FIX::LegSettlmntTyp instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegSettlmntTyp instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegSettlmntTyp, 'this', _quickfix.new_LegSettlmntTyp(*args))
         _swig_setattr(self, LegSettlmntTyp, 'thisown', 1)
@@ -24444,6 +25562,7 @@ class LegSettlmntTyp(CharField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegSettlmntTypPtr(LegSettlmntTyp):
     def __init__(self, this):
@@ -24460,7 +25579,7 @@ class LegFutSettDate(StringField):
     for _s in [StringField]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, LegFutSettDate, name)
     def __repr__(self):
-        return "<C FIX::LegFutSettDate instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LegFutSettDate instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, LegFutSettDate, 'this', _quickfix.new_LegFutSettDate(*args))
         _swig_setattr(self, LegFutSettDate, 'thisown', 1)
@@ -24468,6 +25587,7 @@ class LegFutSettDate(StringField):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class LegFutSettDatePtr(LegFutSettDate):
     def __init__(self, this):
@@ -24482,8 +25602,7 @@ class SessionID(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, SessionID, name)
     def __repr__(self):
-        return "<C FIX::SessionID instance at %s>" % (self.this,)
-    def __str__(*args): return _quickfix.SessionID___str__(*args)
+        return "<%s.%s; proxy of C++ FIX::SessionID instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SessionID, 'this', _quickfix.new_SessionID(*args))
         _swig_setattr(self, SessionID, 'thisown', 1)
@@ -24494,10 +25613,12 @@ class SessionID(_object):
     def fromString(*args): return _quickfix.SessionID_fromString(*args)
     def toString(*args): return _quickfix.SessionID_toString(*args)
     def __invert__(*args): return _quickfix.SessionID___invert__(*args)
+    def __str__(*args): return _quickfix.SessionID___str__(*args)
     def __del__(self, destroy=_quickfix.delete_SessionID):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SessionIDPtr(SessionID):
     def __init__(self, this):
@@ -24913,6 +26034,13 @@ OrdRejReason_DUPLICATE_ORDER = cvar.OrdRejReason_DUPLICATE_ORDER
 OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER = cvar.OrdRejReason_DUPLICATE_OF_A_VERBALLY_COMMUNICATED_ORDER
 OrdRejReason_STALE_ORDER = cvar.OrdRejReason_STALE_ORDER
 OrdRejReason_TRADE_ALONG_REQUIRED = cvar.OrdRejReason_TRADE_ALONG_REQUIRED
+OrdRejReason_INVALID_INVESTOR_ID = cvar.OrdRejReason_INVALID_INVESTOR_ID
+OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC = cvar.OrdRejReason_UNSUPPORTED_ORDER_CHARACTERISTIC
+OrdRejReason_SURVEILLENCE_OPTION = cvar.OrdRejReason_SURVEILLENCE_OPTION
+OrdRejReason_INCORRECT_QUANTITY = cvar.OrdRejReason_INCORRECT_QUANTITY
+OrdRejReason_INCORRECT_ALLOCATED_QUANTITY = cvar.OrdRejReason_INCORRECT_ALLOCATED_QUANTITY
+OrdRejReason_UNKNOWN_ACCOUNT = cvar.OrdRejReason_UNKNOWN_ACCOUNT
+OrdRejReason_OTHER = cvar.OrdRejReason_OTHER
 IOIQualifier_ALL_OR_NONE = cvar.IOIQualifier_ALL_OR_NONE
 IOIQualifier_MARKET_ON_CLOSE = cvar.IOIQualifier_MARKET_ON_CLOSE
 IOIQualifier_AT_THE_CLOSE = cvar.IOIQualifier_AT_THE_CLOSE
@@ -26148,6 +27276,14 @@ SessionRejectReason_INVALID_MSGTYPE_TEXT = cvar.SessionRejectReason_INVALID_MSGT
 SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT = cvar.SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE_TEXT
 SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT = cvar.SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER_TEXT
 SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT = cvar.SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP_TEXT
+BusinessRejectReason_OTHER_TEXT = cvar.BusinessRejectReason_OTHER_TEXT
+BusinessRejectReason_UNKNOWN_ID_TEXT = cvar.BusinessRejectReason_UNKNOWN_ID_TEXT
+BusinessRejectReason_UNKNOWN_SECURITY_TEXT = cvar.BusinessRejectReason_UNKNOWN_SECURITY_TEXT
+BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT = cvar.BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE_TEXT
+BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT = cvar.BusinessRejectReason_APPLICATION_NOT_AVAILABLE_TEXT
+BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT = cvar.BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING_TEXT
+BusinessRejectReason_NOT_AUTHORIZED_TEXT = cvar.BusinessRejectReason_NOT_AUTHORIZED_TEXT
+BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT = cvar.BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT
 ExecTransType_NEW = cvar.ExecTransType_NEW
 ExecTransType_CANCEL = cvar.ExecTransType_CANCEL
 ExecTransType_CORRECT = cvar.ExecTransType_CORRECT
@@ -26233,7 +27369,7 @@ class SessionSettings(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, SessionSettings, name)
     def __repr__(self):
-        return "<C FIX::SessionSettings instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SessionSettings instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SessionSettings, 'this', _quickfix.new_SessionSettings(*args))
         _swig_setattr(self, SessionSettings, 'thisown', 1)
@@ -26245,6 +27381,7 @@ class SessionSettings(_object):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SessionSettingsPtr(SessionSettings):
     def __init__(self, this):
@@ -26266,6 +27403,7 @@ TARGETCOMPID = cvar.TARGETCOMPID
 SESSION_QUALIFIER = cvar.SESSION_QUALIFIER
 CONNECTION_TYPE = cvar.CONNECTION_TYPE
 USE_DATA_DICTIONARY = cvar.USE_DATA_DICTIONARY
+SEND_RESETSEQNUMFLAG = cvar.SEND_RESETSEQNUMFLAG
 DATA_DICTIONARY = cvar.DATA_DICTIONARY
 START_TIME = cvar.START_TIME
 END_TIME = cvar.END_TIME
@@ -26278,9 +27416,11 @@ SOCKET_ACCEPT_PORT = cvar.SOCKET_ACCEPT_PORT
 SOCKET_REUSE_ADDRESS = cvar.SOCKET_REUSE_ADDRESS
 SOCKET_CONNECT_HOST = cvar.SOCKET_CONNECT_HOST
 SOCKET_CONNECT_PORT = cvar.SOCKET_CONNECT_PORT
+SOCKET_NODELAY = cvar.SOCKET_NODELAY
 RECONNECT_INTERVAL = cvar.RECONNECT_INTERVAL
 VALIDATE_FIELDS_OUT_OF_ORDER = cvar.VALIDATE_FIELDS_OUT_OF_ORDER
 VALIDATE_FIELDS_HAVE_VALUES = cvar.VALIDATE_FIELDS_HAVE_VALUES
+VALIDATE_USER_DEFINED_FIELDS = cvar.VALIDATE_USER_DEFINED_FIELDS
 LOGON_TIMEOUT = cvar.LOGON_TIMEOUT
 FILE_STORE_PATH = cvar.FILE_STORE_PATH
 MYSQL_STORE_DATABASE = cvar.MYSQL_STORE_DATABASE
@@ -26299,7 +27439,7 @@ class Session(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Session, name)
     def __repr__(self):
-        return "<C FIX::Session instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Session instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, Session, 'this', _quickfix.new_Session(*args))
         _swig_setattr(self, Session, 'thisown', 1)
@@ -26307,6 +27447,7 @@ class Session(_object):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def logon(*args): return _quickfix.Session_logon(*args)
     def logout(*args): return _quickfix.Session_logout(*args)
     def isEnabled(*args): return _quickfix.Session_isEnabled(*args)
@@ -26321,16 +27462,8 @@ class Session(_object):
     def getDataDictionary(*args): return _quickfix.Session_getDataDictionary(*args)
     __swig_getmethods__["sendToTarget"] = lambda x: _quickfix.Session_sendToTarget
     if _newclass:sendToTarget = staticmethod(_quickfix.Session_sendToTarget)
-    __swig_getmethods__["sendToTarget"] = lambda x: _quickfix.Session_sendToTarget
-    if _newclass:sendToTarget = staticmethod(_quickfix.Session_sendToTarget)
-    __swig_getmethods__["sendToTarget"] = lambda x: _quickfix.Session_sendToTarget
-    if _newclass:sendToTarget = staticmethod(_quickfix.Session_sendToTarget)
-    __swig_getmethods__["sendToTarget"] = lambda x: _quickfix.Session_sendToTarget
-    if _newclass:sendToTarget = staticmethod(_quickfix.Session_sendToTarget)
     __swig_getmethods__["doesSessionExist"] = lambda x: _quickfix.Session_doesSessionExist
     if _newclass:doesSessionExist = staticmethod(_quickfix.Session_doesSessionExist)
-    __swig_getmethods__["lookupSession"] = lambda x: _quickfix.Session_lookupSession
-    if _newclass:lookupSession = staticmethod(_quickfix.Session_lookupSession)
     __swig_getmethods__["lookupSession"] = lambda x: _quickfix.Session_lookupSession
     if _newclass:lookupSession = staticmethod(_quickfix.Session_lookupSession)
     __swig_getmethods__["isSessionRegistered"] = lambda x: _quickfix.Session_isSessionRegistered
@@ -26345,6 +27478,7 @@ class Session(_object):
     def checkLatency(*args): return _quickfix.Session_checkLatency(*args)
     def setMaxLatency(*args): return _quickfix.Session_setMaxLatency(*args)
     def setLogonTimeout(*args): return _quickfix.Session_setLogonTimeout(*args)
+    def setSendResetSeqNumFlag(*args): return _quickfix.Session_setSendResetSeqNumFlag(*args)
     def setResetOnLogout(*args): return _quickfix.Session_setResetOnLogout(*args)
     def setResetOnDisconnect(*args): return _quickfix.Session_setResetOnDisconnect(*args)
     def setMillisecondsInTimeStamp(*args): return _quickfix.Session_setMillisecondsInTimeStamp(*args)
@@ -26387,11 +27521,12 @@ class LogFactory(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, LogFactory, name)
     def __init__(self): raise RuntimeError, "No constructor defined"
     def __repr__(self):
-        return "<C FIX::LogFactory instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::LogFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __del__(self, destroy=_quickfix.delete_LogFactory):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def create(*args): return _quickfix.LogFactory_create(*args)
     def destroy(*args): return _quickfix.LogFactory_destroy(*args)
 
@@ -26410,7 +27545,7 @@ class ScreenLogFactory(LogFactory):
     for _s in [LogFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ScreenLogFactory, name)
     def __repr__(self):
-        return "<C FIX::ScreenLogFactory instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ScreenLogFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ScreenLogFactory, 'this', _quickfix.new_ScreenLogFactory(*args))
         _swig_setattr(self, ScreenLogFactory, 'thisown', 1)
@@ -26420,6 +27555,7 @@ class ScreenLogFactory(LogFactory):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ScreenLogFactoryPtr(ScreenLogFactory):
     def __init__(self, this):
@@ -26435,11 +27571,12 @@ class Log(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, Log, name)
     def __init__(self): raise RuntimeError, "No constructor defined"
     def __repr__(self):
-        return "<C FIX::Log instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Log instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __del__(self, destroy=_quickfix.delete_Log):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def onIncoming(*args): return _quickfix.Log_onIncoming(*args)
     def onOutgoing(*args): return _quickfix.Log_onOutgoing(*args)
     def onEvent(*args): return _quickfix.Log_onEvent(*args)
@@ -26459,7 +27596,7 @@ class ScreenLog(Log):
     for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, ScreenLog, name)
     def __repr__(self):
-        return "<C FIX::ScreenLog instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::ScreenLog instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, ScreenLog, 'this', _quickfix.new_ScreenLog(*args))
         _swig_setattr(self, ScreenLog, 'thisown', 1)
@@ -26470,6 +27607,7 @@ class ScreenLog(Log):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class ScreenLogPtr(ScreenLog):
     def __init__(self, this):
@@ -26486,7 +27624,7 @@ class FileLogFactory(LogFactory):
     for _s in [LogFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FileLogFactory, name)
     def __repr__(self):
-        return "<C FIX::FileLogFactory instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FileLogFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FileLogFactory, 'this', _quickfix.new_FileLogFactory(*args))
         _swig_setattr(self, FileLogFactory, 'thisown', 1)
@@ -26496,6 +27634,7 @@ class FileLogFactory(LogFactory):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FileLogFactoryPtr(FileLogFactory):
     def __init__(self, this):
@@ -26512,7 +27651,7 @@ class FileLog(Log):
     for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FileLog, name)
     def __repr__(self):
-        return "<C FIX::FileLog instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FileLog instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FileLog, 'this', _quickfix.new_FileLog(*args))
         _swig_setattr(self, FileLog, 'thisown', 1)
@@ -26520,6 +27659,7 @@ class FileLog(Log):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def onIncoming(*args): return _quickfix.FileLog_onIncoming(*args)
     def onOutgoing(*args): return _quickfix.FileLog_onOutgoing(*args)
     def onEvent(*args): return _quickfix.FileLog_onEvent(*args)
@@ -26538,11 +27678,12 @@ class MessageStoreFactory(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStoreFactory, name)
     def __init__(self): raise RuntimeError, "No constructor defined"
     def __repr__(self):
-        return "<C FIX::MessageStoreFactory instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MessageStoreFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __del__(self, destroy=_quickfix.delete_MessageStoreFactory):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def create(*args): return _quickfix.MessageStoreFactory_create(*args)
     def destroy(*args): return _quickfix.MessageStoreFactory_destroy(*args)
 
@@ -26561,7 +27702,7 @@ class MemoryStoreFactory(MessageStoreFactory):
     for _s in [MessageStoreFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MemoryStoreFactory, name)
     def __repr__(self):
-        return "<C FIX::MemoryStoreFactory instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MemoryStoreFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def create(*args): return _quickfix.MemoryStoreFactory_create(*args)
     def destroy(*args): return _quickfix.MemoryStoreFactory_destroy(*args)
     def __init__(self, *args):
@@ -26571,6 +27712,7 @@ class MemoryStoreFactory(MessageStoreFactory):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MemoryStoreFactoryPtr(MemoryStoreFactory):
     def __init__(self, this):
@@ -26586,11 +27728,12 @@ class MessageStore(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStore, name)
     def __init__(self): raise RuntimeError, "No constructor defined"
     def __repr__(self):
-        return "<C FIX::MessageStore instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MessageStore instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __del__(self, destroy=_quickfix.delete_MessageStore):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def set(*args): return _quickfix.MessageStore_set(*args)
     def get(*args): return _quickfix.MessageStore_get(*args)
     def getNextSenderMsgSeqNum(*args): return _quickfix.MessageStore_getNextSenderMsgSeqNum(*args)
@@ -26617,7 +27760,7 @@ class MemoryStore(MessageStore):
     for _s in [MessageStore]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, MemoryStore, name)
     def __repr__(self):
-        return "<C FIX::MemoryStore instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MemoryStore instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MemoryStore, 'this', _quickfix.new_MemoryStore(*args))
         _swig_setattr(self, MemoryStore, 'thisown', 1)
@@ -26637,6 +27780,7 @@ class MemoryStore(MessageStore):
             if self.thisown: destroy(self)
         except: pass
 
+
 class MemoryStorePtr(MemoryStore):
     def __init__(self, this):
         _swig_setattr(self, MemoryStore, 'this', this)
@@ -26650,7 +27794,7 @@ class MessageStoreFactoryExceptionWrapper(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStoreFactoryExceptionWrapper, name)
     def __repr__(self):
-        return "<C FIX::MessageStoreFactoryExceptionWrapper instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MessageStoreFactoryExceptionWrapper instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MessageStoreFactoryExceptionWrapper, 'this', _quickfix.new_MessageStoreFactoryExceptionWrapper(*args))
         _swig_setattr(self, MessageStoreFactoryExceptionWrapper, 'thisown', 1)
@@ -26660,6 +27804,7 @@ class MessageStoreFactoryExceptionWrapper(_object):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class MessageStoreFactoryExceptionWrapperPtr(MessageStoreFactoryExceptionWrapper):
     def __init__(self, this):
@@ -26674,7 +27819,7 @@ class MessageStoreExceptionWrapper(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, MessageStoreExceptionWrapper, name)
     def __repr__(self):
-        return "<C FIX::MessageStoreExceptionWrapper instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::MessageStoreExceptionWrapper instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, MessageStoreExceptionWrapper, 'this', _quickfix.new_MessageStoreExceptionWrapper(*args))
         _swig_setattr(self, MessageStoreExceptionWrapper, 'thisown', 1)
@@ -26682,6 +27827,7 @@ class MessageStoreExceptionWrapper(_object):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def set(*args): return _quickfix.MessageStoreExceptionWrapper_set(*args)
     def get(*args): return _quickfix.MessageStoreExceptionWrapper_get(*args)
     def getNextSenderMsgSeqNum(*args): return _quickfix.MessageStoreExceptionWrapper_getNextSenderMsgSeqNum(*args)
@@ -26708,7 +27854,7 @@ class FileStoreFactory(MessageStoreFactory):
     for _s in [MessageStoreFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FileStoreFactory, name)
     def __repr__(self):
-        return "<C FIX::FileStoreFactory instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FileStoreFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FileStoreFactory, 'this', _quickfix.new_FileStoreFactory(*args))
         _swig_setattr(self, FileStoreFactory, 'thisown', 1)
@@ -26718,6 +27864,7 @@ class FileStoreFactory(MessageStoreFactory):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class FileStoreFactoryPtr(FileStoreFactory):
     def __init__(self, this):
@@ -26734,7 +27881,7 @@ class FileStore(MessageStore):
     for _s in [MessageStore]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, FileStore, name)
     def __repr__(self):
-        return "<C FIX::FileStore instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::FileStore instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, FileStore, 'this', _quickfix.new_FileStore(*args))
         _swig_setattr(self, FileStore, 'thisown', 1)
@@ -26742,6 +27889,7 @@ class FileStore(MessageStore):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def set(*args): return _quickfix.FileStore_set(*args)
     def get(*args): return _quickfix.FileStore_get(*args)
     def getNextSenderMsgSeqNum(*args): return _quickfix.FileStore_getNextSenderMsgSeqNum(*args)
@@ -26766,11 +27914,12 @@ class Application(_object):
     __swig_getmethods__ = {}
     __getattr__ = lambda self, name: _swig_getattr(self, Application, name)
     def __repr__(self):
-        return "<C FIX::Application instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Application instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __del__(self, destroy=_quickfix.delete_Application):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def onCreate(*args): return _quickfix.Application_onCreate(*args)
     def onLogon(*args): return _quickfix.Application_onLogon(*args)
     def onLogout(*args): return _quickfix.Application_onLogout(*args)
@@ -26805,7 +27954,7 @@ class SynchronizedApplication(Application):
     for _s in [Application]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SynchronizedApplication, name)
     def __repr__(self):
-        return "<C FIX::SynchronizedApplication instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SynchronizedApplication instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SynchronizedApplication, 'this', _quickfix.new_SynchronizedApplication(*args))
         _swig_setattr(self, SynchronizedApplication, 'thisown', 1)
@@ -26828,6 +27977,7 @@ class SynchronizedApplication(Application):
             if self.thisown: destroy(self)
         except: pass
 
+
 class SynchronizedApplicationPtr(SynchronizedApplication):
     def __init__(self, this):
         _swig_setattr(self, SynchronizedApplication, 'this', this)
@@ -26843,7 +27993,7 @@ class NullApplication(Application):
     for _s in [Application]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, NullApplication, name)
     def __repr__(self):
-        return "<C FIX::NullApplication instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::NullApplication instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, NullApplication, 'this', _quickfix.new_NullApplication(*args))
         _swig_setattr(self, NullApplication, 'thisown', 1)
@@ -26851,6 +28001,7 @@ class NullApplication(Application):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class NullApplicationPtr(NullApplication):
     def __init__(self, this):
@@ -26866,16 +28017,19 @@ class Initiator(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, Initiator, name)
     def __init__(self): raise RuntimeError, "No constructor defined"
     def __repr__(self):
-        return "<C FIX::Initiator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Initiator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __del__(self, destroy=_quickfix.delete_Initiator):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def block(*args): return _quickfix.Initiator_block(*args)
     def poll(*args): return _quickfix.Initiator_poll(*args)
     def stop(*args): return _quickfix.Initiator_stop(*args)
     def isLoggedOn(*args): return _quickfix.Initiator_isLoggedOn(*args)
     def getSession(*args): return _quickfix.Initiator_getSession(*args)
+    def getSessions(*args): return _quickfix.Initiator_getSessions(*args)
+    def has(*args): return _quickfix.Initiator_has(*args)
     def getApplication(*args): return _quickfix.Initiator_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Initiator_getMessageStoreFactory(*args)
 
@@ -26894,7 +28048,7 @@ class SocketInitiator(Initiator):
     for _s in [Initiator]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SocketInitiator, name)
     def __repr__(self):
-        return "<C FIX::SocketInitiator instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SocketInitiator instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SocketInitiator, 'this', _quickfix.new_SocketInitiator(*args))
         _swig_setattr(self, SocketInitiator, 'thisown', 1)
@@ -26902,6 +28056,7 @@ class SocketInitiator(Initiator):
         try:
             if self.thisown: destroy(self)
         except: pass
+
 
 class SocketInitiatorPtr(SocketInitiator):
     def __init__(self, this):
@@ -26917,16 +28072,18 @@ class Acceptor(_object):
     __getattr__ = lambda self, name: _swig_getattr(self, Acceptor, name)
     def __init__(self): raise RuntimeError, "No constructor defined"
     def __repr__(self):
-        return "<C FIX::Acceptor instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::Acceptor instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __del__(self, destroy=_quickfix.delete_Acceptor):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def block(*args): return _quickfix.Acceptor_block(*args)
     def poll(*args): return _quickfix.Acceptor_poll(*args)
     def stop(*args): return _quickfix.Acceptor_stop(*args)
     def isLoggedOn(*args): return _quickfix.Acceptor_isLoggedOn(*args)
     def getSession(*args): return _quickfix.Acceptor_getSession(*args)
+    def getSessions(*args): return _quickfix.Acceptor_getSessions(*args)
     def has(*args): return _quickfix.Acceptor_has(*args)
     def getApplication(*args): return _quickfix.Acceptor_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Acceptor_getMessageStoreFactory(*args)
@@ -26946,7 +28103,7 @@ class SocketAcceptor(Acceptor):
     for _s in [Acceptor]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, SocketAcceptor, name)
     def __repr__(self):
-        return "<C FIX::SocketAcceptor instance at %s>" % (self.this,)
+        return "<%s.%s; proxy of C++ FIX::SocketAcceptor instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
     def __init__(self, *args):
         _swig_setattr(self, SocketAcceptor, 'this', _quickfix.new_SocketAcceptor(*args))
         _swig_setattr(self, SocketAcceptor, 'thisown', 1)
@@ -26954,6 +28111,7 @@ class SocketAcceptor(Acceptor):
         try:
             if self.thisown: destroy(self)
         except: pass
+
     def getPort(*args): return _quickfix.SocketAcceptor_getPort(*args)
 
 class SocketAcceptorPtr(SocketAcceptor):
