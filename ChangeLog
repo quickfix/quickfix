@@ -1,3 +1,957 @@
+2005-06-21 05:37  orenmnero
+
+	* configure.in, src/C++/Makefile.am, src/java/Makefile.am,
+	  src/python/Makefile.am: [no log message]
+
+2005-06-18 13:55  orenmnero
+
+	* src/python/: QuickfixPython.cpp, QuickfixPython.h, quickfix.py:
+	  [no log message]
+
+2005-06-18 12:07  orenmnero
+
+	* doc/html/: FAQ.html, about.html, acceptance_tests.html,
+	  configuration.html, install.html, project.html,
+	  sending_messages.html, csharp/sending_messages_1.html,
+	  java/sending_messages_1.html, python/sending_messages_1.html,
+	  vbnet/sending_messages_1.html: updated documentation
+
+2005-06-18 11:00  orenmnero
+
+	* LICENSE, doc/html/license.html,
+	  examples/executor/C++/Application.cpp,
+	  examples/executor/C++/Application.h,
+	  examples/executor/C++/executor.cpp,
+	  examples/executor/csharp/Application.cs,
+	  examples/executor/csharp/Executor.cs,
+	  examples/executor/java/src/Application.java,
+	  examples/executor/java/src/Executor.java,
+	  examples/ordermatch/Application.cpp,
+	  examples/ordermatch/Application.h,
+	  examples/ordermatch/IDGenerator.h,
+	  examples/ordermatch/Market.cpp, examples/ordermatch/Market.h,
+	  examples/ordermatch/Order.h, examples/ordermatch/OrderMatcher.h,
+	  examples/ordermatch/ordermatch.cpp,
+	  examples/ordermatch/test/Market.cpp,
+	  examples/ordermatch/test/OrderMatcherTestCase.cpp,
+	  examples/ordermatch/test/OrderMatcherTestCase.h,
+	  examples/ordermatch/test/TestSuite.h,
+	  examples/ordermatch/test/ordermatch_ut.cpp,
+	  examples/tradeclient/Application.cpp,
+	  examples/tradeclient/Application.h,
+	  examples/tradeclient/tradeclient.cpp,
+	  examples/tradeclientgui/banzai/src/Banzai.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/BanzaiApplication.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/DoubleNumberTextField.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/Execution.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ExecutionTableModel.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/IntegerNumberTextField.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/LogonEvent.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/Order.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/OrderSide.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/OrderTIF.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/OrderTableModel.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/OrderType.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/TwoWayMap.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/BanzaiFrame.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/BanzaiPanel.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/CancelReplacePanel.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/ExecutionPanel.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/ExecutionTable.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/OrderEntryPanel.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/OrderPanel.java,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/ui/OrderTable.java,
+	  spec/COPYRIGHT.h, spec/COPYRIGHT.rb, spec/COPYRIGHT.xml,
+	  spec/COPYRIGHT.xsl, spec/FieldNumbers.xsl, spec/Fields.xsl,
+	  spec/Groups.xsl, spec/MessageCracker.xsl, spec/Messages.xsl,
+	  spec/Values.xsl, spec/c_header.xsl,
+	  spec/generate_java_fields.xsl, spec/java_Message.xsl,
+	  spec/java_MessageCracker.xsl, spec/java_MessageFactory.xsl,
+	  spec/net_Fields.xsl, spec/net_MessageCracker.xsl,
+	  spec/net_MessageFactory.xsl, spec/net_Messages.xsl, src/at.cpp,
+	  src/at.java, src/at_application.h, src/at_application.java,
+	  src/at_messagecracker.java, src/pt.cpp, src/ut.cpp,
+	  src/.NET/Acceptor.h, src/.NET/Application.h, src/.NET/CPPLog.h,
+	  src/.NET/CPPMessageStore.h, src/.NET/DataDictionary.h,
+	  src/.NET/DefaultMessageFactory.cs, src/.NET/DeprecatedFields.h,
+	  src/.NET/Exceptions.h, src/.NET/FIX40_MessageCracker.cs,
+	  src/.NET/FIX40_MessageFactory.cs,
+	  src/.NET/FIX41_MessageCracker.cs,
+	  src/.NET/FIX41_MessageFactory.cs,
+	  src/.NET/FIX42_MessageCracker.cs,
+	  src/.NET/FIX42_MessageFactory.cs,
+	  src/.NET/FIX43_MessageCracker.cs,
+	  src/.NET/FIX43_MessageFactory.cs,
+	  src/.NET/FIX44_MessageCracker.cs,
+	  src/.NET/FIX44_MessageFactory.cs, src/.NET/Field.h,
+	  src/.NET/FieldMap.h, src/.NET/FieldNumbers.h, src/.NET/Fields.h,
+	  src/.NET/FileLog.h, src/.NET/FileMessageStore.h,
+	  src/.NET/Group.cpp, src/.NET/Group.h, src/.NET/Initiator.h,
+	  src/.NET/Log.h, src/.NET/LogFactory.h,
+	  src/.NET/MemoryMessageStore.h, src/.NET/Message.cpp,
+	  src/.NET/Message.h, src/.NET/MessageCracker.cs,
+	  src/.NET/MessageFactory.h, src/.NET/MessageStore.h,
+	  src/.NET/MessageStoreFactory.h, src/.NET/Messages.h,
+	  src/.NET/MySQLLog.h, src/.NET/MySQLMessageStore.h,
+	  src/.NET/ScreenLog.h, src/.NET/Session.cpp, src/.NET/Session.h,
+	  src/.NET/SessionID.h, src/.NET/SessionSettings.h,
+	  src/.NET/SocketAcceptor.h, src/.NET/SocketInitiator.h,
+	  src/.NET/ThreadedSocketAcceptor.h,
+	  src/.NET/ThreadedSocketInitiator.h, src/.NET/quickfix_net.cpp,
+	  src/.NET/quickfix_net.h, src/C++/Acceptor.cpp,
+	  src/C++/Acceptor.h, src/C++/Application.h, src/C++/CallStack.cpp,
+	  src/C++/CallStack.h, src/C++/ConfigLexer.h,
+	  src/C++/DOMDocument.h, src/C++/DataDictionary.cpp,
+	  src/C++/DataDictionary.h, src/C++/DeprecatedFieldNumbers.h,
+	  src/C++/DeprecatedFields.h, src/C++/DeprecatedValues.h,
+	  src/C++/Dictionary.cpp, src/C++/Dictionary.h, src/C++/Event.h,
+	  src/C++/Exceptions.h, src/C++/Field.h, src/C++/FieldConvertors.h,
+	  src/C++/FieldMap.cpp, src/C++/FieldMap.h, src/C++/FieldNumbers.h,
+	  src/C++/FieldTypes.cpp, src/C++/FieldTypes.h, src/C++/Fields.h,
+	  src/C++/FileLog.cpp, src/C++/FileLog.h, src/C++/FileStore.cpp,
+	  src/C++/FileStore.h, src/C++/Group.cpp, src/C++/Group.h,
+	  src/C++/Initiator.cpp, src/C++/Initiator.h,
+	  src/C++/LIBXML_DOMDocument.cpp, src/C++/LIBXML_DOMDocument.h,
+	  src/C++/Log.cpp, src/C++/Log.h, src/C++/MSXML_DOMDocument.cpp,
+	  src/C++/MSXML_DOMDocument.h, src/C++/Message.cpp,
+	  src/C++/Message.h, src/C++/MessageCracker.h,
+	  src/C++/MessageSorters.cpp, src/C++/MessageSorters.h,
+	  src/C++/MessageStore.cpp, src/C++/MessageStore.h,
+	  src/C++/Messages.h, src/C++/Mutex.h, src/C++/MySQLLog.cpp,
+	  src/C++/MySQLLog.h, src/C++/MySQLStore.cpp, src/C++/MySQLStore.h,
+	  src/C++/Parser.cpp, src/C++/Parser.h, src/C++/Queue.h,
+	  src/C++/Responder.h, src/C++/Session.cpp, src/C++/Session.h,
+	  src/C++/SessionFactory.cpp, src/C++/SessionFactory.h,
+	  src/C++/SessionID.h, src/C++/SessionSettings.cpp,
+	  src/C++/SessionSettings.h, src/C++/SessionState.h,
+	  src/C++/SessionTime.cpp, src/C++/SessionTime.h,
+	  src/C++/Settings.cpp, src/C++/Settings.h,
+	  src/C++/SocketAcceptor.cpp, src/C++/SocketAcceptor.h,
+	  src/C++/SocketConnection.cpp, src/C++/SocketConnection.h,
+	  src/C++/SocketConnector.cpp, src/C++/SocketConnector.h,
+	  src/C++/SocketInitiator.cpp, src/C++/SocketInitiator.h,
+	  src/C++/SocketMonitor.cpp, src/C++/SocketMonitor.h,
+	  src/C++/SocketServer.cpp, src/C++/SocketServer.h,
+	  src/C++/ThreadedSocketAcceptor.cpp,
+	  src/C++/ThreadedSocketAcceptor.h,
+	  src/C++/ThreadedSocketConnection.cpp,
+	  src/C++/ThreadedSocketConnection.h,
+	  src/C++/ThreadedSocketInitiator.cpp,
+	  src/C++/ThreadedSocketInitiator.h, src/C++/Utility.cpp,
+	  src/C++/Utility.h, src/C++/Values.h,
+	  src/C++/fix40/MessageCracker.h, src/C++/fix41/MessageCracker.h,
+	  src/C++/fix42/MessageCracker.h, src/C++/fix43/MessageCracker.h,
+	  src/C++/fix44/MessageCracker.h,
+	  src/C++/test/AcceptorTestCase.cpp,
+	  src/C++/test/AcceptorTestCase.h,
+	  src/C++/test/DataDictionaryTestCase.cpp,
+	  src/C++/test/DataDictionaryTestCase.h,
+	  src/C++/test/DictionaryTestCase.cpp,
+	  src/C++/test/DictionaryTestCase.h,
+	  src/C++/test/FieldBaseTestCase.cpp,
+	  src/C++/test/FieldBaseTestCase.h,
+	  src/C++/test/FieldConvertorsTestCase.cpp,
+	  src/C++/test/FieldConvertorsTestCase.h,
+	  src/C++/test/FileStoreFactoryTestCase.cpp,
+	  src/C++/test/FileStoreFactoryTestCase.h,
+	  src/C++/test/FileStoreTestCase.cpp,
+	  src/C++/test/FileStoreTestCase.h,
+	  src/C++/test/FileUtilitiesTestCase.cpp,
+	  src/C++/test/FileUtilitiesTestCase.h,
+	  src/C++/test/MemoryStoreTestCase.cpp,
+	  src/C++/test/MemoryStoreTestCase.h,
+	  src/C++/test/MessageStoreTestCase.cpp,
+	  src/C++/test/MessageStoreTestCase.h,
+	  src/C++/test/MessagesTestCase.cpp,
+	  src/C++/test/MessagesTestCase.h,
+	  src/C++/test/MySQLStoreTestCase.cpp,
+	  src/C++/test/MySQLStoreTestCase.h,
+	  src/C++/test/ParserTestCase.cpp, src/C++/test/ParserTestCase.h,
+	  src/C++/test/SessionIDTestCase.cpp,
+	  src/C++/test/SessionIDTestCase.h,
+	  src/C++/test/SessionSettingsTestCase.cpp,
+	  src/C++/test/SessionSettingsTestCase.h,
+	  src/C++/test/SessionTestCase.cpp, src/C++/test/SessionTestCase.h,
+	  src/C++/test/SessionTimeTestCase.cpp,
+	  src/C++/test/SessionTimeTestCase.h,
+	  src/C++/test/SettingsTestCase.cpp,
+	  src/C++/test/SettingsTestCase.h,
+	  src/C++/test/SocketAcceptorTestCase.cpp,
+	  src/C++/test/SocketAcceptorTestCase.h,
+	  src/C++/test/SocketConnectorTestCase.cpp,
+	  src/C++/test/SocketConnectorTestCase.h,
+	  src/C++/test/SocketServerTestCase.cpp,
+	  src/C++/test/SocketServerTestCase.h,
+	  src/C++/test/SocketUtilitiesTestCase.cpp,
+	  src/C++/test/SocketUtilitiesTestCase.h,
+	  src/C++/test/StringUtilitiesTestCase.cpp,
+	  src/C++/test/StringUtilitiesTestCase.h, src/C++/test/TestSuite.h,
+	  src/C++/test/UtcTimeOnlyTestCase.cpp,
+	  src/C++/test/UtcTimeOnlyTestCase.h,
+	  src/C++/test/UtcTimeStampTestCase.cpp,
+	  src/C++/test/UtcTimeStampTestCase.h, src/java/Conversions.cpp,
+	  src/java/Conversions.h, src/java/JVM.cpp, src/java/JVM.h,
+	  src/java/JavaApplication.cpp, src/java/JavaApplication.h,
+	  src/java/JavaLog.cpp, src/java/JavaLog.h,
+	  src/java/JavaLogFactory.cpp, src/java/JavaLogFactory.h,
+	  src/java/JavaMessageStore.cpp, src/java/JavaMessageStore.h,
+	  src/java/JavaMessageStoreFactory.cpp,
+	  src/java/JavaMessageStoreFactory.h, src/java/quickfix_CppLog.cpp,
+	  src/java/quickfix_CppMessageStore.cpp,
+	  src/java/quickfix_DataDictionary.cpp,
+	  src/java/quickfix_FileLog.cpp,
+	  src/java/quickfix_FileLogFactory.cpp,
+	  src/java/quickfix_FileStore.cpp,
+	  src/java/quickfix_FileStoreFactory.cpp,
+	  src/java/quickfix_Group.cpp, src/java/quickfix_MemoryStore.cpp,
+	  src/java/quickfix_Message.cpp, src/java/quickfix_MySQLLog.cpp,
+	  src/java/quickfix_MySQLLogFactory.cpp,
+	  src/java/quickfix_MySQLStore.cpp,
+	  src/java/quickfix_MySQLStoreFactory.cpp,
+	  src/java/quickfix_ScreenLog.cpp,
+	  src/java/quickfix_ScreenLogFactory.cpp,
+	  src/java/quickfix_Session.cpp, src/java/quickfix_SessionID.cpp,
+	  src/java/quickfix_SessionSettings.cpp,
+	  src/java/quickfix_SocketAcceptor.cpp,
+	  src/java/quickfix_SocketInitiator.cpp,
+	  src/java/quickfix_ThreadedSocketAcceptor.cpp,
+	  src/java/quickfix_ThreadedSocketInitiator.cpp,
+	  src/java/src/quickfix/Acceptor.java,
+	  src/java/src/quickfix/Application.java,
+	  src/java/src/quickfix/BooleanField.java,
+	  src/java/src/quickfix/CharField.java,
+	  src/java/src/quickfix/ConfigError.java,
+	  src/java/src/quickfix/CppLog.java,
+	  src/java/src/quickfix/CppMessageStore.java,
+	  src/java/src/quickfix/DataDictionary.java,
+	  src/java/src/quickfix/DateField.java,
+	  src/java/src/quickfix/DefaultMessageFactory.java,
+	  src/java/src/quickfix/DoNotSend.java,
+	  src/java/src/quickfix/DoubleField.java,
+	  src/java/src/quickfix/Field.java,
+	  src/java/src/quickfix/FieldConvertError.java,
+	  src/java/src/quickfix/FieldMap.java,
+	  src/java/src/quickfix/FieldNotFound.java,
+	  src/java/src/quickfix/FileLog.java,
+	  src/java/src/quickfix/FileLogFactory.java,
+	  src/java/src/quickfix/FileStore.java,
+	  src/java/src/quickfix/FileStoreFactory.java,
+	  src/java/src/quickfix/Group.java,
+	  src/java/src/quickfix/IncorrectDataFormat.java,
+	  src/java/src/quickfix/IncorrectTagValue.java,
+	  src/java/src/quickfix/Initiator.java,
+	  src/java/src/quickfix/IntField.java,
+	  src/java/src/quickfix/InvalidMessage.java,
+	  src/java/src/quickfix/Log.java,
+	  src/java/src/quickfix/LogFactory.java,
+	  src/java/src/quickfix/MemoryStore.java,
+	  src/java/src/quickfix/MemoryStoreFactory.java,
+	  src/java/src/quickfix/Message.java,
+	  src/java/src/quickfix/MessageCracker.java,
+	  src/java/src/quickfix/MessageFactory.java,
+	  src/java/src/quickfix/MessageStore.java,
+	  src/java/src/quickfix/MessageStoreFactory.java,
+	  src/java/src/quickfix/MySQLLog.java,
+	  src/java/src/quickfix/MySQLLogFactory.java,
+	  src/java/src/quickfix/MySQLStore.java,
+	  src/java/src/quickfix/MySQLStoreFactory.java,
+	  src/java/src/quickfix/RejectLogon.java,
+	  src/java/src/quickfix/RuntimeError.java,
+	  src/java/src/quickfix/ScreenLog.java,
+	  src/java/src/quickfix/ScreenLogFactory.java,
+	  src/java/src/quickfix/Session.java,
+	  src/java/src/quickfix/SessionID.java,
+	  src/java/src/quickfix/SessionNotFound.java,
+	  src/java/src/quickfix/SessionSettings.java,
+	  src/java/src/quickfix/SocketAcceptor.java,
+	  src/java/src/quickfix/SocketInitiator.java,
+	  src/java/src/quickfix/StringField.java,
+	  src/java/src/quickfix/ThreadedSocketAcceptor.java,
+	  src/java/src/quickfix/ThreadedSocketInitiator.java,
+	  src/java/src/quickfix/UnsupportedMessageType.java,
+	  src/java/src/quickfix/UtcDateOnlyField.java,
+	  src/java/src/quickfix/UtcTimeOnlyField.java,
+	  src/java/src/quickfix/UtcTimeStampField.java,
+	  src/java/src/quickfix/fix40/MessageCracker.java,
+	  src/java/src/quickfix/fix40/MessageFactory.java,
+	  src/java/src/quickfix/fix41/MessageCracker.java,
+	  src/java/src/quickfix/fix41/MessageFactory.java,
+	  src/java/src/quickfix/fix42/MessageCracker.java,
+	  src/java/src/quickfix/fix42/MessageFactory.java,
+	  src/java/src/quickfix/fix43/MessageCracker.java,
+	  src/java/src/quickfix/fix43/MessageFactory.java,
+	  src/java/src/quickfix/fix44/MessageCracker.java,
+	  src/java/src/quickfix/fix44/MessageFactory.java,
+	  test/Comparator.rb, test/FixParser.rb, test/Reflector.rb,
+	  test/ReflectorClient.rb, test/ReflectorServer.rb, test/Runner.rb,
+	  test/SocketServer.rb, test/test.rb: updated copyright notice
+
+2005-06-18 08:44  orenmnero
+
+	* src/C++/: Exceptions.h, Session.cpp: Add text to logout message
+	  when RejectLogout exception is caught
+
+2005-06-15 21:14  thoennes
+
+	* src/C++/: FileLog.cpp, FileStore.cpp, Utility.cpp, Utility.h: Bug
+	  #79 - Create directories with user-configurable permissions: UNIX
+	  version of file_mkdir() now always uses mode 0777; umask should
+	  be used to modify this to any appropriate value. Removed second
+	  argument mode.
+
+2005-06-15 03:47  orenmnero
+
+	* build_vc6.bat: put echo off back in
+
+2005-06-15 02:53  orenmnero
+
+	* build_vc6.bat, build_vc7.bat: profile taken in as a parameter
+
+2005-06-13 09:11  thoennes
+
+	* src/C++/: SocketAcceptor.cpp, ThreadedSocketAcceptor.cpp: Fixed
+	  RuntimeError message: Forced port number to be non-negative.
+
+2005-06-13 05:35  orenmnero
+
+	* src/C++/: FixLexer.l, Session.cpp, ThreadedSocketConnection.cpp:
+	  fixed compiler warnings under Xcode
+
+2005-06-12 14:05  orenmnero
+
+	* src/C++/Mutex.h: removed unecessary Callstack.h dependency
+
+2005-06-08 05:38  orenmnero
+
+	* src/C++/test/MessagesTestCase.cpp: fixed compile error under gcc
+
+2005-06-07 21:35  orenmnero
+
+	* spec/FIX44.xml, src/.NET/Fields.h, src/C++/Values.h,
+	  src/java/src/quickfix/field/MessageEncoding.java: changed
+	  underscore to dash in field values
+
+2005-06-07 21:19  orenmnero
+
+	* doc/html/doxygen.css: [no log message]
+
+2005-06-07 21:02  orenmnero
+
+	* src/C++/: CallStack.h, SocketConnector.cpp, SocketServer.cpp:
+	  added class descriptions
+
+2005-06-07 20:55  orenmnero
+
+	* src/C++/: Application.h, DOMDocument.h, DataDictionary.h,
+	  Exceptions.h, Field.h, FieldConvertors.h, Group.h,
+	  LIBXML_DOMDocument.h, MSXML_DOMDocument.h, Message.h,
+	  MessageCracker.h, Mutex.h, SessionFactory.h, SessionState.h,
+	  Settings.h, SocketConnection.h, ThreadedSocketConnection.h: added
+	  class descriptions
+
+2005-06-01 05:18  orenmnero
+
+	* src/C++/: Field.h, test/MessagesTestCase.cpp,
+	  test/MessagesTestCase.h: correctly calculate checksum when high
+	  bit is set on character, patch from Caleb Epstein
+
+2005-05-31 02:39  orenmnero
+
+	* at.vcproj, pt.vcproj, quickfix.sln, quickfix.vcproj,
+	  quickfix_jni.sln, ut.vcproj, examples/examples.sln,
+	  examples/executor/C++/executor_cpp.vcproj,
+	  examples/executor/csharp/executor_csharp.csproj,
+	  examples/executor/vbnet/executor_vbnet.vbproj,
+	  examples/ordermatch/ordermatch.vcproj,
+	  examples/tradeclient/tradeclient.vcproj,
+	  src/.NET/quickfix_net.vcproj,
+	  src/.NET/quickfix_net_messages.csproj,
+	  src/java/quickfix_jni.vcproj, test/atrun/atrun.vcproj: update
+	  solution files to newest version
+
+2005-05-20 07:23  thoennes
+
+	* doc/html/application.html: Fixed wrong variable name.
+
+2005-05-17 12:39  thoennes
+
+	* doc/html/configuration.html: Bug #72 - QuickFIX Documentation
+	  misspelling: - Fixed mispelled "initator."
+
+2005-05-06 21:57  orenmnero
+
+	* spec/: FIX40.xml, FIX41.xml: updated types
+
+2005-04-27 17:41  orenmnero
+
+	* src/C++/test/DataDictionaryTestCase.cpp: [no log message]
+
+2005-04-27 17:32  orenmnero
+
+	* src/.NET/MySQLLog.h: fix for mysql logger
+
+2005-04-19 17:42  orenmnero
+
+	* src/C++/: Session.cpp, Session.h, SessionFactory.cpp,
+	  SessionSettings.h: only send resend request if ResetOnLogout,
+	  ResetOnDisconnect, or SendResetSeqNumFlag is set to 'Y'
+
+2005-04-19 07:30  orenmnero
+
+	* NEWS: [no log message]
+
+2005-04-19 07:23  orenmnero
+
+	* Doxyfile, doc/Doxyfile, doc/document.sh, doc/html/install.html:
+	  script for generating doxygen and javadoc
+
+2005-04-15 20:25  orenmnero
+
+	* src/C++/MessageCracker.h, spec/MessageCracker.xsl,
+	  src/C++/fix40/MessageCracker.h, src/C++/fix41/MessageCracker.h,
+	  src/C++/fix42/MessageCracker.h, src/C++/fix43/MessageCracker.h,
+	  src/C++/fix44/MessageCracker.h: added non-const cracker methods
+
+2005-04-14 20:41  orenmnero
+
+	* src/.NET/: SocketAcceptor.h, SocketInitiator.h: added missing
+	  implementation for start method and corrected base class
+	  derivations
+
+2005-04-14 18:07  orenmnero
+
+	* src/C++/: Session.h, Session.cpp: always send ResetSeqNumFlag=Y
+	  if expected sequence numbers are 1.
+
+2005-04-14 18:06  orenmnero
+
+	* src/C++/SocketConnection.cpp: removed unecessary test
+
+2005-04-13 21:19  orenmnero
+
+	* src/C++/: SocketConnection.cpp, SocketConnection.h: made
+	  readSocket a void method
+
+2005-04-13 20:53  orenmnero
+
+	* src/C++/: SocketConnection.cpp, SocketConnection.h: read all
+	  messages off parser after pulling data off of socket
+
+2005-04-11 06:24  orenmnero
+
+	* src/C++/: fix40/MessageCracker.h, fix41/MessageCracker.h,
+	  fix42/MessageCracker.h, fix43/MessageCracker.h,
+	  fix44/MessageCracker.h: removed non-const methods
+
+2005-04-11 05:48  orenmnero
+
+	* spec/MessageCracker.xsl: commented out non-const cracker methods
+
+2005-04-11 05:47  orenmnero
+
+	* src/C++/MessageCracker.h: cast to const
+
+2005-04-11 05:46  orenmnero
+
+	* src/C++/: DataDictionary.cpp, DataDictionary.h: added
+	  checkUserDefinedFields to copy method
+
+2005-04-10 06:54  orenmnero
+
+	* spec/MessageCracker.xsl, src/C++/fix40/MessageCracker.h,
+	  src/C++/fix41/MessageCracker.h, src/C++/fix42/MessageCracker.h,
+	  src/C++/fix43/MessageCracker.h, src/C++/fix44/MessageCracker.h:
+	  message cracker supports non-const methods for use with toApp and
+	  toAdmin
+
+2005-04-10 02:23  orenmnero
+
+	* src/C++/test/DataDictionaryTestCase.cpp: fixed implementation of
+	  checking for required fields in repeating groups
+
+2005-04-10 02:16  orenmnero
+
+	* src/C++/: DataDictionary.cpp, DataDictionary.h,
+	  test/DataDictionaryTestCase.cpp: fixed implementation of checking
+	  for required fields in repeating groups
+
+2005-04-09 21:09  orenmnero
+
+	* src/C++/: Exceptions.h, SocketConnection.cpp,
+	  ThreadedSocketConnection.cpp: differentiate between recv
+	  returning 0 and a negative number
+
+2005-04-08 21:49  orenmnero
+
+	* src/C++/Exceptions.h: have windows format socket exception
+	  messages
+
+2005-04-07 19:13  orenmnero
+
+	* configure.in: use PowerDog strptime instead of using
+	  _XOPEN_SOURCE
+
+2005-04-07 17:08  orenmnero
+
+	* src/java/Conversions.cpp: changed GMT+0 to just GMT
+
+2005-04-07 14:36  orenmnero
+
+	* configure.in, src/java/Makefile.am: install java artifacts in
+	  extensions directory under OS X
+
+2005-04-06 23:38  orenmnero
+
+	* configure.in, examples/executor/Makefile.am,
+	  examples/tradeclientgui/Makefile.am, src/Makefile.am,
+	  src/java/Makefile.am, test/Makefile.am: added --with-java flag,
+	  jnilib is installed under OS X
+
+2005-04-06 19:53  orenmnero
+
+	* src/java/: quickfix_SocketAcceptor.cpp,
+	  quickfix_SocketInitiator.cpp,
+	  quickfix_ThreadedSocketAcceptor.cpp,
+	  quickfix_ThreadedSocketInitiator.cpp: removed extra reference
+	  delete of ArrayList.	Changed implementation name for doStop to
+	  fix dynamic link error
+
+2005-04-06 05:52  orenmnero
+
+	* src/: C++/Values.h, .NET/Fields.h,
+	  java/src/quickfix/field/OrdRejReason.java: addition OrdRejReason
+	  values
+
+2005-04-06 05:32  orenmnero
+
+	* spec/FIX44.xml: [no log message]
+
+2005-04-06 03:37  orenmnero
+
+	* src/C++/Parser.cpp: fixed throw specifier mismatch
+
+2005-04-06 03:37  orenmnero
+
+	* src/C++/FieldConvertors.h: fixed scoping warning for iterator
+
+2005-04-05 22:00  orenmnero
+
+	* src/C++/: DataDictionary.cpp, DataDictionary.h,
+	  test/DataDictionaryTestCase.cpp, test/DataDictionaryTestCase.h:
+	  validate that required groups have all required fields,
+	  contributed by Yihu Fang
+
+2005-04-05 13:27  orenmnero
+
+	* spec/FIX44.xml: added missing enumeration values
+
+2005-03-31 20:24  orenmnero
+
+	* src/: .NET/Acceptor.h, .NET/Initiator.h, .NET/SocketAcceptor.h,
+	  .NET/SocketInitiator.h, .NET/ThreadedSocketAcceptor.h,
+	  .NET/ThreadedSocketInitiator.h, java/Conversions.h,
+	  java/JavaMessageStore.h, java/JVM.h, java/JavaMessageStore.cpp,
+	  java/quickfix_SocketAcceptor.cpp, java/quickfix_SocketAcceptor.h,
+	  java/quickfix_SocketInitiator.cpp,
+	  java/quickfix_SocketInitiator.h,
+	  java/quickfix_ThreadedSocketAcceptor.h,
+	  java/quickfix_ThreadedSocketInitiator.h,
+	  java/quickfix_ThreadedSocketAcceptor.cpp,
+	  java/quickfix_ThreadedSocketInitiator.cpp,
+	  java/src/quickfix/Acceptor.java,
+	  java/src/quickfix/Initiator.java,
+	  java/src/quickfix/SocketAcceptor.java,
+	  java/src/quickfix/SocketInitiator.java, C++/Acceptor.cpp,
+	  C++/Acceptor.h, java/src/quickfix/ThreadedSocketAcceptor.java,
+	  java/src/quickfix/ThreadedSocketInitiator.java,
+	  C++/Initiator.cpp, C++/Initiator.h: getSessions returns a list of
+	  sessions in an initiator or acceptor
+
+2005-03-31 18:15  orenmnero
+
+	* src/.NET/: Acceptor.h, Initiator.h: added isLoggedOn to interface
+	  declarations
+
+2005-03-31 18:14  orenmnero
+
+	* src/.NET/: Acceptor.h, Initiator.h, SocketAcceptor.h,
+	  SocketInitiator.h, ThreadedSocketAcceptor.h,
+	  ThreadedSocketInitiator.h: using correct return types and
+	  exception specifiers for block and poll
+
+2005-03-31 17:22  orenmnero
+
+	* src/: .NET/SocketAcceptor.h, .NET/SocketInitiator.h,
+	  .NET/ThreadedSocketAcceptor.h, .NET/ThreadedSocketInitiator.h,
+	  java/quickfix_SocketAcceptor.cpp, java/quickfix_SocketAcceptor.h,
+	  java/quickfix_SocketInitiator.h,
+	  java/quickfix_ThreadedSocketAcceptor.h,
+	  java/quickfix_ThreadedSocketInitiator.h,
+	  java/quickfix_SocketInitiator.cpp,
+	  java/quickfix_ThreadedSocketAcceptor.cpp,
+	  java/quickfix_ThreadedSocketInitiator.cpp,
+	  java/src/quickfix/SocketAcceptor.java,
+	  java/src/quickfix/SocketInitiator.java,
+	  java/src/quickfix/ThreadedSocketAcceptor.java,
+	  java/src/quickfix/ThreadedSocketInitiator.java: exposed block(),
+	  poll(), and isLoggedOn() methods to acceptors and initiators
+
+2005-03-31 17:20  orenmnero
+
+	* src/C++/Session.cpp: removed duplicate check
+
+2005-03-31 15:49  orenmnero
+
+	* src/C++/: Session.cpp, SocketAcceptor.cpp, SocketConnection.cpp,
+	  SocketConnection.h, SocketConnector.cpp, SocketInitiator.cpp,
+	  SocketServer.cpp, ThreadedSocketConnection.cpp,
+	  test/SocketServerTestCase.cpp, test/SocketServerTestCase.h:
+	  removed dependence on FIONREAD/NREAD
+
+2005-03-31 15:48  orenmnero
+
+	* src/C++/SessionSettings.h: added ValidateUserDefinedFields
+	  configuration property
+
+2005-03-31 13:52  orenmnero
+
+	* ut.dsp: added missing unit tests
+
+2005-03-31 13:45  orenmnero
+
+	* examples/: ordermatch/ordermatch.vcproj,
+	  tradeclient/tradeclient.vcproj: removed _debug suffix on example
+	  applications
+
+2005-03-31 13:44  orenmnero
+
+	* ut.vcproj: added missing unit tests
+
+2005-03-31 13:11  orenmnero
+
+	* doc/html/configuration.html, src/C++/DataDictionary.cpp,
+	  src/C++/DataDictionary.h, src/C++/SessionFactory.cpp,
+	  src/C++/test/DataDictionaryTestCase.cpp: implemented
+	  ValidateUserDefinedFields configuration property
+
+2005-03-28 21:59  orenmnero
+
+	* src/: java/src/quickfix/Acceptor.java,
+	  java/src/quickfix/Initiator.java,
+	  java/src/quickfix/SocketAcceptor.java, .NET/Acceptor.h,
+	  .NET/Initiator.h, java/quickfix_SocketAcceptor.cpp,
+	  java/quickfix_SocketAcceptor.h,
+	  java/quickfix_SocketInitiator.cpp,
+	  java/quickfix_SocketInitiator.h,
+	  java/quickfix_ThreadedSocketAcceptor.cpp,
+	  java/quickfix_ThreadedSocketAcceptor.h,
+	  java/quickfix_ThreadedSocketInitiator.cpp,
+	  java/quickfix_ThreadedSocketInitiator.h,
+	  java/src/quickfix/SocketInitiator.java,
+	  java/src/quickfix/ThreadedSocketAcceptor.java,
+	  java/src/quickfix/ThreadedSocketInitiator.java,
+	  .NET/SocketAcceptor.h, .NET/SocketInitiator.h,
+	  .NET/ThreadedSocketAcceptor.h, .NET/ThreadedSocketInitiator.h:
+	  force flag accesible from java and .NET
+
+2005-03-26 01:15  orenmnero
+
+	* src/C++/: Parser.cpp, Parser.h, SocketConnection.cpp,
+	  ThreadedSocketConnection.cpp, test/ParserTestCase.cpp,
+	  test/ParserTestCase.h: pulled socket code out of parser
+
+2005-03-26 01:09  orenmnero
+
+	* src/C++/FieldConvertors.h: [no log message]
+
+2005-03-26 00:06  orenmnero
+
+	* spec/Values.xsl, src/C++/Session.cpp, src/C++/Message.h,
+	  src/C++/Values.h: send BusinessMessageReject when conditionally
+	  required field not found
+
+2005-03-23 01:50  orenmnero
+
+	* src/C++/: FieldConvertors.h, test/FieldConvertorsTestCase.cpp:
+	  double values less than 0.0001 will no longer print out in
+	  scientific notation
+
+2005-03-23 00:13  orenmnero
+
+	* src/C++/: SessionID.h, test/SessionIDTestCase.cpp: session id
+	  strings can be parsed if they contain a dash
+
+2005-03-22 23:47  orenmnero
+
+	* src/C++/Utility.cpp: use recv with MSG_PEEK to detect socket
+	  disconnection. Submitted by Kristofer Peterson
+
+2005-03-22 23:36  orenmnero
+
+	* test/definitions/server/: fix40/10_MsgSeqNumGreater.def,
+	  fix41/10_MsgSeqNumGreater.def, fix42/10_MsgSeqNumGreater.def,
+	  fix43/10_MsgSeqNumGreater.def, fix44/10_MsgSeqNumGreater.def:
+	  removed expectation of extra message
+
+2005-03-11 22:48  orenmnero
+
+	* src/C++/: Session.cpp, Session.h, SessionState.h,
+	  test/SessionTestCase.cpp, test/SessionTestCase.h: fix for stack
+	  over flow with recursive next calls. Do not resend if request
+	  already exists with same range.  Submitted by Caleb Epstein.
+
+2005-03-04 19:21  orenmnero
+
+	* src/C++/Utility.cpp: clear mask and flags before passing to
+	  sigaction
+
+2005-03-02 21:14  orenmnero
+
+	* src/C++/Exceptions.h: return strerror value to convert error to
+	  string
+
+2005-03-02 01:41  orenmnero
+
+	* src/java/quickfix_SessionSettings.cpp: settings can now be set at
+	  run time
+
+2005-03-02 01:33  orenmnero
+
+	* src/C++/: Parser.cpp, test/ParserTestCase.cpp,
+	  test/ParserTestCase.h: clear the buffer out completely if no
+	  length is found
+
+2005-02-22 07:26  orenmnero
+
+	* src/C++/: SessionSettings.cpp, SessionSettings.h,
+	  test/SessionSettingsTestCase.cpp, test/SessionSettingsTestCase.h:
+	  added extra validation for sanity checks
+
+2005-02-22 07:20  orenmnero
+
+	* src/C++/FileStore.h: removed unused method declarations
+
+2005-02-21 20:55  orenmnero
+
+	* src/C++/FileStore.cpp: increase time buffer to accomodate
+	  milliseconds
+
+2005-02-21 20:51  orenmnero
+
+	* src/C++/: FileStore.cpp, FileStore.h,
+	  test/MessageStoreTestCase.cpp: Write out constant length for
+	  sequence numbers in file store.  This fixes problem where
+	  reseting sequence numbers left characters from previous value,
+	  causing the wrong number to be loaded in next time.
+
+2005-02-21 19:51  orenmnero
+
+	* src/C++/: Session.cpp, test/SessionTestCase.cpp,
+	  test/SessionTestCase.h: reset sequence numbers when
+	  ResetSeqNumFlag is received
+
+2005-02-19 18:38  orenmnero
+
+	* src/java/src/quickfix/test/PerformanceTest.java: add test for
+	  serialzing heartbeats from strings; increased number if
+	  iterations
+
+2005-02-19 18:26  orenmnero
+
+	* src/.NET/: FieldMap.h, Message.cpp, Message.h: created base
+	  FieldMap class, added some missing methods, added GetEnumerator
+	  for Header and Trailer
+
+2005-02-19 02:26  orenmnero
+
+	* src/.NET/Message.h: added isAdmin, isApp, and GetEnumerator to
+	  Message class
+
+2005-02-17 00:49  orenmnero
+
+	* src/C++/Exceptions.h: removed windows code for unix section
+
+2005-02-17 00:20  orenmnero
+
+	* src/C++/: Exceptions.h, Parser.cpp, Parser.h,
+	  SocketConnection.cpp, SocketConnection.h,
+	  ThreadedSocketConnection.cpp, ThreadedSocketConnection.h:
+	  categorize socket exceptions
+
+2005-02-11 10:19  thoennes
+
+	* quickfix.dsp, quickfix.vcproj: Bug #57 - post-build step fails to
+	  copy messages matching test: Changed Post Build Commands:
+	  Appended backslash to the test directory in the EXCLUDE list;
+	  otherwise other files matching test would be also excluded.
+
+2005-01-29 21:19  orenmnero
+
+	* src/C++/Session.cpp: do not throw base exception class
+
+2005-01-29 17:09  orenmnero
+
+	* src/C++/: Acceptor.cpp, Acceptor.h, Initiator.cpp, Initiator.h,
+	  SocketAcceptor.cpp, ThreadedSocketAcceptor.cpp,
+	  test/SocketAcceptorTestCase.h: initiators and acceptors can be
+	  restarted after stopping
+
+2005-01-29 17:09  orenmnero
+
+	* src/C++/: Session.cpp, test/SessionTestCase.cpp,
+	  test/SessionTestCase.h: do not call next if not logged on
+
+2005-01-28 21:36  orenmnero
+
+	* src/C++/: Initiator.cpp, SocketInitiator.cpp,
+	  ThreadedSocketInitiator.cpp: initiator can be restarted
+
+2005-01-28 17:45  orenmnero
+
+	* src/C++/Session.cpp: check for non empty MsgType
+
+2005-01-28 17:24  orenmnero
+
+	* src/C++/Session.cpp: trap and log exceptions occuring in catch
+	  blocks
+
+2005-01-28 16:34  orenmnero
+
+	* src/C++/Session.cpp: throwing exceptions from generateReject
+	  causes system crashes
+
+2005-01-27 22:55  orenmnero
+
+	* src/C++/Session.cpp: check to make sure fields have valuues
+	  before using them in generateReject
+
+2005-01-21 10:19  thoennes
+
+	* configure.in: Bug #52 - bootstrapping autoconf with new libxml2
+	  breaks build process: - Added reference to XML_CPPFLAGS in
+	  SHAREDFLAGS since newer libxml2 versions   define this in their
+	  autoconf m4 macros.
+
+2005-01-21 09:46  thoennes
+
+	* src/java/Conversions.h: Closes Bug #50 - Session qualifier not
+	  copied properly for java.  Reported by Scott Harrington via
+	  mailing list.
+
+2005-01-19 14:18  orenmnero
+
+	* src/C++/: SocketInitiator.cpp, ThreadedSocketInitiator.cpp: do
+	  not connect when outside the session time
+
+2005-01-18 23:54  orenmnero
+
+	* examples/executor/vbnet/Executor.vb: explicitly name exception
+
+2005-01-17 22:51  orenmnero
+
+	* src/java/: JavaApplication.cpp, JavaApplication.h: remove
+	  unneeded locker
+
+2005-01-17 22:50  orenmnero
+
+	* src/C++/Utility.h: include netinet/tcp.h for TCP_NODELAY on OS/X
+
+2005-01-15 19:47  orenmnero
+
+	* configure.in: _XOPEN_SOURCE needs to be set to 500 for solaris
+
+2005-01-15 19:41  orenmnero
+
+	* src/C++/MSXML_DOMDocument.cpp, src/C++/SessionSettings.h,
+	  src/C++/SocketAcceptor.cpp, src/C++/SocketAcceptor.h,
+	  src/C++/SocketConnector.cpp, src/C++/SocketConnector.h,
+	  src/C++/SocketInitiator.cpp, src/C++/SocketInitiator.h,
+	  src/C++/SocketServer.cpp, src/C++/SocketServer.h,
+	  src/C++/ThreadedSocketAcceptor.cpp,
+	  src/C++/ThreadedSocketAcceptor.h,
+	  src/C++/ThreadedSocketInitiator.cpp, src/C++/Utility.cpp,
+	  src/C++/Utility.h, src/C++/stdafx.h,
+	  src/C++/test/ParserTestCase.cpp,
+	  src/C++/test/SocketConnectorTestCase.cpp,
+	  doc/html/configuration.html: support for TCP_NODELAY
+
+2005-01-15 19:39  orenmnero
+
+	* src/C++/test/Makefile.am: [no log message]
+
+2005-01-15 19:29  orenmnero
+
+	* src/C++/test/: AcceptorTestCase.h, SocketAcceptorTestCase.cpp,
+	  SocketAcceptorTestCase.h, TestSuite.h: test case for running full
+	  tests via open socket
+
+2005-01-11 05:21  orenmnero
+
+	* src/C++/Session.cpp: Allow reception of logout message if logon
+	  was sent
+
+2005-01-04 06:39  orenmnero
+
+	* src/C++/: DataDictionary.cpp, DataDictionary.h,
+	  test/DataDictionaryTestCase.cpp, test/MessagesTestCase.cpp: check
+	  for required header and trailer fields
+
+2004-12-28 15:23  orenmnero
+
+	* src/C++/: Field.h, FileLog.h, FileStore.h: removed cvs tags that
+	  were giving doxygen problems
+
+2004-12-28 15:00  orenmnero
+
+	* src/C++/FileStore.h: removed cvs tags that were giving doxygen
+	  problems
+
+2004-12-08 06:26  orenmnero
+
+	* quickfix.dsp, quickfix.vcproj, src/.NET/quickfix_net.vcproj,
+	  src/.NET/quickfix_net_messages.csproj: added missing messages
+
+2004-12-06 17:37  orenmnero
+
+	* src/: .NET/fix42/ListStrikePrice.cs, C++/fix42/ListStrikePrice.h,
+	  java/src/quickfix/fix42/ListStrikePrice.java: added
+	  ListStrikePrice message
+
+2004-12-06 16:49  orenmnero
+
+	* src/.NET/FIX42_MessageCracker.cs,
+	  src/.NET/FIX42_MessageFactory.cs, src/.NET/quickfix_net.vcproj,
+	  src/.NET/quickfix_net_messages.csproj,
+	  src/C++/fix42/MessageCracker.h, spec/FIX42.xml,
+	  src/java/src/quickfix/fix42/MessageCracker.java,
+	  src/java/src/quickfix/fix42/MessageFactory.java: added
+	  ListStrikePrice message
+
+2004-12-06 16:41  orenmnero
+
+	* spec/Processor.rb: more verbose error when field or component not
+	  found
+
+2004-12-02 22:14  orenmnero
+
+	* src/: .NET/FIX42_MessageCracker.cs, .NET/FIX42_MessageFactory.cs,
+	  .NET/fix42/BidRequest.cs, .NET/fix42/BidResponse.cs,
+	  C++/fix42/BidRequest.h, C++/fix42/BidResponse.h,
+	  C++/fix42/MessageCracker.h,
+	  java/src/quickfix/fix42/BidRequest.java,
+	  java/src/quickfix/fix42/BidResponse.java,
+	  java/src/quickfix/fix42/MessageCracker.java,
+	  java/src/quickfix/fix42/MessageFactory.java: added BidRequest and
+	  BidResponse messages to fix42
+
+2004-12-02 15:56  orenmnero
+
+	* spec/FIX42.xml: added missing BidRequest and BidResponse messages
+
+2004-11-20 17:20  orenmnero
+
+	* ChangeLog, NEWS: [no log message]
+
 2004-11-18 16:45  orenmnero
 
 	* src/C++/: strptime.c, strptime.h: [no log message]
