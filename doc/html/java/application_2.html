@@ -13,7 +13,7 @@ public class MyClass {
     String fileName = args[0];
 
     Application application = new Application();
-    Settings settings = new Settings(new FileInputStream(fileName));
+    SessionSettings settings = new SessionSettings(new FileInputStream(fileName));
     MessageStoreFactory storeFactory = new FileStoreFactory(settings);
     LogFactory logFactory = new FileLogFactory(settings);
     MessageFactory messageFactory = new DefaultMessageFactory();
