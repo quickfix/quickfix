@@ -1,3 +1,15 @@
+2005-06-26 18:36  orenmnero
+
+	* NEWS: [no log message]
+
+2005-06-23 06:46  thoennes
+
+	* doc/html/java/application_2.html: - Fixed wrong class name.
+
+2005-06-21 07:11  orenmnero
+
+	* ChangeLog: [no log message]
+
 2005-06-21 05:37  orenmnero
 
 	* configure.in, src/C++/Makefile.am, src/java/Makefile.am,
