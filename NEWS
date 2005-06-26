@@ -19,6 +19,9 @@ sessions.
 
 Much more thorough logging inside of Session class.
 
+QuickFIX will add the text from a RejectLogon exception into the Text field
+of the Logout message.
+
 BusinessMessageReject, instead of Reject, will be send with a conditionally
 required field is not found.
 
@@ -68,6 +71,12 @@ java and .NET
 
 Java will only be compiled under unix when using the -with-java configure
 directive.
+
+CheckSum will not become negative field is set with negative character.
+
+RuntimeErrors regarding port numbers no longer display large numbers as negative.
+
+Directories created by quickfix use more 0777 instead of 0700.
 
 Bug when copying SessionIDs with SessionQualifiers has been fixed.
 
