@@ -925,6 +925,11 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
       doBadCompID( msg );
       return false;
     }
+
+    UtcTimeStamp now;
+    m_state.lastReceivedTime( now );
+    m_state.testRequest( 0 );
+
     if ( checkTooHigh && isTargetTooHigh( msgSeqNum ) )
     {
       doTargetTooHigh( msg );
@@ -935,10 +940,6 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
       doTargetTooLow( msg );
       return false;
     }
-
-    UtcTimeStamp now;
-    m_state.lastReceivedTime( now );
-    m_state.testRequest( 0 );
   }
   catch ( std::exception& e )
   {

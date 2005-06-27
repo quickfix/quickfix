@@ -17,6 +17,8 @@ groups.  Required fields will also be validated in the header and trailer.
 getSessions on acceptor and initiator will return a collection of managed
 sessions.
 
+Hearbeat monitor is reset when receiving a message with incorrect MsgSeqNum.
+
 Much more thorough logging inside of Session class.
 
 QuickFIX will add the text from a RejectLogon exception into the Text field
