@@ -202,9 +202,6 @@ void Session::nextLogon( const Message& logon )
   logon.getHeader().getField( senderCompID );
   logon.getHeader().getField( targetCompID );
 
-  if( !verify( logon, false, false ) )
-    return;
-
   ResetSeqNumFlag resetSeqNumFlag(false);
   if( logon.isSetField(resetSeqNumFlag) )
   logon.getField( resetSeqNumFlag );
