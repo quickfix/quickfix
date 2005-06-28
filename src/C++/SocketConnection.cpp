@@ -129,49 +129,6 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   QF_STACK_POP
 }
 
-/* bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
-{ QF_STACK_PUSH(SocketConnection::read)
-
-  std::string msg;
-  try
-  {
-    readFromSocket();
-
-    if ( !m_pSession )
-    {
-      if ( !readMessage( msg ) ) return false;
-      m_pSession = Session::lookupSession( msg, true );
-      if( m_pSession )
-        m_pSession = Session::registerSession( m_pSession->getSessionID() );      
-      if( m_pSession )
-        m_pSession = a.getSession( msg, *this );
-      if( m_pSession )
-        m_pSession->next( msg );
-      if( !m_pSession )
-      {
-        s.getMonitor().drop( m_socket );
-        return false;
-      }
-    }
-
-    readMessages( s.getMonitor() );
-    return true;
-  }
-  catch ( SocketRecvFailed& e )
-  {
-    if( m_pSession )
-      m_pSession->getLog()->onEvent( e.what() );
-    s.getMonitor().drop( m_socket );
-  }
-  catch ( InvalidMessage& )
-  {
-    s.getMonitor().drop( m_socket );
-  }
-  return false;
-
-  QF_STACK_POP
-}*/
-
 void SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
 {
