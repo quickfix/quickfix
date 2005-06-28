@@ -17,6 +17,10 @@ groups.  Required fields will also be validated in the header and trailer.
 getSessions on acceptor and initiator will return a collection of managed
 sessions.
 
+Correctly handle scenario where a SocketConnection receives a first message
+that is not a logon.  Previously it would cause the session to be registered
+without ever unregistering and thus not allowing any new connections.
+
 Hearbeat monitor is reset when receiving a message with incorrect MsgSeqNum.
 
 Much more thorough logging inside of Session class.
