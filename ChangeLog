@@ -1,3 +1,22 @@
+2005-06-30 21:24  orenmnero
+
+	* NEWS, configure.in, src/C++/Makefile.am, src/java/Makefile.am,
+	  src/python/Makefile.am: [no log message]
+
+2005-06-30 20:49  orenmnero
+
+	* src/C++/Session.cpp, src/C++/SessionState.h,
+	  test/definitions/server/fix44/SessionReset.def: Respond to reset
+	  sequence with logon at MsgSeqNum 1
+
+2005-06-28 13:28  orenmnero
+
+	* src/C++/SocketConnection.cpp: removed commented out code
+
+2005-06-28 08:01  orenmnero
+
+	* ChangeLog: [no log message]
+
 2005-06-28 07:53  orenmnero
 
 	* NEWS, src/C++/SocketConnection.cpp: only register the session
