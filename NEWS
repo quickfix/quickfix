@@ -1,3 +1,8 @@
+1.10.1
+------
+Fixed bugs regarding sequence reset functionality.  QuickFIX was not correctly
+respoding with a logon message when receiving a sequence reset.
+
 1.10.0
 ------
 ResetSeqNumFlag is always set when expected sender and target message sequence 

@@ -1,7 +1,7 @@
 # Process this file with autoconf to produce a configure script.
 
 AC_INIT(src/ut.cpp)
-AM_INIT_AUTOMAKE(quickfix, 1.10.0)
+AM_INIT_AUTOMAKE(quickfix, 1.10.1)
 AM_CONFIG_HEADER(config.h)
 AM_DISABLE_STATIC
 
