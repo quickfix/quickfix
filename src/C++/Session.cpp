@@ -190,13 +190,6 @@ void Session::next()
 void Session::nextLogon( const Message& logon )
 { QF_STACK_PUSH(Session::nextLogon)
 
-  if ( m_state.shouldSendLogon() )
-  {
-    m_state.onEvent( "Received logon response before sending request" );
-    disconnect();
-    return ;
-  }
-
   SenderCompID senderCompID;
   TargetCompID targetCompID;
   logon.getHeader().getField( senderCompID );
@@ -204,26 +197,40 @@ void Session::nextLogon( const Message& logon )
 
   ResetSeqNumFlag resetSeqNumFlag(false);
   if( logon.isSetField(resetSeqNumFlag) )
-  logon.getField( resetSeqNumFlag );
-  if( resetSeqNumFlag )
+    logon.getField( resetSeqNumFlag );
+  m_state.receivedReset( resetSeqNumFlag );
+
+  if( m_state.receivedReset() )
   {
     m_state.onEvent( "Logon contains ResetSeqNumFlag=Y, reseting sequence numbers to 1" );
-    m_state.reset();
+    if( !m_state.sentReset() ) m_state.reset();
+  }
+
+  if ( m_state.shouldSendLogon() && !m_state.receivedReset() )
+  {
+    m_state.onEvent( "Received logon response before sending request" );
+    disconnect();
+    return ;
   }
 
   if( !verify( logon, false, true ) )
     return;
   m_state.receivedLogon( true );
 
-  if ( !m_state.initiate() )
+  if ( !m_state.initiate() 
+       || (m_state.sentReset() && !m_state.receivedReset()) )
   {
-    logon.getField( m_state.heartBtInt() );
+    if( logon.isSetField(m_state.heartBtInt()) )
+      logon.getField( m_state.heartBtInt() );
     m_state.onEvent( "Received logon request" );
     generateLogon( logon );
     m_state.onEvent( "Responding to logon request" );
   }
   else
     m_state.onEvent( "Received logon response" );
+
+  m_state.sentReset( false );
+  m_state.receivedReset( false );
 
   MsgSeqNum msgSeqNum;
   logon.getHeader().getField( msgSeqNum );
@@ -507,6 +514,8 @@ void Session::disconnect()
   }
 
   m_state.sentLogout( false );
+  m_state.receivedReset( false );
+  m_state.sentReset( false );
   m_state.clearQueue();
   if ( m_resetOnDisconnect && m_state.connected() )
   { m_state.connected( false ); reset(); }
@@ -547,7 +556,10 @@ void Session::generateLogon()
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
   if( shouldSendReset() )
+  {
     logon.setField( ResetSeqNumFlag(true) );
+    m_state.sentReset( true );
+  }
   fill( logon.getHeader() );
   UtcTimeStamp now;
   m_state.lastReceivedTime( now );
@@ -565,6 +577,8 @@ void Session::generateLogon( const Message& aLogon )
   EncryptMethod encryptMethod;
   HeartBtInt heartBtInt;
   logon.setField( EncryptMethod( 0 ) );
+  if( m_state.receivedReset() )
+    logon.setField( ResetSeqNumFlag(true) );
   aLogon.getField( heartBtInt );
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( heartBtInt );
@@ -966,6 +980,8 @@ bool Session::shouldSendReset()
 bool Session::validLogonState( const MsgType& msgType )
 { QF_STACK_PUSH(Session::validLogonState)
 
+  if ( msgType == MsgType_Logon && m_state.sentReset() || m_state.receivedReset() )
+    return true;
   if ( msgType == MsgType_Logon && !m_state.receivedLogon()
        || msgType != MsgType_Logon && m_state.receivedLogon() )
     return true;

@@ -42,6 +42,7 @@ public:
   SessionState()
 : m_connected( false ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
+  m_sentReset( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
   m_pStore( 0 ), m_pLog( 0 ), m_resendRequested( 0 ) {}
 
@@ -53,6 +54,10 @@ public:
   void sentLogout( bool value ) { m_sentLogout = value; }
   bool sentLogon() const { return m_sentLogon; }
   void sentLogon( bool value ) { m_sentLogon = value; }
+  bool receivedReset() const { return m_receivedReset; }
+  void receivedReset( bool value ) { m_receivedReset = value; }
+  bool sentReset() const { return m_sentReset; }
+  void sentReset( bool value ) { m_sentReset = value; }
   bool initiate() const { return m_initiate; }
   void initiate( bool value ) { m_initiate = value; }
   int logonTimeout() const { return m_logonTimeout; }
@@ -180,6 +185,8 @@ private:
   bool m_receivedLogon;
   bool m_sentLogout;
   bool m_sentLogon;
+  bool m_receivedReset;
+  bool m_sentReset;
   bool m_initiate;
   int m_logonTimeout;
   int m_testRequest;
