@@ -42,7 +42,7 @@ public:
   SessionState()
 : m_connected( false ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
-  m_sentReset( false ),
+  m_sentReset( false ), m_receivedReset( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
   m_pStore( 0 ), m_pLog( 0 ), m_resendRequested( 0 ) {}
 

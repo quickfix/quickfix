@@ -444,6 +444,20 @@ bool Session::sendRaw( Message& message, int num )
     if ( Message::isAdminMsgType( msgType ) )
     {
       m_application.toAdmin( message, m_sessionID );
+
+      if( msgType == "A" && !m_state.receivedReset() )
+      {
+        ResetSeqNumFlag resetSeqNumFlag( false );
+        if( message.isSetField(resetSeqNumFlag) )
+          message.getField( resetSeqNumFlag );
+        if( resetSeqNumFlag )
+        {
+          m_state.reset();
+          message.getHeader().setField( MsgSeqNum(getExpectedSenderNum()) );
+        }
+        m_state.sentReset( resetSeqNumFlag );
+      }
+
       message.toString( messageString );
       if (
         msgType == "A" || msgType == "5"
@@ -563,11 +577,6 @@ void Session::generateLogon()
   m_state.testRequest( 0 );
   m_state.sentLogon( true );
   sendRaw( logon );
-
-  ResetSeqNumFlag resetSeqNumFlag( false );
-  if( logon.isSetField(resetSeqNumFlag) )
-    logon.getField( resetSeqNumFlag );
-  m_state.sentReset( resetSeqNumFlag );
 
   QF_STACK_POP
 }
