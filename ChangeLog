@@ -1,3 +1,13 @@
+2005-07-01 16:19  orenmnero
+
+	* NEWS, configure.in, src/C++/Makefile.am, src/C++/Session.cpp,
+	  src/java/Makefile.am, src/python/Makefile.am: support for manual
+	  sequence number reset with ResetSeqNumFlag
+
+2005-06-30 21:30  orenmnero
+
+	* ChangeLog: [no log message]
+
 2005-06-30 21:24  orenmnero
 
 	* NEWS, configure.in, src/C++/Makefile.am, src/java/Makefile.am,
