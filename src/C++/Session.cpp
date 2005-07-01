@@ -556,16 +556,18 @@ void Session::generateLogon()
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
   if( shouldSendReset() )
-  {
     logon.setField( ResetSeqNumFlag(true) );
-    m_state.sentReset( true );
-  }
   fill( logon.getHeader() );
   UtcTimeStamp now;
   m_state.lastReceivedTime( now );
   m_state.testRequest( 0 );
   m_state.sentLogon( true );
   sendRaw( logon );
+
+  ResetSeqNumFlag resetSeqNumFlag( false );
+  if( logon.isSetField(resetSeqNumFlag) )
+    logon.getField( resetSeqNumFlag );
+  m_state.sentReset( resetSeqNumFlag );
 
   QF_STACK_POP
 }

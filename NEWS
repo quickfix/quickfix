@@ -1,3 +1,8 @@
+1.10.2
+------
+Reset functionality will work if the user appends ResetSeqNumFlag=Y into the
+logon message from the toAdmin callback.  Allows for manual reset support.
+
 1.10.1
 ------
 Fixed bugs regarding sequence reset functionality.  QuickFIX was not correctly
