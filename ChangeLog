@@ -1,3 +1,12 @@
+2005-07-01 18:05  orenmnero
+
+	* src/C++/: Session.cpp, SessionState.h: reset sequence number when
+	  initiating a send with ResetSeqNumFlag=Y
+
+2005-07-01 16:49  orenmnero
+
+	* ChangeLog: [no log message]
+
 2005-07-01 16:19  orenmnero
 
 	* NEWS, configure.in, src/C++/Makefile.am, src/C++/Session.cpp,
