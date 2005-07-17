@@ -26,25 +26,26 @@
 
 #include "FieldTypes.h"
 
-namespace FIX
+#ifdef HAVE_FTIME
+# include <sys/timeb.h>
+#endif
+
+namespace FIX {
+
+DateTime
+DateTime::now ()
 {
-void UtcTimeStamp::setTime( const UtcTimeOnly& time )
-{ QF_STACK_PUSH(UtcTimeStamp::setTime)
-
-  setHour( time.getHour() );
-  setMinute( time.getMinute() );
-  setSecond( time.getSecond() );
-  setMillisecond( time.getMillisecond() );
-
-  QF_STACK_POP
+#if defined (HAVE_FTIME)
+    timeb tb;
+    ftime (&tb);
+    return fromTimeT (tb.time, tb.millitm);
+#elif defined (_POSIX_SOURCE)
+    struct timeval tv;
+    gettimeofday (&tv, 0);
+    return fromTimeT (tv.tv_sec, tv.tv_usec / 1000);
+#else
+    return fromTimeT (::time (0), 0);
+#endif
 }
 
-void UtcTimeStamp::operator+=( long seconds )
-{
-  tm copy = *this;
-  time_t time = mktime( const_cast < tm* > ( &copy ) );
-  time += seconds;
-  *static_cast < tm* > ( this ) = time_localtime( &time );
-  tm_isdst = -1;
-}
 }

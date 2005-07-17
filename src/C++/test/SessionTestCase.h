@@ -383,7 +383,7 @@ class Test : public CPPTest::Test < Session > ,
       {
         MemoryStore * pStore = new MemoryStore();
         UtcTimeStamp yesterday;
-        yesterday += -( UTC_DAY - 2 );
+        yesterday += -( DateTime::SECONDS_PER_DAY - 2 );
         pStore->setCreationTime( yesterday );
         return pStore;
       }

@@ -40,7 +40,7 @@ namespace FIX
         && endDay > 0
         && startDay == endDay
         && endTime > startTime )
-      { m_endTime = m_startTime; }
+    { m_endTime = m_startTime; }
   }
 
   bool SessionTime::isSessionTime( const UtcTimeOnly& start,
@@ -48,12 +48,12 @@ namespace FIX
                                    const UtcTimeStamp& time )
   { QF_STACK_PUSH(SessionTime::isSessionTime)
 
-    UtcTimeOnly timeOnly( time, 0 );
+    UtcTimeOnly timeOnly (time);
 
-    if ( start < end )
-      return ( timeOnly >= start && timeOnly <= end );
+    if( start < end )
+      return( timeOnly >= start && timeOnly <= end );
     else
-      return ( timeOnly >= start || timeOnly <= end );
+      return( timeOnly >= start || timeOnly <= end );
 
     QF_STACK_POP
   }
@@ -66,7 +66,7 @@ namespace FIX
   { QF_STACK_PUSH(SessionTime::isSessionTime)
 
     int currentDay = time.getWeekDay();
-    UtcTimeOnly timeOnly( time, 0 );
+    UtcTimeOnly timeOnly (time);
 
     if( startDay == endDay )
     {
@@ -101,18 +101,18 @@ namespace FIX
                                    const UtcTimeStamp& time2 )
   { QF_STACK_PUSH(SessionTime::isSameSession)
 
-    if ( !isSessionTime( start, end, time1 ) ) return false;
-    if ( !isSessionTime( start, end, time2 ) ) return false;
+    if( !isSessionTime( start, end, time1 ) ) return false;
+    if( !isSessionTime( start, end, time2 ) ) return false;
 
-    if ( time1 == time2 ) return true;
+    if( time1 == time2 ) return true;
 
     UtcDate time1Date( time1 );
     UtcDate time2Date( time2 );
 
-    if ( start < end || start == end )
+    if( start < end || start == end )
       return time1Date == time2Date;
     else if( start > end )
-      return labs(time1 - time2) < UTC_DAY;
+      return labs( time1 - time2 ) < DateTime::SECONDS_PER_DAY;
     return false;
 
     QF_STACK_POP
@@ -128,6 +128,7 @@ namespace FIX
 
     if( !isSessionTime( startTime, endTime, startDay, endDay, time1 ) )
       return false;
+
     if( !isSessionTime( startTime, endTime, startDay, endDay, time2 ) )
       return false;
 
@@ -138,23 +139,23 @@ namespace FIX
 
     if( time1Range == 0 )
     {
-      UtcTimeOnly timeOnly = UtcTimeOnly( time1, 0 );
+      UtcTimeOnly timeOnly = UtcTimeOnly( time1);
       if( timeOnly < startTime )
         time1Range = 7;
     }
 
     if( time2Range == 0 )
     {
-      UtcTimeOnly timeOnly = UtcTimeOnly( time2, 0 );
+      UtcTimeOnly timeOnly = UtcTimeOnly( time2 );
       if( timeOnly < startTime )
         time2Range = 7;
     }
 
-    time_t t1 = mktime( (tm*)&time1 ) - UTC_DAY * time1Range;
-    time_t t2 = mktime( (tm*)&time2 ) - UTC_DAY * time2Range;
+    time_t t1 = time1.getTimeT() - DateTime::SECONDS_PER_DAY * time1Range;
+    time_t t2 = time2.getTimeT() - DateTime::SECONDS_PER_DAY * time2Range;
 
-    tm tm1 = time_localtime( &t1 );
-    tm tm2 = time_localtime( &t2 );
+    tm tm1 = time_gmtime( &t1 );
+    tm tm2 = time_gmtime( &t2 );
 
     return tm1.tm_year == tm2.tm_year
            && tm1.tm_yday == tm2.tm_yday;

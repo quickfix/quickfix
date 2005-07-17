@@ -50,7 +50,9 @@ void fillHeader( Header& header, const char* sender, const char* target, int seq
 
 Logon createLogon( const char* sender, const char* target, int seq )
 {
-  Logon logon( EncryptMethod( 0 ), HeartBtInt( 30 ) );
+  Logon logon;
+  logon.set( EncryptMethod( 0 ) );
+  logon.set( HeartBtInt( 30 ) );
   fillHeader( logon.getHeader(), sender, target, seq );
   return logon;
 }

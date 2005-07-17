@@ -343,12 +343,12 @@ public:
 
   void setValue( UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
-  const UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
+  UtcTimeStamp getValue() const throw ( IncorrectDataFormat )
     { try
       { return UtcTimeStampConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
-  operator const UtcTimeStamp() const
+  operator UtcTimeStamp() const
     { return getValue(); }
 
   bool operator<( const UtcTimeStampField& rhs ) const
@@ -370,12 +370,12 @@ public:
 
   void setValue( UtcDate& value )
     { setString( UtcDateConvertor::convert( value ) ); }
-  const UtcDate getValue() const throw ( IncorrectDataFormat )
+  UtcDate getValue() const throw ( IncorrectDataFormat )
     { try
       { return UtcDateConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
-  operator const UtcDate() const
+  operator UtcDate() const
     { return getValue(); }
 
   bool operator<( const UtcDateField& rhs ) const
@@ -397,12 +397,12 @@ public:
 
   void setValue( UtcTimeOnly& value )
     { setString( UtcTimeOnlyConvertor::convert( value ) ); }
-  const UtcTimeOnly getValue() const throw ( IncorrectDataFormat )
+  UtcTimeOnly getValue() const throw ( IncorrectDataFormat )
     { try
       { return UtcTimeOnlyConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField() ); } }
-  operator const UtcTimeOnly() const
+  operator UtcTimeOnly() const
     { return getValue(); }
 
   bool operator<( const UtcTimeOnlyField& rhs ) const

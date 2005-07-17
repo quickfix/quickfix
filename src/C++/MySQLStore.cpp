@@ -74,13 +74,13 @@ int safe_query( MYSQL* dbms, const std::string& sql )
 MySQLStore::MySQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-    : m_sessionID( s )
+  : m_sessionID( s )
 {
   if ( !( m_pConnection = mysql_init( NULL ) ) )
     throw ConfigError( "Unable to initialize MySQL" );
-  MYSQL* pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
-  if ( !mysql_real_connect( pConnection, host.c_str(), user.c_str(), password.c_str(),
-                            database.c_str(), port, NULL, 0 ) )
+  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
+  if( !mysql_real_connect( pConnection, host.c_str(), user.c_str(), password.c_str(),
+                           database.c_str(), port, NULL, 0 ) )
   {
     throw ConfigError( "Unable to connect to database" );
   }
@@ -90,14 +90,14 @@ MySQLStore::MySQLStore
 
 MySQLStore::~MySQLStore()
 {
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
   mysql_close( pConnection );
 }
 
 void MySQLStore::populateCache()
 { QF_STACK_PUSH(MySQLStore::populateCache)
 
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
   std::stringstream query;
 
   query << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
@@ -109,22 +109,18 @@ void MySQLStore::populateCache()
   if ( safe_query( pConnection, query.str() ) )
     throw ConfigError( "Unable to connect to database" );
   MYSQL_RES* result = mysql_store_result( pConnection );
-  if ( result )
+  if( result )
   {
     my_ulonglong num_rows = mysql_num_rows( result );
-    if ( num_rows > 1 )
+    if( num_rows > 1 )
       throw ConfigError( "Multiple entries found for session in database" );
-    if ( num_rows == 1 )
+    if( num_rows == 1 )
     {
       MYSQL_ROW row = mysql_fetch_row( result );
-      UtcTimeStamp time;
+      struct tm time;
       std::string sqlTime = row[ 0 ];
       strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
-      static_cast<tm*>(time)->tm_isdst = -1;
-      time_t t = mktime( (tm*)&time );
-      *((tm*)&time) = time_localtime( &t );
-      static_cast<tm*>(time)->tm_isdst = -1;
-      m_cache.setCreationTime( time );
+      m_cache.setCreationTime (UtcTimeStamp (DateTime::fromTm (time)));
       m_cache.setNextTargetMsgSeqNum( atol( row[ 1 ] ) );
       m_cache.setNextSenderMsgSeqNum( atol( row[ 2 ] ) );
     }
@@ -132,7 +128,11 @@ void MySQLStore::populateCache()
     {
       UtcTimeStamp time = m_cache.getCreationTime();
       char sqlTime[ 20 ];
-      strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
+      int year, month, day, hour, minute, second, millis;
+      time.getYMD (year, month, day);
+      time.getHMS (hour, minute, second, millis);
+      sprintf (sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
+               year, month, day, hour, minute, second);
       std::stringstream query2;
       query2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
       << "creation_time, incoming_seqnum, outgoing_seqnum) VALUES("
@@ -161,24 +161,24 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s )
   std::string host = DEFAULT_HOST;
   short port = DEFAULT_PORT;
 
-  if ( m_useSettings )
+  if( m_useSettings )
   {
     Dictionary settings = m_settings.get( s );
 
     try { database = settings.getString( MYSQL_STORE_DATABASE ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { user = settings.getString( MYSQL_STORE_USER ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { password = settings.getString( MYSQL_STORE_PASSWORD ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { host = settings.getString( MYSQL_STORE_HOST ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
   }
   else
   {
@@ -242,7 +242,7 @@ throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::get)
 
   result.clear();
-  MYSQL* pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
   std::stringstream query;
   query << "SELECT message FROM messages WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
@@ -252,7 +252,7 @@ throw ( IOException )
   << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
   << "ORDER BY msgseqnum";
 
-  if ( safe_query( pConnection, query.str() ) )
+  if( safe_query( pConnection, query.str() ) )
     throw IOException();
 
   MYSQL_RES* sqlResult = mysql_store_result( pConnection );
@@ -285,7 +285,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( safe_query( pConnection, query.str() ) )
+  if( safe_query( pConnection, query.str() ) )
     throw IOException();
   m_cache.setNextSenderMsgSeqNum( value );
 
@@ -295,14 +295,14 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
 void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::setNextTargetMsgSeqNum)
 
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
   std::stringstream query;
   query << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
   << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( safe_query( pConnection, query.str() ) )
+  if( safe_query( pConnection, query.str() ) )
     throw IOException();
   m_cache.setNextTargetMsgSeqNum( value );
 
@@ -339,13 +339,19 @@ void MySQLStore::reset() throw ( IOException )
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( safe_query( pConnection, query.str() ) )
+  if( safe_query( pConnection, query.str() ) )
     throw IOException();
 
   m_cache.reset();
   UtcTimeStamp time = m_cache.getCreationTime();
+
+  int year, month, day, hour, minute, second, millis;
+  time.getYMD( year, month, day );
+  time.getHMS( hour, minute, second );
+
   char sqlTime[ 20 ];
-  strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
+  sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
+           year, month, day, hour, minute, second );
 
   std::stringstream query2;
   query2 << "UPDATE sessions SET creation_time='" << sqlTime << "', "
@@ -355,7 +361,7 @@ void MySQLStore::reset() throw ( IOException )
   << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
   << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if ( safe_query( pConnection, query2.str() ) )
+  if( safe_query( pConnection, query2.str() ) )
     throw IOException();
 
   QF_STACK_POP

@@ -47,7 +47,7 @@ const short MySQLLogFactory::DEFAULT_PORT = 0;
 MySQLLog::MySQLLog
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-    : m_sessionID( s )
+  : m_sessionID( s )
 {
   if ( !( m_pConnection = mysql_init( NULL ) ) )
     throw ConfigError( "Unable to initialize MySQL" );
@@ -61,7 +61,7 @@ MySQLLog::MySQLLog
 
 MySQLLog::~MySQLLog()
 {
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  MYSQL* pConnection = reinterpret_cast<MYSQL*> ( m_pConnection );
   mysql_close( pConnection );
 }
 
@@ -74,24 +74,24 @@ Log* MySQLLogFactory::create( const SessionID& s )
   std::string host = DEFAULT_HOST;
   short port = DEFAULT_PORT;
 
-  if ( m_useSettings )
+  if( m_useSettings )
   {
     Dictionary settings = m_settings.get( s );
 
     try { database = settings.getString( MYSQL_STORE_DATABASE ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { user = settings.getString( MYSQL_STORE_USER ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { password = settings.getString( MYSQL_STORE_PASSWORD ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { host = settings.getString( MYSQL_STORE_HOST ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
 
     try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
-    catch ( ConfigError& ) {}
+    catch( ConfigError& ) {}
   }
   else
   {
@@ -117,13 +117,18 @@ void MySQLLog::insert( const std::string& table, const std::string value )
 { QF_STACK_PUSH(MySQLLog::insert)
 
   UtcTimeStamp time;
+  int year, month, day, hour, minute, second, millis;
+  time.getYMD( year, month, day );
+  time.getHMS( hour, minute, second );
+
   char sqlTime[ 20 ];
-  strftime( sqlTime, 20, "%Y-%m-%d %H:%M:%S", ( tm* ) time );
+  sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
+           year, month, day, hour, minute, second );
 
   std::string valueCopy = value;
   string_replace( "\"", "\\\"", valueCopy );
 
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
   std::stringstream query;
   query << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "

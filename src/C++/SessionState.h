@@ -44,7 +44,7 @@ public:
   m_sentLogout( false ), m_sentLogon( false ),
   m_sentReset( false ), m_receivedReset( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
-  m_pStore( 0 ), m_pLog( 0 ), m_resendRequested( 0 ) {}
+  m_resendRequested( 0 ), m_pStore( 0 ), m_pLog( 0 ) {}
 
   bool connected() const { return m_connected; }
   void connected( bool value ) { m_connected = value; }
@@ -185,8 +185,8 @@ private:
   bool m_receivedLogon;
   bool m_sentLogout;
   bool m_sentLogon;
-  bool m_receivedReset;
   bool m_sentReset;
+  bool m_receivedReset;
   bool m_initiate;
   int m_logonTimeout;
   int m_testRequest;

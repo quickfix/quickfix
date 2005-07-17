@@ -87,7 +87,7 @@ void UtcTimeStampTestCase::subtract::onRun( UtcTimeStamp& object )
 void UtcTimeStampTestCase::addSeconds::onRun( UtcTimeStamp& object )
 {
   UtcTimeStamp time( 10, 10, 10, 10, 10, 2000 );
-  time += UTC_DAY;
+  time += DateTime::SECONDS_PER_DAY;
   assert( time.getHour() == 10 );
   assert( time.getMinute() == 10 );
   assert( time.getSecond() == 10 );

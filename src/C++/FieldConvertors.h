@@ -34,7 +34,7 @@
 namespace FIX
 {
 template<class T>
-inline char * integer_to_string (char * buf, const size_t len, T t)
+inline char* integer_to_string( char* buf, const size_t len, T t )
 {
   const bool isNegative = t < 0;
   char* p = buf + len;
@@ -68,15 +68,15 @@ inline char * integer_to_string (char * buf, const size_t len, T t)
 }
 
 template<class T>
-inline char * integer_to_string_padded
-( char * buf, const size_t len, T t,
+inline char* integer_to_string_padded
+( char* buf, const size_t len, T t,
   const size_t width = 0,
   const char paddingChar = '0')
 {
   if( !width ) return integer_to_string( buf, len, t );
 
   const bool isNegative = t < 0;
-  char * p = buf + len;
+  char* p = buf + len;
 
   *--p = '\0';
 
@@ -325,25 +325,31 @@ struct UtcTimeStampConvertor
   throw( FieldConvertError )
   {
     char result[ 18+4 ];
-    integer_to_string_padded( result, 5, value.getYear(), 4, '0');
-    integer_to_string_padded( result + 4, 3, value.getMonth(), 2, '0');
-    integer_to_string_padded( result + 6, 3, value.getDate(), 2, '0');
+    int year, month, day, hour, minute, second, millis;
+
+    value.getYMD( year, month, day );
+    value.getHMS( hour, minute, second, millis );
+
+    integer_to_string_padded( result, 5, year, 4, '0' );
+    integer_to_string_padded( result + 4, 3, month, 2, '0' );
+    integer_to_string_padded( result + 6, 3, day, 2, '0' );
     result[8]  = '-';
-    integer_to_string_padded( result + 9, 3, value.getHour(), 2, '0');
+    integer_to_string_padded( result + 9, 3, hour, 2, '0' );
     result[11] = ':';
-    integer_to_string_padded( result + 12, 3, value.getMinute(), 2, '0');
+    integer_to_string_padded( result + 12, 3, minute, 2, '0' );
     result[14] = ':';
-    integer_to_string_padded( result + 15, 3, value.getSecond(), 2, '0');
+    integer_to_string_padded( result + 15, 3, second, 2, '0' );
 
     if( showMilliseconds )
     {
       result[17] = '.';
-      if( integer_to_string_padded
-	  ( result + 18, 4, value.getMillisecond(), 3, '0') != result + 18 )
+      if( integer_to_string_padded ( result + 18, 4, millis, 3, '0' )
+          != result + 18 )
       {
-	throw FieldConvertError();
+        throw FieldConvertError();
       }
     }
+
     return result;
   }
 
@@ -351,7 +357,6 @@ struct UtcTimeStampConvertor
                                bool calculateDays = false )
   throw( FieldConvertError )
   {
-    UtcTimeStamp result;
     bool haveMilliseconds = false;
 
     switch( value.size() )
@@ -382,67 +387,56 @@ struct UtcTimeStampConvertor
 	      if( !isdigit(value[i++]) ) throw FieldConvertError();
     }
 
-    tm & result_tm = *static_cast<tm*>(result);
+    int year, mon, mday, hour, min, sec, millis;
 
     i = 0;
 
-    result_tm.tm_year = value[i++] - '0';
-    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
-    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
-    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
-    result_tm.tm_year -= 1900;
+    year = value[i++] - '0';
+    year = 10 * year + value[i++] - '0';
+    year = 10 * year + value[i++] - '0';
+    year = 10 * year + value[i++] - '0';
 
-    result_tm.tm_mon = value[i++] - '0';
-    result_tm.tm_mon = 10 * result_tm.tm_mon + value[i++] - '0';
-    if( result_tm.tm_mon < 1 || 12 < result_tm.tm_mon ) throw FieldConvertError();
-    --result_tm.tm_mon;
+    mon = value[i++] - '0';
+    mon = 10 * mon + value[i++] - '0';
+    if( mon < 1 || 12 < mon ) throw FieldConvertError();
 
-    result_tm.tm_mday = value[i++] - '0';
-    result_tm.tm_mday = 10 * result_tm.tm_mday + value[i++] - '0';
-    if( result_tm.tm_mday < 1 || 31 < result_tm.tm_mday ) throw FieldConvertError();
+    mday = value[i++] - '0';
+    mday = 10 * mday + value[i++] - '0';
+    if( mday < 1 || 31 < mday ) throw FieldConvertError();
 
     ++i; // skip '-'
 
-    result_tm.tm_hour = value[i++] - '0';
-    result_tm.tm_hour = 10 * result_tm.tm_hour + value[i++] - '0';
+    hour = value[i++] - '0';
+    hour = 10 * hour + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 23 < result_tm.tm_hour ) throw FieldConvertError();
+    if( 23 < hour ) throw FieldConvertError();
 
     ++i; // skip ':'
 
-    result_tm.tm_min = value[i++] - '0';
-    result_tm.tm_min = 10 * result_tm.tm_min + value[i++] - '0';
+    min = value[i++] - '0';
+    min = 10 * min + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 59 < result_tm.tm_min ) throw FieldConvertError();
+    if( 59 < min ) throw FieldConvertError();
 
     ++i; // skip ':'
 
-    result_tm.tm_sec = value[i++] - '0';
-    result_tm.tm_sec = 10 * result_tm.tm_sec + value[i++] - '0';
+    sec = value[i++] - '0';
+    sec = 10 * sec + value[i++] - '0';
+
     // No check for >= 0 as no '-' are converted here
-    if( 60 < result_tm.tm_sec ) throw FieldConvertError();
+    if( 60 < sec ) throw FieldConvertError();
 
     if( haveMilliseconds )
     {
-      result.setMillisecond ( 100 * (value[i+1] - '0')
-			      + 10 * (value[i+2] - '0')
-			      + (value[i+3] - '0'));
+      millis = (100 * (value[i+1] - '0')
+                + 10 * (value[i+2] - '0')
+                + (value[i+3] - '0'));
     }
     else
-    {
-      result.setMillisecond (0);
-    }
+      millis = 0;
 
-    result_tm.tm_isdst = -1;
-
-    if( calculateDays )
-    {
-      time_t t = mktime( &result_tm );
-      result_tm = time_localtime( &t );
-      result_tm.tm_isdst = -1;
-    }
-
-    return result;
+    return UtcTimeStamp (hour, min, sec, millis,
+                         mday, mon, year);
   }
 };
 
@@ -454,21 +448,22 @@ struct UtcTimeOnlyConvertor
   throw( FieldConvertError )
   {
     char result[ 9+4 ];
-    integer_to_string_padded
-      ( result, 3, static_cast<const tm*>(value)->tm_hour, 2, '0');
+    int hour, minute, second, millis;
+
+    value.getHMS( hour, minute, second, millis );
+
+    integer_to_string_padded ( result, 3, hour, 2, '0' );
     result[2] = ':';
-    integer_to_string_padded
-      ( result + 3, 3, static_cast<const tm*>(value)->tm_min,  2, '0');
+    integer_to_string_padded ( result + 3, 3, minute,  2, '0' );
     result[5] = ':';
-    integer_to_string_padded
-      ( result + 6, 3, static_cast<const tm*>(value)->tm_sec,  2, '0');
+    integer_to_string_padded ( result + 6, 3, second,  2, '0' );
 
     if( showMilliseconds )
     {
       result[8] = '.';
-      if( integer_to_string_padded
-	  ( result + 9, 4, value.getMillisecond(), 3, '0') != result + 9 )
-	throw FieldConvertError();
+      if( integer_to_string_padded ( result + 9, 4, millis, 3, '0' )
+          != result + 9 )
+          throw FieldConvertError();
     }
 
     return result;
@@ -477,7 +472,6 @@ struct UtcTimeOnlyConvertor
   static UtcTimeOnly convert( const std::string& value )
   throw( FieldConvertError )
   {
-    UtcTimeOnly result;
     bool haveMilliseconds = false;
 
     switch( value.size() )
@@ -505,41 +499,37 @@ struct UtcTimeOnlyConvertor
 	      if( !isdigit(value[++i]) ) throw FieldConvertError();
     }
 
-    tm & result_tm = *static_cast<tm*>(result);
-
+    int hour, min, sec, millis;
+ 
     i = 0;
 
-    result_tm.tm_hour = value[i++] - '0';
-    result_tm.tm_hour = 10 * result_tm.tm_hour + value[i++] - '0';
+    hour = value[i++] - '0';
+    hour = 10 * hour + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 23 < result_tm.tm_hour ) throw FieldConvertError();
+    if( 23 < hour ) throw FieldConvertError();
     ++i; // skip ':'
 
-    result_tm.tm_min = value[i++] - '0';
-    result_tm.tm_min = 10 * result_tm.tm_min + value[i++] - '0';
+    min = value[i++] - '0';
+    min = 10 * min + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 59 < result_tm.tm_min ) throw FieldConvertError();
+    if( 59 < min ) throw FieldConvertError();
     ++i; // skip ':'
 
-    result_tm.tm_sec = value[i++] - '0';
-    result_tm.tm_sec = 10 * result_tm.tm_sec + value[i++] - '0';
+    sec = value[i++] - '0';
+    sec = 10 * sec + value[i++] - '0';
     // No check for >= 0 as no '-' are converted here
-    if( 60 < result_tm.tm_sec ) throw FieldConvertError();
+    if( 60 < sec ) throw FieldConvertError();
 
     if( haveMilliseconds )
     {
-      result.setMillisecond (100 * (value[i+1] - '0')
-			     + 10 * (value[i+2] - '0')
-			     + (value[i+3] - '0'));
+      millis = (100 * (value[i+1] - '0')
+                + 10 * (value[i+2] - '0')
+                + (value[i+3] - '0'));
     }
     else
-    {
-      result.setMillisecond (0);
-    }
+      millis = 0;
 
-    result_tm.tm_isdst = -1;
-
-    return result;
+    return UtcTimeOnly( hour, min, sec, millis );
   }
 };
 
@@ -550,54 +540,45 @@ struct UtcDateConvertor
   throw( FieldConvertError )
   {
     char result[ 9 ];
-    integer_to_string_padded
-      ( result, 5,
-	static_cast<const tm*>(value)->tm_year + 1900, 4, '0');
-    integer_to_string_padded
-      ( result + 4, 3,
-	static_cast<const tm*>(value)->tm_mon + 1, 2, '0');
-    integer_to_string_padded
-      ( result + 6, 3,
-	static_cast<const tm*>(value)->tm_mday, 2, '0');
+    int year, month, day;
+
+    value.getYMD( year, month, day );
+
+    integer_to_string_padded( result, 5, year, 4, '0' );
+    integer_to_string_padded( result + 4, 3, month, 2, '0' );
+    integer_to_string_padded( result + 6, 3, day, 2, '0' );
     return result;
   }
 
   static UtcDate convert( const std::string& value )
   throw( FieldConvertError )
   {
-    UtcDate result;
     if( value.size() != 8 ) throw FieldConvertError();
 
     int i = 0;
     for( int c=0; c<8; ++c )
       if( !isdigit(value[i++]) ) throw FieldConvertError();
 
-    tm & result_tm = *static_cast<tm*>(result);
+    int year, mon, mday;
 
     i = 0;
 
-    result_tm.tm_year = value[i++] - '0';
-    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
-    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
-    result_tm.tm_year = 10 * result_tm.tm_year + value[i++] - '0';
-    result_tm.tm_year -= 1900;
+    year = value[i++] - '0';
+    year = 10 * year + value[i++] - '0';
+    year = 10 * year + value[i++] - '0';
+    year = 10 * year + value[i++] - '0';
 
-    result_tm.tm_mon = value[i++] - '0';
-    result_tm.tm_mon = 10 * result_tm.tm_mon + value[i++] - '0';
-    if( result_tm.tm_mon < 1 || 12 < result_tm.tm_mon )
+    mon = value[i++] - '0';
+    mon = 10 * mon + value[i++] - '0';
+    if( mon < 1 || 12 < mon )
       throw FieldConvertError();
-    --result_tm.tm_mon;
 
-    result_tm.tm_mday = value[i++] - '0';
-    result_tm.tm_mday = 10 * result_tm.tm_mday + value[i++] - '0';
-    if( result_tm.tm_mday < 1 || 31 < result_tm.tm_mday )
+    mday = value[i++] - '0';
+    mday = 10 * mday + value[i++] - '0';
+    if( mday < 1 || 31 < mday )
       throw FieldConvertError();
-    ++i; // skip '-'
 
-    result_tm.tm_isdst = -1;
-
-    static_cast<tm*>(result)->tm_isdst = -1;
-    return result;
+    return UtcDateOnly( mday, mon, year );
   }
 };
 
