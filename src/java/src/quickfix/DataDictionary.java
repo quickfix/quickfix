@@ -45,6 +45,7 @@ public class DataDictionary {
 
     public native String getVersion();
     public native String getFieldName( int field );
+	public native int getFieldTag( String name );
     public native String getValueName( int field, String value );
     public native boolean isField( int field );
     public native boolean isMsgType( String msgType );

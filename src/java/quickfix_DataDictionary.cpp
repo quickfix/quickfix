@@ -122,6 +122,23 @@ JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getFieldName
   QF_STACK_CATCH
 }
 
+JNIEXPORT jint JNICALL Java_quickfix_DataDictionary_getFieldTag
+( JNIEnv *pEnv, jobject obj, jstring name )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  const char* uname = pEnv->GetStringUTFChars( name, 0 );
+  std::string nameString( uname );
+  pEnv->ReleaseStringUTFChars( name, uname );
+  int field;
+  bool result = pDataDictionary->getFieldTag(nameString, field);
+  return result ? field : 0;
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getValueName
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY

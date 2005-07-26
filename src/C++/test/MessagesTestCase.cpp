@@ -147,7 +147,7 @@ void MessageTestCase::setString::onRun( Message& object )
   TransactTime transactTime;
   Symbol symbol;
   try{ object.setString( strBodyFields, true, &dataDictionary ); }
-  catch( InvalidMessage& e) { assert(false); }
+  catch( InvalidMessage& ) { assert(false); }
 
   assert( object.getHeader().isSetField( clOrdID ) );
   assert( object.getTrailer().isSetField( transactTime ) );

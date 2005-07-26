@@ -104,6 +104,14 @@ public:
     return true;
   }
 
+  bool getFieldTag( std::string name, int& field ) const
+  {
+    NameToField::const_iterator i = m_names.find( name );
+    if(i == m_names.end()) return false;
+    field = i->second;
+    return true;
+  }
+
   void addValueName( int field, const std::string& value, const std::string& name )
   {
     m_valueNames[std::make_pair(field, value)] = name;

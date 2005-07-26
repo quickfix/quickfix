@@ -163,12 +163,19 @@ void DataDictionaryTestCase::addFieldName::onRun( DataDictionary& object )
   object.addFieldName( 8, "BeginString" );
 
   std::string name;
+  int field;
   assert( object.getFieldName( 1, name ) );
   assert( name == "Account" );
+  assert( object.getFieldTag( name, field ) );
+  assert( field == 1 );
   assert( object.getFieldName( 11, name ) );
   assert( name == "ClOrdID" );
+  assert( object.getFieldTag( name, field ) );
+  assert( field == 11 );
   assert( object.getFieldName( 8, name ) );
   assert( name == "BeginString" );
+  assert( object.getFieldTag( name, field ) );
+  assert( field == 8 );
 }
 
 void DataDictionaryTestCase::addValueName::onRun( DataDictionary& object )

@@ -57,6 +57,14 @@ JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getFieldName
 
 /*
  * Class:     quickfix_DataDictionary
+ * Method:    getFieldTag
+ * Signature: (Ljava/lang/String;)I
+ */
+JNIEXPORT jint JNICALL Java_quickfix_DataDictionary_getFieldTag
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     quickfix_DataDictionary
  * Method:    getValueName
  * Signature: (ILjava/lang/String;)Ljava/lang/String;
  */
