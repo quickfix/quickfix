@@ -36,6 +36,13 @@ public:
   int field;
 };
 
+public __gc class NoTagValue : public Exception
+{
+public:
+  NoTagValue( int f ) : field( f ) {}
+  int field;
+};
+
 public __gc class IncorrectTagValue : public Exception
 {
 public:

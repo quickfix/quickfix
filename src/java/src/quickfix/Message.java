@@ -95,14 +95,14 @@ public class Message extends FieldMap {
     public native void addGroup(Group group);
     public native Group getGroup(int num, Group group) throws FieldNotFound;
 
-    public native void setString(int field, String value);
-    public native void setBoolean(int field, boolean value);
-    public native void setChar(int field, char value);
-    public native void setInt(int field, int value);
-    public native void setDouble(int field, double value);
-    public native void setUtcTimeStamp(int field, Date value);
-    public native void setUtcTimeOnly(int field, Date value);
-    public native void setUtcDateOnly(int field, Date value);
+    public native void setString(int field, String value) throws NoTagValue;
+    public native void setBoolean(int field, boolean value) throws NoTagValue;
+    public native void setChar(int field, char value) throws NoTagValue;
+    public native void setInt(int field, int value) throws NoTagValue;
+    public native void setDouble(int field, double value) throws NoTagValue;
+    public native void setUtcTimeStamp(int field, Date value) throws NoTagValue;
+    public native void setUtcTimeOnly(int field, Date value) throws NoTagValue;
+    public native void setUtcDateOnly(int field, Date value) throws NoTagValue;
 
     public native String getString(int field) throws FieldNotFound;
     public native boolean getBoolean(int field) throws FieldNotFound;
@@ -113,28 +113,28 @@ public class Message extends FieldMap {
     public native Date getUtcTimeOnly(int field) throws FieldNotFound;
     public native Date getUtcDateOnly(int field) throws FieldNotFound;
 
-    public void setField(StringField field) {
+    public void setField(StringField field) throws NoTagValue {
         setString( field.getField(), field.getValue() );
     }
-    public void setField(BooleanField field) {
+    public void setField(BooleanField field) throws NoTagValue {
         setBoolean( field.getField(), field.getValue() );
     }
-    public void setField(CharField field) {
+    public void setField(CharField field) throws NoTagValue {
         setChar( field.getField(), field.getValue() );
     }
-    public void setField(IntField field) {
+    public void setField(IntField field) throws NoTagValue {
         setInt( field.getField(), field.getValue() );
     }
-    public void setField(DoubleField field) {
+    public void setField(DoubleField field) throws NoTagValue {
         setDouble( field.getField(), field.getValue() );
     }
-    public void setField(UtcTimeStampField field) {
+    public void setField(UtcTimeStampField field) throws NoTagValue {
         setUtcTimeStamp( field.getField(), field.getValue() );
     }
-    public void setField(UtcTimeOnlyField field) {
+    public void setField(UtcTimeOnlyField field) throws NoTagValue {
         setUtcTimeOnly( field.getField(), field.getValue() );
     }
-    public void setField(UtcDateOnlyField field) {
+    public void setField(UtcDateOnlyField field) throws NoTagValue {
         setUtcDateOnly( field.getField(), field.getValue() );
     }
 
@@ -246,28 +246,28 @@ public class Message extends FieldMap {
             public void remove() {}
         }
 
-        public void setString(int field, String value) {
+        public void setString(int field, String value) throws NoTagValue {
             headerSetString( field, value );
         }
-        public void setBoolean(int field, boolean value) {
+        public void setBoolean(int field, boolean value) throws NoTagValue {
             headerSetBoolean( field, value );
         }
-        public void setChar(int field, char value) {
+        public void setChar(int field, char value) throws NoTagValue {
             headerSetChar( field, value );
         }
-        public void setInt(int field, int value) {
+        public void setInt(int field, int value) throws NoTagValue {
             headerSetInt( field, value );
         }
-        public void setDouble(int field, double value) {
+        public void setDouble(int field, double value) throws NoTagValue {
             headerSetDouble( field, value );
         }
-        public void setUtcTimeStamp(int field, Date value) {
+        public void setUtcTimeStamp(int field, Date value) throws NoTagValue {
             headerSetUtcTimeStamp( field, value );
         }
-        public void setUtcTimeOnly(int field, Date value) {
+        public void setUtcTimeOnly(int field, Date value) throws NoTagValue {
             headerSetUtcTimeOnly( field, value );
         }
-        public void setUtcDateOnly(int field, Date value) {
+        public void setUtcDateOnly(int field, Date value) throws NoTagValue {
             headerSetUtcDateOnly( field, value );
         }
 
@@ -296,28 +296,28 @@ public class Message extends FieldMap {
             return headerGetUtcDateOnly( field );
         }
 
-        public void setField(StringField field) {
+        public void setField(StringField field) throws NoTagValue {
             headerSetString( field.getField(), field.getValue() );
         }
-        public void setField(BooleanField field) {
+        public void setField(BooleanField field) throws NoTagValue {
             headerSetBoolean( field.getField(), field.getValue() );
         }
-        public void setField(CharField field) {
+        public void setField(CharField field) throws NoTagValue {
             headerSetChar( field.getField(), field.getValue() );
         }
-        public void setField(IntField field) {
+        public void setField(IntField field) throws NoTagValue {
             headerSetInt( field.getField(), field.getValue() );
         }
-        public void setField(DoubleField field) {
+        public void setField(DoubleField field) throws NoTagValue {
             headerSetDouble( field.getField(), field.getValue() );
         }
-        public void setField(UtcTimeStampField field) {
+        public void setField(UtcTimeStampField field) throws NoTagValue {
             headerSetUtcTimeStamp( field.getField(), field.getValue() );
         }
-        public void setField(UtcTimeOnlyField field) {
+        public void setField(UtcTimeOnlyField field) throws NoTagValue {
             headerSetUtcTimeOnly( field.getField(), field.getValue() );
         }
-        public void setField(UtcDateOnlyField field) {
+        public void setField(UtcDateOnlyField field) throws NoTagValue {
             headerSetUtcDateOnly( field.getField(), field.getValue() );
         }
 
@@ -395,28 +395,28 @@ public class Message extends FieldMap {
             public void remove() {}
         }
 
-        public void setString(int field, String value) {
+        public void setString(int field, String value) throws NoTagValue {
             trailerSetString( field, value );
         }
-        public void setBoolean(int field, boolean value) {
+        public void setBoolean(int field, boolean value) throws NoTagValue {
             trailerSetBoolean( field, value );
         }
-        public void setChar(int field, char value) {
+        public void setChar(int field, char value) throws NoTagValue {
             trailerSetChar( field, value );
         }
-        public void setInt(int field, int value) {
+        public void setInt(int field, int value) throws NoTagValue {
             trailerSetInt( field, value );
         }
-        public void setDouble(int field, double value) {
+        public void setDouble(int field, double value) throws NoTagValue {
             trailerSetDouble( field, value );
         }
-        public void setUtcTimeStamp(int field, Date value) {
+        public void setUtcTimeStamp(int field, Date value) throws NoTagValue {
             trailerSetUtcTimeStamp( field, value );
         }
-        public void setUtcTimeOnly(int field, Date value) {
+        public void setUtcTimeOnly(int field, Date value) throws NoTagValue {
             trailerSetUtcTimeOnly( field, value );
         }
-        public void setUtcDateOnly(int field, Date value) {
+        public void setUtcDateOnly(int field, Date value) throws NoTagValue {
             trailerSetUtcDateOnly( field, value );
         }
 
@@ -445,28 +445,28 @@ public class Message extends FieldMap {
             return trailerGetUtcDateOnly( field );
         }
 
-        public void setField(StringField field) {
+        public void setField(StringField field) throws NoTagValue {
             trailerSetString( field.getField(), field.getValue() );
         }
-        public void setField(BooleanField field) {
+        public void setField(BooleanField field) throws NoTagValue {
             trailerSetBoolean( field.getField(), field.getValue() );
         }
-        public void setField(CharField field) {
+        public void setField(CharField field) throws NoTagValue {
             trailerSetChar( field.getField(), field.getValue() );
         }
-        public void setField(IntField field) {
+        public void setField(IntField field) throws NoTagValue {
             trailerSetInt( field.getField(), field.getValue() );
         }
-        public void setField(DoubleField field) {
+        public void setField(DoubleField field) throws NoTagValue {
             trailerSetDouble( field.getField(), field.getValue() );
         }
-        public void setField(UtcTimeStampField field) {
+        public void setField(UtcTimeStampField field) throws NoTagValue {
             trailerSetUtcTimeStamp( field.getField(), field.getValue() );
         }
-        public void setField(UtcTimeOnlyField field) {
+        public void setField(UtcTimeOnlyField field) throws NoTagValue {
             trailerSetUtcTimeOnly( field.getField(), field.getValue() );
         }
-        public void setField(UtcDateOnlyField field) {
+        public void setField(UtcDateOnlyField field) throws NoTagValue {
             trailerSetUtcDateOnly( field.getField(), field.getValue() );
         }
 
@@ -522,14 +522,14 @@ public class Message extends FieldMap {
     private native boolean messageIteratorHasNext( Iterator i );
     private native Object messageIteratorNext( Iterator i );
 
-    private native void headerSetString(int field, String value);
-    private native void headerSetBoolean(int field, boolean value);
-    private native void headerSetChar(int field, char value);
-    private native void headerSetInt(int field, int value);
-    private native void headerSetDouble(int field, double value);
-    private native void headerSetUtcTimeStamp(int field, Date value);
-    private native void headerSetUtcTimeOnly(int field, Date value);
-    private native void headerSetUtcDateOnly(int field, Date value);
+    private native void headerSetString(int field, String value) throws NoTagValue;
+    private native void headerSetBoolean(int field, boolean value) throws NoTagValue;
+    private native void headerSetChar(int field, char value) throws NoTagValue;
+    private native void headerSetInt(int field, int value) throws NoTagValue;
+    private native void headerSetDouble(int field, double value) throws NoTagValue;
+    private native void headerSetUtcTimeStamp(int field, Date value) throws NoTagValue;
+    private native void headerSetUtcTimeOnly(int field, Date value) throws NoTagValue;
+    private native void headerSetUtcDateOnly(int field, Date value) throws NoTagValue;
 
     private native String headerGetString(int field) throws FieldNotFound;
     private native boolean headerGetBoolean(int field) throws FieldNotFound;
@@ -547,14 +547,14 @@ public class Message extends FieldMap {
     private native boolean headerIteratorHasNext( Header.Iterator i );
     private native Object headerIteratorNext( Header.Iterator i );
 
-    private native void trailerSetString(int field, String value);
-    private native void trailerSetBoolean(int field, boolean value);
-    private native void trailerSetChar(int field, char value);
-    private native void trailerSetInt(int field, int value);
-    private native void trailerSetDouble(int field, double value);
-    private native void trailerSetUtcTimeStamp(int field, Date value);
-    private native void trailerSetUtcTimeOnly(int field, Date value);
-    private native void trailerSetUtcDateOnly(int field, Date value);
+    private native void trailerSetString(int field, String value) throws NoTagValue;
+    private native void trailerSetBoolean(int field, boolean value) throws NoTagValue;
+    private native void trailerSetChar(int field, char value) throws NoTagValue;
+    private native void trailerSetInt(int field, int value) throws NoTagValue;
+    private native void trailerSetDouble(int field, double value) throws NoTagValue;
+    private native void trailerSetUtcTimeStamp(int field, Date value) throws NoTagValue;
+    private native void trailerSetUtcTimeOnly(int field, Date value) throws NoTagValue;
+    private native void trailerSetUtcDateOnly(int field, Date value) throws NoTagValue;
 
     private native String trailerGetString(int field) throws FieldNotFound;
     private native boolean trailerGetBoolean(int field) throws FieldNotFound;

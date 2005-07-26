@@ -71,9 +71,11 @@ public:
   FieldMap& operator=( const FieldMap& rhs );
 
   /// Set a field without type checking
-  void setField( const FieldBase& field, bool overwrite = true )
-  throw( RepeatedTag )
+  void setField( const FieldBase& field, bool overwrite = true, bool allowEmpty = false )
+  throw( RepeatedTag, NoTagValue )
   {
+    if( !allowEmpty && field.getString().empty() ) 
+      throw NoTagValue();
     Fields::iterator i = m_fields.find( field.getField() );
     if( i == m_fields.end() )
       m_fields.insert( Fields::value_type( field.getField(), field ) );
@@ -87,6 +89,7 @@ public:
   }
   /// Set a field without a field class
   void setField( int field, const std::string& value )
+  throw( RepeatedTag, NoTagValue )
   {
     FieldBase fieldBase( field, value );
     setField( fieldBase );

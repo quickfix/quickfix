@@ -308,12 +308,12 @@ throw( InvalidMessage )
       }
       if ( field.getField() == FIELD::MsgType )
         msg = field.getString();
-      m_header.setField( field, false );
+      m_header.setField( field, false, true );
     }
     else if ( isTrailerField( field, pDataDictionary ) )
     {
       type = trailer;
-      m_trailer.setField( field, false );
+      m_trailer.setField( field, false, true );
     }
     else
     {
@@ -323,7 +323,7 @@ throw( InvalidMessage )
         m_validStructure = false;
       }
       type = body;
-      setField( field, false );
+      setField( field, false, true );
       if ( pDataDictionary )
       {
         setGroup( msg, field, string, pos, *this, *pDataDictionary );

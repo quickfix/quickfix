@@ -238,8 +238,7 @@ bool DataDictionaryTestCase::checkHasValue::onSetup
 void DataDictionaryTestCase::checkHasValue::onRun
 ( DataDictionary& object )
 {
-  TestReqID testReqID( "" );
-
+  Message testReqID( "8=FIX.4.2\0019=12\00135=1\001112=\00110=007\001", false );
   FIX42::TestRequest message( testReqID );
 
   try{ object.validate( message ); assert( false ); }

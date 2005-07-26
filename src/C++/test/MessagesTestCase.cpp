@@ -380,24 +380,39 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   header.setField( beginString );
   reversedMessage.reverseRoute( header );
 
-  header.setField( OnBehalfOfCompID() );
+  header.removeField( FIX::FIELD::OnBehalfOfCompID );
   reversedMessage.reverseRoute( header );
   assert( !reversedHeader.isSetField(deliverToCompID) );
-  header.setField( DeliverToCompID() );
+  header.removeField( FIX::FIELD::DeliverToCompID );
   reversedMessage.reverseRoute( header );
   assert( !reversedHeader.isSetField(onBehalfOfCompID) );
-  header.setField( OnBehalfOfSubID() );
+  header.removeField( FIX::FIELD::OnBehalfOfSubID );
   reversedMessage.reverseRoute( header );
   assert( !reversedHeader.isSetField(deliverToSubID) );
-  header.setField( DeliverToSubID() );
+  header.removeField( FIX::FIELD::DeliverToSubID );
   reversedMessage.reverseRoute( header );
   assert( !reversedHeader.isSetField(onBehalfOfSubID) );
-  header.setField( OnBehalfOfLocationID() );
+  header.removeField( FIX::FIELD::OnBehalfOfLocationID );
   reversedMessage.reverseRoute( header );
   assert( !reversedHeader.isSetField(deliverToLocationID) );
-  header.setField( DeliverToLocationID() );
+  header.removeField( FIX::FIELD::DeliverToLocationID );
   reversedMessage.reverseRoute( header );
   assert( !reversedHeader.isSetField(onBehalfOfLocationID) );
+}
+
+void MessageTestCase::setNoTagValue::onRun( Message& object )
+{
+  Message message;
+
+  Text text;
+  try
+  {
+    message.setField( text );
+    assert( false );
+  }
+  catch( NoTagValue )
+  {
+  }
 }
 
 template<> void LogonParseTestCase::getString::onRun( Logon& object )

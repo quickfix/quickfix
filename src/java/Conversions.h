@@ -160,49 +160,105 @@ inline jobject newField( const FIX::FieldBase& field )
 inline void setString( FIX::FieldMap& map, jint field, jstring value )
 {
   const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
-  map.setField( field, uvalue );
+  try
+  {
+    map.setField( field, uvalue );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
   ENV::get()->ReleaseStringUTFChars( value, uvalue );
 }
 
 inline void setBoolean( FIX::FieldMap& map, jint field, jboolean value )
 {
-  map.setField( field, FIX::BoolConvertor::convert( value ) );
+  try
+  {
+    map.setField( field, FIX::BoolConvertor::convert( value ) );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
 }
 
 inline void setChar( FIX::FieldMap& map, jint field, jchar value )
 {
-  map.setField( field, FIX::CharConvertor::convert( value ) );
+  try
+  {
+    map.setField( field, FIX::CharConvertor::convert( value ) );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
 }
 
 inline void setInt( FIX::FieldMap& map, jint field, jint value )
 {
-  map.setField( field, FIX::IntConvertor::convert( value ) );
+  try
+  {
+    map.setField( field, FIX::IntConvertor::convert( value ) );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
 }
 
 inline void setDouble( FIX::FieldMap& map, jint field, jdouble value )
 {
-  map.setField( field, FIX::DoubleConvertor::convert( value ) );
+  try
+  {
+    map.setField( field, FIX::DoubleConvertor::convert( value ) );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
 }
 
 inline void setUtcTimeStamp( FIX::FieldMap& map, jint field, jobject value )
 {
   JVMObject date( value );
   FIX::UtcTimeStamp timeStamp( date.callLongMethod( "getTime" ) / 1000 );
-  map.setField( field, FIX::UtcTimeStampConvertor::convert( timeStamp ) );
+  try
+  {
+    map.setField( field, FIX::UtcTimeStampConvertor::convert( timeStamp ) );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
 }
 
 inline void setUtcTimeOnly( FIX::FieldMap& map, jint field, jobject value )
 {
   JVMObject date( value );
   FIX::UtcTimeOnly timeOnly( date.callLongMethod( "getTime" ) / 1000 );
-  map.setField( field, FIX::UtcTimeOnlyConvertor::convert( timeOnly ) );
+  try
+  {
+    map.setField( field, FIX::UtcTimeOnlyConvertor::convert( timeOnly ) );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
 }
 
 inline void setUtcDateOnly( FIX::FieldMap& map, jint field, jobject value )
 {
   JVMObject date( value );
   FIX::UtcDateOnly dateOnly( date.callLongMethod( "getTime" ) / 1000 );
-  map.setField( field, FIX::UtcDateOnlyConvertor::convert( dateOnly ) );
+  try
+  {
+    map.setField( field, FIX::UtcDateOnlyConvertor::convert( dateOnly ) );
+  }
+  catch( FIX::NoTagValue& e )
+  {
+    throwNew( "Lquickfix/NoTagValue;", FIX::IntConvertor::convert( e.field ).c_str() );
+  }
 }
 
 inline jstring getString( FIX::FieldMap& map, jint field )
