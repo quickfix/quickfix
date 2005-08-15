@@ -137,7 +137,7 @@ private:
   static bool addSession( Session& );
   static void removeSession( Session& );
 
-  bool send( const std::string );
+  bool send( const std::string& );
   bool sendRaw( Message&, int msgSeqNum = 0 );
   bool resend( Message& message );
 

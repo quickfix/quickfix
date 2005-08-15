@@ -497,7 +497,7 @@ bool Session::sendRaw( Message& message, int num )
   QF_STACK_POP
 }
 
-bool Session::send( const std::string string )
+bool Session::send( const std::string& string )
 { QF_STACK_PUSH(Session::send)
 
   if ( !m_pResponder ) return false;
