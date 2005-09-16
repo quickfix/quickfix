@@ -48,7 +48,9 @@ public class Group extends FieldMap {
     public native void setInt(int field, int value);
     public native void setDouble(int field, double value);
     public native void setUtcTimeStamp(int field, Date value);
+    public native void setUtcTimeStamp(int field, Date value, boolean showMilliseconds);
     public native void setUtcTimeOnly(int field, Date value);
+    public native void setUtcTimeOnly(int field, Date value, boolean showMilliseconds);
     public native void setUtcDateOnly(int field, Date value);
 
     public native String getString(int field) throws FieldNotFound;
@@ -76,10 +78,10 @@ public class Group extends FieldMap {
         setDouble(field.getField(), field.getValue());
     }
     public void setField(UtcTimeStampField field) {
-        setUtcTimeStamp(field.getField(), field.getValue());
+        setUtcTimeStamp(field.getField(), field.getValue(), field.showMilliseconds());
     }
     public void setField(UtcTimeOnlyField field) {
-        setUtcTimeOnly(field.getField(), field.getValue());
+        setUtcTimeOnly(field.getField(), field.getValue(), field.showMilliseconds());
     }
     public void setField(UtcDateOnlyField field) {
         setUtcDateOnly(field.getField(), field.getValue());

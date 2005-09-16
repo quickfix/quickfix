@@ -336,10 +336,10 @@ public:
 class UtcTimeStampField : public FieldBase
 {
 public:
-  explicit UtcTimeStampField( int field, const UtcTimeStamp& data )
-: FieldBase( field, UtcTimeStampConvertor::convert( data ) ) {}
-  UtcTimeStampField( int field )
-: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp() ) ) {}
+  explicit UtcTimeStampField( int field, const UtcTimeStamp& data, bool showMilliseconds = false )
+: FieldBase( field, UtcTimeStampConvertor::convert( data, showMilliseconds ) ) {}
+  UtcTimeStampField( int field, bool showMilliseconds = false )
+: FieldBase( field, UtcTimeStampConvertor::convert( UtcTimeStamp(), showMilliseconds ) ) {}
 
   void setValue( UtcTimeStamp& value )
     { setString( UtcTimeStampConvertor::convert( value ) ); }
@@ -390,10 +390,10 @@ public:
 class UtcTimeOnlyField : public FieldBase
 {
 public:
-  explicit UtcTimeOnlyField( int field, const UtcTimeOnly& data )
-: FieldBase( field, UtcTimeOnlyConvertor::convert( data ) ) {}
-  UtcTimeOnlyField( int field )
-: FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly() ) ) {}
+  explicit UtcTimeOnlyField( int field, const UtcTimeOnly& data, bool showMilliseconds = false )
+: FieldBase( field, UtcTimeOnlyConvertor::convert( data ), showMilliseconds ) {}
+  UtcTimeOnlyField( int field, bool showMilliseconds = false )
+: FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly(), showMilliseconds ) ) {}
 
   void setValue( UtcTimeOnly& value )
     { setString( UtcTimeOnlyConvertor::convert( value ) ); }

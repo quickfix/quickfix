@@ -184,17 +184,17 @@ inline void setDouble( FIX::FieldMap& map, jint field, jdouble value )
   map.setField( field, FIX::DoubleConvertor::convert( value ) );
 }
 
-inline void setUtcTimeStamp( FIX::FieldMap& map, jint field, jobject value )
+inline void setUtcTimeStamp( FIX::FieldMap& map, jint field, jobject value, bool showMilliseconds )
 {
   JVMObject date( value );
-  FIX::UtcTimeStamp timeStamp( date.callLongMethod( "getTime" ) / 1000 );
+  FIX::UtcTimeStamp timeStamp( date.callLongMethod( "getTime" ) / 1000, showMilliseconds );
   map.setField( field, FIX::UtcTimeStampConvertor::convert( timeStamp ) );
 }
 
-inline void setUtcTimeOnly( FIX::FieldMap& map, jint field, jobject value )
+inline void setUtcTimeOnly( FIX::FieldMap& map, jint field, jobject value, bool showMilliseconds )
 {
   JVMObject date( value );
-  FIX::UtcTimeOnly timeOnly( date.callLongMethod( "getTime" ) / 1000 );
+  FIX::UtcTimeOnly timeOnly( date.callLongMethod( "getTime" ) / 1000, showMilliseconds );
   map.setField( field, FIX::UtcTimeOnlyConvertor::convert( timeOnly ) );
 }
 

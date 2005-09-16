@@ -2,7 +2,6 @@ package quickfix.test;
 
 import quickfix.Message;
 import quickfix.FieldNotFound;
-import quickfix.NoTagValue;
 import quickfix.InvalidMessage;
 import quickfix.StringField;
 import quickfix.field.*;
@@ -93,9 +92,7 @@ public class MessageTest extends TestCase {
             assertTrue("exception not thrown", false);
         } catch(FieldNotFound e) {}
 
-        try {
-          message.setString(5, "string5");
-        } catch(NoTagValue e) { assertTrue("exception thrown", false); }
+        message.setString(5, "string5");
 
         try {
             assertEquals("string5", message.getString(5));
@@ -105,7 +102,6 @@ public class MessageTest extends TestCase {
             message.setString(100, null);
             assertTrue("exception not thrown", false);
         } catch(NullPointerException e) {            
-        } catch(NoTagValue e) {
         }
     }
 
@@ -117,9 +113,7 @@ public class MessageTest extends TestCase {
             assertTrue("exception not thrown", false);
         } catch(FieldNotFound e) {}
 
-        try {
-            message.setBoolean(7, true);
-        } catch(NoTagValue e) { assertTrue("exception thrown", false); }
+        message.setBoolean(7, true);
 
         try {
             assertEquals(true, message.getBoolean(7));
@@ -134,9 +128,7 @@ public class MessageTest extends TestCase {
             assertTrue("exception not thrown", false);
         } catch(FieldNotFound e) {}
 
-        try {
-            message.setChar(12, 'a');
-        } catch(NoTagValue e) { assertTrue("exception thrown", false); }
+        message.setChar(12, 'a');
 
         try {
             assertEquals('a', message.getChar(12));
@@ -151,9 +143,7 @@ public class MessageTest extends TestCase {
             assertTrue("exception not thrown", false);
         } catch(FieldNotFound e) {}
 
-        try {
-          message.setInt(56, 23);
-        } catch(NoTagValue e) { assertTrue("exception thrown", false); }
+        message.setInt(56, 23);
 
         try {
             assertEquals(23, message.getInt(56));
@@ -168,9 +158,7 @@ public class MessageTest extends TestCase {
             assertTrue("exception not thrown", false);
         } catch(FieldNotFound e) {}
 
-        try {
-            message.setDouble(9812, 12.3443);
-        } catch(NoTagValue e) { assertTrue("exception thrown", false); }
+        message.setDouble(9812, 12.3443);
 
         try {
             assertEquals(new Double(12.3443),
@@ -192,28 +180,16 @@ public class MessageTest extends TestCase {
         calendar.set(Calendar.MILLISECOND, 0);
 
         Date time = calendar.getTime();
-        try {
-            message.setUtcTimeStamp(8, time);
-        } catch(NoTagValue e) { assertTrue("exception thrown", false); }
+        message.setUtcTimeStamp(8, time);
 
         try {
             assertEquals(message.getUtcTimeStamp(8).getTime(), time.getTime());
         } catch(FieldNotFound e) { assertTrue("exception thrown", false); }
     }
 
-    public void testSetNoValue() {
-        Message message = new Message();
-        try {
-            message.setField( new StringField(12, "") );
-            assertTrue("exception not thrown", false); 
-        } catch(NoTagValue e) {}
-    }
-
     public void testRemoveField() {
         Message message = new Message();
-        try {
-            message.setField( new StringField(12, "value") );
-        } catch(NoTagValue e) { assertTrue("exception thrown", false); }
+        message.setField( new StringField(12, "value") );
         
         assertTrue( message.isSetField(12) );
         message.removeField( 12 );

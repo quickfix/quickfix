@@ -46,8 +46,13 @@ namespace QuickFix
   public:
   <xsl:call-template name="values"/>
   
+    <xsl:variable name="fieldType"><xsl:call-template name="get-field-type"/></xsl:variable>
+
     <xsl:value-of select="@name"/>() : <xsl:call-template name="get-field-type"/>Field(<xsl:value-of select="@number"/>) {}
     <xsl:value-of select="@name"/>(<xsl:call-template name="get-type"/> data) : <xsl:call-template name="get-field-type"/>Field(<xsl:value-of select="@number"/>, data) {}
+    <xsl:if test="@type='UTCTIMESTAMP' or @type='UTCTIMEONLY'">
+    <xsl:value-of select="@name"/>(<xsl:call-template name="get-type"/> data, bool showMilliseconds) : <xsl:call-template name="get-field-type"/>Field(<xsl:value-of select="@number"/>, data, showMilliseconds) {}
+    </xsl:if>
   };
   <xsl:if test="@name='TotNoOrders'">
   public __gc class ListNoOrds : public IntField
@@ -69,13 +74,19 @@ namespace QuickFix
      <xsl:when test="@type='AMT'">double</xsl:when>
      <xsl:when test="@type='QTY'">double</xsl:when>
      <xsl:when test="@type='CURRENCY'">String*</xsl:when>
+     <xsl:when test="@type='MULTIPLEVALUESTRING'">String*</xsl:when>
+     <xsl:when test="@type='EXCHANGE'">String*</xsl:when>
      <xsl:when test="@type='UTCTIMESTAMP'">DateTime</xsl:when>
-     <xsl:when test="@type='UTCTIMEONLY'">DateTime</xsl:when>
-     <xsl:when test="@type='UTCDATE'">DateTime</xsl:when>
-     <xsl:when test="@type='UTCDATEONLY'">DateTime</xsl:when>
-     <xsl:when test="@type='BOOL'">bool</xsl:when>
+     <xsl:when test="@type='BOOLEAN'">bool</xsl:when>
+     <xsl:when test="@type='LOCALMKTDATE'">String*</xsl:when>
+     <xsl:when test="@type='DATA'">String*</xsl:when>
      <xsl:when test="@type='FLOAT'">double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">double</xsl:when>
+     <xsl:when test="@type='MONTHYEAR'">String*</xsl:when>
+     <xsl:when test="@type='DAYOFMONTH'">String*</xsl:when>
+     <xsl:when test="@type='UTCDATE'">DateTime</xsl:when>
+     <xsl:when test="@type='UTCDATEONLY'">DateTime</xsl:when>
+     <xsl:when test="@type='UTCTIMEONLY'">DateTime</xsl:when>
      <xsl:when test="@type='NUMINGROUP'">int</xsl:when>
      <xsl:when test="@type='PERCENTAGE'">double</xsl:when>
      <xsl:when test="@type='SEQNUM'">int</xsl:when>
@@ -95,13 +106,19 @@ namespace QuickFix
      <xsl:when test="@type='AMT'">Double</xsl:when>
      <xsl:when test="@type='QTY'">Double</xsl:when>
      <xsl:when test="@type='CURRENCY'">String</xsl:when>
+     <xsl:when test="@type='MULTIPLEVALUESTRING'">String</xsl:when>
+     <xsl:when test="@type='EXCHANGE'">String</xsl:when>
      <xsl:when test="@type='UTCTIMESTAMP'">UtcTimeStamp</xsl:when>
-     <xsl:when test="@type='UTCTIMEONLY'">UtcTimeOnly</xsl:when>
-     <xsl:when test="@type='UTCDATE'">UtcDateOnly</xsl:when>
-     <xsl:when test="@type='UTCDATEONLY'">UtcDateOnly</xsl:when>
-     <xsl:when test="@type='BOOL'">Bool</xsl:when>
+     <xsl:when test="@type='BOOLEAN'">Boolean</xsl:when>
+     <xsl:when test="@type='LOCALMKTDATE'">String</xsl:when>
+     <xsl:when test="@type='DATA'">String</xsl:when>
      <xsl:when test="@type='FLOAT'">Double</xsl:when>
      <xsl:when test="@type='PRICEOFFSET'">Double</xsl:when>
+     <xsl:when test="@type='MONTHYEAR'">String</xsl:when>
+     <xsl:when test="@type='DAYOFMONTH'">String</xsl:when>
+     <xsl:when test="@type='UTCDATE'">UtcDateOnly</xsl:when>
+     <xsl:when test="@type='UTCDATEONLY'">UtcDateOnly</xsl:when>
+     <xsl:when test="@type='UTCTIMEONLY'">UtcTimeOnly</xsl:when>
      <xsl:when test="@type='NUMINGROUP'">Int</xsl:when>
      <xsl:when test="@type='PERCENTAGE'">Double</xsl:when>
      <xsl:when test="@type='SEQNUM'">Int</xsl:when>

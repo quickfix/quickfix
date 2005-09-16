@@ -82,7 +82,13 @@ void Message::setDouble(int field, double value)
 
 void Message::setUtcTimeStamp(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); mapSetUtcTimeStamp( field, value, *m_pUnmanaged );
+  checkDisposed(); mapSetUtcTimeStamp( field, value, false, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Message::setUtcTimeStamp(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetUtcTimeStamp( field, value, showMilliseconds, *m_pUnmanaged );
   QF_STACK_CATCH
 }
 
@@ -94,7 +100,13 @@ void Message::setUtcDateOnly(int field, DateTime value)
 
 void Message::setUtcTimeOnly(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); mapSetUtcTimeOnly( field, value, *m_pUnmanaged );
+  checkDisposed(); mapSetUtcTimeOnly( field, value, false, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Message::setUtcTimeOnly(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetUtcTimeOnly( field, value, showMilliseconds, *m_pUnmanaged );
   QF_STACK_CATCH
 }
 
@@ -306,7 +318,13 @@ void Message::Header::setDouble(int field, double value)
 
 void Message::Header::setUtcTimeStamp(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, false, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+void Message::Header::setUtcTimeStamp(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, showMilliseconds, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
@@ -318,7 +336,13 @@ void Message::Header::setUtcDateOnly(int field, DateTime value)
 
 void Message::Header::setUtcTimeOnly(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, false, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+void Message::Header::setUtcTimeOnly(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, showMilliseconds, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
@@ -551,7 +575,13 @@ void Message::Trailer::setDouble(int field, double value)
 
 void Message::Trailer::setUtcTimeStamp(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, false, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+void Message::Trailer::setUtcTimeStamp(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, showMilliseconds, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
@@ -563,7 +593,13 @@ void Message::Trailer::setUtcDateOnly(int field, DateTime value)
 
 void Message::Trailer::setUtcTimeOnly(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, false, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+void Message::Trailer::setUtcTimeOnly(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, showMilliseconds, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
@@ -794,13 +830,28 @@ void Message::mapSetDouble(int field, double value, FIX::FieldMap& map)
   QF_STACK_CATCH
 }
 
-void Message::mapSetUtcTimeStamp(int field, DateTime value, FIX::FieldMap& map)
+void Message::mapSetUtcTimeStamp(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map)
 { QF_STACK_TRY
 
   map.setField( FIX::UtcTimeStampField(
                   field,
-                  FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second,
-                                     value.Day, value.Month, value.Year ) ) );
+                  showMilliseconds ? FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second, value.Millisecond,
+                                     value.Day, value.Month, value.Year )
+                                   : FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second,
+                                     value.Day, value.Month, value.Year ),
+                  showMilliseconds ) );
+
+  QF_STACK_CATCH
+}
+
+void Message::mapSetUtcTimeOnly(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map)
+{ QF_STACK_TRY
+
+  map.setField( FIX::UtcTimeOnlyField(
+                  field,
+                  showMilliseconds ? FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second, value.Millisecond )
+                                   : FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ),
+                  showMilliseconds ) );
 
   QF_STACK_CATCH
 }
@@ -811,16 +862,6 @@ void Message::mapSetUtcDateOnly(int field, DateTime value, FIX::FieldMap& map)
   map.setField( FIX::UtcDateOnlyField(
                   field,
                   FIX::UtcDate( value.Day, value.Month, value.Year ) ) );
-
-  QF_STACK_CATCH
-}
-
-void Message::mapSetUtcTimeOnly(int field, DateTime value, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  map.setField( FIX::UtcTimeOnlyField(
-                  field,
-	                FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ) ) );
 
   QF_STACK_CATCH
 }
@@ -929,7 +970,7 @@ void Message::mapSetField( DoubleField* field, FIX::FieldMap& map )
 
 void Message::mapSetField( UtcTimeStampField* field, FIX::FieldMap& map )
 { QF_STACK_TRY
-  mapSetUtcTimeStamp( field->getField(), field->getValue(), map );
+  mapSetUtcTimeStamp( field->getField(), field->getValue(), field->showMilliseconds(), map );
   QF_STACK_CATCH
 }
 
@@ -941,7 +982,7 @@ void Message::mapSetField( UtcDateOnlyField* field, FIX::FieldMap& map )
 
 void Message::mapSetField( UtcTimeOnlyField* field, FIX::FieldMap& map )
 { QF_STACK_TRY
-  mapSetUtcTimeOnly( field->getField(), field->getValue(), map );
+  mapSetUtcTimeOnly( field->getField(), field->getValue(), field->showMilliseconds(), map );
   QF_STACK_CATCH
 }
 

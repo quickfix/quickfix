@@ -77,8 +77,10 @@ void Group::setField( UtcTimeStampField* field )
   m_pUnmanaged->setField
     ( FIX::UtcTimeStampField
       ( field->getField(),
-	FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second,
-			   value.Day, value.Month, value.Year ) ) );
+        field->showMilliseconds() ? FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second, value.Millisecond,
+			                                                 value.Day, value.Month, value.Year )
+                                  : FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second,
+                                                       value.Day, value.Month, value.Year ) ) );
 
   QF_STACK_CATCH
 }
@@ -102,7 +104,8 @@ void Group::setField( UtcTimeOnlyField* field )
   m_pUnmanaged->setField
     ( FIX::UtcTimeOnlyField
       ( field->getField(),
-	FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ) ) );
+        field->showMilliseconds() ? FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second, value.Millisecond )
+                                  : FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second, value.Millisecond ) ) );
 
   QF_STACK_CATCH
 }

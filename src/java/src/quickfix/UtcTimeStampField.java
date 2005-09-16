@@ -22,11 +22,27 @@ package quickfix;
 import java.util.Date;
 
 public class UtcTimeStampField extends DateField {
+	private boolean showMilliseconds = false;
+
     public UtcTimeStampField(int field) {
         super(field);
     }
 
-    protected UtcTimeStampField(int field, Date data) {
+	public UtcTimeStampField(int field, boolean showMilliseconds) {
+        super(field);
+        this.showMilliseconds = showMilliseconds;
+    }
+
+    public UtcTimeStampField(int field, Date data) {
         super(field, data);
+    }
+
+	public UtcTimeStampField(int field, Date data, boolean showMilliseconds) {
+        super(field, data);
+        this.showMilliseconds = showMilliseconds;
+    }
+
+    boolean showMilliseconds() {
+        return showMilliseconds;
     }
 }

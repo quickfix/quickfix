@@ -121,14 +121,27 @@ public __gc class UtcTimeStampField : public Field
 {
 public:
   UtcTimeStampField( int field )
-: Field( field, __box( DateTime::Now.ToUniversalTime() ) ) {}
+: Field( field, __box( DateTime::Now.ToUniversalTime() ) )
+, m_showMilliseconds(false) {}
+  UtcTimeStampField( int field, bool showMilliseconds )
+: Field( field, __box( DateTime::Now.ToUniversalTime() ) )
+, m_showMilliseconds(showMilliseconds) {}
   UtcTimeStampField( int field, DateTime data )
-: Field( field, __box( data ) ) {}
+: Field( field, __box( data ) )
+, m_showMilliseconds(false) {}
+  UtcTimeStampField( int field, DateTime data, bool showMilliseconds )
+: Field( field, __box( data ) )
+, m_showMilliseconds(showMilliseconds) {}
 
   void setValue( DateTime value )
   { setObject( __box( value ) ); }
   DateTime getValue()
   { return * dynamic_cast < DateTime* > ( getObject() ); }
+
+  bool showMilliseconds() { return m_showMilliseconds; }
+
+private:
+  bool m_showMilliseconds;
 };
 
 public __gc class UtcDateOnlyField : public Field
@@ -158,13 +171,26 @@ public __gc class UtcTimeOnlyField : public Field
 {
 public:
   UtcTimeOnlyField( int field )
-: Field( field, __box( DateTime::Now.ToUniversalTime() ) ) {}
+: Field( field, __box( DateTime::Now.ToUniversalTime() ) )
+, m_showMilliseconds(false) {}
+  UtcTimeOnlyField( int field, bool showMilliseconds )
+: Field( field, __box( DateTime::Now.ToUniversalTime() ) )
+, m_showMilliseconds(showMilliseconds) {}
   UtcTimeOnlyField( int field, DateTime data )
-: Field( field, __box( data ) ) {}
+: Field( field, __box( data ) )
+, m_showMilliseconds(false) {}
+  UtcTimeOnlyField( int field, DateTime data, bool showMilliseconds )
+: Field( field, __box( data ) )
+, m_showMilliseconds(showMilliseconds) {}
 
   void setValue( DateTime value )
   { setObject( __box( value ) ); }
   DateTime getValue()
   { return * dynamic_cast < DateTime* > ( getObject() ); }
+
+  bool showMilliseconds() { return m_showMilliseconds; }
+
+private:
+  bool m_showMilliseconds;
 };
 }

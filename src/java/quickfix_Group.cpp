@@ -165,7 +165,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setDouble
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp__ILjava_util_Date_2
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
@@ -173,12 +173,25 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp
 
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
-  setUtcTimeStamp( *pGroup, field, value );
+  setUtcTimeStamp( *pGroup, field, value, false );
 
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp__ILjava_util_Date_2Z
+( JNIEnv *pEnv, jobject obj, jint field, jobject value, jboolean showMilliseconds )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
+
+  JVM::set( pEnv );
+  FIX::Group* pGroup = getCPPGroup( obj );
+  setUtcTimeStamp( *pGroup, field, value, showMilliseconds );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly__ILjava_util_Date_2
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value )
 { QF_STACK_TRY
 
@@ -186,7 +199,20 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly
 
   JVM::set( pEnv );
   FIX::Group* pGroup = getCPPGroup( obj );
-  setUtcTimeOnly( *pGroup, field, value );
+  setUtcTimeOnly( *pGroup, field, value, false );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly__ILjava_util_Date_2
+( JNIEnv *pEnv, jobject obj, jint field, jobject value, jboolean showMilliseconds )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(value) ) return;
+
+  JVM::set( pEnv );
+  FIX::Group* pGroup = getCPPGroup( obj );
+  setUtcTimeOnly( *pGroup, field, value, showMilliseconds );
 
   QF_STACK_CATCH
 }

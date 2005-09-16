@@ -144,8 +144,10 @@ public:
   void setInt(int field, int value);
   void setDouble(int field, double value);
   void setUtcTimeStamp(int field, DateTime value);
+  void setUtcTimeStamp(int field, DateTime value, bool showMilliseconds);
   void setUtcDateOnly(int field, DateTime value);
   void setUtcTimeOnly(int field, DateTime value);
+  void setUtcTimeOnly(int field, DateTime value, bool showMilliseconds);
 
   String* getString(int field) throw ( FieldNotFound* );
   bool getBoolean(int field) throw ( FieldNotFound* );
@@ -228,8 +230,10 @@ public:
     void setInt(int field, int value);
     void setDouble(int field, double value);
     void setUtcTimeStamp(int field, DateTime value);
+    void setUtcTimeStamp(int field, DateTime value, bool showMilliseconds);
     void setUtcDateOnly(int field, DateTime value);
     void setUtcTimeOnly(int field, DateTime value);
+    void setUtcTimeOnly(int field, DateTime value, bool showMilliseconds);
 
     String* getString(int field) throw ( FieldNotFound* );
     bool getBoolean(int field) throw ( FieldNotFound* );
@@ -352,8 +356,10 @@ public:
     void setInt(int field, int value);
     void setDouble(int field, double value);
     void setUtcTimeStamp(int field, DateTime value);
+    void setUtcTimeStamp(int field, DateTime value, bool showMilliseconds);
     void setUtcDateOnly(int field, DateTime value);
     void setUtcTimeOnly(int field, DateTime value);
+    void setUtcTimeOnly(int field, DateTime value, bool showMilliseconds);
 
     String* getString(int field) throw ( FieldNotFound* );
     bool getBoolean(int field) throw ( FieldNotFound* );
@@ -533,8 +539,8 @@ private:
   void mapSetChar(int field, char value, FIX::FieldMap& map);
   void mapSetInt(int field, int value, FIX::FieldMap& map);
   void mapSetDouble(int field, double value, FIX::FieldMap& map);
-  void mapSetUtcTimeStamp(int field, DateTime value, FIX::FieldMap& map);
-  void mapSetUtcTimeOnly(int field, DateTime value, FIX::FieldMap& map);
+  void mapSetUtcTimeStamp(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map);
+  void mapSetUtcTimeOnly(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map);
   void mapSetUtcDateOnly(int field, DateTime value, FIX::FieldMap& map);
 
   String* mapGetString(int field, FIX::FieldMap& map) throw ( FieldNotFound* );

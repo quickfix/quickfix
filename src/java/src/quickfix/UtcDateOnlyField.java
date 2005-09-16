@@ -26,7 +26,7 @@ public class UtcDateOnlyField extends DateField {
         super(field);
     }
 
-    protected UtcDateOnlyField(int field, Date data) {
+    public UtcDateOnlyField(int field, Date data) {
         super(field, data);
     }
 }
