@@ -172,22 +172,24 @@ void Message::reverseRoute( const Header& header )
   QF_STACK_POP
 }
 
-std::string Message::toString() const
+std::string Message::toString( int bodyLengthField, int checkSumField ) const
 { QF_STACK_PUSH(Message::toString)
 
   std::string str;
-  return toString( str );
+  return toString( str, bodyLengthField, checkSumField );
 
   QF_STACK_POP
 }
 
-std::string& Message::toString( std::string& str ) const
+std::string& Message::toString( std::string& str, 
+                                int bodyLengthField, 
+                                int checkSumField ) const
 { QF_STACK_PUSH(Message::toString)
 
   int length = bodyLength();
   str.reserve( 32 + length );
-  m_header.setField( BodyLength( length ) );
-  m_trailer.setField( CheckSum( checkSum() ) );
+  m_header.setField( IntField(bodyLengthField, length) );
+  m_trailer.setField( CheckSumField(checkSumField, checkSum()) );
 
   m_header.calculateString( str, true );
   FieldMap::calculateString( str, false );

@@ -114,11 +114,14 @@ protected:
 
 public:
   /// Get a string representation of the message
-  std::string toString() const;
+  std::string toString
+    ( int bodyLengthField = FIELD::BodyLength,
+      int checkSumField = FIELD::CheckSum ) const;
   /// Get a string representation without making a copy
-  std::string& toString( std::string& ) const;
-  ///\deprecated To be removed next public release: Use toString()
-  std::string getString() const { return toString(); }
+  std::string& toString
+    ( std::string&, 
+      int bodyLengthField = FIELD::BodyLength, 
+      int checkSumField = FIELD::CheckSum ) const;
   /// Get a XML representation of the message
   std::string toXML() const;
   /// Get a XML representation without making a copy
