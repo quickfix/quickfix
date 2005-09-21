@@ -83,16 +83,9 @@ Session::~Session()
 void Session::insertSendingTime( Header& header )
 { QF_STACK_PUSH(Session::insertSendingTime)
 
-  // Use miliseconds if FIX.4.2 or later
   UtcTimeStamp now;
-  if(m_sessionID.getBeginString() >= BeginString_FIX42)
-    header.setField(
-      FIELD::SendingTime,
-      UtcTimeStampConvertor::convert(now, m_millisecondsInTimeStamp) );
-  else
-    header.setField(
-      FIELD::SendingTime,
-      UtcTimeStampConvertor::convert(now, false) );
+  bool showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
+  header.setField( SendingTime(now, showMilliseconds && m_millisecondsInTimeStamp) );
 
   QF_STACK_POP
 }
