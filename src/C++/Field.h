@@ -391,7 +391,7 @@ class UtcTimeOnlyField : public FieldBase
 {
 public:
   explicit UtcTimeOnlyField( int field, const UtcTimeOnly& data, bool showMilliseconds = false )
-: FieldBase( field, UtcTimeOnlyConvertor::convert( data ), showMilliseconds ) {}
+: FieldBase( field, UtcTimeOnlyConvertor::convert( data, showMilliseconds ) ) {}
   UtcTimeOnlyField( int field, bool showMilliseconds = false )
 : FieldBase( field, UtcTimeOnlyConvertor::convert( UtcTimeOnly(), showMilliseconds ) ) {}
 
@@ -466,6 +466,20 @@ DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, FIELD::NAME)
 #define DEFINE_DEPRECATED_FIELD_CLASS( NAME, TOK, TYPE ) \
 DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 
+#define DEFINE_FIELD_TIMECLASS_NUM( NAME, TOK, TYPE, NUM ) \
+class NAME : public TOK##Field { public: \
+NAME() : TOK##Field(NUM, false) {} \
+NAME(bool showMilliseconds) : TOK##Field(NUM, showMilliseconds) {} \
+NAME(const TYPE& value) : TOK##Field(NUM, value) {} \
+NAME(const TYPE& value, bool showMilliseconds) : TOK##Field(NUM, value, showMilliseconds) {} \
+}
+
+#define DEFINE_FIELD_TIMECLASS( NAME, TOK, TYPE ) \
+DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, FIELD::NAME)
+
+#define DEFINE_DEPRECATED_FIELD_TIMECLASS( NAME, TOK, TYPE ) \
+DEFINE_FIELD_TIMECLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
+
 #define DEFINE_CHECKSUM( NAME ) \
   DEFINE_FIELD_CLASS(NAME, CheckSum, INT)
 #define DEFINE_STRING( NAME ) \
@@ -487,7 +501,7 @@ DEFINE_FIELD_CLASS_NUM(NAME, TOK, TYPE, DEPRECATED_FIELD::NAME)
 #define DEFINE_EXCHANGE( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Exchange, EXCHANGE)
 #define DEFINE_UTCTIMESTAMP( NAME ) \
-  DEFINE_FIELD_CLASS(NAME, UtcTimeStamp, UTCTIMESTAMP)
+  DEFINE_FIELD_TIMECLASS(NAME, UtcTimeStamp, UTCTIMESTAMP)
 #define DEFINE_BOOLEAN( NAME ) \
   DEFINE_FIELD_CLASS(NAME, Bool, BOOLEAN)
 #define DEFINE_LOCALMKTDATE( NAME ) \
