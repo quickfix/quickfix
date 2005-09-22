@@ -189,7 +189,7 @@ void MessageTestCase::setStringWithHighBit::onRun( Message& object )
 
   msg.set(data_len);
   msg.set(data);
-  std::string str = msg.getString();
+  std::string str = msg.toString();
 
   try
   {
@@ -398,21 +398,6 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   header.removeField( FIX::FIELD::DeliverToLocationID );
   reversedMessage.reverseRoute( header );
   assert( !reversedHeader.isSetField(onBehalfOfLocationID) );
-}
-
-void MessageTestCase::setNoTagValue::onRun( Message& object )
-{
-  Message message;
-
-  Text text;
-  try
-  {
-    message.setField( text );
-    assert( false );
-  }
-  catch( NoTagValue )
-  {
-  }
 }
 
 template<> void LogonParseTestCase::getString::onRun( Logon& object )
