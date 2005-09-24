@@ -263,6 +263,7 @@ struct CharConvertor
 {
   static std::string convert( char value )
   {
+    if( value == '\0' ) return "";
     return std::string( 1, value );
   }
 

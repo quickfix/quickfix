@@ -146,6 +146,7 @@ void FieldConvertorsTestCase::charConvertTo::onRun( void*& )
   assert( CharConvertor::convert( 'a' ) == "a" );
   assert( CharConvertor::convert( '1' ) == "1" );
   assert( CharConvertor::convert( 'F' ) == "F" );
+  assert( CharConvertor::convert( 0 ) == "" );
 }
 
 void FieldConvertorsTestCase::charConvertFrom::onRun( void*& )

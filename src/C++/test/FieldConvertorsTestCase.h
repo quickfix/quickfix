@@ -37,6 +37,8 @@ public:
     add( &m_integerConvertFrom );
     add( &m_doubleConvertTo );
     add( &m_doubleConvertFrom );
+    add( &m_charConvertTo );
+    add( &m_charConvertFrom );
     add( &m_streamConvertTo );
     add( &m_streamConvertFrom );
     add( &m_booleanConvertTo );
