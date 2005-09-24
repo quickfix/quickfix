@@ -417,12 +417,10 @@ public class BanzaiApplication implements Application {
     }
 
     public  TimeInForce tifToFIXTif(OrderTIF tif) {
-        return (TimeInForce)tifMap.getFirst(tif)
-               ;
+        return (TimeInForce)tifMap.getFirst(tif);
     }
     public  OrderTIF FIXTifToTif(TimeInForce tif) {
-        return (OrderTIF)typeMap.getSecond(tif)
-               ;
+        return (OrderTIF)tifMap.getSecond(tif);
     }
 
     public void addLogonObserver(Observer observer) {
