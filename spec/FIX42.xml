@@ -1001,6 +1001,8 @@
       <field name="GrossTradeAmt" required="N"/>
       <field name="SettlCurrAmt" required="N"/>
       <field name="SettlCurrency" required="N"/>
+      <field name="SettlCurrFxRate" required="N"/>
+      <field name="SettlCurrFxRateCalc" required="N"/> 
       <field name="HandlInst" required="N"/>
       <field name="MinQty" required="N"/>
       <field name="MaxFloor" required="N"/>
