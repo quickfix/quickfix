@@ -2215,8 +2215,13 @@
       <value enum="2" description="DISABLE_PREVIOUS"/>
     </field>
     <field number="264" name="MarketDepth" type="INT">
+<!--
+      Temporarily commented out until we can handle
+      N>1 scenario
+
       <value enum="0" description="FULL_BOOK"/>
       <value enum="1" description="TOP_OF_BOOK"/>
+-->
     </field>
     <field number="265" name="MDUpdateType" type="INT">
       <value enum="0" description="FULL_REFRESH"/>
