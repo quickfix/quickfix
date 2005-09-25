@@ -156,8 +156,13 @@ namespace FIX44
       };
     };
     FIELD_SET(*this, FIX::NoPosAmt);
-    FIELD_SET(*this, FIX::PosAmtType);
-    FIELD_SET(*this, FIX::PosAmt);
+    class NoPosAmt: public FIX::Group
+    {
+    public:
+    NoPosAmt() : FIX::Group(753,707,FIX::message_order(707,708,0)) {}
+      FIELD_SET(*this, FIX::PosAmtType);
+      FIELD_SET(*this, FIX::PosAmt);
+    };
     FIELD_SET(*this, FIX::RegistStatus);
     FIELD_SET(*this, FIX::DeliveryDate);
     FIELD_SET(*this, FIX::Text);

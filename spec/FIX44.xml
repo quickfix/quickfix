@@ -3907,9 +3907,10 @@
       </group>
     </component>
     <component name="PositionAmountData">
-      <field name="NoPosAmt" required="Y" />
-      <field name="PosAmtType" required="Y" />
-      <field name="PosAmt" required="Y" />
+      <group name="NoPosAmt" required="Y">
+        <field name="PosAmtType" required="Y" />
+        <field name="PosAmt" required="Y" />
+      </group>
     </component>
     <component name="TrdRegTimestamps">
       <group name="NoTrdRegTimestamps" required="Y">
@@ -4379,6 +4380,7 @@
       <value enum="4" description="UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST" />
       <value enum="5" description="ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER" />
       <value enum="6" description="DUPLICATE_CLORDID_RECEIVED" />
+      <value enum="99" description="OTHER" />
     </field>
     <field number="103" name="OrdRejReason" type="INT">
       <value enum="0" description="BROKER_EXCHANGE_OPTION" />
@@ -6102,6 +6104,7 @@
       <value enum="2" description="NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA" />
       <value enum="3" description="NOT_AUTHORIZED_TO_REQUEST_POSITIONS" />
       <value enum="4" description="REQUEST_FOR_POSITION_NOT_SUPPORTED" />
+      <value enum="99" description="OTHER" />
     </field>
     <field number="729" name="PosReqStatus" type="INT">
       <value enum="0" description="COMPLETED" />
@@ -6630,6 +6633,7 @@
       <value enum="7" description="NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED" />
       <value enum="8" description="COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED" />
       <value enum="9" description="UNAUTHORIZED_FOR_COLLATERAL_INQUIRY" />
+      <value enum="99" description="OTHER" />
     </field>
     <field number="947" name="StrikeCurrency" type="CURRENCY" />
     <field number="948" name="NoNested3PartyIDs" type="NUMINGROUP" />

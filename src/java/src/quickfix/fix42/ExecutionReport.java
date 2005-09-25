@@ -946,6 +946,30 @@ public class ExecutionReport extends Message
   { return isSetField(field); }
   public boolean isSetSettlCurrency()
   { return isSetField(120); }
+  public void set(quickfix.field.SettlCurrFxRate value)
+  { setField(value); }
+  public quickfix.field.SettlCurrFxRate get(quickfix.field.SettlCurrFxRate  value)
+    throws FieldNotFound
+  { getField(value); return value; }
+  public quickfix.field.SettlCurrFxRate getSettlCurrFxRate() throws FieldNotFound
+  { quickfix.field.SettlCurrFxRate value = new quickfix.field.SettlCurrFxRate();
+    getField(value); return value; }
+  public boolean isSet(quickfix.field.SettlCurrFxRate field)
+  { return isSetField(field); }
+  public boolean isSetSettlCurrFxRate()
+  { return isSetField(155); }
+  public void set(quickfix.field.SettlCurrFxRateCalc value)
+  { setField(value); }
+  public quickfix.field.SettlCurrFxRateCalc get(quickfix.field.SettlCurrFxRateCalc  value)
+    throws FieldNotFound
+  { getField(value); return value; }
+  public quickfix.field.SettlCurrFxRateCalc getSettlCurrFxRateCalc() throws FieldNotFound
+  { quickfix.field.SettlCurrFxRateCalc value = new quickfix.field.SettlCurrFxRateCalc();
+    getField(value); return value; }
+  public boolean isSet(quickfix.field.SettlCurrFxRateCalc field)
+  { return isSetField(field); }
+  public boolean isSetSettlCurrFxRateCalc()
+  { return isSetField(156); }
   public void set(quickfix.field.HandlInst value)
   { setField(value); }
   public quickfix.field.HandlInst get(quickfix.field.HandlInst  value)

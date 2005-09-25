@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-
+ 
 /****************************************************************************
 ** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 #ifndef FIX_FIELDS_H
 #define FIX_FIELDS_H
 
@@ -29,7 +29,7 @@
 
 namespace FIX
 {
-
+  
  DEFINE_STRING(Account);
  DEFINE_STRING(AdvId);
  DEFINE_STRING(AdvRefID);

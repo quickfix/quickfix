@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-
+ 
 /****************************************************************************
 ** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 package quickfix.fix42;
 
 import quickfix.*;
@@ -120,12 +120,12 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     { throw new UnsupportedMessageType(); }
   public void onMessage( BusinessMessageReject message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     {}
-
+ 
   public void crack( quickfix.Message message, SessionID sessionID )
     throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue
   { crack42((Message)message, sessionID); }
 
-  public void crack42( Message message, SessionID sessionID )
+  public void crack42( Message message, SessionID sessionID ) 
     throws UnsupportedMessageType, FieldNotFound, IncorrectTagValue
   {
     MsgType msgType = new MsgType();

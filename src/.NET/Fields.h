@@ -1083,6 +1083,7 @@ namespace QuickFix
   static const int UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST = 4;
   static const int ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER = 5;
   static const int DUPLICATE_CLORDID_RECEIVED = 6;
+  static const int OTHER = 99;
   CxlRejReason() : IntField(102) {}
     CxlRejReason(int data) : IntField(102, data) {}
     
@@ -6838,6 +6839,7 @@ namespace QuickFix
   static const int NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA = 2;
   static const int NOT_AUTHORIZED_TO_REQUEST_POSITIONS = 3;
   static const int REQUEST_FOR_POSITION_NOT_SUPPORTED = 4;
+  static const int OTHER = 99;
   PosReqResult() : IntField(728) {}
     PosReqResult(int data) : IntField(728, data) {}
     
@@ -8826,6 +8828,7 @@ namespace QuickFix
   static const int NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED = 7;
   static const int COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED = 8;
   static const int UNAUTHORIZED_FOR_COLLATERAL_INQUIRY = 9;
+  static const int OTHER = 99;
   CollInquiryResult() : IntField(946) {}
     CollInquiryResult(int data) : IntField(946, data) {}
     

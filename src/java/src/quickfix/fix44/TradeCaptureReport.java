@@ -1404,6 +1404,10 @@ public class TradeCaptureReport extends Message
   { return isSetField(field); }
   public boolean isSetNoPosAmt()
   { return isSetField(753); }
+  public static class NoPosAmt extends Group {
+    public NoPosAmt() {
+      super(753,707,
+      new int[] {707,708,0 } ); }
   public void set(quickfix.field.PosAmtType value)
   { setField(value); }
   public quickfix.field.PosAmtType get(quickfix.field.PosAmtType  value)
@@ -1428,6 +1432,7 @@ public class TradeCaptureReport extends Message
   { return isSetField(field); }
   public boolean isSetPosAmt()
   { return isSetField(708); }
+}
   public void set(quickfix.field.MultiLegReportingType value)
   { setField(value); }
   public quickfix.field.MultiLegReportingType get(quickfix.field.MultiLegReportingType  value)

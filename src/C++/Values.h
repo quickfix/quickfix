@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-
+ 
 /****************************************************************************
 ** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 #ifndef FIX_VALUES_H
 #define FIX_VALUES_H
 
@@ -32,7 +32,7 @@ namespace FIX
   const char BeginString_FIX42[] = "FIX.4.2";
   const char BeginString_FIX41[] = "FIX.4.1";
   const char BeginString_FIX40[] = "FIX.4.0";
-
+  
  const char MsgType_Heartbeat[] = "0";
  const char MsgType_Logon[] = "A";
  const char MsgType_TestRequest[] = "1";
@@ -426,6 +426,7 @@ namespace FIX
  const int CxlRejReason_UNABLE_TO_PROCESS_ORDER_MASS_CANCEL_REQUEST = 4;
  const int CxlRejReason_ORIGORDMODTIME_DID_NOT_MATCH_LAST_TRANSACTTIME_OF_ORDER = 5;
  const int CxlRejReason_DUPLICATE_CLORDID_RECEIVED = 6;
+ const int CxlRejReason_OTHER = 99;
  const int OrdRejReason_BROKER_EXCHANGE_OPTION = 0;
  const int OrdRejReason_UNKNOWN_SYMBOL = 1;
  const int OrdRejReason_EXCHANGE_CLOSED = 2;
@@ -1413,6 +1414,7 @@ namespace FIX
  const int PosReqResult_NO_POSITIONS_FOUND_THAT_MATCH_CRITERIA = 2;
  const int PosReqResult_NOT_AUTHORIZED_TO_REQUEST_POSITIONS = 3;
  const int PosReqResult_REQUEST_FOR_POSITION_NOT_SUPPORTED = 4;
+ const int PosReqResult_OTHER = 99;
  const int PosReqStatus_COMPLETED = 0;
  const int PosReqStatus_COMPLETED_WITH_WARNINGS = 1;
  const int PosReqStatus_REJECTED = 2;
@@ -1663,6 +1665,7 @@ namespace FIX
  const int CollInquiryResult_NO_COLLATERAL_FOUND_FOR_THE_ORDER_SPECIFIED = 7;
  const int CollInquiryResult_COLLATERAL_INQUIRY_TYPE_NOT_SUPPORTED = 8;
  const int CollInquiryResult_UNAUTHORIZED_FOR_COLLATERAL_INQUIRY = 9;
+ const int CollInquiryResult_OTHER = 99;
   const char SessionRejectReason_INVALID_TAG_NUMBER_TEXT[] = "Invalid tag number";
   const char SessionRejectReason_REQUIRED_TAG_MISSING_TEXT[] = "Required tag missing";
   const char SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE_TEXT[] = "Tag not defined for this message type";

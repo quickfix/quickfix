@@ -1,5 +1,5 @@
 /* -*- C++ -*- */
-
+ 
 /****************************************************************************
 ** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
 **
@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 #ifndef FIX_FIELDNUMBERS_H
 #define FIX_FIELDNUMBERS_H
 

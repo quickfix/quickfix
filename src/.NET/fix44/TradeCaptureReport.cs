@@ -1400,30 +1400,35 @@ namespace QuickFix44
     public bool isSetNoPosAmt()
     { return isSetField(753); }
 
-    public void set(QuickFix.PosAmtType value)
-    { setField(value); }
-    public QuickFix.PosAmtType get(QuickFix.PosAmtType  value)
-    { getField(value); return value; }
-    public QuickFix.PosAmtType getPosAmtType()
-    { QuickFix.PosAmtType value = new QuickFix.PosAmtType();
-      getField(value); return value; }
-    public bool isSet(QuickFix.PosAmtType field)
-    { return isSetField(field); }
-    public bool isSetPosAmtType()
-    { return isSetField(707); }
+    public class NoPosAmt: QuickFix.Group
+    {
+    public NoPosAmt() : base(753,707,message_order ) {}
+    static int[] message_order = new int[] {707,708,0};
+      public void set(QuickFix.PosAmtType value)
+      { setField(value); }
+      public QuickFix.PosAmtType get(QuickFix.PosAmtType  value)
+      { getField(value); return value; }
+      public QuickFix.PosAmtType getPosAmtType()
+      { QuickFix.PosAmtType value = new QuickFix.PosAmtType();
+        getField(value); return value; }
+      public bool isSet(QuickFix.PosAmtType field)
+      { return isSetField(field); }
+      public bool isSetPosAmtType()
+      { return isSetField(707); }
 
-    public void set(QuickFix.PosAmt value)
-    { setField(value); }
-    public QuickFix.PosAmt get(QuickFix.PosAmt  value)
-    { getField(value); return value; }
-    public QuickFix.PosAmt getPosAmt()
-    { QuickFix.PosAmt value = new QuickFix.PosAmt();
-      getField(value); return value; }
-    public bool isSet(QuickFix.PosAmt field)
-    { return isSetField(field); }
-    public bool isSetPosAmt()
-    { return isSetField(708); }
+      public void set(QuickFix.PosAmt value)
+      { setField(value); }
+      public QuickFix.PosAmt get(QuickFix.PosAmt  value)
+      { getField(value); return value; }
+      public QuickFix.PosAmt getPosAmt()
+      { QuickFix.PosAmt value = new QuickFix.PosAmt();
+        getField(value); return value; }
+      public bool isSet(QuickFix.PosAmt field)
+      { return isSetField(field); }
+      public bool isSetPosAmt()
+      { return isSetField(708); }
 
+    };
     public void set(QuickFix.MultiLegReportingType value)
     { setField(value); }
     public QuickFix.MultiLegReportingType get(QuickFix.MultiLegReportingType  value)
