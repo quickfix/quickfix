@@ -185,7 +185,7 @@ namespace QuickFix
   public __gc class BrokerOfCredit : public StringField
   {
   public:
-  BrokerOfCredit() : CharField(92) {}
+  BrokerOfCredit() : StringField(92) {}
     BrokerOfCredit(String* data) : StringField(92, data) {}
   };
 
