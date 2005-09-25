@@ -42,7 +42,7 @@ namespace FIX
   DEFINE_CHAR(OpenClose);
   DEFINE_INT(AllocShares);
   DEFINE_CHAR(DlvyInst);
-  DEFINE_CHAR(BrokerOfCredit);
+  DEFINE_STRING(BrokerOfCredit);
   DEFINE_STRING(ClientID);
   DEFINE_CHAR(CxlType);
   DEFINE_STRING(SettlLocation);

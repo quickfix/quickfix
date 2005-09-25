@@ -182,11 +182,11 @@ namespace QuickFix
     DlvyInst(__wchar_t data) : CharField(86, data) {}
   };
 
-  public __gc class BrokerOfCredit : public CharField
+  public __gc class BrokerOfCredit : public StringField
   {
   public:
   BrokerOfCredit() : CharField(92) {}
-    BrokerOfCredit(__wchar_t data) : CharField(92, data) {}
+    BrokerOfCredit(String* data) : StringField(92, data) {}
   };
 
   public __gc class ClientID : public StringField
