@@ -61,6 +61,28 @@ fi
 ########################################
 
 ########################################
+# POSTGRESQL
+########################################
+has_postgresql=false
+AC_ARG_WITH(postgresql,
+    [  --with-postgresql=<path>     prefix of PostgreSQL installation. e.g. /usr/local or /usr], 
+    [has_postgresql=true],
+    has_postgresql=false
+)
+POSTGRESQL_PREFIX=$with_postgresql
+AC_SUBST(POSTGRESQL_PREFIX)
+
+if test $has_postgresql = true
+then
+    POSTGRESQL_CFLAGS="-I${POSTGRESQL_PREFIX}/include"
+    AC_SUBST(POSTGRESQL_CFLAGS)
+    POSTGRESQL_LIBS="-L${POSTGRESQL_PREFIX}/lib -lpq"
+    AC_SUBST(POSTGRESQL_LIBS)
+    AC_DEFINE(HAVE_POSTGRESQL, 1, Define if you have sql library (-lpq))
+fi
+########################################
+
+########################################
 # PYTHON
 ########################################
 has_python=false
@@ -140,9 +162,9 @@ AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 ########################################
 
 # libs
-LIBS="$LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS"
+LIBS="$LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS"
 # gcc flags
-SHAREDFLAGS="$STLPORT_CFLAGS $MYSQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS"
+SHAREDFLAGS="$STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS"
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
