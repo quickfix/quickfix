@@ -78,19 +78,19 @@ Log* MySQLLogFactory::create( const SessionID& s )
   {
     Dictionary settings = m_settings.get( s );
 
-    try { database = settings.getString( MYSQL_STORE_DATABASE ); }
+    try { database = settings.getString( MYSQL_LOG_DATABASE ); }
     catch( ConfigError& ) {}
 
-    try { user = settings.getString( MYSQL_STORE_USER ); }
+    try { user = settings.getString( MYSQL_LOG_USER ); }
     catch( ConfigError& ) {}
 
-    try { password = settings.getString( MYSQL_STORE_PASSWORD ); }
+    try { password = settings.getString( MYSQL_LOG_PASSWORD ); }
     catch( ConfigError& ) {}
 
-    try { host = settings.getString( MYSQL_STORE_HOST ); }
+    try { host = settings.getString( MYSQL_LOG_HOST ); }
     catch( ConfigError& ) {}
 
-    try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
+    try { port = ( short ) settings.getLong( MYSQL_LOG_PORT ); }
     catch( ConfigError& ) {}
   }
   else
@@ -119,7 +119,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   UtcTimeStamp time;
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
-  time.getHMS( hour, minute, second );
+  time.getHMS( hour, minute, second, millis );
 
   char sqlTime[ 20 ];
   sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
