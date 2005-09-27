@@ -65,7 +65,7 @@ fi
 ########################################
 has_postgresql=false
 AC_ARG_WITH(postgresql,
-    [  --with-postgresql=<path>     prefix of PostgreSQL installation. e.g. /usr/local or /usr], 
+    [  --with-postgresql=<path>     prefix of PostgreSQL installation. e.g. /usr/local/pgsql or /usr/pgsql], 
     [has_postgresql=true],
     has_postgresql=false
 )
