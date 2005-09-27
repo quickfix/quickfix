@@ -38,7 +38,7 @@ namespace FIX
 {
 
 const std::string PostgreSQLLogFactory::DEFAULT_DATABASE = "quickfix";
-const std::string PostgreSQLLogFactory::DEFAULT_USER = "root";
+const std::string PostgreSQLLogFactory::DEFAULT_USER = "postgres";
 const std::string PostgreSQLLogFactory::DEFAULT_PASSWORD = "";
 const std::string PostgreSQLLogFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLLogFactory::DEFAULT_PORT = 0;
@@ -143,8 +143,8 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
     query << "'" << m_sessionID.getSessionQualifier() << "',";
   query << "'" << valueCopy << "')";
 
-  std::cout << query.str() << std::endl;
-  std::cout << PQresultErrorMessage( PQexec( pConnection, query.str().c_str() ) ) << std::endl;
+  PGresult* result = PQexec( pConnection, query.str().c_str() );
+  PQclear( result );
 
   QF_STACK_POP
 }
