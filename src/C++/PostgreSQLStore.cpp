@@ -24,9 +24,9 @@
 #endif
 #include "CallStack.h"
 
-#ifdef HAVE_MYSQL
+#ifdef HAVE_POSTGRESQL
 
-#include "MySQLStore.h"
+#include "PostgreSQLStore.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
 #include "FieldConvertors.h"
@@ -34,53 +34,28 @@
 #include "Utility.h"
 #include "strptime.h"
 #include <fstream>
-#include <mysql.h>
-#include <errmsg.h>
-
-#undef MYSQL_PORT
+#include <libpq-fe.h>
 
 namespace FIX
 {
 
-const std::string MySQLStoreFactory::DEFAULT_DATABASE = "quickfix";
-const std::string MySQLStoreFactory::DEFAULT_USER = "root";
-const std::string MySQLStoreFactory::DEFAULT_PASSWORD = "";
-const std::string MySQLStoreFactory::DEFAULT_HOST = "localhost";
-const short MySQLStoreFactory::DEFAULT_PORT = 0;
+const std::string PostgreSQLStoreFactory::DEFAULT_DATABASE = "quickfix";
+const std::string PostgreSQLStoreFactory::DEFAULT_USER = "postgres";
+const std::string PostgreSQLStoreFactory::DEFAULT_PASSWORD = "";
+const std::string PostgreSQLStoreFactory::DEFAULT_HOST = "localhost";
+const short PostgreSQLStoreFactory::DEFAULT_PORT = 0;
 
-int safe_query( MYSQL* dbms, const std::string& sql )
-{
-  int retry = 0;
-  int errcode = 0;
-  int mysqlerrno = 0;
-  std::string errmsg;
-
-  do
-  {
-    errcode = mysql_query( dbms, sql.c_str() );
-    if( errcode == 0 )
-      return 0;
-    mysqlerrno = mysql_errno( dbms );
-    if( errcode != 0 )
-    {
-      if( !(mysqlerrno == CR_SERVER_GONE_ERROR || mysqlerrno == CR_SERVER_LOST) )
-        return errcode;
-    }
-    ++retry;
-  } while( retry <= 1 );
-  return errcode;
-}
-
-MySQLStore::MySQLStore
+PostgreSQLStore::PostgreSQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
   : m_sessionID( s )
 {
-  if ( !( m_pConnection = mysql_init( NULL ) ) )
-    throw ConfigError( "Unable to initialize MySQL" );
-  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
-  if( !mysql_real_connect( pConnection, host.c_str(), user.c_str(), password.c_str(),
-                           database.c_str(), port, NULL, 0 ) )
+  m_pConnection = PQsetdbLogin( host.c_str(), port == 0 ? "" : IntConvertor::convert( port ).c_str(),
+                                "", "", database.c_str(), user.c_str(), password.c_str() );
+  PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
+
+   
+  if ( PQstatus( pConnection ) != CONNECTION_OK )
   {
     throw ConfigError( "Unable to connect to database" );
   }
@@ -88,72 +63,78 @@ MySQLStore::MySQLStore
   populateCache();
 }
 
-MySQLStore::~MySQLStore()
+PostgreSQLStore::~PostgreSQLStore()
 {
-  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
-  mysql_close( pConnection );
+  PGconn* pConnection = reinterpret_cast <PGconn*>( m_pConnection );
+  PQfinish( pConnection );
 }
 
-void MySQLStore::populateCache()
-{ QF_STACK_PUSH(MySQLStore::populateCache)
+void PostgreSQLStore::populateCache()
+{ QF_STACK_PUSH(PostgreSQLStore::populateCache)
 
-  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
+  PGconn* pConnection = reinterpret_cast<PGconn*>( m_pConnection );
   std::stringstream query;
 
   query << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
-  << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-  << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-  << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
+  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
 
-  if ( safe_query( pConnection, query.str() ) )
+  PGresult* result = PQexec( pConnection, query.str().c_str() );
+  if( PQresultStatus(result) != PGRES_TUPLES_OK )
     throw ConfigError( "Unable to connect to database" );
-  MYSQL_RES* result = mysql_store_result( pConnection );
-  if( result )
+
+  int num_rows = PQntuples( result );
+  if( num_rows > 1 )
   {
-    my_ulonglong num_rows = mysql_num_rows( result );
-    if( num_rows > 1 )
-      throw ConfigError( "Multiple entries found for session in database" );
-    if( num_rows == 1 )
-    {
-      MYSQL_ROW row = mysql_fetch_row( result );
-      struct tm time;
-      std::string sqlTime = row[ 0 ];
-      strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
-      m_cache.setCreationTime (UtcTimeStamp (DateTime::fromTm (time)));
-      m_cache.setNextTargetMsgSeqNum( atol( row[ 1 ] ) );
-      m_cache.setNextSenderMsgSeqNum( atol( row[ 2 ] ) );
-    }
-    else
-    {
-      UtcTimeStamp time = m_cache.getCreationTime();
-      char sqlTime[ 20 ];
-      int year, month, day, hour, minute, second, millis;
-      time.getYMD (year, month, day);
-      time.getHMS (hour, minute, second, millis);
-      sprintf (sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
-               year, month, day, hour, minute, second);
-      std::stringstream query2;
-      query2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
-      << "creation_time, incoming_seqnum, outgoing_seqnum) VALUES("
-      << "\"" << m_sessionID.getBeginString().getValue() << "\","
-      << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
-      << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
-      << "\"" << m_sessionID.getSessionQualifier() << "\","
-      << "'" << sqlTime << "',"
-      << m_cache.getNextTargetMsgSeqNum() << ","
-      << m_cache.getNextSenderMsgSeqNum() << ")";
-      if ( safe_query( pConnection, query2.str() ) )
-        throw ConfigError( "Unable to create session in database" );
-    }
-    mysql_free_result( result );
+    PQclear( result );
+    throw ConfigError( "Multiple entries found for session in database" );
   }
+
+  if( num_rows == 1 )
+  {
+    struct tm time;
+    std::string sqlTime = PQgetvalue( result, 0, 0 );
+    strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", &time );
+    m_cache.setCreationTime (UtcTimeStamp (&time));
+    m_cache.setNextTargetMsgSeqNum( atol( PQgetvalue( result, 0, 1 ) ) );
+    m_cache.setNextSenderMsgSeqNum( atol( PQgetvalue( result, 0, 2 ) ) );
+  }
+  else
+  {
+    UtcTimeStamp time = m_cache.getCreationTime();
+    char sqlTime[ 20 ];
+    int year, month, day, hour, minute, second, millis;
+    time.getYMD (year, month, day);
+    time.getHMS (hour, minute, second, millis);
+    sprintf (sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
+             year, month, day, hour, minute, second);
+    std::stringstream query2;
+    query2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
+    << "creation_time, incoming_seqnum, outgoing_seqnum) VALUES("
+    << "'" << m_sessionID.getBeginString().getValue() << "',"
+    << "'" << m_sessionID.getSenderCompID().getValue() << "',"
+    << "'" << m_sessionID.getTargetCompID().getValue() << "',"
+    << "'" << m_sessionID.getSessionQualifier() << "',"
+    << "'" << sqlTime << "',"
+    << m_cache.getNextTargetMsgSeqNum() << ","
+    << m_cache.getNextSenderMsgSeqNum() << ")";
+
+    PGresult* result2 = PQexec( pConnection, query2.str().c_str() );
+    if( PQresultStatus(result2) != PGRES_COMMAND_OK )
+    {
+      PQclear( result2 );
+      throw ConfigError( "Unable to create session in database" );
+    }
+  }
+  PQclear( result );
 
   QF_STACK_POP
 }
 
-MessageStore* MySQLStoreFactory::create( const SessionID& s )
-{ QF_STACK_PUSH(MySQLStoreFactory::create)
+MessageStore* PostgreSQLStoreFactory::create( const SessionID& s )
+{ QF_STACK_PUSH(PostgreSQLStoreFactory::create)
 
   std::string database = DEFAULT_DATABASE;
   std::string user = DEFAULT_USER;
@@ -165,19 +146,19 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s )
   {
     Dictionary settings = m_settings.get( s );
 
-    try { database = settings.getString( MYSQL_STORE_DATABASE ); }
+    try { database = settings.getString( POSTGRESQL_STORE_DATABASE ); }
     catch( ConfigError& ) {}
 
-    try { user = settings.getString( MYSQL_STORE_USER ); }
+    try { user = settings.getString( POSTGRESQL_STORE_USER ); }
     catch( ConfigError& ) {}
 
-    try { password = settings.getString( MYSQL_STORE_PASSWORD ); }
+    try { password = settings.getString( POSTGRESQL_STORE_PASSWORD ); }
     catch( ConfigError& ) {}
 
-    try { host = settings.getString( MYSQL_STORE_HOST ); }
+    try { host = settings.getString( POSTGRESQL_STORE_HOST ); }
     catch( ConfigError& ) {}
 
-    try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
+    try { port = ( short ) settings.getLong( POSTGRESQL_STORE_PORT ); }
     catch( ConfigError& ) {}
   }
   else
@@ -189,165 +170,192 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s )
     port = m_port;
   }
 
-  return new MySQLStore( s, database, user, password, host, port );
+  return new PostgreSQLStore( s, database, user, password, host, port );
 
   QF_STACK_POP
 }
 
-void MySQLStoreFactory::destroy( MessageStore* pStore )
-{ QF_STACK_PUSH(MySQLStoreFactory::destroy)
+void PostgreSQLStoreFactory::destroy( MessageStore* pStore )
+{ QF_STACK_PUSH(PostgreSQLStoreFactory::destroy)
   delete pStore;
   QF_STACK_POP
 }
 
-bool MySQLStore::set( int msgSeqNum, const std::string& msg )
+bool PostgreSQLStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::set)
+{ QF_STACK_PUSH(PostgreSQLStore::set)
 
   std::string msgCopy = msg;
   string_replace( "\"", "\\\"", msgCopy );
 
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
   std::stringstream query;
   query << "INSERT INTO messages "
   << "(beginstring, sendercompid, targetcompid, session_qualifier, msgseqnum, message) "
   << "VALUES ("
-  << "\"" << m_sessionID.getBeginString().getValue() << "\","
-  << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
-  << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
-  << "\"" << m_sessionID.getSessionQualifier() << "\","
+  << "'" << m_sessionID.getBeginString().getValue() << "',"
+  << "'" << m_sessionID.getSenderCompID().getValue() << "',"
+  << "'" << m_sessionID.getTargetCompID().getValue() << "',"
+  << "'" << m_sessionID.getSessionQualifier() << "',"
   << msgSeqNum << ","
-  << "\"" << msgCopy << "\")";
+  << "'" << msgCopy << "')";
 
-  if ( safe_query( pConnection, query.str() ) )
+  PGresult* result = PQexec( pConnection, query.str().c_str() );
+  if( PQresultStatus(result) != PGRES_COMMAND_OK )
   {
     std::stringstream query2;
-    query2 << "UPDATE messages SET message=\"" << msg << "\" WHERE "
-    << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-    << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-    << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-    << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
+    query2 << "UPDATE messages SET message='" << msg << "' WHERE "
+    << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+    << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+    << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+    << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
     << "msgseqnum=" << msgSeqNum;
-    if ( safe_query( pConnection, query2.str() ) )
-      throw IOException();
+    PGresult* result2 = PQexec( pConnection, query2.str().c_str() );
+    if( PQresultStatus(result2) != PGRES_COMMAND_OK )
+    {
+      PQclear( result );
+      PQclear( result2 );
+      throw IOException();    
+    }
+    PQclear( result2 );
   }
+  PQclear( result );
   return true;
 
   QF_STACK_POP
 }
 
-void MySQLStore::get( int begin, int end,
+void PostgreSQLStore::get( int begin, int end,
                       std::vector < std::string > & result ) const
 throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::get)
+{ QF_STACK_PUSH(PostgreSQLStore::get)
 
   result.clear();
-  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
+  PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
   std::stringstream query;
   query << "SELECT message FROM messages WHERE "
-  << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-  << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-  << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\" and "
+  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
   << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
   << "ORDER BY msgseqnum";
 
-  if( safe_query( pConnection, query.str() ) )
+  PGresult* sqlResult = PQexec( pConnection, query.str().c_str() );
+  if( PQresultStatus(sqlResult) != PGRES_TUPLES_OK )
+  {
+    PQclear( sqlResult );
     throw IOException();
+  }
 
-  MYSQL_RES* sqlResult = mysql_store_result( pConnection );
+  int rows = PQntuples( sqlResult );
+  for( int row = 0; row < rows; row++ )
+    result.push_back( PQgetvalue(sqlResult, row, 0 ) );
 
-  while ( MYSQL_ROW row = mysql_fetch_row( sqlResult ) )
-    result.push_back( row[ 0 ] );
-  mysql_free_result( sqlResult );
+  PQclear( sqlResult );
   QF_STACK_POP
 }
 
-int MySQLStore::getNextSenderMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::getNextSenderMsgSeqNum)
+int PostgreSQLStore::getNextSenderMsgSeqNum() const throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::getNextSenderMsgSeqNum)
   return m_cache.getNextSenderMsgSeqNum();
   QF_STACK_POP
 }
 
-int MySQLStore::getNextTargetMsgSeqNum() const throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::getNextTargetMsgSeqNum)
+int PostgreSQLStore::getNextTargetMsgSeqNum() const throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::getNextTargetMsgSeqNum)
   return m_cache.getNextTargetMsgSeqNum();
   QF_STACK_POP
 }
 
-void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::setNextSenderMsgSeqNum)
+void PostgreSQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::setNextSenderMsgSeqNum)
 
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+  PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
   std::stringstream query;
   query << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
-  << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-  << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-  << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if( safe_query( pConnection, query.str() ) )
+  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+  PGresult* result = PQexec( pConnection, query.str().c_str() );
+  if( PQresultStatus(result) != PGRES_COMMAND_OK )
+  {
+    PQclear( result );
     throw IOException();
+  }
+  PQclear( result );
   m_cache.setNextSenderMsgSeqNum( value );
 
   QF_STACK_POP
 }
 
-void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::setNextTargetMsgSeqNum)
+void PostgreSQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::setNextTargetMsgSeqNum)
 
-  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
+  PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
   std::stringstream query;
   query << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
-  << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-  << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-  << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if( safe_query( pConnection, query.str() ) )
+  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+  PGresult* result = PQexec( pConnection, query.str().c_str() );
+  if( PQresultStatus(result) != PGRES_COMMAND_OK )
+  {
+    PQclear( result );
     throw IOException();
-  m_cache.setNextTargetMsgSeqNum( value );
+  }
+  PQclear( result );
+  m_cache.setNextSenderMsgSeqNum( value );
 
   QF_STACK_POP
 }
 
-void MySQLStore::incrNextSenderMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::incrNextSenderMsgSeqNum)
+void PostgreSQLStore::incrNextSenderMsgSeqNum() throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::incrNextSenderMsgSeqNum)
   m_cache.incrNextSenderMsgSeqNum();
   setNextSenderMsgSeqNum( m_cache.getNextSenderMsgSeqNum() );
   QF_STACK_POP
 }
 
-void MySQLStore::incrNextTargetMsgSeqNum() throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::incrNextTargetMsgSeqNum)
+void PostgreSQLStore::incrNextTargetMsgSeqNum() throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::incrNextTargetMsgSeqNum)
   m_cache.incrNextTargetMsgSeqNum();
   setNextTargetMsgSeqNum( m_cache.getNextTargetMsgSeqNum() );
   QF_STACK_POP
 }
 
-UtcTimeStamp MySQLStore::getCreationTime() const throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::getCreationTime)
+UtcTimeStamp PostgreSQLStore::getCreationTime() const throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::getCreationTime)
   return m_cache.getCreationTime();
   QF_STACK_POP
 }
 
-void MySQLStore::reset() throw ( IOException )
-{ QF_STACK_PUSH(MySQLStore::reset)
+void PostgreSQLStore::reset() throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::reset)
 
-  MYSQL * pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
+ PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
   std::stringstream query;
   query << "DELETE FROM messages WHERE "
-  << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-  << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-  << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if( safe_query( pConnection, query.str() ) )
+  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+  PGresult* result = PQexec( pConnection, query.str().c_str() );
+  if( PQresultStatus(result) != PGRES_COMMAND_OK )
+  {
+    PQclear( result );
     throw IOException();
+  }
+  PQclear( result );
 
   m_cache.reset();
   UtcTimeStamp time = m_cache.getCreationTime();
 
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
-  time.getHMS( hour, minute, second );
+  time.getHMS( hour, minute, second, millis );
 
   char sqlTime[ 20 ];
   sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
@@ -357,15 +365,20 @@ void MySQLStore::reset() throw ( IOException )
   query2 << "UPDATE sessions SET creation_time='" << sqlTime << "', "
   << "incoming_seqnum=" << m_cache.getNextTargetMsgSeqNum() << ", "
   << "outgoing_seqnum=" << m_cache.getNextSenderMsgSeqNum() << " WHERE "
-  << "beginstring=" << "\"" << m_sessionID.getBeginString().getValue() << "\" and "
-  << "sendercompid=" << "\"" << m_sessionID.getSenderCompID().getValue() << "\" and "
-  << "targetcompid=" << "\"" << m_sessionID.getTargetCompID().getValue() << "\" and "
-  << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
-  if( safe_query( pConnection, query2.str() ) )
+  << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
+  << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
+  << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
+  << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
+  PGresult* result2 = PQexec( pConnection, query2.str().c_str() );
+  if( PQresultStatus(result2) != PGRES_COMMAND_OK )
+  {
+    PQclear( result2 );
     throw IOException();
+  }
+  PQclear( result2 );
 
   QF_STACK_POP
 }
 } //namespace FIX
 
-#endif //HAVE_MYSQL
+#endif //HAVE_POSTGRESQL

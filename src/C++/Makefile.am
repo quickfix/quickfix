@@ -50,6 +50,8 @@ libquickfix_la_SOURCES = \
 	MySQLStore.h \
 	MySQLLog.cpp \
 	MySQLLog.h \
+	PostgreSQLStore.cpp \
+	PostgreSQLStore.h \
 	PostgreSQLLog.cpp \
 	PostgreSQLLog.h \
 	Dictionary.cpp \
