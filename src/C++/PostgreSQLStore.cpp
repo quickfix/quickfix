@@ -307,7 +307,7 @@ void PostgreSQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
     throw IOException();
   }
   PQclear( result );
-  m_cache.setNextSenderMsgSeqNum( value );
+  m_cache.setNextTargetMsgSeqNum( value );
 
   QF_STACK_POP
 }

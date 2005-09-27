@@ -46,6 +46,8 @@ libquickfixcpptest_la_SOURCES = \
 	FileStoreFactoryTestCase.h \
 	MySQLStoreTestCase.cpp \
 	MySQLStoreTestCase.h \
+	PostgreSQLStoreTestCase.cpp \
+	PostgreSQLStoreTestCase.h \
 	DictionaryTestCase.cpp \
 	DictionaryTestCase.h \
 	SessionSettingsTestCase.cpp \

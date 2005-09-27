@@ -32,6 +32,7 @@
 #include "C++/test/MemoryStoreTestCase.h"
 #include "C++/test/FileStoreTestCase.h"
 #include "C++/test/MySQLStoreTestCase.h"
+#include "C++/test/PostgreSQLStoreTestCase.h"
 #include "C++/test/FileStoreFactoryTestCase.h"
 #include "C++/test/UtcTimeStampTestCase.h"
 #include "C++/test/UtcTimeOnlyTestCase.h"
@@ -84,6 +85,9 @@ public:
 #ifdef HAVE_MYSQL
     add( &m_mySQLStore );
 #endif
+#ifdef HAVE_POSTGRESQL
+    add( &m_postgreSQLStore );
+#endif
     add( &m_fileStoreFactory );
     add( &m_utcTimeStamp );
     add( &m_utcTimeOnly );
@@ -134,6 +138,9 @@ private:
   FIX::FileStoreTestCase m_fileStore;
 #ifdef HAVE_MYSQL
   FIX::MySQLStoreTestCase m_mySQLStore;
+#endif
+#ifdef HAVE_POSTGRESQL
+  FIX::PostgreSQLStoreTestCase m_postgreSQLStore;
 #endif
   FIX::FileStoreFactoryTestCase m_fileStoreFactory;
   FIX::UtcTimeStampTestCase m_utcTimeStamp;
