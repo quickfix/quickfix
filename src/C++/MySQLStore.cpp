@@ -119,8 +119,8 @@ void MySQLStore::populateCache()
       MYSQL_ROW row = mysql_fetch_row( result );
       struct tm time;
       std::string sqlTime = row[ 0 ];
-      strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", time );
-      m_cache.setCreationTime (UtcTimeStamp (DateTime::fromTm (time)));
+      strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", &time );
+      m_cache.setCreationTime (UtcTimeStamp (&time));
       m_cache.setNextTargetMsgSeqNum( atol( row[ 1 ] ) );
       m_cache.setNextSenderMsgSeqNum( atol( row[ 2 ] ) );
     }
@@ -347,7 +347,7 @@ void MySQLStore::reset() throw ( IOException )
 
   int year, month, day, hour, minute, second, millis;
   time.getYMD( year, month, day );
-  time.getHMS( hour, minute, second );
+  time.getHMS( hour, minute, second, millis );
 
   char sqlTime[ 20 ];
   sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
