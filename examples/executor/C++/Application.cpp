@@ -59,6 +59,7 @@ void Application::onMessage( const FIX40::NewOrderSingle& message,
   FIX::OrderQty orderQty;
   FIX::Price price;
   FIX::ClOrdID clOrdID;
+  FIX::Account account;
 
   message.get( ordType );
 
@@ -86,6 +87,9 @@ void Application::onMessage( const FIX40::NewOrderSingle& message,
 
   executionReport.set( clOrdID );
 
+  if( message.isSet(account) )
+    executionReport.setField( message.get(account) );
+
   try
   {
     FIX::Session::sendToTarget( executionReport, sessionID );
@@ -102,6 +106,7 @@ void Application::onMessage( const FIX41::NewOrderSingle& message,
   FIX::OrderQty orderQty;
   FIX::Price price;
   FIX::ClOrdID clOrdID;
+  FIX::Account account;
 
   message.get( ordType );
 
@@ -131,6 +136,9 @@ void Application::onMessage( const FIX41::NewOrderSingle& message,
 
   executionReport.set( clOrdID );
 
+  if( message.isSet(account) )
+    executionReport.setField( message.get(account) );
+
   try
   {
     FIX::Session::sendToTarget( executionReport, sessionID );
@@ -147,6 +155,7 @@ void Application::onMessage( const FIX42::NewOrderSingle& message,
   FIX::OrderQty orderQty;
   FIX::Price price;
   FIX::ClOrdID clOrdID;
+  FIX::Account account;
 
   message.get( ordType );
 
@@ -176,6 +185,9 @@ void Application::onMessage( const FIX42::NewOrderSingle& message,
   executionReport.set( FIX::LastShares( orderQty ) );
   executionReport.set( FIX::LastPx( price ) );
 
+  if( message.isSet(account) )
+    executionReport.setField( message.get(account) );
+
   try
   {
     FIX::Session::sendToTarget( executionReport, sessionID );
@@ -192,6 +204,7 @@ void Application::onMessage( const FIX43::NewOrderSingle& message,
   FIX::OrderQty orderQty;
   FIX::Price price;
   FIX::ClOrdID clOrdID;
+  FIX::Account account;
 
   message.get( ordType );
 
@@ -220,6 +233,9 @@ void Application::onMessage( const FIX43::NewOrderSingle& message,
   executionReport.set( FIX::LastQty( orderQty ) );
   executionReport.set( FIX::LastPx( price ) );
 
+  if( message.isSet(account) )
+    executionReport.setField( message.get(account) );
+
   try
   {
     FIX::Session::sendToTarget( executionReport, sessionID );
@@ -236,6 +252,7 @@ void Application::onMessage( const FIX44::NewOrderSingle& message,
   FIX::OrderQty orderQty;
   FIX::Price price;
   FIX::ClOrdID clOrdID;
+  FIX::Account account;
 
   message.get( ordType );
 
@@ -263,6 +280,9 @@ void Application::onMessage( const FIX44::NewOrderSingle& message,
   executionReport.set( orderQty );
   executionReport.set( FIX::LastQty( orderQty ) );
   executionReport.set( FIX::LastPx( price ) );
+
+  if( message.isSet(account) )
+    executionReport.setField( message.get(account) );
 
   try
   {

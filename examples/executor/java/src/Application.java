@@ -50,6 +50,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         OrderQty orderQty = new OrderQty();
         Price price = new Price();
         ClOrdID clOrdID = new ClOrdID();
+        Account account = new Account();
 
         order.get(ordType);
 
@@ -77,7 +78,11 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
 
         executionReport.set(clOrdID);
 
-        try {
+        if( message.isSet(account) )
+            executionReport.setField( message.get(account) );
+
+        try 
+        {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
     }
@@ -90,6 +95,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         OrderQty orderQty = new OrderQty();
         Price price = new Price();
         ClOrdID clOrdID = new ClOrdID();
+        Account account = new Account();
 
         order.get(ordType);
 
@@ -119,7 +125,11 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
 
         executionReport.set(clOrdID);
 
-        try {
+        if( message.isSet(account) )
+            executionReport.setField( message.get(account) );
+
+        try 
+        {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
     }
@@ -132,6 +142,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         OrderQty orderQty = new OrderQty();
         Price price = new Price();
         ClOrdID clOrdID = new ClOrdID();
+        Account account = new Account();
 
         order.get(ordType);
 
@@ -161,7 +172,11 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         executionReport.set(new LastShares(orderQty.getValue()));
         executionReport.set(new LastPx(price.getValue()));
 
-        try {
+        if( message.isSet(account) )
+            executionReport.setField( message.get(account) );
+
+        try 
+        {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
     }
@@ -174,6 +189,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         OrderQty orderQty = new OrderQty();
         Price price = new Price();
         ClOrdID clOrdID = new ClOrdID();
+        Account account = new Account();
 
         order.get(ordType);
 
@@ -202,7 +218,11 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         executionReport.set(new LastQty(orderQty.getValue()));
         executionReport.set(new LastPx(price.getValue()));
 
-        try {
+        if( message.isSet(account) )
+            executionReport.setField( message.get(account) );
+
+        try 
+        {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
     }
@@ -215,6 +235,7 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         OrderQty orderQty = new OrderQty();
         Price price = new Price();
         ClOrdID clOrdID = new ClOrdID();
+        Account account = new Account();
 
         order.get(ordType);
 
@@ -243,7 +264,11 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         executionReport.set(new LastQty(orderQty.getValue()));
         executionReport.set(new LastPx(price.getValue()));
 
-        try {
+        if( message.isSet(account) )
+            executionReport.setField( message.get(account) );
+
+        try 
+        {
             Session.sendToTarget(executionReport, sessionID);
         } catch(SessionNotFound e) {}
     }

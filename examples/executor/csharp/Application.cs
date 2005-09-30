@@ -42,6 +42,7 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
+    Account account = new Account();
 
     order.get( ordType );
 
@@ -69,6 +70,9 @@ public class Application: MessageCracker, QuickFix.Application
 
     executionReport.set( clOrdID );
 
+    if( message.isSet(account) )
+      executionReport.setField( message.get(account) );
+
     try
     {
       Session.sendToTarget( executionReport, sessionID );
@@ -84,6 +88,7 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
+    Account = new Account();
 
     order.get( ordType );
 
@@ -113,6 +118,9 @@ public class Application: MessageCracker, QuickFix.Application
 
     executionReport.set( clOrdID );
 
+    if( message.isSet(account) )
+      executionReport.setField( message.get(account) );
+
     try
     {
       Session.sendToTarget( executionReport, sessionID );
@@ -128,6 +136,7 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
+    Account account = new Account();
 
     order.get( ordType );
 
@@ -157,6 +166,9 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( new LastShares( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
+    if( message.isSet(account) )
+      executionReport.setField( message.get(account) );
+
     try
     {
       Session.sendToTarget( executionReport, sessionID );
@@ -172,6 +184,7 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
+    Account account = new Account();
 
     order.get( ordType );
 
@@ -200,6 +213,9 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( new LastQty( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
+    if( message.isSet(account) )
+      executionReport.setField( message.get(account) );
+
     try
     {
       Session.sendToTarget( executionReport, sessionID );
@@ -216,6 +232,7 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
+    Account account = new Account();
 
     order.get( ordType );
 
@@ -243,6 +260,9 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( orderQty );
     executionReport.set( new LastQty( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
+
+    if( message.isSet(account) )
+      executionReport.setField( message.get(account) );
 
     try
     {
