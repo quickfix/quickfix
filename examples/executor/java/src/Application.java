@@ -78,8 +78,8 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
 
         executionReport.set(clOrdID);
 
-        if( message.isSet(account) )
-            executionReport.setField( message.get(account) );
+        if( executionReport.isSet(account) )
+            executionReport.setField( executionReport.get(account) );
 
         try 
         {
@@ -125,8 +125,8 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
 
         executionReport.set(clOrdID);
 
-        if( message.isSet(account) )
-            executionReport.setField( message.get(account) );
+        if( executionReport.isSet(account) )
+            executionReport.setField( executionReport.get(account) );
 
         try 
         {
@@ -172,8 +172,8 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         executionReport.set(new LastShares(orderQty.getValue()));
         executionReport.set(new LastPx(price.getValue()));
 
-        if( message.isSet(account) )
-            executionReport.setField( message.get(account) );
+        if( executionReport.isSet(account) )
+            executionReport.setField( executionReport.get(account) );
 
         try 
         {
@@ -218,8 +218,8 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         executionReport.set(new LastQty(orderQty.getValue()));
         executionReport.set(new LastPx(price.getValue()));
 
-        if( message.isSet(account) )
-            executionReport.setField( message.get(account) );
+        if( executionReport.isSet(account) )
+            executionReport.setField( executionReport.get(account) );
 
         try 
         {
@@ -264,8 +264,8 @@ public class Application extends quickfix.MessageCracker implements quickfix.App
         executionReport.set(new LastQty(orderQty.getValue()));
         executionReport.set(new LastPx(price.getValue()));
 
-        if( message.isSet(account) )
-            executionReport.setField( message.get(account) );
+        if( executionReport.isSet(account) )
+            executionReport.setField( executionReport.get(account) );
 
         try 
         {

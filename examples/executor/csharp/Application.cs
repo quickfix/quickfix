@@ -70,8 +70,8 @@ public class Application: MessageCracker, QuickFix.Application
 
     executionReport.set( clOrdID );
 
-    if( message.isSet(account) )
-      executionReport.setField( message.get(account) );
+    if( executionReport.isSet(account) )
+      executionReport.setField( executionReport.get(account) );
 
     try
     {
@@ -88,13 +88,13 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
-    Account = new Account();
+    Account account = new Account();
 
     order.get( ordType );
 
     if ( ordType.getValue() != OrdType.LIMIT )
       throw new IncorrectTagValue( ordType.getField() );
-
+    
     order.get( symbol );
     order.get( side );
     order.get( orderQty );
@@ -118,8 +118,8 @@ public class Application: MessageCracker, QuickFix.Application
 
     executionReport.set( clOrdID );
 
-    if( message.isSet(account) )
-      executionReport.setField( message.get(account) );
+    if( executionReport.isSet(account) )
+      executionReport.setField( executionReport.get(account) );
 
     try
     {
@@ -166,8 +166,8 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( new LastShares( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
-    if( message.isSet(account) )
-      executionReport.setField( message.get(account) );
+    if( executionReport.isSet(account) )
+      executionReport.setField( executionReport.get(account) );
 
     try
     {
@@ -213,8 +213,8 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( new LastQty( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
-    if( message.isSet(account) )
-      executionReport.setField( message.get(account) );
+    if( executionReport.isSet(account) )
+      executionReport.setField( executionReport.get(account) );
 
     try
     {
@@ -261,8 +261,8 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( new LastQty( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
-    if( message.isSet(account) )
-      executionReport.setField( message.get(account) );
+    if( executionReport.isSet(account) )
+      executionReport.setField( executionReport.get(account) );
 
     try
     {
