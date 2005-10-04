@@ -45,6 +45,48 @@ const std::string PostgreSQLStoreFactory::DEFAULT_PASSWORD = "";
 const std::string PostgreSQLStoreFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLStoreFactory::DEFAULT_PORT = 0;
 
+class PostgreSQLQuery
+{
+public:
+  PostgreSQLQuery( PGconn* pConnection, const char* query )
+  : m_query( query )
+  {
+    m_result = PQexec( pConnection, query );
+    m_status = PQresultStatus( m_result );
+  }
+
+  ~PostgreSQLQuery()
+  {
+    PQclear( m_result );
+  }
+
+  bool success()
+  {
+    return m_status == PGRES_TUPLES_OK
+      || m_status == PGRES_COMMAND_OK;
+  }
+
+  int rows()
+  {
+    return PQntuples( m_result );
+  }
+
+  char* reason()
+  {
+    return PQresultErrorMessage( m_result );
+  }
+
+  char* getValue( int row, int column )
+  {
+    return PQgetvalue( m_result, row, column );
+  }
+
+private:
+  PGresult* m_result;
+  ExecStatusType m_status;
+  const char* m_query; 
+};
+
 PostgreSQLStore::PostgreSQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
@@ -73,33 +115,30 @@ void PostgreSQLStore::populateCache()
 { QF_STACK_PUSH(PostgreSQLStore::populateCache)
 
   PGconn* pConnection = reinterpret_cast<PGconn*>( m_pConnection );
-  std::stringstream query;
+  std::stringstream queryString;
 
-  query << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
+  queryString << "SELECT creation_time, incoming_seqnum, outgoing_seqnum FROM sessions WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
   << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
 
-  PGresult* result = PQexec( pConnection, query.str().c_str() );
-  if( PQresultStatus(result) != PGRES_TUPLES_OK )
-    throw ConfigError( "Unable to connect to database" );
+  PostgreSQLQuery query( pConnection, queryString.str().c_str() );
+  if( !query.success() )
+    throw ConfigError( "No entries found for session in database" );
 
-  int num_rows = PQntuples( result );
-  if( num_rows > 1 )
-  {
-    PQclear( result );
+  int rows = query.rows();
+  if( rows > 1 )
     throw ConfigError( "Multiple entries found for session in database" );
-  }
 
-  if( num_rows == 1 )
+  if( rows == 1 )
   {
     struct tm time;
-    std::string sqlTime = PQgetvalue( result, 0, 0 );
+    std::string sqlTime = query.getValue( 0, 0 );
     strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", &time );
     m_cache.setCreationTime (UtcTimeStamp (&time));
-    m_cache.setNextTargetMsgSeqNum( atol( PQgetvalue( result, 0, 1 ) ) );
-    m_cache.setNextSenderMsgSeqNum( atol( PQgetvalue( result, 0, 2 ) ) );
+    m_cache.setNextTargetMsgSeqNum( atol( query.getValue( 0, 1 ) ) );
+    m_cache.setNextSenderMsgSeqNum( atol( query.getValue( 0, 2 ) ) );
   }
   else
   {
@@ -110,8 +149,8 @@ void PostgreSQLStore::populateCache()
     time.getHMS (hour, minute, second, millis);
     sprintf (sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
              year, month, day, hour, minute, second);
-    std::stringstream query2;
-    query2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
+    std::stringstream queryString2;
+    queryString2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
     << "creation_time, incoming_seqnum, outgoing_seqnum) VALUES("
     << "'" << m_sessionID.getBeginString().getValue() << "',"
     << "'" << m_sessionID.getSenderCompID().getValue() << "',"
@@ -121,14 +160,10 @@ void PostgreSQLStore::populateCache()
     << m_cache.getNextTargetMsgSeqNum() << ","
     << m_cache.getNextSenderMsgSeqNum() << ")";
 
-    PGresult* result2 = PQexec( pConnection, query2.str().c_str() );
-    if( PQresultStatus(result2) != PGRES_COMMAND_OK )
-    {
-      PQclear( result2 );
+    PostgreSQLQuery query2( pConnection, queryString2.str().c_str() );
+    if( !query2.success() )
       throw ConfigError( "Unable to create session in database" );
-    }
   }
-  PQclear( result );
 
   QF_STACK_POP
 }
@@ -189,8 +224,8 @@ throw ( IOException )
   string_replace( "\"", "\\\"", msgCopy );
 
   PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
-  std::stringstream query;
-  query << "INSERT INTO messages "
+  std::stringstream queryString;
+  queryString << "INSERT INTO messages "
   << "(beginstring, sendercompid, targetcompid, session_qualifier, msgseqnum, message) "
   << "VALUES ("
   << "'" << m_sessionID.getBeginString().getValue() << "',"
@@ -200,26 +235,21 @@ throw ( IOException )
   << msgSeqNum << ","
   << "'" << msgCopy << "')";
 
-  PGresult* result = PQexec( pConnection, query.str().c_str() );
-  if( PQresultStatus(result) != PGRES_COMMAND_OK )
+  PostgreSQLQuery query( pConnection, queryString.str().c_str() );
+  if( !query.success() )
   {
-    std::stringstream query2;
-    query2 << "UPDATE messages SET message='" << msg << "' WHERE "
+    std::stringstream queryString2;
+    queryString2 << "UPDATE messages SET message='" << msg << "' WHERE "
     << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
     << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
     << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
     << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
     << "msgseqnum=" << msgSeqNum;
-    PGresult* result2 = PQexec( pConnection, query2.str().c_str() );
-    if( PQresultStatus(result2) != PGRES_COMMAND_OK )
-    {
-      PQclear( result );
-      PQclear( result2 );
-      throw IOException();    
-    }
-    PQclear( result2 );
+    PostgreSQLQuery query2( pConnection, queryString2.str().c_str() );
+    if( !query2.success() )
+      throw IOException( query2.reason() );
   }
-  PQclear( result );
+
   return true;
 
   QF_STACK_POP
@@ -232,8 +262,8 @@ throw ( IOException )
 
   result.clear();
   PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
-  std::stringstream query;
-  query << "SELECT message FROM messages WHERE "
+  std::stringstream queryString;
+  queryString << "SELECT message FROM messages WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
   << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
@@ -241,18 +271,14 @@ throw ( IOException )
   << "msgseqnum>=" << begin << " and " << "msgseqnum<=" << end << " "
   << "ORDER BY msgseqnum";
 
-  PGresult* sqlResult = PQexec( pConnection, query.str().c_str() );
-  if( PQresultStatus(sqlResult) != PGRES_TUPLES_OK )
-  {
-    PQclear( sqlResult );
-    throw IOException();
-  }
+  PostgreSQLQuery query( pConnection, queryString.str().c_str() );
+  if( !query.success() )
+    throw IOException( query.reason() );
 
-  int rows = PQntuples( sqlResult );
+  int rows = query.rows();
   for( int row = 0; row < rows; row++ )
-    result.push_back( PQgetvalue(sqlResult, row, 0 ) );
+    result.push_back( query.getValue( row, 0 ) );
 
-  PQclear( sqlResult );
   QF_STACK_POP
 }
 
@@ -281,8 +307,9 @@ void PostgreSQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   PGresult* result = PQexec( pConnection, query.str().c_str() );
   if( PQresultStatus(result) != PGRES_COMMAND_OK )
   {
+    std::string reason = PQresultErrorMessage( result );
     PQclear( result );
-    throw IOException();
+    throw IOException( reason );
   }
   PQclear( result );
   m_cache.setNextSenderMsgSeqNum( value );
@@ -294,19 +321,17 @@ void PostgreSQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 { QF_STACK_PUSH(PostgreSQLStore::setNextTargetMsgSeqNum)
 
   PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
-  std::stringstream query;
-  query << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
+  std::stringstream queryString;
+  queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
   << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
-  PGresult* result = PQexec( pConnection, query.str().c_str() );
-  if( PQresultStatus(result) != PGRES_COMMAND_OK )
-  {
-    PQclear( result );
-    throw IOException();
-  }
-  PQclear( result );
+
+  PostgreSQLQuery query( pConnection, queryString.str().c_str() );
+  if( !query.success() )
+    throw IOException( query.reason() );
+
   m_cache.setNextTargetMsgSeqNum( value );
 
   QF_STACK_POP
@@ -335,20 +360,17 @@ UtcTimeStamp PostgreSQLStore::getCreationTime() const throw ( IOException )
 void PostgreSQLStore::reset() throw ( IOException )
 { QF_STACK_PUSH(PostgreSQLStore::reset)
 
- PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
-  std::stringstream query;
-  query << "DELETE FROM messages WHERE "
+  PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
+  std::stringstream queryString;
+  queryString << "DELETE FROM messages WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
   << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
-  PGresult* result = PQexec( pConnection, query.str().c_str() );
-  if( PQresultStatus(result) != PGRES_COMMAND_OK )
-  {
-    PQclear( result );
-    throw IOException();
-  }
-  PQclear( result );
+
+  PostgreSQLQuery query( pConnection, queryString.str().c_str() );
+  if( !query.success() )
+    throw IOException( query.reason() );
 
   m_cache.reset();
   UtcTimeStamp time = m_cache.getCreationTime();
@@ -361,21 +383,18 @@ void PostgreSQLStore::reset() throw ( IOException )
   sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 
-  std::stringstream query2;
-  query2 << "UPDATE sessions SET creation_time='" << sqlTime << "', "
+  std::stringstream queryString2;
+  queryString2 << "UPDATE sessions SET creation_time='" << sqlTime << "', "
   << "incoming_seqnum=" << m_cache.getNextTargetMsgSeqNum() << ", "
   << "outgoing_seqnum=" << m_cache.getNextSenderMsgSeqNum() << " WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
   << "sendercompid=" << "'" << m_sessionID.getSenderCompID().getValue() << "' and "
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
-  PGresult* result2 = PQexec( pConnection, query2.str().c_str() );
-  if( PQresultStatus(result2) != PGRES_COMMAND_OK )
-  {
-    PQclear( result2 );
-    throw IOException();
-  }
-  PQclear( result2 );
+
+  PostgreSQLQuery query2( pConnection, queryString2.str().c_str() );
+  if( !query2.success() )
+    throw IOException( query2.reason() );
 
   QF_STACK_POP
 }
