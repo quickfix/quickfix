@@ -48,11 +48,20 @@ const short PostgreSQLStoreFactory::DEFAULT_PORT = 0;
 class PostgreSQLQuery
 {
 public:
-  PostgreSQLQuery( PGconn* pConnection, const char* query )
-  : m_query( query )
+  PostgreSQLQuery( PGconn* pConnection, const char* query ) 
+  : m_result( 0 ), m_query( query )
   {
-    m_result = PQexec( pConnection, query );
-    m_status = PQresultStatus( m_result );
+    int retry = 0;
+    
+    do
+    {
+      if( m_result ) PQclear( m_result );
+      m_result = PQexec( pConnection, query );
+      m_status = PQresultStatus( m_result );
+      if( success() ) break;
+      PQreset( pConnection );
+      retry++;
+    } while( retry <= 1 );
   }
 
   ~PostgreSQLQuery()
@@ -96,11 +105,8 @@ PostgreSQLStore::PostgreSQLStore
                                 "", "", database.c_str(), user.c_str(), password.c_str() );
   PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
 
-   
   if ( PQstatus( pConnection ) != CONNECTION_OK )
-  {
     throw ConfigError( "Unable to connect to database" );
-  }
 
   populateCache();
 }
@@ -108,7 +114,8 @@ PostgreSQLStore::PostgreSQLStore
 PostgreSQLStore::~PostgreSQLStore()
 {
   PGconn* pConnection = reinterpret_cast <PGconn*>( m_pConnection );
-  PQfinish( pConnection );
+  if( pConnection )
+    PQfinish( pConnection );
 }
 
 void PostgreSQLStore::populateCache()

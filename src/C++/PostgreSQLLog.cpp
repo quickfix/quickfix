@@ -129,6 +129,9 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
   string_replace( "\"", "\\\"", valueCopy );
 
   PGconn* pConnection = reinterpret_cast<PGconn*>( m_pConnection );
+  if( PQstatus(pConnection) != CONNECTION_OK )
+    PQreset( pConnection );
+
   std::stringstream query;
   query << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
