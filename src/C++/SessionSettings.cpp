@@ -131,14 +131,14 @@ throw( ConfigError )
       beginString != BeginString_FIX43 &&
       beginString != BeginString_FIX44 )
   {
-    throw ConfigError( BEGINSTRING + " must be FIX.4.0 to FIX.4.4" );
+    throw ConfigError( std::string(BEGINSTRING) + " must be FIX.4.0 to FIX.4.4" );
   }
 
   std::string connectionType = dictionary.getString( CONNECTION_TYPE );
   if( connectionType != "initiator" &&
       connectionType != "acceptor" )
   {
-    throw ConfigError( CONNECTION_TYPE + " must be 'initiator' or 'acceptor'" );
+    throw ConfigError( std::string(CONNECTION_TYPE) + " must be 'initiator' or 'acceptor'" );
   }
 }
 
