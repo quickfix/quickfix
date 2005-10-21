@@ -161,9 +161,10 @@ struct DateTime
     int m = M >= 3 ? M - 2 : M + 10;
     int Yprime = M >= 3 ? Y : Y - 1;
     int y = Yprime % 100;
-    int c = int (Yprime / 100);
-    return 1 + (D + int (2.6 * m - 0.2) + y + int (y / 4) + int (c / 4) -
-               (2 * c)) % 7;
+    int c = Yprime / 100;
+    int wd = (D + int (2.6 * m - 0.2) + y + int (y / 4) + int (c / 4) -
+              (2 * c)) % 7;
+    return 1 + (wd < 0 ? 7 + wd : wd);
   }
 
   /// Convert the DateTime to a time_t.  Note that this operation
