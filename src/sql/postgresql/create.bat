@@ -1,3 +1,3 @@
-dropdb -q quickfix
-createdb quickfix
-psql -d quickfix -f postgresql.sql
+dropdb -U postgres -q quickfix
+createdb -U postgres quickfix
+psql -U postgres -d quickfix -f postgresql.sql
