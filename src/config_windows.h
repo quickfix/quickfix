@@ -7,7 +7,7 @@
 // #define HAVE_MYSQL 1
 
 // Define if you have sql library (libpq.a)
-#define HAVE_POSTGRESQL 1
+// #define HAVE_POSTGRESQL 1
 
 // Define if you have libxml library
 // #define HAVE_LIBXML 1
