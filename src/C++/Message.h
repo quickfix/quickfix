@@ -114,14 +114,14 @@ protected:
 
 public:
   /// Get a string representation of the message
-  std::string toString
-    ( int bodyLengthField = FIELD::BodyLength,
-      int checkSumField = FIELD::CheckSum ) const;
+  std::string toString( int beginStringField = FIELD::BeginString,
+                        int bodyLengthField = FIELD::BodyLength,
+                        int checkSumField = FIELD::CheckSum ) const;
   /// Get a string representation without making a copy
-  std::string& toString
-    ( std::string&, 
-      int bodyLengthField = FIELD::BodyLength, 
-      int checkSumField = FIELD::CheckSum ) const;
+  std::string& toString( std::string&,
+                         int beginStringField = FIELD::BeginString,
+                         int bodyLengthField = FIELD::BodyLength, 
+                         int checkSumField = FIELD::CheckSum ) const;
   /// Get a XML representation of the message
   std::string toXML() const;
   /// Get a XML representation without making a copy
@@ -170,16 +170,18 @@ public:
     return m_validStructure;
   }
 
-  int bodyLength() const
-  { return m_header.calculateLength()
-           + calculateLength()
-           + m_trailer.calculateLength();
+  int bodyLength( int beginStringField = FIELD::BeginString, 
+                  int bodyLengthField = FIELD::BodyLength, 
+                  int checkSumField = FIELD::CheckSum ) const
+  { return m_header.calculateLength(beginStringField, bodyLengthField, checkSumField)
+           + calculateLength(beginStringField, bodyLengthField, checkSumField)
+           + m_trailer.calculateLength(beginStringField, bodyLengthField, checkSumField);
   }
 
-  int checkSum() const
-  { return ( m_header.calculateTotal()
-             + calculateTotal()
-             + m_trailer.calculateTotal() ) % 256;
+  int checkSum( int checkSumField = FIELD::CheckSum ) const
+  { return ( m_header.calculateTotal(checkSumField)
+             + calculateTotal(checkSumField)
+             + m_trailer.calculateTotal(checkSumField) ) % 256;
   }
 
   bool isAdmin() const

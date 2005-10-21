@@ -139,8 +139,12 @@ public:
   void clear();
 
   std::string& calculateString( std::string&, bool clear = true ) const;
-  int calculateLength() const;
-  int calculateTotal() const;
+
+  int calculateLength( int beginStringField = FIELD::BeginString,
+                       int bodyLengthField = FIELD::BodyLength,
+                       int checkSumField = FIELD::CheckSum ) const;
+
+  int calculateTotal( int checkSumField = FIELD::CheckSum ) const;
 
   iterator begin() const { return m_fields.begin(); }
   iterator end() const { return m_fields.end(); }

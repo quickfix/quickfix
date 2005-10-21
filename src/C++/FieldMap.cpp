@@ -157,16 +157,17 @@ std::string& FieldMap::calculateString( std::string& result, bool clear ) const
   QF_STACK_POP
 }
 
-int FieldMap::calculateLength() const
-{ QF_STACK_PUSH(FieldMap::calculateLength)
-
+int FieldMap::calculateLength( int beginStringField,
+                               int bodyLengthField,
+                               int checkSumField ) const
+{
   int result = 0;
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
-    if ( i->first != FIELD::BeginString
-         && i->first != FIELD::BodyLength
-         && i->first != FIELD::CheckSum )
+    if ( i->first != beginStringField
+         && i->first != bodyLengthField
+         && i->first != checkSumField )
     { result += i->second.getLength(); }
   }
 
@@ -178,18 +179,16 @@ int FieldMap::calculateLength() const
       result += ( *k ) ->calculateLength();
   }
   return result;
-
-  QF_STACK_POP
 }
 
-int FieldMap::calculateTotal() const
+int FieldMap::calculateTotal( int checkSumField ) const
 { QF_STACK_PUSH(FieldMap::calculateTotal)
 
   int result = 0;
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {
-    if ( i->first != FIELD::CheckSum )
+    if ( i->first != checkSumField )
       result += i->second.getTotal();
   }
 

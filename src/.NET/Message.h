@@ -164,9 +164,9 @@ public:
     QF_STACK_CATCH
   }
 
-  String* ToString( int beginStringField, int checkSumField )
+  String* ToString( int beginStringField, int bodyLengthField, int checkSumField )
   { QF_STACK_TRY
-    return m_pUnmanaged->toString(beginStringField, checkSumField).c_str();
+    return m_pUnmanaged->toString(beginStringField, bodyLengthField, checkSumField).c_str();
     QF_STACK_CATCH
   }
 
