@@ -39,7 +39,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_CppMessageStore_set
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
 
   bool threw = false;
   FIX::IOException e;
@@ -69,7 +69,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_get__IILjava_util_Collectio
   JVMObject jarray( array );
 
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   std::vector < std::string > messages;
   bool threw = false;
   FIX::IOException e;
@@ -99,7 +99,7 @@ JNIEXPORT jint JNICALL Java_quickfix_CppMessageStore_getNextSenderMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   jint result = pWrapper->getNextSenderMsgSeqNum( threw, e );
@@ -120,7 +120,7 @@ JNIEXPORT jint JNICALL Java_quickfix_CppMessageStore_getNextTargetMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   jint result = pWrapper->getNextTargetMsgSeqNum( threw, e );
@@ -141,7 +141,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_setNextSenderMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   pWrapper->setNextSenderMsgSeqNum( seq, threw, e );
@@ -161,7 +161,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_setNextTargetMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   pWrapper->setNextTargetMsgSeqNum( seq, threw, e );
@@ -181,7 +181,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_incrNextSenderMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   pWrapper->incrNextSenderMsgSeqNum( threw, e );
@@ -201,7 +201,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_incrNextTargetMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   pWrapper->incrNextTargetMsgSeqNum( threw, e );
@@ -221,7 +221,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_CppMessageStore_getCreationTime0
   JVM::set( pEnv );
   JVMObject jobj( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobj.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobj.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   jobject result = newDate( pWrapper->getCreationTime( threw, e ) );
@@ -242,7 +242,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_reset0
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   bool threw = false;
   FIX::IOException e;
   pWrapper->reset( threw, e );

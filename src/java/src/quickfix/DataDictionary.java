@@ -20,7 +20,7 @@
 package quickfix;
 
 public class DataDictionary {
-    private int cppPointer;
+    private long cppPointer;
 
     public DataDictionary() {
         create();

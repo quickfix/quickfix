@@ -20,7 +20,7 @@
 package quickfix;
 
 public class MySQLLogFactory implements LogFactory {
-    private int cppPointer;
+    private long cppPointer;
 
     private SessionSettings settings = null;
 

@@ -20,7 +20,7 @@
 package quickfix;
 
 public class FileLogFactory implements LogFactory {
-    private int cppPointer;
+    private long cppPointer;
 
     private SessionSettings settings = null;
 

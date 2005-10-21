@@ -38,7 +38,7 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__ZZZ
 
   FIX::LogFactory* pFactory = new FIX::ScreenLogFactory
                               ( incoming, outgoing, event );
-  object.setInt( "cppPointer", ( int ) pFactory );
+  object.setLong( "cppPointer", ( long ) pFactory );
 
   QF_STACK_CATCH
 }
@@ -50,7 +50,7 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_destroy
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::ScreenLogFactory* pFactory
-  = ( FIX::ScreenLogFactory* ) jobject.getInt( "cppPointer" );
+  = ( FIX::ScreenLogFactory* ) jobject.getLong( "cppPointer" );
   delete pFactory;
 
   QF_STACK_CATCH
@@ -67,15 +67,15 @@ JNIEXPORT jobject JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_Sessi
   JVMObject jsession( sessionID );
 
   FIX::ScreenLogFactory* pFactory
-  = ( FIX::ScreenLogFactory* ) jobject.getInt( "cppPointer" );
+  = ( FIX::ScreenLogFactory* ) jobject.getLong( "cppPointer" );
   FIX::SessionID* pSessionID
-  = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
+  = ( FIX::SessionID* ) jsession.getLong( "cppPointer" );
 
   try
   {
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lquickfix/ScreenLog;" );
-    jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+    jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
     JVMObject result = pEnv->NewObject( type, method, ( jint ) pLog );
     return result;
   }

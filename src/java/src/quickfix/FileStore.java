@@ -29,7 +29,7 @@ public class FileStore extends CppMessageStore {
         create();
     }
 
-    public FileStore( int cppPointer ) {
+    public FileStore( long cppPointer ) {
 	super( cppPointer );
     }
 

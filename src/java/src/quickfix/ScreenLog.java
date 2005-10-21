@@ -25,7 +25,7 @@ public class ScreenLog extends CppLog {
         create();
     }
 
-    private ScreenLog(int cppPointer) {
+    private ScreenLog(long cppPointer) {
 	super( cppPointer );
     }
 

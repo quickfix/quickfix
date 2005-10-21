@@ -29,7 +29,7 @@ public class MySQLStore extends CppMessageStore {
         create();
     }
 
-    public MySQLStore( int cppPointer ) {
+    public MySQLStore( long cppPointer ) {
 	super( cppPointer );
     }
 

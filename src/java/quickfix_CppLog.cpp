@@ -37,7 +37,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppLog_onIncoming
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
+  FIX::Log* pLog = ( FIX::Log* ) jobject.getLong( "cppPointer" );
 
   const char* ustring = pEnv->GetStringUTFChars( string, 0 );
   pLog->onIncoming( ustring );
@@ -54,7 +54,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppLog_onOutgoing
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
+  FIX::Log* pLog = ( FIX::Log* ) jobject.getLong( "cppPointer" );
 
   const char* ustring = pEnv->GetStringUTFChars( string, 0 );
   pLog->onOutgoing( ustring );
@@ -71,7 +71,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppLog_onEvent
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
+  FIX::Log* pLog = ( FIX::Log* ) jobject.getLong( "cppPointer" );
 
   const char* ustring = pEnv->GetStringUTFChars( string, 0 );
   pLog->onEvent( ustring );

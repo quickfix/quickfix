@@ -22,7 +22,7 @@ package quickfix;
 import java.io.InputStream;
 
 public class SessionSettings {
-    private int cppPointer;
+    private long cppPointer;
 
     public SessionSettings(InputStream stream) throws ConfigError {
         create(stream);

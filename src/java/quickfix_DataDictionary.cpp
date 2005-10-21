@@ -39,7 +39,7 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__
 
   FIX::DataDictionary* pDataDictionary = new FIX::DataDictionary();
 
-  jobject.setInt( "cppPointer", ( int ) pDataDictionary );
+  jobject.setLong( "cppPointer", ( long ) pDataDictionary );
 
   QF_STACK_CATCH
 }
@@ -55,10 +55,10 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Lquickfix_DataDictio
   JVMObject jdd( dd );
 
   FIX::DataDictionary* pOldDataDictionary =
-    ( FIX::DataDictionary* ) jdd.getInt( "cppPointer" );
+    ( FIX::DataDictionary* ) jdd.getLong( "cppPointer" );
   FIX::DataDictionary* pDataDictionary = new FIX::DataDictionary( *pOldDataDictionary );
 
-  jobject.setInt( "cppPointer", ( int ) pDataDictionary );
+  jobject.setLong( "cppPointer", ( long ) pDataDictionary );
 
   QF_STACK_CATCH
 }
@@ -78,7 +78,7 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_lang_String_2
 
   FIX::DataDictionary* pDataDictionary = new FIX::DataDictionary( urlString );
 
-  jobject.setInt( "cppPointer", ( int ) pDataDictionary );
+  jobject.setLong( "cppPointer", ( long ) pDataDictionary );
 
   QF_STACK_CATCH
 }
@@ -89,7 +89,7 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_destroy
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   delete pDataDictionary;
 
   QF_STACK_CATCH
@@ -101,7 +101,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getVersion
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   jstring result = newString( pDataDictionary->getVersion() );
   return result;
 
@@ -114,7 +114,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getFieldName
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   std::string nameString;
   bool result = pDataDictionary->getFieldName(field, nameString);
   return result ? newString(nameString) : 0;
@@ -128,7 +128,7 @@ JNIEXPORT jint JNICALL Java_quickfix_DataDictionary_getFieldTag
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   const char* uname = pEnv->GetStringUTFChars( name, 0 );
   std::string nameString( uname );
   pEnv->ReleaseStringUTFChars( name, uname );
@@ -147,7 +147,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_DataDictionary_getValueName
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   const char* uvalue = pEnv->GetStringUTFChars( value, 0 );
   std::string valueString( uvalue );
   pEnv->ReleaseStringUTFChars( value, uvalue );
@@ -164,7 +164,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isField
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   return pDataDictionary->isField( field );
 
   QF_STACK_CATCH
@@ -178,7 +178,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgType
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   const char* umsgType = pEnv->GetStringUTFChars( msgType, 0 );
   std::string msgTypeString( umsgType );
   pEnv->ReleaseStringUTFChars( msgType, umsgType );
@@ -195,7 +195,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isMsgField
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   const char* umsgType = pEnv->GetStringUTFChars( msgType, 0 );
   std::string msgTypeString( umsgType );
   pEnv->ReleaseStringUTFChars( msgType, umsgType );
@@ -210,7 +210,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isHeaderField
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   return pDataDictionary->isHeaderField( field );
 
   QF_STACK_CATCH
@@ -222,7 +222,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isTrailerField
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   return pDataDictionary->isTrailerField( field );
 
   QF_STACK_CATCH
@@ -236,7 +236,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isRequiredField
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   const char* umsgType = pEnv->GetStringUTFChars( msgType, 0 );
   std::string msgTypeString( umsgType );
   pEnv->ReleaseStringUTFChars( msgType, umsgType );
@@ -251,7 +251,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_hasFieldValue
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   return pDataDictionary->hasFieldValue( field );
 
   QF_STACK_CATCH
@@ -265,7 +265,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isFieldValue
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   const char* uvalue = pEnv->GetStringUTFChars( value, 0 );
   std::string valueString( uvalue );
   pEnv->ReleaseStringUTFChars( value, uvalue );
@@ -282,7 +282,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_DataDictionary_isGroup
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   const char* umsg = pEnv->GetStringUTFChars( msg, 0 );
   std::string msgString( umsg );
   pEnv->ReleaseStringUTFChars( msg, umsg );
@@ -297,7 +297,7 @@ JNIEXPORT jint JNICALL Java_quickfix_DataDictionary_getFieldType
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getInt( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jobject.getLong( "cppPointer" );
   FIX::TYPE::Type type;
   bool result = pDataDictionary->getFieldType( field, type );
   if( result ) return type;

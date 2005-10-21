@@ -34,7 +34,7 @@
 FIX::Group* getCPPGroup( jobject obj )
 {
   JVMObject jobject( obj );
-  return ( FIX::Group* ) jobject.getInt( "cppPointer" );
+  return ( FIX::Group* ) jobject.getLong( "cppPointer" );
 }
 
 JNIEXPORT void JNICALL Java_quickfix_Group_create__II
@@ -44,7 +44,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_create__II
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Group* pGroup = new FIX::Group( field, delim );
-  jobject.setInt( "cppPointer", ( int ) pGroup );
+  jobject.setLong( "cppPointer", ( long ) pGroup );
 
   QF_STACK_CATCH
 }
@@ -60,7 +60,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_create__II_3I
   int* carray = new int[ size + 1 ];
   memcpy(carray, body, size * sizeof(int));
   FIX::Group* pGroup = new FIX::Group( field, delim, carray );
-  jobject.setInt( "cppPointer", ( int ) pGroup );
+  jobject.setLong( "cppPointer", ( long ) pGroup );
   delete [] carray;
   pEnv->ReleaseIntArrayElements(array, body, 0);
 
@@ -352,8 +352,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorCreate
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jgroup = jiterator.getObject( "group", "Lquickfix/Group;" );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getInt( "cppPointer" );
-  jiterator.setInt( "cppPointer", (int)new FIX::Group::iterator(pGroup->begin()) );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  jiterator.setLong( "cppPointer", ( long ) new FIX::Group::iterator(pGroup->begin()) );
   return jiterator;
 
   QF_STACK_CATCH
@@ -368,8 +368,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_groupIteratorHasNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jgroup = jiterator.getObject( "group", "Lquickfix/Group;" );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getInt( "cppPointer" );
-  FIX::Group::iterator* i = ( FIX::Group::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  FIX::Group::iterator* i = ( FIX::Group::iterator* ) jiterator.getLong( "cppPointer" );
   return( *i != pGroup->end() );
 
   QF_STACK_CATCH
@@ -384,8 +384,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jgroup = jiterator.getObject( "group", "Lquickfix/Group;" );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getInt( "cppPointer" );
-  FIX::Group::iterator* i = ( FIX::Group::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  FIX::Group::iterator* i = ( FIX::Group::iterator* ) jiterator.getLong( "cppPointer" );
   if( *i == pGroup->end() ) {
     throwNew( "Ljava/util/NoSuchElementException;", "" );
     return 0;

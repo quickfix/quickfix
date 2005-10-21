@@ -29,7 +29,7 @@ public class MemoryStore extends CppMessageStore {
         create();
     }
 
-    public MemoryStore( int cppPointer ) {
+    public MemoryStore( long cppPointer ) {
 	super( cppPointer );
     }
 

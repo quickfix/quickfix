@@ -20,12 +20,12 @@
 package quickfix;
 
 public class CppLog implements Log {
-    private int cppPointer;
+    private long cppPointer;
 
     public CppLog() {
     }
 
-    public CppLog( int cppPointer ) {
+    public CppLog( long cppPointer ) {
 	this.cppPointer = cppPointer;
     }
 

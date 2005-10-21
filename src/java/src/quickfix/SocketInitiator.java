@@ -22,7 +22,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class SocketInitiator implements Initiator {
-    private int cppPointer;
+    private long cppPointer;
 
     private Application application;
     private SessionSettings settings;

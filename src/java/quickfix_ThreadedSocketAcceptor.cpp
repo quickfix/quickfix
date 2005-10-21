@@ -42,7 +42,7 @@
 FIX::ThreadedSocketAcceptor* getCPPThreadedSocketAcceptor( jobject obj )
 {
   JVMObject jobject( obj );
-  return ( FIX::ThreadedSocketAcceptor* ) jobject.getInt( "cppPointer" );
+  return ( FIX::ThreadedSocketAcceptor* ) jobject.getLong( "cppPointer" );
 }
 
 FIX::SessionSettings& getThreadedAcceptorSettings( JVMObject& obj )
@@ -50,7 +50,7 @@ FIX::SessionSettings& getThreadedAcceptorSettings( JVMObject& obj )
 
   JVMObject jsettings = obj.getObject( "settings", "Lquickfix/SessionSettings;" );
   FIX::SessionSettings* pSettings
-  = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
+  = ( FIX::SessionSettings* ) jsettings.getLong( "cppPointer" );
   return *pSettings;
 
   QF_STACK_CATCH
@@ -94,7 +94,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_create
     return;
   }
 
-  jobject.setInt( "cppPointer", ( int ) pAcceptor );
+  jobject.setLong( "cppPointer", ( long ) pAcceptor );
 
   QF_STACK_CATCH
 }

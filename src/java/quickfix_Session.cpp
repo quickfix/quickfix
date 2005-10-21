@@ -43,7 +43,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 
   JVM::set( pEnv );
   JVMObject jmessage( msg );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
 
   FIX::BeginString beginString;
   FIX::SenderCompID senderCompID;
@@ -70,7 +70,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 
   JVM::set( pEnv );
   JVMObject jmessage( msg );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
 
   FIX::BeginString beginString;
   FIX::SenderCompID senderCompID;
@@ -109,8 +109,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
   JVMObject jmessage( msg );
   JVMObject jsessionid( sID );
 
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getLong( "cppPointer" );
 
   try
   {
@@ -135,7 +135,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 
   JVM::set( pEnv );
   JVMObject jmessage( msg );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
 
   const char* usender = pEnv->GetStringUTFChars( sender, 0 );
   std::string senderCompID( usender );
@@ -170,7 +170,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 
   JVM::set( pEnv );
   JVMObject jmessage( msg );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
 
   const char* usender = pEnv->GetStringUTFChars( sender, 0 );
   std::string senderCompID( usender );
@@ -216,11 +216,11 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_lookupSession
   JVM::set( pEnv );
   JVMObject jsessionid( sID );
 
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getLong( "cppPointer" );
   FIX::Session* pSession = FIX::Session::lookupSession( *pSessionID );
   if( !pSession ) return 0;
   JVMClass type( "Lquickfix/Session;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
   jobject result = pEnv->NewObject( type, method, ( jint ) pSession );
   return result;
 
@@ -233,7 +233,7 @@ JNIEXPORT void JNICALL Java_quickfix_Session_logon
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   pSession->logon();
 
   QF_STACK_CATCH
@@ -245,7 +245,7 @@ JNIEXPORT void JNICALL Java_quickfix_Session_logout
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   pSession->logout();
 
   QF_STACK_CATCH
@@ -257,7 +257,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_isEnabled
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   return pSession->isEnabled();
 
   QF_STACK_CATCH
@@ -269,7 +269,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sentLogon
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   return pSession->sentLogon();
 
   QF_STACK_CATCH
@@ -282,7 +282,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sentLogout
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   return pSession->sentLogout();
 
   QF_STACK_CATCH
@@ -295,7 +295,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_receivedLogon
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   return pSession->receivedLogon();
 
   QF_STACK_CATCH
@@ -308,7 +308,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_isLoggedOn
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   return pSession->isLoggedOn();
 
   QF_STACK_CATCH
@@ -322,7 +322,7 @@ JNIEXPORT void JNICALL Java_quickfix_Session_reset
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   try
   {
     pSession->reset();
@@ -342,7 +342,7 @@ JNIEXPORT void JNICALL Java_quickfix_Session_setNextSenderMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   try
   {
     pSession->setNextSenderMsgSeqNum( num );
@@ -362,7 +362,7 @@ JNIEXPORT void JNICALL Java_quickfix_Session_setNextTargetMsgSeqNum
   JVM::set( pEnv );
   JVMObject jobject( obj );
 
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   try
   {
     pSession->setNextTargetMsgSeqNum( num );
@@ -381,7 +381,7 @@ JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedSenderNum
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   return pSession->getExpectedSenderNum();
 
   QF_STACK_CATCH
@@ -393,7 +393,7 @@ JNIEXPORT jint JNICALL Java_quickfix_Session_getExpectedTargetNum
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   return pSession->getExpectedTargetNum();
 
   QF_STACK_CATCH
@@ -405,9 +405,9 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getLog
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   JVMClass type( "Lquickfix/CppLog;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
   JVMObject result = pEnv->NewObject( type, method, ( jint ) pSession->getLog() );
   return result;
 
@@ -420,7 +420,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getStore
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Session* pSession = ( FIX::Session* ) jobject.getInt( "cppPointer" );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   JVMClass type( "Lquickfix/CppMessageStore;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
   JVMObject result = pEnv->NewObject( type, method );

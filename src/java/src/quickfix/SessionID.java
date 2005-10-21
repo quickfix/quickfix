@@ -20,7 +20,7 @@
 package quickfix;
 
 public class SessionID {
-    private int cppPointer;
+    private long cppPointer;
 
     public SessionID(String beginString,
                      String senderCompID,

@@ -42,10 +42,10 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_create__
 
   JVMObject jsettings( object.getObject( "settings", "Lquickfix/SessionSettings;" ) );
   FIX::SessionSettings* pSettings
-  = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
+  = ( FIX::SessionSettings* ) jsettings.getLong( "cppPointer" );
 
   FIX::LogFactory* pFactory = new FIX::MySQLLogFactory( *pSettings );
-  object.setInt( "cppPointer", ( int ) pFactory );
+  object.setLong( "cppPointer", ( long ) pFactory );
 
   QF_STACK_CATCH
 }
@@ -57,7 +57,7 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_destroy
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MySQLLogFactory* pFactory
-  = ( FIX::MySQLLogFactory* ) jobject.getInt( "cppPointer" );
+  = ( FIX::MySQLLogFactory* ) jobject.getLong( "cppPointer" );
   delete pFactory;
 
   QF_STACK_CATCH
@@ -74,15 +74,15 @@ JNIEXPORT jobject JNICALL Java_quickfix_MySQLLogFactory_create__Lquickfix_Sessio
   JVMObject jsession( sessionID );
 
   FIX::MySQLLogFactory* pFactory
-  = ( FIX::MySQLLogFactory* ) jobj.getInt( "cppPointer" );
+  = ( FIX::MySQLLogFactory* ) jobj.getLong( "cppPointer" );
   FIX::SessionID* pSessionID
-  = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
+  = ( FIX::SessionID* ) jsession.getLong( "cppPointer" );
 
   try
   {
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lquickfix/MySQLLog;" );
-    jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+    jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
     jobject result = pEnv->NewObject( type, method, ( jint ) pLog );
     return result;
   }

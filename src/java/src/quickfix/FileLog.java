@@ -25,7 +25,7 @@ public class FileLog extends CppLog {
         create();
     }
 
-    private FileLog(int cppPointer) {
+    private FileLog(long cppPointer) {
 	super( cppPointer );
     }
 

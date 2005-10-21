@@ -22,7 +22,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 
 public class ThreadedSocketAcceptor implements Acceptor {
-    private int cppPointer;
+    private long cppPointer;
 
     private Application application;
     private SessionSettings settings;

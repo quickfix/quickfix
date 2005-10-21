@@ -21,7 +21,7 @@ package quickfix;
 import java.util.Date;
 
 public class Group extends FieldMap {
-    private int cppPointer;
+    private long cppPointer;
 
     public Group(int field, int delim) {
         create(field, delim);
@@ -132,7 +132,7 @@ public class Group extends FieldMap {
 
     public class Iterator implements java.util.Iterator {
         private Group group;
-        private int cppPointer;
+        private long cppPointer;
 
         public Iterator( Group aGroup ) {
             group = aGroup;

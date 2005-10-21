@@ -24,13 +24,13 @@ import java.util.Date;
 import java.io.IOException;
 
 public class CppMessageStore implements MessageStore {
-    private int cppPointer;
+    private long cppPointer;
     private Date creationTime;
 
     public CppMessageStore() {
     }
 
-    public CppMessageStore( int cppPointer ) {
+    public CppMessageStore( long cppPointer ) {
 	this.cppPointer = cppPointer;
     }
 

@@ -41,10 +41,10 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLStoreFactory_create__
 
   JVMObject jsettings( object.getObject( "settings", "Lquickfix/SessionSettings;" ) );
   FIX::SessionSettings* pSettings
-  = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
+  = ( FIX::SessionSettings* ) jsettings.getLong( "cppPointer" );
 
   FIX::MessageStoreFactory* pFactory = new FIX::MySQLStoreFactory( *pSettings );
-  object.setInt( "cppPointer", ( int ) pFactory );
+  object.setLong( "cppPointer", ( long ) pFactory );
 
   QF_STACK_CATCH
 }
@@ -56,7 +56,7 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLStoreFactory_destroy
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MySQLStoreFactory* pFactory
-  = ( FIX::MySQLStoreFactory* ) jobject.getInt( "cppPointer" );
+  = ( FIX::MySQLStoreFactory* ) jobject.getLong( "cppPointer" );
   delete pFactory;
 
   QF_STACK_CATCH
@@ -73,9 +73,9 @@ JNIEXPORT jobject JNICALL Java_quickfix_MySQLStoreFactory_create__Lquickfix_Sess
   JVMObject jsession( sessionID );
 
   FIX::MySQLStoreFactory* pFactory
-  = ( FIX::MySQLStoreFactory* ) jobj.getInt( "cppPointer" );
+  = ( FIX::MySQLStoreFactory* ) jobj.getLong( "cppPointer" );
   FIX::SessionID* pSessionID
-  = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
+  = ( FIX::SessionID* ) jsession.getLong( "cppPointer" );
 
   FIX::MessageStoreFactoryExceptionWrapper wrapper( pFactory );
   bool threw = false;
@@ -91,7 +91,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_MySQLStoreFactory_create__Lquickfix_Sess
     new FIX::MessageStoreExceptionWrapper( pStore );
 
   JVMClass type( "Lquickfix/FileStore;" );
-  jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
   jobject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
   return result;
 

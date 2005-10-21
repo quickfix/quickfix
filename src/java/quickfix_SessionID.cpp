@@ -67,7 +67,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionID_create
                                FIX::TargetCompID( targetCompID ),
                                sessionQualifier );
 
-  jobject.setInt( "cppPointer", ( int ) pSessionID );
+  jobject.setLong( "cppPointer", ( long ) pSessionID );
 
   QF_STACK_CATCH
 }
@@ -78,7 +78,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionID_destroy
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
   delete pSessionID;
 
   QF_STACK_CATCH
@@ -90,7 +90,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getBeginString
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
   jstring result = newString( pSessionID->getBeginString().getValue() );
   return result;
 
@@ -103,7 +103,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getSenderCompID
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
   jstring result = newString( pSessionID->getSenderCompID().getValue() );
   return result;
 
@@ -116,7 +116,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getTargetCompID
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
   jstring result = newString( pSessionID->getTargetCompID().getValue() );
   return result;
 
@@ -129,7 +129,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_getSessionQualifier
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
   jstring result = newString( pSessionID->getSessionQualifier() );
   return result;
 
@@ -145,8 +145,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SessionID_equals
   JVM::set( pEnv );
   JVMObject jobject( obj );
   JVMObject jobject2( obj2 );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
-  FIX::SessionID* pSessionID2 = ( FIX::SessionID* ) jobject2.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
+  FIX::SessionID* pSessionID2 = ( FIX::SessionID* ) jobject2.getLong( "cppPointer" );
   return *pSessionID == *pSessionID2;
 
   QF_STACK_CATCH
@@ -158,7 +158,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_toString
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
   jstring result = newString( pSessionID->toString() );
   return result;
 

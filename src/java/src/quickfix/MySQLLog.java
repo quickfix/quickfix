@@ -25,7 +25,7 @@ public class MySQLLog extends CppLog {
         create();
     }
 
-    private MySQLLog(int cppPointer) {
+    private MySQLLog(long cppPointer) {
 	super( cppPointer );
     }
 

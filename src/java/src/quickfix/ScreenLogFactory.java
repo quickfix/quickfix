@@ -20,7 +20,7 @@
 package quickfix;
 
 public class ScreenLogFactory implements LogFactory {
-    private int cppPointer;
+    private long cppPointer;
 
     public ScreenLogFactory(boolean incoming, boolean outgoing, boolean event) {
         create(incoming, outgoing, event);

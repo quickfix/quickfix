@@ -22,8 +22,8 @@ package quickfix;
 import java.io.IOException;
 
 public class Session {
-    private int cppPointer;
-    private Session(int cppPointer) {
+    private long cppPointer;
+    private Session(long cppPointer) {
 	this.cppPointer = cppPointer;
     }
 

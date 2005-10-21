@@ -199,7 +199,7 @@ void JNICALL JavaMessageStore_create
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
     new FIX::MessageStoreExceptionWrapper( pStore );
-  jobject.setInt( "cppPointer", ( int ) pWrapper );
+  jobject.setLong( "cppPointer", ( long ) pWrapper );
 }
 
 void JNICALL JavaMessageStore_destroy
@@ -208,7 +208,7 @@ void JNICALL JavaMessageStore_destroy
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::MessageStoreExceptionWrapper* pWrapper =
-    ( FIX::MessageStoreExceptionWrapper* ) jobject.getInt( "cppPointer" );
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
   delete pWrapper;
 }
 

@@ -34,7 +34,7 @@
 FIX::Message* getCPPMessage( jobject obj )
 {
   JVMObject jobject( obj );
-  return ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  return ( FIX::Message* ) jobject.getLong( "cppPointer" );
 }
 
 JNIEXPORT jboolean JNICALL Java_quickfix_Message_InitializeXML
@@ -58,7 +58,7 @@ JNIEXPORT void JNICALL Java_quickfix_Message_create
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::Message* pMessage = new FIX::Message();
-  jobject.setInt( "cppPointer", ( int ) pMessage );
+  jobject.setLong( "cppPointer", ( long ) pMessage );
 
   QF_STACK_CATCH
 }
@@ -95,7 +95,7 @@ JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   JVMObject jgroup( group );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getInt( "cppPointer" );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
   pMessage->addGroup( *pGroup );
 
   QF_STACK_CATCH
@@ -110,7 +110,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   JVMObject jgroup( group );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getInt( "cppPointer" );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
 
   try
   {
@@ -599,8 +599,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorCreate
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  jiterator.setInt( "cppPointer", (int)new FIX::Header::iterator( pMessage->getHeader().begin()) );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  jiterator.setLong( "cppPointer", ( long ) new FIX::Header::iterator( pMessage->getHeader().begin()) );
   return jiterator;
 
   QF_STACK_CATCH
@@ -615,8 +615,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  FIX::Header::iterator* i = ( FIX::Header::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  FIX::Header::iterator* i = ( FIX::Header::iterator* ) jiterator.getLong( "cppPointer" );
   return( *i != pMessage->getHeader().end() );
 
   QF_STACK_CATCH
@@ -631,8 +631,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  FIX::Header::iterator* i = ( FIX::Header::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  FIX::Header::iterator* i = ( FIX::Header::iterator* ) jiterator.getLong( "cppPointer" );
   if( *i == pMessage->getHeader().end() ) {
     throwNew( "Ljava/util/NoSuchElementException;", "" );
     return 0;
@@ -890,8 +890,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  jiterator.setInt( "cppPointer", (int)new FIX::Header::iterator( pMessage->getTrailer().begin()) );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  jiterator.setLong( "cppPointer", ( long ) new FIX::Header::iterator( pMessage->getTrailer().begin()) );
   return jiterator;
 
   QF_STACK_CATCH
@@ -906,8 +906,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  FIX::Trailer::iterator* i = ( FIX::Trailer::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  FIX::Trailer::iterator* i = ( FIX::Trailer::iterator* ) jiterator.getLong( "cppPointer" );
   return( *i != pMessage->getTrailer().end() );
 
   QF_STACK_CATCH
@@ -922,8 +922,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  FIX::Trailer::iterator* i = ( FIX::Trailer::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  FIX::Trailer::iterator* i = ( FIX::Trailer::iterator* ) jiterator.getLong( "cppPointer" );
   if( *i == pMessage->getTrailer().end() ) {
     throwNew( "Ljava/util/NoSuchElementException;", "" );
     return 0;
@@ -945,7 +945,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_Message_toString
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getLong( "cppPointer" );
   std::string messageString;
   jstring result = newString( pMessage->toString(messageString) );
   return result;
@@ -959,7 +959,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_Message_toXML
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getLong( "cppPointer" );
   jstring result = newString( pMessage->toXML() );
   return result;
 
@@ -974,7 +974,7 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Z
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getLong( "cppPointer" );
 
   const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
   try
@@ -999,8 +999,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorCreate
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  jiterator.setInt( "cppPointer", (int)new FIX::Message::iterator(pMessage->begin()) );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  jiterator.setLong( "cppPointer", ( long ) new FIX::Message::iterator(pMessage->begin()) );
   return jiterator;
 
   QF_STACK_CATCH
@@ -1015,8 +1015,8 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_messageIteratorHasNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  FIX::Message::iterator* i = ( FIX::Message::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  FIX::Message::iterator* i = ( FIX::Message::iterator* ) jiterator.getLong( "cppPointer" );
   return( *i != pMessage->end() );
 
   QF_STACK_CATCH
@@ -1031,8 +1031,8 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorNext
   JVM::set( pEnv );
   JVMObject jiterator( iterator );
   JVMObject jmessage = jiterator.getObject( "message", "Lquickfix/Message;" );
-  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getInt( "cppPointer" );
-  FIX::Message::iterator* i = ( FIX::Message::iterator* ) jiterator.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jmessage.getLong( "cppPointer" );
+  FIX::Message::iterator* i = ( FIX::Message::iterator* ) jiterator.getLong( "cppPointer" );
   if( *i == pMessage->end() ) {
     throwNew( "Ljava/util/NoSuchElementException;", "" );
     return 0;
@@ -1059,8 +1059,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
   JVMObject jobject( obj );
   JVMObject jdd( dd );
 
-  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jdd.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getLong( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jdd.getLong( "cppPointer" );
 
   const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
   try
@@ -1087,8 +1087,8 @@ JNIEXPORT void JNICALL Java_quickfix_Message_fromString__Ljava_lang_String_2Lqui
   JVMObject jobject( obj );
   JVMObject jdd( dd );
 
-  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
-  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jdd.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getLong( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jdd.getLong( "cppPointer" );
 
   const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );
   try
@@ -1110,7 +1110,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_isAdmin
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getLong( "cppPointer" );
   return pMessage->isAdmin();
 
   QF_STACK_CATCH
@@ -1122,7 +1122,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_isApp
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Message* pMessage = ( FIX::Message* ) jobject.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) jobject.getLong( "cppPointer" );
   return pMessage->isApp();
 
   QF_STACK_CATCH

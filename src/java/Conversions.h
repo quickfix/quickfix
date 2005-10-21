@@ -122,7 +122,7 @@ inline jobject newMessage( const FIX::Message& message, JVMObject factory )
 
   pEnv->DeleteLocalRef( jBeginString );
   pEnv->DeleteLocalRef( jMsgType );
-  FIX::Message* pMessage = ( FIX::Message* ) result.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) result.getLong( "cppPointer" );
   *pMessage = message;
   return result;
 }
@@ -139,7 +139,7 @@ inline jobject newMessage( const FIX::Message& message )
 
   JVMObject result( pEnv->NewObject( type, method ) );
 
-  FIX::Message* pMessage = ( FIX::Message* ) result.getInt( "cppPointer" );
+  FIX::Message* pMessage = ( FIX::Message* ) result.getLong( "cppPointer" );
   *pMessage = message;
   return result;
 }
@@ -325,7 +325,7 @@ inline FIX::SessionSettings& getSettings( JVMObject& obj )
 {
   JVMObject jsettings = obj.getObject( "settings", "Lquickfix/SessionSettings;" );
   FIX::SessionSettings* pSettings
-  = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
+  = ( FIX::SessionSettings* ) jsettings.getLong( "cppPointer" );
   return *pSettings;
 }
 

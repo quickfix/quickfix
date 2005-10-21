@@ -21,7 +21,7 @@ package quickfix;
 import java.util.Date;
 
 public class Message extends FieldMap {
-    private int cppPointer;
+    private long cppPointer;
 
     protected Header header;
     protected Trailer trailer;
@@ -201,7 +201,7 @@ public class Message extends FieldMap {
 
     public class Iterator implements java.util.Iterator {
         private Message message;
-        private int cppPointer;
+        private long cppPointer;
 
         public Iterator( Message aMessage ) {
             message = aMessage;
@@ -230,7 +230,7 @@ public class Message extends FieldMap {
 
         public class Iterator implements java.util.Iterator {
             private Message message;
-            private int cppPointer;
+            private long cppPointer;
 
             public Iterator( Message aMessage ) {
                 message = aMessage;
@@ -385,7 +385,7 @@ public class Message extends FieldMap {
         }
         public class Iterator implements java.util.Iterator {
             private Message message;
-            private int cppPointer;
+            private long cppPointer;
 
             public Iterator( Message aMessage ) {
                 message = aMessage;

@@ -172,6 +172,16 @@ void JVMObject::setInt( const std::string& name, int value )
   pEnv->SetIntField( m_obj, fid, value );
 }
 
+void JVMObject::setLong( const std::string& name, long value )
+{
+  JNIEnv * pEnv = ENV::get();
+  jfieldID fid = getClass().getFieldID( name.c_str(), LONG_TYPE );
+  if ( fid == 0 )
+    throw std::logic_error( "string field " + name + " not found" );
+
+  pEnv->SetLongField( m_obj, fid, value );
+}
+
 std::string JVMObject::getString( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();
@@ -204,6 +214,15 @@ int JVMObject::getInt( const std::string& name )
   if ( fid == 0 ) throw std::logic_error( "int field " + name + " not found" );
 
   return pEnv->GetIntField( m_obj, fid );
+}
+
+long JVMObject::getLong( const std::string& name )
+{
+  JNIEnv * pEnv = ENV::get();
+  jfieldID fid = getClass().getFieldID( name.c_str(), LONG_TYPE );
+  if ( fid == 0 ) throw std::logic_error( "jlong field " + name + " not found" );
+
+  return (long)pEnv->GetLongField( m_obj, fid );
 }
 
 JVMObject JVMObject::getDate( const std::string& name )

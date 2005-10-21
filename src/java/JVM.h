@@ -44,6 +44,7 @@ public:
   #define ARRAYLIST_TYPE "Ljava/util/ArrayList;"
   #define CHAR_TYPE "C"
   #define INT_TYPE "I"
+  #define LONG_TYPE "J"
   #define LONGMETHOD_TYPE "()J"
   #define INTMETHOD_TYPE "()I"
   #define STRINGMETHOD_TYPE "()Ljava/util/String;"
@@ -139,10 +140,12 @@ public:
   std::string getString( const std::string& name );
   char getChar( const std::string& name );
   int getInt( const std::string& name );
+  long getLong( const std::string& name );
   JVMObject getDate( const std::string& name );
   JVMObject getObject( const std::string& name, const std::string& type );
 
   void setInt( const std::string& name, int );
+  void setLong( const std::string& name, long );
 
   jlong callLongMethod( const std::string& name );
   jint callIntMethod( const std::string& name );

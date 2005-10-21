@@ -40,7 +40,7 @@ JNIEXPORT void JNICALL Java_quickfix_FileStore_create
   JVMObject jsession( obj );
 
   FIX::SessionID* pSessionID
-  = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
+  = ( FIX::SessionID* ) jsession.getLong( "cppPointer" );
 
   const char* upath = pEnv->GetStringUTFChars( path, 0 );
   FIX::MessageStore* pStore = new FIX::FileStore(

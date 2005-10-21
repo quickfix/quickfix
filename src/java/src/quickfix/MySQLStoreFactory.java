@@ -20,7 +20,7 @@
 package quickfix;
 
 public class MySQLStoreFactory implements MessageStoreFactory {
-    private int cppPointer;
+    private long cppPointer;
 
     private SessionSettings settings = null;
 

@@ -42,7 +42,7 @@
 FIX::SocketAcceptor* getCPPSocketAcceptor( jobject obj )
 {
   JVMObject jobject( obj );
-  return ( FIX::SocketAcceptor* ) jobject.getInt( "cppPointer" );
+  return ( FIX::SocketAcceptor* ) jobject.getLong( "cppPointer" );
 }
 
 JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_create
@@ -83,7 +83,7 @@ JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_create
     return;
   }
 
-  jobject.setInt( "cppPointer", ( int ) pAcceptor );
+  jobject.setLong( "cppPointer", ( long ) pAcceptor );
 
   QF_STACK_CATCH
 }

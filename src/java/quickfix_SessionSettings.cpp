@@ -32,7 +32,7 @@
 FIX::SessionSettings* getCPPSessionSettings( jobject obj )
 {
   JVMObject jobject( obj );
-  return ( FIX::SessionSettings* ) jobject.getInt( "cppPointer" );
+  return ( FIX::SessionSettings* ) jobject.getLong( "cppPointer" );
 }
 
 JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create
@@ -53,7 +53,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create
   try
   {
     FIX::SessionSettings* pSettings = new FIX::SessionSettings( stringStream );
-    jobject.setInt( "cppPointer", ( int ) pSettings );
+    jobject.setLong( "cppPointer", ( long ) pSettings );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
@@ -79,7 +79,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_getString
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
@@ -110,7 +110,7 @@ JNIEXPORT jlong JNICALL Java_quickfix_SessionSettings_getLong
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
@@ -141,7 +141,7 @@ JNIEXPORT jdouble JNICALL Java_quickfix_SessionSettings_getDouble
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
@@ -172,7 +172,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SessionSettings_getBool
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
@@ -205,7 +205,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setString
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   const char* uvalue = pEnv->GetStringUTFChars( value, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
@@ -234,7 +234,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setLong
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
@@ -262,7 +262,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setDouble
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
@@ -290,7 +290,7 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setBool
 
   const char* ukey = pEnv->GetStringUTFChars( key, 0 );
   JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getInt( "cppPointer" );
+  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
 
   FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try

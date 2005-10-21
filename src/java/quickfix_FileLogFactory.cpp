@@ -39,10 +39,10 @@ JNIEXPORT void JNICALL Java_quickfix_FileLogFactory_create__
 
   JVMObject jsettings( object.getObject( "settings", "Lquickfix/SessionSettings;" ) );
   FIX::SessionSettings* pSettings
-  = ( FIX::SessionSettings* ) jsettings.getInt( "cppPointer" );
+  = ( FIX::SessionSettings* ) jsettings.getLong( "cppPointer" );
 
   FIX::LogFactory* pFactory = new FIX::FileLogFactory( *pSettings );
-  object.setInt( "cppPointer", ( int ) pFactory );
+  object.setLong( "cppPointer", ( long ) pFactory );
 
   QF_STACK_CATCH
 }
@@ -54,7 +54,7 @@ JNIEXPORT void JNICALL Java_quickfix_FileLogFactory_destroy
   JVM::set( pEnv );
   JVMObject jobject( obj );
   FIX::FileLogFactory* pFactory
-  = ( FIX::FileLogFactory* ) jobject.getInt( "cppPointer" );
+  = ( FIX::FileLogFactory* ) jobject.getLong( "cppPointer" );
   delete pFactory;
 
   QF_STACK_CATCH
@@ -71,15 +71,15 @@ JNIEXPORT jobject JNICALL Java_quickfix_FileLogFactory_create__Lquickfix_Session
   JVMObject jsession( sessionID );
 
   FIX::FileLogFactory* pFactory
-  = ( FIX::FileLogFactory* ) jobject.getInt( "cppPointer" );
+  = ( FIX::FileLogFactory* ) jobject.getLong( "cppPointer" );
   FIX::SessionID* pSessionID
-  = ( FIX::SessionID* ) jsession.getInt( "cppPointer" );
+  = ( FIX::SessionID* ) jsession.getLong( "cppPointer" );
 
   try
   {
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lquickfix/FileLog;" );
-    jmethodID method = pEnv->GetMethodID( type, "<init>", "(I)V" );
+    jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
     JVMObject result =  pEnv->NewObject( type, method, ( jint ) pLog );
     return result;
   }

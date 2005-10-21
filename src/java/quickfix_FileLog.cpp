@@ -42,7 +42,7 @@ JNIEXPORT void JNICALL Java_quickfix_FileLog_destroy
 
   JVM::set( pEnv );
   JVMObject jobject( obj );
-  FIX::Log* pLog = ( FIX::Log* ) jobject.getInt( "cppPointer" );
+  FIX::Log* pLog = ( FIX::Log* ) jobject.getLong( "cppPointer" );
   delete pLog;
 
   QF_STACK_CATCH
