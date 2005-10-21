@@ -19,7 +19,11 @@
       </UL>
     </LI>
     <LI>
-      <A HREF="#Generating MySQL Database">Generating MySQL Database</A>
+      <A HREF="#Generating QuickFIX Databases">Generating QuickFIX Databases</A>
+      <UL>
+        <LI><A HREF="#Generating MySQL Database">Generating MySQL Database</A></LI>
+        <LI><A HREF="#Generating PostgreSQL Database">Generating PostgreSQL Database</A></LI>
+      </UL>
     </LI>
     <LI>
       <A HREF="#Testing QuickFIX">Testing QuickFIX</A>
@@ -153,6 +157,7 @@
     like to take advantage of additional features.  QuickFIX supports the following:
 
     <A HREF="http://www.mysql.com/downloads/">MySQL</A>
+    <A HREF="http://www.postgresql.org/download/">PostgreSQL</A>
     <A HREF="http://www.stlport.org/download.html">STLport</A>
     </p>
 
@@ -185,6 +190,9 @@
       Compile with stlport instead of standard visual c++ STL implementation.<br/>
       <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT>
       Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
+      library directories must be in the Visual Studio search paths.<br/>
+      <FONT color="#0000FF">#define HAVE_POSTGRESQL 1</FONT>
+      Compiles PostgreSQL support into QuickFIX. If you enable this option, the postgres include and
       library directories must be in the Visual Studio search paths.<br/>
       <FONT color="#0000FF">#define HAVE_LIBXML 1</FONT>
       Compile and link XML parsing code against the libxml library instead of the default MSXML3.<br/>
@@ -245,6 +253,7 @@
       <FONT color="#0000FF">--with-java</FONT> - Build the Java API.  JAVA_HOME will be used to find Java.<br>
       <FONT color="#0000FF">--with-python=&lt;include directory&gt;</FONT> - Build the Python API.  Use directory which contains python headers.<br>
       <FONT color="#0000FF">--with-mysql=&lt;base directory&gt;</FONT> - Compile in mysql support<br>
+      <FONT color="#0000FF">--with-postgresql=&lt;base directory&gt;</FONT> - Compile in postgresql support<br>
       <FONT color="#0000FF">--with-stlport=&lt;base directory&gt;</FONT> - Compile with stlport instead of
       standard gcc STL implementation (recommended for multiprocessor machines running gcc 2.95.x)<br>
       <FONT color="#0000FF">--enable-callstack</FONT> - Display C++ call stack after abnormal termination. Only use this when trying to track down a repeatable problem.<br>
@@ -274,22 +283,42 @@
     </p>
 
     <hr>
+    <A NAME="Generating QuickFIX Databases">
+    <H2>Generating QuickFIX Databases</H2>
     <A NAME="Generating MySQL Database">
-    <H2>Generating MySQL Database</H2>
+    <H3>Generating MySQL Database</H3>
     <p>
       First, make sure you have compiled QuickFIX with MySQL support.  If you have not done this,
       go back to the build instructions for your system and follow the instructions.  Also, make
       sure you have installed MySQL and have the deamon running.
     </p>
     <p>
-      Everything needed to generate your MySQL database is in the <I>src/sql</I> directory. Here,
-      there are the script and batch files <B>create_mysql.sh</B> and <B>create_mysql.bat</B>.
+      Everything needed to generate your MySQL database is in the <I>src/sql/mysql</I> directory. Here,
+      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>.
       These scripts will work on a newly installed mysql database with default permisions. The
       scripts will try to generate the database using the root MySQL account with no password. If
       you need to use a different account or need a password, you will have to edit the script.
       To select a different user, simply change 'root' to another user.  To add a password,
       use pass the -p <password> option after the username.
     </p>
+    <A NAME="Generating PostgreSQL Database">
+    <H3>Generating PostgreSQL Database</H3>
+    <p>
+      First, make sure you have compiled QuickFIX with PostgreSQL support.  If you have not done this,
+      go back to the build instructions for your system and follow the instructions.  Also, make
+      sure you have installed PostgreSQL and have the deamon running.
+    </p>
+    <p>
+      Everything needed to generate your PostgreSQL database is in the <I>src/sql/postgresql</I> directory. Here,
+      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>.
+      These scripts will work on a newly installed postgresql database with default permisions. The
+      scripts will try to generate the database using the postgres account with no password. If
+      you need to use a different account or need a password, you will have to edit the script.
+      To select a different user, simply change 'postgres' to another user.  To add a password,
+      use pass the -W option and you will be prompted for a password.
+    </p>
+
+    <hr>
     <A NAME="Testing QuickFIX"/>
     <H2>Testing QuickFIX</H2>
     <p>

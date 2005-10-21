@@ -286,6 +286,36 @@
     <TD> positive integer </TD>
     <TD> standard MySQL port </TD>
   </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLStoreDatabase</I> </TD>
+    <TD> Name of PostgreSQL database to access for storing messages and session state. Only used with
+         PostgreSQLStoreFactory. </TD>
+    <TD> valid database for storing files, must have write access and correct DB shema </TD>
+    <TD> quickfix </TD>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLStoreUser</I> </TD>
+    <TD> User name logging in to PostgreSQL database. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> valid user with read/write access to appropriate tables in database </TD>
+    <TD> postgres </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLStorePassword</I> </TD>
+    <TD> Users password. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> correct PostgreSQL password for user </TD>
+    <TD> empty password </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLStoreHost</I> </TD>
+    <TD> Address of MySQL database. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
+    <TD> localhost </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLStorePort</I> </TD>
+    <TD> Port of PostgreSQL database. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> positive integer </TD>
+    <TD> standard PostgreSQL port </TD>
+  </TR>
 
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Logging">Logging</A></TD>
@@ -326,7 +356,36 @@
     <TD> positive integer </TD>
     <TD> standard MySQL port </TD>
   </TR>
-
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLLogDatabase</I> </TD>
+    <TD> Name of PostgreSQL database to access for logging. Only used with
+         PostgreSQLLogFactory. </TD>
+    <TD> valid database for storing files, must have write access and correct DB shema </TD>
+    <TD> quickfix </TD>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLLogUser</I> </TD>
+    <TD> User name logging in to PostgreSQL database. Only used with PostgreSQLLogFactory. </TD>
+    <TD> valid user with read/write access to appropriate tables in database </TD>
+    <TD> postgres </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLLogPassword</I> </TD>
+    <TD> Users password. Only used with PostgreSQLLogFactory. </TD>
+    <TD> correct PostgreSQL password for user </TD>
+    <TD> empty password </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLLogHost</I> </TD>
+    <TD> Address of PostgreSQL database. Only used with PostgreSQLLogFactory. </TD>
+    <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
+    <TD> localhost </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLLogPort</I> </TD>
+    <TD> Port of PostgreSQL database. Only used with PostgreSQLLogFactory. </TD>
+    <TD> positive integer </TD>
+    <TD> standard PostgreSQL port </TD>
+  </TR>
 
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Miscellaneous">Miscellaneous</A></TD>
