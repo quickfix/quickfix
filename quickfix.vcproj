@@ -1955,6 +1955,12 @@ del /F EXCLUDE
 				<File
 					RelativePath="src\C++\MySQLStore.cpp">
 				</File>
+				<File
+					RelativePath=".\src\C++\PostgreSQLLog.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\PostgreSQLStore.cpp">
+				</File>
 			</Filter>
 			<Filter
 				Name="Storage Header Files"
@@ -2062,6 +2068,12 @@ del /F EXCLUDE
 							AdditionalDependencies=""
 							Outputs=""/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\PostgreSQLLog.h">
+				</File>
+				<File
+					RelativePath=".\src\C++\PostgreSQLStore.h">
 				</File>
 			</Filter>
 		</Filter>

@@ -309,6 +309,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\src\C++\test\PostgreSQLStoreTestCase.cpp">
+			</File>
+			<File
 				RelativePath=".\src\C++\Test\SessionIDTestCase.cpp">
 				<FileConfiguration
 					Name="Release|Win32">
@@ -494,6 +497,9 @@
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\ParserTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\test\PostgreSQLStoreTestCase.h">
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\SessionIDTestCase.h">
