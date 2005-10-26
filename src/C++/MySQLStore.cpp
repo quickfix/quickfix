@@ -366,6 +366,6 @@ void MySQLStore::reset() throw ( IOException )
 
   QF_STACK_POP
 }
-} //namespace FIX
+}
 
-#endif //HAVE_MYSQL
+#endif

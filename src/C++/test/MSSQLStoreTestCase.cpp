@@ -24,13 +24,13 @@
 #include "config.h"
 #endif
 
-#ifdef HAVE_MYSQL
+#ifdef HAVE_MSSQL
 
-#include "MySQLStoreTestCase.h"
+#include "MSSQLStoreTestCase.h"
 
 namespace FIX
 {
-bool MySQLStoreTestCase::setGet::onSetup( MessageStore*& pObject )
+bool MSSQLStoreTestCase::setGet::onSetup( MessageStore*& pObject )
 {
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
@@ -42,12 +42,12 @@ bool MySQLStoreTestCase::setGet::onSetup( MessageStore*& pObject )
   return true;
 }
 
-void MySQLStoreTestCase::setGet::onTeardown( MessageStore* pObject )
+void MSSQLStoreTestCase::setGet::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
 }
 
-bool MySQLStoreTestCase::other::onSetup( MessageStore*& pObject )
+bool MSSQLStoreTestCase::other::onSetup( MessageStore*& pObject )
 {
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
@@ -59,12 +59,12 @@ bool MySQLStoreTestCase::other::onSetup( MessageStore*& pObject )
   return true;
 }
 
-void MySQLStoreTestCase::other::onTeardown( MessageStore* pObject )
+void MSSQLStoreTestCase::other::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
 }
 
-bool MySQLStoreTestCase::reload::onSetup( MessageStore*& pObject )
+bool MSSQLStoreTestCase::reload::onSetup( MessageStore*& pObject )
 {
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
@@ -75,7 +75,7 @@ bool MySQLStoreTestCase::reload::onSetup( MessageStore*& pObject )
   return true;
 }
 
-void MySQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
+void MSSQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
 }

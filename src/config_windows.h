@@ -6,8 +6,11 @@
 // Define if you have sql library (libMySQL.lib)
 // #define HAVE_MYSQL 1
 
-// Define if you have sql library (libpq.a)
+// Define if you have sql library (libpq.lib)
 // #define HAVE_POSTGRESQL 1
+
+// Define if you have sql library (Ntwdblib.lib)
+// #define HAVE_MSSQL 1
 
 // Define if you have libxml library
 // #define HAVE_LIBXML 1

@@ -1950,6 +1950,12 @@ del /F EXCLUDE
 					RelativePath=".\src\C++\MessageStore.cpp">
 				</File>
 				<File
+					RelativePath=".\src\C++\MSSQLLog.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\MSSQLStore.cpp">
+				</File>
+				<File
 					RelativePath="src\C++\MySQLLog.cpp">
 				</File>
 				<File
@@ -1960,6 +1966,9 @@ del /F EXCLUDE
 				</File>
 				<File
 					RelativePath=".\src\C++\PostgreSQLStore.cpp">
+				</File>
+				<File
+					RelativePath=".\src\C++\stdafx.h">
 				</File>
 			</Filter>
 			<Filter
@@ -2035,6 +2044,12 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
+					RelativePath=".\src\C++\MSSQLLog.h">
+				</File>
+				<File
+					RelativePath=".\src\C++\MSSQLStore.h">
+				</File>
+				<File
 					RelativePath="src\C++\MySQLLog.h">
 					<FileConfiguration
 						Name="Debug|Win32">
@@ -2077,9 +2092,6 @@ del /F EXCLUDE
 				</File>
 			</Filter>
 		</Filter>
-		<File
-			RelativePath=".\src\C++\stdafx.h">
-		</File>
 	</Files>
 	<Globals>
 	</Globals>

@@ -291,6 +291,9 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath=".\src\C++\test\MSSQLStoreTestCase.cpp">
+			</File>
+			<File
 				RelativePath="src\C++\test\MySQLStoreTestCase.cpp">
 			</File>
 			<File
@@ -491,6 +494,9 @@
 			</File>
 			<File
 				RelativePath=".\src\C++\Test\MessageStoreTestCase.h">
+			</File>
+			<File
+				RelativePath=".\src\C++\test\MSSQLStoreTestCase.h">
 			</File>
 			<File
 				RelativePath="src\C++\test\MySQLStoreTestCase.h">
