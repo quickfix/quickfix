@@ -155,41 +155,12 @@ void MySQLStore::populateCache()
 MessageStore* MySQLStoreFactory::create( const SessionID& s )
 { QF_STACK_PUSH(MySQLStoreFactory::create)
 
-  std::string database = DEFAULT_DATABASE;
-  std::string user = DEFAULT_USER;
-  std::string password = DEFAULT_PASSWORD;
-  std::string host = DEFAULT_HOST;
-  short port = DEFAULT_PORT;
-
   if( m_useSettings )
-  {
-    Dictionary settings = m_settings.get( s );
-
-    try { database = settings.getString( MYSQL_STORE_DATABASE ); }
-    catch( ConfigError& ) {}
-
-    try { user = settings.getString( MYSQL_STORE_USER ); }
-    catch( ConfigError& ) {}
-
-    try { password = settings.getString( MYSQL_STORE_PASSWORD ); }
-    catch( ConfigError& ) {}
-
-    try { host = settings.getString( MYSQL_STORE_HOST ); }
-    catch( ConfigError& ) {}
-
-    try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
-    catch( ConfigError& ) {}
-  }
+    return create( s, m_settings.get(s) );
+  else if( m_useDictionary )
+    return create( s, m_dictionary );
   else
-  {
-    database = m_database;
-    user = m_user;
-    password = m_password;
-    host = m_host;
-    port = m_port;
-  }
-
-  return new MySQLStore( s, database, user, password, host, port );
+    return new MySQLStore( s, m_database, m_user, m_password, m_host );
 
   QF_STACK_POP
 }
@@ -197,6 +168,35 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s )
 void MySQLStoreFactory::destroy( MessageStore* pStore )
 { QF_STACK_PUSH(MySQLStoreFactory::destroy)
   delete pStore;
+  QF_STACK_POP
+}
+
+MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& settings )
+{ QF_STACK_PUSH(MySQLStoreFactory::create)
+
+  std::string database = DEFAULT_DATABASE;
+  std::string user = DEFAULT_USER;
+  std::string password = DEFAULT_PASSWORD;
+  std::string host = DEFAULT_HOST;
+  short port = DEFAULT_PORT;
+
+  try { database = settings.getString( MySQL_STORE_DATABASE ); }
+  catch( ConfigError& ) {}
+
+  try { user = settings.getString( MySQL_STORE_USER ); }
+  catch( ConfigError& ) {}
+
+  try { password = settings.getString( MySQL_STORE_PASSWORD ); }
+  catch( ConfigError& ) {}
+
+  try { host = settings.getString( MySQL_STORE_HOST ); }
+  catch( ConfigError& ) {}
+
+  try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
+  catch( ConfigError& ) {}
+
+  return new MySQLStore( s, database, user, password, host, port );
+
   QF_STACK_POP
 }
 

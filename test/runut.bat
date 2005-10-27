@@ -15,7 +15,7 @@ goto start
 
 :start
 pushd ..
-%DIR%\ut.exe -p %2
+%DIR%\ut.exe -p %2 -f test\cfg\ut.cfg
 popd
 goto quit
 

@@ -38,7 +38,10 @@ namespace FIX
 class PostgreSQLStoreTestCase : public MessageStoreTestCase
 {
 public:
-  PostgreSQLStoreTestCase()
+  PostgreSQLStoreTestCase( const FIX::SessionSettings& sessionSettings )
+  : m_setGet( sessionSettings ),
+    m_other( sessionSettings ),
+    m_reload( sessionSettings )
   {
     add( &m_setGet );
     add( &m_other );
@@ -50,7 +53,8 @@ private:
   class setGet : public MessageStoreTestCase::setGet
   {
   public:
-    setGet() : m_factory() {}
+    setGet( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -62,7 +66,8 @@ private:
   class other : public MessageStoreTestCase::other
   {
   public:
-    other() : m_factory() {}
+    other( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -74,7 +79,8 @@ private:
   class reload : public MessageStoreTestCase::reload
   {
   public:
-    reload() : m_factory() {}
+    reload( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -85,5 +91,5 @@ private:
 };
 }
 
-#endif //FIX_POSTGRESQLSTORETESTCASE_H
-#endif //HAVE_POSTGRESQL
+#endif
+#endif

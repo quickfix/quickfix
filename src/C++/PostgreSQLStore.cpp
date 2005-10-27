@@ -217,6 +217,35 @@ MessageStore* PostgreSQLStoreFactory::create( const SessionID& s )
   QF_STACK_POP
 }
 
+MessageStore* PostgreSQLStoreFactory::create( const SessionID& s, const Dictionary& settings )
+{ QF_STACK_PUSH(PostgreSQLStoreFactory::create)
+
+  std::string database = DEFAULT_DATABASE;
+  std::string user = DEFAULT_USER;
+  std::string password = DEFAULT_PASSWORD;
+  std::string host = DEFAULT_HOST;
+  short port = DEFAULT_PORT;
+
+  try { database = settings.getString( POSTGRESQL_STORE_DATABASE ); }
+  catch( ConfigError& ) {}
+
+  try { user = settings.getString( POSTGRESQL_STORE_USER ); }
+  catch( ConfigError& ) {}
+
+  try { password = settings.getString( POSTGRESQL_STORE_PASSWORD ); }
+  catch( ConfigError& ) {}
+
+  try { host = settings.getString( POSTGRESQL_STORE_HOST ); }
+  catch( ConfigError& ) {}
+
+  try { port = ( short ) settings.getLong( POSTGRESQL_STORE_PORT ); }
+  catch( ConfigError& ) {}
+
+  return new PostgreSQLStore( s, database, user, password, host, port );
+
+  QF_STACK_POP
+}
+
 void PostgreSQLStoreFactory::destroy( MessageStore* pStore )
 { QF_STACK_PUSH(PostgreSQLStoreFactory::destroy)
   delete pStore;

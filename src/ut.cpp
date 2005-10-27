@@ -26,6 +26,7 @@
 
 #include "C++/test/TestSuite.h"
 #include "C++/Utility.h"
+#include "C++/SessionSettings.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
 #include "getopt-repl.h"
@@ -34,18 +35,38 @@ int main( int argc, char** argv )
 {
   CPPTest::TestDisplay * display;
 
-  if ( getopt( argc, argv, "+p:" ) != 'p' )
-  {
-    std::cout << "usage: "
-    << argv[ 0 ]
-    << " -p port" << std::endl;
-    return 1;
-  }
-  std::string port = optarg;
+  short port;
+  std::auto_ptr<FIX::SessionSettings> sessionSettingsPtr;
 
+  std::string mySQLUser;
+  std::string mySQLPassword;
+  std::string msSQLUser;
+  std::string msSQLPassword;
+  std::string postgreSQLUser;
+  std::string postgreSQLPassword;
+
+  int opt;
+  while ( (opt = getopt( argc, argv, "+p:+f:" )) != -1 )
+  {
+    switch( opt )
+    {
+    case 'p':
+      port = (short)atol( optarg );
+      break;
+    case 'f':
+      sessionSettingsPtr = std::auto_ptr<FIX::SessionSettings>
+        ( new FIX::SessionSettings(optarg) );
+      break;
+    default:
+      std::cout << "usage: "
+      << argv[ 0 ]
+      << " -p port -f file" << std::endl;
+      return 1;
+    }
+  }
   display = new CPPTest::TestXMLFileOutputDisplay();
 
-  TestSuite suite( *display, ( short ) atol( port.c_str() ) );
+  TestSuite suite( *display, port, *sessionSettingsPtr );
   suite.run();
 
   delete display;

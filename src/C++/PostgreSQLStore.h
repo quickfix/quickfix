@@ -45,37 +45,43 @@ namespace FIX
 /// Creates a PostgreSQL based implementation of MessageStore.
 class PostgreSQLStoreFactory : public MessageStoreFactory
 {
-
+public:
   static const std::string DEFAULT_DATABASE;
   static const std::string DEFAULT_USER;
   static const std::string DEFAULT_PASSWORD;
   static const std::string DEFAULT_HOST;
   static const short DEFAULT_PORT;
 
-public:
   PostgreSQLStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ) {}
+: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
+
+  PostgreSQLStoreFactory( const Dictionary& dictionary )
+: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
 
   PostgreSQLStoreFactory( const std::string& database, const std::string& user,
                           const std::string& password, const std::string& host,
                           short port )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ) {}
+  m_useSettings( false ), m_useDictionary( false ) {}
 
   PostgreSQLStoreFactory()
 : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ) {}
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) {}
 
   MessageStore* create( const SessionID& );
   void destroy( MessageStore* );
 private:
+  MessageStore* create( const SessionID& s, const Dictionary& );
+
   SessionSettings m_settings;
+  Dictionary m_dictionary;
   std::string m_database;
   std::string m_user;
   std::string m_password;
   std::string m_host;
   short m_port;
   bool m_useSettings;
+  bool m_useDictionary;
 };
 /*! @} */
 

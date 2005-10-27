@@ -45,34 +45,40 @@ namespace FIX
 /// Creates a MSSQL based implementation of MessageStore.
 class MSSQLStoreFactory : public MessageStoreFactory
 {
-
+public:
   static const std::string DEFAULT_DATABASE;
   static const std::string DEFAULT_USER;
   static const std::string DEFAULT_PASSWORD;
   static const std::string DEFAULT_HOST;
 
-public:
   MSSQLStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ) {}
+: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
+
+  MSSQLStoreFactory( const Dictionary& dictionary )
+: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
 
   MSSQLStoreFactory( const std::string& database, const std::string& user,
                      const std::string& password, const std::string& host )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ),
-  m_useSettings( false ) {}
+  m_useSettings( false ), m_useDictionary( false ) {}
 
   MSSQLStoreFactory()
 : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_useSettings( false ) {}
+  m_host( DEFAULT_HOST ), m_useSettings( false ), m_useDictionary( false ) {}
 
   MessageStore* create( const SessionID& );
   void destroy( MessageStore* );
 private:
+  MessageStore* create( const SessionID& s, const Dictionary& );
+
+  Dictionary m_dictionary;
   SessionSettings m_settings;
   std::string m_database;
   std::string m_user;
   std::string m_password;
   std::string m_host;
   bool m_useSettings;
+  bool m_useDictionary;
 };
 /*! @} */
 

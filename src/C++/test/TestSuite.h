@@ -51,9 +51,19 @@
 class TestSuite : public CPPTest::TestSuite
 {
 public:
-  TestSuite( CPPTest::TestDisplay& display, short port )
+  TestSuite( CPPTest::TestDisplay& display, short port,
+             const FIX::SessionSettings& sessionSettings )
 : CPPTest::TestSuite( display ),
   m_parser( port ),
+#ifdef HAVE_MYSQL
+  m_mySQLStore( sessionSettings ),
+#endif
+#ifdef HAVE_MSSQL
+  m_msSQLStore( sessionSettings ),
+#endif
+#ifdef HAVE_POSTGRESQL
+  m_postgreSQLStore( sessionSettings ),
+#endif
   m_socketUtilities( port ), m_socketConnector( port ),
   m_socketServer( port )
   {

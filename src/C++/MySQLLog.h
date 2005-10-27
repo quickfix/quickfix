@@ -45,13 +45,13 @@ namespace FIX
 /// Creates a MySQL based implementation of Log.
 class MySQLLogFactory : public LogFactory
 {
+public:
   static const std::string DEFAULT_DATABASE;
   static const std::string DEFAULT_USER;
   static const std::string DEFAULT_PASSWORD;
   static const std::string DEFAULT_HOST;
   static const short DEFAULT_PORT;
 
-public:
   MySQLLogFactory( const SessionSettings& settings )
 : m_settings( settings ), m_useSettings( true ) {}
 

@@ -156,36 +156,12 @@ void MSSQLStore::populateCache()
 MessageStore* MSSQLStoreFactory::create( const SessionID& s )
 { QF_STACK_PUSH(MSSQLStoreFactory::create)
 
-  std::string database = DEFAULT_DATABASE;
-  std::string user = DEFAULT_USER;
-  std::string password = DEFAULT_PASSWORD;
-  std::string host = DEFAULT_HOST;
-
   if( m_useSettings )
-  {
-    Dictionary settings = m_settings.get( s );
-
-    try { database = settings.getString( MSSQL_STORE_DATABASE ); }
-    catch( ConfigError& ) {}
-
-    try { user = settings.getString( MSSQL_STORE_USER ); }
-    catch( ConfigError& ) {}
-
-    try { password = settings.getString( MSSQL_STORE_PASSWORD ); }
-    catch( ConfigError& ) {}
-
-    try { host = settings.getString( MSSQL_STORE_HOST ); }
-    catch( ConfigError& ) {}
-  }
+    return create( s, m_settings.get(s) );
+  else if( m_useDictionary )
+    return create( s, m_dictionary );
   else
-  {
-    database = m_database;
-    user = m_user;
-    password = m_password;
-    host = m_host;
-  }
-
-  return new MSSQLStore( s, database, user, password, host );
+    return new MSSQLStore( s, m_database, m_user, m_password, m_host );
 
   QF_STACK_POP
 }
@@ -193,6 +169,31 @@ MessageStore* MSSQLStoreFactory::create( const SessionID& s )
 void MSSQLStoreFactory::destroy( MessageStore* pStore )
 { QF_STACK_PUSH(MSSQLStoreFactory::destroy)
   delete pStore;
+  QF_STACK_POP
+}
+
+MessageStore* MSSQLStoreFactory::create( const SessionID& s, const Dictionary& settings )
+{ QF_STACK_PUSH(MSSQLStoreFactory::create)
+
+  std::string database = DEFAULT_DATABASE;
+  std::string user = DEFAULT_USER;
+  std::string password = DEFAULT_PASSWORD;
+  std::string host = DEFAULT_HOST;
+
+  try { database = settings.getString( MSSQL_STORE_DATABASE ); }
+  catch( ConfigError& ) {}
+
+  try { user = settings.getString( MSSQL_STORE_USER ); }
+  catch( ConfigError& ) {}
+
+  try { password = settings.getString( MSSQL_STORE_PASSWORD ); }
+  catch( ConfigError& ) {}
+
+  try { host = settings.getString( MSSQL_STORE_HOST ); }
+  catch( ConfigError& ) {}
+
+  return new MSSQLStore( s, database, user, password, host );
+
   QF_STACK_POP
 }
 
