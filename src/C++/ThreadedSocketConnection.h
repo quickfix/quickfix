@@ -53,7 +53,6 @@ public:
 
 private:
   bool readMessage( std::string& msg ) throw( SocketRecvFailed );
-  void readQueue();
   void processStream();
   bool send( const std::string& );
   void disconnect();
@@ -66,7 +65,6 @@ private:
   Parser m_parser;
   Session* m_pSession;
   bool m_deleted;
-  Queue< std::pair<size_t, char*> > m_queue;
   bool m_queueThreadSpawned;
   unsigned m_queueThread;
 };

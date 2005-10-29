@@ -50,14 +50,9 @@ ThreadedSocketConnection::ThreadedSocketConnection( const SessionID& sessionID, 
 ThreadedSocketConnection::~ThreadedSocketConnection()
 {
   m_deleted = true;
-  m_queue.signal();
 
   if ( m_queueThreadSpawned == true )
     thread_join( m_queueThread );
-
-  std::pair<size_t, char*> entry;
-  while( m_queue.pop(entry) )
-    delete [] entry.second;
 
   if ( m_pSession )
   {
@@ -81,17 +76,16 @@ void ThreadedSocketConnection::disconnect()
 bool ThreadedSocketConnection::read()
 { QF_STACK_PUSH(ThreadedSocketConnection::read)
 
-  char* buffer = 0;
+  if ( !m_queueThreadSpawned )
+    m_queueThreadSpawned = thread_spawn( &queueThread, this, m_queueThread );
+
+  char buffer[BUFSIZ];
   try
   {
-    if ( !m_queueThreadSpawned )
-      m_queueThreadSpawned = thread_spawn( &queueThread, this, m_queueThread );
-
-    buffer = new char[ 4096 ];
-    int result = recv( m_socket, buffer, 4095, 0 );
+    processStream();
+    int result = recv( m_socket, buffer, sizeof(buffer), 0 );
     if ( result <= 0 ) { throw SocketRecvFailed( result ); }
-    buffer[ result ] = '\0';
-    m_queue.push( std::make_pair((size_t)result, buffer) );
+    m_parser.addToStream( buffer, result );
     return true;
   }
   catch ( SocketRecvFailed& e )
@@ -106,9 +100,12 @@ bool ThreadedSocketConnection::read()
       disconnect();
     }
 
-    delete [] buffer;
-    m_queue.push( std::make_pair((size_t)-1, (char*)0) );
     return false;
+  }
+  catch ( InvalidMessage& )
+  {
+    if( !m_pSession->isLoggedOn() )
+      disconnect();
   }
 
   QF_STACK_POP
@@ -124,42 +121,6 @@ throw( SocketRecvFailed )
   }
   catch ( MessageParseError& ) {}
   return true;
-
-  QF_STACK_POP
-}
-
-void ThreadedSocketConnection::readQueue()
-{ QF_STACK_PUSH(ThreadedSocketConnection::readQueue)
-
-  while ( !m_deleted )
-  {
-    try
-    {
-      processStream();
-      if ( !m_queue.size() )
-        m_queue.wait();
-
-      std::pair<size_t, char*> entry;
-      while( m_queue.pop(entry) )
-      {
-        if( entry.first < 0 ) return;
-        m_parser.addToStream( entry.second, entry.first );
-        processStream();
-        delete [] entry.second;
-      }
-    }
-    catch ( InvalidMessage& e )
-    {
-      if ( !m_pSession || (m_pSession && !m_pSession->isLoggedOn()) )
-      {
-        if( m_pSession )
-          m_pSession->getLog()->onEvent( e.what() );
-        disconnect();
-      }
-    }
-    catch ( std::exception& )
-    { return; }
-  }
 
   QF_STACK_POP
 }
@@ -187,9 +148,6 @@ void ThreadedSocketConnection::processStream()
     disconnect();
   }
 
-  if ( m_pSession )
-    m_pSession->next();
-
   QF_STACK_POP
 }
 
@@ -216,9 +174,15 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
 THREAD_PROC ThreadedSocketConnection::queueThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(ThreadedSocketConnection::queueThread)
-
+  
   ThreadedSocketConnection * pConnection = reinterpret_cast < ThreadedSocketConnection* > ( p );
-  pConnection->readQueue();
+  while( !pConnection->m_deleted )
+  {
+    process_sleep( 1 );
+    if( pConnection->m_pSession )
+      pConnection->m_pSession->next();
+  }
+
   return 0;
 
   QF_STACK_POP
