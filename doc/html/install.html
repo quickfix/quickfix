@@ -22,6 +22,7 @@
       <A HREF="#Generating QuickFIX Databases">Generating QuickFIX Databases</A>
       <UL>
         <LI><A HREF="#Generating MySQL Database">Generating MySQL Database</A></LI>
+        <LI><A HREF="#Generating MSSQL Database">Generating MSSQL Database</A></LI>
         <LI><A HREF="#Generating PostgreSQL Database">Generating PostgreSQL Database</A></LI>
       </UL>
     </LI>
@@ -157,6 +158,7 @@
     like to take advantage of additional features.  QuickFIX supports the following:
 
     <A HREF="http://www.mysql.com/downloads/">MySQL</A>
+    <A HREF="http://www.microsoft.com/sql/default.mspx">MSSQL</A>
     <A HREF="http://www.postgresql.org/download/">PostgreSQL</A>
     <A HREF="http://www.stlport.org/download.html">STLport</A>
     </p>
@@ -190,6 +192,9 @@
       Compile with stlport instead of standard visual c++ STL implementation.<br/>
       <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT>
       Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
+      library directories must be in the Visual Studio search paths.<br/>
+      <FONT color="#0000FF">#define HAVE_MSSQL 1</FONT>
+      Compiles MSSQL support into QuickFIX. If you enable this option, the mssql include and
       library directories must be in the Visual Studio search paths.<br/>
       <FONT color="#0000FF">#define HAVE_POSTGRESQL 1</FONT>
       Compiles PostgreSQL support into QuickFIX. If you enable this option, the postgres include and
@@ -300,6 +305,22 @@
       you need to use a different account or need a password, you will have to edit the script.
       To select a different user, simply change 'root' to another user.  To add a password,
       use pass the -p <password> option after the username.
+    </p>
+    <A NAME="Generating MSSQL Database">
+    <H3>Generating MSSQL Database</H3>
+    <p>
+      First, make sure you have compiled QuickFIX with MSSQL support.  If you have not done this,
+      go back to the build instructions for your system and follow the instructions.  Also, make
+      sure you have installed MSSQL and have the deamon running.
+    </p>
+    <p>
+      Everything needed to generate your MSSQL database is in the <I>src/sql/mssql</I> directory. Here,
+      there is the batch file <B>create.bat</B>.
+      This script will work on a newly installed mssql database with default permisions. The
+      scripts will try to generate the database using the sa account with no password. If
+      you need to use a different account or need a password, you will have to edit the script.
+      To select a different user, simply change 'sa' to another user.  To add a password,
+      use pass the -P <password> option after the username.
     </p>
     <A NAME="Generating PostgreSQL Database">
     <H3>Generating PostgreSQL Database</H3>
