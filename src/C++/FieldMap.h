@@ -112,24 +112,25 @@ public:
     return fieldBase.getString();
   }
 
-  /**
-   * Check to see if a field is set
-   */
+  /// Check to see if a field is set
   bool isSetField( const FieldBase& field ) const
   { return m_fields.find( field.getField() ) != m_fields.end(); }
-  /**
-   * Check to see if a field is set by referencing its number
-   */
+  /// Check to see if a field is set by referencing its number
   bool isSetField( int field ) const
   { return m_fields.find( field ) != m_fields.end(); }
 
+  /// Remove a field. If field is not present, this is a no-op.
+  void removeField( int field );
+
+  /// Add a group.
   void addGroup( int field, const FieldMap& group, bool setCount = true );
 
+  /// Get a specific instance of a group.
   FieldMap& getGroup( int num, int field, FieldMap& group ) const
     throw( FieldNotFound );
 
-  /// Remove a field. If field is not present, this is a no-op.
-  void removeField( int field );
+  /// Remove all instances of a group.  If group is not present, this is a no-op.
+  void removeGroup( int field );
 
   /// Check to see if a group exists
   bool hasGroup( int field ) const;

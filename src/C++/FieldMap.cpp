@@ -84,6 +84,11 @@ throw( FieldNotFound )
   QF_STACK_POP
 }
 
+void FieldMap::removeGroup( int field )
+{
+  m_groups.erase( field );
+}
+
 void FieldMap::removeField( int field )
 { QF_STACK_PUSH(FieldMap::removeField)
 

@@ -49,6 +49,14 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
 
 /*
  * Class:     quickfix_Group
+ * Method:    removeGroup
+ * Signature: (Lquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Group
  * Method:    setString
  * Signature: (ILjava/lang/String;)V
  */

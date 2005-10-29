@@ -98,6 +98,11 @@ public:
       ( FieldMap::getGroup( num, group.field(), group ) );
   }
 
+  void removeGroup( Group& group )
+  {
+    FieldMap::removeGroup( group.field() );
+  }
+
   bool hasGroup( unsigned num, Group& group )
   { return FieldMap::hasGroup( group.field() ); }
 

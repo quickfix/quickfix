@@ -144,6 +144,12 @@ public:
     QF_STACK_CATCH
   }
 
+  void removeGroup( Group* group )
+  { QF_STACK_TRY
+    m_pUnmanaged->removeGroup( group->unmanaged() );
+    QF_STACK_CATCH
+  }
+
 private:
   FIX::Group* m_pUnmanaged;
   bool disposed;

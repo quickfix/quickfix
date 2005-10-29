@@ -61,6 +61,7 @@ public:
     add( &m_outOfOrder );
     add( &m_getXML );
     add( &m_reverseRoute );
+    add( &m_addRemoveGroup );
   }
 
   typedef CPPTest::SimpleTest < Message > SimpleTest;
@@ -135,6 +136,11 @@ public:
   {
     void onRun( Message& object );
   } m_reverseRoute;
+
+  class addRemoveGroup : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_addRemoveGroup;
 };
 
 template < typename T >

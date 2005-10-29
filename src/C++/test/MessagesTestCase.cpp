@@ -400,6 +400,41 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   assert( !reversedHeader.isSetField(onBehalfOfLocationID) );
 }
 
+void MessageTestCase::addRemoveGroup::onRun( Message& object )
+{
+  object.setField( ListID( "1" ) );
+  object.setField( BidType( 0 ) );
+  object.setField( TotNoOrders( 3 ) );
+
+  NewOrderList::NoOrders group;
+  group.set( ClOrdID( "A" ) );
+  group.set( ListSeqNo( 1 ) );
+  group.set( Symbol( "DELL" ) );
+  group.set( Side( '1' ) );
+  object.addGroup( group );
+
+  group.set( ClOrdID( "B" ) );
+  group.set( ListSeqNo( 2 ) );
+  group.set( Symbol( "LNUX" ) );
+  group.set( Side( '2' ) );
+  object.addGroup( group );
+
+  group.set( ClOrdID( "C" ) );
+  group.set( ListSeqNo( 3 ) );
+  group.set( Symbol( "RHAT" ) );
+  group.set( Side( '3' ) );
+  object.addGroup( group );
+
+  assert( object.hasGroup(1, group) );
+  assert( object.hasGroup(2, group) );
+  assert( object.hasGroup(3, group) );
+
+  object.removeGroup( group );
+  assert( !object.hasGroup(1, group) );
+  assert( !object.hasGroup(2, group) );
+  assert( !object.hasGroup(3, group) );
+}
+
 template<> void LogonParseTestCase::getString::onRun( Logon& object )
 {
   try

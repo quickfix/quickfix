@@ -41,6 +41,7 @@ public class Group extends FieldMap {
 
     public native void addGroup(Group group);
     public native Group getGroup(int num, Group group) throws FieldNotFound;
+    public native void removeGroup(Group group);
 
     public native void setString(int field, String value);
     public native void setBoolean(int field, boolean value);

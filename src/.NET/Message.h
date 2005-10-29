@@ -225,6 +225,12 @@ public:
     QF_STACK_CATCH
   }
 
+  void removeGroup( Group* group )
+  { QF_STACK_TRY
+    m_pUnmanaged->removeGroup( group->unmanaged() );
+    QF_STACK_CATCH
+  }
+
   __gc class Header : public FieldMap, public IDisposable
   {
   public:

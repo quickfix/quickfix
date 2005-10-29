@@ -112,6 +112,20 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup
+( JNIEnv *pEnv, jobject obj, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Group* pThis = getCPPGroup( obj );
+  FIX::Group* pGroup = getCPPGroup( group );
+  pThis->removeGroup( *pGroup );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT void JNICALL Java_quickfix_Group_setString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY

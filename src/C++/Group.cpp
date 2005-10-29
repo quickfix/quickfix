@@ -40,6 +40,12 @@ Group& Group::getGroup( unsigned num, Group& group ) const throw( FieldNotFound 
   QF_STACK_POP
 }
 
+void Group::removeGroup( Group& group )
+{ QF_STACK_PUSH(Group::removeGroup)
+  FieldMap::removeGroup( group.field() );
+  QF_STACK_POP
+}
+
 bool Group::hasGroup( unsigned num, Group& group )
 { QF_STACK_PUSH(Group::hasGroup)
   return FieldMap::hasGroup( group.field() );
