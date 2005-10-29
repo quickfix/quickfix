@@ -251,6 +251,23 @@ JNIEXPORT void JNICALL Java_quickfix_Session_logout
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Session_logout__Ljava_lang_String_2
+( JNIEnv *pEnv, jobject obj, jstring reason )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
+
+  const char* ureason = pEnv->GetStringUTFChars( reason, 0 );
+  std::string reasonString( ureason );
+  pEnv->ReleaseStringUTFChars( reason, ureason );
+
+  pSession->logout( reasonString );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jboolean JNICALL Java_quickfix_Session_isEnabled
 (JNIEnv *pEnv, jobject obj)
 { QF_STACK_TRY

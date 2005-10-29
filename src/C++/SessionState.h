@@ -40,30 +40,42 @@ class SessionState : public MessageStore, public Log
 
 public:
   SessionState()
-: m_connected( false ), m_receivedLogon( false ),
+: m_enabled( true ), m_connected( false ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
   m_sentReset( false ), m_receivedReset( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
   m_resendRequested( 0 ), m_pStore( 0 ), m_pLog( 0 ) {}
 
+  bool enabled() const { return m_enabled; }
+  void enabled( bool value ) { m_enabled = value; }
+
   bool connected() const { return m_connected; }
   void connected( bool value ) { m_connected = value; }
+
   bool receivedLogon() const { return m_receivedLogon; }
   void receivedLogon( bool value ) { m_receivedLogon = value; }
+
   bool sentLogout() const { return m_sentLogout; }
   void sentLogout( bool value ) { m_sentLogout = value; }
+
   bool sentLogon() const { return m_sentLogon; }
   void sentLogon( bool value ) { m_sentLogon = value; }
+
   bool receivedReset() const { return m_receivedReset; }
   void receivedReset( bool value ) { m_receivedReset = value; }
+
   bool sentReset() const { return m_sentReset; }
   void sentReset( bool value ) { m_sentReset = value; }
+
   bool initiate() const { return m_initiate; }
   void initiate( bool value ) { m_initiate = value; }
+
   int logonTimeout() const { return m_logonTimeout; }
   void logonTimeout( int value ) { m_logonTimeout = value; }
+
   int testRequest() const { return m_testRequest; }
   void testRequest( int value ) { m_testRequest = value; }
+
   bool resendRequested() const
   { return !(m_resendRange.first == 0 && m_resendRange.second == 0); }
 
@@ -134,6 +146,11 @@ public:
            ( ( 1.2 * ( ( double ) testRequest() + 1 ) ) * ( double ) heartBtInt() );
   }
 
+  std::string logoutReason() const 
+  { Locker l( m_mutex ); return m_logoutReason; }
+  void logoutReason( const std::string& value ) 
+  { Locker l( m_mutex ); m_logoutReason = value; }
+
   void queue( int msgSeqNum, const Message& message )
   { Locker l( m_mutex ); m_queue[ msgSeqNum ] = message; }
   bool retreive( int msgSeqNum, Message& message )
@@ -181,6 +198,7 @@ public:
   { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onEvent( string ); }
 
 private:
+  bool m_enabled;
   bool m_connected;
   bool m_receivedLogon;
   bool m_sentLogout;
@@ -195,6 +213,7 @@ private:
   HeartBtInt m_heartBtInt;
   UtcTimeStamp m_lastSentTime;
   UtcTimeStamp m_lastReceivedTime;
+  std::string m_logoutReason;
   Messages m_queue;
   MessageStore* m_pStore;
   Log* m_pLog;

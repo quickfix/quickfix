@@ -52,9 +52,12 @@ public:
            int heartBtInt, LogFactory* pLogFactory );
   ~Session();
 
-  void logon() { m_enabled = true; }
-  void logout() { m_enabled = false; }
-  bool isEnabled() { return m_enabled; }
+  void logon() 
+  { m_state.enabled( true ); m_state.logoutReason( "" ); }
+  void logout( const std::string& reason = "" ) 
+  { m_state.enabled( false ); m_state.logoutReason( reason ); }
+  bool isEnabled() 
+  { return m_state.enabled(); }
 
   bool sentLogon() { return m_state.sentLogon(); }
   bool sentLogout() { return m_state.sentLogout(); }
@@ -212,7 +215,7 @@ private:
   Application& m_application;
   SessionID m_sessionID;
   SessionTime m_sessionTime;
-  bool m_enabled;
+  std::string m_logoutReason;
 
   bool m_checkLatency;
   int m_maxLatency;

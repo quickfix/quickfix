@@ -47,7 +47,6 @@ Session::Session( Application& application,
 : m_application( application ),
   m_sessionID( sessionID ),
   m_sessionTime( sessionTime ),
-  m_enabled( true ),
   m_checkLatency( true ), m_maxLatency( 120 ),
   m_sendResetSeqNumFlag( false ),
   m_resetOnLogout( false ), m_resetOnDisconnect( false ),
@@ -109,14 +108,14 @@ void Session::next()
 
   try
   {
-    if( !m_enabled )
+    if( !isEnabled() )
     {
       if( isLoggedOn() )
       {
         if( !m_state.sentLogout() )
         {
           m_state.onEvent( "Initiated logout request" );
-          generateLogout();
+          generateLogout( m_logoutReason );
         }
       }
       else
@@ -524,6 +523,7 @@ void Session::disconnect()
   m_state.receivedReset( false );
   m_state.sentReset( false );
   m_state.clearQueue();
+  m_logoutReason = "";
   if ( m_resetOnDisconnect && m_state.connected() )
   { m_state.connected( false ); reset(); }
 

@@ -68,8 +68,16 @@ JNIEXPORT void JNICALL Java_quickfix_Session_logon
  * Method:    logout
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_Session_logout
+JNIEXPORT void JNICALL Java_quickfix_Session_logout__
   (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    logout
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Session_logout__Ljava_lang_String_2
+  (JNIEnv *, jobject, jstring);
 
 /*
  * Class:     quickfix_Session

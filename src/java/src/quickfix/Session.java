@@ -50,6 +50,7 @@ public class Session {
 
     public native void logon();
     public native void logout();
+    public native void logout( String reason );
     public native boolean isEnabled();
 
     public native boolean sentLogon();

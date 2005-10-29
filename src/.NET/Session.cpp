@@ -36,6 +36,12 @@ void Session::logout()
   QF_STACK_CATCH
 }
 
+void Session::logout( String* reason )
+{ QF_STACK_TRY
+  unmanaged().logout( convertString(reason) );
+  QF_STACK_CATCH
+}
+
 bool Session::isEnabled()
 { QF_STACK_TRY
   return unmanaged().isEnabled();

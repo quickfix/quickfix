@@ -40,6 +40,7 @@ public __gc class Session
 public:
   void logon();
   void logout();
+  void logout( String* reason );
   bool isEnabled();
 
   bool sentLogon();
