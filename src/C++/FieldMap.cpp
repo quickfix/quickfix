@@ -86,6 +86,11 @@ throw( FieldNotFound )
 
 void FieldMap::removeGroup( int field )
 {
+  Groups::iterator i = m_groups.find( field );
+  std::vector < FieldMap* >::iterator j;
+  for ( j = i->second.begin(); j != i->second.end(); ++j )
+    delete *j;
+
   m_groups.erase( field );
 }
 

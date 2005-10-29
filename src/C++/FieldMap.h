@@ -129,7 +129,7 @@ public:
   FieldMap& getGroup( int num, int field, FieldMap& group ) const
     throw( FieldNotFound );
 
-  /// Remove all instances of a group.  If group is not present, this is a no-op.
+  /// Remove all instances of a group.
   void removeGroup( int field );
 
   /// Check to see if a group exists
