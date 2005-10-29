@@ -89,6 +89,16 @@ void Session::insertSendingTime( Header& header )
   QF_STACK_POP
 }
 
+void Session::insertOrigSendingTime( Header& header )
+{ QF_STACK_PUSH(Session::insertSendingTime)
+
+  UtcTimeStamp now;
+  bool showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
+  header.setField( OrigSendingTime(now, showMilliseconds && m_millisecondsInTimeStamp) );
+
+  QF_STACK_POP
+}
+
 void Session::fill( Header& header )
 { QF_STACK_PUSH(Session::fill)
 
@@ -626,7 +636,7 @@ void Session::generateSequenceReset
   NewSeqNo newSeqNo( endSeqNo );
   sequenceReset.getHeader().setField( MsgType( "4" ) );
   sequenceReset.getHeader().setField( PossDupFlag( true ) );
-  sequenceReset.getHeader().setField( OrigSendingTime() );
+  insertOrigSendingTime( sequenceReset.getHeader() );
   sequenceReset.setField( newSeqNo );
   fill( sequenceReset.getHeader() );
   sequenceReset.getHeader().setField( MsgSeqNum( beginSeqNo ) );
