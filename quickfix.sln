@@ -31,10 +31,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickfix_net_messages", "sr
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QF Connection Test", "..\QF Connection Test\QF Connection Test.csproj", "{4B3B65DF-F2F7-4F6E-8F76-A00A2602A48F}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfiguration) = preSolution
 		Debug = Debug
@@ -69,10 +65,6 @@ Global
 		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Debug.Build.0 = Debug|.NET
 		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Release.ActiveCfg = Release|.NET
 		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Release.Build.0 = Release|.NET
-		{4B3B65DF-F2F7-4F6E-8F76-A00A2602A48F}.Debug.ActiveCfg = Debug|.NET
-		{4B3B65DF-F2F7-4F6E-8F76-A00A2602A48F}.Debug.Build.0 = Debug|.NET
-		{4B3B65DF-F2F7-4F6E-8F76-A00A2602A48F}.Release.ActiveCfg = Release|.NET
-		{4B3B65DF-F2F7-4F6E-8F76-A00A2602A48F}.Release.Build.0 = Release|.NET
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection
