@@ -109,6 +109,18 @@
 		</Configuration>
 	</Configurations>
 	<References>
+		<AssemblyReference
+			RelativePath="mscorlib.dll"/>
+		<AssemblyReference
+			RelativePath="System.dll"/>
+		<AssemblyReference
+			RelativePath="System.Data.dll"/>
+		<AssemblyReference
+			RelativePath="System.Drawing.dll"/>
+		<AssemblyReference
+			RelativePath="System.Windows.Forms.dll"/>
+		<AssemblyReference
+			RelativePath="System.XML.dll"/>
 	</References>
 	<Files>
 		<Filter
@@ -145,10 +157,22 @@
 				RelativePath="MessageStoreFactory.cpp">
 			</File>
 			<File
+				RelativePath=".\MSSQLLog.cpp">
+			</File>
+			<File
+				RelativePath=".\MSSQLStore.cpp">
+			</File>
+			<File
 				RelativePath="MySQLLog.cpp">
 			</File>
 			<File
 				RelativePath="MySQLMessageStore.cpp">
+			</File>
+			<File
+				RelativePath=".\PostgreSQLLog.cpp">
+			</File>
+			<File
+				RelativePath=".\PostgreSQLStore.cpp">
 			</File>
 			<File
 				RelativePath="quickfix_net.cpp">
@@ -242,10 +266,22 @@
 				RelativePath="MessageStoreFactory.h">
 			</File>
 			<File
+				RelativePath=".\MSSQLLog.h">
+			</File>
+			<File
+				RelativePath=".\MSSQLStore.h">
+			</File>
+			<File
 				RelativePath="MySQLLog.h">
 			</File>
 			<File
 				RelativePath="MySQLMessageStore.h">
+			</File>
+			<File
+				RelativePath=".\PostgreSQLLog.h">
+			</File>
+			<File
+				RelativePath=".\PostgreSQLStore.h">
 			</File>
 			<File
 				RelativePath="quickfix_net.h">
