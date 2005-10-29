@@ -17,22 +17,37 @@
 **
 ****************************************************************************/
 
-package quickfix;
+#ifdef _MSC_VER
+#include "stdafx.h"
+#else
+#include "config.h"
+#endif
 
-public class MySQLLog extends CppLog {
+#ifdef HAVE_MSSQL
 
-    private MySQLLog() {
-        create();
-    }
+#include "JVM.h"
+#include "Conversions.h"
+#include "quickfix_MSSQLLog.h"
+#include <quickfix/MSSQLLog.h>
+#include <quickfix/CallStack.h>
 
-    private MySQLLog(long cppPointer) {
-	    super( cppPointer );
-    }
-
-    protected void finalize() {
-        destroy();
-    }
-
-    private native void create();
-    private native void destroy();
+JNIEXPORT void JNICALL Java_quickfix_MSSQLLog_create
+( JNIEnv *, jobject )
+{ QF_STACK_TRY
+  // not used
+  QF_STACK_CATCH
 }
+
+JNIEXPORT void JNICALL Java_quickfix_MSSQLLog_destroy
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Log* pLog = ( FIX::Log* ) jobject.getLong( "cppPointer" );
+  delete pLog;
+
+  QF_STACK_CATCH
+}
+
+#endif //HAVE_MSSQL

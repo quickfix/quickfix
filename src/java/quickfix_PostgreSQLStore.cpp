@@ -17,22 +17,30 @@
 **
 ****************************************************************************/
 
-package quickfix;
+#ifdef _MSC_VER
+#include "stdafx.h"
+#else
+#include "config.h"
+#endif
 
-public class MySQLLog extends CppLog {
+#ifdef HAVE_POSTGRESQL
 
-    private MySQLLog() {
-        create();
-    }
+#include "JVM.h"
+#include "quickfix_PostgreSQLStore.h"
+#include <quickfix/PostgreSQLStore.h>
+#include <quickfix/CallStack.h>
+#include "Conversions.h"
+#include "JavaMessageStore.h"
 
-    private MySQLLog(long cppPointer) {
-	    super( cppPointer );
-    }
+JNIEXPORT void JNICALL Java_quickfix_PostgreSQLStore_create
+( JNIEnv *pEnv, jobject obj )
+{}
 
-    protected void finalize() {
-        destroy();
-    }
-
-    private native void create();
-    private native void destroy();
+JNIEXPORT void JNICALL Java_quickfix_PostgreSQLStore_destroy
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+  JavaMessageStore_destroy( pEnv, obj );
+  QF_STACK_CATCH
 }
+
+#endif //HAVE_POSTGRESQL

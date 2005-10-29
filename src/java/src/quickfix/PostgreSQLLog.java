@@ -19,14 +19,14 @@
 
 package quickfix;
 
-public class MySQLLog extends CppLog {
+public class PostgreSQLLog extends CppLog {
 
-    private MySQLLog() {
+    private PostgreSQLLog() {
         create();
     }
 
-    private MySQLLog(long cppPointer) {
-	    super( cppPointer );
+    private PostgreSQLLog(long cppPointer) {
+	super( cppPointer );
     }
 
     protected void finalize() {

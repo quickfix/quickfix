@@ -199,6 +199,18 @@
 				RelativePath="quickfix_Message.cpp">
 			</File>
 			<File
+				RelativePath=".\quickfix_MSSQLLog.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_MSSQLLogFactory.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_MSSQLStore.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_MSSQLStoreFactory.cpp">
+			</File>
+			<File
 				RelativePath="quickfix_MySQLLog.cpp">
 			</File>
 			<File
@@ -209,6 +221,18 @@
 			</File>
 			<File
 				RelativePath="quickfix_MySQLStoreFactory.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLLog.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLLogFactory.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLStore.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLStoreFactory.cpp">
 			</File>
 			<File
 				RelativePath="quickfix_ScreenLog.cpp">
@@ -296,6 +320,18 @@
 				RelativePath="quickfix_Message.h">
 			</File>
 			<File
+				RelativePath=".\quickfix_MSSQLLog.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_MSSQLLogFactory.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_MSSQLStore.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_MSSQLStoreFactory.h">
+			</File>
+			<File
 				RelativePath="quickfix_MySQLLog.h">
 			</File>
 			<File
@@ -306,6 +342,18 @@
 			</File>
 			<File
 				RelativePath="quickfix_MySQLStoreFactory.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLLog.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLLogFactory.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLStore.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_PostgreSQLStoreFactory.h">
 			</File>
 			<File
 				RelativePath="quickfix_ScreenLog.h">

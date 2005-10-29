@@ -19,14 +19,14 @@
 
 package quickfix;
 
-public class MySQLLog extends CppLog {
+public class MSSQLLogFactory implements LogFactory {
+    private long cppPointer;
 
-    private MySQLLog() {
+    private SessionSettings settings = null;
+
+    public MSSQLLogFactory(SessionSettings settings) {
+        this.settings = settings;
         create();
-    }
-
-    private MySQLLog(long cppPointer) {
-	    super( cppPointer );
     }
 
     protected void finalize() {
@@ -35,4 +35,6 @@ public class MySQLLog extends CppLog {
 
     private native void create();
     private native void destroy();
+
+    public native Log create(SessionID sessionID);
 }

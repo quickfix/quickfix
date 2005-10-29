@@ -19,14 +19,18 @@
 
 package quickfix;
 
-public class MySQLLog extends CppLog {
+import java.util.Collection;
+import java.util.Date;
+import java.io.IOException;
 
-    private MySQLLog() {
+public class MSSQLStore extends CppMessageStore {
+
+    public MSSQLStore() {
         create();
     }
 
-    private MySQLLog(long cppPointer) {
-	    super( cppPointer );
+    public MSSQLStore( long cppPointer ) {
+	super( cppPointer );
     }
 
     protected void finalize() {
