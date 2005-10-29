@@ -166,7 +166,7 @@
 				RelativePath="MySQLLog.cpp">
 			</File>
 			<File
-				RelativePath="MySQLMessageStore.cpp">
+				RelativePath=".\MySQLStore.cpp">
 			</File>
 			<File
 				RelativePath=".\PostgreSQLLog.cpp">
@@ -275,7 +275,7 @@
 				RelativePath="MySQLLog.h">
 			</File>
 			<File
-				RelativePath="MySQLMessageStore.h">
+				RelativePath=".\MySQLStore.h">
 			</File>
 			<File
 				RelativePath=".\PostgreSQLLog.h">
