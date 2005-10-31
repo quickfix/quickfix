@@ -89,12 +89,11 @@ void Session::insertSendingTime( Header& header )
   QF_STACK_POP
 }
 
-void Session::insertOrigSendingTime( Header& header )
+void Session::insertOrigSendingTime( Header& header, const UtcTimeStamp& when )
 { QF_STACK_PUSH(Session::insertSendingTime)
 
-  UtcTimeStamp now;
   bool showMilliseconds = m_sessionID.getBeginString() >= BeginString_FIX42;
-  header.setField( OrigSendingTime(now, showMilliseconds && m_millisecondsInTimeStamp) );
+  header.setField( OrigSendingTime(when, showMilliseconds && m_millisecondsInTimeStamp) );
 
   QF_STACK_POP
 }
@@ -550,7 +549,7 @@ bool Session::resend( Message& message )
   Header& header = message.getHeader();
   header.getField( sendingTime );
   header.getField( msgSeqNum );
-  header.setField( OrigSendingTime( sendingTime ) );
+  insertOrigSendingTime( header, sendingTime );
   header.setField( PossDupFlag( true ) );
   insertSendingTime( header );
 

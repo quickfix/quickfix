@@ -145,7 +145,8 @@ private:
   bool resend( Message& message );
 
   void insertSendingTime( Header& );
-  void insertOrigSendingTime( Header& );
+  void insertOrigSendingTime( Header&,
+                              const UtcTimeStamp& when = UtcTimeStamp () );
   void fill( Header& );
 
   bool isGoodTime( const SendingTime& sendingTime )
