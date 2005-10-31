@@ -62,11 +62,11 @@ public:
                      const std::string& password, const std::string& host,
                      short port )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ), , m_useDictionary( false ) {}
+  m_useSettings( false ), m_useDictionary( false ) {}
 
   MySQLStoreFactory()
 : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), , m_useDictionary( false ) {}
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) {}
 
   MessageStore* create( const SessionID& );
   void destroy( MessageStore* );

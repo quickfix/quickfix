@@ -33,6 +33,7 @@
 #include "SessionSettings.h"
 #include "Exceptions.h"
 #include "Mutex.h"
+#include "Session.h"
 #include <set>
 #include <map>
 #include <string>

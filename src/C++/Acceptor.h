@@ -38,6 +38,7 @@
 namespace FIX
 {
 class Client;
+class Session;
 
 /*! \addtogroup user
  *  @{

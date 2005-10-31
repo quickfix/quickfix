@@ -55,9 +55,6 @@ public:
              const FIX::SessionSettings& sessionSettings )
 : CPPTest::TestSuite( display ),
   m_parser( port ),
-#ifdef HAVE_MYSQL
-  m_mySQLStore( sessionSettings ),
-#endif
 #ifdef HAVE_MSSQL
   m_msSQLStore( sessionSettings ),
 #endif

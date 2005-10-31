@@ -36,6 +36,7 @@
 namespace FIX
 {
 class FieldMap;
+class Message;
 
 /**
  * Represents a data dictionary for a version of %FIX.

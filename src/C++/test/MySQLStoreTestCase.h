@@ -25,7 +25,7 @@
 
 #include <CPPTest/TestCase.h>
 #include "MessageStoreTestCase.h"
-#include "MYSQLStore.h"
+#include "MySQLStore.h"
 #include "Utility.h"
 
 #include <stdio.h>
@@ -38,10 +38,10 @@ namespace FIX
 class MySQLStoreTestCase : public MessageStoreTestCase
 {
 public:
-  MySQLStoreTestCase( const FIX::SessionSettings& sessionSettings )
-  : m_setGet( sessionSettings ),
-    m_other( sessionSettings ),
-    m_reload( sessionSettings )
+  MySQLStoreTestCase()
+  : m_setGet(),
+    m_other(),
+    m_reload()
   {
     add( &m_setGet );
     add( &m_other );
@@ -53,8 +53,8 @@ private:
   class setGet : public MessageStoreTestCase::setGet
   {
   public:
-    setGet( const FIX::SessionSettings& sessionSettings ) 
-    : m_factory( sessionSettings.get() ) {}
+    setGet()
+    : m_factory() {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -66,8 +66,8 @@ private:
   class other : public MessageStoreTestCase::other
   {
   public:
-    other( const FIX::SessionSettings& sessionSettings ) 
-    : m_factory( sessionSettings.get() ) {}
+    other()
+    : m_factory() {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -79,8 +79,8 @@ private:
   class reload : public MessageStoreTestCase::reload
   {
   public:
-    reload( const FIX::SessionSettings& sessionSettings ) 
-    : m_factory( sessionSettings.get() ) {}
+    reload()
+    : m_factory() {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 

@@ -46,7 +46,7 @@ const std::string MySQLStoreFactory::DEFAULT_DATABASE = "quickfix";
 const std::string MySQLStoreFactory::DEFAULT_USER = "root";
 const std::string MySQLStoreFactory::DEFAULT_PASSWORD = "";
 const std::string MySQLStoreFactory::DEFAULT_HOST = "localhost";
-const short MySQLStoreFactory::DEFAULT_PORT = 0;
+const short MySQLStoreFactory::DEFAULT_PORT = 3306;
 
 int safe_query( MYSQL* dbms, const std::string& sql )
 {
@@ -82,7 +82,8 @@ MySQLStore::MySQLStore
   if( !mysql_real_connect( pConnection, host.c_str(), user.c_str(), password.c_str(),
                            database.c_str(), port, NULL, 0 ) )
   {
-    throw ConfigError( "Unable to connect to database" );
+  throw ConfigError( std::string ("Unable to connect to database ") +
+                     database + " on host " + host + " as user " + user);
   }
 
   populateCache();
@@ -160,7 +161,7 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s )
   else if( m_useDictionary )
     return create( s, m_dictionary );
   else
-    return new MySQLStore( s, m_database, m_user, m_password, m_host );
+    return new MySQLStore( s, m_database, m_user, m_password, m_host, 0 );
 
   QF_STACK_POP
 }
@@ -180,16 +181,16 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& s
   std::string host = DEFAULT_HOST;
   short port = DEFAULT_PORT;
 
-  try { database = settings.getString( MySQL_STORE_DATABASE ); }
+  try { database = settings.getString( MYSQL_STORE_DATABASE ); }
   catch( ConfigError& ) {}
 
-  try { user = settings.getString( MySQL_STORE_USER ); }
+  try { user = settings.getString( MYSQL_STORE_USER ); }
   catch( ConfigError& ) {}
 
-  try { password = settings.getString( MySQL_STORE_PASSWORD ); }
+  try { password = settings.getString( MYSQL_STORE_PASSWORD ); }
   catch( ConfigError& ) {}
 
-  try { host = settings.getString( MySQL_STORE_HOST ); }
+  try { host = settings.getString( MYSQL_STORE_HOST ); }
   catch( ConfigError& ) {}
 
   try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
