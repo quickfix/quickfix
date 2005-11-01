@@ -47,7 +47,12 @@ throw( ConfigError )
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false ) {}
 
-SocketInitiator::~SocketInitiator() {}
+SocketInitiator::~SocketInitiator()
+{
+  for (SocketConnections::iterator i = m_connections.begin();
+       i != m_connections.end(); ++i)
+    delete i->second;
+}
 
 void SocketInitiator::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
