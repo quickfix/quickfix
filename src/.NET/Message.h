@@ -199,7 +199,17 @@ public:
   String* getField( int field ) throw( FieldNotFound* );
   void setField( int field, String* );
   void removeField( int field );
+
   bool hasGroup( int field );
+  bool hasGroup( unsigned num, int field );
+  bool hasGroup( unsigned num, Group* group );
+  bool hasGroup( Group* group );
+  
+  void removeGroup( int field );
+  void removeGroup( unsigned num, int field );
+  void removeGroup( unsigned num, Group* group );
+  void removeGroup( Group* group );
+
   int groupCount( int field );
   bool isSetField( int field );
 
@@ -222,12 +232,6 @@ public:
       throw new FieldNotFound( e.field );
     }
 
-    QF_STACK_CATCH
-  }
-
-  void removeGroup( Group* group )
-  { QF_STACK_TRY
-    m_pUnmanaged->removeGroup( group->unmanaged() );
     QF_STACK_CATCH
   }
 
@@ -279,7 +283,17 @@ public:
     String* getField( int field ) throw( FieldNotFound* );
     void setField( int field, String* );
     void removeField( int field );
+
     bool hasGroup( int field );
+    bool hasGroup( unsigned num, int field );
+    bool hasGroup( unsigned num, Group* group );
+    bool hasGroup( Group* group );
+  
+    void removeGroup( int field );
+    void removeGroup( unsigned num, int field );
+    void removeGroup( unsigned num, Group* group );
+    void removeGroup( Group* group );
+
     int groupCount( int field );
     bool isSetField( int field );
 
@@ -405,7 +419,17 @@ public:
     String* getField( int field ) throw( FieldNotFound* );
     void setField( int field, String* );
     void removeField( int field );
+
     bool hasGroup( int field );
+    bool hasGroup( unsigned num, int field );
+    bool hasGroup( unsigned num, Group* group );
+    bool hasGroup( Group* group );
+  
+    void removeGroup( int field );
+    void removeGroup( unsigned num, int field );
+    void removeGroup( unsigned num, Group* group );
+    void removeGroup( Group* group );
+
     int groupCount( int field );
     bool isSetField( int field );
 
@@ -592,9 +616,12 @@ private:
 
   void mapSetField( int field, String*, FIX::FieldMap& map );
   String* mapGetField( int field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
+    throw( FieldNotFound* );  
   void mapRemoveField( int field, FIX::FieldMap& map );
+  bool mapHasGroup( unsigned num, int field, FIX::FieldMap& map );
   bool mapHasGroup( int field, FIX::FieldMap& map );
+  void mapRemoveGroup( unsigned num, int field, FIX::FieldMap& map );
+  void mapRemoveGroup( int field, FIX::FieldMap& map );
   int mapGroupCount( int field, FIX::FieldMap& map );
 
 protected:

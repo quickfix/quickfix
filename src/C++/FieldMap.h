@@ -129,11 +129,16 @@ public:
   FieldMap& getGroup( int num, int field, FieldMap& group ) const
     throw( FieldNotFound );
 
+  /// Remove a specific instance of a group.
+  void removeGroup( int num, int field );
   /// Remove all instances of a group.
   void removeGroup( int field );
 
-  /// Check to see if a group exists
+  /// Check to see any instance of a group exists
   bool hasGroup( int field ) const;
+  /// Check to see if a specific instance of a group exists
+  bool hasGroup( int num, int field ) const;
+  /// Count the number of instance of a group
   int groupCount( int field ) const;
 
   /// Clear all fields from the map

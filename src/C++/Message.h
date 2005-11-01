@@ -98,13 +98,15 @@ public:
       ( FieldMap::getGroup( num, group.field(), group ) );
   }
 
+  void removeGroup( unsigned num, Group& group )
+  { FieldMap::removeGroup( num, group.field() ); }
   void removeGroup( Group& group )
-  {
-    FieldMap::removeGroup( group.field() );
-  }
+  { FieldMap::removeGroup( group.field() ); }
 
-  bool hasGroup( unsigned num, Group& group )
+  bool hasGroup( const Group& group )
   { return FieldMap::hasGroup( group.field() ); }
+  bool hasGroup( unsigned num, Group& group )
+  { return FieldMap::hasGroup( num, group.field() ); }
 
 protected:
   // Constructor for derived classes

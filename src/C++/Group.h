@@ -60,7 +60,9 @@ public:
 
   void addGroup( Group& group );
   Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound );
+  void removeGroup( unsigned num, Group& group );
   void removeGroup( Group& group );
+  bool hasGroup( const Group& group );
   bool hasGroup( unsigned num, Group& group );
 
 private:

@@ -429,6 +429,16 @@ void MessageTestCase::addRemoveGroup::onRun( Message& object )
   assert( object.hasGroup(2, group) );
   assert( object.hasGroup(3, group) );
 
+  object.removeGroup( 2, group );
+  assert( object.hasGroup(1, group) );
+  assert( object.hasGroup(2, group) );
+  assert( !object.hasGroup(3, group) );
+
+  object.removeGroup( group );
+  assert( object.hasGroup(1, group) );
+  assert( !object.hasGroup(2, group) );
+  assert( !object.hasGroup(3, group) );
+
   object.removeGroup( group );
   assert( !object.hasGroup(1, group) );
   assert( !object.hasGroup(2, group) );

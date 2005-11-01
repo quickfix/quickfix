@@ -39,9 +39,8 @@ public class Group extends FieldMap {
     private native void create(int field, int delim, int[] order);
     private native void destroy();
 
-    public native void addGroup(Group group);
-    public native Group getGroup(int num, Group group) throws FieldNotFound;
-    public native void removeGroup(Group group);
+	public native int field();
+	public native int delim();
 
     public native void setString(int field, String value);
     public native void setBoolean(int field, boolean value);
@@ -126,6 +125,25 @@ public class Group extends FieldMap {
         return isSetField( field.getField() );
     }
     public native void removeField(int field);
+
+    public native void addGroup(Group group);
+    public native Group getGroup(int num, Group group) throws FieldNotFound;
+	public native void removeGroup(int field);
+	public native void removeGroup(int num, int field);
+	public void removeGroup(int num, Group group) {
+		removeGroup( num, group.field() );
+	}
+	public void removeGroup(Group group) {
+		removeGroup( group.field() );
+	}
+	public native void hasGroup(int field);
+	public native void hasGroup(int num, int field);
+	public void hasGroup(int num, Group group) {
+		hasGroup( num, group.field() );
+	}
+	public void hasGroup(Group group) {
+		hasGroup( group.field() );
+	}
 
     public java.util.Iterator iterator() {
         return new Iterator( this );

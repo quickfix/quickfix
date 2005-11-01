@@ -59,5 +59,15 @@ public abstract class FieldMap {
     public abstract boolean isSetField(int field);
     public abstract boolean isSetField(Field field);
     public abstract void removeField(int field);
+    public abstract void addGroup(Group group);
+	public abstract Group getGroup(int num, Group group) throws FieldNotFound;
+	public abstract void removeGroup(int field);
+	public abstract void removeGroup(int num, int field);
+	public abstract void removeGroup(int num, Group group);
+	public abstract void removeGroup(Group group);
+	public abstract void hasGroup(int field);
+	public abstract void hasGroup(int num, int field);
+	public abstract void hasGroup(int num, Group group);
+	public abstract void hasGroup(Group group);
     public abstract Iterator iterator();
 }

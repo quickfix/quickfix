@@ -260,26 +260,73 @@ throw( FieldNotFound* )
   checkDisposed(); return mapGetField( field, *m_pUnmanaged );
   QF_STACK_CATCH
 }
+
 void Message::setField( int field, String* value )
 { QF_STACK_TRY
   checkDisposed(); return mapSetField( field, value, *m_pUnmanaged );
   QF_STACK_CATCH
 }
+
 void Message::removeField( int field )
 { QF_STACK_TRY
   checkDisposed(); return mapRemoveField( field, *m_pUnmanaged );
   QF_STACK_CATCH
 }
+
 bool Message::hasGroup( int field )
 { QF_STACK_TRY
   checkDisposed(); return mapHasGroup( field, *m_pUnmanaged );
   QF_STACK_CATCH
 }
+
+bool Message::hasGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return mapHasGroup( num, field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+bool Message::hasGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return mapHasGroup( num, group->field(), *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+bool Message::hasGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return mapHasGroup( group->field(), *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+  
+void Message::removeGroup( int field )
+{ QF_STACK_TRY
+  checkDisposed(); return mapRemoveGroup( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Message::removeGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return mapRemoveGroup( num, field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Message::removeGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return mapRemoveGroup( num, group->field(), *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Message::removeGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return mapRemoveGroup( group->field(), *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
 int Message::groupCount( int field )
 { QF_STACK_TRY
   checkDisposed(); return mapGroupCount( field, *m_pUnmanaged );
   QF_STACK_CATCH
 }
+
 bool Message::isSetField( int field )
 { QF_STACK_TRY
   return m_pUnmanaged->isSetField( field );
@@ -513,30 +560,76 @@ throw( FieldNotFound* )
   return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
+
 void Message::Header::setField( int field, String* value )
 { QF_STACK_TRY
   checkDisposed();
   return m_message->mapSetField( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
+
 void Message::Header::removeField( int field )
 { QF_STACK_TRY
   checkDisposed();
   return m_message->mapRemoveField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
+
 bool Message::Header::hasGroup( int field )
 { QF_STACK_TRY
-  checkDisposed();
-  return m_message->mapHasGroup( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return m_message->mapHasGroup( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
+
+bool Message::Header::hasGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapHasGroup( num, field, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+bool Message::Header::hasGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapHasGroup( num, group->field(), m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+bool Message::Header::hasGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapHasGroup( group->field(), m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+  
+void Message::Header::removeGroup( int field )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( field, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+void Message::Header::removeGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( num, field, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+void Message::Header::removeGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( num, group->field(), m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+void Message::Header::removeGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( group->field(), m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
 int Message::Header::groupCount( int field )
 { QF_STACK_TRY
   checkDisposed();
   return m_message->mapGroupCount( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
+
 bool Message::Header::isSetField( int field )
 { QF_STACK_TRY
   return m_message->m_pUnmanaged->getHeader().isSetField( field );
@@ -770,30 +863,76 @@ throw( FieldNotFound* )
   return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
+
 void Message::Trailer::setField( int field, String* value )
 { QF_STACK_TRY
   checkDisposed();
   return m_message->mapSetField( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
+
 void Message::Trailer::removeField( int field )
 { QF_STACK_TRY
   checkDisposed();
   return m_message->mapRemoveField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
+
 bool Message::Trailer::hasGroup( int field )
 { QF_STACK_TRY
-  checkDisposed();
-  return m_message->mapHasGroup( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return m_message->mapHasGroup( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
+
+bool Message::Trailer::hasGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapHasGroup( num, field, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+bool Message::Trailer::hasGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapHasGroup( num, group->field(), m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+bool Message::Trailer::hasGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapHasGroup( group->field(), m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+  
+void Message::Trailer::removeGroup( int field )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( field, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+void Message::Trailer::removeGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( num, field, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+void Message::Trailer::removeGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( num, group->field(), m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+void Message::Trailer::removeGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->mapRemoveGroup( group->field(), m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
 int Message::Trailer::groupCount( int field )
 { QF_STACK_TRY
   checkDisposed();
   return m_message->mapGroupCount( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
+
 bool Message::Trailer::isSetField( int field )
 { QF_STACK_TRY
   return m_message->m_pUnmanaged->getTrailer().isSetField( field );
@@ -1165,6 +1304,24 @@ void Message::mapRemoveField( int field, FIX::FieldMap& map )
 bool Message::mapHasGroup( int field, FIX::FieldMap& map )
 { QF_STACK_TRY
   return map.hasGroup( field );
+  QF_STACK_CATCH
+}
+
+bool Message::mapHasGroup( unsigned num, int field, FIX::FieldMap& map )
+{ QF_STACK_TRY
+  return map.hasGroup( num, field );
+  QF_STACK_CATCH
+}
+
+void Message::mapRemoveGroup( int field, FIX::FieldMap& map )
+{ QF_STACK_TRY
+  map.removeGroup( field );
+  QF_STACK_CATCH
+}
+
+void Message::mapRemoveGroup( unsigned num, int field, FIX::FieldMap& map )
+{ QF_STACK_TRY
+  map.removeGroup( num, field );
   QF_STACK_CATCH
 }
 

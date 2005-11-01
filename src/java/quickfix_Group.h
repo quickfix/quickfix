@@ -33,27 +33,19 @@ JNIEXPORT void JNICALL Java_quickfix_Group_destroy
 
 /*
  * Class:     quickfix_Group
- * Method:    addGroup
- * Signature: (Lquickfix/Group;)V
+ * Method:    field
+ * Signature: ()I
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
-  (JNIEnv *, jobject, jobject);
+JNIEXPORT jint JNICALL Java_quickfix_Group_field
+  (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_Group
- * Method:    getGroup
- * Signature: (ILquickfix/Group;)Lquickfix/Group;
+ * Method:    delim
+ * Signature: ()I
  */
-JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
-  (JNIEnv *, jobject, jint, jobject);
-
-/*
- * Class:     quickfix_Group
- * Method:    removeGroup
- * Signature: (Lquickfix/Group;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup
-  (JNIEnv *, jobject, jobject);
+JNIEXPORT jint JNICALL Java_quickfix_Group_delim
+  (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_Group
@@ -214,6 +206,54 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_isSetField
  */
 JNIEXPORT void JNICALL Java_quickfix_Group_removeField
   (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    addGroup
+ * Signature: (Lquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    getGroup
+ * Signature: (ILquickfix/Group;)Lquickfix/Group;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    removeGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    removeGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup__II
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    hasGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    hasGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__II
+  (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     quickfix_Group

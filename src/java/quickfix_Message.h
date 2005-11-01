@@ -41,30 +41,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_clone
 
 /*
  * Class:     quickfix_Message
- * Method:    addGroup
- * Signature: (Lquickfix/Group;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
-  (JNIEnv *, jobject, jobject);
-
-/*
- * Class:     quickfix_Message
- * Method:    getGroup
- * Signature: (ILquickfix/Group;)Lquickfix/Group;
- */
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
-  (JNIEnv *, jobject, jint, jobject);
-
-/*
- * Class:     quickfix_Message
- * Method:    removeGroup
- * Signature: (Lquickfix/Group;)V
- */
-JNIEXPORT void JNICALL Java_quickfix_Message_removeGroup
-  (JNIEnv *, jobject, jobject);
-
-/*
- * Class:     quickfix_Message
  * Method:    setString
  * Signature: (ILjava/lang/String;)V
  */
@@ -222,6 +198,54 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_isSetField
  */
 JNIEXPORT void JNICALL Java_quickfix_Message_removeField
   (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    addGroup
+ * Signature: (Lquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    getGroup
+ * Signature: (ILquickfix/Group;)Lquickfix/Group;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    removeGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_removeGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    removeGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_removeGroup__II
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    hasGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_hasGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    hasGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_hasGroup__II
+  (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     quickfix_Message
@@ -465,6 +489,54 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveField
 
 /*
  * Class:     quickfix_Message
+ * Method:    headerAddGroup
+ * Signature: (Lquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerAddGroup
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerGetGroup
+ * Signature: (ILquickfix/Group;)Lquickfix/Group;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerRemoveGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerRemoveGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveGroup__II
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerHasGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerHasGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerHasGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerHasGroup__II
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     quickfix_Message
  * Method:    headerIteratorCreate
  * Signature: (Lquickfix/Message$Header$Iterator;)Lquickfix/Message$Iterator;
  */
@@ -646,6 +718,54 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIsSetField
  */
 JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveField
   (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerAddGroup
+ * Signature: (Lquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerAddGroup
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerGetGroup
+ * Signature: (ILquickfix/Group;)Lquickfix/Group;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerRemoveGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerRemoveGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveGroup__II
+  (JNIEnv *, jobject, jint, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerHasGroup
+ * Signature: (I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerHasGroup__I
+  (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerHasGroup
+ * Signature: (II)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerHasGroup__II
+  (JNIEnv *, jobject, jint, jint);
 
 /*
  * Class:     quickfix_Message

@@ -86,61 +86,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_clone
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
-( JNIEnv *pEnv, jobject obj, jobject group )
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(group) ) return;
-
-  JVM::set( pEnv );
-  FIX::Message* pMessage = getCPPMessage( obj );
-  JVMObject jgroup( group );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
-  pMessage->addGroup( *pGroup );
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
-( JNIEnv *pEnv, jobject obj, jint num, jobject group )
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(group) ) return 0;
-
-  JVM::set( pEnv );
-  FIX::Message* pMessage = getCPPMessage( obj );
-  JVMObject jgroup( group );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
-
-  try
-  {
-    pMessage->getGroup( num, *pGroup );
-    return group;
-  }
-  catch( FIX::FieldNotFound& e )
-  {
-    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( e.field ).c_str() );
-    return 0;
-  }
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT void JNICALL Java_quickfix_Message_removeGroup
-( JNIEnv *pEnv, jobject obj, jobject group )
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(group) ) return;
-
-  JVM::set( pEnv );
-  FIX::Message* pMessage = getCPPMessage( obj );
-  JVMObject jgroup( group );
-  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
-  pMessage->removeGroup( *pGroup );
-
-  QF_STACK_CATCH
-}
-
 JNIEXPORT void JNICALL Java_quickfix_Message_setString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
@@ -368,6 +313,90 @@ JNIEXPORT void JNICALL Java_quickfix_Message_removeField
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   pMessage->removeField( field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
+( JNIEnv *pEnv, jobject obj, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  pMessage->addGroup( *pGroup );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
+( JNIEnv *pEnv, jobject obj, jint num, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return 0;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+
+  try
+  {
+    pMessage->getGroup( num, *pGroup );
+    return group;
+  }
+  catch( FIX::FieldNotFound& e )
+  {
+    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( e.field ).c_str() );
+    return 0;
+  }
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_removeGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPMessage( obj );
+  pMessage->removeGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_removeGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPMessage( obj );
+  pMessage->removeGroup( num, field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_hasGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPMessage( obj );
+  pMessage->hasGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_hasGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPMessage( obj );
+  pMessage->hasGroup( num, field );
 
   QF_STACK_CATCH
 }
@@ -601,6 +630,90 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveField
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
   pMessage->getHeader().removeField( field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerAddGroup
+( JNIEnv *pEnv, jobject obj, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  pMessage->getHeader().addGroup( pGroup->field(), *pGroup );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Message_headerGetGroup
+( JNIEnv *pEnv, jobject obj, jint num, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return 0;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+
+  try
+  {
+    pMessage->getHeader().getGroup( num, pGroup->field(), *pGroup );
+    return group;
+  }
+  catch( FIX::FieldNotFound& e )
+  {
+    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( e.field ).c_str() );
+    return 0;
+  }
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getHeader().removeGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getHeader().removeGroup( num, field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerHasGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getHeader().hasGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerHasGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getHeader().hasGroup( num, field );
 
   QF_STACK_CATCH
 }
@@ -896,6 +1009,89 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveField
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerAddGroup
+( JNIEnv *pEnv, jobject obj, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  pMessage->getTrailer().addGroup( pGroup->field(), *pGroup );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerGetGroup
+( JNIEnv *pEnv, jobject obj, jint num, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return 0;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+
+  try
+  {
+    pMessage->getTrailer().getGroup( num, pGroup->field(), *pGroup );
+    return group;
+  }
+  catch( FIX::FieldNotFound& e )
+  {
+    throwNew( "Lquickfix/FieldNotFound;", FIX::IntConvertor::convert( e.field ).c_str() );
+    return 0;
+  }
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getTrailer().removeGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getTrailer().removeGroup( num, field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerHasGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getTrailer().hasGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerHasGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getTrailer().hasGroup( num, field );
+
+  QF_STACK_CATCH
+}
 JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY

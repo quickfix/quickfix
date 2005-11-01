@@ -112,16 +112,46 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup
-( JNIEnv *pEnv, jobject obj, jobject group )
+JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
-  if( isNullAndThrow(group) ) return;
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPGroup( obj );
+  pMessage->removeGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
 
   JVM::set( pEnv );
-  FIX::Group* pThis = getCPPGroup( obj );
-  FIX::Group* pGroup = getCPPGroup( group );
-  pThis->removeGroup( *pGroup );
+  FIX::FieldMap* pMessage = getCPPGroup( obj );
+  pMessage->removeGroup( num, field );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__I
+( JNIEnv *pEnv, jobject obj, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPGroup( obj );
+  pMessage->hasGroup( field );
+  
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__II
+( JNIEnv *pEnv, jobject obj, jint num, jint field )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPGroup( obj );
+  pMessage->hasGroup( num, field );
 
   QF_STACK_CATCH
 }

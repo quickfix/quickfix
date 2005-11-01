@@ -84,14 +84,36 @@ throw( FieldNotFound )
   QF_STACK_POP
 }
 
-void FieldMap::removeGroup( int field )
+void FieldMap::removeGroup( int num, int field )
 {
   Groups::iterator i = m_groups.find( field );
-  std::vector < FieldMap* >::iterator j;
-  for ( j = i->second.begin(); j != i->second.end(); ++j )
-    delete *j;
+  if ( i == m_groups.end() ) return;
+  if ( num <= 0 ) return;
+  std::vector< FieldMap* >& vector = i->second;
+  if ( vector.size() < ( unsigned ) num ) return;
 
-  m_groups.erase( field );
+  std::deque< FieldMap* > queue;
+  while( vector.size() > (unsigned)num )
+  {
+    queue.push_back( vector.back() );
+    vector.pop_back();
+  }
+  delete vector.back();
+  vector.pop_back();
+  while( queue.size() )
+  {
+    vector.push_back( queue.front() );
+    queue.pop_front();
+  }
+
+  if( vector.size() == 0 )
+    m_groups.erase( field );
+}
+
+void FieldMap::removeGroup( int field )
+{ QF_STACK_PUSH(FieldMap::removeGroup)
+  removeGroup( groupCount(field), field );
+  QF_STACK_POP
 }
 
 void FieldMap::removeField( int field )
@@ -100,6 +122,14 @@ void FieldMap::removeField( int field )
   Fields::iterator i = m_fields.find( field );
   if ( i != m_fields.end() )
     m_fields.erase( i );
+
+  QF_STACK_POP
+}
+
+bool FieldMap::hasGroup( int num, int field ) const
+{ QF_STACK_PUSH(FieldMap::hasGroup)
+
+  return groupCount(field) >= num;
 
   QF_STACK_POP
 }

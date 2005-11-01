@@ -27,6 +27,8 @@ namespace QuickFix
 void Group::setField( StringField* field )
 { QF_STACK_TRY
 
+  checkDisposed();
+
   m_pUnmanaged->setField
     ( FIX::StringField
       ( field->getField(), convertString( field->getValue() ) ) );
@@ -37,6 +39,8 @@ void Group::setField( StringField* field )
 void Group::setField( BooleanField* field )
 { QF_STACK_TRY
 
+  checkDisposed();
+
   m_pUnmanaged->setField
     ( FIX::BoolField( field->getField(), field->getValue() ) );
 
@@ -45,6 +49,8 @@ void Group::setField( BooleanField* field )
 
 void Group::setField( CharField* field )
 { QF_STACK_TRY
+
+  checkDisposed();
 
   m_pUnmanaged->setField
     ( FIX::CharField( field->getField(), field->getValue() ) );
@@ -55,6 +61,8 @@ void Group::setField( CharField* field )
 void Group::setField( IntField* field )
 { QF_STACK_TRY
 
+  checkDisposed();
+
   m_pUnmanaged->setField
     ( FIX::IntField( field->getField(), field->getValue() ) );
 
@@ -64,6 +72,8 @@ void Group::setField( IntField* field )
 void Group::setField( DoubleField* field )
 { QF_STACK_TRY
 
+  checkDisposed();
+
   m_pUnmanaged->setField
     ( FIX::DoubleField( field->getField(), field->getValue() ) );
 
@@ -72,6 +82,8 @@ void Group::setField( DoubleField* field )
 
 void Group::setField( UtcTimeStampField* field )
 { QF_STACK_TRY
+
+  checkDisposed();
 
   DateTime value = field->getValue();
   m_pUnmanaged->setField
@@ -88,6 +100,8 @@ void Group::setField( UtcTimeStampField* field )
 void Group::setField( UtcDateOnlyField* field )
 { QF_STACK_TRY
 
+  checkDisposed();
+
   DateTime value = field->getValue();
   m_pUnmanaged->setField
     ( FIX::UtcDateOnlyField
@@ -99,6 +113,8 @@ void Group::setField( UtcDateOnlyField* field )
 
 void Group::setField( UtcTimeOnlyField* field )
 { QF_STACK_TRY
+
+  checkDisposed();
 
   DateTime value = field->getValue();
   m_pUnmanaged->setField
@@ -113,6 +129,7 @@ void Group::setField( UtcTimeOnlyField* field )
 StringField* Group::getField( StringField* field ) throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     field->setValue( m_pUnmanaged->getField( field->getField() ).c_str() );
@@ -127,6 +144,7 @@ StringField* Group::getField( StringField* field ) throw( FieldNotFound* )
 BooleanField* Group::getField( BooleanField* field ) throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     field->setValue
@@ -143,6 +161,7 @@ BooleanField* Group::getField( BooleanField* field ) throw( FieldNotFound* )
 CharField* Group::getField( CharField* field ) throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     field->setValue
@@ -159,6 +178,7 @@ CharField* Group::getField( CharField* field ) throw( FieldNotFound* )
 IntField* Group::getField( IntField* field ) throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     field->setValue
@@ -175,6 +195,7 @@ IntField* Group::getField( IntField* field ) throw( FieldNotFound* )
 DoubleField* Group::getField( DoubleField* field ) throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     field->setValue
@@ -192,6 +213,7 @@ UtcTimeStampField* Group::getField( UtcTimeStampField* field )
 throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     FIX::UtcTimeStamp fixd;
@@ -211,6 +233,7 @@ throw( FieldNotFound* )
 UtcDateOnlyField* Group::getField( UtcDateOnlyField* field ) throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     FIX::UtcDate fixd;
@@ -230,6 +253,7 @@ UtcTimeOnlyField* Group::getField( UtcTimeOnlyField* field )
 throw( FieldNotFound* )
 { QF_STACK_TRY
 
+  checkDisposed();
   try
   {
     FIX::UtcTimeOnly fixd;
@@ -247,44 +271,86 @@ throw( FieldNotFound* )
 
 bool Group::isSetField( Field* field )
 { QF_STACK_TRY
-  return m_pUnmanaged->isSetField( field->getField() );
+  checkDisposed(); return m_pUnmanaged->isSetField( field->getField() );
   QF_STACK_CATCH
 }
 
 String* Group::getField( int field )
 throw( FieldNotFound* )
 { QF_STACK_TRY
-  return m_pUnmanaged->getField( field ).c_str();
+  checkDisposed(); return m_pUnmanaged->getField( field ).c_str();
   QF_STACK_CATCH
 }
 
 void Group::setField( int field, String* value )
 { QF_STACK_TRY
-  m_pUnmanaged->setField( field, convertString(value) );
+  checkDisposed(); m_pUnmanaged->setField( field, convertString(value) );
   QF_STACK_CATCH
 }
 
 void Group::removeField( int field )
 { QF_STACK_TRY
-  m_pUnmanaged->removeField( field );
+  checkDisposed(); m_pUnmanaged->removeField( field );
   QF_STACK_CATCH
 }
 
 bool Group::hasGroup( int field )
 { QF_STACK_TRY
-  return ((FIX::FieldMap*)m_pUnmanaged)->hasGroup( field );
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->hasGroup( field );
+  QF_STACK_CATCH
+}
+
+bool Group::hasGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->hasGroup( num, field );
+  QF_STACK_CATCH
+}
+
+bool Group::hasGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->hasGroup( num, group->field() );
+  QF_STACK_CATCH
+}
+
+bool Group::hasGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->hasGroup( group->field() );
+  QF_STACK_CATCH
+}
+
+void Group::removeGroup( int field )
+{ QF_STACK_TRY
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->removeGroup( field );
+  QF_STACK_CATCH
+}
+
+void Group::removeGroup( unsigned num, int field )
+{ QF_STACK_TRY
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->removeGroup( num, field );
+  QF_STACK_CATCH
+}
+
+void Group::removeGroup( unsigned num, Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->removeGroup( num, group->field() );
+  QF_STACK_CATCH
+}
+
+void Group::removeGroup( Group* group )
+{ QF_STACK_TRY
+  checkDisposed(); return ((FIX::FieldMap*)m_pUnmanaged)->removeGroup( group->field() );
   QF_STACK_CATCH
 }
 
 int Group::groupCount( int field )
 { QF_STACK_TRY
-  return m_pUnmanaged->groupCount( field );
+  checkDisposed(); return m_pUnmanaged->groupCount( field );
   QF_STACK_CATCH
 }
 
 bool Group::isSetField( int field )
 { QF_STACK_TRY
-  return m_pUnmanaged->isSetField( field );
+  checkDisposed(); return m_pUnmanaged->isSetField( field );
   QF_STACK_CATCH
 }
 }

@@ -118,7 +118,17 @@ public:
   String* getField( int field ) throw( FieldNotFound* );
   void setField( int field, String* );
   void removeField( int field );
+
   bool hasGroup( int field );
+  bool hasGroup( unsigned num, int field );
+  bool hasGroup( unsigned num, Group* group );
+  bool hasGroup( Group* group );
+  
+  void removeGroup( int field );
+  void removeGroup( unsigned num, int field );
+  void removeGroup( unsigned num, Group* group );
+  void removeGroup( Group* group );
+
   int groupCount( int field );
   bool isSetField( int field );
 
@@ -141,12 +151,6 @@ public:
       throw new FieldNotFound( e.field );
     }
 
-    QF_STACK_CATCH
-  }
-
-  void removeGroup( Group* group )
-  { QF_STACK_TRY
-    m_pUnmanaged->removeGroup( group->unmanaged() );
     QF_STACK_CATCH
   }
 
