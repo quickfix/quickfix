@@ -34,26 +34,25 @@ namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection( int s, Application& application )
 : m_socket( s ), m_application( application ),
-  m_pSession( 0 ), m_deleted( false ),
-  m_queueThreadSpawned( false ), m_queueThread( 0 ) {}
+  m_pSession( 0 )
+{
+    FD_ZERO (&m_fds);
+    FD_SET (m_socket, &m_fds);
+}
 
 ThreadedSocketConnection::ThreadedSocketConnection( const SessionID& sessionID, int s,
     Application& application )
 
 : m_socket( s ), m_application( application ),
-  m_pSession( Session::lookupSession( sessionID ) ), m_deleted( false ),
-  m_queueThreadSpawned( false ), m_queueThread( 0 )
+  m_pSession( Session::lookupSession( sessionID ) )
 {
+  FD_ZERO (&m_fds);
+  FD_SET (m_socket, &m_fds);
   if ( m_pSession ) m_pSession->setResponder( this );
 }
 
 ThreadedSocketConnection::~ThreadedSocketConnection()
 {
-  m_deleted = true;
-
-  if ( m_queueThreadSpawned == true )
-    thread_join( m_queueThread );
-
   if ( m_pSession )
   {
     m_pSession->setResponder( 0 );
@@ -76,16 +75,28 @@ void ThreadedSocketConnection::disconnect()
 bool ThreadedSocketConnection::read()
 { QF_STACK_PUSH(ThreadedSocketConnection::read)
 
-  if ( !m_queueThreadSpawned )
-    m_queueThreadSpawned = thread_spawn( &queueThread, this, m_queueThread );
-
   char buffer[BUFSIZ];
+  struct timeval timeout = { 1, 0 };
+
   try
   {
+    // Wait for input (1 second timeout)
+    int result = select (1 + m_socket, &m_fds, 0, 0, &timeout);
+
+    if (result < 0)             // Error
+    {
+        throw SocketRecvFailed (result);
+    }
+    else if (result > 0)        // Something to read
+    {
+      // We can read without blocking
+      result = recv( m_socket, buffer, sizeof(buffer), 0 );
+      if ( result <= 0 ) { throw SocketRecvFailed( result ); }
+      m_parser.addToStream( buffer, result );
+    }
+
+    // Read or timed out.  processStream calls Session::next
     processStream();
-    int result = recv( m_socket, buffer, sizeof(buffer), 0 );
-    if ( result <= 0 ) { throw SocketRecvFailed( result ); }
-    m_parser.addToStream( buffer, result );
     return true;
   }
   catch ( SocketRecvFailed& e )
@@ -171,21 +182,4 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
   QF_STACK_POP
 }
 
-THREAD_PROC ThreadedSocketConnection::queueThread( void* p )
-{ QF_STACK_TRY
-  QF_STACK_PUSH(ThreadedSocketConnection::queueThread)
-  
-  ThreadedSocketConnection * pConnection = reinterpret_cast < ThreadedSocketConnection* > ( p );
-  while( !pConnection->m_deleted )
-  {
-    process_sleep( 1 );
-    if( pConnection->m_pSession )
-      pConnection->m_pSession->next();
-  }
-
-  return 0;
-
-  QF_STACK_POP
-  QF_STACK_CATCH
-}
 } // namespace FIX

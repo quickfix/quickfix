@@ -64,9 +64,7 @@ private:
   Application& m_application;
   Parser m_parser;
   Session* m_pSession;
-  bool m_deleted;
-  bool m_queueThreadSpawned;
-  unsigned m_queueThread;
+  fd_set m_fds;
 };
 }
 
