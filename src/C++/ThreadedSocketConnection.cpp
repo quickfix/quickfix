@@ -77,15 +77,16 @@ bool ThreadedSocketConnection::read()
 
   char buffer[BUFSIZ];
   struct timeval timeout = { 1, 0 };
+  fd_set read_set = m_fds;
 
   try
   {
     // Wait for input (1 second timeout)
-    int result = select (1 + m_socket, &m_fds, 0, 0, &timeout);
+    int result = select (1 + m_socket, &read_set, 0, 0, &timeout);
 
     if (result < 0)             // Error
     {
-        throw SocketRecvFailed (result);
+      throw SocketRecvFailed (result);
     }
     else if (result > 0)        // Something to read
     {
