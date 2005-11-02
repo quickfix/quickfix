@@ -34,10 +34,10 @@ namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection( int s, Application& application )
 : m_socket( s ), m_application( application ),
-  m_pSession( 0 )
+  m_pSession( 0 ) 
 {
-    FD_ZERO (&m_fds);
-    FD_SET (m_socket, &m_fds);
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
 }
 
 ThreadedSocketConnection::ThreadedSocketConnection( const SessionID& sessionID, int s,
@@ -46,8 +46,8 @@ ThreadedSocketConnection::ThreadedSocketConnection( const SessionID& sessionID, 
 : m_socket( s ), m_application( application ),
   m_pSession( Session::lookupSession( sessionID ) )
 {
-  FD_ZERO (&m_fds);
-  FD_SET (m_socket, &m_fds);
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
   if ( m_pSession ) m_pSession->setResponder( this );
 }
 
@@ -77,26 +77,29 @@ bool ThreadedSocketConnection::read()
 
   char buffer[BUFSIZ];
   struct timeval timeout = { 1, 0 };
-  fd_set read_set = m_fds;
+  fd_set readset = m_fds;
 
   try
   {
     // Wait for input (1 second timeout)
-    int result = select (1 + m_socket, &read_set, 0, 0, &timeout);
+    int result = select( 1 + m_socket, &readset, 0, 0, &timeout );
 
-    if (result < 0)             // Error
-    {
-      throw SocketRecvFailed (result);
-    }
-    else if (result > 0)        // Something to read
+    if( result > 0 ) // Something to read
     {
       // We can read without blocking
       result = recv( m_socket, buffer, sizeof(buffer), 0 );
       if ( result <= 0 ) { throw SocketRecvFailed( result ); }
       m_parser.addToStream( buffer, result );
     }
+    else if( result == 0 && m_pSession ) // Timeout
+    {
+      m_pSession->next();
+    }
+    else if( result < 0 ) // Error
+    {
+      throw SocketRecvFailed( result );
+    }
 
-    // Read or timed out.  processStream calls Session::next
     processStream();
     return true;
   }
@@ -113,11 +116,6 @@ bool ThreadedSocketConnection::read()
     }
 
     return false;
-  }
-  catch ( InvalidMessage& )
-  {
-    if( !m_pSession->isLoggedOn() )
-      disconnect();
   }
 
   QF_STACK_POP
@@ -141,23 +139,25 @@ void ThreadedSocketConnection::processStream()
 { QF_STACK_PUSH(ThreadedSocketConnection::processStream)
 
   std::string msg;
-  try
+  while( readMessage(msg) )
   {
-    while ( readMessage( msg ) )
+    if ( !m_pSession )
     {
-      if ( !m_pSession )
-      {
-        if ( !setSession( msg ) )
-        { disconnect(); continue; }
-      }
+      if ( !setSession( msg ) )
+      { disconnect(); continue; }
+    }
+    try
+    {
       m_pSession->next( msg );
     }
-  }
-  catch( SocketRecvFailed& e )
-  {
-    if( m_pSession )
-      m_pSession->getLog()->onEvent( e.what() );
-    disconnect();
+    catch( InvalidMessage& )
+    {
+      if( !m_pSession->isLoggedOn() )
+      {
+        disconnect();
+        return;
+      }
+    }
   }
 
   QF_STACK_POP
@@ -169,13 +169,17 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
   m_pSession = Session::lookupSession( msg, true );
   if ( !m_pSession ) return false;
   SessionID sessionID = m_pSession->getSessionID();
+  m_pSession = 0;
+
   // see if the session frees up within 5 seconds
-  for ( int i = 1; i <= 5; ++i )
+  for( int i = 1; i <= 5; i++ )
   {
-    m_pSession = Session::registerSession( sessionID );
-    if ( m_pSession ) break;
+    if( !Session::isSessionRegistered( sessionID ) )
+      m_pSession = Session::registerSession( sessionID );
+    if( m_pSession ) break;
     process_sleep( 1 );
   }
+
   if ( !m_pSession ) return false;
   m_pSession->setResponder( this );
   return true;
