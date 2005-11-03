@@ -38,13 +38,6 @@ int main( int argc, char** argv )
   short port;
   std::auto_ptr<FIX::SessionSettings> sessionSettingsPtr;
 
-  std::string mySQLUser;
-  std::string mySQLPassword;
-  std::string msSQLUser;
-  std::string msSQLPassword;
-  std::string postgreSQLUser;
-  std::string postgreSQLPassword;
-
   int opt;
   while ( (opt = getopt( argc, argv, "+p:+f:" )) != -1 )
   {
