@@ -32,7 +32,6 @@
 #include "Utility.h"
 #include "strptime.h"
 #include <fstream>
-#include <libpq-fe.h>
 
 namespace FIX
 {
@@ -48,21 +47,12 @@ PostgreSQLLog::PostgreSQLLog
   const std::string& password, const std::string& host, short port )
   : m_sessionID( s )
 {
-  m_pConnection = PQsetdbLogin( host.c_str(), port == 0 ? "" : IntConvertor::convert( port ).c_str(),
-                                "", "", database.c_str(), user.c_str(), password.c_str() );
-  PGconn* pConnection = reinterpret_cast < PGconn* > ( m_pConnection );
-
-   
-  if ( PQstatus( pConnection ) != CONNECTION_OK )
-  {
-    throw ConfigError( "Unable to connect to database" );
-  }
+  m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
 }
 
 PostgreSQLLog::~PostgreSQLLog()
 {
-  PGconn* pConnection = reinterpret_cast <PGconn*>( m_pConnection );
-  PQfinish( pConnection );
+  delete m_pConnection;
 }
 
 Log* PostgreSQLLogFactory::create( const SessionID& s )
@@ -128,12 +118,11 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
   std::string valueCopy = value;
   string_replace( "\"", "\\\"", valueCopy );
 
-  PGconn* pConnection = reinterpret_cast<PGconn*>( m_pConnection );
-  if( PQstatus(pConnection) != CONNECTION_OK )
-    PQreset( pConnection );
+  if( !m_pConnection->connected() )
+    m_pConnection->reconnect();
 
-  std::stringstream query;
-  query << "INSERT INTO " << table << " "
+  std::stringstream queryString;
+  queryString << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
   << "'" << sqlTime << "',"
@@ -141,13 +130,13 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
   << "'" << m_sessionID.getSenderCompID().getValue() << "',"
   << "'" << m_sessionID.getTargetCompID().getValue() << "',";
   if( m_sessionID.getSessionQualifier() == "" )
-    query << "NULL" << ",";
+    queryString << "NULL" << ",";
   else
-    query << "'" << m_sessionID.getSessionQualifier() << "',";
-  query << "'" << valueCopy << "')";
+    queryString << "'" << m_sessionID.getSessionQualifier() << "',";
+  queryString << "'" << valueCopy << "')";
 
-  PGresult* result = PQexec( pConnection, query.str().c_str() );
-  PQclear( result );
+  PostgreSQLQuery query( queryString.str() );
+  m_pConnection->execute( query );
 
   QF_STACK_POP
 }

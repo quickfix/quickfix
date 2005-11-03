@@ -34,6 +34,7 @@
 
 #include "MessageStore.h"
 #include "SessionSettings.h"
+#include "PostgreSQLConnection.h"
 #include <fstream>
 #include <string>
 
@@ -91,6 +92,7 @@ class PostgreSQLStore : public MessageStore
 public:
   PostgreSQLStore( const SessionID& s, const std::string& database, const std::string& user,
                    const std::string& password, const std::string& host, short port );
+  PostgreSQLStore( const SessionID& s, PostgreSQLConnection* pConnection );
   ~PostgreSQLStore();
 
   void connect() throw ( IOException );
@@ -113,7 +115,7 @@ private:
   void populateCache();
 
   MemoryStore m_cache;
-  void* m_pConnection;
+  PostgreSQLConnection* m_pConnection;
   SessionID m_sessionID;
 };
 }

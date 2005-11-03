@@ -34,6 +34,7 @@
 
 #include "Log.h"
 #include "SessionSettings.h"
+#include "PostgreSQLConnection.h"
 #include <fstream>
 #include <string>
 
@@ -95,10 +96,10 @@ public:
 
 private:
   void insert( const std::string& table, const std::string value );
-  void* m_pConnection;
+  PostgreSQLConnection* m_pConnection;
   SessionID m_sessionID;
 };
 }
 
-#endif //FIX_MYSQLLOG_H
-#endif //HAVE_MYSQL
+#endif //FIX_POSTGRESQLLOG_H
+#endif //HAVE_POSTGRESQL

@@ -32,8 +32,6 @@
 #include "Utility.h"
 #include "strptime.h"
 #include <fstream>
-#include <mysql.h>
-#undef MYSQL_PORT
 
 namespace FIX
 {
@@ -49,20 +47,12 @@ MySQLLog::MySQLLog
   const std::string& password, const std::string& host, short port )
   : m_sessionID( s )
 {
-  if ( !( m_pConnection = mysql_init( NULL ) ) )
-    throw ConfigError( "Unable to initialize MySQL" );
-  MYSQL* pConnection = reinterpret_cast < MYSQL* > ( m_pConnection );
-  if ( !mysql_real_connect( pConnection, host.c_str(), user.c_str(), password.c_str(),
-                            database.c_str(), port, NULL, 0 ) )
-  {
-    throw ConfigError( "Unable to connect to database" );
-  }
+  m_pConnection = new MySQLConnection( database, user, password, host, port );
 }
 
 MySQLLog::~MySQLLog()
 {
-  MYSQL* pConnection = reinterpret_cast<MYSQL*> ( m_pConnection );
-  mysql_close( pConnection );
+  delete m_pConnection;
 }
 
 Log* MySQLLogFactory::create( const SessionID& s )
@@ -128,9 +118,8 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   std::string valueCopy = value;
   string_replace( "\"", "\\\"", valueCopy );
 
-  MYSQL* pConnection = reinterpret_cast<MYSQL*>( m_pConnection );
-  std::stringstream query;
-  query << "INSERT INTO " << table << " "
+  std::stringstream queryString;
+  queryString << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
   << "'" << sqlTime << "',"
@@ -140,7 +129,8 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   << "\"" << m_sessionID.getSessionQualifier() << "\","
   << "\"" << valueCopy << "\")";
 
-  mysql_query( pConnection, query.str().c_str() );
+  MySQLQuery query( queryString.str() );
+  m_pConnection->execute( query );
 
   QF_STACK_POP
 }

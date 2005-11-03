@@ -34,6 +34,7 @@
 
 #include "Log.h"
 #include "SessionSettings.h"
+#include "MySQLConnection.h"
 #include <fstream>
 #include <string>
 
@@ -95,7 +96,7 @@ public:
 
 private:
   void insert( const std::string& table, const std::string value );
-  void* m_pConnection;
+  MySQLConnection* m_pConnection;
   SessionID m_sessionID;
 };
 }

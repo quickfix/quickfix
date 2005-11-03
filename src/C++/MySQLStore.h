@@ -34,6 +34,7 @@
 
 #include "MessageStore.h"
 #include "SessionSettings.h"
+#include "MySQLConnection.h"
 #include <fstream>
 #include <string>
 
@@ -91,6 +92,7 @@ class MySQLStore : public MessageStore
 public:
   MySQLStore( const SessionID& s, const std::string& database, const std::string& user,
               const std::string& password, const std::string& host, short port );
+  MySQLStore( const SessionID& s, MySQLConnection* pConnection );
   ~MySQLStore();
 
   bool set( int, const std::string& ) throw ( IOException );
@@ -111,7 +113,7 @@ private:
   void populateCache();
 
   MemoryStore m_cache;
-  void* m_pConnection;
+  MySQLConnection* m_pConnection;
   SessionID m_sessionID;
 };
 }
