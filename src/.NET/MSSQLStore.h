@@ -41,14 +41,13 @@ public __gc class MSSQLStore : public CPPMessageStore
 {
 public:
   MSSQLStore( SessionID* sessionID, String* database, String* user,
-      	      String* password, String* host, short port )
+      	      String* password, String* host )
   : CPPMessageStore( new FIX::MSSQLStore
     ( sessionID->unmanaged(),
       convertString(database),
       convertString(user),
       convertString(password),
-      convertString(host),
-      port ) ) {}
+      convertString(host) ) ) {}
 
   MSSQLStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
