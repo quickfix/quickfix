@@ -45,23 +45,28 @@ const std::string PostgreSQLStoreFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLStoreFactory::DEFAULT_PORT = 0;
 
 PostgreSQLStore::PostgreSQLStore
+( const SessionID& s, const DatabaseConnectionID& d, DatabaseConnectionPool<PostgreSQLConnection>* p )
+: m_sessionID( s ), m_pConnectionPool( p )
+{
+  m_pConnection = m_pConnectionPool->create( d );
+  populateCache();
+}
+
+PostgreSQLStore::PostgreSQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-: m_sessionID( s )
+: m_sessionID( s ), m_pConnectionPool( 0 )
 {
   m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
   populateCache();
 }
 
-PostgreSQLStore::PostgreSQLStore( const SessionID& s, PostgreSQLConnection* pConnection )
-: m_sessionID( s ), m_pConnection( pConnection )
-{
-  populateCache();
-}
-
 PostgreSQLStore::~PostgreSQLStore()
 {
-  delete m_pConnection;
+  if( m_pConnectionPool )
+    m_pConnectionPool->destroy( m_pConnection );
+  else
+    delete m_pConnection;
 }
 
 void PostgreSQLStore::populateCache()
@@ -128,7 +133,10 @@ MessageStore* PostgreSQLStoreFactory::create( const SessionID& s )
   else if( m_useDictionary )
     return create( s, m_dictionary );
   else
-    return new PostgreSQLStore( s, m_database, m_user, m_password, m_host, 0 );
+  {
+    DatabaseConnectionID id( m_database, m_user, m_password, m_host, m_port );
+    return new PostgreSQLStore( s, id, m_connectionPoolPtr.get() );
+  }
 
   QF_STACK_POP
 }
@@ -157,7 +165,8 @@ MessageStore* PostgreSQLStoreFactory::create( const SessionID& s, const Dictiona
   try { port = ( short ) settings.getLong( POSTGRESQL_STORE_PORT ); }
   catch( ConfigError& ) {}
 
-  return new PostgreSQLStore( s, database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new PostgreSQLStore( s, id, m_connectionPoolPtr.get() );
 
   QF_STACK_POP
 }

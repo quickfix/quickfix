@@ -65,7 +65,6 @@ namespace FIX
           return true;
         m_status = mysql_errno( pConnection );
         m_reason = mysql_error( pConnection );
-        if( success() ) return true;
         mysql_ping( pConnection );
         retry++;
       } while( retry <= 1 );
@@ -77,9 +76,9 @@ namespace FIX
       return m_status == 0;
     }
 
-    my_ulonglong rows()
+    int rows()
     {
-      return mysql_num_rows( m_result );
+      return (int)mysql_num_rows( m_result );
     }
 
     const std::string& reason()
@@ -87,9 +86,15 @@ namespace FIX
       return m_reason;
     }
 
-    MYSQL_ROW getNextRow()
+    char* getValue( int row, int column )
     {
-      return mysql_fetch_row( m_result );
+      if( m_rows.empty() )
+      {
+        MYSQL_ROW row = 0;
+        while( row = mysql_fetch_row( m_result ) )
+          m_rows.push_back(row);
+      }
+      return m_rows[row][column];
     }
 
   private:
@@ -97,6 +102,7 @@ namespace FIX
     int m_status;
     std::string m_query; 
     std::string m_reason;
+    std::vector<MYSQL_ROW> m_rows;
   };
 
   class MySQLConnection

@@ -35,6 +35,7 @@
 #include "MessageStore.h"
 #include "SessionSettings.h"
 #include "PostgreSQLConnection.h"
+#include "DatabaseConnectionPool.h"
 #include <fstream>
 #include <string>
 
@@ -54,26 +55,47 @@ public:
   static const short DEFAULT_PORT;
 
   PostgreSQLStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
+: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) 
+  {
+    bool poolConnections = false;
+    try { poolConnections = settings.get().getBool(POSTGRESQL_STORE_USECONNECTIONPOOL); }
+    catch( ConfigError& ) {}
+
+    m_connectionPoolPtr = std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> >
+      ( new DatabaseConnectionPool<PostgreSQLConnection>(poolConnections) );
+  }
 
   PostgreSQLStoreFactory( const Dictionary& dictionary )
-: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
+: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) 
+  {
+    m_connectionPoolPtr = std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> >
+      ( new DatabaseConnectionPool<PostgreSQLConnection>(false) );
+  }
 
   PostgreSQLStoreFactory( const std::string& database, const std::string& user,
                           const std::string& password, const std::string& host,
                           short port )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ), m_useDictionary( false ) {}
+  m_useSettings( false ), m_useDictionary( false ) 
+  {
+    m_connectionPoolPtr = std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> >
+      ( new DatabaseConnectionPool<PostgreSQLConnection>(false) );
+  }
 
   PostgreSQLStoreFactory()
 : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) {}
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) 
+  {
+    m_connectionPoolPtr = std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> >
+      ( new DatabaseConnectionPool<PostgreSQLConnection>(false) );
+  }
 
   MessageStore* create( const SessionID& );
   void destroy( MessageStore* );
 private:
   MessageStore* create( const SessionID& s, const Dictionary& );
 
+  std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> > m_connectionPoolPtr;
   SessionSettings m_settings;
   Dictionary m_dictionary;
   std::string m_database;
@@ -90,9 +112,9 @@ private:
 class PostgreSQLStore : public MessageStore
 {
 public:
+  PostgreSQLStore( const SessionID& s, const DatabaseConnectionID& d, DatabaseConnectionPool<PostgreSQLConnection>* p );
   PostgreSQLStore( const SessionID& s, const std::string& database, const std::string& user,
                    const std::string& password, const std::string& host, short port );
-  PostgreSQLStore( const SessionID& s, PostgreSQLConnection* pConnection );
   ~PostgreSQLStore();
 
   void connect() throw ( IOException );
@@ -116,6 +138,7 @@ private:
 
   MemoryStore m_cache;
   PostgreSQLConnection* m_pConnection;
+  DatabaseConnectionPool<PostgreSQLConnection>* m_pConnectionPool;
   SessionID m_sessionID;
 };
 }

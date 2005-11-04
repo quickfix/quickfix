@@ -83,19 +83,18 @@ void MySQLStore::populateCache()
   if( !m_pConnection->execute(query) )
     throw ConfigError( "No entries found for session in database" );
 
-  my_ulonglong rows = query.rows();
+  int rows = query.rows();
   if( rows > 1 )
     throw ConfigError( "Multiple entries found for session in database" );
 
   if( rows == 1 )
   {
-    MYSQL_ROW row = query.getNextRow();
     struct tm time;
-    std::string sqlTime = row[ 0 ];
+    std::string sqlTime = query.getValue( 0, 0 );
     strptime( sqlTime.c_str(), "%Y-%m-%d %H:%M:%S", &time );
     m_cache.setCreationTime (UtcTimeStamp (&time));
-    m_cache.setNextTargetMsgSeqNum( atol( row[ 1 ] ) );
-    m_cache.setNextSenderMsgSeqNum( atol( row[ 2 ] ) );
+    m_cache.setNextTargetMsgSeqNum( atol( query.getValue( 0, 1 ) ) );
+    m_cache.setNextSenderMsgSeqNum( atol( query.getValue( 0, 2 ) ) );
   }
   else
   {
@@ -229,8 +228,9 @@ throw ( IOException )
   if( !m_pConnection->execute(query) )
     throw IOException( query.reason() );
 
-  while ( MYSQL_ROW row = query.getNextRow() )
-    result.push_back( row[ 0 ] );
+  int rows = query.rows();
+  for( int row = 0; row < rows; row++ )
+    result.push_back( query.getValue( row, 0 ) );
 
   QF_STACK_POP
 }

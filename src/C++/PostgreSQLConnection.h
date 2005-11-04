@@ -33,6 +33,8 @@
 #endif
 
 #include <libpq-fe.h>
+#include "DatabaseConnectionID.h"
+#include "Mutex.h"
 
 namespace FIX
 {
@@ -96,15 +98,18 @@ namespace FIX
   {
   public:
     PostgreSQLConnection
+    ( const DatabaseConnectionID& id )
+    : m_connectionID( id )
+    {
+      connect();
+    }
+
+    PostgreSQLConnection
     ( const std::string& database, const std::string& user,
       const std::string& password, const std::string& host, short port )
+    : m_connectionID( database, user, password, host, port )
     {
-        m_pConnection = PQsetdbLogin
-          ( host.c_str(), port == 0 ? "" : IntConvertor::convert( port ).c_str(),
-            "", "", database.c_str(), user.c_str(), password.c_str() );
-
-        if( !connected() )
-          throw ConfigError( "Unable to connect to database" );
+      connect();
     }
 
     ~PostgreSQLConnection()
@@ -113,24 +118,45 @@ namespace FIX
         PQfinish( m_pConnection );
     }
 
+    const DatabaseConnectionID& connectionID()
+    {
+      return m_connectionID;
+    }
+
     bool connected()
     {
+      Locker locker( m_mutex );
       return PQstatus( m_pConnection ) == CONNECTION_OK;
     }
 
     bool reconnect()
     {
+      Locker locker( m_mutex );
       PQreset( m_pConnection );
       return connected();
     }
 
     bool execute( PostgreSQLQuery& pQuery )
     {
+      Locker locker( m_mutex );
       return pQuery.execute( m_pConnection );
     }
 
   private:
+    void connect()
+    {
+      short port = m_connectionID.getPort();
+      m_pConnection = PQsetdbLogin
+        ( m_connectionID.getHost().c_str(), port == 0 ? "" : IntConvertor::convert( port ).c_str(),
+          "", "", m_connectionID.getDatabase().c_str(), m_connectionID.getUser().c_str(), m_connectionID.getPassword().c_str() );
+
+      if( !connected() )
+        throw ConfigError( "Unable to connect to database" );
+    }
+
     PGconn* m_pConnection;
+    DatabaseConnectionID m_connectionID;
+    Mutex m_mutex;
   };
 }
 

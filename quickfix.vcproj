@@ -1975,6 +1975,12 @@ del /F EXCLUDE
 				Name="Storage Header Files"
 				Filter="">
 				<File
+					RelativePath=".\src\C++\DatabaseConnectionID.h">
+				</File>
+				<File
+					RelativePath=".\src\C++\DatabaseConnectionPool.h">
+				</File>
+				<File
 					RelativePath="src\C++\FileLog.h">
 					<FileConfiguration
 						Name="Debug|Win32">
@@ -2050,6 +2056,9 @@ del /F EXCLUDE
 					RelativePath=".\src\C++\MSSQLStore.h">
 				</File>
 				<File
+					RelativePath=".\src\C++\MySQLConnection.h">
+				</File>
+				<File
 					RelativePath="src\C++\MySQLLog.h">
 					<FileConfiguration
 						Name="Debug|Win32">
@@ -2083,6 +2092,9 @@ del /F EXCLUDE
 							AdditionalDependencies=""
 							Outputs=""/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\src\C++\PostgreSQLConnection.h">
 				</File>
 				<File
 					RelativePath=".\src\C++\PostgreSQLLog.h">
