@@ -46,14 +46,18 @@ libquickfix_la_SOURCES = \
 	ThreadedSocketConnection.h \
 	FileStore.cpp \
 	FileStore.h \
+	MySQLConnection.h \
 	MySQLStore.cpp \
 	MySQLStore.h \
 	MySQLLog.cpp \
 	MySQLLog.h \
+	PostgreSQLConnection.h \
 	PostgreSQLStore.cpp \
 	PostgreSQLStore.h \
 	PostgreSQLLog.cpp \
 	PostgreSQLLog.h \
+	DatabaseConnectionID.h \
+	DatabaseConnectionPool.h \
 	Dictionary.cpp \
 	Dictionary.h \
 	DataDictionary.cpp \
