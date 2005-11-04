@@ -43,16 +43,26 @@ const std::string PostgreSQLLogFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLLogFactory::DEFAULT_PORT = 0;
 
 PostgreSQLLog::PostgreSQLLog
+( const SessionID& s, const DatabaseConnectionID& d, DatabaseConnectionPool<PostgreSQLConnection>* p )
+: m_sessionID( s ), m_pConnectionPool( p )
+{
+  m_pConnection = m_pConnectionPool->create( d );
+}
+
+PostgreSQLLog::PostgreSQLLog
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-  : m_sessionID( s )
+  : m_sessionID( s ), m_pConnectionPool( 0 )
 {
   m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
 }
 
 PostgreSQLLog::~PostgreSQLLog()
 {
-  delete m_pConnection;
+  if( m_pConnectionPool )
+    m_pConnectionPool->destroy( m_pConnection );
+  else
+    delete m_pConnection;
 }
 
 Log* PostgreSQLLogFactory::create( const SessionID& s )
@@ -92,7 +102,8 @@ Log* PostgreSQLLogFactory::create( const SessionID& s )
     port = m_port;
   }
 
-  return new PostgreSQLLog( s, database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new PostgreSQLLog( s, id, m_connectionPoolPtr.get() );
 
   QF_STACK_POP
 }

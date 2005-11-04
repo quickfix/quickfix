@@ -35,6 +35,7 @@
 #include "Log.h"
 #include "SessionSettings.h"
 #include "PostgreSQLConnection.h"
+#include "DatabaseConnectionPool.h"
 #include <fstream>
 #include <string>
 
@@ -54,21 +55,38 @@ public:
   static const short DEFAULT_PORT;
 
   PostgreSQLLogFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ) {}
+: m_settings( settings ), m_useSettings( true ) 
+  {
+    bool poolConnections = false;
+    try { poolConnections = settings.get().getBool(POSTGRESQL_STORE_USECONNECTIONPOOL); }
+    catch( ConfigError& ) {}
+
+    m_connectionPoolPtr = std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> >
+      ( new DatabaseConnectionPool<PostgreSQLConnection>(poolConnections) );
+  }
 
   PostgreSQLLogFactory( const std::string& database, const std::string& user,
                      const std::string& password, const std::string& host,
                      short port )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ) {}
+  m_useSettings( false ) 
+  {
+    m_connectionPoolPtr = std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> >
+      ( new DatabaseConnectionPool<PostgreSQLConnection>(false) );
+  }
 
   PostgreSQLLogFactory()
 : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ) {}
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ) 
+  {
+    m_connectionPoolPtr = std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> >
+      ( new DatabaseConnectionPool<PostgreSQLConnection>(false) );
+  }
 
   Log* create( const SessionID& );
   void destroy( Log* );
 private:
+  std::auto_ptr<DatabaseConnectionPool<PostgreSQLConnection> > m_connectionPoolPtr;
   SessionSettings m_settings;
   std::string m_database;
   std::string m_user;
@@ -83,6 +101,7 @@ private:
 class PostgreSQLLog : public Log
 {
 public:
+  PostgreSQLLog( const SessionID& s, const DatabaseConnectionID& d, DatabaseConnectionPool<PostgreSQLConnection>* p );
   PostgreSQLLog( const SessionID& s, const std::string& database, const std::string& user,
                  const std::string& password, const std::string& host, short port );
   ~PostgreSQLLog();
@@ -97,6 +116,7 @@ public:
 private:
   void insert( const std::string& table, const std::string value );
   PostgreSQLConnection* m_pConnection;
+  DatabaseConnectionPool<PostgreSQLConnection>* m_pConnectionPool;
   SessionID m_sessionID;
 };
 }
