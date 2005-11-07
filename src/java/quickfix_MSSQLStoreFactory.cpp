@@ -97,5 +97,5 @@ JNIEXPORT jobject JNICALL Java_quickfix_MSSQLStoreFactory_create__Lquickfix_Sess
 
   QF_STACK_CATCH
 }
-
+ 
 #endif //HAVE_MSSQL

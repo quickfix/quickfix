@@ -36,7 +36,6 @@ JNIEXPORT void JNICALL Java_quickfix_MSSQLLogFactory_create__
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
-  FIX::process_sleep(15);
   JVM::set( pEnv );
   JVMObject object( obj );
 
