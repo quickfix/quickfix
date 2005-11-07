@@ -43,16 +43,26 @@ const std::string MySQLLogFactory::DEFAULT_HOST = "localhost";
 const short MySQLLogFactory::DEFAULT_PORT = 0;
 
 MySQLLog::MySQLLog
+( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p )
+: m_sessionID( s ), m_pConnectionPool( p )
+{
+  m_pConnection = m_pConnectionPool->create( d );
+}
+
+MySQLLog::MySQLLog
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-  : m_sessionID( s )
+  : m_sessionID( s ), m_pConnectionPool( 0 )
 {
   m_pConnection = new MySQLConnection( database, user, password, host, port );
 }
 
 MySQLLog::~MySQLLog()
 {
-  delete m_pConnection;
+  if( m_pConnectionPool )
+    m_pConnectionPool->destroy( m_pConnection );
+  else
+    delete m_pConnection;
 }
 
 Log* MySQLLogFactory::create( const SessionID& s )
@@ -92,7 +102,8 @@ Log* MySQLLogFactory::create( const SessionID& s )
     port = m_port;
   }
 
-  return new MySQLLog( s, database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new MySQLLog( s, id, m_connectionPoolPtr.get() );
 
   QF_STACK_POP
 }

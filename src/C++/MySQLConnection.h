@@ -34,117 +34,151 @@
 
 #include <mysql.h>
 #include <errmsg.h>
+#include "DatabaseConnectionID.h"
+#include "DatabaseConnectionPool.h"
+#include "Mutex.h"
 
 #undef MYSQL_PORT
 
 namespace FIX
 {
-  class MySQLQuery
+class MySQLQuery
+{
+public:
+  MySQLQuery( const std::string& query ) 
+  : m_result( 0 ), m_query( query ) 
+  {}
+
+  ~MySQLQuery()
   {
-  public:
-    MySQLQuery( const std::string& query ) 
-    : m_result( 0 ), m_query( query ) 
-    {}
+    if( m_result )
+      mysql_free_result( m_result );
+  }
 
-    ~MySQLQuery()
-    {
-      if( m_result )
-        mysql_free_result( m_result );
-    }
-
-    bool execute( MYSQL* pConnection )
-    {
-      int retry = 0;
-      
-      do
-      {
-        if( m_result ) mysql_free_result( m_result );
-        int errcode = mysql_query( pConnection, m_query.c_str() );
-        m_result = mysql_store_result( pConnection );
-        if( errcode == 0 )
-          return true;
-        m_status = mysql_errno( pConnection );
-        m_reason = mysql_error( pConnection );
-        mysql_ping( pConnection );
-        retry++;
-      } while( retry <= 1 );
-      return success();
-    }
-
-    bool success()
-    {
-      return m_status == 0;
-    }
-
-    int rows()
-    {
-      return (int)mysql_num_rows( m_result );
-    }
-
-    const std::string& reason()
-    {
-      return m_reason;
-    }
-
-    char* getValue( int row, int column )
-    {
-      if( m_rows.empty() )
-      {
-        MYSQL_ROW row = 0;
-        while( row = mysql_fetch_row( m_result ) )
-          m_rows.push_back(row);
-      }
-      return m_rows[row][column];
-    }
-
-  private:
-    MYSQL_RES* m_result;
-    int m_status;
-    std::string m_query; 
-    std::string m_reason;
-    std::vector<MYSQL_ROW> m_rows;
-  };
-
-  class MySQLConnection
+  bool execute( MYSQL* pConnection )
   {
-  public:
-    MySQLConnection
-    ( const std::string& database, const std::string& user,
-      const std::string& password, const std::string& host, short port )
+    int retry = 0;
+    
+    do
     {
-      m_pConnection = mysql_init( NULL );
-      if( !mysql_real_connect( m_pConnection, host.c_str(), user.c_str(), password.c_str(),
-                               database.c_str(), port, 0, 0 ) )
-      {
-          if( !connected() )
-            throw ConfigError( "Unable to connect to database" );
-      }
+      if( m_result ) mysql_free_result( m_result );
+      int errcode = mysql_query( pConnection, m_query.c_str() );
+      m_result = mysql_store_result( pConnection );
+      if( errcode == 0 )
+        return true;
+      m_status = mysql_errno( pConnection );
+      m_reason = mysql_error( pConnection );
+      mysql_ping( pConnection );
+      retry++;
+    } while( retry <= 1 );
+    return success();
+  }
+
+  bool success()
+  {
+    return m_status == 0;
+  }
+
+  int rows()
+  {
+    return (int)mysql_num_rows( m_result );
+  }
+
+  const std::string& reason()
+  {
+    return m_reason;
+  }
+
+  char* getValue( int row, int column )
+  {
+    if( m_rows.empty() )
+    {
+      MYSQL_ROW row = 0;
+      while( row = mysql_fetch_row( m_result ) )
+        m_rows.push_back(row);
+    }
+    return m_rows[row][column];
+  }
+
+private:
+  MYSQL_RES* m_result;
+  int m_status;
+  std::string m_query; 
+  std::string m_reason;
+  std::vector<MYSQL_ROW> m_rows;
+};
+
+class MySQLConnection
+{
+public:
+  MySQLConnection
+  ( const DatabaseConnectionID& id )
+  : m_connectionID( id )
+  {
+    connect();
+  }
+
+  MySQLConnection
+  ( const std::string& database, const std::string& user,
+    const std::string& password, const std::string& host, short port )
+  : m_connectionID( database, user, password, host, port )
+  {
+    connect();
+  }
+
+  ~MySQLConnection()
+  {
+    if( m_pConnection )
+      mysql_close( m_pConnection );
+  }
+
+  const DatabaseConnectionID& connectionID()
+  {
+    return m_connectionID;
+  }
+
+  bool connected()
+  {
+    Locker locker( m_mutex );
+    return mysql_ping( m_pConnection ) == 0;
+  }
+
+  bool reconnect()
+  {
+    Locker locker( m_mutex );
+    return mysql_ping( m_pConnection ) == 0;
+  }
+
+  bool execute( MySQLQuery& pQuery )
+  {
+    Locker locker( m_mutex );
+    return pQuery.execute( m_pConnection );
+  }
+
+private:
+  void connect()
+  {
+    short port = m_connectionID.getPort();
+    m_pConnection = mysql_init( NULL );
+    if( !mysql_real_connect
+      ( m_pConnection, m_connectionID.getHost().c_str(), m_connectionID.getUser().c_str(), 
+        m_connectionID.getPassword().c_str(), m_connectionID.getDatabase().c_str(), port, 0, 0 ) )
+    {
+        if( !connected() )
+          throw ConfigError( "Unable to connect to database" );
     }
 
-    ~MySQLConnection()
-    {
-      if( m_pConnection )
-        mysql_close( m_pConnection );
-    }
+  }
 
-    bool connected()
-    {
-      return mysql_ping( m_pConnection ) == 0;
-    }
+  MYSQL* m_pConnection;
+  DatabaseConnectionID m_connectionID;
+  Mutex m_mutex;
+};
 
-    bool reconnect()
-    {
-      return mysql_ping( m_pConnection ) == 0;
-    }
-
-    bool execute( MySQLQuery& pQuery )
-    {
-      return pQuery.execute( m_pConnection );
-    }
-
-  private:
-    MYSQL* m_pConnection;
-  };
+typedef DatabaseConnectionPool<MySQLConnection>
+  MySQLConnectionPool;
+typedef std::auto_ptr< MySQLConnectionPool >
+  MySQLConnectionPoolPtr;
 }
 
 #endif //FIX_MYSQLCONNECTION_H

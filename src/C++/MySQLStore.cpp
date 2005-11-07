@@ -34,10 +34,6 @@
 #include "Utility.h"
 #include "strptime.h"
 #include <fstream>
-#include <mysql.h>
-#include <errmsg.h>
-
-#undef MYSQL_PORT
 
 namespace FIX
 {
@@ -49,23 +45,28 @@ const std::string MySQLStoreFactory::DEFAULT_HOST = "localhost";
 const short MySQLStoreFactory::DEFAULT_PORT = 3306;
 
 MySQLStore::MySQLStore
+( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p )
+: m_sessionID( s ), m_pConnectionPool( p )
+{
+  m_pConnection = m_pConnectionPool->create( d );
+  populateCache();
+}
+
+MySQLStore::MySQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-  : m_sessionID( s )
+: m_sessionID( s ), m_pConnectionPool( 0 )
 {
   m_pConnection = new MySQLConnection( database, user, password, host, port );
   populateCache();
 }
 
-MySQLStore::MySQLStore( const SessionID& s, MySQLConnection* pConnection )
-: m_sessionID( s ), m_pConnection( pConnection )
-{
-  populateCache();
-}
-
 MySQLStore::~MySQLStore()
 {
-  delete m_pConnection;
+  if( m_pConnectionPool )
+    m_pConnectionPool->destroy( m_pConnection );
+  else
+    delete m_pConnection;
 }
 
 void MySQLStore::populateCache()
@@ -132,14 +133,11 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s )
   else if( m_useDictionary )
     return create( s, m_dictionary );
   else
-    return new MySQLStore( s, m_database, m_user, m_password, m_host, 0 );
+  {
+    DatabaseConnectionID id( m_database, m_user, m_password, m_host, m_port );
+    return new MySQLStore( s, id, m_connectionPoolPtr.get() );
+  }
 
-  QF_STACK_POP
-}
-
-void MySQLStoreFactory::destroy( MessageStore* pStore )
-{ QF_STACK_PUSH(MySQLStoreFactory::destroy)
-  delete pStore;
   QF_STACK_POP
 }
 
@@ -169,6 +167,12 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& s
 
   return new MySQLStore( s, database, user, password, host, port );
 
+  QF_STACK_POP
+}
+
+void MySQLStoreFactory::destroy( MessageStore* pStore )
+{ QF_STACK_PUSH(MySQLStoreFactory::destroy)
+  delete pStore;
   QF_STACK_POP
 }
 

@@ -54,26 +54,47 @@ public:
   static const short DEFAULT_PORT;
 
   MySQLStoreFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) {}
+: m_settings( settings ), m_useSettings( true ), m_useDictionary( false ) 
+  {
+    bool poolConnections = false;
+    try { poolConnections = settings.get().getBool(MYSQL_STORE_USECONNECTIONPOOL); }
+    catch( ConfigError& ) {}
+
+    m_connectionPoolPtr = MySQLConnectionPoolPtr
+      ( new MySQLConnectionPool(poolConnections) );
+  }
 
   MySQLStoreFactory( const Dictionary& dictionary )
-: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) {}
+: m_dictionary( dictionary ), m_useSettings( false ), m_useDictionary( true ) 
+  {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr
+      ( new MySQLConnectionPool(false) );
+  }
 
   MySQLStoreFactory( const std::string& database, const std::string& user,
-                     const std::string& password, const std::string& host,
-                     short port )
+                          const std::string& password, const std::string& host,
+                          short port )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ), m_useDictionary( false ) {}
+  m_useSettings( false ), m_useDictionary( false ) 
+  {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr
+      ( new MySQLConnectionPool(false) );
+  }
 
   MySQLStoreFactory()
 : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) {}
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ), m_useDictionary( false ) 
+  {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr
+      ( new MySQLConnectionPool(false) );
+  }
 
   MessageStore* create( const SessionID& );
   void destroy( MessageStore* );
 private:
   MessageStore* create( const SessionID& s, const Dictionary& );
 
+  MySQLConnectionPoolPtr m_connectionPoolPtr;
   SessionSettings m_settings;
   Dictionary m_dictionary;
   std::string m_database;
@@ -90,9 +111,9 @@ private:
 class MySQLStore : public MessageStore
 {
 public:
+  MySQLStore( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p );
   MySQLStore( const SessionID& s, const std::string& database, const std::string& user,
-              const std::string& password, const std::string& host, short port );
-  MySQLStore( const SessionID& s, MySQLConnection* pConnection );
+                   const std::string& password, const std::string& host, short port );
   ~MySQLStore();
 
   bool set( int, const std::string& ) throw ( IOException );
@@ -114,6 +135,7 @@ private:
 
   MemoryStore m_cache;
   MySQLConnection* m_pConnection;
+  MySQLConnectionPool* m_pConnectionPool;
   SessionID m_sessionID;
 };
 }

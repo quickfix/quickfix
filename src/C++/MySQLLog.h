@@ -54,21 +54,38 @@ public:
   static const short DEFAULT_PORT;
 
   MySQLLogFactory( const SessionSettings& settings )
-: m_settings( settings ), m_useSettings( true ) {}
+: m_settings( settings ), m_useSettings( true ) 
+  {
+    bool poolConnections = false;
+    try { poolConnections = settings.get().getBool(MYSQL_LOG_USECONNECTIONPOOL); }
+    catch( ConfigError& ) {}
+
+    m_connectionPoolPtr = MySQLConnectionPoolPtr
+      ( new MySQLConnectionPool(poolConnections) );
+  }
 
   MySQLLogFactory( const std::string& database, const std::string& user,
                    const std::string& password, const std::string& host,
                    short port )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
-  m_useSettings( false ) {}
+  m_useSettings( false ) 
+  {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr
+      ( new MySQLConnectionPool(false) );
+  }
 
   MySQLLogFactory()
 : m_database( DEFAULT_DATABASE ), m_user( DEFAULT_USER ), m_password( DEFAULT_PASSWORD ),
-  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ) {}
+  m_host( DEFAULT_HOST ), m_port( DEFAULT_PORT ), m_useSettings( false ) 
+  {
+    m_connectionPoolPtr = MySQLConnectionPoolPtr
+      ( new MySQLConnectionPool(false) );
+  }
 
   Log* create( const SessionID& );
   void destroy( Log* );
 private:
+  MySQLConnectionPoolPtr m_connectionPoolPtr;
   SessionSettings m_settings;
   std::string m_database;
   std::string m_user;
@@ -83,8 +100,9 @@ private:
 class MySQLLog : public Log
 {
 public:
+  MySQLLog( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p );
   MySQLLog( const SessionID& s, const std::string& database, const std::string& user,
-              const std::string& password, const std::string& host, short port );
+                 const std::string& password, const std::string& host, short port );
   ~MySQLLog();
 
   void onIncoming( const std::string& value )
@@ -97,6 +115,7 @@ public:
 private:
   void insert( const std::string& table, const std::string value );
   MySQLConnection* m_pConnection;
+  MySQLConnectionPool* m_pConnectionPool;
   SessionID m_sessionID;
 };
 }
