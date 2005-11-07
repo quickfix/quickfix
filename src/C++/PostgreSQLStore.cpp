@@ -45,7 +45,7 @@ const std::string PostgreSQLStoreFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLStoreFactory::DEFAULT_PORT = 0;
 
 PostgreSQLStore::PostgreSQLStore
-( const SessionID& s, const DatabaseConnectionID& d, DatabaseConnectionPool<PostgreSQLConnection>* p )
+( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
 : m_sessionID( s ), m_pConnectionPool( p )
 {
   m_pConnection = m_pConnectionPool->create( d );

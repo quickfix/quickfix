@@ -43,7 +43,7 @@ const std::string PostgreSQLLogFactory::DEFAULT_HOST = "localhost";
 const short PostgreSQLLogFactory::DEFAULT_PORT = 0;
 
 PostgreSQLLog::PostgreSQLLog
-( const SessionID& s, const DatabaseConnectionID& d, DatabaseConnectionPool<PostgreSQLConnection>* p )
+( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
 : m_sessionID( s ), m_pConnectionPool( p )
 {
   m_pConnection = m_pConnectionPool->create( d );
