@@ -52,18 +52,21 @@ public:
     return m_connections[id].first;
   }
 
-  void destroy( T* pConnection )
+  bool destroy( T* pConnection )
   {
     if( !m_poolConnections )
+    {
       delete pConnection;
+      return true;
+    }
 
     const DatabaseConnectionID& id = pConnection->connectionID();
     if( m_connections.find( id ) == m_connections.end() )
-      return;
+      return false;
 
     Connection connection = m_connections[id];
     if( connection.first != pConnection )
-      return;
+      return false;
 
     connection.second--;
     if( connection.second == 0 )
@@ -71,10 +74,11 @@ public:
       m_connections.erase( id );
       delete pConnection;
     }
+    return true;
   }
 
 private:
-  typedef std::pair<PostgreSQLConnection*, int>
+  typedef std::pair<T*, int>
     Connection;
   typedef std::map<DatabaseConnectionID, Connection>
     Connections;
