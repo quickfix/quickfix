@@ -255,7 +255,7 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>FileStorePath</I> </TD>
-    <TD> Directory to store sequence number and message files. Only used with FileStoreFactory. </TD>
+    <TD> Directory to store sequence number and message files. </TD>
     <TD> valid directory for storing files, must have write access </TD>
     <TD> </TD>
   </TR>
@@ -264,58 +264,64 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStoreDatabase</I> </TD>
-    <TD> Name of MySQL database to access for storing messages and session state. Only used with
-         MySQLStoreFactory. </TD>
+    <TD> Name of MySQL database to access for storing messages and session state. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStoreUser</I> </TD>
-    <TD> User name logging in to MySQL database. Only used with MySQLStoreFactory. </TD>
+    <TD> User name logging in to MySQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> root </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStorePassword</I> </TD>
-    <TD> Users password. Only used with MySQLStoreFactory. </TD>
+    <TD> Users password. </TD>
     <TD> correct MySQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStoreHost</I> </TD>
-    <TD> Address of MySQL database. Only used with MySQLStoreFactory. </TD>
+    <TD> Address of MySQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLStorePort</I> </TD>
-    <TD> Port of MySQL database. Only used with MySQLStoreFactory. </TD>
+    <TD> Port of MySQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard MySQL port </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>MySQLStoreUseConnectionPool</I> </TD>
+    <TD> Use database connection pools.
+         When possible, sessions will share a single database connection.  Otherwise each session
+         gets its own connection. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
   </TR>
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4">MSSQL</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLStoreDatabase</I> </TD>
-    <TD> Name of MSSQL database to access for storing messages and session state. Only used with
-         MSSQLStoreFactory. </TD>
+    <TD> Name of MSSQL database to access for storing messages and session state. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLStoreUser</I> </TD>
-    <TD> User name logging in to MSSQL database. Only used with MSSQLStoreFactory. </TD>
+    <TD> User name logging in to MSSQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> sa </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLStorePassword</I> </TD>
-    <TD> Users password. Only used with MSSQLStoreFactory. </TD>
+    <TD> Users password. </TD>
     <TD> correct MSSQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLStoreHost</I> </TD>
-    <TD> Address of MSSQL database. Only used with MSSQLStoreFactory. </TD>
+    <TD> Address of MSSQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
@@ -324,35 +330,41 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLStoreDatabase</I> </TD>
-    <TD> Name of PostgreSQL database to access for storing messages and session state. Only used with
-         PostgreSQLStoreFactory. </TD>
+    <TD> Name of PostgreSQL database to access for storing messages and session state. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLStoreUser</I> </TD>
-    <TD> User name logging in to PostgreSQL database. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> User name logging in to PostgreSQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> postgres </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLStorePassword</I> </TD>
-    <TD> Users password. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> Users password. </TD>
     <TD> correct PostgreSQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLStoreHost</I> </TD>
-    <TD> Address of MySQL database. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> Address of MySQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLStorePort</I> </TD>
-    <TD> Port of PostgreSQL database. Only used with PostgreSQLStoreFactory. </TD>
+    <TD> Port of PostgreSQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard PostgreSQL port </TD>
   </TR>
-
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLStoreUseConnectionPool</I> </TD>
+    <TD> Use database connection pools.
+         When possible, sessions will share a single database connection.  Otherwise each session
+         gets its own connection. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Logging">Logging</A></TD>
   </TR>
@@ -361,7 +373,7 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>FileLogPath</I> </TD>
-    <TD> Directory to store logs. Only used with FileLogFactory. </TD>
+    <TD> Directory to store logs. </TD>
     <TD> valid directory for storing files, must have write access </TD>
     <TD> </TD>
   </TR>
@@ -370,58 +382,64 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLLogDatabase</I> </TD>
-    <TD> Name of MySQL database to access for logging. Only used with
-         MySQLLogFactory. </TD>
+    <TD> Name of MySQL database to access for logging. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLLogUser</I> </TD>
-    <TD> User name logging in to MySQL database. Only used with MySQLLogFactory. </TD>
+    <TD> User name logging in to MySQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> root </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLLogPassword</I> </TD>
-    <TD> Users password. Only used with MySQLLogFactory. </TD>
+    <TD> Users password. </TD>
     <TD> correct MySQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLLogHost</I> </TD>
-    <TD> Address of MySQL database. Only used with MySQLLogFactory. </TD>
+    <TD> Address of MySQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MySQLLogPort</I> </TD>
-    <TD> Port of MySQL database. Only used with MySQLLogFactory. </TD>
+    <TD> Port of MySQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard MySQL port </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>MySQLLogUseConnectionPool</I> </TD>
+    <TD> Use database connection pools.
+         When possible, sessions will share a single database connection.  Otherwise each session
+         gets its own connection. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
   </TR>
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4">MSSQL</TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLLogDatabase</I> </TD>
-    <TD> Name of MSSQL database to access for logging. Only used with
-         MSSQLLogFactory. </TD>
+    <TD> Name of MSSQL database to access for logging. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLLogUser</I> </TD>
-    <TD> User name logging in to MSSQL database. Only used with MSSQLLogFactory. </TD>
+    <TD> User name logging in to MSSQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> sa </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLLogPassword</I> </TD>
-    <TD> Users password. Only used with MSSQLLogFactory. </TD>
+    <TD> Users password. </TD>
     <TD> correct MSSQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>MSSQLLogHost</I> </TD>
-    <TD> Address of MSSQL database. Only used with MSSQLLogFactory. </TD>
+    <TD> Address of MSSQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
@@ -430,35 +448,41 @@
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLLogDatabase</I> </TD>
-    <TD> Name of PostgreSQL database to access for logging. Only used with
-         PostgreSQLLogFactory. </TD>
+    <TD> Name of PostgreSQL database to access for logging. </TD>
     <TD> valid database for storing files, must have write access and correct DB shema </TD>
     <TD> quickfix </TD>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLLogUser</I> </TD>
-    <TD> User name logging in to PostgreSQL database. Only used with PostgreSQLLogFactory. </TD>
+    <TD> User name logging in to PostgreSQL database. </TD>
     <TD> valid user with read/write access to appropriate tables in database </TD>
     <TD> postgres </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLLogPassword</I> </TD>
-    <TD> Users password. Only used with PostgreSQLLogFactory. </TD>
+    <TD> Users password. </TD>
     <TD> correct PostgreSQL password for user </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLLogHost</I> </TD>
-    <TD> Address of PostgreSQL database. Only used with PostgreSQLLogFactory. </TD>
+    <TD> Address of PostgreSQL database. </TD>
     <TD> valid IP address in the format of x.x.x.x or a domain name </TD>
     <TD> localhost </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>PostgreSQLLogPort</I> </TD>
-    <TD> Port of PostgreSQL database. Only used with PostgreSQLLogFactory. </TD>
+    <TD> Port of PostgreSQL database. </TD>
     <TD> positive integer </TD>
     <TD> standard PostgreSQL port </TD>
   </TR>
-
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PostgreSQLLogUseConnectionPool</I> </TD>
+    <TD> Use database connection pools.
+         When possible, sessions will share a single database connection.  Otherwise each session
+         gets its own connection. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Miscellaneous">Miscellaneous</A></TD>
   </TR>
