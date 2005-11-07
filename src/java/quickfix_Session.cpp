@@ -207,6 +207,21 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
   QF_STACK_CATCH
 }
 
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_doesSessionExist
+(JNIEnv *pEnv, jclass cls, jobject sID)
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(sID) ) return false;
+
+  JVM::set( pEnv );
+  JVMObject jsessionid( sID );
+
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jsessionid.getLong( "cppPointer" );
+  return FIX::Session::doesSessionExist( *pSessionID );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jobject JNICALL Java_quickfix_Session_lookupSession
 (JNIEnv *pEnv, jclass cls, jobject sID)
 { QF_STACK_TRY
@@ -368,6 +383,43 @@ JNIEXPORT void JNICALL Java_quickfix_Session_setNextSenderMsgSeqNum
   {
     throwNew( "Ljava/io/IOException;", "" );
   }
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getSessionID
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
+  return newSessionID( pSession->getSessionID() );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jint JNICALL Java_quickfix_Session_numSessions
+(JNIEnv *pEnv, jclass cls)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+
+  return FIX::Session::numSessions();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_isSessionTime
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
+  return pSession->isSessionTime();
 
   QF_STACK_CATCH
 }

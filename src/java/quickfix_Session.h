@@ -49,6 +49,14 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Session_sendToTarget__Lquickfix_Message
 
 /*
  * Class:     quickfix_Session
+ * Method:    doesSessionExist
+ * Signature: (Lquickfix/SessionID;)Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_doesSessionExist
+  (JNIEnv *, jclass, jobject);
+
+/*
+ * Class:     quickfix_Session
  * Method:    lookupSession
  * Signature: (Lquickfix/SessionID;)Lquickfix/Session;
  */
@@ -142,6 +150,30 @@ JNIEXPORT void JNICALL Java_quickfix_Session_setNextSenderMsgSeqNum
  */
 JNIEXPORT void JNICALL Java_quickfix_Session_setNextTargetMsgSeqNum
   (JNIEnv *, jobject, jint);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    getSessionID
+ * Signature: ()Lquickfix/SessionID;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getSessionID
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    numSessions
+ * Signature: ()I
+ */
+JNIEXPORT jint JNICALL Java_quickfix_Session_numSessions
+  (JNIEnv *, jclass);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    isSessionTime
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_Session_isSessionTime
+  (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_Session

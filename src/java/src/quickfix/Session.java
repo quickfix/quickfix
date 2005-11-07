@@ -46,6 +46,7 @@ public class Session {
          String qualifier)
 	throws SessionNotFound;
 
+	public static native boolean doesSessionExist(SessionID sessionID);
     public static native Session lookupSession(SessionID sessionID);
 
     public native void logon();
@@ -60,6 +61,12 @@ public class Session {
     public native void reset() throws IOException;
     public native void setNextSenderMsgSeqNum( int num ) throws IOException;
     public native void setNextTargetMsgSeqNum( int num ) throws IOException;
+
+	public native SessionID getSessionID();
+
+	public static native int numSessions();
+
+	public native boolean isSessionTime();
 
     public native int getExpectedSenderNum();
     public native int getExpectedTargetNum();

@@ -74,6 +74,8 @@ public:
 
   static int numSessions();
 
+  bool isSessionTime();
+
   int getExpectedSenderNum();
   int getExpectedTargetNum();
 

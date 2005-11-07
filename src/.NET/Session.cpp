@@ -220,6 +220,12 @@ int Session::numSessions()
   QF_STACK_CATCH
 }
 
+bool Session::isSessionTime()
+{ QF_STACK_TRY
+  return unmanaged().isSessionTime();
+  QF_STACK_CATCH
+}
+
 int Session::getExpectedSenderNum()
 { QF_STACK_TRY
   return unmanaged().getExpectedSenderNum();
