@@ -204,7 +204,7 @@ struct DoubleConvertor
   static std::string convert( double value )
   {
     char result[32];
-    if( value == 0 || value > 0.0001 )
+    if( value == 0 || value > 0.0001 || value <= -0.0001 )
     {
       return std::string( result, sprintf( result, "%.15g", value ) );
     }
