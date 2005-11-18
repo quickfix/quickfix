@@ -66,16 +66,17 @@ public:
 #endif
   }
 
-  void wait()
+  void wait( double s )
   {
 #ifdef _MSC_VER
-    WaitForSingleObject( m_event, 100 );
+    WaitForSingleObject( m_event, (long)(s * 1000) );
 #else
     pthread_mutex_lock( &m_mutex );
-    timespec ts;
-    ts.tv_sec = time( NULL ) + 1;
-    ts.tv_nsec = 0;
-    pthread_cond_timedwait( &m_event, &m_mutex, &ts );
+    timespec time, remainder;
+    double intpart;
+    time.tv_nsec = (long)(modf(s, &intpart) * 1e9);
+    time.tv_sec = (int)intpart;
+    pthread_cond_timedwait( &m_event, &m_mutex, &time );
     pthread_mutex_unlock( &m_mutex );
 #endif
   }
