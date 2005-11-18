@@ -36,6 +36,12 @@ public:
   int field;
 };
 
+public __gc class FieldConvertError : public Exception
+{
+public:
+  FieldConvertError( String* what ) : Exception( what ) {}
+};
+
 public __gc class NoTagValue : public Exception
 {
 public:
