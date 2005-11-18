@@ -21,6 +21,8 @@
 
 #include "quickfix_net.h"
 #include "DataDictionary.h"
+#include "SessionSettings.h"
+#include "Dictionary.h"
 #include "Application.h"
 #include "SocketInitiator.h"
 #include "SocketAcceptor.h"

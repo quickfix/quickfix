@@ -28,6 +28,8 @@ using namespace System::IO;
 
 #include "quickfix/SessionSettings.h"
 #include "quickfix/CallStack.h"
+#include "SessionID.h"
+#include "Dictionary.h"
 #include "Exceptions.h"
 
 namespace QuickFix
@@ -35,6 +37,14 @@ namespace QuickFix
 public __gc class SessionSettings
 {
 public:
+  SessionSettings()
+  { QF_STACK_TRY
+
+    m_pUnmanaged = new FIX::SessionSettings();
+
+    QF_STACK_CATCH
+  }
+
   SessionSettings( Stream* stream )
   { QF_STACK_TRY
 
@@ -67,6 +77,54 @@ public:
   ~SessionSettings()
   {
     delete m_pUnmanaged;
+  }
+
+  Dictionary* get( SessionID* sessionID )
+  { QF_STACK_TRY
+
+    try
+    {
+      return new Dictionary( unmanaged().get(sessionID->unmanaged()) );
+    }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
+
+    QF_STACK_CATCH
+  }
+
+  void set( SessionID* sessionID, Dictionary* settings )
+  { QF_STACK_TRY
+
+    try
+    {
+      unmanaged().set( sessionID->unmanaged(), settings->unmanaged() );
+    }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
+
+    QF_STACK_CATCH
+  }
+
+  Dictionary* get()
+  { QF_STACK_TRY
+    return new Dictionary( unmanaged().get() );
+    QF_STACK_CATCH
+  }
+
+  void set( Dictionary* defaults )
+  { QF_STACK_TRY
+    unmanaged().set( defaults->unmanaged() );
+    QF_STACK_CATCH
+  }
+
+  int size()
+  { QF_STACK_TRY
+    return unmanaged().size();
+    QF_STACK_CATCH
   }
 
   FIX::SessionSettings& unmanaged()

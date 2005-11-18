@@ -221,6 +221,9 @@
 				RelativePath="DeprecatedFields.h">
 			</File>
 			<File
+				RelativePath=".\Dictionary.h">
+			</File>
+			<File
 				RelativePath="Exceptions.h">
 			</File>
 			<File
