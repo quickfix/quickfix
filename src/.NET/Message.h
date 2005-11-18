@@ -88,6 +88,24 @@ public:
     QF_STACK_CATCH
   }
 
+  Message( String* string, DataDictionary* dataDictionary, bool validate ) : disposed( false )
+  { QF_STACK_TRY
+
+    try
+    {
+      if ( !String::Compare( string, String::Empty ) )
+        m_pUnmanaged = new FIX::Message();
+      else
+        m_pUnmanaged = new FIX::Message( convertString(string), dataDictionary->unmanaged(), validate );
+      m_header = new Header( this );
+      m_trailer = new Trailer( this );
+    }
+    catch ( FIX::InvalidMessage & e )
+    { throw new InvalidMessage(); }
+
+    QF_STACK_CATCH
+  }
+
   Message( const FIX::Message& message ) : disposed( false )
   { QF_STACK_TRY
 
