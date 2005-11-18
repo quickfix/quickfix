@@ -92,10 +92,13 @@ void ThreadedSocketAcceptor::onStart()
 
     ThreadPair* pair = new ThreadPair( this, pConnection );
 
-    unsigned thread;
-    if ( !thread_spawn( &socketThread, pair, thread ) )
-      delete pair;
-    addThread( socket, thread );
+    {
+      Locker l( m_mutex );
+      unsigned thread;
+      if ( !thread_spawn( &socketThread, pair, thread ) )
+        delete pair;
+      addThread( socket, thread );
+    }
   }
 
   QF_STACK_POP
@@ -127,11 +130,18 @@ void ThreadedSocketAcceptor::onStop()
       break;
   }
 
+  SocketToThread threads;
+  {
+    Locker locker( m_mutex );
+    threads = m_threads;
+  }
+
   SocketToThread::iterator i;
-  for ( i = m_threads.begin(); i != m_threads.end(); ++i )
+  for ( i = threads.begin(); i != threads.end(); ++i )
     socket_close( i->first );
-  for ( i = m_threads.begin(); i != m_threads.end(); ++i )
+  for ( i = threads.begin(); i != threads.end(); ++i )
     thread_join( i->second );
+  threads.clear();
 
   QF_STACK_POP
 }
@@ -140,6 +150,15 @@ void ThreadedSocketAcceptor::addThread( int s, int t )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::addThread)
 
   Locker l(m_mutex);
+#ifdef _MSC_VER
+  HANDLE handle;
+  DuplicateHandle(
+    GetCurrentProcess(),
+    GetCurrentThread(),
+    GetCurrentProcess(),
+    &handle, 0, FALSE, DUPLICATE_SAME_ACCESS );
+  t = ( int ) handle;
+#endif
   m_threads[ s ] = t;
 
   QF_STACK_POP
@@ -149,8 +168,15 @@ void ThreadedSocketAcceptor::removeThread( int s )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::removeThread)
 
   Locker l(m_mutex);
-  thread_detach(m_threads[s]);
-  m_threads.erase( s );
+  SocketToThread::iterator i = m_threads.find( s );
+  if ( i != m_threads.end() )
+  {
+#ifdef _MSC_VER
+    CloseHandle( ( HANDLE ) i->second );
+#endif
+    thread_detach( i->second );
+    m_threads.erase( i );
+  }
 
   QF_STACK_POP
 }
@@ -165,10 +191,12 @@ THREAD_PROC ThreadedSocketAcceptor::socketThread( void* p )
   ThreadedSocketConnection* pConnection = pair->second;
   delete pair;
 
+  int socket = pConnection->getSocket();
+
   while ( pConnection->read() ) {}
-  if( !pAcceptor->m_stop )
-    pAcceptor->removeThread( pConnection->getSocket() );
   delete pConnection;
+  if( !pAcceptor->m_stop )
+    pAcceptor->removeThread( socket );
   return 0;
 
   QF_STACK_POP
