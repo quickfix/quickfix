@@ -50,6 +50,7 @@ public:
 private:
   typedef std::map < int, int > SocketToThread;
   typedef std::map < SessionID, int > SessionToHostNum;
+  typedef std::pair < ThreadedSocketInitiator*, ThreadedSocketConnection* > ThreadPair;
 
   void onConfigure( const SessionSettings& ) throw ( ConfigError );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError );
@@ -68,18 +69,12 @@ private:
 
   SessionSettings m_settings;
   SessionToHostNum m_sessionToHostNum;
+  time_t m_lastConnect;
   int m_reconnectInterval;
+  bool m_noDelay;
   bool m_stop;
   SocketToThread m_threads;
   Mutex m_mutex;
-
-  struct ThreadStruct
-  {
-    ThreadStruct( ThreadedSocketInitiator* i, const SessionID& s, const Dictionary& d );
-    ThreadedSocketInitiator* pInitiator;
-    SessionID sessionID;
-    Dictionary dictionary;
-  };
 };
 /*! @} */
 }

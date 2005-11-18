@@ -35,7 +35,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   MessageStoreFactory& factory,
   const SessionSettings& settings ) throw( ConfigError )
 : Initiator( application, factory, settings ),
-  m_reconnectInterval( 30 ), m_stop( false )
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::ThreadedSocketInitiator(
@@ -44,7 +44,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   const SessionSettings& settings,
   LogFactory& logFactory ) throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
-  m_reconnectInterval( 30 ), m_stop( false )
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
@@ -56,6 +56,8 @@ throw ( ConfigError )
 
   try { m_reconnectInterval = s.get().getLong( "ReconnectInterval" ); }
   catch ( std::exception& ) {}
+  if( s.get().has( SOCKET_NODELAY ) )
+    m_noDelay = s.get().getBool( SOCKET_NODELAY );
 
   QF_STACK_POP
 }
@@ -72,7 +74,16 @@ void ThreadedSocketInitiator::onStart()
   m_stop = false;
   while ( !m_stop )
   {
-    connect();
+    time_t now;
+    ::time( &now );
+
+    if ( (now - m_lastConnect) >= m_reconnectInterval )
+    {
+      Locker l( m_mutex );
+      connect();
+      m_lastConnect = now;
+    }
+
     process_sleep( 1 );
   }
 
@@ -104,12 +115,18 @@ void ThreadedSocketInitiator::onStop()
       break;
   }
 
+  SocketToThread threads;
+  {
+    Locker locker( m_mutex );
+    threads = m_threads;
+  }
+
   SocketToThread::iterator i;
-  for ( i = m_threads.begin(); i != m_threads.end(); ++i )
+  for ( i = threads.begin(); i != threads.end(); ++i )
     socket_close( i->first );
-  for ( i = m_threads.begin(); i != m_threads.end(); ++i )
+  for ( i = threads.begin(); i != threads.end(); ++i )
     thread_join( i->second );
-  m_threads.clear();
+  threads.clear();
 
   QF_STACK_POP
 }
@@ -123,11 +140,33 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     if( !session->isSessionTime() ) return false;
 
     std::string address;
+    short port = 0;
+    getHost( s, d, address, port );
 
-    ThreadStruct* threadStruct = new ThreadStruct( this, s, d );
+    Log* log = session->getLog();
+    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
+    int socket = socket_createConnector( address.c_str(), port );
 
-    if ( !thread_spawn( &socketThread, threadStruct ) )
-      delete threadStruct;
+    if ( socket < 0 )
+    {
+      log->onEvent( "Connection failed" );
+      return false;
+    }
+
+    log->onEvent( "Connection succeeded" );
+
+    ThreadedSocketConnection* pConnection =
+      new ThreadedSocketConnection( s, socket, getApplication() );
+
+    ThreadPair* pair = new ThreadPair( this, pConnection );
+
+    {
+      Locker l( m_mutex );
+      unsigned thread;
+      if ( !thread_spawn( &socketThread, pair, thread ) )
+        delete pair;
+      addThread( socket, thread );
+    }
     return true;
   }
   catch ( std::exception& ) { return false; }
@@ -174,45 +213,24 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(ThreadedSocketInitiator::socketThread)
 
-  ThreadStruct * threadStruct = reinterpret_cast < ThreadStruct* > ( p );
+  ThreadPair * pair = reinterpret_cast < ThreadPair* > ( p );
 
-  ThreadedSocketInitiator* pInitiator = threadStruct->pInitiator;
-  SessionID sessionID = threadStruct->sessionID;
-  Dictionary dictionary = threadStruct->dictionary;
-  delete threadStruct;
-  Log* log = Session::lookupSession( sessionID )->getLog();
+  ThreadedSocketInitiator* pInitiator = pair->first;
+  ThreadedSocketConnection* pConnection = pair->second;
+  FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
+  delete pair;
 
-  bool noDelay = false;
-  if( dictionary.has( SOCKET_NODELAY ) )
-    noDelay = dictionary.getBool( SOCKET_NODELAY );
+  pInitiator->setConnected( sessionID, true );
+  int socket = pConnection->getSocket();
 
-  while ( !pInitiator->m_stop )
+  while ( pConnection->read() ) {}
+  delete pConnection;
+  if( !pInitiator->m_stop )
+    pInitiator->removeThread( socket );
+  
   {
-    std::string address;
-    short port = 0;
-    pInitiator->getHost( sessionID, dictionary, address, port );
-
-    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
-    int socket = socket_createConnector( address.c_str(), port );
-    if ( socket < 0 )
-    {
-      log->onEvent( "Connection failed" );
-      process_sleep( pInitiator->m_reconnectInterval );
-      continue;
-    }
-    log->onEvent( "Connection succeeded" );
-
-    pInitiator->addThread( socket, thread_self() );
-
-    ThreadedSocketConnection* pConnection =
-      new ThreadedSocketConnection( sessionID, socket, pInitiator->getApplication() );
-
-    while ( pConnection->read() && !pInitiator->m_stop ) {}
-    if(!pInitiator->m_stop)
-      pInitiator->removeThread( pConnection->getSocket() );
-    delete pConnection;
-    if(!pInitiator->m_stop)
-      process_sleep( pInitiator->m_reconnectInterval );
+    Locker l( pInitiator->m_mutex );
+    pInitiator->setConnected( sessionID, false );
   }
   return 0;
 
@@ -248,9 +266,5 @@ void ThreadedSocketInitiator::getHost( const SessionID& s, const Dictionary& d,
 
   QF_STACK_POP
 }
-
-ThreadedSocketInitiator::ThreadStruct::ThreadStruct
-( ThreadedSocketInitiator* i, const SessionID& s, const Dictionary& d )
-: pInitiator( i ), sessionID( s ), dictionary( d ) {}
 
 }
