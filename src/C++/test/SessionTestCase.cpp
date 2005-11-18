@@ -772,6 +772,7 @@ void SessionTestCase::resetOnEndTime::onRun( Session& object )
   process_sleep( 2 );
   object.next();
   assert( m_disconnect == 1 );
+  assert( m_toLogout == 1 );
 }
 
 bool SessionTestCase::disconnectBeforeStartTime::onSetup( Session*& pObject )

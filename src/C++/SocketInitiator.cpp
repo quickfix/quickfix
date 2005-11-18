@@ -202,11 +202,11 @@ void SocketInitiator::onTimeout( SocketConnector& )
   time_t now;
   ::time( &now );
 
-   if ( (now - m_lastConnect) >= m_reconnectInterval )
-   {
-     connect();
-     m_lastConnect = now;
-   }
+  if ( (now - m_lastConnect) >= m_reconnectInterval )
+  {
+    connect();
+    m_lastConnect = now;
+  }
 
   SocketConnections::iterator i;
   for ( i = m_connections.begin(); i != m_connections.end(); ++i )
