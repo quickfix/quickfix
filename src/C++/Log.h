@@ -77,6 +77,7 @@ class Log
 public:
   virtual ~Log() {}
 
+  virtual void clear() = 0;
   virtual void onIncoming( const std::string& ) = 0;
   virtual void onOutgoing( const std::string& ) = 0;
   virtual void onEvent( const std::string& ) = 0;
@@ -96,6 +97,8 @@ public:
 : m_sessionID( sessionID ),
   m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
 
+  void clear() {}
+
   void onIncoming( const std::string& value )
   {
     if ( !m_incoming ) return ;
@@ -106,6 +109,7 @@ public:
               << ", " << "incoming>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
+
   void onOutgoing( const std::string& value )
   {
     if ( !m_outgoing ) return ;

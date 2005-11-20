@@ -114,6 +114,16 @@ void MySQLLogFactory::destroy( Log* pLog )
   QF_STACK_POP
 }
 
+void MySQLLog::clear()
+{ QF_STACK_PUSH(MySQLLog::clear)
+
+  m_pConnection->execute( MySQLQuery("DELETE FROM incoming_log") );
+  m_pConnection->execute( MySQLQuery("DELETE FROM outgoing_log") );
+  m_pConnection->execute( MySQLQuery("DELETE FROM event_log") );
+
+  QF_STACK_POP
+}
+
 void MySQLLog::insert( const std::string& table, const std::string value )
 { QF_STACK_PUSH(MySQLLog::insert)
 

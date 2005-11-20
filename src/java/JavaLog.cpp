@@ -29,6 +29,8 @@
 JavaLog::JavaLog( JVMObject object )
     : m_object( object.newGlobalRef() )
 {
+  clearId = object.getClass()
+            .getMethodID( "clear", "()V" );
   onIncomingId = object.getClass()
                  .getMethodID( "onIncoming", "(Ljava/lang/String;)V" );
   onOutgoingId = object.getClass()
@@ -38,6 +40,12 @@ JavaLog::JavaLog( JVMObject object )
 }
 
 JavaLog::~JavaLog() { m_object.deleteGlobalRef(); }
+
+void JavaLog::clear()
+{
+  JNIEnv * pEnv = ENV::get();
+  pEnv->CallVoidMethod( m_object, clearId );
+}
 
 void JavaLog::onIncoming( const std::string& string )
 {

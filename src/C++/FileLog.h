@@ -75,6 +75,12 @@ public:
   FileLog( std::string path, const SessionID& sessionID );
   virtual ~FileLog();
 
+  void clear()
+  {
+    m_incoming.clear();
+    m_outgoing.clear();
+    m_event.clear();
+  }
   void onIncoming( const std::string& value )
   { m_incoming << value << std::endl << std::flush; }
   void onOutgoing( const std::string& value )

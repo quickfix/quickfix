@@ -31,6 +31,7 @@ public:
   JavaLog( JVMObject object );
   virtual ~JavaLog();
 
+  void clear();
   void onIncoming( const std::string& string );
   void onOutgoing( const std::string& string );
   void onEvent( const std::string& string );
@@ -38,6 +39,7 @@ public:
 private:
   JVMObject m_object;
 
+  jmethodID clearId;
   jmethodID onIncomingId;
   jmethodID onOutgoingId;
   jmethodID onEventId;

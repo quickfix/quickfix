@@ -33,6 +33,7 @@ namespace QuickFix
 {
 public __gc __interface Log
 {
+  virtual void clear() = 0;
   virtual void onIncoming( String* string ) = 0;
   virtual void onOutgoing( String* string ) = 0;
   virtual void onEvent( String* string ) = 0;
@@ -44,6 +45,8 @@ class Log : public FIX::Log
 public:
   Log( QuickFix::Log* log ) : m_log( log ) {}
 
+  void clear()
+  { m_log->clear(); }
   void onIncoming( const std::string& string )
   { m_log->onIncoming( string.c_str() ); }
   void onOutgoing( const std::string& string )

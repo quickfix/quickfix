@@ -20,6 +20,7 @@
 package quickfix;
 
 public interface Log {
+    void clear();
     void onIncoming( String string );
     void onOutgoing( String string );
     void onEvent( String string );

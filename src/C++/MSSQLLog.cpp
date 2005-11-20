@@ -140,6 +140,21 @@ void MSSQLLogFactory::destroy( Log* pLog )
   QF_STACK_POP
 }
 
+void MSSQLLog::clear()
+{ QF_STACK_PUSH(MSSQLLog::clear)
+
+  PDBPROCESS* pConnection = reinterpret_cast < PDBPROCESS* > ( m_pConnection );
+
+  dbcmd( pConnection, "DELETE FROM incoming_log" );
+  dbsqlexec( pConnection );
+  dbcmd( pConnection, "DELETE FROM outgoing_log" );
+  dbsqlexec( pConnection );
+  dbcmd( pConnection, "DELETE FROM event_log" );
+  dbsqlexec( pConnection );
+
+  QF_STACK_POP
+}
+
 void MSSQLLog::insert( const std::string& table, const std::string value )
 { QF_STACK_PUSH(MSSQLLog::insert)
 

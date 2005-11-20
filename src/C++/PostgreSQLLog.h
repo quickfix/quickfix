@@ -105,6 +105,7 @@ public:
                  const std::string& password, const std::string& host, short port );
   ~PostgreSQLLog();
 
+  void clear();
   void onIncoming( const std::string& value )
   { insert( "incoming_log", value ); }
   void onOutgoing( const std::string& value )

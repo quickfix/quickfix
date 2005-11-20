@@ -190,6 +190,8 @@ public:
   void reset() throw ( IOException )
   { Locker l( m_mutex ); m_pStore->reset(); }
 
+  void clear()
+  { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->clear(); }
   void onIncoming( const std::string& string )
   { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onIncoming( string ); }
   void onOutgoing( const std::string& string )

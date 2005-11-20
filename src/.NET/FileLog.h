@@ -49,6 +49,12 @@ public:
   }
   ~FileLog() { delete m_pUnmanaged; }
 
+  void clear()
+  { QF_STACK_TRY
+    m_pUnmanaged->clear();
+    QF_STACK_CATCH
+  }
+
   void onIncoming( String* s )
   { QF_STACK_TRY
 
