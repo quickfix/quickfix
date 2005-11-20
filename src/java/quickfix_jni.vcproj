@@ -178,6 +178,9 @@
 				RelativePath="quickfix_DataDictionary.cpp">
 			</File>
 			<File
+				RelativePath=".\quickfix_Dictionary.cpp">
+			</File>
+			<File
 				RelativePath="quickfix_FileLog.cpp">
 			</File>
 			<File
@@ -297,6 +300,9 @@
 			</File>
 			<File
 				RelativePath="quickfix_DataDictionary.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_Dictionary.h">
 			</File>
 			<File
 				RelativePath="quickfix_FileLog.h">

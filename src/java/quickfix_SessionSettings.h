@@ -12,8 +12,16 @@ extern "C" {
  * Method:    create
  * Signature: (Ljava/io/InputStream;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__Ljava_io_InputStream_2
   (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_SessionSettings
+ * Method:    create
+ * Signature: (Ljava/lang/String;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__Ljava_lang_String_2
+  (JNIEnv *, jobject, jstring);
 
 /*
  * Class:     quickfix_SessionSettings
@@ -25,67 +33,43 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_destroy
 
 /*
  * Class:     quickfix_SessionSettings
- * Method:    getString
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;)Ljava/lang/String;
+ * Method:    get
+ * Signature: (Lquickfix/SessionID;)Lquickfix/Dictionary;
  */
-JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_getString
-  (JNIEnv *, jobject, jobject, jstring);
+JNIEXPORT jobject JNICALL Java_quickfix_SessionSettings_get__Lquickfix_SessionID_2
+  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_SessionSettings
- * Method:    getLong
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;)J
+ * Method:    set
+ * Signature: (Lquickfix/SessionID;Lquickfix/Dictionary;)V
  */
-JNIEXPORT jlong JNICALL Java_quickfix_SessionSettings_getLong
-  (JNIEnv *, jobject, jobject, jstring);
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_set__Lquickfix_SessionID_2Lquickfix_Dictionary_2
+  (JNIEnv *, jobject, jobject, jobject);
 
 /*
  * Class:     quickfix_SessionSettings
- * Method:    getDouble
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;)D
+ * Method:    get
+ * Signature: ()Lquickfix/Dictionary;
  */
-JNIEXPORT jdouble JNICALL Java_quickfix_SessionSettings_getDouble
-  (JNIEnv *, jobject, jobject, jstring);
+JNIEXPORT jobject JNICALL Java_quickfix_SessionSettings_get__
+  (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SessionSettings
- * Method:    getBool
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;)Z
+ * Method:    set
+ * Signature: (Lquickfix/Dictionary;)V
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_SessionSettings_getBool
-  (JNIEnv *, jobject, jobject, jstring);
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_set__Lquickfix_Dictionary_2
+  (JNIEnv *, jobject, jobject);
 
 /*
  * Class:     quickfix_SessionSettings
- * Method:    setString
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;Ljava/lang/String;)V
+ * Method:    size
+ * Signature: ()I
  */
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setString
-  (JNIEnv *, jobject, jobject, jstring, jstring);
-
-/*
- * Class:     quickfix_SessionSettings
- * Method:    setLong
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;J)V
- */
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setLong
-  (JNIEnv *, jobject, jobject, jstring, jlong);
-
-/*
- * Class:     quickfix_SessionSettings
- * Method:    setDouble
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;D)V
- */
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setDouble
-  (JNIEnv *, jobject, jobject, jstring, jdouble);
-
-/*
- * Class:     quickfix_SessionSettings
- * Method:    setBool
- * Signature: (Lquickfix/SessionID;Ljava/lang/String;Z)V
- */
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setBool
-  (JNIEnv *, jobject, jobject, jstring, jboolean);
+JNIEXPORT jint JNICALL Java_quickfix_SessionSettings_size
+  (JNIEnv *, jobject);
 
 #ifdef __cplusplus
 }

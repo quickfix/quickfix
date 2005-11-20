@@ -82,14 +82,7 @@ public:
   Dictionary* get( SessionID* sessionID )
   { QF_STACK_TRY
 
-    try
-    {
-      return new Dictionary( unmanaged().get(sessionID->unmanaged()) );
-    }
-    catch( FIX::ConfigError& e )
-    {
-      throw new ConfigError( e.what() );
-    }
+    return new Dictionary( unmanaged().get(sessionID->unmanaged()) );
 
     QF_STACK_CATCH
   }

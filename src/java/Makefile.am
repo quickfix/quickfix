@@ -57,6 +57,8 @@ libquickfix_jni_la_SOURCES = \
 	quickfix_Session.cpp \
 	quickfix_SessionID.h \
 	quickfix_SessionID.cpp \
+	quickfix_Dictionary.h \
+	quickfix_Dictionary.cpp \
 	quickfix_SessionSettings.h \
 	quickfix_SessionSettings.cpp \
 	quickfix_SocketAcceptor.h \

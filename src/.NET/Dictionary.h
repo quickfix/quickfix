@@ -209,6 +209,7 @@ public:
     unmanaged().merge( toMerge->unmanaged() );
     QF_STACK_CATCH
   }
+
   FIX::Dictionary& unmanaged()
   { return * m_pUnmanaged; }
 

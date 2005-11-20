@@ -157,6 +157,19 @@ inline jobject newField( const FIX::FieldBase& field )
   return result;
 }
 
+inline jobject newDictionary( const FIX::Dictionary& dictionary )
+{
+  JNIEnv * pEnv = ENV::get();
+  JVMClass type( "Lquickfix/Dictionary;" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
+  if( method = 0 ) throw JVMException( "Could not find method <init>" );
+
+  JVMObject result( pEnv->NewObject( type, method ) );
+  FIX::Dictionary* pDictionary = ( FIX::Dictionary* ) result.getLong( "cppPointer" );
+  *pDictionary = dictionary;
+  return result;
+}
+
 inline void setString( FIX::FieldMap& map, jint field, jstring value )
 {
   const char* uvalue = ENV::get()->GetStringUTFChars( value, 0 );

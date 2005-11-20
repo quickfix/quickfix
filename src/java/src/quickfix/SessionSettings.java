@@ -24,24 +24,27 @@ import java.io.InputStream;
 public class SessionSettings {
     private long cppPointer;
 
-    public SessionSettings(InputStream stream) throws ConfigError {
-        create(stream);
+    public SessionSettings( InputStream stream ) throws ConfigError {
+        create( stream );
     }
 
+    public SessionSettings( String file ) throws ConfigError {
+        create( file );
+    }
+ 
     protected void finalize() {
         destroy();
     }
 
-    private native void create(InputStream stream) throws ConfigError;
+    private native void create( InputStream stream ) throws ConfigError;
+    private native void create( String file ) throws ConfigError;
     private native void destroy();
 
-    public native String getString( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
-    public native long getLong( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
-    public native double getDouble( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
-    public native boolean getBool( SessionID sessionID, String key ) throws ConfigError, FieldConvertError;
+    public native Dictionary get( SessionID sessionID ) throws ConfigError;
+    public native void set( SessionID sessionID, Dictionary dictionary ) throws ConfigError;
+    
+    public native Dictionary get();
+    public native void set( Dictionary dictionary ) throws ConfigError;
 
-    public native void setString( SessionID sessionID, String key, String value );
-    public native void setLong( SessionID sessionID, String key, long value );
-    public native void setDouble( SessionID sessionID, String key, double value );
-    public native void setBool( SessionID sessionID, String key, boolean value );
+    public native int size();
 }

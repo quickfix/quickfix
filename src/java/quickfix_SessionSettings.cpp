@@ -35,7 +35,7 @@ FIX::SessionSettings* getCPPSessionSettings( jobject obj )
   return ( FIX::SessionSettings* ) jobject.getLong( "cppPointer" );
 }
 
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__Ljava_io_InputStream_2
 ( JNIEnv *pEnv, jobject obj, jobject stream )
 { QF_STACK_TRY
 
@@ -61,6 +61,30 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__Ljava_lang_String_2
+( JNIEnv *pEnv, jobject obj, jstring file )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(file) ) return;
+
+  JVM::set( pEnv );
+
+  JVMObject jobject( obj );
+
+  const char* ufile = pEnv->GetStringUTFChars( file, 0 );
+
+  try
+  {
+    FIX::SessionSettings* pSettings = new FIX::SessionSettings( ufile );
+    jobject.setLong( "cppPointer", ( long ) pSettings );
+  }
+  catch( FIX::ConfigError& e )
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
+  pEnv->ReleaseStringUTFChars( file, ufile );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT void JNICALL Java_quickfix_SessionSettings_destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
@@ -68,241 +92,91 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_destroy
   QF_STACK_CATCH
 }
 
-JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_getString
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
+JNIEXPORT jobject JNICALL Java_quickfix_SessionSettings_get__Lquickfix_SessionID_2
+( JNIEnv *pEnv, jobject obj, jobject sessionID )
 { QF_STACK_TRY
 
-  if( isNullAndThrow(sessionid) ) return 0;
-  if( isNullAndThrow(key) ) return 0;
+  if( isNullAndThrow(sessionID) ) return 0;
 
   JVM::set( pEnv );
 
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
+  JVMObject jobject( obj );
+  JVMObject jsessionID( sessionID );
 
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
   {
-    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
-    std::string result = dict.getString( ukey );
-    pEnv->ReleaseStringUTFChars( key, ukey );
-    return newString( result );
+    FIX::SessionID* pSessionID = (FIX::SessionID*)jobject.getLong( "cppPointer" );
+    FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
+    const FIX::Dictionary& dictionary = pSessionSettings->get( *pSessionID );
+    return newDictionary( dictionary );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-  catch( FIX::FieldConvertError& e )
-  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
-  pEnv->ReleaseStringUTFChars( key, ukey );
   return 0;
 
   QF_STACK_CATCH
 }
 
-JNIEXPORT jlong JNICALL Java_quickfix_SessionSettings_getLong
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(sessionid) ) return 0;
-  if( isNullAndThrow(key) ) return 0;
-
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_set__Lquickfix_SessionID_2Lquickfix_Dictionary_2
+( JNIEnv *pEnv, jobject obj, jobject sessionID, jobject dictionary )
+{
   JVM::set( pEnv );
 
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
+  JVMObject jobject( obj );
 
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
   {
-    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
-    long result = dict.getLong( ukey );
-    pEnv->ReleaseStringUTFChars( key, ukey );
-    return result;
+    FIX::SessionID* pSessionID = (FIX::SessionID*)jobject.getLong( "cppPointer" );
+    FIX::Dictionary* pDictionary = (FIX::Dictionary*)jobject.getLong( "cppPointer" );
+    FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
+    pSessionSettings->set( *pSessionID, *pDictionary );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-  catch( FIX::FieldConvertError& e )
-  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
-  pEnv->ReleaseStringUTFChars( key, ukey );
-  return 0;
+
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_SessionSettings_get__
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+
+  JVMObject jobject( obj );
+
+  FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
+  const FIX::Dictionary& dictionary = pSessionSettings->get();
+  return newDictionary( dictionary );
 
   QF_STACK_CATCH
 }
 
-JNIEXPORT jdouble JNICALL Java_quickfix_SessionSettings_getDouble
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(sessionid) ) return 0.0;
-  if( isNullAndThrow(key) ) return 0.0;
-
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_set__Lquickfix_Dictionary_2
+( JNIEnv *pEnv, jobject obj, jobject dictionary )
+{
   JVM::set( pEnv );
 
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
+  JVMObject jobject( obj );
 
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
   try
   {
-    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
-    double result = dict.getDouble( ukey );
-    pEnv->ReleaseStringUTFChars( key, ukey );
-    return result;
+    FIX::Dictionary* pDictionary = (FIX::Dictionary*)jobject.getLong( "cppPointer" );
+    FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
+    pSessionSettings->set( *pDictionary );
   }
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-  catch( FIX::FieldConvertError& e )
-  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
-  pEnv->ReleaseStringUTFChars( key, ukey );
-  return 0;
 
-  QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_SessionSettings_getBool
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key)
+JNIEXPORT jint JNICALL Java_quickfix_SessionSettings_size
+( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
-
-  if( isNullAndThrow(sessionid) ) return false;
-  if( isNullAndThrow(key) ) return false;
 
   JVM::set( pEnv );
 
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
-
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
-  try
-  {
-    const FIX::Dictionary& dict = pSettings->get( *pSessionID );
-    bool result = dict.getBool( ukey );
-    pEnv->ReleaseStringUTFChars( key, ukey );
-    return result;
-  }
-  catch( FIX::ConfigError& e )
-  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-  catch( FIX::FieldConvertError& e )
-  { throwNew( "Lquickfix/FieldConvertError;", e.what() ); }
-  pEnv->ReleaseStringUTFChars( key, ukey );
-  return 0;
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setString
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jstring value)
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(sessionid) ) return;
-  if( isNullAndThrow(key) ) return;
-  if( isNullAndThrow(value) ) return;
-
-  JVM::set( pEnv );
-
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  const char* uvalue = pEnv->GetStringUTFChars( value, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
-
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
-  try
-  {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
-    dict.setString( ukey, uvalue );
-    pSettings->set( *pSessionID, dict );
-  }
-  catch( FIX::ConfigError& e )
-  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-
-  pEnv->ReleaseStringUTFChars( key, ukey );
-  pEnv->ReleaseStringUTFChars( value, uvalue );
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setLong
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jlong value)
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(sessionid) ) return;
-  if( isNullAndThrow(key) ) return;
-
-  JVM::set( pEnv );
-
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
-
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
-  try
-  {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
-    dict.setLong( ukey, value );
-    pSettings->set( *pSessionID, dict );
-  }
-  catch( FIX::ConfigError& e )
-  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-
-  pEnv->ReleaseStringUTFChars( key, ukey );
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setDouble
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jdouble value)
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(sessionid) ) return;
-  if( isNullAndThrow(key) ) return;
-
-  JVM::set( pEnv );
-
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
-
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
-  try
-  {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
-    dict.setDouble( ukey, value );
-    pSettings->set( *pSessionID, dict );
-  }
-  catch( FIX::ConfigError& e )
-  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-
-  pEnv->ReleaseStringUTFChars( key, ukey );
-
-  QF_STACK_CATCH
-}
-
-JNIEXPORT void JNICALL Java_quickfix_SessionSettings_setBool
-  (JNIEnv *pEnv, jobject obj, jobject sessionid, jstring key, jboolean value)
-{ QF_STACK_TRY
-
-  if( isNullAndThrow(sessionid) ) return;
-  if( isNullAndThrow(key) ) return;
-
-  JVM::set( pEnv );
-
-  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
-  JVMObject jsessionid( sessionid );
-  FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionid.getLong( "cppPointer" );
-
-  FIX::SessionSettings* pSettings = getCPPSessionSettings( obj );
-  try
-  {
-    FIX::Dictionary dict = pSettings->get( *pSessionID );
-    dict.setBool( ukey, value );
-    pSettings->set( *pSessionID, dict );
-  }
-  catch( FIX::ConfigError& e )
-  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
-
-  pEnv->ReleaseStringUTFChars( key, ukey );
-
+  FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
+  return pSessionSettings->size();
+  
   QF_STACK_CATCH
 }
