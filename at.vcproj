@@ -108,7 +108,7 @@
 				SuppressStartupBanner="TRUE"
 				AdditionalLibraryDirectories="lib\debug"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile=".\Debug/at_debug.pdb"
+				ProgramDatabaseFile=".\Debug/at.pdb"
 				SubSystem="1"/>
 			<Tool
 				Name="VCMIDLTool"
