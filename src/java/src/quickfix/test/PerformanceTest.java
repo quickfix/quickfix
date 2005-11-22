@@ -73,7 +73,6 @@ public class PerformanceTest extends TestCase {
         }
 
         long end = System.currentTimeMillis();
-
         report(end- begin, 50000);
     }
 }

@@ -162,7 +162,7 @@ inline jobject newDictionary( const FIX::Dictionary& dictionary )
   JNIEnv * pEnv = ENV::get();
   JVMClass type( "Lquickfix/Dictionary;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "()V" );
-  if( method = 0 ) throw JVMException( "Could not find method <init>" );
+  if( method == 0 ) throw JVMException( "Could not find method <init>" );
 
   JVMObject result( pEnv->NewObject( type, method ) );
   FIX::Dictionary* pDictionary = ( FIX::Dictionary* ) result.getLong( "cppPointer" );

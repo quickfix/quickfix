@@ -24,6 +24,10 @@ import java.io.InputStream;
 public class SessionSettings {
     private long cppPointer;
 
+    public SessionSettings() {
+        create();
+    }
+
     public SessionSettings( InputStream stream ) throws ConfigError {
         create( stream );
     }
@@ -36,6 +40,7 @@ public class SessionSettings {
         destroy();
     }
 
+    private native void create();
     private native void create( InputStream stream ) throws ConfigError;
     private native void create( String file ) throws ConfigError;
     private native void destroy();

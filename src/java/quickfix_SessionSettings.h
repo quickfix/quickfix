@@ -10,6 +10,14 @@ extern "C" {
 /*
  * Class:     quickfix_SessionSettings
  * Method:    create
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_SessionSettings
+ * Method:    create
  * Signature: (Ljava/io/InputStream;)V
  */
 JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__Ljava_io_InputStream_2

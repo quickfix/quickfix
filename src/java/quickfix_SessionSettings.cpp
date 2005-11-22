@@ -35,6 +35,20 @@ FIX::SessionSettings* getCPPSessionSettings( jobject obj )
   return ( FIX::SessionSettings* ) jobject.getLong( "cppPointer" );
 }
 
+JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+
+  JVMObject jobject( obj );
+
+  FIX::SessionSettings* pSettings = new FIX::SessionSettings();
+  jobject.setLong( "cppPointer", ( long ) pSettings );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT void JNICALL Java_quickfix_SessionSettings_create__Ljava_io_InputStream_2
 ( JNIEnv *pEnv, jobject obj, jobject stream )
 { QF_STACK_TRY
@@ -105,7 +119,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_SessionSettings_get__Lquickfix_SessionID
 
   try
   {
-    FIX::SessionID* pSessionID = (FIX::SessionID*)jobject.getLong( "cppPointer" );
+    FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionID.getLong( "cppPointer" );
     FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
     const FIX::Dictionary& dictionary = pSessionSettings->get( *pSessionID );
     return newDictionary( dictionary );
@@ -123,11 +137,13 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_set__Lquickfix_SessionID_2L
   JVM::set( pEnv );
 
   JVMObject jobject( obj );
+  JVMObject jsessionID( sessionID );
+  JVMObject jdictionary( dictionary );
 
   try
   {
-    FIX::SessionID* pSessionID = (FIX::SessionID*)jobject.getLong( "cppPointer" );
-    FIX::Dictionary* pDictionary = (FIX::Dictionary*)jobject.getLong( "cppPointer" );
+    FIX::SessionID* pSessionID = (FIX::SessionID*)jsessionID.getLong( "cppPointer" );
+    FIX::Dictionary* pDictionary = (FIX::Dictionary*)jdictionary.getLong( "cppPointer" );
     FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
     pSessionSettings->set( *pSessionID, *pDictionary );
   }
@@ -157,10 +173,11 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_set__Lquickfix_Dictionary_2
   JVM::set( pEnv );
 
   JVMObject jobject( obj );
+  JVMObject jdictionary( dictionary );
 
   try
   {
-    FIX::Dictionary* pDictionary = (FIX::Dictionary*)jobject.getLong( "cppPointer" );
+    FIX::Dictionary* pDictionary = (FIX::Dictionary*)jdictionary.getLong( "cppPointer" );
     FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
     pSessionSettings->set( *pDictionary );
   }
