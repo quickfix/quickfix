@@ -37,11 +37,11 @@ class Executor
     {
       SessionSettings settings = new SessionSettings( args[ 0 ] );
       Application application = new Application();
-      FileStoreFactory factory = new FileStoreFactory( settings );
+      FileStoreFactory storeFactory = new FileStoreFactory( settings );
       ScreenLogFactory logFactory = new ScreenLogFactory( true, true, true );
       MessageFactory messageFactory = new DefaultMessageFactory();
       SocketAcceptor acceptor
-        = new SocketAcceptor( application, factory, settings, logFactory, messageFactory );
+        = new SocketAcceptor( application, storeFactory, settings, logFactory, messageFactory );
 
       acceptor.start();
       Console.WriteLine("press <enter> to quit");

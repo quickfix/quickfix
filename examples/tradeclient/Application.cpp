@@ -36,7 +36,7 @@ void Application::onLogon( const FIX::SessionID& sessionID )
 
 void Application::onLogout( const FIX::SessionID& sessionID )
 {
-  std::cout << std::endl << "Logoff - " << sessionID << std::endl;
+  std::cout << std::endl << "Logout - " << sessionID << std::endl;
 }
 
 void Application::fromApp( const FIX::Message& message, const FIX::SessionID& sessionID )

@@ -39,13 +39,12 @@ public class Executor {
             Application application = new Application();
             SessionSettings settings =
                 new SessionSettings(new FileInputStream(args[0]));
-            MessageStoreFactory messageStoreFactory =
+            MessageStoreFactory storeFactory =
                 new FileStoreFactory(settings);
-            LogFactory logFactory = new ScreenLogFactory(true, true, true);
             MessageFactory messageFactory = new DefaultMessageFactory();
 
             acceptor = new SocketAcceptor
-                       (application, messageStoreFactory, settings, logFactory, messageFactory);
+                       (application, storeFactory, settings, messageFactory);
 
             acceptor.start();
             System.out.println("press <enter> to quit");

@@ -55,9 +55,9 @@ int main( int argc, char** argv )
     FIX::SessionSettings settings( file );
 
     Application application;
-    FIX::FileStoreFactory factory( settings );
+    FIX::FileStoreFactory storeFactory( settings );
     FIX::ScreenLogFactory logFactory( true, true, true );
-    FIX::SocketAcceptor acceptor( application, factory, settings, logFactory );
+    FIX::SocketAcceptor acceptor( application, storeFactory, settings, logFactory );
 
     acceptor.start();
     wait();

@@ -24,7 +24,6 @@
 #endif
 
 #include "quickfix/FileStore.h"
-#include "quickfix/FileLog.h"
 #include "quickfix/SocketInitiator.h"
 #include "quickfix/SessionSettings.h"
 #include "Application.h"
@@ -50,8 +49,7 @@ int main( int argc, char** argv )
 
     Application application;
     FIX::FileStoreFactory storeFactory( settings );
-    FIX::FileLogFactory logFactory( settings );
-    FIX::SocketInitiator initiator( application, storeFactory, settings, logFactory );
+    FIX::SocketInitiator initiator( application, storeFactory, settings );
 
     initiator.start();
     application.run();

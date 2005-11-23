@@ -76,9 +76,8 @@ try:
 	file = sys.argv[1]
 	settings = fix.SessionSettings( file )
 	application = Application()
-	factory = fix.FileStoreFactory( settings )
-	logFactory = fix.ScreenLogFactory( 1, 1, 1 )
-	acceptor = fix.SocketAcceptor( application, factory, settings, logFactory )
+	storeFactory = fix.FileStoreFactory( settings )
+	acceptor = fix.SocketAcceptor( application, storeFactory, settings )
 	thread.start_new_thread(start, (acceptor,))
 	while 1:
 	      time.sleep(1)

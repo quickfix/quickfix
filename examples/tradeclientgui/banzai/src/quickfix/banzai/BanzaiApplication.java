@@ -52,7 +52,7 @@ public class BanzaiApplication implements Application {
         observableLogon.logon(sessionID);
     }
     public void onLogout(SessionID sessionID) {
-        observableLogon.logoff(sessionID);
+        observableLogon.logout(sessionID);
     }
 
     public void toAdmin(quickfix.Message message,
@@ -453,7 +453,7 @@ public class BanzaiApplication implements Application {
             notifyObservers(new LogonEvent(sessionID, true));
             clearChanged();
         }
-        public void logoff(SessionID sessionID) {
+        public void logout(SessionID sessionID) {
             set.remove(sessionID);
             setChanged();
             notifyObservers(new LogonEvent(sessionID, false));

@@ -24,7 +24,6 @@
 #endif
 
 #include "quickfix/FileStore.h"
-#include "quickfix/FileLog.h"
 #include "quickfix/SocketAcceptor.h"
 #include "quickfix/SessionSettings.h"
 #include "Application.h"
@@ -48,7 +47,7 @@ int main( int argc, char** argv )
 
     Application application;
     FIX::FileStoreFactory storeFactory( settings );
-    FIX::FileLogFactory logFactory( settings );
+    FIX::ScreenLogFactory logFactory( true, true, true );
     FIX::SocketAcceptor acceptor( application, storeFactory, settings, logFactory );
 
     acceptor.start();

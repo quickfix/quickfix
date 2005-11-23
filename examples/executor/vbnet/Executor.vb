@@ -12,11 +12,11 @@ Module Executor
         Try
             Dim sessionSettings As New SessionSettings(CmdArgs(1))
             Dim application As New Application()
-            Dim factory As New FileStoreFactory(sessionSettings)
+            Dim storeFactory As New FileStoreFactory(sessionSettings)
             Dim logFactory As New ScreenLogFactory(True, True, True)
             Dim messageFactory As New DefaultMessageFactory()
             Dim acceptor As New SocketAcceptor _
-                (application, factory, sessionSettings, logFactory, messageFactory)
+                (application, storeFactory, sessionSettings, logFactory, messageFactory)
 
             acceptor.start()
             Console.WriteLine("press <enter> to quit")

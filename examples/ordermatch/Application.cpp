@@ -28,15 +28,9 @@
 
 #include "quickfix/fix42/ExecutionReport.h"
 
-void Application::onLogon( const FIX::SessionID& sessionID )
-{
-  std::cout << "Logon - " << sessionID << std::endl;
-}
+void Application::onLogon( const FIX::SessionID& sessionID ) {}
 
-void Application::onLogout( const FIX::SessionID& sessionID )
-{
-  std::cout << "Logout - " << sessionID << std::endl;
-}
+void Application::onLogout( const FIX::SessionID& sessionID ) {}
 
 void Application::fromApp( const FIX::Message& message,
                            const FIX::SessionID& sessionID )
