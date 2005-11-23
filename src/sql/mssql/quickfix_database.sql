@@ -34,18 +34,7 @@ CREATE TABLE event_log (
   PRIMARY KEY (id)
 );
 
-CREATE TABLE incoming_log (
-  id INT NOT NULL IDENTITY,
-  time DATETIME NOT NULL,
-  beginstring CHAR(8) NOT NULL,
-  sendercompid VARCHAR(64) NOT NULL,
-  targetcompid VARCHAR(64) NOT NULL,
-  session_qualifier VARCHAR(64) NOT NULL,
-  text TEXT NOT NULL,
-  PRIMARY KEY (id)
-);
-
-CREATE TABLE outgoing_log (
+CREATE TABLE messages_log (
   id INT NOT NULL IDENTITY,
   time DATETIME NOT NULL,
   beginstring CHAR(8) NOT NULL,

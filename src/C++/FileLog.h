@@ -77,14 +77,13 @@ public:
 
   void clear()
   {
-    m_incoming.clear();
-    m_outgoing.clear();
+    m_messages.clear();
     m_event.clear();
   }
   void onIncoming( const std::string& value )
-  { m_incoming << value << std::endl << std::flush; }
+  { m_messages << value << std::endl << std::flush; }
   void onOutgoing( const std::string& value )
-  { m_outgoing << value << std::endl << std::flush; }
+  { m_messages << value << std::endl << std::flush; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
@@ -94,8 +93,7 @@ public:
 
 private:
   SessionID m_sessionID;
-  std::ofstream m_incoming;
-  std::ofstream m_outgoing;
+  std::ofstream m_messages;
   std::ofstream m_event;
 };
 }

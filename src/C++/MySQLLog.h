@@ -107,9 +107,9 @@ public:
 
   void clear();
   void onIncoming( const std::string& value )
-  { insert( "incoming_log", value ); }
+  { insert( "messages_log", value ); }
   void onOutgoing( const std::string& value )
-  { insert( "outgoing_log", value ); }
+  { insert( "messages_log", value ); }
   void onEvent( const std::string& value )
   { insert( "event_log", value ); }
 
