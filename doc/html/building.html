@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Building QuickFIX</title>
+    <H1>Building QuickFIX</H1>
+  </head>
+
+  <UL>
+    <LI><A HREF="#Windows (C++)">Windows (C++)</A></LI>
+    <LI><A HREF="#Windows (.NET)">Windows (.NET)</A></LI>
+    <LI><A HREF="#Windows (Java)">Windows (Java)</A></LI>
+    <LI><A HREF="#Linux / Solaris / FreeBSD / Mac OS X (C++/Java)">Linux / Solaris / FreeBSD / Mac OS X  (C++/Java)</A></LI>
+  </UL>
+
+  <body>
+    <A NAME="Windows (C++)"/>
+    <H3>Windows (C++)</H3>
+    <p>
+      QuickFIX comes with a .dsw and a few .dsp files for building under DevStudio.  Simply open
+      the <B>quickfix.dsw</B> file and do a batch build of all the projects.  This will create
+      <B>lib\quickfix.lib</B> and <B>lib\debug\quickfix.lib</B> which can be linked into your
+      applications. The header files will also be copied to the <I>include</I> directory.
+      If you have Visual Studio .NET, you should instead use <B>quickfix.sln</B>.
+    </p>
+    <p>
+      Since windows does not have a standard system for storing header and library files, you
+      should organize them however best suits your build environment. Leaving them in the <I>lib</I>
+      and <I>include</I> directories they are placed into by the build is one option.
+    </p>
+    <p>
+      Compile time options are controlled from the <B>config_windows.h</B> file in the <I>src</I>
+      directory. The following options are supported:<br><br>
+      <FONT color="#0000FF">#define HAVE_STLPORT 1</FONT>
+      Compile with stlport instead of standard visual c++ STL implementation.<br/>
+      <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT>
+      Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
+      library directories must be in the Visual Studio search paths.<br/>
+      <FONT color="#0000FF">#define HAVE_MSSQL 1</FONT>
+      Compiles MSSQL support into QuickFIX. If you enable this option, the mssql include and
+      library directories must be in the Visual Studio search paths.<br/>
+      <FONT color="#0000FF">#define HAVE_POSTGRESQL 1</FONT>
+      Compiles PostgreSQL support into QuickFIX. If you enable this option, the postgres include and
+      library directories must be in the Visual Studio search paths.<br/>
+      <FONT color="#0000FF">#define HAVE_LIBXML 1</FONT>
+      Compile and link XML parsing code against the libxml library instead of the default MSXML3.<br/>
+      <FONT color="#0000FF">#define ENABLE_CALLSTACK 1</FONT>
+      Tells QuickFIX to keep track of a C++ callstack that will be printed out in the event of a the process crashing.  Only use this when trying to track down a repeatable problem.<br/>
+    </p>
+    <A NAME="Windows (.NET)"/>
+    <H3>Windows (.NET)</H3>
+	<p>
+	  QuickFIX comes with a .NET wrapper written in managed C++. This enables any CLR based language (i.e., C#, VB.NET)
+	  to access QuickFIX.
+	</p>
+	<p>
+	  The instruction for building under .NET are the same as the instructions for windows listed above,
+	  however you must use the <I>quickfix.sln</I> file and build under Visual Studio .NET. In addition to
+	  the quickfix lib files, DLLs named <B>quickfix_net.dll</B> and <B>quickfix_net_messages.dll</B>
+	  will be placed into your <I>lib</I> and <I>lib\debug</I> directories.
+	</p>
+	<A NAME="Windows (Java)"/>
+    <H3>Windows (Java)</H3>
+	<p>
+	  To build the JNI layer, make sure you have completed the build/installation of the C++ quickfix
+	  library. Now open the <B>quickfix_jni.dsw</B> workspace in MSDev Studio.
+	  (or <B>quickfix_jni.sln</B> if building under Visual Studio .NET).
+	  Before building, make sure to add the JNI include directories to your include search path. Do this by opening up the
+	  <B>Tools->Options</B> menu and selecting the <B>Directories</B> tab (<B>Project->VC++ Directories</B>
+	  under Visual Studio .NET).  Make sure the <B>Show directories
+	  for:</B> combo box has <I>Include files</I> selected. Based on your <B>JAVA_HOME</B> environment settings,
+	  add the jdk's <I>include</I> and <I>include\win32</I> directories to your search path. These will probably be
+	  something like <I>C:\jdk1.3.1\include</I> and <I>C:\jdk1.3.1\include\win32</I>.  Now do a batch build of all project
+	  configurations. DLLs named <B>quickfix_jni.dll</B> and <B>quickfix_debug_jni.dll</B> will be placed into your
+	  <I>lib</I> and <I>lib\debug</I> directories.
+	</p>
+	  Once you have built the JNI dll, you must now build the QuickFIX java API. Simply run the <B>build.bat</B>
+	  file in the <I>src\java</I> directory. A jar file name <B>quickfix.jar</B> will be placed into your
+	  <I>lib</I> directory.
+	</p>
+    <A NAME="Linux / Solaris / FreeBSD / Mac OS X (C++/Java)"/>
+    <H3>Linux / Solaris / FreeBSD / Mac OS X (C++/Java)</H3>
+    <p>
+      QuickFIX uses GNU autotools (autoconf, automake, and libtool) in conjunction with make to
+      build on unix systems. If you also want to reuse our makefiles for developing your own application,
+      you will find it useful. Also note
+      that if your version of gcc does not come with sstream, you will need to download it from
+      the link above and put it in the correct include directory. Also please note for Solaris
+      you must use GNU make, the make that comes with Solaris will not work.
+    </p>
+    <p>
+      Building under *nix requires two steps.  First, in the root quickfix directory, type
+      <B>./configure</B>  This will probe your system to find out what functionality it supports
+      for use in determining how to build QuickFIX.  After ./configure completes succesfully,
+      simply type <B>make</B> to build.  If you run into problems running configure, you may
+      need to run the <B>./bootstrap</B> script first.
+    </p>
+    <p>
+      There are some options you can pass to <I>./configure</I> to enable compile time features.
+      These are:<br><br>
+      <FONT color="#0000FF">--with-java</FONT> - Build the Java API.  JAVA_HOME will be used to find Java.<br>
+      <FONT color="#0000FF">--with-python=&lt;include directory&gt;</FONT> - Build the Python API.  Use directory which contains python headers.<br>
+      <FONT color="#0000FF">--with-mysql=&lt;base directory&gt;</FONT> - Compile in mysql support<br>
+      <FONT color="#0000FF">--with-postgresql=&lt;base directory&gt;</FONT> - Compile in postgresql support<br>
+      <FONT color="#0000FF">--with-stlport=&lt;base directory&gt;</FONT> - Compile with stlport instead of
+      standard gcc STL implementation (recommended for multiprocessor machines running gcc 2.95.x)<br>
+      <FONT color="#0000FF">--enable-callstack</FONT> - Display C++ call stack after abnormal termination. Only use this when trying to track down a repeatable problem.<br>
+    </p>
+    <p>
+      If you are using the SUNPro compiler, you will need to set the following environment variables:<br/><br/>
+      <b>CC</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>CFLAGS</b>=<i>-g -xs</i><br/>
+      <b>CXX</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>CXXFLAGS</b>=<i>-g -xs</i><br/>
+      <b>LD</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>LDFLAGS</b>=<i>-g -xs -lCstd</i><br/>
+      <b>AR</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br/>
+      <b>AR_FLAGS</b>=<i>-g -xs -xar -o</i><br/>
+    </p>
+    <p>
+      After succesfully building QuickFIX, you should run <B>make install</B> as root.
+      This will place the library <B>libquickfix.so</B> and <B>libquickfix_jni.so</B> if java is
+      detected, and the quickfix header files into the appropriate directories.  If you do not
+      have root access, you can also run configure with the
+      <FONT color="#0000FF">--prefix=&lt;base directory&gt;</FONT> option, where the base directory
+      is some directory which your account has write
+      access. <B>note: </b> under Mac OS X, the files are
+      called <B>libquickfix.dylib</B>
+      and <B>libquickfix_jni.jnilib</B>, you may need to create a
+      symlink to <B>libquickfix_jni.so</B>.
+    </p>
+  </body>
+</html>

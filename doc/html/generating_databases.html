@@ -1,0 +1,66 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Generating QuickFIX Databases</title>
+    <H1>Generating QuickFIX Databases</H1>
+  </head>
+
+  <UL>
+    <LI><A HREF="#MySQL Database">MySQL Database</A></LI>
+    <LI><A HREF="#MSSQL Database">MSSQL Database</A></LI>
+    <LI><A HREF="#PostgreSQL Database">PostgreSQL Database</A></LI>
+  </UL>
+
+  <body>
+    <hr>
+    <A NAME="MySQL Database">
+    <H3>MySQL Database</H3>
+    <p>
+      First, make sure you have compiled QuickFIX with MySQL support.  If you have not done this,
+      go back to the build instructions for your system and follow the instructions.  Also, make
+      sure you have installed MySQL and have the deamon running.
+    </p>
+    <p>
+      Everything needed to generate your MySQL database is in the <I>src/sql/mysql</I> directory. Here,
+      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>.
+      These scripts will work on a newly installed mysql database with default permisions. The
+      scripts will try to generate the database using the root MySQL account with no password. If
+      you need to use a different account or need a password, you will have to edit the script.
+      To select a different user, simply change 'root' to another user.  To add a password,
+      use pass the -p <password> option after the username.
+    </p>
+    <A NAME="MSSQL Database">
+    <H3>MSSQL Database</H3>
+    <p>
+      First, make sure you have compiled QuickFIX with MSSQL support.  If you have not done this,
+      go back to the build instructions for your system and follow the instructions.  Also, make
+      sure you have installed MSSQL and have the deamon running.
+    </p>
+    <p>
+      Everything needed to generate your MSSQL database is in the <I>src/sql/mssql</I> directory. Here,
+      there is the batch file <B>create.bat</B>.
+      This script will work on a newly installed mssql database with default permisions. The
+      scripts will try to generate the database using the sa account with no password. If
+      you need to use a different account or need a password, you will have to edit the script.
+      To select a different user, simply change 'sa' to another user.  To add a password,
+      use pass the -P <password> option after the username.
+    </p>
+    <A NAME="PostgreSQL Database">
+    <H3>PostgreSQL Database</H3>
+    <p>
+      First, make sure you have compiled QuickFIX with PostgreSQL support.  If you have not done this,
+      go back to the build instructions for your system and follow the instructions.  Also, make
+      sure you have installed PostgreSQL and have the deamon running.
+    </p>
+    <p>
+      Everything needed to generate your PostgreSQL database is in the <I>src/sql/postgresql</I> directory. Here,
+      there are the script and batch files <B>create.sh</B> and <B>create.bat</B>.
+      These scripts will work on a newly installed postgresql database with default permisions. The
+      scripts will try to generate the database using the postgres account with no password. If
+      you need to use a different account or need a password, you will have to edit the script.
+      To select a different user, simply change 'postgres' to another user.  To add a password,
+      use pass the -W option and you will be prompted for a password.
+    </p>
+  </body>
+</html>

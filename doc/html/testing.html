@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<html>
+  <head>
+    <title>Testing QuickFIX</title>
+    <H1>Testing QuickFIX</H1>
+  </head>
+
+  <body>
+    <p>
+      The development of QuickFIX has been driven by a suite of functional acceptance tests
+      and unit tests.  We have been working incrementally, functional test by functional test,
+      writing the unit tests before the code.  If these tests pass, we're pretty confident
+      that the engine works as intended.
+    </p>
+    <p>
+      The developer unit tests are written in C++ and make direct calls into the code.  The
+      functional acceptance tests are scripted FIX messages that are pumped into a running
+      FIX server.  Most of these tests are based off of the
+      <a href="http://www.fixprotocol.org/ORGANIZATIONS/928202077/FIX_TestCase_SessionLevel20010710.doc">
+      FIX Session-level Test Cases and Expected Behaviors document</a>
+    </p>
+    <p>
+      Two executable files are built that allow you to run tests.  They are <I>ut(.exe)</I> and
+      <I>at_server(.exe)</I>.  Running the ut executable will run all the defined unit tests
+      against the quickfix library.  The at_server executable is an implementation of a FIX server
+      application that simply echoes NewOrderSingle messages back to the client.  It also ensures
+      a ClOrdID is not reused.  It has just enough functionality to test the application-level
+      behavior of our implementation.
+    </p>
+    <p>
+      The output of the unit test runner is represented by a period if the test passes or a
+      letter 'F' if it fails.  Failed tests will also display information regarding the failure.
+      This will usually be a test name, file name, and line number.
+    </p>
+    <p>
+      The output of the acceptance test runner will be an XML output that has a result field
+      with a sucess or failure.  A failed test will also display information on why the test
+      has failed.  Usually this will be a comparison of the expected result and the actual
+      result of a line. To run acceptance tests, ruby must be installed and in your path.
+    </p>
+
+    <UL>
+      <LI><A HREF="#Windows">Windows</A></LI>
+      <LI><A HREF="#Linux / Solaris / FreeBSD / Mac OS X">Linux / Solaris / FreeBSD / Mac OS X</A></LI>
+      <LI><A HREF="#Java">Java</A></LI>
+    </UL>
+
+    <A NAME="Windows"/>
+    <H3>Windows</H3>
+    <table border=1 cellspacing=1 cellpadding=5 width="100%">
+	<tbody><tr><td align=left>
+      <H4>Unit Tests</H4>
+      <p>
+        Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
+        directory. To run unit tests, either type <B>runut debug [port]</B> or <B>runut release [port]</B>,
+        depending on if you want to test the debug or release version. The port is used to test
+	    socket functionality.
+      </p>
+      <H4>Acceptance Tests</H4>
+      <p>
+        Go to the <I>test</I> directory under the root quickfix directory.  Type either <B>runat
+        debug [port]</B> or <B>runat release [port]</B>, depending on if you want to test the
+        debug or release version.  The port is used to listen for connections on a socket server.
+        This should be a port that is not already in use on your system. <B>runat_threaded.bat</B> is
+        also provided if you want to test using threaded socket code. The parameters are the same.
+      </p>
+    </td></tr></td></table>
+
+    <A NAME="Linux / Solaris / FreeBSD / Mac OS X"/>
+    <H3>Linux / Solaris / FreeBSD / Mac OS X</H3>
+    <table border=1 cellspacing=1 cellpadding=5 width="100%">
+	<tbody><tr><td align=left>
+      <H4>Unit Tests</H4>
+	  <p>
+		Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
+		directory. To run unit tests, type <B>./runut [port]</B> where the port is used to test
+		the socket functionality.
+	  </p>
+	  <H4>Acceptance Tests</H4>
+	  <p>
+		Go to the <I>test</I> directory under the root quickfix directory.  Type <B>./runat
+		[port]</B>. The port is used to listen for connections on a socket server.
+        This should be a port that is not already in use on your system. <B>runat_threaded</B> is
+        also provided if you want to test using threaded socket code. The parameters are the same.
+	  </p>
+    </td></tr></tbody></table>
+
+    <A NAME="Java"/>
+    <H3>Java</H3>
+    <table border=1 cellspacing=1 cellpadding=5 width="100%">
+  <tbody><tr><td align=left>
+    <H4>Unit Tests</H4>
+    <p>
+      Enter the <I>test</I> directory under quickfix.  All tests need to be run from this
+      directory. To run unit tests, type <B>./runut_java</B> where the port is used to test
+      the socket functionality.
+    </p>
+    <H4>Acceptance Tests</H4>
+    <p>
+    Go to the <I>test</I> directory under the root quickfix directory.  Type <B>./runat_java
+    [port]</B> on *nix, or <B>runat_java.bat [port]</B> on windows. The port is used to listen for
+    connections on a socket server.
+        This should be a port that is not already in use on your system.
+    </p>
+    </td></tr></tbody></table>
+
+  </body>
+</html>
