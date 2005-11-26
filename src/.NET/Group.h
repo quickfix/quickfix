@@ -105,17 +105,17 @@ public:
   void setField( UtcDateOnlyField* field );
   void setField( UtcTimeOnlyField* field );
 
-  StringField* getField( StringField* field ) throw( FieldNotFound* );
-  BooleanField* getField( BooleanField* field ) throw( FieldNotFound* );
-  CharField* getField( CharField* field ) throw( FieldNotFound* );
-  IntField* getField( IntField* field ) throw( FieldNotFound* );
-  DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-  UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
-  UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
-  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+  StringField* getField( StringField* field );
+  BooleanField* getField( BooleanField* field );
+  CharField* getField( CharField* field );
+  IntField* getField( IntField* field );
+  DoubleField* getField( DoubleField* field );
+  UtcTimeStampField* getField( UtcTimeStampField* field );
+  UtcDateOnlyField* getField( UtcDateOnlyField* field );
+  UtcTimeOnlyField* getField( UtcTimeOnlyField* field );
   bool isSetField( Field* field );
 
-  String* getField( int field ) throw( FieldNotFound* );
+  String* getField( int field );
   void setField( int field, String* );
   void removeField( int field );
 

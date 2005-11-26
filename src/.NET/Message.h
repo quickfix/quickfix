@@ -167,14 +167,14 @@ public:
   void setUtcTimeOnly(int field, DateTime value);
   void setUtcTimeOnly(int field, DateTime value, bool showMilliseconds);
 
-  String* getString(int field) throw ( FieldNotFound* );
-  bool getBoolean(int field) throw ( FieldNotFound* );
-  char getChar(int field) throw ( FieldNotFound* );
-  int getInt(int field) throw ( FieldNotFound* );
-  double getDouble(int field) throw ( FieldNotFound* );
-  DateTime getUtcTimeStamp(int field) throw ( FieldNotFound* );
-  DateTime getUtcDateOnly(int field) throw ( FieldNotFound* );
-  DateTime getUtcTimeOnly(int field) throw ( FieldNotFound* );
+  String* getString(int field);
+  bool getBoolean(int field);
+  char getChar(int field);
+  int getInt(int field);
+  double getDouble(int field);
+  DateTime getUtcTimeStamp(int field);
+  DateTime getUtcDateOnly(int field);
+  DateTime getUtcTimeOnly(int field);
 
   String* ToString()
   { QF_STACK_TRY
@@ -203,18 +203,18 @@ public:
   void setField( UtcDateOnlyField* field );
   void setField( UtcTimeOnlyField* field );
 
-  StringField* getField( StringField* field ) throw( FieldNotFound* );
-  BooleanField* getField( BooleanField* field ) throw( FieldNotFound* );
-  CharField* getField( CharField* field ) throw( FieldNotFound* );
-  IntField* getField( IntField* field ) throw( FieldNotFound* );
-  DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-  UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
-  UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
-  UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+  StringField* getField( StringField* field );
+  BooleanField* getField( BooleanField* field );
+  CharField* getField( CharField* field );
+  IntField* getField( IntField* field );
+  DoubleField* getField( DoubleField* field );
+  UtcTimeStampField* getField( UtcTimeStampField* field );
+  UtcDateOnlyField* getField( UtcDateOnlyField* field );
+  UtcTimeOnlyField* getField( UtcTimeOnlyField* field );
 
   bool isSetField( Field* field );
 
-  String* getField( int field ) throw( FieldNotFound* );
+  String* getField( int field );
   void setField( int field, String* );
   void removeField( int field );
 
@@ -237,7 +237,7 @@ public:
     QF_STACK_CATCH
   }
 
-  Group* getGroup( unsigned num, Group* group ) throw( FieldNotFound* )
+  Group* getGroup( unsigned num, Group* group )
   { QF_STACK_TRY
 
     try
@@ -269,14 +269,14 @@ public:
     void setUtcTimeOnly(int field, DateTime value);
     void setUtcTimeOnly(int field, DateTime value, bool showMilliseconds);
 
-    String* getString(int field) throw ( FieldNotFound* );
-    bool getBoolean(int field) throw ( FieldNotFound* );
-    char getChar(int field) throw ( FieldNotFound* );
-    int getInt(int field) throw ( FieldNotFound* );
-    double getDouble(int field) throw ( FieldNotFound* );
-    DateTime getUtcTimeStamp(int field) throw ( FieldNotFound* );
-    DateTime getUtcDateOnly(int field) throw ( FieldNotFound* );
-    DateTime getUtcTimeOnly(int field) throw ( FieldNotFound* );
+    String* getString(int field);
+    bool getBoolean(int field);
+    char getChar(int field);
+    int getInt(int field);
+    double getDouble(int field);
+    DateTime getUtcTimeStamp(int field);
+    DateTime getUtcDateOnly(int field);
+    DateTime getUtcTimeOnly(int field);
 
     void setField( StringField* field );
     void setField( BooleanField* field );
@@ -287,18 +287,18 @@ public:
     void setField( UtcDateOnlyField* field );
     void setField( UtcTimeOnlyField* field );
 
-    StringField* getField( StringField* field ) throw( FieldNotFound* );
-    BooleanField* getField( BooleanField* field ) throw( FieldNotFound* );
-    CharField* getField( CharField* field ) throw( FieldNotFound* );
-    IntField* getField( IntField* field ) throw( FieldNotFound* );
-    DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-    UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
-    UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
-    UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+    StringField* getField( StringField* field );
+    BooleanField* getField( BooleanField* field );
+    CharField* getField( CharField* field );
+    IntField* getField( IntField* field );
+    DoubleField* getField( DoubleField* field );
+    UtcTimeStampField* getField( UtcTimeStampField* field );
+    UtcDateOnlyField* getField( UtcDateOnlyField* field );
+    UtcTimeOnlyField* getField( UtcTimeOnlyField* field );
 
     bool isSetField( Field* field );
 
-    String* getField( int field ) throw( FieldNotFound* );
+    String* getField( int field );
     void setField( int field, String* );
     void removeField( int field );
 
@@ -405,14 +405,14 @@ public:
     void setUtcTimeOnly(int field, DateTime value);
     void setUtcTimeOnly(int field, DateTime value, bool showMilliseconds);
 
-    String* getString(int field) throw ( FieldNotFound* );
-    bool getBoolean(int field) throw ( FieldNotFound* );
-    char getChar(int field) throw ( FieldNotFound* );
-    int getInt(int field) throw ( FieldNotFound* );
-    double getDouble(int field) throw ( FieldNotFound* );
-    DateTime getUtcTimeStamp(int field) throw ( FieldNotFound* );
-    DateTime getUtcDateOnly(int field) throw ( FieldNotFound* );
-    DateTime getUtcTimeOnly(int field) throw ( FieldNotFound* );
+    String* getString(int field);
+    bool getBoolean(int field);
+    char getChar(int field);
+    int getInt(int field);
+    double getDouble(int field);
+    DateTime getUtcTimeStamp(int field);
+    DateTime getUtcDateOnly(int field);
+    DateTime getUtcTimeOnly(int field);
 
     void setField( StringField* field );
     void setField( BooleanField* field );
@@ -423,18 +423,18 @@ public:
     void setField( UtcDateOnlyField* field );
     void setField( UtcTimeOnlyField* field );
 
-    StringField* getField( StringField* field ) throw( FieldNotFound* );
-    BooleanField* getField( BooleanField* field ) throw( FieldNotFound* );
-    CharField* getField( CharField* field ) throw( FieldNotFound* );
-    IntField* getField( IntField* field ) throw( FieldNotFound* );
-    DoubleField* getField( DoubleField* field ) throw( FieldNotFound* );
-    UtcTimeStampField* getField( UtcTimeStampField* field ) throw( FieldNotFound* );
-    UtcDateOnlyField* getField( UtcDateOnlyField* field ) throw( FieldNotFound* );
-    UtcTimeOnlyField* getField( UtcTimeOnlyField* field ) throw( FieldNotFound* );
+    StringField* getField( StringField* field );
+    BooleanField* getField( BooleanField* field );
+    CharField* getField( CharField* field );
+    IntField* getField( IntField* field );
+    DoubleField* getField( DoubleField* field );
+    UtcTimeStampField* getField( UtcTimeStampField* field );
+    UtcDateOnlyField* getField( UtcDateOnlyField* field );
+    UtcTimeOnlyField* getField( UtcTimeOnlyField* field );
 
     bool isSetField( Field* field );
 
-    String* getField( int field ) throw( FieldNotFound* );
+    String* getField( int field );
     void setField( int field, String* );
     void removeField( int field );
 
@@ -597,14 +597,14 @@ private:
   void mapSetUtcTimeOnly(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map);
   void mapSetUtcDateOnly(int field, DateTime value, FIX::FieldMap& map);
 
-  String* mapGetString(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
-  bool mapGetBoolean(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
-  char mapGetChar(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
-  int mapGetInt(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
-  double mapGetDouble(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
-  DateTime mapGetUtcTimeStamp(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
-  DateTime mapGetUtcDateOnly(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
-  DateTime mapGetUtcTimeOnly(int field, FIX::FieldMap& map) throw ( FieldNotFound* );
+  String* mapGetString(int field, FIX::FieldMap& map);
+  bool mapGetBoolean(int field, FIX::FieldMap& map);
+  char mapGetChar(int field, FIX::FieldMap& map);
+  int mapGetInt(int field, FIX::FieldMap& map);
+  double mapGetDouble(int field, FIX::FieldMap& map);
+  DateTime mapGetUtcTimeStamp(int field, FIX::FieldMap& map);
+  DateTime mapGetUtcDateOnly(int field, FIX::FieldMap& map);
+  DateTime mapGetUtcTimeOnly(int field, FIX::FieldMap& map);
 
   void mapSetField( StringField* field, FIX::FieldMap& map );
   void mapSetField( BooleanField* field, FIX::FieldMap& map );
@@ -615,26 +615,17 @@ private:
   void mapSetField( UtcDateOnlyField* field, FIX::FieldMap& map );
   void mapSetField( UtcTimeOnlyField* field, FIX::FieldMap& map );
 
-  StringField* mapGetField( StringField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
-  BooleanField* mapGetField( BooleanField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
-  CharField* mapGetField( CharField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
-  IntField* mapGetField( IntField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
-  DoubleField* mapGetField( DoubleField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
-  UtcTimeStampField* mapGetField( UtcTimeStampField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
-  UtcDateOnlyField* mapGetField( UtcDateOnlyField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
-  UtcTimeOnlyField* mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& map )
-    throw( FieldNotFound* );
+  StringField* mapGetField( StringField* field, FIX::FieldMap& map );
+  BooleanField* mapGetField( BooleanField* field, FIX::FieldMap& map );
+  CharField* mapGetField( CharField* field, FIX::FieldMap& map );
+  IntField* mapGetField( IntField* field, FIX::FieldMap& map );
+  DoubleField* mapGetField( DoubleField* field, FIX::FieldMap& map );
+  UtcTimeStampField* mapGetField( UtcTimeStampField* field, FIX::FieldMap& map );
+  UtcDateOnlyField* mapGetField( UtcDateOnlyField* field, FIX::FieldMap& map );
+  UtcTimeOnlyField* mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& map );
 
   void mapSetField( int field, String*, FIX::FieldMap& map );
-  String* mapGetField( int field, FIX::FieldMap& map )
-    throw( FieldNotFound* );  
+  String* mapGetField( int field, FIX::FieldMap& map );
   void mapRemoveField( int field, FIX::FieldMap& map );
   bool mapHasGroup( unsigned num, int field, FIX::FieldMap& map );
   bool mapHasGroup( int field, FIX::FieldMap& map );

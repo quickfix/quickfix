@@ -87,7 +87,7 @@ public:
     delete m_logFactory;
   }
 
-  void start() throw ( ConfigError*, RuntimeError* )
+  void start()
   { QF_STACK_TRY
 
     try
@@ -106,7 +106,7 @@ public:
     QF_STACK_CATCH
   }
 
-  void block() throw ( ConfigError*, RuntimeError* )
+  void block()
   { QF_STACK_TRY
 
     try
@@ -125,7 +125,7 @@ public:
     QF_STACK_CATCH
   }
 
-  bool poll() throw ( ConfigError*, RuntimeError* )
+  bool poll()
   { QF_STACK_TRY
 
     try

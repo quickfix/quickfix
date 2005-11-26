@@ -126,7 +126,7 @@ void Group::setField( UtcTimeOnlyField* field )
   QF_STACK_CATCH
 }
 
-StringField* Group::getField( StringField* field ) throw( FieldNotFound* )
+StringField* Group::getField( StringField* field )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -141,7 +141,7 @@ StringField* Group::getField( StringField* field ) throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 
-BooleanField* Group::getField( BooleanField* field ) throw( FieldNotFound* )
+BooleanField* Group::getField( BooleanField* field )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -158,7 +158,7 @@ BooleanField* Group::getField( BooleanField* field ) throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 
-CharField* Group::getField( CharField* field ) throw( FieldNotFound* )
+CharField* Group::getField( CharField* field )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -175,7 +175,7 @@ CharField* Group::getField( CharField* field ) throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 
-IntField* Group::getField( IntField* field ) throw( FieldNotFound* )
+IntField* Group::getField( IntField* field )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -192,7 +192,7 @@ IntField* Group::getField( IntField* field ) throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 
-DoubleField* Group::getField( DoubleField* field ) throw( FieldNotFound* )
+DoubleField* Group::getField( DoubleField* field )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -210,7 +210,6 @@ DoubleField* Group::getField( DoubleField* field ) throw( FieldNotFound* )
 }
 
 UtcTimeStampField* Group::getField( UtcTimeStampField* field )
-throw( FieldNotFound* )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -230,7 +229,7 @@ throw( FieldNotFound* )
   QF_STACK_CATCH
 }
 
-UtcDateOnlyField* Group::getField( UtcDateOnlyField* field ) throw( FieldNotFound* )
+UtcDateOnlyField* Group::getField( UtcDateOnlyField* field )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -250,7 +249,6 @@ UtcDateOnlyField* Group::getField( UtcDateOnlyField* field ) throw( FieldNotFoun
 }
 
 UtcTimeOnlyField* Group::getField( UtcTimeOnlyField* field )
-throw( FieldNotFound* )
 { QF_STACK_TRY
 
   checkDisposed();
@@ -276,7 +274,6 @@ bool Group::isSetField( Field* field )
 }
 
 String* Group::getField( int field )
-throw( FieldNotFound* )
 { QF_STACK_TRY
   checkDisposed(); return m_pUnmanaged->getField( field ).c_str();
   QF_STACK_CATCH

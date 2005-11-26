@@ -36,18 +36,16 @@ namespace QuickFix
 {
 public __gc __interface MessageStore
 {
-  virtual bool set( int sequence, String* message )
-  throw ( IOException* );
-  virtual void get( int begin, int end, ArrayList* )
-  throw ( IOException* );
-  virtual int getNextSenderMsgSeqNum() throw ( IOException* );
-  virtual int getNextTargetMsgSeqNum() throw ( IOException* );
-  virtual void setNextSenderMsgSeqNum( int next ) throw ( IOException* );
-  virtual void setNextTargetMsgSeqNum( int next ) throw ( IOException* );
-  virtual void incrNextSenderMsgSeqNum() throw ( IOException* );
-  virtual void incrNextTargetMsgSeqNum() throw ( IOException* );
-  virtual DateTime getCreationTime() throw ( IOException* );
-  virtual void reset() throw ( IOException* );
+  virtual bool set( int sequence, String* message );
+  virtual void get( int begin, int end, ArrayList* );
+  virtual int getNextSenderMsgSeqNum();
+  virtual int getNextTargetMsgSeqNum();
+  virtual void setNextSenderMsgSeqNum( int next );
+  virtual void setNextTargetMsgSeqNum( int next );
+  virtual void incrNextSenderMsgSeqNum();
+  virtual void incrNextTargetMsgSeqNum();
+  virtual DateTime getCreationTime();
+  virtual void reset();
 };
 }
 

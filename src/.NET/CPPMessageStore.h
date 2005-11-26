@@ -43,7 +43,7 @@ public:
     QF_STACK_CATCH
   }
 
-  bool set( int sequence, String* message ) throw ( IOException* )
+  bool set( int sequence, String* message )
   { QF_STACK_TRY
 
     try
@@ -58,7 +58,7 @@ public:
     QF_STACK_CATCH
   }
 
-  void get( int begin, int end, ArrayList* list ) throw ( IOException* )
+  void get( int begin, int end, ArrayList* list )
   { QF_STACK_TRY
 
     try
@@ -75,7 +75,7 @@ public:
     QF_STACK_CATCH
   }
 
-  int getNextSenderMsgSeqNum() throw ( IOException* )
+  int getNextSenderMsgSeqNum()
   { QF_STACK_TRY
 
     try
@@ -86,7 +86,7 @@ public:
     QF_STACK_CATCH
   }
 
-  int getNextTargetMsgSeqNum() throw ( IOException* )
+  int getNextTargetMsgSeqNum()
   { QF_STACK_TRY
 
     try
@@ -97,7 +97,7 @@ public:
     QF_STACK_CATCH
   }
 
-  void setNextSenderMsgSeqNum( int next ) throw ( IOException* )
+  void setNextSenderMsgSeqNum( int next )
   { QF_STACK_TRY
 
     try
@@ -108,7 +108,7 @@ public:
     QF_STACK_CATCH
   }
 
-  void setNextTargetMsgSeqNum( int next ) throw ( IOException* )
+  void setNextTargetMsgSeqNum( int next )
   { QF_STACK_TRY
 
     try
@@ -119,7 +119,7 @@ public:
     QF_STACK_CATCH
   }
 
-  void incrNextSenderMsgSeqNum() throw ( IOException* )
+  void incrNextSenderMsgSeqNum()
   { QF_STACK_TRY
 
     try
@@ -130,7 +130,7 @@ public:
     QF_STACK_CATCH
   }
 
-  void incrNextTargetMsgSeqNum() throw ( IOException* )
+  void incrNextTargetMsgSeqNum()
   { QF_STACK_TRY
 
     try
@@ -141,7 +141,7 @@ public:
     QF_STACK_CATCH
   }
 
-  DateTime getCreationTime() throw ( IOException* )
+  DateTime getCreationTime()
   { QF_STACK_TRY
 
     try
@@ -156,7 +156,7 @@ public:
     QF_STACK_CATCH
   }
 
-  void reset() throw ( IOException* )
+  void reset()
   { QF_STACK_TRY
 
     try

@@ -30,9 +30,9 @@ namespace QuickFix
 {
 public __gc __interface Acceptor
 {
-  void start() throw ( ConfigError*, RuntimeError* ) = 0;
-  void block() throw ( ConfigError*, RuntimeError* ) = 0;
-  bool poll() throw ( ConfigError*, RuntimeError* ) = 0;
+  void start() = 0;
+  void block() = 0;
+  bool poll() = 0;
   void stop() = 0;
   void stop( bool force ) = 0;
   bool isLoggedOn() = 0;

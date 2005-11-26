@@ -39,18 +39,9 @@ public __gc __interface Application
   virtual void onLogon( SessionID* ) = 0;
   virtual void onLogout( SessionID* ) = 0;
   virtual void toAdmin( Message*, SessionID* ) = 0;
-  virtual void toApp( Message*, SessionID* )
-  throw( DoNotSend* ) = 0;
-  virtual void fromAdmin( Message*, SessionID* )
-  throw( FieldNotFound*,
-	 IncorrectDataFormat*,
-	 IncorrectTagValue*,
-	 RejectLogon* ) = 0;
-  virtual void fromApp( Message*, SessionID* )
-  throw( FieldNotFound*,
-	 IncorrectDataFormat*,
-	 IncorrectTagValue*,
-	 UnsupportedMessageType* ) = 0;
+  virtual void toApp( Message*, SessionID* );
+  virtual void fromAdmin( Message*, SessionID* );
+  virtual void fromApp( Message*, SessionID* );
 };
 }
 

@@ -72,7 +72,7 @@ bool Session::isLoggedOn()
   QF_STACK_CATCH
 }
 
-void Session::reset() throw( IOException* )
+void Session::reset()
 { QF_STACK_TRY
 
   try
@@ -87,7 +87,7 @@ void Session::reset() throw( IOException* )
   QF_STACK_CATCH
 }
 
-void Session::setNextSenderMsgSeqNum( int num ) throw( IOException* )
+void Session::setNextSenderMsgSeqNum( int num )
 { QF_STACK_TRY
 
   try
@@ -102,7 +102,7 @@ void Session::setNextSenderMsgSeqNum( int num ) throw( IOException* )
   QF_STACK_CATCH
 }
 
-void Session::setNextTargetMsgSeqNum( int num ) throw( IOException* )
+void Session::setNextTargetMsgSeqNum( int num )
 { QF_STACK_TRY
 
   try
@@ -118,7 +118,6 @@ void Session::setNextTargetMsgSeqNum( int num ) throw( IOException* )
 }
 
 bool Session::sendToTarget( Message* message )
-throw( SessionNotFound* )
 { QF_STACK_TRY
 
   try
@@ -132,7 +131,6 @@ throw( SessionNotFound* )
 }
 
 bool Session::sendToTarget( Message* message, String* qualifier )
-throw( SessionNotFound* )
 { QF_STACK_TRY
 
   try
@@ -147,7 +145,6 @@ throw( SessionNotFound* )
 }
 
 bool Session::sendToTarget( Message* message, SessionID* sessionID )
-throw( SessionNotFound* )
 { QF_STACK_TRY
 
   try
@@ -163,7 +160,6 @@ throw( SessionNotFound* )
 
 bool Session::sendToTarget
 ( Message* message, String* senderCompID, String* targetCompID )
-throw( SessionNotFound* )
 { QF_STACK_TRY
 
   try
@@ -181,7 +177,6 @@ throw( SessionNotFound* )
 
 bool Session::sendToTarget
 ( Message* message, String* senderCompID, String* targetCompID, String* qualifier )
-throw( SessionNotFound* )
 { QF_STACK_TRY
 
   try
