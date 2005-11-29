@@ -24,6 +24,7 @@
 
 #include "Utility.h"
 #include "CallStack.h"
+#include <math.h>
 
 #ifndef _MSC_VER
 #include <pthread.h>
