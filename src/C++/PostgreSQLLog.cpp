@@ -117,9 +117,12 @@ void PostgreSQLLogFactory::destroy( Log* pLog )
 void PostgreSQLLog::clear()
 { QF_STACK_PUSH(PostgreSQLLog::clear)
 
-  m_pConnection->execute( PostgreSQLQuery("DELETE FROM incoming_log") );
-  m_pConnection->execute( PostgreSQLQuery("DELETE FROM outgoing_log") );
-  m_pConnection->execute( PostgreSQLQuery("DELETE FROM event_log") );
+  PostgreSQLQuery incoming( "DELETE FROM incoming_log" );
+  PostgreSQLQuery outgoing( "DELETE FROM outgoing_log" );
+  PostgreSQLQuery event( "DELETE FROM event_log" );
+  m_pConnection->execute( incoming );
+  m_pConnection->execute( outgoing );
+  m_pConnection->execute( event );
 
   QF_STACK_POP
 }

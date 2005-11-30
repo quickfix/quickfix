@@ -117,9 +117,12 @@ void MySQLLogFactory::destroy( Log* pLog )
 void MySQLLog::clear()
 { QF_STACK_PUSH(MySQLLog::clear)
 
-  m_pConnection->execute( MySQLQuery("DELETE FROM incoming_log") );
-  m_pConnection->execute( MySQLQuery("DELETE FROM outgoing_log") );
-  m_pConnection->execute( MySQLQuery("DELETE FROM event_log") );
+  MySQLQuery incoming( "DELETE FROM incoming_log" );
+  MySQLQuery outgoing( "DELETE FROM outgoing_log" );
+  MySQLQuery event( "DELETE FROM event_log" );
+  m_pConnection->execute( incoming );
+  m_pConnection->execute( outgoing );
+  m_pConnection->execute( event );
 
   QF_STACK_POP
 }
