@@ -9,6 +9,7 @@
 %ignore start;
 
 %{
+#include <config.h>
 #include "../C++/Exceptions.h"
 #include "../C++/Field.h"
 #include "../C++/Message.h"
@@ -150,6 +151,7 @@ using namespace FIX;
   }
 }
 
+%include "../../config.h"
 %include "../C++/Exceptions.h"
 %include "../C++/Field.h"
 %include "../C++/FieldMap.h"
