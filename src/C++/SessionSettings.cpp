@@ -66,7 +66,6 @@ throw( ConfigError )
   for ( session = 0; session < section.size(); ++session )
   {
     dict = section[ session ];
-    dict.merge( def );
     BeginString beginString
     ( dict.getString( BEGINSTRING ) );
     SenderCompID senderCompID
@@ -103,10 +102,19 @@ throw( ConfigError )
   settings.setString( SENDERCOMPID, sessionID.getSenderCompID() );
   settings.setString( TARGETCOMPID, sessionID.getTargetCompID() );
 
+  settings.merge( m_defaults );
   validate( settings );
   m_settings[ sessionID ] = settings;
 
   QF_STACK_POP
+}
+
+void SessionSettings::set( const Dictionary& defaults ) throw( ConfigError ) 
+{ 
+  m_defaults = defaults;
+  Dictionaries::iterator i = m_settings.begin();
+  for( i = m_settings.begin(); i != m_settings.end(); ++i )
+    i->second.merge( defaults );
 }
 
 std::set < SessionID > SessionSettings::getSessions() const

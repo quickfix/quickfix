@@ -117,7 +117,7 @@ public:
   /// Get global default settings
   const Dictionary& get() const { return m_defaults; }
   /// Set global default settings
-  void set( const Dictionary& defaults ) throw( ConfigError ) { m_defaults = defaults; }
+  void set( const Dictionary& defaults ) throw( ConfigError );
 
   /// Number of session settings
   int size() { return m_settings.size(); }
