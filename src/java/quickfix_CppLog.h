@@ -9,6 +9,14 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_CppLog
+ * Method:    clear
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_CppLog_clear
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_CppLog
  * Method:    onIncoming
  * Signature: (Ljava/lang/String;)V
  */

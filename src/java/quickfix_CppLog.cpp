@@ -29,6 +29,18 @@
 #include <quickfix/Log.h>
 #include <quickfix/CallStack.h>
 
+JNIEXPORT void JNICALL Java_quickfix_CppLog_clear
+( JNIEnv * pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::Log* pLog = ( FIX::Log* ) jobject.getLong( "cppPointer" );
+  pLog->clear();
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT void JNICALL Java_quickfix_CppLog_onIncoming
 ( JNIEnv * pEnv, jobject obj, jstring string )
 { QF_STACK_TRY

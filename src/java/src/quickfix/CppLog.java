@@ -29,6 +29,7 @@ public class CppLog implements Log {
 	this.cppPointer = cppPointer;
     }
 
+    public native void clear();
     public native void onIncoming( String string );
     public native void onOutgoing( String string );
     public native void onEvent( String string );
