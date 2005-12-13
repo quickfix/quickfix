@@ -1190,7 +1190,7 @@ UtcTimeStampField* Message::mapGetField( UtcTimeStampField* field,
     fixd = FIX::UtcTimeStampConvertor::convert
       ( map.getField( field->getField() ) );
     DateTime d( fixd.getYear(), fixd.getMonth(), fixd.getDate(),
-                fixd.getHour(), fixd.getMinute(), fixd.getSecond() );
+                fixd.getHour(), fixd.getMinute(), fixd.getSecond(), fixd.getMillisecond() );
     field->setValue( d );
     return field;
   }
@@ -1229,7 +1229,7 @@ UtcTimeOnlyField* Message::mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& 
     FIX::UtcTimeOnly fixd;
     fixd = FIX::UtcTimeOnlyConvertor::convert
       ( map.getField( field->getField() ) );
-    DateTime d( 0, 0, 0, fixd.getHour(), fixd.getMinute(), fixd.getSecond() );
+    DateTime d( 1, 1, 1, fixd.getHour(), fixd.getMinute(), fixd.getSecond(), fixd.getMillisecond() );
     field->setValue( d );
     return field;
   }
