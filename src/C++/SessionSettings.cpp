@@ -63,15 +63,19 @@ throw( ConfigError )
   section = settings.get( "SESSION" );
   Settings::Sections::size_type session;
   Dictionary dict;
+
   for ( session = 0; session < section.size(); ++session )
   {
     dict = section[ session ];
+    dict.merge( def );
+
     BeginString beginString
     ( dict.getString( BEGINSTRING ) );
     SenderCompID senderCompID
     ( dict.getString( SENDERCOMPID ) );
     TargetCompID targetCompID
     ( dict.getString( TARGETCOMPID ) );
+
     std::string sessionQualifier;
     if( dict.has( SESSION_QUALIFIER ) )
       sessionQualifier = dict.getString( SESSION_QUALIFIER );
