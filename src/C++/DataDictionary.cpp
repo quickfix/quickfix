@@ -51,6 +51,7 @@ DataDictionary::DataDictionary()
   m_orderedFieldsArray(0) {}
 
 DataDictionary::DataDictionary( const std::string& url )
+throw( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
   m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
   m_orderedFieldsArray(0)
@@ -171,6 +172,7 @@ void DataDictionary::iterate( const FieldMap& map, const MsgType& msgType )
 }
 
 void DataDictionary::readFromURL( const std::string& url )
+throw( ConfigError )
 { QF_STACK_PUSH(DataDictionary::readFromURL)
 
 #ifdef HAVE_LIBXML

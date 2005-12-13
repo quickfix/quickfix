@@ -29,6 +29,7 @@
 #include "Fields.h"
 #include "FieldMap.h"
 #include "DOMDocument.h"
+#include "Exceptions.h"
 #include <set>
 #include <map>
 #include <string.h>
@@ -67,9 +68,9 @@ class DataDictionary
 public:
   DataDictionary();
   DataDictionary( const DataDictionary& );
-  DataDictionary( const std::string& url );
+  DataDictionary( const std::string& url ) throw( ConfigError );
   virtual ~DataDictionary();
-  void readFromURL( const std::string& url );
+  void readFromURL( const std::string& url ) throw( ConfigError );
 
   int* getOrderedFields() const;
 
