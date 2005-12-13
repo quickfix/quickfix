@@ -25,6 +25,7 @@ using namespace System;
 
 #include "quickfix_net.h"
 
+#include "Exceptions.h"
 #include "quickfix/DataDictionary.h"
 #include "quickfix/CallStack.h"
 
@@ -52,7 +53,14 @@ public:
   DataDictionary( String* url )
   { QF_STACK_TRY
 
-    m_pUnmanaged = new FIX::DataDictionary( convertString(url) );
+    try
+    {
+      m_pUnmanaged = new FIX::DataDictionary( convertString(url) );
+    }
+    catch( FIX::ConfigError& e )
+    {
+      throw new ConfigError( e.what() );
+    }
 
     QF_STACK_CATCH
   }
