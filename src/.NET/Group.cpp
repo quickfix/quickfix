@@ -257,7 +257,7 @@ UtcTimeOnlyField* Group::getField( UtcTimeOnlyField* field )
     FIX::UtcTimeOnly fixd;
     fixd = FIX::UtcTimeOnlyConvertor::convert
       ( m_pUnmanaged->getField( field->getField() ) );
-    DateTime d( 0, 0, 0, fixd.getHour(), fixd.getMinute(), fixd.getSecond() );
+    DateTime d( 1, 1, 1, fixd.getHour(), fixd.getMinute(), fixd.getSecond() );
     field->setValue( d );
     return field;
   }
