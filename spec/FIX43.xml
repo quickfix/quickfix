@@ -224,6 +224,7 @@
       <field name="RFQReqID" required="N" />
       <field name="QuoteRequestRejectReason" required="Y" />
       <group name="NoRelatedSym" required="Y">
+        <component name="Instrument" required="Y" />
         <field name="PrevClosePx" required="N" />
         <field name="QuoteRequestType" required="N" />
         <field name="QuoteType" required="N" />
