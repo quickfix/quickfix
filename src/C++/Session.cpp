@@ -622,7 +622,7 @@ void Session::generateResendRequest( const BeginString& beginString, const MsgSe
                    + IntConvertor::convert( beginSeqNo ) +
                    " TO: " + IntConvertor::convert( endSeqNo ) );
 
-  m_state.resendRange( beginSeqNo, endSeqNo );
+  m_state.resendRange( beginSeqNo, msgSeqNum - 1 );
 
   QF_STACK_POP
 }
