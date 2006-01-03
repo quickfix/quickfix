@@ -44,7 +44,7 @@ public:
   m_sentLogout( false ), m_sentLogon( false ),
   m_sentReset( false ), m_receivedReset( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
-  m_resendRequested( 0 ), m_pStore( 0 ), m_pLog( 0 ) {}
+  m_pStore( 0 ), m_pLog( 0 ) {}
 
   bool enabled() const { return m_enabled; }
   void enabled( bool value ) { m_enabled = value; }
@@ -210,7 +210,6 @@ private:
   bool m_initiate;
   int m_logonTimeout;
   int m_testRequest;
-  int m_resendRequested;
   ResendRange m_resendRange;
   HeartBtInt m_heartBtInt;
   UtcTimeStamp m_lastSentTime;

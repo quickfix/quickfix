@@ -964,6 +964,20 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
       doTargetTooLow( msg );
       return false;
     }
+
+    if ( (checkTooHigh || checkTooLow) && m_state.resendRequested() )
+    {
+      SessionState::ResendRange range = m_state.resendRange();
+ 
+      if ( msgSeqNum >= range.second )
+      {
+        m_state.onEvent ("ResendRequest for messages FROM: " +
+                         IntConvertor::convert (range.first) + " TO: " +
+                         IntConvertor::convert (range.second) +
+                         " has been satisfied.");
+        m_state.resendRange (0, 0);
+      }
+    }
   }
   catch ( std::exception& e )
   {
@@ -1103,7 +1117,7 @@ void Session::doTargetTooHigh( const Message& msg )
   header.getField( beginString );
   header.getField( msgSeqNum );
 
-  m_state.onEvent( "MsgSeqNum too high, expecting  "
+  m_state.onEvent( "MsgSeqNum too high, expecting "
                    + IntConvertor::convert( getExpectedTargetNum() )
                    + " but received "
                    + IntConvertor::convert( msgSeqNum ) );
@@ -1114,8 +1128,7 @@ void Session::doTargetTooHigh( const Message& msg )
   {
     SessionState::ResendRange range = m_state.resendRange();
 
-    if( msgSeqNum > range.first
-        && (range.second == 0 || msgSeqNum < range.second) )
+    if( msgSeqNum >= range.first )
     {
           m_state.onEvent ("Already sent ResendRequest FROM: " +
                            IntConvertor::convert (range.first) + " TO: " +
@@ -1144,9 +1157,6 @@ bool Session::nextQueued( int num )
 
   if( m_state.retreive( num, msg ) )
   {
-    if( m_state.resendRequested() )
-      m_state.resendRange( 0, 0 );
-
     m_state.onEvent( "Processing QUEUED message: "
                      + IntConvertor::convert( num ) );
     msg.getHeader().getField( msgType );
