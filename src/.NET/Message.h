@@ -194,6 +194,24 @@ public:
     QF_STACK_CATCH
   }
 
+  void setString( String* string )
+  { QF_STACK_TRY
+    m_pUnmanaged->setString( convertString(string) );
+    QF_STACK_CATCH
+  }
+
+  void setString( String* string, bool validate )
+  { QF_STACK_TRY
+    m_pUnmanaged->setString( convertString(string), validate );
+    QF_STACK_CATCH
+  }
+
+  void setString( String* string, bool validate, DataDictionary* dataDictionary )
+  { QF_STACK_TRY
+    m_pUnmanaged->setString( convertString(string), validate, &dataDictionary->unmanaged() );
+    QF_STACK_CATCH
+  }
+
   void setField( StringField* field );
   void setField( BooleanField* field );
   void setField( CharField* field );
