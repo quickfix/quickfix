@@ -235,7 +235,7 @@ void Session::nextLogon( const Message& logon )
 
   MsgSeqNum msgSeqNum;
   logon.getHeader().getField( msgSeqNum );
-  if ( isTargetTooHigh( msgSeqNum ) )
+  if ( isTargetTooHigh( msgSeqNum ) && !resetSeqNumFlag )
   {
     doTargetTooHigh( logon );
   }
