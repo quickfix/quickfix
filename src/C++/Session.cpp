@@ -567,6 +567,8 @@ bool Session::resend( Message& message )
 void Session::generateLogon()
 { QF_STACK_PUSH(Session::generateLogon)
 
+  m_state.connected( true );
+
   Message logon;
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
