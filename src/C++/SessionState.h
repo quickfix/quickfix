@@ -40,7 +40,7 @@ class SessionState : public MessageStore, public Log
 
 public:
   SessionState()
-: m_enabled( true ), m_connected( false ), m_receivedLogon( false ),
+: m_enabled( true ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
   m_sentReset( false ), m_receivedReset( false ),
   m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
@@ -48,9 +48,6 @@ public:
 
   bool enabled() const { return m_enabled; }
   void enabled( bool value ) { m_enabled = value; }
-
-  bool connected() const { return m_connected; }
-  void connected( bool value ) { m_connected = value; }
 
   bool receivedLogon() const { return m_receivedLogon; }
   void receivedLogon( bool value ) { m_receivedLogon = value; }
@@ -201,7 +198,6 @@ public:
 
 private:
   bool m_enabled;
-  bool m_connected;
   bool m_receivedLogon;
   bool m_sentLogout;
   bool m_sentLogon;

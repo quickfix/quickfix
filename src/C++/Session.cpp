@@ -533,8 +533,8 @@ void Session::disconnect()
   m_state.sentReset( false );
   m_state.clearQueue();
   m_logoutReason = "";
-  if ( m_resetOnDisconnect && m_state.connected() )
-  { m_state.connected( false ); reset(); }
+  if ( m_resetOnDisconnect )
+    m_state.reset();
 
   m_state.resendRange( 0, 0 );
 
@@ -566,8 +566,6 @@ bool Session::resend( Message& message )
 
 void Session::generateLogon()
 { QF_STACK_PUSH(Session::generateLogon)
-
-  m_state.connected( true );
 
   Message logon;
   logon.getHeader().setField( MsgType( "A" ) );
@@ -1215,8 +1213,6 @@ void Session::next( const Message& message, bool queued )
 
   try
   {
-    m_state.connected( true );
-
     UtcTimeStamp now;
     if ( !checkSessionTime(now) )
       { reset(); return; }
