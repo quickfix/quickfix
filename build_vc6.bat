@@ -5,7 +5,7 @@ if "%2" == "" set PROFILE=Release
 
 msdev quickfix_vs6.dsw /MAKE "at_vs6 - Win32 %PROFILE%" /%COMMAND%
 if ERRORLEVEL 1 goto quit
-msdev quickfix_vs6.dsw /MAKE "atrun - Win32 %PROFILE%" /%COMMAND%
+msdev quickfix_vs6.dsw /MAKE "atrun_vs6 - Win32 %PROFILE%" /%COMMAND%
 if ERRORLEVEL 1 goto quit
 msdev quickfix_vs6.dsw /MAKE "pt_vs6 - Win32 %PROFILE%" /%COMMAND%
 if ERRORLEVEL 1 goto quit
@@ -13,7 +13,7 @@ msdev quickfix_vs6.dsw /MAKE "quickfix_vs6 - Win32 %PROFILE%" /%COMMAND%
 if ERRORLEVEL 1 goto quit
 msdev quickfix_vs6.dsw /MAKE "ut_vs6 - Win32 %PROFILE%" /%COMMAND%
 if ERRORLEVEL 1 goto quit
-msdev quickfix_jni.dsw /MAKE "quickfix_jni - Win32 %PROFILE%" /%COMMAND%
+msdev quickfix_vs6.dsw /MAKE "quickfix_jni_vs6 - Win32 %PROFILE%" /%COMMAND%
 if ERRORLEVEL 1 goto quit
 
 pushd examples
