@@ -470,6 +470,10 @@ bool Session::sendRaw( Message& message, int num )
     }
     else
     {
+      // do not send application messages if they will just be cleared
+      if( !isLoggedOn() && shouldSendReset() )
+        return false;
+
       try
       {
         m_application.toApp( message, m_sessionID );
