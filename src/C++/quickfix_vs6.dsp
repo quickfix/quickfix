@@ -53,7 +53,7 @@ LIB32=link.exe -lib
 # ADD LIB32 /nologo /out:"..\..\lib\quickfix.lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
-PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
+PostBuild_Cmds=echo test > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE ..\..\include\quickfix	del /F EXCLUDE
 # End Special Build Tool
 
 !ELSEIF  "$(CFG)" == "quickfix_vs6 - Win32 Debug"
@@ -81,7 +81,7 @@ LIB32=link.exe -lib
 # ADD LIB32 /nologo /out:"..\..\lib\debug\quickfix.lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
-PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
+PostBuild_Cmds=echo test > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE ..\..\include\quickfix	del /F EXCLUDE
 # End Special Build Tool
 
 !ENDIF 
