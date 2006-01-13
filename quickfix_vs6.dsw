@@ -3,48 +3,6 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "at_vs6"=.\src\at_vs6.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix_vs6
-    End Project Dependency
-}}}
-
-###############################################################################
-
-Project: "atrun_vs6"=.\test\atrun\atrun_vs6.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-}}}
-
-###############################################################################
-
-Project: "pt_vs6"=.\src\pt_vs6.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix_vs6
-    End Project Dependency
-}}}
-
-###############################################################################
-
 Project: "quickfix_jni_vs6"=.\src\java\quickfix_jni_vs6.dsp - Package Owner=<4>
 
 Package=<5>
@@ -72,7 +30,49 @@ Package=<4>
 
 ###############################################################################
 
-Project: "ut_vs6"=.\src\ut_vs6.dsp - Package Owner=<4>
+Project: "test_acceptance_runner_vs6"=.\test\atrun\test_acceptance_runner_vs6.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "test_acceptance_vs6"=.\src\test_acceptance_vs6.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name quickfix_vs6
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "test_performance_vs6"=.\src\test_performance_vs6.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+    Begin Project Dependency
+    Project_Dep_Name quickfix_vs6
+    End Project Dependency
+}}}
+
+###############################################################################
+
+Project: "test_unit_vs6"=.\src\test_unit_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
