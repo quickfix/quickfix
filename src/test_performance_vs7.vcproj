@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="pt_vs7"
+	Name="test_performance_vs7"
 	ProjectGUID="{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
 	SccProjectName=""
 	SccLocalPath="">

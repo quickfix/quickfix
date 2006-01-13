@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="quickfix_jni_vc7"
+	Name="quickfix_jni_vs7"
 	ProjectGUID="{562C1936-7288-48EF-ACB5-E8516CE776DC}"
 	SccProjectName=""
 	SccLocalPath="">

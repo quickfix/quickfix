@@ -33,7 +33,7 @@
                     DebugSymbols = "true"
                     IncrementalBuild = "true"
                     Optimize = "false"
-                    OutputPath = "..\..\..\bin\"
+                    OutputPath = "..\..\..\bin\debug\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -49,7 +49,7 @@
                     DebugSymbols = "false"
                     IncrementalBuild = "false"
                     Optimize = "true"
-                    OutputPath = "bin\"
+                    OutputPath = "..\..\..\bin\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -70,14 +70,14 @@
                     AssemblyName = "System.Xml"
                 />
                 <Reference
-                    Name = "quickfix_net_messages"
-                    AssemblyName = "quickfix_net_messages"
-                    HintPath = "..\..\..\lib\quickfix_net_messages.dll"
+                    Name = "quickfix_net_vs7"
+                    Project = "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
+                    Package = "{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}"
                 />
                 <Reference
-                    Name = "quickfix_net"
-                    AssemblyName = "quickfix_net"
-                    HintPath = "..\..\..\lib\quickfix_net.dll"
+                    Name = "quickfix_net_messages_vs7"
+                    Project = "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
                 />
             </References>
             <Imports>

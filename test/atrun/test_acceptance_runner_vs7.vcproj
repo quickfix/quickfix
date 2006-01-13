@@ -2,8 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="executor_cpp"
-	ProjectGUID="{AC97D259-3231-4575-8CA5-BF9EF79B5A87}"
+	Name="test_acceptance_runner_vs7"
+	ProjectGUID="{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
+	RootNamespace="atrun_vs7"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +14,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\Debug"
-			IntermediateDirectory=".\Debug"
+			OutputDirectory=".."
+			IntermediateDirectory=".\debug\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -22,35 +23,35 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../../include"
+				AdditionalIncludeDirectories="..\..,..\..\.."
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
+				RuntimeTypeInfo="TRUE"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderFile=".\Debug/executor_cpp.pch"
+				PrecompiledHeaderFile=".\Debug/atrun.pch"
 				AssemblerListingLocation=".\Debug/"
 				ObjectFile=".\Debug/"
 				ProgramDataBaseFileName=".\Debug/"
 				WarningLevel="3"
 				SuppressStartupBanner="TRUE"
-				DebugInformationFormat="4"
+				DebugInformationFormat="3"
 				CompileAs="0"/>
 			<Tool
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="../../../bin/debug/executor_cpp.exe"
-				LinkIncremental="2"
+				AdditionalDependencies="odbc32.lib odbccp32.lib"
+				OutputFile="$(OutDir)\atrun.exe"
+				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="../../../lib/debug"
 				GenerateDebugInformation="TRUE"
-				ProgramDatabaseFile=".\Debug/executor_cpp_debug.pdb"
+				ProgramDatabaseFile=".\Debug/atrun.pdb"
 				SubSystem="1"/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName=".\Debug/executor_cpp.tlb"/>
+				TypeLibraryName=".\Debug/atrun.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
@@ -74,8 +75,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\Release"
-			IntermediateDirectory=".\Release"
+			OutputDirectory=".."
+			IntermediateDirectory=".\release\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -83,13 +84,14 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="../../../include"
+				AdditionalIncludeDirectories="..\..,..\..\.."
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
 				EnableFunctionLevelLinking="TRUE"
+				RuntimeTypeInfo="TRUE"
 				UsePrecompiledHeader="0"
-				PrecompiledHeaderFile=".\Release/executor_cpp.pch"
+				PrecompiledHeaderFile=".\Release/atrun.pch"
 				AssemblerListingLocation=".\Release/"
 				ObjectFile=".\Release/"
 				ProgramDataBaseFileName=".\Release/"
@@ -101,16 +103,15 @@
 			<Tool
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
-				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="../../../bin/executor_cpp.exe"
+				AdditionalDependencies="odbc32.lib odbccp32.lib"
+				OutputFile="$(OutDir)\atrun.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="../../../lib"
-				ProgramDatabaseFile=".\Release/executor_cpp.pdb"
+				ProgramDatabaseFile=".\Release/atrun.pdb"
 				SubSystem="1"/>
 			<Tool
 				Name="VCMIDLTool"
-				TypeLibraryName=".\Release/executor_cpp.tlb"/>
+				TypeLibraryName=".\Release/atrun.tlb"/>
 			<Tool
 				Name="VCPostBuildEventTool"/>
 			<Tool
@@ -140,17 +141,29 @@
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath=".\Application.cpp">
+				RelativePath="..\..\src\getopt.c">
 			</File>
 			<File
-				RelativePath=".\executor.cpp">
+				RelativePath=".\main.cpp">
+			</File>
+			<File
+				RelativePath=".\Process.cpp">
+			</File>
+			<File
+				RelativePath=".\test\ProcessTestCase.cpp">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
 			<File
-				RelativePath=".\Application.h">
+				RelativePath=".\Process.h">
+			</File>
+			<File
+				RelativePath=".\test\ProcessTestCase.h">
+			</File>
+			<File
+				RelativePath=".\TestSuite.h">
 			</File>
 		</Filter>
 		<Filter
