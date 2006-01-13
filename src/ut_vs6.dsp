@@ -8,12 +8,12 @@ CFG=ut - Win32 Debug
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "ut.mak".
+!MESSAGE NMAKE /f "ut_vc6.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "ut.mak" CFG="ut - Win32 Debug"
+!MESSAGE NMAKE /f "ut_vc6.mak" CFG="ut - Win32 Debug"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
@@ -37,12 +37,12 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Release"
-# PROP Intermediate_Dir "Release"
+# PROP Output_Dir "..\bin\debug"
+# PROP Intermediate_Dir "release\vs6"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I "./" /I "./src" /I "./src/c++" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FD /I /src/socket" " /c
+# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I ".." /I "c++" /D "WIN32" /D "NDEBUG" /D "_CONSOLE" /D "_MBCS" /FD /I /src/socket" " /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -51,7 +51,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386
-# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /out:"bin\ut.exe" /libpath:"lib"
+# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /machine:I386 /out:"$(OutDir)\ut.exe" /libpath:"..\lib\debug"
 # SUBTRACT LINK32 /profile
 
 !ELSEIF  "$(CFG)" == "ut - Win32 Debug"
@@ -63,12 +63,12 @@ LINK32=link.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "Debug"
-# PROP Intermediate_Dir "Debug"
+# PROP Output_Dir "..\bin\debug"
+# PROP Intermediate_Dir "debug\vs6"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "./" /I "./src" /I "./src/c++" /D "_CONSOLE" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /I /src/socket" /GZ " /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I ".." /I "c++" /D "_CONSOLE" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /I /src/socket" /GZ " /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -77,7 +77,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LINK32=link.exe
 # ADD BASE LINK32 kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /debug /machine:I386 /pdbtype:sept
-# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /debug /machine:I386 /out:"bin\debug\ut.exe" /pdbtype:sept /libpath:"lib\debug"
+# ADD LINK32 quickfix.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:no /debug /machine:I386 /out:"$(OutDir)\ut.exe" /pdbtype:sept /libpath:"..\lib\debug"
 
 !ENDIF 
 
@@ -90,111 +90,119 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=".\src\C++\Test\AcceptorTestCase.cpp"
+SOURCE=".\C++\test\AcceptorTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\DataDictionaryTestCase.cpp"
+SOURCE=".\C++\test\DataDictionaryTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\DictionaryTestCase.cpp"
+SOURCE=".\C++\test\DictionaryTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\FieldBaseTestCase.cpp"
+SOURCE=".\C++\test\FieldBaseTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\FieldConvertorsTestCase.cpp"
+SOURCE=".\C++\test\FieldConvertorsTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\FileStoreFactoryTestCase.cpp"
+SOURCE=".\C++\test\FileStoreFactoryTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\FileStoreTestCase.cpp"
+SOURCE=".\C++\test\FileStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\FileUtilitiesTestCase.cpp"
+SOURCE=".\C++\test\FileUtilitiesTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\getopt.c
+SOURCE=.\getopt.c
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\MemoryStoreTestCase.cpp"
+SOURCE=".\C++\test\MemoryStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\MessagesTestCase.cpp"
+SOURCE=".\C++\test\MessagesTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\MessageStoreTestCase.cpp"
+SOURCE=".\C++\test\MessageStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\MySQLStoreTestCase.cpp"
+SOURCE=".\C++\test\MSSQLStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\ParserTestCase.cpp"
+SOURCE=".\C++\test\MySQLStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SessionIDTestCase.cpp"
+SOURCE=".\C++\test\ParserTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SessionSettingsTestCase.cpp"
+SOURCE=".\C++\test\PostgreSQLStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SessionTestCase.cpp"
+SOURCE=".\C++\test\SessionIDTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SessionTimeTestCase.cpp"
+SOURCE=".\C++\test\SessionSettingsTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SettingsTestCase.cpp"
+SOURCE=".\C++\test\SessionTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketAcceptorTestCase.cpp"
+SOURCE=".\C++\test\SessionTimeTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketConnectorTestCase.cpp"
+SOURCE=".\C++\test\SettingsTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketServerTestCase.cpp"
+SOURCE=".\C++\test\SocketAcceptorTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketUtilitiesTestCase.cpp"
+SOURCE=".\C++\test\SocketConnectorTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\StringUtilitiesTestCase.cpp"
+SOURCE=".\C++\test\SocketServerTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\ut.cpp
+SOURCE=".\C++\test\SocketUtilitiesTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\UtcTimeOnlyTestCase.cpp"
+SOURCE=".\C++\test\StringUtilitiesTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\UtcTimeStampTestCase.cpp"
+SOURCE=.\ut.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\UtcTimeOnlyTestCase.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\UtcTimeStampTestCase.cpp"
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -202,99 +210,119 @@ SOURCE=".\src\C++\Test\UtcTimeStampTestCase.cpp"
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=".\src\C++\Test\AcceptorTestCase.h"
+SOURCE=".\C++\test\AcceptorTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\DataDictionaryTestCase.h"
+SOURCE=".\C++\test\DataDictionaryTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\DictionaryTestCase.h"
+SOURCE=".\C++\test\DictionaryTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\FieldConvertorsTestCase.h"
+SOURCE=".\C++\test\FieldBaseTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\FileStoreFactoryTestCase.h"
+SOURCE=".\C++\test\FieldConvertorsTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\FileStoreTestCase.h"
+SOURCE=".\C++\test\FileStoreFactoryTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\FileUtilitiesTestCase.h"
+SOURCE=".\C++\test\FileStoreTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\MemoryStoreTestCase.h"
+SOURCE=".\C++\test\FileUtilitiesTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\MessagesTestCase.h"
+SOURCE=".\getopt-repl.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\MessageStoreTestCase.h"
+SOURCE=".\C++\test\MemoryStoreTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\MySQLStoreTestCase.h"
+SOURCE=".\C++\test\MessagesTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\ParserTestCase.h"
+SOURCE=".\C++\test\MessageStoreTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SessionIDTestCase.h"
+SOURCE=".\C++\test\MSSQLStoreTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SessionSettingsTestCase.h"
+SOURCE=".\C++\test\MySQLStoreTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SessionTestCase.h"
+SOURCE=".\C++\test\ParserTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SessionTimeTestCase.h"
+SOURCE=".\C++\test\PostgreSQLStoreTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\SettingsTestCase.h"
+SOURCE=".\C++\test\SessionIDTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketAcceptorTestCase.h"
+SOURCE=".\C++\test\SessionSettingsTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketConnectorTestCase.h"
+SOURCE=".\C++\test\SessionTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketServerTestCase.h"
+SOURCE=".\C++\test\SessionTimeTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\SocketUtilitiesTestCase.h"
+SOURCE=".\C++\test\SettingsTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=.\src\TestSuite.h
+SOURCE=".\C++\test\SocketAcceptorTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\test\UtcTimeOnlyTestCase.h"
+SOURCE=".\C++\test\SocketConnectorTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Test\UtcTimeStampTestCase.h"
+SOURCE=".\C++\test\SocketServerTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\SocketUtilitiesTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\StringUtilitiesTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\TestSuite.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\UtcTimeOnlyTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\UtcTimeStampTestCase.h"
 # End Source File
 # End Group
 # Begin Group "Resource Files"

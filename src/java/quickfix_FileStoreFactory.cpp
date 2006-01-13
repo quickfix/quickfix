@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_FileStoreFactory.h"
 #include <quickfix/FileStore.h>
@@ -96,3 +98,5 @@ JNIEXPORT jobject JNICALL Java_quickfix_FileStoreFactory_create__Lquickfix_Sessi
 
   QF_STACK_CATCH
 }
+
+#endif

@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JavaLog.h"
 #include "Conversions.h"
 
@@ -70,3 +72,5 @@ void JavaLog::onEvent( const std::string& string )
   pEnv->CallVoidMethod( m_object, onEventId, jstr );
   pEnv->DeleteLocalRef( jstr );
 }
+
+#endif

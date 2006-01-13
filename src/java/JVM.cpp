@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include <iostream>
 
@@ -246,3 +248,5 @@ JVMObject JVMObject::getObject( const std::string& name, const std::string& type
 
   return JVMObject( jobj );
 }
+
+#endif

@@ -1,33 +1,38 @@
 Microsoft Visual Studio Solution File, Format Version 8.00
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_net", "src\.NET\quickfix_net.vcproj", "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "at_vs7", "src\at_vs7.vcproj", "{63CC102A-A3CD-43CC-9535-A91E67256360}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "at", "at.vcproj", "{63CC102A-A3CD-43CC-9535-A91E67256360}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pt_vs7", "src\pt_vs7.vcproj", "{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pt", "pt.vcproj", "{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ut_vs7", "src\ut_vs7.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix", "quickfix.vcproj", "{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_vs7", "src\C++\quickfix_vs7.vcproj", "{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atrun", "test\atrun\atrun.vcproj", "{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
-	ProjectSection(ProjectDependencies) = postProject
-	EndProjectSection
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ut", "ut.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_net_vs7", "src\.NET\quickfix_net_vs7.vcproj", "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
 	ProjectSection(ProjectDependencies) = postProject
 		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickfix_net_messages", "src\.NET\quickfix_net_messages.csproj", "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "quickfix_net_messages_vs7", "src\.NET\quickfix_net_messages_vs7.csproj", "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
+	ProjectSection(ProjectDependencies) = postProject
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_jni_vc7", "src\java\quickfix_jni_vs7.vcproj", "{562C1936-7288-48EF-ACB5-E8516CE776DC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "atrun_vs7", "test\atrun\atrun_vs7.vcproj", "{A58C8BD5-3602-4886-80A0-CD4FFED42144}"
 	ProjectSection(ProjectDependencies) = postProject
 	EndProjectSection
 EndProject
@@ -37,10 +42,6 @@ Global
 		Release = Release
 	EndGlobalSection
 	GlobalSection(ProjectConfiguration) = postSolution
-		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug.ActiveCfg = Debug|Win32
-		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug.Build.0 = Debug|Win32
-		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Release.ActiveCfg = Release|Win32
-		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Release.Build.0 = Release|Win32
 		{63CC102A-A3CD-43CC-9535-A91E67256360}.Debug.ActiveCfg = Debug|Win32
 		{63CC102A-A3CD-43CC-9535-A91E67256360}.Debug.Build.0 = Debug|Win32
 		{63CC102A-A3CD-43CC-9535-A91E67256360}.Release.ActiveCfg = Release|Win32
@@ -49,22 +50,30 @@ Global
 		{4E6CE474-47A1-4AC8-8161-9CD214664EBB}.Debug.Build.0 = Debug|Win32
 		{4E6CE474-47A1-4AC8-8161-9CD214664EBB}.Release.ActiveCfg = Release|Win32
 		{4E6CE474-47A1-4AC8-8161-9CD214664EBB}.Release.Build.0 = Release|Win32
-		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Debug.ActiveCfg = Debug|Win32
-		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Debug.Build.0 = Debug|Win32
-		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Release.ActiveCfg = Release|Win32
-		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Release.Build.0 = Release|Win32
-		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Debug.ActiveCfg = Debug|Win32
-		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Debug.Build.0 = Debug|Win32
-		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release.ActiveCfg = Release|Win32
-		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release.Build.0 = Release|Win32
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Debug.ActiveCfg = Debug|Win32
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Debug.Build.0 = Debug|Win32
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Release.ActiveCfg = Release|Win32
 		{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}.Release.Build.0 = Release|Win32
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Debug.ActiveCfg = Debug|Win32
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Debug.Build.0 = Debug|Win32
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Release.ActiveCfg = Release|Win32
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7}.Release.Build.0 = Release|Win32
+		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug.ActiveCfg = Debug|Win32
+		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Debug.Build.0 = Debug|Win32
+		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Release.ActiveCfg = Release|Win32
+		{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}.Release.Build.0 = Release|Win32
 		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Debug.ActiveCfg = Debug|.NET
 		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Debug.Build.0 = Debug|.NET
 		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Release.ActiveCfg = Release|.NET
 		{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}.Release.Build.0 = Release|.NET
+		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Debug.ActiveCfg = Debug|Win32
+		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Debug.Build.0 = Debug|Win32
+		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Release.ActiveCfg = Release|Win32
+		{562C1936-7288-48EF-ACB5-E8516CE776DC}.Release.Build.0 = Release|Win32
+		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Debug.ActiveCfg = Debug|Win32
+		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Debug.Build.0 = Debug|Win32
+		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release.ActiveCfg = Release|Win32
+		{A58C8BD5-3602-4886-80A0-CD4FFED42144}.Release.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 	EndGlobalSection

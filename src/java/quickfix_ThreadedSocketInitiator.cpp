@@ -27,6 +27,8 @@
 #pragma warning( disable : 4876 )
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "Conversions.h"
 #include "quickfix_ThreadedSocketInitiator.h"
@@ -229,3 +231,5 @@ JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketInitiator_doGetSessions
 
   QF_STACK_CATCH
 }
+
+#endif

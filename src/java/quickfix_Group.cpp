@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_Group.h"
 #include <quickfix/Utility.h>
@@ -444,3 +446,5 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorNext
 
   QF_STACK_CATCH
 }
+
+#endif

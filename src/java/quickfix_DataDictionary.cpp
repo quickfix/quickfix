@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "Conversions.h"
 #include "quickfix_DataDictionary.h"
@@ -304,3 +306,5 @@ JNIEXPORT jint JNICALL Java_quickfix_DataDictionary_getFieldType
   return FIX::TYPE::Unknown;
   QF_STACK_CATCH
 }
+
+#endif

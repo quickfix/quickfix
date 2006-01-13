@@ -23,6 +23,7 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
 #ifdef HAVE_POSTGRESQL
 
 #include "JVM.h"
@@ -93,4 +94,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_PostgreSQLLogFactory_create__Lquickfix_S
 
   QF_STACK_CATCH
 }
-#endif //HAVE_POSTGRESQL
+
+#endif
+#endif

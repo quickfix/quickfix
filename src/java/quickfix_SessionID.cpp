@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "Conversions.h"
 #include "quickfix_SessionID.h"
@@ -165,3 +167,4 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_toString
   QF_STACK_CATCH
 }
 
+#endif

@@ -3,6 +3,9 @@
 // Define if you want a C++ callstack to be displayed after crashing
 // #define ENABLE_CALLSTACK 1
 
+// Define if you want to build the java JNI wrapper
+// #define HAVA_JAVA 1
+
 // Define if you have sql library (libMySQL.lib)
 // #define HAVE_MYSQL 1
 

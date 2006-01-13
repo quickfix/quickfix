@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "at"=.\at.dsp - Package Owner=<4>
+Project: "at"=.\src\at_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -11,9 +11,6 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix
-    End Project Dependency
 }}}
 
 ###############################################################################
@@ -30,7 +27,31 @@ Package=<4>
 
 ###############################################################################
 
-Project: "pt"=.\pt.dsp - Package Owner=<4>
+Project: "pt"=.\src\pt_vs6.dsp - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "quickfix"=".\src\C++\quickfix_vs6.dsp" - Package Owner=<4>
+
+Package=<5>
+{{{
+}}}
+
+Package=<4>
+{{{
+}}}
+
+###############################################################################
+
+Project: "quickfix_jni"=.\src\java\quickfix_jni_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -45,7 +66,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "quickfix"=.\quickfix.dsp - Package Owner=<4>
+Project: "ut"=.\src\ut_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -53,21 +74,6 @@ Package=<5>
 
 Package=<4>
 {{{
-}}}
-
-###############################################################################
-
-Project: "ut"=.\ut.dsp - Package Owner=<4>
-
-Package=<5>
-{{{
-}}}
-
-Package=<4>
-{{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix
-    End Project Dependency
 }}}
 
 ###############################################################################

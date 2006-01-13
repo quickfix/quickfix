@@ -8,12 +8,12 @@ CFG=quickfix - Win32 Debug
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "quickfix.mak".
+!MESSAGE NMAKE /f "quickfix_vc6.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "quickfix.mak" CFG="quickfix - Win32 Debug"
+!MESSAGE NMAKE /f "quickfix_vc6.mak" CFG="quickfix - Win32 Debug"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
@@ -37,11 +37,11 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "Release"
-# PROP Intermediate_Dir "Release"
+# PROP Output_Dir "..\..\lib\debug"
+# PROP Intermediate_Dir "release\vs6"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
-# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I "../" /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /FD /c
+# ADD CPP /nologo /MD /W3 /GR /GX /O2 /I ".." /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /FD /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "NDEBUG"
 # ADD RSC /l 0x409 /d "NDEBUG"
@@ -50,7 +50,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"lib\quickfix.lib"
+# ADD LIB32 /nologo /out:"$(OutDir)\quickfix.lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
 PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
@@ -65,11 +65,11 @@ PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 1
-# PROP Output_Dir "Debug"
-# PROP Intermediate_Dir "Debug"
+# PROP Output_Dir "..\..\lib\debug"
+# PROP Intermediate_Dir "debug\vs6"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_MBCS" /D "_LIB" /YX /FD /GZ /c
-# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I "../" /D "_LIB" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /GZ /c
+# ADD CPP /nologo /MDd /W3 /Gm /GR /GX /Zi /Od /I ".." /D "_LIB" /D "WIN32" /D "_DEBUG" /D "_MBCS" /FD /GZ /c
 # SUBTRACT CPP /YX /Yc /Yu
 # ADD BASE RSC /l 0x409 /d "_DEBUG"
 # ADD RSC /l 0x409 /d "_DEBUG"
@@ -78,7 +78,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"lib\debug\quickfix.lib"
+# ADD LIB32 /nologo /out:"$(OutDir)\quickfix.lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
 PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
@@ -95,67 +95,67 @@ PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=".\src\C++\Acceptor.cpp"
+SOURCE=".\Acceptor.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\CallStack.cpp"
+SOURCE=".\CallStack.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ConfigLexer.cpp"
+SOURCE=".\ConfigLexer.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Dictionary.cpp"
+SOURCE=".\Dictionary.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Initiator.cpp"
+SOURCE=".\Initiator.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\LIBXML_DOMDocument.cpp"
+SOURCE=".\LIBXML_DOMDocument.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MSXML_DOMDocument.cpp"
+SOURCE=".\MSXML_DOMDocument.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Parser.cpp"
+SOURCE=".\Parser.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Session.cpp"
+SOURCE=".\Session.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionFactory.cpp"
+SOURCE=".\SessionFactory.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionSettings.cpp"
+SOURCE=".\SessionSettings.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionTime.cpp"
+SOURCE=".\SessionTime.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Settings.cpp"
+SOURCE=".\Settings.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\stdafx.cpp"
+SOURCE=".\stdafx.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\strptime.c"
+SOURCE=".\strptime.c"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Utility.cpp"
+SOURCE=".\Utility.cpp"
 # End Source File
 # End Group
 # Begin Group "Header Files"
@@ -163,107 +163,107 @@ SOURCE=".\src\C++\Utility.cpp"
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=".\src\C++\Acceptor.h"
+SOURCE=".\Acceptor.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Application.h"
+SOURCE=".\Application.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\CallStack.h"
+SOURCE=".\CallStack.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ConfigLexer.h"
+SOURCE=".\ConfigLexer.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Dictionary.h"
+SOURCE=".\Dictionary.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\DOMDocument.h"
+SOURCE=".\DOMDocument.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Event.h"
+SOURCE=".\Event.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Exceptions.h"
+SOURCE=".\Exceptions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FlexLexer.h"
+SOURCE=".\FlexLexer.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\index.h"
+SOURCE=".\index.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Initiator.h"
+SOURCE=".\Initiator.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\LIBXML_DOMDocument.h"
+SOURCE=".\LIBXML_DOMDocument.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MSXML_DOMDocument.h"
+SOURCE=".\MSXML_DOMDocument.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Mutex.h"
+SOURCE=".\Mutex.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Parser.h"
+SOURCE=".\Parser.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Queue.h"
+SOURCE=".\Queue.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Responder.h"
+SOURCE=".\Responder.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Session.h"
+SOURCE=".\Session.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionFactory.h"
+SOURCE=".\SessionFactory.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionID.h"
+SOURCE=".\SessionID.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionSettings.h"
+SOURCE=".\SessionSettings.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionState.h"
+SOURCE=".\SessionState.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SessionTime.h"
+SOURCE=".\SessionTime.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Settings.h"
+SOURCE=".\Settings.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\strptime.h"
+SOURCE=".\strptime.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Utility.h"
+SOURCE=".\Utility.h"
 # End Source File
 # End Group
 # Begin Group "Field"
@@ -274,11 +274,11 @@ SOURCE=".\src\C++\Utility.h"
 # PROP Default_Filter "*.cpp"
 # Begin Source File
 
-SOURCE=".\src\C++\FieldMap.cpp"
+SOURCE=".\FieldMap.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FieldTypes.cpp"
+SOURCE=".\FieldTypes.cpp"
 # End Source File
 # End Group
 # Begin Group "Field Header Files"
@@ -286,43 +286,43 @@ SOURCE=".\src\C++\FieldTypes.cpp"
 # PROP Default_Filter "*.h"
 # Begin Source File
 
-SOURCE=".\src\C++\DeprecatedFieldNumbers.h"
+SOURCE=".\DeprecatedFieldNumbers.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\DeprecatedFields.h"
+SOURCE=".\DeprecatedFields.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\DeprecatedValues.h"
+SOURCE=".\DeprecatedValues.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Field.h"
+SOURCE=".\Field.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FieldConvertors.h"
+SOURCE=".\FieldConvertors.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FieldMap.h"
+SOURCE=".\FieldMap.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FieldNumbers.h"
+SOURCE=".\FieldNumbers.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Fields.h"
+SOURCE=".\Fields.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FieldTypes.h"
+SOURCE=".\FieldTypes.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Values.h"
+SOURCE=".\Values.h"
 # End Source File
 # End Group
 # End Group
@@ -337,119 +337,119 @@ SOURCE=".\src\C++\Values.h"
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Advertisement.h"
+SOURCE=".\fix40\Advertisement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Allocation.h"
+SOURCE=".\fix40\Allocation.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\AllocationACK.h"
+SOURCE=".\fix40\AllocationACK.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\DontKnowTrade.h"
+SOURCE=".\fix40\DontKnowTrade.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Email.h"
+SOURCE=".\fix40\Email.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\ExecutionReport.h"
+SOURCE=".\fix40\ExecutionReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Heartbeat.h"
+SOURCE=".\fix40\Heartbeat.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\IndicationofInterest.h"
+SOURCE=".\fix40\IndicationofInterest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\ListCancelRequest.h"
+SOURCE=".\fix40\ListCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\ListExecute.h"
+SOURCE=".\fix40\ListExecute.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\ListStatus.h"
+SOURCE=".\fix40\ListStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\ListStatusRequest.h"
+SOURCE=".\fix40\ListStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Logon.h"
+SOURCE=".\fix40\Logon.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Logout.h"
+SOURCE=".\fix40\Logout.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Message.h"
+SOURCE=".\fix40\Message.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\MessageCracker.h"
+SOURCE=".\fix40\MessageCracker.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\NewOrderList.h"
+SOURCE=".\fix40\NewOrderList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\NewOrderSingle.h"
+SOURCE=".\fix40\NewOrderSingle.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\News.h"
+SOURCE=".\fix40\News.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\OrderCancelReject.h"
+SOURCE=".\fix40\OrderCancelReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\OrderCancelReplaceRequest.h"
+SOURCE=".\fix40\OrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\OrderCancelRequest.h"
+SOURCE=".\fix40\OrderCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\OrderStatusRequest.h"
+SOURCE=".\fix40\OrderStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Quote.h"
+SOURCE=".\fix40\Quote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\QuoteRequest.h"
+SOURCE=".\fix40\QuoteRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\Reject.h"
+SOURCE=".\fix40\Reject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\ResendRequest.h"
+SOURCE=".\fix40\ResendRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\SequenceReset.h"
+SOURCE=".\fix40\SequenceReset.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix40\TestRequest.h"
+SOURCE=".\fix40\TestRequest.h"
 # End Source File
 # End Group
 # Begin Group "Fix41"
@@ -457,123 +457,123 @@ SOURCE=".\src\C++\fix40\TestRequest.h"
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Advertisement.h"
+SOURCE=".\fix41\Advertisement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Allocation.h"
+SOURCE=".\fix41\Allocation.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\AllocationACK.h"
+SOURCE=".\fix41\AllocationACK.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\DontKnowTrade.h"
+SOURCE=".\fix41\DontKnowTrade.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Email.h"
+SOURCE=".\fix41\Email.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\ExecutionReport.h"
+SOURCE=".\fix41\ExecutionReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Heartbeat.h"
+SOURCE=".\fix41\Heartbeat.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\IndicationofInterest.h"
+SOURCE=".\fix41\IndicationofInterest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\ListCancelRequest.h"
+SOURCE=".\fix41\ListCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\ListExecute.h"
+SOURCE=".\fix41\ListExecute.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\ListStatus.h"
+SOURCE=".\fix41\ListStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\ListStatusRequest.h"
+SOURCE=".\fix41\ListStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Logon.h"
+SOURCE=".\fix41\Logon.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Logout.h"
+SOURCE=".\fix41\Logout.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Message.h"
+SOURCE=".\fix41\Message.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\MessageCracker.h"
+SOURCE=".\fix41\MessageCracker.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\NewOrderList.h"
+SOURCE=".\fix41\NewOrderList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\NewOrderSingle.h"
+SOURCE=".\fix41\NewOrderSingle.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\News.h"
+SOURCE=".\fix41\News.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\OrderCancelReject.h"
+SOURCE=".\fix41\OrderCancelReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\OrderCancelReplaceRequest.h"
+SOURCE=".\fix41\OrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\OrderCancelRequest.h"
+SOURCE=".\fix41\OrderCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\OrderStatusRequest.h"
+SOURCE=".\fix41\OrderStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Quote.h"
+SOURCE=".\fix41\Quote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\QuoteRequest.h"
+SOURCE=".\fix41\QuoteRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\Reject.h"
+SOURCE=".\fix41\Reject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\ResendRequest.h"
+SOURCE=".\fix41\ResendRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\SequenceReset.h"
+SOURCE=".\fix41\SequenceReset.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\SettlementInstructions.h"
+SOURCE=".\fix41\SettlementInstructions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix41\TestRequest.h"
+SOURCE=".\fix41\TestRequest.h"
 # End Source File
 # End Group
 # Begin Group "Fix42"
@@ -581,195 +581,195 @@ SOURCE=".\src\C++\fix41\TestRequest.h"
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Advertisement.h"
+SOURCE=".\fix42\Advertisement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Allocation.h"
+SOURCE=".\fix42\Allocation.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\AllocationACK.h"
+SOURCE=".\fix42\AllocationACK.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\BidRequest.h"
+SOURCE=".\fix42\BidRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\BidResponse.h"
+SOURCE=".\fix42\BidResponse.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\BusinessMessageReject.h"
+SOURCE=".\fix42\BusinessMessageReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\DontKnowTrade.h"
+SOURCE=".\fix42\DontKnowTrade.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Email.h"
+SOURCE=".\fix42\Email.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\ExecutionReport.h"
+SOURCE=".\fix42\ExecutionReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Heartbeat.h"
+SOURCE=".\fix42\Heartbeat.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\IndicationofInterest.h"
+SOURCE=".\fix42\IndicationofInterest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\ListCancelRequest.h"
+SOURCE=".\fix42\ListCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\ListExecute.h"
+SOURCE=".\fix42\ListExecute.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\ListStatus.h"
+SOURCE=".\fix42\ListStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\ListStatusRequest.h"
+SOURCE=".\fix42\ListStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\ListStrikePrice.h"
+SOURCE=".\fix42\ListStrikePrice.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Logon.h"
+SOURCE=".\fix42\Logon.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Logout.h"
+SOURCE=".\fix42\Logout.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\MarketDataIncrementalRefresh.h"
+SOURCE=".\fix42\MarketDataIncrementalRefresh.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\MarketDataRequest.h"
+SOURCE=".\fix42\MarketDataRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\MarketDataRequestReject.h"
+SOURCE=".\fix42\MarketDataRequestReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\MarketDataSnapshotFullRefresh.h"
+SOURCE=".\fix42\MarketDataSnapshotFullRefresh.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\MassQuote.h"
+SOURCE=".\fix42\MassQuote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Message.h"
+SOURCE=".\fix42\Message.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\MessageCracker.h"
+SOURCE=".\fix42\MessageCracker.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\NewOrderList.h"
+SOURCE=".\fix42\NewOrderList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\NewOrderSingle.h"
+SOURCE=".\fix42\NewOrderSingle.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\News.h"
+SOURCE=".\fix42\News.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\OrderCancelReject.h"
+SOURCE=".\fix42\OrderCancelReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\OrderCancelReplaceRequest.h"
+SOURCE=".\fix42\OrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\OrderCancelRequest.h"
+SOURCE=".\fix42\OrderCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\OrderStatusRequest.h"
+SOURCE=".\fix42\OrderStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Quote.h"
+SOURCE=".\fix42\Quote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\QuoteAcknowledgement.h"
+SOURCE=".\fix42\QuoteAcknowledgement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\QuoteCancel.h"
+SOURCE=".\fix42\QuoteCancel.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\QuoteRequest.h"
+SOURCE=".\fix42\QuoteRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\QuoteStatusRequest.h"
+SOURCE=".\fix42\QuoteStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\Reject.h"
+SOURCE=".\fix42\Reject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\ResendRequest.h"
+SOURCE=".\fix42\ResendRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\SecurityDefinition.h"
+SOURCE=".\fix42\SecurityDefinition.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\SecurityDefinitionRequest.h"
+SOURCE=".\fix42\SecurityDefinitionRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\SecurityStatus.h"
+SOURCE=".\fix42\SecurityStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\SecurityStatusRequest.h"
+SOURCE=".\fix42\SecurityStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\SequenceReset.h"
+SOURCE=".\fix42\SequenceReset.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\SettlementInstructions.h"
+SOURCE=".\fix42\SettlementInstructions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\TestRequest.h"
+SOURCE=".\fix42\TestRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\TradingSessionStatus.h"
+SOURCE=".\fix42\TradingSessionStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix42\TradingSessionStatusRequest.h"
+SOURCE=".\fix42\TradingSessionStatusRequest.h"
 # End Source File
 # End Group
 # Begin Group "Fix43"
@@ -777,279 +777,279 @@ SOURCE=".\src\C++\fix42\TradingSessionStatusRequest.h"
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Advertisement.h"
+SOURCE=".\fix43\Advertisement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Allocation.h"
+SOURCE=".\fix43\Allocation.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\AllocationACK.h"
+SOURCE=".\fix43\AllocationACK.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\BidRequest.h"
+SOURCE=".\fix43\BidRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\BidResponse.h"
+SOURCE=".\fix43\BidResponse.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\BusinessMessageReject.h"
+SOURCE=".\fix43\BusinessMessageReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\CrossOrderCancelReplaceRequest.h"
+SOURCE=".\fix43\CrossOrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\CrossOrderCancelRequest.h"
+SOURCE=".\fix43\CrossOrderCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\DerivativeSecurityList.h"
+SOURCE=".\fix43\DerivativeSecurityList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\DerivativeSecurityListRequest.h"
+SOURCE=".\fix43\DerivativeSecurityListRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\DontKnowTrade.h"
+SOURCE=".\fix43\DontKnowTrade.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Email.h"
+SOURCE=".\fix43\Email.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\ExecutionReport.h"
+SOURCE=".\fix43\ExecutionReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Heartbeat.h"
+SOURCE=".\fix43\Heartbeat.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\IndicationOfInterest.h"
+SOURCE=".\fix43\IndicationOfInterest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\ListCancelRequest.h"
+SOURCE=".\fix43\ListCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\ListExecute.h"
+SOURCE=".\fix43\ListExecute.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\ListStatus.h"
+SOURCE=".\fix43\ListStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\ListStatusRequest.h"
+SOURCE=".\fix43\ListStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\ListStrikePrice.h"
+SOURCE=".\fix43\ListStrikePrice.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Logon.h"
+SOURCE=".\fix43\Logon.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Logout.h"
+SOURCE=".\fix43\Logout.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MarketDataIncrementalRefresh.h"
+SOURCE=".\fix43\MarketDataIncrementalRefresh.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MarketDataRequest.h"
+SOURCE=".\fix43\MarketDataRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MarketDataRequestReject.h"
+SOURCE=".\fix43\MarketDataRequestReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MarketDataSnapshotFullRefresh.h"
+SOURCE=".\fix43\MarketDataSnapshotFullRefresh.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MassQuote.h"
+SOURCE=".\fix43\MassQuote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MassQuoteAcknowledgement.h"
+SOURCE=".\fix43\MassQuoteAcknowledgement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Message.h"
+SOURCE=".\fix43\Message.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MessageCracker.h"
+SOURCE=".\fix43\MessageCracker.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\MultilegOrderCancelReplaceRequest.h"
+SOURCE=".\fix43\MultilegOrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\NewOrderCross.h"
+SOURCE=".\fix43\NewOrderCross.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\NewOrderList.h"
+SOURCE=".\fix43\NewOrderList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\NewOrderMultileg.h"
+SOURCE=".\fix43\NewOrderMultileg.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\NewOrderSingle.h"
+SOURCE=".\fix43\NewOrderSingle.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\News.h"
+SOURCE=".\fix43\News.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\OrderCancelReject.h"
+SOURCE=".\fix43\OrderCancelReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\OrderCancelReplaceRequest.h"
+SOURCE=".\fix43\OrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\OrderCancelRequest.h"
+SOURCE=".\fix43\OrderCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\OrderMassCancelReport.h"
+SOURCE=".\fix43\OrderMassCancelReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\OrderMassCancelRequest.h"
+SOURCE=".\fix43\OrderMassCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\OrderMassStatusRequest.h"
+SOURCE=".\fix43\OrderMassStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\OrderStatusRequest.h"
+SOURCE=".\fix43\OrderStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Quote.h"
+SOURCE=".\fix43\Quote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\QuoteCancel.h"
+SOURCE=".\fix43\QuoteCancel.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\QuoteRequest.h"
+SOURCE=".\fix43\QuoteRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\QuoteRequestReject.h"
+SOURCE=".\fix43\QuoteRequestReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\QuoteStatusReport.h"
+SOURCE=".\fix43\QuoteStatusReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\QuoteStatusRequest.h"
+SOURCE=".\fix43\QuoteStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\RegistrationInstructions.h"
+SOURCE=".\fix43\RegistrationInstructions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\RegistrationInstructionsResponse.h"
+SOURCE=".\fix43\RegistrationInstructionsResponse.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\Reject.h"
+SOURCE=".\fix43\Reject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\ResendRequest.h"
+SOURCE=".\fix43\ResendRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\RFQRequest.h"
+SOURCE=".\fix43\RFQRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityDefinition.h"
+SOURCE=".\fix43\SecurityDefinition.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityDefinitionRequest.h"
+SOURCE=".\fix43\SecurityDefinitionRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityList.h"
+SOURCE=".\fix43\SecurityList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityListRequest.h"
+SOURCE=".\fix43\SecurityListRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityStatus.h"
+SOURCE=".\fix43\SecurityStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityStatusRequest.h"
+SOURCE=".\fix43\SecurityStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityTypeRequest.h"
+SOURCE=".\fix43\SecurityTypeRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SecurityTypes.h"
+SOURCE=".\fix43\SecurityTypes.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SequenceReset.h"
+SOURCE=".\fix43\SequenceReset.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\SettlementInstructions.h"
+SOURCE=".\fix43\SettlementInstructions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\TestRequest.h"
+SOURCE=".\fix43\TestRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\TradeCaptureReport.h"
+SOURCE=".\fix43\TradeCaptureReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\TradeCaptureReportRequest.h"
+SOURCE=".\fix43\TradeCaptureReportRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\TradingSessionStatus.h"
+SOURCE=".\fix43\TradingSessionStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix43\TradingSessionStatusRequest.h"
+SOURCE=".\fix43\TradingSessionStatusRequest.h"
 # End Source File
 # End Group
 # Begin Group "Fix44"
@@ -1057,396 +1057,396 @@ SOURCE=".\src\C++\fix43\TradingSessionStatusRequest.h"
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Advertisement.h"
+SOURCE=".\fix44\Advertisement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\AllocationInstruction.h"
+SOURCE=".\fix44\AllocationInstruction.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\AllocationInstructionAck.h"
+SOURCE=".\fix44\AllocationInstructionAck.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\AllocationReport.h"
+SOURCE=".\fix44\AllocationReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\AllocationReportAck.h"
+SOURCE=".\fix44\AllocationReportAck.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\AssignmentReport.h"
+SOURCE=".\fix44\AssignmentReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\BidRequest.h"
+SOURCE=".\fix44\BidRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\BidResponse.h"
+SOURCE=".\fix44\BidResponse.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\BusinessMessageReject.h"
+SOURCE=".\fix44\BusinessMessageReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CollateralAssignment.h"
+SOURCE=".\fix44\CollateralAssignment.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CollateralInquiry.h"
+SOURCE=".\fix44\CollateralInquiry.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CollateralInquiryAck.h"
+SOURCE=".\fix44\CollateralInquiryAck.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CollateralReport.h"
+SOURCE=".\fix44\CollateralReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CollateralRequest.h"
+SOURCE=".\fix44\CollateralRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CollateralResponse.h"
+SOURCE=".\fix44\CollateralResponse.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Confirmation.h"
+SOURCE=".\fix44\Confirmation.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ConfirmationAck.h"
+SOURCE=".\fix44\ConfirmationAck.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ConfirmationRequest.h"
+SOURCE=".\fix44\ConfirmationRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CrossOrderCancelReplaceRequest.h"
+SOURCE=".\fix44\CrossOrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\CrossOrderCancelRequest.h"
+SOURCE=".\fix44\CrossOrderCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\DerivativeSecurityList.h"
+SOURCE=".\fix44\DerivativeSecurityList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\DerivativeSecurityListRequest.h"
+SOURCE=".\fix44\DerivativeSecurityListRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\DontKnowTrade.h"
+SOURCE=".\fix44\DontKnowTrade.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Email.h"
+SOURCE=".\fix44\Email.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ExecutionReport.h"
+SOURCE=".\fix44\ExecutionReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Heartbeat.h"
+SOURCE=".\fix44\Heartbeat.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\IndicationOfInterest.h"
+SOURCE=".\fix44\IndicationOfInterest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ListCancelRequest.h"
+SOURCE=".\fix44\ListCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ListExecute.h"
+SOURCE=".\fix44\ListExecute.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ListStatus.h"
+SOURCE=".\fix44\ListStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ListStatusRequest.h"
+SOURCE=".\fix44\ListStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ListStrikePrice.h"
+SOURCE=".\fix44\ListStrikePrice.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Logon.h"
+SOURCE=".\fix44\Logon.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Logout.h"
+SOURCE=".\fix44\Logout.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MarketDataIncrementalRefresh.h"
+SOURCE=".\fix44\MarketDataIncrementalRefresh.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MarketDataRequest.h"
+SOURCE=".\fix44\MarketDataRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MarketDataRequestReject.h"
+SOURCE=".\fix44\MarketDataRequestReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MarketDataSnapshotFullRefresh.h"
+SOURCE=".\fix44\MarketDataSnapshotFullRefresh.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MassQuote.h"
+SOURCE=".\fix44\MassQuote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MassQuoteAcknowledgement.h"
+SOURCE=".\fix44\MassQuoteAcknowledgement.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Message.h"
+SOURCE=".\fix44\Message.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MessageCracker.h"
+SOURCE=".\fix44\MessageCracker.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\MultilegOrderCancelReplaceRequest.h"
+SOURCE=".\fix44\MultilegOrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\NewOrderCross.h"
+SOURCE=".\fix44\NewOrderCross.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\NewOrderList.h"
+SOURCE=".\fix44\NewOrderList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\NewOrderMultileg.h"
+SOURCE=".\fix44\NewOrderMultileg.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\NewOrderSingle.h"
+SOURCE=".\fix44\NewOrderSingle.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\News.h"
+SOURCE=".\fix44\News.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\OrderCancelReject.h"
+SOURCE=".\fix44\OrderCancelReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\OrderCancelReplaceRequest.h"
+SOURCE=".\fix44\OrderCancelReplaceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\OrderCancelRequest.h"
+SOURCE=".\fix44\OrderCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\OrderMassCancelReport.h"
+SOURCE=".\fix44\OrderMassCancelReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\OrderMassCancelRequest.h"
+SOURCE=".\fix44\OrderMassCancelRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\OrderMassStatusRequest.h"
+SOURCE=".\fix44\OrderMassStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\OrderStatusRequest.h"
+SOURCE=".\fix44\OrderStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\PositionMaintenanceReport.h"
+SOURCE=".\fix44\PositionMaintenanceReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\PositionMaintenanceRequest.h"
+SOURCE=".\fix44\PositionMaintenanceRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\PositionReport.h"
+SOURCE=".\fix44\PositionReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Quote.h"
+SOURCE=".\fix44\Quote.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\QuoteCancel.h"
+SOURCE=".\fix44\QuoteCancel.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\QuoteRequest.h"
+SOURCE=".\fix44\QuoteRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\QuoteRequestReject.h"
+SOURCE=".\fix44\QuoteRequestReject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\QuoteResponse.h"
+SOURCE=".\fix44\QuoteResponse.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\QuoteStatusReport.h"
+SOURCE=".\fix44\QuoteStatusReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\QuoteStatusRequest.h"
+SOURCE=".\fix44\QuoteStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\RegistrationInstructions.h"
+SOURCE=".\fix44\RegistrationInstructions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\RegistrationInstructionsResponse.h"
+SOURCE=".\fix44\RegistrationInstructionsResponse.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\Reject.h"
+SOURCE=".\fix44\Reject.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\RequestForPositions.h"
+SOURCE=".\fix44\RequestForPositions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\RequestForPositionsAck.h"
+SOURCE=".\fix44\RequestForPositionsAck.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\ResendRequest.h"
+SOURCE=".\fix44\ResendRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\RFQRequest.h"
+SOURCE=".\fix44\RFQRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityDefinition.h"
+SOURCE=".\fix44\SecurityDefinition.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityDefinitionRequest.h"
+SOURCE=".\fix44\SecurityDefinitionRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityList.h"
+SOURCE=".\fix44\SecurityList.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityListRequest.h"
+SOURCE=".\fix44\SecurityListRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityStatus.h"
+SOURCE=".\fix44\SecurityStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityStatusRequest.h"
+SOURCE=".\fix44\SecurityStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityTypeRequest.h"
+SOURCE=".\fix44\SecurityTypeRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SecurityTypes.h"
+SOURCE=".\fix44\SecurityTypes.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SequenceReset.h"
+SOURCE=".\fix44\SequenceReset.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SettlementInstructionRequest.h"
+SOURCE=".\fix44\SettlementInstructionRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\SettlementInstructions.h"
+SOURCE=".\fix44\SettlementInstructions.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\TestRequest.h"
+SOURCE=".\fix44\TestRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\TradeCaptureReport.h"
+SOURCE=".\fix44\TradeCaptureReport.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\TradeCaptureReportAck.h"
+SOURCE=".\fix44\TradeCaptureReportAck.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\TradeCaptureReportRequest.h"
+SOURCE=".\fix44\TradeCaptureReportRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\TradeCaptureReportRequestAck.h"
+SOURCE=".\fix44\TradeCaptureReportRequestAck.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\TradingSessionStatus.h"
+SOURCE=".\fix44\TradingSessionStatus.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\TradingSessionStatusRequest.h"
+SOURCE=".\fix44\TradingSessionStatusRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\UserRequest.h"
+SOURCE=".\fix44\UserRequest.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\fix44\UserResponse.h"
+SOURCE=".\fix44\UserResponse.h"
 # End Source File
 # End Group
 # Begin Source File
 
-SOURCE=".\src\C++\DataDictionary.h"
+SOURCE=".\DataDictionary.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Group.h"
+SOURCE=".\Group.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Message.h"
+SOURCE=".\Message.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MessageCracker.h"
+SOURCE=".\MessageCracker.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Messages.h"
+SOURCE=".\Messages.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MessageSorters.h"
+SOURCE=".\MessageSorters.h"
 # End Source File
 # End Group
 # Begin Group "Message Source Files"
@@ -1454,19 +1454,19 @@ SOURCE=".\src\C++\MessageSorters.h"
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=".\src\C++\DataDictionary.cpp"
+SOURCE=".\DataDictionary.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Group.cpp"
+SOURCE=".\Group.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Message.cpp"
+SOURCE=".\Message.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MessageSorters.cpp"
+SOURCE=".\MessageSorters.cpp"
 # End Source File
 # End Group
 # End Group
@@ -1478,39 +1478,39 @@ SOURCE=".\src\C++\MessageSorters.cpp"
 # PROP Default_Filter "*.cpp"
 # Begin Source File
 
-SOURCE=".\src\C++\SocketAcceptor.cpp"
+SOURCE=".\SocketAcceptor.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketConnection.cpp"
+SOURCE=".\SocketConnection.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketConnector.cpp"
+SOURCE=".\SocketConnector.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketInitiator.cpp"
+SOURCE=".\SocketInitiator.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketMonitor.cpp"
+SOURCE=".\SocketMonitor.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketServer.cpp"
+SOURCE=".\SocketServer.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ThreadedSocketAcceptor.cpp"
+SOURCE=".\ThreadedSocketAcceptor.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ThreadedSocketConnection.cpp"
+SOURCE=".\ThreadedSocketConnection.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ThreadedSocketInitiator.cpp"
+SOURCE=".\ThreadedSocketInitiator.cpp"
 # End Source File
 # End Group
 # Begin Group "Socket Header Files"
@@ -1518,39 +1518,39 @@ SOURCE=".\src\C++\ThreadedSocketInitiator.cpp"
 # PROP Default_Filter "*.h"
 # Begin Source File
 
-SOURCE=".\src\C++\SocketAcceptor.h"
+SOURCE=".\SocketAcceptor.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketConnection.h"
+SOURCE=".\SocketConnection.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketConnector.h"
+SOURCE=".\SocketConnector.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketInitiator.h"
+SOURCE=".\SocketInitiator.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketMonitor.h"
+SOURCE=".\SocketMonitor.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\SocketServer.h"
+SOURCE=".\SocketServer.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ThreadedSocketAcceptor.h"
+SOURCE=".\ThreadedSocketAcceptor.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ThreadedSocketConnection.h"
+SOURCE=".\ThreadedSocketConnection.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\ThreadedSocketInitiator.h"
+SOURCE=".\ThreadedSocketInitiator.h"
 # End Source File
 # End Group
 # End Group
@@ -1562,27 +1562,27 @@ SOURCE=".\src\C++\ThreadedSocketInitiator.h"
 # PROP Default_Filter "*.cpp"
 # Begin Source File
 
-SOURCE=".\src\C++\FileLog.cpp"
+SOURCE=".\FileLog.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FileStore.cpp"
+SOURCE=".\FileStore.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Log.cpp"
+SOURCE=".\Log.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MessageStore.cpp"
+SOURCE=".\MessageStore.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MySQLLog.cpp"
+SOURCE=".\MySQLLog.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MySQLStore.cpp"
+SOURCE=".\MySQLStore.cpp"
 # End Source File
 # End Group
 # Begin Group "Storage Header Files"
@@ -1590,33 +1590,33 @@ SOURCE=".\src\C++\MySQLStore.cpp"
 # PROP Default_Filter ""
 # Begin Source File
 
-SOURCE=".\src\C++\FileLog.h"
+SOURCE=".\FileLog.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\FileStore.h"
+SOURCE=".\FileStore.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\Log.h"
+SOURCE=".\Log.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MessageStore.h"
+SOURCE=".\MessageStore.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MySQLLog.h"
+SOURCE=".\MySQLLog.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\src\C++\MySQLStore.h"
+SOURCE=".\MySQLStore.h"
 # End Source File
 # End Group
 # End Group
 # Begin Source File
 
-SOURCE=".\src\C++\stdafx.h"
+SOURCE=".\stdafx.h"
 # End Source File
 # End Target
 # End Project

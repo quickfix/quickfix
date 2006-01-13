@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_SessionSettings.h"
 #include <quickfix/SessionSettings.h>
@@ -197,3 +199,5 @@ JNIEXPORT jint JNICALL Java_quickfix_SessionSettings_size
   
   QF_STACK_CATCH
 }
+
+#endif

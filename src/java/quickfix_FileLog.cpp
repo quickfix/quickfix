@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "Conversions.h"
 #include "quickfix_FileLog.h"
@@ -47,3 +49,5 @@ JNIEXPORT void JNICALL Java_quickfix_FileLog_destroy
 
   QF_STACK_CATCH
 }
+
+#endif

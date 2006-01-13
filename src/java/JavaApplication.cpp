@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JavaApplication.h"
 #include <quickfix/Utility.h>
 #include "Conversions.h"
@@ -190,3 +192,5 @@ void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
     }
   }
 }
+
+#endif

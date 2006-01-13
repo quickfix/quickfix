@@ -23,6 +23,7 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
 #ifdef HAVE_MYSQL
 
 #include "JVM.h"
@@ -43,4 +44,5 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLStore_destroy
   QF_STACK_CATCH
 }
 
-#endif //HAVE_MYSQL
+#endif
+#endif

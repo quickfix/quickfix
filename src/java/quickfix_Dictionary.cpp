@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "Conversions.h"
 #include "quickfix_Dictionary.h"
@@ -354,3 +356,5 @@ JNIEXPORT void JNICALL Java_quickfix_Dictionary_merge
 
   QF_STACK_CATCH
 }
+
+#endif

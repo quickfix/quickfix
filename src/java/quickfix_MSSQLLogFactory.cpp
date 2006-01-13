@@ -23,6 +23,7 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
 #ifdef HAVE_MSSQL
 
 #include "JVM.h"
@@ -93,4 +94,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_MSSQLLogFactory_create__Lquickfix_Sessio
 
   QF_STACK_CATCH
 }
-#endif //HAVE_MSSQL
+
+#endif
+#endif

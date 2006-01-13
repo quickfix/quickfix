@@ -80,7 +80,7 @@
                     HintPath = "..\..\..\..\..\WINDOWS\Microsoft.NET\Framework\v1.0.3705\System.XML.dll"
                 />
                 <Reference
-                    Name = "quickfix_net"
+                    Name = "quickfix_net_vc7"
                     Project = "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
                     Package = "{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}"
                 />

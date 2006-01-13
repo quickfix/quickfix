@@ -2,8 +2,9 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="quickfix"
+	Name="quickfix_vs7"
 	ProjectGUID="{D5D558EA-BBAC-4862-A946-D3881BACE3B7}"
+	RootNamespace="quickfix_vc7"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +14,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".\Debug"
-			IntermediateDirectory=".\Debug"
+			OutputDirectory="$(SolutionDir)\lib\debug"
+			IntermediateDirectory=".\debug\vs7"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -24,7 +25,7 @@
 				Optimization="0"
 				FavorSizeOrSpeed="0"
 				OptimizeForWindowsApplication="FALSE"
-				AdditionalIncludeDirectories="../"
+				AdditionalIncludeDirectories="$(SolutionDir)\src"
 				PreprocessorDefinitions="WIN32,_DEBUG,_LIB"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -43,7 +44,7 @@
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="lib\debug\quickfix.lib"
+				OutputFile="$(OutDir)\quickfix.lib"
 				SuppressStartupBanner="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -51,7 +52,7 @@
 				Name="VCPostBuildEventTool"
 				CommandLine="echo test &gt;\ EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
-xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix
+xcopy *.h /S/Y /EXCLUDE:EXCLUDE include\quickfix
 del /F EXCLUDE
 "/>
 			<Tool
@@ -73,8 +74,8 @@ del /F EXCLUDE
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".\Release"
-			IntermediateDirectory=".\Release"
+			OutputDirectory="$(SolutionDir)\lib"
+			IntermediateDirectory=".\release\vs7"
 			ConfigurationType="4"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -83,7 +84,7 @@ del /F EXCLUDE
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
 				FavorSizeOrSpeed="0"
-				AdditionalIncludeDirectories="../"
+				AdditionalIncludeDirectories="$(SolutionDir)\src"
 				PreprocessorDefinitions="WIN32,NDEBUG,_LIB"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -101,7 +102,7 @@ del /F EXCLUDE
 				Name="VCCustomBuildTool"/>
 			<Tool
 				Name="VCLibrarianTool"
-				OutputFile="lib\quickfix.lib"
+				OutputFile="$(OutDir)\quickfix.lib"
 				AdditionalLibraryDirectories=""
 				SuppressStartupBanner="TRUE"/>
 			<Tool
@@ -110,7 +111,7 @@ del /F EXCLUDE
 				Name="VCPostBuildEventTool"
 				CommandLine="echo test &gt; EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
-xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix
+xcopy *.h /S/Y /EXCLUDE:EXCLUDE include\quickfix
 del /F EXCLUDE
 "/>
 			<Tool
@@ -138,56 +139,56 @@ del /F EXCLUDE
 			Name="Source Files"
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat">
 			<File
-				RelativePath=".\src\C++\Acceptor.cpp">
+				RelativePath=".\Acceptor.cpp">
 			</File>
 			<File
-				RelativePath="src\C++\CallStack.cpp">
+				RelativePath="CallStack.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\ConfigLexer.cpp">
+				RelativePath=".\ConfigLexer.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\Dictionary.cpp">
+				RelativePath=".\Dictionary.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\Initiator.cpp">
+				RelativePath=".\Initiator.cpp">
 			</File>
 			<File
-				RelativePath="src\C++\LIBXML_DOMDocument.cpp">
+				RelativePath="LIBXML_DOMDocument.cpp">
 			</File>
 			<File
-				RelativePath="src\C++\MSXML_DOMDocument.cpp">
+				RelativePath="MSXML_DOMDocument.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\Parser.cpp">
+				RelativePath=".\Parser.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\Session.cpp">
+				RelativePath=".\Session.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\SessionFactory.cpp">
+				RelativePath=".\SessionFactory.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\SessionSettings.cpp">
+				RelativePath=".\SessionSettings.cpp">
 			</File>
 			<File
-				RelativePath="src\C++\SessionTime.cpp">
+				RelativePath="SessionTime.cpp">
 			</File>
 			<File
-				RelativePath=".\src\C++\Settings.cpp">
+				RelativePath=".\Settings.cpp">
 			</File>
 			<File
-				RelativePath="src\C++\strptime.c">
+				RelativePath="strptime.c">
 			</File>
 			<File
-				RelativePath=".\src\C++\Utility.cpp">
+				RelativePath=".\Utility.cpp">
 			</File>
 		</Filter>
 		<Filter
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl">
 			<File
-				RelativePath=".\src\C++\Acceptor.h">
+				RelativePath=".\Acceptor.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -204,7 +205,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Application.h">
+				RelativePath=".\Application.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -221,7 +222,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\C++\CallStack.h">
+				RelativePath="CallStack.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -238,7 +239,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\ConfigLexer.h">
+				RelativePath=".\ConfigLexer.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -255,7 +256,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Dictionary.h">
+				RelativePath=".\Dictionary.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -272,7 +273,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\C++\DOMDocument.h">
+				RelativePath="DOMDocument.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -289,7 +290,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Event.h">
+				RelativePath=".\Event.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -306,7 +307,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Exceptions.h">
+				RelativePath=".\Exceptions.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -323,7 +324,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\FlexLexer.h">
+				RelativePath=".\FlexLexer.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -340,7 +341,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\index.h">
+				RelativePath=".\index.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -357,7 +358,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Initiator.h">
+				RelativePath=".\Initiator.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -374,10 +375,10 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\C++\LIBXML_DOMDocument.h">
+				RelativePath="LIBXML_DOMDocument.h">
 			</File>
 			<File
-				RelativePath="src\C++\MSXML_DOMDocument.h">
+				RelativePath="MSXML_DOMDocument.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -394,7 +395,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Mutex.h">
+				RelativePath=".\Mutex.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -411,7 +412,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Parser.h">
+				RelativePath=".\Parser.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -428,7 +429,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Queue.h">
+				RelativePath=".\Queue.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -445,7 +446,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\C++\Responder.h">
+				RelativePath="Responder.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -462,7 +463,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Session.h">
+				RelativePath=".\Session.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -479,7 +480,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\SessionFactory.h">
+				RelativePath=".\SessionFactory.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -496,7 +497,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\SessionID.h">
+				RelativePath=".\SessionID.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -513,7 +514,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\SessionSettings.h">
+				RelativePath=".\SessionSettings.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -530,7 +531,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\C++\SessionState.h">
+				RelativePath="SessionState.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -547,10 +548,10 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="src\C++\SessionTime.h">
+				RelativePath="SessionTime.h">
 			</File>
 			<File
-				RelativePath=".\src\C++\Settings.h">
+				RelativePath=".\Settings.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -567,7 +568,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\strptime.h">
+				RelativePath=".\strptime.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -584,7 +585,7 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath=".\src\C++\Utility.h">
+				RelativePath=".\Utility.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -608,17 +609,17 @@ del /F EXCLUDE
 				Name="Field Source Files"
 				Filter="*.cpp">
 				<File
-					RelativePath="src\C++\FieldMap.cpp">
+					RelativePath="FieldMap.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\FieldTypes.cpp">
+					RelativePath=".\FieldTypes.cpp">
 				</File>
 			</Filter>
 			<Filter
 				Name="Field Header Files"
 				Filter="*.h">
 				<File
-					RelativePath="src\C++\DeprecatedFieldNumbers.h">
+					RelativePath="DeprecatedFieldNumbers.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -635,7 +636,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="src\C++\DeprecatedFields.h">
+					RelativePath="DeprecatedFields.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -652,7 +653,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="src\C++\DeprecatedValues.h">
+					RelativePath="DeprecatedValues.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -669,7 +670,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Field.h">
+					RelativePath=".\Field.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -686,7 +687,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\FieldConvertors.h">
+					RelativePath=".\FieldConvertors.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -703,7 +704,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\FieldMap.h">
+					RelativePath=".\FieldMap.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -720,7 +721,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\FieldNumbers.h">
+					RelativePath=".\FieldNumbers.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -737,7 +738,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Fields.h">
+					RelativePath=".\Fields.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -754,7 +755,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\FieldTypes.h">
+					RelativePath=".\FieldTypes.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -771,7 +772,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Values.h">
+					RelativePath=".\Values.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -796,7 +797,7 @@ del /F EXCLUDE
 				Name="Message Header Files"
 				Filter="">
 				<File
-					RelativePath=".\src\C++\DataDictionary.h">
+					RelativePath=".\DataDictionary.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -813,7 +814,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Group.h">
+					RelativePath=".\Group.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -830,7 +831,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Message.h">
+					RelativePath=".\Message.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -847,7 +848,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\MessageCracker.h">
+					RelativePath=".\MessageCracker.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -864,7 +865,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\Messages.h">
+					RelativePath=".\Messages.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -881,7 +882,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\MessageSorters.h">
+					RelativePath=".\MessageSorters.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -901,824 +902,824 @@ del /F EXCLUDE
 					Name="fix40"
 					Filter="">
 					<File
-						RelativePath="src\C++\fix40\Advertisement.h">
+						RelativePath="fix40\Advertisement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Allocation.h">
+						RelativePath="fix40\Allocation.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\AllocationACK.h">
+						RelativePath="fix40\AllocationACK.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\DontKnowTrade.h">
+						RelativePath="fix40\DontKnowTrade.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Email.h">
+						RelativePath="fix40\Email.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\ExecutionReport.h">
+						RelativePath="fix40\ExecutionReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Heartbeat.h">
+						RelativePath="fix40\Heartbeat.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\IndicationofInterest.h">
+						RelativePath="fix40\IndicationofInterest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\ListCancelRequest.h">
+						RelativePath="fix40\ListCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\ListExecute.h">
+						RelativePath="fix40\ListExecute.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\ListStatus.h">
+						RelativePath="fix40\ListStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\ListStatusRequest.h">
+						RelativePath="fix40\ListStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Logon.h">
+						RelativePath="fix40\Logon.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Logout.h">
+						RelativePath="fix40\Logout.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Message.h">
+						RelativePath="fix40\Message.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\MessageCracker.h">
+						RelativePath="fix40\MessageCracker.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\NewOrderList.h">
+						RelativePath="fix40\NewOrderList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\NewOrderSingle.h">
+						RelativePath="fix40\NewOrderSingle.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\News.h">
+						RelativePath="fix40\News.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\OrderCancelReject.h">
+						RelativePath="fix40\OrderCancelReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\OrderCancelReplaceRequest.h">
+						RelativePath="fix40\OrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\OrderCancelRequest.h">
+						RelativePath="fix40\OrderCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\OrderStatusRequest.h">
+						RelativePath="fix40\OrderStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Quote.h">
+						RelativePath="fix40\Quote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\QuoteRequest.h">
+						RelativePath="fix40\QuoteRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\Reject.h">
+						RelativePath="fix40\Reject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\ResendRequest.h">
+						RelativePath="fix40\ResendRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\SequenceReset.h">
+						RelativePath="fix40\SequenceReset.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix40\TestRequest.h">
+						RelativePath="fix40\TestRequest.h">
 					</File>
 				</Filter>
 				<Filter
 					Name="fix41"
 					Filter="">
 					<File
-						RelativePath="src\C++\fix41\Advertisement.h">
+						RelativePath="fix41\Advertisement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Allocation.h">
+						RelativePath="fix41\Allocation.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\AllocationACK.h">
+						RelativePath="fix41\AllocationACK.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\DontKnowTrade.h">
+						RelativePath="fix41\DontKnowTrade.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Email.h">
+						RelativePath="fix41\Email.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\ExecutionReport.h">
+						RelativePath="fix41\ExecutionReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Heartbeat.h">
+						RelativePath="fix41\Heartbeat.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\IndicationofInterest.h">
+						RelativePath="fix41\IndicationofInterest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\ListCancelRequest.h">
+						RelativePath="fix41\ListCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\ListExecute.h">
+						RelativePath="fix41\ListExecute.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\ListStatus.h">
+						RelativePath="fix41\ListStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\ListStatusRequest.h">
+						RelativePath="fix41\ListStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Logon.h">
+						RelativePath="fix41\Logon.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Logout.h">
+						RelativePath="fix41\Logout.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Message.h">
+						RelativePath="fix41\Message.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\MessageCracker.h">
+						RelativePath="fix41\MessageCracker.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\NewOrderList.h">
+						RelativePath="fix41\NewOrderList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\NewOrderSingle.h">
+						RelativePath="fix41\NewOrderSingle.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\News.h">
+						RelativePath="fix41\News.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\OrderCancelReject.h">
+						RelativePath="fix41\OrderCancelReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\OrderCancelReplaceRequest.h">
+						RelativePath="fix41\OrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\OrderCancelRequest.h">
+						RelativePath="fix41\OrderCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\OrderStatusRequest.h">
+						RelativePath="fix41\OrderStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Quote.h">
+						RelativePath="fix41\Quote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\QuoteRequest.h">
+						RelativePath="fix41\QuoteRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\Reject.h">
+						RelativePath="fix41\Reject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\ResendRequest.h">
+						RelativePath="fix41\ResendRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\SequenceReset.h">
+						RelativePath="fix41\SequenceReset.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\SettlementInstructions.h">
+						RelativePath="fix41\SettlementInstructions.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix41\TestRequest.h">
+						RelativePath="fix41\TestRequest.h">
 					</File>
 				</Filter>
 				<Filter
 					Name="fix42"
 					Filter="">
 					<File
-						RelativePath="src\C++\fix42\Advertisement.h">
+						RelativePath="fix42\Advertisement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Allocation.h">
+						RelativePath="fix42\Allocation.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\AllocationACK.h">
+						RelativePath="fix42\AllocationACK.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\BidRequest.h">
+						RelativePath="fix42\BidRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\BidResponse.h">
+						RelativePath="fix42\BidResponse.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\BusinessMessageReject.h">
+						RelativePath="fix42\BusinessMessageReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\DontKnowTrade.h">
+						RelativePath="fix42\DontKnowTrade.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Email.h">
+						RelativePath="fix42\Email.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\ExecutionReport.h">
+						RelativePath="fix42\ExecutionReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Heartbeat.h">
+						RelativePath="fix42\Heartbeat.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\IndicationofInterest.h">
+						RelativePath="fix42\IndicationofInterest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\ListCancelRequest.h">
+						RelativePath="fix42\ListCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\ListExecute.h">
+						RelativePath="fix42\ListExecute.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\ListStatus.h">
+						RelativePath="fix42\ListStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\ListStatusRequest.h">
+						RelativePath="fix42\ListStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\ListStrikePrice.h">
+						RelativePath="fix42\ListStrikePrice.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Logon.h">
+						RelativePath="fix42\Logon.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Logout.h">
+						RelativePath="fix42\Logout.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\MarketDataIncrementalRefresh.h">
+						RelativePath="fix42\MarketDataIncrementalRefresh.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\MarketDataRequest.h">
+						RelativePath="fix42\MarketDataRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\MarketDataRequestReject.h">
+						RelativePath="fix42\MarketDataRequestReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\MarketDataSnapshotFullRefresh.h">
+						RelativePath="fix42\MarketDataSnapshotFullRefresh.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\MassQuote.h">
+						RelativePath="fix42\MassQuote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Message.h">
+						RelativePath="fix42\Message.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\MessageCracker.h">
+						RelativePath="fix42\MessageCracker.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\NewOrderList.h">
+						RelativePath="fix42\NewOrderList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\NewOrderSingle.h">
+						RelativePath="fix42\NewOrderSingle.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\News.h">
+						RelativePath="fix42\News.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\OrderCancelReject.h">
+						RelativePath="fix42\OrderCancelReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\OrderCancelReplaceRequest.h">
+						RelativePath="fix42\OrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\OrderCancelRequest.h">
+						RelativePath="fix42\OrderCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\OrderStatusRequest.h">
+						RelativePath="fix42\OrderStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Quote.h">
+						RelativePath="fix42\Quote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\QuoteAcknowledgement.h">
+						RelativePath="fix42\QuoteAcknowledgement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\QuoteCancel.h">
+						RelativePath="fix42\QuoteCancel.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\QuoteRequest.h">
+						RelativePath="fix42\QuoteRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\QuoteStatusRequest.h">
+						RelativePath="fix42\QuoteStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\Reject.h">
+						RelativePath="fix42\Reject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\ResendRequest.h">
+						RelativePath="fix42\ResendRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\SecurityDefinition.h">
+						RelativePath="fix42\SecurityDefinition.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\SecurityDefinitionRequest.h">
+						RelativePath="fix42\SecurityDefinitionRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\SecurityStatus.h">
+						RelativePath="fix42\SecurityStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\SecurityStatusRequest.h">
+						RelativePath="fix42\SecurityStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\SequenceReset.h">
+						RelativePath="fix42\SequenceReset.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\SettlementInstructions.h">
+						RelativePath="fix42\SettlementInstructions.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\TestRequest.h">
+						RelativePath="fix42\TestRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\TradingSessionStatus.h">
+						RelativePath="fix42\TradingSessionStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix42\TradingSessionStatusRequest.h">
+						RelativePath="fix42\TradingSessionStatusRequest.h">
 					</File>
 				</Filter>
 				<Filter
 					Name="fix43"
 					Filter="">
 					<File
-						RelativePath="src\C++\fix43\Advertisement.h">
+						RelativePath="fix43\Advertisement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Allocation.h">
+						RelativePath="fix43\Allocation.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\AllocationACK.h">
+						RelativePath="fix43\AllocationACK.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\BidRequest.h">
+						RelativePath="fix43\BidRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\BidResponse.h">
+						RelativePath="fix43\BidResponse.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\BusinessMessageReject.h">
+						RelativePath="fix43\BusinessMessageReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\CrossOrderCancelReplaceRequest.h">
+						RelativePath="fix43\CrossOrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\CrossOrderCancelRequest.h">
+						RelativePath="fix43\CrossOrderCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\DerivativeSecurityList.h">
+						RelativePath="fix43\DerivativeSecurityList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\DerivativeSecurityListRequest.h">
+						RelativePath="fix43\DerivativeSecurityListRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\DontKnowTrade.h">
+						RelativePath="fix43\DontKnowTrade.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Email.h">
+						RelativePath="fix43\Email.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\ExecutionReport.h">
+						RelativePath="fix43\ExecutionReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Heartbeat.h">
+						RelativePath="fix43\Heartbeat.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\IndicationOfInterest.h">
+						RelativePath="fix43\IndicationOfInterest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\ListCancelRequest.h">
+						RelativePath="fix43\ListCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\ListExecute.h">
+						RelativePath="fix43\ListExecute.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\ListStatus.h">
+						RelativePath="fix43\ListStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\ListStatusRequest.h">
+						RelativePath="fix43\ListStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\ListStrikePrice.h">
+						RelativePath="fix43\ListStrikePrice.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Logon.h">
+						RelativePath="fix43\Logon.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Logout.h">
+						RelativePath="fix43\Logout.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MarketDataIncrementalRefresh.h">
+						RelativePath="fix43\MarketDataIncrementalRefresh.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MarketDataRequest.h">
+						RelativePath="fix43\MarketDataRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MarketDataRequestReject.h">
+						RelativePath="fix43\MarketDataRequestReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MarketDataSnapshotFullRefresh.h">
+						RelativePath="fix43\MarketDataSnapshotFullRefresh.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MassQuote.h">
+						RelativePath="fix43\MassQuote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MassQuoteAcknowledgement.h">
+						RelativePath="fix43\MassQuoteAcknowledgement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Message.h">
+						RelativePath="fix43\Message.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MessageCracker.h">
+						RelativePath="fix43\MessageCracker.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\MultilegOrderCancelReplaceRequest.h">
+						RelativePath="fix43\MultilegOrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\NewOrderCross.h">
+						RelativePath="fix43\NewOrderCross.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\NewOrderList.h">
+						RelativePath="fix43\NewOrderList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\NewOrderMultileg.h">
+						RelativePath="fix43\NewOrderMultileg.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\NewOrderSingle.h">
+						RelativePath="fix43\NewOrderSingle.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\News.h">
+						RelativePath="fix43\News.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\OrderCancelReject.h">
+						RelativePath="fix43\OrderCancelReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\OrderCancelReplaceRequest.h">
+						RelativePath="fix43\OrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\OrderCancelRequest.h">
+						RelativePath="fix43\OrderCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\OrderMassCancelReport.h">
+						RelativePath="fix43\OrderMassCancelReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\OrderMassCancelRequest.h">
+						RelativePath="fix43\OrderMassCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\OrderMassStatusRequest.h">
+						RelativePath="fix43\OrderMassStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\OrderStatusRequest.h">
+						RelativePath="fix43\OrderStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Quote.h">
+						RelativePath="fix43\Quote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\QuoteCancel.h">
+						RelativePath="fix43\QuoteCancel.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\QuoteRequest.h">
+						RelativePath="fix43\QuoteRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\QuoteRequestReject.h">
+						RelativePath="fix43\QuoteRequestReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\QuoteStatusReport.h">
+						RelativePath="fix43\QuoteStatusReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\QuoteStatusRequest.h">
+						RelativePath="fix43\QuoteStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\RegistrationInstructions.h">
+						RelativePath="fix43\RegistrationInstructions.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\RegistrationInstructionsResponse.h">
+						RelativePath="fix43\RegistrationInstructionsResponse.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\Reject.h">
+						RelativePath="fix43\Reject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\ResendRequest.h">
+						RelativePath="fix43\ResendRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\RFQRequest.h">
+						RelativePath="fix43\RFQRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityDefinition.h">
+						RelativePath="fix43\SecurityDefinition.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityDefinitionRequest.h">
+						RelativePath="fix43\SecurityDefinitionRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityList.h">
+						RelativePath="fix43\SecurityList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityListRequest.h">
+						RelativePath="fix43\SecurityListRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityStatus.h">
+						RelativePath="fix43\SecurityStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityStatusRequest.h">
+						RelativePath="fix43\SecurityStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityTypeRequest.h">
+						RelativePath="fix43\SecurityTypeRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SecurityTypes.h">
+						RelativePath="fix43\SecurityTypes.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SequenceReset.h">
+						RelativePath="fix43\SequenceReset.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\SettlementInstructions.h">
+						RelativePath="fix43\SettlementInstructions.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\TestRequest.h">
+						RelativePath="fix43\TestRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\TradeCaptureReport.h">
+						RelativePath="fix43\TradeCaptureReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\TradeCaptureReportRequest.h">
+						RelativePath="fix43\TradeCaptureReportRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\TradingSessionStatus.h">
+						RelativePath="fix43\TradingSessionStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix43\TradingSessionStatusRequest.h">
+						RelativePath="fix43\TradingSessionStatusRequest.h">
 					</File>
 				</Filter>
 				<Filter
 					Name="fix44"
 					Filter="">
 					<File
-						RelativePath="src\C++\fix44\Advertisement.h">
+						RelativePath="fix44\Advertisement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\AllocationInstruction.h">
+						RelativePath="fix44\AllocationInstruction.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\AllocationInstructionAck.h">
+						RelativePath="fix44\AllocationInstructionAck.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\AllocationReport.h">
+						RelativePath="fix44\AllocationReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\AllocationReportAck.h">
+						RelativePath="fix44\AllocationReportAck.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\AssignmentReport.h">
+						RelativePath="fix44\AssignmentReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\BidRequest.h">
+						RelativePath="fix44\BidRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\BidResponse.h">
+						RelativePath="fix44\BidResponse.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\BusinessMessageReject.h">
+						RelativePath="fix44\BusinessMessageReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CollateralAssignment.h">
+						RelativePath="fix44\CollateralAssignment.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CollateralInquiry.h">
+						RelativePath="fix44\CollateralInquiry.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CollateralInquiryAck.h">
+						RelativePath="fix44\CollateralInquiryAck.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CollateralReport.h">
+						RelativePath="fix44\CollateralReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CollateralRequest.h">
+						RelativePath="fix44\CollateralRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CollateralResponse.h">
+						RelativePath="fix44\CollateralResponse.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Confirmation.h">
+						RelativePath="fix44\Confirmation.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ConfirmationAck.h">
+						RelativePath="fix44\ConfirmationAck.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ConfirmationRequest.h">
+						RelativePath="fix44\ConfirmationRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CrossOrderCancelReplaceRequest.h">
+						RelativePath="fix44\CrossOrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\CrossOrderCancelRequest.h">
+						RelativePath="fix44\CrossOrderCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\DerivativeSecurityList.h">
+						RelativePath="fix44\DerivativeSecurityList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\DerivativeSecurityListRequest.h">
+						RelativePath="fix44\DerivativeSecurityListRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\DontKnowTrade.h">
+						RelativePath="fix44\DontKnowTrade.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Email.h">
+						RelativePath="fix44\Email.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ExecutionReport.h">
+						RelativePath="fix44\ExecutionReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Heartbeat.h">
+						RelativePath="fix44\Heartbeat.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\IndicationOfInterest.h">
+						RelativePath="fix44\IndicationOfInterest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ListCancelRequest.h">
+						RelativePath="fix44\ListCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ListExecute.h">
+						RelativePath="fix44\ListExecute.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ListStatus.h">
+						RelativePath="fix44\ListStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ListStatusRequest.h">
+						RelativePath="fix44\ListStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ListStrikePrice.h">
+						RelativePath="fix44\ListStrikePrice.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Logon.h">
+						RelativePath="fix44\Logon.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Logout.h">
+						RelativePath="fix44\Logout.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MarketDataIncrementalRefresh.h">
+						RelativePath="fix44\MarketDataIncrementalRefresh.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MarketDataRequest.h">
+						RelativePath="fix44\MarketDataRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MarketDataRequestReject.h">
+						RelativePath="fix44\MarketDataRequestReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MarketDataSnapshotFullRefresh.h">
+						RelativePath="fix44\MarketDataSnapshotFullRefresh.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MassQuote.h">
+						RelativePath="fix44\MassQuote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MassQuoteAcknowledgement.h">
+						RelativePath="fix44\MassQuoteAcknowledgement.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Message.h">
+						RelativePath="fix44\Message.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MessageCracker.h">
+						RelativePath="fix44\MessageCracker.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\MultilegOrderCancelReplaceRequest.h">
+						RelativePath="fix44\MultilegOrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\NewOrderCross.h">
+						RelativePath="fix44\NewOrderCross.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\NewOrderList.h">
+						RelativePath="fix44\NewOrderList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\NewOrderMultileg.h">
+						RelativePath="fix44\NewOrderMultileg.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\NewOrderSingle.h">
+						RelativePath="fix44\NewOrderSingle.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\News.h">
+						RelativePath="fix44\News.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\OrderCancelReject.h">
+						RelativePath="fix44\OrderCancelReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\OrderCancelReplaceRequest.h">
+						RelativePath="fix44\OrderCancelReplaceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\OrderCancelRequest.h">
+						RelativePath="fix44\OrderCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\OrderMassCancelReport.h">
+						RelativePath="fix44\OrderMassCancelReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\OrderMassCancelRequest.h">
+						RelativePath="fix44\OrderMassCancelRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\OrderMassStatusRequest.h">
+						RelativePath="fix44\OrderMassStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\OrderStatusRequest.h">
+						RelativePath="fix44\OrderStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\PositionMaintenanceReport.h">
+						RelativePath="fix44\PositionMaintenanceReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\PositionMaintenanceRequest.h">
+						RelativePath="fix44\PositionMaintenanceRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\PositionReport.h">
+						RelativePath="fix44\PositionReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Quote.h">
+						RelativePath="fix44\Quote.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\QuoteCancel.h">
+						RelativePath="fix44\QuoteCancel.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\QuoteRequest.h">
+						RelativePath="fix44\QuoteRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\QuoteRequestReject.h">
+						RelativePath="fix44\QuoteRequestReject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\QuoteResponse.h">
+						RelativePath="fix44\QuoteResponse.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\QuoteStatusReport.h">
+						RelativePath="fix44\QuoteStatusReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\QuoteStatusRequest.h">
+						RelativePath="fix44\QuoteStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\RegistrationInstructions.h">
+						RelativePath="fix44\RegistrationInstructions.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\RegistrationInstructionsResponse.h">
+						RelativePath="fix44\RegistrationInstructionsResponse.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\Reject.h">
+						RelativePath="fix44\Reject.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\RequestForPositions.h">
+						RelativePath="fix44\RequestForPositions.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\RequestForPositionsAck.h">
+						RelativePath="fix44\RequestForPositionsAck.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\ResendRequest.h">
+						RelativePath="fix44\ResendRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\RFQRequest.h">
+						RelativePath="fix44\RFQRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityDefinition.h">
+						RelativePath="fix44\SecurityDefinition.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityDefinitionRequest.h">
+						RelativePath="fix44\SecurityDefinitionRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityList.h">
+						RelativePath="fix44\SecurityList.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityListRequest.h">
+						RelativePath="fix44\SecurityListRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityStatus.h">
+						RelativePath="fix44\SecurityStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityStatusRequest.h">
+						RelativePath="fix44\SecurityStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityTypeRequest.h">
+						RelativePath="fix44\SecurityTypeRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SecurityTypes.h">
+						RelativePath="fix44\SecurityTypes.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SequenceReset.h">
+						RelativePath="fix44\SequenceReset.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SettlementInstructionRequest.h">
+						RelativePath="fix44\SettlementInstructionRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\SettlementInstructions.h">
+						RelativePath="fix44\SettlementInstructions.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\TestRequest.h">
+						RelativePath="fix44\TestRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\TradeCaptureReport.h">
+						RelativePath="fix44\TradeCaptureReport.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\TradeCaptureReportAck.h">
+						RelativePath="fix44\TradeCaptureReportAck.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\TradeCaptureReportRequest.h">
+						RelativePath="fix44\TradeCaptureReportRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\TradeCaptureReportRequestAck.h">
+						RelativePath="fix44\TradeCaptureReportRequestAck.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\TradingSessionStatus.h">
+						RelativePath="fix44\TradingSessionStatus.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\TradingSessionStatusRequest.h">
+						RelativePath="fix44\TradingSessionStatusRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\UserRequest.h">
+						RelativePath="fix44\UserRequest.h">
 					</File>
 					<File
-						RelativePath="src\C++\fix44\UserResponse.h">
+						RelativePath="fix44\UserResponse.h">
 					</File>
 				</Filter>
 			</Filter>
@@ -1726,16 +1727,16 @@ del /F EXCLUDE
 				Name="Message Source Files"
 				Filter="">
 				<File
-					RelativePath=".\src\C++\DataDictionary.cpp">
+					RelativePath=".\DataDictionary.cpp">
 				</File>
 				<File
-					RelativePath="src\C++\Group.cpp">
+					RelativePath="Group.cpp">
 				</File>
 				<File
-					RelativePath="src\C++\Message.cpp">
+					RelativePath="Message.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\MessageSorters.cpp">
+					RelativePath=".\MessageSorters.cpp">
 				</File>
 			</Filter>
 		</Filter>
@@ -1746,38 +1747,38 @@ del /F EXCLUDE
 				Name="Socket Source Files"
 				Filter="*.cpp">
 				<File
-					RelativePath=".\src\C++\SocketAcceptor.cpp">
+					RelativePath=".\SocketAcceptor.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketConnection.cpp">
+					RelativePath=".\SocketConnection.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketConnector.cpp">
+					RelativePath=".\SocketConnector.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketInitiator.cpp">
+					RelativePath=".\SocketInitiator.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketMonitor.cpp">
+					RelativePath=".\SocketMonitor.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketServer.cpp">
+					RelativePath=".\SocketServer.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\ThreadedSocketAcceptor.cpp">
+					RelativePath=".\ThreadedSocketAcceptor.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\ThreadedSocketConnection.cpp">
+					RelativePath=".\ThreadedSocketConnection.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\ThreadedSocketInitiator.cpp">
+					RelativePath=".\ThreadedSocketInitiator.cpp">
 				</File>
 			</Filter>
 			<Filter
 				Name="Socket Header Files"
 				Filter="*.h">
 				<File
-					RelativePath=".\src\C++\SocketAcceptor.h">
+					RelativePath=".\SocketAcceptor.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1794,7 +1795,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketConnection.h">
+					RelativePath=".\SocketConnection.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1811,7 +1812,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketConnector.h">
+					RelativePath=".\SocketConnector.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1828,7 +1829,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketInitiator.h">
+					RelativePath=".\SocketInitiator.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1845,7 +1846,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketMonitor.h">
+					RelativePath=".\SocketMonitor.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1862,7 +1863,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\SocketServer.h">
+					RelativePath=".\SocketServer.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1879,7 +1880,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\ThreadedSocketAcceptor.h">
+					RelativePath=".\ThreadedSocketAcceptor.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1896,7 +1897,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\ThreadedSocketConnection.h">
+					RelativePath=".\ThreadedSocketConnection.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1913,7 +1914,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\ThreadedSocketInitiator.h">
+					RelativePath=".\ThreadedSocketInitiator.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1938,50 +1939,50 @@ del /F EXCLUDE
 				Name="Storage Source Files"
 				Filter="*.cpp">
 				<File
-					RelativePath="src\C++\FileLog.cpp">
+					RelativePath="FileLog.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\FileStore.cpp">
+					RelativePath=".\FileStore.cpp">
 				</File>
 				<File
-					RelativePath="src\C++\Log.cpp">
+					RelativePath="Log.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\MessageStore.cpp">
+					RelativePath=".\MessageStore.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\MSSQLLog.cpp">
+					RelativePath=".\MSSQLLog.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\MSSQLStore.cpp">
+					RelativePath=".\MSSQLStore.cpp">
 				</File>
 				<File
-					RelativePath="src\C++\MySQLLog.cpp">
+					RelativePath="MySQLLog.cpp">
 				</File>
 				<File
-					RelativePath="src\C++\MySQLStore.cpp">
+					RelativePath="MySQLStore.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\PostgreSQLLog.cpp">
+					RelativePath=".\PostgreSQLLog.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\PostgreSQLStore.cpp">
+					RelativePath=".\PostgreSQLStore.cpp">
 				</File>
 				<File
-					RelativePath=".\src\C++\stdafx.h">
+					RelativePath=".\stdafx.h">
 				</File>
 			</Filter>
 			<Filter
 				Name="Storage Header Files"
 				Filter="">
 				<File
-					RelativePath=".\src\C++\DatabaseConnectionID.h">
+					RelativePath=".\DatabaseConnectionID.h">
 				</File>
 				<File
-					RelativePath=".\src\C++\DatabaseConnectionPool.h">
+					RelativePath=".\DatabaseConnectionPool.h">
 				</File>
 				<File
-					RelativePath="src\C++\FileLog.h">
+					RelativePath="FileLog.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -1999,7 +2000,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\FileStore.h">
+					RelativePath=".\FileStore.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -2016,7 +2017,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="src\C++\Log.h">
+					RelativePath="Log.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -2033,7 +2034,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\MessageStore.h">
+					RelativePath=".\MessageStore.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -2050,16 +2051,16 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\MSSQLLog.h">
+					RelativePath=".\MSSQLLog.h">
 				</File>
 				<File
-					RelativePath=".\src\C++\MSSQLStore.h">
+					RelativePath=".\MSSQLStore.h">
 				</File>
 				<File
-					RelativePath=".\src\C++\MySQLConnection.h">
+					RelativePath=".\MySQLConnection.h">
 				</File>
 				<File
-					RelativePath="src\C++\MySQLLog.h">
+					RelativePath="MySQLLog.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -2076,7 +2077,7 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath="src\C++\MySQLStore.h">
+					RelativePath="MySQLStore.h">
 					<FileConfiguration
 						Name="Debug|Win32">
 						<Tool
@@ -2094,13 +2095,13 @@ del /F EXCLUDE
 					</FileConfiguration>
 				</File>
 				<File
-					RelativePath=".\src\C++\PostgreSQLConnection.h">
+					RelativePath=".\PostgreSQLConnection.h">
 				</File>
 				<File
-					RelativePath=".\src\C++\PostgreSQLLog.h">
+					RelativePath=".\PostgreSQLLog.h">
 				</File>
 				<File
-					RelativePath=".\src\C++\PostgreSQLStore.h">
+					RelativePath=".\PostgreSQLStore.h">
 				</File>
 			</Filter>
 		</Filter>

@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "Conversions.h"
 
 jobject newDate( const FIX::UtcTimeStamp& date )
@@ -65,3 +67,5 @@ jobject newDate( const FIX::UtcTimeStamp& date )
   cal.deleteLocalRef();
   return result;
 }
+
+#endif

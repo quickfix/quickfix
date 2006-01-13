@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="7.10"
-	Name="quickfix_net"
+	Name="quickfix_net_vs7"
 	ProjectGUID="{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
 	Keyword="ManagedCProj">
 	<Platforms>
@@ -12,15 +12,15 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="..\..\lib\debug"
-			IntermediateDirectory="Debug"
+			OutputDirectory="$(SolutionDir)\lib\debug"
+			IntermediateDirectory=".\debug\vs7"
 			ConfigurationType="2"
 			CharacterSet="2"
 			ManagedExtensions="TRUE">
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="..\..\include\"
+				AdditionalIncludeDirectories="$(SolutionDir)\include"
 				PreprocessorDefinitions="WIN32;_DEBUG"
 				MinimalRebuild="FALSE"
 				BasicRuntimeChecks="0"
@@ -36,7 +36,7 @@
 				AdditionalDependencies="quickfix.lib ws2_32.lib"
 				OutputFile="$(OutDir)\quickfix_net.dll"
 				LinkIncremental="2"
-				AdditionalLibraryDirectories="..\..\lib\debug"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib\debug"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>
@@ -61,8 +61,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="..\..\lib"
-			IntermediateDirectory="Release"
+			OutputDirectory="$(SolutionDir)\lib"
+			IntermediateDirectory="release\vs7"
 			ConfigurationType="2"
 			CharacterSet="2"
 			ManagedExtensions="TRUE">
@@ -70,7 +70,7 @@
 				Name="VCCLCompilerTool"
 				Optimization="2"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="..\..\include\"
+				AdditionalIncludeDirectories="$(SolutionDir)\include"
 				PreprocessorDefinitions="WIN32;NDEBUG"
 				MinimalRebuild="FALSE"
 				RuntimeLibrary="2"
@@ -84,7 +84,7 @@
 				AdditionalDependencies="quickfix.lib ws2_32.lib"
 				OutputFile="$(OutDir)\quickfix_net.dll"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="..\..\lib"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib"
 				GenerateDebugInformation="TRUE"/>
 			<Tool
 				Name="VCMIDLTool"/>

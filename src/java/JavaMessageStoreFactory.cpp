@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JavaMessageStoreFactory.h"
 #include "JavaMessageStore.h"
 #include "Conversions.h"
@@ -54,3 +56,5 @@ void JavaMessageStoreFactory::destroy( FIX::MessageStore* pStore )
 {
   delete pStore;
 }
+
+#endif

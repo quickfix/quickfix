@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_MemoryStore.h"
 #include <quickfix/MessageStore.h>
@@ -46,3 +48,5 @@ JNIEXPORT void JNICALL Java_quickfix_MemoryStore_destroy
   JavaMessageStore_destroy( pEnv, obj );
   QF_STACK_CATCH
 }
+
+#endif

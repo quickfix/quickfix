@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JavaMessageStore.h"
 #include "Conversions.h"
 #include <iostream>
@@ -212,4 +214,4 @@ void JNICALL JavaMessageStore_destroy
   delete pWrapper;
 }
 
-
+#endif

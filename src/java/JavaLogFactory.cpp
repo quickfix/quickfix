@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JavaLogFactory.h"
 #include "JavaLog.h"
 #include "Conversions.h"
@@ -54,3 +56,5 @@ void JavaLogFactory::destroy( FIX::Log* pLog )
 {
   delete pLog;
 }
+
+#endif

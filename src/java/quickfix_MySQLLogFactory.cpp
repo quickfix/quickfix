@@ -23,6 +23,7 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
 #ifdef HAVE_MYSQL
 
 #include "JVM.h"
@@ -93,4 +94,6 @@ JNIEXPORT jobject JNICALL Java_quickfix_MySQLLogFactory_create__Lquickfix_Sessio
 
   QF_STACK_CATCH
 }
-#endif //HAVE_MYSQL
+
+#endif
+#endif

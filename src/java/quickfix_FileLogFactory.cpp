@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_FileLogFactory.h"
 #include <quickfix/FileLog.h>
@@ -91,3 +93,5 @@ JNIEXPORT jobject JNICALL Java_quickfix_FileLogFactory_create__Lquickfix_Session
 
   QF_STACK_CATCH
 }
+
+#endif

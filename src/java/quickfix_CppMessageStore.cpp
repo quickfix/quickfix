@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_CppMessageStore.h"
 #include <quickfix/MessageStore.h>
@@ -254,3 +256,5 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_reset0
 
   QF_STACK_CATCH
 }
+
+#endif

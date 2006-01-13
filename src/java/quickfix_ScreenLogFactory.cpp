@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "Conversions.h"
 #include "quickfix_ScreenLogFactory.h"
@@ -87,3 +89,5 @@ JNIEXPORT jobject JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_Sessi
 
   QF_STACK_CATCH
 }
+
+#endif

@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_Message.h"
 #include <quickfix/Utility.h>
@@ -1339,3 +1341,4 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_isApp
   QF_STACK_CATCH
 }
 
+#endif

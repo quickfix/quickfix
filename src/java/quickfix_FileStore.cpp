@@ -23,6 +23,8 @@
 #include "config.h"
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_FileStore.h"
 #include <quickfix/FileStore.h>
@@ -58,3 +60,5 @@ JNIEXPORT void JNICALL Java_quickfix_FileStore_destroy
   JavaMessageStore_destroy( pEnv, obj );
   QF_STACK_CATCH
 }
+
+#endif

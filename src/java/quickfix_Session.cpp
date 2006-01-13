@@ -27,6 +27,8 @@
 #pragma warning( disable : 4786 )
 #endif
 
+#ifdef HAVE_JAVA
+
 #include "JVM.h"
 #include "quickfix_Session.h"
 #include <quickfix/Session.h>
@@ -498,3 +500,5 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getStore
 
   QF_STACK_CATCH
 }
+
+#endif
