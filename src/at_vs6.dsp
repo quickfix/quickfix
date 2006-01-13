@@ -1,4 +1,4 @@
-# Microsoft Developer Studio Project File - Name="at" - Package Owner=<4>
+# Microsoft Developer Studio Project File - Name="at_vs6" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
@@ -8,12 +8,12 @@ CFG=at_vs6 - Win32 Debug
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "at_vc6.mak".
+!MESSAGE NMAKE /f "at_vs6.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "at_vc6.mak" CFG="at_vs6 - Win32 Debug"
+!MESSAGE NMAKE /f "at_vs6.mak" CFG="at_vs6 - Win32 Debug"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
@@ -37,7 +37,7 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "..\bin\debug"
+# PROP Output_Dir "..\bin"
 # PROP Intermediate_Dir "release\vs6"
 # PROP Ignore_Export_Lib 0
 # PROP Target_Dir ""

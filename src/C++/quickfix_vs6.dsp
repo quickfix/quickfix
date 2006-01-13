@@ -1,4 +1,4 @@
-# Microsoft Developer Studio Project File - Name="quickfix" - Package Owner=<4>
+# Microsoft Developer Studio Project File - Name="quickfix_vs6" - Package Owner=<4>
 # Microsoft Developer Studio Generated Build File, Format Version 6.00
 # ** DO NOT EDIT **
 
@@ -37,7 +37,7 @@ RSC=rc.exe
 # PROP BASE Target_Dir ""
 # PROP Use_MFC 0
 # PROP Use_Debug_Libraries 0
-# PROP Output_Dir "..\..\lib\debug"
+# PROP Output_Dir "..\..\lib"
 # PROP Intermediate_Dir "release\vs6"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /W3 /GX /O2 /D "WIN32" /D "NDEBUG" /D "_MBCS" /D "_LIB" /YX /FD /c
@@ -50,7 +50,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"$(OutDir)\quickfix.lib"
+# ADD LIB32 /nologo /out:"..\..\lib\quickfix.lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
 PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
@@ -78,7 +78,7 @@ BSC32=bscmake.exe
 # ADD BSC32 /nologo
 LIB32=link.exe -lib
 # ADD BASE LIB32 /nologo
-# ADD LIB32 /nologo /out:"$(OutDir)\quickfix.lib"
+# ADD LIB32 /nologo /out:"..\..\lib\debug\quickfix.lib"
 # Begin Special Build Tool
 SOURCE="$(InputPath)"
 PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
