@@ -4,21 +4,21 @@
 
 # TARGTYPE "Win32 (x86) Static Library" 0x0104
 
-CFG=quickfix - Win32 Debug
+CFG=quickfix_vs6 - Win32 Debug
 !MESSAGE This is not a valid makefile. To build this project using NMAKE,
 !MESSAGE use the Export Makefile command and run
 !MESSAGE 
-!MESSAGE NMAKE /f "quickfix_vc6.mak".
+!MESSAGE NMAKE /f "quickfix_vs6.mak".
 !MESSAGE 
 !MESSAGE You can specify a configuration when running NMAKE
 !MESSAGE by defining the macro CFG on the command line. For example:
 !MESSAGE 
-!MESSAGE NMAKE /f "quickfix_vc6.mak" CFG="quickfix - Win32 Debug"
+!MESSAGE NMAKE /f "quickfix_vs6.mak" CFG="quickfix_vs6 - Win32 Debug"
 !MESSAGE 
 !MESSAGE Possible choices for configuration are:
 !MESSAGE 
-!MESSAGE "quickfix - Win32 Release" (based on "Win32 (x86) Static Library")
-!MESSAGE "quickfix - Win32 Debug" (based on "Win32 (x86) Static Library")
+!MESSAGE "quickfix_vs6 - Win32 Release" (based on "Win32 (x86) Static Library")
+!MESSAGE "quickfix_vs6 - Win32 Debug" (based on "Win32 (x86) Static Library")
 !MESSAGE 
 
 # Begin Project
@@ -28,7 +28,7 @@ CFG=quickfix - Win32 Debug
 CPP=cl.exe
 RSC=rc.exe
 
-!IF  "$(CFG)" == "quickfix - Win32 Release"
+!IF  "$(CFG)" == "quickfix_vs6 - Win32 Release"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 0
@@ -56,7 +56,7 @@ SOURCE="$(InputPath)"
 PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /S/Y /EXCLUDE:EXCLUDE include\quickfix	del /F EXCLUDE
 # End Special Build Tool
 
-!ELSEIF  "$(CFG)" == "quickfix - Win32 Debug"
+!ELSEIF  "$(CFG)" == "quickfix_vs6 - Win32 Debug"
 
 # PROP BASE Use_MFC 0
 # PROP BASE Use_Debug_Libraries 1
@@ -88,8 +88,8 @@ PostBuild_Cmds=echo test\ > EXCLUDE	echo stdafx.h >> EXCLUDE	xcopy src\C++\*.h /
 
 # Begin Target
 
-# Name "quickfix - Win32 Release"
-# Name "quickfix - Win32 Debug"
+# Name "quickfix_vs6 - Win32 Release"
+# Name "quickfix_vs6 - Win32 Debug"
 # Begin Group "Source Files"
 
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"

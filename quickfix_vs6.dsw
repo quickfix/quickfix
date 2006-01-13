@@ -3,7 +3,7 @@ Microsoft Developer Studio Workspace File, Format Version 6.00
 
 ###############################################################################
 
-Project: "at"=.\src\at_vs6.dsp - Package Owner=<4>
+Project: "at_vs6"=.\src\at_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -15,7 +15,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "atrun"=.\test\AtRun\atrun.dsp - Package Owner=<4>
+Project: "atrun_vs6"=.\test\atrun\atrun_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -27,7 +27,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "pt"=.\src\pt_vs6.dsp - Package Owner=<4>
+Project: "pt_vs6"=.\src\pt_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -39,7 +39,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "quickfix"=".\src\C++\quickfix_vs6.dsp" - Package Owner=<4>
+Project: "quickfix_jni_vs6"=.\src\java\quickfix_jni_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -51,7 +51,7 @@ Package=<4>
 
 ###############################################################################
 
-Project: "quickfix_jni"=.\src\java\quickfix_jni_vs6.dsp - Package Owner=<4>
+Project: "quickfix_vs6"=".\src\C++\quickfix_vs6.dsp" - Package Owner=<4>
 
 Package=<5>
 {{{
@@ -59,14 +59,11 @@ Package=<5>
 
 Package=<4>
 {{{
-    Begin Project Dependency
-    Project_Dep_Name quickfix
-    End Project Dependency
 }}}
 
 ###############################################################################
 
-Project: "ut"=.\src\ut_vs6.dsp - Package Owner=<4>
+Project: "ut_vs6"=.\src\ut_vs6.dsp - Package Owner=<4>
 
 Package=<5>
 {{{
