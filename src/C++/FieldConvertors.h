@@ -206,11 +206,11 @@ struct DoubleConvertor
     char result[32];
     if( value == 0 || value > 0.0001 || value <= -0.0001 )
     {
-      return std::string( result, sprintf( result, "%.15g", value ) );
+      return std::string( result, STRING_SPRINTF( result, "%.15g", value ) );
     }
     else
     {
-      int size = sprintf( result, "%.15f", value );
+      int size = STRING_SPRINTF( result, "%.15f", value );
       // strip trailing 0's
       char* i = 0;
       for( i = result + size - 1; *i == '0'; *(i--) = 0, size-- ) {}

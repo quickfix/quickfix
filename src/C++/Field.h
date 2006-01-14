@@ -31,6 +31,7 @@
 #include "FieldNumbers.h"
 #include "FieldConvertors.h"
 #include "FieldTypes.h"
+#include "Utility.h"
 
 namespace FIX
 {
@@ -109,7 +110,7 @@ private:
 
     if( 13 + m_string.length() < sizeof(buf) )
     {
-      int tagLength = sprintf( buf, "%d=", m_field );
+      int tagLength = STRING_SPRINTF( buf, "%d=", m_field );
       m_length = tagLength + m_string.length() + 1;
       memcpy( buf + tagLength, m_string.data(), m_string.length() );
       buf[m_length - 1] = '\001';

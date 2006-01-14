@@ -105,9 +105,22 @@ void file_mkdir( const char* path );
 #else
 void file_mkdir( const char* path );
 #endif
+FILE* file_fopen( const char* path, const char* mode );
 void file_unlink( const char* path );
 std::string file_appendpath( const std::string& path, const std::string& file );
 }
+
+#if( _MSC_VER >= 1400 )
+#define FILE_FSCANF fscanf_s
+#else
+#define FILE_FSCANF scanf
+#endif
+
+#if( _MSC_VER >= 1400 )
+#define STRING_SPRINTF sprintf_s
+#else
+#define STRING_SPRINTF sprintf
+#endif
 
 #if (!defined(_MSC_VER) || (_MSC_VER >= 1300)) && !defined(HAVE_STLPORT)
 using std::abort;

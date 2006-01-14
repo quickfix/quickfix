@@ -95,25 +95,25 @@ void FileStore::open( bool deleteFile )
 
   populateCache();
 
-  m_msgFile = fopen( m_msgFileName.c_str(), "r+" );
-  if ( !m_msgFile ) m_msgFile = fopen( m_msgFileName.c_str(), "w+" );
+  m_msgFile = file_fopen( m_msgFileName.c_str(), "r+" );
+  if ( !m_msgFile ) m_msgFile = file_fopen( m_msgFileName.c_str(), "w+" );
   if ( !m_msgFile ) throw ConfigError( "Could not open messages file" );
 
-  m_headerFile = fopen( m_headerFileName.c_str(), "r+" );
-  if ( !m_headerFile ) m_headerFile = fopen( m_headerFileName.c_str(), "w+" );
+  m_headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
+  if ( !m_headerFile ) m_headerFile = file_fopen( m_headerFileName.c_str(), "w+" );
   if ( !m_headerFile ) throw ConfigError( "Could not open header file" );
 
-  m_seqNumsFile = fopen( m_seqNumFileName.c_str(), "r+" );
-  if ( !m_seqNumsFile ) m_seqNumsFile = fopen( m_seqNumFileName.c_str(), "w+" );
+  m_seqNumsFile = file_fopen( m_seqNumFileName.c_str(), "r+" );
+  if ( !m_seqNumsFile ) m_seqNumsFile = file_fopen( m_seqNumFileName.c_str(), "w+" );
   if ( !m_seqNumsFile ) throw ConfigError( "Could not open seqnums file" );
 
   bool setCreationTime = false;
-  m_sessionFile = fopen( m_sessionFileName.c_str(), "r" );
+  m_sessionFile = file_fopen( m_sessionFileName.c_str(), "r" );
   if ( !m_sessionFile ) setCreationTime = true;
   else fclose( m_sessionFile );
 
-  m_sessionFile = fopen( m_sessionFileName.c_str(), "r+" );
-  if ( !m_sessionFile ) m_sessionFile = fopen( m_sessionFileName.c_str(), "w+" );
+  m_sessionFile = file_fopen( m_sessionFileName.c_str(), "r+" );
+  if ( !m_sessionFile ) m_sessionFile = file_fopen( m_sessionFileName.c_str(), "w+" );
   if ( !m_sessionFile ) throw ConfigError( "Could not open session file" );
   if ( setCreationTime ) setSession();
 
@@ -130,21 +130,21 @@ void FileStore::populateCache()
   Message message;
 
   FILE* headerFile;
-  headerFile = fopen( m_headerFileName.c_str(), "r+" );
+  headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( headerFile )
   {
     int num, offset, size;
-    while ( fscanf( headerFile, "%d,%d,%d ", &num, &offset, &size ) == 3 )
+    while ( FILE_FSCANF( headerFile, "%d,%d,%d ", &num, &offset, &size ) == 3 )
       m_offsets[ num ] = std::make_pair( offset, size );
     fclose( headerFile );
   }
 
   FILE* seqNumFile;
-  seqNumFile = fopen( m_seqNumFileName.c_str(), "r+" );
+  seqNumFile = file_fopen( m_seqNumFileName.c_str(), "r+" );
   if ( seqNumFile )
   {
     int sender, target;
-    if ( fscanf( seqNumFile, "%d : %d", &sender, &target ) == 2 )
+    if ( FILE_FSCANF( seqNumFile, "%d : %d", &sender, &target ) == 2 )
     {
       m_cache.setNextSenderMsgSeqNum( sender );
       m_cache.setNextTargetMsgSeqNum( target );
@@ -153,11 +153,11 @@ void FileStore::populateCache()
   }
 
   FILE* sessionFile;
-  sessionFile = fopen( m_sessionFileName.c_str(), "r+" );
+  sessionFile = file_fopen( m_sessionFileName.c_str(), "r+" );
   if ( sessionFile )
   {
     char time[ 22 ];
-    if ( fscanf( sessionFile, "%s", time ) == 1 )
+    if ( FILE_FSCANF( sessionFile, "%s", time ) == 1 )
     {
       m_cache.setCreationTime( UtcTimeStampConvertor::convert( time, true ) );
     }

@@ -281,7 +281,13 @@ tm time_gmtime( const time_t* t )
 { QF_STACK_PUSH(time_gmtime)
 
 #ifdef _MSC_VER
-  return *gmtime( t );
+  #if( _MSC_VER >= 1400 )
+    tm result;
+    gmtime_s( &result, t );
+    return result;
+  #else
+    return *gmtime( t );
+  #endif
 #else
   tm result;
   return *gmtime_r( t, &result );
@@ -294,7 +300,13 @@ tm time_localtime( const time_t* t)
 { QF_STACK_PUSH(time_localtime)
 
 #ifdef _MSC_VER
-  return *localtime( t );
+  #if( _MSC_VER >= 1400 )
+    tm result;
+    localtime_s( &result, t );
+    return result;
+  #else
+    return *localtime( t );
+  #endif
 #else
   tm result;
   return *localtime_r( t, &result );
@@ -385,20 +397,32 @@ std::string file_separator()
   QF_STACK_POP
 }
 
+void file_mkdir( const char* path )
+{ QF_STACK_PUSH(file_mkdir)
+
 #ifdef _MSC_VER
-void file_mkdir( const char* path )
-{ QF_STACK_PUSH(file_mkdir)
   _mkdir( path );
-  QF_STACK_POP
-}
 #else
-void file_mkdir( const char* path )
-{ QF_STACK_PUSH(file_mkdir)
   // use umask to override rwx for all
   mkdir( path, 0777 );
+#endif
+
   QF_STACK_POP
 }
+
+FILE* file_fopen( const char* path, const char* mode )
+{ QF_STACK_PUSH(file_fopen)
+
+#if( _MSC_VER >= 1400 )
+  FILE* result = 0;
+  fopen_s( &result, path, mode );
+  return result;
+#else
+  return fopen( path, mode );
 #endif
+
+  QF_STACK_POP
+}
 
 void file_unlink( const char* path )
 { QF_STACK_PUSH(file_unlink)

@@ -134,7 +134,7 @@ void MSSQLStore::populateCache()
     int year, month, day, hour, minute, second, millis;
     time.getYMD (year, month, day);
     time.getHMS (hour, minute, second, millis);
-    sprintf (sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
+    STRING_SPRINTF (sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
              year, month, day, hour, minute, second);
     std::stringstream query2;
     query2 << "INSERT INTO sessions (beginstring, sendercompid, targetcompid, session_qualifier,"
@@ -351,7 +351,7 @@ void MSSQLStore::reset() throw ( IOException )
   time.getHMS( hour, minute, second, millis );
 
   char sqlTime[ 20 ];
-  sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
+  STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 
   std::stringstream query2;

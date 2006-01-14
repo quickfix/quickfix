@@ -136,7 +136,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   time.getHMS( hour, minute, second, millis );
 
   char sqlTime[ 20 ];
-  sprintf( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
+  STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 
   std::string valueCopy = value;
