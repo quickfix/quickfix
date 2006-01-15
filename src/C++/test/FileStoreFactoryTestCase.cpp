@@ -38,12 +38,10 @@ void FileStoreFactoryTestCase::callCreate::onRun( FileStoreFactory& object )
 
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "FS" ), TargetCompID( "FACT" ) );
-  Session s( *this, object, sessionID, DataDictionary(),
-             SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
-  s.setResponder( this );
 
   MessageStore* m = object.create( sessionID );
   assert( typeid( *m ) == typeid( FileStore ) );
+  object.destroy( m );
 
   std::ifstream messageFile( "store/FIX.4.2-FS-FACT.body" );
   assert( !messageFile.fail() );
