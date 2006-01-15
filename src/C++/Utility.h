@@ -113,7 +113,7 @@ std::string file_appendpath( const std::string& path, const std::string& file );
 #if( _MSC_VER >= 1400 )
 #define FILE_FSCANF fscanf_s
 #else
-#define FILE_FSCANF scanf
+#define FILE_FSCANF fscanf
 #endif
 
 #if( _MSC_VER >= 1400 )

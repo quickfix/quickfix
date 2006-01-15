@@ -76,7 +76,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\bin\debug"
+			OutputDirectory="$(SolutionDir)\bin"
 			IntermediateDirectory=".\release\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
