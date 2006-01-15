@@ -17,11 +17,15 @@
     <A NAME="Windows (C++)"/>
     <H3>Windows (C++)</H3>
     <p>
-      QuickFIX comes with a .dsw and a few .dsp files for building under DevStudio.  Simply open
-      the <B>quickfix.dsw</B> file and do a batch build of all the projects.  This will create
+      Solution and project files are provided for building under Visual Studio.  QuickFIX supports
+      Visual Studion 6, Visual Studio 7 (2003), and Visual Studio 8 (2005).  The solution files
+      provided for these versions are <B>quickfix_vs6.dsw</B>, <B>quickfix_vs7.sln</B>, and <B>quickfix_vs8.sln</B>
+      respectively.
+    </p>
+    <p>
+      Simply open the appropriate solution file and do a batch build of all the projects.  This will create
       <B>lib\quickfix.lib</B> and <B>lib\debug\quickfix.lib</B> which can be linked into your
       applications. The header files will also be copied to the <I>include</I> directory.
-      If you have Visual Studio .NET, you should instead use <B>quickfix.sln</B>.
     </p>
     <p>
       Since windows does not have a standard system for storing header and library files, you
@@ -33,6 +37,8 @@
       directory. The following options are supported:<br><br>
       <FONT color="#0000FF">#define HAVE_STLPORT 1</FONT>
       Compile with stlport instead of standard visual c++ STL implementation.<br/>
+      <FONT color="#0000FF">#define HAVE_JAVA 1</FONT>
+      Compiles JNI wrappers for QuickFIX library, allowing you to access QuickFIX from java.<br/>
       <FONT color="#0000FF">#define HAVE_MYSQL 1</FONT>
       Compiles MySQL support into QuickFIX. If you enable this option, the mysql include and
       library directories must be in the Visual Studio search paths.<br/>
@@ -55,27 +61,23 @@
 	</p>
 	<p>
 	  The instruction for building under .NET are the same as the instructions for windows listed above,
-	  however you must use the <I>quickfix.sln</I> file and build under Visual Studio .NET. In addition to
+	  however you must use the <B>quickfix_vs7.sln</B> or <B>quickfix_vs8.sln</B> files. In addition to
 	  the quickfix lib files, DLLs named <B>quickfix_net.dll</B> and <B>quickfix_net_messages.dll</B>
 	  will be placed into your <I>lib</I> and <I>lib\debug</I> directories.
 	</p>
 	<A NAME="Windows (Java)"/>
     <H3>Windows (Java)</H3>
 	<p>
-	  To build the JNI layer, make sure you have completed the build/installation of the C++ quickfix
-	  library. Now open the <B>quickfix_jni.dsw</B> workspace in MSDev Studio.
-	  (or <B>quickfix_jni.sln</B> if building under Visual Studio .NET).
-	  Before building, make sure to add the JNI include directories to your include search path. Do this by opening up the
-	  <B>Tools->Options</B> menu and selecting the <B>Directories</B> tab (<B>Project->VC++ Directories</B>
-	  under Visual Studio .NET).  Make sure the <B>Show directories
-	  for:</B> combo box has <I>Include files</I> selected. Based on your <B>JAVA_HOME</B> environment settings,
-	  add the jdk's <I>include</I> and <I>include\win32</I> directories to your search path. These will probably be
-	  something like <I>C:\jdk1.3.1\include</I> and <I>C:\jdk1.3.1\include\win32</I>.  Now do a batch build of all project
-	  configurations. DLLs named <B>quickfix_jni.dll</B> and <B>quickfix_debug_jni.dll</B> will be placed into your
+	  To build the JNI layer, you need to make sure HAVE_JAVA is defined in config_windows.h. Before
+	  building, make sure to add the JNI include directories to your include search path.
+      Based on your <B>JAVA_HOME</B> environment settings, add the jdk's <I>include</I> and <I>include\win32</I>
+      directories to your search path. These will probably be something like <I>C:\jdk1.4.2\include</I> and
+      <I>C:\jdk1.4.2\include\win32</I>.  Now do a batch build of all project configurations. DLLs named
+      <B>quickfix_jni.dll</B> and <B>quickfix_debug_jni.dll</B> will be placed into your
 	  <I>lib</I> and <I>lib\debug</I> directories.
 	</p>
-	  Once you have built the JNI dll, you must now build the QuickFIX java API. Simply run the <B>build.bat</B>
-	  file in the <I>src\java</I> directory. A jar file name <B>quickfix.jar</B> will be placed into your
+	  Once you have built the JNI dll, you must now build the QuickFIX java API. Simply run the <B>build_java.bat</B>
+	  file in the <I>quickfix</I> directory. A jar file name <B>quickfix.jar</B> will be placed into your
 	  <I>lib</I> directory.
 	</p>
     <A NAME="Linux / Solaris / FreeBSD / Mac OS X (C++/Java)"/>

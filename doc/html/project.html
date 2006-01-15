@@ -33,29 +33,41 @@
     <A NAME="Windows (C++)"/>
     <H3>Windows (C++)</H3>
     <p>
-      The following settings concerning quickfix can all be found under the <B>project|settings</B>
+      The following settings concerning quickfix can all be found under the <B>project | properties</B>
       dialog box in Microsoft Visual Studio. All pages in this dialog box are organized by tabs
       and catagories.  When refering to a setting, the format <B>tab | catagory | setting</B> will be
       used.
     </p>
     <p>
       <UL>
-        <LI><B>C/C++ | General | Optimizations</B>, can be set to whatever you prefer. The quickfix
+        <LI><B>C/C++ | Optimization | Optimization</B>, can be set to whatever you prefer. The quickfix
                library by default is built with <I>Maximize Speed</I> but your project does not need
                to use the same setting.
-        <LI><B>C/C++ | C++ Language | Enable exception handling</B>, should be checked.
-        <LI><B>C/C++ | Code Generation | Use run-time library</B>, should be set to <I>Debug Multithreaded DLL</I>
-               or <I>Multithreaded DLL</I>. If you want to use a different setting, you must rebuild QuickFIX with
+        <LI><B>C/C++ | Code Generation | Enable C++ Exceptions</B>, should be Yes.
+        <LI><B>C/C++ | Code Generation | Runtime Library</B>, should be set to <I>Multithreaded DLL</I>
+               or <I>Debug Multithreaded DLL</I>. If you want to use a different setting, you must rebuild QuickFIX with
                the same setting.  QuickFIX cannot currently be built single threaded.
-        <LI><B>C/C++ | Preprocessor | Additional Include directories</B>, must have a directory
+        <LI><B>C/C++ | General | Additional Include Directories</B>, must have a directory
                for accessing the QuickFIX header files. We reccomend setting this to a couple
                directories above the header files so your includes can look like <B>#include
                &lt;quickfix/Application.h&gt;</B>. This helps resolves ambiguities between your
                application and other third party libraries.
-        <LI><B>Link | Input | Object/library modules</B>, must contain the <I>quickfix.lib</I>
+        <LI><B>Linker | Input | Additional Dependencies</B>, must contain the <I>quickfix.lib</I>
                file. It must also have <I>ws2_32.lib</I>. This library links the winsock library into your
                application.
-        <LI><B>Link | Input | Additional library path</B>, must have the directory where <I>quickfix.lib</I> resides.
+        <LI><B>Linker | General | Additional Library Directories</B>, must have the directory where <I>quickfix.lib</I> resides.
+      </UL>
+    </p>
+    <p>
+      If you are using Visual Studio 6, you can find the equivalent settings under <B>project | settings</B>
+      in the following locations:
+      <UL>
+        <LI><B>C/C++ | General | Optimizations</B>
+	    <LI><B>C/C++ | C++ Language | Enable exception handling</B>
+	    <LI><B>C/C++ | Code Generation | Use run-time library</B>
+	    <LI><B>C/C++ | Preprocessor | Additional include directories</B>
+	    <LI><B>Link | Input | Object/library modules</B>
+	    <LI><B>Link | Input | Additional library path</B>
       </UL>
     </p>
 
