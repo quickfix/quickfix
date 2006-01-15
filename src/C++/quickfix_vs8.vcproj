@@ -2745,6 +2745,14 @@
 				</File>
 			</Filter>
 		</Filter>
+		<File
+			RelativePath="..\config_windows.h"
+			>
+		</File>
+		<File
+			RelativePath="..\stdafx.h"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

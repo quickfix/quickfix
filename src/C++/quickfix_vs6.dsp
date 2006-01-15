@@ -1616,6 +1616,10 @@ SOURCE=".\MySQLStore.h"
 # End Group
 # Begin Source File
 
+SOURCE=..\config_windows.h
+# End Source File
+# Begin Source File
+
 SOURCE=".\stdafx.h"
 # End Source File
 # End Target
