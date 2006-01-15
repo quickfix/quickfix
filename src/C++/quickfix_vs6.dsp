@@ -1578,11 +1578,27 @@ SOURCE=".\MessageStore.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=.\MSSQLLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MSSQLStore.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=".\MySQLLog.cpp"
 # End Source File
 # Begin Source File
 
 SOURCE=".\MySQLStore.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=.\PostgreSQLLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\PostgreSQLStore.cpp
 # End Source File
 # End Group
 # Begin Group "Storage Header Files"
@@ -1606,11 +1622,35 @@ SOURCE=".\MessageStore.h"
 # End Source File
 # Begin Source File
 
+SOURCE=.\MSSQLLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MSSQLStore.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MySQLConnection.h
+# End Source File
+# Begin Source File
+
 SOURCE=".\MySQLLog.h"
 # End Source File
 # Begin Source File
 
 SOURCE=".\MySQLStore.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\PostgreSQLConnection.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PostgreSQLLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\PostgreSQLStore.h
 # End Source File
 # End Group
 # End Group
