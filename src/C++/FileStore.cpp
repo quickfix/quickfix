@@ -97,7 +97,7 @@ void FileStore::open( bool deleteFile )
 
   m_msgFile = file_fopen( m_msgFileName.c_str(), "r+" );
   if ( !m_msgFile ) m_msgFile = file_fopen( m_msgFileName.c_str(), "w+" );
-  if ( !m_msgFile ) throw ConfigError( "Could not open messages file" );
+  if ( !m_msgFile ) throw ConfigError( "Could not open body file" );
 
   m_headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( !m_headerFile ) m_headerFile = file_fopen( m_headerFileName.c_str(), "w+" );
@@ -157,7 +157,7 @@ void FileStore::populateCache()
   if ( sessionFile )
   {
     char time[ 22 ];
-    if ( FILE_FSCANF( sessionFile, "%s", time ) == 1 )
+    if( FILE_FSCANF( sessionFile, "%s", time, 22 ) == 1 )
     {
       m_cache.setCreationTime( UtcTimeStampConvertor::convert( time, true ) );
     }
