@@ -39,16 +39,25 @@ libquickfix_jni_la_SOURCES = \
 	quickfix_MemoryStore.cpp \
 	quickfix_Message.h \
 	quickfix_Message.cpp \
+	quickfix_MySQLConnecion.h \
 	quickfix_MySQLStore.h \
 	quickfix_MySQLStore.cpp \
 	quickfix_MySQLStoreFactory.h \
 	quickfix_MySQLStoreFactory.cpp \
+	quickfix_PostgreSQLStore.h \
+	quickfix_PostgreSQLStore.cpp \
+	quickfix_PostgreSQLStoreFactory.h \
+	quickfix_PostgreSQLStoreFactory.cpp \
 	quickfix_CppLog.h \
 	quickfix_CppLog.cpp \
 	quickfix_MySQLLog.h \
 	quickfix_MySQLLog.cpp \
 	quickfix_MySQLLogFactory.h \
 	quickfix_MySQLLogFactory.cpp \
+	quickfix_PostgreSQLLog.h \
+	quickfix_PostgreSQLLog.cpp \
+	quickfix_PostgreSQLLogFactory.h \
+	quickfix_PostgreSQLLogFactory.cpp \
 	quickfix_ScreenLog.h \
 	quickfix_ScreenLog.cpp \
 	quickfix_ScreenLogFactory.h \
