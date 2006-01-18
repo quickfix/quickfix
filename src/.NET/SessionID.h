@@ -83,16 +83,29 @@ public:
     QF_STACK_CATCH
   }
 
+  String* toString()
+  {
+    return ToString();
+  }
+
+  void fromString( String* value )
+  { QF_STACK_TRY
+    m_pUnmanaged->fromString( convertString(value) );
+    QF_STACK_POP
+  }
+
   String* getBeginString()
   { QF_STACK_TRY
     return m_pUnmanaged->getBeginString().getValue().c_str();
     QF_STACK_CATCH
   }
+
   String* getSenderCompID()
   { QF_STACK_TRY
     return m_pUnmanaged->getSenderCompID().getValue().c_str();
     QF_STACK_CATCH
   }
+
   String* getTargetCompID()
   { QF_STACK_TRY
     return m_pUnmanaged->getTargetCompID().getValue().c_str();
