@@ -286,7 +286,7 @@ void Session::nextLogout( const Message& logout )
     m_state.onEvent( "Received logout response" );
 
   m_state.incrNextTargetMsgSeqNum();
-  if ( m_resetOnLogout ) reset();
+  if ( m_resetOnLogout ) m_state.reset();
   disconnect();
 
   QF_STACK_POP
