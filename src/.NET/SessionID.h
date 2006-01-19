@@ -88,9 +88,9 @@ public:
     return ToString();
   }
 
-  void fromString( String* value )
+  void fromString( String* str )
   { QF_STACK_TRY
-    m_pUnmanaged->fromString( convertString(value) );
+    m_pUnmanaged->fromString( convertString(str) );
     QF_STACK_POP
   }
 
