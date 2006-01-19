@@ -167,4 +167,20 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_toString
   QF_STACK_CATCH
 }
 
+JNIEXPORT jstring JNICALL Java_quickfix_SessionID_fromString
+( JNIEnv *pEnv, jobject obj, jstring str )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::SessionID* pSessionID = ( FIX::SessionID* ) jobject.getLong( "cppPointer" );
+
+  const char* ustr = pEnv->GetStringUTFChars( str, 0 );
+  pSessionID->fromString( ustr );
+
+  pEnv->ReleaseStringUTFChars( begin, ubegin );
+
+  QF_STACK_END
+}
+
 #endif

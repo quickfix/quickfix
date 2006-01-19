@@ -47,6 +47,7 @@ public class SessionID {
     public native boolean equals(Object object);
 
     public native String toString();
+    public native String fromString( String str);
 
     public int hashCode() {
         return toString().hashCode();

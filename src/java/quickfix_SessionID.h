@@ -57,6 +57,14 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_toString
 
 /*
  * Class:     quickfix_SessionID
+ * Method:    fromString
+ * Signature: (Ljava/lang/String;)Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_SessionID_fromString
+  (JNIEnv *, jobject, jstring);
+
+/*
+ * Class:     quickfix_SessionID
  * Method:    create
  * Signature: (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;)V
  */
