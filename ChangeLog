@@ -1,3 +1,1129 @@
+2006-01-19 15:24  orenmnero
+
+	* src/java/: quickfix_SessionID.cpp, quickfix_SessionID.h,
+	  src/quickfix/SessionID.java: added SessionID fromString support
+	  to java api
+
+2006-01-19 15:11  orenmnero
+
+	* doc/Doxyfile: updated doxyfile to latest version
+
+2006-01-19 15:06  orenmnero
+
+	* spec/FIX43.xml: fixed incomplete enumeration description
+
+2006-01-19 01:07  orenmnero
+
+	* src/: test_acceptance_vs6.dsp, test_performance_vs6.dsp,
+	  test_unit_vs6.dsp, java/quickfix_jni_vs6.dsp: do not link release
+	  to debug library
+
+2006-01-18 23:29  orenmnero
+
+	* src/C++/Session.cpp: do not send a second logout when resetting
+	  on logout
+
+2006-01-18 21:11  orenmnero
+
+	* src/.NET/SessionID.h: added SessionID fromString method to .NET
+	  api
+
+2006-01-17 03:36  orenmnero
+
+	* configure.in, src/C++/Makefile.am, src/java/Makefile.am,
+	  src/python/Makefile.am: updated versions
+
+2006-01-17 03:34  orenmnero
+
+	* src/java/Makefile.am: added postgresql files
+
+2006-01-15 23:00  orenmnero
+
+	* src/config_windows.h: added line for STLPORT support
+
+2006-01-15 22:59  orenmnero
+
+	* src/java/quickfix_jni_vs6.dsp: fixed output directory for debug
+	  build
+
+2006-01-15 22:58  orenmnero
+
+	* src/C++/quickfix_vs6.dsp: added new database source files
+
+2006-01-15 22:56  orenmnero
+
+	* build_vs6.bat: updated project and workspace name
+
+2006-01-15 22:54  orenmnero
+
+	* doc/html/: FAQ.html, building.html, generating_databases.html,
+	  project.html: documentation reflects new build process
+
+2006-01-15 03:22  orenmnero
+
+	* src/C++/: quickfix_vs6.dsp, quickfix_vs7.vcproj,
+	  quickfix_vs8.vcproj: added config_windows.h to project
+
+2006-01-15 03:22  orenmnero
+
+	* src/config_windows.h: fixed typo in HAVE_JAVA
+
+2006-01-15 02:24  orenmnero
+
+	* src/C++/test/FileStoreFactoryTestCase.cpp: do not create session
+	  which puts lock on file
+
+2006-01-15 02:23  orenmnero
+
+	* src/C++/FileStore.cpp: add length of string field to fscanf as
+	  required for fscanf_s
+
+2006-01-15 00:27  orenmnero
+
+	* src/: test_performance_vs7.vcproj, test_performance_vs8.vcproj,
+	  test_unit_vs7.vcproj, test_unit_vs8.vcproj, C++/Utility.h: [no
+	  log message]
+
+2006-01-14 23:35  orenmnero
+
+	* examples/executor/vbnet/.cvsignore: [no log message]
+
+2006-01-14 23:25  orenmnero
+
+	* quickfix_jni.dsw: [no log message]
+
+2006-01-14 23:12  orenmnero
+
+	* build_vs8.bat, quickfix_vs8.sln,
+	  examples/executor/C++/.cvsignore,
+	  examples/executor/C++/example_executor_cpp_vs8.vcproj,
+	  examples/executor/csharp/example_executor_csharp_vs8.csproj,
+	  examples/executor/vbnet/AssemblyInfo.vb,
+	  examples/executor/vbnet/example_executor_vbnet_vs8.vbproj,
+	  examples/ordermatch/.cvsignore,
+	  examples/ordermatch/example_ordermatch_vs8.vcproj,
+	  examples/tradeclient/.cvsignore,
+	  examples/tradeclient/example_tradeclient_vs8.vcproj,
+	  src/.cvsignore, src/test_acceptance_vs8.vcproj,
+	  src/test_performance_vs8.vcproj, src/test_unit_vs8.vcproj,
+	  src/.NET/quickfix_net_messages_vs8.csproj,
+	  src/.NET/quickfix_net_vs8.vcproj, src/C++/.cvsignore,
+	  src/C++/Field.h, src/C++/FieldConvertors.h,
+	  src/C++/FileStore.cpp, src/C++/MSSQLLog.cpp,
+	  src/C++/MSSQLStore.cpp, src/C++/MySQLLog.cpp,
+	  src/C++/MySQLStore.cpp, src/C++/PostgreSQLLog.cpp,
+	  src/C++/PostgreSQLStore.cpp, src/C++/Utility.cpp,
+	  src/C++/Utility.h, src/C++/quickfix_vs8.vcproj,
+	  src/java/.cvsignore, src/java/quickfix_jni_vs8.vcproj,
+	  test/atrun/.cvsignore,
+	  test/atrun/test_acceptance_runner_vs8.vcproj: support for visual
+	  studio 2005
+
+2006-01-13 22:34  orenmnero
+
+	* examples/tradeclient/: example_tradeclient_vs7.vcproj,
+	  examples_tradeclient_vs7.vcproj: [no log message]
+
+2006-01-13 22:33  orenmnero
+
+	* quickfix_vs6.dsw, quickfix_vs7.sln, examples/examples.dsw,
+	  examples/executor/C++/example_executor_cpp_vs6.dsp,
+	  examples/executor/C++/executor_cpp.dsp,
+	  examples/ordermatch/example_ordermatch_vs6.dsp,
+	  examples/ordermatch/ordermatch.dsp,
+	  examples/tradeclient/example_tradeclient_vs6.dsp,
+	  examples/tradeclient/tradeclient.dsp: added examples to main
+	  workspace
+
+2006-01-13 22:17  orenmnero
+
+	* quickfix_vs6.dsw, src/at_vs6.dsp, src/pt_vs6.dsp,
+	  src/test_acceptance_vs6.dsp, src/test_performance_vs6.dsp,
+	  src/test_unit_vs6.dsp, src/ut_vs6.dsp, test/.cvsignore,
+	  test/atrun/atrun_vs6.dsp,
+	  test/atrun/test_acceptance_runner_vs6.dsp: renamed test projects
+
+2006-01-13 21:57  orenmnero
+
+	* build_vs7.bat: remove reference to examples solution
+
+2006-01-13 21:46  orenmnero
+
+	* examples/executor/csharp/example_executor_csharp_vs7.csproj: [no
+	  log message]
+
+2006-01-13 21:45  orenmnero
+
+	* quickfix_vs7.sln, examples/examples.sln,
+	  examples/executor/C++/example_executor_cpp_vs7.vcproj,
+	  examples/executor/C++/executor_cpp.vcproj,
+	  examples/executor/csharp/executor_csharp.csproj,
+	  examples/executor/vbnet/example_executor_vbnet_vs7.vbproj,
+	  examples/executor/vbnet/executor_vbnet.vbproj,
+	  examples/ordermatch/example_ordermatch_vs7.vcproj,
+	  examples/ordermatch/ordermatch.vcproj,
+	  examples/tradeclient/examples_tradeclient_vs7.vcproj,
+	  examples/tradeclient/tradeclient.vcproj, src/at_vs7.vcproj,
+	  src/pt_vs7.vcproj, src/test_acceptance_vs7.vcproj,
+	  src/test_performance_vs7.vcproj, src/test_unit_vs7.vcproj,
+	  src/ut_vs7.vcproj, src/java/quickfix_jni_vs7.vcproj,
+	  test/atrun/atrun_vs7.vcproj,
+	  test/atrun/test_acceptance_runner_vs7.vcproj: rename test
+	  projects, move example projects into main solution file
+
+2006-01-13 20:48  orenmnero
+
+	* src/C++/Session.cpp: if we are going to reset sequence numbers,
+	  we do not need to send any more messages
+
+2006-01-13 18:12  orenmnero
+
+	* src/C++/quickfix_vs7.vcproj: fixed post build step
+
+2006-01-13 10:45  orenmnero
+
+	* src/C++/: quickfix_vs6.dsp, quickfix_vs7.vcproj: fixed post build
+	  step to reflect no directory structure
+
+2006-01-13 10:25  orenmnero
+
+	* build_vc6.bat, build_vc7.bat, build_vs6.bat, build_vs7.bat: [no
+	  log message]
+
+2006-01-13 10:24  orenmnero
+
+	* src/at_vs6.dsp, src/pt_vs6.dsp, src/ut_vs6.dsp,
+	  src/java/quickfix_jni_vs6.dsp, test/atrun/atrun_vs6.dsp: OutDir
+	  macro causing more funny behavior, removed completely
+
+2006-01-13 10:17  orenmnero
+
+	* src/.cvsignore: [no log message]
+
+2006-01-13 10:16  orenmnero
+
+	* src/.cvsignore: .cvsignore
+
+2006-01-13 10:14  orenmnero
+
+	* src/: at_vs6.dsp, pt_vs6.dsp, ut_vs6.dsp, C++/quickfix_vs6.dsp,
+	  java/quickfix_jni_vs6.dsp: fix errors linking to quickfix library
+	  due to inability to interpret OutDir macro
+
+2006-01-13 10:01  orenmnero
+
+	* quickfix_vs6.dsw: set dependencies
+
+2006-01-13 09:59  orenmnero
+
+	* quickfix_vs6.dsw, src/at_vs6.dsp, src/pt_vs6.dsp, src/ut_vs6.dsp,
+	  src/C++/quickfix_vs6.dsp, src/java/quickfix_jni_vs6.dsp,
+	  test/atrun/atrun_vs6.dsp: update project names to reflect file
+	  names
+
+2006-01-13 09:48  orenmnero
+
+	* build_vc6.bat, build_vc7.bat: [no log message]
+
+2006-01-13 04:11  orenmnero
+
+	* at.dsp, at.vcproj, build_vc6.bat, build_vc7.bat, pt.dsp,
+	  pt.vcproj, quickfix.dsp, quickfix.dsw, quickfix.sln,
+	  quickfix.vcproj, quickfix_jni.sln, quickfix_vs6.dsw,
+	  quickfix_vs7.sln, ut.dsp, ut.vcproj, bin/.cvsignore,
+	  doc/html/.cvsignore, doc/html/images/.cvsignore, lib/.cvsignore,
+	  src/at_vs6.dsp, src/at_vs7.vcproj, src/config_windows.h,
+	  src/pt_vs6.dsp, src/pt_vs7.vcproj, src/ut_vs6.dsp,
+	  src/ut_vs7.vcproj, src/.NET/quickfix_net.vcproj,
+	  src/.NET/quickfix_net_messages.csproj,
+	  src/.NET/quickfix_net_messages_vs7.csproj,
+	  src/.NET/quickfix_net_vs7.vcproj, src/C++/quickfix_vs6.dsp,
+	  src/C++/quickfix_vs7.vcproj, src/java/Conversions.cpp,
+	  src/java/JVM.cpp, src/java/JavaApplication.cpp,
+	  src/java/JavaLog.cpp, src/java/JavaLogFactory.cpp,
+	  src/java/JavaMessageStore.cpp,
+	  src/java/JavaMessageStoreFactory.cpp,
+	  src/java/quickfix_CppLog.cpp,
+	  src/java/quickfix_CppMessageStore.cpp,
+	  src/java/quickfix_DataDictionary.cpp,
+	  src/java/quickfix_Dictionary.cpp, src/java/quickfix_FileLog.cpp,
+	  src/java/quickfix_FileLogFactory.cpp,
+	  src/java/quickfix_FileStore.cpp,
+	  src/java/quickfix_FileStoreFactory.cpp,
+	  src/java/quickfix_Group.cpp, src/java/quickfix_MSSQLLog.cpp,
+	  src/java/quickfix_MSSQLLogFactory.cpp,
+	  src/java/quickfix_MSSQLStore.cpp,
+	  src/java/quickfix_MSSQLStoreFactory.cpp,
+	  src/java/quickfix_MemoryStore.cpp, src/java/quickfix_Message.cpp,
+	  src/java/quickfix_MySQLLog.cpp,
+	  src/java/quickfix_MySQLLogFactory.cpp,
+	  src/java/quickfix_MySQLStore.cpp,
+	  src/java/quickfix_MySQLStoreFactory.cpp,
+	  src/java/quickfix_PostgreSQLLog.cpp,
+	  src/java/quickfix_PostgreSQLLogFactory.cpp,
+	  src/java/quickfix_PostgreSQLStore.cpp,
+	  src/java/quickfix_PostgreSQLStoreFactory.cpp,
+	  src/java/quickfix_ScreenLog.cpp,
+	  src/java/quickfix_ScreenLogFactory.cpp,
+	  src/java/quickfix_Session.cpp, src/java/quickfix_SessionID.cpp,
+	  src/java/quickfix_SessionSettings.cpp,
+	  src/java/quickfix_SocketAcceptor.cpp,
+	  src/java/quickfix_SocketInitiator.cpp,
+	  src/java/quickfix_ThreadedSocketAcceptor.cpp,
+	  src/java/quickfix_ThreadedSocketInitiator.cpp,
+	  src/java/quickfix_jni.dsp, src/java/quickfix_jni.vcproj,
+	  src/java/quickfix_jni_vs6.dsp, src/java/quickfix_jni_vs7.vcproj,
+	  test/atrun/atrun.dsp, test/atrun/atrun.vcproj,
+	  test/atrun/atrun_vs6.dsp, test/atrun/atrun_vs7.vcproj:
+	  reorganized projects to reflect version of build environment
+
+2006-01-13 03:58  orenmnero
+
+	* src/sql/: mysql/messages_log_table.sql,
+	  postgresql/messages_log_table.sql: [no log message]
+
+2006-01-12 20:15  orenmnero
+
+	* src/C++/: Session.cpp, SessionState.h: got rid of connection
+	  state all together
+
+2006-01-12 19:52  orenmnero
+
+	* src/C++/Session.cpp: set connection state to true when initiating
+	  a logon.  This insures resetOnDisconnect code gets called if
+	  disconnection occurs before receiving logon response
+
+2006-01-10 07:17  orenmnero
+
+	* src/python/swig.sh: file to generate swig files
+
+2006-01-10 07:16  orenmnero
+
+	* src/python/: QuickfixPython.cpp, quickfix.i, quickfix.py: added
+	  support for PostgreSQL wrappers
+
+2006-01-09 16:04  orenmnero
+
+	* src/C++/Session.cpp: do not check for sequence number being too
+	  high if processing a sequece number reset
+
+2006-01-06 17:25  orenmnero
+
+	* src/java/src/quickfix/Session.java: [no log message]
+
+2006-01-06 02:59  orenmnero
+
+	* src/.NET/Message.h: support for setString method in .NET Message
+	  class
+
+2006-01-03 20:25  cepstein
+
+	* src/C++/: Session.cpp, SessionState.h: SessionState: remove
+	  unused m_resendRequested member; Session: moved logic for
+	  detecting satisified ResendRequest from Session::nextQueued to
+	  Session::verify
+
+2006-01-02 21:26  cepstein
+
+	* src/C++/Session.cpp: Session::generateResendRequest: Track
+	  correct upper-bound of resend requests.
+
+2005-12-22 22:29  orenmnero
+
+	* spec/FIX43.xml, src/C++/fix43/QuoteRequestReject.h,
+	  src/java/src/quickfix/fix43/QuoteRequestReject.java,
+	  src/.NET/fix43/QuoteRequestReject.cs: added missing Instrument
+	  component to QuoteRequestReject
+
+2005-12-16 16:23  orenmnero
+
+	* src/.NET/Group.cpp: fixed out of range error when gettings
+	  UtcTimeOnly
+
+2005-12-13 20:49  orenmnero
+
+	* src/.NET/Message.cpp: correct out of range error when getting
+	  UtcTimeOnly fields; include milliseconds in UtcTimeOnly and
+	  UtcTimeStamp fields
+
+2005-12-13 20:45  orenmnero
+
+	* src/.NET/DataDictionary.h: catch and throw ConfigError in
+	  DataDictionary exception; fixes unhandled unmanaged exception
+	  being thrown into .NET
+
+2005-12-13 20:35  orenmnero
+
+	* src/C++/: DataDictionary.cpp, DataDictionary.h: declare
+	  ConfigError throw declerations for readFromUrl and constructor
+
+2005-12-13 19:18  orenmnero
+
+	* src/C++/Messages.h: removed old unused messages file
+
+2005-12-13 19:12  orenmnero
+
+	* src/C++/SessionSettings.cpp: merge when reading settings from
+	  stream
+
+2005-12-07 08:51  orenmnero
+
+	* src/java/: quickfix_CppLog.cpp, quickfix_CppLog.h,
+	  src/quickfix/CppLog.java: added support for clear method
+
+2005-12-07 08:47  orenmnero
+
+	* configure.in: mysql directory path on OS/X
+
+2005-12-03 03:37  orenmnero
+
+	* src/C++/: SessionSettings.cpp, SessionSettings.h: merge default
+	  into session settings outside of reading from stream
+
+2005-11-30 06:42  orenmnero
+
+	* src/python/: QuickfixPython.cpp, QuickfixPython.h, quickfix.i,
+	  quickfix.py: [no log message]
+
+2005-11-30 05:08  orenmnero
+
+	* src/C++/: MySQLLog.cpp, PostgreSQLLog.cpp: fix compilation
+	  problem passing in temporary object as reference
+
+2005-11-29 04:50  orenmnero
+
+	* src/C++/Event.h: include required math.h
+
+2005-11-26 04:36  orenmnero
+
+	* src/.NET/: Acceptor.h, Application.h, CPPMessageStore.h,
+	  FieldMap.h, Group.cpp, Group.h, Initiator.h, Message.cpp,
+	  Message.h, MessageStore.h, Session.cpp, Session.h,
+	  SocketAcceptor.h, SocketInitiator.h, ThreadedSocketAcceptor.h,
+	  ThreadedSocketInitiator.h: removed throw specifiers from managed
+	  C++ classes
+
+2005-11-26 01:33  orenmnero
+
+	* doc/html/building.html, doc/html/dependencies.html,
+	  doc/html/generating_databases.html,
+	  doc/html/receiving_messages.html, doc/html/testing.html,
+	  src/C++/index.h: reorganized documentation
+
+2005-11-23 19:57  orenmnero
+
+	* bin/cfg/banzai.cfg, bin/cfg/executor.cfg, bin/cfg/ordermatch.cfg,
+	  bin/cfg/tradeclient.cfg, examples/executor/C++/executor.cpp,
+	  examples/executor/csharp/Executor.cs,
+	  examples/executor/java/src/Executor.java,
+	  examples/executor/python/executor.py,
+	  examples/executor/vbnet/Executor.vb,
+	  examples/ordermatch/Application.cpp,
+	  examples/ordermatch/ordermatch.cpp,
+	  examples/tradeclient/Application.cpp,
+	  examples/tradeclient/tradeclient.cpp,
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/BanzaiApplication.java:
+	  made examples more consistent
+
+2005-11-23 18:03  orenmnero
+
+	* src/sql/: mysql/incoming_log_table.sql,
+	  postgresql/incoming_log_table.sql: aggregate message log
+
+2005-11-23 17:40  orenmnero
+
+	* src/: C++/FileLog.cpp, C++/FileLog.h, C++/MSSQLLog.h,
+	  C++/MySQLLog.h, C++/PostgreSQLLog.h,
+	  sql/mssql/quickfix_database.sql, sql/mysql/mysql.sql,
+	  sql/mysql/outgoing_log_table.sql,
+	  sql/postgresql/outgoing_log_table.sql,
+	  sql/postgresql/postgresql.sql: aggregate message log
+
+2005-11-22 21:11  orenmnero
+
+	* src/java/: Conversions.h, quickfix_SessionSettings.cpp,
+	  quickfix_SessionSettings.h, src/quickfix/SessionSettings.java,
+	  src/quickfix/test/AllTests.java,
+	  src/quickfix/test/DictionaryTest.java,
+	  src/quickfix/test/FieldTest.java,
+	  src/quickfix/test/OrderTest.java,
+	  src/quickfix/test/PerformanceTest.java,
+	  src/quickfix/test/SessionSettingsTest.java: fiexed crashes in
+	  SessionSettings wrapper
+
+2005-11-20 00:14  orenmnero
+
+	* src/: C++/FileLog.h, C++/Log.h, C++/MSSQLLog.cpp, C++/MSSQLLog.h,
+	  C++/MySQLLog.cpp, C++/MySQLLog.h, C++/PostgreSQLLog.cpp,
+	  C++/PostgreSQLLog.h, C++/SessionState.h, .NET/CPPLog.h,
+	  .NET/FileLog.h, .NET/Log.h, java/JavaLog.cpp, java/JavaLog.h,
+	  java/src/quickfix/Log.java: added clear functionality to logs
+
+2005-11-20 00:11  orenmnero
+
+	* at.vcproj, pt.vcproj, ut.vcproj: [no log message]
+
+2005-11-20 00:07  orenmnero
+
+	* src/: .NET/SessionSettings.h, .NET/Dictionary.h,
+	  java/Conversions.h, java/Makefile.am, java/build.properties,
+	  java/quickfix_Dictionary.cpp, java/quickfix_Dictionary.h,
+	  java/quickfix_SessionSettings.cpp,
+	  java/quickfix_SessionSettings.h, java/quickfix_jni.vcproj,
+	  java/src/quickfix/Dictionary.java,
+	  java/src/quickfix/SessionSettings.java: added support for setting
+	  getting values from session settings
+
+2005-11-18 00:50  orenmnero
+
+	* src/.NET/: Dictionary.cpp, Dictionary.h, SessionSettings.h,
+	  quickfix_net.cpp, quickfix_net.vcproj: support for
+	  programatically creating session settings
+
+2005-11-18 00:49  orenmnero
+
+	* src/.NET/Message.h: added constructor that allows user to
+	  indicate if they want validation
+
+2005-11-18 00:49  orenmnero
+
+	* src/.NET/Exceptions.h: added FieldConvertError exception
+
+2005-11-18 00:47  orenmnero
+
+	* src/C++/test/SessionTestCase.cpp: [no log message]
+
+2005-11-18 00:46  orenmnero
+
+	* src/C++/: ThreadedSocketInitiator.cpp, ThreadedSocketInitiator.h:
+	  connection threads are created and destroyed as necessary
+
+2005-11-18 00:46  orenmnero
+
+	* src/C++/ThreadedSocketAcceptor.cpp: make sure shared resources
+	  are protected
+
+2005-11-18 00:44  orenmnero
+
+	* src/C++/SocketInitiator.cpp: [no log message]
+
+2005-11-18 00:43  orenmnero
+
+	* src/C++/Session.h: send a logout message before session is reset
+
+2005-11-18 00:42  orenmnero
+
+	* src/C++/Event.h: event is now passed a value to indicate how long
+	  to wait
+
+2005-11-08 04:22  orenmnero
+
+	* src/C++/: FieldConvertors.h, test/FieldConvertorsTestCase.cpp:
+	  fixed bug where negative double fields would be converted into a
+	  0 value
+
+2005-11-07 17:07  orenmnero
+
+	* doc/html/configuration.html: [no log message]
+
+2005-11-07 17:05  orenmnero
+
+	* src/java/: quickfix_MSSQLLogFactory.cpp,
+	  quickfix_MSSQLStoreFactory.cpp, quickfix_MySQLLogFactory.cpp,
+	  quickfix_PostgreSQLLogFactory.cpp: removed sleep calls
+
+2005-11-07 17:03  orenmnero
+
+	* src/: .NET/Session.cpp, .NET/Session.h,
+	  java/quickfix_Session.cpp, java/quickfix_Session.h,
+	  java/src/quickfix/Session.java: exposed missing session methods
+
+2005-11-07 16:40  orenmnero
+
+	* src/C++/: MySQLConnection.h, MySQLLog.cpp, MySQLLog.h,
+	  MySQLStore.cpp, MySQLStore.h, SessionSettings.h: added connection
+	  pool support to MySQL
+
+2005-11-07 16:40  orenmnero
+
+	* src/C++/: PostgreSQLConnection.h, PostgreSQLLog.cpp,
+	  PostgreSQLLog.h, PostgreSQLStore.cpp, PostgreSQLStore.h: use
+	  typedefs for connnection pool
+
+2005-11-07 16:33  orenmnero
+
+	* src/C++/DatabaseConnectionPool.h: update template to allow any
+	  connection to be used.  Destroy returns false if it does not own
+	  the connection
+
+2005-11-04 21:53  orenmnero
+
+	* test/runut: pass configuration file into unit test runner
+
+2005-11-04 21:06  orenmnero
+
+	* src/C++/Makefile.am: [no log message]
+
+2005-11-04 07:59  orenmnero
+
+	* src/C++/: PostgreSQLLog.cpp, PostgreSQLLog.h: connection pooling
+	  support for postgresql log
+
+2005-11-04 07:52  orenmnero
+
+	* quickfix.vcproj, src/C++/DatabaseConnectionID.h,
+	  src/C++/DatabaseConnectionPool.h, src/C++/MySQLConnection.h,
+	  src/C++/MySQLStore.cpp, src/C++/PostgreSQLConnection.h,
+	  src/C++/PostgreSQLStore.cpp, src/C++/PostgreSQLStore.h,
+	  src/C++/SessionSettings.h: added connection pool support for
+	  PostgreSQL
+
+2005-11-03 23:06  orenmnero
+
+	* test/cfg/ut.cfg: fixed typos in postgres settings
+
+2005-11-03 23:05  orenmnero
+
+	* src/ut.cpp: removed unused variables
+
+2005-11-03 23:04  orenmnero
+
+	* src/C++/: MySQLConnection.h, MySQLLog.cpp, MySQLLog.h,
+	  MySQLStore.cpp, MySQLStore.h, PostgreSQLConnection.h,
+	  PostgreSQLLog.cpp, PostgreSQLLog.h, PostgreSQLStore.cpp,
+	  PostgreSQLStore.h: encapsulate connections and queries into
+	  classes to manage resources
+
+2005-11-03 20:24  orenmnero
+
+	* src/.NET/MSSQLStore.h: removed extra port parameter
+
+2005-11-02 09:26  orenmnero
+
+	* src/C++/ThreadedSocketConnection.cpp: fixed acceptance tests
+	  under windows
+
+2005-11-01 13:13  cepstein
+
+	* src/C++/SocketInitiator.cpp: Destructor: cleanup memory held by
+	  m_connections
+
+2005-11-01 06:25  cepstein
+
+	* src/C++/ThreadedSocketConnection.cpp: Copy m_fds before calling
+	  select
+
+2005-11-01 05:56  orenmnero
+
+	* src/: .NET/Group.cpp, .NET/Group.h, .NET/Message.cpp,
+	  .NET/Message.h, C++/FieldMap.cpp, C++/FieldMap.h, C++/Group.cpp,
+	  C++/Group.h, C++/Message.h, C++/test/MessagesTestCase.cpp,
+	  java/quickfix_Group.cpp, java/quickfix_Group.h,
+	  java/quickfix_Message.cpp, java/quickfix_Message.h,
+	  java/src/quickfix/FieldMap.java, java/src/quickfix/Group.java,
+	  java/src/quickfix/Message.java: remove group methods will remove
+	  just one group instead of all of them
+
+2005-11-01 03:35  cepstein
+
+	* src/C++/: ThreadedSocketConnection.cpp,
+	  ThreadedSocketConnection.h: Use only one thread per connection.
+	  Passes all unit and acceptance tests on Linux and Windows.
+
+2005-10-31 22:39  orenmnero
+
+	* doc/html/: configuration.html, sending_messages.html: corrected
+	  typos
+
+2005-10-31 19:31  cepstein
+
+	* src/C++/Session.cpp, src/C++/Session.h,
+	  test/definitions/server/fix42/20_SimultaneousResendRequest.def,
+	  test/definitions/server/fix42/8_AdminAndApplicationMessages.def,
+	  test/definitions/server/fix42/8_OnlyAdminMessages.def,
+	  test/definitions/server/fix42/8_OnlyApplicationMessages.def,
+	  test/definitions/server/fix43/20_SimultaneousResendRequest.def,
+	  test/definitions/server/fix43/8_AdminAndApplicationMessages.def,
+	  test/definitions/server/fix43/8_OnlyAdminMessages.def,
+	  test/definitions/server/fix43/8_OnlyApplicationMessages.def,
+	  test/definitions/server/fix44/20_SimultaneousResendRequest.def,
+	  test/definitions/server/fix44/8_AdminAndApplicationMessages.def,
+	  test/definitions/server/fix44/8_OnlyAdminMessages.def,
+	  test/definitions/server/fix44/8_OnlyApplicationMessages.def:
+	  Session::insertOrigSendingTime takes an optional UtcTimestamp
+	  argument; Session::resend uses it so that OrigSendingTime on
+	  resent messages that *should* have millis do; fixed related test
+	  cases
+
+2005-10-31 18:11  cepstein
+
+	* src/C++/: Acceptor.h, DataDictionary.h, Initiator.h,
+	  MySQLStore.cpp, MySQLStore.h, test/MySQLStoreTestCase.h,
+	  test/TestSuite.h: Compile fixes
+
+2005-10-29 20:47  orenmnero
+
+	* src/C++/: FieldMap.cpp, FieldMap.h: fixed memory leak in
+	  removeGroup
+
+2005-10-29 20:28  orenmnero
+
+	* src/: .NET/Group.h, .NET/Message.h, C++/FieldMap.cpp,
+	  C++/FieldMap.h, C++/Group.cpp, C++/Group.h, C++/Message.h,
+	  C++/test/MessagesTestCase.cpp, C++/test/MessagesTestCase.h,
+	  java/quickfix_Group.cpp, java/quickfix_Group.h,
+	  java/quickfix_Message.cpp, java/quickfix_Message.h,
+	  java/src/quickfix/Group.java, java/src/quickfix/Message.java:
+	  added ability to remove groups
+
+2005-10-29 19:37  orenmnero
+
+	* src/C++/: Session.cpp, Session.h: insert OrigSendingTime with
+	  milliseconds when appropriate
+
+2005-10-29 19:28  orenmnero
+
+	* src/: .NET/Session.cpp, .NET/Session.h, C++/Session.cpp,
+	  C++/Session.h, C++/SessionState.h, java/quickfix_Session.cpp,
+	  java/quickfix_Session.h, java/src/quickfix/Session.java: logout
+	  can be passed a reason which will be sent to the counterparty
+
+2005-10-29 17:58  orenmnero
+
+	* src/.NET/: MySQLStore.cpp, MySQLStore.h: initial checkin
+
+2005-10-29 17:57  orenmnero
+
+	* src/java/: build.properties, quickfix_MSSQLLog.cpp,
+	  quickfix_MSSQLLog.h, quickfix_MSSQLLogFactory.cpp,
+	  quickfix_MSSQLLogFactory.h, quickfix_MSSQLStore.cpp,
+	  quickfix_MSSQLStore.h, quickfix_MSSQLStoreFactory.cpp,
+	  quickfix_MSSQLStoreFactory.h, quickfix_PostgreSQLLog.cpp,
+	  quickfix_PostgreSQLLog.h, quickfix_PostgreSQLLogFactory.cpp,
+	  quickfix_PostgreSQLLogFactory.h, quickfix_PostgreSQLStore.cpp,
+	  quickfix_PostgreSQLStore.h, quickfix_PostgreSQLStoreFactory.cpp,
+	  quickfix_PostgreSQLStoreFactory.h, quickfix_jni.vcproj,
+	  src/quickfix/MSSQLLog.java, src/quickfix/MSSQLLogFactory.java,
+	  src/quickfix/MSSQLStore.java,
+	  src/quickfix/MSSQLStoreFactory.java, src/quickfix/MySQLLog.java,
+	  src/quickfix/PostgreSQLLog.java,
+	  src/quickfix/PostgreSQLLogFactory.java,
+	  src/quickfix/PostgreSQLStore.java,
+	  src/quickfix/PostgreSQLStoreFactory.java: added MSSQL and
+	  PostgreSQL support to java
+
+2005-10-29 07:31  orenmnero
+
+	* src/.NET/: MySQLMessageStore.cpp, MySQLMessageStore.h,
+	  quickfix_net.vcproj: [no log message]
+
+2005-10-29 07:24  orenmnero
+
+	* src/.NET/: MSSQLLog.cpp, MSSQLLog.h, MSSQLStore.cpp,
+	  MSSQLStore.h, PostgreSQLLog.cpp, PostgreSQLLog.h,
+	  PostgreSQLStore.cpp, PostgreSQLStore.h, quickfix_net.vcproj:
+	  added MSSQL and PostgreSQL support to .NET
+
+2005-10-29 07:06  orenmnero
+
+	* quickfix.sln: [no log message]
+
+2005-10-29 06:24  orenmnero
+
+	* doc/html/: configuration.html, install.html: documentation for
+	  MSSQL
+
+2005-10-29 03:09  orenmnero
+
+	* src/pt.cpp: test sending messages
+
+2005-10-29 03:08  orenmnero
+
+	* src/C++/: ThreadedSocketConnection.cpp,
+	  ThreadedSocketConnection.h: process messages directly instead of
+	  using queue
+
+2005-10-27 18:29  orenmnero
+
+	* src/ut.cpp, src/C++/MSSQLLog.h, src/C++/MSSQLStore.cpp,
+	  src/C++/MSSQLStore.h, src/C++/MySQLLog.h, src/C++/MySQLStore.cpp,
+	  src/C++/MySQLStore.h, src/C++/PostgreSQLLog.h,
+	  src/C++/PostgreSQLStore.cpp, src/C++/PostgreSQLStore.h,
+	  src/C++/test/MSSQLStoreTestCase.h,
+	  src/C++/test/MySQLStoreTestCase.h,
+	  src/C++/test/PostgreSQLStoreTestCase.h, src/C++/test/TestSuite.h,
+	  test/runut.bat, test/cfg/ut.cfg: database login settings for unit
+	  tests passed in through config file
+
+2005-10-26 13:31  orenmnero
+
+	* src/sql/mssql/: create.bat, quickfix_database.sql: create
+	  database from batch file
+
+2005-10-26 02:45  orenmnero
+
+	* src/config_windows.h, src/C++/MSSQLLog.cpp, src/C++/MSSQLLog.h,
+	  src/C++/MSSQLStore.cpp, src/C++/MSSQLStore.h,
+	  src/C++/MySQLStore.cpp, src/C++/SessionSettings.h,
+	  src/C++/test/MSSQLStoreTestCase.cpp,
+	  src/C++/test/MSSQLStoreTestCase.h,
+	  src/C++/test/MySQLStoreTestCase.cpp, src/C++/test/TestSuite.h,
+	  quickfix.sln, quickfix.vcproj, ut.vcproj: support for mssql
+
+2005-10-26 02:40  orenmnero
+
+	* src/sql/mssql/quickfix_database.sql: initial checkin
+
+2005-10-21 17:06  cepstein
+
+	* src/C++/FieldTypes.h: Fix for getWeekDay results being negative
+
+2005-10-21 16:52  orenmnero
+
+	* src/sql/postgresql/: create.bat, create.sh: default to postgres
+	  user
+
+2005-10-21 16:52  orenmnero
+
+	* doc/html/: configuration.html, install.html: documentation for
+	  postgresql
+
+2005-10-21 13:18  orenmnero
+
+	* src/java/: Conversions.h, JVM.cpp, JVM.h, JavaApplication.cpp,
+	  JavaMessageStore.cpp, quickfix_CppLog.cpp,
+	  quickfix_CppMessageStore.cpp, quickfix_DataDictionary.cpp,
+	  quickfix_FileLog.cpp, quickfix_FileLogFactory.cpp,
+	  quickfix_FileStore.cpp, quickfix_FileStoreFactory.cpp,
+	  quickfix_Group.cpp, quickfix_Group.h, quickfix_Message.cpp,
+	  quickfix_Message.h, quickfix_MySQLLog.cpp,
+	  quickfix_MySQLLogFactory.cpp, quickfix_MySQLStoreFactory.cpp,
+	  quickfix_ScreenLog.cpp, quickfix_ScreenLogFactory.cpp,
+	  quickfix_Session.cpp, quickfix_SessionID.cpp,
+	  quickfix_SessionSettings.cpp, quickfix_SocketAcceptor.cpp,
+	  quickfix_SocketInitiator.cpp,
+	  quickfix_ThreadedSocketAcceptor.cpp,
+	  quickfix_ThreadedSocketInitiator.cpp, src/quickfix/CppLog.java,
+	  src/quickfix/CppMessageStore.java,
+	  src/quickfix/DataDictionary.java, src/quickfix/FileLog.java,
+	  src/quickfix/FileLogFactory.java, src/quickfix/FileStore.java,
+	  src/quickfix/FileStoreFactory.java, src/quickfix/Group.java,
+	  src/quickfix/MemoryStore.java, src/quickfix/Message.java,
+	  src/quickfix/MySQLLog.java, src/quickfix/MySQLLogFactory.java,
+	  src/quickfix/MySQLStore.java,
+	  src/quickfix/MySQLStoreFactory.java, src/quickfix/ScreenLog.java,
+	  src/quickfix/ScreenLogFactory.java, src/quickfix/Session.java,
+	  src/quickfix/SessionID.java, src/quickfix/SessionSettings.java,
+	  src/quickfix/SocketAcceptor.java,
+	  src/quickfix/SocketInitiator.java,
+	  src/quickfix/ThreadedSocketAcceptor.java,
+	  src/quickfix/ThreadedSocketInitiator.java: make compatible with
+	  64 bit systems
+
+2005-10-21 13:14  orenmnero
+
+	* bin/run_executor_java_debug.bat: initial checkin
+
+2005-10-21 11:06  orenmnero
+
+	* src/config_windows.h: disable postgresql support by default
+
+2005-10-21 11:06  orenmnero
+
+	* quickfix.vcproj, ut.vcproj, src/config_windows.h,
+	  src/C++/PostgreSQLLog.h, src/C++/PostgreSQLStore.h: Added
+	  PostgreSQL support to Windows
+
+2005-10-21 10:05  orenmnero
+
+	* src/sql/postgresql/create.bat: postgresql database can be created
+	  from windows
+
+2005-10-21 10:04  orenmnero
+
+	* src/sql/postgresql/: create.sh, postgresql.sql: loadfiles from
+	  single script
+
+2005-10-21 09:04  orenmnero
+
+	* src/: .NET/Message.h, C++/FieldMap.cpp, C++/FieldMap.h,
+	  C++/Message.cpp, C++/Message.h: added ability to specify
+	  alternate beginString, bodyLength, and checkSum fields in
+	  messages
+
+2005-10-12 18:15  orenmnero
+
+	* src/C++/: SessionSettings.cpp, SessionSettings.h: use more
+	  portable global char array initializations
+
+2005-10-05 19:07  orenmnero
+
+	* src/C++/: PostgreSQLLog.cpp, PostgreSQLStore.cpp,
+	  PostgreSQLStore.h: reconnect if connection is lost
+
+2005-10-04 22:10  orenmnero
+
+	* src/sql/postgresql/create.sh: remove absolute paths
+
+2005-10-04 18:53  orenmnero
+
+	* src/C++/PostgreSQLStore.cpp: using wrappers for postgres queries
+
+2005-10-04 18:52  orenmnero
+
+	* src/C++/test/: PostgreSQLStoreTestCase.cpp,
+	  PostgreSQLStoreTestCase.h: initial checkin
+
+2005-09-30 21:45  orenmnero
+
+	* examples/executor/: csharp/Application.cs,
+	  java/src/Application.java: [no log message]
+
+2005-09-30 16:35  orenmnero
+
+	* examples/executor/: C++/Application.cpp, csharp/Application.cs,
+	  java/src/Application.java: send account back if one is received
+
+2005-09-27 23:45  orenmnero
+
+	* src/C++/: PostgreSQLStore.cpp, test/Makefile.am,
+	  test/TestSuite.h: working implementation of PostgreSQLStore
+
+2005-09-27 23:44  orenmnero
+
+	* src/C++/MySQLStore.cpp: fixed compilation errors
+
+2005-09-27 16:54  orenmnero
+
+	* configure.in: [no log message]
+
+2005-09-27 01:33  orenmnero
+
+	* src/C++/: Makefile.am, PostgreSQLStore.cpp, PostgreSQLStore.h:
+	  initial implementation of PostgreSQLStore
+
+2005-09-27 01:33  orenmnero
+
+	* src/C++/PostgreSQLLog.cpp: release result to avoid memory leak
+
+2005-09-26 23:59  orenmnero
+
+	* src/sql/postgresql/: create.sh, messages_table.sql,
+	  sessions_table.sql: added tables for PostgreSQLStore
+
+2005-09-26 23:54  orenmnero
+
+	* configure.in, src/C++/Makefile.am, src/C++/PostgreSQLLog.cpp,
+	  src/C++/PostgreSQLLog.h, src/C++/PostgreSQLStore.cpp,
+	  src/C++/PostgreSQLStore.h: added support for PostgreSQLLog
+
+2005-09-26 23:52  orenmnero
+
+	* src/C++/SessionSettings.h: added settings for MySQLLog
+
+2005-09-26 23:51  orenmnero
+
+	* src/C++/: MySQLLog.cpp, MySQLLog.h: use log settings instead of
+	  store settings
+
+2005-09-26 23:44  orenmnero
+
+	* src/sql/: create_mysql.bat, create_mysql.sh, event_log_table.sql,
+	  incoming_log_table.sql, messages_table.sql, mysql.sql,
+	  outgoing_log_table.sql, quickfix_database.sql,
+	  sessions_table.sql, mysql/create.bat, mysql/create.sh,
+	  mysql/event_log_table.sql, mysql/incoming_log_table.sql,
+	  mysql/messages_table.sql, mysql/mysql.sql,
+	  mysql/outgoing_log_table.sql, mysql/quickfix_database.sql,
+	  mysql/sessions_table.sql, postgresql/create.sh,
+	  postgresql/event_log_table.sql,
+	  postgresql/incoming_log_table.sql,
+	  postgresql/outgoing_log_table.sql: reorganized sql directory for
+	  multiple databases added tables for postgreSQL logs
+
+2005-09-25 01:28  orenmnero
+
+	* src/.NET/DeprecatedFields.h: deprecated BrokerOfCredit field
+	  should be a string
+
+2005-09-25 01:18  orenmnero
+
+	* src/: .NET/DeprecatedFields.h, C++/DeprecatedFields.h: deprecated
+	  BrokerOfCredit field should be a string
+
+2005-09-25 00:57  orenmnero
+
+	* spec/FIX44.xml, src/.NET/Fields.h,
+	  src/.NET/fix42/ExecutionReport.cs,
+	  src/.NET/fix44/AssignmentReport.cs,
+	  src/.NET/fix44/PositionMaintenanceReport.cs,
+	  src/.NET/fix44/PositionReport.cs,
+	  src/.NET/fix44/TradeCaptureReport.cs, src/C++/FieldNumbers.h,
+	  src/C++/Fields.h, src/C++/Values.h,
+	  src/C++/fix40/MessageCracker.h, src/C++/fix41/MessageCracker.h,
+	  src/C++/fix42/ExecutionReport.h, src/C++/fix42/MessageCracker.h,
+	  src/C++/fix43/MessageCracker.h, src/C++/fix44/AssignmentReport.h,
+	  src/C++/fix44/MessageCracker.h,
+	  src/C++/fix44/PositionMaintenanceReport.h,
+	  src/C++/fix44/PositionReport.h,
+	  src/C++/fix44/TradeCaptureReport.h,
+	  src/java/src/quickfix/field/CollInquiryResult.java,
+	  src/java/src/quickfix/field/CxlRejReason.java,
+	  src/java/src/quickfix/field/PosReqResult.java,
+	  src/java/src/quickfix/fix40/MessageCracker.java,
+	  src/java/src/quickfix/fix40/MessageFactory.java,
+	  src/java/src/quickfix/fix41/MessageCracker.java,
+	  src/java/src/quickfix/fix41/MessageFactory.java,
+	  src/java/src/quickfix/fix42/ExecutionReport.java,
+	  src/java/src/quickfix/fix42/MessageCracker.java,
+	  src/java/src/quickfix/fix42/MessageFactory.java,
+	  src/java/src/quickfix/fix43/MessageCracker.java,
+	  src/java/src/quickfix/fix43/MessageFactory.java,
+	  src/java/src/quickfix/fix44/AssignmentReport.java,
+	  src/java/src/quickfix/fix44/MessageCracker.java,
+	  src/java/src/quickfix/fix44/MessageFactory.java,
+	  src/java/src/quickfix/fix44/PositionMaintenanceReport.java,
+	  src/java/src/quickfix/fix44/PositionReport.java,
+	  src/java/src/quickfix/fix44/TradeCaptureReport.java: fixed some
+	  problems with FIX44 data dictionary
+
+2005-09-24 22:41  orenmnero
+
+	* src/C++/: FieldConvertors.h, test/FieldConvertorsTestCase.cpp,
+	  test/FieldConvertorsTestCase.h: set to empty string if null value
+	  passed into character field
+
+2005-09-24 22:30  orenmnero
+
+	* src/C++/test/FieldConvertorsTestCase.cpp: added test cases for
+	  negative double values for DoubleConvertor
+
+2005-09-24 22:27  orenmnero
+
+	* spec/FIX42.xml: added missing field SettlCurrFxRate and
+	  SettlCurrFxRateCalc to ExecutionReport
+
+2005-09-24 20:52  orenmnero
+
+	* spec/: FIX42.xml, FIX43.xml, FIX44.xml: commented out enums for
+	  MarketDepth due to N>1 scenario
+
+2005-09-24 20:45  orenmnero
+
+	* src/C++/Session.cpp: log reject reason even if it cannot be sent
+
+2005-09-24 19:59  orenmnero
+
+	*
+	  examples/tradeclientgui/banzai/src/quickfix/banzai/BanzaiApplication.java:
+	  converting TIF using the correct tifMap, instead of typeMap
+
+2005-09-22 23:15  orenmnero
+
+	* src/C++/test/SocketAcceptorTestCase.cpp: deprecated getString on
+	  Message
+
+2005-09-22 23:15  orenmnero
+
+	* src/C++/test/: MessagesTestCase.cpp, MessagesTestCase.h: removed
+	  exception when setting tag with no value
+
+2005-09-22 23:13  orenmnero
+
+	* src/C++/Field.h: support for milliseconds in constructor of time
+	  based fields
+
+2005-09-21 18:50  orenmnero
+
+	* src/.NET/Message.h: toString to take in alternate fields for
+	  BodyLength and CheckSum
+
+2005-09-21 18:09  orenmnero
+
+	* src/C++/: Message.cpp, Message.h: removed deprecated getString().
+	  toString can take in alternate fields for body length and
+	  checksum
+
+2005-09-21 17:56  orenmnero
+
+	* src/C++/Session.cpp: set milliseconds using new boolean parameter
+	  on UtcTimeStamp field
+
+2005-09-16 18:37  orenmnero
+
+	* spec/net_Fields.xsl, src/.NET/Field.h, src/.NET/Fields.h,
+	  src/.NET/Group.cpp, src/.NET/Message.cpp, src/.NET/Message.h,
+	  src/C++/Field.h, src/java/Conversions.h,
+	  src/java/quickfix_Group.cpp, src/java/quickfix_Group.h,
+	  src/java/quickfix_Message.cpp, src/java/quickfix_Message.h,
+	  src/java/src/quickfix/Group.java,
+	  src/java/src/quickfix/Message.java,
+	  src/java/src/quickfix/UtcDateOnlyField.java,
+	  src/java/src/quickfix/UtcTimeOnlyField.java,
+	  src/java/src/quickfix/UtcTimeStampField.java,
+	  src/java/src/quickfix/test/MessageTest.java: user can specify
+	  milliseconds in UtcTimeStamp and UtcTimeOnly fields
+
+2005-09-16 18:36  orenmnero
+
+	* build_vc7.bat: set PROFILE to second parameter
+
+2005-09-13 20:02  orenmnero
+
+	* src/: .NET/Message.cpp, C++/FieldMap.h, C++/Message.cpp,
+	  java/Conversions.h: remove throw of NoTagValue exception until it
+	  can be better designed
+
+2005-08-15 17:31  orenmnero
+
+	* src/C++/: Session.cpp, Session.h: pass in string as a reference
+
+2005-07-28 22:24  orenmnero
+
+	* configure.in: add -pthread flag for any version of freebsd
+
+2005-07-26 16:32  orenmnero
+
+	* src/: C++/DataDictionary.h, C++/test/DataDictionaryTestCase.cpp,
+	  C++/test/MessagesTestCase.cpp, java/quickfix_DataDictionary.cpp,
+	  java/quickfix_DataDictionary.h,
+	  java/src/quickfix/DataDictionary.java,
+	  java/src/quickfix/test/DataDictionaryTest.java: getFieldTag will
+	  retreive field tag number from field name
+
+2005-07-26 06:31  orenmnero
+
+	* src/: .NET/Exceptions.h, .NET/Message.cpp, C++/FieldMap.h,
+	  C++/Message.cpp, C++/test/DataDictionaryTestCase.cpp,
+	  C++/test/MessagesTestCase.cpp, C++/test/MessagesTestCase.h,
+	  java/Conversions.h, java/src/quickfix/FieldMap.java,
+	  java/src/quickfix/Message.java,
+	  java/src/quickfix/NoTagValue.java,
+	  java/src/quickfix/test/MessageTest.java: setting a field without
+	  a value will throw NoTagValue exception
+
+2005-07-17 19:27  orenmnero
+
+	* src/C++/: Field.h, FieldConvertors.h, FieldTypes.cpp,
+	  FieldTypes.h, MySQLLog.cpp, MySQLStore.cpp, SessionState.h,
+	  SessionTime.cpp, test/FieldConvertorsTestCase.cpp,
+	  test/SessionTestCase.cpp, test/SessionTestCase.h,
+	  test/UtcTimeStampTestCase.cpp: non tm based implementation of
+	  time objects from Caleb Epstein
+
+2005-07-17 18:43  orenmnero
+
+	* src/C++/test/MessagesTestCase.cpp: need template<> declarator for
+	  gcc 4.0
+
+2005-07-05 15:48  orenmnero
+
+	* src/.NET/SessionID.h: added accesor for session qualifier
+
+2005-07-01 18:33  orenmnero
+
+	* ChangeLog: [no log message]
+
 2005-07-01 18:05  orenmnero
 
 	* src/C++/: Session.cpp, SessionState.h: reset sequence number when
