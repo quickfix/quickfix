@@ -3527,7 +3527,7 @@
     </field>
     <field number="434" name="CxlRejResponseTo" type="CHAR">
       <value enum="1" description="ORDER_CANCEL_REQUEST" />
-      <value enum="2" description="ORDER_CANCEL" />
+      <value enum="2" description="ORDER_CANCEL_REPLACE_REQUEST" />
     </field>
     <field number="435" name="UnderlyingCouponRate" type="PERCENTAGE" />
     <field number="436" name="UnderlyingContractMultiplier" type="FLOAT" />
