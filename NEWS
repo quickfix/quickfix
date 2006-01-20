@@ -1,3 +1,96 @@
+1.11.0
+------
+Updated code so it will compile under gcc 4.0 and Visual Studio .NET 2005.
+For visual studio, all solution files are merged into a single file.  So
+the quickfix C++, .NET, JNI, test applications and example applications
+are all built in a single step.
+
+Added MessageStore and Log support for PostgreSQL and MS SQL Server.
+
+ConnectionPools are available for MySQL and PostgreSQL. Configuration settings
+MySQLStoreUseConnectionPool, MySQLLogUseConnectionPool, 
+PostgreSQLStoreUseConnectionPool, and PostgreSQLLogUseConnectionPool have been
+added.  When connection pools are enabled, any sessions which share the same
+connection parameters (database, user, password, host and port) will share
+a connection.  This is particularly useful for PostgreSQL which has pretty
+low limitations on the number of connections it allows.
+
+JNI Wrapper has been made compatible with 64 bit systems.
+
+Session::logout can be passed a string which contains the reason for the
+logout.  The reason will be placed into the text field of the Logout message.
+
+FileLog no longer has separate files for incoming and outgoing messages.  All
+messages are placed into one messages file so the original order of the
+transactions can be reconstructed accurately.
+
+SessionSettings can be set programatically from .NET and Java.  You no longer
+have to use the hack where you create a stream in the format of a configuration
+file and parse it into a settings file.  Direct access to getters and setters
+are exposed.
+
+Fixed various bugs with resetting sequence numbers using the ResetSeqNumFlag=Y,
+including issues with ResetOnDisconnect and ResetOnLogoff. Also if in a state where
+we are not logged on and the messages are going to be reset, no messages will be
+succesfully sent (there is no point).
+
+Log class has a clear() method which can be used to clear out the logs
+programatically.
+
+Various fixes to handling of resend requests.
+
+Session qualifier can be accessed from SessionID in .NET
+
+getFieldTag method on DataDictionary will use a tags name to return its number.
+
+Milliseconds can be specified by user in UtcTimeStamp and UtcTimeOnly fields.
+
+Deprecated Message::getString method has been removed, you must now use toString.
+
+Reject reasons are logged by the session even if they cannot be sent to the
+counterparty.
+
+Sequence reset will be processed even if the messages sequence number is too high.
+
+Second thread and buffer queue removed from ThreadedSocketConnection.  Each connection
+now only has one thread which interacts with the socket directly.
+
+When a session is reset(), a logout message will be sent to the counterparty.
+
+OrigSendingTime will contain milliseconds when applicable.
+
+Repeating groups can now be removed from messages/groups.
+
+Negative numbers will now be parsed correctly when received in double fields.
+Before these would get converted into 0.
+
+If a null value is set into a character field, the field will be set as empty
+instead of putting a null character into the field.
+
+MySQLLog will use the correct log settings instead of getting its settings
+from the MySQLStore.
+
+Fixed bug where getWeekDay would sometimes return a negative number.
+
+Fixed various issues with FIX data dictionary files.
+
+Added many methods missing from the .NET and Java wrappers of the Session class.
+
+Event object can be passed a value to indicate how long to wait for the event
+instead of being hardcoded to 100 milliseconds.
+
+Fixed out of range error when pulling UtcTimeOnly fields out of groups.
+
+.NET Message wrapper can parse a message with validation turned off.
+setString method also exposed.  fromString method exposed to SessionID.
+
+fromString method exposed to SessionID in java API.
+
+DataDictionary will throw a .NET ConfigError exception instead of letting
+the uncaught unmanaged exception propogate, causing a crash.
+
+Time objects are no longer implemented using tm structure.
+
 1.10.2
 ------
 Reset functionality will work if the user appends ResetSeqNumFlag=Y into the
