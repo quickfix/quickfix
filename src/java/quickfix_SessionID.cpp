@@ -1,5 +1,5 @@
 /****************************************************************************
-** Copyright (c) 2001-2005 quickfixengine.org  All rights reserved.
+** Copyright (c) quickfixengine.org  All rights reserved.
 **
 ** This file is part of the QuickFIX FIX Engine
 **
@@ -177,10 +177,11 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_fromString
 
   const char* ustr = pEnv->GetStringUTFChars( str, 0 );
   pSessionID->fromString( ustr );
+  jstring result = newString( ustr );
+  pEnv->ReleaseStringUTFChars( str, ustr );
+  return result;
 
-  pEnv->ReleaseStringUTFChars( begin, ubegin );
-
-  QF_STACK_END
+  QF_STACK_CATCH
 }
 
 #endif
