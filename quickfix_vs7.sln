@@ -19,14 +19,17 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "quickfix_jni_vs7", "src\jav
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_unit_vs7", "src\test_unit_vs7.vcproj", "{CD58A1FF-0F7A-4490-B9B4-944326C48A5A}"
 	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_acceptance_vs7", "src\test_acceptance_vs7.vcproj", "{63CC102A-A3CD-43CC-9535-A91E67256360}"
 	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test_performance_vs7", "src\test_performance_vs7.vcproj", "{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
 	ProjectSection(ProjectDependencies) = postProject
+		{D5D558EA-BBAC-4862-A946-D3881BACE3B7} = {D5D558EA-BBAC-4862-A946-D3881BACE3B7}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "example_executor_cpp_vs7", "examples\executor\C++\example_executor_cpp_vs7.vcproj", "{AC97D259-3231-4575-8CA5-BF9EF79B5A87}"
