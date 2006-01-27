@@ -373,7 +373,6 @@ AC_OUTPUT(
 	src/java/src/quickfix/fix43/Makefile
 	src/java/src/quickfix/fix44/Makefile
 	src/python/Makefile
-	cfg/Makefile
 	bin/Makefile
 	bin/cfg/Makefile
 	spec/Makefile
@@ -400,5 +399,4 @@ AC_OUTPUT(
 	examples/tradeclientgui/banzai/src/quickfix/banzai/ui/Makefile
 	doc/Makefile
 	doc/html/Makefile
-	templates/Makefile
         CPPTest/Makefile)
