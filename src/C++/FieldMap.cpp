@@ -107,7 +107,14 @@ void FieldMap::removeGroup( int num, int field )
   }
 
   if( vector.size() == 0 )
+  {
     m_groups.erase( field );
+  }
+  else
+  {
+    IntField groupCount( field, vector.size() );
+    setField( groupCount, true );
+  }
 }
 
 void FieldMap::removeGroup( int field )

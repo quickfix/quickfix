@@ -425,24 +425,37 @@ void MessageTestCase::addRemoveGroup::onRun( Message& object )
   group.set( Side( '3' ) );
   object.addGroup( group );
 
+  NoOrders noOrders;
+
   assert( object.hasGroup(1, group) );
   assert( object.hasGroup(2, group) );
   assert( object.hasGroup(3, group) );
+  assert( object.groupCount(FIX::FIELD::NoOrders) == 3 );
+  object.getField( noOrders );
+  assert( noOrders == 3 );
 
   object.removeGroup( 2, group );
   assert( object.hasGroup(1, group) );
   assert( object.hasGroup(2, group) );
   assert( !object.hasGroup(3, group) );
+  assert( object.groupCount(FIX::FIELD::NoOrders) == 2 );
+  object.getField( noOrders );
+  assert( noOrders == 2 );
 
   object.removeGroup( group );
   assert( object.hasGroup(1, group) );
   assert( !object.hasGroup(2, group) );
   assert( !object.hasGroup(3, group) );
+  assert( object.groupCount(FIX::FIELD::NoOrders) == 1 );
+  object.getField( noOrders );
+  assert( noOrders == 1 );
 
   object.removeGroup( group );
   assert( !object.hasGroup(1, group) );
   assert( !object.hasGroup(2, group) );
   assert( !object.hasGroup(3, group) );
+  assert( object.groupCount(FIX::FIELD::NoOrders) == 0 );
+  !object.isSetField( noOrders );
 }
 
 template<> void LogonParseTestCase::getString::onRun( Logon& object )
