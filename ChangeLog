@@ -1,3 +1,12 @@
+2006-01-27 19:45  orenmnero
+
+	* src/C++/quickfix_vs6.dsp: fixed custom build step for copying
+	  include files
+
+2006-01-27 18:23  orenmnero
+
+	* ChangeLog: [no log message]
+
 2006-01-27 15:58  orenmnero
 
 	* quickfix_vs7.sln: test projects dependent on quickfix library
