@@ -29,6 +29,8 @@ have to use the hack where you create a stream in the format of a configuration
 file and parse it into a settings file.  Direct access to getters and setters
 are exposed.
 
+Removing a group will update the leading count field.
+
 Fixed various bugs with resetting sequence numbers using the ResetSeqNumFlag=Y,
 including issues with ResetOnDisconnect and ResetOnLogoff. Also if in a state where
 we are not logged on and the messages are going to be reset, no messages will be
