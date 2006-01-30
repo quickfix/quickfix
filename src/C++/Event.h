@@ -28,6 +28,7 @@
 
 #ifndef _MSC_VER
 #include <pthread.h>
+#include <cmath>
 #endif
 
 namespace FIX
