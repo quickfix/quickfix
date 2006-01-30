@@ -28,7 +28,6 @@
 
 #include "Parser.h"
 #include "Responder.h"
-#include "Queue.h"
 #include <map>
 
 namespace FIX
@@ -57,8 +56,6 @@ private:
   bool send( const std::string& );
   void disconnect();
   bool setSession( const std::string& msg );
-
-  static THREAD_PROC queueThread( void* p );
 
   int m_socket;
   Application& m_application;
