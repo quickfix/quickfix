@@ -155,15 +155,15 @@ void MSSQLLog::clear()
     << "AND SenderCompID = '" << m_sessionID.getSenderCompID().getValue() << "',"
     << "AND TargetCompID = '" << m_sessionID.getTargetCompID().getValue() << "'";
 
-  incomingQuery << "DELETE FROM incoming_log " << whereClause;
-  outgoingQuery << "DELETE FROM outgoing_log " << whereClause;
-  eventQuery << "DELETE FROM event_log " << whereClause;
+  incomingQuery << "DELETE FROM incoming_log " << whereClause.str();
+  outgoingQuery << "DELETE FROM outgoing_log " << whereClause.str();
+  eventQuery << "DELETE FROM event_log " << whereClause.str();
 
-  dbcmd( pConnection, incomingQuery.str() );
+  dbcmd( pConnection, incomingQuery.str().c_str() );
   dbsqlexec( pConnection );
-  dbcmd( pConnection, outgoingQuery.str(); );
+  dbcmd( pConnection, outgoingQuery.str().c_str() );
   dbsqlexec( pConnection );
-  dbcmd( pConnection, eventQuery.str(); );
+  dbcmd( pConnection, eventQuery.str().c_str() );
   dbsqlexec( pConnection );
 
   QF_STACK_POP
