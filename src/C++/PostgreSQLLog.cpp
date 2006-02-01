@@ -117,9 +117,23 @@ void PostgreSQLLogFactory::destroy( Log* pLog )
 void PostgreSQLLog::clear()
 { QF_STACK_PUSH(PostgreSQLLog::clear)
 
-  PostgreSQLQuery incoming( "DELETE FROM incoming_log" );
-  PostgreSQLQuery outgoing( "DELETE FROM outgoing_log" );
-  PostgreSQLQuery event( "DELETE FROM event_log" );
+  std::stringstream whereClause;
+  std::stringstream incomingQuery;
+  std::stringstream outgoingQuery;
+  std::stringstream eventQuery;
+
+  whereClause << "WHERE "
+    << "BeginString = '" << m_sessionID.getBeginString().getValue() << "',"
+    << "AND SenderCompID = '" << m_sessionID.getSenderCompID().getValue() << "',"
+    << "AND TargetCompID = '" << m_sessionID.getTargetCompID().getValue() << "'";
+
+  incomingQuery << "DELETE FROM incoming_log " << whereClause;
+  outgoingQuery << "DELETE FROM outgoing_log " << whereClause;
+  eventQuery << "DELETE FROM event_log " << whereClause;
+
+  PostgreSQLQuery incoming( incomingQuery.str() );
+  PostgreSQLQuery outgoing( outgoingQuery.str() );
+  PostgreSQLQuery event( eventQuery.str() );
   m_pConnection->execute( incoming );
   m_pConnection->execute( outgoing );
   m_pConnection->execute( event );

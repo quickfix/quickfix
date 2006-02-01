@@ -145,11 +145,25 @@ void MSSQLLog::clear()
 
   PDBPROCESS* pConnection = reinterpret_cast < PDBPROCESS* > ( m_pConnection );
 
-  dbcmd( pConnection, "DELETE FROM incoming_log" );
+  std::stringstream whereClause;
+  std::stringstream incomingQuery;
+  std::stringstream outgoingQuery;
+  std::stringstream eventQuery;
+
+  whereClause << "WHERE "
+    << "BeginString = '" << m_sessionID.getBeginString().getValue() << "',"
+    << "AND SenderCompID = '" << m_sessionID.getSenderCompID().getValue() << "',"
+    << "AND TargetCompID = '" << m_sessionID.getTargetCompID().getValue() << "'";
+
+  incomingQuery << "DELETE FROM incoming_log " << whereClause;
+  outgoingQuery << "DELETE FROM outgoing_log " << whereClause;
+  eventQuery << "DELETE FROM event_log " << whereClause;
+
+  dbcmd( pConnection, incomingQuery.str() );
   dbsqlexec( pConnection );
-  dbcmd( pConnection, "DELETE FROM outgoing_log" );
+  dbcmd( pConnection, outgoingQuery.str(); );
   dbsqlexec( pConnection );
-  dbcmd( pConnection, "DELETE FROM event_log" );
+  dbcmd( pConnection, eventQuery.str(); );
   dbsqlexec( pConnection );
 
   QF_STACK_POP
