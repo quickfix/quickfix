@@ -1,6 +1,6 @@
 CREATE SEQUENCE messages_log_sequence;
 
-CREATE TABLE incoming_log (
+CREATE TABLE messages_log (
   id INTEGER DEFAULT NEXTVAL('messages_log_sequence'),
   time TIMESTAMP NOT NULL,
   beginstring CHAR(8) NOT NULL,
