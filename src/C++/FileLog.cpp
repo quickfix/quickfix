@@ -68,12 +68,12 @@ FileLog::FileLog( std::string path, const SessionID& s )
   std::string prefix
     = file_appendpath(path, sessionid + ".");
 
-  std::string messagesFileName = prefix + "messages.log";
-  std::string eventFileName = prefix + "event.log";
+  m_messagesFileName = prefix + "messages.log";
+  m_eventFileName = prefix + "event.log";
 
-  m_messages.open( messagesFileName.c_str(), std::ios::out | std::ios::app );
+  m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::app );
   if ( !m_messages.is_open() ) throw ConfigError( "Could not open messages file" );
-  m_event.open( eventFileName.c_str(), std::ios::out | std::ios::app );
+  m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::app );
   if ( !m_event.is_open() ) throw ConfigError( "Could not open event file" );
 }
 
@@ -81,6 +81,15 @@ FileLog::~FileLog()
 {
   m_messages.close();
   m_event.close();
+}
+
+void FileLog::clear()
+{
+  m_messages.close();
+  m_event.close();
+
+  m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::trunc );
+  m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::trunc );
 }
 
 } //namespace FIX

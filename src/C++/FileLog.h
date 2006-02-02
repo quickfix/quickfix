@@ -62,9 +62,7 @@ private:
  *
  * The formats of the files are:<br>
  * &nbsp;&nbsp;
- *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].incoming<br>
- * &nbsp;&nbsp;
- *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].outgoing<br>
+ *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].messages<br>
  * &nbsp;&nbsp;
  *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].event<br>
  *
@@ -75,11 +73,8 @@ public:
   FileLog( std::string path, const SessionID& sessionID );
   virtual ~FileLog();
 
-  void clear()
-  {
-    m_messages.clear();
-    m_event.clear();
-  }
+  void clear();
+
   void onIncoming( const std::string& value )
   { m_messages << value << std::endl << std::flush; }
   void onOutgoing( const std::string& value )
@@ -95,6 +90,8 @@ private:
   SessionID m_sessionID;
   std::ofstream m_messages;
   std::ofstream m_event;
+  std::string m_messagesFileName;
+  std::string m_eventFileName;
 };
 }
 
