@@ -2822,7 +2822,7 @@
     <field name="TotNumTradeReports" required="N" />
     <field name="TradeRequestResult" required="Y" />
     <field name="TradeRequestStatus" required="Y" />
-  <component name="Instrument" required="Y" />
+    <component name="Instrument" required="N" />
     <group name="NoUnderlyings" required="N">
       <component name="UnderlyingInstrument" required="N" />
     </group>
