@@ -132,6 +132,10 @@ SOURCE=.\quickfix_DataDictionary.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\quickfix_Dictionary.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\quickfix_FileLog.cpp
 # End Source File
 # Begin Source File
@@ -160,6 +164,22 @@ SOURCE=.\quickfix_Message.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\quickfix_MSSQLLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_MSSQLLogFactory.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_MSSQLStore.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_MSSQLStoreFactory.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\quickfix_MySQLLog.cpp
 # End Source File
 # Begin Source File
@@ -173,6 +193,22 @@ SOURCE=.\quickfix_MySQLStore.cpp
 # Begin Source File
 
 SOURCE=.\quickfix_MySQLStoreFactory.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLLogFactory.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLStore.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLStoreFactory.cpp
 # End Source File
 # Begin Source File
 
@@ -260,6 +296,10 @@ SOURCE=.\quickfix_DataDictionary.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\quickfix_Dictionary.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\quickfix_FileLog.h
 # End Source File
 # Begin Source File
@@ -288,6 +328,22 @@ SOURCE=.\quickfix_Message.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\quickfix_MSSQLLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_MSSQLLogFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_MSSQLStore.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_MSSQLStoreFactory.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\quickfix_MySQLLog.h
 # End Source File
 # Begin Source File
@@ -301,6 +357,22 @@ SOURCE=.\quickfix_MySQLStore.h
 # Begin Source File
 
 SOURCE=.\quickfix_MySQLStoreFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLLogFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLStore.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_PostgreSQLStoreFactory.h
 # End Source File
 # Begin Source File
 
