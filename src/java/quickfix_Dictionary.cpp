@@ -352,7 +352,7 @@ JNIEXPORT void JNICALL Java_quickfix_Dictionary_merge
 
   FIX::Dictionary* pToMerge = getCPPDictionary( toMerge );
   FIX::Dictionary* pDictionary = getCPPDictionary( obj );
-  return pDictionary->merge( *pToMerge );
+  pDictionary->merge( *pToMerge );
 
   QF_STACK_CATCH
 }
