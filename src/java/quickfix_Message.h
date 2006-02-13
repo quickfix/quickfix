@@ -76,8 +76,16 @@ JNIEXPORT void JNICALL Java_quickfix_Message_setInt
  * Method:    setDouble
  * Signature: (ID)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_setDouble
+JNIEXPORT void JNICALL Java_quickfix_Message_setDouble__ID
   (JNIEnv *, jobject, jint, jdouble);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    setDouble
+ * Signature: (IDI)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_setDouble__IDI
+  (JNIEnv *, jobject, jint, jdouble, jint);
 
 /*
  * Class:     quickfix_Message
@@ -306,7 +314,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_isApp
 /*
  * Class:     quickfix_Message
  * Method:    messageIteratorCreate
- * Signature: (Lquickfix/Message$Iterator;)Lquickfix/Message$Iterator;
+ * Signature: (Lquickfix/Message/Iterator;)Lquickfix/Message/Iterator;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorCreate
   (JNIEnv *, jobject, jobject);
@@ -314,7 +322,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorCreate
 /*
  * Class:     quickfix_Message
  * Method:    messageIteratorHasNext
- * Signature: (Lquickfix/Message$Iterator;)Z
+ * Signature: (Lquickfix/Message/Iterator;)Z
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Message_messageIteratorHasNext
   (JNIEnv *, jobject, jobject);
@@ -322,7 +330,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_messageIteratorHasNext
 /*
  * Class:     quickfix_Message
  * Method:    messageIteratorNext
- * Signature: (Lquickfix/Message$Iterator;)Ljava/lang/Object;
+ * Signature: (Lquickfix/Message/Iterator;)Ljava/lang/Object;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_messageIteratorNext
   (JNIEnv *, jobject, jobject);
@@ -364,8 +372,16 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetInt
  * Method:    headerSetDouble
  * Signature: (ID)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_headerSetDouble
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetDouble__ID
   (JNIEnv *, jobject, jint, jdouble);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    headerSetDouble
+ * Signature: (IDI)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetDouble__IDI
+  (JNIEnv *, jobject, jint, jdouble, jint);
 
 /*
  * Class:     quickfix_Message
@@ -538,7 +554,7 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerHasGroup__II
 /*
  * Class:     quickfix_Message
  * Method:    headerIteratorCreate
- * Signature: (Lquickfix/Message$Header$Iterator;)Lquickfix/Message$Iterator;
+ * Signature: (Lquickfix/Message/Header/Iterator;)Lquickfix/Message/Iterator;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorCreate
   (JNIEnv *, jobject, jobject);
@@ -546,7 +562,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorCreate
 /*
  * Class:     quickfix_Message
  * Method:    headerIteratorHasNext
- * Signature: (Lquickfix/Message$Header$Iterator;)Z
+ * Signature: (Lquickfix/Message/Header/Iterator;)Z
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
   (JNIEnv *, jobject, jobject);
@@ -554,7 +570,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIteratorHasNext
 /*
  * Class:     quickfix_Message
  * Method:    headerIteratorNext
- * Signature: (Lquickfix/Message$Header$Iterator;)Ljava/lang/Object;
+ * Signature: (Lquickfix/Message/Header/Iterator;)Ljava/lang/Object;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorNext
   (JNIEnv *, jobject, jobject);
@@ -596,8 +612,16 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetInt
  * Method:    trailerSetDouble
  * Signature: (ID)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetDouble
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetDouble__ID
   (JNIEnv *, jobject, jint, jdouble);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerSetDouble
+ * Signature: (IDI)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetDouble__IDI
+  (JNIEnv *, jobject, jint, jdouble, jint);
 
 /*
  * Class:     quickfix_Message
@@ -770,7 +794,7 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerHasGroup__II
 /*
  * Class:     quickfix_Message
  * Method:    trailerIteratorCreate
- * Signature: (Lquickfix/Message$Trailer$Iterator;)Lquickfix/Message$Iterator;
+ * Signature: (Lquickfix/Message/Trailer/Iterator;)Lquickfix/Message/Iterator;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
   (JNIEnv *, jobject, jobject);
@@ -778,7 +802,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
 /*
  * Class:     quickfix_Message
  * Method:    trailerIteratorHasNext
- * Signature: (Lquickfix/Message$Trailer$Iterator;)Z
+ * Signature: (Lquickfix/Message/Trailer/Iterator;)Z
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
   (JNIEnv *, jobject, jobject);
@@ -786,7 +810,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIteratorHasNext
 /*
  * Class:     quickfix_Message
  * Method:    trailerIteratorNext
- * Signature: (Lquickfix/Message$Trailer$Iterator;)Ljava/lang/Object;
+ * Signature: (Lquickfix/Message/Trailer/Iterator;)Ljava/lang/Object;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorNext
   (JNIEnv *, jobject, jobject);

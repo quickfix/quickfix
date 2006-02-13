@@ -182,6 +182,7 @@ JNIEXPORT jstring JNICALL Java_quickfix_SessionID_fromString
   return result;
 
   QF_STACK_CATCH
+
 }
 
 #endif

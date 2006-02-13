@@ -938,7 +938,13 @@ void Message::mapSetInt(int field, int value, FIX::FieldMap& map)
 
 void Message::mapSetDouble(int field, double value, FIX::FieldMap& map)
 { QF_STACK_TRY
-  map.setField( FIX::DoubleField( field, value ) );
+  map.setField( FIX::DoubleField(field, value ) );
+  QF_STACK_CATCH
+}
+
+void Message::mapSetDouble(int field, double value, int padding, FIX::FieldMap& map)
+{ QF_STACK_TRY
+  map.setField( FIX::DoubleField(field, value, padding) );
   QF_STACK_CATCH
 }
 
@@ -1076,7 +1082,7 @@ void Message::mapSetField( IntField* field, FIX::FieldMap& map )
 
 void Message::mapSetField( DoubleField* field, FIX::FieldMap& map )
 { QF_STACK_TRY
-  mapSetDouble( field->getField(), field->getValue(), map );
+  mapSetDouble( field->getField(), field->getValue(), field->getPadding(), map );
   QF_STACK_CATCH
 }
 

@@ -197,6 +197,11 @@ inline void setDouble( FIX::FieldMap& map, jint field, jdouble value )
   map.setField( field, FIX::DoubleConvertor::convert( value ) );
 }
 
+inline void setDouble( FIX::FieldMap& map, jint field, jdouble value, jint padding )
+{
+	map.setField( field, FIX::DoubleConvertor::convert( value, padding ) );
+}
+
 inline void setUtcTimeStamp( FIX::FieldMap& map, jint field, jobject value, bool showMilliseconds )
 {
   JVMObject date( value );

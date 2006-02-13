@@ -97,6 +97,7 @@ public class Message extends FieldMap {
     public native void setChar(int field, char value);
     public native void setInt(int field, int value);
     public native void setDouble(int field, double value);
+    public native void setDouble(int field, double value, int padding);
     public native void setUtcTimeStamp(int field, Date value);
     public native void setUtcTimeStamp(int field, Date value, boolean showMilliseconds);
     public native void setUtcTimeOnly(int field, Date value);
@@ -125,7 +126,7 @@ public class Message extends FieldMap {
         setInt( field.getField(), field.getValue() );
     }
     public void setField(DoubleField field) {
-        setDouble( field.getField(), field.getValue() );
+        setDouble( field.getField(), field.getValue(), field.getPadding() );
     }
     public void setField(UtcTimeStampField field) {
         setUtcTimeStamp( field.getField(), field.getValue(), field.showMilliseconds() );
@@ -279,6 +280,9 @@ public class Message extends FieldMap {
         public void setDouble(int field, double value) {
             headerSetDouble( field, value );
         }
+        public void setDouble(int field, double value, int padding) {
+            headerSetDouble( field, value, padding );
+        }
         public void setUtcTimeStamp(int field, Date value) {
             headerSetUtcTimeStamp( field, value );
         }
@@ -333,7 +337,7 @@ public class Message extends FieldMap {
             headerSetInt( field.getField(), field.getValue() );
         }
         public void setField(DoubleField field) {
-            headerSetDouble( field.getField(), field.getValue() );
+            headerSetDouble( field.getField(), field.getValue(), field.getPadding() );
         }
         public void setField(UtcTimeStampField field) {
             headerSetUtcTimeStamp( field.getField(), field.getValue(), field.showMilliseconds() );
@@ -465,6 +469,9 @@ public class Message extends FieldMap {
         public void setDouble(int field, double value) {
             trailerSetDouble( field, value );
         }
+        public void setDouble(int field, double value, int padding) {
+            trailerSetDouble( field, value, padding);
+        }
         public void setUtcTimeStamp(int field, Date value) {
             trailerSetUtcTimeStamp( field, value );
         }
@@ -519,7 +526,7 @@ public class Message extends FieldMap {
             trailerSetInt( field.getField(), field.getValue() );
         }
         public void setField(DoubleField field) {
-            trailerSetDouble( field.getField(), field.getValue() );
+            trailerSetDouble( field.getField(), field.getValue(), field.getPadding() );
         }
         public void setField(UtcTimeStampField field) {
             trailerSetUtcTimeStamp( field.getField(), field.getValue(), field.showMilliseconds() );
@@ -619,6 +626,7 @@ public class Message extends FieldMap {
     private native void headerSetChar(int field, char value);
     private native void headerSetInt(int field, int value);
     private native void headerSetDouble(int field, double value);
+    private native void headerSetDouble(int field, double value, int padding);
     private native void headerSetUtcTimeStamp(int field, Date value);
     private native void headerSetUtcTimeStamp(int field, Date value, boolean showMilliseconds);
     private native void headerSetUtcTimeOnly(int field, Date value);
@@ -665,6 +673,7 @@ public class Message extends FieldMap {
     private native void trailerSetChar(int field, char value);
     private native void trailerSetInt(int field, int value);
     private native void trailerSetDouble(int field, double value);
+    private native void trailerSetDouble(int field, double value, int padding);
     private native void trailerSetUtcTimeStamp(int field, Date value);
     private native void trailerSetUtcTimeStamp(int field, Date value, boolean showMilliseconds);
     private native void trailerSetUtcTimeOnly(int field, Date value);

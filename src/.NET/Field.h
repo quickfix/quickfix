@@ -84,13 +84,19 @@ CharField( int field, __wchar_t value ) : Field( field, __box( value ) ) {}
 public __gc class DoubleField : public Field
 {
 public:
-DoubleField( int field ) : Field( field, __box( 0.0 ) ) {}
-DoubleField( int field, double value ) : Field( field, __box( value ) ) {}
+	DoubleField( int field ) : Field( field, __box( 0.0 ) ), m_padding( 0 ) {}
+	DoubleField( int field, double value ) : Field( field, __box( value ) ), m_padding(0) {}
+	DoubleField( int field, double value, int padding) : Field(field, __box( value )), m_padding(padding) {}
 
-  void setValue( double value )
-  { setObject( __box( value ) ); }
-  double getValue()
-  { return * dynamic_cast < Double* > ( getObject() ); }
+	void setValue( double value )
+	 { setObject( __box( value ) ); }
+	double getValue()
+	{ return * dynamic_cast < Double* > ( getObject() ); }
+	int getPadding()
+	{ return m_padding; }
+
+private:
+	int m_padding;
 };
 
 public __gc class IntField : public Field

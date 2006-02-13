@@ -611,6 +611,7 @@ private:
   void mapSetChar(int field, char value, FIX::FieldMap& map);
   void mapSetInt(int field, int value, FIX::FieldMap& map);
   void mapSetDouble(int field, double value, FIX::FieldMap& map);
+  void mapSetDouble(int field, double value, int padding, FIX::FieldMap& map);
   void mapSetUtcTimeStamp(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map);
   void mapSetUtcTimeOnly(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map);
   void mapSetUtcDateOnly(int field, DateTime value, FIX::FieldMap& map);

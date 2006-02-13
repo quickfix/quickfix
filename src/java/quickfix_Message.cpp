@@ -131,12 +131,22 @@ JNIEXPORT void JNICALL Java_quickfix_Message_setInt
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_setDouble
+JNIEXPORT void JNICALL Java_quickfix_Message_setDouble__ID
 ( JNIEnv *pEnv, jobject obj, jint field, jdouble value )
 { QF_STACK_TRY
 
   FIX::Message * pMessage = getCPPMessage( obj );
   setDouble( *pMessage, field, value );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_setDouble__IDI
+( JNIEnv *pEnv, jobject obj, jint field, jdouble value, jint padding )
+{ QF_STACK_TRY
+
+  FIX::Message * pMessage = getCPPMessage( obj );
+  setDouble( *pMessage, field, value, padding );
 
   QF_STACK_CATCH
 }
@@ -454,6 +464,16 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerSetDouble
 
   FIX::Message * pMessage = getCPPMessage( obj );
   setDouble( pMessage->getHeader(), field, value );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerSetDouble
+( JNIEnv *pEnv, jobject obj, jint field, jdouble value, jint padding )
+{ QF_STACK_TRY
+
+  FIX::Message * pMessage = getCPPMessage( obj );
+  setDouble( pMessage->getHeader(), field, value, padding );
 
   QF_STACK_CATCH
 }
@@ -829,6 +849,16 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetDouble
 
   FIX::Message * pMessage = getCPPMessage( obj );
   setDouble( pMessage->getTrailer(), field, value );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerSetDouble
+( JNIEnv *pEnv, jobject obj, jint field, jdouble value, jint padding )
+{ QF_STACK_TRY
+
+  FIX::Message * pMessage = getCPPMessage( obj );
+  setDouble( pMessage->getTrailer(), field, value, padding );
 
   QF_STACK_CATCH
 }

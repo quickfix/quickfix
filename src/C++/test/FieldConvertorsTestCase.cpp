@@ -94,6 +94,14 @@ void FieldConvertorsTestCase::doubleConvertTo::onRun( void*& )
           == "-12.000000000001" );
   assert( DoubleConvertor::convert( -0.00001 ) == "-0.00001" );
   assert( DoubleConvertor::convert( -1050.0 ) == "-1050" );
+
+  assert( DoubleConvertor::convert( 1.5, 3) == "1.500" );
+  assert( DoubleConvertor::convert( 45, 5) == "45.00000" );
+  assert( DoubleConvertor::convert( 5, 2) == "5.00" );
+  assert( DoubleConvertor::convert( -5, 2) == "-5.00" );
+  assert( DoubleConvertor::convert( -12.2345, 2) == "-12.2345" );
+  assert( DoubleConvertor::convert( -0.00001, 5) == "-0.00001" );
+  assert( DoubleConvertor::convert( 0.0, 1) == "0.0" );
 }
 
 void FieldConvertorsTestCase::doubleConvertFrom::onRun( void*& )

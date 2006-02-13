@@ -201,61 +201,105 @@ struct CheckSumConvertor
 /// Converts double to/from a string
 struct DoubleConvertor
 {
-  static std::string convert( double value )
-  {
-    char result[32];
-    if( value == 0 || value > 0.0001 || value <= -0.0001 )
-    {
-      return std::string( result, STRING_SPRINTF( result, "%.15g", value ) );
-    }
-    else
-    {
-      int size = STRING_SPRINTF( result, "%.15f", value );
-      // strip trailing 0's
-      char* i = 0;
-      for( i = result + size - 1; *i == '0'; *(i--) = 0, size-- ) {}
-      if( *i == '.' ) return "0";
-      return std::string( result, size );
-    }
-  }
+	static std::string convert( double value, int padding = 0)
+	{
+		char result[32];
+		char *end = 0;
 
-  static bool convert( const std::string& value, double& result )
-  {
-    const char * i = value.c_str();
+		int size;
+		if( value == 0 || value > 0.0001 || value <= -0.0001 )
+		{
+			size = STRING_SPRINTF( result, "%.15g", value );
 
-    // Catch null strings
-    if( !*i ) return false;
-    // Eat leading '-' and recheck for null string
-    if( *i == '-' && !*++i ) return false;
+			if (padding > 0)
+			{
+				char* point = result;
+				end = result + size - 1;
+				while (*point != '.' && *point != 0)
+					point++;
 
-    bool haveDigit = false;
+				if (*point == 0)
+				{
+					end = point;
+					*point = '.';
+					size++;
+				}
+				int needed  = padding - (int)(end - point);
 
-    if( isdigit(*i) )
-    {
-      haveDigit = true;
-      while( isdigit (*++i) );
-    }
+				while (needed-- > 0)
+				{
+					*(++end) = '0';
+					size++;
+				}
+				*(end+1) = 0;
+			}
+		}
+		else
+		{
+			size = STRING_SPRINTF( result, "%.15f", value );
+			// strip trailing 0's
+			end = result + size - 1;
 
-    if( *i == '.' && isdigit(*++i) )
-    {
-      haveDigit = true;
-      while( isdigit (*++i) );
-    }
+			if (padding > 0)
+			{
+				int discard = 15 - padding;
 
-    if( *i || !haveDigit ) return false;
-    result = strtod( value.c_str(), 0 );
-    return true;
-  }
+				while ((*end == '0') && (discard-- > 0))
+				{
+					*(end--) = 0;
+					size--;
+				}
+			}
+			else
+			{
+				while (*end == '0')
+				{
+					*(end--) = 0;
+					size--;
+				}
+			}
+		}
 
-  static double convert( const std::string& value )
-  throw( FieldConvertError )
-  {
-    double result = 0.0;
-    if( !convert( value, result ) )
-      throw FieldConvertError();
-    else
-      return result;
-  }
+		return std::string( result, size);
+	}
+
+	static bool convert( const std::string& value, double& result )
+	{
+		const char * i = value.c_str();
+
+		// Catch null strings
+		if( !*i ) return false;
+		// Eat leading '-' and recheck for null string
+		if( *i == '-' && !*++i ) return false;
+
+		bool haveDigit = false;
+
+		if( isdigit(*i) )
+		{
+			haveDigit = true;
+			while( isdigit (*++i) );
+		}
+
+		if( *i == '.' && isdigit(*++i) )
+		{
+			haveDigit = true;
+			while( isdigit (*++i) );
+		}
+
+		if( *i || !haveDigit ) return false;
+		result = strtod( value.c_str(), 0 );
+		return true;
+	}
+
+	static double convert( const std::string& value )
+		throw( FieldConvertError )
+	{
+		double result = 0.0;
+		if( !convert( value, result ) )
+			throw FieldConvertError();
+		else
+			return result;
+	}
 };
 
 /// Converts character to/from a string

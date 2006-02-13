@@ -277,13 +277,13 @@ public:
 class DoubleField : public FieldBase
 {
 public:
-  explicit DoubleField( int field, double data )
-: FieldBase( field, DoubleConvertor::convert( data ) ) {}
+  explicit DoubleField( int field, double data, int padding = 0 )
+: FieldBase( field, DoubleConvertor::convert( data, padding ) ) {}
   DoubleField( int field )
 : FieldBase( field, "" ) {}
 
-  void setValue( double value )
-    { setString( DoubleConvertor::convert( value ) ); }
+  void setValue( double value, int padding = 0 )
+    { setString( DoubleConvertor::convert( value, padding ) ); }
   const double getValue() const throw ( IncorrectDataFormat )
     { try
       { return DoubleConvertor::convert( getString() ); }

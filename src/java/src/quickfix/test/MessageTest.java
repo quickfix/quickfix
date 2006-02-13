@@ -4,6 +4,7 @@ import quickfix.Message;
 import quickfix.FieldNotFound;
 import quickfix.InvalidMessage;
 import quickfix.StringField;
+import quickfix.DoubleField;
 import quickfix.field.*;
 import quickfix.fix42.*;
 import junit.framework.TestCase;
@@ -164,6 +165,15 @@ public class MessageTest extends TestCase {
             assertEquals(new Double(12.3443),
                          new Double(message.getDouble(9812)));
         } catch(FieldNotFound e) { assertTrue("exception thrown", false); }
+
+
+	message.setDouble(9813, 5.0, 3);
+	message.setDouble(9814, -2.1004, 3);
+
+	try {
+	   assertEquals("5.000", message.getString(9813));
+	   assertEquals("-2.1004", message.getString(9814));
+	} catch(FieldNotFound e) { assertTrue("exception thrown", false); }
     }
 
     public void testMessageSetGetUtcTimeStamp() {

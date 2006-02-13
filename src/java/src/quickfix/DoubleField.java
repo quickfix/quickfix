@@ -23,6 +23,8 @@ import java.lang.Double;
 
 public class DoubleField extends Field {
 
+    private int padding = 0;
+
     public DoubleField(int field) {
         super(field, new Double(0));
     }
@@ -35,6 +37,11 @@ public class DoubleField extends Field {
         super(field, new Double(data));
     }
 
+    public DoubleField(int field, double data, int padding) {
+        super(field, new Double(data));
+	this.padding = padding;
+    }
+
     public void setValue(Double value) {
         setObject(value);
     }
@@ -45,6 +52,10 @@ public class DoubleField extends Field {
 
     public double getValue() {
         return ((Double)getObject()).doubleValue();
+    }
+
+    public int getPadding() {
+       return padding;
     }
 
     public boolean valueEquals(Double value) {
