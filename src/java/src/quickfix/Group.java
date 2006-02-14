@@ -39,14 +39,15 @@ public class Group extends FieldMap {
     private native void create(int field, int delim, int[] order);
     private native void destroy();
 
-	public native int field();
-	public native int delim();
+    public native int field();
+    public native int delim();
 
     public native void setString(int field, String value);
     public native void setBoolean(int field, boolean value);
     public native void setChar(int field, char value);
     public native void setInt(int field, int value);
     public native void setDouble(int field, double value);
+    public native void setDouble(int field, double value, int padding);
     public native void setUtcTimeStamp(int field, Date value);
     public native void setUtcTimeStamp(int field, Date value, boolean showMilliseconds);
     public native void setUtcTimeOnly(int field, Date value);
@@ -75,7 +76,7 @@ public class Group extends FieldMap {
         setInt(field.getField(), field.getValue());
     }
     public void setField(DoubleField field) {
-        setDouble(field.getField(), field.getValue());
+        setDouble(field.getField(), field.getValue(), field.getPadding());
     }
     public void setField(UtcTimeStampField field) {
         setUtcTimeStamp(field.getField(), field.getValue(), field.showMilliseconds());
@@ -128,22 +129,22 @@ public class Group extends FieldMap {
 
     public native void addGroup(Group group);
     public native Group getGroup(int num, Group group) throws FieldNotFound;
-	public native void removeGroup(int field);
-	public native void removeGroup(int num, int field);
-	public void removeGroup(int num, Group group) {
-		removeGroup( num, group.field() );
-	}
-	public void removeGroup(Group group) {
-		removeGroup( group.field() );
-	}
-	public native void hasGroup(int field);
-	public native void hasGroup(int num, int field);
-	public void hasGroup(int num, Group group) {
-		hasGroup( num, group.field() );
-	}
-	public void hasGroup(Group group) {
-		hasGroup( group.field() );
-	}
+    public native void removeGroup(int field);
+    public native void removeGroup(int num, int field);
+    public void removeGroup(int num, Group group) {
+        removeGroup( num, group.field() );
+    }
+    public void removeGroup(Group group) {
+        removeGroup( group.field() );
+    }
+    public native void hasGroup(int field);
+    public native void hasGroup(int num, int field);
+    public void hasGroup(int num, Group group) {
+        hasGroup( num, group.field() );
+    }
+    public void hasGroup(Group group) {
+        hasGroup( group.field() );
+    }
 
     public java.util.Iterator iterator() {
         return new Iterator( this );

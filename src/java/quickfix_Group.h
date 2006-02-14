@@ -84,8 +84,16 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setInt
  * Method:    setDouble
  * Signature: (ID)V
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_setDouble
+JNIEXPORT void JNICALL Java_quickfix_Group_setDouble__ID
   (JNIEnv *, jobject, jint, jdouble);
+
+/*
+ * Class:     quickfix_Group
+ * Method:    setDouble
+ * Signature: (IDI)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_setDouble__IDI
+  (JNIEnv *, jobject, jint, jdouble, jint);
 
 /*
  * Class:     quickfix_Group
@@ -258,7 +266,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__II
 /*
  * Class:     quickfix_Group
  * Method:    groupIteratorCreate
- * Signature: (Lquickfix/Group/Iterator;)Lquickfix/Group/Iterator;
+ * Signature: (Lquickfix/Group$Iterator;)Lquickfix/Group$Iterator;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorCreate
   (JNIEnv *, jobject, jobject);
@@ -266,7 +274,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorCreate
 /*
  * Class:     quickfix_Group
  * Method:    groupIteratorHasNext
- * Signature: (Lquickfix/Group/Iterator;)Z
+ * Signature: (Lquickfix/Group$Iterator;)Z
  */
 JNIEXPORT jboolean JNICALL Java_quickfix_Group_groupIteratorHasNext
   (JNIEnv *, jobject, jobject);
@@ -274,7 +282,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_groupIteratorHasNext
 /*
  * Class:     quickfix_Group
  * Method:    groupIteratorNext
- * Signature: (Lquickfix/Group/Iterator;)Ljava/lang/Object;
+ * Signature: (Lquickfix/Group$Iterator;)Ljava/lang/Object;
  */
 JNIEXPORT jobject JNICALL Java_quickfix_Group_groupIteratorNext
   (JNIEnv *, jobject, jobject);
