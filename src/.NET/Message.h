@@ -161,6 +161,7 @@ public:
   void setChar(int field, char value);
   void setInt(int field, int value);
   void setDouble(int field, double value);
+  void setDouble(int field, double value, int padding);
   void setUtcTimeStamp(int field, DateTime value);
   void setUtcTimeStamp(int field, DateTime value, bool showMilliseconds);
   void setUtcDateOnly(int field, DateTime value);
@@ -281,6 +282,7 @@ public:
     void setChar(int field, char value);
     void setInt(int field, int value);
     void setDouble(int field, double value);
+    void setDouble(int field, double value, int padding);
     void setUtcTimeStamp(int field, DateTime value);
     void setUtcTimeStamp(int field, DateTime value, bool showMilliseconds);
     void setUtcDateOnly(int field, DateTime value);
@@ -417,6 +419,7 @@ public:
     void setChar(int field, char value);
     void setInt(int field, int value);
     void setDouble(int field, double value);
+    void setDouble(int field, double value, int padding);
     void setUtcTimeStamp(int field, DateTime value);
     void setUtcTimeStamp(int field, DateTime value, bool showMilliseconds);
     void setUtcDateOnly(int field, DateTime value);

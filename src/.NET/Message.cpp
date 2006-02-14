@@ -80,6 +80,12 @@ void Message::setDouble(int field, double value)
   QF_STACK_CATCH
 }
 
+void Message::setDouble(int field, double value, int padding)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetDouble( field, value, padding, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
 void Message::setUtcTimeStamp(int field, DateTime value)
 { QF_STACK_TRY
   checkDisposed(); mapSetUtcTimeStamp( field, value, false, *m_pUnmanaged );
@@ -351,6 +357,12 @@ void Message::Header::setInt(int field, int value)
 void Message::Header::setDouble(int field, double value)
 { QF_STACK_TRY
   checkDisposed(); m_message->mapSetDouble( field, value, m_message->m_pUnmanaged->getHeader() );
+  QF_STACK_CATCH
+}
+
+void Message::Header::setDouble(int field, double value, int padding)
+{ QF_STACK_TRY
+  checkDisposed(); m_message->mapSetDouble( field, value, padding, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
@@ -648,6 +660,12 @@ void Message::Trailer::setDouble(int field, double value)
   QF_STACK_CATCH
 }
 
+void Message::Trailer::setDouble(int field, double value, int padding)
+{ QF_STACK_TRY
+  checkDisposed(); m_message->mapSetDouble( field, value, padding, m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
 void Message::Trailer::setUtcTimeStamp(int field, DateTime value)
 { QF_STACK_TRY
   checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, false, m_message->m_pUnmanaged->getTrailer() );
@@ -938,7 +956,7 @@ void Message::mapSetInt(int field, int value, FIX::FieldMap& map)
 
 void Message::mapSetDouble(int field, double value, FIX::FieldMap& map)
 { QF_STACK_TRY
-  map.setField( FIX::DoubleField(field, value ) );
+  map.setField( FIX::DoubleField(field, value) );
   QF_STACK_CATCH
 }
 

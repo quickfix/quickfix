@@ -75,7 +75,7 @@ void Group::setField( DoubleField* field )
   checkDisposed();
 
   m_pUnmanaged->setField
-    ( FIX::DoubleField( field->getField(), field->getValue() ) );
+    ( FIX::DoubleField( field->getField(), field->getValue(), field->getPadding() ) );
 
   QF_STACK_CATCH
 }
