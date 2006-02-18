@@ -201,7 +201,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setInt
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setDouble
+JNIEXPORT void JNICALL Java_quickfix_Group_setDouble__ID
 ( JNIEnv *pEnv, jobject obj, jint field, jdouble value )
 { QF_STACK_TRY
 
@@ -209,6 +209,14 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setDouble
   setDouble( *pGroup, field, value );
 
   QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Group_setDouble__IDI
+( JNIEnv *pEnv, jobject obj, jint field, jdouble value, jint padding )
+{ QF_STACK_TRY
+
+  FIX::Group * pGroup = getCPPGroup( obj );
+  setDouble( *pGroup, field, value, padding );
 }
 
 JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp__ILjava_util_Date_2
