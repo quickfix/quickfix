@@ -104,7 +104,7 @@ public:
     if ( m_path ) return new FileLog( m_path, sessionID );
 
     FIX::SessionSettings& s = m_settings->unmanaged();
-    FIX::Dictionary settings = s.get();
+    FIX::Dictionary settings = s.get( sessionID->unmanaged() );
     try
     {
       m_path = settings.getString( FIX::FILE_LOG_PATH ).c_str();

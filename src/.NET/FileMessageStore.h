@@ -63,7 +63,7 @@ public:
     if ( m_path ) return new FileStore( m_path, sessionID );
 
     FIX::SessionSettings& s = m_settings->unmanaged();
-    FIX::Dictionary settings = s.get();
+    FIX::Dictionary settings = s.get( sessionID->unmanaged() );
     m_path = settings.getString( FIX::FILE_STORE_PATH ).c_str();
     return new FileStore( m_path, sessionID );
 
