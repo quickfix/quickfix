@@ -178,8 +178,7 @@ struct CheckSumConvertor
   {
     if ( value > 255 || value < 0 ) throw FieldConvertError();
     char result[4];
-    if( integer_to_string_padded(result, sizeof(result), value, 3, '0')
-	!= result )
+    if( integer_to_string_padded(result, sizeof(result), value, 3, '0') != result )
     {
       throw FieldConvertError();
     }
@@ -201,7 +200,7 @@ struct CheckSumConvertor
 /// Converts double to/from a string
 struct DoubleConvertor
 {
-	static std::string convert( double value, int padding = 0)
+	static std::string convert( double value, int padding = 0 )
 	{
 		char result[32];
 		char *end = 0;
@@ -211,22 +210,22 @@ struct DoubleConvertor
 		{
 			size = STRING_SPRINTF( result, "%.15g", value );
 
-			if (padding > 0)
+			if( padding > 0 )
 			{
 				char* point = result;
 				end = result + size - 1;
-				while (*point != '.' && *point != 0)
+				while( *point != '.' && *point != 0 )
 					point++;
 
-				if (*point == 0)
+				if( *point == 0 )
 				{
 					end = point;
 					*point = '.';
 					size++;
 				}
-				int needed  = padding - (int)(end - point);
+				int needed = padding - (int)(end - point);
 
-				while (needed-- > 0)
+				while( needed-- > 0 )
 				{
 					*(++end) = '0';
 					size++;
@@ -240,11 +239,11 @@ struct DoubleConvertor
 			// strip trailing 0's
 			end = result + size - 1;
 
-			if (padding > 0)
+			if( padding > 0 )
 			{
 				int discard = 15 - padding;
 
-				while ((*end == '0') && (discard-- > 0))
+				while( (*end == '0') && (discard-- > 0) )
 				{
 					*(end--) = 0;
 					size--;
@@ -252,7 +251,7 @@ struct DoubleConvertor
 			}
 			else
 			{
-				while (*end == '0')
+				while( *end == '0' )
 				{
 					*(end--) = 0;
 					size--;
@@ -260,7 +259,7 @@ struct DoubleConvertor
 			}
 		}
 
-		return std::string( result, size);
+		return std::string( result, size );
 	}
 
 	static bool convert( const std::string& value, double& result )
