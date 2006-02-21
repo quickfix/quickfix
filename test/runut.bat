@@ -7,10 +7,10 @@ if "%1" == "release" goto release:
 goto usage
 
 :debug
-set DIR=bin\debug
+set DIR=bin\debug\ut
 goto start
 :release
-set DIR=bin
+set DIR=bin\release\ut
 goto start
 
 :start

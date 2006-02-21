@@ -4,6 +4,7 @@
 	Version="7.10"
 	Name="quickfix_net_vs7"
 	ProjectGUID="{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
+	RootNamespace="quickfix_net_vs7"
 	Keyword="ManagedCProj">
 	<Platforms>
 		<Platform
@@ -12,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\lib\debug"
-			IntermediateDirectory=".\debug\vs7"
+			OutputDirectory="debug\vs7"
+			IntermediateDirectory="debug\vs7"
 			ConfigurationType="2"
 			CharacterSet="2"
 			ManagedExtensions="TRUE">
@@ -41,7 +42,9 @@
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				CommandLine="xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\lib\debug&quot;
+xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\bin\debug&quot;"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool
@@ -61,7 +64,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\lib"
+			OutputDirectory="release\vs7"
 			IntermediateDirectory="release\vs7"
 			ConfigurationType="2"
 			CharacterSet="2"
@@ -89,7 +92,9 @@
 			<Tool
 				Name="VCMIDLTool"/>
 			<Tool
-				Name="VCPostBuildEventTool"/>
+				Name="VCPostBuildEventTool"
+				CommandLine="xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\lib&quot;
+xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\bin&quot;"/>
 			<Tool
 				Name="VCPreBuildEventTool"/>
 			<Tool

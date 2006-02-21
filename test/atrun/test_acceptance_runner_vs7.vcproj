@@ -15,7 +15,7 @@
 		<Configuration
 			Name="Debug|Win32"
 			OutputDirectory=".."
-			IntermediateDirectory=".\debug\vs7"
+			IntermediateDirectory="debug\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -76,7 +76,7 @@
 		<Configuration
 			Name="Release|Win32"
 			OutputDirectory=".."
-			IntermediateDirectory=".\release\vs7"
+			IntermediateDirectory="release\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"

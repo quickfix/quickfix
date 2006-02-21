@@ -1,1 +1,1 @@
-ordermatch cfg\ordermatch.cfg
+release\ordermatch\ordermatch.exe cfg\ordermatch.cfg

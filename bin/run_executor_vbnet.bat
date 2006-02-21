@@ -1,1 +1,1 @@
-executor_vbnet cfg\executor.cfg
+release\executor_vbnet\executor_vbnet.exe cfg\executor.cfg

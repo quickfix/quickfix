@@ -1,1 +1,1 @@
-executor_csharp cfg\executor.cfg
+release\executor_csharp\executor_csharp.exe cfg\executor.cfg

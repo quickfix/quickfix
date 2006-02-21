@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\bin"
-			IntermediateDirectory=".\release\vs7"
+			OutputDirectory="$(SolutionDir)\bin\release\tradeclient"
+			IntermediateDirectory="release\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -22,7 +22,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="../../include"
+				AdditionalIncludeDirectories="$(SolutionDir)\include"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				StringPooling="TRUE"
 				RuntimeLibrary="2"
@@ -41,10 +41,10 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="../../bin/tradeclient.exe"
+				OutputFile="$(OutDir)\tradeclient.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="../../lib"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib"
 				ProgramDatabaseFile=".\Release/tradeclient.pdb"
 				SubSystem="1"/>
 			<Tool
@@ -73,8 +73,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\bin\debug"
-			IntermediateDirectory=".\debug\vs7"
+			OutputDirectory="$(SolutionDir)\bin\debug\tradeclient"
+			IntermediateDirectory="debug\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -82,7 +82,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../include"
+				AdditionalIncludeDirectories="$(SolutionDir)\include"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -101,10 +101,10 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="../../bin/debug/tradeclient.exe"
+				OutputFile="$(OutDir)\tradeclient.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="TRUE"
-				AdditionalLibraryDirectories="../../lib/debug"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib\debug"
 				GenerateDebugInformation="TRUE"
 				ProgramDatabaseFile=".\Debug/tradeclient_debug.pdb"
 				SubSystem="1"/>

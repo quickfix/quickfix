@@ -20,7 +20,7 @@
                 PostBuildEvent = ""
                 RootNamespace = "executor_csharp"
                 RunPostBuildEvent = "OnBuildSuccess"
-                StartupObject = ""
+                StartupObject = "executor_csharp.Executor"
             >
                 <Config
                     Name = "Debug"
@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "..\..\..\bin\debug\"
+                    OutputPath = "..\..\..\bin\debug\executor_csharp\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -56,7 +56,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "true"
-                    OutputPath = "..\..\..\bin\"
+                    OutputPath = "..\..\..\bin\release\executor_csharp\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -80,14 +80,16 @@
                     HintPath = "C:\WINNT\Microsoft.NET\Framework\v1.0.3705\System.XML.dll"
                 />
                 <Reference
-                    Name = "quickfix_net_messages_vs7"
-                    Project = "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
-                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
-                />
-                <Reference
                     Name = "quickfix_net_vs7"
                     Project = "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
                     Package = "{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}"
+                    Private = "True"
+                />
+                <Reference
+                    Name = "quickfix_net_messages_vs7"
+                    Project = "{30A02EEB-AF70-4B20-8B97-0AFF2485EFB9}"
+                    Package = "{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}"
+                    Private = "True"
                 />
             </References>
         </Build>

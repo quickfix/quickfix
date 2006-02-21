@@ -17,7 +17,7 @@
                 DelaySign = "false"
                 OutputType = "Library"
                 PreBuildEvent = ""
-                PostBuildEvent = ""
+                PostBuildEvent = 'set CONFIGURATION_NAME=$(ConfigurationName)&#xd;&#xa;if "%CONFIGURATION_NAME%" == "Release" xcopy "$(ProjectDir)$(OutDir)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib"&#xd;&#xa;if "%CONFIGURATION_NAME%" == "Debug" xcopy "$(ProjectDir)$(OutDir)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib\debug"&#xd;&#xa;'
                 RootNamespace = "QuickFix"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
@@ -36,7 +36,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "false"
-                    OutputPath = "..\..\lib\debug\"
+                    OutputPath = "debug\vs7\messages\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -56,7 +56,7 @@
                     NoStdLib = "false"
                     NoWarn = ""
                     Optimize = "true"
-                    OutputPath = "..\..\lib\"
+                    OutputPath = "release\vs7\messages\"
                     RegisterForComInterop = "false"
                     RemoveIntegerChecks = "false"
                     TreatWarningsAsErrors = "false"
@@ -83,6 +83,7 @@
                     Name = "quickfix_net_vc7"
                     Project = "{FCE44FC5-2E80-4F7B-A11F-2974C0FAFC8C}"
                     Package = "{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}"
+                    Private = "True"
                 />
             </References>
         </Build>

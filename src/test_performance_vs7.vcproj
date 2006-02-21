@@ -4,6 +4,7 @@
 	Version="7.10"
 	Name="test_performance_vs7"
 	ProjectGUID="{4E6CE474-47A1-4AC8-8161-9CD214664EBB}"
+	RootNamespace="test_performance_vs7"
 	SccProjectName=""
 	SccLocalPath="">
 	<Platforms>
@@ -13,8 +14,8 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\bin\debug"
-			IntermediateDirectory=".\debug\vs7"
+			OutputDirectory="$(SolutionDir)\bin\debug\pt"
+			IntermediateDirectory="debug\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -76,8 +77,8 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\bin"
-			IntermediateDirectory=".\release\vs7"
+			OutputDirectory="$(SolutionDir)\bin\release\pt"
+			IntermediateDirectory="release\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"

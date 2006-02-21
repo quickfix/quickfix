@@ -13,8 +13,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\bin"
-			IntermediateDirectory=".\release\vs7"
+			OutputDirectory="$(SolutionDir)\bin\release\at"
+			IntermediateDirectory="release\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"
@@ -74,8 +74,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\bin\debug"
-			IntermediateDirectory=".\debug\vs7"
+			OutputDirectory="$(SolutionDir)\bin\debug\at"
+			IntermediateDirectory="debug\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
 			ATLMinimizesCRunTimeLibraryUsage="FALSE"

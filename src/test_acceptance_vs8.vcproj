@@ -16,8 +16,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\bin"
-			IntermediateDirectory=".\release\vs8"
+			OutputDirectory="$(SolutionDir)\bin\release\at"
+			IntermediateDirectory="release\vs8"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -107,8 +107,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\bin\debug"
-			IntermediateDirectory=".\debug\vs8"
+			OutputDirectory="$(SolutionDir)\bin\debug\at"
+			IntermediateDirectory="debug\vs8"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"

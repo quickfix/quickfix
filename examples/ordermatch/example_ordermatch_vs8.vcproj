@@ -16,8 +16,8 @@
 	<Configurations>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory="$(SolutionDir)\bin"
-			IntermediateDirectory=".\release\vs8"
+			OutputDirectory="$(SolutionDir)\bin\release\ordermatch"
+			IntermediateDirectory="release\vs8"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -43,7 +43,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				InlineFunctionExpansion="1"
-				AdditionalIncludeDirectories="../../include"
+				AdditionalIncludeDirectories="$(SolutionDir)\include"
 				PreprocessorDefinitions="WIN32,NDEBUG,_CONSOLE"
 				StringPooling="true"
 				RuntimeLibrary="2"
@@ -73,10 +73,10 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="../../bin/ordermatch.exe"
+				OutputFile="$(OutDir)\ordermatch.exe"
 				LinkIncremental="1"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="../../lib"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib"
 				ProgramDatabaseFile=".\Release/ordermatch.pdb"
 				SubSystem="1"
 			/>
@@ -107,8 +107,8 @@
 		</Configuration>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory="$(SolutionDir)\bin\debug"
-			IntermediateDirectory=".\debug\vs8"
+			OutputDirectory="$(SolutionDir)\bin\debug\ordermatch"
+			IntermediateDirectory="debug\vs8"
 			ConfigurationType="1"
 			InheritedPropertySheets="$(VCInstallDir)VCProjectDefaults\UpgradeFromVC71.vsprops"
 			UseOfMFC="0"
@@ -134,7 +134,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../include"
+				AdditionalIncludeDirectories="$(SolutionDir)\include"
 				PreprocessorDefinitions="WIN32,_DEBUG,_CONSOLE"
 				BasicRuntimeChecks="3"
 				RuntimeLibrary="3"
@@ -163,10 +163,10 @@
 				Name="VCLinkerTool"
 				AdditionalOptions="/MACHINE:I386"
 				AdditionalDependencies="quickfix.lib ws2_32.lib odbc32.lib odbccp32.lib"
-				OutputFile="../../bin/debug/ordermatch.exe"
+				OutputFile="$(OutDir)\ordermatch.exe"
 				LinkIncremental="2"
 				SuppressStartupBanner="true"
-				AdditionalLibraryDirectories="../../lib/debug"
+				AdditionalLibraryDirectories="$(SolutionDir)\lib\debug"
 				GenerateDebugInformation="true"
 				ProgramDatabaseFile=".\Debug/ordermatch_debug.pdb"
 				SubSystem="1"

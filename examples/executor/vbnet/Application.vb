@@ -27,12 +27,12 @@ Public Class Application
     End Sub
 
     Public Overloads Overrides Sub onMessage(ByVal order As QuickFix40.NewOrderSingle, ByVal sessionID As QuickFix.SessionID)
-        Dim symbol As New Symbol()
-        Dim side As New Side()
-        Dim ordType As New OrdType()
-        Dim orderQty As New OrderQty()
-        Dim price As New Price()
-        Dim clOrdID As New ClOrdID()
+        Dim symbol As New Symbol
+        Dim side As New Side
+        Dim ordType As New OrdType
+        Dim orderQty As New OrderQty
+        Dim price As New Price
+        Dim clOrdID As New ClOrdID
 
         order.get(ordType)
 
@@ -68,12 +68,12 @@ Public Class Application
     End Sub
 
     Public Overloads Overrides Sub onMessage(ByVal order As QuickFix41.NewOrderSingle, ByVal sessionID As QuickFix.SessionID)
-        Dim symbol As New Symbol()
-        Dim side As New Side()
-        Dim ordType As New OrdType()
-        Dim orderQty As New OrderQty()
-        Dim price As New Price()
-        Dim clOrdID As New ClOrdID()
+        Dim symbol As New Symbol
+        Dim side As New Side
+        Dim ordType As New OrdType
+        Dim orderQty As New OrderQty
+        Dim price As New Price
+        Dim clOrdID As New ClOrdID
 
         order.get(ordType)
 
@@ -109,12 +109,12 @@ Public Class Application
     End Sub
 
     Public Overloads Overrides Sub onMessage(ByVal order As QuickFix42.NewOrderSingle, ByVal sessionID As QuickFix.SessionID)
-        Dim symbol As New Symbol()
-        Dim side As New Side()
-        Dim ordType As New OrdType()
-        Dim orderQty As New OrderQty()
-        Dim price As New Price()
-        Dim clOrdID As New ClOrdID()
+        Dim symbol As New Symbol
+        Dim side As New Side
+        Dim ordType As New OrdType
+        Dim orderQty As New OrderQty
+        Dim price As New Price
+        Dim clOrdID As New ClOrdID
 
         order.get(ordType)
 
@@ -152,12 +152,12 @@ Public Class Application
     End Sub
 
     Public Overloads Overrides Sub onMessage(ByVal order As QuickFix43.NewOrderSingle, ByVal sessionID As QuickFix.SessionID)
-        Dim symbol As New Symbol()
-        Dim side As New Side()
-        Dim ordType As New OrdType()
-        Dim orderQty As New OrderQty()
-        Dim price As New Price()
-        Dim clOrdID As New ClOrdID()
+        Dim symbol As New Symbol
+        Dim side As New Side
+        Dim ordType As New OrdType
+        Dim orderQty As New OrderQty
+        Dim price As New Price
+        Dim clOrdID As New ClOrdID
 
         order.get(ordType)
 
@@ -193,12 +193,12 @@ Public Class Application
     End Sub
 
     Public Overloads Overrides Sub onMessage(ByVal order As QuickFix44.NewOrderSingle, ByVal sessionID As QuickFix.SessionID)
-        Dim symbol As New Symbol()
-        Dim side As New Side()
-        Dim ordType As New OrdType()
-        Dim orderQty As New OrderQty()
-        Dim price As New Price()
-        Dim clOrdID As New ClOrdID()
+        Dim symbol As New Symbol
+        Dim side As New Side
+        Dim ordType As New OrdType
+        Dim orderQty As New OrderQty
+        Dim price As New Price
+        Dim clOrdID As New ClOrdID
 
         order.get(ordType)
 

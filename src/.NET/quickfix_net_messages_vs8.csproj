@@ -28,7 +28,7 @@
     </UpgradeBackupLocation>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <OutputPath>..\..\lib\debug\</OutputPath>
+    <OutputPath>debug\vs8\messages\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -51,7 +51,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <OutputPath>..\..\lib\</OutputPath>
+    <OutputPath>release\vs7\messages\</OutputPath>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
     <BaseAddress>285212672</BaseAddress>
     <CheckForOverflowUnderflow>false</CheckForOverflowUnderflow>
@@ -924,7 +924,9 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>
-    </PostBuildEvent>
+    <PostBuildEvent>set CONFIGURATION_NAME=$(ConfigurationName)
+if "%25CONFIGURATION_NAME%25" == "Release" xcopy "$(ProjectDir)$(OutDir)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib"
+if "%25CONFIGURATION_NAME%25" == "Debug" xcopy "$(ProjectDir)$(OutDir)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib\debug"
+</PostBuildEvent>
   </PropertyGroup>
 </Project>
