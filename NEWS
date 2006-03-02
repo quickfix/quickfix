@@ -1,3 +1,28 @@
+1.11.1
+------
+Added padding support for double fields.  Allows you to supply the
+minimum number of decimal places in a double.  When set to two, 9 will
+become 9.00, but 9.121 will remain the same.
+
+Fixed bug in MySQLLog where it tries to log to old incoming_log table
+instead of the newer messages_log table.
+
+FileLog clear() method did not work.  This has been fixed.
+
+When the clear() method on a log is called, only the logs
+pertaining to that session will be deleted.  Previously it was
+deleting logs from all sessions.
+
+Fixed problem when building from the IDE which would lock the .NET
+libraries causing the builds for some .NET projects to fail.
+
+Added Dictionary, MySQL and PostgreSQL source files to vs6 jni project.
+
+In .NET, settings can now be pulled from the SESSION section, and not
+just the DEFAULT section.
+
+Fixed port issues in example cvonfiguration files.
+
 1.11.0
 ------
 Updated code so it will compile under gcc 4.0 and Visual Studio .NET 2005.
