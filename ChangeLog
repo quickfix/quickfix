@@ -1,3 +1,12 @@
+2006-03-05 00:01  orenmnero
+
+	* src/C++/: MSSQLLog.cpp, MySQLLog.cpp, PostgreSQLLog.cpp: clear
+	  messages table instead of older incoming and outgoing tables
+
+2006-03-02 01:21  orenmnero
+
+	* ChangeLog: [no log message]
+
 2006-03-02 01:14  orenmnero
 
 	* doc/html/: doxygen.css, doxygen.gif, .cvsignore: [no log message]

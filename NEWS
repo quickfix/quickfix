@@ -9,6 +9,9 @@ instead of the newer messages_log table.
 
 FileLog clear() method did not work.  This has been fixed.
 
+clear() method for sql logs were clearing old incoming and outgoing
+tables instead of the newer messages table.
+
 When the clear() method on a log is called, only the logs
 pertaining to that session will be deleted.  Previously it was
 deleting logs from all sessions.
