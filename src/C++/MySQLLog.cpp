@@ -118,8 +118,7 @@ void MySQLLog::clear()
 { QF_STACK_PUSH(MySQLLog::clear)
 
   std::stringstream whereClause;
-  std::stringstream incomingQuery;
-  std::stringstream outgoingQuery;
+  std::stringstream messagesQuery;
   std::stringstream eventQuery;
 
   whereClause << "WHERE "
@@ -127,15 +126,12 @@ void MySQLLog::clear()
     << "AND SenderCompID = \"" << m_sessionID.getSenderCompID().getValue() << "\","
     << "AND TargetCompID = \"" << m_sessionID.getTargetCompID().getValue() << "\"";
 
-  incomingQuery << "DELETE FROM incoming_log " << whereClause.str();
-  outgoingQuery << "DELETE FROM outgoing_log " << whereClause.str();
+  messagesQuery << "DELETE FROM messages_log " << whereClause.str();
   eventQuery << "DELETE FROM event_log " << whereClause.str();
 
-  MySQLQuery incoming( incomingQuery.str() );
-  MySQLQuery outgoing( outgoingQuery.str() );
+  MySQLQuery messages( incomingQuery.str() );
   MySQLQuery event( eventQuery.str() );
-  m_pConnection->execute( incoming );
-  m_pConnection->execute( outgoing );
+  m_pConnection->execute( messages );
   m_pConnection->execute( event );
 
   QF_STACK_POP

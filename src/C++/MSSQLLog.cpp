@@ -146,8 +146,7 @@ void MSSQLLog::clear()
   PDBPROCESS* pConnection = reinterpret_cast < PDBPROCESS* > ( m_pConnection );
 
   std::stringstream whereClause;
-  std::stringstream incomingQuery;
-  std::stringstream outgoingQuery;
+  std::stringstream messagesQuery;
   std::stringstream eventQuery;
 
   whereClause << "WHERE "
@@ -155,13 +154,10 @@ void MSSQLLog::clear()
     << "AND SenderCompID = '" << m_sessionID.getSenderCompID().getValue() << "',"
     << "AND TargetCompID = '" << m_sessionID.getTargetCompID().getValue() << "'";
 
-  incomingQuery << "DELETE FROM incoming_log " << whereClause.str();
-  outgoingQuery << "DELETE FROM outgoing_log " << whereClause.str();
+  messagesQuery << "DELETE FROM messages_log " << whereClause.str();
   eventQuery << "DELETE FROM event_log " << whereClause.str();
 
-  dbcmd( pConnection, incomingQuery.str().c_str() );
-  dbsqlexec( pConnection );
-  dbcmd( pConnection, outgoingQuery.str().c_str() );
+  dbcmd( pConnection, messagesQuery.str().c_str() );
   dbsqlexec( pConnection );
   dbcmd( pConnection, eventQuery.str().c_str() );
   dbsqlexec( pConnection );
