@@ -129,7 +129,7 @@ void MySQLLog::clear()
   messagesQuery << "DELETE FROM messages_log " << whereClause.str();
   eventQuery << "DELETE FROM event_log " << whereClause.str();
 
-  MySQLQuery messages( incomingQuery.str() );
+  MySQLQuery messages( messagesQuery.str() );
   MySQLQuery event( eventQuery.str() );
   m_pConnection->execute( messages );
   m_pConnection->execute( event );
