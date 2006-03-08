@@ -34,7 +34,7 @@ uninstall-local:
 	rm -rf $(PYTHON_SITE_PACKAGES)/_quickfix.so
 	rm -rf $(PYTHON_SITE_PACKAGES)/quickfix.py
 
-libquickfix_python_la_LDFLAGS = -version-info 4:0:0
+libquickfix_python_la_LDFLAGS = -version-info 4:1:0
 libquickfix_python_la_LIBADD = $(top_builddir)/src/C++/libquickfix.la 
 
 INCLUDES =-I. -I.. -I../..
