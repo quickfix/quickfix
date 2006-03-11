@@ -1594,6 +1594,14 @@ SOURCE=".\MySQLStore.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=.\OdbcLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\OdbcStore.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\PostgreSQLLog.cpp
 # End Source File
 # Begin Source File
@@ -1639,6 +1647,18 @@ SOURCE=".\MySQLLog.h"
 # Begin Source File
 
 SOURCE=".\MySQLStore.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\OdbcConnection.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\OdbcLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\OdbcStore.h
 # End Source File
 # Begin Source File
 

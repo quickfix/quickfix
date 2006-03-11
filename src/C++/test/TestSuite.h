@@ -34,6 +34,7 @@
 #include "C++/test/MySQLStoreTestCase.h"
 #include "C++/test/MSSQLStoreTestCase.h"
 #include "C++/test/PostgreSQLStoreTestCase.h"
+#include "C++/test/OdbcStoreTestCase.h"
 #include "C++/test/FileStoreFactoryTestCase.h"
 #include "C++/test/UtcTimeStampTestCase.h"
 #include "C++/test/UtcTimeOnlyTestCase.h"
@@ -60,6 +61,9 @@ public:
 #endif
 #ifdef HAVE_POSTGRESQL
   m_postgreSQLStore( sessionSettings ),
+#endif
+#ifdef HAVE_ODBC
+  m_odbcStore( sessionSettings ),
 #endif
   m_socketUtilities( port ), m_socketConnector( port ),
   m_socketServer( port )
@@ -98,6 +102,9 @@ public:
 #endif
 #ifdef HAVE_POSTGRESQL
     add( &m_postgreSQLStore );
+#endif
+#ifdef HAVE_ODBC
+    add( &m_odbcStore );
 #endif
     add( &m_fileStoreFactory );
     add( &m_utcTimeStamp );
@@ -155,6 +162,9 @@ private:
 #endif
 #ifdef HAVE_POSTGRESQL
   FIX::PostgreSQLStoreTestCase m_postgreSQLStore;
+#endif
+#ifdef HAVE_ODBC
+  FIX::OdbcStoreTestCase m_odbcStore;
 #endif
   FIX::FileStoreFactoryTestCase m_fileStoreFactory;
   FIX::UtcTimeStampTestCase m_utcTimeStamp;

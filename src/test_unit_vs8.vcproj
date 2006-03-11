@@ -267,6 +267,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\C++\test\OdbcStoreTestCase.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\C++\test\ParserTestCase.cpp"
 				>
 			</File>
@@ -385,6 +389,10 @@
 			</File>
 			<File
 				RelativePath=".\C++\test\MySQLStoreTestCase.h"
+				>
+			</File>
+			<File
+				RelativePath=".\C++\test\OdbcStoreTestCase.h"
 				>
 			</File>
 			<File

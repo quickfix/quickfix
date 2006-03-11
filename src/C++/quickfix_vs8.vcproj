@@ -2562,6 +2562,14 @@
 					>
 				</File>
 				<File
+					RelativePath=".\OdbcLog.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\OdbcStore.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\PostgreSQLLog.cpp"
 					>
 				</File>
@@ -2730,6 +2738,18 @@
 							Outputs=""
 						/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\OdbcConnection.h"
+					>
+				</File>
+				<File
+					RelativePath=".\OdbcLog.h"
+					>
+				</File>
+				<File
+					RelativePath=".\OdbcStore.h"
+					>
 				</File>
 				<File
 					RelativePath=".\PostgreSQLConnection.h"

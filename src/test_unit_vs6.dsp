@@ -146,6 +146,10 @@ SOURCE=".\C++\test\MySQLStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
+SOURCE=".\C++\test\OdbcStoreTestCase.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\C++\test\ParserTestCase.cpp"
 # End Source File
 # Begin Source File
@@ -263,6 +267,10 @@ SOURCE=".\C++\test\MSSQLStoreTestCase.h"
 # Begin Source File
 
 SOURCE=".\C++\test\MySQLStoreTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\OdbcStoreTestCase.h"
 # End Source File
 # Begin Source File
 
