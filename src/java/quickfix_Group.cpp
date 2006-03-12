@@ -258,7 +258,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly__ILjava_util_Date_2
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly__ILjava_util_Date_2
+JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeOnly__ILjava_util_Date_2Z
 ( JNIEnv *pEnv, jobject obj, jint field, jobject value, jboolean showMilliseconds )
 { QF_STACK_TRY
 
