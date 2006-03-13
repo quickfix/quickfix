@@ -130,7 +130,7 @@ clean-local:
 
 install-exec-local: *.h
 	rm -rf $(pkgincludedir)
-	mkdir $(pkgincludedir)
+	$(mkdir_p) $(pkgincludedir)
 	mkdir $(pkgincludedir)/fix40
 	mkdir $(pkgincludedir)/fix41
 	mkdir $(pkgincludedir)/fix42
