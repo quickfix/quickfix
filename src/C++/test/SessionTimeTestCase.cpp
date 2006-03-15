@@ -190,6 +190,31 @@ void SessionTimeTestCase::isSameSession::onRun( SessionTime& object )
   time2 = UtcTimeStamp( 19, 06, 0, 1, 14, 2004 );
   assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
   assert( !SessionTime::isSameSession( start, end, time2, time1 ) );
+
+  // start time is greater than end time
+  start = UtcTimeOnly( 10, 0, 0 );
+  end = UtcTimeOnly( 2, 0, 0 );
+
+  // same session time 1 is in next day
+  time1 = UtcTimeStamp( 10, 0, 11, 9, 3, 2006 );
+  time2 = UtcTimeStamp( 10, 0, 14, 8, 3, 2006 );
+  assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
+  
+  // same session time 1 is in next day
+  start = UtcTimeOnly( 16, 0, 0 );
+  end = UtcTimeOnly( 15, 0, 0 );
+
+  time1 = UtcTimeStamp( 14, 0, 0, 9, 3, 2006 );
+  time2 = UtcTimeStamp( 1, 0, 0, 9, 3, 2006 );
+  assert( SessionTime::isSameSession( start, end, time1, time2 ) );
+  time2 = UtcTimeStamp( 23, 0, 0, 8, 3, 2006 );
+  assert( SessionTime::isSameSession( start, end, time1, time2 ) );
+
+  time1 = UtcTimeStamp( 17, 0, 0, 9, 3, 2006 );
+  time2 = UtcTimeStamp( 1, 0, 0, 9, 3, 2006 );
+  assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
+  time2 = UtcTimeStamp( 23, 0, 0, 8, 3, 2006 );
+  assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
 }
 
 void SessionTimeTestCase::isSameSessionWithDay::onRun( SessionTime& object )

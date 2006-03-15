@@ -106,15 +106,33 @@ namespace FIX
 
     if( time1 == time2 ) return true;
 
-    UtcDate time1Date( time1 );
-    UtcDate time2Date( time2 );
-
     if( start < end || start == end )
+    {
+      UtcDate time1Date( time1 );
+      UtcDate time2Date( time2 );
+ 
       return time1Date == time2Date;
-    else if( start > end )
-      return labs( time1 - time2 ) < DateTime::SECONDS_PER_DAY;
-    return false;
+    }
+    else
+    {
+      int sessionLength = DateTime::SECONDS_PER_DAY - (start - end);
 
+		  if( time1 > time2 )
+      {
+  		  UtcTimeOnly time2TimeOnly = UtcTimeOnly(time2);
+	  	  
+        long delta = time2TimeOnly - start;
+		    if( delta < 0 )
+			    delta = DateTime::SECONDS_PER_DAY - labs(delta);
+
+			  return (time1 - time2) < (sessionLength - delta);
+      }
+		  else
+      {
+			  return (time2 - time1) < sessionLength;
+      }
+    }
+	
     QF_STACK_POP
   }
 
