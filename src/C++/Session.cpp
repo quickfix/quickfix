@@ -124,7 +124,7 @@ void Session::next()
         if( !m_state.sentLogout() )
         {
           m_state.onEvent( "Initiated logout request" );
-          generateLogout( m_logoutReason );
+          generateLogout( m_state.logoutReason() );
         }
       }
       else
@@ -536,7 +536,7 @@ void Session::disconnect()
   m_state.receivedReset( false );
   m_state.sentReset( false );
   m_state.clearQueue();
-  m_logoutReason = "";
+  m_state.logoutReason();
   if ( m_resetOnDisconnect )
     m_state.reset();
 

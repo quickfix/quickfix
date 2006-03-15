@@ -218,7 +218,6 @@ private:
   Application& m_application;
   SessionID m_sessionID;
   SessionTime m_sessionTime;
-  std::string m_logoutReason;
 
   bool m_checkLatency;
   int m_maxLatency;
