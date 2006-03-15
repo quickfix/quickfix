@@ -257,7 +257,7 @@ throw( ConfigError )
 
   while(pHeaderFieldNode.get())
   {
-    if(pHeaderFieldNode->getName() == "field")
+    if(pHeaderFieldNode->getName() == "field" || pHeaderFieldNode->getName() == "group" )
     {
       DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
       std::string name;
@@ -280,7 +280,7 @@ throw( ConfigError )
 
   while(pTrailerFieldNode.get())
   {
-    if(pTrailerFieldNode->getName() == "field")
+    if(pTrailerFieldNode->getName() == "field" || pTrailerFieldNode->getName() == "group" )
     {
       DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
       std::string name;
