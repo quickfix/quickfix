@@ -707,7 +707,6 @@ void Session::generateReject( const Message& message, int err, int field )
 
   MsgSeqNum msgSeqNum;
   MsgType msgType;
-  PossDupFlag possDupFlag( false );
 
   message.getHeader().getField( msgType );
   if( message.getHeader().isSetField( msgSeqNum ) )
@@ -716,8 +715,6 @@ void Session::generateReject( const Message& message, int err, int field )
     if( msgSeqNum.getString() != "" )
       reject.setField( RefSeqNum( msgSeqNum ) );
   }
-  if ( message.getHeader().isSetField( possDupFlag ) )
-    message.getHeader().getField( possDupFlag );
 
   if ( beginString >= FIX::BeginString_FIX42 )
   {
@@ -809,7 +806,6 @@ void Session::generateReject( const Message& message, const std::string& str )
 
   MsgType msgType;
   MsgSeqNum msgSeqNum;
-  PossDupFlag possDupFlag( false );
 
   message.getHeader().getField( msgType );
   message.getHeader().getField( msgSeqNum );
@@ -817,9 +813,8 @@ void Session::generateReject( const Message& message, const std::string& str )
     reject.setField( RefMsgType( msgType ) );
   reject.setField( RefSeqNum( msgSeqNum ) );
 
-  if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset
-       && !possDupFlag )
-  { m_state.incrNextTargetMsgSeqNum(); }
+  if ( msgType != MsgType_Logon && msgType != MsgType_SequenceReset )
+    m_state.incrNextTargetMsgSeqNum();
 
   reject.setField( Text( str ) );
   sendRaw( reject );
