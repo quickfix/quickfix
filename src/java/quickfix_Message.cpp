@@ -391,24 +391,24 @@ JNIEXPORT void JNICALL Java_quickfix_Message_removeGroup__II
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_hasGroup__I
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_hasGroup__I
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::FieldMap* pMessage = getCPPMessage( obj );
-  pMessage->hasGroup( field );
+  return pMessage->hasGroup( field );
   
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_hasGroup__II
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_hasGroup__II
 ( JNIEnv *pEnv, jobject obj, jint num, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::FieldMap* pMessage = getCPPMessage( obj );
-  pMessage->hasGroup( num, field );
+  return pMessage->hasGroup( num, field );
 
   QF_STACK_CATCH
 }
@@ -718,24 +718,24 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerRemoveGroup__II
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_headerHasGroup__I
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerHasGroup__I
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  pMessage->getHeader().hasGroup( field );
+  return pMessage->getHeader().hasGroup( field );
   
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_headerHasGroup__II
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerHasGroup__II
 ( JNIEnv *pEnv, jobject obj, jint num, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  pMessage->getHeader().hasGroup( num, field );
+  return pMessage->getHeader().hasGroup( num, field );
 
   QF_STACK_CATCH
 }
@@ -1103,24 +1103,24 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveGroup__II
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_trailerHasGroup__I
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerHasGroup__I
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  pMessage->getTrailer().hasGroup( field );
+  return pMessage->getTrailer().hasGroup( field );
   
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Message_trailerHasGroup__II
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerHasGroup__II
 ( JNIEnv *pEnv, jobject obj, jint num, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::Message* pMessage = getCPPMessage( obj );
-  pMessage->getTrailer().hasGroup( num, field );
+  return pMessage->getTrailer().hasGroup( num, field );
 
   QF_STACK_CATCH
 }

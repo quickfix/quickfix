@@ -187,13 +187,13 @@ public class Message extends FieldMap {
 	public void removeGroup(Group group) {
 		removeGroup( group.field() );
 	}
-	public native void hasGroup(int field);
-	public native void hasGroup(int num, int field);
-	public void hasGroup(int num, Group group) {
-		hasGroup( num, group.field() );
+	public native boolean hasGroup(int field);
+	public native boolean hasGroup(int num, int field);
+	public boolean hasGroup(int num, Group group) {
+		return hasGroup( num, group.field() );
 	}
-	public void hasGroup(Group group) {
-		hasGroup( group.field() );
+	public boolean hasGroup(Group group) {
+		return hasGroup( group.field() );
 	}
 
     public java.util.Iterator iterator() {
@@ -410,17 +410,17 @@ public class Message extends FieldMap {
 		public void removeGroup(Group group) {
 			headerRemoveGroup( group.field() );
 		}
-		public void hasGroup(int field) {
-			headerHasGroup( field );
+		public boolean hasGroup(int field) {
+			return headerHasGroup( field );
 		}
-		public void hasGroup(int num, int field) {
-			headerHasGroup( num, field );
+		public boolean hasGroup(int num, int field) {
+			return headerHasGroup( num, field );
 		}
-		public void hasGroup(int num, Group group) {
-			headerHasGroup( num, group.field() );
+		public boolean hasGroup(int num, Group group) {
+			return headerHasGroup( num, group.field() );
 		}
-		public void hasGroup(Group group) {
-			headerHasGroup( group.field() );
+		public boolean hasGroup(Group group) {
+			return headerHasGroup( group.field() );
 		}
 
         public java.util.Iterator iterator() {
@@ -599,17 +599,17 @@ public class Message extends FieldMap {
 		public void removeGroup(Group group) {
 			trailerRemoveGroup( group );
 		}
-		public void hasGroup(int field) {
-			trailerHasGroup( field );
+		public boolean hasGroup(int field) {
+			return trailerHasGroup( field );
 		}
-		public void hasGroup(int num, int field) {
-			trailerHasGroup( num, field );
+		public boolean hasGroup(int num, int field) {
+			return trailerHasGroup( num, field );
 		}
-		public void hasGroup(int num, Group group) {
-			trailerHasGroup( num, group );
+		public boolean hasGroup(int num, Group group) {
+			return trailerHasGroup( num, group );
 		}
-		public void hasGroup(Group group) {
-			trailerHasGroup( group );
+		public boolean hasGroup(Group group) {
+			return trailerHasGroup( group );
 		}
 
         public java.util.Iterator iterator() {
@@ -655,13 +655,13 @@ public class Message extends FieldMap {
 	public void headerRemoveGroup(Group group) {
 		headerRemoveGroup( group.field() );
 	}
-	public native void headerHasGroup(int field);
-	public native void headerHasGroup(int num, int field);
-	public void headerHasGroup(int num, Group group) {
-		headerHasGroup( num, group.field() );
+	public native boolean headerHasGroup(int field);
+	public native boolean headerHasGroup(int num, int field);
+	public boolean headerHasGroup(int num, Group group) {
+		return headerHasGroup( num, group.field() );
 	}
-	public void headerHasGroup(Group group) {
-		headerHasGroup( group.field() );
+	public boolean headerHasGroup(Group group) {
+		return headerHasGroup( group.field() );
 	}
 
     private native Iterator headerIteratorCreate( Header.Iterator i );
@@ -702,13 +702,13 @@ public class Message extends FieldMap {
 	public void trailerRemoveGroup(Group group) {
 		trailerRemoveGroup( group.field() );
 	}
-	public native void trailerHasGroup(int field);
-	public native void trailerHasGroup(int num, int field);
-	public void trailerHasGroup(int num, Group group) {
-		trailerHasGroup( num, group.field() );
+	public native boolean trailerHasGroup(int field);
+	public native boolean trailerHasGroup(int num, int field);
+	public boolean trailerHasGroup(int num, Group group) {
+		return trailerHasGroup( num, group.field() );
 	}
-	public void trailerHasGroup(Group group) {
-		trailerHasGroup( group.field() );
+	public boolean trailerHasGroup(Group group) {
+		return trailerHasGroup( group.field() );
 	}
 
     private native Iterator trailerIteratorCreate( Trailer.Iterator i );

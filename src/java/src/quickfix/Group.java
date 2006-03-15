@@ -137,13 +137,13 @@ public class Group extends FieldMap {
     public void removeGroup(Group group) {
         removeGroup( group.field() );
     }
-    public native void hasGroup(int field);
-    public native void hasGroup(int num, int field);
-    public void hasGroup(int num, Group group) {
-        hasGroup( num, group.field() );
+    public native boolean hasGroup(int field);
+    public native boolean hasGroup(int num, int field);
+    public boolean hasGroup(int num, Group group) {
+        return hasGroup( num, group.field() );
     }
-    public void hasGroup(Group group) {
-        hasGroup( group.field() );
+    public boolean hasGroup(Group group) {
+        return hasGroup( group.field() );
     }
 
     public java.util.Iterator iterator() {

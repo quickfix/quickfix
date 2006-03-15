@@ -250,17 +250,17 @@ JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup__II
 /*
  * Class:     quickfix_Group
  * Method:    hasGroup
- * Signature: (I)V
+ * Signature: (I)Z
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__I
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_hasGroup__I
   (JNIEnv *, jobject, jint);
 
 /*
  * Class:     quickfix_Group
  * Method:    hasGroup
- * Signature: (II)V
+ * Signature: (II)Z
  */
-JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__II
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_hasGroup__II
   (JNIEnv *, jobject, jint, jint);
 
 /*

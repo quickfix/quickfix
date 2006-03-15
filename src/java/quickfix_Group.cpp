@@ -136,24 +136,24 @@ JNIEXPORT void JNICALL Java_quickfix_Group_removeGroup__II
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__I
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_hasGroup__I
 ( JNIEnv *pEnv, jobject obj, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::FieldMap* pMessage = getCPPGroup( obj );
-  pMessage->hasGroup( field );
+  return pMessage->hasGroup( field );
   
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Group_hasGroup__II
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_hasGroup__II
 ( JNIEnv *pEnv, jobject obj, jint num, jint field )
 { QF_STACK_TRY
 
   JVM::set( pEnv );
   FIX::FieldMap* pMessage = getCPPGroup( obj );
-  pMessage->hasGroup( num, field );
+  return pMessage->hasGroup( num, field );
 
   QF_STACK_CATCH
 }

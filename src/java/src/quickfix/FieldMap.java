@@ -66,9 +66,9 @@ public abstract class FieldMap {
     public abstract void removeGroup(int num, int field);
     public abstract void removeGroup(int num, Group group);
     public abstract void removeGroup(Group group);
-    public abstract void hasGroup(int field);
-    public abstract void hasGroup(int num, int field);
-    public abstract void hasGroup(int num, Group group);
-    public abstract void hasGroup(Group group);
+    public abstract boolean hasGroup(int field);
+    public abstract boolean hasGroup(int num, int field);
+    public abstract boolean hasGroup(int num, Group group);
+    public abstract boolean hasGroup(Group group);
     public abstract Iterator iterator();
 }
