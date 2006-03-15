@@ -54,5 +54,6 @@ using System.Runtime.CompilerServices;
 //       documentation for more information on this.
 //
 [assembly: AssemblyDelaySign(false)]
-[assembly: AssemblyKeyFile("")]
+[assembly: AssemblyKeyFile("..\\..\\quickfix_net_messages.snk")]
 [assembly: AssemblyKeyName("")]
+

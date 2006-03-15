@@ -53,6 +53,6 @@ using namespace System::Runtime::CompilerServices;
 //       documentation for more information on this.
 //
 [ assembly: AssemblyDelaySignAttribute( false ) ];
-[ assembly: AssemblyKeyFileAttribute( "" ) ];
+[ assembly: AssemblyKeyFileAttribute( "quickfix_net.snk" ) ];
 [ assembly: AssemblyKeyNameAttribute( "" ) ];
 
