@@ -79,7 +79,7 @@ namespace QuickFix44
     public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
-    static int[] message_order = new int[] {448,447,452,0};
+    static int[] message_order = new int[] {448,447,452,802,0};
       public void set(QuickFix.PartyID value)
       { setField(value); }
       public QuickFix.PartyID get(QuickFix.PartyID  value)
@@ -233,7 +233,7 @@ namespace QuickFix44
     public class NoRegistDtls: QuickFix.Group
     {
     public NoRegistDtls() : base(473,509,message_order ) {}
-    static int[] message_order = new int[] {509,511,474,482,522,486,475,0};
+    static int[] message_order = new int[] {509,511,474,482,539,522,486,475,0};
       public void set(QuickFix.RegistDtls value)
       { setField(value); }
       public QuickFix.RegistDtls get(QuickFix.RegistDtls  value)
@@ -297,7 +297,7 @@ namespace QuickFix44
       public class NoNestedPartyIDs: QuickFix.Group
       {
       public NoNestedPartyIDs() : base(539,524,message_order ) {}
-      static int[] message_order = new int[] {524,525,538,0};
+      static int[] message_order = new int[] {524,525,538,804,0};
         public void set(QuickFix.NestedPartyID value)
         { setField(value); }
         public QuickFix.NestedPartyID get(QuickFix.NestedPartyID  value)

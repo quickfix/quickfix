@@ -1057,7 +1057,7 @@ namespace QuickFix43
     public class NoSides: QuickFix.Group
     {
     public NoSides() : base(552,54,message_order ) {}
-    static int[] message_order = new int[] {54,41,11,526,583,586,229,1,581,589,590,591,465,38,152,516,468,469,12,13,479,497,528,529,582,121,120,58,354,355,77,203,544,635,377,659,0};
+    static int[] message_order = new int[] {54,41,11,526,583,586,453,229,1,581,589,590,591,78,465,38,152,516,468,469,12,13,479,497,528,529,582,121,120,58,354,355,77,203,544,635,377,659,0};
       public void set(QuickFix.Side value)
       { setField(value); }
       public QuickFix.Side get(QuickFix.Side  value)
@@ -1570,7 +1570,7 @@ namespace QuickFix43
       public class NoAllocs: QuickFix.Group
       {
       public NoAllocs() : base(78,79,message_order ) {}
-      static int[] message_order = new int[] {79,467,80,0};
+      static int[] message_order = new int[] {79,467,539,80,0};
         public void set(QuickFix.AllocAccount value)
         { setField(value); }
         public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)

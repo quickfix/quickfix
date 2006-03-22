@@ -83,7 +83,7 @@ public class RegistrationInstructions extends Message
   public static class NoPartyIDs extends Group {
     public NoPartyIDs() {
       super(453,448,
-      new int[] {448,447,452,0 } ); }
+      new int[] {448,447,452,802,0 } ); }
   public void set(quickfix.field.PartyID value)
   { setField(value); }
   public quickfix.field.PartyID get(quickfix.field.PartyID  value)
@@ -237,7 +237,7 @@ public class RegistrationInstructions extends Message
   public static class NoRegistDtls extends Group {
     public NoRegistDtls() {
       super(473,509,
-      new int[] {509,511,474,482,522,486,475,0 } ); }
+      new int[] {509,511,474,482,539,522,486,475,0 } ); }
   public void set(quickfix.field.RegistDtls value)
   { setField(value); }
   public quickfix.field.RegistDtls get(quickfix.field.RegistDtls  value)
@@ -301,7 +301,7 @@ public class RegistrationInstructions extends Message
   public static class NoNestedPartyIDs extends Group {
     public NoNestedPartyIDs() {
       super(539,524,
-      new int[] {524,525,538,0 } ); }
+      new int[] {524,525,538,804,0 } ); }
   public void set(quickfix.field.NestedPartyID value)
   { setField(value); }
   public quickfix.field.NestedPartyID get(quickfix.field.NestedPartyID  value)

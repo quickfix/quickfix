@@ -251,7 +251,7 @@ public class NewOrderList extends Message
   public static class NoOrders extends Group {
     public NoOrders() {
       super(73,11,
-      new int[] {11,526,67,583,160,229,75,1,660,581,589,590,70,591,63,64,544,635,21,18,110,111,100,81,55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,140,54,401,114,60,854,38,152,516,468,469,40,423,44,99,218,220,221,222,662,663,699,761,235,236,701,696,697,698,15,376,377,23,117,59,168,432,126,427,12,13,479,497,528,529,582,121,120,775,58,354,355,193,192,640,77,203,210,211,835,836,837,838,840,388,389,841,842,843,844,846,847,848,849,494,0 } ); }
+      new int[] {11,526,67,583,160,453,229,75,1,660,581,589,590,70,591,78,63,64,544,635,21,18,110,111,100,386,81,55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,711,140,54,401,114,60,232,854,38,152,516,468,469,40,423,44,99,218,220,221,222,662,663,699,761,235,236,701,696,697,698,15,376,377,23,117,59,168,432,126,427,12,13,479,497,528,529,582,121,120,775,58,354,355,193,192,640,77,203,210,211,835,836,837,838,840,388,389,841,842,843,844,846,847,848,849,494,0 } ); }
   public void set(quickfix.field.ClOrdID value)
   { setField(value); }
   public quickfix.field.ClOrdID get(quickfix.field.ClOrdID  value)
@@ -327,7 +327,7 @@ public class NewOrderList extends Message
   public static class NoPartyIDs extends Group {
     public NoPartyIDs() {
       super(453,448,
-      new int[] {448,447,452,0 } ); }
+      new int[] {448,447,452,802,0 } ); }
   public void set(quickfix.field.PartyID value)
   { setField(value); }
   public quickfix.field.PartyID get(quickfix.field.PartyID  value)
@@ -2176,7 +2176,7 @@ public class NewOrderList extends Message
   public static class NoAllocs extends Group {
     public NoAllocs() {
       super(78,79,
-      new int[] {79,661,736,467,80,0 } ); }
+      new int[] {79,661,736,467,539,80,0 } ); }
   public void set(quickfix.field.AllocAccount value)
   { setField(value); }
   public quickfix.field.AllocAccount get(quickfix.field.AllocAccount  value)
@@ -2240,7 +2240,7 @@ public class NewOrderList extends Message
   public static class NoNestedPartyIDs extends Group {
     public NoNestedPartyIDs() {
       super(539,524,
-      new int[] {524,525,538,0 } ); }
+      new int[] {524,525,538,804,0 } ); }
   public void set(quickfix.field.NestedPartyID value)
   { setField(value); }
   public quickfix.field.NestedPartyID get(quickfix.field.NestedPartyID  value)
@@ -2388,7 +2388,7 @@ public class NewOrderList extends Message
   public static class NoUnderlyings extends Group {
     public NoUnderlyings() {
       super(711,311,
-      new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0 } ); }
+      new int[] {311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0 } ); }
   public void set(quickfix.field.UnderlyingSymbol value)
   { setField(value); }
   public quickfix.field.UnderlyingSymbol get(quickfix.field.UnderlyingSymbol  value)

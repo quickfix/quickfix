@@ -1463,7 +1463,7 @@ namespace QuickFix43
     public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
-    static int[] message_order = new int[] {79,467,80,0};
+    static int[] message_order = new int[] {79,467,539,80,0};
       public void set(QuickFix.AllocAccount value)
       { setField(value); }
       public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)

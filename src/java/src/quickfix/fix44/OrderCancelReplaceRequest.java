@@ -51,7 +51,7 @@ public class OrderCancelReplaceRequest extends Message
   public static class NoPartyIDs extends Group {
     public NoPartyIDs() {
       super(453,448,
-      new int[] {448,447,452,0 } ); }
+      new int[] {448,447,452,802,0 } ); }
   public void set(quickfix.field.PartyID value)
   { setField(value); }
   public quickfix.field.PartyID get(quickfix.field.PartyID  value)
@@ -2015,7 +2015,7 @@ public class OrderCancelReplaceRequest extends Message
   public static class NoAllocs extends Group {
     public NoAllocs() {
       super(78,79,
-      new int[] {79,661,736,467,80,0 } ); }
+      new int[] {79,661,736,467,539,80,0 } ); }
   public void set(quickfix.field.AllocAccount value)
   { setField(value); }
   public quickfix.field.AllocAccount get(quickfix.field.AllocAccount  value)
@@ -2079,7 +2079,7 @@ public class OrderCancelReplaceRequest extends Message
   public static class NoNestedPartyIDs extends Group {
     public NoNestedPartyIDs() {
       super(539,524,
-      new int[] {524,525,538,0 } ); }
+      new int[] {524,525,538,804,0 } ); }
   public void set(quickfix.field.NestedPartyID value)
   { setField(value); }
   public quickfix.field.NestedPartyID get(quickfix.field.NestedPartyID  value)
@@ -2227,7 +2227,7 @@ public class OrderCancelReplaceRequest extends Message
   public static class NoUnderlyings extends Group {
     public NoUnderlyings() {
       super(711,311,
-      new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0 } ); }
+      new int[] {311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0 } ); }
   public void set(quickfix.field.UnderlyingSymbol value)
   { setField(value); }
   public quickfix.field.UnderlyingSymbol get(quickfix.field.UnderlyingSymbol  value)

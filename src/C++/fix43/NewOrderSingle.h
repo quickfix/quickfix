@@ -170,7 +170,7 @@ namespace FIX43
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,467,80,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,467,539,80,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::IndividualAllocID);
       FIELD_SET(*this, FIX::NoNestedPartyIDs);

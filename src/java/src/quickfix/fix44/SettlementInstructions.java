@@ -155,7 +155,7 @@ public class SettlementInstructions extends Message
   public static class NoSettlInst extends Group {
     public NoSettlInst() {
       super(778,162,
-      new int[] {162,163,214,54,460,167,461,168,126,779,172,169,170,171,492,476,488,489,503,490,491,504,505,0 } ); }
+      new int[] {162,163,214,453,54,460,167,461,168,126,779,172,169,170,171,85,492,476,488,489,503,490,491,504,505,0 } ); }
   public void set(quickfix.field.SettlInstID value)
   { setField(value); }
   public quickfix.field.SettlInstID get(quickfix.field.SettlInstID  value)
@@ -207,7 +207,7 @@ public class SettlementInstructions extends Message
   public static class NoPartyIDs extends Group {
     public NoPartyIDs() {
       super(453,448,
-      new int[] {448,447,452,0 } ); }
+      new int[] {448,447,452,802,0 } ); }
   public void set(quickfix.field.PartyID value)
   { setField(value); }
   public quickfix.field.PartyID get(quickfix.field.PartyID  value)
@@ -433,7 +433,7 @@ public class SettlementInstructions extends Message
   public static class NoDlvyInst extends Group {
     public NoDlvyInst() {
       super(85,165,
-      new int[] {165,787,0 } ); }
+      new int[] {165,787,781,0 } ); }
   public void set(quickfix.field.SettlInstSource value)
   { setField(value); }
   public quickfix.field.SettlInstSource get(quickfix.field.SettlInstSource  value)
@@ -473,7 +473,7 @@ public class SettlementInstructions extends Message
   public static class NoSettlPartyIDs extends Group {
     public NoSettlPartyIDs() {
       super(781,782,
-      new int[] {782,783,784,0 } ); }
+      new int[] {782,783,784,801,0 } ); }
   public void set(quickfix.field.SettlPartyID value)
   { setField(value); }
   public quickfix.field.SettlPartyID get(quickfix.field.SettlPartyID  value)

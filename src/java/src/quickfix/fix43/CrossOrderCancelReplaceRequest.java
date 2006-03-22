@@ -1061,7 +1061,7 @@ public class CrossOrderCancelReplaceRequest extends Message
   public static class NoSides extends Group {
     public NoSides() {
       super(552,54,
-      new int[] {54,41,11,526,583,586,229,1,581,589,590,591,465,38,152,516,468,469,12,13,479,497,528,529,582,121,120,58,354,355,77,203,544,635,377,659,0 } ); }
+      new int[] {54,41,11,526,583,586,453,229,1,581,589,590,591,78,465,38,152,516,468,469,12,13,479,497,528,529,582,121,120,58,354,355,77,203,544,635,377,659,0 } ); }
   public void set(quickfix.field.Side value)
   { setField(value); }
   public quickfix.field.Side get(quickfix.field.Side  value)
@@ -1574,7 +1574,7 @@ public class CrossOrderCancelReplaceRequest extends Message
   public static class NoAllocs extends Group {
     public NoAllocs() {
       super(78,79,
-      new int[] {79,467,80,0 } ); }
+      new int[] {79,467,539,80,0 } ); }
   public void set(quickfix.field.AllocAccount value)
   { setField(value); }
   public quickfix.field.AllocAccount get(quickfix.field.AllocAccount  value)

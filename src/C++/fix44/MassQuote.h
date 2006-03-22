@@ -30,7 +30,7 @@ namespace FIX44
     class NoPartyIDs: public FIX::Group
     {
     public:
-    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,0)) {}
+    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
       FIELD_SET(*this, FIX::PartyID);
       FIELD_SET(*this, FIX::PartyIDSource);
       FIELD_SET(*this, FIX::PartyRole);
@@ -52,7 +52,7 @@ namespace FIX44
     class NoQuoteSets: public FIX::Group
     {
     public:
-    NoQuoteSets() : FIX::Group(296,302,FIX::message_order(302,311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,367,304,893,0)) {}
+    NoQuoteSets() : FIX::Group(296,302,FIX::message_order(302,311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,367,304,893,295,0)) {}
       FIELD_SET(*this, FIX::QuoteSetID);
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
@@ -113,7 +113,7 @@ namespace FIX44
       class NoQuoteEntries: public FIX::Group
       {
       public:
-      NoQuoteEntries() : FIX::Group(295,299,FIX::message_order(299,55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,132,133,134,135,62,188,190,189,191,631,632,633,634,60,336,625,64,40,193,192,642,643,15,0)) {}
+      NoQuoteEntries() : FIX::Group(295,299,FIX::message_order(299,55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,555,132,133,134,135,62,188,190,189,191,631,632,633,634,60,336,625,64,40,193,192,642,643,15,0)) {}
         FIELD_SET(*this, FIX::QuoteEntryID);
         FIELD_SET(*this, FIX::Symbol);
         FIELD_SET(*this, FIX::SymbolSfx);
@@ -200,7 +200,7 @@ namespace FIX44
         class NoLegs: public FIX::Group
         {
         public:
-        NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0)) {}
+        NoLegs() : FIX::Group(555,600,FIX::message_order(600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0)) {}
           FIELD_SET(*this, FIX::LegSymbol);
           FIELD_SET(*this, FIX::LegSymbolSfx);
           FIELD_SET(*this, FIX::LegSecurityID);

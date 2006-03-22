@@ -33,6 +33,7 @@
 namespace FIX
 {
 using namespace FIX42;
+using namespace FIX44;
 static UtcTimeStamp create_tm()
 {
   UtcTimeStamp result = UtcTimeStamp (0, 0, 0, 1, 1, 1900);
@@ -986,5 +987,80 @@ template<> void MassQuoteParseTestCase::setString::onRun
   assert( underlyingSymbol == "DELL" );
   assert( encLen == 10 );
   assert( encDesc == "DELL\001COMP\001" );
+}
+
+template<> void NewOrderCrossParseTestCase::getString::onRun
+( NewOrderCross& object )
+{
+  FIX44::NewOrderCross::NoSides noSides;
+  noSides.set( FIX::Side(FIX::Side_BUY) );
+
+  FIX44::NewOrderCross::NoSides::NoPartyIDs noPartyIDs;
+  noPartyIDs.set( FIX::PartyID("PARTY1") );
+  noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE) );
+  noPartyIDs.set( FIX::PartyRole(FIX::PartyRole_CLIENT_ID) );
+
+  noSides.addGroup( noPartyIDs );
+
+  noPartyIDs.set( FIX::PartyID("PARTY2") );
+  noPartyIDs.set( FIX::PartyIDSource(FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE) );
+  noPartyIDs.set( FIX::PartyRole(FIX::PartyRole_CLIENT_ID) );
+  
+  noSides.addGroup( noPartyIDs );
+
+  noSides.set( FIX::OrderQty(100) );
+
+  object.addGroup( noSides );
+
+  assert( object.toString() ==
+          ( "8=FIX.4.4\0019=75\00135=s\001552=1\00154=1\001453=2\001448=PARTY1\001"
+            "447=D\001452=3\001448=PARTY2\001447=D\001452=3\00138=100\00110=223\001" ) );
+}
+
+template<> void NewOrderCrossParseTestCase::setString::onRun
+( NewOrderCross& object )
+{
+  DataDictionary dataDictionary( "spec/FIX44.xml" );
+  try
+  {
+    object.setString
+      ( "8=FIX.4.4\0019=75\00135=s\001552=1\00154=1\001453=2\001448=PARTY1\001"
+        "447=D\001452=3\001448=PARTY2\001447=D\001452=3\00138=100\00110=223\001",
+         true, &dataDictionary );
+  }
+  catch ( ... )
+  { assert(false); }
+
+  FIX44::NewOrderCross::NoSides noSides;
+  object.getGroup( 1, noSides );
+
+  FIX::Side side;
+  noSides.get( side );
+  assert( side == FIX::Side_BUY );
+
+  FIX::PartyID partyID;
+  FIX::PartyIDSource partyIDSource;
+  FIX::PartyRole partyRole;
+
+  FIX44::NewOrderCross::NoSides::NoPartyIDs noPartyIDs;
+  noSides.getGroup( 1, noPartyIDs );
+  noPartyIDs.get( partyID );
+  noPartyIDs.get( partyIDSource );
+  noPartyIDs.get( partyRole );
+  assert( partyID == "PARTY1" );
+  assert( partyIDSource == FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE );
+  assert( partyRole == FIX::PartyRole_CLIENT_ID );
+
+  noSides.getGroup( 2, noPartyIDs );
+  noPartyIDs.get( partyID );
+  noPartyIDs.get( partyIDSource );
+  noPartyIDs.get( partyRole );
+  assert( partyID == "PARTY2" );
+  assert( partyIDSource == FIX::PartyIDSource_PROPRIETARY_CUSTOM_CODE );
+  assert( partyRole == FIX::PartyRole_CLIENT_ID );
+
+  FIX::OrderQty orderQty;
+  noSides.get( orderQty );
+  assert( orderQty == 100 );
 }
 }

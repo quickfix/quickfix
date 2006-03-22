@@ -23,7 +23,7 @@ namespace FIX44
     class NoPartyIDs: public FIX::Group
     {
     public:
-    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,0)) {}
+    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
       FIELD_SET(*this, FIX::PartyID);
       FIELD_SET(*this, FIX::PartyIDSource);
       FIELD_SET(*this, FIX::PartyRole);
@@ -206,14 +206,14 @@ namespace FIX44
     class NoDlvyInst: public FIX::Group
     {
     public:
-    NoDlvyInst() : FIX::Group(85,165,FIX::message_order(165,787,0)) {}
+    NoDlvyInst() : FIX::Group(85,165,FIX::message_order(165,787,781,0)) {}
       FIELD_SET(*this, FIX::SettlInstSource);
       FIELD_SET(*this, FIX::DlvyInstType);
       FIELD_SET(*this, FIX::NoSettlPartyIDs);
       class NoSettlPartyIDs: public FIX::Group
       {
       public:
-      NoSettlPartyIDs() : FIX::Group(781,782,FIX::message_order(782,783,784,0)) {}
+      NoSettlPartyIDs() : FIX::Group(781,782,FIX::message_order(782,783,784,801,0)) {}
         FIELD_SET(*this, FIX::SettlPartyID);
         FIELD_SET(*this, FIX::SettlPartyIDSource);
         FIELD_SET(*this, FIX::SettlPartyRole);
@@ -261,7 +261,7 @@ namespace FIX44
     class NoUnderlyings: public FIX::Group
     {
     public:
-    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
+    NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
       FIELD_SET(*this, FIX::UnderlyingSecurityID);

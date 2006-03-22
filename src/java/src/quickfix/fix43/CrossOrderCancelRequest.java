@@ -536,7 +536,7 @@ public class CrossOrderCancelRequest extends Message
   public static class NoSides extends Group {
     public NoSides() {
       super(552,54,
-      new int[] {54,41,11,526,583,586,229,38,152,516,468,469,376,58,354,355,0 } ); }
+      new int[] {54,41,11,526,583,586,453,229,38,152,516,468,469,376,58,354,355,0 } ); }
   public void set(quickfix.field.Side value)
   { setField(value); }
   public quickfix.field.Side get(quickfix.field.Side  value)

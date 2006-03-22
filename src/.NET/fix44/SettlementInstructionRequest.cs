@@ -53,7 +53,7 @@ namespace QuickFix44
     public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
-    static int[] message_order = new int[] {448,447,452,0};
+    static int[] message_order = new int[] {448,447,452,802,0};
       public void set(QuickFix.PartyID value)
       { setField(value); }
       public QuickFix.PartyID get(QuickFix.PartyID  value)

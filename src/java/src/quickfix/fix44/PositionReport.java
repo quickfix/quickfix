@@ -165,7 +165,7 @@ public class PositionReport extends Message
   public static class NoPartyIDs extends Group {
     public NoPartyIDs() {
       super(453,448,
-      new int[] {448,447,452,0 } ); }
+      new int[] {448,447,452,802,0 } ); }
   public void set(quickfix.field.PartyID value)
   { setField(value); }
   public quickfix.field.PartyID get(quickfix.field.PartyID  value)
@@ -929,7 +929,7 @@ public class PositionReport extends Message
   public static class NoPositions extends Group {
     public NoPositions() {
       super(702,703,
-      new int[] {703,704,705,706,0 } ); }
+      new int[] {703,704,705,706,539,0 } ); }
   public void set(quickfix.field.PosType value)
   { setField(value); }
   public quickfix.field.PosType get(quickfix.field.PosType  value)
@@ -993,7 +993,7 @@ public class PositionReport extends Message
   public static class NoNestedPartyIDs extends Group {
     public NoNestedPartyIDs() {
       super(539,524,
-      new int[] {524,525,538,0 } ); }
+      new int[] {524,525,538,804,0 } ); }
   public void set(quickfix.field.NestedPartyID value)
   { setField(value); }
   public quickfix.field.NestedPartyID get(quickfix.field.NestedPartyID  value)
@@ -1189,7 +1189,7 @@ public class PositionReport extends Message
   public static class NoLegs extends Group {
     public NoLegs() {
       super(555,600,
-      new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0 } ); }
+      new int[] {600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0 } ); }
   public void set(quickfix.field.LegSymbol value)
   { setField(value); }
   public quickfix.field.LegSymbol get(quickfix.field.LegSymbol  value)
@@ -1739,7 +1739,7 @@ public class PositionReport extends Message
   public static class NoUnderlyings extends Group {
     public NoUnderlyings() {
       super(711,311,
-      new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,732,733,0 } ); }
+      new int[] {311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,732,733,0 } ); }
   public void set(quickfix.field.UnderlyingSymbol value)
   { setField(value); }
   public quickfix.field.UnderlyingSymbol get(quickfix.field.UnderlyingSymbol  value)

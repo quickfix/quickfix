@@ -102,7 +102,7 @@ namespace FIX42
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,366,80,81,92,208,209,161,360,361,76,109,12,13,153,154,119,120,155,156,159,160,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,366,80,81,92,208,209,161,360,361,76,109,12,13,153,154,119,120,155,156,159,160,136,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocPrice);
       FIELD_SET(*this, FIX::AllocShares);

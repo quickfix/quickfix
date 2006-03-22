@@ -42,7 +42,7 @@ namespace FIX44
     class NoOrders: public FIX::Group
     {
     public:
-    NoOrders() : FIX::Group(73,11,FIX::message_order(11,37,198,526,66,38,799,800,0)) {}
+    NoOrders() : FIX::Group(73,11,FIX::message_order(11,37,198,526,66,756,38,799,800,0)) {}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::OrderID);
       FIELD_SET(*this, FIX::SecondaryOrderID);
@@ -52,7 +52,7 @@ namespace FIX44
       class NoNested2PartyIDs: public FIX::Group
       {
       public:
-      NoNested2PartyIDs() : FIX::Group(756,757,FIX::message_order(757,758,759,0)) {}
+      NoNested2PartyIDs() : FIX::Group(756,757,FIX::message_order(757,758,759,806,0)) {}
         FIELD_SET(*this, FIX::Nested2PartyID);
         FIELD_SET(*this, FIX::Nested2PartyIDSource);
         FIELD_SET(*this, FIX::Nested2PartyRole);

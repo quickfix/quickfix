@@ -196,7 +196,7 @@ public class RegistrationInstructions extends Message
   public static class NoRegistDtls extends Group {
     public NoRegistDtls() {
       super(473,509,
-      new int[] {509,511,474,482,522,486,475,0 } ); }
+      new int[] {509,511,474,482,539,522,486,475,0 } ); }
   public void set(quickfix.field.RegistDetls value)
   { setField(value); }
   public quickfix.field.RegistDetls get(quickfix.field.RegistDetls  value)

@@ -87,7 +87,7 @@ namespace QuickFix43
     public class NoRelatedSym: QuickFix.Group
     {
     public NoRelatedSym() : base(146,55,message_order ) {}
-    static int[] message_order = new int[] {55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,140,303,537,336,625,229,54,465,38,152,63,64,40,193,192,126,60,15,218,220,221,222,423,44,640,235,236,0};
+    static int[] message_order = new int[] {55,65,48,22,454,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,140,303,537,336,625,229,232,54,465,38,152,63,64,40,193,192,126,60,15,218,220,221,222,423,44,640,235,236,0};
       public void set(QuickFix.Symbol value)
       { setField(value); }
       public QuickFix.Symbol get(QuickFix.Symbol  value)

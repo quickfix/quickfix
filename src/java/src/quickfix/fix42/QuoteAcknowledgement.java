@@ -115,7 +115,7 @@ public class QuoteAcknowledgement extends Message
   public static class NoQuoteSets extends Group {
     public NoQuoteSets() {
       super(296,302,
-      new int[] {302,311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,304,0 } ); }
+      new int[] {302,311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,304,295,0 } ); }
   public void set(quickfix.field.QuoteSetID value)
   { setField(value); }
   public quickfix.field.QuoteSetID get(quickfix.field.QuoteSetID  value)

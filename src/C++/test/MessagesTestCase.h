@@ -39,6 +39,7 @@
 #include "fix42/OrderStatusRequest.h"
 #include "fix42/NewOrderList.h"
 #include "fix42/MassQuote.h"
+#include "fix44/NewOrderCross.h"
 
 namespace FIX
 {
@@ -199,6 +200,8 @@ typedef MessageParseTestCase < FIX42::NewOrderList >
 NewOrderListParseTestCase;
 typedef MessageParseTestCase < FIX42::MassQuote >
 MassQuoteParseTestCase;
+typedef MessageParseTestCase < FIX44::NewOrderCross >
+NewOrderCrossParseTestCase;
 }
 
 #endif //FIX_MESSAGESTESTCASE_H

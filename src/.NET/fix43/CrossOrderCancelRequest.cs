@@ -532,7 +532,7 @@ namespace QuickFix43
     public class NoSides: QuickFix.Group
     {
     public NoSides() : base(552,54,message_order ) {}
-    static int[] message_order = new int[] {54,41,11,526,583,586,229,38,152,516,468,469,376,58,354,355,0};
+    static int[] message_order = new int[] {54,41,11,526,583,586,453,229,38,152,516,468,469,376,58,354,355,0};
       public void set(QuickFix.Side value)
       { setField(value); }
       public QuickFix.Side get(QuickFix.Side  value)

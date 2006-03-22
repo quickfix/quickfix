@@ -1083,7 +1083,7 @@ public class Allocation extends Message
   public static class NoAllocs extends Group {
     public NoAllocs() {
       super(78,79,
-      new int[] {79,366,80,467,81,208,209,161,360,361,12,13,479,497,153,154,119,120,155,156,159,160,0 } ); }
+      new int[] {79,366,80,467,81,539,208,209,161,360,361,12,13,479,497,153,154,119,120,155,156,159,160,136,0 } ); }
   public void set(quickfix.field.AllocAccount value)
   { setField(value); }
   public quickfix.field.AllocAccount get(quickfix.field.AllocAccount  value)

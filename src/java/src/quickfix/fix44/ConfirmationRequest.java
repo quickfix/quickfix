@@ -179,7 +179,7 @@ public class ConfirmationRequest extends Message
   public static class NoOrders extends Group {
     public NoOrders() {
       super(73,11,
-      new int[] {11,37,198,526,66,38,799,800,0 } ); }
+      new int[] {11,37,198,526,66,756,38,799,800,0 } ); }
   public void set(quickfix.field.ClOrdID value)
   { setField(value); }
   public quickfix.field.ClOrdID get(quickfix.field.ClOrdID  value)
@@ -255,7 +255,7 @@ public class ConfirmationRequest extends Message
   public static class NoNested2PartyIDs extends Group {
     public NoNested2PartyIDs() {
       super(756,757,
-      new int[] {757,758,759,0 } ); }
+      new int[] {757,758,759,806,0 } ); }
   public void set(quickfix.field.Nested2PartyID value)
   { setField(value); }
   public quickfix.field.Nested2PartyID get(quickfix.field.Nested2PartyID  value)

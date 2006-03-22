@@ -80,7 +80,7 @@ namespace FIX43
     class NoSides: public FIX::Group
     {
     public:
-    NoSides() : FIX::Group(552,54,FIX::message_order(54,41,11,526,583,586,229,38,152,516,468,469,376,58,354,355,0)) {}
+    NoSides() : FIX::Group(552,54,FIX::message_order(54,41,11,526,583,586,453,229,38,152,516,468,469,376,58,354,355,0)) {}
       FIELD_SET(*this, FIX::Side);
       FIELD_SET(*this, FIX::OrigClOrdID);
       FIELD_SET(*this, FIX::ClOrdID);

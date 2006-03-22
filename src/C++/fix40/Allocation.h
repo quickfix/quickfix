@@ -90,7 +90,7 @@ namespace FIX40
     class NoAllocs: public FIX::Group
     {
     public:
-    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,80,81,76,109,12,13,0)) {}
+    NoAllocs() : FIX::Group(78,79,FIX::message_order(79,80,81,76,109,12,13,85,0)) {}
       FIELD_SET(*this, FIX::AllocAccount);
       FIELD_SET(*this, FIX::AllocShares);
       FIELD_SET(*this, FIX::ProcessCode);

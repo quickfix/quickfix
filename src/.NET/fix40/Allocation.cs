@@ -498,7 +498,7 @@ namespace QuickFix40
     public class NoAllocs: QuickFix.Group
     {
     public NoAllocs() : base(78,79,message_order ) {}
-    static int[] message_order = new int[] {79,80,81,76,109,12,13,0};
+    static int[] message_order = new int[] {79,80,81,76,109,12,13,85,0};
       public void set(QuickFix.AllocAccount value)
       { setField(value); }
       public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)

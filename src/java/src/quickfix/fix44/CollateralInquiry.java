@@ -73,7 +73,7 @@ public class CollateralInquiry extends Message
   public static class NoPartyIDs extends Group {
     public NoPartyIDs() {
       super(453,448,
-      new int[] {448,447,452,0 } ); }
+      new int[] {448,447,452,802,0 } ); }
   public void set(quickfix.field.PartyID value)
   { setField(value); }
   public quickfix.field.PartyID get(quickfix.field.PartyID  value)
@@ -1884,7 +1884,7 @@ public class CollateralInquiry extends Message
   public static class NoDlvyInst extends Group {
     public NoDlvyInst() {
       super(85,165,
-      new int[] {165,787,0 } ); }
+      new int[] {165,787,781,0 } ); }
   public void set(quickfix.field.SettlInstSource value)
   { setField(value); }
   public quickfix.field.SettlInstSource get(quickfix.field.SettlInstSource  value)
@@ -1924,7 +1924,7 @@ public class CollateralInquiry extends Message
   public static class NoSettlPartyIDs extends Group {
     public NoSettlPartyIDs() {
       super(781,782,
-      new int[] {782,783,784,0 } ); }
+      new int[] {782,783,784,801,0 } ); }
   public void set(quickfix.field.SettlPartyID value)
   { setField(value); }
   public quickfix.field.SettlPartyID get(quickfix.field.SettlPartyID  value)
@@ -2214,7 +2214,7 @@ public class CollateralInquiry extends Message
   public static class NoUnderlyings extends Group {
     public NoUnderlyings() {
       super(711,311,
-      new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0 } ); }
+      new int[] {311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0 } ); }
   public void set(quickfix.field.UnderlyingSymbol value)
   { setField(value); }
   public quickfix.field.UnderlyingSymbol get(quickfix.field.UnderlyingSymbol  value)

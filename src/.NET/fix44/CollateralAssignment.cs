@@ -117,7 +117,7 @@ namespace QuickFix44
     public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
-    static int[] message_order = new int[] {448,447,452,0};
+    static int[] message_order = new int[] {448,447,452,802,0};
       public void set(QuickFix.PartyID value)
       { setField(value); }
       public QuickFix.PartyID get(QuickFix.PartyID  value)
@@ -1928,7 +1928,7 @@ namespace QuickFix44
     public class NoDlvyInst: QuickFix.Group
     {
     public NoDlvyInst() : base(85,165,message_order ) {}
-    static int[] message_order = new int[] {165,787,0};
+    static int[] message_order = new int[] {165,787,781,0};
       public void set(QuickFix.SettlInstSource value)
       { setField(value); }
       public QuickFix.SettlInstSource get(QuickFix.SettlInstSource  value)
@@ -1968,7 +1968,7 @@ namespace QuickFix44
       public class NoSettlPartyIDs: QuickFix.Group
       {
       public NoSettlPartyIDs() : base(781,782,message_order ) {}
-      static int[] message_order = new int[] {782,783,784,0};
+      static int[] message_order = new int[] {782,783,784,801,0};
         public void set(QuickFix.SettlPartyID value)
         { setField(value); }
         public QuickFix.SettlPartyID get(QuickFix.SettlPartyID  value)
@@ -2229,7 +2229,7 @@ namespace QuickFix44
     public class NoUnderlyings: QuickFix.Group
     {
     public NoUnderlyings() : base(711,311,message_order ) {}
-    static int[] message_order = new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,944,0};
+    static int[] message_order = new int[] {311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,944,0};
       public void set(QuickFix.UnderlyingSymbol value)
       { setField(value); }
       public QuickFix.UnderlyingSymbol get(QuickFix.UnderlyingSymbol  value)

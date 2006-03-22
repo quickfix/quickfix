@@ -175,7 +175,7 @@ namespace QuickFix44
     public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
-    static int[] message_order = new int[] {11,37,198,526,66,38,799,800,0};
+    static int[] message_order = new int[] {11,37,198,526,66,756,38,799,800,0};
       public void set(QuickFix.ClOrdID value)
       { setField(value); }
       public QuickFix.ClOrdID get(QuickFix.ClOrdID  value)
@@ -251,7 +251,7 @@ namespace QuickFix44
       public class NoNested2PartyIDs: QuickFix.Group
       {
       public NoNested2PartyIDs() : base(756,757,message_order ) {}
-      static int[] message_order = new int[] {757,758,759,0};
+      static int[] message_order = new int[] {757,758,759,806,0};
         public void set(QuickFix.Nested2PartyID value)
         { setField(value); }
         public QuickFix.Nested2PartyID get(QuickFix.Nested2PartyID  value)

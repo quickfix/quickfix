@@ -48,7 +48,7 @@ namespace FIX44
     class NoOrders: public FIX::Group
     {
     public:
-    NoOrders() : FIX::Group(73,11,FIX::message_order(11,526,67,583,160,229,75,1,660,581,589,590,70,591,63,64,544,635,21,18,110,111,100,81,55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,140,54,401,114,60,854,38,152,516,468,469,40,423,44,99,218,220,221,222,662,663,699,761,235,236,701,696,697,698,15,376,377,23,117,59,168,432,126,427,12,13,479,497,528,529,582,121,120,775,58,354,355,193,192,640,77,203,210,211,835,836,837,838,840,388,389,841,842,843,844,846,847,848,849,494,0)) {}
+    NoOrders() : FIX::Group(73,11,FIX::message_order(11,526,67,583,160,453,229,75,1,660,581,589,590,70,591,78,63,64,544,635,21,18,110,111,100,386,81,55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,711,140,54,401,114,60,232,854,38,152,516,468,469,40,423,44,99,218,220,221,222,662,663,699,761,235,236,701,696,697,698,15,376,377,23,117,59,168,432,126,427,12,13,479,497,528,529,582,121,120,775,58,354,355,193,192,640,77,203,210,211,835,836,837,838,840,388,389,841,842,843,844,846,847,848,849,494,0)) {}
       FIELD_SET(*this, FIX::ClOrdID);
       FIELD_SET(*this, FIX::SecondaryClOrdID);
       FIELD_SET(*this, FIX::ListSeqNo);
@@ -58,7 +58,7 @@ namespace FIX44
       class NoPartyIDs: public FIX::Group
       {
       public:
-      NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,0)) {}
+      NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
         FIELD_SET(*this, FIX::PartyID);
         FIELD_SET(*this, FIX::PartyIDSource);
         FIELD_SET(*this, FIX::PartyRole);
@@ -235,7 +235,7 @@ namespace FIX44
       class NoAllocs: public FIX::Group
       {
       public:
-      NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,736,467,80,0)) {}
+      NoAllocs() : FIX::Group(78,79,FIX::message_order(79,661,736,467,539,80,0)) {}
         FIELD_SET(*this, FIX::AllocAccount);
         FIELD_SET(*this, FIX::AllocAcctIDSource);
         FIELD_SET(*this, FIX::AllocSettlCurrency);
@@ -244,7 +244,7 @@ namespace FIX44
         class NoNestedPartyIDs: public FIX::Group
         {
         public:
-        NoNestedPartyIDs() : FIX::Group(539,524,FIX::message_order(524,525,538,0)) {}
+        NoNestedPartyIDs() : FIX::Group(539,524,FIX::message_order(524,525,538,804,0)) {}
           FIELD_SET(*this, FIX::NestedPartyID);
           FIELD_SET(*this, FIX::NestedPartyIDSource);
           FIELD_SET(*this, FIX::NestedPartyRole);
@@ -271,7 +271,7 @@ namespace FIX44
       class NoUnderlyings: public FIX::Group
       {
       public:
-      NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
+      NoUnderlyings() : FIX::Group(711,311,FIX::message_order(311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0)) {}
         FIELD_SET(*this, FIX::UnderlyingSymbol);
         FIELD_SET(*this, FIX::UnderlyingSymbolSfx);
         FIELD_SET(*this, FIX::UnderlyingSecurityID);

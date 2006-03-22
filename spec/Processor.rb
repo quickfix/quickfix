@@ -97,13 +97,15 @@ class Processor
 
       order = Array.new
       group.elements.each("*") { |element|
-	if(element.name == "field")
+	if(element.name == "field" || element.name == "group")
 	  order.push(lookupField(element.attributes["name"]))
 	end
 	if(element.name == "component")
 	  component = lookupComponent( element.attributes["name"] )
-	  component.elements.each("field") { |field|
-	    order.push(lookupField(field.attributes["name"])) }
+	  component.elements.each("*") { |componentElement|
+            if(componentElement.name == "field" || componentElement.name == "group")
+              order.push(lookupField(componentElement.attributes["name"])) 
+            end }
 	end
       }
 

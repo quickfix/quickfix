@@ -111,7 +111,7 @@ namespace QuickFix42
     public class NoQuoteSets: QuickFix.Group
     {
     public NoQuoteSets() : base(296,302,message_order ) {}
-    static int[] message_order = new int[] {302,311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,304,0};
+    static int[] message_order = new int[] {302,311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,304,295,0};
       public void set(QuickFix.QuoteSetID value)
       { setField(value); }
       public QuickFix.QuoteSetID get(QuickFix.QuoteSetID  value)

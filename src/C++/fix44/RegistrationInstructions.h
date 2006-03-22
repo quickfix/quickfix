@@ -34,7 +34,7 @@ namespace FIX44
     class NoPartyIDs: public FIX::Group
     {
     public:
-    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,0)) {}
+    NoPartyIDs() : FIX::Group(453,448,FIX::message_order(448,447,452,802,0)) {}
       FIELD_SET(*this, FIX::PartyID);
       FIELD_SET(*this, FIX::PartyIDSource);
       FIELD_SET(*this, FIX::PartyRole);
@@ -56,7 +56,7 @@ namespace FIX44
     class NoRegistDtls: public FIX::Group
     {
     public:
-    NoRegistDtls() : FIX::Group(473,509,FIX::message_order(509,511,474,482,522,486,475,0)) {}
+    NoRegistDtls() : FIX::Group(473,509,FIX::message_order(509,511,474,482,539,522,486,475,0)) {}
       FIELD_SET(*this, FIX::RegistDtls);
       FIELD_SET(*this, FIX::RegistEmail);
       FIELD_SET(*this, FIX::MailingDtls);
@@ -65,7 +65,7 @@ namespace FIX44
       class NoNestedPartyIDs: public FIX::Group
       {
       public:
-      NoNestedPartyIDs() : FIX::Group(539,524,FIX::message_order(524,525,538,0)) {}
+      NoNestedPartyIDs() : FIX::Group(539,524,FIX::message_order(524,525,538,804,0)) {}
         FIELD_SET(*this, FIX::NestedPartyID);
         FIELD_SET(*this, FIX::NestedPartyIDSource);
         FIELD_SET(*this, FIX::NestedPartyRole);

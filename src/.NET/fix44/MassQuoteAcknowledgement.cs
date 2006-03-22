@@ -99,7 +99,7 @@ namespace QuickFix44
     public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
-    static int[] message_order = new int[] {448,447,452,0};
+    static int[] message_order = new int[] {448,447,452,802,0};
       public void set(QuickFix.PartyID value)
       { setField(value); }
       public QuickFix.PartyID get(QuickFix.PartyID  value)
@@ -265,7 +265,7 @@ namespace QuickFix44
     public class NoQuoteSets: QuickFix.Group
     {
     public NoQuoteSets() : base(296,302,message_order ) {}
-    static int[] message_order = new int[] {302,311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,304,893,0};
+    static int[] message_order = new int[] {302,311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,304,893,295,0};
       public void set(QuickFix.QuoteSetID value)
       { setField(value); }
       public QuickFix.QuoteSetID get(QuickFix.QuoteSetID  value)
@@ -886,7 +886,7 @@ namespace QuickFix44
       public class NoQuoteEntries: QuickFix.Group
       {
       public NoQuoteEntries() : base(295,299,message_order ) {}
-      static int[] message_order = new int[] {299,55,65,48,22,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,873,874,132,133,134,135,62,188,190,189,191,631,632,633,634,60,336,625,64,40,193,192,642,643,15,368,0};
+      static int[] message_order = new int[] {299,55,65,48,22,454,460,461,167,762,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,947,206,231,223,207,106,348,349,107,350,351,691,667,875,876,864,873,874,555,132,133,134,135,62,188,190,189,191,631,632,633,634,60,336,625,64,40,193,192,642,643,15,368,0};
         public void set(QuickFix.QuoteEntryID value)
         { setField(value); }
         public QuickFix.QuoteEntryID get(QuickFix.QuoteEntryID  value)
@@ -1788,7 +1788,7 @@ namespace QuickFix44
         public class NoLegs: QuickFix.Group
         {
         public NoLegs() : base(555,600,message_order ) {}
-        static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0};
+        static int[] message_order = new int[] {600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0};
           public void set(QuickFix.LegSymbol value)
           { setField(value); }
           public QuickFix.LegSymbol get(QuickFix.LegSymbol  value)

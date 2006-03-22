@@ -48,7 +48,7 @@ namespace FIX43
     class NoRegistDtls: public FIX::Group
     {
     public:
-    NoRegistDtls() : FIX::Group(473,509,FIX::message_order(509,511,474,482,522,486,475,0)) {}
+    NoRegistDtls() : FIX::Group(473,509,FIX::message_order(509,511,474,482,539,522,486,475,0)) {}
       FIELD_SET(*this, FIX::RegistDetls);
       FIELD_SET(*this, FIX::RegistEmail);
       FIELD_SET(*this, FIX::MailingDtls);

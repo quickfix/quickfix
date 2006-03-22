@@ -145,7 +145,7 @@ namespace QuickFix44
     public class NoPartyIDs: QuickFix.Group
     {
     public NoPartyIDs() : base(453,448,message_order ) {}
-    static int[] message_order = new int[] {448,447,452,0};
+    static int[] message_order = new int[] {448,447,452,802,0};
       public void set(QuickFix.PartyID value)
       { setField(value); }
       public QuickFix.PartyID get(QuickFix.PartyID  value)
@@ -1759,7 +1759,7 @@ namespace QuickFix44
     public class NoDlvyInst: QuickFix.Group
     {
     public NoDlvyInst() : base(85,165,message_order ) {}
-    static int[] message_order = new int[] {165,787,0};
+    static int[] message_order = new int[] {165,787,781,0};
       public void set(QuickFix.SettlInstSource value)
       { setField(value); }
       public QuickFix.SettlInstSource get(QuickFix.SettlInstSource  value)
@@ -1799,7 +1799,7 @@ namespace QuickFix44
       public class NoSettlPartyIDs: QuickFix.Group
       {
       public NoSettlPartyIDs() : base(781,782,message_order ) {}
-      static int[] message_order = new int[] {782,783,784,0};
+      static int[] message_order = new int[] {782,783,784,801,0};
         public void set(QuickFix.SettlPartyID value)
         { setField(value); }
         public QuickFix.SettlPartyID get(QuickFix.SettlPartyID  value)
@@ -1995,7 +1995,7 @@ namespace QuickFix44
     public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
-    static int[] message_order = new int[] {11,37,198,526,66,38,799,800,0};
+    static int[] message_order = new int[] {11,37,198,526,66,756,38,799,800,0};
       public void set(QuickFix.ClOrdID value)
       { setField(value); }
       public QuickFix.ClOrdID get(QuickFix.ClOrdID  value)
@@ -2071,7 +2071,7 @@ namespace QuickFix44
       public class NoNested2PartyIDs: QuickFix.Group
       {
       public NoNested2PartyIDs() : base(756,757,message_order ) {}
-      static int[] message_order = new int[] {757,758,759,0};
+      static int[] message_order = new int[] {757,758,759,806,0};
         public void set(QuickFix.Nested2PartyID value)
         { setField(value); }
         public QuickFix.Nested2PartyID get(QuickFix.Nested2PartyID  value)
@@ -2202,7 +2202,7 @@ namespace QuickFix44
     public class NoUnderlyings: QuickFix.Group
     {
     public NoUnderlyings() : base(711,311,message_order ) {}
-    static int[] message_order = new int[] {311,312,309,305,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0};
+    static int[] message_order = new int[] {311,312,309,305,457,462,463,310,763,313,542,241,242,243,244,245,246,256,595,592,593,594,247,316,941,317,436,435,308,306,362,363,307,364,365,877,878,318,879,810,882,883,884,885,886,0};
       public void set(QuickFix.UnderlyingSymbol value)
       { setField(value); }
       public QuickFix.UnderlyingSymbol get(QuickFix.UnderlyingSymbol  value)
@@ -2788,7 +2788,7 @@ namespace QuickFix44
     public class NoLegs: QuickFix.Group
     {
     public NoLegs() : base(555,600,message_order ) {}
-    static int[] message_order = new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0};
+    static int[] message_order = new int[] {600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,0};
       public void set(QuickFix.LegSymbol value)
       { setField(value); }
       public QuickFix.LegSymbol get(QuickFix.LegSymbol  value)

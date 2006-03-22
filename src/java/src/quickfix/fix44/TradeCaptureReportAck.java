@@ -1068,7 +1068,7 @@ public class TradeCaptureReportAck extends Message
   public static class NoLegs extends Group {
     public NoLegs() {
       super(555,600,
-      new int[] {600,601,602,603,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,687,690,564,565,654,566,587,588,637,0 } ); }
+      new int[] {600,601,602,603,604,607,608,609,764,610,611,248,249,250,251,252,253,257,599,596,597,598,254,612,942,613,614,615,616,617,618,619,620,621,622,623,624,556,740,739,955,956,687,690,683,564,565,539,654,566,587,588,637,0 } ); }
   public void set(quickfix.field.LegSymbol value)
   { setField(value); }
   public quickfix.field.LegSymbol get(quickfix.field.LegSymbol  value)
@@ -1706,7 +1706,7 @@ public class TradeCaptureReportAck extends Message
   public static class NoNestedPartyIDs extends Group {
     public NoNestedPartyIDs() {
       super(539,524,
-      new int[] {524,525,538,0 } ); }
+      new int[] {524,525,538,804,0 } ); }
   public void set(quickfix.field.NestedPartyID value)
   { setField(value); }
   public quickfix.field.NestedPartyID get(quickfix.field.NestedPartyID  value)
@@ -1861,7 +1861,7 @@ public class TradeCaptureReportAck extends Message
   public static class NoAllocs extends Group {
     public NoAllocs() {
       super(78,79,
-      new int[] {79,661,736,467,80,0 } ); }
+      new int[] {79,661,736,467,756,80,0 } ); }
   public void set(quickfix.field.AllocAccount value)
   { setField(value); }
   public quickfix.field.AllocAccount get(quickfix.field.AllocAccount  value)
@@ -1925,7 +1925,7 @@ public class TradeCaptureReportAck extends Message
   public static class NoNested2PartyIDs extends Group {
     public NoNested2PartyIDs() {
       super(756,757,
-      new int[] {757,758,759,0 } ); }
+      new int[] {757,758,759,806,0 } ); }
   public void set(quickfix.field.Nested2PartyID value)
   { setField(value); }
   public quickfix.field.Nested2PartyID get(quickfix.field.Nested2PartyID  value)

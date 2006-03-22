@@ -192,7 +192,7 @@ namespace QuickFix43
     public class NoRegistDtls: QuickFix.Group
     {
     public NoRegistDtls() : base(473,509,message_order ) {}
-    static int[] message_order = new int[] {509,511,474,482,522,486,475,0};
+    static int[] message_order = new int[] {509,511,474,482,539,522,486,475,0};
       public void set(QuickFix.RegistDetls value)
       { setField(value); }
       public QuickFix.RegistDetls get(QuickFix.RegistDetls  value)

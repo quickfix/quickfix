@@ -1467,7 +1467,7 @@ public class OrderCancelReplaceRequest extends Message
   public static class NoAllocs extends Group {
     public NoAllocs() {
       super(78,79,
-      new int[] {79,467,80,0 } ); }
+      new int[] {79,467,539,80,0 } ); }
   public void set(quickfix.field.AllocAccount value)
   { setField(value); }
   public quickfix.field.AllocAccount get(quickfix.field.AllocAccount  value)

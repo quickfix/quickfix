@@ -160,7 +160,7 @@ public class MarketDataRequest extends Message
   public static class NoRelatedSym extends Group {
     public NoRelatedSym() {
       super(146,55,
-      new int[] {55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,0 } ); }
+      new int[] {55,65,48,22,454,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,0 } ); }
   public void set(quickfix.field.Symbol value)
   { setField(value); }
   public quickfix.field.Symbol get(quickfix.field.Symbol  value)

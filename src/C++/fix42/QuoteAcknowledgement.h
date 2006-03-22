@@ -33,7 +33,7 @@ namespace FIX42
     class NoQuoteSets: public FIX::Group
     {
     public:
-    NoQuoteSets() : FIX::Group(296,302,FIX::message_order(302,311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,304,0)) {}
+    NoQuoteSets() : FIX::Group(296,302,FIX::message_order(302,311,312,309,305,310,313,314,315,316,317,436,435,308,306,362,363,307,364,365,304,295,0)) {}
       FIELD_SET(*this, FIX::QuoteSetID);
       FIELD_SET(*this, FIX::UnderlyingSymbol);
       FIELD_SET(*this, FIX::UnderlyingSymbolSfx);

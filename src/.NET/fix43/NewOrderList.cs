@@ -199,7 +199,7 @@ namespace QuickFix43
     public class NoOrders: QuickFix.Group
     {
     public NoOrders() : base(73,11,message_order ) {}
-    static int[] message_order = new int[] {11,526,67,583,160,229,1,581,589,590,591,63,64,544,635,21,18,110,111,100,81,55,65,48,22,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,140,54,401,114,60,465,38,152,516,468,469,40,423,44,99,218,220,221,222,235,236,15,376,377,23,117,59,168,432,126,427,12,13,479,497,528,529,582,47,121,120,58,354,355,193,192,640,77,203,210,211,388,389,494,158,159,118,0};
+    static int[] message_order = new int[] {11,526,67,583,160,453,229,1,581,589,590,591,78,63,64,544,635,21,18,110,111,100,386,81,55,65,48,22,454,460,461,167,200,541,224,225,239,226,227,228,255,543,470,471,472,240,202,206,231,223,207,106,348,349,107,350,351,140,54,401,114,60,232,465,38,152,516,468,469,40,423,44,99,218,220,221,222,235,236,15,376,377,23,117,59,168,432,126,427,12,13,479,497,528,529,582,47,121,120,58,354,355,193,192,640,77,203,210,211,388,389,494,158,159,118,0};
       public void set(QuickFix.ClOrdID value)
       { setField(value); }
       public QuickFix.ClOrdID get(QuickFix.ClOrdID  value)
@@ -1682,7 +1682,7 @@ namespace QuickFix43
       public class NoAllocs: QuickFix.Group
       {
       public NoAllocs() : base(78,79,message_order ) {}
-      static int[] message_order = new int[] {79,467,80,0};
+      static int[] message_order = new int[] {79,467,539,80,0};
         public void set(QuickFix.AllocAccount value)
         { setField(value); }
         public QuickFix.AllocAccount get(QuickFix.AllocAccount  value)

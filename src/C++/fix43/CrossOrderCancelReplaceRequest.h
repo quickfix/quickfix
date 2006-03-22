@@ -132,7 +132,7 @@ namespace FIX43
     class NoSides: public FIX::Group
     {
     public:
-    NoSides() : FIX::Group(552,54,FIX::message_order(54,41,11,526,583,586,229,1,581,589,590,591,465,38,152,516,468,469,12,13,479,497,528,529,582,121,120,58,354,355,77,203,544,635,377,659,0)) {}
+    NoSides() : FIX::Group(552,54,FIX::message_order(54,41,11,526,583,586,453,229,1,581,589,590,591,78,465,38,152,516,468,469,12,13,479,497,528,529,582,121,120,58,354,355,77,203,544,635,377,659,0)) {}
       FIELD_SET(*this, FIX::Side);
       FIELD_SET(*this, FIX::OrigClOrdID);
       FIELD_SET(*this, FIX::ClOrdID);
@@ -183,7 +183,7 @@ namespace FIX43
       class NoAllocs: public FIX::Group
       {
       public:
-      NoAllocs() : FIX::Group(78,79,FIX::message_order(79,467,80,0)) {}
+      NoAllocs() : FIX::Group(78,79,FIX::message_order(79,467,539,80,0)) {}
         FIELD_SET(*this, FIX::AllocAccount);
         FIELD_SET(*this, FIX::IndividualAllocID);
         FIELD_SET(*this, FIX::NoNestedPartyIDs);
