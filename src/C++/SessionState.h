@@ -43,7 +43,8 @@ public:
 : m_enabled( true ), m_receivedLogon( false ),
   m_sentLogout( false ), m_sentLogon( false ),
   m_sentReset( false ), m_receivedReset( false ),
-  m_initiate( false ), m_logonTimeout( 10 ), m_testRequest( 0 ),
+  m_initiate( false ), m_logonTimeout( 10 ), 
+  m_logoutTimeout( 2 ), m_testRequest( 0 ),
   m_pStore( 0 ), m_pLog( 0 ) {}
 
   bool enabled() const { return m_enabled; }
@@ -69,6 +70,9 @@ public:
 
   int logonTimeout() const { return m_logonTimeout; }
   void logonTimeout( int value ) { m_logonTimeout = value; }
+
+  int logoutTimeout() const { return m_logoutTimeout; }
+  void logoutTimeout( int value ) { m_logoutTimeout = value; }
 
   int testRequest() const { return m_testRequest; }
   void testRequest( int value ) { m_testRequest = value; }
@@ -118,7 +122,7 @@ public:
   bool logoutTimedOut() const
   {
     UtcTimeStamp now;
-    return sentLogout() && ( ( now - lastSentTime() ) >= 2 );
+    return sentLogout() && ( ( now - lastSentTime() ) >= logoutTimeout() );
   }
   bool withinHeartBeat() const
   {
@@ -205,6 +209,7 @@ private:
   bool m_receivedReset;
   bool m_initiate;
   int m_logonTimeout;
+  int m_logoutTimeout;
   int m_testRequest;
   ResendRange m_resendRange;
   HeartBtInt m_heartBtInt;

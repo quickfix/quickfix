@@ -108,6 +108,8 @@ public:
     { m_maxLatency = value; }
   void setLogonTimeout ( int value )
     { m_state.logonTimeout( value ); }
+  void setLogoutTimeout ( int value )
+    { m_state.logoutTimeout( value ); }
   void setSendResetSeqNumFlag( bool value )
     { m_sendResetSeqNumFlag = value; }
   void setResetOnLogout ( bool value )

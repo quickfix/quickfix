@@ -59,6 +59,7 @@ const char VALIDATE_FIELDS_OUT_OF_ORDER[] = "ValidateFieldsOutOfOrder";
 const char VALIDATE_FIELDS_HAVE_VALUES[] = "ValidateFieldsHaveValues";
 const char VALIDATE_USER_DEFINED_FIELDS[] = "ValidateUserDefinedFields";
 const char LOGON_TIMEOUT[] = "LogonTimeout";
+const char LOGOUT_TIMEOUT[] = "LogoutTimeout";
 const char FILE_PATH[] = "FilePath";
 const char FILE_STORE_PATH[] = "FileStorePath";
 const char MYSQL_STORE_USECONNECTIONPOOL[] = "MySQLStoreUseConnectionPool";
