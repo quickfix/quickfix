@@ -89,23 +89,23 @@ public:
   /// Set global data dictionary for encoding messages into XML
   static bool InitializeXML( const std::string& string );
 
-  void addGroup( Group& group )
+  void addGroup( FIX::Group& group )
   { FieldMap::addGroup( group.field(), group ); }
 
-  Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound )
+  Group& getGroup( unsigned num, FIX::Group& group ) const throw( FieldNotFound )
   { group.clear();
     return static_cast < Group& >
       ( FieldMap::getGroup( num, group.field(), group ) );
   }
 
-  void removeGroup( unsigned num, Group& group )
+  void removeGroup( unsigned num, FIX::Group& group )
   { FieldMap::removeGroup( num, group.field() ); }
-  void removeGroup( Group& group )
+  void removeGroup( FIX::Group& group )
   { FieldMap::removeGroup( group.field() ); }
 
-  bool hasGroup( const Group& group )
+  bool hasGroup( const FIX::Group& group )
   { return FieldMap::hasGroup( group.field() ); }
-  bool hasGroup( unsigned num, Group& group )
+  bool hasGroup( unsigned num, FIX::Group& group )
   { return FieldMap::hasGroup( num, group.field() ); }
 
 protected:

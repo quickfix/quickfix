@@ -43,6 +43,36 @@ except:
     weakref_proxy = lambda x: x
 
 
+class intArray(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, intArray, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, intArray, name)
+    def __repr__(self):
+        return "<%s.%s; proxy of C++ intArray instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
+    def __init__(self, *args):
+        _swig_setattr(self, intArray, 'this', _quickfix.new_intArray(*args))
+        _swig_setattr(self, intArray, 'thisown', 1)
+    def __del__(self, destroy=_quickfix.delete_intArray):
+        try:
+            if self.thisown: destroy(self)
+        except: pass
+
+    def __getitem__(*args): return _quickfix.intArray___getitem__(*args)
+    def __setitem__(*args): return _quickfix.intArray___setitem__(*args)
+    def cast(*args): return _quickfix.intArray_cast(*args)
+    __swig_getmethods__["frompointer"] = lambda x: _quickfix.intArray_frompointer
+    if _newclass:frompointer = staticmethod(_quickfix.intArray_frompointer)
+
+class intArrayPtr(intArray):
+    def __init__(self, this):
+        _swig_setattr(self, intArray, 'this', this)
+        if not hasattr(self,"thisown"): _swig_setattr(self, intArray, 'thisown', 0)
+        self.__class__ = intArray
+_quickfix.intArray_swigregister(intArrayPtr)
+
+intArray_frompointer = _quickfix.intArray_frompointer
+
 HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
 HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H

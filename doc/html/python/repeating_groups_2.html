@@ -1,0 +1,25 @@
+<B><CODE><PRE>
+import quickfix
+import quickfix42
+
+noMDEntries = quickfix.NoMDEntries()
+message.getField(noMDEntries)
+
+group = quickfix42.MarketDataSnapshotFillRefresh.NoMDEntries()
+MDEntryType = quickfix.MDEntryType()
+MDEntryPx = quickfix.MDEntryPx()
+MDEntrySize = quickfix.MDEntrySize()
+orderID = quickfix.OrderID();
+
+message.getGroup(1, group);
+group.getField(MDEntryType);
+group.getField(MDEntryPx);
+group.getField(MDEntrySize);
+group.getField(orderID);
+
+message.getGroup(2, group);
+group.getField(MDEntryType);
+group.getField(MDEntryPx);
+group.getField(MDEntrySize);
+group.getField(orderID);
+</PRE></CODE></B>

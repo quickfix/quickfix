@@ -46,8 +46,9 @@ class GeneratorPython
   def baseMessageStart
     @f.puts tabs + "class Message(fix.Message):"
     @depth += 1
-    @f.puts tabs + "def __init__(self,parent):"
+    @f.puts tabs + "def __init__(self):"
     @depth += 1
+    @f.puts tabs + "fix.Message.__init__(self)"
     @f.puts tabs + "self.getHeader().setField( fix.BeginString(" + "\"" + @beginstring + "\"" + ") )"
     @depth -= 1
     @depth -= 1
@@ -57,18 +58,23 @@ class GeneratorPython
   end
 
   def groupStart(name, number, delim, order)
-#    @depth += 1    
-#    @f.puts tabs + "public class " + name + ": QuickFix.Group"
-#    @f.puts tabs + "{"
-#    @f.puts tabs + "public " + name + "() : base(" + number + "," + delim + "," + "message_order ) {}"
-#    @f.print tabs + "static int[] message_order = new int[] {"
-#    order.each { |field| @f.print field + "," }
-#    @f.puts "0};"
+    @f.puts
+
+    @depth += 1    
+    @f.puts tabs + "class " + name + "(fix.Group):"
+    @depth += 1
+    @f.puts tabs + "def __init__(self):"
+    @depth += 1
+    @f.puts tabs + "order = fix.intArray(#{order.size+1})"
+    order.each_index { |i| @f.puts tabs + "order[#{i}] = #{order[i]}" }
+    @f.puts tabs + "order[#{order.size}] = 0"
+    @f.puts tabs + "fix.Group.__init__(self, #{number}, #{delim}, order)"
+    @depth -= 1
+    @depth -= 1
   end
 
   def groupEnd
-#    @f.puts tabs + "};"
-#    @depth -= 1
+    @depth -= 1
   end
 
   def messageStart(name, msgtype, required)
@@ -76,8 +82,9 @@ class GeneratorPython
 
     @f.puts tabs + "class " + name + "(Message):"
     @depth += 1
-    @f.puts tabs + "def __init__(self,parent):"
+    @f.puts tabs + "def __init__(self):"
     @depth += 1
+    @f.puts tabs + "Message.__init__(self)"
     @f.puts tabs + "self.getHeader().setField( fix.MsgType(" + "\"" + msgtype + "\") )"
     @depth -= 1
     @depth -= 1
