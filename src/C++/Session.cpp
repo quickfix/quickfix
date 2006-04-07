@@ -639,9 +639,12 @@ void Session::generateSequenceReset
   NewSeqNo newSeqNo( endSeqNo );
   sequenceReset.getHeader().setField( MsgType( "4" ) );
   sequenceReset.getHeader().setField( PossDupFlag( true ) );
-  insertOrigSendingTime( sequenceReset.getHeader() );
   sequenceReset.setField( newSeqNo );
   fill( sequenceReset.getHeader() );
+
+  SendingTime sendingTime;
+  sequenceReset.getHeader().getField( sendingTime );
+  insertOrigSendingTime( sequenceReset.getHeader(), sendingTime );
   sequenceReset.getHeader().setField( MsgSeqNum( beginSeqNo ) );
   sequenceReset.setField( GapFillFlag( true ) );
   sendRaw( sequenceReset, beginSeqNo );
