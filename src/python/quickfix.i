@@ -13,6 +13,7 @@
 #include "../C++/Exceptions.h"
 #include "../C++/Field.h"
 #include "../C++/Message.h"
+#include "../C++/Group.h"
 #include "../C++/Fields.h"
 #include "../C++/DeprecatedFields.h"
 #include "../C++/Values.h"
@@ -22,20 +23,8 @@
 #include "../C++/Session.h"
 #include "../C++/Log.h"
 #include "../C++/FileLog.h"
-#ifdef HAVE_MYSQL
-#include "../C++/MySQLLog.h"
-#endif
-#ifdef HAVE_POSTGRESQL
-#include "../C++/PostgreSQLLog.h"
-#endif
 #include "../C++/MessageStore.h"
 #include "../C++/FileStore.h"
-#ifdef HAVE_MYSQL
-#include "../C++/MySQLStore.h"
-#endif
-#ifdef HAVE_POSTGRESQL
-#include "../C++/PostgreSQLStore.h"
-#endif
 #include "../C++/Application.h"
 #include "../C++/Initiator.h"
 #include "../C++/SocketInitiator.h"
@@ -162,6 +151,7 @@ using namespace FIX;
 %include "../C++/Field.h"
 %include "../C++/FieldMap.h"
 %include "../C++/Message.h"
+%include "../C++/Group.h"
 %include "../C++/Fields.h"
 %include "../C++/DeprecatedFields.h"
 %include "../C++/Values.h"
@@ -171,12 +161,8 @@ using namespace FIX;
 %include "../C++/Session.h"
 %include "../C++/Log.h"
 %include "../C++/FileLog.h"
-%include "../C++/MySQLLog.h"
-%include "../C++/PostgreSQLLog.h"
 %include "../C++/MessageStore.h"
 %include "../C++/FileStore.h"
-%include "../C++/MySQLStore.h"
-%include "../C++/PostgreSQLStore.h"
 %include "../C++/Application.h"
 %include "../C++/Initiator.h"
 %include "../C++/SocketInitiator.h"

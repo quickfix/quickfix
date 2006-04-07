@@ -32,8 +32,6 @@
 
 namespace FIX
 {
-class Component;
-
 /**
  * Base class for all %FIX repeating groups.
  *

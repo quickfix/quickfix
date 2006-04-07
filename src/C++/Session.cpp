@@ -327,7 +327,7 @@ void Session::nextSequenceReset( const Message& sequenceReset )
     if ( newSeqNo > getExpectedTargetNum() )
       m_state.setNextTargetMsgSeqNum( MsgSeqNum( newSeqNo ) );
     else if ( newSeqNo < getExpectedTargetNum() )
-      generateReject( sequenceReset, 5 );
+      generateReject( sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT );
   }
 
   QF_STACK_POP
@@ -1036,7 +1036,7 @@ void Session::fromCallback( const MsgType& msgType, const Message& msg,
 void Session::doBadTime( const Message& msg )
 { QF_STACK_PUSH(Session::doBadTime)
 
-  generateReject( msg, 10 );
+  generateReject( msg, SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM );
   generateLogout();
 
   QF_STACK_POP
@@ -1045,7 +1045,7 @@ void Session::doBadTime( const Message& msg )
 void Session::doBadCompID( const Message& msg )
 { QF_STACK_PUSH(Session::doBadCompID)
 
-  generateReject( msg, 9 );
+  generateReject( msg, SessionRejectReason_COMPID_PROBLEM );
   generateLogout();
 
   QF_STACK_POP
@@ -1066,14 +1066,14 @@ bool Session::doPossDup( const Message& msg )
   {
     if ( !header.isSetField( origSendingTime ) )
     {
-      generateReject( msg, 1, origSendingTime.getField() );
+      generateReject( msg, SessionRejectReason_REQUIRED_TAG_MISSING, origSendingTime.getField() );
       return false;
     }
     header.getField( origSendingTime );
 
     if ( origSendingTime > sendingTime )
     {
-      generateReject( msg, 10 );
+      generateReject( msg, SessionRejectReason_SENDINGTIME_ACCURACY_PROBLEM );
       generateLogout();
       return false;
     }
@@ -1249,16 +1249,16 @@ void Session::next( const Message& message, bool queued )
   catch ( MessageParseError& e )
   { m_state.onEvent( e.what() ); }
   catch ( RequiredTagMissing & e )
-  { LOGEX( generateReject( message, 1, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_REQUIRED_TAG_MISSING, e.field ) ); }
   catch ( FieldNotFound & e )
   {
     if( beginString >= FIX::BeginString_FIX42 && message.isApp() )
     {
-      LOGEX( generateBusinessReject( message, 5 ) );
+      LOGEX( generateBusinessReject( message, BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING ) );
     }
     else
     {
-      LOGEX( generateReject( message, 1, e.field ) );
+      LOGEX( generateReject( message, SessionRejectReason_REQUIRED_TAG_MISSING, e.field ) );
       if ( msgType == MsgType_Logon )
       {
         m_state.onEvent( "Required field missing from logon" );
@@ -1267,30 +1267,30 @@ void Session::next( const Message& message, bool queued )
     }
   }
   catch ( InvalidTagNumber & e )
-  { LOGEX( generateReject( message, 0, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_INVALID_TAG_NUMBER, e.field ) ); }
   catch ( NoTagValue & e )
-  { LOGEX( generateReject( message, 4, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_TAG_SPECIFIED_WITHOUT_A_VALUE, e.field ) ); }
   catch ( TagNotDefinedForMessage & e )
-  { LOGEX( generateReject( message, 2, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_TAG_NOT_DEFINED_FOR_THIS_MESSAGE_TYPE, e.field ) ); }
   catch ( InvalidMessageType& )
-  { LOGEX( generateReject( message, 11 ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_INVALID_MSGTYPE ) ); }
   catch ( UnsupportedMessageType& )
   {
     if ( beginString >= FIX::BeginString_FIX42 )
-      { LOGEX( generateBusinessReject( message, 3 ) ); }
+      { LOGEX( generateBusinessReject( message, BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE ) ); }
     else
       { LOGEX( generateReject( message, "Unsupported message type" ) ); }
   }
   catch ( TagOutOfOrder & e )
-  { LOGEX( generateReject( message, 14, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_TAG_SPECIFIED_OUT_OF_REQUIRED_ORDER, e.field ) ); }
   catch ( IncorrectDataFormat & e )
-  { LOGEX( generateReject( message, 6, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_INCORRECT_DATA_FORMAT_FOR_VALUE, e.field ) ); }
   catch ( IncorrectTagValue & e )
-  { LOGEX( generateReject( message, 5, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_VALUE_IS_INCORRECT, e.field ) ); }
   catch ( RepeatedTag & e )
-  { LOGEX( generateReject( message, 13, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_TAG_APPEARS_MORE_THAN_ONCE, e.field ) ); }
   catch ( RepeatingGroupCountMismatch & e )
-  { LOGEX( generateReject( message, 16, e.field ) ); }
+  { LOGEX( generateReject( message, SessionRejectReason_INCORRECT_NUMINGROUP_COUNT_FOR_REPEATING_GROUP, e.field ) ); }
   catch ( InvalidMessage& e )
   { m_state.onEvent( e.what() ); }
   catch ( RejectLogon& e )

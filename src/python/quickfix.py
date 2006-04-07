@@ -47,6 +47,7 @@ HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
 HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H
 HAVE_MEMORY_H = _quickfix.HAVE_MEMORY_H
+HAVE_PYTHON = _quickfix.HAVE_PYTHON
 HAVE_STDINT_H = _quickfix.HAVE_STDINT_H
 HAVE_STDIO_H = _quickfix.HAVE_STDIO_H
 HAVE_STDLIB_H = _quickfix.HAVE_STDLIB_H
@@ -1221,6 +1222,37 @@ Message_isTrailerField = _quickfix.Message_isTrailerField
 
 
 identifyType = _quickfix.identifyType
+class Group(FieldMap):
+    __swig_setmethods__ = {}
+    for _s in [FieldMap]: __swig_setmethods__.update(_s.__swig_setmethods__)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Group, name, value)
+    __swig_getmethods__ = {}
+    for _s in [FieldMap]: __swig_getmethods__.update(_s.__swig_getmethods__)
+    __getattr__ = lambda self, name: _swig_getattr(self, Group, name)
+    def __repr__(self):
+        return "<%s.%s; proxy of C++ FIX::Group instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
+    def __init__(self, *args):
+        _swig_setattr(self, Group, 'this', _quickfix.new_Group(*args))
+        _swig_setattr(self, Group, 'thisown', 1)
+    def field(*args): return _quickfix.Group_field(*args)
+    def delim(*args): return _quickfix.Group_delim(*args)
+    def addGroup(*args): return _quickfix.Group_addGroup(*args)
+    def getGroup(*args): return _quickfix.Group_getGroup(*args)
+    def removeGroup(*args): return _quickfix.Group_removeGroup(*args)
+    def hasGroup(*args): return _quickfix.Group_hasGroup(*args)
+    def __del__(self, destroy=_quickfix.delete_Group):
+        try:
+            if self.thisown: destroy(self)
+        except: pass
+
+
+class GroupPtr(Group):
+    def __init__(self, this):
+        _swig_setattr(self, Group, 'this', this)
+        if not hasattr(self,"thisown"): _swig_setattr(self, Group, 'thisown', 0)
+        self.__class__ = Group
+_quickfix.Group_swigregister(GroupPtr)
+
 class Account(StringField):
     __swig_setmethods__ = {}
     for _s in [StringField]: __swig_setmethods__.update(_s.__swig_setmethods__)
@@ -27450,6 +27482,7 @@ VALIDATE_FIELDS_OUT_OF_ORDER = cvar.VALIDATE_FIELDS_OUT_OF_ORDER
 VALIDATE_FIELDS_HAVE_VALUES = cvar.VALIDATE_FIELDS_HAVE_VALUES
 VALIDATE_USER_DEFINED_FIELDS = cvar.VALIDATE_USER_DEFINED_FIELDS
 LOGON_TIMEOUT = cvar.LOGON_TIMEOUT
+LOGOUT_TIMEOUT = cvar.LOGOUT_TIMEOUT
 FILE_PATH = cvar.FILE_PATH
 FILE_STORE_PATH = cvar.FILE_STORE_PATH
 MYSQL_STORE_USECONNECTIONPOOL = cvar.MYSQL_STORE_USECONNECTIONPOOL
@@ -27468,6 +27501,9 @@ POSTGRESQL_STORE_USER = cvar.POSTGRESQL_STORE_USER
 POSTGRESQL_STORE_PASSWORD = cvar.POSTGRESQL_STORE_PASSWORD
 POSTGRESQL_STORE_HOST = cvar.POSTGRESQL_STORE_HOST
 POSTGRESQL_STORE_PORT = cvar.POSTGRESQL_STORE_PORT
+ODBC_STORE_USER = cvar.ODBC_STORE_USER
+ODBC_STORE_PASSWORD = cvar.ODBC_STORE_PASSWORD
+ODBC_STORE_CONNECTION_STRING = cvar.ODBC_STORE_CONNECTION_STRING
 FILE_LOG_PATH = cvar.FILE_LOG_PATH
 MYSQL_LOG_USECONNECTIONPOOL = cvar.MYSQL_LOG_USECONNECTIONPOOL
 MYSQL_LOG_DATABASE = cvar.MYSQL_LOG_DATABASE
@@ -27485,6 +27521,9 @@ POSTGRESQL_LOG_USER = cvar.POSTGRESQL_LOG_USER
 POSTGRESQL_LOG_PASSWORD = cvar.POSTGRESQL_LOG_PASSWORD
 POSTGRESQL_LOG_HOST = cvar.POSTGRESQL_LOG_HOST
 POSTGRESQL_LOG_PORT = cvar.POSTGRESQL_LOG_PORT
+ODBC_LOG_USER = cvar.ODBC_LOG_USER
+ODBC_LOG_PASSWORD = cvar.ODBC_LOG_PASSWORD
+ODBC_LOG_CONNECTION_STRING = cvar.ODBC_LOG_CONNECTION_STRING
 RESET_ON_LOGOUT = cvar.RESET_ON_LOGOUT
 RESET_ON_DISCONNECT = cvar.RESET_ON_DISCONNECT
 MILLISECONDS_IN_TIMESTAMP = cvar.MILLISECONDS_IN_TIMESTAMP
@@ -27534,6 +27573,7 @@ class Session(_object):
     def checkLatency(*args): return _quickfix.Session_checkLatency(*args)
     def setMaxLatency(*args): return _quickfix.Session_setMaxLatency(*args)
     def setLogonTimeout(*args): return _quickfix.Session_setLogonTimeout(*args)
+    def setLogoutTimeout(*args): return _quickfix.Session_setLogoutTimeout(*args)
     def setSendResetSeqNumFlag(*args): return _quickfix.Session_setSendResetSeqNumFlag(*args)
     def setResetOnLogout(*args): return _quickfix.Session_setResetOnLogout(*args)
     def setResetOnDisconnect(*args): return _quickfix.Session_setResetOnDisconnect(*args)
@@ -27729,128 +27769,6 @@ class FileLogPtr(FileLog):
         if not hasattr(self,"thisown"): _swig_setattr(self, FileLog, 'thisown', 0)
         self.__class__ = FileLog
 _quickfix.FileLog_swigregister(FileLogPtr)
-
-class MySQLLogFactory(LogFactory):
-    __swig_setmethods__ = {}
-    for _s in [LogFactory]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLLogFactory, name, value)
-    __swig_getmethods__ = {}
-    for _s in [LogFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, MySQLLogFactory, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::MySQLLogFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    DEFAULT_DATABASE = _quickfix.cvar.MySQLLogFactory_DEFAULT_DATABASE
-    DEFAULT_USER = _quickfix.cvar.MySQLLogFactory_DEFAULT_USER
-    DEFAULT_PASSWORD = _quickfix.cvar.MySQLLogFactory_DEFAULT_PASSWORD
-    DEFAULT_HOST = _quickfix.cvar.MySQLLogFactory_DEFAULT_HOST
-    DEFAULT_PORT = _quickfix.cvar.MySQLLogFactory_DEFAULT_PORT
-    def __init__(self, *args):
-        _swig_setattr(self, MySQLLogFactory, 'this', _quickfix.new_MySQLLogFactory(*args))
-        _swig_setattr(self, MySQLLogFactory, 'thisown', 1)
-    def create(*args): return _quickfix.MySQLLogFactory_create(*args)
-    def destroy(*args): return _quickfix.MySQLLogFactory_destroy(*args)
-    def __del__(self, destroy=_quickfix.delete_MySQLLogFactory):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-
-class MySQLLogFactoryPtr(MySQLLogFactory):
-    def __init__(self, this):
-        _swig_setattr(self, MySQLLogFactory, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, MySQLLogFactory, 'thisown', 0)
-        self.__class__ = MySQLLogFactory
-_quickfix.MySQLLogFactory_swigregister(MySQLLogFactoryPtr)
-
-class MySQLLog(Log):
-    __swig_setmethods__ = {}
-    for _s in [Log]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLLog, name, value)
-    __swig_getmethods__ = {}
-    for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, MySQLLog, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::MySQLLog instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    def __init__(self, *args):
-        _swig_setattr(self, MySQLLog, 'this', _quickfix.new_MySQLLog(*args))
-        _swig_setattr(self, MySQLLog, 'thisown', 1)
-    def __del__(self, destroy=_quickfix.delete_MySQLLog):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-    def clear(*args): return _quickfix.MySQLLog_clear(*args)
-    def onIncoming(*args): return _quickfix.MySQLLog_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.MySQLLog_onOutgoing(*args)
-    def onEvent(*args): return _quickfix.MySQLLog_onEvent(*args)
-
-class MySQLLogPtr(MySQLLog):
-    def __init__(self, this):
-        _swig_setattr(self, MySQLLog, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, MySQLLog, 'thisown', 0)
-        self.__class__ = MySQLLog
-_quickfix.MySQLLog_swigregister(MySQLLogPtr)
-
-class PostgreSQLLogFactory(LogFactory):
-    __swig_setmethods__ = {}
-    for _s in [LogFactory]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PostgreSQLLogFactory, name, value)
-    __swig_getmethods__ = {}
-    for _s in [LogFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, PostgreSQLLogFactory, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::PostgreSQLLogFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    DEFAULT_DATABASE = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_DATABASE
-    DEFAULT_USER = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_USER
-    DEFAULT_PASSWORD = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_PASSWORD
-    DEFAULT_HOST = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_HOST
-    DEFAULT_PORT = _quickfix.cvar.PostgreSQLLogFactory_DEFAULT_PORT
-    def __init__(self, *args):
-        _swig_setattr(self, PostgreSQLLogFactory, 'this', _quickfix.new_PostgreSQLLogFactory(*args))
-        _swig_setattr(self, PostgreSQLLogFactory, 'thisown', 1)
-    def create(*args): return _quickfix.PostgreSQLLogFactory_create(*args)
-    def destroy(*args): return _quickfix.PostgreSQLLogFactory_destroy(*args)
-    def __del__(self, destroy=_quickfix.delete_PostgreSQLLogFactory):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-
-class PostgreSQLLogFactoryPtr(PostgreSQLLogFactory):
-    def __init__(self, this):
-        _swig_setattr(self, PostgreSQLLogFactory, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, PostgreSQLLogFactory, 'thisown', 0)
-        self.__class__ = PostgreSQLLogFactory
-_quickfix.PostgreSQLLogFactory_swigregister(PostgreSQLLogFactoryPtr)
-
-class PostgreSQLLog(Log):
-    __swig_setmethods__ = {}
-    for _s in [Log]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PostgreSQLLog, name, value)
-    __swig_getmethods__ = {}
-    for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, PostgreSQLLog, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::PostgreSQLLog instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    def __init__(self, *args):
-        _swig_setattr(self, PostgreSQLLog, 'this', _quickfix.new_PostgreSQLLog(*args))
-        _swig_setattr(self, PostgreSQLLog, 'thisown', 1)
-    def __del__(self, destroy=_quickfix.delete_PostgreSQLLog):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-    def clear(*args): return _quickfix.PostgreSQLLog_clear(*args)
-    def onIncoming(*args): return _quickfix.PostgreSQLLog_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.PostgreSQLLog_onOutgoing(*args)
-    def onEvent(*args): return _quickfix.PostgreSQLLog_onEvent(*args)
-
-class PostgreSQLLogPtr(PostgreSQLLog):
-    def __init__(self, this):
-        _swig_setattr(self, PostgreSQLLog, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, PostgreSQLLog, 'thisown', 0)
-        self.__class__ = PostgreSQLLog
-_quickfix.PostgreSQLLog_swigregister(PostgreSQLLogPtr)
 
 class MessageStoreFactory(_object):
     __swig_setmethods__ = {}
@@ -28088,141 +28006,6 @@ class FileStorePtr(FileStore):
         if not hasattr(self,"thisown"): _swig_setattr(self, FileStore, 'thisown', 0)
         self.__class__ = FileStore
 _quickfix.FileStore_swigregister(FileStorePtr)
-
-class MySQLStoreFactory(MessageStoreFactory):
-    __swig_setmethods__ = {}
-    for _s in [MessageStoreFactory]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLStoreFactory, name, value)
-    __swig_getmethods__ = {}
-    for _s in [MessageStoreFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, MySQLStoreFactory, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::MySQLStoreFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    DEFAULT_DATABASE = _quickfix.cvar.MySQLStoreFactory_DEFAULT_DATABASE
-    DEFAULT_USER = _quickfix.cvar.MySQLStoreFactory_DEFAULT_USER
-    DEFAULT_PASSWORD = _quickfix.cvar.MySQLStoreFactory_DEFAULT_PASSWORD
-    DEFAULT_HOST = _quickfix.cvar.MySQLStoreFactory_DEFAULT_HOST
-    DEFAULT_PORT = _quickfix.cvar.MySQLStoreFactory_DEFAULT_PORT
-    def __init__(self, *args):
-        _swig_setattr(self, MySQLStoreFactory, 'this', _quickfix.new_MySQLStoreFactory(*args))
-        _swig_setattr(self, MySQLStoreFactory, 'thisown', 1)
-    def create(*args): return _quickfix.MySQLStoreFactory_create(*args)
-    def destroy(*args): return _quickfix.MySQLStoreFactory_destroy(*args)
-    def __del__(self, destroy=_quickfix.delete_MySQLStoreFactory):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-
-class MySQLStoreFactoryPtr(MySQLStoreFactory):
-    def __init__(self, this):
-        _swig_setattr(self, MySQLStoreFactory, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, MySQLStoreFactory, 'thisown', 0)
-        self.__class__ = MySQLStoreFactory
-_quickfix.MySQLStoreFactory_swigregister(MySQLStoreFactoryPtr)
-
-class MySQLStore(MessageStore):
-    __swig_setmethods__ = {}
-    for _s in [MessageStore]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, MySQLStore, name, value)
-    __swig_getmethods__ = {}
-    for _s in [MessageStore]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, MySQLStore, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::MySQLStore instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    def __init__(self, *args):
-        _swig_setattr(self, MySQLStore, 'this', _quickfix.new_MySQLStore(*args))
-        _swig_setattr(self, MySQLStore, 'thisown', 1)
-    def __del__(self, destroy=_quickfix.delete_MySQLStore):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-    def set(*args): return _quickfix.MySQLStore_set(*args)
-    def get(*args): return _quickfix.MySQLStore_get(*args)
-    def getNextSenderMsgSeqNum(*args): return _quickfix.MySQLStore_getNextSenderMsgSeqNum(*args)
-    def getNextTargetMsgSeqNum(*args): return _quickfix.MySQLStore_getNextTargetMsgSeqNum(*args)
-    def setNextSenderMsgSeqNum(*args): return _quickfix.MySQLStore_setNextSenderMsgSeqNum(*args)
-    def setNextTargetMsgSeqNum(*args): return _quickfix.MySQLStore_setNextTargetMsgSeqNum(*args)
-    def incrNextSenderMsgSeqNum(*args): return _quickfix.MySQLStore_incrNextSenderMsgSeqNum(*args)
-    def incrNextTargetMsgSeqNum(*args): return _quickfix.MySQLStore_incrNextTargetMsgSeqNum(*args)
-    def getCreationTime(*args): return _quickfix.MySQLStore_getCreationTime(*args)
-    def reset(*args): return _quickfix.MySQLStore_reset(*args)
-
-class MySQLStorePtr(MySQLStore):
-    def __init__(self, this):
-        _swig_setattr(self, MySQLStore, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, MySQLStore, 'thisown', 0)
-        self.__class__ = MySQLStore
-_quickfix.MySQLStore_swigregister(MySQLStorePtr)
-
-class PostgreSQLStoreFactory(MessageStoreFactory):
-    __swig_setmethods__ = {}
-    for _s in [MessageStoreFactory]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PostgreSQLStoreFactory, name, value)
-    __swig_getmethods__ = {}
-    for _s in [MessageStoreFactory]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, PostgreSQLStoreFactory, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::PostgreSQLStoreFactory instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    DEFAULT_DATABASE = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_DATABASE
-    DEFAULT_USER = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_USER
-    DEFAULT_PASSWORD = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_PASSWORD
-    DEFAULT_HOST = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_HOST
-    DEFAULT_PORT = _quickfix.cvar.PostgreSQLStoreFactory_DEFAULT_PORT
-    def __init__(self, *args):
-        _swig_setattr(self, PostgreSQLStoreFactory, 'this', _quickfix.new_PostgreSQLStoreFactory(*args))
-        _swig_setattr(self, PostgreSQLStoreFactory, 'thisown', 1)
-    def create(*args): return _quickfix.PostgreSQLStoreFactory_create(*args)
-    def destroy(*args): return _quickfix.PostgreSQLStoreFactory_destroy(*args)
-    def __del__(self, destroy=_quickfix.delete_PostgreSQLStoreFactory):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-
-class PostgreSQLStoreFactoryPtr(PostgreSQLStoreFactory):
-    def __init__(self, this):
-        _swig_setattr(self, PostgreSQLStoreFactory, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, PostgreSQLStoreFactory, 'thisown', 0)
-        self.__class__ = PostgreSQLStoreFactory
-_quickfix.PostgreSQLStoreFactory_swigregister(PostgreSQLStoreFactoryPtr)
-
-class PostgreSQLStore(MessageStore):
-    __swig_setmethods__ = {}
-    for _s in [MessageStore]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, PostgreSQLStore, name, value)
-    __swig_getmethods__ = {}
-    for _s in [MessageStore]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, PostgreSQLStore, name)
-    def __repr__(self):
-        return "<%s.%s; proxy of C++ FIX::PostgreSQLStore instance at %s>" % (self.__class__.__module__, self.__class__.__name__, self.this,)
-    def __init__(self, *args):
-        _swig_setattr(self, PostgreSQLStore, 'this', _quickfix.new_PostgreSQLStore(*args))
-        _swig_setattr(self, PostgreSQLStore, 'thisown', 1)
-    def __del__(self, destroy=_quickfix.delete_PostgreSQLStore):
-        try:
-            if self.thisown: destroy(self)
-        except: pass
-
-    def connect(*args): return _quickfix.PostgreSQLStore_connect(*args)
-    def set(*args): return _quickfix.PostgreSQLStore_set(*args)
-    def get(*args): return _quickfix.PostgreSQLStore_get(*args)
-    def getNextSenderMsgSeqNum(*args): return _quickfix.PostgreSQLStore_getNextSenderMsgSeqNum(*args)
-    def getNextTargetMsgSeqNum(*args): return _quickfix.PostgreSQLStore_getNextTargetMsgSeqNum(*args)
-    def setNextSenderMsgSeqNum(*args): return _quickfix.PostgreSQLStore_setNextSenderMsgSeqNum(*args)
-    def setNextTargetMsgSeqNum(*args): return _quickfix.PostgreSQLStore_setNextTargetMsgSeqNum(*args)
-    def incrNextSenderMsgSeqNum(*args): return _quickfix.PostgreSQLStore_incrNextSenderMsgSeqNum(*args)
-    def incrNextTargetMsgSeqNum(*args): return _quickfix.PostgreSQLStore_incrNextTargetMsgSeqNum(*args)
-    def getCreationTime(*args): return _quickfix.PostgreSQLStore_getCreationTime(*args)
-    def reset(*args): return _quickfix.PostgreSQLStore_reset(*args)
-
-class PostgreSQLStorePtr(PostgreSQLStore):
-    def __init__(self, this):
-        _swig_setattr(self, PostgreSQLStore, 'this', this)
-        if not hasattr(self,"thisown"): _swig_setattr(self, PostgreSQLStore, 'thisown', 0)
-        self.__class__ = PostgreSQLStore
-_quickfix.PostgreSQLStore_swigregister(PostgreSQLStorePtr)
 
 class Application(_object):
     __swig_setmethods__ = {}
