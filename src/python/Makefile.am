@@ -21,14 +21,16 @@ all-local:
 	ln -s ../src/python/.libs/libquickfix_python.la $(top_builddir)/lib/libquickfix_python.la
 	ln -s ../src/python/.libs/libquickfix_python.so $(top_builddir)/lib/libquickfix_python.so
 	ln -s ../src/python/.libs/libquickfix_python.dylib $(top_builddir)/lib/libquickfix_python.dylib
-	ln -s libquickfix_python.so $(top_builddir)/lib/_quickfix.so
-	ln -s libquickfix_python.dylib $(top_builddir)/lib/_quickfix.dylib
 	ln -s ../src/python/quickfix.py $(top_builddir)/lib/quickfix.py
 	ln -s ../src/python/quickfix40.py $(top_builddir)/lib/quickfix40.py
 	ln -s ../src/python/quickfix41.py $(top_builddir)/lib/quickfix41.py
 	ln -s ../src/python/quickfix42.py $(top_builddir)/lib/quickfix42.py
 	ln -s ../src/python/quickfix43.py $(top_builddir)/lib/quickfix43.py
 	ln -s ../src/python/quickfix44.py $(top_builddir)/lib/quickfix44.py
+	ln -s libquickfix_python.so $(top_builddir)/lib/_quickfix.so
+	ln -s libquickfix_python.dylib $(top_builddir)/lib/_quickfix.dylib
+
+	bash ./link.sh $(top_builddir)/lib _quickfix.so _quickfix.dylib
 
 clean-local:
 	rm -rf $(top_builddir)/lib/libquickfix_python.a
