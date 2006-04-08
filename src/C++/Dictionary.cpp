@@ -156,6 +156,28 @@ void Dictionary::setBool( const std::string& key, const bool& value )
   QF_STACK_POP
 }
 
+void Dictionary::setDay( const std::string& key, const int& value )
+{ QF_STACK_PUSH(Dictionary::setDay)
+  
+    switch( value )
+    {
+    case 1:
+      setString( key, "SU" ); break;
+    case 2:
+      setString( key, "MO" ); break;
+    case 3:
+      setString( key, "TU" ); break;
+    case 4:
+      setString( key, "WE" ); break;
+    case 5:
+      setString( key, "TH" ); break;
+    case 6:
+      setString( key, "FR" ); break;
+    case 7:
+      setString( key, "SA" ); break;
+    }
+}
+
 bool Dictionary::has( const std::string& key ) const
 { QF_STACK_PUSH(Dictionary::has)
   return m_data.find( key ) != m_data.end();

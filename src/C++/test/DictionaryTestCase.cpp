@@ -68,7 +68,7 @@ void DictionaryTestCase::setGetDouble::onRun( Dictionary& object )
   catch ( ConfigError& ) {}
 }
 
-void DictionaryTestCase::getDay::onRun( Dictionary& object )
+void DictionaryTestCase::setGetDay::onRun( Dictionary& object )
 {
   object.setString( "DAY1", "SU" );
   object.setString( "DAY2", "MO" );
@@ -85,6 +85,22 @@ void DictionaryTestCase::getDay::onRun( Dictionary& object )
   assert( object.getDay( "DAY5" ) == 5 );
   assert( object.getDay( "DAY6" ) == 6 );
   assert( object.getDay( "DAY7" ) == 7 );
+
+  object.setDay( "NEXTDAY1", 1 );
+  object.setDay( "NEXTDAY2", 2 );
+  object.setDay( "NEXTDAY3", 3 );
+  object.setDay( "NEXTDAY4", 4 );
+  object.setDay( "NEXTDAY5", 5 );
+  object.setDay( "NEXTDAY6", 6 );
+  object.setDay( "NEXTDAY7", 7 );
+
+  assert( object.getDay( "NEXTDAY1" ) == 1 );
+  assert( object.getDay( "NEXTDAY2" ) == 2 );
+  assert( object.getDay( "NEXTDAY3" ) == 3 );
+  assert( object.getDay( "NEXTDAY4" ) == 4 );
+  assert( object.getDay( "NEXTDAY5" ) == 5 );
+  assert( object.getDay( "NEXTDAY6" ) == 6 );
+  assert( object.getDay( "NEXTDAY7" ) == 7 );
 }
 
 void DictionaryTestCase::merge::onRun( Dictionary& object )

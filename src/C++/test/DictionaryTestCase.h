@@ -35,7 +35,7 @@ public:
     add( &m_setGetString );
     add( &m_setGetLong );
     add( &m_setGetDouble );
-    add( &m_getDay );
+    add( &m_setGetDay );
     add( &m_merge );
   }
 
@@ -57,10 +57,10 @@ private:
     void onRun( Dictionary& object );
   } m_setGetDouble;
 
-  class getDay : public Test
+  class setGetDay : public Test
   {
     void onRun( Dictionary& object );
-  } m_getDay;
+  } m_setGetDay;
 
   class merge : public Test
   {

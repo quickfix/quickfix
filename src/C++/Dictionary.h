@@ -72,6 +72,8 @@ public:
   void setDouble( const std::string&, const double& );
   /// Set a value from a bool
   void setBool( const std::string&, const bool& );
+  /// Set a value from a day
+  void setDay( const std::string&, const int& );
 
   /// Check if the dictionary contains a value for key.
   bool has( const std::string& ) const;
