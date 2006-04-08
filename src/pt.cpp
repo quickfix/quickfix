@@ -70,14 +70,14 @@ void report( int, int );
 
 #ifndef _MSC_VER
 #include <sys/time.h>
-int GetTickCount()
+long GetTickCount()
 {
   timeval tv;
   gettimeofday( &tv, 0 );
-  double millsec = tv.tv_sec * 1000;
-  millsec += ( double ) tv.tv_usec / ( 1000 );
+  long millsec = tv.tv_sec * 1000;
+  millsec += ( long ) tv.tv_usec / ( 1000 );
 
-  return ( int ) millsec;
+  return ( long ) millsec;
 }
 #endif
 
