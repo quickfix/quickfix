@@ -64,7 +64,7 @@ public:
     if( m_connections.find( id ) == m_connections.end() )
       return false;
 
-    Connection connection = m_connections[id];
+    Connection& connection = m_connections[id];
     if( connection.first != pConnection )
       return false;
 
