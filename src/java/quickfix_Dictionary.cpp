@@ -328,6 +328,21 @@ JNIEXPORT void JNICALL Java_quickfix_Dictionary_setBool
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Dictionary_setDay
+( JNIEnv *pEnv, jobject obj, jstring key, jint value )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+
+  const char* ukey = pEnv->GetStringUTFChars( key, 0 );
+
+  FIX::Dictionary* pDictionary = getCPPDictionary( obj );
+  pDictionary->setDay( ukey, value );
+  pEnv->ReleaseStringUTFChars( key, ukey );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jboolean JNICALL Java_quickfix_Dictionary_has
 ( JNIEnv *pEnv, jobject obj, jstring key )
 { QF_STACK_TRY

@@ -137,6 +137,14 @@ JNIEXPORT void JNICALL Java_quickfix_Dictionary_setBool
 
 /*
  * Class:     quickfix_Dictionary
+ * Method:    setDay
+ * Signature: (Ljava/lang/String;I)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Dictionary_setDay
+  (JNIEnv *, jobject, jstring, jint);
+
+/*
+ * Class:     quickfix_Dictionary
  * Method:    has
  * Signature: (Ljava/lang/String;)Z
  */

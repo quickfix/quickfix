@@ -198,6 +198,12 @@ public:
     QF_STACK_CATCH
   }
 
+  void setDay( String* key, int value )
+  { QF_STACK_TRY
+    unmanaged().setDay( convertString(key), value );
+    QF_STACK_CATCH
+  }
+
   bool has( String* key )
   { QF_STACK_TRY
     return unmanaged().has( convertString(key) );

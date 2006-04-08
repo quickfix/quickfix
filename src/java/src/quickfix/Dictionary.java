@@ -57,6 +57,7 @@ public class Dictionary {
     public native void setLong( String key, long value );
     public native void setDouble( String key, double value );
     public native void setBool( String key, boolean value );
+    public native void setDay( String key, int value );
 
     public native boolean has( String key );
     public native void merge( Dictionary toMerge );
