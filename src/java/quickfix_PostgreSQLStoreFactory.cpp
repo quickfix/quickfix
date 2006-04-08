@@ -93,7 +93,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_PostgreSQLStoreFactory_create__Lquickfix
 
   JVMClass type( "Lquickfix/FileStore;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
-  jobject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
+  jobject result = pEnv->NewObject( type, method, ( jlong ) pWrapper );
   return result;
 
   QF_STACK_CATCH

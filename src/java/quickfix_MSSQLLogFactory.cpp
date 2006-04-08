@@ -83,7 +83,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_MSSQLLogFactory_create__Lquickfix_Sessio
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lquickfix/MSSQLLog;" );
     jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
-    jobject result = pEnv->NewObject( type, method, ( jint ) pLog );
+    jobject result = pEnv->NewObject( type, method, ( jlong ) pLog );
     return result;
   }
   catch ( FIX::ConfigError & e )

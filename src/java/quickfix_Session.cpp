@@ -238,7 +238,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_lookupSession
   if( !pSession ) return 0;
   JVMClass type( "Lquickfix/Session;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
-  jobject result = pEnv->NewObject( type, method, ( jint ) pSession );
+  jobject result = pEnv->NewObject( type, method, ( jlong ) pSession );
   return result;
 
   QF_STACK_CATCH
@@ -479,7 +479,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getLog
   FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
   JVMClass type( "Lquickfix/CppLog;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
-  JVMObject result = pEnv->NewObject( type, method, ( jint ) pSession->getLog() );
+  JVMObject result = pEnv->NewObject( type, method, ( jlong ) pSession->getLog() );
   return result;
 
   QF_STACK_CATCH

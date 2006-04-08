@@ -83,7 +83,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_PostgreSQLLogFactory_create__Lquickfix_S
     FIX::Log* pLog = pFactory->create( *pSessionID );
     JVMClass type( "Lquickfix/PostgreSQLLog;" );
     jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
-    jobject result = pEnv->NewObject( type, method, ( jint ) pLog );
+    jobject result = pEnv->NewObject( type, method, ( jlong ) pLog );
     return result;
   }
   catch ( FIX::ConfigError & e )
