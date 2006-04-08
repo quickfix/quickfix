@@ -33,6 +33,12 @@ namespace QuickFix
 public __gc class SessionID
 {
 public:
+  SessionID()
+  { QF_STACK_TRY
+    m_pUnmanaged = new FIX::SessionID();
+    QF_STACK_CATCH
+  }
+
   SessionID( String* beginString, String* senderCompID, String* targetCompID )
   { QF_STACK_TRY
 

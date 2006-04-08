@@ -1,3 +1,422 @@
+2006-04-08 11:12  orenmnero
+
+	* src/C++/Makefile.am: use mkdir -p to create package directory
+
+2006-04-08 11:03  orenmnero
+
+	* src/pt.cpp: fixed implementation of GetTickCount, now returns a
+	  long
+
+2006-04-08 10:59  orenmnero
+
+	* src/java/: quickfix_FileLogFactory.cpp,
+	  quickfix_MSSQLLogFactory.cpp, quickfix_MSSQLStoreFactory.cpp,
+	  quickfix_PostgreSQLLogFactory.cpp,
+	  quickfix_PostgreSQLStoreFactory.cpp,
+	  quickfix_ScreenLogFactory.cpp, quickfix_Session.cpp: change jint
+	  to jlong casts for pointer so they workon 64 bit architectures
+
+2006-04-08 10:05  orenmnero
+
+	* bin/run_executor_python, examples/executor/python/executor.py,
+	  src/python/Makefile.am, src/python/link.sh: set up link for
+	  _quickfix.so or _quickfix.dylib if it does not exist
+
+2006-04-07 12:07  orenmnero
+
+	* src/C++/Session.cpp: Ensure that the OrigSendingTime always
+	  matches the SendingTime when sending a SequenceReset message
+
+2006-04-07 11:43  orenmnero
+
+	* doc/html/repeating_groups.html,
+	  doc/html/python/repeating_groups_1.html,
+	  doc/html/python/repeating_groups_2.html, spec/GeneratorPython.rb,
+	  src/C++/Message.h, src/python/QuickfixPython.cpp,
+	  src/python/quickfix.i, src/python/quickfix.py,
+	  src/python/quickfix42.py: added support for repeating groups to
+	  python api
+
+2006-04-07 01:34  orenmnero
+
+	* examples/executor/python/executor.py, spec/Generator.rb,
+	  spec/GeneratorPython.rb, src/C++/Group.h, src/C++/Makefile.am,
+	  src/C++/Session.cpp, src/python/Makefile.am,
+	  src/python/QuickfixPython.cpp, src/python/quickfix.i,
+	  src/python/quickfix.py, src/python/quickfix40.py,
+	  src/python/quickfix41.py, src/python/quickfix42.py,
+	  src/python/quickfix43.py, src/python/quickfix44.py: Generating
+	  message classes for python
+
+2006-04-05 16:09  orenmnero
+
+	* doc/html/configuration.html, src/C++/Session.h,
+	  src/C++/SessionFactory.cpp, src/C++/SessionSettings.h,
+	  src/C++/SessionState.h: Added configuration setting for logout
+	  timeout interval
+
+2006-03-22 03:51  orenmnero
+
+	* spec/Processor.rb, src/.NET/FIX43_MessageCracker.cs,
+	  src/.NET/FIX43_MessageFactory.cs, src/.NET/fix40/Allocation.cs,
+	  src/.NET/fix41/Allocation.cs, src/.NET/fix42/Allocation.cs,
+	  src/.NET/fix42/MassQuote.cs, src/.NET/fix42/NewOrderList.cs,
+	  src/.NET/fix42/QuoteAcknowledgement.cs,
+	  src/.NET/fix43/Allocation.cs,
+	  src/.NET/fix43/CrossOrderCancelReplaceRequest.cs,
+	  src/.NET/fix43/CrossOrderCancelRequest.cs,
+	  src/.NET/fix43/DerivativeSecurityList.cs,
+	  src/.NET/fix43/Email.cs, src/.NET/fix43/ExecutionReport.cs,
+	  src/.NET/fix43/ListStrikePrice.cs,
+	  src/.NET/fix43/MarketDataIncrementalRefresh.cs,
+	  src/.NET/fix43/MarketDataRequest.cs, src/.NET/fix43/MassQuote.cs,
+	  src/.NET/fix43/MassQuoteAcknowledgement.cs,
+	  src/.NET/fix43/MultilegOrderCancelReplaceRequest.cs,
+	  src/.NET/fix43/NewOrderCross.cs, src/.NET/fix43/NewOrderList.cs,
+	  src/.NET/fix43/NewOrderMultileg.cs,
+	  src/.NET/fix43/NewOrderSingle.cs, src/.NET/fix43/News.cs,
+	  src/.NET/fix43/OrderCancelReplaceRequest.cs,
+	  src/.NET/fix43/QuoteCancel.cs, src/.NET/fix43/QuoteRequest.cs,
+	  src/.NET/fix43/QuoteRequestReject.cs,
+	  src/.NET/fix43/RFQRequest.cs,
+	  src/.NET/fix43/RegistrationInstructions.cs,
+	  src/.NET/fix43/SecurityDefinition.cs,
+	  src/.NET/fix43/SecurityDefinitionRequest.cs,
+	  src/.NET/fix43/SecurityList.cs,
+	  src/.NET/fix43/TradeCaptureReport.cs,
+	  src/.NET/fix44/Advertisement.cs,
+	  src/.NET/fix44/AllocationInstruction.cs,
+	  src/.NET/fix44/AllocationInstructionAck.cs,
+	  src/.NET/fix44/AllocationReport.cs,
+	  src/.NET/fix44/AllocationReportAck.cs,
+	  src/.NET/fix44/AssignmentReport.cs,
+	  src/.NET/fix44/CollateralAssignment.cs,
+	  src/.NET/fix44/CollateralInquiry.cs,
+	  src/.NET/fix44/CollateralInquiryAck.cs,
+	  src/.NET/fix44/CollateralReport.cs,
+	  src/.NET/fix44/CollateralRequest.cs,
+	  src/.NET/fix44/CollateralResponse.cs,
+	  src/.NET/fix44/Confirmation.cs,
+	  src/.NET/fix44/ConfirmationRequest.cs,
+	  src/.NET/fix44/CrossOrderCancelReplaceRequest.cs,
+	  src/.NET/fix44/CrossOrderCancelRequest.cs,
+	  src/.NET/fix44/DerivativeSecurityList.cs,
+	  src/.NET/fix44/DontKnowTrade.cs, src/.NET/fix44/Email.cs,
+	  src/.NET/fix44/ExecutionReport.cs,
+	  src/.NET/fix44/IndicationOfInterest.cs,
+	  src/.NET/fix44/ListStrikePrice.cs,
+	  src/.NET/fix44/MarketDataIncrementalRefresh.cs,
+	  src/.NET/fix44/MarketDataRequest.cs,
+	  src/.NET/fix44/MarketDataSnapshotFullRefresh.cs,
+	  src/.NET/fix44/MassQuote.cs,
+	  src/.NET/fix44/MassQuoteAcknowledgement.cs,
+	  src/.NET/fix44/MultilegOrderCancelReplaceRequest.cs,
+	  src/.NET/fix44/NewOrderCross.cs, src/.NET/fix44/NewOrderList.cs,
+	  src/.NET/fix44/NewOrderMultileg.cs,
+	  src/.NET/fix44/NewOrderSingle.cs, src/.NET/fix44/News.cs,
+	  src/.NET/fix44/OrderCancelReplaceRequest.cs,
+	  src/.NET/fix44/OrderCancelRequest.cs,
+	  src/.NET/fix44/OrderMassStatusRequest.cs,
+	  src/.NET/fix44/OrderStatusRequest.cs,
+	  src/.NET/fix44/PositionMaintenanceReport.cs,
+	  src/.NET/fix44/PositionMaintenanceRequest.cs,
+	  src/.NET/fix44/PositionReport.cs, src/.NET/fix44/Quote.cs,
+	  src/.NET/fix44/QuoteCancel.cs, src/.NET/fix44/QuoteRequest.cs,
+	  src/.NET/fix44/QuoteRequestReject.cs,
+	  src/.NET/fix44/QuoteResponse.cs,
+	  src/.NET/fix44/QuoteStatusReport.cs,
+	  src/.NET/fix44/QuoteStatusRequest.cs,
+	  src/.NET/fix44/RFQRequest.cs,
+	  src/.NET/fix44/RegistrationInstructions.cs,
+	  src/.NET/fix44/RegistrationInstructionsResponse.cs,
+	  src/.NET/fix44/RequestForPositions.cs,
+	  src/.NET/fix44/RequestForPositionsAck.cs,
+	  src/.NET/fix44/SecurityDefinition.cs,
+	  src/.NET/fix44/SecurityDefinitionRequest.cs,
+	  src/.NET/fix44/SecurityList.cs,
+	  src/.NET/fix44/SecurityListRequest.cs,
+	  src/.NET/fix44/SecurityStatus.cs,
+	  src/.NET/fix44/SecurityStatusRequest.cs,
+	  src/.NET/fix44/SettlementInstructionRequest.cs,
+	  src/.NET/fix44/SettlementInstructions.cs,
+	  src/.NET/fix44/TradeCaptureReport.cs,
+	  src/.NET/fix44/TradeCaptureReportAck.cs,
+	  src/.NET/fix44/TradeCaptureReportRequest.cs,
+	  src/.NET/fix44/TradeCaptureReportRequestAck.cs,
+	  src/C++/fix40/Allocation.h, src/C++/fix41/Allocation.h,
+	  src/C++/fix42/Allocation.h, src/C++/fix42/MassQuote.h,
+	  src/C++/fix42/NewOrderList.h,
+	  src/C++/fix42/QuoteAcknowledgement.h, src/C++/fix43/Allocation.h,
+	  src/C++/fix43/CrossOrderCancelReplaceRequest.h,
+	  src/C++/fix43/CrossOrderCancelRequest.h,
+	  src/C++/fix43/DerivativeSecurityList.h, src/C++/fix43/Email.h,
+	  src/C++/fix43/ExecutionReport.h, src/C++/fix43/ListStrikePrice.h,
+	  src/C++/fix43/MarketDataIncrementalRefresh.h,
+	  src/C++/fix43/MarketDataRequest.h, src/C++/fix43/MassQuote.h,
+	  src/C++/fix43/MassQuoteAcknowledgement.h,
+	  src/C++/fix43/MultilegOrderCancelReplaceRequest.h,
+	  src/C++/fix43/NewOrderCross.h, src/C++/fix43/NewOrderList.h,
+	  src/C++/fix43/NewOrderMultileg.h, src/C++/fix43/NewOrderSingle.h,
+	  src/C++/fix43/News.h, src/C++/fix43/OrderCancelReplaceRequest.h,
+	  src/C++/fix43/QuoteCancel.h, src/C++/fix43/QuoteRequest.h,
+	  src/C++/fix43/QuoteRequestReject.h, src/C++/fix43/RFQRequest.h,
+	  src/C++/fix43/RegistrationInstructions.h,
+	  src/C++/fix43/SecurityDefinition.h,
+	  src/C++/fix43/SecurityDefinitionRequest.h,
+	  src/C++/fix43/SecurityList.h, src/C++/fix43/TradeCaptureReport.h,
+	  src/C++/fix44/Advertisement.h,
+	  src/C++/fix44/AllocationInstruction.h,
+	  src/C++/fix44/AllocationInstructionAck.h,
+	  src/C++/fix44/AllocationReport.h,
+	  src/C++/fix44/AllocationReportAck.h,
+	  src/C++/fix44/AssignmentReport.h,
+	  src/C++/fix44/CollateralAssignment.h,
+	  src/C++/fix44/CollateralInquiry.h,
+	  src/C++/fix44/CollateralInquiryAck.h,
+	  src/C++/fix44/CollateralReport.h,
+	  src/C++/fix44/CollateralRequest.h,
+	  src/C++/fix44/CollateralResponse.h, src/C++/fix44/Confirmation.h,
+	  src/C++/fix44/ConfirmationRequest.h,
+	  src/C++/fix44/CrossOrderCancelReplaceRequest.h,
+	  src/C++/fix44/CrossOrderCancelRequest.h,
+	  src/C++/fix44/DerivativeSecurityList.h,
+	  src/C++/fix44/DontKnowTrade.h, src/C++/fix44/Email.h,
+	  src/C++/fix44/ExecutionReport.h,
+	  src/C++/fix44/IndicationOfInterest.h,
+	  src/C++/fix44/ListStrikePrice.h,
+	  src/C++/fix44/MarketDataIncrementalRefresh.h,
+	  src/C++/fix44/MarketDataRequest.h,
+	  src/C++/fix44/MarketDataSnapshotFullRefresh.h,
+	  src/C++/fix44/MassQuote.h,
+	  src/C++/fix44/MassQuoteAcknowledgement.h,
+	  src/C++/fix44/MultilegOrderCancelReplaceRequest.h,
+	  src/C++/fix44/NewOrderCross.h, src/C++/fix44/NewOrderList.h,
+	  src/C++/fix44/NewOrderMultileg.h, src/C++/fix44/NewOrderSingle.h,
+	  src/C++/fix44/News.h, src/C++/fix44/OrderCancelReplaceRequest.h,
+	  src/C++/fix44/OrderCancelRequest.h,
+	  src/C++/fix44/OrderMassStatusRequest.h,
+	  src/C++/fix44/OrderStatusRequest.h,
+	  src/C++/fix44/PositionMaintenanceReport.h,
+	  src/C++/fix44/PositionMaintenanceRequest.h,
+	  src/C++/fix44/PositionReport.h, src/C++/fix44/Quote.h,
+	  src/C++/fix44/QuoteCancel.h, src/C++/fix44/QuoteRequest.h,
+	  src/C++/fix44/QuoteRequestReject.h,
+	  src/C++/fix44/QuoteResponse.h, src/C++/fix44/QuoteStatusReport.h,
+	  src/C++/fix44/QuoteStatusRequest.h, src/C++/fix44/RFQRequest.h,
+	  src/C++/fix44/RegistrationInstructions.h,
+	  src/C++/fix44/RegistrationInstructionsResponse.h,
+	  src/C++/fix44/RequestForPositions.h,
+	  src/C++/fix44/RequestForPositionsAck.h,
+	  src/C++/fix44/SecurityDefinition.h,
+	  src/C++/fix44/SecurityDefinitionRequest.h,
+	  src/C++/fix44/SecurityList.h,
+	  src/C++/fix44/SecurityListRequest.h,
+	  src/C++/fix44/SecurityStatus.h,
+	  src/C++/fix44/SecurityStatusRequest.h,
+	  src/C++/fix44/SettlementInstructionRequest.h,
+	  src/C++/fix44/SettlementInstructions.h,
+	  src/C++/fix44/TradeCaptureReport.h,
+	  src/C++/fix44/TradeCaptureReportAck.h,
+	  src/C++/fix44/TradeCaptureReportRequest.h,
+	  src/C++/fix44/TradeCaptureReportRequestAck.h,
+	  src/C++/test/MessagesTestCase.cpp,
+	  src/C++/test/MessagesTestCase.h, src/C++/test/TestSuite.h,
+	  src/java/src/quickfix/fix40/Allocation.java,
+	  src/java/src/quickfix/fix41/Allocation.java,
+	  src/java/src/quickfix/fix42/Allocation.java,
+	  src/java/src/quickfix/fix42/MassQuote.java,
+	  src/java/src/quickfix/fix42/NewOrderList.java,
+	  src/java/src/quickfix/fix42/QuoteAcknowledgement.java,
+	  src/java/src/quickfix/fix43/Allocation.java,
+	  src/java/src/quickfix/fix43/CrossOrderCancelReplaceRequest.java,
+	  src/java/src/quickfix/fix43/CrossOrderCancelRequest.java,
+	  src/java/src/quickfix/fix43/DerivativeSecurityList.java,
+	  src/java/src/quickfix/fix43/Email.java,
+	  src/java/src/quickfix/fix43/ExecutionReport.java,
+	  src/java/src/quickfix/fix43/ListStrikePrice.java,
+	  src/java/src/quickfix/fix43/MarketDataIncrementalRefresh.java,
+	  src/java/src/quickfix/fix43/MarketDataRequest.java,
+	  src/java/src/quickfix/fix43/MassQuote.java,
+	  src/java/src/quickfix/fix43/MassQuoteAcknowledgement.java,
+	  src/java/src/quickfix/fix43/MultilegOrderCancelReplaceRequest.java,
+	  src/java/src/quickfix/fix43/NewOrderCross.java,
+	  src/java/src/quickfix/fix43/NewOrderList.java,
+	  src/java/src/quickfix/fix43/NewOrderMultileg.java,
+	  src/java/src/quickfix/fix43/NewOrderSingle.java,
+	  src/java/src/quickfix/fix43/News.java,
+	  src/java/src/quickfix/fix43/OrderCancelReplaceRequest.java,
+	  src/java/src/quickfix/fix43/QuoteCancel.java,
+	  src/java/src/quickfix/fix43/QuoteRequest.java,
+	  src/java/src/quickfix/fix43/QuoteRequestReject.java,
+	  src/java/src/quickfix/fix43/RFQRequest.java,
+	  src/java/src/quickfix/fix43/RegistrationInstructions.java,
+	  src/java/src/quickfix/fix43/SecurityDefinition.java,
+	  src/java/src/quickfix/fix43/SecurityDefinitionRequest.java,
+	  src/java/src/quickfix/fix43/SecurityList.java,
+	  src/java/src/quickfix/fix43/TradeCaptureReport.java,
+	  src/java/src/quickfix/fix44/Advertisement.java,
+	  src/java/src/quickfix/fix44/AllocationInstruction.java,
+	  src/java/src/quickfix/fix44/AllocationInstructionAck.java,
+	  src/java/src/quickfix/fix44/AllocationReport.java,
+	  src/java/src/quickfix/fix44/AllocationReportAck.java,
+	  src/java/src/quickfix/fix44/AssignmentReport.java,
+	  src/java/src/quickfix/fix44/CollateralAssignment.java,
+	  src/java/src/quickfix/fix44/CollateralInquiry.java,
+	  src/java/src/quickfix/fix44/CollateralInquiryAck.java,
+	  src/java/src/quickfix/fix44/CollateralReport.java,
+	  src/java/src/quickfix/fix44/CollateralRequest.java,
+	  src/java/src/quickfix/fix44/CollateralResponse.java,
+	  src/java/src/quickfix/fix44/Confirmation.java,
+	  src/java/src/quickfix/fix44/ConfirmationRequest.java,
+	  src/java/src/quickfix/fix44/CrossOrderCancelReplaceRequest.java,
+	  src/java/src/quickfix/fix44/CrossOrderCancelRequest.java,
+	  src/java/src/quickfix/fix44/DerivativeSecurityList.java,
+	  src/java/src/quickfix/fix44/DontKnowTrade.java,
+	  src/java/src/quickfix/fix44/Email.java,
+	  src/java/src/quickfix/fix44/ExecutionReport.java,
+	  src/java/src/quickfix/fix44/IndicationOfInterest.java,
+	  src/java/src/quickfix/fix44/ListStrikePrice.java,
+	  src/java/src/quickfix/fix44/MarketDataIncrementalRefresh.java,
+	  src/java/src/quickfix/fix44/MarketDataRequest.java,
+	  src/java/src/quickfix/fix44/MarketDataSnapshotFullRefresh.java,
+	  src/java/src/quickfix/fix44/MassQuote.java,
+	  src/java/src/quickfix/fix44/MassQuoteAcknowledgement.java,
+	  src/java/src/quickfix/fix44/MultilegOrderCancelReplaceRequest.java,
+	  src/java/src/quickfix/fix44/NewOrderCross.java,
+	  src/java/src/quickfix/fix44/NewOrderList.java,
+	  src/java/src/quickfix/fix44/NewOrderMultileg.java,
+	  src/java/src/quickfix/fix44/NewOrderSingle.java,
+	  src/java/src/quickfix/fix44/News.java,
+	  src/java/src/quickfix/fix44/OrderCancelReplaceRequest.java,
+	  src/java/src/quickfix/fix44/OrderCancelRequest.java,
+	  src/java/src/quickfix/fix44/OrderMassStatusRequest.java,
+	  src/java/src/quickfix/fix44/OrderStatusRequest.java,
+	  src/java/src/quickfix/fix44/PositionMaintenanceReport.java,
+	  src/java/src/quickfix/fix44/PositionMaintenanceRequest.java,
+	  src/java/src/quickfix/fix44/PositionReport.java,
+	  src/java/src/quickfix/fix44/Quote.java,
+	  src/java/src/quickfix/fix44/QuoteCancel.java,
+	  src/java/src/quickfix/fix44/QuoteRequest.java,
+	  src/java/src/quickfix/fix44/QuoteRequestReject.java,
+	  src/java/src/quickfix/fix44/QuoteResponse.java,
+	  src/java/src/quickfix/fix44/QuoteStatusReport.java,
+	  src/java/src/quickfix/fix44/QuoteStatusRequest.java,
+	  src/java/src/quickfix/fix44/RFQRequest.java,
+	  src/java/src/quickfix/fix44/RegistrationInstructions.java,
+	  src/java/src/quickfix/fix44/RegistrationInstructionsResponse.java,
+	  src/java/src/quickfix/fix44/RequestForPositions.java,
+	  src/java/src/quickfix/fix44/RequestForPositionsAck.java,
+	  src/java/src/quickfix/fix44/SecurityDefinition.java,
+	  src/java/src/quickfix/fix44/SecurityDefinitionRequest.java,
+	  src/java/src/quickfix/fix44/SecurityList.java,
+	  src/java/src/quickfix/fix44/SecurityListRequest.java,
+	  src/java/src/quickfix/fix44/SecurityStatus.java,
+	  src/java/src/quickfix/fix44/SecurityStatusRequest.java,
+	  src/java/src/quickfix/fix44/SettlementInstructionRequest.java,
+	  src/java/src/quickfix/fix44/SettlementInstructions.java,
+	  src/java/src/quickfix/fix44/TradeCaptureReport.java,
+	  src/java/src/quickfix/fix44/TradeCaptureReportAck.java,
+	  src/java/src/quickfix/fix44/TradeCaptureReportRequest.java,
+	  src/java/src/quickfix/fix44/TradeCaptureReportRequestAck.java:
+	  nested groups will be placed into parent group in proper sorting
+	  order
+
+2006-03-16 18:30  orenmnero
+
+	* src/.NET/: FIX43_MessageCracker.cs, FIX43_MessageFactory.cs,
+	  quickfix_net.snk, quickfix_net_messages.snk: added strong naming
+	  to .NET libraries
+
+2006-03-15 13:47  orenmnero
+
+	* src/.NET/: AssemblyInfo.cpp, AssemblyInfo.cs: Added strong names
+	  to .NET assemblies
+
+2006-03-15 02:54  orenmnero
+
+	* src/config_windows.h: [no log message]
+
+2006-03-15 02:50  orenmnero
+
+	* src/java/: quickfix_CppLog.h, quickfix_CppMessageStore.h,
+	  quickfix_DataDictionary.h, quickfix_Dictionary.h,
+	  quickfix_FileLog.h, quickfix_FileLogFactory.h,
+	  quickfix_FileStore.h, quickfix_FileStoreFactory.h,
+	  quickfix_Group.cpp, quickfix_Group.h, quickfix_MSSQLLog.h,
+	  quickfix_MSSQLLogFactory.h, quickfix_MSSQLStore.h,
+	  quickfix_MSSQLStoreFactory.h, quickfix_MemoryStore.h,
+	  quickfix_Message.cpp, quickfix_Message.h, quickfix_MySQLLog.h,
+	  quickfix_MySQLLogFactory.h, quickfix_MySQLStore.h,
+	  quickfix_MySQLStoreFactory.h, quickfix_PostgreSQLLog.h,
+	  quickfix_PostgreSQLLogFactory.h, quickfix_PostgreSQLStore.h,
+	  quickfix_PostgreSQLStoreFactory.h, quickfix_ScreenLog.h,
+	  quickfix_ScreenLogFactory.h, quickfix_Session.h,
+	  quickfix_SessionID.h, quickfix_SessionSettings.h,
+	  quickfix_SocketAcceptor.h, quickfix_SocketInitiator.h,
+	  quickfix_ThreadedSocketAcceptor.h,
+	  quickfix_ThreadedSocketInitiator.h, src/quickfix/FieldMap.java,
+	  src/quickfix/Group.java, src/quickfix/Message.java: hasGroup
+	  returns a boolean in java API
+
+2006-03-15 02:26  orenmnero
+
+	* src/C++/DataDictionary.cpp: DataDictionary processes groups in
+	  the header and trailer
+
+2006-03-15 02:11  orenmnero
+
+	* src/C++/Session.cpp: Removed unused possDupFlags in
+	  generateReject methods
+
+2006-03-15 01:45  orenmnero
+
+	* src/C++/: Session.cpp, Session.h: Fixed bug where logout was
+	  attaching unused Session::m_logoutReason.  Now using correct
+	  SessionState::logoutReason.
+
+2006-03-15 01:32  orenmnero
+
+	* src/C++/: quickfix_vs6.dsp, quickfix_vs7.vcproj,
+	  quickfix_vs8.vcproj: Explicitly exclude the test directory when
+	  copying header files. Without trailing slash, test was excluded
+	  as a pattern, not a directory name
+
+2006-03-15 01:11  orenmnero
+
+	* src/C++/: SessionTime.cpp, test/SessionTimeTestCase.cpp: Fixed
+	  session time test when end time is less than the start time on
+	  the next day. Submitted by Yihu Fang
+
+2006-03-13 13:24  cepstein
+
+	* src/C++/Makefile.am: Use $(mkdir_p) to create $(pkgincludedir)
+
+2006-03-12 11:40  orenmnero
+
+	* src/java/quickfix_Group.cpp: fixed link error when using
+	  setUtcTimeOnly
+
+2006-03-11 04:01  orenmnero
+
+	* doc/html/configuration.html: added documentation for ODBC
+	  configuration settings
+
+2006-03-11 03:38  orenmnero
+
+	* src/config_windows.h, src/test_unit_vs6.dsp,
+	  src/test_unit_vs7.vcproj, src/test_unit_vs8.vcproj,
+	  src/C++/OdbcConnection.h, src/C++/OdbcLog.cpp, src/C++/OdbcLog.h,
+	  src/C++/OdbcStore.cpp, src/C++/OdbcStore.h,
+	  src/C++/SessionSettings.h, src/C++/quickfix_vs6.dsp,
+	  src/C++/quickfix_vs7.vcproj, src/C++/quickfix_vs8.vcproj,
+	  src/C++/test/OdbcStoreTestCase.cpp,
+	  src/C++/test/OdbcStoreTestCase.h, src/C++/test/TestSuite.h,
+	  test/cfg/ut.cfg: implemented ODBC log and message store
+
+2006-03-07 21:15  orenmnero
+
+	* ChangeLog: [no log message]
+
 2006-03-07 20:10  orenmnero
 
 	* src/: C++/Makefile.am, java/Makefile.am, python/Makefile.am:
