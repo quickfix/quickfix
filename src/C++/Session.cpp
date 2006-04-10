@@ -1018,7 +1018,11 @@ bool Session::validLogonState( const MsgType& msgType )
     return true;
   if ( msgType != MsgType_Logout && m_state.sentLogout() )
     return true;
-  if ( msgType == MsgType_SequenceReset ) return true;
+  if ( msgType == MsgType_SequenceReset ) 
+    return true;
+  if ( msgType == MsgType_Reject )
+    return true;
+
   return false;
 
   QF_STACK_POP
