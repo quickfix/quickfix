@@ -64,6 +64,7 @@ public:
     add( &m_getXML );
     add( &m_reverseRoute );
     add( &m_addRemoveGroup );
+    add( &m_replaceGroup );
   }
 
   typedef CPPTest::SimpleTest < Message > SimpleTest;
@@ -148,6 +149,11 @@ public:
   {
     void onRun( Message& object );
   } m_addRemoveGroup;
+
+  class replaceGroup : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_replaceGroup;
 };
 
 template < typename T >

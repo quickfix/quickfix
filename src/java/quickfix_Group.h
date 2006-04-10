@@ -225,6 +225,14 @@ JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
 
 /*
  * Class:     quickfix_Group
+ * Method:    replaceGroup
+ * Signature: (ILquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Group_replaceGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Group
  * Method:    getGroup
  * Signature: (ILquickfix/Group;)Lquickfix/Group;
  */

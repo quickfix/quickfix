@@ -128,6 +128,7 @@ public class Group extends FieldMap {
     public native void removeField(int field);
 
     public native void addGroup(Group group);
+    public native void replaceGroup(int num, Group group);
     public native Group getGroup(int num, Group group) throws FieldNotFound;
     public native void removeGroup(int field);
     public native void removeGroup(int num, int field);

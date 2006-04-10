@@ -178,23 +178,24 @@ public class Message extends FieldMap {
     public native void removeField(int field);
 
     public native void addGroup(Group group);
+    public native void replaceGroup(int num, Group group);
     public native Group getGroup(int num, Group group) throws FieldNotFound;
-	public native void removeGroup(int field);
-	public native void removeGroup(int num, int field);
-	public void removeGroup(int num, Group group) {
-		removeGroup( num, group.field() );
-	}
-	public void removeGroup(Group group) {
-		removeGroup( group.field() );
-	}
-	public native boolean hasGroup(int field);
-	public native boolean hasGroup(int num, int field);
-	public boolean hasGroup(int num, Group group) {
-		return hasGroup( num, group.field() );
-	}
-	public boolean hasGroup(Group group) {
-		return hasGroup( group.field() );
-	}
+    public native void removeGroup(int field);
+    public native void removeGroup(int num, int field);
+    public void removeGroup(int num, Group group) {
+        removeGroup( num, group.field() );
+    }
+    public void removeGroup(Group group) {
+        removeGroup( group.field() );
+    }
+    public native boolean hasGroup(int field);
+    public native boolean hasGroup(int num, int field);
+    public boolean hasGroup(int num, Group group) {
+        return hasGroup( num, group.field() );
+    }
+    public boolean hasGroup(Group group) {
+        return hasGroup( group.field() );
+    }
 
     public java.util.Iterator iterator() {
         return new Iterator( this );
@@ -392,36 +393,39 @@ public class Message extends FieldMap {
             headerRemoveField( field );
         }
 
-		public void addGroup(Group group) {
-			headerAddGroup( group );
-		}
-	    public Group getGroup(int num, Group group) throws FieldNotFound {
-			return headerGetGroup( num, group );
-		}
-		public void removeGroup(int field) {
-			headerRemoveGroup( field );
-		}
-		public void removeGroup(int num, int field) {
-			headerRemoveGroup( num, field );
-		}
-		public void removeGroup(int num, Group group) {
-			headerRemoveGroup( num, group.field() );
-		}
-		public void removeGroup(Group group) {
-			headerRemoveGroup( group.field() );
-		}
-		public boolean hasGroup(int field) {
-			return headerHasGroup( field );
-		}
-		public boolean hasGroup(int num, int field) {
-			return headerHasGroup( num, field );
-		}
-		public boolean hasGroup(int num, Group group) {
-			return headerHasGroup( num, group.field() );
-		}
-		public boolean hasGroup(Group group) {
-			return headerHasGroup( group.field() );
-		}
+        public void addGroup(Group group) {
+            headerAddGroup( group );
+        }
+        public void replaceGroup(int num, Group group) {
+            headerReplaceGroup( num, group );
+        }
+        public Group getGroup(int num, Group group) throws FieldNotFound {
+            return headerGetGroup( num, group );
+        }
+        public void removeGroup(int field) {
+            headerRemoveGroup( field );
+        }
+        public void removeGroup(int num, int field) {
+            headerRemoveGroup( num, field );
+        }
+        public void removeGroup(int num, Group group) {
+            headerRemoveGroup( num, group.field() );
+        }
+        public void removeGroup(Group group) {
+            headerRemoveGroup( group.field() );
+        }
+        public boolean hasGroup(int field) {
+            return headerHasGroup( field );
+        }
+        public boolean hasGroup(int num, int field) {
+            return headerHasGroup( num, field );
+        }
+        public boolean hasGroup(int num, Group group) {
+            return headerHasGroup( num, group.field() );
+        }
+        public boolean hasGroup(Group group) {
+            return headerHasGroup( group.field() );
+        }
 
         public java.util.Iterator iterator() {
             return new Iterator( message );
@@ -581,36 +585,39 @@ public class Message extends FieldMap {
             trailerRemoveField( field );
         }
 
-		public void addGroup(Group group) {
-			trailerAddGroup( group );
-		}
-	    public Group getGroup(int num, Group group) throws FieldNotFound {
-			return trailerGetGroup( num, group );
-		}
-		public void removeGroup(int field) {
-			trailerRemoveGroup( field );
-		}
-		public void removeGroup(int num, int field) {
-			trailerRemoveGroup( num, field );
-		}
-		public void removeGroup(int num, Group group) {
-			trailerRemoveGroup( num );
-		}
-		public void removeGroup(Group group) {
-			trailerRemoveGroup( group );
-		}
-		public boolean hasGroup(int field) {
-			return trailerHasGroup( field );
-		}
-		public boolean hasGroup(int num, int field) {
-			return trailerHasGroup( num, field );
-		}
-		public boolean hasGroup(int num, Group group) {
-			return trailerHasGroup( num, group );
-		}
-		public boolean hasGroup(Group group) {
-			return trailerHasGroup( group );
-		}
+        public void addGroup(Group group) {
+            trailerAddGroup( group );
+        }
+        public void replaceGroup(int num, Group group) {
+            trailerReplaceGroup(num, group);
+        }
+        public Group getGroup(int num, Group group) throws FieldNotFound {
+            return trailerGetGroup( num, group );
+        }
+        public void removeGroup(int field) {
+            trailerRemoveGroup( field );
+        }
+        public void removeGroup(int num, int field) {
+            trailerRemoveGroup( num, field );
+        }
+        public void removeGroup(int num, Group group) {
+            trailerRemoveGroup( num );
+        }
+        public void removeGroup(Group group) {
+            trailerRemoveGroup( group );
+        }
+        public boolean hasGroup(int field) {
+            return trailerHasGroup( field );
+        }
+        public boolean hasGroup(int num, int field) {
+            return trailerHasGroup( num, field );
+        }
+        public boolean hasGroup(int num, Group group) {
+            return trailerHasGroup( num, group );
+        }
+        public boolean hasGroup(Group group) {
+            return trailerHasGroup( group );
+        }
 
         public java.util.Iterator iterator() {
             return new Iterator( message );
@@ -646,23 +653,24 @@ public class Message extends FieldMap {
     private native void headerRemoveField(int field);
 
     public native void headerAddGroup(Group group);
+    public native void headerReplaceGroup(int num, Group group);
     public native Group headerGetGroup(int num, Group group) throws FieldNotFound;
     private native void headerRemoveGroup(int field);
-	private native void headerRemoveGroup(int num, int field);
-	private void headerRemoveGroup(int num, Group group) {
-		headerRemoveGroup( num, group.field() );
-	}
-	public void headerRemoveGroup(Group group) {
-		headerRemoveGroup( group.field() );
-	}
-	public native boolean headerHasGroup(int field);
-	public native boolean headerHasGroup(int num, int field);
-	public boolean headerHasGroup(int num, Group group) {
-		return headerHasGroup( num, group.field() );
-	}
-	public boolean headerHasGroup(Group group) {
-		return headerHasGroup( group.field() );
-	}
+    private native void headerRemoveGroup(int num, int field);
+    private void headerRemoveGroup(int num, Group group) {
+        headerRemoveGroup( num, group.field() );
+    }
+    public void headerRemoveGroup(Group group) {
+        headerRemoveGroup( group.field() );
+    }
+    public native boolean headerHasGroup(int field);
+    public native boolean headerHasGroup(int num, int field);
+    public boolean headerHasGroup(int num, Group group) {
+        return headerHasGroup( num, group.field() );
+    }
+    public boolean headerHasGroup(Group group) {
+        return headerHasGroup( group.field() );
+    }
 
     private native Iterator headerIteratorCreate( Header.Iterator i );
     private native boolean headerIteratorHasNext( Header.Iterator i );
@@ -693,23 +701,24 @@ public class Message extends FieldMap {
     private native void trailerRemoveField(int field);
 
     public native void trailerAddGroup(Group group);
+    public native void trailerReplaceGroup(int num, Group group);
     public native Group trailerGetGroup(int num, Group group) throws FieldNotFound;
     private native void trailerRemoveGroup(int field);
-	private native void trailerRemoveGroup(int num, int field);
-	private void trailerRemoveGroup(int num, Group group) {
-		trailerRemoveGroup( num, group.field() );
-	}
-	public void trailerRemoveGroup(Group group) {
-		trailerRemoveGroup( group.field() );
-	}
-	public native boolean trailerHasGroup(int field);
-	public native boolean trailerHasGroup(int num, int field);
-	public boolean trailerHasGroup(int num, Group group) {
-		return trailerHasGroup( num, group.field() );
-	}
-	public boolean trailerHasGroup(Group group) {
-		return trailerHasGroup( group.field() );
-	}
+    private native void trailerRemoveGroup(int num, int field);
+    private void trailerRemoveGroup(int num, Group group) {
+        trailerRemoveGroup( num, group.field() );
+    }
+    public void trailerRemoveGroup(Group group) {
+        trailerRemoveGroup( group.field() );
+    }
+    public native boolean trailerHasGroup(int field);
+    public native boolean trailerHasGroup(int num, int field);
+    public boolean trailerHasGroup(int num, Group group) {
+        return trailerHasGroup( num, group.field() );
+    }
+    public boolean trailerHasGroup(Group group) {
+        return trailerHasGroup( group.field() );
+    }
 
     private native Iterator trailerIteratorCreate( Trailer.Iterator i );
     private native boolean trailerIteratorHasNext( Trailer.Iterator i );

@@ -344,6 +344,21 @@ JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Message_replaceGroup
+( JNIEnv *pEnv, jobject obj, jint num, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  pMessage->replaceGroup( num, *pGroup );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jobject JNICALL Java_quickfix_Message_getGroup
 ( JNIEnv *pEnv, jobject obj, jint num, jobject group )
 { QF_STACK_TRY
@@ -667,6 +682,21 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerAddGroup
   JVMObject jgroup( group );
   FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
   pMessage->getHeader().addGroup( pGroup->field(), *pGroup );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerReplaceGroup
+( JNIEnv *pEnv, jobject obj, jint num, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  pMessage->getHeader().replaceGroup( num, pGroup->field(), *pGroup );
 
   QF_STACK_CATCH
 }
@@ -1052,6 +1082,21 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerAddGroup
   JVMObject jgroup( group );
   FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
   pMessage->getTrailer().addGroup( pGroup->field(), *pGroup );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerReplaceGroup
+( JNIEnv *pEnv, jobject obj, jint num, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  JVMObject jgroup( group );
+  FIX::Group* pGroup = ( FIX::Group* ) jgroup.getLong( "cppPointer" );
+  pMessage->getTrailer().replaceGroup( num, pGroup->field(), *pGroup );
 
   QF_STACK_CATCH
 }

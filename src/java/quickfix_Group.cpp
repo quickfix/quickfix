@@ -90,6 +90,20 @@ JNIEXPORT void JNICALL Java_quickfix_Group_addGroup
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Group_replaceGroup
+( JNIEnv *pEnv, jobject obj, jint num, jobject group )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(group) ) return;
+
+  JVM::set( pEnv );
+  FIX::Group* pThis = getCPPGroup( obj );
+  FIX::Group* pGroup = getCPPGroup( group );
+  pThis->replaceGroup( num, *pGroup );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jobject JNICALL Java_quickfix_Group_getGroup
 ( JNIEnv *pEnv, jobject obj, jint num, jobject group )
 { QF_STACK_TRY

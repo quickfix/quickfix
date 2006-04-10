@@ -138,6 +138,12 @@ public:
     QF_STACK_CATCH
   }
 
+  void replaceGroup( unsigned num, Group* group )
+  { QF_STACK_TRY
+    m_pUnmanaged->replaceGroup( num, group->unmanaged() );
+    QF_STACK_CATCH
+  }
+
   Group* getGroup( unsigned num, Group* group )
   { QF_STACK_TRY
 

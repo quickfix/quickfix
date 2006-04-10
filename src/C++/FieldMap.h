@@ -125,6 +125,9 @@ public:
   /// Add a group.
   void addGroup( int field, const FieldMap& group, bool setCount = true );
 
+  /// Replace a specific instanct of a group.
+  void replaceGroup( int num, int field, FieldMap& group );
+
   /// Get a specific instance of a group.
   FieldMap& getGroup( int num, int field, FieldMap& group ) const
     throw( FieldNotFound );

@@ -92,6 +92,9 @@ public:
   void addGroup( FIX::Group& group )
   { FieldMap::addGroup( group.field(), group ); }
 
+  void replaceGroup( unsigned num, FIX::Group& group )
+  { FieldMap::replaceGroup( num, group.field(), group ); }
+
   Group& getGroup( unsigned num, FIX::Group& group ) const throw( FieldNotFound )
   { group.clear();
     return static_cast < Group& >

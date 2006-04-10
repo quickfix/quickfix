@@ -476,6 +476,55 @@ void MessageTestCase::addRemoveGroup::onRun( Message& object )
   !object.isSetField( noOrders );
 }
 
+void MessageTestCase::replaceGroup::onRun( Message& object )
+{
+  object.setField( ListID( "1" ) );
+  object.setField( BidType( 0 ) );
+  object.setField( TotNoOrders( 3 ) );
+
+  NewOrderList::NoOrders group;
+  group.set( ClOrdID( "A" ) );
+  group.set( ListSeqNo( 1 ) );
+  group.set( Symbol( "DELL" ) );
+  group.set( Side( '1' ) );
+  object.addGroup( group );
+
+  group.set( ClOrdID( "B" ) );
+  group.set( ListSeqNo( 2 ) );
+  group.set( Symbol( "LNUX" ) );
+  group.set( Side( '2' ) );
+  object.addGroup( group );
+
+  group.set( ClOrdID( "C" ) );
+  group.set( ListSeqNo( 3 ) );
+  group.set( Symbol( "RHAT" ) );
+  group.set( Side( '3' ) );
+  object.addGroup( group );
+
+  group.set( ClOrdID( "D" ) );
+  group.set( ListSeqNo( 4 ) );
+  group.set( Symbol( "AAPL" ) );
+  group.set( Side( '4' ) );
+  object.replaceGroup( 2, group );
+
+  NoOrders noOrders;
+
+  assert( object.hasGroup(1, group) );
+  assert( object.hasGroup(2, group) );
+  assert( object.hasGroup(3, group) );
+  assert( object.groupCount(FIX::FIELD::NoOrders) == 3 );
+  object.getField( noOrders );
+  assert( noOrders == 3 );
+
+  ClOrdID clOrdID;
+  object.getGroup( 1, group );
+  assert( group.getField(clOrdID).getString() == "A" );
+  object.getGroup( 2, group );
+  assert( group.getField(clOrdID).getString() == "D" );
+  object.getGroup( 3, group );
+  assert( group.getField(clOrdID).getString() == "C" );
+}
+
 template<> void LogonParseTestCase::getString::onRun( Logon& object )
 {
   try

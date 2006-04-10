@@ -57,6 +57,7 @@ public:
   int delim() const { return m_delim; }
 
   void addGroup( Group& group );
+  void replaceGroup( unsigned num, Group& group );
   Group& getGroup( unsigned num, Group& group ) const throw( FieldNotFound );
   void removeGroup( unsigned num, Group& group );
   void removeGroup( Group& group );

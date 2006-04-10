@@ -217,6 +217,14 @@ JNIEXPORT void JNICALL Java_quickfix_Message_addGroup
 
 /*
  * Class:     quickfix_Message
+ * Method:    replaceGroup
+ * Signature: (ILquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_replaceGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
  * Method:    getGroup
  * Signature: (ILquickfix/Group;)Lquickfix/Group;
  */
@@ -513,6 +521,14 @@ JNIEXPORT void JNICALL Java_quickfix_Message_headerAddGroup
 
 /*
  * Class:     quickfix_Message
+ * Method:    headerReplaceGroup
+ * Signature: (ILquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_headerReplaceGroup
+  (JNIEnv *, jobject, jint, jobject);
+
+/*
+ * Class:     quickfix_Message
  * Method:    headerGetGroup
  * Signature: (ILquickfix/Group;)Lquickfix/Group;
  */
@@ -750,6 +766,14 @@ JNIEXPORT void JNICALL Java_quickfix_Message_trailerRemoveField
  */
 JNIEXPORT void JNICALL Java_quickfix_Message_trailerAddGroup
   (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Message
+ * Method:    trailerReplaceGroup
+ * Signature: (ILquickfix/Group;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerReplaceGroup
+  (JNIEnv *, jobject, jint, jobject);
 
 /*
  * Class:     quickfix_Message
