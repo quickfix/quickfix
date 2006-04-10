@@ -46,6 +46,27 @@ public:
     return object;
   }
 
+  virtual bool Equals( Object* object )
+  {
+    if( Object::Equals(object) == true )
+      return true;
+    if( object->GetType()->Equals(__typeof(Field)) )
+      return false;
+
+    return field == static_cast<Field*>(object)->getField() &&
+      getObject()->Equals(static_cast<Field*>(object)->getObject());
+  }
+
+  virtual String* ToString()
+  {
+    return field.ToString()->Concat(new String("="))->Concat(object->ToString());
+  }
+
+  virtual int GetHashCode()
+  {
+    return Object::GetHashCode();
+  }
+
 protected:
   void setObject( Object* object )
   {
