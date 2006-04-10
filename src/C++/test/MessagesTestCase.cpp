@@ -172,6 +172,23 @@ void MessageTestCase::setStringWithGroup::onRun( Message& object )
     } catch( InvalidMessage& ) { assert(false); }
 }
 
+void MessageTestCase::setStringWithHeaderGroup::onRun( Message& object )
+{
+  DataDictionary dataDictionary( "spec/FIX43.xml" );
+  static const char* str =
+    "8=FIX.4.3\0019=152\00135=A\00134=125\00149=BUYSIDE\001"
+    "52=20040916-16:19:18.328\00156=SELLSIDE\001"
+    "627=2\001628=HOP1\001629=20040916-16:19:18.328\001630=ID1\001"
+    "628=HOP2\001629=20040916-16:19:18.328\001630=ID2\001"
+    "10=079\001";
+
+  try
+  {
+    object.setString( str, true, &dataDictionary );
+    assert( object.toString() == str );
+  } catch( InvalidMessage & ) { assert(false); }
+}
+
 void MessageTestCase::setStringWithHighBit::onRun( Message& object )
 {
   DataDictionary dataDictionary( "spec/FIX42.xml" );

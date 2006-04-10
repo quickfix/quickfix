@@ -311,14 +311,22 @@ throw( InvalidMessage )
         if(m_field == 0) m_field = field.getField();
         m_validStructure = false;
       }
+
       if ( field.getField() == FIELD::MsgType )
         msg = field.getString();
+
       m_header.setField( field, false );
+
+      if ( pDataDictionary )
+        setGroup( "_header_", field, string, pos, getHeader(), *pDataDictionary );
     }
     else if ( isTrailerField( field, pDataDictionary ) )
     {
       type = trailer;
       m_trailer.setField( field, false );
+
+      if ( pDataDictionary )
+        setGroup( "_trailer_", field, string, pos, getTrailer(), *pDataDictionary );
     }
     else
     {
@@ -327,12 +335,12 @@ throw( InvalidMessage )
         if(m_field == 0) m_field = field.getField();
         m_validStructure = false;
       }
+
       type = body;
       setField( field, false );
+
       if ( pDataDictionary )
-      {
         setGroup( msg, field, string, pos, *this, *pDataDictionary );
-      }
     }
   }
 

@@ -267,6 +267,15 @@ throw( ConfigError )
       attrs->get("required", required);
       addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
     }
+    if(pHeaderFieldNode->getName() == "group")
+    {
+      DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
+      std::string required;
+      attrs->get("required", required);
+      bool isRequired = (required == "Y" || required == "y");
+      addXMLGroup(pDoc.get(), pHeaderFieldNode.get(), "_header_", *this, isRequired);
+    }
+
     RESET_AUTO_PTR(pHeaderFieldNode, pHeaderFieldNode->getNextSiblingNode());
   }
 
@@ -290,6 +299,15 @@ throw( ConfigError )
       attrs->get("required", required);
       addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
     }
+    if(pTrailerFieldNode->getName() == "group")
+    {
+      DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
+      std::string required;
+      attrs->get("required", required);
+      bool isRequired = (required == "Y" || required == "y");
+      addXMLGroup(pDoc.get(), pTrailerFieldNode.get(), "_trailer_", *this, isRequired);
+    }
+
     RESET_AUTO_PTR(pTrailerFieldNode, pTrailerFieldNode->getNextSiblingNode());
   }
 

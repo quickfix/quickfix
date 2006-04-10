@@ -54,6 +54,7 @@ public:
     add( &m_isApp );
     add( &m_setString );
     add( &m_setStringWithGroup );
+    add( &m_setStringWithHeaderGroup );
     add( &m_setStringWithHighBit );
     add( &m_copy );
     add( &m_checkSum );
@@ -97,6 +98,11 @@ public:
   {
     void onRun( Message& object );
   } m_setStringWithGroup;
+
+  class setStringWithHeaderGroup : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_setStringWithHeaderGroup;
 
   class setStringWithHighBit : public SimpleTest
   {
