@@ -38,7 +38,6 @@
 #include "C++/test/FileStoreFactoryTestCase.h"
 #include "C++/test/UtcTimeStampTestCase.h"
 #include "C++/test/UtcTimeOnlyTestCase.h"
-#include "C++/test/SocketUtilitiesTestCase.h"
 #include "C++/test/FileUtilitiesTestCase.h"
 #include "C++/test/StringUtilitiesTestCase.h"
 #include "C++/test/SessionIDTestCase.h"
@@ -65,7 +64,7 @@ public:
 #ifdef HAVE_ODBC
   m_odbcStore( sessionSettings ),
 #endif
-  m_socketUtilities( port ), m_socketConnector( port ),
+  m_socketConnector( port ),
   m_socketServer( port )
   {
     FIX::socket_init();
@@ -110,7 +109,6 @@ public:
     add( &m_fileStoreFactory );
     add( &m_utcTimeStamp );
     add( &m_utcTimeOnly );
-    add( &m_socketUtilities );
     add( &m_fileUtilities );
     add( &m_stringUtilities );
 #if !defined(__SUNPRO_CC)
@@ -171,7 +169,6 @@ private:
   FIX::FileStoreFactoryTestCase m_fileStoreFactory;
   FIX::UtcTimeStampTestCase m_utcTimeStamp;
   FIX::UtcTimeOnlyTestCase m_utcTimeOnly;
-  FIX::SocketUtilitiesTestCase m_socketUtilities;
   FIX::FileUtilitiesTestCase m_fileUtilities;
   FIX::StringUtilitiesTestCase m_stringUtilities;
   FIX::SocketConnectorTestCase m_socketConnector;

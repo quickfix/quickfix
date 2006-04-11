@@ -57,9 +57,9 @@ throw ( ConfigError )
 
   m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
   if( s.get().has( SOCKET_REUSE_ADDRESS ) )
-    m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
+    m_reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
   if( s.get().has( SOCKET_NODELAY ) )
-    m_noDelay = ( bool ) s.get().getBool( SOCKET_NODELAY );
+    m_noDelay = s.get().getBool( SOCKET_NODELAY );
   QF_STACK_POP
 }
 
@@ -69,7 +69,25 @@ throw ( RuntimeError )
 
   try
   {
-    m_pServer = new SocketServer( m_port, 1, m_reuseAddress, m_noDelay );
+    m_pServer = new SocketServer( 1 );
+
+    short port = 0;
+    bool reuseAddress = false;
+    bool noDelay = false;
+
+    std::set<SessionID> sessions = s.getSessions();
+    std::set<SessionID>::iterator i = sessions.begin();
+    for( ; i != sessions.end(); ++i )
+    {
+      Dictionary settings = s.get( *i );
+      port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
+
+      if( settings.has( SOCKET_REUSE_ADDRESS ) )
+        reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
+      if( settings.has( SOCKET_NODELAY ) )
+        noDelay = s.get().getBool( SOCKET_NODELAY );
+      m_pServer->add( m_port, m_reuseAddress, m_noDelay );
+    }    
   }
   catch( std::exception& )
   {

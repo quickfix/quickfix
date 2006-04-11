@@ -40,17 +40,17 @@ namespace FIX
 class ServerWrapper : public SocketMonitor::Strategy
 {
 public:
-  ServerWrapper( int socket, SocketServer& server,
+  ServerWrapper( std::set<int> sockets, SocketServer& server,
                  SocketServer::Strategy& strategy )
-: m_socket( socket ), m_server( server ), m_strategy( strategy ) {}
+: m_sockets( sockets ), m_server( server ), m_strategy( strategy ) {}
 
 private:
   void onEvent( SocketMonitor&, int socket )
   { QF_STACK_PUSH(ServerWrapper::onEvent)
 
-    if ( socket == m_socket )
+    if( m_sockets.find(socket) != m_sockets.end() )
     {
-      m_strategy.onConnect( m_server, m_server.accept() );
+      m_strategy.onConnect( m_server, m_server.accept(socket) );
     }
     else
         m_strategy.onData( m_server, socket );
@@ -79,27 +79,39 @@ private:
     QF_STACK_POP
   };
 
-  int m_socket;
+  typedef std::set<int>
+    Sockets;
+
+  Sockets m_sockets;
   SocketServer& m_server;
   SocketServer::Strategy& m_strategy;
 };
 
-SocketServer::SocketServer( int port, int timeout, bool reuse, bool noDelay )
-: m_port( port ), m_monitor( timeout ), m_noDelay( noDelay )
+SocketServer::SocketServer( int timeout )
+: m_monitor( timeout ) {}
+
+int SocketServer::add( int port, bool reuse, bool noDelay )
 {
-  m_socket = socket_createAcceptor( port, reuse );
-  if ( m_socket < 0 )
+  int socket = socket_createAcceptor( port, reuse );
+  if( socket < 0 )
     throw std::exception();
-  if( m_noDelay )
-    socket_setsockopt( m_socket, TCP_NODELAY );
-  m_monitor.add( m_socket );
+  if( noDelay )
+    socket_setsockopt( socket, TCP_NODELAY );
+  m_monitor.add( socket );
+
+  SocketInfo info( socket, port, noDelay );
+  m_socketToInfo[socket] = info;
+  m_sockets.insert( socket );
+  return socket;
 }
 
-int SocketServer::accept()
+int SocketServer::accept( int socket )
 { QF_STACK_PUSH(SocketServer::accept)
 
-  int result = socket_accept( m_socket );
-  if( m_noDelay )
+  SocketInfo info = m_socketToInfo[socket];
+
+  int result = socket_accept( socket );
+  if( info.m_noDelay )
     socket_setsockopt( result, TCP_NODELAY );
   if ( result >= 0 )
     m_monitor.add( result );
@@ -111,8 +123,12 @@ int SocketServer::accept()
 void SocketServer::close()
 { QF_STACK_PUSH(SocketServer::close)
 
-  socket_close( m_socket );
-  socket_invalidate( m_socket );
+  Sockets::iterator i = m_sockets.begin();
+  for( ; i != m_sockets.end(); ++i )
+  {
+    socket_close( *i );
+    socket_invalidate( *i );
+  }
 
   QF_STACK_POP
 }
@@ -120,13 +136,16 @@ void SocketServer::close()
 bool SocketServer::block( Strategy& strategy, bool poll )
 { QF_STACK_PUSH(SocketServer::block)
 
-  if ( socket_isValid( m_socket ) )
+  Sockets::iterator i = m_sockets.begin();
+  for( ; i != m_sockets.end(); ++i )
   {
-    ServerWrapper wrapper( m_socket, *this, strategy );
-    m_monitor.block( wrapper, poll );
-    return true;
+    if( !socket_isValid(*i) )
+      return false;
   }
-  return false;
+
+  ServerWrapper wrapper( m_sockets, *this, strategy );
+  m_monitor.block( wrapper, poll );
+  return true;
 
   QF_STACK_POP
 }

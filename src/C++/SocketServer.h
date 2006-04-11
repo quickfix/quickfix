@@ -27,20 +27,35 @@
 #endif
 
 #include "SocketMonitor.h"
+#include <map>
 #include <set>
 #include <queue>
 
 namespace FIX
 {
+/// Information about listening socket
+struct SocketInfo
+{
+  SocketInfo()
+  : m_socket( -1 ), m_port( 0 ), m_noDelay( false ) {}
+  SocketInfo( int socket, short port, bool noDelay )
+  : m_socket( socket ), m_port( port ), m_noDelay( noDelay ) {}
+
+  int m_socket;
+  short m_port;
+  bool m_noDelay;
+};
+
 /// Listens for and accepts incoming socket connections on a port.
 class SocketServer
 {
 public:
   class Strategy;
 
-  SocketServer( int port, int timeout = 0, bool reuse = false, bool noDelay = false );
+  SocketServer( int timeout = 0 );
 
-  int accept();
+  int add( int port, bool reuse = false, bool noDelay = false );
+  int accept( int socket );
   void close();
   bool block( Strategy& strategy, bool poll = 0 );
 
@@ -48,11 +63,13 @@ public:
   SocketMonitor& getMonitor() { return m_monitor; }
 
 private:
-  int m_port;
-  int m_socket;
-  bool m_noDelay;
-  sockaddr_in m_address;
-  socklen_t m_socklen;
+  typedef std::set<int>
+    Sockets;
+  typedef std::map<int, SocketInfo>
+    SocketToInfo;
+
+  Sockets m_sockets;
+  SocketToInfo m_socketToInfo;  
   SocketMonitor m_monitor;
 
 public:

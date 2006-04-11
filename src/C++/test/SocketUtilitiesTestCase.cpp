@@ -52,44 +52,4 @@ void SocketUtilitiesTestCase::destroySocket( int s )
   socket_close( s );
   socket_invalidate( s );
 }
-
-bool SocketUtilitiesTestCase::Test::onSetup( int*& )
-{
-  pServer = new SocketServer( m_port, 0, true );
-  s1 = createSocket( m_port, "127.0.0.1" );
-  return s1 > 0;
-}
-
-void SocketUtilitiesTestCase::Test::onTeardown( int* )
-{
-  pServer->close();
-  delete pServer;
-  destroySocket( s2 );
-}
-
-void SocketUtilitiesTestCase::fionread::onRun( int& )
-{
-  s2 = pServer->accept();
-  assert( socket_send( s1, "ooga", 4 ) );
-  int bytes = 0;
-  socket_fionread( s2, bytes );
-  assert( bytes == 4 );
-  recv( s2, ( char* ) ( &bytes ), 4, 0 );
-  destroySocket( s1 );
-}
-
-void SocketUtilitiesTestCase::send::onRun( int& )
-{
-  s2 = pServer->accept();
-  assert( socket_send( s1, "ooga", 4 ) );
-  destroySocket( s1 );
-  assert( !socket_send( s1, "ooga", 4 ) );
-}
-
-void SocketUtilitiesTestCase::hostname::onRun( int& )
-{
-  assert( socket_hostname( "localhost" ) == std::string("127.0.0.1") );
-  assert( socket_hostname( "not_likely_to_be_a_real_name" ) == 0 );
-  assert( socket_hostname( "127.0.0.1" ) == std::string("127.0.0.1") );
-}
 }
