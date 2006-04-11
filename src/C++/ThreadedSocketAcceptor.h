@@ -51,8 +51,10 @@ public:
 private:
   bool readSettings( const SessionSettings& );
 
-  typedef std::set<int> Sockets;
-  typedef std::map < int, int > SocketToThread;
+  typedef std::set < int > 
+    Sockets;
+  typedef std::map < int, int > 
+    SocketToThread;
   typedef std::pair < ThreadedSocketAcceptor*, int >
     AcceptorThreadPair;
   typedef std::pair < ThreadedSocketAcceptor*, ThreadedSocketConnection* > 

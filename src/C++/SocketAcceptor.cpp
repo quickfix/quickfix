@@ -93,7 +93,9 @@ throw ( RuntimeError )
         reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
       if( settings.has( SOCKET_NODELAY ) )
         noDelay = s.get().getBool( SOCKET_NODELAY );
-      m_pServer->add( port, reuseAddress, noDelay );
+
+      m_portToSessions[port].insert( *i );
+      m_pServer->add( port, reuseAddress, noDelay );      
     }    
   }
   catch( std::exception& )
@@ -164,13 +166,15 @@ void SocketAcceptor::onStop()
   QF_STACK_POP
 }
 
-void SocketAcceptor::onConnect( SocketServer& server, int s )
+void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
 { QF_STACK_PUSH(SocketAcceptor::onConnect)
 
-  if ( !socket_isValid( s ) ) return ;
+  if ( !socket_isValid( s ) ) return;
   SocketConnections::iterator i = m_connections.find( s );
-  if ( i != m_connections.end() ) return ;
-  m_connections[ s ] = new SocketConnection( s, &server.getMonitor() );
+  if ( i != m_connections.end() ) return;
+  int port = server.socketToPort( a );
+  Sessions sessions = m_portToSessions[port];
+  m_connections[ s ] = new SocketConnection( s, sessions, &server.getMonitor() );
 
   QF_STACK_POP
 }

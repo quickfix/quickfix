@@ -50,6 +50,8 @@ public:
 private:
   bool readSettings( const SessionSettings& );
 
+  typedef std::set < SessionID > Sessions;
+  typedef std::map < int, Sessions > PortToSessions;
   typedef std::map < int, SocketConnection* > SocketConnections;
 
   void onConfigure( const SessionSettings& ) throw ( ConfigError );
@@ -59,13 +61,14 @@ private:
   bool onPoll();
   void onStop();
 
-  void onConnect( SocketServer&, int );
+  void onConnect( SocketServer&, int, int );
   void onData( SocketServer&, int );
   void onDisconnect( SocketServer&, int );
   void onError( SocketServer& );
   void onTimeout( SocketServer& );
 
   SocketServer* m_pServer;
+  PortToSessions m_portToSessions;
   SocketConnections m_connections;
   bool m_stop;
 };

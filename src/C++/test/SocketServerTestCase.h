@@ -65,7 +65,7 @@ class block : public Test, public SocketServer::Strategy
     void onRun( SocketServer& object );
     void onTeardown( SocketServer* pObject ) { delete pObject; }
 
-    void onConnect( SocketServer&, int socket )
+    void onConnect( SocketServer&, int accept, int socket )
     { m_connect++; m_connectSocket = socket; }
     void onData( SocketServer& server, int socket )
     {
@@ -93,7 +93,7 @@ class close : public Test, public SocketServer::Strategy
     void onRun( SocketServer& object );
     void onTeardown( SocketServer* pObject ) { delete pObject; }
 
-    void onConnect( SocketServer&, int socket ) {}
+    void onConnect( SocketServer&, int accept, int socket ) {}
     void onData( SocketServer&, int socket ) {}
     void onDisconnect( SocketServer&, int socket ) {}
     void onError( SocketServer& ) {}

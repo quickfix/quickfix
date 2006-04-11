@@ -33,15 +33,19 @@
 
 namespace FIX
 {
-SocketConnection::SocketConnection( int s, SocketMonitor* pMonitor )
-: m_socket( s ), m_pSession( 0 ), m_pMonitor( pMonitor ) {}
+SocketConnection::SocketConnection( int s, Sessions sessions,
+                                    SocketMonitor* pMonitor )
+: m_socket( s ), m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor ) {}
 
 SocketConnection::SocketConnection( SocketInitiator& i,
                                     const SessionID& sessionID, int s,
                                     SocketMonitor* pMonitor )
 : m_socket( s ),
   m_pSession( i.getSession( sessionID, *this ) ),
-  m_pMonitor( pMonitor ) {}
+  m_pMonitor( pMonitor ) 
+{
+  m_sessions.insert( sessionID );
+}
 
 SocketConnection::~SocketConnection()
 {
@@ -96,7 +100,7 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
     {
       if ( !readMessage( msg ) ) return false;
       m_pSession = Session::lookupSession( msg, true );
-      if( m_pSession && Session::isSessionRegistered(m_pSession->getSessionID()) )
+      if( !isValidSession() )
         m_pSession = 0;
       if( m_pSession )
         m_pSession = a.getSession( msg, *this );
@@ -129,15 +133,31 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
   QF_STACK_POP
 }
 
+bool SocketConnection::isValidSession()
+{ QF_STACK_PUSH(SocketConnection::isValidSession)
+
+  if( m_pSession == 0 )
+    return false;
+  SessionID sessionID = m_pSession->getSessionID();
+  if( Session::isSessionRegistered(sessionID) )
+    return false;
+  return !( m_sessions.find(sessionID) == m_sessions.end() );
+
+  QF_STACK_POP
+}
+
 void SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
-{
+{ QF_STACK_PUSH(SocketConnection::readFromSocket)
+
   int size = recv( m_socket, m_buffer, 4095, 0 );
   if( size <= 0 )
     throw SocketRecvFailed( size );
   m_buffer[ size ] = '\0';
 
   m_parser.addToStream( m_buffer, size );
+
+  QF_STACK_POP
 }
 
 bool SocketConnection::readMessage( std::string& msg )

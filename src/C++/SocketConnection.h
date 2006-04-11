@@ -28,6 +28,7 @@
 
 #include "Parser.h"
 #include "Responder.h"
+#include <set>
 
 namespace FIX
 {
@@ -43,7 +44,9 @@ class SessionID;
 class SocketConnection : Responder
 {
 public:
-  SocketConnection( int s, SocketMonitor* pMonitor );
+  typedef std::set<SessionID> Sessions;
+
+  SocketConnection( int s, Sessions sessions, SocketMonitor* pMonitor );
   SocketConnection( SocketInitiator&, const SessionID&, int, SocketMonitor* );
   virtual ~SocketConnection();
 
@@ -53,6 +56,7 @@ public:
   void onTimeout();
 
 private:
+  bool isValidSession();
   void readFromSocket() throw( SocketRecvFailed );
   bool readMessage( std::string& msg );
   void readMessages( SocketMonitor& s );
@@ -62,6 +66,7 @@ private:
   int m_socket;
   char m_buffer[4096];
   Parser m_parser;
+  Sessions m_sessions;  
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
 };

@@ -50,7 +50,7 @@ private:
 
     if( m_sockets.find(socket) != m_sockets.end() )
     {
-      m_strategy.onConnect( m_server, m_server.accept(socket) );
+      m_strategy.onConnect( m_server, socket, m_server.accept(socket) );
     }
     else
         m_strategy.onData( m_server, socket );
@@ -154,5 +154,19 @@ bool SocketServer::block( Strategy& strategy, bool poll )
   return true;
 
   QF_STACK_POP
+}
+
+int SocketServer::socketToPort( int socket )
+{
+  SocketToInfo::iterator find = m_socketToInfo.find( socket );
+  if( find == m_socketToInfo.end() ) return 0;
+  return find->second.m_port;
+}
+ 
+int SocketServer::portToSocket( int port )
+{
+  SocketToInfo::iterator find = m_portToInfo.find( port );
+  if( find == m_portToInfo.end() ) return 0;
+  return find->second.m_socket;
 }
 }
