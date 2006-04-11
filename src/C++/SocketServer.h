@@ -63,13 +63,13 @@ public:
   SocketMonitor& getMonitor() { return m_monitor; }
 
 private:
-  typedef std::set<int>
-    Sockets;
   typedef std::map<int, SocketInfo>
     SocketToInfo;
+  typedef std::map<int, SocketInfo>
+    PortToInfo;
 
-  Sockets m_sockets;
   SocketToInfo m_socketToInfo;  
+  PortToInfo m_portToInfo;
   SocketMonitor m_monitor;
 
 public:

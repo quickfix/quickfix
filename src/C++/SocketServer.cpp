@@ -92,6 +92,9 @@ SocketServer::SocketServer( int timeout )
 
 int SocketServer::add( int port, bool reuse, bool noDelay )
 {
+  if( m_portToInfo.find(port) != m_portToInfo.end() )
+    return m_portToInfo[port].m_socket;
+
   int socket = socket_createAcceptor( port, reuse );
   if( socket < 0 )
     throw std::exception();
@@ -101,7 +104,7 @@ int SocketServer::add( int port, bool reuse, bool noDelay )
 
   SocketInfo info( socket, port, noDelay );
   m_socketToInfo[socket] = info;
-  m_sockets.insert( socket );
+  m_portToInfo[port] = info;
   return socket;
 }
 
@@ -123,11 +126,12 @@ int SocketServer::accept( int socket )
 void SocketServer::close()
 { QF_STACK_PUSH(SocketServer::close)
 
-  Sockets::iterator i = m_sockets.begin();
-  for( ; i != m_sockets.end(); ++i )
+  SocketToInfo::iterator i = m_socketToInfo.begin();
+  for( ; i != m_socketToInfo.end(); ++i )
   {
-    socket_close( *i );
-    socket_invalidate( *i );
+    int s = i->first;
+    socket_close( s );
+    socket_invalidate( s );
   }
 
   QF_STACK_POP
@@ -136,14 +140,16 @@ void SocketServer::close()
 bool SocketServer::block( Strategy& strategy, bool poll )
 { QF_STACK_PUSH(SocketServer::block)
 
-  Sockets::iterator i = m_sockets.begin();
-  for( ; i != m_sockets.end(); ++i )
+  std::set<int> sockets;
+  SocketToInfo::iterator i = m_socketToInfo.begin();
+  for( ; i != m_socketToInfo.end(); ++i )
   {
-    if( !socket_isValid(*i) )
+    if( !socket_isValid(i->first) )
       return false;
+    sockets.insert( i->first );
   }
 
-  ServerWrapper wrapper( m_sockets, *this, strategy );
+  ServerWrapper wrapper( sockets, *this, strategy );
   m_monitor.block( wrapper, poll );
   return true;
 

@@ -35,14 +35,14 @@ SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings ) throw( ConfigError )
 : Acceptor( application, factory, settings ),
-  m_port( 0 ), m_reuseAddress(true), m_noDelay(false), m_pServer( 0 ), m_stop( false ) {}
+  m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings,
                                 LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
-  m_port( 0 ), m_reuseAddress(true), m_noDelay(false), m_pServer( 0 ), m_stop( false ) {}
+  m_pServer( 0 ), m_stop( false ) {}
 
 SocketAcceptor::~SocketAcceptor()
 {
@@ -55,11 +55,18 @@ void SocketAcceptor::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
 { QF_STACK_PUSH(SocketAcceptor::onConfigure)
 
-  m_port = ( short ) s.get().getLong( SOCKET_ACCEPT_PORT );
-  if( s.get().has( SOCKET_REUSE_ADDRESS ) )
-    m_reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
-  if( s.get().has( SOCKET_NODELAY ) )
-    m_noDelay = s.get().getBool( SOCKET_NODELAY );
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i;
+  for( i = sessions.begin(); i != sessions.end(); ++i )
+  {
+    const Dictionary& settings = s.get( *i );
+    settings.getLong( SOCKET_ACCEPT_PORT );
+    if( settings.has(SOCKET_REUSE_ADDRESS) )
+      settings.getBool( SOCKET_REUSE_ADDRESS );
+    if( settings.has(SOCKET_NODELAY) )
+      settings.getBool( SOCKET_NODELAY );
+  }
+
   QF_STACK_POP
 }
 
@@ -67,13 +74,13 @@ void SocketAcceptor::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
 { QF_STACK_PUSH(SocketAcceptor::onInitialize)
 
+  short port = 0;
+  bool reuseAddress = false;
+  bool noDelay = false;
+
   try
   {
     m_pServer = new SocketServer( 1 );
-
-    short port = 0;
-    bool reuseAddress = false;
-    bool noDelay = false;
 
     std::set<SessionID> sessions = s.getSessions();
     std::set<SessionID>::iterator i = sessions.begin();
@@ -86,12 +93,12 @@ throw ( RuntimeError )
         reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
       if( settings.has( SOCKET_NODELAY ) )
         noDelay = s.get().getBool( SOCKET_NODELAY );
-      m_pServer->add( m_port, m_reuseAddress, m_noDelay );
+      m_pServer->add( port, reuseAddress, noDelay );
     }    
   }
   catch( std::exception& )
   {
-    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)m_port ) );
+    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)port ) );
   }
 
   QF_STACK_POP

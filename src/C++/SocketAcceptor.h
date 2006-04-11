@@ -47,8 +47,6 @@ public:
 
   virtual ~SocketAcceptor();
 
-  short getPort() const { return m_port; }
-
 private:
   bool readSettings( const SessionSettings& );
 
@@ -67,9 +65,6 @@ private:
   void onError( SocketServer& );
   void onTimeout( SocketServer& );
 
-  short m_port;
-  bool m_reuseAddress;
-  bool m_noDelay;
   SocketServer* m_pServer;
   SocketConnections m_connections;
   bool m_stop;
