@@ -32,7 +32,26 @@ Mutex ScreenLog::s_mutex;
 
 Log* ScreenLogFactory::create( const SessionID& sessionID )
 { QF_STACK_PUSH(ScreenLogFactory::create)
-  return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
+  if( m_useSettings )
+  {
+    bool incoming = false;
+    bool outgoing = false;
+    bool event = false;
+
+    Dictionary settings = m_settings.get( sessionID );
+    if( settings.has(SCREEN_LOG_SHOW_INCOMING) )
+      incoming = settings.getBool(SCREEN_LOG_SHOW_INCOMING);
+    if( settings.has(SCREEN_LOG_SHOW_OUTGOING) )
+      outgoing = settings.getBool(SCREEN_LOG_SHOW_OUTGOING);
+    if( settings.has(SCREEN_LOG_SHOW_EVENTS) )
+      event = settings.getBool(SCREEN_LOG_SHOW_EVENTS);
+
+    return new ScreenLog( sessionID, incoming, outgoing, event );
+  }
+  else
+  {
+    return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
+  }
   QF_STACK_POP
 }
 
