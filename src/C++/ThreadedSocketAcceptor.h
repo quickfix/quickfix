@@ -48,13 +48,15 @@ public:
 
   virtual ~ThreadedSocketAcceptor();
 
-  short getPort() const { return m_port; }
-
 private:
   bool readSettings( const SessionSettings& );
 
+  typedef std::set<int> Sockets;
   typedef std::map < int, int > SocketToThread;
-  typedef std::pair < ThreadedSocketAcceptor*, ThreadedSocketConnection* > ThreadPair;
+  typedef std::pair < ThreadedSocketAcceptor*, int >
+    AcceptorThreadPair;
+  typedef std::pair < ThreadedSocketAcceptor*, ThreadedSocketConnection* > 
+    ConnectionThreadPair;
 
   void onConfigure( const SessionSettings& ) throw ( ConfigError );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError );
@@ -65,12 +67,10 @@ private:
 
   void addThread( int s, int t );
   void removeThread( int s );
-  static THREAD_PROC socketThread( void* p );
+  static THREAD_PROC socketAcceptorThread( void* p );
+  static THREAD_PROC socketConnectionThread( void* p );
 
-  short m_port;
-  bool m_reuseAddress;
-  bool m_noDelay;
-  int m_socket;
+  Sockets m_sockets;
   SocketToThread m_threads;
   Mutex m_mutex;
   bool m_stop;

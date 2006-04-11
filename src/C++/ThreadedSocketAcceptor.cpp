@@ -34,8 +34,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
   const SessionSettings& settings ) throw( ConfigError )
-: Acceptor( application, factory, settings ),
-  m_port( 0 ), m_reuseAddress( true ), m_noDelay( false ), m_socket( 0 ), m_stop( false )
+: Acceptor( application, factory, settings ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
@@ -43,8 +42,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   MessageStoreFactory& factory,
   const SessionSettings& settings,
   LogFactory& logFactory ) throw( ConfigError )
-: Acceptor( application, factory, settings, logFactory ),
-  m_port( 0 ), m_reuseAddress( true ), m_noDelay( false ), m_socket( 0 ), m_stop( false )
+: Acceptor( application, factory, settings, logFactory ), m_stop( false )
 { socket_init(); }
 
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
@@ -54,11 +52,17 @@ void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onConfigure)
 
-  m_port = ( short ) s.get().getLong( "SocketAcceptPort" );
-  if( s.get().has( SOCKET_REUSE_ADDRESS ) )
-    m_reuseAddress = ( bool ) s.get().getBool( SOCKET_REUSE_ADDRESS );
-  if( s.get().has( SOCKET_NODELAY ) )
-    m_noDelay = ( bool ) s.get().getBool( SOCKET_NODELAY );
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i;
+  for( i = sessions.begin(); i != sessions.end(); ++i )
+  {
+    const Dictionary& settings = s.get( *i );
+    settings.getLong( SOCKET_ACCEPT_PORT );
+    if( settings.has(SOCKET_REUSE_ADDRESS) )
+      settings.getBool( SOCKET_REUSE_ADDRESS );
+    if( settings.has(SOCKET_NODELAY) )
+      settings.getBool( SOCKET_NODELAY );
+  }
 
   QF_STACK_POP
 }
@@ -67,12 +71,36 @@ void ThreadedSocketAcceptor::onInitialize( const SessionSettings& s )
 throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
 
-  m_socket = socket_createAcceptor( m_port, m_reuseAddress );
+  short port = 0;
+  bool reuseAddress = false;
+  bool noDelay = false;
 
-  if( m_socket < 0 )
-    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)m_port ) );
-  if( m_noDelay )
-    socket_setsockopt( m_socket, TCP_NODELAY );
+  std::set<int> ports;
+
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i = sessions.begin();
+  for( ; i != sessions.end(); ++i )
+  {
+    Dictionary settings = s.get( *i );
+    port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
+
+    if( ports.find(port) != ports.end() )
+      continue;
+
+    if( settings.has( SOCKET_REUSE_ADDRESS ) )
+      reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
+    if( settings.has( SOCKET_NODELAY ) )
+      noDelay = s.get().getBool( SOCKET_NODELAY );
+
+    int socket = socket_createAcceptor( port, reuseAddress );
+    if( socket < 0 )
+      throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)port ) );
+    if( noDelay )
+      socket_setsockopt( socket, TCP_NODELAY );
+
+    ports.insert( port );
+    m_sockets.insert( socket );
+  }    
 
   QF_STACK_POP
 }
@@ -81,24 +109,15 @@ void ThreadedSocketAcceptor::onStart()
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onStart)
 
   m_stop = false;
-  int socket = 0;
-  while ( ( !m_stop && ( socket = socket_accept( m_socket ) ) >= 0 ) )
+
+  Sockets::iterator i;
+  for( i = m_sockets.begin(); i != m_sockets.end(); ++i )
   {
-    if( m_noDelay )
-      socket_setsockopt( socket, TCP_NODELAY );
-
-    ThreadedSocketConnection * pConnection =
-      new ThreadedSocketConnection( socket, getApplication() );
-
-    ThreadPair* pair = new ThreadPair( this, pConnection );
-
-    {
-      Locker l( m_mutex );
-      unsigned thread;
-      if ( !thread_spawn( &socketThread, pair, thread ) )
-        delete pair;
-      addThread( socket, thread );
-    }
+    Locker l( m_mutex );
+    AcceptorThreadPair* pair = new AcceptorThreadPair( this, *i );
+    unsigned thread;
+    thread_spawn( &socketAcceptorThread, pair, thread );
+    addThread( *i, thread );
   }
 
   QF_STACK_POP
@@ -116,7 +135,6 @@ void ThreadedSocketAcceptor::onStop()
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onStop)
 
   m_stop = true;
-  socket_close( m_socket );
 
   Locker l(m_mutex);
 
@@ -181,11 +199,51 @@ void ThreadedSocketAcceptor::removeThread( int s )
   QF_STACK_POP
 }
 
-THREAD_PROC ThreadedSocketAcceptor::socketThread( void* p )
+THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 { QF_STACK_TRY
-  QF_STACK_PUSH(ThreadedSocketAcceptor::socketThread)
+  QF_STACK_PUSH(ThreadedSocketAcceptor::socketAcceptorThread)
 
-  ThreadPair * pair = reinterpret_cast < ThreadPair* > ( p );
+  AcceptorThreadPair * pair = reinterpret_cast < AcceptorThreadPair* > ( p );
+
+  ThreadedSocketAcceptor* pAcceptor = pair->first;
+  int s = pair->second;
+  delete pair;
+
+  int noDelay = 0;
+  socket_getsockopt( s, TCP_NODELAY, noDelay );
+
+  int socket = 0;
+  while ( ( !pAcceptor->m_stop && ( socket = socket_accept( s ) ) >= 0 ) )
+  {
+    if( noDelay )
+      socket_setsockopt( socket, TCP_NODELAY );
+
+    ThreadedSocketConnection * pConnection =
+      new ThreadedSocketConnection( socket, pAcceptor->getApplication() );
+
+    ConnectionThreadPair* pair = new ConnectionThreadPair( pAcceptor, pConnection );
+
+    {
+      Locker l( pAcceptor->m_mutex );
+      unsigned thread;
+      if ( !thread_spawn( &socketConnectionThread, pair, thread ) )
+        delete pair;
+      pAcceptor->addThread( socket, thread );
+    }
+  }
+
+  if( !pAcceptor->m_stop )
+    pAcceptor->removeThread( s );
+  return 0;
+
+  QF_STACK_POP
+}
+
+THREAD_PROC ThreadedSocketAcceptor::socketConnectionThread( void* p )
+{ QF_STACK_TRY
+  QF_STACK_PUSH(ThreadedSocketAcceptor::socketConnectionThread)
+
+  ConnectionThreadPair * pair = reinterpret_cast < ConnectionThreadPair* > ( p );
 
   ThreadedSocketAcceptor* pAcceptor = pair->first;
   ThreadedSocketConnection* pConnection = pair->second;
