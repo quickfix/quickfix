@@ -84,8 +84,11 @@ throw ( RuntimeError )
     Dictionary settings = s.get( *i );
     port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
 
+    m_portToSessions[port].insert( *i );
+
     if( ports.find(port) != ports.end() )
       continue;
+    ports.insert( port );
 
     if( settings.has( SOCKET_REUSE_ADDRESS ) )
       reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
@@ -98,7 +101,7 @@ throw ( RuntimeError )
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
 
-    ports.insert( port );
+    m_socketToPort[socket] = port;
     m_sockets.insert( socket );
   }    
 
@@ -114,9 +117,10 @@ void ThreadedSocketAcceptor::onStart()
   for( i = m_sockets.begin(); i != m_sockets.end(); ++i )
   {
     Locker l( m_mutex );
-    AcceptorThreadPair* pair = new AcceptorThreadPair( this, *i );
+    int port = m_socketToPort[*i];
+    AcceptorThreadInfo* info = new AcceptorThreadInfo( this, *i, port );
     unsigned thread;
-    thread_spawn( &socketAcceptorThread, pair, thread );
+    thread_spawn( &socketAcceptorThread, info, thread );
     addThread( *i, thread );
   }
 
@@ -203,11 +207,12 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(ThreadedSocketAcceptor::socketAcceptorThread)
 
-  AcceptorThreadPair * pair = reinterpret_cast < AcceptorThreadPair* > ( p );
+  AcceptorThreadInfo * info = reinterpret_cast < AcceptorThreadInfo* > ( p );
 
-  ThreadedSocketAcceptor* pAcceptor = pair->first;
-  int s = pair->second;
-  delete pair;
+  ThreadedSocketAcceptor* pAcceptor = info->m_pAcceptor;
+  int s = info->m_socket;
+  int port = info->m_port;
+  delete info;
 
   int noDelay = 0;
   socket_getsockopt( s, TCP_NODELAY, noDelay );
@@ -218,16 +223,18 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
 
-    ThreadedSocketConnection * pConnection =
-      new ThreadedSocketConnection( socket, pAcceptor->getApplication() );
+    Sessions sessions = pAcceptor->m_portToSessions[port];
 
-    ConnectionThreadPair* pair = new ConnectionThreadPair( pAcceptor, pConnection );
+    ThreadedSocketConnection * pConnection =
+      new ThreadedSocketConnection( socket, sessions, pAcceptor->getApplication() );
+
+    ConnectionThreadInfo* info = new ConnectionThreadInfo( pAcceptor, pConnection );
 
     {
       Locker l( pAcceptor->m_mutex );
       unsigned thread;
-      if ( !thread_spawn( &socketConnectionThread, pair, thread ) )
-        delete pair;
+      if ( !thread_spawn( &socketConnectionThread, info, thread ) )
+        delete info;
       pAcceptor->addThread( socket, thread );
     }
   }
@@ -243,11 +250,11 @@ THREAD_PROC ThreadedSocketAcceptor::socketConnectionThread( void* p )
 { QF_STACK_TRY
   QF_STACK_PUSH(ThreadedSocketAcceptor::socketConnectionThread)
 
-  ConnectionThreadPair * pair = reinterpret_cast < ConnectionThreadPair* > ( p );
+  ConnectionThreadInfo * info = reinterpret_cast < ConnectionThreadInfo* > ( p );
 
-  ThreadedSocketAcceptor* pAcceptor = pair->first;
-  ThreadedSocketConnection* pConnection = pair->second;
-  delete pair;
+  ThreadedSocketAcceptor* pAcceptor = info->m_pAcceptor;
+  ThreadedSocketConnection* pConnection = info->m_pConnection;
+  delete info;
 
   int socket = pConnection->getSocket();
 

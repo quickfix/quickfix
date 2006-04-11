@@ -28,6 +28,7 @@
 
 #include "Parser.h"
 #include "Responder.h"
+#include <set>
 #include <map>
 
 namespace FIX
@@ -42,7 +43,9 @@ class Application;
 class ThreadedSocketConnection : Responder
 {
 public:
-  ThreadedSocketConnection( int s, Application& application );
+  typedef std::set<SessionID> Sessions;
+
+  ThreadedSocketConnection( int s, Sessions sessions, Application& application );
   ThreadedSocketConnection( const SessionID&, int s, Application& );
   virtual ~ThreadedSocketConnection() ;
 
@@ -60,6 +63,7 @@ private:
   int m_socket;
   Application& m_application;
   Parser m_parser;
+  Sessions m_sessions;
   Session* m_pSession;
   fd_set m_fds;
 };

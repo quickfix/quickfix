@@ -49,16 +49,33 @@ public:
   virtual ~ThreadedSocketAcceptor();
 
 private:
+  struct AcceptorThreadInfo
+  {
+    AcceptorThreadInfo( ThreadedSocketAcceptor* pAcceptor, int socket, int port )
+    : m_pAcceptor( pAcceptor ), m_socket( socket ), m_port( port ) {}
+
+    ThreadedSocketAcceptor* m_pAcceptor;
+    int m_socket;
+    int m_port;
+  };
+
+  struct ConnectionThreadInfo
+  {
+    ConnectionThreadInfo( ThreadedSocketAcceptor* pAcceptor, 
+                          ThreadedSocketConnection* pConnection )
+    : m_pAcceptor( pAcceptor ), m_pConnection( pConnection ) {}
+
+    ThreadedSocketAcceptor* m_pAcceptor;
+    ThreadedSocketConnection* m_pConnection;
+  };
+
   bool readSettings( const SessionSettings& );
 
-  typedef std::set < int > 
-    Sockets;
-  typedef std::map < int, int > 
-    SocketToThread;
-  typedef std::pair < ThreadedSocketAcceptor*, int >
-    AcceptorThreadPair;
-  typedef std::pair < ThreadedSocketAcceptor*, ThreadedSocketConnection* > 
-    ConnectionThreadPair;
+  typedef std::set < int >  Sockets;
+  typedef std::set < SessionID > Sessions;
+  typedef std::map < int, Sessions > PortToSessions;
+  typedef std::map < int, int > SocketToPort;
+  typedef std::map < int, int > SocketToThread;
 
   void onConfigure( const SessionSettings& ) throw ( ConfigError );
   void onInitialize( const SessionSettings& ) throw ( RuntimeError );
@@ -73,6 +90,8 @@ private:
   static THREAD_PROC socketConnectionThread( void* p );
 
   Sockets m_sockets;
+  PortToSessions m_portToSessions;
+  SocketToPort m_socketToPort;
   SocketToThread m_threads;
   Mutex m_mutex;
   bool m_stop;

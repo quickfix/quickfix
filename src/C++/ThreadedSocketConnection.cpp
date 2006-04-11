@@ -32,8 +32,8 @@
 
 namespace FIX
 {
-ThreadedSocketConnection::ThreadedSocketConnection( int s, Application& application )
-: m_socket( s ), m_application( application ),
+ThreadedSocketConnection::ThreadedSocketConnection( int s, Sessions sessions, Application& application )
+: m_socket( s ), m_sessions( sessions ), m_application( application ),
   m_pSession( 0 ) 
 {
   FD_ZERO( &m_fds );
@@ -180,7 +180,11 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
     process_sleep( 1 );
   }
 
-  if ( !m_pSession ) return false;
+  if ( !m_pSession ) 
+    return false;
+  if ( m_sessions.find(m_pSession->getSessionID()) == m_sessions.end() )
+    return false;
+
   m_pSession->setResponder( this );
   return true;
 

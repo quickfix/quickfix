@@ -66,7 +66,7 @@ private:
   int m_socket;
   char m_buffer[4096];
   Parser m_parser;
-  Sessions m_sessions;  
+  Sessions m_sessions;
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
 };
