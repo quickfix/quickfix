@@ -209,6 +209,19 @@ int socket_setsockopt( int s, int opt )
   QF_STACK_POP
 }
 
+int socket_getsockopt( int s, int opt, int& optval )
+{ QF_STACK_PUSH(socket_getsockopt)
+
+  int level = SOL_SOCKET;
+  if( opt == TCP_NODELAY )
+    level = IPPROTO_TCP;
+
+  int length;
+  return ::getsockopt( s, level, opt, 
+                       ( char* ) & optval, & length );
+  QF_STACK_POP
+}
+
 bool socket_isValid( int socket )
 { QF_STACK_PUSH(socket_isValid)
 

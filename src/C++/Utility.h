@@ -73,6 +73,7 @@ void socket_close( int s );
 bool socket_fionread( int s, int& bytes );
 bool socket_disconnected( int s );
 int socket_setsockopt( int s, int opt );
+int socket_getsockopt( int s, int opt, int& optval );
 bool socket_isValid( int socket );
 #ifndef _MSC_VER
 bool socket_isBad( int s );
