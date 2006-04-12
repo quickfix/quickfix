@@ -37,9 +37,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /**
  * Stores and organizes a collection of Fields.
  *

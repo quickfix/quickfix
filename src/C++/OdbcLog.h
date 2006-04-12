@@ -39,9 +39,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Creates a ODBC based implementation of Log.
 class OdbcLogFactory : public LogFactory
 {

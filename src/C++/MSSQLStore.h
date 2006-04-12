@@ -39,9 +39,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Creates a MSSQL based implementation of MessageStore.
 class MSSQLStoreFactory : public MessageStoreFactory
 {

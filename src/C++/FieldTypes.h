@@ -32,10 +32,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
-
 /// Date and Time stored as a Julian day number and number of
 /// milliseconds since midnight.  Does not perform any timezone
 /// calculations.  All magic numbers and related calculations

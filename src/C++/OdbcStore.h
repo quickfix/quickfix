@@ -39,9 +39,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Creates a Odbc based implementation of MessageStore.
 class OdbcStoreFactory : public MessageStoreFactory
 {

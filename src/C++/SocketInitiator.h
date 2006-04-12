@@ -32,9 +32,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Socket implementation of Initiator.
 class SocketInitiator : public Initiator, SocketConnector::Strategy
 {

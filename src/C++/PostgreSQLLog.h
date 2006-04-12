@@ -40,9 +40,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Creates a MySQL based implementation of Log.
 class PostgreSQLLogFactory : public LogFactory
 {

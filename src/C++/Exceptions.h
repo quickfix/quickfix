@@ -28,9 +28,6 @@
 
 namespace FIX
 {
-/*! \addtogroup exceptions
- *  @{
- */
 
 /// Base QuickFIX exception type.
 struct Exception : public std::logic_error

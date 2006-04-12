@@ -40,9 +40,6 @@ namespace FIX
 class Client;
 class Session;
 
-/*! \addtogroup user
- *  @{
- */
 /**
  * Base for classes which act as an acceptor for incoming connections.
  *

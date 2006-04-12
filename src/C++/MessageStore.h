@@ -35,9 +35,6 @@ namespace FIX
 {
 class MessageStore;
 
-/*! \addtogroup user
- *  @{
- */
 /**
  * This interface must be implemented to create a MessageStore.
  */

@@ -32,9 +32,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// For storage and retrieval of key/value pairs.
 class Dictionary
 {

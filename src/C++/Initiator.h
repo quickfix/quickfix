@@ -42,9 +42,6 @@ namespace FIX
 {
 class Client;
 
-/*! \addtogroup user
- *  @{
- */
 /**
  * Base for classes which act as an initiator for establishing connections.
  *

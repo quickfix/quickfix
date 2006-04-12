@@ -40,9 +40,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Creates a PostgreSQL based implementation of MessageStore.
 class PostgreSQLStoreFactory : public MessageStoreFactory
 {

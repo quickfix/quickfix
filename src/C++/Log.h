@@ -36,9 +36,6 @@ namespace FIX
 {
 class Log;
 
-/*! \addtogroup user
- *  @{
- */
 /**
  * This interface must be implemented to create a Log.
  */

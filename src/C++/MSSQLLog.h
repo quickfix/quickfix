@@ -39,9 +39,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Creates a MSSQL based implementation of Log.
 class MSSQLLogFactory : public LogFactory
 {

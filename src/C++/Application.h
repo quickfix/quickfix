@@ -28,9 +28,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /**
  * This interface must be implemented to define what your %FIX application
  * does.

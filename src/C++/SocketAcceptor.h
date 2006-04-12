@@ -32,9 +32,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Socket implementation of Acceptor.
 class SocketAcceptor : public Acceptor, SocketServer::Strategy
 {

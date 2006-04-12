@@ -26,9 +26,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Unique session id consists of BeginString, SenderCompID and TargetCompID.
 class SessionID
 {

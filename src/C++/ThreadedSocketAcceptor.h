@@ -32,9 +32,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Threaded Socket implementation of Acceptor.
 class ThreadedSocketAcceptor : public Acceptor
 {

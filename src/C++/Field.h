@@ -35,9 +35,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /**
  * Base representation of all Field classes.
  *

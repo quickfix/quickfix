@@ -35,9 +35,6 @@ namespace FIX
 {
 class Session;
 
-/*! \addtogroup user
- *  @{
- */
 /// Creates a file based implementation of MessageStore.
 class FileStoreFactory : public MessageStoreFactory
 {

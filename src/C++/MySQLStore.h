@@ -40,9 +40,6 @@
 
 namespace FIX
 {
-/*! \addtogroup user
- *  @{
- */
 /// Creates a MySQL based implementation of MessageStore.
 class MySQLStoreFactory : public MessageStoreFactory
 {

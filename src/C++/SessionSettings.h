@@ -108,9 +108,6 @@ const char RESET_ON_LOGOUT[] = "ResetOnLogout";
 const char RESET_ON_DISCONNECT[] = "ResetOnDisconnect";
 const char MILLISECONDS_IN_TIMESTAMP[] = "MillisecondsInTimeStamp";
 
-/*! \addtogroup user
- *  @{
- */
 /// Container for setting dictionaries mapped to sessions.
 class SessionSettings
 {

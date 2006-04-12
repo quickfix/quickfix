@@ -47,9 +47,6 @@ static FIELD::Field const headerOrder[] =
     FIELD::MsgType
   };
 
-/*! \addtogroup user
- *  @{
- */
 /**
  * Base class for all %FIX messages.
  *
