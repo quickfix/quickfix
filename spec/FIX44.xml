@@ -3732,7 +3732,7 @@
       <component name="UnderlyingStipulations" required="N" />
     </component>
     <component name="InstrumentLeg">
-      <field name="LegSymbol" required="Y" />
+      <field name="LegSymbol" required="N" />
       <field name="LegSymbolSfx" required="N" />
       <field name="LegSecurityID" required="N" />
       <field name="LegSecurityIDSource" required="N" />
