@@ -61,8 +61,7 @@ public:
   ScreenLogFactory( const SessionSettings& settings )
 : m_useSettings( true ), m_settings( settings ) {};
   ScreenLogFactory( bool incoming, bool outgoing, bool event )
-: m_useSettings( false ),
-  m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
+: m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_useSettings( false ) {}
 
   Log* create( const SessionID& );
   void destroy( Log* log );
