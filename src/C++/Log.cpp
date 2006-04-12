@@ -34,9 +34,9 @@ Log* ScreenLogFactory::create( const SessionID& sessionID )
 { QF_STACK_PUSH(ScreenLogFactory::create)
   if( m_useSettings )
   {
-    bool incoming = false;
-    bool outgoing = false;
-    bool event = false;
+    bool incoming = true;
+    bool outgoing = true;
+    bool event = true;
 
     Dictionary settings = m_settings.get( sessionID );
     if( settings.has(SCREEN_LOG_SHOW_INCOMING) )
