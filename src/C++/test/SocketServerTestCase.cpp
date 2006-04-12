@@ -90,7 +90,7 @@ bool SocketServerTestCase::block::onSetup( SocketServer*& pObject )
 
 void SocketServerTestCase::block::onRun( SocketServer& object )
 {
-  int serverS = object.add( m_port, true, true );
+  object.add( m_port, true, true );
   int clientS = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
   assert( clientS >= 0 );
 
