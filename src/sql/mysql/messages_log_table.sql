@@ -2,7 +2,7 @@ USE quickfix;
 
 DROP TABLE IF EXISTS messages_log;
 
-CREATE TABLE incoming_log (
+CREATE TABLE messages_log (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
   time DATETIME NOT NULL,
   beginstring CHAR(8) NOT NULL,
