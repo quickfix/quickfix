@@ -49,14 +49,6 @@ throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX
 void Application::toApp( FIX::Message& message, const FIX::SessionID& sessionID )
 throw( FIX::DoNotSend )
 {
-  try
-  {
-    FIX::PossDupFlag possDupFlag;
-    message.getHeader().getField( possDupFlag );
-    if ( possDupFlag ) throw FIX::DoNotSend();
-  }
-  catch ( FIX::FieldNotFound& ) {}
-
   std::cout << std::endl
   << "OUT: " << message << std::endl;
 }
