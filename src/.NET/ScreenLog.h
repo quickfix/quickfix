@@ -28,6 +28,7 @@ using namespace System;
 #include "CPPLog.h"
 #include "LogFactory.h"
 #include "quickfix/Log.h"
+#include "quickfix/SessionSettings.h"
 #include "quickfix/CallStack.h"
 #include "vcclr.h"
 
@@ -48,16 +49,42 @@ public:
 public __gc class ScreenLogFactory : public LogFactory
 {
 public:
+  ScreenLogFactory( SessionSettings* settings )
+  : m_settings( settings ) {}
+
   ScreenLogFactory( bool incoming, bool outgoing, bool event )
-  : m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
+  : m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ),
+    m_settings( 0 ) {}
 
   Log* create( SessionID* sessionID )
   { QF_STACK_TRY
-    return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
+    
+    if( m_settings )
+    {
+      bool incoming = true;
+      bool outgoing = true;
+      bool event = true;
+
+      Dictionary* settings = m_settings->get( sessionID );
+      if( settings->has(FIX::SCREEN_LOG_SHOW_INCOMING) )
+        incoming = settings->getBool(FIX::SCREEN_LOG_SHOW_INCOMING);
+      if( settings->has(FIX::SCREEN_LOG_SHOW_OUTGOING) )
+        outgoing = settings->getBool(FIX::SCREEN_LOG_SHOW_OUTGOING);
+      if( settings->has(FIX::SCREEN_LOG_SHOW_EVENTS) )
+        event = settings->getBool(FIX::SCREEN_LOG_SHOW_EVENTS);
+
+      return new ScreenLog( sessionID, incoming, outgoing, event );
+    }
+    else
+    {
+      return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
+    }
+
     QF_STACK_CATCH
   }
 
 private:
+  SessionSettings* m_settings;
   bool m_incoming;
   bool m_outgoing;
   bool m_event;

@@ -31,6 +31,24 @@
 #include <quickfix/Log.h>
 #include <quickfix/CallStack.h>
 
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_SessionSettings_2
+( JNIEnv *pEnv, jobject obj, jobject jsettings )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject object( obj );
+  JVMObject settings( jsettings );
+
+  FIX::SessionSettings* pSettings
+  = ( FIX::SessionSettings* ) settings.getLong( "cppPointer" );
+
+  FIX::LogFactory* pFactory = new FIX::ScreenLogFactory
+                              ( *pSettings );
+  object.setLong( "cppPointer", ( long ) pFactory );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__ZZZ
 ( JNIEnv *pEnv, jobject obj, jboolean incoming, jboolean outgoing, jboolean event )
 { QF_STACK_TRY

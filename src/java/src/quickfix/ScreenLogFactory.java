@@ -22,6 +22,10 @@ package quickfix;
 public class ScreenLogFactory implements LogFactory {
     private long cppPointer;
 
+    public ScreenLogFactory(SessionSettings settings) {
+        create(settings);
+    }
+
     public ScreenLogFactory(boolean incoming, boolean outgoing, boolean event) {
         create(incoming, outgoing, event);
     }
@@ -30,6 +34,7 @@ public class ScreenLogFactory implements LogFactory {
         destroy();
     }
 
+    private native void create(SessionSettings settings);
     private native void create(boolean incoming, boolean outgoing, boolean event);
     private native void destroy();
 

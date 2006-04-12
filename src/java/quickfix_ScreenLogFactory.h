@@ -10,6 +10,14 @@ extern "C" {
 /*
  * Class:     quickfix_ScreenLogFactory
  * Method:    create
+ * Signature: (Lquickfix/SessionSettings;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_SessionSettings_2
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_ScreenLogFactory
+ * Method:    create
  * Signature: (ZZZ)V
  */
 JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__ZZZ
