@@ -196,6 +196,22 @@ SOURCE=.\quickfix_MySQLStoreFactory.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\quickfix_OdbcLog.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_OdbcLogFactory.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_OdbcStore.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_OdbcStoreFactory.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\quickfix_PostgreSQLLog.cpp
 # End Source File
 # Begin Source File
@@ -357,6 +373,22 @@ SOURCE=.\quickfix_MySQLStore.h
 # Begin Source File
 
 SOURCE=.\quickfix_MySQLStoreFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_OdbcLog.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_OdbcLogFactory.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_OdbcStore.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\quickfix_OdbcStoreFactory.h
 # End Source File
 # Begin Source File
 

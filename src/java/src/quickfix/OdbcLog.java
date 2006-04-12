@@ -19,13 +19,13 @@
 
 package quickfix;
 
-public class MySQLLog extends CppLog {
+public class OdbcLog extends CppLog {
 
-    private MySQLLog() {
+    private OdbcLog() {
         create();
     }
 
-    private MySQLLog(long cppPointer) {
+    private OdbcLog(long cppPointer) {
         super( cppPointer );
     }
 

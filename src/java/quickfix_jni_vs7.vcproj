@@ -226,6 +226,18 @@
 				RelativePath="quickfix_MySQLStoreFactory.cpp">
 			</File>
 			<File
+				RelativePath=".\quickfix_OdbcLog.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_OdbcLogFactory.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_OdbcStore.cpp">
+			</File>
+			<File
+				RelativePath=".\quickfix_OdbcStoreFactory.cpp">
+			</File>
+			<File
 				RelativePath=".\quickfix_PostgreSQLLog.cpp">
 			</File>
 			<File
@@ -348,6 +360,18 @@
 			</File>
 			<File
 				RelativePath="quickfix_MySQLStoreFactory.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_OdbcLog.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_OdbcLogFactory.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_OdbcStore.h">
+			</File>
+			<File
+				RelativePath=".\quickfix_OdbcStoreFactory.h">
 			</File>
 			<File
 				RelativePath=".\quickfix_PostgreSQLLog.h">
