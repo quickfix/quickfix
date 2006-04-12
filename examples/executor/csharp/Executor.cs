@@ -38,7 +38,7 @@ class Executor
       SessionSettings settings = new SessionSettings( args[ 0 ] );
       Application application = new Application();
       FileStoreFactory storeFactory = new FileStoreFactory( settings );
-      ScreenLogFactory logFactory = new ScreenLogFactory( true, true, true );
+      ScreenLogFactory logFactory = new ScreenLogFactory( settings );
       MessageFactory messageFactory = new DefaultMessageFactory();
       SocketAcceptor acceptor
         = new SocketAcceptor( application, storeFactory, settings, logFactory, messageFactory );

@@ -60,7 +60,7 @@ public class Banzai {
         MessageStoreFactory messageStoreFactory =
             new FileStoreFactory(settings);
         LogFactory logFactory =
-            new ScreenLogFactory(true, true, true);
+            new ScreenLogFactory(settings);
         MessageFactory messageFactory =
             new DefaultMessageFactory();
 
