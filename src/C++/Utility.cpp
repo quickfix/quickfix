@@ -216,9 +216,15 @@ int socket_getsockopt( int s, int opt, int& optval )
   if( opt == TCP_NODELAY )
     level = IPPROTO_TCP;
 
+#ifdef _MSC_VER
   int length;
+#else
+  socklen_t length;
+#endif
+
   return ::getsockopt( s, level, opt, 
                        ( char* ) & optval, & length );
+
   QF_STACK_POP
 }
 
