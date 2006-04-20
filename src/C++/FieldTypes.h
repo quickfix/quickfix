@@ -32,6 +32,10 @@
 
 namespace FIX
 {
+/*! \addtogroup user
+ *  @{
+ */
+
 /// Date and Time stored as a Julian day number and number of
 /// milliseconds since midnight.  Does not perform any timezone
 /// calculations.  All magic numbers and related calculations
@@ -105,7 +109,10 @@ struct DateTime
 
   /// Another name for the day of the month.  Bad name, but used
   /// because of the legacy UtcTimeStamp interface
-  inline int getDate() const { return getDay (); }
+  inline int getDate() const { return getDay(); }
+
+  /// Return the internal julian date
+  inline int getJulianDate() const { return m_date; }
 
   /// Return the hour portion of the time (0-23)
   inline int getHour() const 

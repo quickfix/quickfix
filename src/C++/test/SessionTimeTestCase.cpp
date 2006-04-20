@@ -190,31 +190,6 @@ void SessionTimeTestCase::isSameSession::onRun( SessionTime& object )
   time2 = UtcTimeStamp( 19, 06, 0, 1, 14, 2004 );
   assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
   assert( !SessionTime::isSameSession( start, end, time2, time1 ) );
-
-  // start time is greater than end time
-  start = UtcTimeOnly( 10, 0, 0 );
-  end = UtcTimeOnly( 2, 0, 0 );
-
-  // same session time 1 is in next day
-  time1 = UtcTimeStamp( 10, 0, 11, 9, 3, 2006 );
-  time2 = UtcTimeStamp( 10, 0, 14, 8, 3, 2006 );
-  assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
-  
-  // same session time 1 is in next day
-  start = UtcTimeOnly( 16, 0, 0 );
-  end = UtcTimeOnly( 15, 0, 0 );
-
-  time1 = UtcTimeStamp( 14, 0, 0, 9, 3, 2006 );
-  time2 = UtcTimeStamp( 1, 0, 0, 9, 3, 2006 );
-  assert( SessionTime::isSameSession( start, end, time1, time2 ) );
-  time2 = UtcTimeStamp( 23, 0, 0, 8, 3, 2006 );
-  assert( SessionTime::isSameSession( start, end, time1, time2 ) );
-
-  time1 = UtcTimeStamp( 17, 0, 0, 9, 3, 2006 );
-  time2 = UtcTimeStamp( 1, 0, 0, 9, 3, 2006 );
-  assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
-  time2 = UtcTimeStamp( 23, 0, 0, 8, 3, 2006 );
-  assert( !SessionTime::isSameSession( start, end, time1, time2 ) );
 }
 
 void SessionTimeTestCase::isSameSessionWithDay::onRun( SessionTime& object )
@@ -263,6 +238,34 @@ void SessionTimeTestCase::isSameSessionWithDay::onRun( SessionTime& object )
   time2 = UtcTimeStamp( 3, 0, 0, 19, 7, 2004 );
   assert( !SessionTime::isSameSession
     ( startTime, endTime, startDay, endDay, time1, time2 ) );
+
+  // Reset start/end time so that they fall within an hour of midnight
+  startTime = UtcTimeOnly(0, 5, 0);
+  endTime = UtcTimeOnly(23, 45, 0);
+
+  // Make it a week-long session
+  startDay = 1;
+  endDay = 7;
+
+  // Check that ST-->DST (Sunday is missing one hour) is handled
+  time1 = UtcTimeStamp(0, 0, 0, 4, 4, 2006);
+  time2 = UtcTimeStamp(1, 0, 0, 3, 4, 2006);
+  assert( SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
+
+  // Check that DST-->ST (Sunday has an extra hour) is handled
+  time1 = UtcTimeStamp(0, 0, 0, 30, 10, 2006);
+  time2 = UtcTimeStamp(1, 0, 0, 31, 10, 2006);
+  assert( SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
+
+  // Check that everything works across a year boundary
+  time1 = UtcTimeStamp(10, 10, 10, 31, 12, 2006);
+  time2 = UtcTimeStamp(10, 10, 10, 1, 1, 2007);
+  assert( SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
+
+  // Check that "missing" start and end days are handled as isSameSession without days
+  startDay = -1;
+  endDay = -1;
+  assert( SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
 }
 
 }

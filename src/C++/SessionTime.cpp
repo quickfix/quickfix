@@ -117,19 +117,19 @@ namespace FIX
     {
       int sessionLength = DateTime::SECONDS_PER_DAY - (start - end);
 
-		  if( time1 > time2 )
+      if( time1 > time2 )
       {
-  		  UtcTimeOnly time2TimeOnly = UtcTimeOnly(time2);
+        UtcTimeOnly time2TimeOnly = UtcTimeOnly(time2);
 	  	  
         long delta = time2TimeOnly - start;
-		    if( delta < 0 )
-			    delta = DateTime::SECONDS_PER_DAY - labs(delta);
+        if( delta < 0 )
+          delta = DateTime::SECONDS_PER_DAY - labs(delta);
 
-			  return (time1 - time2) < (sessionLength - delta);
+        return (time1 - time2) < (sessionLength - delta);
       }
-		  else
+      else
       {
-			  return (time2 - time1) < sessionLength;
+        return (time2 - time1) < sessionLength;
       }
     }
 	
@@ -150,33 +150,9 @@ namespace FIX
     if( !isSessionTime( startTime, endTime, startDay, endDay, time2 ) )
       return false;
 
-    if( time1 == time2 ) return true;
-
-    int time1Range = time1.getWeekDay() - startDay;
-    int time2Range = time2.getWeekDay() - startDay;
-
-    if( time1Range == 0 )
-    {
-      UtcTimeOnly timeOnly = UtcTimeOnly( time1);
-      if( timeOnly < startTime )
-        time1Range = 7;
-    }
-
-    if( time2Range == 0 )
-    {
-      UtcTimeOnly timeOnly = UtcTimeOnly( time2 );
-      if( timeOnly < startTime )
-        time2Range = 7;
-    }
-
-    time_t t1 = time1.getTimeT() - DateTime::SECONDS_PER_DAY * time1Range;
-    time_t t2 = time2.getTimeT() - DateTime::SECONDS_PER_DAY * time2Range;
-
-    tm tm1 = time_gmtime( &t1 );
-    tm tm2 = time_gmtime( &t2 );
-
-    return tm1.tm_year == tm2.tm_year
-           && tm1.tm_yday == tm2.tm_yday;
+    int absoluteDay1 = time1.getJulianDate() - time1.getWeekDay();
+    int absoluteDay2 = time2.getJulianDate() - time2.getWeekDay();
+    return absoluteDay1 == absoluteDay2;
 
     QF_STACK_POP
   }
