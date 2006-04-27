@@ -34,7 +34,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   Application& application,
   MessageStoreFactory& factory,
   const SessionSettings& settings ) throw( ConfigError )
-: Acceptor( application, factory, settings ), m_stop( false )
+: Acceptor( application, factory, settings )
 { socket_init(); }
 
 ThreadedSocketAcceptor::ThreadedSocketAcceptor(
@@ -42,7 +42,7 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   MessageStoreFactory& factory,
   const SessionSettings& settings,
   LogFactory& logFactory ) throw( ConfigError )
-: Acceptor( application, factory, settings, logFactory ), m_stop( false )
+: Acceptor( application, factory, settings, logFactory )
 { socket_init(); }
 
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
@@ -111,8 +111,6 @@ throw ( RuntimeError )
 void ThreadedSocketAcceptor::onStart()
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onStart)
 
-  m_stop = false;
-
   Sockets::iterator i;
   for( i = m_sockets.begin(); i != m_sockets.end(); ++i )
   {
@@ -137,8 +135,6 @@ bool ThreadedSocketAcceptor::onPoll()
 
 void ThreadedSocketAcceptor::onStop()
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onStop)
-
-  m_stop = true;
 
   Locker l(m_mutex);
 
@@ -218,7 +214,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
   socket_getsockopt( s, TCP_NODELAY, noDelay );
 
   int socket = 0;
-  while ( ( !pAcceptor->m_stop && ( socket = socket_accept( s ) ) >= 0 ) )
+  while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) >= 0 ) )
   {
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
@@ -239,7 +235,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
     }
   }
 
-  if( !pAcceptor->m_stop )
+  if( !pAcceptor->isStopped() )
     pAcceptor->removeThread( s );
   return 0;
 
@@ -260,7 +256,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketConnectionThread( void* p )
 
   while ( pConnection->read() ) {}
   delete pConnection;
-  if( !pAcceptor->m_stop )
+  if( !pAcceptor->isStopped() )
     pAcceptor->removeThread( socket );
   return 0;
 

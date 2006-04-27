@@ -36,7 +36,7 @@ SocketInitiator::SocketInitiator( Application& application,
 throw( ConfigError )
 : Initiator( application, factory, settings ),
   m_connector( 1 ), m_lastConnect( 0 ),
-  m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false ) {}
+  m_reconnectInterval( 30 ), m_noDelay( false ) {}
 
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
@@ -45,7 +45,7 @@ SocketInitiator::SocketInitiator( Application& application,
 throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_connector( 1 ), m_lastConnect( 0 ),
-  m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false ) {}
+  m_reconnectInterval( 30 ), m_noDelay( false ) {}
 
 SocketInitiator::~SocketInitiator()
 {
@@ -75,9 +75,8 @@ throw ( RuntimeError )
 void SocketInitiator::onStart()
 { QF_STACK_PUSH(SocketInitiator::onStart)
 
-  m_stop = false;
   connect();
-  while ( !m_stop )
+  while ( !isStopped() )
     m_connector.block( *this );
 
   time_t start = 0;
@@ -100,7 +99,7 @@ bool SocketInitiator::onPoll()
   time_t start = 0;
   time_t now = 0;
 
-  if( m_stop )
+  if( isStopped() )
   {
     if( start == 0 )
       ::time( &start );
@@ -118,7 +117,6 @@ bool SocketInitiator::onPoll()
 
 void SocketInitiator::onStop()
 { QF_STACK_PUSH(SocketInitiator::onStop)
-  m_stop = true;
   QF_STACK_POP
 }
 

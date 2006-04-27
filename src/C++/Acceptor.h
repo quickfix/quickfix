@@ -75,6 +75,8 @@ public:
   bool has( const SessionID& id )
   { return m_sessions.find( id ) != m_sessions.end(); }
 
+  bool isStopped() { return m_stop; }
+
 public:
   Application& getApplication() { return m_application; }
   MessageStoreFactory& getMessageStoreFactory()
@@ -107,6 +109,7 @@ private:
   SessionSettings m_settings;
   LogFactory* m_pLogFactory;
   bool m_firstPoll;
+  bool m_stop;
 };
 /*! @} */
 }

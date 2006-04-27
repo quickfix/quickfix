@@ -91,7 +91,6 @@ private:
   SocketToPort m_socketToPort;
   SocketToThread m_threads;
   Mutex m_mutex;
-  bool m_stop;
 };
 /*! @} */
 }

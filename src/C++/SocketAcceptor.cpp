@@ -35,14 +35,14 @@ SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings ) throw( ConfigError )
 : Acceptor( application, factory, settings ),
-  m_pServer( 0 ), m_stop( false ) {}
+  m_pServer( 0 ) {}
 
 SocketAcceptor::SocketAcceptor( Application& application,
                                 MessageStoreFactory& factory,
                                 const SessionSettings& settings,
                                 LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
-  m_pServer( 0 ), m_stop( false ) {}
+  m_pServer( 0 ) {}
 
 SocketAcceptor::~SocketAcceptor()
 {
@@ -109,8 +109,7 @@ throw ( RuntimeError )
 void SocketAcceptor::onStart()
 { QF_STACK_PUSH(SocketAcceptor::onStart)
 
-  m_stop = false;
-  while ( !m_stop && m_pServer && m_pServer->block( *this ) ) {}
+  while ( !isStopped() && m_pServer && m_pServer->block( *this ) ) {}
 
   if( !m_pServer )
     return;
@@ -142,7 +141,7 @@ bool SocketAcceptor::onPoll()
   time_t start = 0;
   time_t now = 0;
 
-  if( m_stop )
+  if( isStopped() )
   {
     if( start == 0 )
       ::time( &start );
@@ -160,9 +159,6 @@ bool SocketAcceptor::onPoll()
 
 void SocketAcceptor::onStop()
 { QF_STACK_PUSH(SocketAcceptor::onStop)
-
-  m_stop = true;
-
   QF_STACK_POP
 }
 

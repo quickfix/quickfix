@@ -35,7 +35,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   MessageStoreFactory& factory,
   const SessionSettings& settings ) throw( ConfigError )
 : Initiator( application, factory, settings ),
-  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false )
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::ThreadedSocketInitiator(
@@ -44,7 +44,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   const SessionSettings& settings,
   LogFactory& logFactory ) throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
-  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), m_stop( false )
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false )
 { socket_init(); }
 
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
@@ -71,8 +71,7 @@ throw ( RuntimeError )
 void ThreadedSocketInitiator::onStart()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStart)
 
-  m_stop = false;
-  while ( !m_stop )
+  while ( !isStopped() )
   {
     time_t now;
     ::time( &now );
@@ -100,8 +99,6 @@ bool ThreadedSocketInitiator::onPoll()
 
 void ThreadedSocketInitiator::onStop()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStop)
-
-  m_stop = true;
 
   Locker l(m_mutex);
 
@@ -225,7 +222,7 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
 
   while ( pConnection->read() ) {}
   delete pConnection;
-  if( !pInitiator->m_stop )
+  if( !pInitiator->isStopped() )
     pInitiator->removeThread( socket );
   
   {

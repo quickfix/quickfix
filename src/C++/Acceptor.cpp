@@ -42,7 +42,8 @@ throw( ConfigError )
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( 0 ),
-  m_firstPoll( true )
+  m_firstPoll( true ),
+  m_stop( false )
 {
   initialize();
 }
@@ -57,7 +58,8 @@ throw( ConfigError )
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
-  m_firstPoll( true )
+  m_firstPoll( true ),
+  m_stop( false )
 {
   initialize();
 }
@@ -137,6 +139,7 @@ Session* Acceptor::getSession
 void Acceptor::start() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH( Acceptor::start )
 
+  m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
 
@@ -196,6 +199,7 @@ void Acceptor::stop( bool force )
       process_sleep( 1 );
   }
 
+  m_stop = true;
   onStop();
   if( m_threadid )
     thread_join( m_threadid );

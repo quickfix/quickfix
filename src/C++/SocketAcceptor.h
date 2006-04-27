@@ -67,7 +67,6 @@ private:
   SocketServer* m_pServer;
   PortToSessions m_portToSessions;
   SocketConnections m_connections;
-  bool m_stop;
 };
 /*! @} */
 }

@@ -40,7 +40,8 @@ Initiator::Initiator( Application& application,
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( 0 )
+  m_pLogFactory( 0 ),
+  m_stop( false )
 { initialize(); }
 
 Initiator::Initiator( Application& application,
@@ -51,7 +52,8 @@ Initiator::Initiator( Application& application,
   m_application( application ),
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
-  m_pLogFactory( &logFactory )
+  m_pLogFactory( &logFactory ),
+  m_stop( false )
 { initialize(); }
 
 void Initiator::initialize() throw ( ConfigError )
@@ -146,6 +148,7 @@ bool Initiator::isConnected( const SessionID& sessionID )
 void Initiator::start() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH(Initiator::start)
 
+  m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
 
@@ -208,6 +211,7 @@ void Initiator::stop( bool force )
   for ( i = connected.begin(); i != connected.end(); ++i )
     setConnected( Session::lookupSession(*i)->getSessionID(), false );
 
+  m_stop = true;
   onStop();
   if( m_threadid )
     thread_join( m_threadid );
