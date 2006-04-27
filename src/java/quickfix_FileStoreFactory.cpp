@@ -92,7 +92,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_FileStoreFactory_create__Lquickfix_Sessi
 
   JVMClass type( "Lquickfix/FileStore;" );
   jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
-  JVMObject result = pEnv->NewObject( type, method, ( jint ) pWrapper );
+  JVMObject result = pEnv->NewObject( type, method, ( jlong ) pWrapper );
 
   return result;
 
