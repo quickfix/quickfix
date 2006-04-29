@@ -190,7 +190,6 @@ std::string& Message::toString( std::string& str,
 { QF_STACK_PUSH(Message::toString)
 
   int length = bodyLength( beginStringField, bodyLengthField, checkSumField );
-  str.reserve( 32 + length );
   m_header.setField( IntField(bodyLengthField, length) );
   m_trailer.setField( CheckSumField(checkSumField, checkSum(checkSumField)) );
 
