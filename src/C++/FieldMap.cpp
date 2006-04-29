@@ -203,6 +203,7 @@ std::string& FieldMap::calculateString( std::string& result, bool clear ) const
     result += i->second.getValue();
 
     // add groups if they exist
+    if( !m_groups.size() ) continue;
     Groups::const_iterator j = m_groups.find( i->first );
     if ( j == m_groups.end() ) continue;
     std::vector < FieldMap* > ::const_iterator k;
