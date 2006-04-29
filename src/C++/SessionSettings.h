@@ -104,6 +104,7 @@ const char POSTGRESQL_LOG_PORT[] = "PostgreSQLLogPort";
 const char ODBC_LOG_USER[] = "OdbcLogUser";
 const char ODBC_LOG_PASSWORD[] = "OdbcLogPassword";
 const char ODBC_LOG_CONNECTION_STRING[] = "OdbcLogConnectionString";
+const char RESET_ON_LOGON[] = "ResetOnLogon";
 const char RESET_ON_LOGOUT[] = "ResetOnLogout";
 const char RESET_ON_DISCONNECT[] = "ResetOnDisconnect";
 const char MILLISECONDS_IN_TIMESTAMP[] = "MillisecondsInTimeStamp";

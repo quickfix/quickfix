@@ -9,7 +9,7 @@ echo StartTime=00:00:00 >> cfg/at.cfg
 echo EndTime=00:00:00 >> cfg/at.cfg
 echo SenderCompID=ISLD >> cfg/at.cfg
 echo TargetCompID=TW >> cfg/at.cfg
-echo ResetOnDisconnect=Y >> cfg/at.cfg
+echo ResetOnLogon=Y >> cfg/at.cfg
 echo FileStorePath=store >> cfg/at.cfg
 echo [SESSION] >> cfg/at.cfg
 echo BeginString=FIX.4.0 >> cfg/at.cfg

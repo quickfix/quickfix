@@ -132,8 +132,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setLogonTimeout( settings.getLong( LOGON_TIMEOUT ) );
   if ( settings.has( LOGOUT_TIMEOUT ) )
     pSession->setLogoutTimeout( settings.getLong( LOGOUT_TIMEOUT ) );
-  if ( settings.has( SEND_RESETSEQNUMFLAG ) )
-    pSession->setResetOnLogout( settings.getBool( SEND_RESETSEQNUMFLAG ) );
+  if ( settings.has( RESET_ON_LOGON ) )
+    pSession->setResetOnLogon( settings.getBool( RESET_ON_LOGON ) );
   if ( settings.has( RESET_ON_LOGOUT ) )
     pSession->setResetOnLogout( settings.getBool( RESET_ON_LOGOUT ) );
   if ( settings.has( RESET_ON_DISCONNECT ) )

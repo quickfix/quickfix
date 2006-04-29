@@ -47,9 +47,11 @@ Session::Session( Application& application,
 : m_application( application ),
   m_sessionID( sessionID ),
   m_sessionTime( sessionTime ),
-  m_checkLatency( true ), m_maxLatency( 120 ),
-  m_sendResetSeqNumFlag( false ),
-  m_resetOnLogout( false ), m_resetOnDisconnect( false ),
+  m_checkLatency( true ), 
+  m_maxLatency( 120 ),
+  m_resetOnLogon( false ),
+  m_resetOnLogout( false ), 
+  m_resetOnDisconnect( false ),
   m_millisecondsInTimeStamp( true ),
   m_dataDictionary( dataDictionary ),
   m_messageStoreFactory( messageStoreFactory ),
@@ -207,12 +209,15 @@ void Session::nextLogon( const Message& logon )
     if( !m_state.sentReset() ) m_state.reset();
   }
 
-  if ( m_state.shouldSendLogon() && !m_state.receivedReset() )
+  if( m_state.shouldSendLogon() && !m_state.receivedReset() )
   {
     m_state.onEvent( "Received logon response before sending request" );
     disconnect();
     return ;
   }
+
+  if( !m_state.shouldSendLogon() && m_resetOnLogon )
+    m_state.reset();
 
   if( !verify( logon, false, true ) )
     return;
@@ -575,8 +580,13 @@ void Session::generateLogon()
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
+
   if( shouldSendReset() )
+  {
+    if( m_resetOnLogon ) m_state.reset();
     logon.setField( ResetSeqNumFlag(true) );
+  }
+
   fill( logon.getHeader() );
   UtcTimeStamp now;
   m_state.lastReceivedTime( now );
@@ -999,9 +1009,11 @@ bool Session::shouldSendReset()
 
   std::string beginString = m_sessionID.getBeginString();
   return beginString >= FIX::BeginString_FIX41
-    && ( m_sendResetSeqNumFlag || m_resetOnLogout || m_resetOnDisconnect )
-    && getExpectedSenderNum() == 1
-    && getExpectedTargetNum() == 1;
+    && ( m_resetOnLogon || 
+         m_resetOnLogout || 
+         m_resetOnDisconnect )
+    && ( getExpectedSenderNum() == 1 )
+    && ( getExpectedTargetNum() == 1 );
 
   QF_STACK_POP
 }
