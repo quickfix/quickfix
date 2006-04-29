@@ -28,6 +28,7 @@
 
 #include "Parser.h"
 #include "Responder.h"
+#include "SessionID.h"
 #include <set>
 #include <map>
 
@@ -36,7 +37,6 @@ namespace FIX
 class ThreadedSocketAcceptor;
 class ThreadedSocketInitiator;
 class Session;
-class SessionID;
 class Application;
 
 /// Encapsulates a socket file descriptor (multi-threaded).

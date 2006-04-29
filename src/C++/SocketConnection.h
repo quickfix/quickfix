@@ -28,6 +28,7 @@
 
 #include "Parser.h"
 #include "Responder.h"
+#include "SessionID.h"
 #include <set>
 
 namespace FIX
@@ -38,7 +39,6 @@ class SocketConnector;
 class SocketInitiator;
 class SocketMonitor;
 class Session;
-class SessionID;
 
 /// Encapsulates a socket file descriptor (single-threaded).
 class SocketConnection : Responder
