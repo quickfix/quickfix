@@ -1,0 +1,26 @@
+# @testcase 14h
+# @Receive a message in which a field identifier (tag number) which is not part of a repeating group is specified more than once
+
+iCONNECT
+# logon message and response
+I8=FIX.4.435=A34=149=TW52=<TIME>56=ISLD98=0108=2
+E8=FIX.4.49=6035=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=210=0
+
+#------------------------
+# begin message exchange
+#------------------------
+
+#New order message with incorrect value. Side (40) is repeated, not part of repeating group
+I8=FIX.4.435=D34=249=TW52=<TIME>56=ISLD11=ID21=140=140=254=138=200.0055=INTC60=<TIME>
+# expect a reject
+E8=FIX.4.49=10435=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Tag appears more than once371=40372=D373=1310=0
+
+#------------------------
+# end message exchange
+#------------------------
+
+# logout message and response
+I8=FIX.4.435=534=349=TW52=<TIME>56=ISLD
+E8=FIX.4.49=4935=534=349=ISLD52=00000000-00:00:00.00056=TW10=0
+
+eDISCONNECT
