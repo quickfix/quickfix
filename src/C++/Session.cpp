@@ -962,10 +962,6 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
       return false;
     }
 
-    UtcTimeStamp now;
-    m_state.lastReceivedTime( now );
-    m_state.testRequest( 0 );
-
     if ( checkTooHigh && isTargetTooHigh( msgSeqNum ) )
     {
       doTargetTooHigh( msg );
@@ -997,6 +993,10 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     disconnect();
     return false;
   }
+
+  UtcTimeStamp now;
+  m_state.lastReceivedTime( now );
+  m_state.testRequest( 0 );
 
   fromCallback( msgType, msg, m_sessionID );
   return true;
