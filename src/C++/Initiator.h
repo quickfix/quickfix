@@ -124,6 +124,7 @@ private:
   LogFactory* m_pLogFactory;
   bool m_firstPoll;
   bool m_stop;
+  Mutex m_mutex;
 };
 /*! @} */
 }

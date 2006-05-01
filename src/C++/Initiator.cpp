@@ -86,6 +86,7 @@ void Initiator::initialize() throw ( ConfigError )
 
 Initiator::~Initiator()
 { QF_STACK_IGNORE_BEGIN
+
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
@@ -110,6 +111,8 @@ Session* Initiator::getSession( const SessionID& sessionID,
 void Initiator::connect()
 { QF_STACK_PUSH(Initiator::connect)
 
+  Locker l(m_mutex);
+
   SessionIDs disconnected = m_disconnected;
   SessionIDs::iterator i = disconnected.begin();
   for ( ; i != disconnected.end(); ++i )
@@ -124,6 +127,8 @@ void Initiator::connect()
 
 void Initiator::setConnected( const SessionID& sessionID, bool connected )
 { QF_STACK_PUSH(Initiator::setConnected)
+
+  Locker l(m_mutex);
 
   if ( connected )
   {
@@ -141,7 +146,10 @@ void Initiator::setConnected( const SessionID& sessionID, bool connected )
 
 bool Initiator::isConnected( const SessionID& sessionID )
 { QF_STACK_PUSH(Initiator::isConnected)
+
+  Locker l(m_mutex);
   return m_connected.find( sessionID ) != m_connected.end();
+
   QF_STACK_POP
 }
 
@@ -208,8 +216,11 @@ void Initiator::stop( bool force )
       process_sleep( 1 );
   }
 
-  for ( i = connected.begin(); i != connected.end(); ++i )
-    setConnected( Session::lookupSession(*i)->getSessionID(), false );
+  {
+    Locker l(m_mutex);
+    for ( i = connected.begin(); i != connected.end(); ++i )
+      setConnected( Session::lookupSession(*i)->getSessionID(), false );
+  }
 
   m_stop = true;
   onStop();
@@ -226,6 +237,8 @@ void Initiator::stop( bool force )
 
 bool Initiator::isLoggedOn()
 { QF_STACK_PUSH(Initiator::isLoggedOn)
+
+  Locker l(m_mutex);
 
   SessionIDs connected = m_connected;
   SessionIDs::iterator i = connected.begin();
