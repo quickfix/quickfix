@@ -35,7 +35,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class ThreadedSocketInitiator : public Initiator
+public __gc class ThreadedSocketInitiator : public Initiator, public IDisposable
 {
 public:
   ThreadedSocketInitiator( Application* application,
@@ -79,12 +79,20 @@ public:
     QF_STACK_CATCH
   }
 
+  void Dispose()
+  {
+    if( !m_pUnmanaged ) return;
+
+    delete m_pUnmanaged;
+    m_pUnmanaged = 0;
+    m_application = 0;
+    m_factory = 0;
+    m_logFactory = 0;
+  }
+
   ~ThreadedSocketInitiator()
   {
-    delete m_pUnmanaged;
-    delete m_application;
-    delete m_factory;
-    delete m_logFactory;
+    Dispose();
   }
 
   void start()
