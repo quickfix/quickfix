@@ -45,8 +45,6 @@ public:
   {
     m_pUnmanaged = pUnmanaged;
   }
-
-  ~PostgreSQLLog() { delete m_pUnmanaged; }
 };
 
 public __gc class PostgreSQLLogFactory : public LogFactory

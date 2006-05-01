@@ -45,8 +45,6 @@ public:
   {
     m_pUnmanaged = pUnmanaged;
   }
-
-  ~MySQLLog() { delete m_pUnmanaged; }
 };
 
 public __gc class MySQLLogFactory : public LogFactory

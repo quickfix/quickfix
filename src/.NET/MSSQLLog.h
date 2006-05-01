@@ -45,8 +45,6 @@ public:
   {
     m_pUnmanaged = pUnmanaged;
   }
-
-  ~MSSQLLog() { delete m_pUnmanaged; }
 };
 
 public __gc class MSSQLLogFactory : public LogFactory

@@ -44,6 +44,13 @@ class Log : public FIX::Log
 {
 public:
   Log( QuickFix::Log* log ) : m_log( log ) {}
+  ~Log() 
+  { 
+    QuickFix::Log* log = ((QuickFix::Log*)m_log);
+    IDisposable* disposable = dynamic_cast<IDisposable*>(log);
+    if( disposable ) disposable->Dispose();
+    m_log = gcroot < QuickFix::Log* >(0); 
+  }
 
   void clear()
   { m_log->clear(); }

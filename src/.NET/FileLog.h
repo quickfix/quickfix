@@ -47,7 +47,6 @@ public:
 
     QF_STACK_CATCH
   }
-  ~FileLog() { delete m_pUnmanaged; }
 
   void clear()
   { QF_STACK_TRY

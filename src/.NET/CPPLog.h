@@ -34,7 +34,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class CPPLog : public Log
+public __gc class CPPLog : public Log, public IDisposable
 {
 public:
   CPPLog() {}
@@ -43,6 +43,17 @@ public:
     m_pUnmanaged = pUnmanaged;
     QF_STACK_CATCH
   }
+
+  void Dispose()
+  {
+    if( !m_pUnmanaged ) return;
+
+    delete m_pUnmanaged;
+    m_pUnmanaged = 0;
+  }
+
+  ~CPPLog()
+  { Dispose(); }
 
   void clear()
   { QF_STACK_TRY

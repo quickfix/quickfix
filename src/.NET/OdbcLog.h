@@ -45,8 +45,6 @@ public:
   {
     m_pUnmanaged = pUnmanaged;
   }
-
-  ~OdbcLog() { delete m_pUnmanaged; }
 };
 
 public __gc class OdbcLogFactory : public LogFactory
