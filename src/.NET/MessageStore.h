@@ -53,6 +53,13 @@ class MessageStore : public FIX::MessageStore
 {
 public:
   MessageStore( QuickFix::MessageStore* store ) : m_store( store ) {}
+  ~MessageStore() 
+  { 
+    QuickFix::MessageStore* store = ((QuickFix::MessageStore*)m_store);
+    IDisposable* disposable = dynamic_cast<IDisposable*>(store);
+    if( disposable ) disposable->Dispose();
+    m_store = gcroot < QuickFix::MessageStore* >(0); 
+  }
 
   bool set( int num, const std::string& message ) throw ( FIX::IOException& )
   {

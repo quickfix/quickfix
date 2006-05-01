@@ -52,8 +52,6 @@ public:
 
   MySQLStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
-
-  ~MySQLStore() { delete m_pUnmanaged; }
 };
 
 public __gc class MySQLStoreFactory : public MessageStoreFactory

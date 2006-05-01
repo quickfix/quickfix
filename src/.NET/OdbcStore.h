@@ -50,8 +50,6 @@ public:
 
   OdbcStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
-
-  ~OdbcStore() { delete m_pUnmanaged; }
 };
 
 public __gc class OdbcStoreFactory : public MessageStoreFactory

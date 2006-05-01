@@ -51,8 +51,6 @@ public:
 
   MSSQLStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
-
-  ~MSSQLStore() { delete m_pUnmanaged; }
 };
 
 public __gc class MSSQLStoreFactory : public MessageStoreFactory

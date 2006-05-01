@@ -44,8 +44,6 @@ public:
   { QF_STACK_TRY
     QF_STACK_CATCH
   }
-
-  ~FileStore() { delete m_pUnmanaged; }
 };
 
 public __gc class FileStoreFactory : public MessageStoreFactory

@@ -52,8 +52,6 @@ public:
 
   PostgreSQLStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
-
-  ~PostgreSQLStore() { delete m_pUnmanaged; }
 };
 
 public __gc class PostgreSQLStoreFactory : public MessageStoreFactory
