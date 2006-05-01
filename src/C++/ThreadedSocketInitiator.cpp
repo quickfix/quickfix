@@ -100,6 +100,9 @@ bool ThreadedSocketInitiator::onPoll()
 void ThreadedSocketInitiator::onStop()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStop)
 
+  SocketToThread threads;
+  SocketToThread::iterator i;
+  
   Locker l(m_mutex);
 
   time_t start = 0;
@@ -112,15 +115,11 @@ void ThreadedSocketInitiator::onStop()
       break;
   }
 
-  SocketToThread threads;
-  {
-    Locker locker( m_mutex );
-    threads = m_threads;
-  }
+  threads = m_threads;
 
-  SocketToThread::iterator i;
   for ( i = threads.begin(); i != threads.end(); ++i )
     socket_close( i->first );
+  
   for ( i = threads.begin(); i != threads.end(); ++i )
     thread_join( i->second );
   threads.clear();
@@ -175,17 +174,8 @@ void ThreadedSocketInitiator::addThread( int s, int t )
 { QF_STACK_PUSH(ThreadedSocketInitiator::addThread)
 
   Locker l(m_mutex);
-#ifdef _MSC_VER
-  HANDLE handle;
-  DuplicateHandle(
-    GetCurrentProcess(),
-    GetCurrentThread(),
-    GetCurrentProcess(),
-    &handle, 0, FALSE, DUPLICATE_SAME_ACCESS );
-  t = ( int ) handle;
-#endif
-  m_threads[ s ] = t;
 
+  m_threads[ s ] = t;
   QF_STACK_POP
 }
 
@@ -194,11 +184,9 @@ void ThreadedSocketInitiator::removeThread( int s )
 
   Locker l(m_mutex);
   SocketToThread::iterator i = m_threads.find( s );
+
   if ( i != m_threads.end() )
   {
-#ifdef _MSC_VER
-    CloseHandle( ( HANDLE ) i->second );
-#endif
     thread_detach( i->second );
     m_threads.erase( i );
   }
@@ -221,14 +209,12 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   int socket = pConnection->getSocket();
 
   while ( pConnection->read() ) {}
+
   delete pConnection;
   if( !pInitiator->isStopped() )
     pInitiator->removeThread( socket );
   
-  {
-    Locker l( pInitiator->m_mutex );
-    pInitiator->setConnected( sessionID, false );
-  }
+  pInitiator->setConnected( sessionID, false );
   return 0;
 
   QF_STACK_POP

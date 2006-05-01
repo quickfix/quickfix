@@ -189,9 +189,6 @@ void ThreadedSocketAcceptor::removeThread( int s )
   SocketToThread::iterator i = m_threads.find( s );
   if ( i != m_threads.end() )
   {
-#ifdef _MSC_VER
-    CloseHandle( ( HANDLE ) i->second );
-#endif
     thread_detach( i->second );
     m_threads.erase( i );
   }

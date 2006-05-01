@@ -370,7 +370,9 @@ void thread_join( unsigned thread )
 void thread_detach( unsigned thread )
 { QF_STACK_PUSH(thread_detach)
 
-#ifndef _MSC_VER
+#ifdef _MSC_VER
+  CloseHandle((HANDLE)thread);
+#else
   pthread_t t = (pthread_t)thread;
   pthread_detach( t );
 #endif
@@ -381,7 +383,7 @@ void thread_detach( unsigned thread )
 unsigned thread_self()
 {
 #ifdef _MSC_VER
-  return ( unsigned ) GetCurrentThreadId();
+  return ( unsigned ) GetCurrentThread();
 #else
   return ( unsigned ) pthread_self();
 #endif
