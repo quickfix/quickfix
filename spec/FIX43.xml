@@ -3243,6 +3243,7 @@
       <value enum="8" description="MARKET_IMBALANCE_SELL" />
       <value enum="9" description="MARKET_ON_CLOSE_IMBALANCE_BUY" />
       <value enum="10" description="MARKET_ON_CLOSE_IMBALANCE_SELL" />
+      <value enum="11" description="NOT_ASSIGNED" />
       <value enum="12" description="NO_MARKET_IMBALANCE" />
       <value enum="13" description="NO_MARKET_ON_CLOSE_IMBALANCE" />
       <value enum="14" description="ITS_PRE_OPENING" />

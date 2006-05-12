@@ -3120,6 +3120,20 @@ namespace QuickFix
   static const int MARKET_IMBALANCE_BUY = 7;
   static const int MARKET_IMBALANCE_SELL = 8;
   static const int MARKET_ON_CLOSE_IMBALANCE_BUY = 9;
+  static const int MARKET_ON_CLOSE_IMBALANCE_SELL = 10;
+  static const int NOT_ASSIGNED = 11;
+  static const int NO_MARKET_IMBALANCE = 12;
+  static const int NO_MARKET_ON_CLOSE_IMBALANCE = 13;
+  static const int ITS_PRE_OPENING = 14;
+  static const int NEW_PRICE_INDICATION = 15;
+  static const int TRADE_DISSEMINATION_TIME = 16;
+  static const int READY_TO_TRADE_START_OF_SESSION = 17;
+  static const int NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION = 18;
+  static const int NOT_TRADED_ON_THIS_MARKET = 19;
+  static const int UNKNOWN_OR_INVALID = 20;
+  static const int PRE_OPEN = 21;
+  static const int OPENING_ROTATION = 22;
+  static const int FAST_MARKET = 23;
   SecurityTradingStatus() : IntField(326) {}
     SecurityTradingStatus(int data) : IntField(326, data) {}
     
