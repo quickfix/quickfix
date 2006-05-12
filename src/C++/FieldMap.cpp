@@ -78,6 +78,8 @@ void FieldMap::replaceGroup( int num, int field, FieldMap& group )
   if ( num <= 0 ) return;
   if ( i->second.size() < ( unsigned ) num ) return;
   *( *( i->second.begin() + ( num - 1 ) ) ) = group;
+
+  QF_STACK_POP
 }
 
 FieldMap& FieldMap::getGroup( int num, int field, FieldMap& group ) const

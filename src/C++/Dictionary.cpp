@@ -176,6 +176,8 @@ void Dictionary::setDay( const std::string& key, const int& value )
     case 7:
       setString( key, "SA" ); break;
     }
+
+  QF_STACK_POP
 }
 
 bool Dictionary::has( const std::string& key ) const
