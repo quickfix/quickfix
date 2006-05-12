@@ -30,13 +30,13 @@ class Processor
 
   def lookupField( name )
     result = @fieldHash[name]
-    raise "field #{name} not found" if result == nil
+    raise "field '#{name}' not found" if result == nil
     return result
   end
 
   def lookupComponent( name )
     result = @components.elements["component[@name='"+name+"']"]
-    raise "component #{name} not found" if result == nil
+    raise "component '#{name}' not found" if result == nil
     return result
   end
 
