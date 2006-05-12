@@ -231,6 +231,8 @@ JNIEXPORT void JNICALL Java_quickfix_Group_setDouble__IDI
 
   FIX::Group * pGroup = getCPPGroup( obj );
   setDouble( *pGroup, field, value, padding );
+
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_quickfix_Group_setUtcTimeStamp__ILjava_util_Date_2

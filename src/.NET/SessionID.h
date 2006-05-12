@@ -97,7 +97,7 @@ public:
   void fromString( String* str )
   { QF_STACK_TRY
     m_pUnmanaged->fromString( convertString(str) );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   String* getBeginString()
