@@ -149,10 +149,7 @@ void ThreadedSocketAcceptor::onStop()
   }
 
   SocketToThread threads;
-  {
-    Locker locker( m_mutex );
-    threads = m_threads;
-  }
+  threads = m_threads;
 
   SocketToThread::iterator i;
   for ( i = threads.begin(); i != threads.end(); ++i )
@@ -168,15 +165,7 @@ void ThreadedSocketAcceptor::addThread( int s, int t )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::addThread)
 
   Locker l(m_mutex);
-#ifdef _MSC_VER
-  HANDLE handle;
-  DuplicateHandle(
-    GetCurrentProcess(),
-    GetCurrentThread(),
-    GetCurrentProcess(),
-    &handle, 0, FALSE, DUPLICATE_SAME_ACCESS );
-  t = ( int ) handle;
-#endif
+
   m_threads[ s ] = t;
 
   QF_STACK_POP
@@ -237,6 +226,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
   return 0;
 
   QF_STACK_POP
+  QF_STACK_CATCH
 }
 
 THREAD_PROC ThreadedSocketAcceptor::socketConnectionThread( void* p )
