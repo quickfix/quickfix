@@ -26,8 +26,6 @@
 #include "Application.h"
 #include "SocketInitiator.h"
 #include "SocketAcceptor.h"
-#include "ThreadedSocketInitiator.h"
-#include "ThreadedSocketAcceptor.h"
 #include "MessageFactory.h"
 
 namespace QuickFix
