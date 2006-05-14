@@ -32,7 +32,6 @@ public __gc __interface Acceptor
 {
   void start() = 0;
   void block() = 0;
-  bool poll() = 0;
   void stop() = 0;
   void stop( bool force ) = 0;
   bool isLoggedOn() = 0;

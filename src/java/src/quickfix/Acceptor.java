@@ -24,9 +24,8 @@ public interface Acceptor {
 
     void start() throws ConfigError, RuntimeError;
     void block() throws ConfigError, RuntimeError;
-    boolean poll() throws ConfigError, RuntimeError;
     void stop();
-	void stop( boolean force );
-	boolean isLoggedOn();
+    void stop( boolean force );
+    boolean isLoggedOn();
     ArrayList getSessions();
 }

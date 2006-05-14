@@ -22,7 +22,6 @@
 #include <CPPTest/TestSuite.h>
 #include <CPPTest/TestDisplay.h>
 #include "C++/test/AcceptorTestCase.h"
-#include "C++/test/SocketAcceptorTestCase.h"
 #include "C++/test/FieldConvertorsTestCase.h"
 #include "C++/test/MessagesTestCase.h"
 #include "C++/test/SessionTestCase.h"
@@ -69,7 +68,6 @@ public:
   {
     FIX::socket_init();
     add( &m_acceptor );
-    add( &m_socketAcceptor );
     add( &m_fieldConvertors );
     add( &m_message );
     add( &m_logonParse );
@@ -129,7 +127,6 @@ public:
 private:
 
   FIX::AcceptorTestCase m_acceptor;
-  FIX::SocketAcceptorTestCase m_socketAcceptor;
   FIX::FieldConvertorsTestCase m_fieldConvertors;
   FIX::MessageTestCase m_message;
   FIX::LogonParseTestCase m_logonParse;
