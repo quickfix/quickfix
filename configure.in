@@ -32,13 +32,6 @@ fi
 ########################################
 
 ########################################
-# RUBY
-########################################
-RUBYDIR=[`ruby -e 'require "rbconfig"; print Config::CONFIG["archdir"], "\n"'`]
-AC_SUBST(RUBYDIR)
-########################################
-
-########################################
 # MYSQL
 ########################################
 has_mysql=false
@@ -106,6 +99,28 @@ AM_CONDITIONAL(HAVE_PYTHON, $has_python)
 ########################################
 
 ########################################
+# RUBY
+########################################
+RUBY_PREFIX=[`ruby -e 'require "rbconfig"; print Config::CONFIG["archdir"], "\n"'`]
+AC_SUBST(RUBY_PREFIX)
+
+has_ruby=false
+AC_ARG_WITH(ruby,
+    [  --with-ruby], 
+    [has_ruby=true],
+    has_ruby=false
+)
+
+if test $has_ruby = true
+then
+    RUBY_CFLAGS="-I${RUBY_PREFIX}" 
+    AC_SUBST(RUBY_CFLAGS)
+    AC_DEFINE(HAVE_RUBY, 1, Define if you have ruby)
+fi
+AM_CONDITIONAL(HAVE_RUBY, $has_ruby)
+########################################
+
+########################################
 # JAVA
 ########################################
 has_python=false
@@ -164,7 +179,7 @@ AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 # libs
 LIBS="$LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS"
 # gcc flags
-SHAREDFLAGS="$STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS"
+SHAREDFLAGS="$STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
@@ -373,6 +388,7 @@ AC_OUTPUT(
 	src/java/src/quickfix/fix43/Makefile
 	src/java/src/quickfix/fix44/Makefile
 	src/python/Makefile
+	src/ruby/Makefile
 	bin/Makefile
 	bin/cfg/Makefile
 	spec/Makefile
