@@ -1,9 +1,9 @@
-# This file was created automatically by SWIG 1.3.27.
+# This file was created automatically by SWIG.
 # Don't modify this file, modify the SWIG interface instead.
+# This file is compatible with both classic and new-style classes.
 
 import _quickfix
 
-# This file is compatible with both classic and new-style classes.
 def _swig_setattr_nondynamic(self,class_type,name,value,static=1):
     if (name == "this"):
         if isinstance(value, class_type):
@@ -37,8 +37,7 @@ del types
 
 
 try:
-    import weakref
-    weakref_proxy = weakref.proxy
+    from weakref import proxy as weakref_proxy
 except:
     weakref_proxy = lambda x: x
 
@@ -68,16 +67,20 @@ class intArrayPtr(intArray):
     def __init__(self, this):
         _swig_setattr(self, intArray, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, intArray, 'thisown', 0)
-        self.__class__ = intArray
+        _swig_setattr(self, intArray,self.__class__,intArray)
 _quickfix.intArray_swigregister(intArrayPtr)
 
 intArray_frompointer = _quickfix.intArray_frompointer
 
+GETHOSTBYNAME_R_INPUTS_RESULT = _quickfix.GETHOSTBYNAME_R_INPUTS_RESULT
+HAVE_CPLUS_DEMANGLE = _quickfix.HAVE_CPLUS_DEMANGLE
 HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
 HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H
+HAVE_LIBPTHREAD = _quickfix.HAVE_LIBPTHREAD
 HAVE_MEMORY_H = _quickfix.HAVE_MEMORY_H
 HAVE_PYTHON = _quickfix.HAVE_PYTHON
+HAVE_RUBY = _quickfix.HAVE_RUBY
 HAVE_STDINT_H = _quickfix.HAVE_STDINT_H
 HAVE_STDIO_H = _quickfix.HAVE_STDIO_H
 HAVE_STDLIB_H = _quickfix.HAVE_STDLIB_H
@@ -92,6 +95,7 @@ PACKAGE_NAME = _quickfix.PACKAGE_NAME
 PACKAGE_STRING = _quickfix.PACKAGE_STRING
 PACKAGE_TARNAME = _quickfix.PACKAGE_TARNAME
 PACKAGE_VERSION = _quickfix.PACKAGE_VERSION
+SELECT_MODIFIES_TIMEVAL = _quickfix.SELECT_MODIFIES_TIMEVAL
 STDC_HEADERS = _quickfix.STDC_HEADERS
 TERMINATE_IN_STD = _quickfix.TERMINATE_IN_STD
 TYPEINFO_IN_STD = _quickfix.TYPEINFO_IN_STD
@@ -119,7 +123,7 @@ class ExceptionPtr(Exception):
     def __init__(self, this):
         _swig_setattr(self, Exception, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Exception, 'thisown', 0)
-        self.__class__ = Exception
+        _swig_setattr(self, Exception,self.__class__,Exception)
 _quickfix.Exception_swigregister(ExceptionPtr)
 
 class FieldNotFound(Exception):
@@ -146,7 +150,7 @@ class FieldNotFoundPtr(FieldNotFound):
     def __init__(self, this):
         _swig_setattr(self, FieldNotFound, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FieldNotFound, 'thisown', 0)
-        self.__class__ = FieldNotFound
+        _swig_setattr(self, FieldNotFound,self.__class__,FieldNotFound)
 _quickfix.FieldNotFound_swigregister(FieldNotFoundPtr)
 
 class FieldConvertError(Exception):
@@ -171,7 +175,7 @@ class FieldConvertErrorPtr(FieldConvertError):
     def __init__(self, this):
         _swig_setattr(self, FieldConvertError, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FieldConvertError, 'thisown', 0)
-        self.__class__ = FieldConvertError
+        _swig_setattr(self, FieldConvertError,self.__class__,FieldConvertError)
 _quickfix.FieldConvertError_swigregister(FieldConvertErrorPtr)
 
 class MessageParseError(Exception):
@@ -196,7 +200,7 @@ class MessageParseErrorPtr(MessageParseError):
     def __init__(self, this):
         _swig_setattr(self, MessageParseError, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MessageParseError, 'thisown', 0)
-        self.__class__ = MessageParseError
+        _swig_setattr(self, MessageParseError,self.__class__,MessageParseError)
 _quickfix.MessageParseError_swigregister(MessageParseErrorPtr)
 
 class InvalidMessage(Exception):
@@ -221,7 +225,7 @@ class InvalidMessagePtr(InvalidMessage):
     def __init__(self, this):
         _swig_setattr(self, InvalidMessage, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InvalidMessage, 'thisown', 0)
-        self.__class__ = InvalidMessage
+        _swig_setattr(self, InvalidMessage,self.__class__,InvalidMessage)
 _quickfix.InvalidMessage_swigregister(InvalidMessagePtr)
 
 class ConfigError(Exception):
@@ -246,7 +250,7 @@ class ConfigErrorPtr(ConfigError):
     def __init__(self, this):
         _swig_setattr(self, ConfigError, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfigError, 'thisown', 0)
-        self.__class__ = ConfigError
+        _swig_setattr(self, ConfigError,self.__class__,ConfigError)
 _quickfix.ConfigError_swigregister(ConfigErrorPtr)
 
 class RuntimeError(Exception):
@@ -271,7 +275,7 @@ class RuntimeErrorPtr(RuntimeError):
     def __init__(self, this):
         _swig_setattr(self, RuntimeError, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RuntimeError, 'thisown', 0)
-        self.__class__ = RuntimeError
+        _swig_setattr(self, RuntimeError,self.__class__,RuntimeError)
 _quickfix.RuntimeError_swigregister(RuntimeErrorPtr)
 
 class InvalidTagNumber(Exception):
@@ -299,7 +303,7 @@ class InvalidTagNumberPtr(InvalidTagNumber):
     def __init__(self, this):
         _swig_setattr(self, InvalidTagNumber, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InvalidTagNumber, 'thisown', 0)
-        self.__class__ = InvalidTagNumber
+        _swig_setattr(self, InvalidTagNumber,self.__class__,InvalidTagNumber)
 _quickfix.InvalidTagNumber_swigregister(InvalidTagNumberPtr)
 
 class RequiredTagMissing(Exception):
@@ -327,7 +331,7 @@ class RequiredTagMissingPtr(RequiredTagMissing):
     def __init__(self, this):
         _swig_setattr(self, RequiredTagMissing, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RequiredTagMissing, 'thisown', 0)
-        self.__class__ = RequiredTagMissing
+        _swig_setattr(self, RequiredTagMissing,self.__class__,RequiredTagMissing)
 _quickfix.RequiredTagMissing_swigregister(RequiredTagMissingPtr)
 
 class TagNotDefinedForMessage(Exception):
@@ -355,7 +359,7 @@ class TagNotDefinedForMessagePtr(TagNotDefinedForMessage):
     def __init__(self, this):
         _swig_setattr(self, TagNotDefinedForMessage, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TagNotDefinedForMessage, 'thisown', 0)
-        self.__class__ = TagNotDefinedForMessage
+        _swig_setattr(self, TagNotDefinedForMessage,self.__class__,TagNotDefinedForMessage)
 _quickfix.TagNotDefinedForMessage_swigregister(TagNotDefinedForMessagePtr)
 
 class NoTagValue(Exception):
@@ -382,7 +386,7 @@ class NoTagValuePtr(NoTagValue):
     def __init__(self, this):
         _swig_setattr(self, NoTagValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoTagValue, 'thisown', 0)
-        self.__class__ = NoTagValue
+        _swig_setattr(self, NoTagValue,self.__class__,NoTagValue)
 _quickfix.NoTagValue_swigregister(NoTagValuePtr)
 
 class IncorrectTagValue(Exception):
@@ -409,7 +413,7 @@ class IncorrectTagValuePtr(IncorrectTagValue):
     def __init__(self, this):
         _swig_setattr(self, IncorrectTagValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IncorrectTagValue, 'thisown', 0)
-        self.__class__ = IncorrectTagValue
+        _swig_setattr(self, IncorrectTagValue,self.__class__,IncorrectTagValue)
 _quickfix.IncorrectTagValue_swigregister(IncorrectTagValuePtr)
 
 class IncorrectDataFormat(Exception):
@@ -436,7 +440,7 @@ class IncorrectDataFormatPtr(IncorrectDataFormat):
     def __init__(self, this):
         _swig_setattr(self, IncorrectDataFormat, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IncorrectDataFormat, 'thisown', 0)
-        self.__class__ = IncorrectDataFormat
+        _swig_setattr(self, IncorrectDataFormat,self.__class__,IncorrectDataFormat)
 _quickfix.IncorrectDataFormat_swigregister(IncorrectDataFormatPtr)
 
 class IncorrectMessageStructure(Exception):
@@ -461,7 +465,7 @@ class IncorrectMessageStructurePtr(IncorrectMessageStructure):
     def __init__(self, this):
         _swig_setattr(self, IncorrectMessageStructure, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IncorrectMessageStructure, 'thisown', 0)
-        self.__class__ = IncorrectMessageStructure
+        _swig_setattr(self, IncorrectMessageStructure,self.__class__,IncorrectMessageStructure)
 _quickfix.IncorrectMessageStructure_swigregister(IncorrectMessageStructurePtr)
 
 class DuplicateFieldNumber(Exception):
@@ -486,7 +490,7 @@ class DuplicateFieldNumberPtr(DuplicateFieldNumber):
     def __init__(self, this):
         _swig_setattr(self, DuplicateFieldNumber, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DuplicateFieldNumber, 'thisown', 0)
-        self.__class__ = DuplicateFieldNumber
+        _swig_setattr(self, DuplicateFieldNumber,self.__class__,DuplicateFieldNumber)
 _quickfix.DuplicateFieldNumber_swigregister(DuplicateFieldNumberPtr)
 
 class InvalidMessageType(Exception):
@@ -511,7 +515,7 @@ class InvalidMessageTypePtr(InvalidMessageType):
     def __init__(self, this):
         _swig_setattr(self, InvalidMessageType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InvalidMessageType, 'thisown', 0)
-        self.__class__ = InvalidMessageType
+        _swig_setattr(self, InvalidMessageType,self.__class__,InvalidMessageType)
 _quickfix.InvalidMessageType_swigregister(InvalidMessageTypePtr)
 
 class UnsupportedMessageType(Exception):
@@ -536,7 +540,7 @@ class UnsupportedMessageTypePtr(UnsupportedMessageType):
     def __init__(self, this):
         _swig_setattr(self, UnsupportedMessageType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnsupportedMessageType, 'thisown', 0)
-        self.__class__ = UnsupportedMessageType
+        _swig_setattr(self, UnsupportedMessageType,self.__class__,UnsupportedMessageType)
 _quickfix.UnsupportedMessageType_swigregister(UnsupportedMessageTypePtr)
 
 class UnsupportedVersion(Exception):
@@ -561,7 +565,7 @@ class UnsupportedVersionPtr(UnsupportedVersion):
     def __init__(self, this):
         _swig_setattr(self, UnsupportedVersion, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnsupportedVersion, 'thisown', 0)
-        self.__class__ = UnsupportedVersion
+        _swig_setattr(self, UnsupportedVersion,self.__class__,UnsupportedVersion)
 _quickfix.UnsupportedVersion_swigregister(UnsupportedVersionPtr)
 
 class TagOutOfOrder(Exception):
@@ -589,7 +593,7 @@ class TagOutOfOrderPtr(TagOutOfOrder):
     def __init__(self, this):
         _swig_setattr(self, TagOutOfOrder, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TagOutOfOrder, 'thisown', 0)
-        self.__class__ = TagOutOfOrder
+        _swig_setattr(self, TagOutOfOrder,self.__class__,TagOutOfOrder)
 _quickfix.TagOutOfOrder_swigregister(TagOutOfOrderPtr)
 
 class RepeatedTag(Exception):
@@ -616,7 +620,7 @@ class RepeatedTagPtr(RepeatedTag):
     def __init__(self, this):
         _swig_setattr(self, RepeatedTag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RepeatedTag, 'thisown', 0)
-        self.__class__ = RepeatedTag
+        _swig_setattr(self, RepeatedTag,self.__class__,RepeatedTag)
 _quickfix.RepeatedTag_swigregister(RepeatedTagPtr)
 
 class RepeatingGroupCountMismatch(Exception):
@@ -644,7 +648,7 @@ class RepeatingGroupCountMismatchPtr(RepeatingGroupCountMismatch):
     def __init__(self, this):
         _swig_setattr(self, RepeatingGroupCountMismatch, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RepeatingGroupCountMismatch, 'thisown', 0)
-        self.__class__ = RepeatingGroupCountMismatch
+        _swig_setattr(self, RepeatingGroupCountMismatch,self.__class__,RepeatingGroupCountMismatch)
 _quickfix.RepeatingGroupCountMismatch_swigregister(RepeatingGroupCountMismatchPtr)
 
 class DoNotSend(Exception):
@@ -669,7 +673,7 @@ class DoNotSendPtr(DoNotSend):
     def __init__(self, this):
         _swig_setattr(self, DoNotSend, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DoNotSend, 'thisown', 0)
-        self.__class__ = DoNotSend
+        _swig_setattr(self, DoNotSend,self.__class__,DoNotSend)
 _quickfix.DoNotSend_swigregister(DoNotSendPtr)
 
 class RejectLogon(Exception):
@@ -694,7 +698,7 @@ class RejectLogonPtr(RejectLogon):
     def __init__(self, this):
         _swig_setattr(self, RejectLogon, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RejectLogon, 'thisown', 0)
-        self.__class__ = RejectLogon
+        _swig_setattr(self, RejectLogon,self.__class__,RejectLogon)
 _quickfix.RejectLogon_swigregister(RejectLogonPtr)
 
 class SessionNotFound(Exception):
@@ -719,7 +723,7 @@ class SessionNotFoundPtr(SessionNotFound):
     def __init__(self, this):
         _swig_setattr(self, SessionNotFound, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SessionNotFound, 'thisown', 0)
-        self.__class__ = SessionNotFound
+        _swig_setattr(self, SessionNotFound,self.__class__,SessionNotFound)
 _quickfix.SessionNotFound_swigregister(SessionNotFoundPtr)
 
 class IOException(Exception):
@@ -744,7 +748,7 @@ class IOExceptionPtr(IOException):
     def __init__(self, this):
         _swig_setattr(self, IOException, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOException, 'thisown', 0)
-        self.__class__ = IOException
+        _swig_setattr(self, IOException,self.__class__,IOException)
 _quickfix.IOException_swigregister(IOExceptionPtr)
 
 class SocketException(Exception):
@@ -773,7 +777,7 @@ class SocketExceptionPtr(SocketException):
     def __init__(self, this):
         _swig_setattr(self, SocketException, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SocketException, 'thisown', 0)
-        self.__class__ = SocketException
+        _swig_setattr(self, SocketException,self.__class__,SocketException)
 _quickfix.SocketException_swigregister(SocketExceptionPtr)
 
 class SocketSendFailed(SocketException):
@@ -798,7 +802,7 @@ class SocketSendFailedPtr(SocketSendFailed):
     def __init__(self, this):
         _swig_setattr(self, SocketSendFailed, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SocketSendFailed, 'thisown', 0)
-        self.__class__ = SocketSendFailed
+        _swig_setattr(self, SocketSendFailed,self.__class__,SocketSendFailed)
 _quickfix.SocketSendFailed_swigregister(SocketSendFailedPtr)
 
 class SocketRecvFailed(SocketException):
@@ -823,7 +827,7 @@ class SocketRecvFailedPtr(SocketRecvFailed):
     def __init__(self, this):
         _swig_setattr(self, SocketRecvFailed, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SocketRecvFailed, 'thisown', 0)
-        self.__class__ = SocketRecvFailed
+        _swig_setattr(self, SocketRecvFailed,self.__class__,SocketRecvFailed)
 _quickfix.SocketRecvFailed_swigregister(SocketRecvFailedPtr)
 
 class SocketCloseFailed(SocketException):
@@ -848,7 +852,7 @@ class SocketCloseFailedPtr(SocketCloseFailed):
     def __init__(self, this):
         _swig_setattr(self, SocketCloseFailed, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SocketCloseFailed, 'thisown', 0)
-        self.__class__ = SocketCloseFailed
+        _swig_setattr(self, SocketCloseFailed,self.__class__,SocketCloseFailed)
 _quickfix.SocketCloseFailed_swigregister(SocketCloseFailedPtr)
 
 class FieldBase(_object):
@@ -880,7 +884,7 @@ class FieldBasePtr(FieldBase):
     def __init__(self, this):
         _swig_setattr(self, FieldBase, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FieldBase, 'thisown', 0)
-        self.__class__ = FieldBase
+        _swig_setattr(self, FieldBase,self.__class__,FieldBase)
 _quickfix.FieldBase_swigregister(FieldBasePtr)
 
 class StringField(FieldBase):
@@ -913,7 +917,7 @@ class StringFieldPtr(StringField):
     def __init__(self, this):
         _swig_setattr(self, StringField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StringField, 'thisown', 0)
-        self.__class__ = StringField
+        _swig_setattr(self, StringField,self.__class__,StringField)
 _quickfix.StringField_swigregister(StringFieldPtr)
 
 class CharField(FieldBase):
@@ -940,7 +944,7 @@ class CharFieldPtr(CharField):
     def __init__(self, this):
         _swig_setattr(self, CharField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CharField, 'thisown', 0)
-        self.__class__ = CharField
+        _swig_setattr(self, CharField,self.__class__,CharField)
 _quickfix.CharField_swigregister(CharFieldPtr)
 
 __gt__ = _quickfix.__gt__
@@ -973,7 +977,7 @@ class DoubleFieldPtr(DoubleField):
     def __init__(self, this):
         _swig_setattr(self, DoubleField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DoubleField, 'thisown', 0)
-        self.__class__ = DoubleField
+        _swig_setattr(self, DoubleField,self.__class__,DoubleField)
 _quickfix.DoubleField_swigregister(DoubleFieldPtr)
 
 class IntField(FieldBase):
@@ -1000,7 +1004,7 @@ class IntFieldPtr(IntField):
     def __init__(self, this):
         _swig_setattr(self, IntField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IntField, 'thisown', 0)
-        self.__class__ = IntField
+        _swig_setattr(self, IntField,self.__class__,IntField)
 _quickfix.IntField_swigregister(IntFieldPtr)
 
 class BoolField(FieldBase):
@@ -1027,7 +1031,7 @@ class BoolFieldPtr(BoolField):
     def __init__(self, this):
         _swig_setattr(self, BoolField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BoolField, 'thisown', 0)
-        self.__class__ = BoolField
+        _swig_setattr(self, BoolField,self.__class__,BoolField)
 _quickfix.BoolField_swigregister(BoolFieldPtr)
 
 class UtcTimeStampField(FieldBase):
@@ -1057,7 +1061,7 @@ class UtcTimeStampFieldPtr(UtcTimeStampField):
     def __init__(self, this):
         _swig_setattr(self, UtcTimeStampField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UtcTimeStampField, 'thisown', 0)
-        self.__class__ = UtcTimeStampField
+        _swig_setattr(self, UtcTimeStampField,self.__class__,UtcTimeStampField)
 _quickfix.UtcTimeStampField_swigregister(UtcTimeStampFieldPtr)
 
 class UtcDateField(FieldBase):
@@ -1087,7 +1091,7 @@ class UtcDateFieldPtr(UtcDateField):
     def __init__(self, this):
         _swig_setattr(self, UtcDateField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UtcDateField, 'thisown', 0)
-        self.__class__ = UtcDateField
+        _swig_setattr(self, UtcDateField,self.__class__,UtcDateField)
 _quickfix.UtcDateField_swigregister(UtcDateFieldPtr)
 
 class UtcTimeOnlyField(FieldBase):
@@ -1117,7 +1121,7 @@ class UtcTimeOnlyFieldPtr(UtcTimeOnlyField):
     def __init__(self, this):
         _swig_setattr(self, UtcTimeOnlyField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UtcTimeOnlyField, 'thisown', 0)
-        self.__class__ = UtcTimeOnlyField
+        _swig_setattr(self, UtcTimeOnlyField,self.__class__,UtcTimeOnlyField)
 _quickfix.UtcTimeOnlyField_swigregister(UtcTimeOnlyFieldPtr)
 
 class CheckSumField(FieldBase):
@@ -1144,7 +1148,7 @@ class CheckSumFieldPtr(CheckSumField):
     def __init__(self, this):
         _swig_setattr(self, CheckSumField, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CheckSumField, 'thisown', 0)
-        self.__class__ = CheckSumField
+        _swig_setattr(self, CheckSumField,self.__class__,CheckSumField)
 _quickfix.CheckSumField_swigregister(CheckSumFieldPtr)
 
 class FieldMap(_object):
@@ -1167,6 +1171,7 @@ class FieldMap(_object):
     def isSetField(*args): return _quickfix.FieldMap_isSetField(*args)
     def removeField(*args): return _quickfix.FieldMap_removeField(*args)
     def addGroup(*args): return _quickfix.FieldMap_addGroup(*args)
+    def replaceGroup(*args): return _quickfix.FieldMap_replaceGroup(*args)
     def getGroup(*args): return _quickfix.FieldMap_getGroup(*args)
     def removeGroup(*args): return _quickfix.FieldMap_removeGroup(*args)
     def hasGroup(*args): return _quickfix.FieldMap_hasGroup(*args)
@@ -1184,7 +1189,7 @@ class FieldMapPtr(FieldMap):
     def __init__(self, this):
         _swig_setattr(self, FieldMap, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FieldMap, 'thisown', 0)
-        self.__class__ = FieldMap
+        _swig_setattr(self, FieldMap,self.__class__,FieldMap)
 _quickfix.FieldMap_swigregister(FieldMapPtr)
 
 class Message(FieldMap):
@@ -1202,6 +1207,7 @@ class Message(FieldMap):
     __swig_getmethods__["InitializeXML"] = lambda x: _quickfix.Message_InitializeXML
     if _newclass:InitializeXML = staticmethod(_quickfix.Message_InitializeXML)
     def addGroup(*args): return _quickfix.Message_addGroup(*args)
+    def replaceGroup(*args): return _quickfix.Message_replaceGroup(*args)
     def getGroup(*args): return _quickfix.Message_getGroup(*args)
     def removeGroup(*args): return _quickfix.Message_removeGroup(*args)
     def hasGroup(*args): return _quickfix.Message_hasGroup(*args)
@@ -1237,7 +1243,7 @@ class MessagePtr(Message):
     def __init__(self, this):
         _swig_setattr(self, Message, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Message, 'thisown', 0)
-        self.__class__ = Message
+        _swig_setattr(self, Message,self.__class__,Message)
 _quickfix.Message_swigregister(MessagePtr)
 cvar = _quickfix.cvar
 headerOrder = cvar.headerOrder
@@ -1267,6 +1273,7 @@ class Group(FieldMap):
     def field(*args): return _quickfix.Group_field(*args)
     def delim(*args): return _quickfix.Group_delim(*args)
     def addGroup(*args): return _quickfix.Group_addGroup(*args)
+    def replaceGroup(*args): return _quickfix.Group_replaceGroup(*args)
     def getGroup(*args): return _quickfix.Group_getGroup(*args)
     def removeGroup(*args): return _quickfix.Group_removeGroup(*args)
     def hasGroup(*args): return _quickfix.Group_hasGroup(*args)
@@ -1280,7 +1287,7 @@ class GroupPtr(Group):
     def __init__(self, this):
         _swig_setattr(self, Group, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Group, 'thisown', 0)
-        self.__class__ = Group
+        _swig_setattr(self, Group,self.__class__,Group)
 _quickfix.Group_swigregister(GroupPtr)
 
 class Account(StringField):
@@ -1305,7 +1312,7 @@ class AccountPtr(Account):
     def __init__(self, this):
         _swig_setattr(self, Account, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Account, 'thisown', 0)
-        self.__class__ = Account
+        _swig_setattr(self, Account,self.__class__,Account)
 _quickfix.Account_swigregister(AccountPtr)
 
 class AdvId(StringField):
@@ -1330,7 +1337,7 @@ class AdvIdPtr(AdvId):
     def __init__(self, this):
         _swig_setattr(self, AdvId, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AdvId, 'thisown', 0)
-        self.__class__ = AdvId
+        _swig_setattr(self, AdvId,self.__class__,AdvId)
 _quickfix.AdvId_swigregister(AdvIdPtr)
 
 class AdvRefID(StringField):
@@ -1355,7 +1362,7 @@ class AdvRefIDPtr(AdvRefID):
     def __init__(self, this):
         _swig_setattr(self, AdvRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AdvRefID, 'thisown', 0)
-        self.__class__ = AdvRefID
+        _swig_setattr(self, AdvRefID,self.__class__,AdvRefID)
 _quickfix.AdvRefID_swigregister(AdvRefIDPtr)
 
 class AdvSide(CharField):
@@ -1380,7 +1387,7 @@ class AdvSidePtr(AdvSide):
     def __init__(self, this):
         _swig_setattr(self, AdvSide, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AdvSide, 'thisown', 0)
-        self.__class__ = AdvSide
+        _swig_setattr(self, AdvSide,self.__class__,AdvSide)
 _quickfix.AdvSide_swigregister(AdvSidePtr)
 
 class AdvTransType(StringField):
@@ -1405,7 +1412,7 @@ class AdvTransTypePtr(AdvTransType):
     def __init__(self, this):
         _swig_setattr(self, AdvTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AdvTransType, 'thisown', 0)
-        self.__class__ = AdvTransType
+        _swig_setattr(self, AdvTransType,self.__class__,AdvTransType)
 _quickfix.AdvTransType_swigregister(AdvTransTypePtr)
 
 class AvgPx(DoubleField):
@@ -1430,7 +1437,7 @@ class AvgPxPtr(AvgPx):
     def __init__(self, this):
         _swig_setattr(self, AvgPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AvgPx, 'thisown', 0)
-        self.__class__ = AvgPx
+        _swig_setattr(self, AvgPx,self.__class__,AvgPx)
 _quickfix.AvgPx_swigregister(AvgPxPtr)
 
 class BeginSeqNo(IntField):
@@ -1455,7 +1462,7 @@ class BeginSeqNoPtr(BeginSeqNo):
     def __init__(self, this):
         _swig_setattr(self, BeginSeqNo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BeginSeqNo, 'thisown', 0)
-        self.__class__ = BeginSeqNo
+        _swig_setattr(self, BeginSeqNo,self.__class__,BeginSeqNo)
 _quickfix.BeginSeqNo_swigregister(BeginSeqNoPtr)
 
 class BeginString(StringField):
@@ -1480,7 +1487,7 @@ class BeginStringPtr(BeginString):
     def __init__(self, this):
         _swig_setattr(self, BeginString, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BeginString, 'thisown', 0)
-        self.__class__ = BeginString
+        _swig_setattr(self, BeginString,self.__class__,BeginString)
 _quickfix.BeginString_swigregister(BeginStringPtr)
 
 class BodyLength(IntField):
@@ -1505,7 +1512,7 @@ class BodyLengthPtr(BodyLength):
     def __init__(self, this):
         _swig_setattr(self, BodyLength, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BodyLength, 'thisown', 0)
-        self.__class__ = BodyLength
+        _swig_setattr(self, BodyLength,self.__class__,BodyLength)
 _quickfix.BodyLength_swigregister(BodyLengthPtr)
 
 class CheckSum(CheckSumField):
@@ -1530,7 +1537,7 @@ class CheckSumPtr(CheckSum):
     def __init__(self, this):
         _swig_setattr(self, CheckSum, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CheckSum, 'thisown', 0)
-        self.__class__ = CheckSum
+        _swig_setattr(self, CheckSum,self.__class__,CheckSum)
 _quickfix.CheckSum_swigregister(CheckSumPtr)
 
 class ClOrdID(StringField):
@@ -1555,7 +1562,7 @@ class ClOrdIDPtr(ClOrdID):
     def __init__(self, this):
         _swig_setattr(self, ClOrdID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClOrdID, 'thisown', 0)
-        self.__class__ = ClOrdID
+        _swig_setattr(self, ClOrdID,self.__class__,ClOrdID)
 _quickfix.ClOrdID_swigregister(ClOrdIDPtr)
 
 class Commission(DoubleField):
@@ -1580,7 +1587,7 @@ class CommissionPtr(Commission):
     def __init__(self, this):
         _swig_setattr(self, Commission, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Commission, 'thisown', 0)
-        self.__class__ = Commission
+        _swig_setattr(self, Commission,self.__class__,Commission)
 _quickfix.Commission_swigregister(CommissionPtr)
 
 class CommType(CharField):
@@ -1605,7 +1612,7 @@ class CommTypePtr(CommType):
     def __init__(self, this):
         _swig_setattr(self, CommType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CommType, 'thisown', 0)
-        self.__class__ = CommType
+        _swig_setattr(self, CommType,self.__class__,CommType)
 _quickfix.CommType_swigregister(CommTypePtr)
 
 class CumQty(DoubleField):
@@ -1630,7 +1637,7 @@ class CumQtyPtr(CumQty):
     def __init__(self, this):
         _swig_setattr(self, CumQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CumQty, 'thisown', 0)
-        self.__class__ = CumQty
+        _swig_setattr(self, CumQty,self.__class__,CumQty)
 _quickfix.CumQty_swigregister(CumQtyPtr)
 
 class Currency(StringField):
@@ -1655,7 +1662,7 @@ class CurrencyPtr(Currency):
     def __init__(self, this):
         _swig_setattr(self, Currency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Currency, 'thisown', 0)
-        self.__class__ = Currency
+        _swig_setattr(self, Currency,self.__class__,Currency)
 _quickfix.Currency_swigregister(CurrencyPtr)
 
 class EndSeqNo(IntField):
@@ -1680,7 +1687,7 @@ class EndSeqNoPtr(EndSeqNo):
     def __init__(self, this):
         _swig_setattr(self, EndSeqNo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EndSeqNo, 'thisown', 0)
-        self.__class__ = EndSeqNo
+        _swig_setattr(self, EndSeqNo,self.__class__,EndSeqNo)
 _quickfix.EndSeqNo_swigregister(EndSeqNoPtr)
 
 class ExecID(StringField):
@@ -1705,7 +1712,7 @@ class ExecIDPtr(ExecID):
     def __init__(self, this):
         _swig_setattr(self, ExecID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecID, 'thisown', 0)
-        self.__class__ = ExecID
+        _swig_setattr(self, ExecID,self.__class__,ExecID)
 _quickfix.ExecID_swigregister(ExecIDPtr)
 
 class ExecInst(StringField):
@@ -1730,7 +1737,7 @@ class ExecInstPtr(ExecInst):
     def __init__(self, this):
         _swig_setattr(self, ExecInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecInst, 'thisown', 0)
-        self.__class__ = ExecInst
+        _swig_setattr(self, ExecInst,self.__class__,ExecInst)
 _quickfix.ExecInst_swigregister(ExecInstPtr)
 
 class ExecRefID(StringField):
@@ -1755,7 +1762,7 @@ class ExecRefIDPtr(ExecRefID):
     def __init__(self, this):
         _swig_setattr(self, ExecRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecRefID, 'thisown', 0)
-        self.__class__ = ExecRefID
+        _swig_setattr(self, ExecRefID,self.__class__,ExecRefID)
 _quickfix.ExecRefID_swigregister(ExecRefIDPtr)
 
 class HandlInst(CharField):
@@ -1780,7 +1787,7 @@ class HandlInstPtr(HandlInst):
     def __init__(self, this):
         _swig_setattr(self, HandlInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, HandlInst, 'thisown', 0)
-        self.__class__ = HandlInst
+        _swig_setattr(self, HandlInst,self.__class__,HandlInst)
 _quickfix.HandlInst_swigregister(HandlInstPtr)
 
 class SecurityIDSource(StringField):
@@ -1805,7 +1812,7 @@ class SecurityIDSourcePtr(SecurityIDSource):
     def __init__(self, this):
         _swig_setattr(self, SecurityIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityIDSource, 'thisown', 0)
-        self.__class__ = SecurityIDSource
+        _swig_setattr(self, SecurityIDSource,self.__class__,SecurityIDSource)
 _quickfix.SecurityIDSource_swigregister(SecurityIDSourcePtr)
 
 class IOIid(StringField):
@@ -1830,7 +1837,7 @@ class IOIidPtr(IOIid):
     def __init__(self, this):
         _swig_setattr(self, IOIid, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOIid, 'thisown', 0)
-        self.__class__ = IOIid
+        _swig_setattr(self, IOIid,self.__class__,IOIid)
 _quickfix.IOIid_swigregister(IOIidPtr)
 
 class IOIQltyInd(CharField):
@@ -1855,7 +1862,7 @@ class IOIQltyIndPtr(IOIQltyInd):
     def __init__(self, this):
         _swig_setattr(self, IOIQltyInd, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOIQltyInd, 'thisown', 0)
-        self.__class__ = IOIQltyInd
+        _swig_setattr(self, IOIQltyInd,self.__class__,IOIQltyInd)
 _quickfix.IOIQltyInd_swigregister(IOIQltyIndPtr)
 
 class IOIRefID(StringField):
@@ -1880,7 +1887,7 @@ class IOIRefIDPtr(IOIRefID):
     def __init__(self, this):
         _swig_setattr(self, IOIRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOIRefID, 'thisown', 0)
-        self.__class__ = IOIRefID
+        _swig_setattr(self, IOIRefID,self.__class__,IOIRefID)
 _quickfix.IOIRefID_swigregister(IOIRefIDPtr)
 
 class IOIQty(StringField):
@@ -1905,7 +1912,7 @@ class IOIQtyPtr(IOIQty):
     def __init__(self, this):
         _swig_setattr(self, IOIQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOIQty, 'thisown', 0)
-        self.__class__ = IOIQty
+        _swig_setattr(self, IOIQty,self.__class__,IOIQty)
 _quickfix.IOIQty_swigregister(IOIQtyPtr)
 
 class IOITransType(CharField):
@@ -1930,7 +1937,7 @@ class IOITransTypePtr(IOITransType):
     def __init__(self, this):
         _swig_setattr(self, IOITransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOITransType, 'thisown', 0)
-        self.__class__ = IOITransType
+        _swig_setattr(self, IOITransType,self.__class__,IOITransType)
 _quickfix.IOITransType_swigregister(IOITransTypePtr)
 
 class LastCapacity(CharField):
@@ -1955,7 +1962,7 @@ class LastCapacityPtr(LastCapacity):
     def __init__(self, this):
         _swig_setattr(self, LastCapacity, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastCapacity, 'thisown', 0)
-        self.__class__ = LastCapacity
+        _swig_setattr(self, LastCapacity,self.__class__,LastCapacity)
 _quickfix.LastCapacity_swigregister(LastCapacityPtr)
 
 class LastMkt(StringField):
@@ -1980,7 +1987,7 @@ class LastMktPtr(LastMkt):
     def __init__(self, this):
         _swig_setattr(self, LastMkt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastMkt, 'thisown', 0)
-        self.__class__ = LastMkt
+        _swig_setattr(self, LastMkt,self.__class__,LastMkt)
 _quickfix.LastMkt_swigregister(LastMktPtr)
 
 class LastPx(DoubleField):
@@ -2005,7 +2012,7 @@ class LastPxPtr(LastPx):
     def __init__(self, this):
         _swig_setattr(self, LastPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastPx, 'thisown', 0)
-        self.__class__ = LastPx
+        _swig_setattr(self, LastPx,self.__class__,LastPx)
 _quickfix.LastPx_swigregister(LastPxPtr)
 
 class LastQty(DoubleField):
@@ -2030,7 +2037,7 @@ class LastQtyPtr(LastQty):
     def __init__(self, this):
         _swig_setattr(self, LastQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastQty, 'thisown', 0)
-        self.__class__ = LastQty
+        _swig_setattr(self, LastQty,self.__class__,LastQty)
 _quickfix.LastQty_swigregister(LastQtyPtr)
 
 class LinesOfText(IntField):
@@ -2055,7 +2062,7 @@ class LinesOfTextPtr(LinesOfText):
     def __init__(self, this):
         _swig_setattr(self, LinesOfText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LinesOfText, 'thisown', 0)
-        self.__class__ = LinesOfText
+        _swig_setattr(self, LinesOfText,self.__class__,LinesOfText)
 _quickfix.LinesOfText_swigregister(LinesOfTextPtr)
 
 class MsgSeqNum(IntField):
@@ -2080,7 +2087,7 @@ class MsgSeqNumPtr(MsgSeqNum):
     def __init__(self, this):
         _swig_setattr(self, MsgSeqNum, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MsgSeqNum, 'thisown', 0)
-        self.__class__ = MsgSeqNum
+        _swig_setattr(self, MsgSeqNum,self.__class__,MsgSeqNum)
 _quickfix.MsgSeqNum_swigregister(MsgSeqNumPtr)
 
 class MsgType(StringField):
@@ -2105,7 +2112,7 @@ class MsgTypePtr(MsgType):
     def __init__(self, this):
         _swig_setattr(self, MsgType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MsgType, 'thisown', 0)
-        self.__class__ = MsgType
+        _swig_setattr(self, MsgType,self.__class__,MsgType)
 _quickfix.MsgType_swigregister(MsgTypePtr)
 
 class NewSeqNo(IntField):
@@ -2130,7 +2137,7 @@ class NewSeqNoPtr(NewSeqNo):
     def __init__(self, this):
         _swig_setattr(self, NewSeqNo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NewSeqNo, 'thisown', 0)
-        self.__class__ = NewSeqNo
+        _swig_setattr(self, NewSeqNo,self.__class__,NewSeqNo)
 _quickfix.NewSeqNo_swigregister(NewSeqNoPtr)
 
 class OrderID(StringField):
@@ -2155,7 +2162,7 @@ class OrderIDPtr(OrderID):
     def __init__(self, this):
         _swig_setattr(self, OrderID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderID, 'thisown', 0)
-        self.__class__ = OrderID
+        _swig_setattr(self, OrderID,self.__class__,OrderID)
 _quickfix.OrderID_swigregister(OrderIDPtr)
 
 class OrderQty(DoubleField):
@@ -2180,7 +2187,7 @@ class OrderQtyPtr(OrderQty):
     def __init__(self, this):
         _swig_setattr(self, OrderQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderQty, 'thisown', 0)
-        self.__class__ = OrderQty
+        _swig_setattr(self, OrderQty,self.__class__,OrderQty)
 _quickfix.OrderQty_swigregister(OrderQtyPtr)
 
 class OrdStatus(CharField):
@@ -2205,7 +2212,7 @@ class OrdStatusPtr(OrdStatus):
     def __init__(self, this):
         _swig_setattr(self, OrdStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrdStatus, 'thisown', 0)
-        self.__class__ = OrdStatus
+        _swig_setattr(self, OrdStatus,self.__class__,OrdStatus)
 _quickfix.OrdStatus_swigregister(OrdStatusPtr)
 
 class OrdType(CharField):
@@ -2230,7 +2237,7 @@ class OrdTypePtr(OrdType):
     def __init__(self, this):
         _swig_setattr(self, OrdType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrdType, 'thisown', 0)
-        self.__class__ = OrdType
+        _swig_setattr(self, OrdType,self.__class__,OrdType)
 _quickfix.OrdType_swigregister(OrdTypePtr)
 
 class OrigClOrdID(StringField):
@@ -2255,7 +2262,7 @@ class OrigClOrdIDPtr(OrigClOrdID):
     def __init__(self, this):
         _swig_setattr(self, OrigClOrdID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrigClOrdID, 'thisown', 0)
-        self.__class__ = OrigClOrdID
+        _swig_setattr(self, OrigClOrdID,self.__class__,OrigClOrdID)
 _quickfix.OrigClOrdID_swigregister(OrigClOrdIDPtr)
 
 class OrigTime(UtcTimeStampField):
@@ -2280,7 +2287,7 @@ class OrigTimePtr(OrigTime):
     def __init__(self, this):
         _swig_setattr(self, OrigTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrigTime, 'thisown', 0)
-        self.__class__ = OrigTime
+        _swig_setattr(self, OrigTime,self.__class__,OrigTime)
 _quickfix.OrigTime_swigregister(OrigTimePtr)
 
 class PossDupFlag(BoolField):
@@ -2305,7 +2312,7 @@ class PossDupFlagPtr(PossDupFlag):
     def __init__(self, this):
         _swig_setattr(self, PossDupFlag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PossDupFlag, 'thisown', 0)
-        self.__class__ = PossDupFlag
+        _swig_setattr(self, PossDupFlag,self.__class__,PossDupFlag)
 _quickfix.PossDupFlag_swigregister(PossDupFlagPtr)
 
 class Price(DoubleField):
@@ -2330,7 +2337,7 @@ class PricePtr(Price):
     def __init__(self, this):
         _swig_setattr(self, Price, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Price, 'thisown', 0)
-        self.__class__ = Price
+        _swig_setattr(self, Price,self.__class__,Price)
 _quickfix.Price_swigregister(PricePtr)
 
 class RefSeqNum(IntField):
@@ -2355,7 +2362,7 @@ class RefSeqNumPtr(RefSeqNum):
     def __init__(self, this):
         _swig_setattr(self, RefSeqNum, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RefSeqNum, 'thisown', 0)
-        self.__class__ = RefSeqNum
+        _swig_setattr(self, RefSeqNum,self.__class__,RefSeqNum)
 _quickfix.RefSeqNum_swigregister(RefSeqNumPtr)
 
 class SecurityID(StringField):
@@ -2380,7 +2387,7 @@ class SecurityIDPtr(SecurityID):
     def __init__(self, this):
         _swig_setattr(self, SecurityID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityID, 'thisown', 0)
-        self.__class__ = SecurityID
+        _swig_setattr(self, SecurityID,self.__class__,SecurityID)
 _quickfix.SecurityID_swigregister(SecurityIDPtr)
 
 class SenderCompID(StringField):
@@ -2405,7 +2412,7 @@ class SenderCompIDPtr(SenderCompID):
     def __init__(self, this):
         _swig_setattr(self, SenderCompID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SenderCompID, 'thisown', 0)
-        self.__class__ = SenderCompID
+        _swig_setattr(self, SenderCompID,self.__class__,SenderCompID)
 _quickfix.SenderCompID_swigregister(SenderCompIDPtr)
 
 class SenderSubID(StringField):
@@ -2430,7 +2437,7 @@ class SenderSubIDPtr(SenderSubID):
     def __init__(self, this):
         _swig_setattr(self, SenderSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SenderSubID, 'thisown', 0)
-        self.__class__ = SenderSubID
+        _swig_setattr(self, SenderSubID,self.__class__,SenderSubID)
 _quickfix.SenderSubID_swigregister(SenderSubIDPtr)
 
 class SendingTime(UtcTimeStampField):
@@ -2455,7 +2462,7 @@ class SendingTimePtr(SendingTime):
     def __init__(self, this):
         _swig_setattr(self, SendingTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SendingTime, 'thisown', 0)
-        self.__class__ = SendingTime
+        _swig_setattr(self, SendingTime,self.__class__,SendingTime)
 _quickfix.SendingTime_swigregister(SendingTimePtr)
 
 class Quantity(DoubleField):
@@ -2480,7 +2487,7 @@ class QuantityPtr(Quantity):
     def __init__(self, this):
         _swig_setattr(self, Quantity, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Quantity, 'thisown', 0)
-        self.__class__ = Quantity
+        _swig_setattr(self, Quantity,self.__class__,Quantity)
 _quickfix.Quantity_swigregister(QuantityPtr)
 
 class Side(CharField):
@@ -2505,7 +2512,7 @@ class SidePtr(Side):
     def __init__(self, this):
         _swig_setattr(self, Side, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Side, 'thisown', 0)
-        self.__class__ = Side
+        _swig_setattr(self, Side,self.__class__,Side)
 _quickfix.Side_swigregister(SidePtr)
 
 class Symbol(StringField):
@@ -2530,7 +2537,7 @@ class SymbolPtr(Symbol):
     def __init__(self, this):
         _swig_setattr(self, Symbol, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Symbol, 'thisown', 0)
-        self.__class__ = Symbol
+        _swig_setattr(self, Symbol,self.__class__,Symbol)
 _quickfix.Symbol_swigregister(SymbolPtr)
 
 class TargetCompID(StringField):
@@ -2555,7 +2562,7 @@ class TargetCompIDPtr(TargetCompID):
     def __init__(self, this):
         _swig_setattr(self, TargetCompID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TargetCompID, 'thisown', 0)
-        self.__class__ = TargetCompID
+        _swig_setattr(self, TargetCompID,self.__class__,TargetCompID)
 _quickfix.TargetCompID_swigregister(TargetCompIDPtr)
 
 class TargetSubID(StringField):
@@ -2580,7 +2587,7 @@ class TargetSubIDPtr(TargetSubID):
     def __init__(self, this):
         _swig_setattr(self, TargetSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TargetSubID, 'thisown', 0)
-        self.__class__ = TargetSubID
+        _swig_setattr(self, TargetSubID,self.__class__,TargetSubID)
 _quickfix.TargetSubID_swigregister(TargetSubIDPtr)
 
 class Text(StringField):
@@ -2605,7 +2612,7 @@ class TextPtr(Text):
     def __init__(self, this):
         _swig_setattr(self, Text, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Text, 'thisown', 0)
-        self.__class__ = Text
+        _swig_setattr(self, Text,self.__class__,Text)
 _quickfix.Text_swigregister(TextPtr)
 
 class TimeInForce(CharField):
@@ -2630,7 +2637,7 @@ class TimeInForcePtr(TimeInForce):
     def __init__(self, this):
         _swig_setattr(self, TimeInForce, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TimeInForce, 'thisown', 0)
-        self.__class__ = TimeInForce
+        _swig_setattr(self, TimeInForce,self.__class__,TimeInForce)
 _quickfix.TimeInForce_swigregister(TimeInForcePtr)
 
 class TransactTime(UtcTimeStampField):
@@ -2655,7 +2662,7 @@ class TransactTimePtr(TransactTime):
     def __init__(self, this):
         _swig_setattr(self, TransactTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TransactTime, 'thisown', 0)
-        self.__class__ = TransactTime
+        _swig_setattr(self, TransactTime,self.__class__,TransactTime)
 _quickfix.TransactTime_swigregister(TransactTimePtr)
 
 class Urgency(CharField):
@@ -2680,7 +2687,7 @@ class UrgencyPtr(Urgency):
     def __init__(self, this):
         _swig_setattr(self, Urgency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Urgency, 'thisown', 0)
-        self.__class__ = Urgency
+        _swig_setattr(self, Urgency,self.__class__,Urgency)
 _quickfix.Urgency_swigregister(UrgencyPtr)
 
 class ValidUntilTime(UtcTimeStampField):
@@ -2705,7 +2712,7 @@ class ValidUntilTimePtr(ValidUntilTime):
     def __init__(self, this):
         _swig_setattr(self, ValidUntilTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ValidUntilTime, 'thisown', 0)
-        self.__class__ = ValidUntilTime
+        _swig_setattr(self, ValidUntilTime,self.__class__,ValidUntilTime)
 _quickfix.ValidUntilTime_swigregister(ValidUntilTimePtr)
 
 class SettlType(CharField):
@@ -2730,7 +2737,7 @@ class SettlTypePtr(SettlType):
     def __init__(self, this):
         _swig_setattr(self, SettlType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlType, 'thisown', 0)
-        self.__class__ = SettlType
+        _swig_setattr(self, SettlType,self.__class__,SettlType)
 _quickfix.SettlType_swigregister(SettlTypePtr)
 
 class SettlDate(StringField):
@@ -2755,7 +2762,7 @@ class SettlDatePtr(SettlDate):
     def __init__(self, this):
         _swig_setattr(self, SettlDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlDate, 'thisown', 0)
-        self.__class__ = SettlDate
+        _swig_setattr(self, SettlDate,self.__class__,SettlDate)
 _quickfix.SettlDate_swigregister(SettlDatePtr)
 
 class SymbolSfx(StringField):
@@ -2780,7 +2787,7 @@ class SymbolSfxPtr(SymbolSfx):
     def __init__(self, this):
         _swig_setattr(self, SymbolSfx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SymbolSfx, 'thisown', 0)
-        self.__class__ = SymbolSfx
+        _swig_setattr(self, SymbolSfx,self.__class__,SymbolSfx)
 _quickfix.SymbolSfx_swigregister(SymbolSfxPtr)
 
 class ListID(StringField):
@@ -2805,7 +2812,7 @@ class ListIDPtr(ListID):
     def __init__(self, this):
         _swig_setattr(self, ListID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListID, 'thisown', 0)
-        self.__class__ = ListID
+        _swig_setattr(self, ListID,self.__class__,ListID)
 _quickfix.ListID_swigregister(ListIDPtr)
 
 class ListSeqNo(IntField):
@@ -2830,7 +2837,7 @@ class ListSeqNoPtr(ListSeqNo):
     def __init__(self, this):
         _swig_setattr(self, ListSeqNo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListSeqNo, 'thisown', 0)
-        self.__class__ = ListSeqNo
+        _swig_setattr(self, ListSeqNo,self.__class__,ListSeqNo)
 _quickfix.ListSeqNo_swigregister(ListSeqNoPtr)
 
 class TotNoOrders(IntField):
@@ -2855,7 +2862,7 @@ class TotNoOrdersPtr(TotNoOrders):
     def __init__(self, this):
         _swig_setattr(self, TotNoOrders, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNoOrders, 'thisown', 0)
-        self.__class__ = TotNoOrders
+        _swig_setattr(self, TotNoOrders,self.__class__,TotNoOrders)
 _quickfix.TotNoOrders_swigregister(TotNoOrdersPtr)
 
 class ListNoOrds(IntField):
@@ -2880,7 +2887,7 @@ class ListNoOrdsPtr(ListNoOrds):
     def __init__(self, this):
         _swig_setattr(self, ListNoOrds, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListNoOrds, 'thisown', 0)
-        self.__class__ = ListNoOrds
+        _swig_setattr(self, ListNoOrds,self.__class__,ListNoOrds)
 _quickfix.ListNoOrds_swigregister(ListNoOrdsPtr)
 
 class ListExecInst(StringField):
@@ -2905,7 +2912,7 @@ class ListExecInstPtr(ListExecInst):
     def __init__(self, this):
         _swig_setattr(self, ListExecInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListExecInst, 'thisown', 0)
-        self.__class__ = ListExecInst
+        _swig_setattr(self, ListExecInst,self.__class__,ListExecInst)
 _quickfix.ListExecInst_swigregister(ListExecInstPtr)
 
 class AllocID(StringField):
@@ -2930,7 +2937,7 @@ class AllocIDPtr(AllocID):
     def __init__(self, this):
         _swig_setattr(self, AllocID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocID, 'thisown', 0)
-        self.__class__ = AllocID
+        _swig_setattr(self, AllocID,self.__class__,AllocID)
 _quickfix.AllocID_swigregister(AllocIDPtr)
 
 class AllocTransType(CharField):
@@ -2955,7 +2962,7 @@ class AllocTransTypePtr(AllocTransType):
     def __init__(self, this):
         _swig_setattr(self, AllocTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocTransType, 'thisown', 0)
-        self.__class__ = AllocTransType
+        _swig_setattr(self, AllocTransType,self.__class__,AllocTransType)
 _quickfix.AllocTransType_swigregister(AllocTransTypePtr)
 
 class RefAllocID(StringField):
@@ -2980,7 +2987,7 @@ class RefAllocIDPtr(RefAllocID):
     def __init__(self, this):
         _swig_setattr(self, RefAllocID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RefAllocID, 'thisown', 0)
-        self.__class__ = RefAllocID
+        _swig_setattr(self, RefAllocID,self.__class__,RefAllocID)
 _quickfix.RefAllocID_swigregister(RefAllocIDPtr)
 
 class NoOrders(IntField):
@@ -3005,7 +3012,7 @@ class NoOrdersPtr(NoOrders):
     def __init__(self, this):
         _swig_setattr(self, NoOrders, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoOrders, 'thisown', 0)
-        self.__class__ = NoOrders
+        _swig_setattr(self, NoOrders,self.__class__,NoOrders)
 _quickfix.NoOrders_swigregister(NoOrdersPtr)
 
 class AvgPxPrecision(IntField):
@@ -3030,7 +3037,7 @@ class AvgPxPrecisionPtr(AvgPxPrecision):
     def __init__(self, this):
         _swig_setattr(self, AvgPxPrecision, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AvgPxPrecision, 'thisown', 0)
-        self.__class__ = AvgPxPrecision
+        _swig_setattr(self, AvgPxPrecision,self.__class__,AvgPxPrecision)
 _quickfix.AvgPxPrecision_swigregister(AvgPxPrecisionPtr)
 
 class TradeDate(StringField):
@@ -3055,7 +3062,7 @@ class TradeDatePtr(TradeDate):
     def __init__(self, this):
         _swig_setattr(self, TradeDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeDate, 'thisown', 0)
-        self.__class__ = TradeDate
+        _swig_setattr(self, TradeDate,self.__class__,TradeDate)
 _quickfix.TradeDate_swigregister(TradeDatePtr)
 
 class PositionEffect(CharField):
@@ -3080,7 +3087,7 @@ class PositionEffectPtr(PositionEffect):
     def __init__(self, this):
         _swig_setattr(self, PositionEffect, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PositionEffect, 'thisown', 0)
-        self.__class__ = PositionEffect
+        _swig_setattr(self, PositionEffect,self.__class__,PositionEffect)
 _quickfix.PositionEffect_swigregister(PositionEffectPtr)
 
 class NoAllocs(IntField):
@@ -3105,7 +3112,7 @@ class NoAllocsPtr(NoAllocs):
     def __init__(self, this):
         _swig_setattr(self, NoAllocs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoAllocs, 'thisown', 0)
-        self.__class__ = NoAllocs
+        _swig_setattr(self, NoAllocs,self.__class__,NoAllocs)
 _quickfix.NoAllocs_swigregister(NoAllocsPtr)
 
 class AllocAccount(StringField):
@@ -3130,7 +3137,7 @@ class AllocAccountPtr(AllocAccount):
     def __init__(self, this):
         _swig_setattr(self, AllocAccount, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocAccount, 'thisown', 0)
-        self.__class__ = AllocAccount
+        _swig_setattr(self, AllocAccount,self.__class__,AllocAccount)
 _quickfix.AllocAccount_swigregister(AllocAccountPtr)
 
 class AllocQty(DoubleField):
@@ -3155,7 +3162,7 @@ class AllocQtyPtr(AllocQty):
     def __init__(self, this):
         _swig_setattr(self, AllocQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocQty, 'thisown', 0)
-        self.__class__ = AllocQty
+        _swig_setattr(self, AllocQty,self.__class__,AllocQty)
 _quickfix.AllocQty_swigregister(AllocQtyPtr)
 
 class ProcessCode(CharField):
@@ -3180,7 +3187,7 @@ class ProcessCodePtr(ProcessCode):
     def __init__(self, this):
         _swig_setattr(self, ProcessCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ProcessCode, 'thisown', 0)
-        self.__class__ = ProcessCode
+        _swig_setattr(self, ProcessCode,self.__class__,ProcessCode)
 _quickfix.ProcessCode_swigregister(ProcessCodePtr)
 
 class NoRpts(IntField):
@@ -3205,7 +3212,7 @@ class NoRptsPtr(NoRpts):
     def __init__(self, this):
         _swig_setattr(self, NoRpts, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoRpts, 'thisown', 0)
-        self.__class__ = NoRpts
+        _swig_setattr(self, NoRpts,self.__class__,NoRpts)
 _quickfix.NoRpts_swigregister(NoRptsPtr)
 
 class RptSeq(IntField):
@@ -3230,7 +3237,7 @@ class RptSeqPtr(RptSeq):
     def __init__(self, this):
         _swig_setattr(self, RptSeq, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RptSeq, 'thisown', 0)
-        self.__class__ = RptSeq
+        _swig_setattr(self, RptSeq,self.__class__,RptSeq)
 _quickfix.RptSeq_swigregister(RptSeqPtr)
 
 class CxlQty(DoubleField):
@@ -3255,7 +3262,7 @@ class CxlQtyPtr(CxlQty):
     def __init__(self, this):
         _swig_setattr(self, CxlQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CxlQty, 'thisown', 0)
-        self.__class__ = CxlQty
+        _swig_setattr(self, CxlQty,self.__class__,CxlQty)
 _quickfix.CxlQty_swigregister(CxlQtyPtr)
 
 class NoDlvyInst(IntField):
@@ -3280,7 +3287,7 @@ class NoDlvyInstPtr(NoDlvyInst):
     def __init__(self, this):
         _swig_setattr(self, NoDlvyInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoDlvyInst, 'thisown', 0)
-        self.__class__ = NoDlvyInst
+        _swig_setattr(self, NoDlvyInst,self.__class__,NoDlvyInst)
 _quickfix.NoDlvyInst_swigregister(NoDlvyInstPtr)
 
 class AllocStatus(IntField):
@@ -3305,7 +3312,7 @@ class AllocStatusPtr(AllocStatus):
     def __init__(self, this):
         _swig_setattr(self, AllocStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocStatus, 'thisown', 0)
-        self.__class__ = AllocStatus
+        _swig_setattr(self, AllocStatus,self.__class__,AllocStatus)
 _quickfix.AllocStatus_swigregister(AllocStatusPtr)
 
 class AllocRejCode(IntField):
@@ -3330,7 +3337,7 @@ class AllocRejCodePtr(AllocRejCode):
     def __init__(self, this):
         _swig_setattr(self, AllocRejCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocRejCode, 'thisown', 0)
-        self.__class__ = AllocRejCode
+        _swig_setattr(self, AllocRejCode,self.__class__,AllocRejCode)
 _quickfix.AllocRejCode_swigregister(AllocRejCodePtr)
 
 class Signature(StringField):
@@ -3355,7 +3362,7 @@ class SignaturePtr(Signature):
     def __init__(self, this):
         _swig_setattr(self, Signature, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Signature, 'thisown', 0)
-        self.__class__ = Signature
+        _swig_setattr(self, Signature,self.__class__,Signature)
 _quickfix.Signature_swigregister(SignaturePtr)
 
 class SecureDataLen(IntField):
@@ -3380,7 +3387,7 @@ class SecureDataLenPtr(SecureDataLen):
     def __init__(self, this):
         _swig_setattr(self, SecureDataLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecureDataLen, 'thisown', 0)
-        self.__class__ = SecureDataLen
+        _swig_setattr(self, SecureDataLen,self.__class__,SecureDataLen)
 _quickfix.SecureDataLen_swigregister(SecureDataLenPtr)
 
 class SecureData(StringField):
@@ -3405,7 +3412,7 @@ class SecureDataPtr(SecureData):
     def __init__(self, this):
         _swig_setattr(self, SecureData, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecureData, 'thisown', 0)
-        self.__class__ = SecureData
+        _swig_setattr(self, SecureData,self.__class__,SecureData)
 _quickfix.SecureData_swigregister(SecureDataPtr)
 
 class SignatureLength(IntField):
@@ -3430,7 +3437,7 @@ class SignatureLengthPtr(SignatureLength):
     def __init__(self, this):
         _swig_setattr(self, SignatureLength, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SignatureLength, 'thisown', 0)
-        self.__class__ = SignatureLength
+        _swig_setattr(self, SignatureLength,self.__class__,SignatureLength)
 _quickfix.SignatureLength_swigregister(SignatureLengthPtr)
 
 class EmailType(CharField):
@@ -3455,7 +3462,7 @@ class EmailTypePtr(EmailType):
     def __init__(self, this):
         _swig_setattr(self, EmailType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EmailType, 'thisown', 0)
-        self.__class__ = EmailType
+        _swig_setattr(self, EmailType,self.__class__,EmailType)
 _quickfix.EmailType_swigregister(EmailTypePtr)
 
 class RawDataLength(IntField):
@@ -3480,7 +3487,7 @@ class RawDataLengthPtr(RawDataLength):
     def __init__(self, this):
         _swig_setattr(self, RawDataLength, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RawDataLength, 'thisown', 0)
-        self.__class__ = RawDataLength
+        _swig_setattr(self, RawDataLength,self.__class__,RawDataLength)
 _quickfix.RawDataLength_swigregister(RawDataLengthPtr)
 
 class RawData(StringField):
@@ -3505,7 +3512,7 @@ class RawDataPtr(RawData):
     def __init__(self, this):
         _swig_setattr(self, RawData, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RawData, 'thisown', 0)
-        self.__class__ = RawData
+        _swig_setattr(self, RawData,self.__class__,RawData)
 _quickfix.RawData_swigregister(RawDataPtr)
 
 class PossResend(BoolField):
@@ -3530,7 +3537,7 @@ class PossResendPtr(PossResend):
     def __init__(self, this):
         _swig_setattr(self, PossResend, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PossResend, 'thisown', 0)
-        self.__class__ = PossResend
+        _swig_setattr(self, PossResend,self.__class__,PossResend)
 _quickfix.PossResend_swigregister(PossResendPtr)
 
 class EncryptMethod(IntField):
@@ -3555,7 +3562,7 @@ class EncryptMethodPtr(EncryptMethod):
     def __init__(self, this):
         _swig_setattr(self, EncryptMethod, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncryptMethod, 'thisown', 0)
-        self.__class__ = EncryptMethod
+        _swig_setattr(self, EncryptMethod,self.__class__,EncryptMethod)
 _quickfix.EncryptMethod_swigregister(EncryptMethodPtr)
 
 class StopPx(DoubleField):
@@ -3580,7 +3587,7 @@ class StopPxPtr(StopPx):
     def __init__(self, this):
         _swig_setattr(self, StopPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StopPx, 'thisown', 0)
-        self.__class__ = StopPx
+        _swig_setattr(self, StopPx,self.__class__,StopPx)
 _quickfix.StopPx_swigregister(StopPxPtr)
 
 class ExDestination(StringField):
@@ -3605,7 +3612,7 @@ class ExDestinationPtr(ExDestination):
     def __init__(self, this):
         _swig_setattr(self, ExDestination, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExDestination, 'thisown', 0)
-        self.__class__ = ExDestination
+        _swig_setattr(self, ExDestination,self.__class__,ExDestination)
 _quickfix.ExDestination_swigregister(ExDestinationPtr)
 
 class CxlRejReason(IntField):
@@ -3630,7 +3637,7 @@ class CxlRejReasonPtr(CxlRejReason):
     def __init__(self, this):
         _swig_setattr(self, CxlRejReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CxlRejReason, 'thisown', 0)
-        self.__class__ = CxlRejReason
+        _swig_setattr(self, CxlRejReason,self.__class__,CxlRejReason)
 _quickfix.CxlRejReason_swigregister(CxlRejReasonPtr)
 
 class OrdRejReason(IntField):
@@ -3655,7 +3662,7 @@ class OrdRejReasonPtr(OrdRejReason):
     def __init__(self, this):
         _swig_setattr(self, OrdRejReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrdRejReason, 'thisown', 0)
-        self.__class__ = OrdRejReason
+        _swig_setattr(self, OrdRejReason,self.__class__,OrdRejReason)
 _quickfix.OrdRejReason_swigregister(OrdRejReasonPtr)
 
 class IOIQualifier(CharField):
@@ -3680,7 +3687,7 @@ class IOIQualifierPtr(IOIQualifier):
     def __init__(self, this):
         _swig_setattr(self, IOIQualifier, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOIQualifier, 'thisown', 0)
-        self.__class__ = IOIQualifier
+        _swig_setattr(self, IOIQualifier,self.__class__,IOIQualifier)
 _quickfix.IOIQualifier_swigregister(IOIQualifierPtr)
 
 class WaveNo(StringField):
@@ -3705,7 +3712,7 @@ class WaveNoPtr(WaveNo):
     def __init__(self, this):
         _swig_setattr(self, WaveNo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, WaveNo, 'thisown', 0)
-        self.__class__ = WaveNo
+        _swig_setattr(self, WaveNo,self.__class__,WaveNo)
 _quickfix.WaveNo_swigregister(WaveNoPtr)
 
 class Issuer(StringField):
@@ -3730,7 +3737,7 @@ class IssuerPtr(Issuer):
     def __init__(self, this):
         _swig_setattr(self, Issuer, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Issuer, 'thisown', 0)
-        self.__class__ = Issuer
+        _swig_setattr(self, Issuer,self.__class__,Issuer)
 _quickfix.Issuer_swigregister(IssuerPtr)
 
 class SecurityDesc(StringField):
@@ -3755,7 +3762,7 @@ class SecurityDescPtr(SecurityDesc):
     def __init__(self, this):
         _swig_setattr(self, SecurityDesc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityDesc, 'thisown', 0)
-        self.__class__ = SecurityDesc
+        _swig_setattr(self, SecurityDesc,self.__class__,SecurityDesc)
 _quickfix.SecurityDesc_swigregister(SecurityDescPtr)
 
 class HeartBtInt(IntField):
@@ -3780,7 +3787,7 @@ class HeartBtIntPtr(HeartBtInt):
     def __init__(self, this):
         _swig_setattr(self, HeartBtInt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, HeartBtInt, 'thisown', 0)
-        self.__class__ = HeartBtInt
+        _swig_setattr(self, HeartBtInt,self.__class__,HeartBtInt)
 _quickfix.HeartBtInt_swigregister(HeartBtIntPtr)
 
 class MinQty(DoubleField):
@@ -3805,7 +3812,7 @@ class MinQtyPtr(MinQty):
     def __init__(self, this):
         _swig_setattr(self, MinQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MinQty, 'thisown', 0)
-        self.__class__ = MinQty
+        _swig_setattr(self, MinQty,self.__class__,MinQty)
 _quickfix.MinQty_swigregister(MinQtyPtr)
 
 class MaxFloor(DoubleField):
@@ -3830,7 +3837,7 @@ class MaxFloorPtr(MaxFloor):
     def __init__(self, this):
         _swig_setattr(self, MaxFloor, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MaxFloor, 'thisown', 0)
-        self.__class__ = MaxFloor
+        _swig_setattr(self, MaxFloor,self.__class__,MaxFloor)
 _quickfix.MaxFloor_swigregister(MaxFloorPtr)
 
 class TestReqID(StringField):
@@ -3855,7 +3862,7 @@ class TestReqIDPtr(TestReqID):
     def __init__(self, this):
         _swig_setattr(self, TestReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TestReqID, 'thisown', 0)
-        self.__class__ = TestReqID
+        _swig_setattr(self, TestReqID,self.__class__,TestReqID)
 _quickfix.TestReqID_swigregister(TestReqIDPtr)
 
 class ReportToExch(BoolField):
@@ -3880,7 +3887,7 @@ class ReportToExchPtr(ReportToExch):
     def __init__(self, this):
         _swig_setattr(self, ReportToExch, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ReportToExch, 'thisown', 0)
-        self.__class__ = ReportToExch
+        _swig_setattr(self, ReportToExch,self.__class__,ReportToExch)
 _quickfix.ReportToExch_swigregister(ReportToExchPtr)
 
 class LocateReqd(BoolField):
@@ -3905,7 +3912,7 @@ class LocateReqdPtr(LocateReqd):
     def __init__(self, this):
         _swig_setattr(self, LocateReqd, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LocateReqd, 'thisown', 0)
-        self.__class__ = LocateReqd
+        _swig_setattr(self, LocateReqd,self.__class__,LocateReqd)
 _quickfix.LocateReqd_swigregister(LocateReqdPtr)
 
 class OnBehalfOfCompID(StringField):
@@ -3930,7 +3937,7 @@ class OnBehalfOfCompIDPtr(OnBehalfOfCompID):
     def __init__(self, this):
         _swig_setattr(self, OnBehalfOfCompID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OnBehalfOfCompID, 'thisown', 0)
-        self.__class__ = OnBehalfOfCompID
+        _swig_setattr(self, OnBehalfOfCompID,self.__class__,OnBehalfOfCompID)
 _quickfix.OnBehalfOfCompID_swigregister(OnBehalfOfCompIDPtr)
 
 class OnBehalfOfSubID(StringField):
@@ -3955,7 +3962,7 @@ class OnBehalfOfSubIDPtr(OnBehalfOfSubID):
     def __init__(self, this):
         _swig_setattr(self, OnBehalfOfSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OnBehalfOfSubID, 'thisown', 0)
-        self.__class__ = OnBehalfOfSubID
+        _swig_setattr(self, OnBehalfOfSubID,self.__class__,OnBehalfOfSubID)
 _quickfix.OnBehalfOfSubID_swigregister(OnBehalfOfSubIDPtr)
 
 class QuoteID(StringField):
@@ -3980,7 +3987,7 @@ class QuoteIDPtr(QuoteID):
     def __init__(self, this):
         _swig_setattr(self, QuoteID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteID, 'thisown', 0)
-        self.__class__ = QuoteID
+        _swig_setattr(self, QuoteID,self.__class__,QuoteID)
 _quickfix.QuoteID_swigregister(QuoteIDPtr)
 
 class NetMoney(DoubleField):
@@ -4005,7 +4012,7 @@ class NetMoneyPtr(NetMoney):
     def __init__(self, this):
         _swig_setattr(self, NetMoney, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NetMoney, 'thisown', 0)
-        self.__class__ = NetMoney
+        _swig_setattr(self, NetMoney,self.__class__,NetMoney)
 _quickfix.NetMoney_swigregister(NetMoneyPtr)
 
 class SettlCurrAmt(DoubleField):
@@ -4030,7 +4037,7 @@ class SettlCurrAmtPtr(SettlCurrAmt):
     def __init__(self, this):
         _swig_setattr(self, SettlCurrAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlCurrAmt, 'thisown', 0)
-        self.__class__ = SettlCurrAmt
+        _swig_setattr(self, SettlCurrAmt,self.__class__,SettlCurrAmt)
 _quickfix.SettlCurrAmt_swigregister(SettlCurrAmtPtr)
 
 class SettlCurrency(StringField):
@@ -4055,7 +4062,7 @@ class SettlCurrencyPtr(SettlCurrency):
     def __init__(self, this):
         _swig_setattr(self, SettlCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlCurrency, 'thisown', 0)
-        self.__class__ = SettlCurrency
+        _swig_setattr(self, SettlCurrency,self.__class__,SettlCurrency)
 _quickfix.SettlCurrency_swigregister(SettlCurrencyPtr)
 
 class ForexReq(BoolField):
@@ -4080,7 +4087,7 @@ class ForexReqPtr(ForexReq):
     def __init__(self, this):
         _swig_setattr(self, ForexReq, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ForexReq, 'thisown', 0)
-        self.__class__ = ForexReq
+        _swig_setattr(self, ForexReq,self.__class__,ForexReq)
 _quickfix.ForexReq_swigregister(ForexReqPtr)
 
 class OrigSendingTime(UtcTimeStampField):
@@ -4105,7 +4112,7 @@ class OrigSendingTimePtr(OrigSendingTime):
     def __init__(self, this):
         _swig_setattr(self, OrigSendingTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrigSendingTime, 'thisown', 0)
-        self.__class__ = OrigSendingTime
+        _swig_setattr(self, OrigSendingTime,self.__class__,OrigSendingTime)
 _quickfix.OrigSendingTime_swigregister(OrigSendingTimePtr)
 
 class GapFillFlag(BoolField):
@@ -4130,7 +4137,7 @@ class GapFillFlagPtr(GapFillFlag):
     def __init__(self, this):
         _swig_setattr(self, GapFillFlag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, GapFillFlag, 'thisown', 0)
-        self.__class__ = GapFillFlag
+        _swig_setattr(self, GapFillFlag,self.__class__,GapFillFlag)
 _quickfix.GapFillFlag_swigregister(GapFillFlagPtr)
 
 class NoExecs(IntField):
@@ -4155,7 +4162,7 @@ class NoExecsPtr(NoExecs):
     def __init__(self, this):
         _swig_setattr(self, NoExecs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoExecs, 'thisown', 0)
-        self.__class__ = NoExecs
+        _swig_setattr(self, NoExecs,self.__class__,NoExecs)
 _quickfix.NoExecs_swigregister(NoExecsPtr)
 
 class ExpireTime(UtcTimeStampField):
@@ -4180,7 +4187,7 @@ class ExpireTimePtr(ExpireTime):
     def __init__(self, this):
         _swig_setattr(self, ExpireTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExpireTime, 'thisown', 0)
-        self.__class__ = ExpireTime
+        _swig_setattr(self, ExpireTime,self.__class__,ExpireTime)
 _quickfix.ExpireTime_swigregister(ExpireTimePtr)
 
 class DKReason(CharField):
@@ -4205,7 +4212,7 @@ class DKReasonPtr(DKReason):
     def __init__(self, this):
         _swig_setattr(self, DKReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DKReason, 'thisown', 0)
-        self.__class__ = DKReason
+        _swig_setattr(self, DKReason,self.__class__,DKReason)
 _quickfix.DKReason_swigregister(DKReasonPtr)
 
 class DeliverToCompID(StringField):
@@ -4230,7 +4237,7 @@ class DeliverToCompIDPtr(DeliverToCompID):
     def __init__(self, this):
         _swig_setattr(self, DeliverToCompID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeliverToCompID, 'thisown', 0)
-        self.__class__ = DeliverToCompID
+        _swig_setattr(self, DeliverToCompID,self.__class__,DeliverToCompID)
 _quickfix.DeliverToCompID_swigregister(DeliverToCompIDPtr)
 
 class DeliverToSubID(StringField):
@@ -4255,7 +4262,7 @@ class DeliverToSubIDPtr(DeliverToSubID):
     def __init__(self, this):
         _swig_setattr(self, DeliverToSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeliverToSubID, 'thisown', 0)
-        self.__class__ = DeliverToSubID
+        _swig_setattr(self, DeliverToSubID,self.__class__,DeliverToSubID)
 _quickfix.DeliverToSubID_swigregister(DeliverToSubIDPtr)
 
 class IOINaturalFlag(BoolField):
@@ -4280,7 +4287,7 @@ class IOINaturalFlagPtr(IOINaturalFlag):
     def __init__(self, this):
         _swig_setattr(self, IOINaturalFlag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOINaturalFlag, 'thisown', 0)
-        self.__class__ = IOINaturalFlag
+        _swig_setattr(self, IOINaturalFlag,self.__class__,IOINaturalFlag)
 _quickfix.IOINaturalFlag_swigregister(IOINaturalFlagPtr)
 
 class QuoteReqID(StringField):
@@ -4305,7 +4312,7 @@ class QuoteReqIDPtr(QuoteReqID):
     def __init__(self, this):
         _swig_setattr(self, QuoteReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteReqID, 'thisown', 0)
-        self.__class__ = QuoteReqID
+        _swig_setattr(self, QuoteReqID,self.__class__,QuoteReqID)
 _quickfix.QuoteReqID_swigregister(QuoteReqIDPtr)
 
 class BidPx(DoubleField):
@@ -4330,7 +4337,7 @@ class BidPxPtr(BidPx):
     def __init__(self, this):
         _swig_setattr(self, BidPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidPx, 'thisown', 0)
-        self.__class__ = BidPx
+        _swig_setattr(self, BidPx,self.__class__,BidPx)
 _quickfix.BidPx_swigregister(BidPxPtr)
 
 class OfferPx(DoubleField):
@@ -4355,7 +4362,7 @@ class OfferPxPtr(OfferPx):
     def __init__(self, this):
         _swig_setattr(self, OfferPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OfferPx, 'thisown', 0)
-        self.__class__ = OfferPx
+        _swig_setattr(self, OfferPx,self.__class__,OfferPx)
 _quickfix.OfferPx_swigregister(OfferPxPtr)
 
 class BidSize(DoubleField):
@@ -4380,7 +4387,7 @@ class BidSizePtr(BidSize):
     def __init__(self, this):
         _swig_setattr(self, BidSize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidSize, 'thisown', 0)
-        self.__class__ = BidSize
+        _swig_setattr(self, BidSize,self.__class__,BidSize)
 _quickfix.BidSize_swigregister(BidSizePtr)
 
 class OfferSize(DoubleField):
@@ -4405,7 +4412,7 @@ class OfferSizePtr(OfferSize):
     def __init__(self, this):
         _swig_setattr(self, OfferSize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OfferSize, 'thisown', 0)
-        self.__class__ = OfferSize
+        _swig_setattr(self, OfferSize,self.__class__,OfferSize)
 _quickfix.OfferSize_swigregister(OfferSizePtr)
 
 class NoMiscFees(IntField):
@@ -4430,7 +4437,7 @@ class NoMiscFeesPtr(NoMiscFees):
     def __init__(self, this):
         _swig_setattr(self, NoMiscFees, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoMiscFees, 'thisown', 0)
-        self.__class__ = NoMiscFees
+        _swig_setattr(self, NoMiscFees,self.__class__,NoMiscFees)
 _quickfix.NoMiscFees_swigregister(NoMiscFeesPtr)
 
 class MiscFeeAmt(DoubleField):
@@ -4455,7 +4462,7 @@ class MiscFeeAmtPtr(MiscFeeAmt):
     def __init__(self, this):
         _swig_setattr(self, MiscFeeAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MiscFeeAmt, 'thisown', 0)
-        self.__class__ = MiscFeeAmt
+        _swig_setattr(self, MiscFeeAmt,self.__class__,MiscFeeAmt)
 _quickfix.MiscFeeAmt_swigregister(MiscFeeAmtPtr)
 
 class MiscFeeCurr(StringField):
@@ -4480,7 +4487,7 @@ class MiscFeeCurrPtr(MiscFeeCurr):
     def __init__(self, this):
         _swig_setattr(self, MiscFeeCurr, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MiscFeeCurr, 'thisown', 0)
-        self.__class__ = MiscFeeCurr
+        _swig_setattr(self, MiscFeeCurr,self.__class__,MiscFeeCurr)
 _quickfix.MiscFeeCurr_swigregister(MiscFeeCurrPtr)
 
 class MiscFeeType(CharField):
@@ -4505,7 +4512,7 @@ class MiscFeeTypePtr(MiscFeeType):
     def __init__(self, this):
         _swig_setattr(self, MiscFeeType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MiscFeeType, 'thisown', 0)
-        self.__class__ = MiscFeeType
+        _swig_setattr(self, MiscFeeType,self.__class__,MiscFeeType)
 _quickfix.MiscFeeType_swigregister(MiscFeeTypePtr)
 
 class PrevClosePx(DoubleField):
@@ -4530,7 +4537,7 @@ class PrevClosePxPtr(PrevClosePx):
     def __init__(self, this):
         _swig_setattr(self, PrevClosePx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PrevClosePx, 'thisown', 0)
-        self.__class__ = PrevClosePx
+        _swig_setattr(self, PrevClosePx,self.__class__,PrevClosePx)
 _quickfix.PrevClosePx_swigregister(PrevClosePxPtr)
 
 class ResetSeqNumFlag(BoolField):
@@ -4555,7 +4562,7 @@ class ResetSeqNumFlagPtr(ResetSeqNumFlag):
     def __init__(self, this):
         _swig_setattr(self, ResetSeqNumFlag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ResetSeqNumFlag, 'thisown', 0)
-        self.__class__ = ResetSeqNumFlag
+        _swig_setattr(self, ResetSeqNumFlag,self.__class__,ResetSeqNumFlag)
 _quickfix.ResetSeqNumFlag_swigregister(ResetSeqNumFlagPtr)
 
 class SenderLocationID(StringField):
@@ -4580,7 +4587,7 @@ class SenderLocationIDPtr(SenderLocationID):
     def __init__(self, this):
         _swig_setattr(self, SenderLocationID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SenderLocationID, 'thisown', 0)
-        self.__class__ = SenderLocationID
+        _swig_setattr(self, SenderLocationID,self.__class__,SenderLocationID)
 _quickfix.SenderLocationID_swigregister(SenderLocationIDPtr)
 
 class TargetLocationID(StringField):
@@ -4605,7 +4612,7 @@ class TargetLocationIDPtr(TargetLocationID):
     def __init__(self, this):
         _swig_setattr(self, TargetLocationID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TargetLocationID, 'thisown', 0)
-        self.__class__ = TargetLocationID
+        _swig_setattr(self, TargetLocationID,self.__class__,TargetLocationID)
 _quickfix.TargetLocationID_swigregister(TargetLocationIDPtr)
 
 class OnBehalfOfLocationID(StringField):
@@ -4630,7 +4637,7 @@ class OnBehalfOfLocationIDPtr(OnBehalfOfLocationID):
     def __init__(self, this):
         _swig_setattr(self, OnBehalfOfLocationID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OnBehalfOfLocationID, 'thisown', 0)
-        self.__class__ = OnBehalfOfLocationID
+        _swig_setattr(self, OnBehalfOfLocationID,self.__class__,OnBehalfOfLocationID)
 _quickfix.OnBehalfOfLocationID_swigregister(OnBehalfOfLocationIDPtr)
 
 class DeliverToLocationID(StringField):
@@ -4655,7 +4662,7 @@ class DeliverToLocationIDPtr(DeliverToLocationID):
     def __init__(self, this):
         _swig_setattr(self, DeliverToLocationID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeliverToLocationID, 'thisown', 0)
-        self.__class__ = DeliverToLocationID
+        _swig_setattr(self, DeliverToLocationID,self.__class__,DeliverToLocationID)
 _quickfix.DeliverToLocationID_swigregister(DeliverToLocationIDPtr)
 
 class NoRelatedSym(IntField):
@@ -4680,7 +4687,7 @@ class NoRelatedSymPtr(NoRelatedSym):
     def __init__(self, this):
         _swig_setattr(self, NoRelatedSym, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoRelatedSym, 'thisown', 0)
-        self.__class__ = NoRelatedSym
+        _swig_setattr(self, NoRelatedSym,self.__class__,NoRelatedSym)
 _quickfix.NoRelatedSym_swigregister(NoRelatedSymPtr)
 
 class Subject(StringField):
@@ -4705,7 +4712,7 @@ class SubjectPtr(Subject):
     def __init__(self, this):
         _swig_setattr(self, Subject, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Subject, 'thisown', 0)
-        self.__class__ = Subject
+        _swig_setattr(self, Subject,self.__class__,Subject)
 _quickfix.Subject_swigregister(SubjectPtr)
 
 class Headline(StringField):
@@ -4730,7 +4737,7 @@ class HeadlinePtr(Headline):
     def __init__(self, this):
         _swig_setattr(self, Headline, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Headline, 'thisown', 0)
-        self.__class__ = Headline
+        _swig_setattr(self, Headline,self.__class__,Headline)
 _quickfix.Headline_swigregister(HeadlinePtr)
 
 class URLLink(StringField):
@@ -4755,7 +4762,7 @@ class URLLinkPtr(URLLink):
     def __init__(self, this):
         _swig_setattr(self, URLLink, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, URLLink, 'thisown', 0)
-        self.__class__ = URLLink
+        _swig_setattr(self, URLLink,self.__class__,URLLink)
 _quickfix.URLLink_swigregister(URLLinkPtr)
 
 class ExecType(CharField):
@@ -4780,7 +4787,7 @@ class ExecTypePtr(ExecType):
     def __init__(self, this):
         _swig_setattr(self, ExecType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecType, 'thisown', 0)
-        self.__class__ = ExecType
+        _swig_setattr(self, ExecType,self.__class__,ExecType)
 _quickfix.ExecType_swigregister(ExecTypePtr)
 
 class LeavesQty(DoubleField):
@@ -4805,7 +4812,7 @@ class LeavesQtyPtr(LeavesQty):
     def __init__(self, this):
         _swig_setattr(self, LeavesQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LeavesQty, 'thisown', 0)
-        self.__class__ = LeavesQty
+        _swig_setattr(self, LeavesQty,self.__class__,LeavesQty)
 _quickfix.LeavesQty_swigregister(LeavesQtyPtr)
 
 class CashOrderQty(DoubleField):
@@ -4830,7 +4837,7 @@ class CashOrderQtyPtr(CashOrderQty):
     def __init__(self, this):
         _swig_setattr(self, CashOrderQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashOrderQty, 'thisown', 0)
-        self.__class__ = CashOrderQty
+        _swig_setattr(self, CashOrderQty,self.__class__,CashOrderQty)
 _quickfix.CashOrderQty_swigregister(CashOrderQtyPtr)
 
 class AllocAvgPx(DoubleField):
@@ -4855,7 +4862,7 @@ class AllocAvgPxPtr(AllocAvgPx):
     def __init__(self, this):
         _swig_setattr(self, AllocAvgPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocAvgPx, 'thisown', 0)
-        self.__class__ = AllocAvgPx
+        _swig_setattr(self, AllocAvgPx,self.__class__,AllocAvgPx)
 _quickfix.AllocAvgPx_swigregister(AllocAvgPxPtr)
 
 class AllocNetMoney(DoubleField):
@@ -4880,7 +4887,7 @@ class AllocNetMoneyPtr(AllocNetMoney):
     def __init__(self, this):
         _swig_setattr(self, AllocNetMoney, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocNetMoney, 'thisown', 0)
-        self.__class__ = AllocNetMoney
+        _swig_setattr(self, AllocNetMoney,self.__class__,AllocNetMoney)
 _quickfix.AllocNetMoney_swigregister(AllocNetMoneyPtr)
 
 class SettlCurrFxRate(DoubleField):
@@ -4905,7 +4912,7 @@ class SettlCurrFxRatePtr(SettlCurrFxRate):
     def __init__(self, this):
         _swig_setattr(self, SettlCurrFxRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlCurrFxRate, 'thisown', 0)
-        self.__class__ = SettlCurrFxRate
+        _swig_setattr(self, SettlCurrFxRate,self.__class__,SettlCurrFxRate)
 _quickfix.SettlCurrFxRate_swigregister(SettlCurrFxRatePtr)
 
 class SettlCurrFxRateCalc(CharField):
@@ -4930,7 +4937,7 @@ class SettlCurrFxRateCalcPtr(SettlCurrFxRateCalc):
     def __init__(self, this):
         _swig_setattr(self, SettlCurrFxRateCalc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlCurrFxRateCalc, 'thisown', 0)
-        self.__class__ = SettlCurrFxRateCalc
+        _swig_setattr(self, SettlCurrFxRateCalc,self.__class__,SettlCurrFxRateCalc)
 _quickfix.SettlCurrFxRateCalc_swigregister(SettlCurrFxRateCalcPtr)
 
 class NumDaysInterest(IntField):
@@ -4955,7 +4962,7 @@ class NumDaysInterestPtr(NumDaysInterest):
     def __init__(self, this):
         _swig_setattr(self, NumDaysInterest, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NumDaysInterest, 'thisown', 0)
-        self.__class__ = NumDaysInterest
+        _swig_setattr(self, NumDaysInterest,self.__class__,NumDaysInterest)
 _quickfix.NumDaysInterest_swigregister(NumDaysInterestPtr)
 
 class AccruedInterestRate(DoubleField):
@@ -4980,7 +4987,7 @@ class AccruedInterestRatePtr(AccruedInterestRate):
     def __init__(self, this):
         _swig_setattr(self, AccruedInterestRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AccruedInterestRate, 'thisown', 0)
-        self.__class__ = AccruedInterestRate
+        _swig_setattr(self, AccruedInterestRate,self.__class__,AccruedInterestRate)
 _quickfix.AccruedInterestRate_swigregister(AccruedInterestRatePtr)
 
 class AccruedInterestAmt(DoubleField):
@@ -5005,7 +5012,7 @@ class AccruedInterestAmtPtr(AccruedInterestAmt):
     def __init__(self, this):
         _swig_setattr(self, AccruedInterestAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AccruedInterestAmt, 'thisown', 0)
-        self.__class__ = AccruedInterestAmt
+        _swig_setattr(self, AccruedInterestAmt,self.__class__,AccruedInterestAmt)
 _quickfix.AccruedInterestAmt_swigregister(AccruedInterestAmtPtr)
 
 class SettlInstMode(CharField):
@@ -5030,7 +5037,7 @@ class SettlInstModePtr(SettlInstMode):
     def __init__(self, this):
         _swig_setattr(self, SettlInstMode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstMode, 'thisown', 0)
-        self.__class__ = SettlInstMode
+        _swig_setattr(self, SettlInstMode,self.__class__,SettlInstMode)
 _quickfix.SettlInstMode_swigregister(SettlInstModePtr)
 
 class AllocText(StringField):
@@ -5055,7 +5062,7 @@ class AllocTextPtr(AllocText):
     def __init__(self, this):
         _swig_setattr(self, AllocText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocText, 'thisown', 0)
-        self.__class__ = AllocText
+        _swig_setattr(self, AllocText,self.__class__,AllocText)
 _quickfix.AllocText_swigregister(AllocTextPtr)
 
 class SettlInstID(StringField):
@@ -5080,7 +5087,7 @@ class SettlInstIDPtr(SettlInstID):
     def __init__(self, this):
         _swig_setattr(self, SettlInstID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstID, 'thisown', 0)
-        self.__class__ = SettlInstID
+        _swig_setattr(self, SettlInstID,self.__class__,SettlInstID)
 _quickfix.SettlInstID_swigregister(SettlInstIDPtr)
 
 class SettlInstTransType(CharField):
@@ -5105,7 +5112,7 @@ class SettlInstTransTypePtr(SettlInstTransType):
     def __init__(self, this):
         _swig_setattr(self, SettlInstTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstTransType, 'thisown', 0)
-        self.__class__ = SettlInstTransType
+        _swig_setattr(self, SettlInstTransType,self.__class__,SettlInstTransType)
 _quickfix.SettlInstTransType_swigregister(SettlInstTransTypePtr)
 
 class EmailThreadID(StringField):
@@ -5130,7 +5137,7 @@ class EmailThreadIDPtr(EmailThreadID):
     def __init__(self, this):
         _swig_setattr(self, EmailThreadID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EmailThreadID, 'thisown', 0)
-        self.__class__ = EmailThreadID
+        _swig_setattr(self, EmailThreadID,self.__class__,EmailThreadID)
 _quickfix.EmailThreadID_swigregister(EmailThreadIDPtr)
 
 class SettlInstSource(CharField):
@@ -5155,7 +5162,7 @@ class SettlInstSourcePtr(SettlInstSource):
     def __init__(self, this):
         _swig_setattr(self, SettlInstSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstSource, 'thisown', 0)
-        self.__class__ = SettlInstSource
+        _swig_setattr(self, SettlInstSource,self.__class__,SettlInstSource)
 _quickfix.SettlInstSource_swigregister(SettlInstSourcePtr)
 
 class SecurityType(StringField):
@@ -5180,7 +5187,7 @@ class SecurityTypePtr(SecurityType):
     def __init__(self, this):
         _swig_setattr(self, SecurityType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityType, 'thisown', 0)
-        self.__class__ = SecurityType
+        _swig_setattr(self, SecurityType,self.__class__,SecurityType)
 _quickfix.SecurityType_swigregister(SecurityTypePtr)
 
 class EffectiveTime(UtcTimeStampField):
@@ -5205,7 +5212,7 @@ class EffectiveTimePtr(EffectiveTime):
     def __init__(self, this):
         _swig_setattr(self, EffectiveTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EffectiveTime, 'thisown', 0)
-        self.__class__ = EffectiveTime
+        _swig_setattr(self, EffectiveTime,self.__class__,EffectiveTime)
 _quickfix.EffectiveTime_swigregister(EffectiveTimePtr)
 
 class StandInstDbType(IntField):
@@ -5230,7 +5237,7 @@ class StandInstDbTypePtr(StandInstDbType):
     def __init__(self, this):
         _swig_setattr(self, StandInstDbType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StandInstDbType, 'thisown', 0)
-        self.__class__ = StandInstDbType
+        _swig_setattr(self, StandInstDbType,self.__class__,StandInstDbType)
 _quickfix.StandInstDbType_swigregister(StandInstDbTypePtr)
 
 class StandInstDbName(StringField):
@@ -5255,7 +5262,7 @@ class StandInstDbNamePtr(StandInstDbName):
     def __init__(self, this):
         _swig_setattr(self, StandInstDbName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StandInstDbName, 'thisown', 0)
-        self.__class__ = StandInstDbName
+        _swig_setattr(self, StandInstDbName,self.__class__,StandInstDbName)
 _quickfix.StandInstDbName_swigregister(StandInstDbNamePtr)
 
 class StandInstDbID(StringField):
@@ -5280,7 +5287,7 @@ class StandInstDbIDPtr(StandInstDbID):
     def __init__(self, this):
         _swig_setattr(self, StandInstDbID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StandInstDbID, 'thisown', 0)
-        self.__class__ = StandInstDbID
+        _swig_setattr(self, StandInstDbID,self.__class__,StandInstDbID)
 _quickfix.StandInstDbID_swigregister(StandInstDbIDPtr)
 
 class SettlDeliveryType(IntField):
@@ -5305,7 +5312,7 @@ class SettlDeliveryTypePtr(SettlDeliveryType):
     def __init__(self, this):
         _swig_setattr(self, SettlDeliveryType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlDeliveryType, 'thisown', 0)
-        self.__class__ = SettlDeliveryType
+        _swig_setattr(self, SettlDeliveryType,self.__class__,SettlDeliveryType)
 _quickfix.SettlDeliveryType_swigregister(SettlDeliveryTypePtr)
 
 class BidSpotRate(DoubleField):
@@ -5330,7 +5337,7 @@ class BidSpotRatePtr(BidSpotRate):
     def __init__(self, this):
         _swig_setattr(self, BidSpotRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidSpotRate, 'thisown', 0)
-        self.__class__ = BidSpotRate
+        _swig_setattr(self, BidSpotRate,self.__class__,BidSpotRate)
 _quickfix.BidSpotRate_swigregister(BidSpotRatePtr)
 
 class BidForwardPoints(DoubleField):
@@ -5355,7 +5362,7 @@ class BidForwardPointsPtr(BidForwardPoints):
     def __init__(self, this):
         _swig_setattr(self, BidForwardPoints, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidForwardPoints, 'thisown', 0)
-        self.__class__ = BidForwardPoints
+        _swig_setattr(self, BidForwardPoints,self.__class__,BidForwardPoints)
 _quickfix.BidForwardPoints_swigregister(BidForwardPointsPtr)
 
 class OfferSpotRate(DoubleField):
@@ -5380,7 +5387,7 @@ class OfferSpotRatePtr(OfferSpotRate):
     def __init__(self, this):
         _swig_setattr(self, OfferSpotRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OfferSpotRate, 'thisown', 0)
-        self.__class__ = OfferSpotRate
+        _swig_setattr(self, OfferSpotRate,self.__class__,OfferSpotRate)
 _quickfix.OfferSpotRate_swigregister(OfferSpotRatePtr)
 
 class OfferForwardPoints(DoubleField):
@@ -5405,7 +5412,7 @@ class OfferForwardPointsPtr(OfferForwardPoints):
     def __init__(self, this):
         _swig_setattr(self, OfferForwardPoints, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OfferForwardPoints, 'thisown', 0)
-        self.__class__ = OfferForwardPoints
+        _swig_setattr(self, OfferForwardPoints,self.__class__,OfferForwardPoints)
 _quickfix.OfferForwardPoints_swigregister(OfferForwardPointsPtr)
 
 class OrderQty2(DoubleField):
@@ -5430,7 +5437,7 @@ class OrderQty2Ptr(OrderQty2):
     def __init__(self, this):
         _swig_setattr(self, OrderQty2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderQty2, 'thisown', 0)
-        self.__class__ = OrderQty2
+        _swig_setattr(self, OrderQty2,self.__class__,OrderQty2)
 _quickfix.OrderQty2_swigregister(OrderQty2Ptr)
 
 class SettlDate2(StringField):
@@ -5455,7 +5462,7 @@ class SettlDate2Ptr(SettlDate2):
     def __init__(self, this):
         _swig_setattr(self, SettlDate2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlDate2, 'thisown', 0)
-        self.__class__ = SettlDate2
+        _swig_setattr(self, SettlDate2,self.__class__,SettlDate2)
 _quickfix.SettlDate2_swigregister(SettlDate2Ptr)
 
 class LastSpotRate(DoubleField):
@@ -5480,7 +5487,7 @@ class LastSpotRatePtr(LastSpotRate):
     def __init__(self, this):
         _swig_setattr(self, LastSpotRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastSpotRate, 'thisown', 0)
-        self.__class__ = LastSpotRate
+        _swig_setattr(self, LastSpotRate,self.__class__,LastSpotRate)
 _quickfix.LastSpotRate_swigregister(LastSpotRatePtr)
 
 class LastForwardPoints(DoubleField):
@@ -5505,7 +5512,7 @@ class LastForwardPointsPtr(LastForwardPoints):
     def __init__(self, this):
         _swig_setattr(self, LastForwardPoints, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastForwardPoints, 'thisown', 0)
-        self.__class__ = LastForwardPoints
+        _swig_setattr(self, LastForwardPoints,self.__class__,LastForwardPoints)
 _quickfix.LastForwardPoints_swigregister(LastForwardPointsPtr)
 
 class AllocLinkID(StringField):
@@ -5530,7 +5537,7 @@ class AllocLinkIDPtr(AllocLinkID):
     def __init__(self, this):
         _swig_setattr(self, AllocLinkID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocLinkID, 'thisown', 0)
-        self.__class__ = AllocLinkID
+        _swig_setattr(self, AllocLinkID,self.__class__,AllocLinkID)
 _quickfix.AllocLinkID_swigregister(AllocLinkIDPtr)
 
 class AllocLinkType(IntField):
@@ -5555,7 +5562,7 @@ class AllocLinkTypePtr(AllocLinkType):
     def __init__(self, this):
         _swig_setattr(self, AllocLinkType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocLinkType, 'thisown', 0)
-        self.__class__ = AllocLinkType
+        _swig_setattr(self, AllocLinkType,self.__class__,AllocLinkType)
 _quickfix.AllocLinkType_swigregister(AllocLinkTypePtr)
 
 class SecondaryOrderID(StringField):
@@ -5580,7 +5587,7 @@ class SecondaryOrderIDPtr(SecondaryOrderID):
     def __init__(self, this):
         _swig_setattr(self, SecondaryOrderID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecondaryOrderID, 'thisown', 0)
-        self.__class__ = SecondaryOrderID
+        _swig_setattr(self, SecondaryOrderID,self.__class__,SecondaryOrderID)
 _quickfix.SecondaryOrderID_swigregister(SecondaryOrderIDPtr)
 
 class NoIOIQualifiers(IntField):
@@ -5605,7 +5612,7 @@ class NoIOIQualifiersPtr(NoIOIQualifiers):
     def __init__(self, this):
         _swig_setattr(self, NoIOIQualifiers, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoIOIQualifiers, 'thisown', 0)
-        self.__class__ = NoIOIQualifiers
+        _swig_setattr(self, NoIOIQualifiers,self.__class__,NoIOIQualifiers)
 _quickfix.NoIOIQualifiers_swigregister(NoIOIQualifiersPtr)
 
 class MaturityMonthYear(StringField):
@@ -5630,7 +5637,7 @@ class MaturityMonthYearPtr(MaturityMonthYear):
     def __init__(self, this):
         _swig_setattr(self, MaturityMonthYear, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MaturityMonthYear, 'thisown', 0)
-        self.__class__ = MaturityMonthYear
+        _swig_setattr(self, MaturityMonthYear,self.__class__,MaturityMonthYear)
 _quickfix.MaturityMonthYear_swigregister(MaturityMonthYearPtr)
 
 class StrikePrice(DoubleField):
@@ -5655,7 +5662,7 @@ class StrikePricePtr(StrikePrice):
     def __init__(self, this):
         _swig_setattr(self, StrikePrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StrikePrice, 'thisown', 0)
-        self.__class__ = StrikePrice
+        _swig_setattr(self, StrikePrice,self.__class__,StrikePrice)
 _quickfix.StrikePrice_swigregister(StrikePricePtr)
 
 class CoveredOrUncovered(IntField):
@@ -5680,7 +5687,7 @@ class CoveredOrUncoveredPtr(CoveredOrUncovered):
     def __init__(self, this):
         _swig_setattr(self, CoveredOrUncovered, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CoveredOrUncovered, 'thisown', 0)
-        self.__class__ = CoveredOrUncovered
+        _swig_setattr(self, CoveredOrUncovered,self.__class__,CoveredOrUncovered)
 _quickfix.CoveredOrUncovered_swigregister(CoveredOrUncoveredPtr)
 
 class OptAttribute(CharField):
@@ -5705,7 +5712,7 @@ class OptAttributePtr(OptAttribute):
     def __init__(self, this):
         _swig_setattr(self, OptAttribute, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OptAttribute, 'thisown', 0)
-        self.__class__ = OptAttribute
+        _swig_setattr(self, OptAttribute,self.__class__,OptAttribute)
 _quickfix.OptAttribute_swigregister(OptAttributePtr)
 
 class SecurityExchange(StringField):
@@ -5730,7 +5737,7 @@ class SecurityExchangePtr(SecurityExchange):
     def __init__(self, this):
         _swig_setattr(self, SecurityExchange, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityExchange, 'thisown', 0)
-        self.__class__ = SecurityExchange
+        _swig_setattr(self, SecurityExchange,self.__class__,SecurityExchange)
 _quickfix.SecurityExchange_swigregister(SecurityExchangePtr)
 
 class NotifyBrokerOfCredit(BoolField):
@@ -5755,7 +5762,7 @@ class NotifyBrokerOfCreditPtr(NotifyBrokerOfCredit):
     def __init__(self, this):
         _swig_setattr(self, NotifyBrokerOfCredit, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NotifyBrokerOfCredit, 'thisown', 0)
-        self.__class__ = NotifyBrokerOfCredit
+        _swig_setattr(self, NotifyBrokerOfCredit,self.__class__,NotifyBrokerOfCredit)
 _quickfix.NotifyBrokerOfCredit_swigregister(NotifyBrokerOfCreditPtr)
 
 class AllocHandlInst(IntField):
@@ -5780,7 +5787,7 @@ class AllocHandlInstPtr(AllocHandlInst):
     def __init__(self, this):
         _swig_setattr(self, AllocHandlInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocHandlInst, 'thisown', 0)
-        self.__class__ = AllocHandlInst
+        _swig_setattr(self, AllocHandlInst,self.__class__,AllocHandlInst)
 _quickfix.AllocHandlInst_swigregister(AllocHandlInstPtr)
 
 class MaxShow(DoubleField):
@@ -5805,7 +5812,7 @@ class MaxShowPtr(MaxShow):
     def __init__(self, this):
         _swig_setattr(self, MaxShow, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MaxShow, 'thisown', 0)
-        self.__class__ = MaxShow
+        _swig_setattr(self, MaxShow,self.__class__,MaxShow)
 _quickfix.MaxShow_swigregister(MaxShowPtr)
 
 class PegOffsetValue(DoubleField):
@@ -5830,7 +5837,7 @@ class PegOffsetValuePtr(PegOffsetValue):
     def __init__(self, this):
         _swig_setattr(self, PegOffsetValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PegOffsetValue, 'thisown', 0)
-        self.__class__ = PegOffsetValue
+        _swig_setattr(self, PegOffsetValue,self.__class__,PegOffsetValue)
 _quickfix.PegOffsetValue_swigregister(PegOffsetValuePtr)
 
 class XmlDataLen(IntField):
@@ -5855,7 +5862,7 @@ class XmlDataLenPtr(XmlDataLen):
     def __init__(self, this):
         _swig_setattr(self, XmlDataLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, XmlDataLen, 'thisown', 0)
-        self.__class__ = XmlDataLen
+        _swig_setattr(self, XmlDataLen,self.__class__,XmlDataLen)
 _quickfix.XmlDataLen_swigregister(XmlDataLenPtr)
 
 class XmlData(StringField):
@@ -5880,7 +5887,7 @@ class XmlDataPtr(XmlData):
     def __init__(self, this):
         _swig_setattr(self, XmlData, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, XmlData, 'thisown', 0)
-        self.__class__ = XmlData
+        _swig_setattr(self, XmlData,self.__class__,XmlData)
 _quickfix.XmlData_swigregister(XmlDataPtr)
 
 class SettlInstRefID(StringField):
@@ -5905,7 +5912,7 @@ class SettlInstRefIDPtr(SettlInstRefID):
     def __init__(self, this):
         _swig_setattr(self, SettlInstRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstRefID, 'thisown', 0)
-        self.__class__ = SettlInstRefID
+        _swig_setattr(self, SettlInstRefID,self.__class__,SettlInstRefID)
 _quickfix.SettlInstRefID_swigregister(SettlInstRefIDPtr)
 
 class NoRoutingIDs(IntField):
@@ -5930,7 +5937,7 @@ class NoRoutingIDsPtr(NoRoutingIDs):
     def __init__(self, this):
         _swig_setattr(self, NoRoutingIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoRoutingIDs, 'thisown', 0)
-        self.__class__ = NoRoutingIDs
+        _swig_setattr(self, NoRoutingIDs,self.__class__,NoRoutingIDs)
 _quickfix.NoRoutingIDs_swigregister(NoRoutingIDsPtr)
 
 class RoutingType(IntField):
@@ -5955,7 +5962,7 @@ class RoutingTypePtr(RoutingType):
     def __init__(self, this):
         _swig_setattr(self, RoutingType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RoutingType, 'thisown', 0)
-        self.__class__ = RoutingType
+        _swig_setattr(self, RoutingType,self.__class__,RoutingType)
 _quickfix.RoutingType_swigregister(RoutingTypePtr)
 
 class RoutingID(StringField):
@@ -5980,7 +5987,7 @@ class RoutingIDPtr(RoutingID):
     def __init__(self, this):
         _swig_setattr(self, RoutingID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RoutingID, 'thisown', 0)
-        self.__class__ = RoutingID
+        _swig_setattr(self, RoutingID,self.__class__,RoutingID)
 _quickfix.RoutingID_swigregister(RoutingIDPtr)
 
 class Spread(DoubleField):
@@ -6005,7 +6012,7 @@ class SpreadPtr(Spread):
     def __init__(self, this):
         _swig_setattr(self, Spread, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Spread, 'thisown', 0)
-        self.__class__ = Spread
+        _swig_setattr(self, Spread,self.__class__,Spread)
 _quickfix.Spread_swigregister(SpreadPtr)
 
 class BenchmarkCurveCurrency(StringField):
@@ -6030,7 +6037,7 @@ class BenchmarkCurveCurrencyPtr(BenchmarkCurveCurrency):
     def __init__(self, this):
         _swig_setattr(self, BenchmarkCurveCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BenchmarkCurveCurrency, 'thisown', 0)
-        self.__class__ = BenchmarkCurveCurrency
+        _swig_setattr(self, BenchmarkCurveCurrency,self.__class__,BenchmarkCurveCurrency)
 _quickfix.BenchmarkCurveCurrency_swigregister(BenchmarkCurveCurrencyPtr)
 
 class BenchmarkCurveName(StringField):
@@ -6055,7 +6062,7 @@ class BenchmarkCurveNamePtr(BenchmarkCurveName):
     def __init__(self, this):
         _swig_setattr(self, BenchmarkCurveName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BenchmarkCurveName, 'thisown', 0)
-        self.__class__ = BenchmarkCurveName
+        _swig_setattr(self, BenchmarkCurveName,self.__class__,BenchmarkCurveName)
 _quickfix.BenchmarkCurveName_swigregister(BenchmarkCurveNamePtr)
 
 class BenchmarkCurvePoint(StringField):
@@ -6080,7 +6087,7 @@ class BenchmarkCurvePointPtr(BenchmarkCurvePoint):
     def __init__(self, this):
         _swig_setattr(self, BenchmarkCurvePoint, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BenchmarkCurvePoint, 'thisown', 0)
-        self.__class__ = BenchmarkCurvePoint
+        _swig_setattr(self, BenchmarkCurvePoint,self.__class__,BenchmarkCurvePoint)
 _quickfix.BenchmarkCurvePoint_swigregister(BenchmarkCurvePointPtr)
 
 class CouponRate(DoubleField):
@@ -6105,7 +6112,7 @@ class CouponRatePtr(CouponRate):
     def __init__(self, this):
         _swig_setattr(self, CouponRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CouponRate, 'thisown', 0)
-        self.__class__ = CouponRate
+        _swig_setattr(self, CouponRate,self.__class__,CouponRate)
 _quickfix.CouponRate_swigregister(CouponRatePtr)
 
 class CouponPaymentDate(StringField):
@@ -6130,7 +6137,7 @@ class CouponPaymentDatePtr(CouponPaymentDate):
     def __init__(self, this):
         _swig_setattr(self, CouponPaymentDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CouponPaymentDate, 'thisown', 0)
-        self.__class__ = CouponPaymentDate
+        _swig_setattr(self, CouponPaymentDate,self.__class__,CouponPaymentDate)
 _quickfix.CouponPaymentDate_swigregister(CouponPaymentDatePtr)
 
 class IssueDate(StringField):
@@ -6155,7 +6162,7 @@ class IssueDatePtr(IssueDate):
     def __init__(self, this):
         _swig_setattr(self, IssueDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IssueDate, 'thisown', 0)
-        self.__class__ = IssueDate
+        _swig_setattr(self, IssueDate,self.__class__,IssueDate)
 _quickfix.IssueDate_swigregister(IssueDatePtr)
 
 class RepurchaseTerm(IntField):
@@ -6180,7 +6187,7 @@ class RepurchaseTermPtr(RepurchaseTerm):
     def __init__(self, this):
         _swig_setattr(self, RepurchaseTerm, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RepurchaseTerm, 'thisown', 0)
-        self.__class__ = RepurchaseTerm
+        _swig_setattr(self, RepurchaseTerm,self.__class__,RepurchaseTerm)
 _quickfix.RepurchaseTerm_swigregister(RepurchaseTermPtr)
 
 class RepurchaseRate(DoubleField):
@@ -6205,7 +6212,7 @@ class RepurchaseRatePtr(RepurchaseRate):
     def __init__(self, this):
         _swig_setattr(self, RepurchaseRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RepurchaseRate, 'thisown', 0)
-        self.__class__ = RepurchaseRate
+        _swig_setattr(self, RepurchaseRate,self.__class__,RepurchaseRate)
 _quickfix.RepurchaseRate_swigregister(RepurchaseRatePtr)
 
 class Factor(DoubleField):
@@ -6230,7 +6237,7 @@ class FactorPtr(Factor):
     def __init__(self, this):
         _swig_setattr(self, Factor, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Factor, 'thisown', 0)
-        self.__class__ = Factor
+        _swig_setattr(self, Factor,self.__class__,Factor)
 _quickfix.Factor_swigregister(FactorPtr)
 
 class TradeOriginationDate(StringField):
@@ -6255,7 +6262,7 @@ class TradeOriginationDatePtr(TradeOriginationDate):
     def __init__(self, this):
         _swig_setattr(self, TradeOriginationDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeOriginationDate, 'thisown', 0)
-        self.__class__ = TradeOriginationDate
+        _swig_setattr(self, TradeOriginationDate,self.__class__,TradeOriginationDate)
 _quickfix.TradeOriginationDate_swigregister(TradeOriginationDatePtr)
 
 class ExDate(StringField):
@@ -6280,7 +6287,7 @@ class ExDatePtr(ExDate):
     def __init__(self, this):
         _swig_setattr(self, ExDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExDate, 'thisown', 0)
-        self.__class__ = ExDate
+        _swig_setattr(self, ExDate,self.__class__,ExDate)
 _quickfix.ExDate_swigregister(ExDatePtr)
 
 class ContractMultiplier(DoubleField):
@@ -6305,7 +6312,7 @@ class ContractMultiplierPtr(ContractMultiplier):
     def __init__(self, this):
         _swig_setattr(self, ContractMultiplier, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContractMultiplier, 'thisown', 0)
-        self.__class__ = ContractMultiplier
+        _swig_setattr(self, ContractMultiplier,self.__class__,ContractMultiplier)
 _quickfix.ContractMultiplier_swigregister(ContractMultiplierPtr)
 
 class NoStipulations(IntField):
@@ -6330,7 +6337,7 @@ class NoStipulationsPtr(NoStipulations):
     def __init__(self, this):
         _swig_setattr(self, NoStipulations, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoStipulations, 'thisown', 0)
-        self.__class__ = NoStipulations
+        _swig_setattr(self, NoStipulations,self.__class__,NoStipulations)
 _quickfix.NoStipulations_swigregister(NoStipulationsPtr)
 
 class StipulationType(StringField):
@@ -6355,7 +6362,7 @@ class StipulationTypePtr(StipulationType):
     def __init__(self, this):
         _swig_setattr(self, StipulationType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StipulationType, 'thisown', 0)
-        self.__class__ = StipulationType
+        _swig_setattr(self, StipulationType,self.__class__,StipulationType)
 _quickfix.StipulationType_swigregister(StipulationTypePtr)
 
 class StipulationValue(StringField):
@@ -6380,7 +6387,7 @@ class StipulationValuePtr(StipulationValue):
     def __init__(self, this):
         _swig_setattr(self, StipulationValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StipulationValue, 'thisown', 0)
-        self.__class__ = StipulationValue
+        _swig_setattr(self, StipulationValue,self.__class__,StipulationValue)
 _quickfix.StipulationValue_swigregister(StipulationValuePtr)
 
 class YieldType(StringField):
@@ -6405,7 +6412,7 @@ class YieldTypePtr(YieldType):
     def __init__(self, this):
         _swig_setattr(self, YieldType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, YieldType, 'thisown', 0)
-        self.__class__ = YieldType
+        _swig_setattr(self, YieldType,self.__class__,YieldType)
 _quickfix.YieldType_swigregister(YieldTypePtr)
 
 class Yield(DoubleField):
@@ -6430,7 +6437,7 @@ class YieldPtr(Yield):
     def __init__(self, this):
         _swig_setattr(self, Yield, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Yield, 'thisown', 0)
-        self.__class__ = Yield
+        _swig_setattr(self, Yield,self.__class__,Yield)
 _quickfix.Yield_swigregister(YieldPtr)
 
 class TotalTakedown(DoubleField):
@@ -6455,7 +6462,7 @@ class TotalTakedownPtr(TotalTakedown):
     def __init__(self, this):
         _swig_setattr(self, TotalTakedown, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalTakedown, 'thisown', 0)
-        self.__class__ = TotalTakedown
+        _swig_setattr(self, TotalTakedown,self.__class__,TotalTakedown)
 _quickfix.TotalTakedown_swigregister(TotalTakedownPtr)
 
 class Concession(DoubleField):
@@ -6480,7 +6487,7 @@ class ConcessionPtr(Concession):
     def __init__(self, this):
         _swig_setattr(self, Concession, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Concession, 'thisown', 0)
-        self.__class__ = Concession
+        _swig_setattr(self, Concession,self.__class__,Concession)
 _quickfix.Concession_swigregister(ConcessionPtr)
 
 class RepoCollateralSecurityType(IntField):
@@ -6505,7 +6512,7 @@ class RepoCollateralSecurityTypePtr(RepoCollateralSecurityType):
     def __init__(self, this):
         _swig_setattr(self, RepoCollateralSecurityType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RepoCollateralSecurityType, 'thisown', 0)
-        self.__class__ = RepoCollateralSecurityType
+        _swig_setattr(self, RepoCollateralSecurityType,self.__class__,RepoCollateralSecurityType)
 _quickfix.RepoCollateralSecurityType_swigregister(RepoCollateralSecurityTypePtr)
 
 class RedemptionDate(StringField):
@@ -6530,7 +6537,7 @@ class RedemptionDatePtr(RedemptionDate):
     def __init__(self, this):
         _swig_setattr(self, RedemptionDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RedemptionDate, 'thisown', 0)
-        self.__class__ = RedemptionDate
+        _swig_setattr(self, RedemptionDate,self.__class__,RedemptionDate)
 _quickfix.RedemptionDate_swigregister(RedemptionDatePtr)
 
 class UnderlyingCouponPaymentDate(StringField):
@@ -6555,7 +6562,7 @@ class UnderlyingCouponPaymentDatePtr(UnderlyingCouponPaymentDate):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCouponPaymentDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCouponPaymentDate, 'thisown', 0)
-        self.__class__ = UnderlyingCouponPaymentDate
+        _swig_setattr(self, UnderlyingCouponPaymentDate,self.__class__,UnderlyingCouponPaymentDate)
 _quickfix.UnderlyingCouponPaymentDate_swigregister(UnderlyingCouponPaymentDatePtr)
 
 class UnderlyingIssueDate(StringField):
@@ -6580,7 +6587,7 @@ class UnderlyingIssueDatePtr(UnderlyingIssueDate):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingIssueDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingIssueDate, 'thisown', 0)
-        self.__class__ = UnderlyingIssueDate
+        _swig_setattr(self, UnderlyingIssueDate,self.__class__,UnderlyingIssueDate)
 _quickfix.UnderlyingIssueDate_swigregister(UnderlyingIssueDatePtr)
 
 class UnderlyingRepoCollateralSecurityType(IntField):
@@ -6605,7 +6612,7 @@ class UnderlyingRepoCollateralSecurityTypePtr(UnderlyingRepoCollateralSecurityTy
     def __init__(self, this):
         _swig_setattr(self, UnderlyingRepoCollateralSecurityType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingRepoCollateralSecurityType, 'thisown', 0)
-        self.__class__ = UnderlyingRepoCollateralSecurityType
+        _swig_setattr(self, UnderlyingRepoCollateralSecurityType,self.__class__,UnderlyingRepoCollateralSecurityType)
 _quickfix.UnderlyingRepoCollateralSecurityType_swigregister(UnderlyingRepoCollateralSecurityTypePtr)
 
 class UnderlyingRepurchaseTerm(IntField):
@@ -6630,7 +6637,7 @@ class UnderlyingRepurchaseTermPtr(UnderlyingRepurchaseTerm):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingRepurchaseTerm, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingRepurchaseTerm, 'thisown', 0)
-        self.__class__ = UnderlyingRepurchaseTerm
+        _swig_setattr(self, UnderlyingRepurchaseTerm,self.__class__,UnderlyingRepurchaseTerm)
 _quickfix.UnderlyingRepurchaseTerm_swigregister(UnderlyingRepurchaseTermPtr)
 
 class UnderlyingRepurchaseRate(DoubleField):
@@ -6655,7 +6662,7 @@ class UnderlyingRepurchaseRatePtr(UnderlyingRepurchaseRate):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingRepurchaseRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingRepurchaseRate, 'thisown', 0)
-        self.__class__ = UnderlyingRepurchaseRate
+        _swig_setattr(self, UnderlyingRepurchaseRate,self.__class__,UnderlyingRepurchaseRate)
 _quickfix.UnderlyingRepurchaseRate_swigregister(UnderlyingRepurchaseRatePtr)
 
 class UnderlyingFactor(DoubleField):
@@ -6680,7 +6687,7 @@ class UnderlyingFactorPtr(UnderlyingFactor):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingFactor, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingFactor, 'thisown', 0)
-        self.__class__ = UnderlyingFactor
+        _swig_setattr(self, UnderlyingFactor,self.__class__,UnderlyingFactor)
 _quickfix.UnderlyingFactor_swigregister(UnderlyingFactorPtr)
 
 class UnderlyingRedemptionDate(StringField):
@@ -6705,7 +6712,7 @@ class UnderlyingRedemptionDatePtr(UnderlyingRedemptionDate):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingRedemptionDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingRedemptionDate, 'thisown', 0)
-        self.__class__ = UnderlyingRedemptionDate
+        _swig_setattr(self, UnderlyingRedemptionDate,self.__class__,UnderlyingRedemptionDate)
 _quickfix.UnderlyingRedemptionDate_swigregister(UnderlyingRedemptionDatePtr)
 
 class LegCouponPaymentDate(StringField):
@@ -6730,7 +6737,7 @@ class LegCouponPaymentDatePtr(LegCouponPaymentDate):
     def __init__(self, this):
         _swig_setattr(self, LegCouponPaymentDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegCouponPaymentDate, 'thisown', 0)
-        self.__class__ = LegCouponPaymentDate
+        _swig_setattr(self, LegCouponPaymentDate,self.__class__,LegCouponPaymentDate)
 _quickfix.LegCouponPaymentDate_swigregister(LegCouponPaymentDatePtr)
 
 class LegIssueDate(StringField):
@@ -6755,7 +6762,7 @@ class LegIssueDatePtr(LegIssueDate):
     def __init__(self, this):
         _swig_setattr(self, LegIssueDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegIssueDate, 'thisown', 0)
-        self.__class__ = LegIssueDate
+        _swig_setattr(self, LegIssueDate,self.__class__,LegIssueDate)
 _quickfix.LegIssueDate_swigregister(LegIssueDatePtr)
 
 class LegRepoCollateralSecurityType(IntField):
@@ -6780,7 +6787,7 @@ class LegRepoCollateralSecurityTypePtr(LegRepoCollateralSecurityType):
     def __init__(self, this):
         _swig_setattr(self, LegRepoCollateralSecurityType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegRepoCollateralSecurityType, 'thisown', 0)
-        self.__class__ = LegRepoCollateralSecurityType
+        _swig_setattr(self, LegRepoCollateralSecurityType,self.__class__,LegRepoCollateralSecurityType)
 _quickfix.LegRepoCollateralSecurityType_swigregister(LegRepoCollateralSecurityTypePtr)
 
 class LegRepurchaseTerm(IntField):
@@ -6805,7 +6812,7 @@ class LegRepurchaseTermPtr(LegRepurchaseTerm):
     def __init__(self, this):
         _swig_setattr(self, LegRepurchaseTerm, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegRepurchaseTerm, 'thisown', 0)
-        self.__class__ = LegRepurchaseTerm
+        _swig_setattr(self, LegRepurchaseTerm,self.__class__,LegRepurchaseTerm)
 _quickfix.LegRepurchaseTerm_swigregister(LegRepurchaseTermPtr)
 
 class LegRepurchaseRate(DoubleField):
@@ -6830,7 +6837,7 @@ class LegRepurchaseRatePtr(LegRepurchaseRate):
     def __init__(self, this):
         _swig_setattr(self, LegRepurchaseRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegRepurchaseRate, 'thisown', 0)
-        self.__class__ = LegRepurchaseRate
+        _swig_setattr(self, LegRepurchaseRate,self.__class__,LegRepurchaseRate)
 _quickfix.LegRepurchaseRate_swigregister(LegRepurchaseRatePtr)
 
 class LegFactor(DoubleField):
@@ -6855,7 +6862,7 @@ class LegFactorPtr(LegFactor):
     def __init__(self, this):
         _swig_setattr(self, LegFactor, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegFactor, 'thisown', 0)
-        self.__class__ = LegFactor
+        _swig_setattr(self, LegFactor,self.__class__,LegFactor)
 _quickfix.LegFactor_swigregister(LegFactorPtr)
 
 class LegRedemptionDate(StringField):
@@ -6880,7 +6887,7 @@ class LegRedemptionDatePtr(LegRedemptionDate):
     def __init__(self, this):
         _swig_setattr(self, LegRedemptionDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegRedemptionDate, 'thisown', 0)
-        self.__class__ = LegRedemptionDate
+        _swig_setattr(self, LegRedemptionDate,self.__class__,LegRedemptionDate)
 _quickfix.LegRedemptionDate_swigregister(LegRedemptionDatePtr)
 
 class CreditRating(StringField):
@@ -6905,7 +6912,7 @@ class CreditRatingPtr(CreditRating):
     def __init__(self, this):
         _swig_setattr(self, CreditRating, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CreditRating, 'thisown', 0)
-        self.__class__ = CreditRating
+        _swig_setattr(self, CreditRating,self.__class__,CreditRating)
 _quickfix.CreditRating_swigregister(CreditRatingPtr)
 
 class UnderlyingCreditRating(StringField):
@@ -6930,7 +6937,7 @@ class UnderlyingCreditRatingPtr(UnderlyingCreditRating):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCreditRating, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCreditRating, 'thisown', 0)
-        self.__class__ = UnderlyingCreditRating
+        _swig_setattr(self, UnderlyingCreditRating,self.__class__,UnderlyingCreditRating)
 _quickfix.UnderlyingCreditRating_swigregister(UnderlyingCreditRatingPtr)
 
 class LegCreditRating(StringField):
@@ -6955,7 +6962,7 @@ class LegCreditRatingPtr(LegCreditRating):
     def __init__(self, this):
         _swig_setattr(self, LegCreditRating, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegCreditRating, 'thisown', 0)
-        self.__class__ = LegCreditRating
+        _swig_setattr(self, LegCreditRating,self.__class__,LegCreditRating)
 _quickfix.LegCreditRating_swigregister(LegCreditRatingPtr)
 
 class TradedFlatSwitch(BoolField):
@@ -6980,7 +6987,7 @@ class TradedFlatSwitchPtr(TradedFlatSwitch):
     def __init__(self, this):
         _swig_setattr(self, TradedFlatSwitch, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradedFlatSwitch, 'thisown', 0)
-        self.__class__ = TradedFlatSwitch
+        _swig_setattr(self, TradedFlatSwitch,self.__class__,TradedFlatSwitch)
 _quickfix.TradedFlatSwitch_swigregister(TradedFlatSwitchPtr)
 
 class BasisFeatureDate(StringField):
@@ -7005,7 +7012,7 @@ class BasisFeatureDatePtr(BasisFeatureDate):
     def __init__(self, this):
         _swig_setattr(self, BasisFeatureDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BasisFeatureDate, 'thisown', 0)
-        self.__class__ = BasisFeatureDate
+        _swig_setattr(self, BasisFeatureDate,self.__class__,BasisFeatureDate)
 _quickfix.BasisFeatureDate_swigregister(BasisFeatureDatePtr)
 
 class BasisFeaturePrice(DoubleField):
@@ -7030,7 +7037,7 @@ class BasisFeaturePricePtr(BasisFeaturePrice):
     def __init__(self, this):
         _swig_setattr(self, BasisFeaturePrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BasisFeaturePrice, 'thisown', 0)
-        self.__class__ = BasisFeaturePrice
+        _swig_setattr(self, BasisFeaturePrice,self.__class__,BasisFeaturePrice)
 _quickfix.BasisFeaturePrice_swigregister(BasisFeaturePricePtr)
 
 class MDReqID(StringField):
@@ -7055,7 +7062,7 @@ class MDReqIDPtr(MDReqID):
     def __init__(self, this):
         _swig_setattr(self, MDReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDReqID, 'thisown', 0)
-        self.__class__ = MDReqID
+        _swig_setattr(self, MDReqID,self.__class__,MDReqID)
 _quickfix.MDReqID_swigregister(MDReqIDPtr)
 
 class SubscriptionRequestType(CharField):
@@ -7080,7 +7087,7 @@ class SubscriptionRequestTypePtr(SubscriptionRequestType):
     def __init__(self, this):
         _swig_setattr(self, SubscriptionRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SubscriptionRequestType, 'thisown', 0)
-        self.__class__ = SubscriptionRequestType
+        _swig_setattr(self, SubscriptionRequestType,self.__class__,SubscriptionRequestType)
 _quickfix.SubscriptionRequestType_swigregister(SubscriptionRequestTypePtr)
 
 class MarketDepth(IntField):
@@ -7105,7 +7112,7 @@ class MarketDepthPtr(MarketDepth):
     def __init__(self, this):
         _swig_setattr(self, MarketDepth, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MarketDepth, 'thisown', 0)
-        self.__class__ = MarketDepth
+        _swig_setattr(self, MarketDepth,self.__class__,MarketDepth)
 _quickfix.MarketDepth_swigregister(MarketDepthPtr)
 
 class MDUpdateType(IntField):
@@ -7130,7 +7137,7 @@ class MDUpdateTypePtr(MDUpdateType):
     def __init__(self, this):
         _swig_setattr(self, MDUpdateType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDUpdateType, 'thisown', 0)
-        self.__class__ = MDUpdateType
+        _swig_setattr(self, MDUpdateType,self.__class__,MDUpdateType)
 _quickfix.MDUpdateType_swigregister(MDUpdateTypePtr)
 
 class AggregatedBook(BoolField):
@@ -7155,7 +7162,7 @@ class AggregatedBookPtr(AggregatedBook):
     def __init__(self, this):
         _swig_setattr(self, AggregatedBook, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AggregatedBook, 'thisown', 0)
-        self.__class__ = AggregatedBook
+        _swig_setattr(self, AggregatedBook,self.__class__,AggregatedBook)
 _quickfix.AggregatedBook_swigregister(AggregatedBookPtr)
 
 class NoMDEntryTypes(IntField):
@@ -7180,7 +7187,7 @@ class NoMDEntryTypesPtr(NoMDEntryTypes):
     def __init__(self, this):
         _swig_setattr(self, NoMDEntryTypes, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoMDEntryTypes, 'thisown', 0)
-        self.__class__ = NoMDEntryTypes
+        _swig_setattr(self, NoMDEntryTypes,self.__class__,NoMDEntryTypes)
 _quickfix.NoMDEntryTypes_swigregister(NoMDEntryTypesPtr)
 
 class NoMDEntries(IntField):
@@ -7205,7 +7212,7 @@ class NoMDEntriesPtr(NoMDEntries):
     def __init__(self, this):
         _swig_setattr(self, NoMDEntries, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoMDEntries, 'thisown', 0)
-        self.__class__ = NoMDEntries
+        _swig_setattr(self, NoMDEntries,self.__class__,NoMDEntries)
 _quickfix.NoMDEntries_swigregister(NoMDEntriesPtr)
 
 class MDEntryType(CharField):
@@ -7230,7 +7237,7 @@ class MDEntryTypePtr(MDEntryType):
     def __init__(self, this):
         _swig_setattr(self, MDEntryType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryType, 'thisown', 0)
-        self.__class__ = MDEntryType
+        _swig_setattr(self, MDEntryType,self.__class__,MDEntryType)
 _quickfix.MDEntryType_swigregister(MDEntryTypePtr)
 
 class MDEntryPx(DoubleField):
@@ -7255,7 +7262,7 @@ class MDEntryPxPtr(MDEntryPx):
     def __init__(self, this):
         _swig_setattr(self, MDEntryPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryPx, 'thisown', 0)
-        self.__class__ = MDEntryPx
+        _swig_setattr(self, MDEntryPx,self.__class__,MDEntryPx)
 _quickfix.MDEntryPx_swigregister(MDEntryPxPtr)
 
 class MDEntrySize(DoubleField):
@@ -7280,7 +7287,7 @@ class MDEntrySizePtr(MDEntrySize):
     def __init__(self, this):
         _swig_setattr(self, MDEntrySize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntrySize, 'thisown', 0)
-        self.__class__ = MDEntrySize
+        _swig_setattr(self, MDEntrySize,self.__class__,MDEntrySize)
 _quickfix.MDEntrySize_swigregister(MDEntrySizePtr)
 
 class MDEntryDate(UtcDateField):
@@ -7305,7 +7312,7 @@ class MDEntryDatePtr(MDEntryDate):
     def __init__(self, this):
         _swig_setattr(self, MDEntryDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryDate, 'thisown', 0)
-        self.__class__ = MDEntryDate
+        _swig_setattr(self, MDEntryDate,self.__class__,MDEntryDate)
 _quickfix.MDEntryDate_swigregister(MDEntryDatePtr)
 
 class MDEntryTime(UtcTimeOnlyField):
@@ -7330,7 +7337,7 @@ class MDEntryTimePtr(MDEntryTime):
     def __init__(self, this):
         _swig_setattr(self, MDEntryTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryTime, 'thisown', 0)
-        self.__class__ = MDEntryTime
+        _swig_setattr(self, MDEntryTime,self.__class__,MDEntryTime)
 _quickfix.MDEntryTime_swigregister(MDEntryTimePtr)
 
 class TickDirection(CharField):
@@ -7355,7 +7362,7 @@ class TickDirectionPtr(TickDirection):
     def __init__(self, this):
         _swig_setattr(self, TickDirection, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TickDirection, 'thisown', 0)
-        self.__class__ = TickDirection
+        _swig_setattr(self, TickDirection,self.__class__,TickDirection)
 _quickfix.TickDirection_swigregister(TickDirectionPtr)
 
 class MDMkt(StringField):
@@ -7380,7 +7387,7 @@ class MDMktPtr(MDMkt):
     def __init__(self, this):
         _swig_setattr(self, MDMkt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDMkt, 'thisown', 0)
-        self.__class__ = MDMkt
+        _swig_setattr(self, MDMkt,self.__class__,MDMkt)
 _quickfix.MDMkt_swigregister(MDMktPtr)
 
 class QuoteCondition(StringField):
@@ -7405,7 +7412,7 @@ class QuoteConditionPtr(QuoteCondition):
     def __init__(self, this):
         _swig_setattr(self, QuoteCondition, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteCondition, 'thisown', 0)
-        self.__class__ = QuoteCondition
+        _swig_setattr(self, QuoteCondition,self.__class__,QuoteCondition)
 _quickfix.QuoteCondition_swigregister(QuoteConditionPtr)
 
 class TradeCondition(StringField):
@@ -7430,7 +7437,7 @@ class TradeConditionPtr(TradeCondition):
     def __init__(self, this):
         _swig_setattr(self, TradeCondition, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeCondition, 'thisown', 0)
-        self.__class__ = TradeCondition
+        _swig_setattr(self, TradeCondition,self.__class__,TradeCondition)
 _quickfix.TradeCondition_swigregister(TradeConditionPtr)
 
 class MDEntryID(StringField):
@@ -7455,7 +7462,7 @@ class MDEntryIDPtr(MDEntryID):
     def __init__(self, this):
         _swig_setattr(self, MDEntryID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryID, 'thisown', 0)
-        self.__class__ = MDEntryID
+        _swig_setattr(self, MDEntryID,self.__class__,MDEntryID)
 _quickfix.MDEntryID_swigregister(MDEntryIDPtr)
 
 class MDUpdateAction(CharField):
@@ -7480,7 +7487,7 @@ class MDUpdateActionPtr(MDUpdateAction):
     def __init__(self, this):
         _swig_setattr(self, MDUpdateAction, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDUpdateAction, 'thisown', 0)
-        self.__class__ = MDUpdateAction
+        _swig_setattr(self, MDUpdateAction,self.__class__,MDUpdateAction)
 _quickfix.MDUpdateAction_swigregister(MDUpdateActionPtr)
 
 class MDEntryRefID(StringField):
@@ -7505,7 +7512,7 @@ class MDEntryRefIDPtr(MDEntryRefID):
     def __init__(self, this):
         _swig_setattr(self, MDEntryRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryRefID, 'thisown', 0)
-        self.__class__ = MDEntryRefID
+        _swig_setattr(self, MDEntryRefID,self.__class__,MDEntryRefID)
 _quickfix.MDEntryRefID_swigregister(MDEntryRefIDPtr)
 
 class MDReqRejReason(CharField):
@@ -7530,7 +7537,7 @@ class MDReqRejReasonPtr(MDReqRejReason):
     def __init__(self, this):
         _swig_setattr(self, MDReqRejReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDReqRejReason, 'thisown', 0)
-        self.__class__ = MDReqRejReason
+        _swig_setattr(self, MDReqRejReason,self.__class__,MDReqRejReason)
 _quickfix.MDReqRejReason_swigregister(MDReqRejReasonPtr)
 
 class MDEntryOriginator(StringField):
@@ -7555,7 +7562,7 @@ class MDEntryOriginatorPtr(MDEntryOriginator):
     def __init__(self, this):
         _swig_setattr(self, MDEntryOriginator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryOriginator, 'thisown', 0)
-        self.__class__ = MDEntryOriginator
+        _swig_setattr(self, MDEntryOriginator,self.__class__,MDEntryOriginator)
 _quickfix.MDEntryOriginator_swigregister(MDEntryOriginatorPtr)
 
 class LocationID(StringField):
@@ -7580,7 +7587,7 @@ class LocationIDPtr(LocationID):
     def __init__(self, this):
         _swig_setattr(self, LocationID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LocationID, 'thisown', 0)
-        self.__class__ = LocationID
+        _swig_setattr(self, LocationID,self.__class__,LocationID)
 _quickfix.LocationID_swigregister(LocationIDPtr)
 
 class DeskID(StringField):
@@ -7605,7 +7612,7 @@ class DeskIDPtr(DeskID):
     def __init__(self, this):
         _swig_setattr(self, DeskID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeskID, 'thisown', 0)
-        self.__class__ = DeskID
+        _swig_setattr(self, DeskID,self.__class__,DeskID)
 _quickfix.DeskID_swigregister(DeskIDPtr)
 
 class DeleteReason(CharField):
@@ -7630,7 +7637,7 @@ class DeleteReasonPtr(DeleteReason):
     def __init__(self, this):
         _swig_setattr(self, DeleteReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeleteReason, 'thisown', 0)
-        self.__class__ = DeleteReason
+        _swig_setattr(self, DeleteReason,self.__class__,DeleteReason)
 _quickfix.DeleteReason_swigregister(DeleteReasonPtr)
 
 class OpenCloseSettlFlag(StringField):
@@ -7655,7 +7662,7 @@ class OpenCloseSettlFlagPtr(OpenCloseSettlFlag):
     def __init__(self, this):
         _swig_setattr(self, OpenCloseSettlFlag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OpenCloseSettlFlag, 'thisown', 0)
-        self.__class__ = OpenCloseSettlFlag
+        _swig_setattr(self, OpenCloseSettlFlag,self.__class__,OpenCloseSettlFlag)
 _quickfix.OpenCloseSettlFlag_swigregister(OpenCloseSettlFlagPtr)
 
 class SellerDays(IntField):
@@ -7680,7 +7687,7 @@ class SellerDaysPtr(SellerDays):
     def __init__(self, this):
         _swig_setattr(self, SellerDays, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SellerDays, 'thisown', 0)
-        self.__class__ = SellerDays
+        _swig_setattr(self, SellerDays,self.__class__,SellerDays)
 _quickfix.SellerDays_swigregister(SellerDaysPtr)
 
 class MDEntryBuyer(StringField):
@@ -7705,7 +7712,7 @@ class MDEntryBuyerPtr(MDEntryBuyer):
     def __init__(self, this):
         _swig_setattr(self, MDEntryBuyer, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryBuyer, 'thisown', 0)
-        self.__class__ = MDEntryBuyer
+        _swig_setattr(self, MDEntryBuyer,self.__class__,MDEntryBuyer)
 _quickfix.MDEntryBuyer_swigregister(MDEntryBuyerPtr)
 
 class MDEntrySeller(StringField):
@@ -7730,7 +7737,7 @@ class MDEntrySellerPtr(MDEntrySeller):
     def __init__(self, this):
         _swig_setattr(self, MDEntrySeller, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntrySeller, 'thisown', 0)
-        self.__class__ = MDEntrySeller
+        _swig_setattr(self, MDEntrySeller,self.__class__,MDEntrySeller)
 _quickfix.MDEntrySeller_swigregister(MDEntrySellerPtr)
 
 class MDEntryPositionNo(IntField):
@@ -7755,7 +7762,7 @@ class MDEntryPositionNoPtr(MDEntryPositionNo):
     def __init__(self, this):
         _swig_setattr(self, MDEntryPositionNo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDEntryPositionNo, 'thisown', 0)
-        self.__class__ = MDEntryPositionNo
+        _swig_setattr(self, MDEntryPositionNo,self.__class__,MDEntryPositionNo)
 _quickfix.MDEntryPositionNo_swigregister(MDEntryPositionNoPtr)
 
 class FinancialStatus(StringField):
@@ -7780,7 +7787,7 @@ class FinancialStatusPtr(FinancialStatus):
     def __init__(self, this):
         _swig_setattr(self, FinancialStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FinancialStatus, 'thisown', 0)
-        self.__class__ = FinancialStatus
+        _swig_setattr(self, FinancialStatus,self.__class__,FinancialStatus)
 _quickfix.FinancialStatus_swigregister(FinancialStatusPtr)
 
 class CorporateAction(StringField):
@@ -7805,7 +7812,7 @@ class CorporateActionPtr(CorporateAction):
     def __init__(self, this):
         _swig_setattr(self, CorporateAction, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CorporateAction, 'thisown', 0)
-        self.__class__ = CorporateAction
+        _swig_setattr(self, CorporateAction,self.__class__,CorporateAction)
 _quickfix.CorporateAction_swigregister(CorporateActionPtr)
 
 class DefBidSize(DoubleField):
@@ -7830,7 +7837,7 @@ class DefBidSizePtr(DefBidSize):
     def __init__(self, this):
         _swig_setattr(self, DefBidSize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DefBidSize, 'thisown', 0)
-        self.__class__ = DefBidSize
+        _swig_setattr(self, DefBidSize,self.__class__,DefBidSize)
 _quickfix.DefBidSize_swigregister(DefBidSizePtr)
 
 class DefOfferSize(DoubleField):
@@ -7855,7 +7862,7 @@ class DefOfferSizePtr(DefOfferSize):
     def __init__(self, this):
         _swig_setattr(self, DefOfferSize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DefOfferSize, 'thisown', 0)
-        self.__class__ = DefOfferSize
+        _swig_setattr(self, DefOfferSize,self.__class__,DefOfferSize)
 _quickfix.DefOfferSize_swigregister(DefOfferSizePtr)
 
 class NoQuoteEntries(IntField):
@@ -7880,7 +7887,7 @@ class NoQuoteEntriesPtr(NoQuoteEntries):
     def __init__(self, this):
         _swig_setattr(self, NoQuoteEntries, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoQuoteEntries, 'thisown', 0)
-        self.__class__ = NoQuoteEntries
+        _swig_setattr(self, NoQuoteEntries,self.__class__,NoQuoteEntries)
 _quickfix.NoQuoteEntries_swigregister(NoQuoteEntriesPtr)
 
 class NoQuoteSets(IntField):
@@ -7905,7 +7912,7 @@ class NoQuoteSetsPtr(NoQuoteSets):
     def __init__(self, this):
         _swig_setattr(self, NoQuoteSets, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoQuoteSets, 'thisown', 0)
-        self.__class__ = NoQuoteSets
+        _swig_setattr(self, NoQuoteSets,self.__class__,NoQuoteSets)
 _quickfix.NoQuoteSets_swigregister(NoQuoteSetsPtr)
 
 class QuoteStatus(IntField):
@@ -7930,7 +7937,7 @@ class QuoteStatusPtr(QuoteStatus):
     def __init__(self, this):
         _swig_setattr(self, QuoteStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteStatus, 'thisown', 0)
-        self.__class__ = QuoteStatus
+        _swig_setattr(self, QuoteStatus,self.__class__,QuoteStatus)
 _quickfix.QuoteStatus_swigregister(QuoteStatusPtr)
 
 class QuoteCancelType(IntField):
@@ -7955,7 +7962,7 @@ class QuoteCancelTypePtr(QuoteCancelType):
     def __init__(self, this):
         _swig_setattr(self, QuoteCancelType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteCancelType, 'thisown', 0)
-        self.__class__ = QuoteCancelType
+        _swig_setattr(self, QuoteCancelType,self.__class__,QuoteCancelType)
 _quickfix.QuoteCancelType_swigregister(QuoteCancelTypePtr)
 
 class QuoteEntryID(StringField):
@@ -7980,7 +7987,7 @@ class QuoteEntryIDPtr(QuoteEntryID):
     def __init__(self, this):
         _swig_setattr(self, QuoteEntryID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteEntryID, 'thisown', 0)
-        self.__class__ = QuoteEntryID
+        _swig_setattr(self, QuoteEntryID,self.__class__,QuoteEntryID)
 _quickfix.QuoteEntryID_swigregister(QuoteEntryIDPtr)
 
 class QuoteRejectReason(IntField):
@@ -8005,7 +8012,7 @@ class QuoteRejectReasonPtr(QuoteRejectReason):
     def __init__(self, this):
         _swig_setattr(self, QuoteRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteRejectReason, 'thisown', 0)
-        self.__class__ = QuoteRejectReason
+        _swig_setattr(self, QuoteRejectReason,self.__class__,QuoteRejectReason)
 _quickfix.QuoteRejectReason_swigregister(QuoteRejectReasonPtr)
 
 class QuoteResponseLevel(IntField):
@@ -8030,7 +8037,7 @@ class QuoteResponseLevelPtr(QuoteResponseLevel):
     def __init__(self, this):
         _swig_setattr(self, QuoteResponseLevel, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteResponseLevel, 'thisown', 0)
-        self.__class__ = QuoteResponseLevel
+        _swig_setattr(self, QuoteResponseLevel,self.__class__,QuoteResponseLevel)
 _quickfix.QuoteResponseLevel_swigregister(QuoteResponseLevelPtr)
 
 class QuoteSetID(StringField):
@@ -8055,7 +8062,7 @@ class QuoteSetIDPtr(QuoteSetID):
     def __init__(self, this):
         _swig_setattr(self, QuoteSetID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteSetID, 'thisown', 0)
-        self.__class__ = QuoteSetID
+        _swig_setattr(self, QuoteSetID,self.__class__,QuoteSetID)
 _quickfix.QuoteSetID_swigregister(QuoteSetIDPtr)
 
 class QuoteRequestType(IntField):
@@ -8080,7 +8087,7 @@ class QuoteRequestTypePtr(QuoteRequestType):
     def __init__(self, this):
         _swig_setattr(self, QuoteRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteRequestType, 'thisown', 0)
-        self.__class__ = QuoteRequestType
+        _swig_setattr(self, QuoteRequestType,self.__class__,QuoteRequestType)
 _quickfix.QuoteRequestType_swigregister(QuoteRequestTypePtr)
 
 class TotNoQuoteEntries(IntField):
@@ -8105,7 +8112,7 @@ class TotNoQuoteEntriesPtr(TotNoQuoteEntries):
     def __init__(self, this):
         _swig_setattr(self, TotNoQuoteEntries, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNoQuoteEntries, 'thisown', 0)
-        self.__class__ = TotNoQuoteEntries
+        _swig_setattr(self, TotNoQuoteEntries,self.__class__,TotNoQuoteEntries)
 _quickfix.TotNoQuoteEntries_swigregister(TotNoQuoteEntriesPtr)
 
 class UnderlyingSecurityIDSource(StringField):
@@ -8130,7 +8137,7 @@ class UnderlyingSecurityIDSourcePtr(UnderlyingSecurityIDSource):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecurityIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecurityIDSource, 'thisown', 0)
-        self.__class__ = UnderlyingSecurityIDSource
+        _swig_setattr(self, UnderlyingSecurityIDSource,self.__class__,UnderlyingSecurityIDSource)
 _quickfix.UnderlyingSecurityIDSource_swigregister(UnderlyingSecurityIDSourcePtr)
 
 class UnderlyingIssuer(StringField):
@@ -8155,7 +8162,7 @@ class UnderlyingIssuerPtr(UnderlyingIssuer):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingIssuer, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingIssuer, 'thisown', 0)
-        self.__class__ = UnderlyingIssuer
+        _swig_setattr(self, UnderlyingIssuer,self.__class__,UnderlyingIssuer)
 _quickfix.UnderlyingIssuer_swigregister(UnderlyingIssuerPtr)
 
 class UnderlyingSecurityDesc(StringField):
@@ -8180,7 +8187,7 @@ class UnderlyingSecurityDescPtr(UnderlyingSecurityDesc):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecurityDesc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecurityDesc, 'thisown', 0)
-        self.__class__ = UnderlyingSecurityDesc
+        _swig_setattr(self, UnderlyingSecurityDesc,self.__class__,UnderlyingSecurityDesc)
 _quickfix.UnderlyingSecurityDesc_swigregister(UnderlyingSecurityDescPtr)
 
 class UnderlyingSecurityExchange(StringField):
@@ -8205,7 +8212,7 @@ class UnderlyingSecurityExchangePtr(UnderlyingSecurityExchange):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecurityExchange, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecurityExchange, 'thisown', 0)
-        self.__class__ = UnderlyingSecurityExchange
+        _swig_setattr(self, UnderlyingSecurityExchange,self.__class__,UnderlyingSecurityExchange)
 _quickfix.UnderlyingSecurityExchange_swigregister(UnderlyingSecurityExchangePtr)
 
 class UnderlyingSecurityID(StringField):
@@ -8230,7 +8237,7 @@ class UnderlyingSecurityIDPtr(UnderlyingSecurityID):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecurityID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecurityID, 'thisown', 0)
-        self.__class__ = UnderlyingSecurityID
+        _swig_setattr(self, UnderlyingSecurityID,self.__class__,UnderlyingSecurityID)
 _quickfix.UnderlyingSecurityID_swigregister(UnderlyingSecurityIDPtr)
 
 class UnderlyingSecurityType(StringField):
@@ -8255,7 +8262,7 @@ class UnderlyingSecurityTypePtr(UnderlyingSecurityType):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecurityType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecurityType, 'thisown', 0)
-        self.__class__ = UnderlyingSecurityType
+        _swig_setattr(self, UnderlyingSecurityType,self.__class__,UnderlyingSecurityType)
 _quickfix.UnderlyingSecurityType_swigregister(UnderlyingSecurityTypePtr)
 
 class UnderlyingSymbol(StringField):
@@ -8280,7 +8287,7 @@ class UnderlyingSymbolPtr(UnderlyingSymbol):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSymbol, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSymbol, 'thisown', 0)
-        self.__class__ = UnderlyingSymbol
+        _swig_setattr(self, UnderlyingSymbol,self.__class__,UnderlyingSymbol)
 _quickfix.UnderlyingSymbol_swigregister(UnderlyingSymbolPtr)
 
 class UnderlyingSymbolSfx(StringField):
@@ -8305,7 +8312,7 @@ class UnderlyingSymbolSfxPtr(UnderlyingSymbolSfx):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSymbolSfx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSymbolSfx, 'thisown', 0)
-        self.__class__ = UnderlyingSymbolSfx
+        _swig_setattr(self, UnderlyingSymbolSfx,self.__class__,UnderlyingSymbolSfx)
 _quickfix.UnderlyingSymbolSfx_swigregister(UnderlyingSymbolSfxPtr)
 
 class UnderlyingMaturityMonthYear(StringField):
@@ -8330,7 +8337,7 @@ class UnderlyingMaturityMonthYearPtr(UnderlyingMaturityMonthYear):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingMaturityMonthYear, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingMaturityMonthYear, 'thisown', 0)
-        self.__class__ = UnderlyingMaturityMonthYear
+        _swig_setattr(self, UnderlyingMaturityMonthYear,self.__class__,UnderlyingMaturityMonthYear)
 _quickfix.UnderlyingMaturityMonthYear_swigregister(UnderlyingMaturityMonthYearPtr)
 
 class UnderlyingStrikePrice(DoubleField):
@@ -8355,7 +8362,7 @@ class UnderlyingStrikePricePtr(UnderlyingStrikePrice):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingStrikePrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingStrikePrice, 'thisown', 0)
-        self.__class__ = UnderlyingStrikePrice
+        _swig_setattr(self, UnderlyingStrikePrice,self.__class__,UnderlyingStrikePrice)
 _quickfix.UnderlyingStrikePrice_swigregister(UnderlyingStrikePricePtr)
 
 class UnderlyingOptAttribute(CharField):
@@ -8380,7 +8387,7 @@ class UnderlyingOptAttributePtr(UnderlyingOptAttribute):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingOptAttribute, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingOptAttribute, 'thisown', 0)
-        self.__class__ = UnderlyingOptAttribute
+        _swig_setattr(self, UnderlyingOptAttribute,self.__class__,UnderlyingOptAttribute)
 _quickfix.UnderlyingOptAttribute_swigregister(UnderlyingOptAttributePtr)
 
 class UnderlyingCurrency(StringField):
@@ -8405,7 +8412,7 @@ class UnderlyingCurrencyPtr(UnderlyingCurrency):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCurrency, 'thisown', 0)
-        self.__class__ = UnderlyingCurrency
+        _swig_setattr(self, UnderlyingCurrency,self.__class__,UnderlyingCurrency)
 _quickfix.UnderlyingCurrency_swigregister(UnderlyingCurrencyPtr)
 
 class SecurityReqID(StringField):
@@ -8430,7 +8437,7 @@ class SecurityReqIDPtr(SecurityReqID):
     def __init__(self, this):
         _swig_setattr(self, SecurityReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityReqID, 'thisown', 0)
-        self.__class__ = SecurityReqID
+        _swig_setattr(self, SecurityReqID,self.__class__,SecurityReqID)
 _quickfix.SecurityReqID_swigregister(SecurityReqIDPtr)
 
 class SecurityRequestType(IntField):
@@ -8455,7 +8462,7 @@ class SecurityRequestTypePtr(SecurityRequestType):
     def __init__(self, this):
         _swig_setattr(self, SecurityRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityRequestType, 'thisown', 0)
-        self.__class__ = SecurityRequestType
+        _swig_setattr(self, SecurityRequestType,self.__class__,SecurityRequestType)
 _quickfix.SecurityRequestType_swigregister(SecurityRequestTypePtr)
 
 class SecurityResponseID(StringField):
@@ -8480,7 +8487,7 @@ class SecurityResponseIDPtr(SecurityResponseID):
     def __init__(self, this):
         _swig_setattr(self, SecurityResponseID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityResponseID, 'thisown', 0)
-        self.__class__ = SecurityResponseID
+        _swig_setattr(self, SecurityResponseID,self.__class__,SecurityResponseID)
 _quickfix.SecurityResponseID_swigregister(SecurityResponseIDPtr)
 
 class SecurityResponseType(IntField):
@@ -8505,7 +8512,7 @@ class SecurityResponseTypePtr(SecurityResponseType):
     def __init__(self, this):
         _swig_setattr(self, SecurityResponseType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityResponseType, 'thisown', 0)
-        self.__class__ = SecurityResponseType
+        _swig_setattr(self, SecurityResponseType,self.__class__,SecurityResponseType)
 _quickfix.SecurityResponseType_swigregister(SecurityResponseTypePtr)
 
 class SecurityStatusReqID(StringField):
@@ -8530,7 +8537,7 @@ class SecurityStatusReqIDPtr(SecurityStatusReqID):
     def __init__(self, this):
         _swig_setattr(self, SecurityStatusReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityStatusReqID, 'thisown', 0)
-        self.__class__ = SecurityStatusReqID
+        _swig_setattr(self, SecurityStatusReqID,self.__class__,SecurityStatusReqID)
 _quickfix.SecurityStatusReqID_swigregister(SecurityStatusReqIDPtr)
 
 class UnsolicitedIndicator(BoolField):
@@ -8555,7 +8562,7 @@ class UnsolicitedIndicatorPtr(UnsolicitedIndicator):
     def __init__(self, this):
         _swig_setattr(self, UnsolicitedIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnsolicitedIndicator, 'thisown', 0)
-        self.__class__ = UnsolicitedIndicator
+        _swig_setattr(self, UnsolicitedIndicator,self.__class__,UnsolicitedIndicator)
 _quickfix.UnsolicitedIndicator_swigregister(UnsolicitedIndicatorPtr)
 
 class SecurityTradingStatus(IntField):
@@ -8580,7 +8587,7 @@ class SecurityTradingStatusPtr(SecurityTradingStatus):
     def __init__(self, this):
         _swig_setattr(self, SecurityTradingStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityTradingStatus, 'thisown', 0)
-        self.__class__ = SecurityTradingStatus
+        _swig_setattr(self, SecurityTradingStatus,self.__class__,SecurityTradingStatus)
 _quickfix.SecurityTradingStatus_swigregister(SecurityTradingStatusPtr)
 
 class HaltReason(CharField):
@@ -8605,7 +8612,7 @@ class HaltReasonPtr(HaltReason):
     def __init__(self, this):
         _swig_setattr(self, HaltReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, HaltReason, 'thisown', 0)
-        self.__class__ = HaltReason
+        _swig_setattr(self, HaltReason,self.__class__,HaltReason)
 _quickfix.HaltReason_swigregister(HaltReasonPtr)
 
 class InViewOfCommon(BoolField):
@@ -8630,7 +8637,7 @@ class InViewOfCommonPtr(InViewOfCommon):
     def __init__(self, this):
         _swig_setattr(self, InViewOfCommon, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InViewOfCommon, 'thisown', 0)
-        self.__class__ = InViewOfCommon
+        _swig_setattr(self, InViewOfCommon,self.__class__,InViewOfCommon)
 _quickfix.InViewOfCommon_swigregister(InViewOfCommonPtr)
 
 class DueToRelated(BoolField):
@@ -8655,7 +8662,7 @@ class DueToRelatedPtr(DueToRelated):
     def __init__(self, this):
         _swig_setattr(self, DueToRelated, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DueToRelated, 'thisown', 0)
-        self.__class__ = DueToRelated
+        _swig_setattr(self, DueToRelated,self.__class__,DueToRelated)
 _quickfix.DueToRelated_swigregister(DueToRelatedPtr)
 
 class BuyVolume(DoubleField):
@@ -8680,7 +8687,7 @@ class BuyVolumePtr(BuyVolume):
     def __init__(self, this):
         _swig_setattr(self, BuyVolume, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BuyVolume, 'thisown', 0)
-        self.__class__ = BuyVolume
+        _swig_setattr(self, BuyVolume,self.__class__,BuyVolume)
 _quickfix.BuyVolume_swigregister(BuyVolumePtr)
 
 class SellVolume(DoubleField):
@@ -8705,7 +8712,7 @@ class SellVolumePtr(SellVolume):
     def __init__(self, this):
         _swig_setattr(self, SellVolume, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SellVolume, 'thisown', 0)
-        self.__class__ = SellVolume
+        _swig_setattr(self, SellVolume,self.__class__,SellVolume)
 _quickfix.SellVolume_swigregister(SellVolumePtr)
 
 class HighPx(DoubleField):
@@ -8730,7 +8737,7 @@ class HighPxPtr(HighPx):
     def __init__(self, this):
         _swig_setattr(self, HighPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, HighPx, 'thisown', 0)
-        self.__class__ = HighPx
+        _swig_setattr(self, HighPx,self.__class__,HighPx)
 _quickfix.HighPx_swigregister(HighPxPtr)
 
 class LowPx(DoubleField):
@@ -8755,7 +8762,7 @@ class LowPxPtr(LowPx):
     def __init__(self, this):
         _swig_setattr(self, LowPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LowPx, 'thisown', 0)
-        self.__class__ = LowPx
+        _swig_setattr(self, LowPx,self.__class__,LowPx)
 _quickfix.LowPx_swigregister(LowPxPtr)
 
 class Adjustment(IntField):
@@ -8780,7 +8787,7 @@ class AdjustmentPtr(Adjustment):
     def __init__(self, this):
         _swig_setattr(self, Adjustment, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Adjustment, 'thisown', 0)
-        self.__class__ = Adjustment
+        _swig_setattr(self, Adjustment,self.__class__,Adjustment)
 _quickfix.Adjustment_swigregister(AdjustmentPtr)
 
 class TradSesReqID(StringField):
@@ -8805,7 +8812,7 @@ class TradSesReqIDPtr(TradSesReqID):
     def __init__(self, this):
         _swig_setattr(self, TradSesReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesReqID, 'thisown', 0)
-        self.__class__ = TradSesReqID
+        _swig_setattr(self, TradSesReqID,self.__class__,TradSesReqID)
 _quickfix.TradSesReqID_swigregister(TradSesReqIDPtr)
 
 class TradingSessionID(StringField):
@@ -8830,7 +8837,7 @@ class TradingSessionIDPtr(TradingSessionID):
     def __init__(self, this):
         _swig_setattr(self, TradingSessionID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradingSessionID, 'thisown', 0)
-        self.__class__ = TradingSessionID
+        _swig_setattr(self, TradingSessionID,self.__class__,TradingSessionID)
 _quickfix.TradingSessionID_swigregister(TradingSessionIDPtr)
 
 class ContraTrader(StringField):
@@ -8855,7 +8862,7 @@ class ContraTraderPtr(ContraTrader):
     def __init__(self, this):
         _swig_setattr(self, ContraTrader, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContraTrader, 'thisown', 0)
-        self.__class__ = ContraTrader
+        _swig_setattr(self, ContraTrader,self.__class__,ContraTrader)
 _quickfix.ContraTrader_swigregister(ContraTraderPtr)
 
 class TradSesMethod(IntField):
@@ -8880,7 +8887,7 @@ class TradSesMethodPtr(TradSesMethod):
     def __init__(self, this):
         _swig_setattr(self, TradSesMethod, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesMethod, 'thisown', 0)
-        self.__class__ = TradSesMethod
+        _swig_setattr(self, TradSesMethod,self.__class__,TradSesMethod)
 _quickfix.TradSesMethod_swigregister(TradSesMethodPtr)
 
 class TradSesMode(IntField):
@@ -8905,7 +8912,7 @@ class TradSesModePtr(TradSesMode):
     def __init__(self, this):
         _swig_setattr(self, TradSesMode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesMode, 'thisown', 0)
-        self.__class__ = TradSesMode
+        _swig_setattr(self, TradSesMode,self.__class__,TradSesMode)
 _quickfix.TradSesMode_swigregister(TradSesModePtr)
 
 class TradSesStatus(IntField):
@@ -8930,7 +8937,7 @@ class TradSesStatusPtr(TradSesStatus):
     def __init__(self, this):
         _swig_setattr(self, TradSesStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesStatus, 'thisown', 0)
-        self.__class__ = TradSesStatus
+        _swig_setattr(self, TradSesStatus,self.__class__,TradSesStatus)
 _quickfix.TradSesStatus_swigregister(TradSesStatusPtr)
 
 class TradSesStartTime(UtcTimeStampField):
@@ -8955,7 +8962,7 @@ class TradSesStartTimePtr(TradSesStartTime):
     def __init__(self, this):
         _swig_setattr(self, TradSesStartTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesStartTime, 'thisown', 0)
-        self.__class__ = TradSesStartTime
+        _swig_setattr(self, TradSesStartTime,self.__class__,TradSesStartTime)
 _quickfix.TradSesStartTime_swigregister(TradSesStartTimePtr)
 
 class TradSesOpenTime(UtcTimeStampField):
@@ -8980,7 +8987,7 @@ class TradSesOpenTimePtr(TradSesOpenTime):
     def __init__(self, this):
         _swig_setattr(self, TradSesOpenTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesOpenTime, 'thisown', 0)
-        self.__class__ = TradSesOpenTime
+        _swig_setattr(self, TradSesOpenTime,self.__class__,TradSesOpenTime)
 _quickfix.TradSesOpenTime_swigregister(TradSesOpenTimePtr)
 
 class TradSesPreCloseTime(UtcTimeStampField):
@@ -9005,7 +9012,7 @@ class TradSesPreCloseTimePtr(TradSesPreCloseTime):
     def __init__(self, this):
         _swig_setattr(self, TradSesPreCloseTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesPreCloseTime, 'thisown', 0)
-        self.__class__ = TradSesPreCloseTime
+        _swig_setattr(self, TradSesPreCloseTime,self.__class__,TradSesPreCloseTime)
 _quickfix.TradSesPreCloseTime_swigregister(TradSesPreCloseTimePtr)
 
 class TradSesCloseTime(UtcTimeStampField):
@@ -9030,7 +9037,7 @@ class TradSesCloseTimePtr(TradSesCloseTime):
     def __init__(self, this):
         _swig_setattr(self, TradSesCloseTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesCloseTime, 'thisown', 0)
-        self.__class__ = TradSesCloseTime
+        _swig_setattr(self, TradSesCloseTime,self.__class__,TradSesCloseTime)
 _quickfix.TradSesCloseTime_swigregister(TradSesCloseTimePtr)
 
 class TradSesEndTime(UtcTimeStampField):
@@ -9055,7 +9062,7 @@ class TradSesEndTimePtr(TradSesEndTime):
     def __init__(self, this):
         _swig_setattr(self, TradSesEndTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesEndTime, 'thisown', 0)
-        self.__class__ = TradSesEndTime
+        _swig_setattr(self, TradSesEndTime,self.__class__,TradSesEndTime)
 _quickfix.TradSesEndTime_swigregister(TradSesEndTimePtr)
 
 class NumberOfOrders(IntField):
@@ -9080,7 +9087,7 @@ class NumberOfOrdersPtr(NumberOfOrders):
     def __init__(self, this):
         _swig_setattr(self, NumberOfOrders, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NumberOfOrders, 'thisown', 0)
-        self.__class__ = NumberOfOrders
+        _swig_setattr(self, NumberOfOrders,self.__class__,NumberOfOrders)
 _quickfix.NumberOfOrders_swigregister(NumberOfOrdersPtr)
 
 class MessageEncoding(StringField):
@@ -9105,7 +9112,7 @@ class MessageEncodingPtr(MessageEncoding):
     def __init__(self, this):
         _swig_setattr(self, MessageEncoding, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MessageEncoding, 'thisown', 0)
-        self.__class__ = MessageEncoding
+        _swig_setattr(self, MessageEncoding,self.__class__,MessageEncoding)
 _quickfix.MessageEncoding_swigregister(MessageEncodingPtr)
 
 class EncodedIssuerLen(IntField):
@@ -9130,7 +9137,7 @@ class EncodedIssuerLenPtr(EncodedIssuerLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedIssuerLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedIssuerLen, 'thisown', 0)
-        self.__class__ = EncodedIssuerLen
+        _swig_setattr(self, EncodedIssuerLen,self.__class__,EncodedIssuerLen)
 _quickfix.EncodedIssuerLen_swigregister(EncodedIssuerLenPtr)
 
 class EncodedIssuer(StringField):
@@ -9155,7 +9162,7 @@ class EncodedIssuerPtr(EncodedIssuer):
     def __init__(self, this):
         _swig_setattr(self, EncodedIssuer, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedIssuer, 'thisown', 0)
-        self.__class__ = EncodedIssuer
+        _swig_setattr(self, EncodedIssuer,self.__class__,EncodedIssuer)
 _quickfix.EncodedIssuer_swigregister(EncodedIssuerPtr)
 
 class EncodedSecurityDescLen(IntField):
@@ -9180,7 +9187,7 @@ class EncodedSecurityDescLenPtr(EncodedSecurityDescLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedSecurityDescLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedSecurityDescLen, 'thisown', 0)
-        self.__class__ = EncodedSecurityDescLen
+        _swig_setattr(self, EncodedSecurityDescLen,self.__class__,EncodedSecurityDescLen)
 _quickfix.EncodedSecurityDescLen_swigregister(EncodedSecurityDescLenPtr)
 
 class EncodedSecurityDesc(StringField):
@@ -9205,7 +9212,7 @@ class EncodedSecurityDescPtr(EncodedSecurityDesc):
     def __init__(self, this):
         _swig_setattr(self, EncodedSecurityDesc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedSecurityDesc, 'thisown', 0)
-        self.__class__ = EncodedSecurityDesc
+        _swig_setattr(self, EncodedSecurityDesc,self.__class__,EncodedSecurityDesc)
 _quickfix.EncodedSecurityDesc_swigregister(EncodedSecurityDescPtr)
 
 class EncodedListExecInstLen(IntField):
@@ -9230,7 +9237,7 @@ class EncodedListExecInstLenPtr(EncodedListExecInstLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedListExecInstLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedListExecInstLen, 'thisown', 0)
-        self.__class__ = EncodedListExecInstLen
+        _swig_setattr(self, EncodedListExecInstLen,self.__class__,EncodedListExecInstLen)
 _quickfix.EncodedListExecInstLen_swigregister(EncodedListExecInstLenPtr)
 
 class EncodedListExecInst(StringField):
@@ -9255,7 +9262,7 @@ class EncodedListExecInstPtr(EncodedListExecInst):
     def __init__(self, this):
         _swig_setattr(self, EncodedListExecInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedListExecInst, 'thisown', 0)
-        self.__class__ = EncodedListExecInst
+        _swig_setattr(self, EncodedListExecInst,self.__class__,EncodedListExecInst)
 _quickfix.EncodedListExecInst_swigregister(EncodedListExecInstPtr)
 
 class EncodedTextLen(IntField):
@@ -9280,7 +9287,7 @@ class EncodedTextLenPtr(EncodedTextLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedTextLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedTextLen, 'thisown', 0)
-        self.__class__ = EncodedTextLen
+        _swig_setattr(self, EncodedTextLen,self.__class__,EncodedTextLen)
 _quickfix.EncodedTextLen_swigregister(EncodedTextLenPtr)
 
 class EncodedText(StringField):
@@ -9305,7 +9312,7 @@ class EncodedTextPtr(EncodedText):
     def __init__(self, this):
         _swig_setattr(self, EncodedText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedText, 'thisown', 0)
-        self.__class__ = EncodedText
+        _swig_setattr(self, EncodedText,self.__class__,EncodedText)
 _quickfix.EncodedText_swigregister(EncodedTextPtr)
 
 class EncodedSubjectLen(IntField):
@@ -9330,7 +9337,7 @@ class EncodedSubjectLenPtr(EncodedSubjectLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedSubjectLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedSubjectLen, 'thisown', 0)
-        self.__class__ = EncodedSubjectLen
+        _swig_setattr(self, EncodedSubjectLen,self.__class__,EncodedSubjectLen)
 _quickfix.EncodedSubjectLen_swigregister(EncodedSubjectLenPtr)
 
 class EncodedSubject(StringField):
@@ -9355,7 +9362,7 @@ class EncodedSubjectPtr(EncodedSubject):
     def __init__(self, this):
         _swig_setattr(self, EncodedSubject, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedSubject, 'thisown', 0)
-        self.__class__ = EncodedSubject
+        _swig_setattr(self, EncodedSubject,self.__class__,EncodedSubject)
 _quickfix.EncodedSubject_swigregister(EncodedSubjectPtr)
 
 class EncodedHeadlineLen(IntField):
@@ -9380,7 +9387,7 @@ class EncodedHeadlineLenPtr(EncodedHeadlineLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedHeadlineLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedHeadlineLen, 'thisown', 0)
-        self.__class__ = EncodedHeadlineLen
+        _swig_setattr(self, EncodedHeadlineLen,self.__class__,EncodedHeadlineLen)
 _quickfix.EncodedHeadlineLen_swigregister(EncodedHeadlineLenPtr)
 
 class EncodedHeadline(StringField):
@@ -9405,7 +9412,7 @@ class EncodedHeadlinePtr(EncodedHeadline):
     def __init__(self, this):
         _swig_setattr(self, EncodedHeadline, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedHeadline, 'thisown', 0)
-        self.__class__ = EncodedHeadline
+        _swig_setattr(self, EncodedHeadline,self.__class__,EncodedHeadline)
 _quickfix.EncodedHeadline_swigregister(EncodedHeadlinePtr)
 
 class EncodedAllocTextLen(IntField):
@@ -9430,7 +9437,7 @@ class EncodedAllocTextLenPtr(EncodedAllocTextLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedAllocTextLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedAllocTextLen, 'thisown', 0)
-        self.__class__ = EncodedAllocTextLen
+        _swig_setattr(self, EncodedAllocTextLen,self.__class__,EncodedAllocTextLen)
 _quickfix.EncodedAllocTextLen_swigregister(EncodedAllocTextLenPtr)
 
 class EncodedAllocText(StringField):
@@ -9455,7 +9462,7 @@ class EncodedAllocTextPtr(EncodedAllocText):
     def __init__(self, this):
         _swig_setattr(self, EncodedAllocText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedAllocText, 'thisown', 0)
-        self.__class__ = EncodedAllocText
+        _swig_setattr(self, EncodedAllocText,self.__class__,EncodedAllocText)
 _quickfix.EncodedAllocText_swigregister(EncodedAllocTextPtr)
 
 class EncodedUnderlyingIssuerLen(IntField):
@@ -9480,7 +9487,7 @@ class EncodedUnderlyingIssuerLenPtr(EncodedUnderlyingIssuerLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedUnderlyingIssuerLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedUnderlyingIssuerLen, 'thisown', 0)
-        self.__class__ = EncodedUnderlyingIssuerLen
+        _swig_setattr(self, EncodedUnderlyingIssuerLen,self.__class__,EncodedUnderlyingIssuerLen)
 _quickfix.EncodedUnderlyingIssuerLen_swigregister(EncodedUnderlyingIssuerLenPtr)
 
 class EncodedUnderlyingIssuer(StringField):
@@ -9505,7 +9512,7 @@ class EncodedUnderlyingIssuerPtr(EncodedUnderlyingIssuer):
     def __init__(self, this):
         _swig_setattr(self, EncodedUnderlyingIssuer, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedUnderlyingIssuer, 'thisown', 0)
-        self.__class__ = EncodedUnderlyingIssuer
+        _swig_setattr(self, EncodedUnderlyingIssuer,self.__class__,EncodedUnderlyingIssuer)
 _quickfix.EncodedUnderlyingIssuer_swigregister(EncodedUnderlyingIssuerPtr)
 
 class EncodedUnderlyingSecurityDescLen(IntField):
@@ -9530,7 +9537,7 @@ class EncodedUnderlyingSecurityDescLenPtr(EncodedUnderlyingSecurityDescLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedUnderlyingSecurityDescLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedUnderlyingSecurityDescLen, 'thisown', 0)
-        self.__class__ = EncodedUnderlyingSecurityDescLen
+        _swig_setattr(self, EncodedUnderlyingSecurityDescLen,self.__class__,EncodedUnderlyingSecurityDescLen)
 _quickfix.EncodedUnderlyingSecurityDescLen_swigregister(EncodedUnderlyingSecurityDescLenPtr)
 
 class EncodedUnderlyingSecurityDesc(StringField):
@@ -9555,7 +9562,7 @@ class EncodedUnderlyingSecurityDescPtr(EncodedUnderlyingSecurityDesc):
     def __init__(self, this):
         _swig_setattr(self, EncodedUnderlyingSecurityDesc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedUnderlyingSecurityDesc, 'thisown', 0)
-        self.__class__ = EncodedUnderlyingSecurityDesc
+        _swig_setattr(self, EncodedUnderlyingSecurityDesc,self.__class__,EncodedUnderlyingSecurityDesc)
 _quickfix.EncodedUnderlyingSecurityDesc_swigregister(EncodedUnderlyingSecurityDescPtr)
 
 class AllocPrice(DoubleField):
@@ -9580,7 +9587,7 @@ class AllocPricePtr(AllocPrice):
     def __init__(self, this):
         _swig_setattr(self, AllocPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocPrice, 'thisown', 0)
-        self.__class__ = AllocPrice
+        _swig_setattr(self, AllocPrice,self.__class__,AllocPrice)
 _quickfix.AllocPrice_swigregister(AllocPricePtr)
 
 class QuoteSetValidUntilTime(UtcTimeStampField):
@@ -9605,7 +9612,7 @@ class QuoteSetValidUntilTimePtr(QuoteSetValidUntilTime):
     def __init__(self, this):
         _swig_setattr(self, QuoteSetValidUntilTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteSetValidUntilTime, 'thisown', 0)
-        self.__class__ = QuoteSetValidUntilTime
+        _swig_setattr(self, QuoteSetValidUntilTime,self.__class__,QuoteSetValidUntilTime)
 _quickfix.QuoteSetValidUntilTime_swigregister(QuoteSetValidUntilTimePtr)
 
 class QuoteEntryRejectReason(IntField):
@@ -9630,7 +9637,7 @@ class QuoteEntryRejectReasonPtr(QuoteEntryRejectReason):
     def __init__(self, this):
         _swig_setattr(self, QuoteEntryRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteEntryRejectReason, 'thisown', 0)
-        self.__class__ = QuoteEntryRejectReason
+        _swig_setattr(self, QuoteEntryRejectReason,self.__class__,QuoteEntryRejectReason)
 _quickfix.QuoteEntryRejectReason_swigregister(QuoteEntryRejectReasonPtr)
 
 class LastMsgSeqNumProcessed(IntField):
@@ -9655,7 +9662,7 @@ class LastMsgSeqNumProcessedPtr(LastMsgSeqNumProcessed):
     def __init__(self, this):
         _swig_setattr(self, LastMsgSeqNumProcessed, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastMsgSeqNumProcessed, 'thisown', 0)
-        self.__class__ = LastMsgSeqNumProcessed
+        _swig_setattr(self, LastMsgSeqNumProcessed,self.__class__,LastMsgSeqNumProcessed)
 _quickfix.LastMsgSeqNumProcessed_swigregister(LastMsgSeqNumProcessedPtr)
 
 class RefTagID(IntField):
@@ -9680,7 +9687,7 @@ class RefTagIDPtr(RefTagID):
     def __init__(self, this):
         _swig_setattr(self, RefTagID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RefTagID, 'thisown', 0)
-        self.__class__ = RefTagID
+        _swig_setattr(self, RefTagID,self.__class__,RefTagID)
 _quickfix.RefTagID_swigregister(RefTagIDPtr)
 
 class RefMsgType(StringField):
@@ -9705,7 +9712,7 @@ class RefMsgTypePtr(RefMsgType):
     def __init__(self, this):
         _swig_setattr(self, RefMsgType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RefMsgType, 'thisown', 0)
-        self.__class__ = RefMsgType
+        _swig_setattr(self, RefMsgType,self.__class__,RefMsgType)
 _quickfix.RefMsgType_swigregister(RefMsgTypePtr)
 
 class SessionRejectReason(IntField):
@@ -9730,7 +9737,7 @@ class SessionRejectReasonPtr(SessionRejectReason):
     def __init__(self, this):
         _swig_setattr(self, SessionRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SessionRejectReason, 'thisown', 0)
-        self.__class__ = SessionRejectReason
+        _swig_setattr(self, SessionRejectReason,self.__class__,SessionRejectReason)
 _quickfix.SessionRejectReason_swigregister(SessionRejectReasonPtr)
 
 class BidRequestTransType(CharField):
@@ -9755,7 +9762,7 @@ class BidRequestTransTypePtr(BidRequestTransType):
     def __init__(self, this):
         _swig_setattr(self, BidRequestTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidRequestTransType, 'thisown', 0)
-        self.__class__ = BidRequestTransType
+        _swig_setattr(self, BidRequestTransType,self.__class__,BidRequestTransType)
 _quickfix.BidRequestTransType_swigregister(BidRequestTransTypePtr)
 
 class ContraBroker(StringField):
@@ -9780,7 +9787,7 @@ class ContraBrokerPtr(ContraBroker):
     def __init__(self, this):
         _swig_setattr(self, ContraBroker, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContraBroker, 'thisown', 0)
-        self.__class__ = ContraBroker
+        _swig_setattr(self, ContraBroker,self.__class__,ContraBroker)
 _quickfix.ContraBroker_swigregister(ContraBrokerPtr)
 
 class ComplianceID(StringField):
@@ -9805,7 +9812,7 @@ class ComplianceIDPtr(ComplianceID):
     def __init__(self, this):
         _swig_setattr(self, ComplianceID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ComplianceID, 'thisown', 0)
-        self.__class__ = ComplianceID
+        _swig_setattr(self, ComplianceID,self.__class__,ComplianceID)
 _quickfix.ComplianceID_swigregister(ComplianceIDPtr)
 
 class SolicitedFlag(BoolField):
@@ -9830,7 +9837,7 @@ class SolicitedFlagPtr(SolicitedFlag):
     def __init__(self, this):
         _swig_setattr(self, SolicitedFlag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SolicitedFlag, 'thisown', 0)
-        self.__class__ = SolicitedFlag
+        _swig_setattr(self, SolicitedFlag,self.__class__,SolicitedFlag)
 _quickfix.SolicitedFlag_swigregister(SolicitedFlagPtr)
 
 class ExecRestatementReason(IntField):
@@ -9855,7 +9862,7 @@ class ExecRestatementReasonPtr(ExecRestatementReason):
     def __init__(self, this):
         _swig_setattr(self, ExecRestatementReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecRestatementReason, 'thisown', 0)
-        self.__class__ = ExecRestatementReason
+        _swig_setattr(self, ExecRestatementReason,self.__class__,ExecRestatementReason)
 _quickfix.ExecRestatementReason_swigregister(ExecRestatementReasonPtr)
 
 class BusinessRejectRefID(StringField):
@@ -9880,7 +9887,7 @@ class BusinessRejectRefIDPtr(BusinessRejectRefID):
     def __init__(self, this):
         _swig_setattr(self, BusinessRejectRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BusinessRejectRefID, 'thisown', 0)
-        self.__class__ = BusinessRejectRefID
+        _swig_setattr(self, BusinessRejectRefID,self.__class__,BusinessRejectRefID)
 _quickfix.BusinessRejectRefID_swigregister(BusinessRejectRefIDPtr)
 
 class BusinessRejectReason(IntField):
@@ -9905,7 +9912,7 @@ class BusinessRejectReasonPtr(BusinessRejectReason):
     def __init__(self, this):
         _swig_setattr(self, BusinessRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BusinessRejectReason, 'thisown', 0)
-        self.__class__ = BusinessRejectReason
+        _swig_setattr(self, BusinessRejectReason,self.__class__,BusinessRejectReason)
 _quickfix.BusinessRejectReason_swigregister(BusinessRejectReasonPtr)
 
 class GrossTradeAmt(DoubleField):
@@ -9930,7 +9937,7 @@ class GrossTradeAmtPtr(GrossTradeAmt):
     def __init__(self, this):
         _swig_setattr(self, GrossTradeAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, GrossTradeAmt, 'thisown', 0)
-        self.__class__ = GrossTradeAmt
+        _swig_setattr(self, GrossTradeAmt,self.__class__,GrossTradeAmt)
 _quickfix.GrossTradeAmt_swigregister(GrossTradeAmtPtr)
 
 class NoContraBrokers(IntField):
@@ -9955,7 +9962,7 @@ class NoContraBrokersPtr(NoContraBrokers):
     def __init__(self, this):
         _swig_setattr(self, NoContraBrokers, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoContraBrokers, 'thisown', 0)
-        self.__class__ = NoContraBrokers
+        _swig_setattr(self, NoContraBrokers,self.__class__,NoContraBrokers)
 _quickfix.NoContraBrokers_swigregister(NoContraBrokersPtr)
 
 class MaxMessageSize(IntField):
@@ -9980,7 +9987,7 @@ class MaxMessageSizePtr(MaxMessageSize):
     def __init__(self, this):
         _swig_setattr(self, MaxMessageSize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MaxMessageSize, 'thisown', 0)
-        self.__class__ = MaxMessageSize
+        _swig_setattr(self, MaxMessageSize,self.__class__,MaxMessageSize)
 _quickfix.MaxMessageSize_swigregister(MaxMessageSizePtr)
 
 class NoMsgTypes(IntField):
@@ -10005,7 +10012,7 @@ class NoMsgTypesPtr(NoMsgTypes):
     def __init__(self, this):
         _swig_setattr(self, NoMsgTypes, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoMsgTypes, 'thisown', 0)
-        self.__class__ = NoMsgTypes
+        _swig_setattr(self, NoMsgTypes,self.__class__,NoMsgTypes)
 _quickfix.NoMsgTypes_swigregister(NoMsgTypesPtr)
 
 class MsgDirection(CharField):
@@ -10030,7 +10037,7 @@ class MsgDirectionPtr(MsgDirection):
     def __init__(self, this):
         _swig_setattr(self, MsgDirection, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MsgDirection, 'thisown', 0)
-        self.__class__ = MsgDirection
+        _swig_setattr(self, MsgDirection,self.__class__,MsgDirection)
 _quickfix.MsgDirection_swigregister(MsgDirectionPtr)
 
 class NoTradingSessions(IntField):
@@ -10055,7 +10062,7 @@ class NoTradingSessionsPtr(NoTradingSessions):
     def __init__(self, this):
         _swig_setattr(self, NoTradingSessions, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoTradingSessions, 'thisown', 0)
-        self.__class__ = NoTradingSessions
+        _swig_setattr(self, NoTradingSessions,self.__class__,NoTradingSessions)
 _quickfix.NoTradingSessions_swigregister(NoTradingSessionsPtr)
 
 class TotalVolumeTraded(DoubleField):
@@ -10080,7 +10087,7 @@ class TotalVolumeTradedPtr(TotalVolumeTraded):
     def __init__(self, this):
         _swig_setattr(self, TotalVolumeTraded, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalVolumeTraded, 'thisown', 0)
-        self.__class__ = TotalVolumeTraded
+        _swig_setattr(self, TotalVolumeTraded,self.__class__,TotalVolumeTraded)
 _quickfix.TotalVolumeTraded_swigregister(TotalVolumeTradedPtr)
 
 class DiscretionInst(CharField):
@@ -10105,7 +10112,7 @@ class DiscretionInstPtr(DiscretionInst):
     def __init__(self, this):
         _swig_setattr(self, DiscretionInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionInst, 'thisown', 0)
-        self.__class__ = DiscretionInst
+        _swig_setattr(self, DiscretionInst,self.__class__,DiscretionInst)
 _quickfix.DiscretionInst_swigregister(DiscretionInstPtr)
 
 class DiscretionOffsetValue(DoubleField):
@@ -10130,7 +10137,7 @@ class DiscretionOffsetValuePtr(DiscretionOffsetValue):
     def __init__(self, this):
         _swig_setattr(self, DiscretionOffsetValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionOffsetValue, 'thisown', 0)
-        self.__class__ = DiscretionOffsetValue
+        _swig_setattr(self, DiscretionOffsetValue,self.__class__,DiscretionOffsetValue)
 _quickfix.DiscretionOffsetValue_swigregister(DiscretionOffsetValuePtr)
 
 class BidID(StringField):
@@ -10155,7 +10162,7 @@ class BidIDPtr(BidID):
     def __init__(self, this):
         _swig_setattr(self, BidID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidID, 'thisown', 0)
-        self.__class__ = BidID
+        _swig_setattr(self, BidID,self.__class__,BidID)
 _quickfix.BidID_swigregister(BidIDPtr)
 
 class ClientBidID(StringField):
@@ -10180,7 +10187,7 @@ class ClientBidIDPtr(ClientBidID):
     def __init__(self, this):
         _swig_setattr(self, ClientBidID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClientBidID, 'thisown', 0)
-        self.__class__ = ClientBidID
+        _swig_setattr(self, ClientBidID,self.__class__,ClientBidID)
 _quickfix.ClientBidID_swigregister(ClientBidIDPtr)
 
 class ListName(StringField):
@@ -10205,7 +10212,7 @@ class ListNamePtr(ListName):
     def __init__(self, this):
         _swig_setattr(self, ListName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListName, 'thisown', 0)
-        self.__class__ = ListName
+        _swig_setattr(self, ListName,self.__class__,ListName)
 _quickfix.ListName_swigregister(ListNamePtr)
 
 class TotNoRelatedSym(IntField):
@@ -10230,7 +10237,7 @@ class TotNoRelatedSymPtr(TotNoRelatedSym):
     def __init__(self, this):
         _swig_setattr(self, TotNoRelatedSym, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNoRelatedSym, 'thisown', 0)
-        self.__class__ = TotNoRelatedSym
+        _swig_setattr(self, TotNoRelatedSym,self.__class__,TotNoRelatedSym)
 _quickfix.TotNoRelatedSym_swigregister(TotNoRelatedSymPtr)
 
 class BidType(IntField):
@@ -10255,7 +10262,7 @@ class BidTypePtr(BidType):
     def __init__(self, this):
         _swig_setattr(self, BidType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidType, 'thisown', 0)
-        self.__class__ = BidType
+        _swig_setattr(self, BidType,self.__class__,BidType)
 _quickfix.BidType_swigregister(BidTypePtr)
 
 class NumTickets(IntField):
@@ -10280,7 +10287,7 @@ class NumTicketsPtr(NumTickets):
     def __init__(self, this):
         _swig_setattr(self, NumTickets, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NumTickets, 'thisown', 0)
-        self.__class__ = NumTickets
+        _swig_setattr(self, NumTickets,self.__class__,NumTickets)
 _quickfix.NumTickets_swigregister(NumTicketsPtr)
 
 class SideValue1(DoubleField):
@@ -10305,7 +10312,7 @@ class SideValue1Ptr(SideValue1):
     def __init__(self, this):
         _swig_setattr(self, SideValue1, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SideValue1, 'thisown', 0)
-        self.__class__ = SideValue1
+        _swig_setattr(self, SideValue1,self.__class__,SideValue1)
 _quickfix.SideValue1_swigregister(SideValue1Ptr)
 
 class SideValue2(DoubleField):
@@ -10330,7 +10337,7 @@ class SideValue2Ptr(SideValue2):
     def __init__(self, this):
         _swig_setattr(self, SideValue2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SideValue2, 'thisown', 0)
-        self.__class__ = SideValue2
+        _swig_setattr(self, SideValue2,self.__class__,SideValue2)
 _quickfix.SideValue2_swigregister(SideValue2Ptr)
 
 class NoBidDescriptors(IntField):
@@ -10355,7 +10362,7 @@ class NoBidDescriptorsPtr(NoBidDescriptors):
     def __init__(self, this):
         _swig_setattr(self, NoBidDescriptors, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoBidDescriptors, 'thisown', 0)
-        self.__class__ = NoBidDescriptors
+        _swig_setattr(self, NoBidDescriptors,self.__class__,NoBidDescriptors)
 _quickfix.NoBidDescriptors_swigregister(NoBidDescriptorsPtr)
 
 class BidDescriptorType(IntField):
@@ -10380,7 +10387,7 @@ class BidDescriptorTypePtr(BidDescriptorType):
     def __init__(self, this):
         _swig_setattr(self, BidDescriptorType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidDescriptorType, 'thisown', 0)
-        self.__class__ = BidDescriptorType
+        _swig_setattr(self, BidDescriptorType,self.__class__,BidDescriptorType)
 _quickfix.BidDescriptorType_swigregister(BidDescriptorTypePtr)
 
 class BidDescriptor(StringField):
@@ -10405,7 +10412,7 @@ class BidDescriptorPtr(BidDescriptor):
     def __init__(self, this):
         _swig_setattr(self, BidDescriptor, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidDescriptor, 'thisown', 0)
-        self.__class__ = BidDescriptor
+        _swig_setattr(self, BidDescriptor,self.__class__,BidDescriptor)
 _quickfix.BidDescriptor_swigregister(BidDescriptorPtr)
 
 class SideValueInd(IntField):
@@ -10430,7 +10437,7 @@ class SideValueIndPtr(SideValueInd):
     def __init__(self, this):
         _swig_setattr(self, SideValueInd, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SideValueInd, 'thisown', 0)
-        self.__class__ = SideValueInd
+        _swig_setattr(self, SideValueInd,self.__class__,SideValueInd)
 _quickfix.SideValueInd_swigregister(SideValueIndPtr)
 
 class LiquidityPctLow(DoubleField):
@@ -10455,7 +10462,7 @@ class LiquidityPctLowPtr(LiquidityPctLow):
     def __init__(self, this):
         _swig_setattr(self, LiquidityPctLow, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LiquidityPctLow, 'thisown', 0)
-        self.__class__ = LiquidityPctLow
+        _swig_setattr(self, LiquidityPctLow,self.__class__,LiquidityPctLow)
 _quickfix.LiquidityPctLow_swigregister(LiquidityPctLowPtr)
 
 class LiquidityPctHigh(DoubleField):
@@ -10480,7 +10487,7 @@ class LiquidityPctHighPtr(LiquidityPctHigh):
     def __init__(self, this):
         _swig_setattr(self, LiquidityPctHigh, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LiquidityPctHigh, 'thisown', 0)
-        self.__class__ = LiquidityPctHigh
+        _swig_setattr(self, LiquidityPctHigh,self.__class__,LiquidityPctHigh)
 _quickfix.LiquidityPctHigh_swigregister(LiquidityPctHighPtr)
 
 class LiquidityValue(DoubleField):
@@ -10505,7 +10512,7 @@ class LiquidityValuePtr(LiquidityValue):
     def __init__(self, this):
         _swig_setattr(self, LiquidityValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LiquidityValue, 'thisown', 0)
-        self.__class__ = LiquidityValue
+        _swig_setattr(self, LiquidityValue,self.__class__,LiquidityValue)
 _quickfix.LiquidityValue_swigregister(LiquidityValuePtr)
 
 class EFPTrackingError(DoubleField):
@@ -10530,7 +10537,7 @@ class EFPTrackingErrorPtr(EFPTrackingError):
     def __init__(self, this):
         _swig_setattr(self, EFPTrackingError, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EFPTrackingError, 'thisown', 0)
-        self.__class__ = EFPTrackingError
+        _swig_setattr(self, EFPTrackingError,self.__class__,EFPTrackingError)
 _quickfix.EFPTrackingError_swigregister(EFPTrackingErrorPtr)
 
 class FairValue(DoubleField):
@@ -10555,7 +10562,7 @@ class FairValuePtr(FairValue):
     def __init__(self, this):
         _swig_setattr(self, FairValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FairValue, 'thisown', 0)
-        self.__class__ = FairValue
+        _swig_setattr(self, FairValue,self.__class__,FairValue)
 _quickfix.FairValue_swigregister(FairValuePtr)
 
 class OutsideIndexPct(DoubleField):
@@ -10580,7 +10587,7 @@ class OutsideIndexPctPtr(OutsideIndexPct):
     def __init__(self, this):
         _swig_setattr(self, OutsideIndexPct, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OutsideIndexPct, 'thisown', 0)
-        self.__class__ = OutsideIndexPct
+        _swig_setattr(self, OutsideIndexPct,self.__class__,OutsideIndexPct)
 _quickfix.OutsideIndexPct_swigregister(OutsideIndexPctPtr)
 
 class ValueOfFutures(DoubleField):
@@ -10605,7 +10612,7 @@ class ValueOfFuturesPtr(ValueOfFutures):
     def __init__(self, this):
         _swig_setattr(self, ValueOfFutures, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ValueOfFutures, 'thisown', 0)
-        self.__class__ = ValueOfFutures
+        _swig_setattr(self, ValueOfFutures,self.__class__,ValueOfFutures)
 _quickfix.ValueOfFutures_swigregister(ValueOfFuturesPtr)
 
 class LiquidityIndType(IntField):
@@ -10630,7 +10637,7 @@ class LiquidityIndTypePtr(LiquidityIndType):
     def __init__(self, this):
         _swig_setattr(self, LiquidityIndType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LiquidityIndType, 'thisown', 0)
-        self.__class__ = LiquidityIndType
+        _swig_setattr(self, LiquidityIndType,self.__class__,LiquidityIndType)
 _quickfix.LiquidityIndType_swigregister(LiquidityIndTypePtr)
 
 class WtAverageLiquidity(DoubleField):
@@ -10655,7 +10662,7 @@ class WtAverageLiquidityPtr(WtAverageLiquidity):
     def __init__(self, this):
         _swig_setattr(self, WtAverageLiquidity, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, WtAverageLiquidity, 'thisown', 0)
-        self.__class__ = WtAverageLiquidity
+        _swig_setattr(self, WtAverageLiquidity,self.__class__,WtAverageLiquidity)
 _quickfix.WtAverageLiquidity_swigregister(WtAverageLiquidityPtr)
 
 class ExchangeForPhysical(BoolField):
@@ -10680,7 +10687,7 @@ class ExchangeForPhysicalPtr(ExchangeForPhysical):
     def __init__(self, this):
         _swig_setattr(self, ExchangeForPhysical, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExchangeForPhysical, 'thisown', 0)
-        self.__class__ = ExchangeForPhysical
+        _swig_setattr(self, ExchangeForPhysical,self.__class__,ExchangeForPhysical)
 _quickfix.ExchangeForPhysical_swigregister(ExchangeForPhysicalPtr)
 
 class OutMainCntryUIndex(DoubleField):
@@ -10705,7 +10712,7 @@ class OutMainCntryUIndexPtr(OutMainCntryUIndex):
     def __init__(self, this):
         _swig_setattr(self, OutMainCntryUIndex, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OutMainCntryUIndex, 'thisown', 0)
-        self.__class__ = OutMainCntryUIndex
+        _swig_setattr(self, OutMainCntryUIndex,self.__class__,OutMainCntryUIndex)
 _quickfix.OutMainCntryUIndex_swigregister(OutMainCntryUIndexPtr)
 
 class CrossPercent(DoubleField):
@@ -10730,7 +10737,7 @@ class CrossPercentPtr(CrossPercent):
     def __init__(self, this):
         _swig_setattr(self, CrossPercent, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CrossPercent, 'thisown', 0)
-        self.__class__ = CrossPercent
+        _swig_setattr(self, CrossPercent,self.__class__,CrossPercent)
 _quickfix.CrossPercent_swigregister(CrossPercentPtr)
 
 class ProgRptReqs(IntField):
@@ -10755,7 +10762,7 @@ class ProgRptReqsPtr(ProgRptReqs):
     def __init__(self, this):
         _swig_setattr(self, ProgRptReqs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ProgRptReqs, 'thisown', 0)
-        self.__class__ = ProgRptReqs
+        _swig_setattr(self, ProgRptReqs,self.__class__,ProgRptReqs)
 _quickfix.ProgRptReqs_swigregister(ProgRptReqsPtr)
 
 class ProgPeriodInterval(IntField):
@@ -10780,7 +10787,7 @@ class ProgPeriodIntervalPtr(ProgPeriodInterval):
     def __init__(self, this):
         _swig_setattr(self, ProgPeriodInterval, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ProgPeriodInterval, 'thisown', 0)
-        self.__class__ = ProgPeriodInterval
+        _swig_setattr(self, ProgPeriodInterval,self.__class__,ProgPeriodInterval)
 _quickfix.ProgPeriodInterval_swigregister(ProgPeriodIntervalPtr)
 
 class IncTaxInd(IntField):
@@ -10805,7 +10812,7 @@ class IncTaxIndPtr(IncTaxInd):
     def __init__(self, this):
         _swig_setattr(self, IncTaxInd, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IncTaxInd, 'thisown', 0)
-        self.__class__ = IncTaxInd
+        _swig_setattr(self, IncTaxInd,self.__class__,IncTaxInd)
 _quickfix.IncTaxInd_swigregister(IncTaxIndPtr)
 
 class NumBidders(IntField):
@@ -10830,7 +10837,7 @@ class NumBiddersPtr(NumBidders):
     def __init__(self, this):
         _swig_setattr(self, NumBidders, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NumBidders, 'thisown', 0)
-        self.__class__ = NumBidders
+        _swig_setattr(self, NumBidders,self.__class__,NumBidders)
 _quickfix.NumBidders_swigregister(NumBiddersPtr)
 
 class BidTradeType(CharField):
@@ -10855,7 +10862,7 @@ class BidTradeTypePtr(BidTradeType):
     def __init__(self, this):
         _swig_setattr(self, BidTradeType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidTradeType, 'thisown', 0)
-        self.__class__ = BidTradeType
+        _swig_setattr(self, BidTradeType,self.__class__,BidTradeType)
 _quickfix.BidTradeType_swigregister(BidTradeTypePtr)
 
 class BasisPxType(CharField):
@@ -10880,7 +10887,7 @@ class BasisPxTypePtr(BasisPxType):
     def __init__(self, this):
         _swig_setattr(self, BasisPxType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BasisPxType, 'thisown', 0)
-        self.__class__ = BasisPxType
+        _swig_setattr(self, BasisPxType,self.__class__,BasisPxType)
 _quickfix.BasisPxType_swigregister(BasisPxTypePtr)
 
 class NoBidComponents(IntField):
@@ -10905,7 +10912,7 @@ class NoBidComponentsPtr(NoBidComponents):
     def __init__(self, this):
         _swig_setattr(self, NoBidComponents, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoBidComponents, 'thisown', 0)
-        self.__class__ = NoBidComponents
+        _swig_setattr(self, NoBidComponents,self.__class__,NoBidComponents)
 _quickfix.NoBidComponents_swigregister(NoBidComponentsPtr)
 
 class Country(StringField):
@@ -10930,7 +10937,7 @@ class CountryPtr(Country):
     def __init__(self, this):
         _swig_setattr(self, Country, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Country, 'thisown', 0)
-        self.__class__ = Country
+        _swig_setattr(self, Country,self.__class__,Country)
 _quickfix.Country_swigregister(CountryPtr)
 
 class TotNoStrikes(IntField):
@@ -10955,7 +10962,7 @@ class TotNoStrikesPtr(TotNoStrikes):
     def __init__(self, this):
         _swig_setattr(self, TotNoStrikes, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNoStrikes, 'thisown', 0)
-        self.__class__ = TotNoStrikes
+        _swig_setattr(self, TotNoStrikes,self.__class__,TotNoStrikes)
 _quickfix.TotNoStrikes_swigregister(TotNoStrikesPtr)
 
 class PriceType(IntField):
@@ -10980,7 +10987,7 @@ class PriceTypePtr(PriceType):
     def __init__(self, this):
         _swig_setattr(self, PriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PriceType, 'thisown', 0)
-        self.__class__ = PriceType
+        _swig_setattr(self, PriceType,self.__class__,PriceType)
 _quickfix.PriceType_swigregister(PriceTypePtr)
 
 class DayOrderQty(DoubleField):
@@ -11005,7 +11012,7 @@ class DayOrderQtyPtr(DayOrderQty):
     def __init__(self, this):
         _swig_setattr(self, DayOrderQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DayOrderQty, 'thisown', 0)
-        self.__class__ = DayOrderQty
+        _swig_setattr(self, DayOrderQty,self.__class__,DayOrderQty)
 _quickfix.DayOrderQty_swigregister(DayOrderQtyPtr)
 
 class DayCumQty(DoubleField):
@@ -11030,7 +11037,7 @@ class DayCumQtyPtr(DayCumQty):
     def __init__(self, this):
         _swig_setattr(self, DayCumQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DayCumQty, 'thisown', 0)
-        self.__class__ = DayCumQty
+        _swig_setattr(self, DayCumQty,self.__class__,DayCumQty)
 _quickfix.DayCumQty_swigregister(DayCumQtyPtr)
 
 class DayAvgPx(DoubleField):
@@ -11055,7 +11062,7 @@ class DayAvgPxPtr(DayAvgPx):
     def __init__(self, this):
         _swig_setattr(self, DayAvgPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DayAvgPx, 'thisown', 0)
-        self.__class__ = DayAvgPx
+        _swig_setattr(self, DayAvgPx,self.__class__,DayAvgPx)
 _quickfix.DayAvgPx_swigregister(DayAvgPxPtr)
 
 class GTBookingInst(IntField):
@@ -11080,7 +11087,7 @@ class GTBookingInstPtr(GTBookingInst):
     def __init__(self, this):
         _swig_setattr(self, GTBookingInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, GTBookingInst, 'thisown', 0)
-        self.__class__ = GTBookingInst
+        _swig_setattr(self, GTBookingInst,self.__class__,GTBookingInst)
 _quickfix.GTBookingInst_swigregister(GTBookingInstPtr)
 
 class NoStrikes(IntField):
@@ -11105,7 +11112,7 @@ class NoStrikesPtr(NoStrikes):
     def __init__(self, this):
         _swig_setattr(self, NoStrikes, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoStrikes, 'thisown', 0)
-        self.__class__ = NoStrikes
+        _swig_setattr(self, NoStrikes,self.__class__,NoStrikes)
 _quickfix.NoStrikes_swigregister(NoStrikesPtr)
 
 class ListStatusType(IntField):
@@ -11130,7 +11137,7 @@ class ListStatusTypePtr(ListStatusType):
     def __init__(self, this):
         _swig_setattr(self, ListStatusType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListStatusType, 'thisown', 0)
-        self.__class__ = ListStatusType
+        _swig_setattr(self, ListStatusType,self.__class__,ListStatusType)
 _quickfix.ListStatusType_swigregister(ListStatusTypePtr)
 
 class NetGrossInd(IntField):
@@ -11155,7 +11162,7 @@ class NetGrossIndPtr(NetGrossInd):
     def __init__(self, this):
         _swig_setattr(self, NetGrossInd, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NetGrossInd, 'thisown', 0)
-        self.__class__ = NetGrossInd
+        _swig_setattr(self, NetGrossInd,self.__class__,NetGrossInd)
 _quickfix.NetGrossInd_swigregister(NetGrossIndPtr)
 
 class ListOrderStatus(IntField):
@@ -11180,7 +11187,7 @@ class ListOrderStatusPtr(ListOrderStatus):
     def __init__(self, this):
         _swig_setattr(self, ListOrderStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListOrderStatus, 'thisown', 0)
-        self.__class__ = ListOrderStatus
+        _swig_setattr(self, ListOrderStatus,self.__class__,ListOrderStatus)
 _quickfix.ListOrderStatus_swigregister(ListOrderStatusPtr)
 
 class ExpireDate(StringField):
@@ -11205,7 +11212,7 @@ class ExpireDatePtr(ExpireDate):
     def __init__(self, this):
         _swig_setattr(self, ExpireDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExpireDate, 'thisown', 0)
-        self.__class__ = ExpireDate
+        _swig_setattr(self, ExpireDate,self.__class__,ExpireDate)
 _quickfix.ExpireDate_swigregister(ExpireDatePtr)
 
 class ListExecInstType(CharField):
@@ -11230,7 +11237,7 @@ class ListExecInstTypePtr(ListExecInstType):
     def __init__(self, this):
         _swig_setattr(self, ListExecInstType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListExecInstType, 'thisown', 0)
-        self.__class__ = ListExecInstType
+        _swig_setattr(self, ListExecInstType,self.__class__,ListExecInstType)
 _quickfix.ListExecInstType_swigregister(ListExecInstTypePtr)
 
 class CxlRejResponseTo(CharField):
@@ -11255,7 +11262,7 @@ class CxlRejResponseToPtr(CxlRejResponseTo):
     def __init__(self, this):
         _swig_setattr(self, CxlRejResponseTo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CxlRejResponseTo, 'thisown', 0)
-        self.__class__ = CxlRejResponseTo
+        _swig_setattr(self, CxlRejResponseTo,self.__class__,CxlRejResponseTo)
 _quickfix.CxlRejResponseTo_swigregister(CxlRejResponseToPtr)
 
 class UnderlyingCouponRate(DoubleField):
@@ -11280,7 +11287,7 @@ class UnderlyingCouponRatePtr(UnderlyingCouponRate):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCouponRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCouponRate, 'thisown', 0)
-        self.__class__ = UnderlyingCouponRate
+        _swig_setattr(self, UnderlyingCouponRate,self.__class__,UnderlyingCouponRate)
 _quickfix.UnderlyingCouponRate_swigregister(UnderlyingCouponRatePtr)
 
 class UnderlyingContractMultiplier(DoubleField):
@@ -11305,7 +11312,7 @@ class UnderlyingContractMultiplierPtr(UnderlyingContractMultiplier):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingContractMultiplier, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingContractMultiplier, 'thisown', 0)
-        self.__class__ = UnderlyingContractMultiplier
+        _swig_setattr(self, UnderlyingContractMultiplier,self.__class__,UnderlyingContractMultiplier)
 _quickfix.UnderlyingContractMultiplier_swigregister(UnderlyingContractMultiplierPtr)
 
 class ContraTradeQty(DoubleField):
@@ -11330,7 +11337,7 @@ class ContraTradeQtyPtr(ContraTradeQty):
     def __init__(self, this):
         _swig_setattr(self, ContraTradeQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContraTradeQty, 'thisown', 0)
-        self.__class__ = ContraTradeQty
+        _swig_setattr(self, ContraTradeQty,self.__class__,ContraTradeQty)
 _quickfix.ContraTradeQty_swigregister(ContraTradeQtyPtr)
 
 class ContraTradeTime(UtcTimeStampField):
@@ -11355,7 +11362,7 @@ class ContraTradeTimePtr(ContraTradeTime):
     def __init__(self, this):
         _swig_setattr(self, ContraTradeTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContraTradeTime, 'thisown', 0)
-        self.__class__ = ContraTradeTime
+        _swig_setattr(self, ContraTradeTime,self.__class__,ContraTradeTime)
 _quickfix.ContraTradeTime_swigregister(ContraTradeTimePtr)
 
 class LiquidityNumSecurities(IntField):
@@ -11380,7 +11387,7 @@ class LiquidityNumSecuritiesPtr(LiquidityNumSecurities):
     def __init__(self, this):
         _swig_setattr(self, LiquidityNumSecurities, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LiquidityNumSecurities, 'thisown', 0)
-        self.__class__ = LiquidityNumSecurities
+        _swig_setattr(self, LiquidityNumSecurities,self.__class__,LiquidityNumSecurities)
 _quickfix.LiquidityNumSecurities_swigregister(LiquidityNumSecuritiesPtr)
 
 class MultiLegReportingType(CharField):
@@ -11405,7 +11412,7 @@ class MultiLegReportingTypePtr(MultiLegReportingType):
     def __init__(self, this):
         _swig_setattr(self, MultiLegReportingType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MultiLegReportingType, 'thisown', 0)
-        self.__class__ = MultiLegReportingType
+        _swig_setattr(self, MultiLegReportingType,self.__class__,MultiLegReportingType)
 _quickfix.MultiLegReportingType_swigregister(MultiLegReportingTypePtr)
 
 class StrikeTime(UtcTimeStampField):
@@ -11430,7 +11437,7 @@ class StrikeTimePtr(StrikeTime):
     def __init__(self, this):
         _swig_setattr(self, StrikeTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StrikeTime, 'thisown', 0)
-        self.__class__ = StrikeTime
+        _swig_setattr(self, StrikeTime,self.__class__,StrikeTime)
 _quickfix.StrikeTime_swigregister(StrikeTimePtr)
 
 class ListStatusText(StringField):
@@ -11455,7 +11462,7 @@ class ListStatusTextPtr(ListStatusText):
     def __init__(self, this):
         _swig_setattr(self, ListStatusText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ListStatusText, 'thisown', 0)
-        self.__class__ = ListStatusText
+        _swig_setattr(self, ListStatusText,self.__class__,ListStatusText)
 _quickfix.ListStatusText_swigregister(ListStatusTextPtr)
 
 class EncodedListStatusTextLen(IntField):
@@ -11480,7 +11487,7 @@ class EncodedListStatusTextLenPtr(EncodedListStatusTextLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedListStatusTextLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedListStatusTextLen, 'thisown', 0)
-        self.__class__ = EncodedListStatusTextLen
+        _swig_setattr(self, EncodedListStatusTextLen,self.__class__,EncodedListStatusTextLen)
 _quickfix.EncodedListStatusTextLen_swigregister(EncodedListStatusTextLenPtr)
 
 class EncodedListStatusText(StringField):
@@ -11505,7 +11512,7 @@ class EncodedListStatusTextPtr(EncodedListStatusText):
     def __init__(self, this):
         _swig_setattr(self, EncodedListStatusText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedListStatusText, 'thisown', 0)
-        self.__class__ = EncodedListStatusText
+        _swig_setattr(self, EncodedListStatusText,self.__class__,EncodedListStatusText)
 _quickfix.EncodedListStatusText_swigregister(EncodedListStatusTextPtr)
 
 class PartyIDSource(CharField):
@@ -11530,7 +11537,7 @@ class PartyIDSourcePtr(PartyIDSource):
     def __init__(self, this):
         _swig_setattr(self, PartyIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PartyIDSource, 'thisown', 0)
-        self.__class__ = PartyIDSource
+        _swig_setattr(self, PartyIDSource,self.__class__,PartyIDSource)
 _quickfix.PartyIDSource_swigregister(PartyIDSourcePtr)
 
 class PartyID(StringField):
@@ -11555,7 +11562,7 @@ class PartyIDPtr(PartyID):
     def __init__(self, this):
         _swig_setattr(self, PartyID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PartyID, 'thisown', 0)
-        self.__class__ = PartyID
+        _swig_setattr(self, PartyID,self.__class__,PartyID)
 _quickfix.PartyID_swigregister(PartyIDPtr)
 
 class NetChgPrevDay(DoubleField):
@@ -11580,7 +11587,7 @@ class NetChgPrevDayPtr(NetChgPrevDay):
     def __init__(self, this):
         _swig_setattr(self, NetChgPrevDay, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NetChgPrevDay, 'thisown', 0)
-        self.__class__ = NetChgPrevDay
+        _swig_setattr(self, NetChgPrevDay,self.__class__,NetChgPrevDay)
 _quickfix.NetChgPrevDay_swigregister(NetChgPrevDayPtr)
 
 class PartyRole(IntField):
@@ -11605,7 +11612,7 @@ class PartyRolePtr(PartyRole):
     def __init__(self, this):
         _swig_setattr(self, PartyRole, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PartyRole, 'thisown', 0)
-        self.__class__ = PartyRole
+        _swig_setattr(self, PartyRole,self.__class__,PartyRole)
 _quickfix.PartyRole_swigregister(PartyRolePtr)
 
 class NoPartyIDs(IntField):
@@ -11630,7 +11637,7 @@ class NoPartyIDsPtr(NoPartyIDs):
     def __init__(self, this):
         _swig_setattr(self, NoPartyIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoPartyIDs, 'thisown', 0)
-        self.__class__ = NoPartyIDs
+        _swig_setattr(self, NoPartyIDs,self.__class__,NoPartyIDs)
 _quickfix.NoPartyIDs_swigregister(NoPartyIDsPtr)
 
 class NoSecurityAltID(IntField):
@@ -11655,7 +11662,7 @@ class NoSecurityAltIDPtr(NoSecurityAltID):
     def __init__(self, this):
         _swig_setattr(self, NoSecurityAltID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoSecurityAltID, 'thisown', 0)
-        self.__class__ = NoSecurityAltID
+        _swig_setattr(self, NoSecurityAltID,self.__class__,NoSecurityAltID)
 _quickfix.NoSecurityAltID_swigregister(NoSecurityAltIDPtr)
 
 class SecurityAltID(StringField):
@@ -11680,7 +11687,7 @@ class SecurityAltIDPtr(SecurityAltID):
     def __init__(self, this):
         _swig_setattr(self, SecurityAltID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityAltID, 'thisown', 0)
-        self.__class__ = SecurityAltID
+        _swig_setattr(self, SecurityAltID,self.__class__,SecurityAltID)
 _quickfix.SecurityAltID_swigregister(SecurityAltIDPtr)
 
 class SecurityAltIDSource(StringField):
@@ -11705,7 +11712,7 @@ class SecurityAltIDSourcePtr(SecurityAltIDSource):
     def __init__(self, this):
         _swig_setattr(self, SecurityAltIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityAltIDSource, 'thisown', 0)
-        self.__class__ = SecurityAltIDSource
+        _swig_setattr(self, SecurityAltIDSource,self.__class__,SecurityAltIDSource)
 _quickfix.SecurityAltIDSource_swigregister(SecurityAltIDSourcePtr)
 
 class NoUnderlyingSecurityAltID(IntField):
@@ -11730,7 +11737,7 @@ class NoUnderlyingSecurityAltIDPtr(NoUnderlyingSecurityAltID):
     def __init__(self, this):
         _swig_setattr(self, NoUnderlyingSecurityAltID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoUnderlyingSecurityAltID, 'thisown', 0)
-        self.__class__ = NoUnderlyingSecurityAltID
+        _swig_setattr(self, NoUnderlyingSecurityAltID,self.__class__,NoUnderlyingSecurityAltID)
 _quickfix.NoUnderlyingSecurityAltID_swigregister(NoUnderlyingSecurityAltIDPtr)
 
 class UnderlyingSecurityAltID(StringField):
@@ -11755,7 +11762,7 @@ class UnderlyingSecurityAltIDPtr(UnderlyingSecurityAltID):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecurityAltID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecurityAltID, 'thisown', 0)
-        self.__class__ = UnderlyingSecurityAltID
+        _swig_setattr(self, UnderlyingSecurityAltID,self.__class__,UnderlyingSecurityAltID)
 _quickfix.UnderlyingSecurityAltID_swigregister(UnderlyingSecurityAltIDPtr)
 
 class UnderlyingSecurityAltIDSource(StringField):
@@ -11780,7 +11787,7 @@ class UnderlyingSecurityAltIDSourcePtr(UnderlyingSecurityAltIDSource):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecurityAltIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecurityAltIDSource, 'thisown', 0)
-        self.__class__ = UnderlyingSecurityAltIDSource
+        _swig_setattr(self, UnderlyingSecurityAltIDSource,self.__class__,UnderlyingSecurityAltIDSource)
 _quickfix.UnderlyingSecurityAltIDSource_swigregister(UnderlyingSecurityAltIDSourcePtr)
 
 class Product(IntField):
@@ -11805,7 +11812,7 @@ class ProductPtr(Product):
     def __init__(self, this):
         _swig_setattr(self, Product, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Product, 'thisown', 0)
-        self.__class__ = Product
+        _swig_setattr(self, Product,self.__class__,Product)
 _quickfix.Product_swigregister(ProductPtr)
 
 class CFICode(StringField):
@@ -11830,7 +11837,7 @@ class CFICodePtr(CFICode):
     def __init__(self, this):
         _swig_setattr(self, CFICode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CFICode, 'thisown', 0)
-        self.__class__ = CFICode
+        _swig_setattr(self, CFICode,self.__class__,CFICode)
 _quickfix.CFICode_swigregister(CFICodePtr)
 
 class UnderlyingProduct(IntField):
@@ -11855,7 +11862,7 @@ class UnderlyingProductPtr(UnderlyingProduct):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingProduct, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingProduct, 'thisown', 0)
-        self.__class__ = UnderlyingProduct
+        _swig_setattr(self, UnderlyingProduct,self.__class__,UnderlyingProduct)
 _quickfix.UnderlyingProduct_swigregister(UnderlyingProductPtr)
 
 class UnderlyingCFICode(StringField):
@@ -11880,7 +11887,7 @@ class UnderlyingCFICodePtr(UnderlyingCFICode):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCFICode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCFICode, 'thisown', 0)
-        self.__class__ = UnderlyingCFICode
+        _swig_setattr(self, UnderlyingCFICode,self.__class__,UnderlyingCFICode)
 _quickfix.UnderlyingCFICode_swigregister(UnderlyingCFICodePtr)
 
 class TestMessageIndicator(BoolField):
@@ -11905,7 +11912,7 @@ class TestMessageIndicatorPtr(TestMessageIndicator):
     def __init__(self, this):
         _swig_setattr(self, TestMessageIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TestMessageIndicator, 'thisown', 0)
-        self.__class__ = TestMessageIndicator
+        _swig_setattr(self, TestMessageIndicator,self.__class__,TestMessageIndicator)
 _quickfix.TestMessageIndicator_swigregister(TestMessageIndicatorPtr)
 
 class QuantityType(IntField):
@@ -11930,7 +11937,7 @@ class QuantityTypePtr(QuantityType):
     def __init__(self, this):
         _swig_setattr(self, QuantityType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuantityType, 'thisown', 0)
-        self.__class__ = QuantityType
+        _swig_setattr(self, QuantityType,self.__class__,QuantityType)
 _quickfix.QuantityType_swigregister(QuantityTypePtr)
 
 class BookingRefID(StringField):
@@ -11955,7 +11962,7 @@ class BookingRefIDPtr(BookingRefID):
     def __init__(self, this):
         _swig_setattr(self, BookingRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BookingRefID, 'thisown', 0)
-        self.__class__ = BookingRefID
+        _swig_setattr(self, BookingRefID,self.__class__,BookingRefID)
 _quickfix.BookingRefID_swigregister(BookingRefIDPtr)
 
 class IndividualAllocID(StringField):
@@ -11980,7 +11987,7 @@ class IndividualAllocIDPtr(IndividualAllocID):
     def __init__(self, this):
         _swig_setattr(self, IndividualAllocID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IndividualAllocID, 'thisown', 0)
-        self.__class__ = IndividualAllocID
+        _swig_setattr(self, IndividualAllocID,self.__class__,IndividualAllocID)
 _quickfix.IndividualAllocID_swigregister(IndividualAllocIDPtr)
 
 class RoundingDirection(CharField):
@@ -12005,7 +12012,7 @@ class RoundingDirectionPtr(RoundingDirection):
     def __init__(self, this):
         _swig_setattr(self, RoundingDirection, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RoundingDirection, 'thisown', 0)
-        self.__class__ = RoundingDirection
+        _swig_setattr(self, RoundingDirection,self.__class__,RoundingDirection)
 _quickfix.RoundingDirection_swigregister(RoundingDirectionPtr)
 
 class RoundingModulus(DoubleField):
@@ -12030,7 +12037,7 @@ class RoundingModulusPtr(RoundingModulus):
     def __init__(self, this):
         _swig_setattr(self, RoundingModulus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RoundingModulus, 'thisown', 0)
-        self.__class__ = RoundingModulus
+        _swig_setattr(self, RoundingModulus,self.__class__,RoundingModulus)
 _quickfix.RoundingModulus_swigregister(RoundingModulusPtr)
 
 class CountryOfIssue(StringField):
@@ -12055,7 +12062,7 @@ class CountryOfIssuePtr(CountryOfIssue):
     def __init__(self, this):
         _swig_setattr(self, CountryOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CountryOfIssue, 'thisown', 0)
-        self.__class__ = CountryOfIssue
+        _swig_setattr(self, CountryOfIssue,self.__class__,CountryOfIssue)
 _quickfix.CountryOfIssue_swigregister(CountryOfIssuePtr)
 
 class StateOrProvinceOfIssue(StringField):
@@ -12080,7 +12087,7 @@ class StateOrProvinceOfIssuePtr(StateOrProvinceOfIssue):
     def __init__(self, this):
         _swig_setattr(self, StateOrProvinceOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StateOrProvinceOfIssue, 'thisown', 0)
-        self.__class__ = StateOrProvinceOfIssue
+        _swig_setattr(self, StateOrProvinceOfIssue,self.__class__,StateOrProvinceOfIssue)
 _quickfix.StateOrProvinceOfIssue_swigregister(StateOrProvinceOfIssuePtr)
 
 class LocaleOfIssue(StringField):
@@ -12105,7 +12112,7 @@ class LocaleOfIssuePtr(LocaleOfIssue):
     def __init__(self, this):
         _swig_setattr(self, LocaleOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LocaleOfIssue, 'thisown', 0)
-        self.__class__ = LocaleOfIssue
+        _swig_setattr(self, LocaleOfIssue,self.__class__,LocaleOfIssue)
 _quickfix.LocaleOfIssue_swigregister(LocaleOfIssuePtr)
 
 class NoRegistDtls(IntField):
@@ -12130,7 +12137,7 @@ class NoRegistDtlsPtr(NoRegistDtls):
     def __init__(self, this):
         _swig_setattr(self, NoRegistDtls, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoRegistDtls, 'thisown', 0)
-        self.__class__ = NoRegistDtls
+        _swig_setattr(self, NoRegistDtls,self.__class__,NoRegistDtls)
 _quickfix.NoRegistDtls_swigregister(NoRegistDtlsPtr)
 
 class MailingDtls(StringField):
@@ -12155,7 +12162,7 @@ class MailingDtlsPtr(MailingDtls):
     def __init__(self, this):
         _swig_setattr(self, MailingDtls, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MailingDtls, 'thisown', 0)
-        self.__class__ = MailingDtls
+        _swig_setattr(self, MailingDtls,self.__class__,MailingDtls)
 _quickfix.MailingDtls_swigregister(MailingDtlsPtr)
 
 class InvestorCountryOfResidence(StringField):
@@ -12180,7 +12187,7 @@ class InvestorCountryOfResidencePtr(InvestorCountryOfResidence):
     def __init__(self, this):
         _swig_setattr(self, InvestorCountryOfResidence, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InvestorCountryOfResidence, 'thisown', 0)
-        self.__class__ = InvestorCountryOfResidence
+        _swig_setattr(self, InvestorCountryOfResidence,self.__class__,InvestorCountryOfResidence)
 _quickfix.InvestorCountryOfResidence_swigregister(InvestorCountryOfResidencePtr)
 
 class PaymentRef(StringField):
@@ -12205,7 +12212,7 @@ class PaymentRefPtr(PaymentRef):
     def __init__(self, this):
         _swig_setattr(self, PaymentRef, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PaymentRef, 'thisown', 0)
-        self.__class__ = PaymentRef
+        _swig_setattr(self, PaymentRef,self.__class__,PaymentRef)
 _quickfix.PaymentRef_swigregister(PaymentRefPtr)
 
 class DistribPaymentMethod(IntField):
@@ -12230,7 +12237,7 @@ class DistribPaymentMethodPtr(DistribPaymentMethod):
     def __init__(self, this):
         _swig_setattr(self, DistribPaymentMethod, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DistribPaymentMethod, 'thisown', 0)
-        self.__class__ = DistribPaymentMethod
+        _swig_setattr(self, DistribPaymentMethod,self.__class__,DistribPaymentMethod)
 _quickfix.DistribPaymentMethod_swigregister(DistribPaymentMethodPtr)
 
 class CashDistribCurr(StringField):
@@ -12255,7 +12262,7 @@ class CashDistribCurrPtr(CashDistribCurr):
     def __init__(self, this):
         _swig_setattr(self, CashDistribCurr, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashDistribCurr, 'thisown', 0)
-        self.__class__ = CashDistribCurr
+        _swig_setattr(self, CashDistribCurr,self.__class__,CashDistribCurr)
 _quickfix.CashDistribCurr_swigregister(CashDistribCurrPtr)
 
 class CommCurrency(StringField):
@@ -12280,7 +12287,7 @@ class CommCurrencyPtr(CommCurrency):
     def __init__(self, this):
         _swig_setattr(self, CommCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CommCurrency, 'thisown', 0)
-        self.__class__ = CommCurrency
+        _swig_setattr(self, CommCurrency,self.__class__,CommCurrency)
 _quickfix.CommCurrency_swigregister(CommCurrencyPtr)
 
 class CancellationRights(CharField):
@@ -12305,7 +12312,7 @@ class CancellationRightsPtr(CancellationRights):
     def __init__(self, this):
         _swig_setattr(self, CancellationRights, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CancellationRights, 'thisown', 0)
-        self.__class__ = CancellationRights
+        _swig_setattr(self, CancellationRights,self.__class__,CancellationRights)
 _quickfix.CancellationRights_swigregister(CancellationRightsPtr)
 
 class MoneyLaunderingStatus(CharField):
@@ -12330,7 +12337,7 @@ class MoneyLaunderingStatusPtr(MoneyLaunderingStatus):
     def __init__(self, this):
         _swig_setattr(self, MoneyLaunderingStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MoneyLaunderingStatus, 'thisown', 0)
-        self.__class__ = MoneyLaunderingStatus
+        _swig_setattr(self, MoneyLaunderingStatus,self.__class__,MoneyLaunderingStatus)
 _quickfix.MoneyLaunderingStatus_swigregister(MoneyLaunderingStatusPtr)
 
 class MailingInst(StringField):
@@ -12355,7 +12362,7 @@ class MailingInstPtr(MailingInst):
     def __init__(self, this):
         _swig_setattr(self, MailingInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MailingInst, 'thisown', 0)
-        self.__class__ = MailingInst
+        _swig_setattr(self, MailingInst,self.__class__,MailingInst)
 _quickfix.MailingInst_swigregister(MailingInstPtr)
 
 class TransBkdTime(UtcTimeStampField):
@@ -12380,7 +12387,7 @@ class TransBkdTimePtr(TransBkdTime):
     def __init__(self, this):
         _swig_setattr(self, TransBkdTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TransBkdTime, 'thisown', 0)
-        self.__class__ = TransBkdTime
+        _swig_setattr(self, TransBkdTime,self.__class__,TransBkdTime)
 _quickfix.TransBkdTime_swigregister(TransBkdTimePtr)
 
 class ExecPriceType(CharField):
@@ -12405,7 +12412,7 @@ class ExecPriceTypePtr(ExecPriceType):
     def __init__(self, this):
         _swig_setattr(self, ExecPriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecPriceType, 'thisown', 0)
-        self.__class__ = ExecPriceType
+        _swig_setattr(self, ExecPriceType,self.__class__,ExecPriceType)
 _quickfix.ExecPriceType_swigregister(ExecPriceTypePtr)
 
 class ExecPriceAdjustment(DoubleField):
@@ -12430,7 +12437,7 @@ class ExecPriceAdjustmentPtr(ExecPriceAdjustment):
     def __init__(self, this):
         _swig_setattr(self, ExecPriceAdjustment, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecPriceAdjustment, 'thisown', 0)
-        self.__class__ = ExecPriceAdjustment
+        _swig_setattr(self, ExecPriceAdjustment,self.__class__,ExecPriceAdjustment)
 _quickfix.ExecPriceAdjustment_swigregister(ExecPriceAdjustmentPtr)
 
 class DateOfBirth(StringField):
@@ -12455,7 +12462,7 @@ class DateOfBirthPtr(DateOfBirth):
     def __init__(self, this):
         _swig_setattr(self, DateOfBirth, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DateOfBirth, 'thisown', 0)
-        self.__class__ = DateOfBirth
+        _swig_setattr(self, DateOfBirth,self.__class__,DateOfBirth)
 _quickfix.DateOfBirth_swigregister(DateOfBirthPtr)
 
 class TradeReportTransType(IntField):
@@ -12480,7 +12487,7 @@ class TradeReportTransTypePtr(TradeReportTransType):
     def __init__(self, this):
         _swig_setattr(self, TradeReportTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeReportTransType, 'thisown', 0)
-        self.__class__ = TradeReportTransType
+        _swig_setattr(self, TradeReportTransType,self.__class__,TradeReportTransType)
 _quickfix.TradeReportTransType_swigregister(TradeReportTransTypePtr)
 
 class CardHolderName(StringField):
@@ -12505,7 +12512,7 @@ class CardHolderNamePtr(CardHolderName):
     def __init__(self, this):
         _swig_setattr(self, CardHolderName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CardHolderName, 'thisown', 0)
-        self.__class__ = CardHolderName
+        _swig_setattr(self, CardHolderName,self.__class__,CardHolderName)
 _quickfix.CardHolderName_swigregister(CardHolderNamePtr)
 
 class CardNumber(StringField):
@@ -12530,7 +12537,7 @@ class CardNumberPtr(CardNumber):
     def __init__(self, this):
         _swig_setattr(self, CardNumber, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CardNumber, 'thisown', 0)
-        self.__class__ = CardNumber
+        _swig_setattr(self, CardNumber,self.__class__,CardNumber)
 _quickfix.CardNumber_swigregister(CardNumberPtr)
 
 class CardExpDate(StringField):
@@ -12555,7 +12562,7 @@ class CardExpDatePtr(CardExpDate):
     def __init__(self, this):
         _swig_setattr(self, CardExpDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CardExpDate, 'thisown', 0)
-        self.__class__ = CardExpDate
+        _swig_setattr(self, CardExpDate,self.__class__,CardExpDate)
 _quickfix.CardExpDate_swigregister(CardExpDatePtr)
 
 class CardIssNum(StringField):
@@ -12580,7 +12587,7 @@ class CardIssNumPtr(CardIssNum):
     def __init__(self, this):
         _swig_setattr(self, CardIssNum, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CardIssNum, 'thisown', 0)
-        self.__class__ = CardIssNum
+        _swig_setattr(self, CardIssNum,self.__class__,CardIssNum)
 _quickfix.CardIssNum_swigregister(CardIssNumPtr)
 
 class PaymentMethod(IntField):
@@ -12605,7 +12612,7 @@ class PaymentMethodPtr(PaymentMethod):
     def __init__(self, this):
         _swig_setattr(self, PaymentMethod, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PaymentMethod, 'thisown', 0)
-        self.__class__ = PaymentMethod
+        _swig_setattr(self, PaymentMethod,self.__class__,PaymentMethod)
 _quickfix.PaymentMethod_swigregister(PaymentMethodPtr)
 
 class RegistAcctType(StringField):
@@ -12630,7 +12637,7 @@ class RegistAcctTypePtr(RegistAcctType):
     def __init__(self, this):
         _swig_setattr(self, RegistAcctType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistAcctType, 'thisown', 0)
-        self.__class__ = RegistAcctType
+        _swig_setattr(self, RegistAcctType,self.__class__,RegistAcctType)
 _quickfix.RegistAcctType_swigregister(RegistAcctTypePtr)
 
 class Designation(StringField):
@@ -12655,7 +12662,7 @@ class DesignationPtr(Designation):
     def __init__(self, this):
         _swig_setattr(self, Designation, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Designation, 'thisown', 0)
-        self.__class__ = Designation
+        _swig_setattr(self, Designation,self.__class__,Designation)
 _quickfix.Designation_swigregister(DesignationPtr)
 
 class TaxAdvantageType(IntField):
@@ -12680,7 +12687,7 @@ class TaxAdvantageTypePtr(TaxAdvantageType):
     def __init__(self, this):
         _swig_setattr(self, TaxAdvantageType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TaxAdvantageType, 'thisown', 0)
-        self.__class__ = TaxAdvantageType
+        _swig_setattr(self, TaxAdvantageType,self.__class__,TaxAdvantageType)
 _quickfix.TaxAdvantageType_swigregister(TaxAdvantageTypePtr)
 
 class RegistRejReasonText(StringField):
@@ -12705,7 +12712,7 @@ class RegistRejReasonTextPtr(RegistRejReasonText):
     def __init__(self, this):
         _swig_setattr(self, RegistRejReasonText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistRejReasonText, 'thisown', 0)
-        self.__class__ = RegistRejReasonText
+        _swig_setattr(self, RegistRejReasonText,self.__class__,RegistRejReasonText)
 _quickfix.RegistRejReasonText_swigregister(RegistRejReasonTextPtr)
 
 class FundRenewWaiv(CharField):
@@ -12730,7 +12737,7 @@ class FundRenewWaivPtr(FundRenewWaiv):
     def __init__(self, this):
         _swig_setattr(self, FundRenewWaiv, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FundRenewWaiv, 'thisown', 0)
-        self.__class__ = FundRenewWaiv
+        _swig_setattr(self, FundRenewWaiv,self.__class__,FundRenewWaiv)
 _quickfix.FundRenewWaiv_swigregister(FundRenewWaivPtr)
 
 class CashDistribAgentName(StringField):
@@ -12755,7 +12762,7 @@ class CashDistribAgentNamePtr(CashDistribAgentName):
     def __init__(self, this):
         _swig_setattr(self, CashDistribAgentName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashDistribAgentName, 'thisown', 0)
-        self.__class__ = CashDistribAgentName
+        _swig_setattr(self, CashDistribAgentName,self.__class__,CashDistribAgentName)
 _quickfix.CashDistribAgentName_swigregister(CashDistribAgentNamePtr)
 
 class CashDistribAgentCode(StringField):
@@ -12780,7 +12787,7 @@ class CashDistribAgentCodePtr(CashDistribAgentCode):
     def __init__(self, this):
         _swig_setattr(self, CashDistribAgentCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashDistribAgentCode, 'thisown', 0)
-        self.__class__ = CashDistribAgentCode
+        _swig_setattr(self, CashDistribAgentCode,self.__class__,CashDistribAgentCode)
 _quickfix.CashDistribAgentCode_swigregister(CashDistribAgentCodePtr)
 
 class CashDistribAgentAcctNumber(StringField):
@@ -12805,7 +12812,7 @@ class CashDistribAgentAcctNumberPtr(CashDistribAgentAcctNumber):
     def __init__(self, this):
         _swig_setattr(self, CashDistribAgentAcctNumber, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashDistribAgentAcctNumber, 'thisown', 0)
-        self.__class__ = CashDistribAgentAcctNumber
+        _swig_setattr(self, CashDistribAgentAcctNumber,self.__class__,CashDistribAgentAcctNumber)
 _quickfix.CashDistribAgentAcctNumber_swigregister(CashDistribAgentAcctNumberPtr)
 
 class CashDistribPayRef(StringField):
@@ -12830,7 +12837,7 @@ class CashDistribPayRefPtr(CashDistribPayRef):
     def __init__(self, this):
         _swig_setattr(self, CashDistribPayRef, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashDistribPayRef, 'thisown', 0)
-        self.__class__ = CashDistribPayRef
+        _swig_setattr(self, CashDistribPayRef,self.__class__,CashDistribPayRef)
 _quickfix.CashDistribPayRef_swigregister(CashDistribPayRefPtr)
 
 class CashDistribAgentAcctName(StringField):
@@ -12855,7 +12862,7 @@ class CashDistribAgentAcctNamePtr(CashDistribAgentAcctName):
     def __init__(self, this):
         _swig_setattr(self, CashDistribAgentAcctName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashDistribAgentAcctName, 'thisown', 0)
-        self.__class__ = CashDistribAgentAcctName
+        _swig_setattr(self, CashDistribAgentAcctName,self.__class__,CashDistribAgentAcctName)
 _quickfix.CashDistribAgentAcctName_swigregister(CashDistribAgentAcctNamePtr)
 
 class CardStartDate(StringField):
@@ -12880,7 +12887,7 @@ class CardStartDatePtr(CardStartDate):
     def __init__(self, this):
         _swig_setattr(self, CardStartDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CardStartDate, 'thisown', 0)
-        self.__class__ = CardStartDate
+        _swig_setattr(self, CardStartDate,self.__class__,CardStartDate)
 _quickfix.CardStartDate_swigregister(CardStartDatePtr)
 
 class PaymentDate(StringField):
@@ -12905,7 +12912,7 @@ class PaymentDatePtr(PaymentDate):
     def __init__(self, this):
         _swig_setattr(self, PaymentDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PaymentDate, 'thisown', 0)
-        self.__class__ = PaymentDate
+        _swig_setattr(self, PaymentDate,self.__class__,PaymentDate)
 _quickfix.PaymentDate_swigregister(PaymentDatePtr)
 
 class PaymentRemitterID(StringField):
@@ -12930,7 +12937,7 @@ class PaymentRemitterIDPtr(PaymentRemitterID):
     def __init__(self, this):
         _swig_setattr(self, PaymentRemitterID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PaymentRemitterID, 'thisown', 0)
-        self.__class__ = PaymentRemitterID
+        _swig_setattr(self, PaymentRemitterID,self.__class__,PaymentRemitterID)
 _quickfix.PaymentRemitterID_swigregister(PaymentRemitterIDPtr)
 
 class RegistStatus(CharField):
@@ -12955,7 +12962,7 @@ class RegistStatusPtr(RegistStatus):
     def __init__(self, this):
         _swig_setattr(self, RegistStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistStatus, 'thisown', 0)
-        self.__class__ = RegistStatus
+        _swig_setattr(self, RegistStatus,self.__class__,RegistStatus)
 _quickfix.RegistStatus_swigregister(RegistStatusPtr)
 
 class RegistRejReasonCode(IntField):
@@ -12980,7 +12987,7 @@ class RegistRejReasonCodePtr(RegistRejReasonCode):
     def __init__(self, this):
         _swig_setattr(self, RegistRejReasonCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistRejReasonCode, 'thisown', 0)
-        self.__class__ = RegistRejReasonCode
+        _swig_setattr(self, RegistRejReasonCode,self.__class__,RegistRejReasonCode)
 _quickfix.RegistRejReasonCode_swigregister(RegistRejReasonCodePtr)
 
 class RegistRefID(StringField):
@@ -13005,7 +13012,7 @@ class RegistRefIDPtr(RegistRefID):
     def __init__(self, this):
         _swig_setattr(self, RegistRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistRefID, 'thisown', 0)
-        self.__class__ = RegistRefID
+        _swig_setattr(self, RegistRefID,self.__class__,RegistRefID)
 _quickfix.RegistRefID_swigregister(RegistRefIDPtr)
 
 class RegistDtls(StringField):
@@ -13030,7 +13037,7 @@ class RegistDtlsPtr(RegistDtls):
     def __init__(self, this):
         _swig_setattr(self, RegistDtls, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistDtls, 'thisown', 0)
-        self.__class__ = RegistDtls
+        _swig_setattr(self, RegistDtls,self.__class__,RegistDtls)
 _quickfix.RegistDtls_swigregister(RegistDtlsPtr)
 
 class NoDistribInsts(IntField):
@@ -13055,7 +13062,7 @@ class NoDistribInstsPtr(NoDistribInsts):
     def __init__(self, this):
         _swig_setattr(self, NoDistribInsts, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoDistribInsts, 'thisown', 0)
-        self.__class__ = NoDistribInsts
+        _swig_setattr(self, NoDistribInsts,self.__class__,NoDistribInsts)
 _quickfix.NoDistribInsts_swigregister(NoDistribInstsPtr)
 
 class RegistEmail(StringField):
@@ -13080,7 +13087,7 @@ class RegistEmailPtr(RegistEmail):
     def __init__(self, this):
         _swig_setattr(self, RegistEmail, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistEmail, 'thisown', 0)
-        self.__class__ = RegistEmail
+        _swig_setattr(self, RegistEmail,self.__class__,RegistEmail)
 _quickfix.RegistEmail_swigregister(RegistEmailPtr)
 
 class DistribPercentage(DoubleField):
@@ -13105,7 +13112,7 @@ class DistribPercentagePtr(DistribPercentage):
     def __init__(self, this):
         _swig_setattr(self, DistribPercentage, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DistribPercentage, 'thisown', 0)
-        self.__class__ = DistribPercentage
+        _swig_setattr(self, DistribPercentage,self.__class__,DistribPercentage)
 _quickfix.DistribPercentage_swigregister(DistribPercentagePtr)
 
 class RegistID(StringField):
@@ -13130,7 +13137,7 @@ class RegistIDPtr(RegistID):
     def __init__(self, this):
         _swig_setattr(self, RegistID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistID, 'thisown', 0)
-        self.__class__ = RegistID
+        _swig_setattr(self, RegistID,self.__class__,RegistID)
 _quickfix.RegistID_swigregister(RegistIDPtr)
 
 class RegistTransType(CharField):
@@ -13155,7 +13162,7 @@ class RegistTransTypePtr(RegistTransType):
     def __init__(self, this):
         _swig_setattr(self, RegistTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistTransType, 'thisown', 0)
-        self.__class__ = RegistTransType
+        _swig_setattr(self, RegistTransType,self.__class__,RegistTransType)
 _quickfix.RegistTransType_swigregister(RegistTransTypePtr)
 
 class ExecValuationPoint(UtcTimeStampField):
@@ -13180,7 +13187,7 @@ class ExecValuationPointPtr(ExecValuationPoint):
     def __init__(self, this):
         _swig_setattr(self, ExecValuationPoint, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecValuationPoint, 'thisown', 0)
-        self.__class__ = ExecValuationPoint
+        _swig_setattr(self, ExecValuationPoint,self.__class__,ExecValuationPoint)
 _quickfix.ExecValuationPoint_swigregister(ExecValuationPointPtr)
 
 class OrderPercent(DoubleField):
@@ -13205,7 +13212,7 @@ class OrderPercentPtr(OrderPercent):
     def __init__(self, this):
         _swig_setattr(self, OrderPercent, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderPercent, 'thisown', 0)
-        self.__class__ = OrderPercent
+        _swig_setattr(self, OrderPercent,self.__class__,OrderPercent)
 _quickfix.OrderPercent_swigregister(OrderPercentPtr)
 
 class OwnershipType(CharField):
@@ -13230,7 +13237,7 @@ class OwnershipTypePtr(OwnershipType):
     def __init__(self, this):
         _swig_setattr(self, OwnershipType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OwnershipType, 'thisown', 0)
-        self.__class__ = OwnershipType
+        _swig_setattr(self, OwnershipType,self.__class__,OwnershipType)
 _quickfix.OwnershipType_swigregister(OwnershipTypePtr)
 
 class NoContAmts(IntField):
@@ -13255,7 +13262,7 @@ class NoContAmtsPtr(NoContAmts):
     def __init__(self, this):
         _swig_setattr(self, NoContAmts, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoContAmts, 'thisown', 0)
-        self.__class__ = NoContAmts
+        _swig_setattr(self, NoContAmts,self.__class__,NoContAmts)
 _quickfix.NoContAmts_swigregister(NoContAmtsPtr)
 
 class ContAmtType(IntField):
@@ -13280,7 +13287,7 @@ class ContAmtTypePtr(ContAmtType):
     def __init__(self, this):
         _swig_setattr(self, ContAmtType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContAmtType, 'thisown', 0)
-        self.__class__ = ContAmtType
+        _swig_setattr(self, ContAmtType,self.__class__,ContAmtType)
 _quickfix.ContAmtType_swigregister(ContAmtTypePtr)
 
 class ContAmtValue(DoubleField):
@@ -13305,7 +13312,7 @@ class ContAmtValuePtr(ContAmtValue):
     def __init__(self, this):
         _swig_setattr(self, ContAmtValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContAmtValue, 'thisown', 0)
-        self.__class__ = ContAmtValue
+        _swig_setattr(self, ContAmtValue,self.__class__,ContAmtValue)
 _quickfix.ContAmtValue_swigregister(ContAmtValuePtr)
 
 class ContAmtCurr(StringField):
@@ -13330,7 +13337,7 @@ class ContAmtCurrPtr(ContAmtCurr):
     def __init__(self, this):
         _swig_setattr(self, ContAmtCurr, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContAmtCurr, 'thisown', 0)
-        self.__class__ = ContAmtCurr
+        _swig_setattr(self, ContAmtCurr,self.__class__,ContAmtCurr)
 _quickfix.ContAmtCurr_swigregister(ContAmtCurrPtr)
 
 class OwnerType(IntField):
@@ -13355,7 +13362,7 @@ class OwnerTypePtr(OwnerType):
     def __init__(self, this):
         _swig_setattr(self, OwnerType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OwnerType, 'thisown', 0)
-        self.__class__ = OwnerType
+        _swig_setattr(self, OwnerType,self.__class__,OwnerType)
 _quickfix.OwnerType_swigregister(OwnerTypePtr)
 
 class PartySubID(StringField):
@@ -13380,7 +13387,7 @@ class PartySubIDPtr(PartySubID):
     def __init__(self, this):
         _swig_setattr(self, PartySubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PartySubID, 'thisown', 0)
-        self.__class__ = PartySubID
+        _swig_setattr(self, PartySubID,self.__class__,PartySubID)
 _quickfix.PartySubID_swigregister(PartySubIDPtr)
 
 class NestedPartyID(StringField):
@@ -13405,7 +13412,7 @@ class NestedPartyIDPtr(NestedPartyID):
     def __init__(self, this):
         _swig_setattr(self, NestedPartyID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NestedPartyID, 'thisown', 0)
-        self.__class__ = NestedPartyID
+        _swig_setattr(self, NestedPartyID,self.__class__,NestedPartyID)
 _quickfix.NestedPartyID_swigregister(NestedPartyIDPtr)
 
 class NestedPartyIDSource(CharField):
@@ -13430,7 +13437,7 @@ class NestedPartyIDSourcePtr(NestedPartyIDSource):
     def __init__(self, this):
         _swig_setattr(self, NestedPartyIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NestedPartyIDSource, 'thisown', 0)
-        self.__class__ = NestedPartyIDSource
+        _swig_setattr(self, NestedPartyIDSource,self.__class__,NestedPartyIDSource)
 _quickfix.NestedPartyIDSource_swigregister(NestedPartyIDSourcePtr)
 
 class SecondaryClOrdID(StringField):
@@ -13455,7 +13462,7 @@ class SecondaryClOrdIDPtr(SecondaryClOrdID):
     def __init__(self, this):
         _swig_setattr(self, SecondaryClOrdID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecondaryClOrdID, 'thisown', 0)
-        self.__class__ = SecondaryClOrdID
+        _swig_setattr(self, SecondaryClOrdID,self.__class__,SecondaryClOrdID)
 _quickfix.SecondaryClOrdID_swigregister(SecondaryClOrdIDPtr)
 
 class SecondaryExecID(StringField):
@@ -13480,7 +13487,7 @@ class SecondaryExecIDPtr(SecondaryExecID):
     def __init__(self, this):
         _swig_setattr(self, SecondaryExecID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecondaryExecID, 'thisown', 0)
-        self.__class__ = SecondaryExecID
+        _swig_setattr(self, SecondaryExecID,self.__class__,SecondaryExecID)
 _quickfix.SecondaryExecID_swigregister(SecondaryExecIDPtr)
 
 class OrderCapacity(CharField):
@@ -13505,7 +13512,7 @@ class OrderCapacityPtr(OrderCapacity):
     def __init__(self, this):
         _swig_setattr(self, OrderCapacity, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderCapacity, 'thisown', 0)
-        self.__class__ = OrderCapacity
+        _swig_setattr(self, OrderCapacity,self.__class__,OrderCapacity)
 _quickfix.OrderCapacity_swigregister(OrderCapacityPtr)
 
 class OrderRestrictions(StringField):
@@ -13530,7 +13537,7 @@ class OrderRestrictionsPtr(OrderRestrictions):
     def __init__(self, this):
         _swig_setattr(self, OrderRestrictions, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderRestrictions, 'thisown', 0)
-        self.__class__ = OrderRestrictions
+        _swig_setattr(self, OrderRestrictions,self.__class__,OrderRestrictions)
 _quickfix.OrderRestrictions_swigregister(OrderRestrictionsPtr)
 
 class MassCancelRequestType(CharField):
@@ -13555,7 +13562,7 @@ class MassCancelRequestTypePtr(MassCancelRequestType):
     def __init__(self, this):
         _swig_setattr(self, MassCancelRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MassCancelRequestType, 'thisown', 0)
-        self.__class__ = MassCancelRequestType
+        _swig_setattr(self, MassCancelRequestType,self.__class__,MassCancelRequestType)
 _quickfix.MassCancelRequestType_swigregister(MassCancelRequestTypePtr)
 
 class MassCancelResponse(CharField):
@@ -13580,7 +13587,7 @@ class MassCancelResponsePtr(MassCancelResponse):
     def __init__(self, this):
         _swig_setattr(self, MassCancelResponse, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MassCancelResponse, 'thisown', 0)
-        self.__class__ = MassCancelResponse
+        _swig_setattr(self, MassCancelResponse,self.__class__,MassCancelResponse)
 _quickfix.MassCancelResponse_swigregister(MassCancelResponsePtr)
 
 class MassCancelRejectReason(CharField):
@@ -13605,7 +13612,7 @@ class MassCancelRejectReasonPtr(MassCancelRejectReason):
     def __init__(self, this):
         _swig_setattr(self, MassCancelRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MassCancelRejectReason, 'thisown', 0)
-        self.__class__ = MassCancelRejectReason
+        _swig_setattr(self, MassCancelRejectReason,self.__class__,MassCancelRejectReason)
 _quickfix.MassCancelRejectReason_swigregister(MassCancelRejectReasonPtr)
 
 class TotalAffectedOrders(IntField):
@@ -13630,7 +13637,7 @@ class TotalAffectedOrdersPtr(TotalAffectedOrders):
     def __init__(self, this):
         _swig_setattr(self, TotalAffectedOrders, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalAffectedOrders, 'thisown', 0)
-        self.__class__ = TotalAffectedOrders
+        _swig_setattr(self, TotalAffectedOrders,self.__class__,TotalAffectedOrders)
 _quickfix.TotalAffectedOrders_swigregister(TotalAffectedOrdersPtr)
 
 class NoAffectedOrders(IntField):
@@ -13655,7 +13662,7 @@ class NoAffectedOrdersPtr(NoAffectedOrders):
     def __init__(self, this):
         _swig_setattr(self, NoAffectedOrders, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoAffectedOrders, 'thisown', 0)
-        self.__class__ = NoAffectedOrders
+        _swig_setattr(self, NoAffectedOrders,self.__class__,NoAffectedOrders)
 _quickfix.NoAffectedOrders_swigregister(NoAffectedOrdersPtr)
 
 class AffectedOrderID(StringField):
@@ -13680,7 +13687,7 @@ class AffectedOrderIDPtr(AffectedOrderID):
     def __init__(self, this):
         _swig_setattr(self, AffectedOrderID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AffectedOrderID, 'thisown', 0)
-        self.__class__ = AffectedOrderID
+        _swig_setattr(self, AffectedOrderID,self.__class__,AffectedOrderID)
 _quickfix.AffectedOrderID_swigregister(AffectedOrderIDPtr)
 
 class AffectedSecondaryOrderID(StringField):
@@ -13705,7 +13712,7 @@ class AffectedSecondaryOrderIDPtr(AffectedSecondaryOrderID):
     def __init__(self, this):
         _swig_setattr(self, AffectedSecondaryOrderID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AffectedSecondaryOrderID, 'thisown', 0)
-        self.__class__ = AffectedSecondaryOrderID
+        _swig_setattr(self, AffectedSecondaryOrderID,self.__class__,AffectedSecondaryOrderID)
 _quickfix.AffectedSecondaryOrderID_swigregister(AffectedSecondaryOrderIDPtr)
 
 class QuoteType(IntField):
@@ -13730,7 +13737,7 @@ class QuoteTypePtr(QuoteType):
     def __init__(self, this):
         _swig_setattr(self, QuoteType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteType, 'thisown', 0)
-        self.__class__ = QuoteType
+        _swig_setattr(self, QuoteType,self.__class__,QuoteType)
 _quickfix.QuoteType_swigregister(QuoteTypePtr)
 
 class NestedPartyRole(IntField):
@@ -13755,7 +13762,7 @@ class NestedPartyRolePtr(NestedPartyRole):
     def __init__(self, this):
         _swig_setattr(self, NestedPartyRole, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NestedPartyRole, 'thisown', 0)
-        self.__class__ = NestedPartyRole
+        _swig_setattr(self, NestedPartyRole,self.__class__,NestedPartyRole)
 _quickfix.NestedPartyRole_swigregister(NestedPartyRolePtr)
 
 class NoNestedPartyIDs(IntField):
@@ -13780,7 +13787,7 @@ class NoNestedPartyIDsPtr(NoNestedPartyIDs):
     def __init__(self, this):
         _swig_setattr(self, NoNestedPartyIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoNestedPartyIDs, 'thisown', 0)
-        self.__class__ = NoNestedPartyIDs
+        _swig_setattr(self, NoNestedPartyIDs,self.__class__,NoNestedPartyIDs)
 _quickfix.NoNestedPartyIDs_swigregister(NoNestedPartyIDsPtr)
 
 class TotalAccruedInterestAmt(DoubleField):
@@ -13805,7 +13812,7 @@ class TotalAccruedInterestAmtPtr(TotalAccruedInterestAmt):
     def __init__(self, this):
         _swig_setattr(self, TotalAccruedInterestAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalAccruedInterestAmt, 'thisown', 0)
-        self.__class__ = TotalAccruedInterestAmt
+        _swig_setattr(self, TotalAccruedInterestAmt,self.__class__,TotalAccruedInterestAmt)
 _quickfix.TotalAccruedInterestAmt_swigregister(TotalAccruedInterestAmtPtr)
 
 class MaturityDate(StringField):
@@ -13830,7 +13837,7 @@ class MaturityDatePtr(MaturityDate):
     def __init__(self, this):
         _swig_setattr(self, MaturityDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MaturityDate, 'thisown', 0)
-        self.__class__ = MaturityDate
+        _swig_setattr(self, MaturityDate,self.__class__,MaturityDate)
 _quickfix.MaturityDate_swigregister(MaturityDatePtr)
 
 class UnderlyingMaturityDate(StringField):
@@ -13855,7 +13862,7 @@ class UnderlyingMaturityDatePtr(UnderlyingMaturityDate):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingMaturityDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingMaturityDate, 'thisown', 0)
-        self.__class__ = UnderlyingMaturityDate
+        _swig_setattr(self, UnderlyingMaturityDate,self.__class__,UnderlyingMaturityDate)
 _quickfix.UnderlyingMaturityDate_swigregister(UnderlyingMaturityDatePtr)
 
 class InstrRegistry(StringField):
@@ -13880,7 +13887,7 @@ class InstrRegistryPtr(InstrRegistry):
     def __init__(self, this):
         _swig_setattr(self, InstrRegistry, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InstrRegistry, 'thisown', 0)
-        self.__class__ = InstrRegistry
+        _swig_setattr(self, InstrRegistry,self.__class__,InstrRegistry)
 _quickfix.InstrRegistry_swigregister(InstrRegistryPtr)
 
 class CashMargin(CharField):
@@ -13905,7 +13912,7 @@ class CashMarginPtr(CashMargin):
     def __init__(self, this):
         _swig_setattr(self, CashMargin, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashMargin, 'thisown', 0)
-        self.__class__ = CashMargin
+        _swig_setattr(self, CashMargin,self.__class__,CashMargin)
 _quickfix.CashMargin_swigregister(CashMarginPtr)
 
 class NestedPartySubID(StringField):
@@ -13930,7 +13937,7 @@ class NestedPartySubIDPtr(NestedPartySubID):
     def __init__(self, this):
         _swig_setattr(self, NestedPartySubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NestedPartySubID, 'thisown', 0)
-        self.__class__ = NestedPartySubID
+        _swig_setattr(self, NestedPartySubID,self.__class__,NestedPartySubID)
 _quickfix.NestedPartySubID_swigregister(NestedPartySubIDPtr)
 
 class Scope(StringField):
@@ -13955,7 +13962,7 @@ class ScopePtr(Scope):
     def __init__(self, this):
         _swig_setattr(self, Scope, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Scope, 'thisown', 0)
-        self.__class__ = Scope
+        _swig_setattr(self, Scope,self.__class__,Scope)
 _quickfix.Scope_swigregister(ScopePtr)
 
 class MDImplicitDelete(BoolField):
@@ -13980,7 +13987,7 @@ class MDImplicitDeletePtr(MDImplicitDelete):
     def __init__(self, this):
         _swig_setattr(self, MDImplicitDelete, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MDImplicitDelete, 'thisown', 0)
-        self.__class__ = MDImplicitDelete
+        _swig_setattr(self, MDImplicitDelete,self.__class__,MDImplicitDelete)
 _quickfix.MDImplicitDelete_swigregister(MDImplicitDeletePtr)
 
 class CrossID(StringField):
@@ -14005,7 +14012,7 @@ class CrossIDPtr(CrossID):
     def __init__(self, this):
         _swig_setattr(self, CrossID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CrossID, 'thisown', 0)
-        self.__class__ = CrossID
+        _swig_setattr(self, CrossID,self.__class__,CrossID)
 _quickfix.CrossID_swigregister(CrossIDPtr)
 
 class CrossType(IntField):
@@ -14030,7 +14037,7 @@ class CrossTypePtr(CrossType):
     def __init__(self, this):
         _swig_setattr(self, CrossType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CrossType, 'thisown', 0)
-        self.__class__ = CrossType
+        _swig_setattr(self, CrossType,self.__class__,CrossType)
 _quickfix.CrossType_swigregister(CrossTypePtr)
 
 class CrossPrioritization(IntField):
@@ -14055,7 +14062,7 @@ class CrossPrioritizationPtr(CrossPrioritization):
     def __init__(self, this):
         _swig_setattr(self, CrossPrioritization, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CrossPrioritization, 'thisown', 0)
-        self.__class__ = CrossPrioritization
+        _swig_setattr(self, CrossPrioritization,self.__class__,CrossPrioritization)
 _quickfix.CrossPrioritization_swigregister(CrossPrioritizationPtr)
 
 class OrigCrossID(StringField):
@@ -14080,7 +14087,7 @@ class OrigCrossIDPtr(OrigCrossID):
     def __init__(self, this):
         _swig_setattr(self, OrigCrossID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrigCrossID, 'thisown', 0)
-        self.__class__ = OrigCrossID
+        _swig_setattr(self, OrigCrossID,self.__class__,OrigCrossID)
 _quickfix.OrigCrossID_swigregister(OrigCrossIDPtr)
 
 class NoSides(IntField):
@@ -14105,7 +14112,7 @@ class NoSidesPtr(NoSides):
     def __init__(self, this):
         _swig_setattr(self, NoSides, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoSides, 'thisown', 0)
-        self.__class__ = NoSides
+        _swig_setattr(self, NoSides,self.__class__,NoSides)
 _quickfix.NoSides_swigregister(NoSidesPtr)
 
 class Username(StringField):
@@ -14130,7 +14137,7 @@ class UsernamePtr(Username):
     def __init__(self, this):
         _swig_setattr(self, Username, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Username, 'thisown', 0)
-        self.__class__ = Username
+        _swig_setattr(self, Username,self.__class__,Username)
 _quickfix.Username_swigregister(UsernamePtr)
 
 class Password(StringField):
@@ -14155,7 +14162,7 @@ class PasswordPtr(Password):
     def __init__(self, this):
         _swig_setattr(self, Password, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Password, 'thisown', 0)
-        self.__class__ = Password
+        _swig_setattr(self, Password,self.__class__,Password)
 _quickfix.Password_swigregister(PasswordPtr)
 
 class NoLegs(IntField):
@@ -14180,7 +14187,7 @@ class NoLegsPtr(NoLegs):
     def __init__(self, this):
         _swig_setattr(self, NoLegs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoLegs, 'thisown', 0)
-        self.__class__ = NoLegs
+        _swig_setattr(self, NoLegs,self.__class__,NoLegs)
 _quickfix.NoLegs_swigregister(NoLegsPtr)
 
 class LegCurrency(StringField):
@@ -14205,7 +14212,7 @@ class LegCurrencyPtr(LegCurrency):
     def __init__(self, this):
         _swig_setattr(self, LegCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegCurrency, 'thisown', 0)
-        self.__class__ = LegCurrency
+        _swig_setattr(self, LegCurrency,self.__class__,LegCurrency)
 _quickfix.LegCurrency_swigregister(LegCurrencyPtr)
 
 class TotNoSecurityTypes(IntField):
@@ -14230,7 +14237,7 @@ class TotNoSecurityTypesPtr(TotNoSecurityTypes):
     def __init__(self, this):
         _swig_setattr(self, TotNoSecurityTypes, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNoSecurityTypes, 'thisown', 0)
-        self.__class__ = TotNoSecurityTypes
+        _swig_setattr(self, TotNoSecurityTypes,self.__class__,TotNoSecurityTypes)
 _quickfix.TotNoSecurityTypes_swigregister(TotNoSecurityTypesPtr)
 
 class NoSecurityTypes(IntField):
@@ -14255,7 +14262,7 @@ class NoSecurityTypesPtr(NoSecurityTypes):
     def __init__(self, this):
         _swig_setattr(self, NoSecurityTypes, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoSecurityTypes, 'thisown', 0)
-        self.__class__ = NoSecurityTypes
+        _swig_setattr(self, NoSecurityTypes,self.__class__,NoSecurityTypes)
 _quickfix.NoSecurityTypes_swigregister(NoSecurityTypesPtr)
 
 class SecurityListRequestType(IntField):
@@ -14280,7 +14287,7 @@ class SecurityListRequestTypePtr(SecurityListRequestType):
     def __init__(self, this):
         _swig_setattr(self, SecurityListRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityListRequestType, 'thisown', 0)
-        self.__class__ = SecurityListRequestType
+        _swig_setattr(self, SecurityListRequestType,self.__class__,SecurityListRequestType)
 _quickfix.SecurityListRequestType_swigregister(SecurityListRequestTypePtr)
 
 class SecurityRequestResult(IntField):
@@ -14305,7 +14312,7 @@ class SecurityRequestResultPtr(SecurityRequestResult):
     def __init__(self, this):
         _swig_setattr(self, SecurityRequestResult, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecurityRequestResult, 'thisown', 0)
-        self.__class__ = SecurityRequestResult
+        _swig_setattr(self, SecurityRequestResult,self.__class__,SecurityRequestResult)
 _quickfix.SecurityRequestResult_swigregister(SecurityRequestResultPtr)
 
 class RoundLot(DoubleField):
@@ -14330,7 +14337,7 @@ class RoundLotPtr(RoundLot):
     def __init__(self, this):
         _swig_setattr(self, RoundLot, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RoundLot, 'thisown', 0)
-        self.__class__ = RoundLot
+        _swig_setattr(self, RoundLot,self.__class__,RoundLot)
 _quickfix.RoundLot_swigregister(RoundLotPtr)
 
 class MinTradeVol(DoubleField):
@@ -14355,7 +14362,7 @@ class MinTradeVolPtr(MinTradeVol):
     def __init__(self, this):
         _swig_setattr(self, MinTradeVol, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MinTradeVol, 'thisown', 0)
-        self.__class__ = MinTradeVol
+        _swig_setattr(self, MinTradeVol,self.__class__,MinTradeVol)
 _quickfix.MinTradeVol_swigregister(MinTradeVolPtr)
 
 class MultiLegRptTypeReq(IntField):
@@ -14380,7 +14387,7 @@ class MultiLegRptTypeReqPtr(MultiLegRptTypeReq):
     def __init__(self, this):
         _swig_setattr(self, MultiLegRptTypeReq, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MultiLegRptTypeReq, 'thisown', 0)
-        self.__class__ = MultiLegRptTypeReq
+        _swig_setattr(self, MultiLegRptTypeReq,self.__class__,MultiLegRptTypeReq)
 _quickfix.MultiLegRptTypeReq_swigregister(MultiLegRptTypeReqPtr)
 
 class LegPositionEffect(CharField):
@@ -14405,7 +14412,7 @@ class LegPositionEffectPtr(LegPositionEffect):
     def __init__(self, this):
         _swig_setattr(self, LegPositionEffect, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegPositionEffect, 'thisown', 0)
-        self.__class__ = LegPositionEffect
+        _swig_setattr(self, LegPositionEffect,self.__class__,LegPositionEffect)
 _quickfix.LegPositionEffect_swigregister(LegPositionEffectPtr)
 
 class LegCoveredOrUncovered(IntField):
@@ -14430,7 +14437,7 @@ class LegCoveredOrUncoveredPtr(LegCoveredOrUncovered):
     def __init__(self, this):
         _swig_setattr(self, LegCoveredOrUncovered, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegCoveredOrUncovered, 'thisown', 0)
-        self.__class__ = LegCoveredOrUncovered
+        _swig_setattr(self, LegCoveredOrUncovered,self.__class__,LegCoveredOrUncovered)
 _quickfix.LegCoveredOrUncovered_swigregister(LegCoveredOrUncoveredPtr)
 
 class LegPrice(DoubleField):
@@ -14455,7 +14462,7 @@ class LegPricePtr(LegPrice):
     def __init__(self, this):
         _swig_setattr(self, LegPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegPrice, 'thisown', 0)
-        self.__class__ = LegPrice
+        _swig_setattr(self, LegPrice,self.__class__,LegPrice)
 _quickfix.LegPrice_swigregister(LegPricePtr)
 
 class TradSesStatusRejReason(IntField):
@@ -14480,7 +14487,7 @@ class TradSesStatusRejReasonPtr(TradSesStatusRejReason):
     def __init__(self, this):
         _swig_setattr(self, TradSesStatusRejReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradSesStatusRejReason, 'thisown', 0)
-        self.__class__ = TradSesStatusRejReason
+        _swig_setattr(self, TradSesStatusRejReason,self.__class__,TradSesStatusRejReason)
 _quickfix.TradSesStatusRejReason_swigregister(TradSesStatusRejReasonPtr)
 
 class TradeRequestID(StringField):
@@ -14505,7 +14512,7 @@ class TradeRequestIDPtr(TradeRequestID):
     def __init__(self, this):
         _swig_setattr(self, TradeRequestID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeRequestID, 'thisown', 0)
-        self.__class__ = TradeRequestID
+        _swig_setattr(self, TradeRequestID,self.__class__,TradeRequestID)
 _quickfix.TradeRequestID_swigregister(TradeRequestIDPtr)
 
 class TradeRequestType(IntField):
@@ -14530,7 +14537,7 @@ class TradeRequestTypePtr(TradeRequestType):
     def __init__(self, this):
         _swig_setattr(self, TradeRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeRequestType, 'thisown', 0)
-        self.__class__ = TradeRequestType
+        _swig_setattr(self, TradeRequestType,self.__class__,TradeRequestType)
 _quickfix.TradeRequestType_swigregister(TradeRequestTypePtr)
 
 class PreviouslyReported(BoolField):
@@ -14555,7 +14562,7 @@ class PreviouslyReportedPtr(PreviouslyReported):
     def __init__(self, this):
         _swig_setattr(self, PreviouslyReported, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PreviouslyReported, 'thisown', 0)
-        self.__class__ = PreviouslyReported
+        _swig_setattr(self, PreviouslyReported,self.__class__,PreviouslyReported)
 _quickfix.PreviouslyReported_swigregister(PreviouslyReportedPtr)
 
 class TradeReportID(StringField):
@@ -14580,7 +14587,7 @@ class TradeReportIDPtr(TradeReportID):
     def __init__(self, this):
         _swig_setattr(self, TradeReportID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeReportID, 'thisown', 0)
-        self.__class__ = TradeReportID
+        _swig_setattr(self, TradeReportID,self.__class__,TradeReportID)
 _quickfix.TradeReportID_swigregister(TradeReportIDPtr)
 
 class TradeReportRefID(StringField):
@@ -14605,7 +14612,7 @@ class TradeReportRefIDPtr(TradeReportRefID):
     def __init__(self, this):
         _swig_setattr(self, TradeReportRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeReportRefID, 'thisown', 0)
-        self.__class__ = TradeReportRefID
+        _swig_setattr(self, TradeReportRefID,self.__class__,TradeReportRefID)
 _quickfix.TradeReportRefID_swigregister(TradeReportRefIDPtr)
 
 class MatchStatus(CharField):
@@ -14630,7 +14637,7 @@ class MatchStatusPtr(MatchStatus):
     def __init__(self, this):
         _swig_setattr(self, MatchStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MatchStatus, 'thisown', 0)
-        self.__class__ = MatchStatus
+        _swig_setattr(self, MatchStatus,self.__class__,MatchStatus)
 _quickfix.MatchStatus_swigregister(MatchStatusPtr)
 
 class MatchType(StringField):
@@ -14655,7 +14662,7 @@ class MatchTypePtr(MatchType):
     def __init__(self, this):
         _swig_setattr(self, MatchType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MatchType, 'thisown', 0)
-        self.__class__ = MatchType
+        _swig_setattr(self, MatchType,self.__class__,MatchType)
 _quickfix.MatchType_swigregister(MatchTypePtr)
 
 class OddLot(BoolField):
@@ -14680,7 +14687,7 @@ class OddLotPtr(OddLot):
     def __init__(self, this):
         _swig_setattr(self, OddLot, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OddLot, 'thisown', 0)
-        self.__class__ = OddLot
+        _swig_setattr(self, OddLot,self.__class__,OddLot)
 _quickfix.OddLot_swigregister(OddLotPtr)
 
 class NoClearingInstructions(IntField):
@@ -14705,7 +14712,7 @@ class NoClearingInstructionsPtr(NoClearingInstructions):
     def __init__(self, this):
         _swig_setattr(self, NoClearingInstructions, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoClearingInstructions, 'thisown', 0)
-        self.__class__ = NoClearingInstructions
+        _swig_setattr(self, NoClearingInstructions,self.__class__,NoClearingInstructions)
 _quickfix.NoClearingInstructions_swigregister(NoClearingInstructionsPtr)
 
 class ClearingInstruction(IntField):
@@ -14730,7 +14737,7 @@ class ClearingInstructionPtr(ClearingInstruction):
     def __init__(self, this):
         _swig_setattr(self, ClearingInstruction, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClearingInstruction, 'thisown', 0)
-        self.__class__ = ClearingInstruction
+        _swig_setattr(self, ClearingInstruction,self.__class__,ClearingInstruction)
 _quickfix.ClearingInstruction_swigregister(ClearingInstructionPtr)
 
 class TradeInputSource(StringField):
@@ -14755,7 +14762,7 @@ class TradeInputSourcePtr(TradeInputSource):
     def __init__(self, this):
         _swig_setattr(self, TradeInputSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeInputSource, 'thisown', 0)
-        self.__class__ = TradeInputSource
+        _swig_setattr(self, TradeInputSource,self.__class__,TradeInputSource)
 _quickfix.TradeInputSource_swigregister(TradeInputSourcePtr)
 
 class TradeInputDevice(StringField):
@@ -14780,7 +14787,7 @@ class TradeInputDevicePtr(TradeInputDevice):
     def __init__(self, this):
         _swig_setattr(self, TradeInputDevice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeInputDevice, 'thisown', 0)
-        self.__class__ = TradeInputDevice
+        _swig_setattr(self, TradeInputDevice,self.__class__,TradeInputDevice)
 _quickfix.TradeInputDevice_swigregister(TradeInputDevicePtr)
 
 class NoDates(IntField):
@@ -14805,7 +14812,7 @@ class NoDatesPtr(NoDates):
     def __init__(self, this):
         _swig_setattr(self, NoDates, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoDates, 'thisown', 0)
-        self.__class__ = NoDates
+        _swig_setattr(self, NoDates,self.__class__,NoDates)
 _quickfix.NoDates_swigregister(NoDatesPtr)
 
 class AccountType(IntField):
@@ -14830,7 +14837,7 @@ class AccountTypePtr(AccountType):
     def __init__(self, this):
         _swig_setattr(self, AccountType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AccountType, 'thisown', 0)
-        self.__class__ = AccountType
+        _swig_setattr(self, AccountType,self.__class__,AccountType)
 _quickfix.AccountType_swigregister(AccountTypePtr)
 
 class CustOrderCapacity(IntField):
@@ -14855,7 +14862,7 @@ class CustOrderCapacityPtr(CustOrderCapacity):
     def __init__(self, this):
         _swig_setattr(self, CustOrderCapacity, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CustOrderCapacity, 'thisown', 0)
-        self.__class__ = CustOrderCapacity
+        _swig_setattr(self, CustOrderCapacity,self.__class__,CustOrderCapacity)
 _quickfix.CustOrderCapacity_swigregister(CustOrderCapacityPtr)
 
 class ClOrdLinkID(StringField):
@@ -14880,7 +14887,7 @@ class ClOrdLinkIDPtr(ClOrdLinkID):
     def __init__(self, this):
         _swig_setattr(self, ClOrdLinkID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClOrdLinkID, 'thisown', 0)
-        self.__class__ = ClOrdLinkID
+        _swig_setattr(self, ClOrdLinkID,self.__class__,ClOrdLinkID)
 _quickfix.ClOrdLinkID_swigregister(ClOrdLinkIDPtr)
 
 class MassStatusReqID(StringField):
@@ -14905,7 +14912,7 @@ class MassStatusReqIDPtr(MassStatusReqID):
     def __init__(self, this):
         _swig_setattr(self, MassStatusReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MassStatusReqID, 'thisown', 0)
-        self.__class__ = MassStatusReqID
+        _swig_setattr(self, MassStatusReqID,self.__class__,MassStatusReqID)
 _quickfix.MassStatusReqID_swigregister(MassStatusReqIDPtr)
 
 class MassStatusReqType(IntField):
@@ -14930,7 +14937,7 @@ class MassStatusReqTypePtr(MassStatusReqType):
     def __init__(self, this):
         _swig_setattr(self, MassStatusReqType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MassStatusReqType, 'thisown', 0)
-        self.__class__ = MassStatusReqType
+        _swig_setattr(self, MassStatusReqType,self.__class__,MassStatusReqType)
 _quickfix.MassStatusReqType_swigregister(MassStatusReqTypePtr)
 
 class OrigOrdModTime(UtcTimeStampField):
@@ -14955,7 +14962,7 @@ class OrigOrdModTimePtr(OrigOrdModTime):
     def __init__(self, this):
         _swig_setattr(self, OrigOrdModTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrigOrdModTime, 'thisown', 0)
-        self.__class__ = OrigOrdModTime
+        _swig_setattr(self, OrigOrdModTime,self.__class__,OrigOrdModTime)
 _quickfix.OrigOrdModTime_swigregister(OrigOrdModTimePtr)
 
 class LegSettlType(CharField):
@@ -14980,7 +14987,7 @@ class LegSettlTypePtr(LegSettlType):
     def __init__(self, this):
         _swig_setattr(self, LegSettlType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSettlType, 'thisown', 0)
-        self.__class__ = LegSettlType
+        _swig_setattr(self, LegSettlType,self.__class__,LegSettlType)
 _quickfix.LegSettlType_swigregister(LegSettlTypePtr)
 
 class LegSettlDate(StringField):
@@ -15005,7 +15012,7 @@ class LegSettlDatePtr(LegSettlDate):
     def __init__(self, this):
         _swig_setattr(self, LegSettlDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSettlDate, 'thisown', 0)
-        self.__class__ = LegSettlDate
+        _swig_setattr(self, LegSettlDate,self.__class__,LegSettlDate)
 _quickfix.LegSettlDate_swigregister(LegSettlDatePtr)
 
 class DayBookingInst(CharField):
@@ -15030,7 +15037,7 @@ class DayBookingInstPtr(DayBookingInst):
     def __init__(self, this):
         _swig_setattr(self, DayBookingInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DayBookingInst, 'thisown', 0)
-        self.__class__ = DayBookingInst
+        _swig_setattr(self, DayBookingInst,self.__class__,DayBookingInst)
 _quickfix.DayBookingInst_swigregister(DayBookingInstPtr)
 
 class BookingUnit(CharField):
@@ -15055,7 +15062,7 @@ class BookingUnitPtr(BookingUnit):
     def __init__(self, this):
         _swig_setattr(self, BookingUnit, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BookingUnit, 'thisown', 0)
-        self.__class__ = BookingUnit
+        _swig_setattr(self, BookingUnit,self.__class__,BookingUnit)
 _quickfix.BookingUnit_swigregister(BookingUnitPtr)
 
 class PreallocMethod(CharField):
@@ -15080,7 +15087,7 @@ class PreallocMethodPtr(PreallocMethod):
     def __init__(self, this):
         _swig_setattr(self, PreallocMethod, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PreallocMethod, 'thisown', 0)
-        self.__class__ = PreallocMethod
+        _swig_setattr(self, PreallocMethod,self.__class__,PreallocMethod)
 _quickfix.PreallocMethod_swigregister(PreallocMethodPtr)
 
 class UnderlyingCountryOfIssue(StringField):
@@ -15105,7 +15112,7 @@ class UnderlyingCountryOfIssuePtr(UnderlyingCountryOfIssue):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCountryOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCountryOfIssue, 'thisown', 0)
-        self.__class__ = UnderlyingCountryOfIssue
+        _swig_setattr(self, UnderlyingCountryOfIssue,self.__class__,UnderlyingCountryOfIssue)
 _quickfix.UnderlyingCountryOfIssue_swigregister(UnderlyingCountryOfIssuePtr)
 
 class UnderlyingStateOrProvinceOfIssue(StringField):
@@ -15130,7 +15137,7 @@ class UnderlyingStateOrProvinceOfIssuePtr(UnderlyingStateOrProvinceOfIssue):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingStateOrProvinceOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingStateOrProvinceOfIssue, 'thisown', 0)
-        self.__class__ = UnderlyingStateOrProvinceOfIssue
+        _swig_setattr(self, UnderlyingStateOrProvinceOfIssue,self.__class__,UnderlyingStateOrProvinceOfIssue)
 _quickfix.UnderlyingStateOrProvinceOfIssue_swigregister(UnderlyingStateOrProvinceOfIssuePtr)
 
 class UnderlyingLocaleOfIssue(StringField):
@@ -15155,7 +15162,7 @@ class UnderlyingLocaleOfIssuePtr(UnderlyingLocaleOfIssue):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingLocaleOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingLocaleOfIssue, 'thisown', 0)
-        self.__class__ = UnderlyingLocaleOfIssue
+        _swig_setattr(self, UnderlyingLocaleOfIssue,self.__class__,UnderlyingLocaleOfIssue)
 _quickfix.UnderlyingLocaleOfIssue_swigregister(UnderlyingLocaleOfIssuePtr)
 
 class UnderlyingInstrRegistry(StringField):
@@ -15180,7 +15187,7 @@ class UnderlyingInstrRegistryPtr(UnderlyingInstrRegistry):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingInstrRegistry, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingInstrRegistry, 'thisown', 0)
-        self.__class__ = UnderlyingInstrRegistry
+        _swig_setattr(self, UnderlyingInstrRegistry,self.__class__,UnderlyingInstrRegistry)
 _quickfix.UnderlyingInstrRegistry_swigregister(UnderlyingInstrRegistryPtr)
 
 class LegCountryOfIssue(StringField):
@@ -15205,7 +15212,7 @@ class LegCountryOfIssuePtr(LegCountryOfIssue):
     def __init__(self, this):
         _swig_setattr(self, LegCountryOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegCountryOfIssue, 'thisown', 0)
-        self.__class__ = LegCountryOfIssue
+        _swig_setattr(self, LegCountryOfIssue,self.__class__,LegCountryOfIssue)
 _quickfix.LegCountryOfIssue_swigregister(LegCountryOfIssuePtr)
 
 class LegStateOrProvinceOfIssue(StringField):
@@ -15230,7 +15237,7 @@ class LegStateOrProvinceOfIssuePtr(LegStateOrProvinceOfIssue):
     def __init__(self, this):
         _swig_setattr(self, LegStateOrProvinceOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegStateOrProvinceOfIssue, 'thisown', 0)
-        self.__class__ = LegStateOrProvinceOfIssue
+        _swig_setattr(self, LegStateOrProvinceOfIssue,self.__class__,LegStateOrProvinceOfIssue)
 _quickfix.LegStateOrProvinceOfIssue_swigregister(LegStateOrProvinceOfIssuePtr)
 
 class LegLocaleOfIssue(StringField):
@@ -15255,7 +15262,7 @@ class LegLocaleOfIssuePtr(LegLocaleOfIssue):
     def __init__(self, this):
         _swig_setattr(self, LegLocaleOfIssue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegLocaleOfIssue, 'thisown', 0)
-        self.__class__ = LegLocaleOfIssue
+        _swig_setattr(self, LegLocaleOfIssue,self.__class__,LegLocaleOfIssue)
 _quickfix.LegLocaleOfIssue_swigregister(LegLocaleOfIssuePtr)
 
 class LegInstrRegistry(StringField):
@@ -15280,7 +15287,7 @@ class LegInstrRegistryPtr(LegInstrRegistry):
     def __init__(self, this):
         _swig_setattr(self, LegInstrRegistry, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegInstrRegistry, 'thisown', 0)
-        self.__class__ = LegInstrRegistry
+        _swig_setattr(self, LegInstrRegistry,self.__class__,LegInstrRegistry)
 _quickfix.LegInstrRegistry_swigregister(LegInstrRegistryPtr)
 
 class LegSymbol(StringField):
@@ -15305,7 +15312,7 @@ class LegSymbolPtr(LegSymbol):
     def __init__(self, this):
         _swig_setattr(self, LegSymbol, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSymbol, 'thisown', 0)
-        self.__class__ = LegSymbol
+        _swig_setattr(self, LegSymbol,self.__class__,LegSymbol)
 _quickfix.LegSymbol_swigregister(LegSymbolPtr)
 
 class LegSymbolSfx(StringField):
@@ -15330,7 +15337,7 @@ class LegSymbolSfxPtr(LegSymbolSfx):
     def __init__(self, this):
         _swig_setattr(self, LegSymbolSfx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSymbolSfx, 'thisown', 0)
-        self.__class__ = LegSymbolSfx
+        _swig_setattr(self, LegSymbolSfx,self.__class__,LegSymbolSfx)
 _quickfix.LegSymbolSfx_swigregister(LegSymbolSfxPtr)
 
 class LegSecurityID(StringField):
@@ -15355,7 +15362,7 @@ class LegSecurityIDPtr(LegSecurityID):
     def __init__(self, this):
         _swig_setattr(self, LegSecurityID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecurityID, 'thisown', 0)
-        self.__class__ = LegSecurityID
+        _swig_setattr(self, LegSecurityID,self.__class__,LegSecurityID)
 _quickfix.LegSecurityID_swigregister(LegSecurityIDPtr)
 
 class LegSecurityIDSource(StringField):
@@ -15380,7 +15387,7 @@ class LegSecurityIDSourcePtr(LegSecurityIDSource):
     def __init__(self, this):
         _swig_setattr(self, LegSecurityIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecurityIDSource, 'thisown', 0)
-        self.__class__ = LegSecurityIDSource
+        _swig_setattr(self, LegSecurityIDSource,self.__class__,LegSecurityIDSource)
 _quickfix.LegSecurityIDSource_swigregister(LegSecurityIDSourcePtr)
 
 class NoLegSecurityAltID(StringField):
@@ -15405,7 +15412,7 @@ class NoLegSecurityAltIDPtr(NoLegSecurityAltID):
     def __init__(self, this):
         _swig_setattr(self, NoLegSecurityAltID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoLegSecurityAltID, 'thisown', 0)
-        self.__class__ = NoLegSecurityAltID
+        _swig_setattr(self, NoLegSecurityAltID,self.__class__,NoLegSecurityAltID)
 _quickfix.NoLegSecurityAltID_swigregister(NoLegSecurityAltIDPtr)
 
 class LegSecurityAltID(StringField):
@@ -15430,7 +15437,7 @@ class LegSecurityAltIDPtr(LegSecurityAltID):
     def __init__(self, this):
         _swig_setattr(self, LegSecurityAltID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecurityAltID, 'thisown', 0)
-        self.__class__ = LegSecurityAltID
+        _swig_setattr(self, LegSecurityAltID,self.__class__,LegSecurityAltID)
 _quickfix.LegSecurityAltID_swigregister(LegSecurityAltIDPtr)
 
 class LegSecurityAltIDSource(StringField):
@@ -15455,7 +15462,7 @@ class LegSecurityAltIDSourcePtr(LegSecurityAltIDSource):
     def __init__(self, this):
         _swig_setattr(self, LegSecurityAltIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecurityAltIDSource, 'thisown', 0)
-        self.__class__ = LegSecurityAltIDSource
+        _swig_setattr(self, LegSecurityAltIDSource,self.__class__,LegSecurityAltIDSource)
 _quickfix.LegSecurityAltIDSource_swigregister(LegSecurityAltIDSourcePtr)
 
 class LegProduct(IntField):
@@ -15480,7 +15487,7 @@ class LegProductPtr(LegProduct):
     def __init__(self, this):
         _swig_setattr(self, LegProduct, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegProduct, 'thisown', 0)
-        self.__class__ = LegProduct
+        _swig_setattr(self, LegProduct,self.__class__,LegProduct)
 _quickfix.LegProduct_swigregister(LegProductPtr)
 
 class LegCFICode(StringField):
@@ -15505,7 +15512,7 @@ class LegCFICodePtr(LegCFICode):
     def __init__(self, this):
         _swig_setattr(self, LegCFICode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegCFICode, 'thisown', 0)
-        self.__class__ = LegCFICode
+        _swig_setattr(self, LegCFICode,self.__class__,LegCFICode)
 _quickfix.LegCFICode_swigregister(LegCFICodePtr)
 
 class LegSecurityType(StringField):
@@ -15530,7 +15537,7 @@ class LegSecurityTypePtr(LegSecurityType):
     def __init__(self, this):
         _swig_setattr(self, LegSecurityType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecurityType, 'thisown', 0)
-        self.__class__ = LegSecurityType
+        _swig_setattr(self, LegSecurityType,self.__class__,LegSecurityType)
 _quickfix.LegSecurityType_swigregister(LegSecurityTypePtr)
 
 class LegMaturityMonthYear(StringField):
@@ -15555,7 +15562,7 @@ class LegMaturityMonthYearPtr(LegMaturityMonthYear):
     def __init__(self, this):
         _swig_setattr(self, LegMaturityMonthYear, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegMaturityMonthYear, 'thisown', 0)
-        self.__class__ = LegMaturityMonthYear
+        _swig_setattr(self, LegMaturityMonthYear,self.__class__,LegMaturityMonthYear)
 _quickfix.LegMaturityMonthYear_swigregister(LegMaturityMonthYearPtr)
 
 class LegMaturityDate(StringField):
@@ -15580,7 +15587,7 @@ class LegMaturityDatePtr(LegMaturityDate):
     def __init__(self, this):
         _swig_setattr(self, LegMaturityDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegMaturityDate, 'thisown', 0)
-        self.__class__ = LegMaturityDate
+        _swig_setattr(self, LegMaturityDate,self.__class__,LegMaturityDate)
 _quickfix.LegMaturityDate_swigregister(LegMaturityDatePtr)
 
 class LegStrikePrice(DoubleField):
@@ -15605,7 +15612,7 @@ class LegStrikePricePtr(LegStrikePrice):
     def __init__(self, this):
         _swig_setattr(self, LegStrikePrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegStrikePrice, 'thisown', 0)
-        self.__class__ = LegStrikePrice
+        _swig_setattr(self, LegStrikePrice,self.__class__,LegStrikePrice)
 _quickfix.LegStrikePrice_swigregister(LegStrikePricePtr)
 
 class LegOptAttribute(CharField):
@@ -15630,7 +15637,7 @@ class LegOptAttributePtr(LegOptAttribute):
     def __init__(self, this):
         _swig_setattr(self, LegOptAttribute, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegOptAttribute, 'thisown', 0)
-        self.__class__ = LegOptAttribute
+        _swig_setattr(self, LegOptAttribute,self.__class__,LegOptAttribute)
 _quickfix.LegOptAttribute_swigregister(LegOptAttributePtr)
 
 class LegContractMultiplier(DoubleField):
@@ -15655,7 +15662,7 @@ class LegContractMultiplierPtr(LegContractMultiplier):
     def __init__(self, this):
         _swig_setattr(self, LegContractMultiplier, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegContractMultiplier, 'thisown', 0)
-        self.__class__ = LegContractMultiplier
+        _swig_setattr(self, LegContractMultiplier,self.__class__,LegContractMultiplier)
 _quickfix.LegContractMultiplier_swigregister(LegContractMultiplierPtr)
 
 class LegCouponRate(DoubleField):
@@ -15680,7 +15687,7 @@ class LegCouponRatePtr(LegCouponRate):
     def __init__(self, this):
         _swig_setattr(self, LegCouponRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegCouponRate, 'thisown', 0)
-        self.__class__ = LegCouponRate
+        _swig_setattr(self, LegCouponRate,self.__class__,LegCouponRate)
 _quickfix.LegCouponRate_swigregister(LegCouponRatePtr)
 
 class LegSecurityExchange(StringField):
@@ -15705,7 +15712,7 @@ class LegSecurityExchangePtr(LegSecurityExchange):
     def __init__(self, this):
         _swig_setattr(self, LegSecurityExchange, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecurityExchange, 'thisown', 0)
-        self.__class__ = LegSecurityExchange
+        _swig_setattr(self, LegSecurityExchange,self.__class__,LegSecurityExchange)
 _quickfix.LegSecurityExchange_swigregister(LegSecurityExchangePtr)
 
 class LegIssuer(StringField):
@@ -15730,7 +15737,7 @@ class LegIssuerPtr(LegIssuer):
     def __init__(self, this):
         _swig_setattr(self, LegIssuer, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegIssuer, 'thisown', 0)
-        self.__class__ = LegIssuer
+        _swig_setattr(self, LegIssuer,self.__class__,LegIssuer)
 _quickfix.LegIssuer_swigregister(LegIssuerPtr)
 
 class EncodedLegIssuerLen(IntField):
@@ -15755,7 +15762,7 @@ class EncodedLegIssuerLenPtr(EncodedLegIssuerLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedLegIssuerLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedLegIssuerLen, 'thisown', 0)
-        self.__class__ = EncodedLegIssuerLen
+        _swig_setattr(self, EncodedLegIssuerLen,self.__class__,EncodedLegIssuerLen)
 _quickfix.EncodedLegIssuerLen_swigregister(EncodedLegIssuerLenPtr)
 
 class EncodedLegIssuer(StringField):
@@ -15780,7 +15787,7 @@ class EncodedLegIssuerPtr(EncodedLegIssuer):
     def __init__(self, this):
         _swig_setattr(self, EncodedLegIssuer, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedLegIssuer, 'thisown', 0)
-        self.__class__ = EncodedLegIssuer
+        _swig_setattr(self, EncodedLegIssuer,self.__class__,EncodedLegIssuer)
 _quickfix.EncodedLegIssuer_swigregister(EncodedLegIssuerPtr)
 
 class LegSecurityDesc(StringField):
@@ -15805,7 +15812,7 @@ class LegSecurityDescPtr(LegSecurityDesc):
     def __init__(self, this):
         _swig_setattr(self, LegSecurityDesc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecurityDesc, 'thisown', 0)
-        self.__class__ = LegSecurityDesc
+        _swig_setattr(self, LegSecurityDesc,self.__class__,LegSecurityDesc)
 _quickfix.LegSecurityDesc_swigregister(LegSecurityDescPtr)
 
 class EncodedLegSecurityDescLen(IntField):
@@ -15830,7 +15837,7 @@ class EncodedLegSecurityDescLenPtr(EncodedLegSecurityDescLen):
     def __init__(self, this):
         _swig_setattr(self, EncodedLegSecurityDescLen, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedLegSecurityDescLen, 'thisown', 0)
-        self.__class__ = EncodedLegSecurityDescLen
+        _swig_setattr(self, EncodedLegSecurityDescLen,self.__class__,EncodedLegSecurityDescLen)
 _quickfix.EncodedLegSecurityDescLen_swigregister(EncodedLegSecurityDescLenPtr)
 
 class EncodedLegSecurityDesc(StringField):
@@ -15855,7 +15862,7 @@ class EncodedLegSecurityDescPtr(EncodedLegSecurityDesc):
     def __init__(self, this):
         _swig_setattr(self, EncodedLegSecurityDesc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EncodedLegSecurityDesc, 'thisown', 0)
-        self.__class__ = EncodedLegSecurityDesc
+        _swig_setattr(self, EncodedLegSecurityDesc,self.__class__,EncodedLegSecurityDesc)
 _quickfix.EncodedLegSecurityDesc_swigregister(EncodedLegSecurityDescPtr)
 
 class LegRatioQty(DoubleField):
@@ -15880,7 +15887,7 @@ class LegRatioQtyPtr(LegRatioQty):
     def __init__(self, this):
         _swig_setattr(self, LegRatioQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegRatioQty, 'thisown', 0)
-        self.__class__ = LegRatioQty
+        _swig_setattr(self, LegRatioQty,self.__class__,LegRatioQty)
 _quickfix.LegRatioQty_swigregister(LegRatioQtyPtr)
 
 class LegSide(CharField):
@@ -15905,7 +15912,7 @@ class LegSidePtr(LegSide):
     def __init__(self, this):
         _swig_setattr(self, LegSide, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSide, 'thisown', 0)
-        self.__class__ = LegSide
+        _swig_setattr(self, LegSide,self.__class__,LegSide)
 _quickfix.LegSide_swigregister(LegSidePtr)
 
 class TradingSessionSubID(StringField):
@@ -15930,7 +15937,7 @@ class TradingSessionSubIDPtr(TradingSessionSubID):
     def __init__(self, this):
         _swig_setattr(self, TradingSessionSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradingSessionSubID, 'thisown', 0)
-        self.__class__ = TradingSessionSubID
+        _swig_setattr(self, TradingSessionSubID,self.__class__,TradingSessionSubID)
 _quickfix.TradingSessionSubID_swigregister(TradingSessionSubIDPtr)
 
 class AllocType(IntField):
@@ -15955,7 +15962,7 @@ class AllocTypePtr(AllocType):
     def __init__(self, this):
         _swig_setattr(self, AllocType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocType, 'thisown', 0)
-        self.__class__ = AllocType
+        _swig_setattr(self, AllocType,self.__class__,AllocType)
 _quickfix.AllocType_swigregister(AllocTypePtr)
 
 class NoHops(IntField):
@@ -15980,7 +15987,7 @@ class NoHopsPtr(NoHops):
     def __init__(self, this):
         _swig_setattr(self, NoHops, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoHops, 'thisown', 0)
-        self.__class__ = NoHops
+        _swig_setattr(self, NoHops,self.__class__,NoHops)
 _quickfix.NoHops_swigregister(NoHopsPtr)
 
 class HopCompID(StringField):
@@ -16005,7 +16012,7 @@ class HopCompIDPtr(HopCompID):
     def __init__(self, this):
         _swig_setattr(self, HopCompID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, HopCompID, 'thisown', 0)
-        self.__class__ = HopCompID
+        _swig_setattr(self, HopCompID,self.__class__,HopCompID)
 _quickfix.HopCompID_swigregister(HopCompIDPtr)
 
 class HopSendingTime(UtcTimeStampField):
@@ -16030,7 +16037,7 @@ class HopSendingTimePtr(HopSendingTime):
     def __init__(self, this):
         _swig_setattr(self, HopSendingTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, HopSendingTime, 'thisown', 0)
-        self.__class__ = HopSendingTime
+        _swig_setattr(self, HopSendingTime,self.__class__,HopSendingTime)
 _quickfix.HopSendingTime_swigregister(HopSendingTimePtr)
 
 class HopRefID(IntField):
@@ -16055,7 +16062,7 @@ class HopRefIDPtr(HopRefID):
     def __init__(self, this):
         _swig_setattr(self, HopRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, HopRefID, 'thisown', 0)
-        self.__class__ = HopRefID
+        _swig_setattr(self, HopRefID,self.__class__,HopRefID)
 _quickfix.HopRefID_swigregister(HopRefIDPtr)
 
 class MidPx(DoubleField):
@@ -16080,7 +16087,7 @@ class MidPxPtr(MidPx):
     def __init__(self, this):
         _swig_setattr(self, MidPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MidPx, 'thisown', 0)
-        self.__class__ = MidPx
+        _swig_setattr(self, MidPx,self.__class__,MidPx)
 _quickfix.MidPx_swigregister(MidPxPtr)
 
 class BidYield(DoubleField):
@@ -16105,7 +16112,7 @@ class BidYieldPtr(BidYield):
     def __init__(self, this):
         _swig_setattr(self, BidYield, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidYield, 'thisown', 0)
-        self.__class__ = BidYield
+        _swig_setattr(self, BidYield,self.__class__,BidYield)
 _quickfix.BidYield_swigregister(BidYieldPtr)
 
 class MidYield(DoubleField):
@@ -16130,7 +16137,7 @@ class MidYieldPtr(MidYield):
     def __init__(self, this):
         _swig_setattr(self, MidYield, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MidYield, 'thisown', 0)
-        self.__class__ = MidYield
+        _swig_setattr(self, MidYield,self.__class__,MidYield)
 _quickfix.MidYield_swigregister(MidYieldPtr)
 
 class OfferYield(DoubleField):
@@ -16155,7 +16162,7 @@ class OfferYieldPtr(OfferYield):
     def __init__(self, this):
         _swig_setattr(self, OfferYield, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OfferYield, 'thisown', 0)
-        self.__class__ = OfferYield
+        _swig_setattr(self, OfferYield,self.__class__,OfferYield)
 _quickfix.OfferYield_swigregister(OfferYieldPtr)
 
 class ClearingFeeIndicator(StringField):
@@ -16180,7 +16187,7 @@ class ClearingFeeIndicatorPtr(ClearingFeeIndicator):
     def __init__(self, this):
         _swig_setattr(self, ClearingFeeIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClearingFeeIndicator, 'thisown', 0)
-        self.__class__ = ClearingFeeIndicator
+        _swig_setattr(self, ClearingFeeIndicator,self.__class__,ClearingFeeIndicator)
 _quickfix.ClearingFeeIndicator_swigregister(ClearingFeeIndicatorPtr)
 
 class WorkingIndicator(BoolField):
@@ -16205,7 +16212,7 @@ class WorkingIndicatorPtr(WorkingIndicator):
     def __init__(self, this):
         _swig_setattr(self, WorkingIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, WorkingIndicator, 'thisown', 0)
-        self.__class__ = WorkingIndicator
+        _swig_setattr(self, WorkingIndicator,self.__class__,WorkingIndicator)
 _quickfix.WorkingIndicator_swigregister(WorkingIndicatorPtr)
 
 class LegLastPx(DoubleField):
@@ -16230,7 +16237,7 @@ class LegLastPxPtr(LegLastPx):
     def __init__(self, this):
         _swig_setattr(self, LegLastPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegLastPx, 'thisown', 0)
-        self.__class__ = LegLastPx
+        _swig_setattr(self, LegLastPx,self.__class__,LegLastPx)
 _quickfix.LegLastPx_swigregister(LegLastPxPtr)
 
 class PriorityIndicator(IntField):
@@ -16255,7 +16262,7 @@ class PriorityIndicatorPtr(PriorityIndicator):
     def __init__(self, this):
         _swig_setattr(self, PriorityIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PriorityIndicator, 'thisown', 0)
-        self.__class__ = PriorityIndicator
+        _swig_setattr(self, PriorityIndicator,self.__class__,PriorityIndicator)
 _quickfix.PriorityIndicator_swigregister(PriorityIndicatorPtr)
 
 class PriceImprovement(DoubleField):
@@ -16280,7 +16287,7 @@ class PriceImprovementPtr(PriceImprovement):
     def __init__(self, this):
         _swig_setattr(self, PriceImprovement, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PriceImprovement, 'thisown', 0)
-        self.__class__ = PriceImprovement
+        _swig_setattr(self, PriceImprovement,self.__class__,PriceImprovement)
 _quickfix.PriceImprovement_swigregister(PriceImprovementPtr)
 
 class Price2(DoubleField):
@@ -16305,7 +16312,7 @@ class Price2Ptr(Price2):
     def __init__(self, this):
         _swig_setattr(self, Price2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Price2, 'thisown', 0)
-        self.__class__ = Price2
+        _swig_setattr(self, Price2,self.__class__,Price2)
 _quickfix.Price2_swigregister(Price2Ptr)
 
 class LastForwardPoints2(DoubleField):
@@ -16330,7 +16337,7 @@ class LastForwardPoints2Ptr(LastForwardPoints2):
     def __init__(self, this):
         _swig_setattr(self, LastForwardPoints2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastForwardPoints2, 'thisown', 0)
-        self.__class__ = LastForwardPoints2
+        _swig_setattr(self, LastForwardPoints2,self.__class__,LastForwardPoints2)
 _quickfix.LastForwardPoints2_swigregister(LastForwardPoints2Ptr)
 
 class BidForwardPoints2(DoubleField):
@@ -16355,7 +16362,7 @@ class BidForwardPoints2Ptr(BidForwardPoints2):
     def __init__(self, this):
         _swig_setattr(self, BidForwardPoints2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BidForwardPoints2, 'thisown', 0)
-        self.__class__ = BidForwardPoints2
+        _swig_setattr(self, BidForwardPoints2,self.__class__,BidForwardPoints2)
 _quickfix.BidForwardPoints2_swigregister(BidForwardPoints2Ptr)
 
 class OfferForwardPoints2(DoubleField):
@@ -16380,7 +16387,7 @@ class OfferForwardPoints2Ptr(OfferForwardPoints2):
     def __init__(self, this):
         _swig_setattr(self, OfferForwardPoints2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OfferForwardPoints2, 'thisown', 0)
-        self.__class__ = OfferForwardPoints2
+        _swig_setattr(self, OfferForwardPoints2,self.__class__,OfferForwardPoints2)
 _quickfix.OfferForwardPoints2_swigregister(OfferForwardPoints2Ptr)
 
 class RFQReqID(StringField):
@@ -16405,7 +16412,7 @@ class RFQReqIDPtr(RFQReqID):
     def __init__(self, this):
         _swig_setattr(self, RFQReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RFQReqID, 'thisown', 0)
-        self.__class__ = RFQReqID
+        _swig_setattr(self, RFQReqID,self.__class__,RFQReqID)
 _quickfix.RFQReqID_swigregister(RFQReqIDPtr)
 
 class MktBidPx(DoubleField):
@@ -16430,7 +16437,7 @@ class MktBidPxPtr(MktBidPx):
     def __init__(self, this):
         _swig_setattr(self, MktBidPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MktBidPx, 'thisown', 0)
-        self.__class__ = MktBidPx
+        _swig_setattr(self, MktBidPx,self.__class__,MktBidPx)
 _quickfix.MktBidPx_swigregister(MktBidPxPtr)
 
 class MktOfferPx(DoubleField):
@@ -16455,7 +16462,7 @@ class MktOfferPxPtr(MktOfferPx):
     def __init__(self, this):
         _swig_setattr(self, MktOfferPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MktOfferPx, 'thisown', 0)
-        self.__class__ = MktOfferPx
+        _swig_setattr(self, MktOfferPx,self.__class__,MktOfferPx)
 _quickfix.MktOfferPx_swigregister(MktOfferPxPtr)
 
 class MinBidSize(DoubleField):
@@ -16480,7 +16487,7 @@ class MinBidSizePtr(MinBidSize):
     def __init__(self, this):
         _swig_setattr(self, MinBidSize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MinBidSize, 'thisown', 0)
-        self.__class__ = MinBidSize
+        _swig_setattr(self, MinBidSize,self.__class__,MinBidSize)
 _quickfix.MinBidSize_swigregister(MinBidSizePtr)
 
 class MinOfferSize(DoubleField):
@@ -16505,7 +16512,7 @@ class MinOfferSizePtr(MinOfferSize):
     def __init__(self, this):
         _swig_setattr(self, MinOfferSize, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MinOfferSize, 'thisown', 0)
-        self.__class__ = MinOfferSize
+        _swig_setattr(self, MinOfferSize,self.__class__,MinOfferSize)
 _quickfix.MinOfferSize_swigregister(MinOfferSizePtr)
 
 class QuoteStatusReqID(StringField):
@@ -16530,7 +16537,7 @@ class QuoteStatusReqIDPtr(QuoteStatusReqID):
     def __init__(self, this):
         _swig_setattr(self, QuoteStatusReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteStatusReqID, 'thisown', 0)
-        self.__class__ = QuoteStatusReqID
+        _swig_setattr(self, QuoteStatusReqID,self.__class__,QuoteStatusReqID)
 _quickfix.QuoteStatusReqID_swigregister(QuoteStatusReqIDPtr)
 
 class LegalConfirm(BoolField):
@@ -16555,7 +16562,7 @@ class LegalConfirmPtr(LegalConfirm):
     def __init__(self, this):
         _swig_setattr(self, LegalConfirm, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegalConfirm, 'thisown', 0)
-        self.__class__ = LegalConfirm
+        _swig_setattr(self, LegalConfirm,self.__class__,LegalConfirm)
 _quickfix.LegalConfirm_swigregister(LegalConfirmPtr)
 
 class UnderlyingLastPx(DoubleField):
@@ -16580,7 +16587,7 @@ class UnderlyingLastPxPtr(UnderlyingLastPx):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingLastPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingLastPx, 'thisown', 0)
-        self.__class__ = UnderlyingLastPx
+        _swig_setattr(self, UnderlyingLastPx,self.__class__,UnderlyingLastPx)
 _quickfix.UnderlyingLastPx_swigregister(UnderlyingLastPxPtr)
 
 class UnderlyingLastQty(DoubleField):
@@ -16605,7 +16612,7 @@ class UnderlyingLastQtyPtr(UnderlyingLastQty):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingLastQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingLastQty, 'thisown', 0)
-        self.__class__ = UnderlyingLastQty
+        _swig_setattr(self, UnderlyingLastQty,self.__class__,UnderlyingLastQty)
 _quickfix.UnderlyingLastQty_swigregister(UnderlyingLastQtyPtr)
 
 class LegRefID(StringField):
@@ -16630,7 +16637,7 @@ class LegRefIDPtr(LegRefID):
     def __init__(self, this):
         _swig_setattr(self, LegRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegRefID, 'thisown', 0)
-        self.__class__ = LegRefID
+        _swig_setattr(self, LegRefID,self.__class__,LegRefID)
 _quickfix.LegRefID_swigregister(LegRefIDPtr)
 
 class ContraLegRefID(StringField):
@@ -16655,7 +16662,7 @@ class ContraLegRefIDPtr(ContraLegRefID):
     def __init__(self, this):
         _swig_setattr(self, ContraLegRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContraLegRefID, 'thisown', 0)
-        self.__class__ = ContraLegRefID
+        _swig_setattr(self, ContraLegRefID,self.__class__,ContraLegRefID)
 _quickfix.ContraLegRefID_swigregister(ContraLegRefIDPtr)
 
 class SettlCurrBidFxRate(DoubleField):
@@ -16680,7 +16687,7 @@ class SettlCurrBidFxRatePtr(SettlCurrBidFxRate):
     def __init__(self, this):
         _swig_setattr(self, SettlCurrBidFxRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlCurrBidFxRate, 'thisown', 0)
-        self.__class__ = SettlCurrBidFxRate
+        _swig_setattr(self, SettlCurrBidFxRate,self.__class__,SettlCurrBidFxRate)
 _quickfix.SettlCurrBidFxRate_swigregister(SettlCurrBidFxRatePtr)
 
 class SettlCurrOfferFxRate(DoubleField):
@@ -16705,7 +16712,7 @@ class SettlCurrOfferFxRatePtr(SettlCurrOfferFxRate):
     def __init__(self, this):
         _swig_setattr(self, SettlCurrOfferFxRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlCurrOfferFxRate, 'thisown', 0)
-        self.__class__ = SettlCurrOfferFxRate
+        _swig_setattr(self, SettlCurrOfferFxRate,self.__class__,SettlCurrOfferFxRate)
 _quickfix.SettlCurrOfferFxRate_swigregister(SettlCurrOfferFxRatePtr)
 
 class QuoteRequestRejectReason(IntField):
@@ -16730,7 +16737,7 @@ class QuoteRequestRejectReasonPtr(QuoteRequestRejectReason):
     def __init__(self, this):
         _swig_setattr(self, QuoteRequestRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteRequestRejectReason, 'thisown', 0)
-        self.__class__ = QuoteRequestRejectReason
+        _swig_setattr(self, QuoteRequestRejectReason,self.__class__,QuoteRequestRejectReason)
 _quickfix.QuoteRequestRejectReason_swigregister(QuoteRequestRejectReasonPtr)
 
 class SideComplianceID(StringField):
@@ -16755,7 +16762,7 @@ class SideComplianceIDPtr(SideComplianceID):
     def __init__(self, this):
         _swig_setattr(self, SideComplianceID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SideComplianceID, 'thisown', 0)
-        self.__class__ = SideComplianceID
+        _swig_setattr(self, SideComplianceID,self.__class__,SideComplianceID)
 _quickfix.SideComplianceID_swigregister(SideComplianceIDPtr)
 
 class AcctIDSource(IntField):
@@ -16780,7 +16787,7 @@ class AcctIDSourcePtr(AcctIDSource):
     def __init__(self, this):
         _swig_setattr(self, AcctIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AcctIDSource, 'thisown', 0)
-        self.__class__ = AcctIDSource
+        _swig_setattr(self, AcctIDSource,self.__class__,AcctIDSource)
 _quickfix.AcctIDSource_swigregister(AcctIDSourcePtr)
 
 class AllocAcctIDSource(IntField):
@@ -16805,7 +16812,7 @@ class AllocAcctIDSourcePtr(AllocAcctIDSource):
     def __init__(self, this):
         _swig_setattr(self, AllocAcctIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocAcctIDSource, 'thisown', 0)
-        self.__class__ = AllocAcctIDSource
+        _swig_setattr(self, AllocAcctIDSource,self.__class__,AllocAcctIDSource)
 _quickfix.AllocAcctIDSource_swigregister(AllocAcctIDSourcePtr)
 
 class BenchmarkPrice(DoubleField):
@@ -16830,7 +16837,7 @@ class BenchmarkPricePtr(BenchmarkPrice):
     def __init__(self, this):
         _swig_setattr(self, BenchmarkPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BenchmarkPrice, 'thisown', 0)
-        self.__class__ = BenchmarkPrice
+        _swig_setattr(self, BenchmarkPrice,self.__class__,BenchmarkPrice)
 _quickfix.BenchmarkPrice_swigregister(BenchmarkPricePtr)
 
 class BenchmarkPriceType(IntField):
@@ -16855,7 +16862,7 @@ class BenchmarkPriceTypePtr(BenchmarkPriceType):
     def __init__(self, this):
         _swig_setattr(self, BenchmarkPriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BenchmarkPriceType, 'thisown', 0)
-        self.__class__ = BenchmarkPriceType
+        _swig_setattr(self, BenchmarkPriceType,self.__class__,BenchmarkPriceType)
 _quickfix.BenchmarkPriceType_swigregister(BenchmarkPriceTypePtr)
 
 class ConfirmID(StringField):
@@ -16880,7 +16887,7 @@ class ConfirmIDPtr(ConfirmID):
     def __init__(self, this):
         _swig_setattr(self, ConfirmID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfirmID, 'thisown', 0)
-        self.__class__ = ConfirmID
+        _swig_setattr(self, ConfirmID,self.__class__,ConfirmID)
 _quickfix.ConfirmID_swigregister(ConfirmIDPtr)
 
 class ConfirmStatus(IntField):
@@ -16905,7 +16912,7 @@ class ConfirmStatusPtr(ConfirmStatus):
     def __init__(self, this):
         _swig_setattr(self, ConfirmStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfirmStatus, 'thisown', 0)
-        self.__class__ = ConfirmStatus
+        _swig_setattr(self, ConfirmStatus,self.__class__,ConfirmStatus)
 _quickfix.ConfirmStatus_swigregister(ConfirmStatusPtr)
 
 class ConfirmTransType(IntField):
@@ -16930,7 +16937,7 @@ class ConfirmTransTypePtr(ConfirmTransType):
     def __init__(self, this):
         _swig_setattr(self, ConfirmTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfirmTransType, 'thisown', 0)
-        self.__class__ = ConfirmTransType
+        _swig_setattr(self, ConfirmTransType,self.__class__,ConfirmTransType)
 _quickfix.ConfirmTransType_swigregister(ConfirmTransTypePtr)
 
 class ContractSettlMonth(StringField):
@@ -16955,7 +16962,7 @@ class ContractSettlMonthPtr(ContractSettlMonth):
     def __init__(self, this):
         _swig_setattr(self, ContractSettlMonth, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContractSettlMonth, 'thisown', 0)
-        self.__class__ = ContractSettlMonth
+        _swig_setattr(self, ContractSettlMonth,self.__class__,ContractSettlMonth)
 _quickfix.ContractSettlMonth_swigregister(ContractSettlMonthPtr)
 
 class DeliveryForm(IntField):
@@ -16980,7 +16987,7 @@ class DeliveryFormPtr(DeliveryForm):
     def __init__(self, this):
         _swig_setattr(self, DeliveryForm, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeliveryForm, 'thisown', 0)
-        self.__class__ = DeliveryForm
+        _swig_setattr(self, DeliveryForm,self.__class__,DeliveryForm)
 _quickfix.DeliveryForm_swigregister(DeliveryFormPtr)
 
 class LastParPx(DoubleField):
@@ -17005,7 +17012,7 @@ class LastParPxPtr(LastParPx):
     def __init__(self, this):
         _swig_setattr(self, LastParPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastParPx, 'thisown', 0)
-        self.__class__ = LastParPx
+        _swig_setattr(self, LastParPx,self.__class__,LastParPx)
 _quickfix.LastParPx_swigregister(LastParPxPtr)
 
 class NoLegAllocs(IntField):
@@ -17030,7 +17037,7 @@ class NoLegAllocsPtr(NoLegAllocs):
     def __init__(self, this):
         _swig_setattr(self, NoLegAllocs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoLegAllocs, 'thisown', 0)
-        self.__class__ = NoLegAllocs
+        _swig_setattr(self, NoLegAllocs,self.__class__,NoLegAllocs)
 _quickfix.NoLegAllocs_swigregister(NoLegAllocsPtr)
 
 class LegAllocAccount(StringField):
@@ -17055,7 +17062,7 @@ class LegAllocAccountPtr(LegAllocAccount):
     def __init__(self, this):
         _swig_setattr(self, LegAllocAccount, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegAllocAccount, 'thisown', 0)
-        self.__class__ = LegAllocAccount
+        _swig_setattr(self, LegAllocAccount,self.__class__,LegAllocAccount)
 _quickfix.LegAllocAccount_swigregister(LegAllocAccountPtr)
 
 class LegIndividualAllocID(StringField):
@@ -17080,7 +17087,7 @@ class LegIndividualAllocIDPtr(LegIndividualAllocID):
     def __init__(self, this):
         _swig_setattr(self, LegIndividualAllocID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegIndividualAllocID, 'thisown', 0)
-        self.__class__ = LegIndividualAllocID
+        _swig_setattr(self, LegIndividualAllocID,self.__class__,LegIndividualAllocID)
 _quickfix.LegIndividualAllocID_swigregister(LegIndividualAllocIDPtr)
 
 class LegAllocQty(DoubleField):
@@ -17105,7 +17112,7 @@ class LegAllocQtyPtr(LegAllocQty):
     def __init__(self, this):
         _swig_setattr(self, LegAllocQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegAllocQty, 'thisown', 0)
-        self.__class__ = LegAllocQty
+        _swig_setattr(self, LegAllocQty,self.__class__,LegAllocQty)
 _quickfix.LegAllocQty_swigregister(LegAllocQtyPtr)
 
 class LegAllocAcctIDSource(StringField):
@@ -17130,7 +17137,7 @@ class LegAllocAcctIDSourcePtr(LegAllocAcctIDSource):
     def __init__(self, this):
         _swig_setattr(self, LegAllocAcctIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegAllocAcctIDSource, 'thisown', 0)
-        self.__class__ = LegAllocAcctIDSource
+        _swig_setattr(self, LegAllocAcctIDSource,self.__class__,LegAllocAcctIDSource)
 _quickfix.LegAllocAcctIDSource_swigregister(LegAllocAcctIDSourcePtr)
 
 class LegSettlCurrency(StringField):
@@ -17155,7 +17162,7 @@ class LegSettlCurrencyPtr(LegSettlCurrency):
     def __init__(self, this):
         _swig_setattr(self, LegSettlCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSettlCurrency, 'thisown', 0)
-        self.__class__ = LegSettlCurrency
+        _swig_setattr(self, LegSettlCurrency,self.__class__,LegSettlCurrency)
 _quickfix.LegSettlCurrency_swigregister(LegSettlCurrencyPtr)
 
 class LegBenchmarkCurveCurrency(StringField):
@@ -17180,7 +17187,7 @@ class LegBenchmarkCurveCurrencyPtr(LegBenchmarkCurveCurrency):
     def __init__(self, this):
         _swig_setattr(self, LegBenchmarkCurveCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegBenchmarkCurveCurrency, 'thisown', 0)
-        self.__class__ = LegBenchmarkCurveCurrency
+        _swig_setattr(self, LegBenchmarkCurveCurrency,self.__class__,LegBenchmarkCurveCurrency)
 _quickfix.LegBenchmarkCurveCurrency_swigregister(LegBenchmarkCurveCurrencyPtr)
 
 class LegBenchmarkCurveName(StringField):
@@ -17205,7 +17212,7 @@ class LegBenchmarkCurveNamePtr(LegBenchmarkCurveName):
     def __init__(self, this):
         _swig_setattr(self, LegBenchmarkCurveName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegBenchmarkCurveName, 'thisown', 0)
-        self.__class__ = LegBenchmarkCurveName
+        _swig_setattr(self, LegBenchmarkCurveName,self.__class__,LegBenchmarkCurveName)
 _quickfix.LegBenchmarkCurveName_swigregister(LegBenchmarkCurveNamePtr)
 
 class LegBenchmarkCurvePoint(StringField):
@@ -17230,7 +17237,7 @@ class LegBenchmarkCurvePointPtr(LegBenchmarkCurvePoint):
     def __init__(self, this):
         _swig_setattr(self, LegBenchmarkCurvePoint, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegBenchmarkCurvePoint, 'thisown', 0)
-        self.__class__ = LegBenchmarkCurvePoint
+        _swig_setattr(self, LegBenchmarkCurvePoint,self.__class__,LegBenchmarkCurvePoint)
 _quickfix.LegBenchmarkCurvePoint_swigregister(LegBenchmarkCurvePointPtr)
 
 class LegBenchmarkPrice(DoubleField):
@@ -17255,7 +17262,7 @@ class LegBenchmarkPricePtr(LegBenchmarkPrice):
     def __init__(self, this):
         _swig_setattr(self, LegBenchmarkPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegBenchmarkPrice, 'thisown', 0)
-        self.__class__ = LegBenchmarkPrice
+        _swig_setattr(self, LegBenchmarkPrice,self.__class__,LegBenchmarkPrice)
 _quickfix.LegBenchmarkPrice_swigregister(LegBenchmarkPricePtr)
 
 class LegBenchmarkPriceType(IntField):
@@ -17280,7 +17287,7 @@ class LegBenchmarkPriceTypePtr(LegBenchmarkPriceType):
     def __init__(self, this):
         _swig_setattr(self, LegBenchmarkPriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegBenchmarkPriceType, 'thisown', 0)
-        self.__class__ = LegBenchmarkPriceType
+        _swig_setattr(self, LegBenchmarkPriceType,self.__class__,LegBenchmarkPriceType)
 _quickfix.LegBenchmarkPriceType_swigregister(LegBenchmarkPriceTypePtr)
 
 class LegBidPx(DoubleField):
@@ -17305,7 +17312,7 @@ class LegBidPxPtr(LegBidPx):
     def __init__(self, this):
         _swig_setattr(self, LegBidPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegBidPx, 'thisown', 0)
-        self.__class__ = LegBidPx
+        _swig_setattr(self, LegBidPx,self.__class__,LegBidPx)
 _quickfix.LegBidPx_swigregister(LegBidPxPtr)
 
 class LegIOIQty(StringField):
@@ -17330,7 +17337,7 @@ class LegIOIQtyPtr(LegIOIQty):
     def __init__(self, this):
         _swig_setattr(self, LegIOIQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegIOIQty, 'thisown', 0)
-        self.__class__ = LegIOIQty
+        _swig_setattr(self, LegIOIQty,self.__class__,LegIOIQty)
 _quickfix.LegIOIQty_swigregister(LegIOIQtyPtr)
 
 class NoLegStipulations(IntField):
@@ -17355,7 +17362,7 @@ class NoLegStipulationsPtr(NoLegStipulations):
     def __init__(self, this):
         _swig_setattr(self, NoLegStipulations, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoLegStipulations, 'thisown', 0)
-        self.__class__ = NoLegStipulations
+        _swig_setattr(self, NoLegStipulations,self.__class__,NoLegStipulations)
 _quickfix.NoLegStipulations_swigregister(NoLegStipulationsPtr)
 
 class LegOfferPx(DoubleField):
@@ -17380,7 +17387,7 @@ class LegOfferPxPtr(LegOfferPx):
     def __init__(self, this):
         _swig_setattr(self, LegOfferPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegOfferPx, 'thisown', 0)
-        self.__class__ = LegOfferPx
+        _swig_setattr(self, LegOfferPx,self.__class__,LegOfferPx)
 _quickfix.LegOfferPx_swigregister(LegOfferPxPtr)
 
 class LegOrderQty(DoubleField):
@@ -17405,7 +17412,7 @@ class LegOrderQtyPtr(LegOrderQty):
     def __init__(self, this):
         _swig_setattr(self, LegOrderQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegOrderQty, 'thisown', 0)
-        self.__class__ = LegOrderQty
+        _swig_setattr(self, LegOrderQty,self.__class__,LegOrderQty)
 _quickfix.LegOrderQty_swigregister(LegOrderQtyPtr)
 
 class LegPriceType(IntField):
@@ -17430,7 +17437,7 @@ class LegPriceTypePtr(LegPriceType):
     def __init__(self, this):
         _swig_setattr(self, LegPriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegPriceType, 'thisown', 0)
-        self.__class__ = LegPriceType
+        _swig_setattr(self, LegPriceType,self.__class__,LegPriceType)
 _quickfix.LegPriceType_swigregister(LegPriceTypePtr)
 
 class LegQty(DoubleField):
@@ -17455,7 +17462,7 @@ class LegQtyPtr(LegQty):
     def __init__(self, this):
         _swig_setattr(self, LegQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegQty, 'thisown', 0)
-        self.__class__ = LegQty
+        _swig_setattr(self, LegQty,self.__class__,LegQty)
 _quickfix.LegQty_swigregister(LegQtyPtr)
 
 class LegStipulationType(StringField):
@@ -17480,7 +17487,7 @@ class LegStipulationTypePtr(LegStipulationType):
     def __init__(self, this):
         _swig_setattr(self, LegStipulationType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegStipulationType, 'thisown', 0)
-        self.__class__ = LegStipulationType
+        _swig_setattr(self, LegStipulationType,self.__class__,LegStipulationType)
 _quickfix.LegStipulationType_swigregister(LegStipulationTypePtr)
 
 class LegStipulationValue(StringField):
@@ -17505,7 +17512,7 @@ class LegStipulationValuePtr(LegStipulationValue):
     def __init__(self, this):
         _swig_setattr(self, LegStipulationValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegStipulationValue, 'thisown', 0)
-        self.__class__ = LegStipulationValue
+        _swig_setattr(self, LegStipulationValue,self.__class__,LegStipulationValue)
 _quickfix.LegStipulationValue_swigregister(LegStipulationValuePtr)
 
 class LegSwapType(IntField):
@@ -17530,7 +17537,7 @@ class LegSwapTypePtr(LegSwapType):
     def __init__(self, this):
         _swig_setattr(self, LegSwapType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSwapType, 'thisown', 0)
-        self.__class__ = LegSwapType
+        _swig_setattr(self, LegSwapType,self.__class__,LegSwapType)
 _quickfix.LegSwapType_swigregister(LegSwapTypePtr)
 
 class Pool(StringField):
@@ -17555,7 +17562,7 @@ class PoolPtr(Pool):
     def __init__(self, this):
         _swig_setattr(self, Pool, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Pool, 'thisown', 0)
-        self.__class__ = Pool
+        _swig_setattr(self, Pool,self.__class__,Pool)
 _quickfix.Pool_swigregister(PoolPtr)
 
 class QuotePriceType(IntField):
@@ -17580,7 +17587,7 @@ class QuotePriceTypePtr(QuotePriceType):
     def __init__(self, this):
         _swig_setattr(self, QuotePriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuotePriceType, 'thisown', 0)
-        self.__class__ = QuotePriceType
+        _swig_setattr(self, QuotePriceType,self.__class__,QuotePriceType)
 _quickfix.QuotePriceType_swigregister(QuotePriceTypePtr)
 
 class QuoteRespID(StringField):
@@ -17605,7 +17612,7 @@ class QuoteRespIDPtr(QuoteRespID):
     def __init__(self, this):
         _swig_setattr(self, QuoteRespID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteRespID, 'thisown', 0)
-        self.__class__ = QuoteRespID
+        _swig_setattr(self, QuoteRespID,self.__class__,QuoteRespID)
 _quickfix.QuoteRespID_swigregister(QuoteRespIDPtr)
 
 class QuoteRespType(IntField):
@@ -17630,7 +17637,7 @@ class QuoteRespTypePtr(QuoteRespType):
     def __init__(self, this):
         _swig_setattr(self, QuoteRespType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteRespType, 'thisown', 0)
-        self.__class__ = QuoteRespType
+        _swig_setattr(self, QuoteRespType,self.__class__,QuoteRespType)
 _quickfix.QuoteRespType_swigregister(QuoteRespTypePtr)
 
 class QuoteQualifier(CharField):
@@ -17655,7 +17662,7 @@ class QuoteQualifierPtr(QuoteQualifier):
     def __init__(self, this):
         _swig_setattr(self, QuoteQualifier, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteQualifier, 'thisown', 0)
-        self.__class__ = QuoteQualifier
+        _swig_setattr(self, QuoteQualifier,self.__class__,QuoteQualifier)
 _quickfix.QuoteQualifier_swigregister(QuoteQualifierPtr)
 
 class YieldRedemptionDate(StringField):
@@ -17680,7 +17687,7 @@ class YieldRedemptionDatePtr(YieldRedemptionDate):
     def __init__(self, this):
         _swig_setattr(self, YieldRedemptionDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, YieldRedemptionDate, 'thisown', 0)
-        self.__class__ = YieldRedemptionDate
+        _swig_setattr(self, YieldRedemptionDate,self.__class__,YieldRedemptionDate)
 _quickfix.YieldRedemptionDate_swigregister(YieldRedemptionDatePtr)
 
 class YieldRedemptionPrice(DoubleField):
@@ -17705,7 +17712,7 @@ class YieldRedemptionPricePtr(YieldRedemptionPrice):
     def __init__(self, this):
         _swig_setattr(self, YieldRedemptionPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, YieldRedemptionPrice, 'thisown', 0)
-        self.__class__ = YieldRedemptionPrice
+        _swig_setattr(self, YieldRedemptionPrice,self.__class__,YieldRedemptionPrice)
 _quickfix.YieldRedemptionPrice_swigregister(YieldRedemptionPricePtr)
 
 class YieldRedemptionPriceType(IntField):
@@ -17730,7 +17737,7 @@ class YieldRedemptionPriceTypePtr(YieldRedemptionPriceType):
     def __init__(self, this):
         _swig_setattr(self, YieldRedemptionPriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, YieldRedemptionPriceType, 'thisown', 0)
-        self.__class__ = YieldRedemptionPriceType
+        _swig_setattr(self, YieldRedemptionPriceType,self.__class__,YieldRedemptionPriceType)
 _quickfix.YieldRedemptionPriceType_swigregister(YieldRedemptionPriceTypePtr)
 
 class BenchmarkSecurityID(StringField):
@@ -17755,7 +17762,7 @@ class BenchmarkSecurityIDPtr(BenchmarkSecurityID):
     def __init__(self, this):
         _swig_setattr(self, BenchmarkSecurityID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BenchmarkSecurityID, 'thisown', 0)
-        self.__class__ = BenchmarkSecurityID
+        _swig_setattr(self, BenchmarkSecurityID,self.__class__,BenchmarkSecurityID)
 _quickfix.BenchmarkSecurityID_swigregister(BenchmarkSecurityIDPtr)
 
 class ReversalIndicator(BoolField):
@@ -17780,7 +17787,7 @@ class ReversalIndicatorPtr(ReversalIndicator):
     def __init__(self, this):
         _swig_setattr(self, ReversalIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ReversalIndicator, 'thisown', 0)
-        self.__class__ = ReversalIndicator
+        _swig_setattr(self, ReversalIndicator,self.__class__,ReversalIndicator)
 _quickfix.ReversalIndicator_swigregister(ReversalIndicatorPtr)
 
 class YieldCalcDate(StringField):
@@ -17805,7 +17812,7 @@ class YieldCalcDatePtr(YieldCalcDate):
     def __init__(self, this):
         _swig_setattr(self, YieldCalcDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, YieldCalcDate, 'thisown', 0)
-        self.__class__ = YieldCalcDate
+        _swig_setattr(self, YieldCalcDate,self.__class__,YieldCalcDate)
 _quickfix.YieldCalcDate_swigregister(YieldCalcDatePtr)
 
 class NoPositions(IntField):
@@ -17830,7 +17837,7 @@ class NoPositionsPtr(NoPositions):
     def __init__(self, this):
         _swig_setattr(self, NoPositions, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoPositions, 'thisown', 0)
-        self.__class__ = NoPositions
+        _swig_setattr(self, NoPositions,self.__class__,NoPositions)
 _quickfix.NoPositions_swigregister(NoPositionsPtr)
 
 class PosType(StringField):
@@ -17855,7 +17862,7 @@ class PosTypePtr(PosType):
     def __init__(self, this):
         _swig_setattr(self, PosType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosType, 'thisown', 0)
-        self.__class__ = PosType
+        _swig_setattr(self, PosType,self.__class__,PosType)
 _quickfix.PosType_swigregister(PosTypePtr)
 
 class LongQty(DoubleField):
@@ -17880,7 +17887,7 @@ class LongQtyPtr(LongQty):
     def __init__(self, this):
         _swig_setattr(self, LongQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LongQty, 'thisown', 0)
-        self.__class__ = LongQty
+        _swig_setattr(self, LongQty,self.__class__,LongQty)
 _quickfix.LongQty_swigregister(LongQtyPtr)
 
 class ShortQty(DoubleField):
@@ -17905,7 +17912,7 @@ class ShortQtyPtr(ShortQty):
     def __init__(self, this):
         _swig_setattr(self, ShortQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ShortQty, 'thisown', 0)
-        self.__class__ = ShortQty
+        _swig_setattr(self, ShortQty,self.__class__,ShortQty)
 _quickfix.ShortQty_swigregister(ShortQtyPtr)
 
 class PosQtyStatus(IntField):
@@ -17930,7 +17937,7 @@ class PosQtyStatusPtr(PosQtyStatus):
     def __init__(self, this):
         _swig_setattr(self, PosQtyStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosQtyStatus, 'thisown', 0)
-        self.__class__ = PosQtyStatus
+        _swig_setattr(self, PosQtyStatus,self.__class__,PosQtyStatus)
 _quickfix.PosQtyStatus_swigregister(PosQtyStatusPtr)
 
 class PosAmtType(StringField):
@@ -17955,7 +17962,7 @@ class PosAmtTypePtr(PosAmtType):
     def __init__(self, this):
         _swig_setattr(self, PosAmtType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosAmtType, 'thisown', 0)
-        self.__class__ = PosAmtType
+        _swig_setattr(self, PosAmtType,self.__class__,PosAmtType)
 _quickfix.PosAmtType_swigregister(PosAmtTypePtr)
 
 class PosAmt(DoubleField):
@@ -17980,7 +17987,7 @@ class PosAmtPtr(PosAmt):
     def __init__(self, this):
         _swig_setattr(self, PosAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosAmt, 'thisown', 0)
-        self.__class__ = PosAmt
+        _swig_setattr(self, PosAmt,self.__class__,PosAmt)
 _quickfix.PosAmt_swigregister(PosAmtPtr)
 
 class PosTransType(IntField):
@@ -18005,7 +18012,7 @@ class PosTransTypePtr(PosTransType):
     def __init__(self, this):
         _swig_setattr(self, PosTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosTransType, 'thisown', 0)
-        self.__class__ = PosTransType
+        _swig_setattr(self, PosTransType,self.__class__,PosTransType)
 _quickfix.PosTransType_swigregister(PosTransTypePtr)
 
 class PosReqID(StringField):
@@ -18030,7 +18037,7 @@ class PosReqIDPtr(PosReqID):
     def __init__(self, this):
         _swig_setattr(self, PosReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosReqID, 'thisown', 0)
-        self.__class__ = PosReqID
+        _swig_setattr(self, PosReqID,self.__class__,PosReqID)
 _quickfix.PosReqID_swigregister(PosReqIDPtr)
 
 class NoUnderlyings(IntField):
@@ -18055,7 +18062,7 @@ class NoUnderlyingsPtr(NoUnderlyings):
     def __init__(self, this):
         _swig_setattr(self, NoUnderlyings, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoUnderlyings, 'thisown', 0)
-        self.__class__ = NoUnderlyings
+        _swig_setattr(self, NoUnderlyings,self.__class__,NoUnderlyings)
 _quickfix.NoUnderlyings_swigregister(NoUnderlyingsPtr)
 
 class PosMaintAction(IntField):
@@ -18080,7 +18087,7 @@ class PosMaintActionPtr(PosMaintAction):
     def __init__(self, this):
         _swig_setattr(self, PosMaintAction, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosMaintAction, 'thisown', 0)
-        self.__class__ = PosMaintAction
+        _swig_setattr(self, PosMaintAction,self.__class__,PosMaintAction)
 _quickfix.PosMaintAction_swigregister(PosMaintActionPtr)
 
 class OrigPosReqRefID(StringField):
@@ -18105,7 +18112,7 @@ class OrigPosReqRefIDPtr(OrigPosReqRefID):
     def __init__(self, this):
         _swig_setattr(self, OrigPosReqRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrigPosReqRefID, 'thisown', 0)
-        self.__class__ = OrigPosReqRefID
+        _swig_setattr(self, OrigPosReqRefID,self.__class__,OrigPosReqRefID)
 _quickfix.OrigPosReqRefID_swigregister(OrigPosReqRefIDPtr)
 
 class PosMaintRptRefID(StringField):
@@ -18130,7 +18137,7 @@ class PosMaintRptRefIDPtr(PosMaintRptRefID):
     def __init__(self, this):
         _swig_setattr(self, PosMaintRptRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosMaintRptRefID, 'thisown', 0)
-        self.__class__ = PosMaintRptRefID
+        _swig_setattr(self, PosMaintRptRefID,self.__class__,PosMaintRptRefID)
 _quickfix.PosMaintRptRefID_swigregister(PosMaintRptRefIDPtr)
 
 class ClearingBusinessDate(StringField):
@@ -18155,7 +18162,7 @@ class ClearingBusinessDatePtr(ClearingBusinessDate):
     def __init__(self, this):
         _swig_setattr(self, ClearingBusinessDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClearingBusinessDate, 'thisown', 0)
-        self.__class__ = ClearingBusinessDate
+        _swig_setattr(self, ClearingBusinessDate,self.__class__,ClearingBusinessDate)
 _quickfix.ClearingBusinessDate_swigregister(ClearingBusinessDatePtr)
 
 class SettlSessID(StringField):
@@ -18180,7 +18187,7 @@ class SettlSessIDPtr(SettlSessID):
     def __init__(self, this):
         _swig_setattr(self, SettlSessID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlSessID, 'thisown', 0)
-        self.__class__ = SettlSessID
+        _swig_setattr(self, SettlSessID,self.__class__,SettlSessID)
 _quickfix.SettlSessID_swigregister(SettlSessIDPtr)
 
 class SettlSessSubID(StringField):
@@ -18205,7 +18212,7 @@ class SettlSessSubIDPtr(SettlSessSubID):
     def __init__(self, this):
         _swig_setattr(self, SettlSessSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlSessSubID, 'thisown', 0)
-        self.__class__ = SettlSessSubID
+        _swig_setattr(self, SettlSessSubID,self.__class__,SettlSessSubID)
 _quickfix.SettlSessSubID_swigregister(SettlSessSubIDPtr)
 
 class AdjustmentType(IntField):
@@ -18230,7 +18237,7 @@ class AdjustmentTypePtr(AdjustmentType):
     def __init__(self, this):
         _swig_setattr(self, AdjustmentType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AdjustmentType, 'thisown', 0)
-        self.__class__ = AdjustmentType
+        _swig_setattr(self, AdjustmentType,self.__class__,AdjustmentType)
 _quickfix.AdjustmentType_swigregister(AdjustmentTypePtr)
 
 class ContraryInstructionIndicator(BoolField):
@@ -18255,7 +18262,7 @@ class ContraryInstructionIndicatorPtr(ContraryInstructionIndicator):
     def __init__(self, this):
         _swig_setattr(self, ContraryInstructionIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ContraryInstructionIndicator, 'thisown', 0)
-        self.__class__ = ContraryInstructionIndicator
+        _swig_setattr(self, ContraryInstructionIndicator,self.__class__,ContraryInstructionIndicator)
 _quickfix.ContraryInstructionIndicator_swigregister(ContraryInstructionIndicatorPtr)
 
 class PriorSpreadIndicator(BoolField):
@@ -18280,7 +18287,7 @@ class PriorSpreadIndicatorPtr(PriorSpreadIndicator):
     def __init__(self, this):
         _swig_setattr(self, PriorSpreadIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PriorSpreadIndicator, 'thisown', 0)
-        self.__class__ = PriorSpreadIndicator
+        _swig_setattr(self, PriorSpreadIndicator,self.__class__,PriorSpreadIndicator)
 _quickfix.PriorSpreadIndicator_swigregister(PriorSpreadIndicatorPtr)
 
 class PosMaintRptID(StringField):
@@ -18305,7 +18312,7 @@ class PosMaintRptIDPtr(PosMaintRptID):
     def __init__(self, this):
         _swig_setattr(self, PosMaintRptID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosMaintRptID, 'thisown', 0)
-        self.__class__ = PosMaintRptID
+        _swig_setattr(self, PosMaintRptID,self.__class__,PosMaintRptID)
 _quickfix.PosMaintRptID_swigregister(PosMaintRptIDPtr)
 
 class PosMaintStatus(IntField):
@@ -18330,7 +18337,7 @@ class PosMaintStatusPtr(PosMaintStatus):
     def __init__(self, this):
         _swig_setattr(self, PosMaintStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosMaintStatus, 'thisown', 0)
-        self.__class__ = PosMaintStatus
+        _swig_setattr(self, PosMaintStatus,self.__class__,PosMaintStatus)
 _quickfix.PosMaintStatus_swigregister(PosMaintStatusPtr)
 
 class PosMaintResult(IntField):
@@ -18355,7 +18362,7 @@ class PosMaintResultPtr(PosMaintResult):
     def __init__(self, this):
         _swig_setattr(self, PosMaintResult, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosMaintResult, 'thisown', 0)
-        self.__class__ = PosMaintResult
+        _swig_setattr(self, PosMaintResult,self.__class__,PosMaintResult)
 _quickfix.PosMaintResult_swigregister(PosMaintResultPtr)
 
 class PosReqType(IntField):
@@ -18380,7 +18387,7 @@ class PosReqTypePtr(PosReqType):
     def __init__(self, this):
         _swig_setattr(self, PosReqType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosReqType, 'thisown', 0)
-        self.__class__ = PosReqType
+        _swig_setattr(self, PosReqType,self.__class__,PosReqType)
 _quickfix.PosReqType_swigregister(PosReqTypePtr)
 
 class ResponseTransportType(IntField):
@@ -18405,7 +18412,7 @@ class ResponseTransportTypePtr(ResponseTransportType):
     def __init__(self, this):
         _swig_setattr(self, ResponseTransportType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ResponseTransportType, 'thisown', 0)
-        self.__class__ = ResponseTransportType
+        _swig_setattr(self, ResponseTransportType,self.__class__,ResponseTransportType)
 _quickfix.ResponseTransportType_swigregister(ResponseTransportTypePtr)
 
 class ResponseDestination(StringField):
@@ -18430,7 +18437,7 @@ class ResponseDestinationPtr(ResponseDestination):
     def __init__(self, this):
         _swig_setattr(self, ResponseDestination, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ResponseDestination, 'thisown', 0)
-        self.__class__ = ResponseDestination
+        _swig_setattr(self, ResponseDestination,self.__class__,ResponseDestination)
 _quickfix.ResponseDestination_swigregister(ResponseDestinationPtr)
 
 class TotalNumPosReports(IntField):
@@ -18455,7 +18462,7 @@ class TotalNumPosReportsPtr(TotalNumPosReports):
     def __init__(self, this):
         _swig_setattr(self, TotalNumPosReports, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalNumPosReports, 'thisown', 0)
-        self.__class__ = TotalNumPosReports
+        _swig_setattr(self, TotalNumPosReports,self.__class__,TotalNumPosReports)
 _quickfix.TotalNumPosReports_swigregister(TotalNumPosReportsPtr)
 
 class PosReqResult(IntField):
@@ -18480,7 +18487,7 @@ class PosReqResultPtr(PosReqResult):
     def __init__(self, this):
         _swig_setattr(self, PosReqResult, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosReqResult, 'thisown', 0)
-        self.__class__ = PosReqResult
+        _swig_setattr(self, PosReqResult,self.__class__,PosReqResult)
 _quickfix.PosReqResult_swigregister(PosReqResultPtr)
 
 class PosReqStatus(IntField):
@@ -18505,7 +18512,7 @@ class PosReqStatusPtr(PosReqStatus):
     def __init__(self, this):
         _swig_setattr(self, PosReqStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PosReqStatus, 'thisown', 0)
-        self.__class__ = PosReqStatus
+        _swig_setattr(self, PosReqStatus,self.__class__,PosReqStatus)
 _quickfix.PosReqStatus_swigregister(PosReqStatusPtr)
 
 class SettlPrice(DoubleField):
@@ -18530,7 +18537,7 @@ class SettlPricePtr(SettlPrice):
     def __init__(self, this):
         _swig_setattr(self, SettlPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlPrice, 'thisown', 0)
-        self.__class__ = SettlPrice
+        _swig_setattr(self, SettlPrice,self.__class__,SettlPrice)
 _quickfix.SettlPrice_swigregister(SettlPricePtr)
 
 class SettlPriceType(IntField):
@@ -18555,7 +18562,7 @@ class SettlPriceTypePtr(SettlPriceType):
     def __init__(self, this):
         _swig_setattr(self, SettlPriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlPriceType, 'thisown', 0)
-        self.__class__ = SettlPriceType
+        _swig_setattr(self, SettlPriceType,self.__class__,SettlPriceType)
 _quickfix.SettlPriceType_swigregister(SettlPriceTypePtr)
 
 class UnderlyingSettlPrice(DoubleField):
@@ -18580,7 +18587,7 @@ class UnderlyingSettlPricePtr(UnderlyingSettlPrice):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSettlPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSettlPrice, 'thisown', 0)
-        self.__class__ = UnderlyingSettlPrice
+        _swig_setattr(self, UnderlyingSettlPrice,self.__class__,UnderlyingSettlPrice)
 _quickfix.UnderlyingSettlPrice_swigregister(UnderlyingSettlPricePtr)
 
 class UnderlyingSettlPriceType(IntField):
@@ -18605,7 +18612,7 @@ class UnderlyingSettlPriceTypePtr(UnderlyingSettlPriceType):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSettlPriceType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSettlPriceType, 'thisown', 0)
-        self.__class__ = UnderlyingSettlPriceType
+        _swig_setattr(self, UnderlyingSettlPriceType,self.__class__,UnderlyingSettlPriceType)
 _quickfix.UnderlyingSettlPriceType_swigregister(UnderlyingSettlPriceTypePtr)
 
 class PriorSettlPrice(DoubleField):
@@ -18630,7 +18637,7 @@ class PriorSettlPricePtr(PriorSettlPrice):
     def __init__(self, this):
         _swig_setattr(self, PriorSettlPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PriorSettlPrice, 'thisown', 0)
-        self.__class__ = PriorSettlPrice
+        _swig_setattr(self, PriorSettlPrice,self.__class__,PriorSettlPrice)
 _quickfix.PriorSettlPrice_swigregister(PriorSettlPricePtr)
 
 class NoQuoteQualifiers(IntField):
@@ -18655,7 +18662,7 @@ class NoQuoteQualifiersPtr(NoQuoteQualifiers):
     def __init__(self, this):
         _swig_setattr(self, NoQuoteQualifiers, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoQuoteQualifiers, 'thisown', 0)
-        self.__class__ = NoQuoteQualifiers
+        _swig_setattr(self, NoQuoteQualifiers,self.__class__,NoQuoteQualifiers)
 _quickfix.NoQuoteQualifiers_swigregister(NoQuoteQualifiersPtr)
 
 class AllocSettlCurrency(StringField):
@@ -18680,7 +18687,7 @@ class AllocSettlCurrencyPtr(AllocSettlCurrency):
     def __init__(self, this):
         _swig_setattr(self, AllocSettlCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocSettlCurrency, 'thisown', 0)
-        self.__class__ = AllocSettlCurrency
+        _swig_setattr(self, AllocSettlCurrency,self.__class__,AllocSettlCurrency)
 _quickfix.AllocSettlCurrency_swigregister(AllocSettlCurrencyPtr)
 
 class AllocSettlCurrAmt(DoubleField):
@@ -18705,7 +18712,7 @@ class AllocSettlCurrAmtPtr(AllocSettlCurrAmt):
     def __init__(self, this):
         _swig_setattr(self, AllocSettlCurrAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocSettlCurrAmt, 'thisown', 0)
-        self.__class__ = AllocSettlCurrAmt
+        _swig_setattr(self, AllocSettlCurrAmt,self.__class__,AllocSettlCurrAmt)
 _quickfix.AllocSettlCurrAmt_swigregister(AllocSettlCurrAmtPtr)
 
 class InterestAtMaturity(DoubleField):
@@ -18730,7 +18737,7 @@ class InterestAtMaturityPtr(InterestAtMaturity):
     def __init__(self, this):
         _swig_setattr(self, InterestAtMaturity, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InterestAtMaturity, 'thisown', 0)
-        self.__class__ = InterestAtMaturity
+        _swig_setattr(self, InterestAtMaturity,self.__class__,InterestAtMaturity)
 _quickfix.InterestAtMaturity_swigregister(InterestAtMaturityPtr)
 
 class LegDatedDate(StringField):
@@ -18755,7 +18762,7 @@ class LegDatedDatePtr(LegDatedDate):
     def __init__(self, this):
         _swig_setattr(self, LegDatedDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegDatedDate, 'thisown', 0)
-        self.__class__ = LegDatedDate
+        _swig_setattr(self, LegDatedDate,self.__class__,LegDatedDate)
 _quickfix.LegDatedDate_swigregister(LegDatedDatePtr)
 
 class LegPool(StringField):
@@ -18780,7 +18787,7 @@ class LegPoolPtr(LegPool):
     def __init__(self, this):
         _swig_setattr(self, LegPool, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegPool, 'thisown', 0)
-        self.__class__ = LegPool
+        _swig_setattr(self, LegPool,self.__class__,LegPool)
 _quickfix.LegPool_swigregister(LegPoolPtr)
 
 class AllocInterestAtMaturity(DoubleField):
@@ -18805,7 +18812,7 @@ class AllocInterestAtMaturityPtr(AllocInterestAtMaturity):
     def __init__(self, this):
         _swig_setattr(self, AllocInterestAtMaturity, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocInterestAtMaturity, 'thisown', 0)
-        self.__class__ = AllocInterestAtMaturity
+        _swig_setattr(self, AllocInterestAtMaturity,self.__class__,AllocInterestAtMaturity)
 _quickfix.AllocInterestAtMaturity_swigregister(AllocInterestAtMaturityPtr)
 
 class AllocAccruedInterestAmt(DoubleField):
@@ -18830,7 +18837,7 @@ class AllocAccruedInterestAmtPtr(AllocAccruedInterestAmt):
     def __init__(self, this):
         _swig_setattr(self, AllocAccruedInterestAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocAccruedInterestAmt, 'thisown', 0)
-        self.__class__ = AllocAccruedInterestAmt
+        _swig_setattr(self, AllocAccruedInterestAmt,self.__class__,AllocAccruedInterestAmt)
 _quickfix.AllocAccruedInterestAmt_swigregister(AllocAccruedInterestAmtPtr)
 
 class DeliveryDate(StringField):
@@ -18855,7 +18862,7 @@ class DeliveryDatePtr(DeliveryDate):
     def __init__(self, this):
         _swig_setattr(self, DeliveryDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeliveryDate, 'thisown', 0)
-        self.__class__ = DeliveryDate
+        _swig_setattr(self, DeliveryDate,self.__class__,DeliveryDate)
 _quickfix.DeliveryDate_swigregister(DeliveryDatePtr)
 
 class AssignmentMethod(CharField):
@@ -18880,7 +18887,7 @@ class AssignmentMethodPtr(AssignmentMethod):
     def __init__(self, this):
         _swig_setattr(self, AssignmentMethod, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AssignmentMethod, 'thisown', 0)
-        self.__class__ = AssignmentMethod
+        _swig_setattr(self, AssignmentMethod,self.__class__,AssignmentMethod)
 _quickfix.AssignmentMethod_swigregister(AssignmentMethodPtr)
 
 class AssignmentUnit(DoubleField):
@@ -18905,7 +18912,7 @@ class AssignmentUnitPtr(AssignmentUnit):
     def __init__(self, this):
         _swig_setattr(self, AssignmentUnit, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AssignmentUnit, 'thisown', 0)
-        self.__class__ = AssignmentUnit
+        _swig_setattr(self, AssignmentUnit,self.__class__,AssignmentUnit)
 _quickfix.AssignmentUnit_swigregister(AssignmentUnitPtr)
 
 class OpenInterest(DoubleField):
@@ -18930,7 +18937,7 @@ class OpenInterestPtr(OpenInterest):
     def __init__(self, this):
         _swig_setattr(self, OpenInterest, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OpenInterest, 'thisown', 0)
-        self.__class__ = OpenInterest
+        _swig_setattr(self, OpenInterest,self.__class__,OpenInterest)
 _quickfix.OpenInterest_swigregister(OpenInterestPtr)
 
 class ExerciseMethod(CharField):
@@ -18955,7 +18962,7 @@ class ExerciseMethodPtr(ExerciseMethod):
     def __init__(self, this):
         _swig_setattr(self, ExerciseMethod, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExerciseMethod, 'thisown', 0)
-        self.__class__ = ExerciseMethod
+        _swig_setattr(self, ExerciseMethod,self.__class__,ExerciseMethod)
 _quickfix.ExerciseMethod_swigregister(ExerciseMethodPtr)
 
 class TotNumTradeReports(IntField):
@@ -18980,7 +18987,7 @@ class TotNumTradeReportsPtr(TotNumTradeReports):
     def __init__(self, this):
         _swig_setattr(self, TotNumTradeReports, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNumTradeReports, 'thisown', 0)
-        self.__class__ = TotNumTradeReports
+        _swig_setattr(self, TotNumTradeReports,self.__class__,TotNumTradeReports)
 _quickfix.TotNumTradeReports_swigregister(TotNumTradeReportsPtr)
 
 class TradeRequestResult(IntField):
@@ -19005,7 +19012,7 @@ class TradeRequestResultPtr(TradeRequestResult):
     def __init__(self, this):
         _swig_setattr(self, TradeRequestResult, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeRequestResult, 'thisown', 0)
-        self.__class__ = TradeRequestResult
+        _swig_setattr(self, TradeRequestResult,self.__class__,TradeRequestResult)
 _quickfix.TradeRequestResult_swigregister(TradeRequestResultPtr)
 
 class TradeRequestStatus(IntField):
@@ -19030,7 +19037,7 @@ class TradeRequestStatusPtr(TradeRequestStatus):
     def __init__(self, this):
         _swig_setattr(self, TradeRequestStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeRequestStatus, 'thisown', 0)
-        self.__class__ = TradeRequestStatus
+        _swig_setattr(self, TradeRequestStatus,self.__class__,TradeRequestStatus)
 _quickfix.TradeRequestStatus_swigregister(TradeRequestStatusPtr)
 
 class TradeReportRejectReason(IntField):
@@ -19055,7 +19062,7 @@ class TradeReportRejectReasonPtr(TradeReportRejectReason):
     def __init__(self, this):
         _swig_setattr(self, TradeReportRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeReportRejectReason, 'thisown', 0)
-        self.__class__ = TradeReportRejectReason
+        _swig_setattr(self, TradeReportRejectReason,self.__class__,TradeReportRejectReason)
 _quickfix.TradeReportRejectReason_swigregister(TradeReportRejectReasonPtr)
 
 class SideMultiLegReportingType(IntField):
@@ -19080,7 +19087,7 @@ class SideMultiLegReportingTypePtr(SideMultiLegReportingType):
     def __init__(self, this):
         _swig_setattr(self, SideMultiLegReportingType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SideMultiLegReportingType, 'thisown', 0)
-        self.__class__ = SideMultiLegReportingType
+        _swig_setattr(self, SideMultiLegReportingType,self.__class__,SideMultiLegReportingType)
 _quickfix.SideMultiLegReportingType_swigregister(SideMultiLegReportingTypePtr)
 
 class NoPosAmt(IntField):
@@ -19105,7 +19112,7 @@ class NoPosAmtPtr(NoPosAmt):
     def __init__(self, this):
         _swig_setattr(self, NoPosAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoPosAmt, 'thisown', 0)
-        self.__class__ = NoPosAmt
+        _swig_setattr(self, NoPosAmt,self.__class__,NoPosAmt)
 _quickfix.NoPosAmt_swigregister(NoPosAmtPtr)
 
 class AutoAcceptIndicator(BoolField):
@@ -19130,7 +19137,7 @@ class AutoAcceptIndicatorPtr(AutoAcceptIndicator):
     def __init__(self, this):
         _swig_setattr(self, AutoAcceptIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AutoAcceptIndicator, 'thisown', 0)
-        self.__class__ = AutoAcceptIndicator
+        _swig_setattr(self, AutoAcceptIndicator,self.__class__,AutoAcceptIndicator)
 _quickfix.AutoAcceptIndicator_swigregister(AutoAcceptIndicatorPtr)
 
 class AllocReportID(StringField):
@@ -19155,7 +19162,7 @@ class AllocReportIDPtr(AllocReportID):
     def __init__(self, this):
         _swig_setattr(self, AllocReportID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocReportID, 'thisown', 0)
-        self.__class__ = AllocReportID
+        _swig_setattr(self, AllocReportID,self.__class__,AllocReportID)
 _quickfix.AllocReportID_swigregister(AllocReportIDPtr)
 
 class NoNested2PartyIDs(IntField):
@@ -19180,7 +19187,7 @@ class NoNested2PartyIDsPtr(NoNested2PartyIDs):
     def __init__(self, this):
         _swig_setattr(self, NoNested2PartyIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoNested2PartyIDs, 'thisown', 0)
-        self.__class__ = NoNested2PartyIDs
+        _swig_setattr(self, NoNested2PartyIDs,self.__class__,NoNested2PartyIDs)
 _quickfix.NoNested2PartyIDs_swigregister(NoNested2PartyIDsPtr)
 
 class Nested2PartyID(StringField):
@@ -19205,7 +19212,7 @@ class Nested2PartyIDPtr(Nested2PartyID):
     def __init__(self, this):
         _swig_setattr(self, Nested2PartyID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested2PartyID, 'thisown', 0)
-        self.__class__ = Nested2PartyID
+        _swig_setattr(self, Nested2PartyID,self.__class__,Nested2PartyID)
 _quickfix.Nested2PartyID_swigregister(Nested2PartyIDPtr)
 
 class Nested2PartyIDSource(CharField):
@@ -19230,7 +19237,7 @@ class Nested2PartyIDSourcePtr(Nested2PartyIDSource):
     def __init__(self, this):
         _swig_setattr(self, Nested2PartyIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested2PartyIDSource, 'thisown', 0)
-        self.__class__ = Nested2PartyIDSource
+        _swig_setattr(self, Nested2PartyIDSource,self.__class__,Nested2PartyIDSource)
 _quickfix.Nested2PartyIDSource_swigregister(Nested2PartyIDSourcePtr)
 
 class Nested2PartyRole(IntField):
@@ -19255,7 +19262,7 @@ class Nested2PartyRolePtr(Nested2PartyRole):
     def __init__(self, this):
         _swig_setattr(self, Nested2PartyRole, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested2PartyRole, 'thisown', 0)
-        self.__class__ = Nested2PartyRole
+        _swig_setattr(self, Nested2PartyRole,self.__class__,Nested2PartyRole)
 _quickfix.Nested2PartyRole_swigregister(Nested2PartyRolePtr)
 
 class Nested2PartySubID(StringField):
@@ -19280,7 +19287,7 @@ class Nested2PartySubIDPtr(Nested2PartySubID):
     def __init__(self, this):
         _swig_setattr(self, Nested2PartySubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested2PartySubID, 'thisown', 0)
-        self.__class__ = Nested2PartySubID
+        _swig_setattr(self, Nested2PartySubID,self.__class__,Nested2PartySubID)
 _quickfix.Nested2PartySubID_swigregister(Nested2PartySubIDPtr)
 
 class BenchmarkSecurityIDSource(StringField):
@@ -19305,7 +19312,7 @@ class BenchmarkSecurityIDSourcePtr(BenchmarkSecurityIDSource):
     def __init__(self, this):
         _swig_setattr(self, BenchmarkSecurityIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BenchmarkSecurityIDSource, 'thisown', 0)
-        self.__class__ = BenchmarkSecurityIDSource
+        _swig_setattr(self, BenchmarkSecurityIDSource,self.__class__,BenchmarkSecurityIDSource)
 _quickfix.BenchmarkSecurityIDSource_swigregister(BenchmarkSecurityIDSourcePtr)
 
 class SecuritySubType(StringField):
@@ -19330,7 +19337,7 @@ class SecuritySubTypePtr(SecuritySubType):
     def __init__(self, this):
         _swig_setattr(self, SecuritySubType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecuritySubType, 'thisown', 0)
-        self.__class__ = SecuritySubType
+        _swig_setattr(self, SecuritySubType,self.__class__,SecuritySubType)
 _quickfix.SecuritySubType_swigregister(SecuritySubTypePtr)
 
 class UnderlyingSecuritySubType(StringField):
@@ -19355,7 +19362,7 @@ class UnderlyingSecuritySubTypePtr(UnderlyingSecuritySubType):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingSecuritySubType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingSecuritySubType, 'thisown', 0)
-        self.__class__ = UnderlyingSecuritySubType
+        _swig_setattr(self, UnderlyingSecuritySubType,self.__class__,UnderlyingSecuritySubType)
 _quickfix.UnderlyingSecuritySubType_swigregister(UnderlyingSecuritySubTypePtr)
 
 class LegSecuritySubType(StringField):
@@ -19380,7 +19387,7 @@ class LegSecuritySubTypePtr(LegSecuritySubType):
     def __init__(self, this):
         _swig_setattr(self, LegSecuritySubType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSecuritySubType, 'thisown', 0)
-        self.__class__ = LegSecuritySubType
+        _swig_setattr(self, LegSecuritySubType,self.__class__,LegSecuritySubType)
 _quickfix.LegSecuritySubType_swigregister(LegSecuritySubTypePtr)
 
 class AllowableOneSidednessPct(DoubleField):
@@ -19405,7 +19412,7 @@ class AllowableOneSidednessPctPtr(AllowableOneSidednessPct):
     def __init__(self, this):
         _swig_setattr(self, AllowableOneSidednessPct, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllowableOneSidednessPct, 'thisown', 0)
-        self.__class__ = AllowableOneSidednessPct
+        _swig_setattr(self, AllowableOneSidednessPct,self.__class__,AllowableOneSidednessPct)
 _quickfix.AllowableOneSidednessPct_swigregister(AllowableOneSidednessPctPtr)
 
 class AllowableOneSidednessValue(DoubleField):
@@ -19430,7 +19437,7 @@ class AllowableOneSidednessValuePtr(AllowableOneSidednessValue):
     def __init__(self, this):
         _swig_setattr(self, AllowableOneSidednessValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllowableOneSidednessValue, 'thisown', 0)
-        self.__class__ = AllowableOneSidednessValue
+        _swig_setattr(self, AllowableOneSidednessValue,self.__class__,AllowableOneSidednessValue)
 _quickfix.AllowableOneSidednessValue_swigregister(AllowableOneSidednessValuePtr)
 
 class AllowableOneSidednessCurr(StringField):
@@ -19455,7 +19462,7 @@ class AllowableOneSidednessCurrPtr(AllowableOneSidednessCurr):
     def __init__(self, this):
         _swig_setattr(self, AllowableOneSidednessCurr, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllowableOneSidednessCurr, 'thisown', 0)
-        self.__class__ = AllowableOneSidednessCurr
+        _swig_setattr(self, AllowableOneSidednessCurr,self.__class__,AllowableOneSidednessCurr)
 _quickfix.AllowableOneSidednessCurr_swigregister(AllowableOneSidednessCurrPtr)
 
 class NoTrdRegTimestamps(IntField):
@@ -19480,7 +19487,7 @@ class NoTrdRegTimestampsPtr(NoTrdRegTimestamps):
     def __init__(self, this):
         _swig_setattr(self, NoTrdRegTimestamps, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoTrdRegTimestamps, 'thisown', 0)
-        self.__class__ = NoTrdRegTimestamps
+        _swig_setattr(self, NoTrdRegTimestamps,self.__class__,NoTrdRegTimestamps)
 _quickfix.NoTrdRegTimestamps_swigregister(NoTrdRegTimestampsPtr)
 
 class TrdRegTimestamp(UtcTimeStampField):
@@ -19505,7 +19512,7 @@ class TrdRegTimestampPtr(TrdRegTimestamp):
     def __init__(self, this):
         _swig_setattr(self, TrdRegTimestamp, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TrdRegTimestamp, 'thisown', 0)
-        self.__class__ = TrdRegTimestamp
+        _swig_setattr(self, TrdRegTimestamp,self.__class__,TrdRegTimestamp)
 _quickfix.TrdRegTimestamp_swigregister(TrdRegTimestampPtr)
 
 class TrdRegTimestampType(IntField):
@@ -19530,7 +19537,7 @@ class TrdRegTimestampTypePtr(TrdRegTimestampType):
     def __init__(self, this):
         _swig_setattr(self, TrdRegTimestampType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TrdRegTimestampType, 'thisown', 0)
-        self.__class__ = TrdRegTimestampType
+        _swig_setattr(self, TrdRegTimestampType,self.__class__,TrdRegTimestampType)
 _quickfix.TrdRegTimestampType_swigregister(TrdRegTimestampTypePtr)
 
 class TrdRegTimestampOrigin(StringField):
@@ -19555,7 +19562,7 @@ class TrdRegTimestampOriginPtr(TrdRegTimestampOrigin):
     def __init__(self, this):
         _swig_setattr(self, TrdRegTimestampOrigin, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TrdRegTimestampOrigin, 'thisown', 0)
-        self.__class__ = TrdRegTimestampOrigin
+        _swig_setattr(self, TrdRegTimestampOrigin,self.__class__,TrdRegTimestampOrigin)
 _quickfix.TrdRegTimestampOrigin_swigregister(TrdRegTimestampOriginPtr)
 
 class ConfirmRefID(StringField):
@@ -19580,7 +19587,7 @@ class ConfirmRefIDPtr(ConfirmRefID):
     def __init__(self, this):
         _swig_setattr(self, ConfirmRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfirmRefID, 'thisown', 0)
-        self.__class__ = ConfirmRefID
+        _swig_setattr(self, ConfirmRefID,self.__class__,ConfirmRefID)
 _quickfix.ConfirmRefID_swigregister(ConfirmRefIDPtr)
 
 class ConfirmType(IntField):
@@ -19605,7 +19612,7 @@ class ConfirmTypePtr(ConfirmType):
     def __init__(self, this):
         _swig_setattr(self, ConfirmType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfirmType, 'thisown', 0)
-        self.__class__ = ConfirmType
+        _swig_setattr(self, ConfirmType,self.__class__,ConfirmType)
 _quickfix.ConfirmType_swigregister(ConfirmTypePtr)
 
 class ConfirmRejReason(IntField):
@@ -19630,7 +19637,7 @@ class ConfirmRejReasonPtr(ConfirmRejReason):
     def __init__(self, this):
         _swig_setattr(self, ConfirmRejReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfirmRejReason, 'thisown', 0)
-        self.__class__ = ConfirmRejReason
+        _swig_setattr(self, ConfirmRejReason,self.__class__,ConfirmRejReason)
 _quickfix.ConfirmRejReason_swigregister(ConfirmRejReasonPtr)
 
 class BookingType(IntField):
@@ -19655,7 +19662,7 @@ class BookingTypePtr(BookingType):
     def __init__(self, this):
         _swig_setattr(self, BookingType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BookingType, 'thisown', 0)
-        self.__class__ = BookingType
+        _swig_setattr(self, BookingType,self.__class__,BookingType)
 _quickfix.BookingType_swigregister(BookingTypePtr)
 
 class IndividualAllocRejCode(IntField):
@@ -19680,7 +19687,7 @@ class IndividualAllocRejCodePtr(IndividualAllocRejCode):
     def __init__(self, this):
         _swig_setattr(self, IndividualAllocRejCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IndividualAllocRejCode, 'thisown', 0)
-        self.__class__ = IndividualAllocRejCode
+        _swig_setattr(self, IndividualAllocRejCode,self.__class__,IndividualAllocRejCode)
 _quickfix.IndividualAllocRejCode_swigregister(IndividualAllocRejCodePtr)
 
 class SettlInstMsgID(StringField):
@@ -19705,7 +19712,7 @@ class SettlInstMsgIDPtr(SettlInstMsgID):
     def __init__(self, this):
         _swig_setattr(self, SettlInstMsgID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstMsgID, 'thisown', 0)
-        self.__class__ = SettlInstMsgID
+        _swig_setattr(self, SettlInstMsgID,self.__class__,SettlInstMsgID)
 _quickfix.SettlInstMsgID_swigregister(SettlInstMsgIDPtr)
 
 class NoSettlInst(IntField):
@@ -19730,7 +19737,7 @@ class NoSettlInstPtr(NoSettlInst):
     def __init__(self, this):
         _swig_setattr(self, NoSettlInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoSettlInst, 'thisown', 0)
-        self.__class__ = NoSettlInst
+        _swig_setattr(self, NoSettlInst,self.__class__,NoSettlInst)
 _quickfix.NoSettlInst_swigregister(NoSettlInstPtr)
 
 class LastUpdateTime(UtcTimeStampField):
@@ -19755,7 +19762,7 @@ class LastUpdateTimePtr(LastUpdateTime):
     def __init__(self, this):
         _swig_setattr(self, LastUpdateTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastUpdateTime, 'thisown', 0)
-        self.__class__ = LastUpdateTime
+        _swig_setattr(self, LastUpdateTime,self.__class__,LastUpdateTime)
 _quickfix.LastUpdateTime_swigregister(LastUpdateTimePtr)
 
 class AllocSettlInstType(IntField):
@@ -19780,7 +19787,7 @@ class AllocSettlInstTypePtr(AllocSettlInstType):
     def __init__(self, this):
         _swig_setattr(self, AllocSettlInstType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocSettlInstType, 'thisown', 0)
-        self.__class__ = AllocSettlInstType
+        _swig_setattr(self, AllocSettlInstType,self.__class__,AllocSettlInstType)
 _quickfix.AllocSettlInstType_swigregister(AllocSettlInstTypePtr)
 
 class NoSettlPartyIDs(IntField):
@@ -19805,7 +19812,7 @@ class NoSettlPartyIDsPtr(NoSettlPartyIDs):
     def __init__(self, this):
         _swig_setattr(self, NoSettlPartyIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoSettlPartyIDs, 'thisown', 0)
-        self.__class__ = NoSettlPartyIDs
+        _swig_setattr(self, NoSettlPartyIDs,self.__class__,NoSettlPartyIDs)
 _quickfix.NoSettlPartyIDs_swigregister(NoSettlPartyIDsPtr)
 
 class SettlPartyID(StringField):
@@ -19830,7 +19837,7 @@ class SettlPartyIDPtr(SettlPartyID):
     def __init__(self, this):
         _swig_setattr(self, SettlPartyID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlPartyID, 'thisown', 0)
-        self.__class__ = SettlPartyID
+        _swig_setattr(self, SettlPartyID,self.__class__,SettlPartyID)
 _quickfix.SettlPartyID_swigregister(SettlPartyIDPtr)
 
 class SettlPartyIDSource(CharField):
@@ -19855,7 +19862,7 @@ class SettlPartyIDSourcePtr(SettlPartyIDSource):
     def __init__(self, this):
         _swig_setattr(self, SettlPartyIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlPartyIDSource, 'thisown', 0)
-        self.__class__ = SettlPartyIDSource
+        _swig_setattr(self, SettlPartyIDSource,self.__class__,SettlPartyIDSource)
 _quickfix.SettlPartyIDSource_swigregister(SettlPartyIDSourcePtr)
 
 class SettlPartyRole(IntField):
@@ -19880,7 +19887,7 @@ class SettlPartyRolePtr(SettlPartyRole):
     def __init__(self, this):
         _swig_setattr(self, SettlPartyRole, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlPartyRole, 'thisown', 0)
-        self.__class__ = SettlPartyRole
+        _swig_setattr(self, SettlPartyRole,self.__class__,SettlPartyRole)
 _quickfix.SettlPartyRole_swigregister(SettlPartyRolePtr)
 
 class SettlPartySubID(StringField):
@@ -19905,7 +19912,7 @@ class SettlPartySubIDPtr(SettlPartySubID):
     def __init__(self, this):
         _swig_setattr(self, SettlPartySubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlPartySubID, 'thisown', 0)
-        self.__class__ = SettlPartySubID
+        _swig_setattr(self, SettlPartySubID,self.__class__,SettlPartySubID)
 _quickfix.SettlPartySubID_swigregister(SettlPartySubIDPtr)
 
 class SettlPartySubIDType(IntField):
@@ -19930,7 +19937,7 @@ class SettlPartySubIDTypePtr(SettlPartySubIDType):
     def __init__(self, this):
         _swig_setattr(self, SettlPartySubIDType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlPartySubIDType, 'thisown', 0)
-        self.__class__ = SettlPartySubIDType
+        _swig_setattr(self, SettlPartySubIDType,self.__class__,SettlPartySubIDType)
 _quickfix.SettlPartySubIDType_swigregister(SettlPartySubIDTypePtr)
 
 class DlvyInstType(CharField):
@@ -19955,7 +19962,7 @@ class DlvyInstTypePtr(DlvyInstType):
     def __init__(self, this):
         _swig_setattr(self, DlvyInstType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DlvyInstType, 'thisown', 0)
-        self.__class__ = DlvyInstType
+        _swig_setattr(self, DlvyInstType,self.__class__,DlvyInstType)
 _quickfix.DlvyInstType_swigregister(DlvyInstTypePtr)
 
 class TerminationType(IntField):
@@ -19980,7 +19987,7 @@ class TerminationTypePtr(TerminationType):
     def __init__(self, this):
         _swig_setattr(self, TerminationType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TerminationType, 'thisown', 0)
-        self.__class__ = TerminationType
+        _swig_setattr(self, TerminationType,self.__class__,TerminationType)
 _quickfix.TerminationType_swigregister(TerminationTypePtr)
 
 class NextExpectedMsgSeqNum(IntField):
@@ -20005,7 +20012,7 @@ class NextExpectedMsgSeqNumPtr(NextExpectedMsgSeqNum):
     def __init__(self, this):
         _swig_setattr(self, NextExpectedMsgSeqNum, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NextExpectedMsgSeqNum, 'thisown', 0)
-        self.__class__ = NextExpectedMsgSeqNum
+        _swig_setattr(self, NextExpectedMsgSeqNum,self.__class__,NextExpectedMsgSeqNum)
 _quickfix.NextExpectedMsgSeqNum_swigregister(NextExpectedMsgSeqNumPtr)
 
 class OrdStatusReqID(StringField):
@@ -20030,7 +20037,7 @@ class OrdStatusReqIDPtr(OrdStatusReqID):
     def __init__(self, this):
         _swig_setattr(self, OrdStatusReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrdStatusReqID, 'thisown', 0)
-        self.__class__ = OrdStatusReqID
+        _swig_setattr(self, OrdStatusReqID,self.__class__,OrdStatusReqID)
 _quickfix.OrdStatusReqID_swigregister(OrdStatusReqIDPtr)
 
 class SettlInstReqID(StringField):
@@ -20055,7 +20062,7 @@ class SettlInstReqIDPtr(SettlInstReqID):
     def __init__(self, this):
         _swig_setattr(self, SettlInstReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstReqID, 'thisown', 0)
-        self.__class__ = SettlInstReqID
+        _swig_setattr(self, SettlInstReqID,self.__class__,SettlInstReqID)
 _quickfix.SettlInstReqID_swigregister(SettlInstReqIDPtr)
 
 class SettlInstReqRejCode(IntField):
@@ -20080,7 +20087,7 @@ class SettlInstReqRejCodePtr(SettlInstReqRejCode):
     def __init__(self, this):
         _swig_setattr(self, SettlInstReqRejCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstReqRejCode, 'thisown', 0)
-        self.__class__ = SettlInstReqRejCode
+        _swig_setattr(self, SettlInstReqRejCode,self.__class__,SettlInstReqRejCode)
 _quickfix.SettlInstReqRejCode_swigregister(SettlInstReqRejCodePtr)
 
 class SecondaryAllocID(StringField):
@@ -20105,7 +20112,7 @@ class SecondaryAllocIDPtr(SecondaryAllocID):
     def __init__(self, this):
         _swig_setattr(self, SecondaryAllocID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecondaryAllocID, 'thisown', 0)
-        self.__class__ = SecondaryAllocID
+        _swig_setattr(self, SecondaryAllocID,self.__class__,SecondaryAllocID)
 _quickfix.SecondaryAllocID_swigregister(SecondaryAllocIDPtr)
 
 class AllocReportType(IntField):
@@ -20130,7 +20137,7 @@ class AllocReportTypePtr(AllocReportType):
     def __init__(self, this):
         _swig_setattr(self, AllocReportType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocReportType, 'thisown', 0)
-        self.__class__ = AllocReportType
+        _swig_setattr(self, AllocReportType,self.__class__,AllocReportType)
 _quickfix.AllocReportType_swigregister(AllocReportTypePtr)
 
 class AllocReportRefID(StringField):
@@ -20155,7 +20162,7 @@ class AllocReportRefIDPtr(AllocReportRefID):
     def __init__(self, this):
         _swig_setattr(self, AllocReportRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocReportRefID, 'thisown', 0)
-        self.__class__ = AllocReportRefID
+        _swig_setattr(self, AllocReportRefID,self.__class__,AllocReportRefID)
 _quickfix.AllocReportRefID_swigregister(AllocReportRefIDPtr)
 
 class AllocCancReplaceReason(IntField):
@@ -20180,7 +20187,7 @@ class AllocCancReplaceReasonPtr(AllocCancReplaceReason):
     def __init__(self, this):
         _swig_setattr(self, AllocCancReplaceReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocCancReplaceReason, 'thisown', 0)
-        self.__class__ = AllocCancReplaceReason
+        _swig_setattr(self, AllocCancReplaceReason,self.__class__,AllocCancReplaceReason)
 _quickfix.AllocCancReplaceReason_swigregister(AllocCancReplaceReasonPtr)
 
 class CopyMsgIndicator(BoolField):
@@ -20205,7 +20212,7 @@ class CopyMsgIndicatorPtr(CopyMsgIndicator):
     def __init__(self, this):
         _swig_setattr(self, CopyMsgIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CopyMsgIndicator, 'thisown', 0)
-        self.__class__ = CopyMsgIndicator
+        _swig_setattr(self, CopyMsgIndicator,self.__class__,CopyMsgIndicator)
 _quickfix.CopyMsgIndicator_swigregister(CopyMsgIndicatorPtr)
 
 class AllocAccountType(IntField):
@@ -20230,7 +20237,7 @@ class AllocAccountTypePtr(AllocAccountType):
     def __init__(self, this):
         _swig_setattr(self, AllocAccountType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocAccountType, 'thisown', 0)
-        self.__class__ = AllocAccountType
+        _swig_setattr(self, AllocAccountType,self.__class__,AllocAccountType)
 _quickfix.AllocAccountType_swigregister(AllocAccountTypePtr)
 
 class OrderAvgPx(DoubleField):
@@ -20255,7 +20262,7 @@ class OrderAvgPxPtr(OrderAvgPx):
     def __init__(self, this):
         _swig_setattr(self, OrderAvgPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderAvgPx, 'thisown', 0)
-        self.__class__ = OrderAvgPx
+        _swig_setattr(self, OrderAvgPx,self.__class__,OrderAvgPx)
 _quickfix.OrderAvgPx_swigregister(OrderAvgPxPtr)
 
 class OrderBookingQty(DoubleField):
@@ -20280,7 +20287,7 @@ class OrderBookingQtyPtr(OrderBookingQty):
     def __init__(self, this):
         _swig_setattr(self, OrderBookingQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderBookingQty, 'thisown', 0)
-        self.__class__ = OrderBookingQty
+        _swig_setattr(self, OrderBookingQty,self.__class__,OrderBookingQty)
 _quickfix.OrderBookingQty_swigregister(OrderBookingQtyPtr)
 
 class NoSettlPartySubIDs(IntField):
@@ -20305,7 +20312,7 @@ class NoSettlPartySubIDsPtr(NoSettlPartySubIDs):
     def __init__(self, this):
         _swig_setattr(self, NoSettlPartySubIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoSettlPartySubIDs, 'thisown', 0)
-        self.__class__ = NoSettlPartySubIDs
+        _swig_setattr(self, NoSettlPartySubIDs,self.__class__,NoSettlPartySubIDs)
 _quickfix.NoSettlPartySubIDs_swigregister(NoSettlPartySubIDsPtr)
 
 class NoPartySubIDs(IntField):
@@ -20330,7 +20337,7 @@ class NoPartySubIDsPtr(NoPartySubIDs):
     def __init__(self, this):
         _swig_setattr(self, NoPartySubIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoPartySubIDs, 'thisown', 0)
-        self.__class__ = NoPartySubIDs
+        _swig_setattr(self, NoPartySubIDs,self.__class__,NoPartySubIDs)
 _quickfix.NoPartySubIDs_swigregister(NoPartySubIDsPtr)
 
 class PartySubIDType(IntField):
@@ -20355,7 +20362,7 @@ class PartySubIDTypePtr(PartySubIDType):
     def __init__(self, this):
         _swig_setattr(self, PartySubIDType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PartySubIDType, 'thisown', 0)
-        self.__class__ = PartySubIDType
+        _swig_setattr(self, PartySubIDType,self.__class__,PartySubIDType)
 _quickfix.PartySubIDType_swigregister(PartySubIDTypePtr)
 
 class NoNestedPartySubIDs(IntField):
@@ -20380,7 +20387,7 @@ class NoNestedPartySubIDsPtr(NoNestedPartySubIDs):
     def __init__(self, this):
         _swig_setattr(self, NoNestedPartySubIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoNestedPartySubIDs, 'thisown', 0)
-        self.__class__ = NoNestedPartySubIDs
+        _swig_setattr(self, NoNestedPartySubIDs,self.__class__,NoNestedPartySubIDs)
 _quickfix.NoNestedPartySubIDs_swigregister(NoNestedPartySubIDsPtr)
 
 class NestedPartySubIDType(IntField):
@@ -20405,7 +20412,7 @@ class NestedPartySubIDTypePtr(NestedPartySubIDType):
     def __init__(self, this):
         _swig_setattr(self, NestedPartySubIDType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NestedPartySubIDType, 'thisown', 0)
-        self.__class__ = NestedPartySubIDType
+        _swig_setattr(self, NestedPartySubIDType,self.__class__,NestedPartySubIDType)
 _quickfix.NestedPartySubIDType_swigregister(NestedPartySubIDTypePtr)
 
 class NoNested2PartySubIDs(IntField):
@@ -20430,7 +20437,7 @@ class NoNested2PartySubIDsPtr(NoNested2PartySubIDs):
     def __init__(self, this):
         _swig_setattr(self, NoNested2PartySubIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoNested2PartySubIDs, 'thisown', 0)
-        self.__class__ = NoNested2PartySubIDs
+        _swig_setattr(self, NoNested2PartySubIDs,self.__class__,NoNested2PartySubIDs)
 _quickfix.NoNested2PartySubIDs_swigregister(NoNested2PartySubIDsPtr)
 
 class Nested2PartySubIDType(IntField):
@@ -20455,7 +20462,7 @@ class Nested2PartySubIDTypePtr(Nested2PartySubIDType):
     def __init__(self, this):
         _swig_setattr(self, Nested2PartySubIDType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested2PartySubIDType, 'thisown', 0)
-        self.__class__ = Nested2PartySubIDType
+        _swig_setattr(self, Nested2PartySubIDType,self.__class__,Nested2PartySubIDType)
 _quickfix.Nested2PartySubIDType_swigregister(Nested2PartySubIDTypePtr)
 
 class AllocIntermedReqType(IntField):
@@ -20480,7 +20487,7 @@ class AllocIntermedReqTypePtr(AllocIntermedReqType):
     def __init__(self, this):
         _swig_setattr(self, AllocIntermedReqType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocIntermedReqType, 'thisown', 0)
-        self.__class__ = AllocIntermedReqType
+        _swig_setattr(self, AllocIntermedReqType,self.__class__,AllocIntermedReqType)
 _quickfix.AllocIntermedReqType_swigregister(AllocIntermedReqTypePtr)
 
 class UnderlyingPx(DoubleField):
@@ -20505,7 +20512,7 @@ class UnderlyingPxPtr(UnderlyingPx):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingPx, 'thisown', 0)
-        self.__class__ = UnderlyingPx
+        _swig_setattr(self, UnderlyingPx,self.__class__,UnderlyingPx)
 _quickfix.UnderlyingPx_swigregister(UnderlyingPxPtr)
 
 class PriceDelta(DoubleField):
@@ -20530,7 +20537,7 @@ class PriceDeltaPtr(PriceDelta):
     def __init__(self, this):
         _swig_setattr(self, PriceDelta, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PriceDelta, 'thisown', 0)
-        self.__class__ = PriceDelta
+        _swig_setattr(self, PriceDelta,self.__class__,PriceDelta)
 _quickfix.PriceDelta_swigregister(PriceDeltaPtr)
 
 class ApplQueueMax(IntField):
@@ -20555,7 +20562,7 @@ class ApplQueueMaxPtr(ApplQueueMax):
     def __init__(self, this):
         _swig_setattr(self, ApplQueueMax, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ApplQueueMax, 'thisown', 0)
-        self.__class__ = ApplQueueMax
+        _swig_setattr(self, ApplQueueMax,self.__class__,ApplQueueMax)
 _quickfix.ApplQueueMax_swigregister(ApplQueueMaxPtr)
 
 class ApplQueueDepth(IntField):
@@ -20580,7 +20587,7 @@ class ApplQueueDepthPtr(ApplQueueDepth):
     def __init__(self, this):
         _swig_setattr(self, ApplQueueDepth, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ApplQueueDepth, 'thisown', 0)
-        self.__class__ = ApplQueueDepth
+        _swig_setattr(self, ApplQueueDepth,self.__class__,ApplQueueDepth)
 _quickfix.ApplQueueDepth_swigregister(ApplQueueDepthPtr)
 
 class ApplQueueResolution(IntField):
@@ -20605,7 +20612,7 @@ class ApplQueueResolutionPtr(ApplQueueResolution):
     def __init__(self, this):
         _swig_setattr(self, ApplQueueResolution, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ApplQueueResolution, 'thisown', 0)
-        self.__class__ = ApplQueueResolution
+        _swig_setattr(self, ApplQueueResolution,self.__class__,ApplQueueResolution)
 _quickfix.ApplQueueResolution_swigregister(ApplQueueResolutionPtr)
 
 class ApplQueueAction(IntField):
@@ -20630,7 +20637,7 @@ class ApplQueueActionPtr(ApplQueueAction):
     def __init__(self, this):
         _swig_setattr(self, ApplQueueAction, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ApplQueueAction, 'thisown', 0)
-        self.__class__ = ApplQueueAction
+        _swig_setattr(self, ApplQueueAction,self.__class__,ApplQueueAction)
 _quickfix.ApplQueueAction_swigregister(ApplQueueActionPtr)
 
 class NoAltMDSource(IntField):
@@ -20655,7 +20662,7 @@ class NoAltMDSourcePtr(NoAltMDSource):
     def __init__(self, this):
         _swig_setattr(self, NoAltMDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoAltMDSource, 'thisown', 0)
-        self.__class__ = NoAltMDSource
+        _swig_setattr(self, NoAltMDSource,self.__class__,NoAltMDSource)
 _quickfix.NoAltMDSource_swigregister(NoAltMDSourcePtr)
 
 class AltMDSourceID(StringField):
@@ -20680,7 +20687,7 @@ class AltMDSourceIDPtr(AltMDSourceID):
     def __init__(self, this):
         _swig_setattr(self, AltMDSourceID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AltMDSourceID, 'thisown', 0)
-        self.__class__ = AltMDSourceID
+        _swig_setattr(self, AltMDSourceID,self.__class__,AltMDSourceID)
 _quickfix.AltMDSourceID_swigregister(AltMDSourceIDPtr)
 
 class SecondaryTradeReportID(StringField):
@@ -20705,7 +20712,7 @@ class SecondaryTradeReportIDPtr(SecondaryTradeReportID):
     def __init__(self, this):
         _swig_setattr(self, SecondaryTradeReportID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecondaryTradeReportID, 'thisown', 0)
-        self.__class__ = SecondaryTradeReportID
+        _swig_setattr(self, SecondaryTradeReportID,self.__class__,SecondaryTradeReportID)
 _quickfix.SecondaryTradeReportID_swigregister(SecondaryTradeReportIDPtr)
 
 class AvgPxIndicator(IntField):
@@ -20730,7 +20737,7 @@ class AvgPxIndicatorPtr(AvgPxIndicator):
     def __init__(self, this):
         _swig_setattr(self, AvgPxIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AvgPxIndicator, 'thisown', 0)
-        self.__class__ = AvgPxIndicator
+        _swig_setattr(self, AvgPxIndicator,self.__class__,AvgPxIndicator)
 _quickfix.AvgPxIndicator_swigregister(AvgPxIndicatorPtr)
 
 class TradeLinkID(StringField):
@@ -20755,7 +20762,7 @@ class TradeLinkIDPtr(TradeLinkID):
     def __init__(self, this):
         _swig_setattr(self, TradeLinkID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeLinkID, 'thisown', 0)
-        self.__class__ = TradeLinkID
+        _swig_setattr(self, TradeLinkID,self.__class__,TradeLinkID)
 _quickfix.TradeLinkID_swigregister(TradeLinkIDPtr)
 
 class OrderInputDevice(StringField):
@@ -20780,7 +20787,7 @@ class OrderInputDevicePtr(OrderInputDevice):
     def __init__(self, this):
         _swig_setattr(self, OrderInputDevice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderInputDevice, 'thisown', 0)
-        self.__class__ = OrderInputDevice
+        _swig_setattr(self, OrderInputDevice,self.__class__,OrderInputDevice)
 _quickfix.OrderInputDevice_swigregister(OrderInputDevicePtr)
 
 class UnderlyingTradingSessionID(StringField):
@@ -20805,7 +20812,7 @@ class UnderlyingTradingSessionIDPtr(UnderlyingTradingSessionID):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingTradingSessionID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingTradingSessionID, 'thisown', 0)
-        self.__class__ = UnderlyingTradingSessionID
+        _swig_setattr(self, UnderlyingTradingSessionID,self.__class__,UnderlyingTradingSessionID)
 _quickfix.UnderlyingTradingSessionID_swigregister(UnderlyingTradingSessionIDPtr)
 
 class UnderlyingTradingSessionSubID(StringField):
@@ -20830,7 +20837,7 @@ class UnderlyingTradingSessionSubIDPtr(UnderlyingTradingSessionSubID):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingTradingSessionSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingTradingSessionSubID, 'thisown', 0)
-        self.__class__ = UnderlyingTradingSessionSubID
+        _swig_setattr(self, UnderlyingTradingSessionSubID,self.__class__,UnderlyingTradingSessionSubID)
 _quickfix.UnderlyingTradingSessionSubID_swigregister(UnderlyingTradingSessionSubIDPtr)
 
 class TradeLegRefID(StringField):
@@ -20855,7 +20862,7 @@ class TradeLegRefIDPtr(TradeLegRefID):
     def __init__(self, this):
         _swig_setattr(self, TradeLegRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeLegRefID, 'thisown', 0)
-        self.__class__ = TradeLegRefID
+        _swig_setattr(self, TradeLegRefID,self.__class__,TradeLegRefID)
 _quickfix.TradeLegRefID_swigregister(TradeLegRefIDPtr)
 
 class ExchangeRule(StringField):
@@ -20880,7 +20887,7 @@ class ExchangeRulePtr(ExchangeRule):
     def __init__(self, this):
         _swig_setattr(self, ExchangeRule, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExchangeRule, 'thisown', 0)
-        self.__class__ = ExchangeRule
+        _swig_setattr(self, ExchangeRule,self.__class__,ExchangeRule)
 _quickfix.ExchangeRule_swigregister(ExchangeRulePtr)
 
 class TradeAllocIndicator(IntField):
@@ -20905,7 +20912,7 @@ class TradeAllocIndicatorPtr(TradeAllocIndicator):
     def __init__(self, this):
         _swig_setattr(self, TradeAllocIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeAllocIndicator, 'thisown', 0)
-        self.__class__ = TradeAllocIndicator
+        _swig_setattr(self, TradeAllocIndicator,self.__class__,TradeAllocIndicator)
 _quickfix.TradeAllocIndicator_swigregister(TradeAllocIndicatorPtr)
 
 class ExpirationCycle(IntField):
@@ -20930,7 +20937,7 @@ class ExpirationCyclePtr(ExpirationCycle):
     def __init__(self, this):
         _swig_setattr(self, ExpirationCycle, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExpirationCycle, 'thisown', 0)
-        self.__class__ = ExpirationCycle
+        _swig_setattr(self, ExpirationCycle,self.__class__,ExpirationCycle)
 _quickfix.ExpirationCycle_swigregister(ExpirationCyclePtr)
 
 class TrdType(IntField):
@@ -20955,7 +20962,7 @@ class TrdTypePtr(TrdType):
     def __init__(self, this):
         _swig_setattr(self, TrdType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TrdType, 'thisown', 0)
-        self.__class__ = TrdType
+        _swig_setattr(self, TrdType,self.__class__,TrdType)
 _quickfix.TrdType_swigregister(TrdTypePtr)
 
 class TrdSubType(IntField):
@@ -20980,7 +20987,7 @@ class TrdSubTypePtr(TrdSubType):
     def __init__(self, this):
         _swig_setattr(self, TrdSubType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TrdSubType, 'thisown', 0)
-        self.__class__ = TrdSubType
+        _swig_setattr(self, TrdSubType,self.__class__,TrdSubType)
 _quickfix.TrdSubType_swigregister(TrdSubTypePtr)
 
 class TransferReason(StringField):
@@ -21005,7 +21012,7 @@ class TransferReasonPtr(TransferReason):
     def __init__(self, this):
         _swig_setattr(self, TransferReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TransferReason, 'thisown', 0)
-        self.__class__ = TransferReason
+        _swig_setattr(self, TransferReason,self.__class__,TransferReason)
 _quickfix.TransferReason_swigregister(TransferReasonPtr)
 
 class AsgnReqID(StringField):
@@ -21030,7 +21037,7 @@ class AsgnReqIDPtr(AsgnReqID):
     def __init__(self, this):
         _swig_setattr(self, AsgnReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AsgnReqID, 'thisown', 0)
-        self.__class__ = AsgnReqID
+        _swig_setattr(self, AsgnReqID,self.__class__,AsgnReqID)
 _quickfix.AsgnReqID_swigregister(AsgnReqIDPtr)
 
 class TotNumAssignmentReports(IntField):
@@ -21055,7 +21062,7 @@ class TotNumAssignmentReportsPtr(TotNumAssignmentReports):
     def __init__(self, this):
         _swig_setattr(self, TotNumAssignmentReports, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNumAssignmentReports, 'thisown', 0)
-        self.__class__ = TotNumAssignmentReports
+        _swig_setattr(self, TotNumAssignmentReports,self.__class__,TotNumAssignmentReports)
 _quickfix.TotNumAssignmentReports_swigregister(TotNumAssignmentReportsPtr)
 
 class AsgnRptID(StringField):
@@ -21080,7 +21087,7 @@ class AsgnRptIDPtr(AsgnRptID):
     def __init__(self, this):
         _swig_setattr(self, AsgnRptID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AsgnRptID, 'thisown', 0)
-        self.__class__ = AsgnRptID
+        _swig_setattr(self, AsgnRptID,self.__class__,AsgnRptID)
 _quickfix.AsgnRptID_swigregister(AsgnRptIDPtr)
 
 class ThresholdAmount(DoubleField):
@@ -21105,7 +21112,7 @@ class ThresholdAmountPtr(ThresholdAmount):
     def __init__(self, this):
         _swig_setattr(self, ThresholdAmount, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ThresholdAmount, 'thisown', 0)
-        self.__class__ = ThresholdAmount
+        _swig_setattr(self, ThresholdAmount,self.__class__,ThresholdAmount)
 _quickfix.ThresholdAmount_swigregister(ThresholdAmountPtr)
 
 class PegMoveType(IntField):
@@ -21130,7 +21137,7 @@ class PegMoveTypePtr(PegMoveType):
     def __init__(self, this):
         _swig_setattr(self, PegMoveType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PegMoveType, 'thisown', 0)
-        self.__class__ = PegMoveType
+        _swig_setattr(self, PegMoveType,self.__class__,PegMoveType)
 _quickfix.PegMoveType_swigregister(PegMoveTypePtr)
 
 class PegOffsetType(IntField):
@@ -21155,7 +21162,7 @@ class PegOffsetTypePtr(PegOffsetType):
     def __init__(self, this):
         _swig_setattr(self, PegOffsetType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PegOffsetType, 'thisown', 0)
-        self.__class__ = PegOffsetType
+        _swig_setattr(self, PegOffsetType,self.__class__,PegOffsetType)
 _quickfix.PegOffsetType_swigregister(PegOffsetTypePtr)
 
 class PegLimitType(IntField):
@@ -21180,7 +21187,7 @@ class PegLimitTypePtr(PegLimitType):
     def __init__(self, this):
         _swig_setattr(self, PegLimitType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PegLimitType, 'thisown', 0)
-        self.__class__ = PegLimitType
+        _swig_setattr(self, PegLimitType,self.__class__,PegLimitType)
 _quickfix.PegLimitType_swigregister(PegLimitTypePtr)
 
 class PegRoundDirection(IntField):
@@ -21205,7 +21212,7 @@ class PegRoundDirectionPtr(PegRoundDirection):
     def __init__(self, this):
         _swig_setattr(self, PegRoundDirection, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PegRoundDirection, 'thisown', 0)
-        self.__class__ = PegRoundDirection
+        _swig_setattr(self, PegRoundDirection,self.__class__,PegRoundDirection)
 _quickfix.PegRoundDirection_swigregister(PegRoundDirectionPtr)
 
 class PeggedPrice(DoubleField):
@@ -21230,7 +21237,7 @@ class PeggedPricePtr(PeggedPrice):
     def __init__(self, this):
         _swig_setattr(self, PeggedPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PeggedPrice, 'thisown', 0)
-        self.__class__ = PeggedPrice
+        _swig_setattr(self, PeggedPrice,self.__class__,PeggedPrice)
 _quickfix.PeggedPrice_swigregister(PeggedPricePtr)
 
 class PegScope(IntField):
@@ -21255,7 +21262,7 @@ class PegScopePtr(PegScope):
     def __init__(self, this):
         _swig_setattr(self, PegScope, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PegScope, 'thisown', 0)
-        self.__class__ = PegScope
+        _swig_setattr(self, PegScope,self.__class__,PegScope)
 _quickfix.PegScope_swigregister(PegScopePtr)
 
 class DiscretionMoveType(IntField):
@@ -21280,7 +21287,7 @@ class DiscretionMoveTypePtr(DiscretionMoveType):
     def __init__(self, this):
         _swig_setattr(self, DiscretionMoveType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionMoveType, 'thisown', 0)
-        self.__class__ = DiscretionMoveType
+        _swig_setattr(self, DiscretionMoveType,self.__class__,DiscretionMoveType)
 _quickfix.DiscretionMoveType_swigregister(DiscretionMoveTypePtr)
 
 class DiscretionOffsetType(IntField):
@@ -21305,7 +21312,7 @@ class DiscretionOffsetTypePtr(DiscretionOffsetType):
     def __init__(self, this):
         _swig_setattr(self, DiscretionOffsetType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionOffsetType, 'thisown', 0)
-        self.__class__ = DiscretionOffsetType
+        _swig_setattr(self, DiscretionOffsetType,self.__class__,DiscretionOffsetType)
 _quickfix.DiscretionOffsetType_swigregister(DiscretionOffsetTypePtr)
 
 class DiscretionLimitType(IntField):
@@ -21330,7 +21337,7 @@ class DiscretionLimitTypePtr(DiscretionLimitType):
     def __init__(self, this):
         _swig_setattr(self, DiscretionLimitType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionLimitType, 'thisown', 0)
-        self.__class__ = DiscretionLimitType
+        _swig_setattr(self, DiscretionLimitType,self.__class__,DiscretionLimitType)
 _quickfix.DiscretionLimitType_swigregister(DiscretionLimitTypePtr)
 
 class DiscretionRoundDirection(IntField):
@@ -21355,7 +21362,7 @@ class DiscretionRoundDirectionPtr(DiscretionRoundDirection):
     def __init__(self, this):
         _swig_setattr(self, DiscretionRoundDirection, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionRoundDirection, 'thisown', 0)
-        self.__class__ = DiscretionRoundDirection
+        _swig_setattr(self, DiscretionRoundDirection,self.__class__,DiscretionRoundDirection)
 _quickfix.DiscretionRoundDirection_swigregister(DiscretionRoundDirectionPtr)
 
 class DiscretionPrice(DoubleField):
@@ -21380,7 +21387,7 @@ class DiscretionPricePtr(DiscretionPrice):
     def __init__(self, this):
         _swig_setattr(self, DiscretionPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionPrice, 'thisown', 0)
-        self.__class__ = DiscretionPrice
+        _swig_setattr(self, DiscretionPrice,self.__class__,DiscretionPrice)
 _quickfix.DiscretionPrice_swigregister(DiscretionPricePtr)
 
 class DiscretionScope(IntField):
@@ -21405,7 +21412,7 @@ class DiscretionScopePtr(DiscretionScope):
     def __init__(self, this):
         _swig_setattr(self, DiscretionScope, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionScope, 'thisown', 0)
-        self.__class__ = DiscretionScope
+        _swig_setattr(self, DiscretionScope,self.__class__,DiscretionScope)
 _quickfix.DiscretionScope_swigregister(DiscretionScopePtr)
 
 class TargetStrategy(IntField):
@@ -21430,7 +21437,7 @@ class TargetStrategyPtr(TargetStrategy):
     def __init__(self, this):
         _swig_setattr(self, TargetStrategy, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TargetStrategy, 'thisown', 0)
-        self.__class__ = TargetStrategy
+        _swig_setattr(self, TargetStrategy,self.__class__,TargetStrategy)
 _quickfix.TargetStrategy_swigregister(TargetStrategyPtr)
 
 class TargetStrategyParameters(StringField):
@@ -21455,7 +21462,7 @@ class TargetStrategyParametersPtr(TargetStrategyParameters):
     def __init__(self, this):
         _swig_setattr(self, TargetStrategyParameters, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TargetStrategyParameters, 'thisown', 0)
-        self.__class__ = TargetStrategyParameters
+        _swig_setattr(self, TargetStrategyParameters,self.__class__,TargetStrategyParameters)
 _quickfix.TargetStrategyParameters_swigregister(TargetStrategyParametersPtr)
 
 class ParticipationRate(DoubleField):
@@ -21480,7 +21487,7 @@ class ParticipationRatePtr(ParticipationRate):
     def __init__(self, this):
         _swig_setattr(self, ParticipationRate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ParticipationRate, 'thisown', 0)
-        self.__class__ = ParticipationRate
+        _swig_setattr(self, ParticipationRate,self.__class__,ParticipationRate)
 _quickfix.ParticipationRate_swigregister(ParticipationRatePtr)
 
 class TargetStrategyPerformance(DoubleField):
@@ -21505,7 +21512,7 @@ class TargetStrategyPerformancePtr(TargetStrategyPerformance):
     def __init__(self, this):
         _swig_setattr(self, TargetStrategyPerformance, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TargetStrategyPerformance, 'thisown', 0)
-        self.__class__ = TargetStrategyPerformance
+        _swig_setattr(self, TargetStrategyPerformance,self.__class__,TargetStrategyPerformance)
 _quickfix.TargetStrategyPerformance_swigregister(TargetStrategyPerformancePtr)
 
 class LastLiquidityInd(IntField):
@@ -21530,7 +21537,7 @@ class LastLiquidityIndPtr(LastLiquidityInd):
     def __init__(self, this):
         _swig_setattr(self, LastLiquidityInd, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastLiquidityInd, 'thisown', 0)
-        self.__class__ = LastLiquidityInd
+        _swig_setattr(self, LastLiquidityInd,self.__class__,LastLiquidityInd)
 _quickfix.LastLiquidityInd_swigregister(LastLiquidityIndPtr)
 
 class PublishTrdIndicator(BoolField):
@@ -21555,7 +21562,7 @@ class PublishTrdIndicatorPtr(PublishTrdIndicator):
     def __init__(self, this):
         _swig_setattr(self, PublishTrdIndicator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PublishTrdIndicator, 'thisown', 0)
-        self.__class__ = PublishTrdIndicator
+        _swig_setattr(self, PublishTrdIndicator,self.__class__,PublishTrdIndicator)
 _quickfix.PublishTrdIndicator_swigregister(PublishTrdIndicatorPtr)
 
 class ShortSaleReason(IntField):
@@ -21580,7 +21587,7 @@ class ShortSaleReasonPtr(ShortSaleReason):
     def __init__(self, this):
         _swig_setattr(self, ShortSaleReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ShortSaleReason, 'thisown', 0)
-        self.__class__ = ShortSaleReason
+        _swig_setattr(self, ShortSaleReason,self.__class__,ShortSaleReason)
 _quickfix.ShortSaleReason_swigregister(ShortSaleReasonPtr)
 
 class QtyType(IntField):
@@ -21605,7 +21612,7 @@ class QtyTypePtr(QtyType):
     def __init__(self, this):
         _swig_setattr(self, QtyType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QtyType, 'thisown', 0)
-        self.__class__ = QtyType
+        _swig_setattr(self, QtyType,self.__class__,QtyType)
 _quickfix.QtyType_swigregister(QtyTypePtr)
 
 class SecondaryTrdType(IntField):
@@ -21630,7 +21637,7 @@ class SecondaryTrdTypePtr(SecondaryTrdType):
     def __init__(self, this):
         _swig_setattr(self, SecondaryTrdType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecondaryTrdType, 'thisown', 0)
-        self.__class__ = SecondaryTrdType
+        _swig_setattr(self, SecondaryTrdType,self.__class__,SecondaryTrdType)
 _quickfix.SecondaryTrdType_swigregister(SecondaryTrdTypePtr)
 
 class TradeReportType(IntField):
@@ -21655,7 +21662,7 @@ class TradeReportTypePtr(TradeReportType):
     def __init__(self, this):
         _swig_setattr(self, TradeReportType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeReportType, 'thisown', 0)
-        self.__class__ = TradeReportType
+        _swig_setattr(self, TradeReportType,self.__class__,TradeReportType)
 _quickfix.TradeReportType_swigregister(TradeReportTypePtr)
 
 class AllocNoOrdersType(IntField):
@@ -21680,7 +21687,7 @@ class AllocNoOrdersTypePtr(AllocNoOrdersType):
     def __init__(self, this):
         _swig_setattr(self, AllocNoOrdersType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocNoOrdersType, 'thisown', 0)
-        self.__class__ = AllocNoOrdersType
+        _swig_setattr(self, AllocNoOrdersType,self.__class__,AllocNoOrdersType)
 _quickfix.AllocNoOrdersType_swigregister(AllocNoOrdersTypePtr)
 
 class SharedCommission(DoubleField):
@@ -21705,7 +21712,7 @@ class SharedCommissionPtr(SharedCommission):
     def __init__(self, this):
         _swig_setattr(self, SharedCommission, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SharedCommission, 'thisown', 0)
-        self.__class__ = SharedCommission
+        _swig_setattr(self, SharedCommission,self.__class__,SharedCommission)
 _quickfix.SharedCommission_swigregister(SharedCommissionPtr)
 
 class ConfirmReqID(StringField):
@@ -21730,7 +21737,7 @@ class ConfirmReqIDPtr(ConfirmReqID):
     def __init__(self, this):
         _swig_setattr(self, ConfirmReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ConfirmReqID, 'thisown', 0)
-        self.__class__ = ConfirmReqID
+        _swig_setattr(self, ConfirmReqID,self.__class__,ConfirmReqID)
 _quickfix.ConfirmReqID_swigregister(ConfirmReqIDPtr)
 
 class AvgParPx(DoubleField):
@@ -21755,7 +21762,7 @@ class AvgParPxPtr(AvgParPx):
     def __init__(self, this):
         _swig_setattr(self, AvgParPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AvgParPx, 'thisown', 0)
-        self.__class__ = AvgParPx
+        _swig_setattr(self, AvgParPx,self.__class__,AvgParPx)
 _quickfix.AvgParPx_swigregister(AvgParPxPtr)
 
 class ReportedPx(DoubleField):
@@ -21780,7 +21787,7 @@ class ReportedPxPtr(ReportedPx):
     def __init__(self, this):
         _swig_setattr(self, ReportedPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ReportedPx, 'thisown', 0)
-        self.__class__ = ReportedPx
+        _swig_setattr(self, ReportedPx,self.__class__,ReportedPx)
 _quickfix.ReportedPx_swigregister(ReportedPxPtr)
 
 class NoCapacities(IntField):
@@ -21805,7 +21812,7 @@ class NoCapacitiesPtr(NoCapacities):
     def __init__(self, this):
         _swig_setattr(self, NoCapacities, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoCapacities, 'thisown', 0)
-        self.__class__ = NoCapacities
+        _swig_setattr(self, NoCapacities,self.__class__,NoCapacities)
 _quickfix.NoCapacities_swigregister(NoCapacitiesPtr)
 
 class OrderCapacityQty(DoubleField):
@@ -21830,7 +21837,7 @@ class OrderCapacityQtyPtr(OrderCapacityQty):
     def __init__(self, this):
         _swig_setattr(self, OrderCapacityQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OrderCapacityQty, 'thisown', 0)
-        self.__class__ = OrderCapacityQty
+        _swig_setattr(self, OrderCapacityQty,self.__class__,OrderCapacityQty)
 _quickfix.OrderCapacityQty_swigregister(OrderCapacityQtyPtr)
 
 class NoEvents(IntField):
@@ -21855,7 +21862,7 @@ class NoEventsPtr(NoEvents):
     def __init__(self, this):
         _swig_setattr(self, NoEvents, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoEvents, 'thisown', 0)
-        self.__class__ = NoEvents
+        _swig_setattr(self, NoEvents,self.__class__,NoEvents)
 _quickfix.NoEvents_swigregister(NoEventsPtr)
 
 class EventType(IntField):
@@ -21880,7 +21887,7 @@ class EventTypePtr(EventType):
     def __init__(self, this):
         _swig_setattr(self, EventType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EventType, 'thisown', 0)
-        self.__class__ = EventType
+        _swig_setattr(self, EventType,self.__class__,EventType)
 _quickfix.EventType_swigregister(EventTypePtr)
 
 class EventDate(StringField):
@@ -21905,7 +21912,7 @@ class EventDatePtr(EventDate):
     def __init__(self, this):
         _swig_setattr(self, EventDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EventDate, 'thisown', 0)
-        self.__class__ = EventDate
+        _swig_setattr(self, EventDate,self.__class__,EventDate)
 _quickfix.EventDate_swigregister(EventDatePtr)
 
 class EventPx(DoubleField):
@@ -21930,7 +21937,7 @@ class EventPxPtr(EventPx):
     def __init__(self, this):
         _swig_setattr(self, EventPx, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EventPx, 'thisown', 0)
-        self.__class__ = EventPx
+        _swig_setattr(self, EventPx,self.__class__,EventPx)
 _quickfix.EventPx_swigregister(EventPxPtr)
 
 class EventText(StringField):
@@ -21955,7 +21962,7 @@ class EventTextPtr(EventText):
     def __init__(self, this):
         _swig_setattr(self, EventText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EventText, 'thisown', 0)
-        self.__class__ = EventText
+        _swig_setattr(self, EventText,self.__class__,EventText)
 _quickfix.EventText_swigregister(EventTextPtr)
 
 class PctAtRisk(DoubleField):
@@ -21980,7 +21987,7 @@ class PctAtRiskPtr(PctAtRisk):
     def __init__(self, this):
         _swig_setattr(self, PctAtRisk, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PctAtRisk, 'thisown', 0)
-        self.__class__ = PctAtRisk
+        _swig_setattr(self, PctAtRisk,self.__class__,PctAtRisk)
 _quickfix.PctAtRisk_swigregister(PctAtRiskPtr)
 
 class NoInstrAttrib(IntField):
@@ -22005,7 +22012,7 @@ class NoInstrAttribPtr(NoInstrAttrib):
     def __init__(self, this):
         _swig_setattr(self, NoInstrAttrib, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoInstrAttrib, 'thisown', 0)
-        self.__class__ = NoInstrAttrib
+        _swig_setattr(self, NoInstrAttrib,self.__class__,NoInstrAttrib)
 _quickfix.NoInstrAttrib_swigregister(NoInstrAttribPtr)
 
 class InstrAttribType(IntField):
@@ -22030,7 +22037,7 @@ class InstrAttribTypePtr(InstrAttribType):
     def __init__(self, this):
         _swig_setattr(self, InstrAttribType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InstrAttribType, 'thisown', 0)
-        self.__class__ = InstrAttribType
+        _swig_setattr(self, InstrAttribType,self.__class__,InstrAttribType)
 _quickfix.InstrAttribType_swigregister(InstrAttribTypePtr)
 
 class InstrAttribValue(StringField):
@@ -22055,7 +22062,7 @@ class InstrAttribValuePtr(InstrAttribValue):
     def __init__(self, this):
         _swig_setattr(self, InstrAttribValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InstrAttribValue, 'thisown', 0)
-        self.__class__ = InstrAttribValue
+        _swig_setattr(self, InstrAttribValue,self.__class__,InstrAttribValue)
 _quickfix.InstrAttribValue_swigregister(InstrAttribValuePtr)
 
 class DatedDate(StringField):
@@ -22080,7 +22087,7 @@ class DatedDatePtr(DatedDate):
     def __init__(self, this):
         _swig_setattr(self, DatedDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DatedDate, 'thisown', 0)
-        self.__class__ = DatedDate
+        _swig_setattr(self, DatedDate,self.__class__,DatedDate)
 _quickfix.DatedDate_swigregister(DatedDatePtr)
 
 class InterestAccrualDate(StringField):
@@ -22105,7 +22112,7 @@ class InterestAccrualDatePtr(InterestAccrualDate):
     def __init__(self, this):
         _swig_setattr(self, InterestAccrualDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, InterestAccrualDate, 'thisown', 0)
-        self.__class__ = InterestAccrualDate
+        _swig_setattr(self, InterestAccrualDate,self.__class__,InterestAccrualDate)
 _quickfix.InterestAccrualDate_swigregister(InterestAccrualDatePtr)
 
 class CPProgram(IntField):
@@ -22130,7 +22137,7 @@ class CPProgramPtr(CPProgram):
     def __init__(self, this):
         _swig_setattr(self, CPProgram, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CPProgram, 'thisown', 0)
-        self.__class__ = CPProgram
+        _swig_setattr(self, CPProgram,self.__class__,CPProgram)
 _quickfix.CPProgram_swigregister(CPProgramPtr)
 
 class CPRegType(StringField):
@@ -22155,7 +22162,7 @@ class CPRegTypePtr(CPRegType):
     def __init__(self, this):
         _swig_setattr(self, CPRegType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CPRegType, 'thisown', 0)
-        self.__class__ = CPRegType
+        _swig_setattr(self, CPRegType,self.__class__,CPRegType)
 _quickfix.CPRegType_swigregister(CPRegTypePtr)
 
 class UnderlyingCPProgram(StringField):
@@ -22180,7 +22187,7 @@ class UnderlyingCPProgramPtr(UnderlyingCPProgram):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCPProgram, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCPProgram, 'thisown', 0)
-        self.__class__ = UnderlyingCPProgram
+        _swig_setattr(self, UnderlyingCPProgram,self.__class__,UnderlyingCPProgram)
 _quickfix.UnderlyingCPProgram_swigregister(UnderlyingCPProgramPtr)
 
 class UnderlyingCPRegType(StringField):
@@ -22205,7 +22212,7 @@ class UnderlyingCPRegTypePtr(UnderlyingCPRegType):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCPRegType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCPRegType, 'thisown', 0)
-        self.__class__ = UnderlyingCPRegType
+        _swig_setattr(self, UnderlyingCPRegType,self.__class__,UnderlyingCPRegType)
 _quickfix.UnderlyingCPRegType_swigregister(UnderlyingCPRegTypePtr)
 
 class UnderlyingQty(DoubleField):
@@ -22230,7 +22237,7 @@ class UnderlyingQtyPtr(UnderlyingQty):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingQty, 'thisown', 0)
-        self.__class__ = UnderlyingQty
+        _swig_setattr(self, UnderlyingQty,self.__class__,UnderlyingQty)
 _quickfix.UnderlyingQty_swigregister(UnderlyingQtyPtr)
 
 class TrdMatchID(StringField):
@@ -22255,7 +22262,7 @@ class TrdMatchIDPtr(TrdMatchID):
     def __init__(self, this):
         _swig_setattr(self, TrdMatchID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TrdMatchID, 'thisown', 0)
-        self.__class__ = TrdMatchID
+        _swig_setattr(self, TrdMatchID,self.__class__,TrdMatchID)
 _quickfix.TrdMatchID_swigregister(TrdMatchIDPtr)
 
 class SecondaryTradeReportRefID(StringField):
@@ -22280,7 +22287,7 @@ class SecondaryTradeReportRefIDPtr(SecondaryTradeReportRefID):
     def __init__(self, this):
         _swig_setattr(self, SecondaryTradeReportRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecondaryTradeReportRefID, 'thisown', 0)
-        self.__class__ = SecondaryTradeReportRefID
+        _swig_setattr(self, SecondaryTradeReportRefID,self.__class__,SecondaryTradeReportRefID)
 _quickfix.SecondaryTradeReportRefID_swigregister(SecondaryTradeReportRefIDPtr)
 
 class UnderlyingDirtyPrice(DoubleField):
@@ -22305,7 +22312,7 @@ class UnderlyingDirtyPricePtr(UnderlyingDirtyPrice):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingDirtyPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingDirtyPrice, 'thisown', 0)
-        self.__class__ = UnderlyingDirtyPrice
+        _swig_setattr(self, UnderlyingDirtyPrice,self.__class__,UnderlyingDirtyPrice)
 _quickfix.UnderlyingDirtyPrice_swigregister(UnderlyingDirtyPricePtr)
 
 class UnderlyingEndPrice(DoubleField):
@@ -22330,7 +22337,7 @@ class UnderlyingEndPricePtr(UnderlyingEndPrice):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingEndPrice, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingEndPrice, 'thisown', 0)
-        self.__class__ = UnderlyingEndPrice
+        _swig_setattr(self, UnderlyingEndPrice,self.__class__,UnderlyingEndPrice)
 _quickfix.UnderlyingEndPrice_swigregister(UnderlyingEndPricePtr)
 
 class UnderlyingStartValue(DoubleField):
@@ -22355,7 +22362,7 @@ class UnderlyingStartValuePtr(UnderlyingStartValue):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingStartValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingStartValue, 'thisown', 0)
-        self.__class__ = UnderlyingStartValue
+        _swig_setattr(self, UnderlyingStartValue,self.__class__,UnderlyingStartValue)
 _quickfix.UnderlyingStartValue_swigregister(UnderlyingStartValuePtr)
 
 class UnderlyingCurrentValue(DoubleField):
@@ -22380,7 +22387,7 @@ class UnderlyingCurrentValuePtr(UnderlyingCurrentValue):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingCurrentValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingCurrentValue, 'thisown', 0)
-        self.__class__ = UnderlyingCurrentValue
+        _swig_setattr(self, UnderlyingCurrentValue,self.__class__,UnderlyingCurrentValue)
 _quickfix.UnderlyingCurrentValue_swigregister(UnderlyingCurrentValuePtr)
 
 class UnderlyingEndValue(DoubleField):
@@ -22405,7 +22412,7 @@ class UnderlyingEndValuePtr(UnderlyingEndValue):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingEndValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingEndValue, 'thisown', 0)
-        self.__class__ = UnderlyingEndValue
+        _swig_setattr(self, UnderlyingEndValue,self.__class__,UnderlyingEndValue)
 _quickfix.UnderlyingEndValue_swigregister(UnderlyingEndValuePtr)
 
 class NoUnderlyingStips(IntField):
@@ -22430,7 +22437,7 @@ class NoUnderlyingStipsPtr(NoUnderlyingStips):
     def __init__(self, this):
         _swig_setattr(self, NoUnderlyingStips, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoUnderlyingStips, 'thisown', 0)
-        self.__class__ = NoUnderlyingStips
+        _swig_setattr(self, NoUnderlyingStips,self.__class__,NoUnderlyingStips)
 _quickfix.NoUnderlyingStips_swigregister(NoUnderlyingStipsPtr)
 
 class UnderlyingStipType(StringField):
@@ -22455,7 +22462,7 @@ class UnderlyingStipTypePtr(UnderlyingStipType):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingStipType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingStipType, 'thisown', 0)
-        self.__class__ = UnderlyingStipType
+        _swig_setattr(self, UnderlyingStipType,self.__class__,UnderlyingStipType)
 _quickfix.UnderlyingStipType_swigregister(UnderlyingStipTypePtr)
 
 class UnderlyingStipValue(StringField):
@@ -22480,7 +22487,7 @@ class UnderlyingStipValuePtr(UnderlyingStipValue):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingStipValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingStipValue, 'thisown', 0)
-        self.__class__ = UnderlyingStipValue
+        _swig_setattr(self, UnderlyingStipValue,self.__class__,UnderlyingStipValue)
 _quickfix.UnderlyingStipValue_swigregister(UnderlyingStipValuePtr)
 
 class MaturityNetMoney(DoubleField):
@@ -22505,7 +22512,7 @@ class MaturityNetMoneyPtr(MaturityNetMoney):
     def __init__(self, this):
         _swig_setattr(self, MaturityNetMoney, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MaturityNetMoney, 'thisown', 0)
-        self.__class__ = MaturityNetMoney
+        _swig_setattr(self, MaturityNetMoney,self.__class__,MaturityNetMoney)
 _quickfix.MaturityNetMoney_swigregister(MaturityNetMoneyPtr)
 
 class MiscFeeBasis(IntField):
@@ -22530,7 +22537,7 @@ class MiscFeeBasisPtr(MiscFeeBasis):
     def __init__(self, this):
         _swig_setattr(self, MiscFeeBasis, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MiscFeeBasis, 'thisown', 0)
-        self.__class__ = MiscFeeBasis
+        _swig_setattr(self, MiscFeeBasis,self.__class__,MiscFeeBasis)
 _quickfix.MiscFeeBasis_swigregister(MiscFeeBasisPtr)
 
 class TotNoAllocs(IntField):
@@ -22555,7 +22562,7 @@ class TotNoAllocsPtr(TotNoAllocs):
     def __init__(self, this):
         _swig_setattr(self, TotNoAllocs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNoAllocs, 'thisown', 0)
-        self.__class__ = TotNoAllocs
+        _swig_setattr(self, TotNoAllocs,self.__class__,TotNoAllocs)
 _quickfix.TotNoAllocs_swigregister(TotNoAllocsPtr)
 
 class LastFragment(BoolField):
@@ -22580,7 +22587,7 @@ class LastFragmentPtr(LastFragment):
     def __init__(self, this):
         _swig_setattr(self, LastFragment, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastFragment, 'thisown', 0)
-        self.__class__ = LastFragment
+        _swig_setattr(self, LastFragment,self.__class__,LastFragment)
 _quickfix.LastFragment_swigregister(LastFragmentPtr)
 
 class CollReqID(StringField):
@@ -22605,7 +22612,7 @@ class CollReqIDPtr(CollReqID):
     def __init__(self, this):
         _swig_setattr(self, CollReqID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollReqID, 'thisown', 0)
-        self.__class__ = CollReqID
+        _swig_setattr(self, CollReqID,self.__class__,CollReqID)
 _quickfix.CollReqID_swigregister(CollReqIDPtr)
 
 class CollAsgnReason(IntField):
@@ -22630,7 +22637,7 @@ class CollAsgnReasonPtr(CollAsgnReason):
     def __init__(self, this):
         _swig_setattr(self, CollAsgnReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollAsgnReason, 'thisown', 0)
-        self.__class__ = CollAsgnReason
+        _swig_setattr(self, CollAsgnReason,self.__class__,CollAsgnReason)
 _quickfix.CollAsgnReason_swigregister(CollAsgnReasonPtr)
 
 class CollInquiryQualifier(IntField):
@@ -22655,7 +22662,7 @@ class CollInquiryQualifierPtr(CollInquiryQualifier):
     def __init__(self, this):
         _swig_setattr(self, CollInquiryQualifier, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollInquiryQualifier, 'thisown', 0)
-        self.__class__ = CollInquiryQualifier
+        _swig_setattr(self, CollInquiryQualifier,self.__class__,CollInquiryQualifier)
 _quickfix.CollInquiryQualifier_swigregister(CollInquiryQualifierPtr)
 
 class NoTrades(IntField):
@@ -22680,7 +22687,7 @@ class NoTradesPtr(NoTrades):
     def __init__(self, this):
         _swig_setattr(self, NoTrades, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoTrades, 'thisown', 0)
-        self.__class__ = NoTrades
+        _swig_setattr(self, NoTrades,self.__class__,NoTrades)
 _quickfix.NoTrades_swigregister(NoTradesPtr)
 
 class MarginRatio(DoubleField):
@@ -22705,7 +22712,7 @@ class MarginRatioPtr(MarginRatio):
     def __init__(self, this):
         _swig_setattr(self, MarginRatio, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MarginRatio, 'thisown', 0)
-        self.__class__ = MarginRatio
+        _swig_setattr(self, MarginRatio,self.__class__,MarginRatio)
 _quickfix.MarginRatio_swigregister(MarginRatioPtr)
 
 class MarginExcess(DoubleField):
@@ -22730,7 +22737,7 @@ class MarginExcessPtr(MarginExcess):
     def __init__(self, this):
         _swig_setattr(self, MarginExcess, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MarginExcess, 'thisown', 0)
-        self.__class__ = MarginExcess
+        _swig_setattr(self, MarginExcess,self.__class__,MarginExcess)
 _quickfix.MarginExcess_swigregister(MarginExcessPtr)
 
 class TotalNetValue(DoubleField):
@@ -22755,7 +22762,7 @@ class TotalNetValuePtr(TotalNetValue):
     def __init__(self, this):
         _swig_setattr(self, TotalNetValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalNetValue, 'thisown', 0)
-        self.__class__ = TotalNetValue
+        _swig_setattr(self, TotalNetValue,self.__class__,TotalNetValue)
 _quickfix.TotalNetValue_swigregister(TotalNetValuePtr)
 
 class CashOutstanding(DoubleField):
@@ -22780,7 +22787,7 @@ class CashOutstandingPtr(CashOutstanding):
     def __init__(self, this):
         _swig_setattr(self, CashOutstanding, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashOutstanding, 'thisown', 0)
-        self.__class__ = CashOutstanding
+        _swig_setattr(self, CashOutstanding,self.__class__,CashOutstanding)
 _quickfix.CashOutstanding_swigregister(CashOutstandingPtr)
 
 class CollAsgnID(StringField):
@@ -22805,7 +22812,7 @@ class CollAsgnIDPtr(CollAsgnID):
     def __init__(self, this):
         _swig_setattr(self, CollAsgnID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollAsgnID, 'thisown', 0)
-        self.__class__ = CollAsgnID
+        _swig_setattr(self, CollAsgnID,self.__class__,CollAsgnID)
 _quickfix.CollAsgnID_swigregister(CollAsgnIDPtr)
 
 class CollAsgnTransType(IntField):
@@ -22830,7 +22837,7 @@ class CollAsgnTransTypePtr(CollAsgnTransType):
     def __init__(self, this):
         _swig_setattr(self, CollAsgnTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollAsgnTransType, 'thisown', 0)
-        self.__class__ = CollAsgnTransType
+        _swig_setattr(self, CollAsgnTransType,self.__class__,CollAsgnTransType)
 _quickfix.CollAsgnTransType_swigregister(CollAsgnTransTypePtr)
 
 class CollRespID(StringField):
@@ -22855,7 +22862,7 @@ class CollRespIDPtr(CollRespID):
     def __init__(self, this):
         _swig_setattr(self, CollRespID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollRespID, 'thisown', 0)
-        self.__class__ = CollRespID
+        _swig_setattr(self, CollRespID,self.__class__,CollRespID)
 _quickfix.CollRespID_swigregister(CollRespIDPtr)
 
 class CollAsgnRespType(IntField):
@@ -22880,7 +22887,7 @@ class CollAsgnRespTypePtr(CollAsgnRespType):
     def __init__(self, this):
         _swig_setattr(self, CollAsgnRespType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollAsgnRespType, 'thisown', 0)
-        self.__class__ = CollAsgnRespType
+        _swig_setattr(self, CollAsgnRespType,self.__class__,CollAsgnRespType)
 _quickfix.CollAsgnRespType_swigregister(CollAsgnRespTypePtr)
 
 class CollAsgnRejectReason(IntField):
@@ -22905,7 +22912,7 @@ class CollAsgnRejectReasonPtr(CollAsgnRejectReason):
     def __init__(self, this):
         _swig_setattr(self, CollAsgnRejectReason, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollAsgnRejectReason, 'thisown', 0)
-        self.__class__ = CollAsgnRejectReason
+        _swig_setattr(self, CollAsgnRejectReason,self.__class__,CollAsgnRejectReason)
 _quickfix.CollAsgnRejectReason_swigregister(CollAsgnRejectReasonPtr)
 
 class CollAsgnRefID(StringField):
@@ -22930,7 +22937,7 @@ class CollAsgnRefIDPtr(CollAsgnRefID):
     def __init__(self, this):
         _swig_setattr(self, CollAsgnRefID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollAsgnRefID, 'thisown', 0)
-        self.__class__ = CollAsgnRefID
+        _swig_setattr(self, CollAsgnRefID,self.__class__,CollAsgnRefID)
 _quickfix.CollAsgnRefID_swigregister(CollAsgnRefIDPtr)
 
 class CollRptID(StringField):
@@ -22955,7 +22962,7 @@ class CollRptIDPtr(CollRptID):
     def __init__(self, this):
         _swig_setattr(self, CollRptID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollRptID, 'thisown', 0)
-        self.__class__ = CollRptID
+        _swig_setattr(self, CollRptID,self.__class__,CollRptID)
 _quickfix.CollRptID_swigregister(CollRptIDPtr)
 
 class CollInquiryID(StringField):
@@ -22980,7 +22987,7 @@ class CollInquiryIDPtr(CollInquiryID):
     def __init__(self, this):
         _swig_setattr(self, CollInquiryID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollInquiryID, 'thisown', 0)
-        self.__class__ = CollInquiryID
+        _swig_setattr(self, CollInquiryID,self.__class__,CollInquiryID)
 _quickfix.CollInquiryID_swigregister(CollInquiryIDPtr)
 
 class CollStatus(IntField):
@@ -23005,7 +23012,7 @@ class CollStatusPtr(CollStatus):
     def __init__(self, this):
         _swig_setattr(self, CollStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollStatus, 'thisown', 0)
-        self.__class__ = CollStatus
+        _swig_setattr(self, CollStatus,self.__class__,CollStatus)
 _quickfix.CollStatus_swigregister(CollStatusPtr)
 
 class TotNumReports(IntField):
@@ -23030,7 +23037,7 @@ class TotNumReportsPtr(TotNumReports):
     def __init__(self, this):
         _swig_setattr(self, TotNumReports, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotNumReports, 'thisown', 0)
-        self.__class__ = TotNumReports
+        _swig_setattr(self, TotNumReports,self.__class__,TotNumReports)
 _quickfix.TotNumReports_swigregister(TotNumReportsPtr)
 
 class LastRptRequested(BoolField):
@@ -23055,7 +23062,7 @@ class LastRptRequestedPtr(LastRptRequested):
     def __init__(self, this):
         _swig_setattr(self, LastRptRequested, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastRptRequested, 'thisown', 0)
-        self.__class__ = LastRptRequested
+        _swig_setattr(self, LastRptRequested,self.__class__,LastRptRequested)
 _quickfix.LastRptRequested_swigregister(LastRptRequestedPtr)
 
 class AgreementDesc(StringField):
@@ -23080,7 +23087,7 @@ class AgreementDescPtr(AgreementDesc):
     def __init__(self, this):
         _swig_setattr(self, AgreementDesc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AgreementDesc, 'thisown', 0)
-        self.__class__ = AgreementDesc
+        _swig_setattr(self, AgreementDesc,self.__class__,AgreementDesc)
 _quickfix.AgreementDesc_swigregister(AgreementDescPtr)
 
 class AgreementID(StringField):
@@ -23105,7 +23112,7 @@ class AgreementIDPtr(AgreementID):
     def __init__(self, this):
         _swig_setattr(self, AgreementID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AgreementID, 'thisown', 0)
-        self.__class__ = AgreementID
+        _swig_setattr(self, AgreementID,self.__class__,AgreementID)
 _quickfix.AgreementID_swigregister(AgreementIDPtr)
 
 class AgreementDate(StringField):
@@ -23130,7 +23137,7 @@ class AgreementDatePtr(AgreementDate):
     def __init__(self, this):
         _swig_setattr(self, AgreementDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AgreementDate, 'thisown', 0)
-        self.__class__ = AgreementDate
+        _swig_setattr(self, AgreementDate,self.__class__,AgreementDate)
 _quickfix.AgreementDate_swigregister(AgreementDatePtr)
 
 class StartDate(StringField):
@@ -23155,7 +23162,7 @@ class StartDatePtr(StartDate):
     def __init__(self, this):
         _swig_setattr(self, StartDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StartDate, 'thisown', 0)
-        self.__class__ = StartDate
+        _swig_setattr(self, StartDate,self.__class__,StartDate)
 _quickfix.StartDate_swigregister(StartDatePtr)
 
 class EndDate(StringField):
@@ -23180,7 +23187,7 @@ class EndDatePtr(EndDate):
     def __init__(self, this):
         _swig_setattr(self, EndDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EndDate, 'thisown', 0)
-        self.__class__ = EndDate
+        _swig_setattr(self, EndDate,self.__class__,EndDate)
 _quickfix.EndDate_swigregister(EndDatePtr)
 
 class AgreementCurrency(StringField):
@@ -23205,7 +23212,7 @@ class AgreementCurrencyPtr(AgreementCurrency):
     def __init__(self, this):
         _swig_setattr(self, AgreementCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AgreementCurrency, 'thisown', 0)
-        self.__class__ = AgreementCurrency
+        _swig_setattr(self, AgreementCurrency,self.__class__,AgreementCurrency)
 _quickfix.AgreementCurrency_swigregister(AgreementCurrencyPtr)
 
 class DeliveryType(IntField):
@@ -23230,7 +23237,7 @@ class DeliveryTypePtr(DeliveryType):
     def __init__(self, this):
         _swig_setattr(self, DeliveryType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DeliveryType, 'thisown', 0)
-        self.__class__ = DeliveryType
+        _swig_setattr(self, DeliveryType,self.__class__,DeliveryType)
 _quickfix.DeliveryType_swigregister(DeliveryTypePtr)
 
 class EndAccruedInterestAmt(DoubleField):
@@ -23255,7 +23262,7 @@ class EndAccruedInterestAmtPtr(EndAccruedInterestAmt):
     def __init__(self, this):
         _swig_setattr(self, EndAccruedInterestAmt, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EndAccruedInterestAmt, 'thisown', 0)
-        self.__class__ = EndAccruedInterestAmt
+        _swig_setattr(self, EndAccruedInterestAmt,self.__class__,EndAccruedInterestAmt)
 _quickfix.EndAccruedInterestAmt_swigregister(EndAccruedInterestAmtPtr)
 
 class StartCash(DoubleField):
@@ -23280,7 +23287,7 @@ class StartCashPtr(StartCash):
     def __init__(self, this):
         _swig_setattr(self, StartCash, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StartCash, 'thisown', 0)
-        self.__class__ = StartCash
+        _swig_setattr(self, StartCash,self.__class__,StartCash)
 _quickfix.StartCash_swigregister(StartCashPtr)
 
 class EndCash(DoubleField):
@@ -23305,7 +23312,7 @@ class EndCashPtr(EndCash):
     def __init__(self, this):
         _swig_setattr(self, EndCash, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, EndCash, 'thisown', 0)
-        self.__class__ = EndCash
+        _swig_setattr(self, EndCash,self.__class__,EndCash)
 _quickfix.EndCash_swigregister(EndCashPtr)
 
 class UserRequestID(StringField):
@@ -23330,7 +23337,7 @@ class UserRequestIDPtr(UserRequestID):
     def __init__(self, this):
         _swig_setattr(self, UserRequestID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UserRequestID, 'thisown', 0)
-        self.__class__ = UserRequestID
+        _swig_setattr(self, UserRequestID,self.__class__,UserRequestID)
 _quickfix.UserRequestID_swigregister(UserRequestIDPtr)
 
 class UserRequestType(IntField):
@@ -23355,7 +23362,7 @@ class UserRequestTypePtr(UserRequestType):
     def __init__(self, this):
         _swig_setattr(self, UserRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UserRequestType, 'thisown', 0)
-        self.__class__ = UserRequestType
+        _swig_setattr(self, UserRequestType,self.__class__,UserRequestType)
 _quickfix.UserRequestType_swigregister(UserRequestTypePtr)
 
 class NewPassword(StringField):
@@ -23380,7 +23387,7 @@ class NewPasswordPtr(NewPassword):
     def __init__(self, this):
         _swig_setattr(self, NewPassword, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NewPassword, 'thisown', 0)
-        self.__class__ = NewPassword
+        _swig_setattr(self, NewPassword,self.__class__,NewPassword)
 _quickfix.NewPassword_swigregister(NewPasswordPtr)
 
 class UserStatus(IntField):
@@ -23405,7 +23412,7 @@ class UserStatusPtr(UserStatus):
     def __init__(self, this):
         _swig_setattr(self, UserStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UserStatus, 'thisown', 0)
-        self.__class__ = UserStatus
+        _swig_setattr(self, UserStatus,self.__class__,UserStatus)
 _quickfix.UserStatus_swigregister(UserStatusPtr)
 
 class UserStatusText(StringField):
@@ -23430,7 +23437,7 @@ class UserStatusTextPtr(UserStatusText):
     def __init__(self, this):
         _swig_setattr(self, UserStatusText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UserStatusText, 'thisown', 0)
-        self.__class__ = UserStatusText
+        _swig_setattr(self, UserStatusText,self.__class__,UserStatusText)
 _quickfix.UserStatusText_swigregister(UserStatusTextPtr)
 
 class StatusValue(IntField):
@@ -23455,7 +23462,7 @@ class StatusValuePtr(StatusValue):
     def __init__(self, this):
         _swig_setattr(self, StatusValue, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StatusValue, 'thisown', 0)
-        self.__class__ = StatusValue
+        _swig_setattr(self, StatusValue,self.__class__,StatusValue)
 _quickfix.StatusValue_swigregister(StatusValuePtr)
 
 class StatusText(StringField):
@@ -23480,7 +23487,7 @@ class StatusTextPtr(StatusText):
     def __init__(self, this):
         _swig_setattr(self, StatusText, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StatusText, 'thisown', 0)
-        self.__class__ = StatusText
+        _swig_setattr(self, StatusText,self.__class__,StatusText)
 _quickfix.StatusText_swigregister(StatusTextPtr)
 
 class RefCompID(StringField):
@@ -23505,7 +23512,7 @@ class RefCompIDPtr(RefCompID):
     def __init__(self, this):
         _swig_setattr(self, RefCompID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RefCompID, 'thisown', 0)
-        self.__class__ = RefCompID
+        _swig_setattr(self, RefCompID,self.__class__,RefCompID)
 _quickfix.RefCompID_swigregister(RefCompIDPtr)
 
 class RefSubID(StringField):
@@ -23530,7 +23537,7 @@ class RefSubIDPtr(RefSubID):
     def __init__(self, this):
         _swig_setattr(self, RefSubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RefSubID, 'thisown', 0)
-        self.__class__ = RefSubID
+        _swig_setattr(self, RefSubID,self.__class__,RefSubID)
 _quickfix.RefSubID_swigregister(RefSubIDPtr)
 
 class NetworkResponseID(StringField):
@@ -23555,7 +23562,7 @@ class NetworkResponseIDPtr(NetworkResponseID):
     def __init__(self, this):
         _swig_setattr(self, NetworkResponseID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NetworkResponseID, 'thisown', 0)
-        self.__class__ = NetworkResponseID
+        _swig_setattr(self, NetworkResponseID,self.__class__,NetworkResponseID)
 _quickfix.NetworkResponseID_swigregister(NetworkResponseIDPtr)
 
 class NetworkRequestID(StringField):
@@ -23580,7 +23587,7 @@ class NetworkRequestIDPtr(NetworkRequestID):
     def __init__(self, this):
         _swig_setattr(self, NetworkRequestID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NetworkRequestID, 'thisown', 0)
-        self.__class__ = NetworkRequestID
+        _swig_setattr(self, NetworkRequestID,self.__class__,NetworkRequestID)
 _quickfix.NetworkRequestID_swigregister(NetworkRequestIDPtr)
 
 class LastNetworkResponseID(StringField):
@@ -23605,7 +23612,7 @@ class LastNetworkResponseIDPtr(LastNetworkResponseID):
     def __init__(self, this):
         _swig_setattr(self, LastNetworkResponseID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastNetworkResponseID, 'thisown', 0)
-        self.__class__ = LastNetworkResponseID
+        _swig_setattr(self, LastNetworkResponseID,self.__class__,LastNetworkResponseID)
 _quickfix.LastNetworkResponseID_swigregister(LastNetworkResponseIDPtr)
 
 class NetworkRequestType(IntField):
@@ -23630,7 +23637,7 @@ class NetworkRequestTypePtr(NetworkRequestType):
     def __init__(self, this):
         _swig_setattr(self, NetworkRequestType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NetworkRequestType, 'thisown', 0)
-        self.__class__ = NetworkRequestType
+        _swig_setattr(self, NetworkRequestType,self.__class__,NetworkRequestType)
 _quickfix.NetworkRequestType_swigregister(NetworkRequestTypePtr)
 
 class NoCompIDs(IntField):
@@ -23655,7 +23662,7 @@ class NoCompIDsPtr(NoCompIDs):
     def __init__(self, this):
         _swig_setattr(self, NoCompIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoCompIDs, 'thisown', 0)
-        self.__class__ = NoCompIDs
+        _swig_setattr(self, NoCompIDs,self.__class__,NoCompIDs)
 _quickfix.NoCompIDs_swigregister(NoCompIDsPtr)
 
 class NetworkStatusResponseType(IntField):
@@ -23680,7 +23687,7 @@ class NetworkStatusResponseTypePtr(NetworkStatusResponseType):
     def __init__(self, this):
         _swig_setattr(self, NetworkStatusResponseType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NetworkStatusResponseType, 'thisown', 0)
-        self.__class__ = NetworkStatusResponseType
+        _swig_setattr(self, NetworkStatusResponseType,self.__class__,NetworkStatusResponseType)
 _quickfix.NetworkStatusResponseType_swigregister(NetworkStatusResponseTypePtr)
 
 class NoCollInquiryQualifier(IntField):
@@ -23705,7 +23712,7 @@ class NoCollInquiryQualifierPtr(NoCollInquiryQualifier):
     def __init__(self, this):
         _swig_setattr(self, NoCollInquiryQualifier, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoCollInquiryQualifier, 'thisown', 0)
-        self.__class__ = NoCollInquiryQualifier
+        _swig_setattr(self, NoCollInquiryQualifier,self.__class__,NoCollInquiryQualifier)
 _quickfix.NoCollInquiryQualifier_swigregister(NoCollInquiryQualifierPtr)
 
 class TrdRptStatus(IntField):
@@ -23730,7 +23737,7 @@ class TrdRptStatusPtr(TrdRptStatus):
     def __init__(self, this):
         _swig_setattr(self, TrdRptStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TrdRptStatus, 'thisown', 0)
-        self.__class__ = TrdRptStatus
+        _swig_setattr(self, TrdRptStatus,self.__class__,TrdRptStatus)
 _quickfix.TrdRptStatus_swigregister(TrdRptStatusPtr)
 
 class AffirmStatus(IntField):
@@ -23755,7 +23762,7 @@ class AffirmStatusPtr(AffirmStatus):
     def __init__(self, this):
         _swig_setattr(self, AffirmStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AffirmStatus, 'thisown', 0)
-        self.__class__ = AffirmStatus
+        _swig_setattr(self, AffirmStatus,self.__class__,AffirmStatus)
 _quickfix.AffirmStatus_swigregister(AffirmStatusPtr)
 
 class UnderlyingStrikeCurrency(StringField):
@@ -23780,7 +23787,7 @@ class UnderlyingStrikeCurrencyPtr(UnderlyingStrikeCurrency):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingStrikeCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingStrikeCurrency, 'thisown', 0)
-        self.__class__ = UnderlyingStrikeCurrency
+        _swig_setattr(self, UnderlyingStrikeCurrency,self.__class__,UnderlyingStrikeCurrency)
 _quickfix.UnderlyingStrikeCurrency_swigregister(UnderlyingStrikeCurrencyPtr)
 
 class LegStrikeCurrency(StringField):
@@ -23805,7 +23812,7 @@ class LegStrikeCurrencyPtr(LegStrikeCurrency):
     def __init__(self, this):
         _swig_setattr(self, LegStrikeCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegStrikeCurrency, 'thisown', 0)
-        self.__class__ = LegStrikeCurrency
+        _swig_setattr(self, LegStrikeCurrency,self.__class__,LegStrikeCurrency)
 _quickfix.LegStrikeCurrency_swigregister(LegStrikeCurrencyPtr)
 
 class TimeBracket(StringField):
@@ -23830,7 +23837,7 @@ class TimeBracketPtr(TimeBracket):
     def __init__(self, this):
         _swig_setattr(self, TimeBracket, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TimeBracket, 'thisown', 0)
-        self.__class__ = TimeBracket
+        _swig_setattr(self, TimeBracket,self.__class__,TimeBracket)
 _quickfix.TimeBracket_swigregister(TimeBracketPtr)
 
 class CollAction(IntField):
@@ -23855,7 +23862,7 @@ class CollActionPtr(CollAction):
     def __init__(self, this):
         _swig_setattr(self, CollAction, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollAction, 'thisown', 0)
-        self.__class__ = CollAction
+        _swig_setattr(self, CollAction,self.__class__,CollAction)
 _quickfix.CollAction_swigregister(CollActionPtr)
 
 class CollInquiryStatus(IntField):
@@ -23880,7 +23887,7 @@ class CollInquiryStatusPtr(CollInquiryStatus):
     def __init__(self, this):
         _swig_setattr(self, CollInquiryStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollInquiryStatus, 'thisown', 0)
-        self.__class__ = CollInquiryStatus
+        _swig_setattr(self, CollInquiryStatus,self.__class__,CollInquiryStatus)
 _quickfix.CollInquiryStatus_swigregister(CollInquiryStatusPtr)
 
 class CollInquiryResult(IntField):
@@ -23905,7 +23912,7 @@ class CollInquiryResultPtr(CollInquiryResult):
     def __init__(self, this):
         _swig_setattr(self, CollInquiryResult, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CollInquiryResult, 'thisown', 0)
-        self.__class__ = CollInquiryResult
+        _swig_setattr(self, CollInquiryResult,self.__class__,CollInquiryResult)
 _quickfix.CollInquiryResult_swigregister(CollInquiryResultPtr)
 
 class StrikeCurrency(StringField):
@@ -23930,7 +23937,7 @@ class StrikeCurrencyPtr(StrikeCurrency):
     def __init__(self, this):
         _swig_setattr(self, StrikeCurrency, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, StrikeCurrency, 'thisown', 0)
-        self.__class__ = StrikeCurrency
+        _swig_setattr(self, StrikeCurrency,self.__class__,StrikeCurrency)
 _quickfix.StrikeCurrency_swigregister(StrikeCurrencyPtr)
 
 class NoNested3PartyIDs(IntField):
@@ -23955,7 +23962,7 @@ class NoNested3PartyIDsPtr(NoNested3PartyIDs):
     def __init__(self, this):
         _swig_setattr(self, NoNested3PartyIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoNested3PartyIDs, 'thisown', 0)
-        self.__class__ = NoNested3PartyIDs
+        _swig_setattr(self, NoNested3PartyIDs,self.__class__,NoNested3PartyIDs)
 _quickfix.NoNested3PartyIDs_swigregister(NoNested3PartyIDsPtr)
 
 class Nested3PartyID(StringField):
@@ -23980,7 +23987,7 @@ class Nested3PartyIDPtr(Nested3PartyID):
     def __init__(self, this):
         _swig_setattr(self, Nested3PartyID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested3PartyID, 'thisown', 0)
-        self.__class__ = Nested3PartyID
+        _swig_setattr(self, Nested3PartyID,self.__class__,Nested3PartyID)
 _quickfix.Nested3PartyID_swigregister(Nested3PartyIDPtr)
 
 class Nested3PartyIDSource(CharField):
@@ -24005,7 +24012,7 @@ class Nested3PartyIDSourcePtr(Nested3PartyIDSource):
     def __init__(self, this):
         _swig_setattr(self, Nested3PartyIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested3PartyIDSource, 'thisown', 0)
-        self.__class__ = Nested3PartyIDSource
+        _swig_setattr(self, Nested3PartyIDSource,self.__class__,Nested3PartyIDSource)
 _quickfix.Nested3PartyIDSource_swigregister(Nested3PartyIDSourcePtr)
 
 class Nested3PartyRole(IntField):
@@ -24030,7 +24037,7 @@ class Nested3PartyRolePtr(Nested3PartyRole):
     def __init__(self, this):
         _swig_setattr(self, Nested3PartyRole, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested3PartyRole, 'thisown', 0)
-        self.__class__ = Nested3PartyRole
+        _swig_setattr(self, Nested3PartyRole,self.__class__,Nested3PartyRole)
 _quickfix.Nested3PartyRole_swigregister(Nested3PartyRolePtr)
 
 class NoNested3PartySubIDs(IntField):
@@ -24055,7 +24062,7 @@ class NoNested3PartySubIDsPtr(NoNested3PartySubIDs):
     def __init__(self, this):
         _swig_setattr(self, NoNested3PartySubIDs, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NoNested3PartySubIDs, 'thisown', 0)
-        self.__class__ = NoNested3PartySubIDs
+        _swig_setattr(self, NoNested3PartySubIDs,self.__class__,NoNested3PartySubIDs)
 _quickfix.NoNested3PartySubIDs_swigregister(NoNested3PartySubIDsPtr)
 
 class Nested3PartySubID(StringField):
@@ -24080,7 +24087,7 @@ class Nested3PartySubIDPtr(Nested3PartySubID):
     def __init__(self, this):
         _swig_setattr(self, Nested3PartySubID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested3PartySubID, 'thisown', 0)
-        self.__class__ = Nested3PartySubID
+        _swig_setattr(self, Nested3PartySubID,self.__class__,Nested3PartySubID)
 _quickfix.Nested3PartySubID_swigregister(Nested3PartySubIDPtr)
 
 class Nested3PartySubIDType(IntField):
@@ -24105,7 +24112,7 @@ class Nested3PartySubIDTypePtr(Nested3PartySubIDType):
     def __init__(self, this):
         _swig_setattr(self, Nested3PartySubIDType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Nested3PartySubIDType, 'thisown', 0)
-        self.__class__ = Nested3PartySubIDType
+        _swig_setattr(self, Nested3PartySubIDType,self.__class__,Nested3PartySubIDType)
 _quickfix.Nested3PartySubIDType_swigregister(Nested3PartySubIDTypePtr)
 
 class LegContractSettlMonth(StringField):
@@ -24130,7 +24137,7 @@ class LegContractSettlMonthPtr(LegContractSettlMonth):
     def __init__(self, this):
         _swig_setattr(self, LegContractSettlMonth, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegContractSettlMonth, 'thisown', 0)
-        self.__class__ = LegContractSettlMonth
+        _swig_setattr(self, LegContractSettlMonth,self.__class__,LegContractSettlMonth)
 _quickfix.LegContractSettlMonth_swigregister(LegContractSettlMonthPtr)
 
 class LegInterestAccrualDate(StringField):
@@ -24155,7 +24162,7 @@ class LegInterestAccrualDatePtr(LegInterestAccrualDate):
     def __init__(self, this):
         _swig_setattr(self, LegInterestAccrualDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegInterestAccrualDate, 'thisown', 0)
-        self.__class__ = LegInterestAccrualDate
+        _swig_setattr(self, LegInterestAccrualDate,self.__class__,LegInterestAccrualDate)
 _quickfix.LegInterestAccrualDate_swigregister(LegInterestAccrualDatePtr)
 
 class ExecTransType(CharField):
@@ -24180,7 +24187,7 @@ class ExecTransTypePtr(ExecTransType):
     def __init__(self, this):
         _swig_setattr(self, ExecTransType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecTransType, 'thisown', 0)
-        self.__class__ = ExecTransType
+        _swig_setattr(self, ExecTransType,self.__class__,ExecTransType)
 _quickfix.ExecTransType_swigregister(ExecTransTypePtr)
 
 class IDSource(StringField):
@@ -24205,7 +24212,7 @@ class IDSourcePtr(IDSource):
     def __init__(self, this):
         _swig_setattr(self, IDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IDSource, 'thisown', 0)
-        self.__class__ = IDSource
+        _swig_setattr(self, IDSource,self.__class__,IDSource)
 _quickfix.IDSource_swigregister(IDSourcePtr)
 
 class IOIOthSvc(CharField):
@@ -24230,7 +24237,7 @@ class IOIOthSvcPtr(IOIOthSvc):
     def __init__(self, this):
         _swig_setattr(self, IOIOthSvc, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOIOthSvc, 'thisown', 0)
-        self.__class__ = IOIOthSvc
+        _swig_setattr(self, IOIOthSvc,self.__class__,IOIOthSvc)
 _quickfix.IOIOthSvc_swigregister(IOIOthSvcPtr)
 
 class IOIShares(StringField):
@@ -24255,7 +24262,7 @@ class IOISharesPtr(IOIShares):
     def __init__(self, this):
         _swig_setattr(self, IOIShares, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, IOIShares, 'thisown', 0)
-        self.__class__ = IOIShares
+        _swig_setattr(self, IOIShares,self.__class__,IOIShares)
 _quickfix.IOIShares_swigregister(IOISharesPtr)
 
 class LastShares(DoubleField):
@@ -24280,7 +24287,7 @@ class LastSharesPtr(LastShares):
     def __init__(self, this):
         _swig_setattr(self, LastShares, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LastShares, 'thisown', 0)
-        self.__class__ = LastShares
+        _swig_setattr(self, LastShares,self.__class__,LastShares)
 _quickfix.LastShares_swigregister(LastSharesPtr)
 
 class RelatdSym(StringField):
@@ -24305,7 +24312,7 @@ class RelatdSymPtr(RelatdSym):
     def __init__(self, this):
         _swig_setattr(self, RelatdSym, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RelatdSym, 'thisown', 0)
-        self.__class__ = RelatdSym
+        _swig_setattr(self, RelatdSym,self.__class__,RelatdSym)
 _quickfix.RelatdSym_swigregister(RelatdSymPtr)
 
 class Rule80A(CharField):
@@ -24330,7 +24337,7 @@ class Rule80APtr(Rule80A):
     def __init__(self, this):
         _swig_setattr(self, Rule80A, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Rule80A, 'thisown', 0)
-        self.__class__ = Rule80A
+        _swig_setattr(self, Rule80A,self.__class__,Rule80A)
 _quickfix.Rule80A_swigregister(Rule80APtr)
 
 class Shares(DoubleField):
@@ -24355,7 +24362,7 @@ class SharesPtr(Shares):
     def __init__(self, this):
         _swig_setattr(self, Shares, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Shares, 'thisown', 0)
-        self.__class__ = Shares
+        _swig_setattr(self, Shares,self.__class__,Shares)
 _quickfix.Shares_swigregister(SharesPtr)
 
 class SettlmntTyp(CharField):
@@ -24380,7 +24387,7 @@ class SettlmntTypPtr(SettlmntTyp):
     def __init__(self, this):
         _swig_setattr(self, SettlmntTyp, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlmntTyp, 'thisown', 0)
-        self.__class__ = SettlmntTyp
+        _swig_setattr(self, SettlmntTyp,self.__class__,SettlmntTyp)
 _quickfix.SettlmntTyp_swigregister(SettlmntTypPtr)
 
 class FutSettDate(StringField):
@@ -24405,7 +24412,7 @@ class FutSettDatePtr(FutSettDate):
     def __init__(self, this):
         _swig_setattr(self, FutSettDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FutSettDate, 'thisown', 0)
-        self.__class__ = FutSettDate
+        _swig_setattr(self, FutSettDate,self.__class__,FutSettDate)
 _quickfix.FutSettDate_swigregister(FutSettDatePtr)
 
 class AvgPrxPrecision(IntField):
@@ -24430,7 +24437,7 @@ class AvgPrxPrecisionPtr(AvgPrxPrecision):
     def __init__(self, this):
         _swig_setattr(self, AvgPrxPrecision, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AvgPrxPrecision, 'thisown', 0)
-        self.__class__ = AvgPrxPrecision
+        _swig_setattr(self, AvgPrxPrecision,self.__class__,AvgPrxPrecision)
 _quickfix.AvgPrxPrecision_swigregister(AvgPrxPrecisionPtr)
 
 class ExecBroker(StringField):
@@ -24455,7 +24462,7 @@ class ExecBrokerPtr(ExecBroker):
     def __init__(self, this):
         _swig_setattr(self, ExecBroker, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ExecBroker, 'thisown', 0)
-        self.__class__ = ExecBroker
+        _swig_setattr(self, ExecBroker,self.__class__,ExecBroker)
 _quickfix.ExecBroker_swigregister(ExecBrokerPtr)
 
 class OpenClose(CharField):
@@ -24480,7 +24487,7 @@ class OpenClosePtr(OpenClose):
     def __init__(self, this):
         _swig_setattr(self, OpenClose, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OpenClose, 'thisown', 0)
-        self.__class__ = OpenClose
+        _swig_setattr(self, OpenClose,self.__class__,OpenClose)
 _quickfix.OpenClose_swigregister(OpenClosePtr)
 
 class AllocShares(IntField):
@@ -24505,7 +24512,7 @@ class AllocSharesPtr(AllocShares):
     def __init__(self, this):
         _swig_setattr(self, AllocShares, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, AllocShares, 'thisown', 0)
-        self.__class__ = AllocShares
+        _swig_setattr(self, AllocShares,self.__class__,AllocShares)
 _quickfix.AllocShares_swigregister(AllocSharesPtr)
 
 class DlvyInst(CharField):
@@ -24530,7 +24537,7 @@ class DlvyInstPtr(DlvyInst):
     def __init__(self, this):
         _swig_setattr(self, DlvyInst, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DlvyInst, 'thisown', 0)
-        self.__class__ = DlvyInst
+        _swig_setattr(self, DlvyInst,self.__class__,DlvyInst)
 _quickfix.DlvyInst_swigregister(DlvyInstPtr)
 
 class BrokerOfCredit(StringField):
@@ -24555,7 +24562,7 @@ class BrokerOfCreditPtr(BrokerOfCredit):
     def __init__(self, this):
         _swig_setattr(self, BrokerOfCredit, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, BrokerOfCredit, 'thisown', 0)
-        self.__class__ = BrokerOfCredit
+        _swig_setattr(self, BrokerOfCredit,self.__class__,BrokerOfCredit)
 _quickfix.BrokerOfCredit_swigregister(BrokerOfCreditPtr)
 
 class ClientID(StringField):
@@ -24580,7 +24587,7 @@ class ClientIDPtr(ClientID):
     def __init__(self, this):
         _swig_setattr(self, ClientID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClientID, 'thisown', 0)
-        self.__class__ = ClientID
+        _swig_setattr(self, ClientID,self.__class__,ClientID)
 _quickfix.ClientID_swigregister(ClientIDPtr)
 
 class CxlType(CharField):
@@ -24605,7 +24612,7 @@ class CxlTypePtr(CxlType):
     def __init__(self, this):
         _swig_setattr(self, CxlType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CxlType, 'thisown', 0)
-        self.__class__ = CxlType
+        _swig_setattr(self, CxlType,self.__class__,CxlType)
 _quickfix.CxlType_swigregister(CxlTypePtr)
 
 class SettlLocation(StringField):
@@ -24630,7 +24637,7 @@ class SettlLocationPtr(SettlLocation):
     def __init__(self, this):
         _swig_setattr(self, SettlLocation, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlLocation, 'thisown', 0)
-        self.__class__ = SettlLocation
+        _swig_setattr(self, SettlLocation,self.__class__,SettlLocation)
 _quickfix.SettlLocation_swigregister(SettlLocationPtr)
 
 class SettlDepositoryCode(StringField):
@@ -24655,7 +24662,7 @@ class SettlDepositoryCodePtr(SettlDepositoryCode):
     def __init__(self, this):
         _swig_setattr(self, SettlDepositoryCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlDepositoryCode, 'thisown', 0)
-        self.__class__ = SettlDepositoryCode
+        _swig_setattr(self, SettlDepositoryCode,self.__class__,SettlDepositoryCode)
 _quickfix.SettlDepositoryCode_swigregister(SettlDepositoryCodePtr)
 
 class SettlBrkrCode(StringField):
@@ -24680,7 +24687,7 @@ class SettlBrkrCodePtr(SettlBrkrCode):
     def __init__(self, this):
         _swig_setattr(self, SettlBrkrCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlBrkrCode, 'thisown', 0)
-        self.__class__ = SettlBrkrCode
+        _swig_setattr(self, SettlBrkrCode,self.__class__,SettlBrkrCode)
 _quickfix.SettlBrkrCode_swigregister(SettlBrkrCodePtr)
 
 class SettlInstCode(StringField):
@@ -24705,7 +24712,7 @@ class SettlInstCodePtr(SettlInstCode):
     def __init__(self, this):
         _swig_setattr(self, SettlInstCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SettlInstCode, 'thisown', 0)
-        self.__class__ = SettlInstCode
+        _swig_setattr(self, SettlInstCode,self.__class__,SettlInstCode)
 _quickfix.SettlInstCode_swigregister(SettlInstCodePtr)
 
 class SecuritySettlAgentName(StringField):
@@ -24730,7 +24737,7 @@ class SecuritySettlAgentNamePtr(SecuritySettlAgentName):
     def __init__(self, this):
         _swig_setattr(self, SecuritySettlAgentName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecuritySettlAgentName, 'thisown', 0)
-        self.__class__ = SecuritySettlAgentName
+        _swig_setattr(self, SecuritySettlAgentName,self.__class__,SecuritySettlAgentName)
 _quickfix.SecuritySettlAgentName_swigregister(SecuritySettlAgentNamePtr)
 
 class SecuritySettlAgentCode(StringField):
@@ -24755,7 +24762,7 @@ class SecuritySettlAgentCodePtr(SecuritySettlAgentCode):
     def __init__(self, this):
         _swig_setattr(self, SecuritySettlAgentCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecuritySettlAgentCode, 'thisown', 0)
-        self.__class__ = SecuritySettlAgentCode
+        _swig_setattr(self, SecuritySettlAgentCode,self.__class__,SecuritySettlAgentCode)
 _quickfix.SecuritySettlAgentCode_swigregister(SecuritySettlAgentCodePtr)
 
 class SecuritySettlAgentAcctNum(StringField):
@@ -24780,7 +24787,7 @@ class SecuritySettlAgentAcctNumPtr(SecuritySettlAgentAcctNum):
     def __init__(self, this):
         _swig_setattr(self, SecuritySettlAgentAcctNum, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecuritySettlAgentAcctNum, 'thisown', 0)
-        self.__class__ = SecuritySettlAgentAcctNum
+        _swig_setattr(self, SecuritySettlAgentAcctNum,self.__class__,SecuritySettlAgentAcctNum)
 _quickfix.SecuritySettlAgentAcctNum_swigregister(SecuritySettlAgentAcctNumPtr)
 
 class SecuritySettlAgentAcctName(StringField):
@@ -24805,7 +24812,7 @@ class SecuritySettlAgentAcctNamePtr(SecuritySettlAgentAcctName):
     def __init__(self, this):
         _swig_setattr(self, SecuritySettlAgentAcctName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecuritySettlAgentAcctName, 'thisown', 0)
-        self.__class__ = SecuritySettlAgentAcctName
+        _swig_setattr(self, SecuritySettlAgentAcctName,self.__class__,SecuritySettlAgentAcctName)
 _quickfix.SecuritySettlAgentAcctName_swigregister(SecuritySettlAgentAcctNamePtr)
 
 class SecuritySettlAgentContactName(StringField):
@@ -24830,7 +24837,7 @@ class SecuritySettlAgentContactNamePtr(SecuritySettlAgentContactName):
     def __init__(self, this):
         _swig_setattr(self, SecuritySettlAgentContactName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecuritySettlAgentContactName, 'thisown', 0)
-        self.__class__ = SecuritySettlAgentContactName
+        _swig_setattr(self, SecuritySettlAgentContactName,self.__class__,SecuritySettlAgentContactName)
 _quickfix.SecuritySettlAgentContactName_swigregister(SecuritySettlAgentContactNamePtr)
 
 class SecuritySettlAgentContactPhone(StringField):
@@ -24855,7 +24862,7 @@ class SecuritySettlAgentContactPhonePtr(SecuritySettlAgentContactPhone):
     def __init__(self, this):
         _swig_setattr(self, SecuritySettlAgentContactPhone, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SecuritySettlAgentContactPhone, 'thisown', 0)
-        self.__class__ = SecuritySettlAgentContactPhone
+        _swig_setattr(self, SecuritySettlAgentContactPhone,self.__class__,SecuritySettlAgentContactPhone)
 _quickfix.SecuritySettlAgentContactPhone_swigregister(SecuritySettlAgentContactPhonePtr)
 
 class CashSettlAgentName(StringField):
@@ -24880,7 +24887,7 @@ class CashSettlAgentNamePtr(CashSettlAgentName):
     def __init__(self, this):
         _swig_setattr(self, CashSettlAgentName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashSettlAgentName, 'thisown', 0)
-        self.__class__ = CashSettlAgentName
+        _swig_setattr(self, CashSettlAgentName,self.__class__,CashSettlAgentName)
 _quickfix.CashSettlAgentName_swigregister(CashSettlAgentNamePtr)
 
 class CashSettlAgentCode(StringField):
@@ -24905,7 +24912,7 @@ class CashSettlAgentCodePtr(CashSettlAgentCode):
     def __init__(self, this):
         _swig_setattr(self, CashSettlAgentCode, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashSettlAgentCode, 'thisown', 0)
-        self.__class__ = CashSettlAgentCode
+        _swig_setattr(self, CashSettlAgentCode,self.__class__,CashSettlAgentCode)
 _quickfix.CashSettlAgentCode_swigregister(CashSettlAgentCodePtr)
 
 class CashSettlAgentAcctNum(StringField):
@@ -24930,7 +24937,7 @@ class CashSettlAgentAcctNumPtr(CashSettlAgentAcctNum):
     def __init__(self, this):
         _swig_setattr(self, CashSettlAgentAcctNum, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashSettlAgentAcctNum, 'thisown', 0)
-        self.__class__ = CashSettlAgentAcctNum
+        _swig_setattr(self, CashSettlAgentAcctNum,self.__class__,CashSettlAgentAcctNum)
 _quickfix.CashSettlAgentAcctNum_swigregister(CashSettlAgentAcctNumPtr)
 
 class CashSettlAgentAcctName(StringField):
@@ -24955,7 +24962,7 @@ class CashSettlAgentAcctNamePtr(CashSettlAgentAcctName):
     def __init__(self, this):
         _swig_setattr(self, CashSettlAgentAcctName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashSettlAgentAcctName, 'thisown', 0)
-        self.__class__ = CashSettlAgentAcctName
+        _swig_setattr(self, CashSettlAgentAcctName,self.__class__,CashSettlAgentAcctName)
 _quickfix.CashSettlAgentAcctName_swigregister(CashSettlAgentAcctNamePtr)
 
 class CashSettlAgentContactName(StringField):
@@ -24980,7 +24987,7 @@ class CashSettlAgentContactNamePtr(CashSettlAgentContactName):
     def __init__(self, this):
         _swig_setattr(self, CashSettlAgentContactName, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashSettlAgentContactName, 'thisown', 0)
-        self.__class__ = CashSettlAgentContactName
+        _swig_setattr(self, CashSettlAgentContactName,self.__class__,CashSettlAgentContactName)
 _quickfix.CashSettlAgentContactName_swigregister(CashSettlAgentContactNamePtr)
 
 class CashSettlAgentContactPhone(StringField):
@@ -25005,7 +25012,7 @@ class CashSettlAgentContactPhonePtr(CashSettlAgentContactPhone):
     def __init__(self, this):
         _swig_setattr(self, CashSettlAgentContactPhone, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CashSettlAgentContactPhone, 'thisown', 0)
-        self.__class__ = CashSettlAgentContactPhone
+        _swig_setattr(self, CashSettlAgentContactPhone,self.__class__,CashSettlAgentContactPhone)
 _quickfix.CashSettlAgentContactPhone_swigregister(CashSettlAgentContactPhonePtr)
 
 class FutSettDate2(StringField):
@@ -25030,7 +25037,7 @@ class FutSettDate2Ptr(FutSettDate2):
     def __init__(self, this):
         _swig_setattr(self, FutSettDate2, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FutSettDate2, 'thisown', 0)
-        self.__class__ = FutSettDate2
+        _swig_setattr(self, FutSettDate2,self.__class__,FutSettDate2)
 _quickfix.FutSettDate2_swigregister(FutSettDate2Ptr)
 
 class PutOrCall(IntField):
@@ -25055,7 +25062,7 @@ class PutOrCallPtr(PutOrCall):
     def __init__(self, this):
         _swig_setattr(self, PutOrCall, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PutOrCall, 'thisown', 0)
-        self.__class__ = PutOrCall
+        _swig_setattr(self, PutOrCall,self.__class__,PutOrCall)
 _quickfix.PutOrCall_swigregister(PutOrCallPtr)
 
 class CustomerOrFirm(IntField):
@@ -25080,7 +25087,7 @@ class CustomerOrFirmPtr(CustomerOrFirm):
     def __init__(self, this):
         _swig_setattr(self, CustomerOrFirm, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CustomerOrFirm, 'thisown', 0)
-        self.__class__ = CustomerOrFirm
+        _swig_setattr(self, CustomerOrFirm,self.__class__,CustomerOrFirm)
 _quickfix.CustomerOrFirm_swigregister(CustomerOrFirmPtr)
 
 class MaturityDay(StringField):
@@ -25105,7 +25112,7 @@ class MaturityDayPtr(MaturityDay):
     def __init__(self, this):
         _swig_setattr(self, MaturityDay, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MaturityDay, 'thisown', 0)
-        self.__class__ = MaturityDay
+        _swig_setattr(self, MaturityDay,self.__class__,MaturityDay)
 _quickfix.MaturityDay_swigregister(MaturityDayPtr)
 
 class PegDifference(DoubleField):
@@ -25130,7 +25137,7 @@ class PegDifferencePtr(PegDifference):
     def __init__(self, this):
         _swig_setattr(self, PegDifference, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, PegDifference, 'thisown', 0)
-        self.__class__ = PegDifference
+        _swig_setattr(self, PegDifference,self.__class__,PegDifference)
 _quickfix.PegDifference_swigregister(PegDifferencePtr)
 
 class SpreadToBenchmark(DoubleField):
@@ -25155,7 +25162,7 @@ class SpreadToBenchmarkPtr(SpreadToBenchmark):
     def __init__(self, this):
         _swig_setattr(self, SpreadToBenchmark, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SpreadToBenchmark, 'thisown', 0)
-        self.__class__ = SpreadToBenchmark
+        _swig_setattr(self, SpreadToBenchmark,self.__class__,SpreadToBenchmark)
 _quickfix.SpreadToBenchmark_swigregister(SpreadToBenchmarkPtr)
 
 class Benchmark(CharField):
@@ -25180,7 +25187,7 @@ class BenchmarkPtr(Benchmark):
     def __init__(self, this):
         _swig_setattr(self, Benchmark, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Benchmark, 'thisown', 0)
-        self.__class__ = Benchmark
+        _swig_setattr(self, Benchmark,self.__class__,Benchmark)
 _quickfix.Benchmark_swigregister(BenchmarkPtr)
 
 class OpenCloseSettleFlag(StringField):
@@ -25205,7 +25212,7 @@ class OpenCloseSettleFlagPtr(OpenCloseSettleFlag):
     def __init__(self, this):
         _swig_setattr(self, OpenCloseSettleFlag, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OpenCloseSettleFlag, 'thisown', 0)
-        self.__class__ = OpenCloseSettleFlag
+        _swig_setattr(self, OpenCloseSettleFlag,self.__class__,OpenCloseSettleFlag)
 _quickfix.OpenCloseSettleFlag_swigregister(OpenCloseSettleFlagPtr)
 
 class UnderlyingIDSource(StringField):
@@ -25230,7 +25237,7 @@ class UnderlyingIDSourcePtr(UnderlyingIDSource):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingIDSource, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingIDSource, 'thisown', 0)
-        self.__class__ = UnderlyingIDSource
+        _swig_setattr(self, UnderlyingIDSource,self.__class__,UnderlyingIDSource)
 _quickfix.UnderlyingIDSource_swigregister(UnderlyingIDSourcePtr)
 
 class QuoteAckStatus(IntField):
@@ -25255,7 +25262,7 @@ class QuoteAckStatusPtr(QuoteAckStatus):
     def __init__(self, this):
         _swig_setattr(self, QuoteAckStatus, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, QuoteAckStatus, 'thisown', 0)
-        self.__class__ = QuoteAckStatus
+        _swig_setattr(self, QuoteAckStatus,self.__class__,QuoteAckStatus)
 _quickfix.QuoteAckStatus_swigregister(QuoteAckStatusPtr)
 
 class TotQuoteEntries(IntField):
@@ -25280,7 +25287,7 @@ class TotQuoteEntriesPtr(TotQuoteEntries):
     def __init__(self, this):
         _swig_setattr(self, TotQuoteEntries, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotQuoteEntries, 'thisown', 0)
-        self.__class__ = TotQuoteEntries
+        _swig_setattr(self, TotQuoteEntries,self.__class__,TotQuoteEntries)
 _quickfix.TotQuoteEntries_swigregister(TotQuoteEntriesPtr)
 
 class UnderlyingMaturityDay(StringField):
@@ -25305,7 +25312,7 @@ class UnderlyingMaturityDayPtr(UnderlyingMaturityDay):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingMaturityDay, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingMaturityDay, 'thisown', 0)
-        self.__class__ = UnderlyingMaturityDay
+        _swig_setattr(self, UnderlyingMaturityDay,self.__class__,UnderlyingMaturityDay)
 _quickfix.UnderlyingMaturityDay_swigregister(UnderlyingMaturityDayPtr)
 
 class UnderlyingPutOrCall(IntField):
@@ -25330,7 +25337,7 @@ class UnderlyingPutOrCallPtr(UnderlyingPutOrCall):
     def __init__(self, this):
         _swig_setattr(self, UnderlyingPutOrCall, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, UnderlyingPutOrCall, 'thisown', 0)
-        self.__class__ = UnderlyingPutOrCall
+        _swig_setattr(self, UnderlyingPutOrCall,self.__class__,UnderlyingPutOrCall)
 _quickfix.UnderlyingPutOrCall_swigregister(UnderlyingPutOrCallPtr)
 
 class RatioQty(DoubleField):
@@ -25355,7 +25362,7 @@ class RatioQtyPtr(RatioQty):
     def __init__(self, this):
         _swig_setattr(self, RatioQty, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RatioQty, 'thisown', 0)
-        self.__class__ = RatioQty
+        _swig_setattr(self, RatioQty,self.__class__,RatioQty)
 _quickfix.RatioQty_swigregister(RatioQtyPtr)
 
 class OnBehalfOfSendingTime(UtcTimeStampField):
@@ -25380,7 +25387,7 @@ class OnBehalfOfSendingTimePtr(OnBehalfOfSendingTime):
     def __init__(self, this):
         _swig_setattr(self, OnBehalfOfSendingTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, OnBehalfOfSendingTime, 'thisown', 0)
-        self.__class__ = OnBehalfOfSendingTime
+        _swig_setattr(self, OnBehalfOfSendingTime,self.__class__,OnBehalfOfSendingTime)
 _quickfix.OnBehalfOfSendingTime_swigregister(OnBehalfOfSendingTimePtr)
 
 class DiscretionOffset(DoubleField):
@@ -25405,7 +25412,7 @@ class DiscretionOffsetPtr(DiscretionOffset):
     def __init__(self, this):
         _swig_setattr(self, DiscretionOffset, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, DiscretionOffset, 'thisown', 0)
-        self.__class__ = DiscretionOffset
+        _swig_setattr(self, DiscretionOffset,self.__class__,DiscretionOffset)
 _quickfix.DiscretionOffset_swigregister(DiscretionOffsetPtr)
 
 class TotalNumSecurities(IntField):
@@ -25430,7 +25437,7 @@ class TotalNumSecuritiesPtr(TotalNumSecurities):
     def __init__(self, this):
         _swig_setattr(self, TotalNumSecurities, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalNumSecurities, 'thisown', 0)
-        self.__class__ = TotalNumSecurities
+        _swig_setattr(self, TotalNumSecurities,self.__class__,TotalNumSecurities)
 _quickfix.TotalNumSecurities_swigregister(TotalNumSecuritiesPtr)
 
 class TradeType(CharField):
@@ -25455,7 +25462,7 @@ class TradeTypePtr(TradeType):
     def __init__(self, this):
         _swig_setattr(self, TradeType, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TradeType, 'thisown', 0)
-        self.__class__ = TradeType
+        _swig_setattr(self, TradeType,self.__class__,TradeType)
 _quickfix.TradeType_swigregister(TradeTypePtr)
 
 class ClearingFirm(StringField):
@@ -25480,7 +25487,7 @@ class ClearingFirmPtr(ClearingFirm):
     def __init__(self, this):
         _swig_setattr(self, ClearingFirm, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClearingFirm, 'thisown', 0)
-        self.__class__ = ClearingFirm
+        _swig_setattr(self, ClearingFirm,self.__class__,ClearingFirm)
 _quickfix.ClearingFirm_swigregister(ClearingFirmPtr)
 
 class ClearingAccount(StringField):
@@ -25505,7 +25512,7 @@ class ClearingAccountPtr(ClearingAccount):
     def __init__(self, this):
         _swig_setattr(self, ClearingAccount, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ClearingAccount, 'thisown', 0)
-        self.__class__ = ClearingAccount
+        _swig_setattr(self, ClearingAccount,self.__class__,ClearingAccount)
 _quickfix.ClearingAccount_swigregister(ClearingAccountPtr)
 
 class TotalVolumeTradedDate(UtcDateField):
@@ -25530,7 +25537,7 @@ class TotalVolumeTradedDatePtr(TotalVolumeTradedDate):
     def __init__(self, this):
         _swig_setattr(self, TotalVolumeTradedDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalVolumeTradedDate, 'thisown', 0)
-        self.__class__ = TotalVolumeTradedDate
+        _swig_setattr(self, TotalVolumeTradedDate,self.__class__,TotalVolumeTradedDate)
 _quickfix.TotalVolumeTradedDate_swigregister(TotalVolumeTradedDatePtr)
 
 class TotalVolumeTradedTime(UtcTimeOnlyField):
@@ -25555,7 +25562,7 @@ class TotalVolumeTradedTimePtr(TotalVolumeTradedTime):
     def __init__(self, this):
         _swig_setattr(self, TotalVolumeTradedTime, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalVolumeTradedTime, 'thisown', 0)
-        self.__class__ = TotalVolumeTradedTime
+        _swig_setattr(self, TotalVolumeTradedTime,self.__class__,TotalVolumeTradedTime)
 _quickfix.TotalVolumeTradedTime_swigregister(TotalVolumeTradedTimePtr)
 
 class CardIssNo(StringField):
@@ -25580,7 +25587,7 @@ class CardIssNoPtr(CardIssNo):
     def __init__(self, this):
         _swig_setattr(self, CardIssNo, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, CardIssNo, 'thisown', 0)
-        self.__class__ = CardIssNo
+        _swig_setattr(self, CardIssNo,self.__class__,CardIssNo)
 _quickfix.CardIssNo_swigregister(CardIssNoPtr)
 
 class RegistDetls(StringField):
@@ -25605,7 +25612,7 @@ class RegistDetlsPtr(RegistDetls):
     def __init__(self, this):
         _swig_setattr(self, RegistDetls, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, RegistDetls, 'thisown', 0)
-        self.__class__ = RegistDetls
+        _swig_setattr(self, RegistDetls,self.__class__,RegistDetls)
 _quickfix.RegistDetls_swigregister(RegistDetlsPtr)
 
 class TotalNumSecurityTypes(IntField):
@@ -25630,7 +25637,7 @@ class TotalNumSecurityTypesPtr(TotalNumSecurityTypes):
     def __init__(self, this):
         _swig_setattr(self, TotalNumSecurityTypes, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, TotalNumSecurityTypes, 'thisown', 0)
-        self.__class__ = TotalNumSecurityTypes
+        _swig_setattr(self, TotalNumSecurityTypes,self.__class__,TotalNumSecurityTypes)
 _quickfix.TotalNumSecurityTypes_swigregister(TotalNumSecurityTypesPtr)
 
 class LegSettlmntTyp(CharField):
@@ -25655,7 +25662,7 @@ class LegSettlmntTypPtr(LegSettlmntTyp):
     def __init__(self, this):
         _swig_setattr(self, LegSettlmntTyp, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegSettlmntTyp, 'thisown', 0)
-        self.__class__ = LegSettlmntTyp
+        _swig_setattr(self, LegSettlmntTyp,self.__class__,LegSettlmntTyp)
 _quickfix.LegSettlmntTyp_swigregister(LegSettlmntTypPtr)
 
 class LegFutSettDate(StringField):
@@ -25680,7 +25687,7 @@ class LegFutSettDatePtr(LegFutSettDate):
     def __init__(self, this):
         _swig_setattr(self, LegFutSettDate, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LegFutSettDate, 'thisown', 0)
-        self.__class__ = LegFutSettDate
+        _swig_setattr(self, LegFutSettDate,self.__class__,LegFutSettDate)
 _quickfix.LegFutSettDate_swigregister(LegFutSettDatePtr)
 
 class SessionID(_object):
@@ -25711,7 +25718,7 @@ class SessionIDPtr(SessionID):
     def __init__(self, this):
         _swig_setattr(self, SessionID, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SessionID, 'thisown', 0)
-        self.__class__ = SessionID
+        _swig_setattr(self, SessionID,self.__class__,SessionID)
 _quickfix.SessionID_swigregister(SessionIDPtr)
 BeginString_FIX44 = cvar.BeginString_FIX44
 BeginString_FIX43 = cvar.BeginString_FIX43
@@ -26560,6 +26567,20 @@ SecurityTradingStatus_TRADING_RANGE_INDICATION = cvar.SecurityTradingStatus_TRAD
 SecurityTradingStatus_MARKET_IMBALANCE_BUY = cvar.SecurityTradingStatus_MARKET_IMBALANCE_BUY
 SecurityTradingStatus_MARKET_IMBALANCE_SELL = cvar.SecurityTradingStatus_MARKET_IMBALANCE_SELL
 SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY = cvar.SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_BUY
+SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL = cvar.SecurityTradingStatus_MARKET_ON_CLOSE_IMBALANCE_SELL
+SecurityTradingStatus_NOT_ASSIGNED = cvar.SecurityTradingStatus_NOT_ASSIGNED
+SecurityTradingStatus_NO_MARKET_IMBALANCE = cvar.SecurityTradingStatus_NO_MARKET_IMBALANCE
+SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE = cvar.SecurityTradingStatus_NO_MARKET_ON_CLOSE_IMBALANCE
+SecurityTradingStatus_ITS_PRE_OPENING = cvar.SecurityTradingStatus_ITS_PRE_OPENING
+SecurityTradingStatus_NEW_PRICE_INDICATION = cvar.SecurityTradingStatus_NEW_PRICE_INDICATION
+SecurityTradingStatus_TRADE_DISSEMINATION_TIME = cvar.SecurityTradingStatus_TRADE_DISSEMINATION_TIME
+SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION = cvar.SecurityTradingStatus_READY_TO_TRADE_START_OF_SESSION
+SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION = cvar.SecurityTradingStatus_NOT_AVAILABLE_FOR_TRADING_END_OF_SESSION
+SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET = cvar.SecurityTradingStatus_NOT_TRADED_ON_THIS_MARKET
+SecurityTradingStatus_UNKNOWN_OR_INVALID = cvar.SecurityTradingStatus_UNKNOWN_OR_INVALID
+SecurityTradingStatus_PRE_OPEN = cvar.SecurityTradingStatus_PRE_OPEN
+SecurityTradingStatus_OPENING_ROTATION = cvar.SecurityTradingStatus_OPENING_ROTATION
+SecurityTradingStatus_FAST_MARKET = cvar.SecurityTradingStatus_FAST_MARKET
 HaltReason_ORDER_IMBALANCE = cvar.HaltReason_ORDER_IMBALANCE
 HaltReason_EQUIPMENT_CHANGEOVER = cvar.HaltReason_EQUIPMENT_CHANGEOVER
 HaltReason_NEWS_PENDING = cvar.HaltReason_NEWS_PENDING
@@ -27477,7 +27498,7 @@ class SessionSettingsPtr(SessionSettings):
     def __init__(self, this):
         _swig_setattr(self, SessionSettings, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SessionSettings, 'thisown', 0)
-        self.__class__ = SessionSettings
+        _swig_setattr(self, SessionSettings,self.__class__,SessionSettings)
 _quickfix.SessionSettings_swigregister(SessionSettingsPtr)
 
 __lt__ = _quickfix.__lt__
@@ -27535,6 +27556,9 @@ ODBC_STORE_USER = cvar.ODBC_STORE_USER
 ODBC_STORE_PASSWORD = cvar.ODBC_STORE_PASSWORD
 ODBC_STORE_CONNECTION_STRING = cvar.ODBC_STORE_CONNECTION_STRING
 FILE_LOG_PATH = cvar.FILE_LOG_PATH
+SCREEN_LOG_SHOW_INCOMING = cvar.SCREEN_LOG_SHOW_INCOMING
+SCREEN_LOG_SHOW_OUTGOING = cvar.SCREEN_LOG_SHOW_OUTGOING
+SCREEN_LOG_SHOW_EVENTS = cvar.SCREEN_LOG_SHOW_EVENTS
 MYSQL_LOG_USECONNECTIONPOOL = cvar.MYSQL_LOG_USECONNECTIONPOOL
 MYSQL_LOG_DATABASE = cvar.MYSQL_LOG_DATABASE
 MYSQL_LOG_USER = cvar.MYSQL_LOG_USER
@@ -27554,6 +27578,7 @@ POSTGRESQL_LOG_PORT = cvar.POSTGRESQL_LOG_PORT
 ODBC_LOG_USER = cvar.ODBC_LOG_USER
 ODBC_LOG_PASSWORD = cvar.ODBC_LOG_PASSWORD
 ODBC_LOG_CONNECTION_STRING = cvar.ODBC_LOG_CONNECTION_STRING
+RESET_ON_LOGON = cvar.RESET_ON_LOGON
 RESET_ON_LOGOUT = cvar.RESET_ON_LOGOUT
 RESET_ON_DISCONNECT = cvar.RESET_ON_DISCONNECT
 MILLISECONDS_IN_TIMESTAMP = cvar.MILLISECONDS_IN_TIMESTAMP
@@ -27604,7 +27629,7 @@ class Session(_object):
     def setMaxLatency(*args): return _quickfix.Session_setMaxLatency(*args)
     def setLogonTimeout(*args): return _quickfix.Session_setLogonTimeout(*args)
     def setLogoutTimeout(*args): return _quickfix.Session_setLogoutTimeout(*args)
-    def setSendResetSeqNumFlag(*args): return _quickfix.Session_setSendResetSeqNumFlag(*args)
+    def setResetOnLogon(*args): return _quickfix.Session_setResetOnLogon(*args)
     def setResetOnLogout(*args): return _quickfix.Session_setResetOnLogout(*args)
     def setResetOnDisconnect(*args): return _quickfix.Session_setResetOnDisconnect(*args)
     def setMillisecondsInTimeStamp(*args): return _quickfix.Session_setMillisecondsInTimeStamp(*args)
@@ -27621,7 +27646,7 @@ class SessionPtr(Session):
     def __init__(self, this):
         _swig_setattr(self, Session, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Session, 'thisown', 0)
-        self.__class__ = Session
+        _swig_setattr(self, Session,self.__class__,Session)
 _quickfix.Session_swigregister(SessionPtr)
 
 __rshift__ = _quickfix.__rshift__
@@ -27660,7 +27685,7 @@ class LogFactoryPtr(LogFactory):
     def __init__(self, this):
         _swig_setattr(self, LogFactory, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, LogFactory, 'thisown', 0)
-        self.__class__ = LogFactory
+        _swig_setattr(self, LogFactory,self.__class__,LogFactory)
 _quickfix.LogFactory_swigregister(LogFactoryPtr)
 
 class ScreenLogFactory(LogFactory):
@@ -27687,7 +27712,7 @@ class ScreenLogFactoryPtr(ScreenLogFactory):
     def __init__(self, this):
         _swig_setattr(self, ScreenLogFactory, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ScreenLogFactory, 'thisown', 0)
-        self.__class__ = ScreenLogFactory
+        _swig_setattr(self, ScreenLogFactory,self.__class__,ScreenLogFactory)
 _quickfix.ScreenLogFactory_swigregister(ScreenLogFactoryPtr)
 
 class Log(_object):
@@ -27712,7 +27737,7 @@ class LogPtr(Log):
     def __init__(self, this):
         _swig_setattr(self, Log, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Log, 'thisown', 0)
-        self.__class__ = Log
+        _swig_setattr(self, Log,self.__class__,Log)
 _quickfix.Log_swigregister(LogPtr)
 
 class ScreenLog(Log):
@@ -27741,7 +27766,7 @@ class ScreenLogPtr(ScreenLog):
     def __init__(self, this):
         _swig_setattr(self, ScreenLog, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, ScreenLog, 'thisown', 0)
-        self.__class__ = ScreenLog
+        _swig_setattr(self, ScreenLog,self.__class__,ScreenLog)
 _quickfix.ScreenLog_swigregister(ScreenLogPtr)
 
 class FileLogFactory(LogFactory):
@@ -27768,7 +27793,7 @@ class FileLogFactoryPtr(FileLogFactory):
     def __init__(self, this):
         _swig_setattr(self, FileLogFactory, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FileLogFactory, 'thisown', 0)
-        self.__class__ = FileLogFactory
+        _swig_setattr(self, FileLogFactory,self.__class__,FileLogFactory)
 _quickfix.FileLogFactory_swigregister(FileLogFactoryPtr)
 
 class FileLog(Log):
@@ -27797,7 +27822,7 @@ class FileLogPtr(FileLog):
     def __init__(self, this):
         _swig_setattr(self, FileLog, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FileLog, 'thisown', 0)
-        self.__class__ = FileLog
+        _swig_setattr(self, FileLog,self.__class__,FileLog)
 _quickfix.FileLog_swigregister(FileLogPtr)
 
 class MessageStoreFactory(_object):
@@ -27820,7 +27845,7 @@ class MessageStoreFactoryPtr(MessageStoreFactory):
     def __init__(self, this):
         _swig_setattr(self, MessageStoreFactory, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MessageStoreFactory, 'thisown', 0)
-        self.__class__ = MessageStoreFactory
+        _swig_setattr(self, MessageStoreFactory,self.__class__,MessageStoreFactory)
 _quickfix.MessageStoreFactory_swigregister(MessageStoreFactoryPtr)
 
 class MemoryStoreFactory(MessageStoreFactory):
@@ -27847,7 +27872,7 @@ class MemoryStoreFactoryPtr(MemoryStoreFactory):
     def __init__(self, this):
         _swig_setattr(self, MemoryStoreFactory, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MemoryStoreFactory, 'thisown', 0)
-        self.__class__ = MemoryStoreFactory
+        _swig_setattr(self, MemoryStoreFactory,self.__class__,MemoryStoreFactory)
 _quickfix.MemoryStoreFactory_swigregister(MemoryStoreFactoryPtr)
 
 class MessageStore(_object):
@@ -27878,7 +27903,7 @@ class MessageStorePtr(MessageStore):
     def __init__(self, this):
         _swig_setattr(self, MessageStore, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MessageStore, 'thisown', 0)
-        self.__class__ = MessageStore
+        _swig_setattr(self, MessageStore,self.__class__,MessageStore)
 _quickfix.MessageStore_swigregister(MessageStorePtr)
 
 class MemoryStore(MessageStore):
@@ -27914,7 +27939,7 @@ class MemoryStorePtr(MemoryStore):
     def __init__(self, this):
         _swig_setattr(self, MemoryStore, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MemoryStore, 'thisown', 0)
-        self.__class__ = MemoryStore
+        _swig_setattr(self, MemoryStore,self.__class__,MemoryStore)
 _quickfix.MemoryStore_swigregister(MemoryStorePtr)
 
 class MessageStoreFactoryExceptionWrapper(_object):
@@ -27939,7 +27964,7 @@ class MessageStoreFactoryExceptionWrapperPtr(MessageStoreFactoryExceptionWrapper
     def __init__(self, this):
         _swig_setattr(self, MessageStoreFactoryExceptionWrapper, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MessageStoreFactoryExceptionWrapper, 'thisown', 0)
-        self.__class__ = MessageStoreFactoryExceptionWrapper
+        _swig_setattr(self, MessageStoreFactoryExceptionWrapper,self.__class__,MessageStoreFactoryExceptionWrapper)
 _quickfix.MessageStoreFactoryExceptionWrapper_swigregister(MessageStoreFactoryExceptionWrapperPtr)
 
 class MessageStoreExceptionWrapper(_object):
@@ -27972,7 +27997,7 @@ class MessageStoreExceptionWrapperPtr(MessageStoreExceptionWrapper):
     def __init__(self, this):
         _swig_setattr(self, MessageStoreExceptionWrapper, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, MessageStoreExceptionWrapper, 'thisown', 0)
-        self.__class__ = MessageStoreExceptionWrapper
+        _swig_setattr(self, MessageStoreExceptionWrapper,self.__class__,MessageStoreExceptionWrapper)
 _quickfix.MessageStoreExceptionWrapper_swigregister(MessageStoreExceptionWrapperPtr)
 
 class FileStoreFactory(MessageStoreFactory):
@@ -27999,7 +28024,7 @@ class FileStoreFactoryPtr(FileStoreFactory):
     def __init__(self, this):
         _swig_setattr(self, FileStoreFactory, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FileStoreFactory, 'thisown', 0)
-        self.__class__ = FileStoreFactory
+        _swig_setattr(self, FileStoreFactory,self.__class__,FileStoreFactory)
 _quickfix.FileStoreFactory_swigregister(FileStoreFactoryPtr)
 
 class FileStore(MessageStore):
@@ -28034,7 +28059,7 @@ class FileStorePtr(FileStore):
     def __init__(self, this):
         _swig_setattr(self, FileStore, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, FileStore, 'thisown', 0)
-        self.__class__ = FileStore
+        _swig_setattr(self, FileStore,self.__class__,FileStore)
 _quickfix.FileStore_swigregister(FileStorePtr)
 
 class Application(_object):
@@ -28072,7 +28097,7 @@ class ApplicationPtr(Application):
     def __init__(self, this):
         _swig_setattr(self, Application, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Application, 'thisown', 0)
-        self.__class__ = Application
+        _swig_setattr(self, Application,self.__class__,Application)
 _quickfix.Application_swigregister(ApplicationPtr)
 
 class SynchronizedApplication(Application):
@@ -28111,7 +28136,7 @@ class SynchronizedApplicationPtr(SynchronizedApplication):
     def __init__(self, this):
         _swig_setattr(self, SynchronizedApplication, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SynchronizedApplication, 'thisown', 0)
-        self.__class__ = SynchronizedApplication
+        _swig_setattr(self, SynchronizedApplication,self.__class__,SynchronizedApplication)
 _quickfix.SynchronizedApplication_swigregister(SynchronizedApplicationPtr)
 
 class NullApplication(Application):
@@ -28136,7 +28161,7 @@ class NullApplicationPtr(NullApplication):
     def __init__(self, this):
         _swig_setattr(self, NullApplication, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, NullApplication, 'thisown', 0)
-        self.__class__ = NullApplication
+        _swig_setattr(self, NullApplication,self.__class__,NullApplication)
 _quickfix.NullApplication_swigregister(NullApplicationPtr)
 
 class Initiator(_object):
@@ -28153,12 +28178,12 @@ class Initiator(_object):
         except: pass
 
     def block(*args): return _quickfix.Initiator_block(*args)
-    def poll(*args): return _quickfix.Initiator_poll(*args)
     def stop(*args): return _quickfix.Initiator_stop(*args)
     def isLoggedOn(*args): return _quickfix.Initiator_isLoggedOn(*args)
     def getSession(*args): return _quickfix.Initiator_getSession(*args)
     def getSessions(*args): return _quickfix.Initiator_getSessions(*args)
     def has(*args): return _quickfix.Initiator_has(*args)
+    def isStopped(*args): return _quickfix.Initiator_isStopped(*args)
     def getApplication(*args): return _quickfix.Initiator_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Initiator_getMessageStoreFactory(*args)
 
@@ -28166,7 +28191,7 @@ class InitiatorPtr(Initiator):
     def __init__(self, this):
         _swig_setattr(self, Initiator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Initiator, 'thisown', 0)
-        self.__class__ = Initiator
+        _swig_setattr(self, Initiator,self.__class__,Initiator)
 _quickfix.Initiator_swigregister(InitiatorPtr)
 
 class SocketInitiator(Initiator):
@@ -28191,7 +28216,7 @@ class SocketInitiatorPtr(SocketInitiator):
     def __init__(self, this):
         _swig_setattr(self, SocketInitiator, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SocketInitiator, 'thisown', 0)
-        self.__class__ = SocketInitiator
+        _swig_setattr(self, SocketInitiator,self.__class__,SocketInitiator)
 _quickfix.SocketInitiator_swigregister(SocketInitiatorPtr)
 
 class Acceptor(_object):
@@ -28208,12 +28233,12 @@ class Acceptor(_object):
         except: pass
 
     def block(*args): return _quickfix.Acceptor_block(*args)
-    def poll(*args): return _quickfix.Acceptor_poll(*args)
     def stop(*args): return _quickfix.Acceptor_stop(*args)
     def isLoggedOn(*args): return _quickfix.Acceptor_isLoggedOn(*args)
     def getSession(*args): return _quickfix.Acceptor_getSession(*args)
     def getSessions(*args): return _quickfix.Acceptor_getSessions(*args)
     def has(*args): return _quickfix.Acceptor_has(*args)
+    def isStopped(*args): return _quickfix.Acceptor_isStopped(*args)
     def getApplication(*args): return _quickfix.Acceptor_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Acceptor_getMessageStoreFactory(*args)
 
@@ -28221,7 +28246,7 @@ class AcceptorPtr(Acceptor):
     def __init__(self, this):
         _swig_setattr(self, Acceptor, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, Acceptor, 'thisown', 0)
-        self.__class__ = Acceptor
+        _swig_setattr(self, Acceptor,self.__class__,Acceptor)
 _quickfix.Acceptor_swigregister(AcceptorPtr)
 
 class SocketAcceptor(Acceptor):
@@ -28241,14 +28266,12 @@ class SocketAcceptor(Acceptor):
             if self.thisown: destroy(self)
         except: pass
 
-    def getPort(*args): return _quickfix.SocketAcceptor_getPort(*args)
 
 class SocketAcceptorPtr(SocketAcceptor):
     def __init__(self, this):
         _swig_setattr(self, SocketAcceptor, 'this', this)
         if not hasattr(self,"thisown"): _swig_setattr(self, SocketAcceptor, 'thisown', 0)
-        self.__class__ = SocketAcceptor
+        _swig_setattr(self, SocketAcceptor,self.__class__,SocketAcceptor)
 _quickfix.SocketAcceptor_swigregister(SocketAcceptorPtr)
-
 
 
