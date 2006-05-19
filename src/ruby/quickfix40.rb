@@ -1,3 +1,5 @@
+require 'quickfix'
+module Quickfix40
 class Message < Quickfix::Message
 	def initialize
 		super
@@ -294,4 +296,5 @@ class ListStatusRequest < Message
 		super
 		getHeader().setField( Quickfix::MsgType.new("M") )
 	end
+end
 end

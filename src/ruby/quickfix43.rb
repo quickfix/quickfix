@@ -1,3 +1,5 @@
+require 'quickfix'
+module Quickfix40
 
 	class NoHops < Quickfix::Group
 		def initialize
@@ -3503,4 +3505,5 @@ class RegistrationInstructionsResponse < Message
 			super(453, 448, order)
 		end
 	end
+end
 end

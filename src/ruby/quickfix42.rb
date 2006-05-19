@@ -1,3 +1,5 @@
+require 'quickfix'
+module Quickfix40
 class Message < Quickfix::Message
 	def initialize
 		super
@@ -1178,4 +1180,5 @@ class BusinessMessageReject < Message
 		super
 		getHeader().setField( Quickfix::MsgType.new("j") )
 	end
+end
 end

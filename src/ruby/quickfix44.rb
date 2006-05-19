@@ -1,3 +1,5 @@
+require 'quickfix'
+module Quickfix40
 
 	class NoHops < Quickfix::Group
 		def initialize
@@ -13103,4 +13105,5 @@ class CollateralInquiryAck < Message
 			end
 		end
 	end
+end
 end
