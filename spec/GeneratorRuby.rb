@@ -24,6 +24,8 @@ class GeneratorRuby
   end
 
   def front
+    @f.puts "require 'quickfix'"
+    @f.puts "module Quickfix40"
   end
 
   def field(name, number)
@@ -98,5 +100,6 @@ class GeneratorRuby
   end
 
   def back
+    @f.puts tabs + "end"
   end
 end
