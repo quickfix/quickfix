@@ -77,6 +77,7 @@ HAVE_CPLUS_DEMANGLE = _quickfix.HAVE_CPLUS_DEMANGLE
 HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
 HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H
+HAVE_JAVA = _quickfix.HAVE_JAVA
 HAVE_LIBPTHREAD = _quickfix.HAVE_LIBPTHREAD
 HAVE_MEMORY_H = _quickfix.HAVE_MEMORY_H
 HAVE_PYTHON = _quickfix.HAVE_PYTHON
@@ -28177,6 +28178,7 @@ class Initiator(_object):
             if self.thisown: destroy(self)
         except: pass
 
+    def start(*args): return _quickfix.Initiator_start(*args)
     def block(*args): return _quickfix.Initiator_block(*args)
     def stop(*args): return _quickfix.Initiator_stop(*args)
     def isLoggedOn(*args): return _quickfix.Initiator_isLoggedOn(*args)
@@ -28232,6 +28234,7 @@ class Acceptor(_object):
             if self.thisown: destroy(self)
         except: pass
 
+    def start(*args): return _quickfix.Acceptor_start(*args)
     def block(*args): return _quickfix.Acceptor_block(*args)
     def stop(*args): return _quickfix.Acceptor_stop(*args)
     def isLoggedOn(*args): return _quickfix.Acceptor_isLoggedOn(*args)
