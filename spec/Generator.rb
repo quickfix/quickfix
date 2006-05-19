@@ -3,6 +3,7 @@ require "GeneratorCPP"
 require "GeneratorJava"
 require "GeneratorNET"
 require "GeneratorPython"
+require "GeneratorRuby"
 
 processor = Processor.new("FIX40.xml", "../src/C++", GeneratorCPP.new("4", "0", "../src/C++"))
 processor = Processor.new("FIX41.xml", "../src/C++", GeneratorCPP.new("4", "1", "../src/C++"))
@@ -27,3 +28,9 @@ processor = Processor.new("FIX41.xml", "../src/python", GeneratorPython.new("4",
 processor = Processor.new("FIX42.xml", "../src/python", GeneratorPython.new("4", "2", "../src/python"))
 processor = Processor.new("FIX43.xml", "../src/python", GeneratorPython.new("4", "3", "../src/python"))
 processor = Processor.new("FIX44.xml", "../src/python", GeneratorPython.new("4", "4", "../src/python"))
+
+processor = Processor.new("FIX40.xml", "../src/ruby", GeneratorRuby.new("4", "0", "../src/ruby"))
+processor = Processor.new("FIX41.xml", "../src/ruby", GeneratorRuby.new("4", "1", "../src/ruby"))
+processor = Processor.new("FIX42.xml", "../src/ruby", GeneratorRuby.new("4", "2", "../src/ruby"))
+processor = Processor.new("FIX43.xml", "../src/ruby", GeneratorRuby.new("4", "3", "../src/ruby"))
+processor = Processor.new("FIX44.xml", "../src/ruby", GeneratorRuby.new("4", "4", "../src/ruby"))
