@@ -41,14 +41,6 @@ JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_doBlock
 
 /*
  * Class:     quickfix_SocketAcceptor
- * Method:    doPoll
- * Signature: ()Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_SocketAcceptor_doPoll
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_SocketAcceptor
  * Method:    doStop
  * Signature: ()V
  */
