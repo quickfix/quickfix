@@ -50,6 +50,9 @@ namespace QuickFix
 
     <xsl:value-of select="@name"/>() : <xsl:call-template name="get-field-type"/>Field(<xsl:value-of select="@number"/>) {}
     <xsl:value-of select="@name"/>(<xsl:call-template name="get-type"/> data) : <xsl:call-template name="get-field-type"/>Field(<xsl:value-of select="@number"/>, data) {}
+    <xsl:if test="@type='PRICE' or @type='AMT' or @type='QTY' or @type='FLOAT' or @type='PRICEOFFSET' or @type='PERCENTAGE'">
+    <xsl:value-of select="@name"/>(<xsl:call-template name="get-type"/> data, int decimalPadding) : <xsl:call-template name="get-field-type"/>Field(<xsl:value-of select="@number"/>, data, decimalPadding) {}
+    </xsl:if>
     <xsl:if test="@type='UTCTIMESTAMP' or @type='UTCTIMEONLY'">
     <xsl:value-of select="@name"/>(<xsl:call-template name="get-type"/> data, bool showMilliseconds) : <xsl:call-template name="get-field-type"/>Field(<xsl:value-of select="@number"/>, data, showMilliseconds) {}
     </xsl:if>
