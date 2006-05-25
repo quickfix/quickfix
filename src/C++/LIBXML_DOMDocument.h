@@ -42,7 +42,7 @@ namespace FIX
     : m_pNode(pNode) {}
 
     bool get( const std::string&, std::string& );
-    DOMAttributes::map LIBXML_DOMAttributes::toMap();
+    DOMAttributes::map toMap();
 
   private:
     xmlNodePtr m_pNode;
