@@ -7,6 +7,78 @@
 #ifdef __cplusplus
 extern "C" {
 #endif
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    create
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_create
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    destroy
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_destroy
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doStart
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStart
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doBlock
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doBlock
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doPoll
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doPoll
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doStop
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doStop
+ * Signature: (Z)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__Z
+  (JNIEnv *, jobject, jboolean);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doIsLoggedOn
+ * Signature: ()Z
+ */
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doIsLoggedOn
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_ThreadedSocketAcceptor
+ * Method:    doGetSessions
+ * Signature: ()Ljava/util/ArrayList;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketAcceptor_doGetSessions
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif
