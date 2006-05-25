@@ -94,6 +94,11 @@ public:
     return ToString();
   }
 
+  int GetHashCode()
+  {
+      return toString()->GetHashCode();
+  }
+
   void fromString( String* str )
   { QF_STACK_TRY
     m_pUnmanaged->fromString( convertString(str) );
