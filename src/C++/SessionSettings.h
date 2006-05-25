@@ -46,6 +46,7 @@ const char START_TIME[] = "StartTime";
 const char END_TIME[] = "EndTime";
 const char START_DAY[] = "StartDay";
 const char END_DAY[] = "EndDay";
+const char CHECK_COMPID[] = "CheckCompID";
 const char CHECK_LATENCY[] = "CheckLatency";
 const char MAX_LATENCY[] = "MaxLatency";
 const char HEARTBTINT[] = "HeartBtInt";

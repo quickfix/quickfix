@@ -102,6 +102,8 @@ public:
 
   bool isSessionTime()
     { return m_sessionTime.isSessionTime(); }
+  void checkCompId ( bool value )
+    { m_checkCompId = value; }
   void checkLatency ( bool value )
     { m_checkLatency = value; }
   void setMaxLatency ( int value )
@@ -170,6 +172,8 @@ private:
   bool isCorrectCompID( const SenderCompID& senderCompID,
                         const TargetCompID& targetCompID )
   {
+    if( !m_checkCompId ) return true;
+
     return
       m_sessionID.getSenderCompID().getValue() == targetCompID.getValue()
       && m_sessionID.getTargetCompID().getValue() == senderCompID.getValue();
@@ -221,6 +225,7 @@ private:
   SessionID m_sessionID;
   SessionTime m_sessionTime;
 
+  bool m_checkCompId;
   bool m_checkLatency;
   int m_maxLatency;
   bool m_resetOnLogon;

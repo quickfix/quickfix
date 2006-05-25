@@ -82,7 +82,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
   {
     dataDictionary.checkUserDefinedFields
     ( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
-  }
+  }    
 
   UtcTimeOnly startTime;
   UtcTimeOnly endTime;
@@ -124,6 +124,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
                           SessionTime(startTime, endTime, startDay, endDay),
                           heartBtInt, m_pLogFactory );
 
+  if ( settings.has( CHECK_COMPID ) )
+    pSession->checkCompId( settings.getBool( CHECK_COMPID ) );
   if ( settings.has( CHECK_LATENCY ) )
     pSession->checkLatency( settings.getBool( CHECK_LATENCY ) );
   if ( settings.has( MAX_LATENCY ) )
