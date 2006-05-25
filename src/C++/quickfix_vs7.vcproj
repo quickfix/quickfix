@@ -52,7 +52,7 @@
 				Name="VCPostBuildEventTool"
 				CommandLine="echo test\ &gt; EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
-xcopy *.h /S/Y /EXCLUDE:EXCLUDE ..\..\include\quickfix
+xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
 del /F EXCLUDE
 "/>
 			<Tool
@@ -111,7 +111,7 @@ del /F EXCLUDE
 				Name="VCPostBuildEventTool"
 				CommandLine="echo test\ &gt; EXCLUDE
 echo stdafx.h &gt;&gt; EXCLUDE
-xcopy *.h /S/Y /EXCLUDE:EXCLUDE ..\..\include\quickfix
+xcopy *.h /S/Y/E/I /EXCLUDE:EXCLUDE ..\..\include\quickfix
 del /F EXCLUDE
 "/>
 			<Tool
