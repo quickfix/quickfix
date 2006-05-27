@@ -122,8 +122,8 @@ void MySQLLog::clear()
   std::stringstream eventQuery;
 
   whereClause << "WHERE "
-    << "BeginString = \"" << m_sessionID.getBeginString().getValue() << "\","
-    << "AND SenderCompID = \"" << m_sessionID.getSenderCompID().getValue() << "\","
+    << "BeginString = \"" << m_sessionID.getBeginString().getValue() << "\" "
+    << "AND SenderCompID = \"" << m_sessionID.getSenderCompID().getValue() << "\" "
     << "AND TargetCompID = \"" << m_sessionID.getTargetCompID().getValue() << "\"";
 
   messagesQuery << "DELETE FROM messages_log " << whereClause.str();
