@@ -46,6 +46,7 @@ public __gc __interface MessageStore
   virtual void incrNextTargetMsgSeqNum();
   virtual DateTime getCreationTime();
   virtual void reset();
+  virtual void refresh();
 };
 }
 
@@ -153,6 +154,14 @@ public:
   {
     try
     { m_store->reset(); }
+    catch ( IOException * e )
+    { throw FIX::IOException(); }
+  }
+
+  void refresh() throw ( FIX::IOException& )
+  {
+    try
+    { m_store->refresh(); }
     catch ( IOException * e )
     { throw FIX::IOException(); }
   }

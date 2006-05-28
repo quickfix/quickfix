@@ -178,6 +178,17 @@ public:
     QF_STACK_CATCH
   }
 
+  void refresh()
+  { QF_STACK_TRY
+
+    try
+    { m_pUnmanaged->refresh(); }
+    catch ( FIX::IOException& )
+    { throw new IOException(); }
+
+    QF_STACK_CATCH
+  }
+
 protected:
   FIX::MessageStore* m_pUnmanaged;
 };
