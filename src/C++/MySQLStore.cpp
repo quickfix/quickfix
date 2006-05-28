@@ -347,6 +347,16 @@ void MySQLStore::reset() throw ( IOException )
 
   QF_STACK_POP
 }
+
+void MySQLStore::refresh() throw ( IOException )
+{ QF_STACK_PUSH(MySQLStore::refresh)
+
+  m_cache.reset();
+  populateCache(); 
+
+  QF_STACK_POP
+}
+
 }
 
 #endif

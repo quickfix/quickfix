@@ -97,6 +97,7 @@ public:
   UtcTimeStamp getCreationTime() const throw ( IOException );
 
   void reset() throw ( IOException );
+  void refresh() throw ( IOException );
 
 private:
   typedef std::pair < int, int > OffsetSize;

@@ -351,6 +351,16 @@ void PostgreSQLStore::reset() throw ( IOException )
 
   QF_STACK_POP
 }
+
+void PostgreSQLStore::refresh() throw ( IOException )
+{ QF_STACK_PUSH(PostgreSQLStore::refresh)
+
+  m_cache.reset();
+  populateCache(); 
+
+  QF_STACK_POP
+}
+
 }
 
 #endif

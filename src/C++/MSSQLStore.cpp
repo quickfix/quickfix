@@ -367,6 +367,16 @@ void MSSQLStore::reset() throw ( IOException )
 
   QF_STACK_POP
 }
+
+void MSSQLStore::refresh() throw ( IOException )
+{ QF_STACK_PUSH(MSSQLStore::refresh)
+
+  m_cache.reset();
+  populateCache(); 
+
+  QF_STACK_POP
+}
+
 }
 
 #endif

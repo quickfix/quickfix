@@ -281,6 +281,15 @@ void FileStore::reset() throw ( IOException )
   QF_STACK_POP
 }
 
+void FileStore::refresh() throw ( IOException )
+{ QF_STACK_PUSH(FileStore::refresh)
+
+  m_cache.reset();
+  open( false );
+
+  QF_STACK_POP
+}
+
 void FileStore::setSeqNum()
 { QF_STACK_PUSH(FileStore::setSeqNum)
 

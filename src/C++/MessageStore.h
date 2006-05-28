@@ -83,6 +83,7 @@ public:
   virtual UtcTimeStamp getCreationTime() const throw ( IOException ) = 0;
 
   virtual void reset() throw ( IOException ) = 0;
+  virtual void refresh() throw ( IOException ) = 0;
 };
 /*! @} */
 
@@ -123,6 +124,7 @@ public:
     m_nextSenderMsgSeqNum = 1; m_nextTargetMsgSeqNum = 1;
     m_messages.clear(); m_creationTime.setCurrent();
   }
+  void refresh() throw ( IOException ) {}
 
 private:
   typedef std::map < int, std::string > Messages;

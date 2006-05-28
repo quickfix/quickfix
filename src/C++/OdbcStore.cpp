@@ -353,6 +353,16 @@ void OdbcStore::reset() throw ( IOException )
 
   QF_STACK_POP
 }
+
+void OdbcStore::refresh() throw ( IOException )
+{ QF_STACK_PUSH(OdbcStore::refresh)
+
+  m_cache.reset();
+  populateCache(); 
+
+  QF_STACK_POP
+}
+
 }
 
 #endif

@@ -190,6 +190,8 @@ public:
   { Locker l( m_mutex ); return m_pStore->getCreationTime(); }
   void reset() throw ( IOException )
   { Locker l( m_mutex ); m_pStore->reset(); }
+  void refresh() throw ( IOException )
+  { Locker l( m_mutex ); m_pStore->refresh(); }
 
   void clear()
   { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->clear(); }
