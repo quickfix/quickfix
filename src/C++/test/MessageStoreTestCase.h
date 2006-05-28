@@ -62,6 +62,15 @@ public:
     void onRun( MessageStore& object );
     MessageStore* m_object;
   };
+
+  class refresh : public Test
+  {
+  public:
+    bool onSetup( MessageStore*& pObject )
+    { pObject = &( *m_object ); return true; }
+    void onRun( MessageStore& object );
+    MessageStore* m_object;
+  };
 };
 }
 

@@ -42,6 +42,7 @@ public:
     add( &m_setGet );
     add( &m_other );
     add( &m_reload );
+    add( &m_refresh );
   }
 
 private:
@@ -81,6 +82,18 @@ private:
     FileStoreFactory m_fileStoreFactory;
   }
   m_reload;
+
+  class refresh : public MessageStoreTestCase::refresh
+  {
+  public:
+    refresh() : m_fileStoreFactory( "store" ) {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+
+  private:
+    FileStoreFactory m_fileStoreFactory;
+  }
+  m_refresh;
 };
 
 inline void deleteSession( std::string sender, std::string target )

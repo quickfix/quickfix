@@ -78,6 +78,23 @@ bool FileStoreTestCase::reload::onSetup( MessageStore*& pObject )
 void FileStoreTestCase::reload::onTeardown( MessageStore* pObject )
 {
   m_fileStoreFactory.destroy( pObject );
+  // keep session around for next test
+}
+
+bool FileStoreTestCase::refresh::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_fileStoreFactory.create( sessionID );
+  pObject = &( *m_object );
+
+  return true;
+}
+
+void FileStoreTestCase::refresh::onTeardown( MessageStore* pObject )
+{
+  m_fileStoreFactory.destroy( pObject );
   deleteSession( "SETGET", "TEST" );
 }
 }

@@ -46,6 +46,7 @@ public:
     add( &m_setGet );
     add( &m_other );
     add( &m_reload );
+    add( &m_refresh );
   }
 
 private:
@@ -88,6 +89,19 @@ private:
     MySQLStoreFactory m_factory;
   }
   m_reload;
+
+  class refresh : public MessageStoreTestCase::refresh
+  {
+  public:
+    refresh()
+    : m_factory() {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+
+  private:
+    MySQLStoreFactory m_factory;
+  }
+  m_refresh;
 };
 }
 

@@ -79,6 +79,22 @@ void PostgreSQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
 }
+
+bool PostgreSQLStoreTestCase::refresh::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_factory.create( sessionID );
+  pObject = &( *m_object );
+
+  return true;
+}
+
+void PostgreSQLStoreTestCase::refresh::onTeardown( MessageStore* pObject )
+{
+  m_factory.destroy( pObject );
+}
 } //namespace FIX
 
 #endif //HAVE_POSTGRESQL

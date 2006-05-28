@@ -85,4 +85,12 @@ void MessageStoreTestCase::reload::onRun( MessageStore& object )
   assert( object.getNextSenderMsgSeqNum() == 5 );
   assert( object.getNextTargetMsgSeqNum() == 6 );
 }
+
+void MessageStoreTestCase::refresh::onRun( MessageStore& object )
+{
+  // use same session from previous test
+  object.refresh();
+  assert( object.getNextSenderMsgSeqNum() == 5 );
+  assert( object.getNextTargetMsgSeqNum() == 6 );
+}
 }

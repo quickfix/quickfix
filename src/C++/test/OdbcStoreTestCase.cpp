@@ -79,6 +79,22 @@ void OdbcStoreTestCase::reload::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
 }
+
+bool OdbcStoreTestCase::refresh::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_factory.create( sessionID );
+  pObject = &( *m_object );
+
+  return true;
+}
+
+void OdbcStoreTestCase::refresh::onTeardown( MessageStore* pObject )
+{
+  m_factory.destroy( pObject );
+}
 }
 
 #endif

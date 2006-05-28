@@ -79,6 +79,22 @@ void MySQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
 }
+
+bool MySQLStoreTestCase::refresh::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_factory.create( sessionID );
+  pObject = &( *m_object );
+
+  return true;
+}
+
+void MySQLStoreTestCase::refresh::onTeardown( MessageStore* pObject )
+{
+  m_factory.destroy( pObject );
+}
 }
 
 #endif

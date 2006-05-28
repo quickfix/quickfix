@@ -41,11 +41,13 @@ public:
   PostgreSQLStoreTestCase( const FIX::SessionSettings& sessionSettings )
   : m_setGet( sessionSettings ),
     m_other( sessionSettings ),
-    m_reload( sessionSettings )
+    m_reload( sessionSettings ),
+    m_refresh( sessionSettings )
   {
     add( &m_setGet );
     add( &m_other );
     add( &m_reload );
+    add( &m_refresh );
   }
 
 private:
@@ -88,6 +90,19 @@ private:
     PostgreSQLStoreFactory m_factory;
   }
   m_reload;
+
+  class refresh : public MessageStoreTestCase::refresh
+  {
+  public:
+    refresh( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+
+  private:
+    PostgreSQLStoreFactory m_factory;
+  }
+  m_refresh;
 };
 }
 
