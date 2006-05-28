@@ -140,6 +140,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
     pSession->setResetOnLogout( settings.getBool( RESET_ON_LOGOUT ) );
   if ( settings.has( RESET_ON_DISCONNECT ) )
     pSession->setResetOnDisconnect( settings.getBool( RESET_ON_DISCONNECT ) );
+  if ( settings.has( REFRESH_ON_LOGON ) )
+    pSession->setRefreshOnLogon( settings.getBool( REFRESH_ON_LOGON ) );
   if ( settings.has( MILLISECONDS_IN_TIMESTAMP ) )
     pSession->setMillisecondsInTimeStamp( settings.getBool( MILLISECONDS_IN_TIMESTAMP ) );
 

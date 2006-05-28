@@ -65,6 +65,8 @@ public:
   bool isLoggedOn() { return receivedLogon() && sentLogon(); }
   void reset() throw( IOException ) 
   { generateLogout(); disconnect(); m_state.reset(); }
+  void refresh() throw( IOException )
+  { m_state.refresh(); }
   void setNextSenderMsgSeqNum( int num ) throw( IOException )
   { m_state.setNextSenderMsgSeqNum( num ); }
   void setNextTargetMsgSeqNum( int num ) throw( IOException )
@@ -118,6 +120,8 @@ public:
     { m_resetOnLogout = value; }
   void setResetOnDisconnect( bool value )
     { m_resetOnDisconnect = value; }
+  void setRefreshOnLogon( bool value )
+    { m_refreshOnLogon = value; } 
   void setMillisecondsInTimeStamp ( bool value )
     { m_millisecondsInTimeStamp = value; }
 
@@ -231,6 +235,7 @@ private:
   bool m_resetOnLogon;
   bool m_resetOnLogout;
   bool m_resetOnDisconnect;
+  bool m_refreshOnLogon;
   bool m_millisecondsInTimeStamp;
 
   SessionState m_state;

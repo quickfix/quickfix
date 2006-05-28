@@ -199,6 +199,9 @@ void Session::nextLogon( const Message& logon )
   logon.getHeader().getField( senderCompID );
   logon.getHeader().getField( targetCompID );
 
+  if( m_refreshOnLogon )
+    refresh();
+
   ResetSeqNumFlag resetSeqNumFlag(false);
   if( logon.isSetField(resetSeqNumFlag) )
     logon.getField( resetSeqNumFlag );
@@ -581,6 +584,9 @@ void Session::generateLogon()
   logon.getHeader().setField( MsgType( "A" ) );
   logon.setField( EncryptMethod( 0 ) );
   logon.setField( m_state.heartBtInt() );
+
+  if( m_refreshOnLogon )
+    refresh();
 
   if( shouldSendReset() )
   {

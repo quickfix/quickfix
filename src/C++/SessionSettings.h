@@ -108,6 +108,7 @@ const char ODBC_LOG_CONNECTION_STRING[] = "OdbcLogConnectionString";
 const char RESET_ON_LOGON[] = "ResetOnLogon";
 const char RESET_ON_LOGOUT[] = "ResetOnLogout";
 const char RESET_ON_DISCONNECT[] = "ResetOnDisconnect";
+const char REFRESH_ON_LOGON[] = "RefreshOnLogon";
 const char MILLISECONDS_IN_TIMESTAMP[] = "MillisecondsInTimeStamp";
 
 /// Container for setting dictionaries mapped to sessions.
