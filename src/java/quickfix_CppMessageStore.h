@@ -111,6 +111,14 @@ JNIEXPORT jobject JNICALL Java_quickfix_CppMessageStore_getCreationTime0
 JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_reset0
   (JNIEnv *, jobject);
 
+/*
+ * Class:     quickfix_CppMessageStore
+ * Method:    refresh0
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_refresh0
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif

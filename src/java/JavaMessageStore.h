@@ -43,6 +43,7 @@ public:
   virtual void incrNextTargetMsgSeqNum() throw ( FIX::IOException );
   virtual FIX::UtcTimeStamp getCreationTime() const throw ( FIX::IOException );
   virtual void reset() throw ( FIX::IOException );
+  virtual void refresh() throw ( FIX::IOException );
 
 private:
   struct Exceptions
@@ -64,6 +65,7 @@ private:
   jmethodID incrNextTargetMsgSeqNumId;
   jmethodID getCreationTimeId;
   jmethodID resetId;
+  jmethodID refreshId;
 };
 
 void JNICALL JavaMessageStore_create

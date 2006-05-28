@@ -57,9 +57,15 @@ public class CppMessageStore implements MessageStore {
 	creationTime = getCreationTime0();
     }
 
+    public void refresh() throws IOException {
+        refresh0();
+        creationTime = getCreationTime0();
+    }
+
     private native void create();
     private native void destroy();
 
     private native Date getCreationTime0() throws IOException;
     private native void reset0() throws IOException;
+    private native void refresh0() throws IOException;
 }

@@ -257,4 +257,24 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_reset0
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_refresh0
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  FIX::MessageStoreExceptionWrapper* pWrapper =
+    ( FIX::MessageStoreExceptionWrapper* ) jobject.getLong( "cppPointer" );
+  bool threw = false;
+  FIX::IOException e;
+  pWrapper->refresh( threw, e );
+  if ( threw )
+  {
+    throwNew( "Ljava/io/IOException;", e.what() );
+    return ;
+  }
+
+  QF_STACK_CATCH
+}
+
 #endif

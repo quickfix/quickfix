@@ -176,4 +176,15 @@ void MessageStoreExceptionWrapper::reset( bool& threw, IOException& ex )
 
   QF_STACK_POP
 }
+
+void MessageStoreExceptionWrapper::refresh( bool& threw, IOException& ex )
+{ QF_STACK_PUSH(MessageStoreExceptionWrapper::reset)
+
+  threw = false;
+  try { m_pStore->refresh(); }
+  catch ( IOException & e ) { threw = true; ex = e; }
+
+  QF_STACK_POP
+}
+
 } //namespace FIX

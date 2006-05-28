@@ -167,6 +167,7 @@ public:
   UtcTimeStamp getCreationTime( bool&, IOException& );
 
   void reset( bool&, IOException& );
+  void refresh( bool&, IOException& );
 };
 }
 

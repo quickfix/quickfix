@@ -39,4 +39,5 @@ public interface MessageStore {
     void incrNextTargetMsgSeqNum() throws IOException;
     Date getCreationTime() throws IOException;
     void reset() throws IOException;
+    void refresh() throws IOException;
 }

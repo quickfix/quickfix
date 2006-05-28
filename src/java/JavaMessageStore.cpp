@@ -61,6 +61,9 @@ JavaMessageStore::JavaMessageStore( JVMObject object )
 
   resetId = object.getClass()
             .getMethodID( "reset", "()V" );
+
+  refreshId = object.getClass()
+              .getMethodID( "refresh", "()V" );
 }
 
 JavaMessageStore::~JavaMessageStore() { messageStore.deleteGlobalRef(); }
@@ -172,6 +175,14 @@ void JavaMessageStore::reset() throw ( FIX::IOException )
   JNIEnv * pEnv = ENV::get();
   Exceptions e;
   pEnv->CallVoidMethod( messageStore, resetId );
+  handleException( pEnv, e );
+}
+
+void JavaMessageStore::refresh() throw ( FIX::IOException )
+{
+  JNIEnv * pEnv = ENV::get();
+  Exceptions e;
+  pEnv->CallVoidMethod( messageStore, refreshId );
   handleException( pEnv, e );
 }
 
