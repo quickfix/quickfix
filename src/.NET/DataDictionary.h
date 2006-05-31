@@ -22,6 +22,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::IO;
 
 #include "quickfix_net.h"
 
@@ -46,6 +47,23 @@ public:
   { QF_STACK_TRY
 
     m_pUnmanaged = new FIX::DataDictionary( dataDictionary->unmanaged() );
+
+    QF_STACK_CATCH
+  }
+
+  DataDictionary( Stream* stream )
+  { QF_STACK_TRY
+
+    std::string streamValue;
+    char read = -1;
+    while ( ( read = ( char ) stream->ReadByte() ) != -1 )
+      streamValue += read;
+    std::stringstream stringStream( streamValue );
+    try
+    {
+      m_pUnmanaged = new FIX::DataDictionary( stringStream );
+    }
+    catch ( std::exception & e ) { throw new ConfigError( e.what() ); }
 
     QF_STACK_CATCH
   }

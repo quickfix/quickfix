@@ -53,6 +53,8 @@ public:
 
   SessionID* getSessionID()
   { return new SessionID(unmanaged().getSessionID()); }
+  void setDataDictionary( DataDictionary* dataDictionary )
+  { unmanaged().setDataDictionary(dataDictionary->unmanaged()); }
   DataDictionary* getDataDictionary()
   { return new DataDictionary(unmanaged().getDataDictionary()); }
 
