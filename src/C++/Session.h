@@ -74,6 +74,8 @@ public:
 
   const SessionID& getSessionID() const
   { return m_sessionID; }
+  void setDataDictionary( const DataDictionary& dataDictionary )
+  { m_dataDictionary = dataDictionary; }
   const DataDictionary& getDataDictionary() const
   { return m_dataDictionary; }
 
