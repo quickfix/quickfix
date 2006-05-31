@@ -50,6 +50,15 @@ DataDictionary::DataDictionary()
   m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
   m_orderedFieldsArray(0) {}
 
+DataDictionary::DataDictionary( std::istream& stream )
+throw( ConfigError )
+: m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
+  m_checkFieldsHaveValues( true ), m_checkUserDefinedFields( true ),
+  m_orderedFieldsArray(0)
+{
+  readFromStream( stream );
+}
+
 DataDictionary::DataDictionary( const std::string& url )
 throw( ConfigError )
 : m_hasVersion( false ), m_checkFieldsOutOfOrder( true ),
@@ -186,27 +195,63 @@ throw( ConfigError )
   if(!pDoc->load(url))
     throw ConfigError(url + ": Could not parse data dictionary file");
 
+  try
+  {
+    readFromDocument( pDoc );
+  }
+  catch( ConfigError& e )
+  {
+    throw ConfigError( url + ": " + e.what() );
+  }
+
+  QF_STACK_POP
+}
+
+void DataDictionary::readFromStream( std::istream& stream )
+throw( ConfigError )
+{ QF_STACK_PUSH(DataDictionary::readFromURL)
+
+#ifdef HAVE_LIBXML
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
+#elif _MSC_VER
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new MSXML_DOMDocument());
+#else
+  DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
+#endif
+
+  if(!pDoc->load(stream))
+    throw ConfigError("Could not parse data dictionary stream");
+
+  readFromDocument( pDoc );
+
+  QF_STACK_POP
+}
+
+void DataDictionary::readFromDocument( DOMDocumentPtr pDoc )
+throw( ConfigError )
+{ QF_STACK_PUSH(readFromDocument)
+
   // VERSION
   DOMNodePtr pFixNode = pDoc->getNode("/fix");
   if(!pFixNode.get())
-    throw ConfigError(url + ": Could not parse data dictionary file"
-                            ", or no <fix> node found at root");
+    throw ConfigError("Could not parse data dictionary file"
+                      ", or no <fix> node found at root");
   DOMAttributesPtr attrs = pFixNode->getAttributes();
   std::string major;
   if(!attrs->get("major", major))
-    throw ConfigError(url + ": major attribute not found on <fix>");
+    throw ConfigError("major attribute not found on <fix>");
   std::string minor;
   if(!attrs->get("minor", minor))
-    throw ConfigError(url + ": minor attribute not found on <fix>");
+    throw ConfigError("minor attribute not found on <fix>");
   setVersion("FIX." + major + "." + minor);
 
   // FIELDS
   DOMNodePtr pFieldsNode = pDoc->getNode("/fix/fields");
   if(!pFieldsNode.get())
-    throw ConfigError(url + ": <fields> section not found in data dictionary");
+    throw ConfigError("<fields> section not found in data dictionary");
 
   DOMNodePtr pFieldNode = pFieldsNode->getFirstChildNode();
-  if(!pFieldNode.get()) throw ConfigError(url + ": No fields defined");
+  if(!pFieldNode.get()) throw ConfigError("No fields defined");
 
   while(pFieldNode.get())
   {
@@ -215,14 +260,14 @@ throw( ConfigError )
       DOMAttributesPtr attrs = pFieldNode->getAttributes();
       std::string name;
       if(!attrs->get("name", name))
-        throw ConfigError(url + ": <field> does not have a name attribute");
+        throw ConfigError("<field> does not have a name attribute");
       std::string number;
       if(!attrs->get("number", number))
-        throw ConfigError(url + ": <field> " + name + " does not have a number attribute");
+        throw ConfigError("<field> " + name + " does not have a number attribute");
       int num = atol(number.c_str());
       std::string type;
       if(!attrs->get("type", type))
-        throw ConfigError(url + ": <field> " + name + " does not have a type attribute");
+        throw ConfigError("<field> " + name + " does not have a type attribute");
       addField(num);
       addFieldType(num, XMLTypeToType(type));
       addFieldName(num, name);
@@ -235,7 +280,7 @@ throw( ConfigError )
           DOMAttributesPtr attrs = pFieldValueNode->getAttributes();
           std::string enumeration;
           if(!attrs->get("enum", enumeration))
-            throw ConfigError(url + ": <value> does not have enum attribute in field " + name);
+            throw ConfigError("<value> does not have enum attribute in field " + name);
           addFieldValue(num, enumeration);
           std::string description;
           if(attrs->get("description", description))
@@ -250,10 +295,10 @@ throw( ConfigError )
   // HEADER
   DOMNodePtr pHeaderNode = pDoc->getNode("/fix/header");
   if(!pHeaderNode.get())
-    throw ConfigError(url + ": <header> section not found in data dictionary");
+    throw ConfigError("<header> section not found in data dictionary");
 
   DOMNodePtr pHeaderFieldNode = pHeaderNode->getFirstChildNode();
-  if(!pHeaderFieldNode.get()) throw ConfigError(url + ": No header fields defined");
+  if(!pHeaderFieldNode.get()) throw ConfigError("No header fields defined");
 
   while(pHeaderFieldNode.get())
   {
@@ -262,7 +307,7 @@ throw( ConfigError )
       DOMAttributesPtr attrs = pHeaderFieldNode->getAttributes();
       std::string name;
       if(!attrs->get("name", name))
-        throw ConfigError(url + ": <field> does not have a name attribute");
+        throw ConfigError("<field> does not have a name attribute");
       std::string required = "false";
       attrs->get("required", required);
       addHeaderField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
@@ -282,10 +327,10 @@ throw( ConfigError )
   // TRAILER
   DOMNodePtr pTrailerNode = pDoc->getNode("/fix/trailer");
   if(!pTrailerNode.get())
-    throw ConfigError(url + ": <trailer> section not found in data dictionary");
+    throw ConfigError("<trailer> section not found in data dictionary");
 
   DOMNodePtr pTrailerFieldNode = pTrailerNode->getFirstChildNode();
-  if(!pTrailerFieldNode.get()) throw ConfigError(url + ": No trailer fields defined");
+  if(!pTrailerFieldNode.get()) throw ConfigError("No trailer fields defined");
 
   while(pTrailerFieldNode.get())
   {
@@ -294,7 +339,7 @@ throw( ConfigError )
       DOMAttributesPtr attrs = pTrailerFieldNode->getAttributes();
       std::string name;
       if(!attrs->get("name", name))
-        throw ConfigError(url + ": <field> does not have a name attribute");
+        throw ConfigError("<field> does not have a name attribute");
       std::string required = "false";
       attrs->get("required", required);
       addTrailerField(lookupXMLFieldNumber(pDoc.get(), name), required == "true");
@@ -314,10 +359,10 @@ throw( ConfigError )
   // MSGTYPE
   DOMNodePtr pMessagesNode = pDoc->getNode("/fix/messages");
   if(!pMessagesNode.get())
-    throw ConfigError(url + ": <messages> section not found in data dictionary");
+    throw ConfigError("<messages> section not found in data dictionary");
 
   DOMNodePtr pMessageNode = pMessagesNode->getFirstChildNode();
-  if(!pMessageNode.get()) throw ConfigError(url + ": No messages defined");
+  if(!pMessageNode.get()) throw ConfigError("No messages defined");
 
   while(pMessageNode.get())
   {
@@ -326,7 +371,7 @@ throw( ConfigError )
       DOMAttributesPtr attrs = pMessageNode->getAttributes();
       std::string msgtype;
       if(!attrs->get("msgtype", msgtype))
-        throw ConfigError(url + ": <field> does not have a name attribute");
+        throw ConfigError("<field> does not have a name attribute");
       addMsgType(msgtype);
 
       std::string name;
@@ -335,7 +380,7 @@ throw( ConfigError )
 
       DOMNodePtr pMessageFieldNode = pMessageNode->getFirstChildNode();
       if( !pMessageFieldNode.get() )
-        throw ConfigError(url + ": <message> contains no fields");
+        throw ConfigError("<message> contains no fields");
       while( pMessageFieldNode.get() )
       {
         if(pMessageFieldNode->getName() == "field"
@@ -344,7 +389,7 @@ throw( ConfigError )
           DOMAttributesPtr attrs = pMessageFieldNode->getAttributes();
           std::string name;
           if(!attrs->get("name", name))
-            throw ConfigError(url + ": <field> does not have a name attribute");
+            throw ConfigError("<field> does not have a name attribute");
           int num = lookupXMLFieldNumber(pDoc.get(), name);
           addMsgField(msgtype, num);
 

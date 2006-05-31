@@ -67,10 +67,14 @@ class DataDictionary
 
 public:
   DataDictionary();
-  DataDictionary( const DataDictionary& );
+  DataDictionary( const DataDictionary& copy );
+  DataDictionary( std::istream& stream ) throw( ConfigError );
   DataDictionary( const std::string& url ) throw( ConfigError );
   virtual ~DataDictionary();
+
   void readFromURL( const std::string& url ) throw( ConfigError );
+  void readFromDocument( DOMDocumentPtr pDoc ) throw( ConfigError );
+  void readFromStream( std::istream& stream ) throw( ConfigError );
 
   int* getOrderedFields() const;
 

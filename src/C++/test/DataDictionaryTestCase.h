@@ -52,6 +52,7 @@ public:
     add( &m_checkGroupCount );
     add( &m_checkGroupRequiredFields );
     add( &m_readFromFile );
+    add( &m_readFromStream );
     add( &m_copy );
   }
 
@@ -201,12 +202,22 @@ private:
 
   class readFromFile : public Test
   {
+  protected:
     bool onSetup( DataDictionary*& pObject );
     void onRun( DataDictionary& object );
     void onTeardown( DataDictionary* pObject ) { delete pObject; }
     DataDictionary* m_pObject;
   }
   m_readFromFile;
+
+  class readFromStream : public readFromFile
+  {
+    bool onSetup( DataDictionary*& pObject );
+    void onRun( DataDictionary& object );
+    void onTeardown( DataDictionary* pObject ) { delete pObject; }
+    DataDictionary* m_pObject;
+  }
+  m_readFromStream;
 
   class copy : public SimpleTest
   {

@@ -34,6 +34,7 @@
 #include "fix44/NewOrderList.h"
 #include "fix44/MarketDataRequest.h"
 #include "fix44/MarketDataSnapshotFullRefresh.h"
+#include <fstream>
 
 namespace FIX
 {
@@ -578,6 +579,20 @@ void DataDictionaryTestCase::readFromFile::onRun
   assert( delim == 448 );
   assert( object.getGroup( "y", 146, delim, pDD ) );
   assert( delim == 55 );
+}
+
+bool DataDictionaryTestCase::readFromStream::onSetup
+( DataDictionary*& pObject )
+{
+  std::fstream stream( "spec/FIX43.xml" );
+  pObject = new DataDictionary( stream );
+  return true;
+}
+
+void DataDictionaryTestCase::readFromStream::onRun
+( DataDictionary& object )
+{
+  readFromFile::onRun( object );
 }
 
 bool DataDictionaryTestCase::copy::onSetup
