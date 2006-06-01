@@ -65,6 +65,32 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Lquickfix_DataDictio
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_io_InputStream_2
+( JNIEnv *pEnv, jobject obj, jobject stream )
+{ QF_STACK_TRY
+
+  if( isNullAndThrow(stream) ) return;
+
+  JVM::set( pEnv );
+
+  JVMObject jobject( obj );
+  JVMObject jstream( stream );
+  std::string string; int i = -1;
+  while ( ( i = jstream.callIntMethod( "read" ) ) != -1 )
+    string += ( char ) i;
+  std::istringstream stringStream( string );
+
+  try
+  {
+    FIX::DataDictionary* pDictionary = new FIX::DataDictionary( stringStream );
+    jobject.setLong( "cppPointer", ( long ) pDictionary );
+  }
+  catch( FIX::ConfigError& e )
+  { throwNew( "Lquickfix/ConfigError;", e.what() ); }
+
+  QF_STACK_POP
+}
+
 JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_lang_String_2
 ( JNIEnv *pEnv, jobject obj, jstring url )
 { QF_STACK_TRY

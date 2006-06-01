@@ -161,6 +161,22 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getSessionID
 
 /*
  * Class:     quickfix_Session
+ * Method:    setDataDictionary
+ * Signature: (Lquickfix/DataDictionary;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_Session_setDataDictionary
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_Session
+ * Method:    getDataDictionary
+ * Signature: ()Lquickfix/DataDictionary;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getDataDictionary
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_Session
  * Method:    numSessions
  * Signature: ()I
  */

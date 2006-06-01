@@ -19,8 +19,13 @@
 
 package quickfix;
 
+import java.io.InputStream;
+
 public class DataDictionary {
     private long cppPointer;
+    private DataDictionary(long cppPointer) {
+	this.cppPointer = cppPointer;
+    }
 
     public DataDictionary() {
         create();
@@ -28,6 +33,10 @@ public class DataDictionary {
 
     public DataDictionary( DataDictionary dd ) {
 	create( dd );
+    }
+
+    public DataDictionary( InputStream stream ) {
+        create( stream );
     }
 
     public DataDictionary( String url ) {
@@ -40,6 +49,7 @@ public class DataDictionary {
 
     private native void create();
     private native void create( DataDictionary dd );
+    private native void create( InputStream stream );
     private native void create( String url );
     private native void destroy();
 

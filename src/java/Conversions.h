@@ -93,6 +93,18 @@ inline jobject newSessionID( const FIX::SessionID& sessionID )
   return result;
 }
 
+inline jobject newDataDictionary( const FIX::DataDictionary& dataDictionary )
+{
+  JNIEnv * pEnv = ENV::get();
+  JVMClass type( "Lquickfix/DataDictionary;" );
+  jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
+
+  FIX::DataDictionary* pDataDictionary = new FIX::DataDictionary( dataDictionary );
+  jobject result = pEnv->NewObject( type, method, pDataDictionary );
+
+  return result;
+}
+
 inline jobject newMessage( const FIX::Message& message, JVMObject factory )
 {
   JNIEnv * pEnv = ENV::get();

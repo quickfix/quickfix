@@ -63,6 +63,9 @@ public class Session {
     public native void setNextTargetMsgSeqNum( int num ) throws IOException;
 
     public native SessionID getSessionID();
+    public native void setDataDictionary( DataDictionary dataDictionary );
+    public native DataDictionary getDataDictionary();
+
     public static native int numSessions();
     public native boolean isSessionTime();
 
