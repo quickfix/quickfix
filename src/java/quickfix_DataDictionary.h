@@ -26,6 +26,14 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Lquickfix_DataDictio
 /*
  * Class:     quickfix_DataDictionary
  * Method:    create
+ * Signature: (Ljava/io/InputStream;)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_io_InputStream_2
+  (JNIEnv *, jobject, jobject);
+
+/*
+ * Class:     quickfix_DataDictionary
+ * Method:    create
  * Signature: (Ljava/lang/String;)V
  */
 JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_lang_String_2

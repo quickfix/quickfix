@@ -402,6 +402,34 @@ JNIEXPORT jobject JNICALL Java_quickfix_Session_getSessionID
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Session_setDataDictionary
+(JNIEnv *pEnv, jobject obj, jobject dataDictionary)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+  JVMObject jdataDictionary( dataDictionary );
+
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
+  FIX::DataDictionary* pDataDictionary = ( FIX::DataDictionary* ) jdataDictionary.getLong( "cppPointer" );
+  pSession->setDataDictionary( *pDataDictionary );
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_Session_getDataDictionary
+(JNIEnv *pEnv, jobject obj)
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+
+  FIX::Session* pSession = ( FIX::Session* ) jobject.getLong( "cppPointer" );
+  return newDataDictionary( pSession->getDataDictionary() );
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jint JNICALL Java_quickfix_Session_numSessions
 (JNIEnv *pEnv, jclass cls)
 { QF_STACK_TRY
