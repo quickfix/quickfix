@@ -143,6 +143,12 @@ public:
     return pQuery.execute( m_pConnection );
   }
 
+  void throwException() throw( IOException )
+  {
+    if( !success() )
+      throw IOException( Query failed [" + m_query + "] " );
+  }
+
 private:
   void connect()
   {

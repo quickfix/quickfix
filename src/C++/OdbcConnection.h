@@ -132,6 +132,12 @@ public:
     return m_statement;
   }
 
+  void throwException() throw( IOException )
+  {
+    if( !success() )
+      throw IOException( Query failed [" + m_query + "] " + reason() );
+  }
+
 private:
   HSTMT m_statement;
   RETCODE m_result;

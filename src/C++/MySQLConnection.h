@@ -100,6 +100,12 @@ public:
     return m_rows[row][column];
   }
 
+  void throwException() throw( IOException )
+  {
+    if( !success() )
+      throw IOException( Query failed [" + m_query + "] " + reason() );
+  }
+
 private:
   MYSQL_RES* m_result;
   int m_status;
