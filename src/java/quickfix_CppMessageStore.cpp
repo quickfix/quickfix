@@ -52,7 +52,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_CppMessageStore_set
 
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return 0;
   }
   return result;
@@ -78,7 +78,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_get__IILjava_util_Collectio
   pWrapper->get( start, end, messages, threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return ;
   }
 
@@ -107,7 +107,7 @@ JNIEXPORT jint JNICALL Java_quickfix_CppMessageStore_getNextSenderMsgSeqNum
   jint result = pWrapper->getNextSenderMsgSeqNum( threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return 0;
   }
   return result;
@@ -128,7 +128,7 @@ JNIEXPORT jint JNICALL Java_quickfix_CppMessageStore_getNextTargetMsgSeqNum
   jint result = pWrapper->getNextTargetMsgSeqNum( threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return 0;
   }
   return result;
@@ -149,7 +149,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_setNextSenderMsgSeqNum
   pWrapper->setNextSenderMsgSeqNum( seq, threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return ;
   }
 
@@ -169,7 +169,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_setNextTargetMsgSeqNum
   pWrapper->setNextTargetMsgSeqNum( seq, threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return ;
   }
 
@@ -189,7 +189,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_incrNextSenderMsgSeqNum
   pWrapper->incrNextSenderMsgSeqNum( threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return ;
   }
 
@@ -209,7 +209,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_incrNextTargetMsgSeqNum
   pWrapper->incrNextTargetMsgSeqNum( threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return ;
   }
 
@@ -229,7 +229,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_CppMessageStore_getCreationTime0
   jobject result = newDate( pWrapper->getCreationTime( threw, e ) );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return 0;
   }
   return result;
@@ -250,7 +250,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_reset0
   pWrapper->reset( threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return ;
   }
 
@@ -270,7 +270,7 @@ JNIEXPORT void JNICALL Java_quickfix_CppMessageStore_refresh0
   pWrapper->refresh( threw, e );
   if ( threw )
   {
-    throwNew( "Ljava/io/IOException;", e.what() );
+    throwNew( "Ljava/io/IOException;", e.detail.c_str() );
     return ;
   }
 
