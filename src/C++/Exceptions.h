@@ -33,9 +33,10 @@ namespace FIX
 struct Exception : public std::logic_error
 {
   Exception( const std::string& t, const std::string& d )
-  : std::logic_error( detail.size() ? t + ": " + d : t ),
+  : std::logic_error( d.size() ? t + ": " + d : t ),
     type( t ), detail( d )
   {}
+  ~Exception() throw() {}
 
   std::string type;
   std::string detail;
