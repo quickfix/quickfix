@@ -32,9 +32,13 @@ namespace FIX
 /// Base QuickFIX exception type.
 struct Exception : public std::logic_error
 {
-  Exception( const std::string& what, const std::string& detail )
-    : std::logic_error( detail.size() ? what + ": " + detail : what )
+  Exception( const std::string& t, const std::string& d )
+  : std::logic_error( detail.size() ? t + ": " + d : t ),
+    type( t ), detail( d )
   {}
+
+  std::string type;
+  std::string detail;
 };
 
 /// Field not found inside a message
