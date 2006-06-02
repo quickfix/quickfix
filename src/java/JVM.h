@@ -47,8 +47,7 @@ public:
   #define LONG_TYPE "J"
   #define LONGMETHOD_TYPE "()J"
   #define INTMETHOD_TYPE "()I"
-  #define STRINGMETHOD_TYPE "()Ljava/util/String;"
-
+  #define STRINGMETHOD_TYPE "()Ljava/lang/String;"
   static void set( JNIEnv* );
   static void set( JavaVM* );
   static JavaVM* get();
