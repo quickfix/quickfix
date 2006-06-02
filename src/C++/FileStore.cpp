@@ -56,7 +56,7 @@ FileStore::FileStore( std::string path, const SessionID& s )
 
   m_msgFileName = prefix + "body";
   m_headerFileName = prefix + "header";
-  m_seqNumFileName = prefix + "seqnums";
+  m_seqNumsFileName = prefix + "seqnums";
   m_sessionFileName = prefix + "session";
 
   try
@@ -89,7 +89,7 @@ void FileStore::open( bool deleteFile )
   {
     file_unlink( m_msgFileName.c_str() );
     file_unlink( m_headerFileName.c_str() );
-    file_unlink( m_seqNumFileName.c_str() );
+    file_unlink( m_seqNumsFileName.c_str() );
     file_unlink( m_sessionFileName.c_str() );
   }
 
@@ -103,8 +103,8 @@ void FileStore::open( bool deleteFile )
   if ( !m_headerFile ) m_headerFile = file_fopen( m_headerFileName.c_str(), "w+" );
   if ( !m_headerFile ) throw ConfigError( "Could not open header file" );
 
-  m_seqNumsFile = file_fopen( m_seqNumFileName.c_str(), "r+" );
-  if ( !m_seqNumsFile ) m_seqNumsFile = file_fopen( m_seqNumFileName.c_str(), "w+" );
+  m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
+  if ( !m_seqNumsFile ) m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "w+" );
   if ( !m_seqNumsFile ) throw ConfigError( "Could not open seqnums file" );
 
   bool setCreationTime = false;
@@ -139,17 +139,17 @@ void FileStore::populateCache()
     fclose( headerFile );
   }
 
-  FILE* seqNumFile;
-  seqNumFile = file_fopen( m_seqNumFileName.c_str(), "r+" );
-  if ( seqNumFile )
+  FILE* seqNumsFile;
+  seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
+  if ( seqNumsFile )
   {
     int sender, target;
-    if ( FILE_FSCANF( seqNumFile, "%d : %d", &sender, &target ) == 2 )
+    if ( FILE_FSCANF( seqNumsFile, "%d : %d", &sender, &target ) == 2 )
     {
       m_cache.setNextSenderMsgSeqNum( sender );
       m_cache.setNextTargetMsgSeqNum( target );
     }
-    fclose( seqNumFile );
+    fclose( seqNumsFile );
   }
 
   FILE* sessionFile;
@@ -190,20 +190,26 @@ bool FileStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException )
 { QF_STACK_PUSH(FileStore::set)
 
-  if ( fseek( m_msgFile, 0, SEEK_END ) ) throw IOException();
-  if ( fseek( m_headerFile, 0, SEEK_END ) ) throw IOException();
+  if ( fseek( m_msgFile, 0, SEEK_END ) ) 
+    throw IOException( "Cannot seek to end of " + m_msgFileName );
+  if ( fseek( m_headerFile, 0, SEEK_END ) ) 
+    throw IOException( "Cannot seek to end of " + m_headerFileName );
 
   int offset = ftell( m_msgFile );
-  if ( offset < 0 ) throw IOException();
+  if ( offset < 0 ) 
+    throw IOException( "Unable to get file pointer position from " + m_msgFileName );
   int size = msg.size();
 
   if ( fprintf( m_headerFile, "%d,%d,%d ", msgSeqNum, offset, size ) < 0 )
-    throw IOException();
+    throw IOException( "Unable to write to file " + m_headerFileName );
   m_offsets[ msgSeqNum ] = std::make_pair( offset, size );
   fwrite( msg.c_str(), sizeof( char ), msg.size(), m_msgFile );
-  if ( ferror( m_msgFile ) ) throw IOException();
-  if ( fflush( m_msgFile ) == EOF ) throw IOException();
-  if ( fflush( m_headerFile ) == EOF ) throw IOException();
+  if ( ferror( m_msgFile ) ) 
+    throw IOException( "Unable to write to file " + m_msgFileName );
+  if ( fflush( m_msgFile ) == EOF ) 
+    throw IOException( "Unable to flush file " + m_msgFileName );
+  if ( fflush( m_headerFile ) == EOF ) 
+    throw IOException( "Unable to flush file " + m_headerFileName );
   return true;
 
   QF_STACK_POP
@@ -296,8 +302,10 @@ void FileStore::setSeqNum()
   rewind( m_seqNumsFile );
   fprintf( m_seqNumsFile, "%10.10d : %10.10d",
            getNextSenderMsgSeqNum(), getNextTargetMsgSeqNum() );
-  if ( ferror( m_seqNumsFile ) ) throw IOException();
-  if ( fflush( m_seqNumsFile ) ) throw IOException();
+  if ( ferror( m_seqNumsFile ) ) 
+    throw IOException( "Unable to write to file " + m_seqNumsFileName );
+  if ( fflush( m_seqNumsFile ) ) 
+    throw IOException( "Unable to flush file " + m_seqNumsFileName );
 
   QF_STACK_POP
 }
@@ -308,8 +316,10 @@ void FileStore::setSession()
   rewind( m_sessionFile );
   fprintf( m_sessionFile, "%s",
            UtcTimeStampConvertor::convert( m_cache.getCreationTime() ).c_str() );
-  if ( ferror( m_sessionFile ) ) throw IOException();
-  if ( fflush( m_sessionFile ) ) throw IOException();
+  if ( ferror( m_sessionFile ) ) 
+    throw IOException( "Unable to write to file " + m_sessionFileName );
+  if ( fflush( m_sessionFile ) ) 
+    throw IOException( "Unable to flush file " + m_sessionFileName );
 
   QF_STACK_POP
 }
@@ -321,10 +331,12 @@ throw ( IOException )
   NumToOffset::const_iterator find = m_offsets.find( msgSeqNum );
   if ( find == m_offsets.end() ) return false;
   const OffsetSize& offset = find->second;
-  if ( fseek( m_msgFile, offset.first, SEEK_SET ) ) throw IOException();
+  if ( fseek( m_msgFile, offset.first, SEEK_SET ) ) 
+    throw IOException( "Unable to seek in file " + m_msgFileName );
   char* buffer = new char[ offset.second + 1 ];
   fread( buffer, sizeof( char ), offset.second, m_msgFile );
-  if ( ferror( m_msgFile ) ) throw IOException();
+  if ( ferror( m_msgFile ) ) 
+    throw IOException( "Unable to read from file " + m_msgFileName );
   buffer[ offset.second ] = 0;
   msg = buffer;
   delete [] buffer;

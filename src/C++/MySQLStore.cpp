@@ -206,7 +206,7 @@ throw ( IOException )
     << "msgseqnum=" << msgSeqNum;
     MySQLQuery query2( queryString2.str() );
     if( !m_pConnection->execute(query2) )
-      throw IOException( query2.reason() );
+      query.throwException();
   }
   return true;
 
@@ -230,7 +230,7 @@ throw ( IOException )
 
   MySQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   int rows = query.rows();
   for( int row = 0; row < rows; row++ )
@@ -262,7 +262,7 @@ void MySQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   << "session_qualifier=" << "\"" << m_sessionID.getSessionQualifier() << "\"";
   MySQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
   m_cache.setNextSenderMsgSeqNum( value );
 
   QF_STACK_POP
@@ -280,7 +280,7 @@ void MySQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 
   MySQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   m_cache.setNextTargetMsgSeqNum( value );
 
@@ -319,7 +319,7 @@ void MySQLStore::reset() throw ( IOException )
 
   MySQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   m_cache.reset();
   UtcTimeStamp time = m_cache.getCreationTime();
@@ -343,7 +343,7 @@ void MySQLStore::reset() throw ( IOException )
 
   MySQLQuery query2( queryString2.str() );
   if( !m_pConnection->execute(query2) )
-    throw IOException( query2.reason() );
+    query.throwException();
 
   QF_STACK_POP
 }

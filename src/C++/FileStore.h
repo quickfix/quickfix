@@ -116,7 +116,7 @@ private:
 
   std::string m_msgFileName;
   std::string m_headerFileName;
-  std::string m_seqNumFileName;
+  std::string m_seqNumsFileName;
   std::string m_sessionFileName;
 
   FILE* m_msgFile;

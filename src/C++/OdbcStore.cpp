@@ -199,7 +199,7 @@ throw ( IOException )
     << "msgseqnum=" << msgSeqNum;
     OdbcQuery query2( queryString2.str() );
     if( !m_pConnection->execute(query2) )
-      throw IOException( query2.reason() );
+      query.throwException();
   }
   return true;
 
@@ -224,7 +224,7 @@ throw ( IOException )
   OdbcQuery query( queryString.str() );
 
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   while( query.fetch() )
   {
@@ -267,7 +267,7 @@ void OdbcStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
   OdbcQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
   m_cache.setNextSenderMsgSeqNum( value );
 
   QF_STACK_POP
@@ -285,7 +285,7 @@ void OdbcStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 
   OdbcQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   m_cache.setNextTargetMsgSeqNum( value );
 
@@ -324,7 +324,7 @@ void OdbcStore::reset() throw ( IOException )
 
   OdbcQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
   query.close();
 
   m_cache.reset();
@@ -349,7 +349,7 @@ void OdbcStore::reset() throw ( IOException )
 
   OdbcQuery query2( queryString2.str() );
   if( !m_pConnection->execute(query2) )
-    throw IOException( query2.reason() );
+    query2.throwException();
 
   QF_STACK_POP
 }

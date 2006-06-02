@@ -207,7 +207,7 @@ throw ( IOException )
     << "msgseqnum=" << msgSeqNum;
     PostgreSQLQuery query2( queryString2.str() );
     if( !m_pConnection->execute(query2) )
-      throw IOException( query2.reason() );
+      query2.throwException();
   }
 
   return true;
@@ -232,7 +232,7 @@ throw ( IOException )
 
   PostgreSQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   int rows = query.rows();
   for( int row = 0; row < rows; row++ )
@@ -265,7 +265,7 @@ void PostgreSQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
 
   PostgreSQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   m_cache.setNextSenderMsgSeqNum( value );
 
@@ -284,7 +284,7 @@ void PostgreSQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
 
   PostgreSQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   m_cache.setNextTargetMsgSeqNum( value );
 
@@ -323,7 +323,7 @@ void PostgreSQLStore::reset() throw ( IOException )
 
   PostgreSQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )
-    throw IOException( query.reason() );
+    query.throwException();
 
   m_cache.reset();
   UtcTimeStamp time = m_cache.getCreationTime();
@@ -347,7 +347,7 @@ void PostgreSQLStore::reset() throw ( IOException )
 
   PostgreSQLQuery query2( queryString2.str() );
   if( !m_pConnection->execute(query2) )
-    throw IOException( query2.reason() );
+    query2.throwException();
 
   QF_STACK_POP
 }
