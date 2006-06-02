@@ -140,6 +140,15 @@ jfieldID JVMClass::getStaticFieldID( const char* name, const char* type )
   return pEnv->GetStaticFieldID( m_cls, name, type );
 }
 
+jstring JVMObject::callStringMethod( const std::string& name )
+{
+  JNIEnv * pEnv = ENV::get();
+  jmethodID mid = getClass().getMethodID( name.c_str(), STRINGMETHOD_TYPE );
+  if ( mid == 0 ) throw std::logic_error( "method " + name + " is not found" );
+
+  return (jstring)pEnv->CallObjectMethod( m_obj, mid );
+}
+
 jlong JVMObject::callLongMethod( const std::string& name )
 {
   JNIEnv * pEnv = ENV::get();

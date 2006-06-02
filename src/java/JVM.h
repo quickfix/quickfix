@@ -147,6 +147,7 @@ public:
   void setInt( const std::string& name, int );
   void setLong( const std::string& name, long );
 
+  jstring callStringMethod( const std::string& name );
   jlong callLongMethod( const std::string& name );
   jint callIntMethod( const std::string& name );
 
