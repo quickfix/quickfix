@@ -193,8 +193,14 @@ void JavaMessageStore::handleException( JNIEnv* env, Exceptions& e ) const
   {
     if ( e.ioException.IsInstanceOf( exception ) )
     {
+      JVMObject je(e.ioException);
+      jstring reason = je.callStringMethod("getMessage");
+      const char* ureason = env->GetStringUTFChars( reason, 0 );
+      FIX::IOException cppException( ureason );
+      env->ReleaseStringUTFChars( reason, ureason );
+      env->DeleteLocalRef( reason );
       env->ExceptionClear();
-      throw FIX::IOException();
+      throw cppException;
     }
     else
     {
