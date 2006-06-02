@@ -182,9 +182,9 @@ void Session::next()
       }
     }
   }
-  catch ( FIX::IOException& )
+  catch ( FIX::IOException& e )
   {
-    m_state.onEvent( "Error Reading/Writing in MessageStore" );
+    m_state.onEvent( e.what() );
     disconnect();
   }
 
@@ -502,9 +502,9 @@ bool Session::sendRaw( Message& message, int num )
     }
     return result;
   }
-  catch ( IOException& )
+  catch ( IOException& e )
   {
-    m_state.onEvent( "Error Reading/Writing in MessageStore" );
+    m_state.onEvent( e.what() );
     return false;
   }
 
@@ -1335,9 +1335,9 @@ void Session::next( const Message& message, bool queued )
       m_state.incrNextTargetMsgSeqNum();
     }
   }
-  catch ( IOException& )
+  catch ( IOException& e )
   {
-    m_state.onEvent( "Error Reading/Writing in MessageStore" );
+    m_state.onEvent( e.what() );
     disconnect();
   }
 
