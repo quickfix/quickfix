@@ -154,6 +154,8 @@ void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
   jthrowable exception = env->ExceptionOccurred();
   if ( exception )
   {
+    JVMObject je(exception);
+
     if ( e.doNotSend.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
@@ -172,17 +174,17 @@ void JavaApplication::handleException( JNIEnv* env, Exceptions& e ) const
     else if ( e.fieldNotFound.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
-      throw FIX::FieldNotFound( 0 );
+      throw FIX::FieldNotFound( je.getInt("field") );
     }
     else if ( e.incorrectTagValue.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
-      throw FIX::IncorrectTagValue( 0 );
+      throw FIX::IncorrectTagValue( je.getInt("field") );
     }
     else if ( e.incorrectDataFormat.IsInstanceOf( exception ) )
     {
       env->ExceptionClear();
-      throw FIX::IncorrectDataFormat( 0 );
+      throw FIX::IncorrectDataFormat( je.getInt("field") );
     }
     else
     {
