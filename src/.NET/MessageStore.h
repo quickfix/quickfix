@@ -29,6 +29,7 @@ using namespace System::IO;
 
 #include "Message.h"
 #include "SessionID.h"
+#include "Exceptions.h"
 #include "quickfix/MessageStore.h"
 #include "vcclr.h"
 
@@ -50,6 +51,14 @@ public __gc __interface MessageStore
 };
 }
 
+inline FIX::IOException convertException( IOException * e )
+{
+  char* umessage = QuickFix::createUnmanagedString( e->Message );
+  FIX::IOException ex(umessage);
+  QuickFix::destroyUnmanagedString( umessage );
+  return ex;
+}
+
 class MessageStore : public FIX::MessageStore
 {
 public:
@@ -67,7 +76,7 @@ public:
     try
     { return m_store->set( num, message.c_str() ); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   void get( int begin, int end, std::vector < std::string > & messages ) const
@@ -87,7 +96,12 @@ public:
       }
     }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    {
+      char* umessage = QuickFix::createUnmanagedString( e->Message );
+      FIX::IOException ex(umessage);
+      QuickFix::destroyUnmanagedString( umessage );
+      throw ex;
+    }
   }
 
   int getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
@@ -95,7 +109,7 @@ public:
     try
     { return m_store->getNextSenderMsgSeqNum(); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   int getNextTargetMsgSeqNum() const throw ( FIX::IOException& )
@@ -103,15 +117,15 @@ public:
     try
     { return m_store->getNextTargetMsgSeqNum(); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   void setNextSenderMsgSeqNum( int num ) throw ( FIX::IOException& )
   {
     try
     { return m_store->setNextSenderMsgSeqNum( num ); }
-    catch ( IOException * e )
-    { throw FIX::IOException(); }
+    catch( IOException * e )
+    { throw convertException( e ); }
   }
 
   void setNextTargetMsgSeqNum( int num ) throw ( FIX::IOException& )
@@ -119,7 +133,7 @@ public:
     try
     { return m_store->setNextTargetMsgSeqNum( num ); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   void incrNextSenderMsgSeqNum() throw ( FIX::IOException& )
@@ -127,7 +141,7 @@ public:
     try
     { m_store->incrNextSenderMsgSeqNum(); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   void incrNextTargetMsgSeqNum() throw ( FIX::IOException& )
@@ -135,7 +149,7 @@ public:
     try
     { m_store->incrNextTargetMsgSeqNum(); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   FIX::UtcTimeStamp getCreationTime() const throw ( FIX::IOException& )
@@ -147,7 +161,7 @@ public:
                                 d.get_Day(), d.get_Month(), d.get_Year() );
     }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   void reset() throw ( FIX::IOException& )
@@ -155,7 +169,7 @@ public:
     try
     { m_store->reset(); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   void refresh() throw ( FIX::IOException& )
@@ -163,7 +177,7 @@ public:
     try
     { m_store->refresh(); }
     catch ( IOException * e )
-    { throw FIX::IOException(); }
+    { throw convertException( e ); }
   }
 
   gcroot < QuickFix::MessageStore* > m_store;

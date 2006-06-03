@@ -63,8 +63,8 @@ public:
       destroyUnmanagedString( umessage );
       return result;
     }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -80,8 +80,8 @@ public:
       for ( i = messages.begin(); i != messages.end(); ++i )
         list->Add( new String( i->c_str() ) );
     }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -91,8 +91,8 @@ public:
 
     try
     { return m_pUnmanaged->getNextSenderMsgSeqNum(); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -102,8 +102,8 @@ public:
 
     try
     { return m_pUnmanaged->getNextTargetMsgSeqNum(); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -113,8 +113,8 @@ public:
 
     try
     { m_pUnmanaged->setNextSenderMsgSeqNum( next ); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -124,8 +124,8 @@ public:
 
     try
     { m_pUnmanaged->setNextTargetMsgSeqNum( next ); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -135,8 +135,8 @@ public:
 
     try
     { m_pUnmanaged->incrNextSenderMsgSeqNum(); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -146,8 +146,8 @@ public:
 
     try
     { m_pUnmanaged->incrNextTargetMsgSeqNum(); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -161,8 +161,8 @@ public:
       return DateTime( d.getYear(), d.getMonth(), d.getDate(),
                        d.getHour(), d.getMinute(), d.getSecond() );
     }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -172,8 +172,8 @@ public:
 
     try
     { m_pUnmanaged->reset(); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
@@ -183,8 +183,8 @@ public:
 
     try
     { m_pUnmanaged->refresh(); }
-    catch ( FIX::IOException& )
-    { throw new IOException(); }
+    catch ( FIX::IOException& e )
+    { throw new IOException(e.what()); }
 
     QF_STACK_CATCH
   }
