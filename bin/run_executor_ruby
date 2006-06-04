@@ -1,0 +1,4 @@
+#!/bin/sh
+export RUBYLIB=../lib
+
+ruby ../examples/executor/ruby/executor.rb cfg/executor.cfg
