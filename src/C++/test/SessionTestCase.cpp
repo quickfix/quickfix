@@ -71,7 +71,7 @@ Heartbeat createHeartbeat( const char* sender, const char* target, int seq )
   return heartbeat;
 }
 
-TestRequest createTestRequest( const char* sender, const char* target, int seq, char* id )
+TestRequest createTestRequest( const char* sender, const char* target, int seq, const char* id )
 {
   TestRequest testRequest;
   testRequest.set( TestReqID( id ) );

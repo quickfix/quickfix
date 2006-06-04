@@ -33,8 +33,8 @@
 namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection( int s, Sessions sessions, Application& application )
-: m_socket( s ), m_sessions( sessions ), m_application( application ),
-  m_pSession( 0 ) 
+: m_socket( s ), m_application( application ),
+  m_sessions( sessions ), m_pSession( 0 ) 
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );

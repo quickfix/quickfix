@@ -157,7 +157,12 @@ void FileStore::populateCache()
   if ( sessionFile )
   {
     char time[ 22 ];
-    if( FILE_FSCANF( sessionFile, "%s", time, 22 ) == 1 )
+#ifdef HAVE_FSCANF_S
+    int result = FILE_FSCANF( sessionFile, "%s", time, 22 );
+#else
+    int result = FILE_FSCANF( sessionFile, "%s", time );
+#endif
+    if( result == 1 )
     {
       m_cache.setCreationTime( UtcTimeStampConvertor::convert( time, true ) );
     }

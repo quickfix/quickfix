@@ -28,7 +28,7 @@
 
 namespace FIX
 {
-int SocketUtilitiesTestCase::createSocket( int port, char* address )
+int SocketUtilitiesTestCase::createSocket( int port, const char* address )
 {
   int sock = socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
 

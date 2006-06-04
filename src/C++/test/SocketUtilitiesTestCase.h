@@ -31,7 +31,7 @@ namespace FIX
 class SocketUtilitiesTestCase : public CPPTest::TestCase < int >
 {
 public:
-  static int createSocket( int port, char* address );
+  static int createSocket( int port, const char* address );
   static void destroySocket( int s );
 };
 }

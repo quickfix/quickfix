@@ -9,6 +9,7 @@ namespace CPPTest
   class TestDisplay
     {
     public:
+      virtual ~TestDisplay() {};
       virtual void onRun( const char* ) = 0;
       virtual void onPass( const TestBase& ) = 0;
       virtual void onFail( const TestBase& ) = 0;

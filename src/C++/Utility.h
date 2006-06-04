@@ -112,12 +112,14 @@ std::string file_appendpath( const std::string& path, const std::string& file );
 }
 
 #if( _MSC_VER >= 1400 )
+#define HAVE_FSCANF_S 1
 #define FILE_FSCANF fscanf_s
 #else
 #define FILE_FSCANF fscanf
 #endif
 
 #if( _MSC_VER >= 1400 )
+#define HAVE_SPRINTF_S 1
 #define STRING_SPRINTF sprintf_s
 #else
 #define STRING_SPRINTF sprintf
