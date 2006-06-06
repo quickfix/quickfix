@@ -1,6 +1,6 @@
 require 'mkmf'
-have_library("quickfix")
 dir_config("quickfix", "../../include", "../../lib")
+have_library("quickfix")
 CONFIG["CC"] = ENV['CXX']
 CONFIG["CXXFLAGS"] = ENV['CXXFLAGS']
 CONFIG["LIBS"] += ENV['LIBS']
