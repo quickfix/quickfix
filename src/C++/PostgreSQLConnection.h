@@ -146,7 +146,7 @@ public:
   void throwException() throw( IOException )
   {
     if( !success() )
-      throw IOException( Query failed [" + m_query + "] " );
+      throw IOException( "Query failed [" + m_query + "] " );
   }
 
 private:
