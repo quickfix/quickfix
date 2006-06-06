@@ -209,7 +209,7 @@ throw( ConfigError )
 
 void DataDictionary::readFromStream( std::istream& stream )
 throw( ConfigError )
-{ QF_STACK_PUSH(DataDictionary::readFromURL)
+{ QF_STACK_PUSH(DataDictionary::readFromStream)
 
 #ifdef HAVE_LIBXML
   DOMDocumentPtr pDoc = DOMDocumentPtr(new LIBXML_DOMDocument());
