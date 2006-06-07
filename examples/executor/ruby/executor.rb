@@ -28,21 +28,23 @@ class Application < Quickfix::Application
 	end
 
 	def fromApp(message, sessionID)
+
 		beginString = Quickfix::BeginString.new
 		msgType = Quickfix::MsgType.new
 		message.getHeader().getField( beginString )
 		message.getHeader().getField( msgType )
-	
+
 		symbol = Quickfix::Symbol.new
 		side = Quickfix::Side.new
 		ordType = Quickfix::OrdType.new
 		orderQty = Quickfix::OrderQty.new
 		price = Quickfix::Price.new
 		clOrdID = Quickfix::ClOrdID.new
+		avgPx = Quickfix::AvgPx.new
 
 		message.getField( ordType )
-		puts ordType
-		if( ordType.getValue() != Quickfix::OrdType_LIMIT )
+
+		if( ordType.getValue() != Quickfix.OrdType_LIMIT )
 			raise Quickfix::IncorrectTagValue.new( ordType.getField() )
 		end
 
@@ -54,26 +56,26 @@ class Application < Quickfix::Application
 
 		executionReport = Quickfix::Message.new
 		executionReport.getHeader().setField( beginString )
-		executionReport.getHeader().setField( Quickfix::MsgType.new(Quickfix::MsgType_ExecutionReport) )
+		executionReport.getHeader().setField( Quickfix::MsgType.new(Quickfix.MsgType_ExecutionReport) )
 
-		executionReport.setField( Quickfix::OrderID(genOrderID()) )
-		executionReport.setField( Quickfix::ExecID(genExecID()) )
-		executionReport.setField( Quickfix::ExecTransType(Quickfix::ExecTransType_NEW) )
-		executionReport.setField( Quickfix::OrdStatus(Quickfix::OrdStatus_FILLED) )
+		executionReport.setField( Quickfix::OrderID.new(genOrderID()) )
+		executionReport.setField( Quickfix::ExecID.new(genExecID()) )
+		executionReport.setField( Quickfix::ExecTransType.new(Quickfix.ExecTransType_NEW) )
+		executionReport.setField( Quickfix::OrdStatus.new(Quickfix.OrdStatus_FILLED) )
 		executionReport.setField( symbol )
 		executionReport.setField( side )
-		executionReport.setField( Quickfix::CumQty(orderQty.getValue()) )
-		executionReport.setField( Quickfix::AvgPx(price.getValue()) )
-		executionReport.setField( Quickfix::LastShares(orderQty.getValue()) )
-		executionReport.setField( Quickfix::LastPx(price.getValue()) )
+		executionReport.setField( Quickfix::CumQty.new(orderQty.getValue()) )
+		executionReport.setField( Quickfix::AvgPx.new(price.getValue()) )
+		executionReport.setField( Quickfix::LastShares.new(orderQty.getValue()) )
+		executionReport.setField( Quickfix::LastPx.new(price.getValue()) )
 		executionReport.setField( clOrdID )
 		executionReport.setField( orderQty )
 
-		if( beginString.getValue() >= Quickfix::BeginString_FIX41 )
+		if( beginString.getValue() >= Quickfix.BeginString_FIX41 )
 			executionReport.setField( Quickfix::ExecType.new(Quickfix::ExecType_FILL) )
 			executionReport.setField( Quickfix::LeavesQty.new )
 		end
-
+puts "here6"
 		begin
 			Quickfix::Session.sendToTarget( executionReport, sessionID )
 		rescue SessionNotFound
@@ -83,23 +85,24 @@ class Application < Quickfix::Application
 
 	def genOrderID
 		@orderID = @orderID+1
+		return @orderID.to_s
 	end
 
 	def genExecID
 		@execID = @execID+1
+		return @execID.to_s
 	end
 end
 
 begin
-	#print sys.path
 	file = ARGV[0]
 	settings = Quickfix::SessionSettings.new( file )
 	application = Application.new
 	storeFactory = Quickfix::FileStoreFactory.new( settings )
 	logFactory = Quickfix::ScreenLogFactory.new( settings )
-acceptor = Quickfix::SocketAcceptor.new( application, storeFactory, settings )
 	acceptor = Quickfix::SocketAcceptor.new( application, storeFactory, settings, logFactory )
 	acceptor.start()
+
 	while( true )
 		sleep(1)
 	end
