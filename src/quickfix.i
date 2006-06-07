@@ -81,6 +81,8 @@ using namespace FIX;
 %typedef int LENGTH;
 %typedef std::string COUNTRY;
 
+%exceptionclass FIX::Exception;
+
 %init %{
 #ifndef _MSC_VER
       struct sigaction new_action, old_action;
@@ -195,3 +197,4 @@ using namespace FIX;
 %include "../C++/SocketInitiator.h"
 %include "../C++/Acceptor.h"
 %include "../C++/SocketAcceptor.h"
+
