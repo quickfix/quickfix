@@ -86,6 +86,24 @@ void MessageTestCase::isApp::onRun( Message& object )
   assert( object.isApp() );
 }
 
+void MessageTestCase::isEmpty::onRun( Message& object )
+{
+  Message message;
+  assert( message.isEmpty() );
+  message.getHeader().setField( BeginString("FIX.4.2") );
+  assert( !message.isEmpty() );
+  message.clear();
+  assert( message.isEmpty() );
+  message.setField( Symbol("MSFT") );
+  assert( !message.isEmpty() );
+  message.clear();
+  assert( message.isEmpty() );
+  message.getTrailer().setField( CheckSum(10) );
+  assert( !message.isEmpty() );
+  message.clear();
+  assert( message.isEmpty() );
+}
+
 void MessageTestCase::setString::onRun( Message& object )
 {
   static const char* strGood =
@@ -117,6 +135,8 @@ void MessageTestCase::setString::onRun( Message& object )
     "52=20000426-12:05:06\00156=ISLD\001";
   static const char* strJunk =
     "paste your FIX message here, then hit ENTER";
+  static const char* strEmpty =
+    "";
 
   try
   {
@@ -138,6 +158,8 @@ void MessageTestCase::setString::onRun( Message& object )
   try{ object.setString( strNoLengthAndChk ); assert(false) }
   catch( InvalidMessage& ) {}
   try{ object.setString( strJunk ); assert(false) }
+  catch( InvalidMessage& ) {}
+  try{ object.setString( strEmpty ); assert(false) }
   catch( InvalidMessage& ) {}
 
   DataDictionary dataDictionary;

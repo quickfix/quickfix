@@ -52,6 +52,7 @@ public:
     add( &m_isAdminMsgType );
     add( &m_isAdmin );
     add( &m_isApp );
+    add( &m_isEmpty );
     add( &m_setString );
     add( &m_setStringWithGroup );
     add( &m_setStringWithHeaderGroup );
@@ -89,6 +90,11 @@ public:
   {
     void onRun( Message& object );
   } m_isApp;
+
+  class isEmpty : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_isEmpty;
 
   class setString : public SimpleTest
   {

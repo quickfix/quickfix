@@ -143,6 +143,8 @@ public:
 
   /// Clear all fields from the map
   void clear();
+  /// Check if map contains any fields
+  bool isEmpty();
 
   std::string& calculateString( std::string&, bool clear = true ) const;
 

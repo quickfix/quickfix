@@ -192,7 +192,8 @@ public:
   }
 
   bool isAdmin() const
-  { MsgType msgType;
+  { 
+    MsgType msgType;
     if( m_header.isSetField(msgType) )
     {
       m_header.getField( msgType );
@@ -202,13 +203,25 @@ public:
   }
 
   bool isApp() const
-  { MsgType msgType;
+  { 
+    MsgType msgType;
     if( m_header.isSetField(msgType) )
     {
       m_header.getField( msgType );
       return !isAdminMsgType( msgType );
     }
     return false;
+  }
+
+  bool isEmpty()
+  { return m_header.isEmpty() && FieldMap::isEmpty() && m_trailer.isEmpty(); }
+
+  void clear()
+  { 
+    m_field = 0;
+    m_header.clear();
+    FieldMap::clear();
+    m_trailer.clear();
   }
 
   static bool isAdminMsgType( const MsgType& msgType )
@@ -237,7 +250,6 @@ private:
   ( const std::string& string, std::string::size_type& pos,
     const DataDictionary* pDD = 0, const Group* pGroup = 0 );
 
-  void clear();
   void validate();
   std::string toXMLFields(const FieldMap& fields, int space) const;
 

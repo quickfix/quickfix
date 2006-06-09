@@ -190,6 +190,12 @@ void FieldMap::clear()
   QF_STACK_POP
 }
 
+bool FieldMap::isEmpty()
+{ QF_STACK_PUSH(FieldMap::empty)
+  return m_fields.size() == 0;
+  QF_STACK_POP
+}
+
 std::string& FieldMap::calculateString( std::string& result, bool clear ) const
 { QF_STACK_PUSH(FieldMap::calculateString)
 

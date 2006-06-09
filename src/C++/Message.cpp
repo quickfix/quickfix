@@ -521,17 +521,6 @@ void Message::setSessionID( const SessionID& sessionID )
   QF_STACK_POP
 }
 
-void Message::clear()
-{ QF_STACK_PUSH(Message::clear)
-
-  m_field = 0;
-  m_header.clear();
-  FieldMap::clear();
-  m_trailer.clear();
-
-  QF_STACK_POP
-}
-
 void Message::validate()
 { QF_STACK_PUSH(Message::validate)
 
