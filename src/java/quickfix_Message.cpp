@@ -428,6 +428,28 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_hasGroup__II
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Message_clear
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->clear();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_isEmpty
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  return pMessage->isEmpty();
+
+  QF_STACK_CATCH
+}
+
 // Header Methods
 
 JNIEXPORT void JNICALL Java_quickfix_Message_headerSetString
@@ -769,6 +791,29 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerHasGroup__II
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT void JNICALL Java_quickfix_Message_headerClear
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getHeader().clear();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_headerIsEmpty
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  return pMessage->getHeader().isEmpty();
+
+  QF_STACK_CATCH
+}
+
 
 JNIEXPORT jobject JNICALL Java_quickfix_Message_headerIteratorCreate
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
@@ -1169,6 +1214,29 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerHasGroup__II
 
   QF_STACK_CATCH
 }
+
+JNIEXPORT void JNICALL Java_quickfix_Message_trailerClear
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  pMessage->getTrailer().clear();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Message_trailerIsEmpty
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::Message* pMessage = getCPPMessage( obj );
+  return pMessage->getTrailer().isEmpty();
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT jobject JNICALL Java_quickfix_Message_trailerIteratorCreate
 ( JNIEnv *pEnv, jobject obj, jobject iterator )
 { QF_STACK_TRY

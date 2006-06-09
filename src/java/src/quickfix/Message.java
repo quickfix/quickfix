@@ -197,6 +197,9 @@ public class Message extends FieldMap {
         return hasGroup( group.field() );
     }
 
+    public native void clear();
+    public native boolean isEmpty();
+
     public java.util.Iterator iterator() {
         return new Iterator( this );
     }
@@ -427,6 +430,13 @@ public class Message extends FieldMap {
             return headerHasGroup( group.field() );
         }
 
+        public void clear() {
+            headerClear();
+	}
+        public boolean isEmpty() {
+            return headerIsEmpty();
+        }
+
         public java.util.Iterator iterator() {
             return new Iterator( message );
         }
@@ -619,6 +629,13 @@ public class Message extends FieldMap {
             return trailerHasGroup( group );
         }
 
+        public void clear() {
+            trailerClear();
+        }
+        public boolean isEmpty() {
+            return trailerIsEmpty();
+	}
+
         public java.util.Iterator iterator() {
             return new Iterator( message );
         }
@@ -672,6 +689,9 @@ public class Message extends FieldMap {
         return headerHasGroup( group.field() );
     }
 
+    private native void headerClear();
+    private native boolean headerIsEmpty();
+
     private native Iterator headerIteratorCreate( Header.Iterator i );
     private native boolean headerIteratorHasNext( Header.Iterator i );
     private native Object headerIteratorNext( Header.Iterator i );
@@ -719,6 +739,9 @@ public class Message extends FieldMap {
     public boolean trailerHasGroup(Group group) {
         return trailerHasGroup( group.field() );
     }
+
+    private native void trailerClear();
+    private native boolean trailerIsEmpty();
 
     private native Iterator trailerIteratorCreate( Trailer.Iterator i );
     private native boolean trailerIteratorHasNext( Trailer.Iterator i );

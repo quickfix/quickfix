@@ -147,6 +147,9 @@ public class Group extends FieldMap {
         return hasGroup( group.field() );
     }
 
+    public native void clear();
+    public native boolean isEmpty();
+
     public java.util.Iterator iterator() {
         return new Iterator( this );
     }

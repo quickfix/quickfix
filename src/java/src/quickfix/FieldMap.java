@@ -71,5 +71,7 @@ public abstract class FieldMap {
     public abstract boolean hasGroup(int num, int field);
     public abstract boolean hasGroup(int num, Group group);
     public abstract boolean hasGroup(Group group);
+    public abstract void clear();
+    public abstract boolean isEmpty();
     public abstract Iterator iterator();
 }

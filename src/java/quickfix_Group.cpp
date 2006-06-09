@@ -172,6 +172,28 @@ JNIEXPORT jboolean JNICALL Java_quickfix_Group_hasGroup__II
   QF_STACK_CATCH
 }
 
+JNIEXPORT void JNICALL Java_quickfix_Group_clear
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPGroup( obj );
+  pMessage->clear();
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jboolean JNICALL Java_quickfix_Group_isEmpty
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  FIX::FieldMap* pMessage = getCPPGroup( obj );
+  return pMessage->isEmpty();
+
+  QF_STACK_CATCH
+}
+
 JNIEXPORT void JNICALL Java_quickfix_Group_setString
 ( JNIEnv *pEnv, jobject obj, jint field, jstring value )
 { QF_STACK_TRY
