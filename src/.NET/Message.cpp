@@ -617,6 +617,18 @@ void Message::Header::removeGroup( Group* group )
   QF_STACK_CATCH
 }
 
+bool Message::Header::isEmpty()
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->m_pUnmanaged->getHeader().isEmpty();
+  QF_STACK_CATCH
+}
+
+void Message::Header::clear()
+{ QF_STACK_TRY
+  checkDisposed(); m_message->m_pUnmanaged->getHeader().clear();
+  QF_STACK_CATCH
+}
+
 int Message::Header::groupCount( int field )
 { QF_STACK_TRY
   checkDisposed();
@@ -914,6 +926,18 @@ void Message::Trailer::removeGroup( unsigned num, Group* group )
 void Message::Trailer::removeGroup( Group* group )
 { QF_STACK_TRY
   checkDisposed(); return m_message->mapRemoveGroup( group->field(), m_message->m_pUnmanaged->getTrailer() );
+  QF_STACK_CATCH
+}
+
+bool Message::Trailer::isEmpty()
+{ QF_STACK_TRY
+  checkDisposed(); return m_message->m_pUnmanaged->getTrailer().isEmpty();
+  QF_STACK_CATCH
+}
+
+void Message::Trailer::clear()
+{ QF_STACK_TRY
+  checkDisposed(); m_message->m_pUnmanaged->getTrailer().clear();
   QF_STACK_CATCH
 }
 

@@ -338,6 +338,9 @@ public:
     void removeGroup( unsigned num, Group* group );
     void removeGroup( Group* group );
 
+    bool isEmpty();
+    void clear();
+
     int groupCount( int field );
     bool isSetField( int field );
 
@@ -475,6 +478,9 @@ public:
     void removeGroup( unsigned num, Group* group );
     void removeGroup( Group* group );
 
+    bool isEmpty();
+    void clear();
+
     int groupCount( int field );
     bool isSetField( int field );
 
@@ -556,13 +562,18 @@ public:
   Trailer* getTrailer() { checkDisposed(); return m_trailer; }
 
   bool isAdmin()
-  { return unmanaged().isAdmin(); }
+  { checkDisposed(); return unmanaged().isAdmin(); }
   bool isApp()
-  { return unmanaged().isApp(); }
+  { checkDisposed(); return unmanaged().isApp(); }
+
+  bool isEmpty()
+  { checkDisposed(); return unmanaged().isEmpty(); }
+  void clear()
+  { checkDisposed(); unmanaged().clear(); }
 
   IEnumerator* GetEnumerator()
   {
-    return new Enumerator( this );
+    checkDisposed(); return new Enumerator( this );
   }
 
   __gc class Enumerator : public IEnumerator
@@ -660,7 +671,7 @@ private:
   void mapRemoveGroup( unsigned num, int field, FIX::FieldMap& map );
   void mapRemoveGroup( int field, FIX::FieldMap& map );
   int mapGroupCount( int field, FIX::FieldMap& map );
-
+  
 protected:
   Header* m_header;
   Trailer* m_trailer;
