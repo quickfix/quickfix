@@ -88,7 +88,7 @@ MSSQLLog::~MSSQLLog()
 }
 
 MSSQLLogFactory::MSSQLLogFactory( const std::string& database, const std::string& user,
-                 const std::string& password, const std::string& host )
+                                  const std::string& password, const std::string& host )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ),
   m_useSettings( false )
 {
@@ -140,7 +140,8 @@ void MSSQLLogFactory::init( const Dictionary& settings,
                             std::string& user, 
                             std::string& password,
                             std::string& host )
-{
+{ QF_STACK_PUSH(MSSQLLogFactory::init)
+
   dbinit();
 
   database = DEFAULT_DATABASE;
@@ -169,6 +170,8 @@ void MSSQLLogFactory::init( const Dictionary& settings,
     password = m_password;
     host = m_host;
   }
+
+  QF_STACK_POP
 }
 
 void MSSQLLogFactory::destroy( Log* pLog )
@@ -224,7 +227,7 @@ void MSSQLLog::insert( const std::string& table, const std::string value )
 
   char sqlTime[ 20 ];
   STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
-           year, month, day, hour, minute, second );
+                  year, month, day, hour, minute, second );
 
   std::string valueCopy = value;
   string_replace( "\"", "\\\"", valueCopy );

@@ -57,9 +57,14 @@ public:
 
   ~OdbcLogFactory();
 
+  Log* create();
   Log* create( const SessionID& );
   void destroy( Log* );
 private:
+  void init( const Dictionary& settings, 
+             std::string& user, std::string& password, 
+             std::string& connectionString );
+
   SessionSettings m_settings;
   std::string m_user;
   std::string m_password;
@@ -74,6 +79,9 @@ class OdbcLog : public Log
 public:
   OdbcLog( const SessionID& s, const std::string& user, const std::string& password, 
            const std::string& connectionString );
+  OdbcLog( const std::string& user, const std::string& password, 
+           const std::string& connectionString );
+
   ~OdbcLog();
 
   void clear();
@@ -88,7 +96,7 @@ private:
   void insert( const std::string& table, const std::string value );
 
   OdbcConnection* m_pConnection;
-  SessionID m_sessionID;
+  SessionID* m_pSessionID;
 };
 }
 

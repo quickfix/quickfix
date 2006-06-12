@@ -44,13 +44,22 @@ const std::string OdbcLogFactory::DEFAULT_CONNECTION_STRING
 OdbcLog::OdbcLog
 ( const SessionID& s, const std::string& user, const std::string& password, 
   const std::string& connectionString )
-  : m_sessionID( s )
+{
+  m_pSessionID = new SessionID( s );
+  m_pConnection = new OdbcConnection( user, password, connectionString );
+}
+
+OdbcLog::OdbcLog
+( const std::string& user, const std::string& password, 
+  const std::string& connectionString )
+: m_pSessionID( 0 )
 {
   m_pConnection = new OdbcConnection( user, password, connectionString );
 }
 
 OdbcLog::~OdbcLog()
 {
+  delete m_pSessionID;
   delete m_pConnection;
 }
 
@@ -71,17 +80,44 @@ OdbcLogFactory::~OdbcLogFactory()
 {
 }
 
+Log* OdbcLogFactory::create()
+{ QF_STACK_PUSH(OdbcLogFactory::create)
+
+  std::string database;
+  std::string user;
+  std::string connectionString;
+
+  init( m_settings.get(), database, user, connectionString );
+  return new OdbcLog( database, user, connectionString );
+
+  QF_STACK_POP
+}
+
 Log* OdbcLogFactory::create( const SessionID& s )
 { QF_STACK_PUSH(OdbcLogFactory::create)
 
-  std::string user = DEFAULT_USER;
-  std::string password = DEFAULT_PASSWORD;
-  std::string connectionString = DEFAULT_CONNECTION_STRING;
+  std::string database;
+  std::string user;
+  std::string connectionString;
+
+  init( m_settings.get(s), database, user, connectionString );
+  return new OdbcLog( s, database, user, connectionString );
+
+  QF_STACK_POP
+}
+
+void OdbcLogFactory::init( const Dictionary& settings, 
+                           std::string& user,
+                           std::string& password, 
+                           std::string& connectionString )
+{ QF_STACK_PUSH(OdbcLogFactory::init)
+
+  user = DEFAULT_USER;
+  password = DEFAULT_PASSWORD;
+  connectionString = DEFAULT_CONNECTION_STRING;
 
   if( m_useSettings )
   {
-    Dictionary settings = m_settings.get( s );
-
     try { user = settings.getString( ODBC_LOG_USER ); }
     catch( ConfigError& ) {}
 
@@ -97,8 +133,6 @@ Log* OdbcLogFactory::create( const SessionID& s )
     password = m_password;
     connectionString = m_connectionString;
   }
-
-  return new OdbcLog( s, user, password, connectionString );
 
   QF_STACK_POP
 }
@@ -118,10 +152,19 @@ void OdbcLog::clear()
   std::stringstream messagesQuery;
   std::stringstream eventQuery;
 
-  whereClause << "WHERE "
-    << "BeginString = '" << m_sessionID.getBeginString().getValue() << "' "
-    << "AND SenderCompID = '" << m_sessionID.getSenderCompID().getValue() << "' "
-    << "AND TargetCompID = '" << m_sessionID.getTargetCompID().getValue() << "'";
+  whereClause << "WHERE ";
+
+  if( m_pSessionID )
+  {
+    whereClause
+    << "BeginString = '" << m_pSessionID->getBeginString().getValue() << "' "
+    << "AND SenderCompID = '" << m_pSessionID->getSenderCompID().getValue() << "' "
+    << "AND TargetCompID = '" << m_pSessionID->getTargetCompID().getValue() << "'";
+  }
+  else
+  {
+    whereClause << "BeginString = NULL AND SenderCompID = NULL && TargetCompID = NULL";
+  }
 
   messagesQuery << "DELETE FROM messages_log " << whereClause.str();
   eventQuery << "DELETE FROM event_log " << whereClause.str();
@@ -153,12 +196,25 @@ void OdbcLog::insert( const std::string& table, const std::string value )
   queryString << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
-  << "'" << sqlTime << "',"
-  << "'" << m_sessionID.getBeginString().getValue() << "',"
-  << "'" << m_sessionID.getSenderCompID().getValue() << "',"
-  << "'" << m_sessionID.getTargetCompID().getValue() << "',"
-  << "'" << m_sessionID.getSessionQualifier() << "',"
-  << "'" << valueCopy << "')";
+  << "'" << sqlTime << "',";
+
+  if( m_pSessionID )
+  {
+    queryString
+    << "'" << m_pSessionID->getBeginString().getValue() << "',"
+    << "'" << m_pSessionID->getSenderCompID().getValue() << "',"
+    << "'" << m_pSessionID->getTargetCompID().getValue() << "',";
+    if( m_pSessionID->getSessionQualifier() == "" )
+      queryString << "NULL" << ",";
+    else
+      queryString << "'" << m_pSessionID->getSessionQualifier() << "',";
+  }
+  else
+  {
+    queryString << "NULL, NULL, NULL, NULL";
+  }
+
+  queryString << "'" << valueCopy << "')";
 
   OdbcQuery query( queryString.str() );
   m_pConnection->execute( query );
