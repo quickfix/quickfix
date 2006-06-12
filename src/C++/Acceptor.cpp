@@ -42,6 +42,7 @@ throw( ConfigError )
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( 0 ),
+  m_pLog( 0 ),
   m_firstPoll( true ),
   m_stop( false )
 {
@@ -58,6 +59,7 @@ throw( ConfigError )
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
+  m_pLog( logFactory.create() ),
   m_firstPoll( true ),
   m_stop( false )
 {
@@ -93,9 +95,14 @@ void Acceptor::initialize() throw ( ConfigError )
 
 Acceptor::~Acceptor()
 { QF_STACK_IGNORE_BEGIN
+
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
+
+  if( m_pLogFactory && m_pLog )
+    m_pLogFactory->destroy( m_pLog );
+  
   QF_STACK_IGNORE_END
 }
 

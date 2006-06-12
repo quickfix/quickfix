@@ -172,6 +172,10 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
   Sessions sessions = m_portToSessions[port];
   m_connections[ s ] = new SocketConnection( s, sessions, &server.getMonitor() );
 
+  std::stringstream stream;
+  stream << "Accepted connection from " << socket_getpeername( s ) << " on port " << port;
+  log( stream.str() );
+
   QF_STACK_POP
 }
 

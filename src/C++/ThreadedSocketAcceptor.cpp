@@ -214,6 +214,11 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 
     {
       Locker l( pAcceptor->m_mutex );
+
+      std::stringstream stream;
+      stream << "Accepted connection from " << socket_getpeername( socket ) << " on port " << port;
+      pAcceptor->log( stream.str() );
+
       unsigned thread;
       if ( !thread_spawn( &socketConnectionThread, info, thread ) )
         delete info;

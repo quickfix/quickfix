@@ -77,10 +77,13 @@ public:
 
   bool isStopped() { return m_stop; }
 
-public:
   Application& getApplication() { return m_application; }
   MessageStoreFactory& getMessageStoreFactory()
   { return m_messageStoreFactory; }
+
+protected:
+  void log( const std::string& text )
+  { if( m_pLog ) m_pLog->onEvent( text ); }
 
 private:
   void initialize() throw ( ConfigError );
@@ -108,6 +111,7 @@ private:
   MessageStoreFactory& m_messageStoreFactory;
   SessionSettings m_settings;
   LogFactory* m_pLogFactory;
+  Log* m_pLog;
   bool m_firstPoll;
   bool m_stop;
 };
