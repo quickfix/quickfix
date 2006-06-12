@@ -226,7 +226,7 @@ throw ( IOException )
     << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "' and "
     << "msgseqnum=" << msgSeqNum;
     if ( safe_query( pConnection, query2.str() ) )
-      query.throwException();
+      throw IOException();
   }
   return true;
 
@@ -250,7 +250,7 @@ throw ( IOException )
   << "ORDER BY msgseqnum";
 
   if( safe_query( pConnection, query.str() ) )
-    query.throwException();
+    throw IOException();
 
   int messageLength;
   DBVARYCHAR message;
@@ -287,7 +287,7 @@ void MSSQLStore::setNextSenderMsgSeqNum( int value ) throw ( IOException )
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
   if( safe_query( pConnection, query.str() ) )
-    query.throwException();
+    throw IOException();
   m_cache.setNextSenderMsgSeqNum( value );
 
   QF_STACK_POP
@@ -304,7 +304,7 @@ void MSSQLStore::setNextTargetMsgSeqNum( int value ) throw ( IOException )
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
   if( safe_query( pConnection, query.str() ) )
-    query.throwException();
+    throw IOException();
   m_cache.setNextTargetMsgSeqNum( value );
 
   QF_STACK_POP
@@ -341,7 +341,7 @@ void MSSQLStore::reset() throw ( IOException )
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
   if( safe_query( pConnection, query.str() ) )
-    query.throwException();
+    throw IOException();
 
   m_cache.reset();
   UtcTimeStamp time = m_cache.getCreationTime();
@@ -363,7 +363,7 @@ void MSSQLStore::reset() throw ( IOException )
   << "targetcompid=" << "'" << m_sessionID.getTargetCompID().getValue() << "' and "
   << "session_qualifier=" << "'" << m_sessionID.getSessionQualifier() << "'";
   if( safe_query( pConnection, query2.str() ) )
-    query.throwException();
+    throw IOException();
 
   QF_STACK_POP
 }
