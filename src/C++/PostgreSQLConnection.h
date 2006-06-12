@@ -89,6 +89,12 @@ public:
     return PQgetvalue( m_result, row, column );
   }
 
+  void throwException() throw( IOException )
+  {
+    if( !success() )
+      throw IOException( "Query failed [" + m_query + "] " );
+  }
+
 private:
   PGresult* m_result;
   ExecStatusType m_status;
@@ -141,12 +147,6 @@ public:
   {
     Locker locker( m_mutex );
     return pQuery.execute( m_pConnection );
-  }
-
-  void throwException() throw( IOException )
-  {
-    if( !success() )
-      throw IOException( "Query failed [" + m_query + "] " );
   }
 
 private:
