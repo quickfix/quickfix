@@ -31,13 +31,15 @@ public:
   JavaLogFactory( JVMObject object );
   virtual ~JavaLogFactory();
 
+  FIX::Log* create();
   FIX::Log* create( const FIX::SessionID& sessionID );
   void destroy( FIX::Log* );
 
 private:
   JVMObject m_object;
 
-  jmethodID createId;
+  jmethodID createId1;
+  jmethodID createId2;
 };
 
 #endif

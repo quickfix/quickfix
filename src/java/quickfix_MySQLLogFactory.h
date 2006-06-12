@@ -9,20 +9,25 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_MySQLLogFactory
- * Method:    create
+ * Method:    _create
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_create__
+JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1create
   (JNIEnv *, jobject);
-
 /*
  * Class:     quickfix_MySQLLogFactory
- * Method:    destroy
+ * Method:    _destroy
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_destroy
+JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1destroy
   (JNIEnv *, jobject);
-
+/*
+ * Class:     quickfix_MySQLLogFactory
+ * Method:    create
+ * Signature: ()Lquickfix/Log;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_MySQLLogFactory_create__
+  (JNIEnv *, jobject);
 /*
  * Class:     quickfix_MySQLLogFactory
  * Method:    create

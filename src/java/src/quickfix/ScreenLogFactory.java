@@ -23,20 +23,21 @@ public class ScreenLogFactory implements LogFactory {
     private long cppPointer;
 
     public ScreenLogFactory(SessionSettings settings) {
-        create(settings);
+        _create(settings);
     }
 
     public ScreenLogFactory(boolean incoming, boolean outgoing, boolean event) {
-        create(incoming, outgoing, event);
+        _create(incoming, outgoing, event);
     }
 
     protected void finalize() {
-        destroy();
+        _destroy();
     }
 
-    private native void create(SessionSettings settings);
-    private native void create(boolean incoming, boolean outgoing, boolean event);
-    private native void destroy();
+    private native void _create(SessionSettings settings);
+    private native void _create(boolean incoming, boolean outgoing, boolean event);
+    private native void _destroy();
 
+    public native Log create();
     public native Log create(SessionID sessionID);
 }

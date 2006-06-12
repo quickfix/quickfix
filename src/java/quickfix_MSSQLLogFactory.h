@@ -9,20 +9,25 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_MSSQLLogFactory
- * Method:    create
+ * Method:    _create
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_MSSQLLogFactory_create__
+JNIEXPORT void JNICALL Java_quickfix_MSSQLLogFactory__1create
   (JNIEnv *, jobject);
-
 /*
  * Class:     quickfix_MSSQLLogFactory
- * Method:    destroy
+ * Method:    _destroy
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_MSSQLLogFactory_destroy
+JNIEXPORT void JNICALL Java_quickfix_MSSQLLogFactory__1destroy
   (JNIEnv *, jobject);
-
+/*
+ * Class:     quickfix_MSSQLLogFactory
+ * Method:    create
+ * Signature: ()Lquickfix/Log;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_MSSQLLogFactory_create__
+  (JNIEnv *, jobject);
 /*
  * Class:     quickfix_MSSQLLogFactory
  * Method:    create
@@ -30,7 +35,6 @@ JNIEXPORT void JNICALL Java_quickfix_MSSQLLogFactory_destroy
  */
 JNIEXPORT jobject JNICALL Java_quickfix_MSSQLLogFactory_create__Lquickfix_SessionID_2
   (JNIEnv *, jobject, jobject);
-
 #ifdef __cplusplus
 }
 #endif

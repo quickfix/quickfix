@@ -33,7 +33,7 @@
 #include <quickfix/CallStack.h>
 #include "Conversions.h"
 
-JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory_create__
+JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory__1create
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -50,7 +50,7 @@ JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory_create__
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory_destroy
+JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory__1destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -59,6 +59,33 @@ JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory_destroy
   FIX::OdbcLogFactory* pFactory
   = ( FIX::OdbcLogFactory* ) jobject.getLong( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_OdbcLogFactory_create__
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobj( obj );
+
+  FIX::OdbcLogFactory* pFactory
+  = ( FIX::OdbcLogFactory* ) jobj.getLong( "cppPointer" );
+
+  try
+  {
+    FIX::Log* pLog = pFactory->create();
+    JVMClass type( "Lquickfix/OdbcLog;" );
+    jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
+    jobject result = pEnv->NewObject( type, method, ( jint ) pLog );
+    return result;
+  }
+  catch ( FIX::ConfigError & e )
+  {
+    throwNew( "Lquickfix/ConfigError;", e.what() );
+  }
+  return 0;
 
   QF_STACK_CATCH
 }

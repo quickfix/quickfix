@@ -31,7 +31,7 @@
 #include <quickfix/Log.h>
 #include <quickfix/CallStack.h>
 
-JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_SessionSettings_2
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__Lquickfix_SessionSettings_2
 ( JNIEnv *pEnv, jobject obj, jobject jsettings )
 { QF_STACK_TRY
 
@@ -49,7 +49,7 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_SessionS
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__ZZZ
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__ZZZ
 ( JNIEnv *pEnv, jobject obj, jboolean incoming, jboolean outgoing, jboolean event )
 { QF_STACK_TRY
 
@@ -63,7 +63,7 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__ZZZ
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_destroy
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -72,6 +72,33 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_destroy
   FIX::ScreenLogFactory* pFactory
   = ( FIX::ScreenLogFactory* ) jobject.getLong( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_ScreenLogFactory_create__
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobject( obj );
+
+  FIX::ScreenLogFactory* pFactory
+  = ( FIX::ScreenLogFactory* ) jobject.getLong( "cppPointer" );
+
+  try
+  {
+    FIX::Log* pLog = pFactory->create();
+    JVMClass type( "Lquickfix/ScreenLog;" );
+    jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
+    JVMObject result = pEnv->NewObject( type, method, ( jlong ) pLog );
+    return result;
+  }
+  catch ( FIX::ConfigError & e )
+  {
+    throwNew( "Lquickfix/ConfigError;", e.what() );
+  }
+  return 0;
 
   QF_STACK_CATCH
 }

@@ -9,20 +9,25 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_PostgreSQLLogFactory
- * Method:    create
+ * Method:    _create
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_PostgreSQLLogFactory_create__
+JNIEXPORT void JNICALL Java_quickfix_PostgreSQLLogFactory__1create
   (JNIEnv *, jobject);
-
 /*
  * Class:     quickfix_PostgreSQLLogFactory
- * Method:    destroy
+ * Method:    _destroy
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_PostgreSQLLogFactory_destroy
+JNIEXPORT void JNICALL Java_quickfix_PostgreSQLLogFactory__1destroy
   (JNIEnv *, jobject);
-
+/*
+ * Class:     quickfix_PostgreSQLLogFactory
+ * Method:    create
+ * Signature: ()Lquickfix/Log;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_PostgreSQLLogFactory_create__
+  (JNIEnv *, jobject);
 /*
  * Class:     quickfix_PostgreSQLLogFactory
  * Method:    create
@@ -30,7 +35,6 @@ JNIEXPORT void JNICALL Java_quickfix_PostgreSQLLogFactory_destroy
  */
 JNIEXPORT jobject JNICALL Java_quickfix_PostgreSQLLogFactory_create__Lquickfix_SessionID_2
   (JNIEnv *, jobject, jobject);
-
 #ifdef __cplusplus
 }
 #endif

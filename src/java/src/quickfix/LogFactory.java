@@ -20,5 +20,6 @@
 package quickfix;
 
 public interface LogFactory {
+    Log create();
     Log create( SessionID sessionID );
 }

@@ -32,19 +32,33 @@
 JavaLogFactory::JavaLogFactory( JVMObject object )
     : m_object( object.newGlobalRef() )
 {
-  createId = object.getClass()
+  createId1 = object.getClass()
+              .getMethodID( "create",
+                            "()Lquickfix/Log;" );
+
+  createId2 = object.getClass()
              .getMethodID( "create",
                            "(Lquickfix/SessionID;)Lquickfix/Log;" );
 }
 
 JavaLogFactory::~JavaLogFactory() { m_object.deleteGlobalRef(); }
 
+FIX::Log* JavaLogFactory::create()
+{
+  jobject obj =
+    ENV::get()->CallObjectMethod( m_object, createId1 );
+
+  if ( !obj ) throw FIX::ConfigError();
+
+  return new JavaLog( JVMObject( obj ) );
+}
+
 FIX::Log* JavaLogFactory::create
 ( const FIX::SessionID& sessionID )
 {
   jobject jsessionID = newSessionID( sessionID );
   jobject obj =
-    ENV::get() ->CallObjectMethod( m_object, createId, jsessionID );
+    ENV::get()->CallObjectMethod( m_object, createId2, jsessionID );
 
   ENV::get()->DeleteLocalRef( jsessionID );
   if ( !obj ) throw FIX::ConfigError();

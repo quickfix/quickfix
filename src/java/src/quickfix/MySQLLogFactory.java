@@ -26,15 +26,16 @@ public class MySQLLogFactory implements LogFactory {
 
     public MySQLLogFactory(SessionSettings settings) {
         this.settings = settings;
-        create();
+        _create();
     }
 
     protected void finalize() {
-        destroy();
+        _destroy();
     }
 
-    private native void create();
-    private native void destroy();
+    private native void _create();
+    private native void _destroy();
 
+    public native Log create();
     public native Log create(SessionID sessionID);
 }

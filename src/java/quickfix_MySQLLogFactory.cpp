@@ -33,7 +33,7 @@
 #include <quickfix/CallStack.h>
 #include "Conversions.h"
 
-JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_create__
+JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1create
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -50,7 +50,7 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_create__
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_destroy
+JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1destroy
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -59,6 +59,33 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory_destroy
   FIX::MySQLLogFactory* pFactory
   = ( FIX::MySQLLogFactory* ) jobject.getLong( "cppPointer" );
   delete pFactory;
+
+  QF_STACK_CATCH
+}
+
+JNIEXPORT jobject JNICALL Java_quickfix_MySQLLogFactory_create__
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  JVMObject jobj( obj );
+
+  FIX::MySQLLogFactory* pFactory
+  = ( FIX::MySQLLogFactory* ) jobj.getLong( "cppPointer" );
+
+  try
+  {
+    FIX::Log* pLog = pFactory->create();
+    JVMClass type( "Lquickfix/MySQLLog;" );
+    jmethodID method = pEnv->GetMethodID( type, "<init>", "(J)V" );
+    jobject result = pEnv->NewObject( type, method, ( jint ) pLog );
+    return result;
+  }
+  catch ( FIX::ConfigError & e )
+  {
+    throwNew( "Lquickfix/ConfigError;", e.what() );
+  }
+  return 0;
 
   QF_STACK_CATCH
 }

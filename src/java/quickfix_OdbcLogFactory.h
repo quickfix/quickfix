@@ -9,20 +9,25 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_OdbcLogFactory
- * Method:    create
+ * Method:    _create
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory_create__
+JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory__1create
   (JNIEnv *, jobject);
-
 /*
  * Class:     quickfix_OdbcLogFactory
- * Method:    destroy
+ * Method:    _destroy
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory_destroy
+JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory__1destroy
   (JNIEnv *, jobject);
-
+/*
+ * Class:     quickfix_OdbcLogFactory
+ * Method:    create
+ * Signature: ()Lquickfix/Log;
+ */
+JNIEXPORT jobject JNICALL Java_quickfix_OdbcLogFactory_create__
+  (JNIEnv *, jobject);
 /*
  * Class:     quickfix_OdbcLogFactory
  * Method:    create
@@ -30,7 +35,6 @@ JNIEXPORT void JNICALL Java_quickfix_OdbcLogFactory_destroy
  */
 JNIEXPORT jobject JNICALL Java_quickfix_OdbcLogFactory_create__Lquickfix_SessionID_2
   (JNIEnv *, jobject, jobject);
-
 #ifdef __cplusplus
 }
 #endif

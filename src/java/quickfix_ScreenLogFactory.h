@@ -9,28 +9,32 @@ extern "C" {
 #endif
 /*
  * Class:     quickfix_ScreenLogFactory
- * Method:    create
+ * Method:    _create
  * Signature: (Lquickfix/SessionSettings;)V
  */
-JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__Lquickfix_SessionSettings_2
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__Lquickfix_SessionSettings_2
   (JNIEnv *, jobject, jobject);
-
+/*
+ * Class:     quickfix_ScreenLogFactory
+ * Method:    _create
+ * Signature: (ZZZ)V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__ZZZ
+  (JNIEnv *, jobject, jboolean, jboolean, jboolean);
+/*
+ * Class:     quickfix_ScreenLogFactory
+ * Method:    _destroy
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1destroy
+  (JNIEnv *, jobject);
 /*
  * Class:     quickfix_ScreenLogFactory
  * Method:    create
- * Signature: (ZZZ)V
+ * Signature: ()Lquickfix/Log;
  */
-JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_create__ZZZ
-  (JNIEnv *, jobject, jboolean, jboolean, jboolean);
-
-/*
- * Class:     quickfix_ScreenLogFactory
- * Method:    destroy
- * Signature: ()V
- */
-JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory_destroy
+JNIEXPORT jobject JNICALL Java_quickfix_ScreenLogFactory_create__
   (JNIEnv *, jobject);
-
 /*
  * Class:     quickfix_ScreenLogFactory
  * Method:    create
