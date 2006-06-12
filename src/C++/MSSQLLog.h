@@ -58,9 +58,14 @@ public:
 
   ~MSSQLLogFactory();
 
+  Log* create();
   Log* create( const SessionID& );
   void destroy( Log* );
 private:
+  void init( const Dictionary& settings, 
+             std::string& database, std::string& user, 
+             std::string& password, std::string& host );
+
   SessionSettings m_settings;
   std::string m_database;
   std::string m_user;
@@ -76,6 +81,9 @@ class MSSQLLog : public Log
 public:
   MSSQLLog( const SessionID& s, const std::string& database, const std::string& user,
             const std::string& password, const std::string& host );
+  MSSQLLog( const std::string& database, const std::string& user,
+            const std::string& password, const std::string& host );
+
   ~MSSQLLog();
 
   void clear();
@@ -87,9 +95,12 @@ public:
   { insert( "event_log", value ); }
 
 private:
+  void init( const std::string& database, const std::string& user,
+             const std::string& password, const std::string& host );
+
   void insert( const std::string& table, const std::string value );
   void* m_pConnection;
-  SessionID m_sessionID;
+  SessionID* m_pSessionID;
 };
 }
 

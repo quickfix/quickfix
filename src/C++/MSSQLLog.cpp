@@ -47,7 +47,21 @@ const std::string MSSQLLogFactory::DEFAULT_HOST = "localhost";
 MSSQLLog::MSSQLLog
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host )
-  : m_sessionID( s )
+{
+  m_pSessionID = new SessionID( s );
+  init( database, user, password, host );
+}
+
+MSSQLLog::MSSQLLog
+( const std::string& database, const std::string& user,
+  const std::string& password, const std::string& host )
+  : m_pSessionID( 0 )
+{
+  init( database, user, password, host );
+}
+
+void MSSQLLog::init( const std::string& database, const std::string& user,
+                     const std::string& password, const std::string& host )
 {
   PLOGINREC login = dblogin();
   DBSETLUSER( login, user.c_str() );
@@ -68,6 +82,7 @@ MSSQLLog::MSSQLLog
 
 MSSQLLog::~MSSQLLog()
 {
+  delete m_pSessionID;
   PDBPROCESS* pConnection = reinterpret_cast < PDBPROCESS* > ( m_pConnection );
   dbclose( pConnection );
 }
@@ -92,20 +107,49 @@ MSSQLLogFactory::~MSSQLLogFactory()
   dbexit();
 }
 
+Log* MSSQLLogFactory::create()
+{ QF_STACK_PUSH(MSSQLLogFactory::create)
+
+  std::string database;
+  std::string user;
+  std::string password;
+  std::string host;
+
+  init( m_settings.get(), database, user, password, host );
+  return new MSSQLLog( database, user, password, host );
+
+  QF_STACK_POP
+}
+
 Log* MSSQLLogFactory::create( const SessionID& s )
 { QF_STACK_PUSH(MSSQLLogFactory::create)
 
+  std::string database;
+  std::string user;
+  std::string password;
+  std::string host;
+
+  init( m_settings.get(s), database, user, password, host );
+  return new MSSQLLog( s, database, user, password, host );
+
+  QF_STACK_POP
+}
+
+void MSSQLLogFactory::init( const Dictionary& settings, 
+                            std::string& database,
+                            std::string& user, 
+                            std::string& password,
+                            std::string& host )
+{
   dbinit();
 
-  std::string database = DEFAULT_DATABASE;
-  std::string user = DEFAULT_USER;
-  std::string password = DEFAULT_PASSWORD;
-  std::string host = DEFAULT_HOST;
+  database = DEFAULT_DATABASE;
+  user = DEFAULT_USER;
+  password = DEFAULT_PASSWORD;
+  host = DEFAULT_HOST;
 
   if( m_useSettings )
   {
-    Dictionary settings = m_settings.get( s );
-
     try { database = settings.getString( MSSQL_LOG_DATABASE ); }
     catch( ConfigError& ) {}
 
@@ -125,10 +169,6 @@ Log* MSSQLLogFactory::create( const SessionID& s )
     password = m_password;
     host = m_host;
   }
-
-  return new MSSQLLog( s, database, user, password, host );
-
-  QF_STACK_POP
 }
 
 void MSSQLLogFactory::destroy( Log* pLog )
@@ -149,10 +189,19 @@ void MSSQLLog::clear()
   std::stringstream messagesQuery;
   std::stringstream eventQuery;
 
-  whereClause << "WHERE "
-    << "BeginString = '" << m_sessionID.getBeginString().getValue() << "' "
-    << "AND SenderCompID = '" << m_sessionID.getSenderCompID().getValue() << "' "
-    << "AND TargetCompID = '" << m_sessionID.getTargetCompID().getValue() << "'";
+  whereClause << "WHERE ";
+
+  if( m_pSessionID )
+  {
+    whereClause
+    << "BeginString = '" << m_pSessionID->getBeginString().getValue() << "' "
+    << "AND SenderCompID = '" << m_pSessionID->getSenderCompID().getValue() << "' "
+    << "AND TargetCompID = '" << m_pSessionID->getTargetCompID().getValue() << "'";
+  }
+  else
+  {
+    whereClause << "BeginString = NULL AND SenderCompID = NULL && TargetCompID = NULL";
+  }
 
   messagesQuery << "DELETE FROM messages_log " << whereClause.str();
   eventQuery << "DELETE FROM event_log " << whereClause.str();
@@ -181,16 +230,30 @@ void MSSQLLog::insert( const std::string& table, const std::string value )
   string_replace( "\"", "\\\"", valueCopy );
 
   PDBPROCESS* pConnection = reinterpret_cast < PDBPROCESS* > ( m_pConnection );
+  
   std::stringstream query;
   query << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
-  << "'" << sqlTime << "',"
-  << "'" << m_sessionID.getBeginString().getValue() << "',"
-  << "'" << m_sessionID.getSenderCompID().getValue() << "',"
-  << "'" << m_sessionID.getTargetCompID().getValue() << "',"
-  << "'" << m_sessionID.getSessionQualifier() << "',"
-  << "'" << valueCopy << "')";
+  << "'" << sqlTime << "',";
+
+  if( m_pSessionID )
+  {
+    query
+    << "'" << m_pSessionID->getBeginString().getValue() << "',"
+    << "'" << m_pSessionID->getSenderCompID().getValue() << "',"
+    << "'" << m_pSessionID->getTargetCompID().getValue() << "',";
+    if( m_pSessionID->getSessionQualifier() == "" )
+      query << "NULL" << ",";
+    else
+      query << "'" << m_pSessionID->getSessionQualifier() << "',";
+  }
+  else
+  {
+    query << "NULL, NULL, NULL, NULL";
+  }
+
+  query << "'" << valueCopy << "')";
 
   dbcmd( pConnection, query.str().c_str() );
   dbsqlexec( pConnection );

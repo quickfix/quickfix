@@ -116,11 +116,11 @@ Log* MySQLLogFactory::create( const SessionID& s )
 }
 
 void MySQLLogFactory::init( const Dictionary& settings, 
-           std::string& database, 
-           std::string& user,
-           std::string& password,
-           std::string& host,
-           short &port )
+                            std::string& database, 
+                            std::string& user,
+                            std::string& password,
+                            std::string& host,
+                            short &port )
 { QF_STACK_PUSH(MySQLLogFactory::init)
 
   database = DEFAULT_DATABASE;
@@ -175,7 +175,7 @@ void MySQLLog::clear()
 
   if( m_pSessionID )
   {
-	whereClause
+    whereClause
     << "BeginString = \"" << m_pSessionID->getBeginString().getValue() << "\" " 
     << "AND SenderCompID = \"" << m_pSessionID->getSenderCompID().getValue() << "\" "
     << "AND TargetCompID = \"" << m_pSessionID->getTargetCompID().getValue() << "\"";
@@ -219,7 +219,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
 
   if( m_pSessionID )
   {
-	queryString
+    queryString
     << "\"" << m_pSessionID->getBeginString().getValue() << "\","
     << "\"" << m_pSessionID->getSenderCompID().getValue() << "\","
     << "\"" << m_pSessionID->getTargetCompID().getValue() << "\",";
