@@ -25,6 +25,7 @@ using namespace System;
 
 #include "quickfix_net.h"
 
+#include "CPPLog.h"
 #include "Log.h"
 #include "LogFactory.h"
 #include "SessionSettings.h"
@@ -34,88 +35,47 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class FileLog : public Log
+public __gc class FileLog : public CPPLog
 {
 public:
-  FileLog( String* path, SessionID* sessionID )
-  { QF_STACK_TRY
-
-    char* upath = createUnmanagedString( path );
-    m_pUnmanaged = new FIX::FileLog
-                   ( upath, sessionID->unmanaged() );
-    destroyUnmanagedString( upath );
-
-    QF_STACK_CATCH
+  FileLog( FIX::Log* pUnmanaged )
+  {
+    m_pUnmanaged = pUnmanaged;
   }
-
-  void clear()
-  { QF_STACK_TRY
-    m_pUnmanaged->clear();
-    QF_STACK_CATCH
-  }
-
-  void onIncoming( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onIncoming( us );
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-  void onOutgoing( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onOutgoing( us );
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-  void onEvent( String* s )
-  { QF_STACK_TRY
-
-    char* us = createUnmanagedString( s );
-    m_pUnmanaged->onEvent( us );
-    destroyUnmanagedString( us );
-
-    QF_STACK_CATCH
-  }
-
-private:
-  FIX::FileLog* m_pUnmanaged;
 };
 
 public __gc class FileLogFactory : public LogFactory
 {
 public:
   FileLogFactory( SessionSettings* settings )
-  : m_path( 0 ), m_settings( settings ) {}
+  { QF_STACK_TRY
+    m_pUnmanaged = new FIX::FileLogFactory( settings->unmanaged() );
+    QF_STACK_CATCH
+  }
 
   FileLogFactory( String* path )
-  : m_path( path ), m_settings( 0 ) {}
+  { QF_STACK_TRY
+
+    char* upath = createUnmanagedString( path );
+    m_pUnmanaged = new FIX::FileLogFactory( upath );
+    destroyUnmanagedString( upath );
+
+	QF_STACK_POP
+  }
+
+  Log* create()
+  { QF_STACK_TRY
+    return new FileLog(m_pUnmanaged->create());
+    QF_STACK_CATCH
+  }
 
   Log* create( SessionID* sessionID )
   { QF_STACK_TRY
-
-    if ( m_path ) return new FileLog( m_path, sessionID );
-
-    FIX::SessionSettings& s = m_settings->unmanaged();
-    FIX::Dictionary settings = s.get( sessionID->unmanaged() );
-    try
-    {
-      m_path = settings.getString( FIX::FILE_LOG_PATH ).c_str();
-      return new FileLog( m_path, sessionID );
-    }
-    catch ( FIX::ConfigError & e ) { throw new ConfigError( e.what() ); }
-
+    return new FileLog(m_pUnmanaged->create(sessionID->unmanaged()));
     QF_STACK_CATCH
   }
 
 private:
-  String* m_path;
-  SessionSettings* m_settings;
+  FIX::FileLogFactory* m_pUnmanaged;
 };
 }
