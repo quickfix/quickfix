@@ -30,28 +30,49 @@ namespace FIX
 {
 Mutex ScreenLog::s_mutex;
 
+Log* ScreenLogFactory::create()
+{ QF_STACK_PUSH(ScreenLogFactory::create)
+
+  bool incoming, outgoing, event;
+  init( m_settings.get(), incoming, outgoing, event );
+  return new ScreenLog( incoming, outgoing, event );
+
+  QF_STACK_POP
+}
+
 Log* ScreenLogFactory::create( const SessionID& sessionID )
 { QF_STACK_PUSH(ScreenLogFactory::create)
+
+  bool incoming, outgoing, event;
+  init( m_settings.get(sessionID), incoming, outgoing, event );
+  return new ScreenLog( sessionID, incoming, outgoing, event );
+
+  QF_STACK_POP
+}
+
+void ScreenLogFactory::init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event )
+{ QF_STACK_PUSH(ScreenLogFactory::init)
+	
   if( m_useSettings )
   {
-    bool incoming = true;
-    bool outgoing = true;
-    bool event = true;
+    incoming = true;
+    outgoing = true;
+    event = true;
 
-    Dictionary settings = m_settings.get( sessionID );
     if( settings.has(SCREEN_LOG_SHOW_INCOMING) )
       incoming = settings.getBool(SCREEN_LOG_SHOW_INCOMING);
     if( settings.has(SCREEN_LOG_SHOW_OUTGOING) )
       outgoing = settings.getBool(SCREEN_LOG_SHOW_OUTGOING);
     if( settings.has(SCREEN_LOG_SHOW_EVENTS) )
       event = settings.getBool(SCREEN_LOG_SHOW_EVENTS);
-
-    return new ScreenLog( sessionID, incoming, outgoing, event );
   }
   else
   {
-    return new ScreenLog( sessionID, m_incoming, m_outgoing, m_event );
+	incoming = m_incoming;
+	outgoing = m_outgoing;
+	event = m_event;
   }
+
   QF_STACK_POP
 }
 

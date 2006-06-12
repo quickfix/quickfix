@@ -44,7 +44,15 @@ const short MySQLLogFactory::DEFAULT_PORT = 0;
 
 MySQLLog::MySQLLog
 ( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p )
-: m_sessionID( s ), m_pConnectionPool( p )
+: m_pConnectionPool( p )
+{
+  m_pSessionID = new SessionID( s );
+  m_pConnection = m_pConnectionPool->create( d );
+}
+
+MySQLLog::MySQLLog
+( const DatabaseConnectionID& d, MySQLConnectionPool* p )
+: m_pConnectionPool( p ), m_pSessionID( 0 )
 {
   m_pConnection = m_pConnectionPool->create( d );
 }
@@ -52,7 +60,16 @@ MySQLLog::MySQLLog
 MySQLLog::MySQLLog
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-  : m_sessionID( s ), m_pConnectionPool( 0 )
+  : m_pConnectionPool( 0 )
+{
+  m_pSessionID = new SessionID( s );
+  m_pConnection = new MySQLConnection( database, user, password, host, port );
+}
+
+MySQLLog::MySQLLog
+( const std::string& database, const std::string& user,
+  const std::string& password, const std::string& host, short port )
+  : m_pConnectionPool( 0 ), m_pSessionID( 0 )
 {
   m_pConnection = new MySQLConnection( database, user, password, host, port );
 }
@@ -63,21 +80,57 @@ MySQLLog::~MySQLLog()
     m_pConnectionPool->destroy( m_pConnection );
   else
     delete m_pConnection;
+  delete m_pSessionID;
+}
+
+Log* MySQLLogFactory::create()
+{ QF_STACK_PUSH(MySQLLogFactory::create)
+
+  std::string database;
+  std::string user;
+  std::string password;
+  std::string host;
+  short port;
+
+  init( m_settings.get(), database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new MySQLLog( id, m_connectionPoolPtr.get() );
+ 
+  QF_STACK_POP
 }
 
 Log* MySQLLogFactory::create( const SessionID& s )
 { QF_STACK_PUSH(MySQLLogFactory::create)
 
-  std::string database = DEFAULT_DATABASE;
-  std::string user = DEFAULT_USER;
-  std::string password = DEFAULT_PASSWORD;
-  std::string host = DEFAULT_HOST;
-  short port = DEFAULT_PORT;
+  std::string database;
+  std::string user;
+  std::string password;
+  std::string host;
+  short port;
+
+  init( m_settings.get(s), database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new MySQLLog( s, id, m_connectionPoolPtr.get() );
+
+  QF_STACK_POP
+}
+
+void MySQLLogFactory::init( const Dictionary& settings, 
+           std::string& database, 
+           std::string& user,
+           std::string& password,
+           std::string& host,
+           short &port )
+{ QF_STACK_PUSH(MySQLLogFactory::init)
+
+  database = DEFAULT_DATABASE;
+  user = DEFAULT_USER;
+  password = DEFAULT_PASSWORD;
+  host = DEFAULT_HOST;
+  port = DEFAULT_PORT;
 
   if( m_useSettings )
   {
-    Dictionary settings = m_settings.get( s );
-
     try { database = settings.getString( MYSQL_LOG_DATABASE ); }
     catch( ConfigError& ) {}
 
@@ -102,9 +155,6 @@ Log* MySQLLogFactory::create( const SessionID& s )
     port = m_port;
   }
 
-  DatabaseConnectionID id( database, user, password, host, port );
-  return new MySQLLog( s, id, m_connectionPoolPtr.get() );
-
   QF_STACK_POP
 }
 
@@ -121,10 +171,19 @@ void MySQLLog::clear()
   std::stringstream messagesQuery;
   std::stringstream eventQuery;
 
-  whereClause << "WHERE "
-    << "BeginString = \"" << m_sessionID.getBeginString().getValue() << "\" "
-    << "AND SenderCompID = \"" << m_sessionID.getSenderCompID().getValue() << "\" "
-    << "AND TargetCompID = \"" << m_sessionID.getTargetCompID().getValue() << "\"";
+  whereClause << "WHERE ";
+
+  if( m_pSessionID )
+  {
+	whereClause
+    << "BeginString = \"" << m_pSessionID->getBeginString().getValue() << "\" " 
+    << "AND SenderCompID = \"" << m_pSessionID->getSenderCompID().getValue() << "\" "
+    << "AND TargetCompID = \"" << m_pSessionID->getTargetCompID().getValue() << "\"";
+  }
+  else
+  {
+    whereClause << "BeginString = NULL AND SenderCompID = NULL && TargetCompID = NULL";
+  }
 
   messagesQuery << "DELETE FROM messages_log " << whereClause.str();
   eventQuery << "DELETE FROM event_log " << whereClause.str();
@@ -156,12 +215,25 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   queryString << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
-  << "'" << sqlTime << "',"
-  << "\"" << m_sessionID.getBeginString().getValue() << "\","
-  << "\"" << m_sessionID.getSenderCompID().getValue() << "\","
-  << "\"" << m_sessionID.getTargetCompID().getValue() << "\","
-  << "\"" << m_sessionID.getSessionQualifier() << "\","
-  << "\"" << valueCopy << "\")";
+  << "'" << sqlTime << "',";
+
+  if( m_pSessionID )
+  {
+	queryString
+    << "\"" << m_pSessionID->getBeginString().getValue() << "\","
+    << "\"" << m_pSessionID->getSenderCompID().getValue() << "\","
+    << "\"" << m_pSessionID->getTargetCompID().getValue() << "\",";
+    if( m_pSessionID->getSessionQualifier() == "" )
+      queryString << "NULL" << ",";
+    else
+      queryString << "\"" << m_pSessionID->getSessionQualifier() << "\",";
+  }
+  else
+  {
+    queryString << "NULL, NULL, NULL, NULL";
+  }
+
+  queryString << "\"" << valueCopy << "\")";
 
   MySQLQuery query( queryString.str() );
   m_pConnection->execute( query );

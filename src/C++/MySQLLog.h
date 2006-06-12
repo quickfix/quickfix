@@ -79,9 +79,14 @@ public:
       ( new MySQLConnectionPool(false) );
   }
 
+  Log* create();
   Log* create( const SessionID& );
   void destroy( Log* );
 private:
+  void init( const Dictionary& settings, std::string& database,
+             std::string& user, std::string& password,
+             std::string& host, short& port );
+
   MySQLConnectionPoolPtr m_connectionPoolPtr;
   SessionSettings m_settings;
   std::string m_database;
@@ -98,8 +103,12 @@ class MySQLLog : public Log
 {
 public:
   MySQLLog( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p );
+  MySQLLog( const DatabaseConnectionID& d, MySQLConnectionPool* p );
   MySQLLog( const SessionID& s, const std::string& database, const std::string& user,
-                 const std::string& password, const std::string& host, short port );
+            const std::string& password, const std::string& host, short port );
+  MySQLLog( const std::string& database, const std::string& user,
+            const std::string& password, const std::string& host, short port );
+
   ~MySQLLog();
 
   void clear();
@@ -114,7 +123,7 @@ private:
   void insert( const std::string& table, const std::string value );
   MySQLConnection* m_pConnection;
   MySQLConnectionPool* m_pConnectionPool;
-  SessionID m_sessionID;
+  SessionID* m_pSessionID;
 };
 }
 

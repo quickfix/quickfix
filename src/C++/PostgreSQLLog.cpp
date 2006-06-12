@@ -44,7 +44,15 @@ const short PostgreSQLLogFactory::DEFAULT_PORT = 0;
 
 PostgreSQLLog::PostgreSQLLog
 ( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
-: m_sessionID( s ), m_pConnectionPool( p )
+: m_pConnectionPool( p )
+{
+  m_pSessionID = new SessionID( s );
+  m_pConnection = m_pConnectionPool->create( d );
+}
+
+PostgreSQLLog::PostgreSQLLog
+( const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
+: m_pConnectionPool( p ), m_pSessionID( 0 )
 {
   m_pConnection = m_pConnectionPool->create( d );
 }
@@ -52,7 +60,16 @@ PostgreSQLLog::PostgreSQLLog
 PostgreSQLLog::PostgreSQLLog
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-  : m_sessionID( s ), m_pConnectionPool( 0 )
+  : m_pConnectionPool( 0 )
+{
+  m_pSessionID = new SessionID( s );
+  m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
+}
+
+PostgreSQLLog::PostgreSQLLog
+( const std::string& database, const std::string& user,
+  const std::string& password, const std::string& host, short port )
+  : m_pConnectionPool( 0 ), m_pSessionID( 0 )
 {
   m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
 }
@@ -63,21 +80,57 @@ PostgreSQLLog::~PostgreSQLLog()
     m_pConnectionPool->destroy( m_pConnection );
   else
     delete m_pConnection;
+  delete m_pSessionID;
+}
+
+Log* PostgreSQLLogFactory::create()
+{ QF_STACK_PUSH(PostgreSQLLogFactory::create)
+
+  std::string database;
+  std::string user;
+  std::string password;
+  std::string host;
+  short port;
+
+  init( m_settings.get(), database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new PostgreSQLLog( id, m_connectionPoolPtr.get() );
+ 
+  QF_STACK_POP
 }
 
 Log* PostgreSQLLogFactory::create( const SessionID& s )
 { QF_STACK_PUSH(PostgreSQLLogFactory::create)
 
-  std::string database = DEFAULT_DATABASE;
-  std::string user = DEFAULT_USER;
-  std::string password = DEFAULT_PASSWORD;
-  std::string host = DEFAULT_HOST;
-  short port = DEFAULT_PORT;
+  std::string database;
+  std::string user;
+  std::string password;
+  std::string host;
+  short port;
+
+  init( m_settings.get(s), database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new PostgreSQLLog( s, id, m_connectionPoolPtr.get() );
+
+  QF_STACK_POP
+}
+
+void PostgreSQLLogFactory::init( const Dictionary& settings, 
+           std::string& database, 
+           std::string& user,
+           std::string& password,
+           std::string& host,
+           short &port )
+{ QF_STACK_PUSH(PostgreSQLLogFactory::init)
+
+  database = DEFAULT_DATABASE;
+  user = DEFAULT_USER;
+  password = DEFAULT_PASSWORD;
+  host = DEFAULT_HOST;
+  port = DEFAULT_PORT;
 
   if( m_useSettings )
   {
-    Dictionary settings = m_settings.get( s );
-
     try { database = settings.getString( POSTGRESQL_LOG_DATABASE ); }
     catch( ConfigError& ) {}
 
@@ -102,9 +155,6 @@ Log* PostgreSQLLogFactory::create( const SessionID& s )
     port = m_port;
   }
 
-  DatabaseConnectionID id( database, user, password, host, port );
-  return new PostgreSQLLog( s, id, m_connectionPoolPtr.get() );
-
   QF_STACK_POP
 }
 
@@ -121,10 +171,19 @@ void PostgreSQLLog::clear()
   std::stringstream messagesQuery;
   std::stringstream eventQuery;
 
-  whereClause << "WHERE "
-    << "BeginString = '" << m_sessionID.getBeginString().getValue() << "' "
-    << "AND SenderCompID = '" << m_sessionID.getSenderCompID().getValue() << "' "
-    << "AND TargetCompID = '" << m_sessionID.getTargetCompID().getValue() << "'";
+  whereClause << "WHERE ";
+
+  if( m_pSessionID )
+  {
+	whereClause
+    << "BeginString = '" << m_pSessionID->getBeginString().getValue() << "' "
+    << "AND SenderCompID = '" << m_pSessionID->getSenderCompID().getValue() << "' "
+    << "AND TargetCompID = '" << m_pSessionID->getTargetCompID().getValue() << "'";
+  }
+  else
+  {
+	whereClause << "BeginString = NULL AND SenderCompID = NULL && TargetCompID = NULL";
+  }
 
   messagesQuery << "DELETE FROM messages_log " << whereClause.str();
   eventQuery << "DELETE FROM event_log " << whereClause.str();
@@ -152,21 +211,28 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
   std::string valueCopy = value;
   string_replace( "\"", "\\\"", valueCopy );
 
-  if( !m_pConnection->connected() )
-    m_pConnection->reconnect();
-
   std::stringstream queryString;
   queryString << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
-  << "'" << sqlTime << "',"
-  << "'" << m_sessionID.getBeginString().getValue() << "',"
-  << "'" << m_sessionID.getSenderCompID().getValue() << "',"
-  << "'" << m_sessionID.getTargetCompID().getValue() << "',";
-  if( m_sessionID.getSessionQualifier() == "" )
-    queryString << "NULL" << ",";
+  << "'" << sqlTime << "',";
+
+  if( m_pSessionID )
+  {
+    queryString
+    << "'" << m_pSessionID->getBeginString().getValue() << "',"
+    << "'" << m_pSessionID->getSenderCompID().getValue() << "',"
+    << "'" << m_pSessionID->getTargetCompID().getValue() << "',";
+    if( m_pSessionID->getSessionQualifier() == "" )
+      queryString << "NULL" << ",";
+    else
+      queryString << "'" << m_pSessionID->getSessionQualifier() << "',";
+  }
   else
-    queryString << "'" << m_sessionID.getSessionQualifier() << "',";
+  {	
+    queryString << "NULL, NULL, NULL, NULL";
+  }
+
   queryString << "'" << valueCopy << "')";
 
   PostgreSQLQuery query( queryString.str() );
@@ -175,6 +241,6 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
   QF_STACK_POP
 }
 
-}
+} // namespace FIX
 
-#endif
+#endif //HAVE_POSTGRESQL

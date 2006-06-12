@@ -43,6 +43,7 @@ class LogFactory
 {
 public:
   virtual ~LogFactory() {}
+  virtual Log* create() = 0;
   virtual Log* create( const SessionID& ) = 0;
   virtual void destroy( Log* ) = 0;
 };
@@ -60,10 +61,13 @@ public:
   ScreenLogFactory( bool incoming, bool outgoing, bool event )
 : m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ), m_useSettings( false ) {}
 
+  Log* create();
   Log* create( const SessionID& );
   void destroy( Log* log );
 
 private:
+  void init( const Dictionary& settings, bool& incoming, bool& outgoing, bool& event );
+
   bool m_incoming;
   bool m_outgoing;
   bool m_event;
@@ -94,9 +98,13 @@ public:
 class ScreenLog : public Log
 {
 public:
+  ScreenLog( bool incoming, bool outgoing, bool event ) 
+: m_prefix( "GLOBAL" ),
+  m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
+
   ScreenLog( const SessionID& sessionID,
              bool incoming, bool outgoing, bool event )
-: m_sessionID( sessionID ),
+: m_prefix( sessionID.toString() ),
   m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ) {}
 
   void clear() {}
@@ -107,7 +115,7 @@ public:
     Locker l( s_mutex );
     m_time.setCurrent();
     std::cout << "<" << UtcTimeStampConvertor::convert(m_time)
-              << ", " << m_sessionID
+              << ", " << m_prefix
               << ", " << "incoming>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
@@ -118,7 +126,7 @@ public:
     Locker l( s_mutex );
     m_time.setCurrent();
     std::cout << "<" << UtcTimeStampConvertor::convert(m_time)
-              << ", " << m_sessionID
+              << ", " << m_prefix
               << ", " << "outgoing>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
@@ -128,13 +136,13 @@ public:
     Locker l( s_mutex );
     m_time.setCurrent();
     std::cout << "<" << UtcTimeStampConvertor::convert(m_time)
-              << ", " << m_sessionID
+              << ", " << m_prefix
               << ", " << "event>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
 
 private:
-  SessionID m_sessionID;
+  std::string m_prefix;
   UtcTimeStamp m_time;
   bool m_incoming;
   bool m_outgoing;

@@ -41,17 +41,20 @@ class FileLogFactory : public LogFactory
 {
 public:
   FileLogFactory( const SessionSettings& settings )
-: m_settings( settings ) {};
+: m_settings( settings ), m_globalLog(0), m_globalLogCount(0) {};
   FileLogFactory( const std::string& path )
-: m_path( path ) {};
+: m_path( path ), m_globalLog(0), m_globalLogCount(0) {};
 
 public:
+  Log* create();
   Log* create( const SessionID& );
   void destroy( Log* log );
 
 private:
   std::string m_path;
   SessionSettings m_settings;
+  Log* m_globalLog;
+  int m_globalLogCount;
 };
 
 /**
@@ -70,7 +73,8 @@ private:
 class FileLog : public Log
 {
 public:
-  FileLog( std::string path, const SessionID& sessionID );
+  FileLog( const std::string& path );
+  FileLog( const std::string& path, const SessionID& sessionID );
   virtual ~FileLog();
 
   void clear();
@@ -87,7 +91,8 @@ public:
   }
 
 private:
-  SessionID m_sessionID;
+  void init( std::string path, const std::string& prefix );
+
   std::ofstream m_messages;
   std::ofstream m_event;
   std::string m_messagesFileName;

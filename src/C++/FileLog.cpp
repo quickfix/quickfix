@@ -28,6 +28,29 @@
 
 namespace FIX
 {
+Log* FileLogFactory::create()
+{ QF_STACK_PUSH(FileLogFactory::create)
+
+  m_globalLogCount++;
+  if( m_globalLogCount > 1 ) return m_globalLog;
+
+  try
+  {
+    if ( m_path.size() ) return new FileLog( m_path );
+    std::string path;
+    Dictionary settings = m_settings.get();
+    path = settings.getString( FILE_LOG_PATH );
+    return m_globalLog = new FileLog( path );
+  }
+  catch( ConfigError& )
+  {
+	m_globalLogCount--;
+	throw;	
+  }
+
+  QF_STACK_POP
+}
+
 Log* FileLogFactory::create( const SessionID& s )
 { QF_STACK_PUSH(FileLogFactory::create)
 
@@ -42,16 +65,31 @@ Log* FileLogFactory::create( const SessionID& s )
 
 void FileLogFactory::destroy( Log* pLog )
 { QF_STACK_PUSH(FileLogFactory::destroy)
-  delete pLog;
+ 
+  if( pLog == m_globalLog )
+  {
+    m_globalLogCount--;
+    if( m_globalLogCount == 0 )
+    {
+	  delete pLog;
+	  m_globalLogCount = 0;
+    }	
+  }
+  else
+  {
+  	delete pLog;
+  }
+
   QF_STACK_POP
 }
 
-FileLog::FileLog( std::string path, const SessionID& s )
-: m_sessionID( s )
+FileLog::FileLog( const std::string& path )
 {
-  file_mkdir( path.c_str() );
+  init( path, "GLOBAL" );
+}
 
-  if ( path.empty() ) path = ".";
+FileLog::FileLog( const std::string& path, const SessionID& s )
+{
   const std::string& begin =
     s.getBeginString().getString();
   const std::string& sender =
@@ -61,20 +99,32 @@ FileLog::FileLog( std::string path, const SessionID& s )
   const std::string& qualifier =
     s.getSessionQualifier();
 
-  std::string sessionid = begin + "-" + sender + "-" + target;
+  std::string prefix = begin + "-" + sender + "-" + target;
   if( qualifier.size() )
-    sessionid += "-" + qualifier;
+    prefix += "-" + qualifier;
 
-  std::string prefix
-    = file_appendpath(path, sessionid + ".");
+  init( path, prefix );
+}
 
-  m_messagesFileName = prefix + "messages.log";
-  m_eventFileName = prefix + "event.log";
+void FileLog::init( std::string path, const std::string& prefix )
+{ QF_STACK_PUSH(FileLog::init)
+	
+  file_mkdir( path.c_str() );
+
+  if ( path.empty() ) path = ".";
+
+  std::string fullPrefix
+    = file_appendpath(path, prefix + ".");
+
+  m_messagesFileName = fullPrefix + "messages.log";
+  m_eventFileName = fullPrefix + "event.log";
 
   m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::app );
   if ( !m_messages.is_open() ) throw ConfigError( "Could not open messages file" );
   m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::app );
   if ( !m_event.is_open() ) throw ConfigError( "Could not open event file" );
+
+  QF_STACK_POP
 }
 
 FileLog::~FileLog()
