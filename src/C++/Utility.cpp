@@ -36,8 +36,8 @@
 namespace FIX
 {
 void string_replace( const std::string& oldValue,
-		     const std::string& newValue,
-		     std::string& value )
+		             const std::string& newValue,
+		             std::string& value )
 { QF_STACK_PUSH(string_replace)
 
   for( std::string::size_type pos = value.find(oldValue);
@@ -292,6 +292,21 @@ const char* socket_hostname( const char* name )
 
   paddr = ( struct in_addr ** ) host_ptr->h_addr_list;
   return inet_ntoa( **paddr );
+
+  QF_STACK_POP
+}
+
+const char* socket_getpeername( int socket )
+{ QF_STACK_PUSH(socket_getpeername)
+
+  struct sockaddr_in addr;
+  socklen_t len = sizeof(addr);
+  if( getpeername( socket, (struct sockaddr*)&addr, &len ) < 0 )
+    return 0;
+  hostent* host = gethostbyaddr( (char*)&addr.sin_addr, sizeof(addr.sin_addr), AF_INET );
+  if( host == NULL )
+    return 0;
+  return host->h_name;
 
   QF_STACK_POP
 }

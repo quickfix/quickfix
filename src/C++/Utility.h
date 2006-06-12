@@ -80,6 +80,7 @@ bool socket_isBad( int s );
 #endif
 void socket_invalidate( int& socket );
 const char* socket_hostname( const char* name );
+const char* socket_getpeername( int socket );
 
 tm time_gmtime( const time_t* t );
 tm time_localtime( const time_t* t);
