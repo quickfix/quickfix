@@ -34,6 +34,7 @@ namespace QuickFix
 {
 public __gc __interface LogFactory
 {
+  Log* create() = 0;
   Log* create( SessionID* ) = 0;
 };
 }
@@ -44,6 +45,8 @@ public:
   LogFactory( QuickFix::LogFactory* factory )
   : m_factory( factory ) {}
 
+  FIX::Log* create()
+  { return new Log( m_factory->create() ); }
   FIX::Log* create( const FIX::SessionID& sessionID )
   { return new Log( m_factory->create( new QuickFix::SessionID( sessionID ) ) ); }
   void destroy( FIX::Log* pLog )

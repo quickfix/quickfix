@@ -37,6 +37,13 @@ namespace QuickFix
 public __gc class ScreenLog : public CPPLog
 {
 public:
+  ScreenLog( bool incoming, bool outgoing, bool event )
+  { QF_STACK_TRY
+    m_pUnmanaged = new FIX::ScreenLog
+                   ( incoming, outgoing, event );
+    QF_STACK_CATCH
+  }
+
   ScreenLog( SessionID* sessionID, bool incoming, bool outgoing, bool event )
   { QF_STACK_TRY
     m_pUnmanaged = new FIX::ScreenLog
@@ -55,6 +62,33 @@ public:
   ScreenLogFactory( bool incoming, bool outgoing, bool event )
   : m_incoming( incoming ), m_outgoing( outgoing ), m_event( event ),
     m_settings( 0 ) {}
+
+  Log* create()
+  { QF_STACK_TRY
+
+    if( m_settings )
+    {
+      bool incoming = true;
+      bool outgoing = true;
+      bool event = true;
+
+      Dictionary* settings = m_settings->get();
+      if( settings->has(FIX::SCREEN_LOG_SHOW_INCOMING) )
+        incoming = settings->getBool(FIX::SCREEN_LOG_SHOW_INCOMING);
+      if( settings->has(FIX::SCREEN_LOG_SHOW_OUTGOING) )
+        outgoing = settings->getBool(FIX::SCREEN_LOG_SHOW_OUTGOING);
+      if( settings->has(FIX::SCREEN_LOG_SHOW_EVENTS) )
+        event = settings->getBool(FIX::SCREEN_LOG_SHOW_EVENTS);
+
+      return new ScreenLog( incoming, outgoing, event );
+    }
+    else
+    {
+      return new ScreenLog( m_incoming, m_outgoing, m_event );
+    }
+
+    QF_STACK_POP
+  }
 
   Log* create( SessionID* sessionID )
   { QF_STACK_TRY

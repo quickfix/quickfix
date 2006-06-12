@@ -58,9 +58,14 @@ public:
 
   ~OdbcLogFactory() { delete m_pUnmanaged; }
 
+  Log* create()
+  { QF_STACK_TRY
+    return new OdbcLog(m_pUnmanaged->create());
+    QF_STACK_CATCH
+  }
+
   Log* create( SessionID* sessionID )
-  {
-    QF_STACK_TRY
+  { QF_STACK_TRY
     return new OdbcLog(m_pUnmanaged->create(sessionID->unmanaged()));
     QF_STACK_CATCH
   }
