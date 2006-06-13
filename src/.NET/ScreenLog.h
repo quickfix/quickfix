@@ -87,7 +87,7 @@ public:
       return new ScreenLog( m_incoming, m_outgoing, m_event );
     }
 
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   Log* create( SessionID* sessionID )

@@ -229,7 +229,7 @@ throw( ConfigError )
 
 void DataDictionary::readFromDocument( DOMDocumentPtr pDoc )
 throw( ConfigError )
-{ QF_STACK_PUSH(readFromDocument)
+{ QF_STACK_PUSH(DataDictionary::readFromDocument)
 
   // VERSION
   DOMNodePtr pFixNode = pDoc->getNode("/fix");

@@ -60,7 +60,7 @@ public:
     m_pUnmanaged = new FIX::FileLogFactory( upath );
     destroyUnmanagedString( upath );
 
-	QF_STACK_POP
+	QF_STACK_CATCH
   }
 
   Log* create()

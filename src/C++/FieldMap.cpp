@@ -191,7 +191,7 @@ void FieldMap::clear()
 }
 
 bool FieldMap::isEmpty()
-{ QF_STACK_PUSH(FieldMap::empty)
+{ QF_STACK_PUSH(FieldMap::isEmpty)
   return m_fields.size() == 0;
   QF_STACK_POP
 }
