@@ -49,21 +49,31 @@ class Application : public FIX::Application
 {
 public:
   Application( QuickFix::Application* application,
-	       QuickFix::MessageFactory* factory )
+	             QuickFix::MessageFactory* factory )
   : m_application( application ), m_factory( factory ) {}
   void onCreate( const FIX::SessionID& sessionID )
-  { m_application->onCreate( new QuickFix::SessionID( sessionID ) ); }
+  {
+    QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );
+    m_application->onCreate( toSessionID );
+  }
 
   void onLogon( const FIX::SessionID& sessionID )
-  { m_application->onLogon( new QuickFix::SessionID( sessionID ) ); }
+  {
+    QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );
+    m_application->onLogon( toSessionID ); 
+  }
 
   void onLogout( const FIX::SessionID& sessionID )
-  { m_application->onLogout( new QuickFix::SessionID( sessionID ) ); }
+  {
+    QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );
+    m_application->onLogout( toSessionID ); 
+  }
 
   void toAdmin( FIX::Message& message, const FIX::SessionID& sessionID )
   {
     QuickFix::Message __pin * toMessage = create( message );
-    m_application->toAdmin( toMessage, new QuickFix::SessionID( sessionID ) );
+    QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );
+    m_application->toAdmin( toMessage, toSessionID );
     message = toMessage->unmanaged();
   }
 
@@ -71,25 +81,27 @@ public:
   throw( FIX::DoNotSend& )
   {
     QuickFix::Message __pin * toMessage = create( message );
+    QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );
     try
     {
-      m_application->toApp( toMessage, new QuickFix::SessionID( sessionID ) );
+      m_application->toApp( toMessage, toSessionID );
     }
     catch ( QuickFix::DoNotSend* ) { throw FIX::DoNotSend(); }
     message = toMessage->unmanaged();
   }
 
   void fromAdmin( const FIX::Message& message,
-		              const FIX::SessionID& sessionID )
+      	          const FIX::SessionID& sessionID )
   throw( FIX::FieldNotFound&,
 	       FIX::IncorrectDataFormat&,
 	       FIX::IncorrectTagValue&,
 	       FIX::RejectLogon& )
   {
     QuickFix::Message __pin * toMessage = create( message );
+    QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );
     try
     {
-      m_application->fromAdmin( toMessage, new QuickFix::SessionID( sessionID ) );
+      m_application->fromAdmin( toMessage, toSessionID );
     }
     catch ( QuickFix::FieldNotFound * e )
     {
@@ -112,10 +124,11 @@ public:
 	       FIX::IncorrectTagValue&,
 	       FIX::UnsupportedMessageType& )
   {
+    QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );
     QuickFix::Message __pin * toMessage = create( message );
     try
     {
-      m_application->fromApp( toMessage, new QuickFix::SessionID( sessionID ) );
+      m_application->fromApp( toMessage, toSessionID );
     }
     catch ( QuickFix::FieldNotFound * e )
     {
