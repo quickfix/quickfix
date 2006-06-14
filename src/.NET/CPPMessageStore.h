@@ -43,16 +43,23 @@ public:
     QF_STACK_CATCH
   }
 
-  void Dispose()
+  void Dispose( bool dispose )
   {
-    if( !m_pUnmanaged ) return;
+    if( m_pUnmanaged )
+    {
+      delete m_pUnmanaged;
+      m_pUnmanaged = 0;
+    }
 
-    delete m_pUnmanaged;
-    m_pUnmanaged = 0;
+    if( dispose )
+      System::GC::SuppressFinalize( this );
   }
 
+  void Dispose()
+  { Dispose( true ); }
+
   ~CPPMessageStore()
-  { Dispose(); }
+  { Dispose( false ); }
 
   bool set( int sequence, String* message )
   { QF_STACK_TRY

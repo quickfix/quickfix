@@ -35,7 +35,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class SocketInitiator : public Initiator
+public __gc class SocketInitiator : public Initiator, public IDisposable
 {
 public:
   SocketInitiator( Application* application,
@@ -79,12 +79,29 @@ public:
     QF_STACK_CATCH
   }
 
+  void Dispose( bool dispose )
+  {
+    if( m_pUnmanaged )
+    {
+      delete m_pUnmanaged;
+      m_pUnmanaged = 0;
+      m_application = 0;
+      m_factory = 0;
+      m_logFactory = 0;
+    }
+
+    if( dispose )
+      System::GC::SuppressFinalize( this );
+  }
+
+  void Dispose()
+  {
+    Dispose( true );
+  }
+
   ~SocketInitiator()
   {
-    delete m_pUnmanaged;
-    delete m_application;
-    delete m_factory;
-    delete m_logFactory;
+    Dispose( false );
   }
 
   void start()

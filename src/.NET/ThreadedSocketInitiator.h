@@ -79,20 +79,29 @@ public:
     QF_STACK_CATCH
   }
 
+  void Dispose( bool dispose )
+  {
+    if( m_pUnmanaged )
+    {
+      delete m_pUnmanaged;
+      m_pUnmanaged = 0;
+      m_application = 0;
+      m_factory = 0;
+      m_logFactory = 0;
+    }
+
+    if( dispose )
+      System::GC::SuppressFinalize( this );
+  }
+
   void Dispose()
   {
-    if( !m_pUnmanaged ) return;
-
-    delete m_pUnmanaged;
-    m_pUnmanaged = 0;
-    m_application = 0;
-    m_factory = 0;
-    m_logFactory = 0;
+    Dispose( true );
   }
 
   ~ThreadedSocketInitiator()
   {
-    Dispose();
+    Dispose( false );
   }
 
   void start()
