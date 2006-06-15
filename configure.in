@@ -326,22 +326,6 @@ AC_TRY_COMPILE(
 	 The system has gethostbyname_r which takes a result as a pass-in param),
 	 AC_MSG_RESULT(no))
 
-# check for gethostbyname_r
-AC_MSG_CHECKING(for gethostbyname_r with return result)
-AC_TRY_COMPILE(
-	[#include <netdb.h>],
-	[const char* name = "localhost";
-         hostent host;
-         char buf[1024];
-         hostent* host_ptr;
-         int error;
-         host_ptr = gethostbyname_r( name, &host, buf, sizeof(buf),  &error );
-	 return 0;],
-	 AC_MSG_RESULT(yes)
-	 AC_DEFINE(GETHOSTBYNAME_R_RETURNS_RESULT, 1,
-	 The system has gethostbyname_r which returns result),
-	 AC_MSG_RESULT(no))
-
 AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
 
 # Checks for library functions.
