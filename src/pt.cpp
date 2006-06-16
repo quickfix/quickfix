@@ -39,6 +39,8 @@
 #include "Utility.h"
 #include "SocketAcceptor.h"
 #include "SocketInitiator.h"
+#include "ThreadedSocketAcceptor.h"
+#include "ThreadedSocketInitiator.h"
 #include "fix42/Heartbeat.h"
 #include "fix42/NewOrderSingle.h"
 #include "fix42/QuoteRequest.h"
@@ -63,6 +65,7 @@ int testValidateDictNewOrderSingle( int );
 int testValidateQuoteRequest( int );
 int testValidateDictQuoteRequest( int );
 int testSendOnSocket( int );
+int testSendOnThreadedSocket( int );
 void report( int, int );
 
 #ifndef _MSC_VER
@@ -149,6 +152,9 @@ int main( int argc, char** argv )
 
   std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
   report( testSendOnSocket( count ), count );
+
+  std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on ThreadedSocket";
+  report( testSendOnThreadedSocket( count ), count );
 
   return 0;
 }
@@ -678,6 +684,62 @@ int testSendOnSocket( int count )
   acceptor.start();
 
   FIX::SocketInitiator initiator( application, factory, settings );
+  initiator.start();
+
+  FIX::process_sleep( 1 );
+
+  int start = GetTickCount();
+  for ( int i = 0; i <= count; ++i )
+    FIX::Session::sendToTarget( message, sessionID );
+  int ticks = GetTickCount() - start;
+
+  initiator.stop();
+  acceptor.stop();
+
+  return ticks;
+}
+
+int testSendOnThreadedSocket( int count )
+{
+  std::stringstream stream;
+  stream
+    << "[DEFAULT]" << std::endl
+    << "SocketConnectHost=localhost" << std::endl
+    << "SocketConnectPort=5001" << std::endl
+    << "SocketAcceptPort=5001" << std::endl
+    << "SocketReuseAddress=Y" << std::endl
+    << "StartTime=00:00:00" << std::endl
+    << "EndTime=00:00:00" << std::endl
+    << "UseDataDictionary=N" << std::endl
+    << "BeginString=FIX.4.2" << std::endl
+    << "[SESSION]" << std::endl
+    << "ConnectionType=acceptor" << std::endl
+    << "SenderCompID=SERVER" << std::endl
+    << "TargetCompID=CLIENT" << std::endl
+    << "[SESSION]" << std::endl
+    << "ConnectionType=initiator" << std::endl
+    << "SenderCompID=CLIENT" << std::endl
+    << "TargetCompID=SERVER" << std::endl
+    << "HeartBtInt=30" << std::endl;
+
+  FIX::ClOrdID clOrdID( "ORDERID" );
+  FIX::HandlInst handlInst( '1' );
+  FIX::Symbol symbol( "LNUX" );
+  FIX::Side side( FIX::Side_BUY );
+  FIX::TransactTime transactTime;
+  FIX::OrdType ordType( FIX::OrdType_MARKET );
+  FIX42::NewOrderSingle message( clOrdID, handlInst, symbol, side, transactTime, ordType );
+
+  FIX::SessionID sessionID( "FIX.4.2", "CLIENT", "SERVER" );
+
+  TestApplication application;
+  FIX::MemoryStoreFactory factory;
+  FIX::SessionSettings settings( stream );
+
+  FIX::ThreadedSocketAcceptor acceptor( application, factory, settings );
+  acceptor.start();
+
+  FIX::ThreadedSocketInitiator initiator( application, factory, settings );
   initiator.start();
 
   FIX::process_sleep( 1 );
