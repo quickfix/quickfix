@@ -93,6 +93,8 @@ public:
     if( success() || m_result == SQL_NO_DATA )
       return true;
     m_reason = odbcError( SQL_HANDLE_STMT, m_statement );
+    SQLFreeHandle( SQL_HANDLE_STMT, m_statement );
+    m_statement = 0;
     return success();
   }
 
