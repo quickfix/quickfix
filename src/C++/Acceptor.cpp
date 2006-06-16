@@ -96,8 +96,6 @@ void Acceptor::initialize() throw ( ConfigError )
 Acceptor::~Acceptor()
 { QF_STACK_IGNORE_BEGIN
 
-  stop( true );
-
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
