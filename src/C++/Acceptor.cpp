@@ -96,6 +96,8 @@ void Acceptor::initialize() throw ( ConfigError )
 Acceptor::~Acceptor()
 { QF_STACK_IGNORE_BEGIN
 
+  stop( true );
+
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
@@ -184,6 +186,8 @@ bool Acceptor::poll() throw ( ConfigError, RuntimeError )
 
 void Acceptor::stop( bool force )
 { QF_STACK_PUSH( Acceptor::stop )
+
+  if( isStopped() ) return;
 
   std::vector<Session*> enabledSessions;
 

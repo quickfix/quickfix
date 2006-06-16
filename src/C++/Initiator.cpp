@@ -87,9 +87,12 @@ void Initiator::initialize() throw ( ConfigError )
 Initiator::~Initiator()
 { QF_STACK_IGNORE_BEGIN
 
+  stop( true );
+
   Sessions::iterator i;
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
+
   QF_STACK_IGNORE_END
 }
 
@@ -195,6 +198,8 @@ bool Initiator::poll() throw ( ConfigError, RuntimeError )
 
 void Initiator::stop( bool force )
 { QF_STACK_PUSH(Initiator::stop)
+
+  if( isStopped() ) return;
 
   std::vector<Session*> enabledSessions;
 
