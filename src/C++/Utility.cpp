@@ -105,10 +105,15 @@ int socket_createAcceptor(int port, bool reuse)
   QF_STACK_POP
 }
 
-int socket_createConnector( const char* address, int port )
+int socket_createConnector()
 { QF_STACK_PUSH(socket_createConnector)
+  return ::socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
+  QF_STACK_POP
+}
 
-  int socket = ::socket( PF_INET, SOCK_STREAM, IPPROTO_TCP );
+int socket_connect( int socket, const char* address, int port )
+{ QF_STACK_PUSH(socket_connect)
+
   const char* hostname = socket_hostname( address );
   if( hostname == 0 ) return -1;
 
@@ -119,13 +124,8 @@ int socket_createConnector( const char* address, int port )
 
   int result = connect( socket, reinterpret_cast < sockaddr* > ( &addr ),
                         sizeof( addr ) );
-  if ( result == 0 )
-    return socket;
-  else
-  {
-    socket_close( socket );
-    return -1;
-  }
+
+  return result;
 
   QF_STACK_POP
 }
@@ -228,6 +228,42 @@ int socket_getsockopt( int s, int opt, int& optval )
   QF_STACK_POP
 }
 
+#ifndef _MSC_VER
+int socket_fcntl( int s, int opt, int arg )
+{ QF_STACK_PUSH(socket_fcntl)
+  return ::fcntl( s, opt, arg );
+  QF_STACK_POP
+}
+
+int socket_getfcntlflag( int s, int arg )
+{ QF_STACK_PUSH(socket_getfcntlflag)  
+  return socket_fcntl( s, F_GETFL, arg );
+  QF_STACK_POP
+}
+
+int socket_setfcntlflag( int s, int arg )
+{ QF_STACK_PUSH(socket_setfcntlflag)
+
+  int oldValue = socket_getfcntlflag( s, arg );
+  oldValue |= arg;
+  socket_fcntl( s, F_SETFL, arg );
+
+  QF_STACK_POP
+}
+#endif
+
+void socket_setnonblock( int socket )
+{ QF_STACK_PUSH(socket_setnonblock)
+
+#ifdef _MSC_VER
+  u_long opt = 1;
+  ::ioctlsocket( socket, FIONBIO, &opt );
+#else
+  socket_setfcntlflag( socket, O_NONBLOCK );
+#endif
+
+  QF_STACK_POP
+}
 bool socket_isValid( int socket )
 { QF_STACK_PUSH(socket_isValid)
 

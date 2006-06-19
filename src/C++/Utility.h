@@ -45,6 +45,7 @@ typedef int socklen_t;
 #include <netinet/tcp.h>
 #include <arpa/inet.h>
 #include <netdb.h>
+#include <fcntl.h>
 #include <unistd.h>
 #include <pthread.h>
 #include <signal.h>
@@ -66,7 +67,8 @@ void string_replace( const std::string& oldValue,
 void socket_init();
 void socket_term();
 int socket_createAcceptor( int port, bool reuse = false );
-int socket_createConnector( const char* address, int port );
+int socket_createConnector();
+int socket_connect( int s, const char* address, int port );
 int socket_accept( int s );
 bool socket_send( int s, const char* msg, int length );
 void socket_close( int s );
@@ -74,6 +76,12 @@ bool socket_fionread( int s, int& bytes );
 bool socket_disconnected( int s );
 int socket_setsockopt( int s, int opt );
 int socket_getsockopt( int s, int opt, int& optval );
+#ifndef _MSC_VER
+int socket_fcntl( int s, int opt, int arg );
+int socket_getfcntlflag( int s, int arg );
+int socket_setfcntlflag( int s, int arg );
+#endif
+void socket_setnonblock( int s );
 bool socket_isValid( int socket );
 #ifndef _MSC_VER
 bool socket_isBad( int s );

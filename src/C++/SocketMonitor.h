@@ -52,11 +52,13 @@ public:
   SocketMonitor( int timeout = 0 );
   virtual ~SocketMonitor();
 
-  bool add( int socket );
+  bool addRead( int socket );
+  bool addWrite( int socket );
   bool drop( int socket );
   void block( Strategy& strategy, bool poll = 0 );
 
-  int numSockets() { return m_sockets.size(); }
+  int numSockets() 
+  { return m_readSockets.size() + m_writeSockets.size(); }
 
 private:
   typedef std::set < int > Sockets;
@@ -65,9 +67,12 @@ private:
   void setsockopt();
   bool bind();
   bool listen();
-  void buildSet( fd_set& );
+  void buildSet( const Sockets&, fd_set& );
   inline timeval* getTimeval( bool poll );
   inline bool sleepIfEmpty( bool poll );
+
+  void processReadSet( Strategy&, fd_set& );
+  void processWriteSet( Strategy&, fd_set& );
 
   int m_timeout;
   timeval m_timeval;
@@ -75,7 +80,8 @@ private:
   clock_t m_ticks;
 #endif
 
-  Sockets m_sockets;
+  Sockets m_readSockets;
+  Sockets m_writeSockets;
   Queue m_dropped;
 
 public:
@@ -84,6 +90,7 @@ public:
   public:
     virtual ~Strategy()
     {}
+    virtual void onConnect( SocketMonitor&, int socket ) = 0;
     virtual void onEvent( SocketMonitor&, int socket ) = 0;
     virtual void onError( SocketMonitor&, int socket ) = 0;
     virtual void onError( SocketMonitor& ) = 0;

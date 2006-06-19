@@ -120,7 +120,7 @@ void Initiator::connect()
   {
     Session* pSession = Session::lookupSession( *i );
     if ( pSession->isEnabled() && pSession->isSessionTime() )
-      setConnected( *i, doConnect( *i, m_settings.get( *i ) ) );
+      doConnect( *i, m_settings.get( *i ));
   }
 
   QF_STACK_POP

@@ -97,7 +97,10 @@ throw ( RuntimeError )
 
     int socket = socket_createAcceptor( port, reuseAddress );
     if( socket < 0 )
+    {
+      socket_close( socket );
       throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)port ) );
+    }
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
 

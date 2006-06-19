@@ -45,6 +45,11 @@ public:
 : m_sockets( sockets ), m_server( server ), m_strategy( strategy ) {}
 
 private:
+  void onConnect( SocketMonitor&, int socket )
+  { QF_STACK_PUSH(ServerWrapper::onConnect)
+    QF_STACK_POP
+  }
+
   void onEvent( SocketMonitor&, int socket )
   { QF_STACK_PUSH(ServerWrapper::onEvent)
 
@@ -100,7 +105,7 @@ int SocketServer::add( int port, bool reuse, bool noDelay )
     throw std::exception();
   if( noDelay )
     socket_setsockopt( socket, TCP_NODELAY );
-  m_monitor.add( socket );
+  m_monitor.addRead( socket );
 
   SocketInfo info( socket, port, noDelay );
   m_socketToInfo[socket] = info;
@@ -117,7 +122,7 @@ int SocketServer::accept( int socket )
   if( info.m_noDelay )
     socket_setsockopt( result, TCP_NODELAY );
   if ( result >= 0 )
-    m_monitor.add( result );
+    m_monitor.addWrite( result );
   return result;
 
   QF_STACK_POP

@@ -52,6 +52,11 @@ SocketInitiator::~SocketInitiator()
   for (SocketConnections::iterator i = m_connections.begin();
        i != m_connections.end(); ++i)
     delete i->second;
+
+  for (SocketConnections::iterator i = m_pendingConnections.begin();
+       i != m_pendingConnections.end(); ++i)
+    delete i->second;
+
 }
 
 void SocketInitiator::onConfigure( const SessionSettings& s )
@@ -137,15 +142,9 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int result = m_connector.connect( address, port, m_noDelay );
 
-    if ( !result )
-    {
-      log->onEvent( "Connection failed" );
-      return false;
-    }
-    log->onEvent( "Connection succeeded" );
+    m_pendingConnections[ result ] 
+      = new SocketConnection( *this, s, result, &m_connector.getMonitor() );
 
-    m_connections[ result ] = new SocketConnection
-                              ( *this, s, result, &m_connector.getMonitor() );
     return true;
   }
   catch ( std::exception& ) { return false; }
@@ -154,7 +153,18 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 }
 
 void SocketInitiator::onConnect( SocketConnector&, int s )
-{}
+{ QF_STACK_PUSH(SocketInitiator::onConnect)
+
+  SocketConnections::iterator i = m_pendingConnections.find( s );
+  if( i == m_pendingConnections.end() ) return;
+  SocketConnection* pSocketConnection = i->second;
+  
+  m_connections[s] = pSocketConnection;
+  m_pendingConnections.erase( i );
+  setConnected( pSocketConnection->getSession()->getSessionID(), true );
+
+  QF_STACK_POP
+}
 
 void SocketInitiator::onData( SocketConnector& connector, int s )
 { QF_STACK_PUSH(SocketInitiator::onData)
@@ -171,9 +181,13 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
 { QF_STACK_PUSH(SocketInitiator::onDisconnect)
 
   SocketConnections::iterator i = m_connections.find( s );
-  if ( i == m_connections.end() ) return ;
+  SocketConnections::iterator j = m_pendingConnections.find( s );
+
+  if ( i == m_connections.end() && j == m_pendingConnections.end() ) 
+    return;
+
   SocketConnection* pSocketConnection = i->second;
-  setConnected( pSocketConnection->getSession() ->getSessionID(), false );
+  setConnected( pSocketConnection->getSession()->getSessionID(), false );
 
   Session* pSession = pSocketConnection->getSession();
   if ( pSession )
@@ -184,6 +198,7 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
 
   delete pSocketConnection;
   m_connections.erase( s );
+  m_pendingConnections.erase( s );
 
   QF_STACK_POP
 }

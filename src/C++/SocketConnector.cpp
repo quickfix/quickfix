@@ -45,6 +45,14 @@ public:
 : m_connector( connector ), m_strategy( strategy ) {}
 
 private:
+  void onConnect( SocketMonitor&, int socket )
+  { QF_STACK_PUSH(ConnectorWrapper::onConnect)
+    
+    m_strategy.onConnect( m_connector, socket );
+
+    QF_STACK_POP
+  }
+
   void onEvent( SocketMonitor&, int socket )
   { QF_STACK_PUSH(ConnectorWrapper::onEvent)
 
@@ -84,20 +92,16 @@ SocketConnector::SocketConnector( int timeout )
 int SocketConnector::connect( const std::string& address, int port, bool noDelay )
 { QF_STACK_PUSH(SocketConnector::connect)
 
-  int socket = socket_createConnector( address.c_str(), port );
+  int socket = socket_createConnector();
 
   if ( socket != -1 )
   {
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
-    m_monitor.add( socket );
-    return socket;
+    m_monitor.addWrite( socket );
+    socket_connect( socket, address.c_str(), port );
   }
-  else
-  {
-    socket_close( socket );
-    return 0;
-  }
+  return socket;
 
   QF_STACK_POP
 }
@@ -107,9 +111,6 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
 { QF_STACK_PUSH(SocketConnector::connect)
 
   int socket = connect( address, port, noDelay );
-
-  if( socket )
-    strategy.onConnect( *this, socket );
   return socket;
 
   QF_STACK_POP

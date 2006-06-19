@@ -100,6 +100,7 @@ void SocketServerTestCase::block::onRun( SocketServer& object )
 
   send( clientS, "1", 1, 0 );
   object.block( *this );
+  object.block( *this );
   assert( m_data == 1 );
   assert( m_bufLen == 1 );
   assert( *m_buf == '1' );

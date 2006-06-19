@@ -66,6 +66,7 @@ private:
   SessionSettings m_settings;
   SessionToHostNum m_sessionToHostNum;
   SocketConnector m_connector;
+  SocketConnections m_pendingConnections;
   SocketConnections m_connections;
   time_t m_lastConnect;
   int m_reconnectInterval;
