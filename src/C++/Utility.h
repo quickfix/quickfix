@@ -87,8 +87,11 @@ bool socket_isValid( int socket );
 bool socket_isBad( int s );
 #endif
 void socket_invalidate( int& socket );
+short socket_hostport( int socket );
+const char* socket_hostname( int socket );
 const char* socket_hostname( const char* name );
-const char* socket_getpeername( int socket );
+const char* socket_peername( int socket );
+std::pair<int, int> socket_createpair();
 
 tm time_gmtime( const time_t* t );
 tm time_localtime( const time_t* t);

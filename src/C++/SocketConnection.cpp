@@ -55,7 +55,40 @@ SocketConnection::~SocketConnection()
 
 bool SocketConnection::send( const std::string& msg )
 { QF_STACK_PUSH(SocketConnection::send)
-  return socket_send( m_socket, msg.c_str(), msg.length() );
+
+  Locker l( m_mutex );
+  m_sendQueue.push_back( msg );
+  m_pMonitor->addWrite( m_socket );
+  m_pMonitor->signal();
+  return true;
+
+  QF_STACK_POP
+}
+
+bool SocketConnection::processQueue()
+{ QF_STACK_PUSH(SocketConnection::processQueue)
+
+  Locker l( m_mutex );
+
+  if( !m_sendQueue.size() ) return true;
+
+  bool result = true;
+  do
+  {
+    const std::string& msg = m_sendQueue.front();
+    result = socket_send( m_socket, msg.c_str(), msg.length() );
+    if( result )
+      m_sendQueue.pop_front();
+
+    if( m_sendQueue.size() )
+    {
+      m_pMonitor->addWrite( m_socket );
+      m_pMonitor->signal();
+    }
+  } while( result && m_sendQueue.size() );
+
+  return result;
+
   QF_STACK_POP
 }
 

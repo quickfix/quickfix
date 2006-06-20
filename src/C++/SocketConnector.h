@@ -53,6 +53,7 @@ public:
   public:
     virtual ~Strategy() {}
     virtual void onConnect( SocketConnector&, int socket ) = 0;
+    virtual void onWrite( SocketConnector&, int socket ) = 0;
     virtual void onData( SocketConnector&, int socket ) = 0;
     virtual void onDisconnect( SocketConnector&, int socket ) = 0;
     virtual void onError( SocketConnector& ) = 0;

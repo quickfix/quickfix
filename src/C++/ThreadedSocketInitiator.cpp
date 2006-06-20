@@ -205,7 +205,7 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
   delete pair;
 
-  pInitiator->setConnected( sessionID, true );
+  pInitiator->setConnected( sessionID );
   int socket = pConnection->getSocket();
 
   while ( pConnection->read() ) {}
@@ -214,7 +214,7 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   if( !pInitiator->isStopped() )
     pInitiator->removeThread( socket );
   
-  pInitiator->setConnected( sessionID, false );
+  pInitiator->setDisconnected( sessionID );
   return 0;
 
   QF_STACK_POP

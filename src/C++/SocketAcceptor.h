@@ -59,6 +59,7 @@ private:
   void onStop();
 
   void onConnect( SocketServer&, int, int );
+  void onWrite( SocketServer&, int );
   void onData( SocketServer&, int );
   void onDisconnect( SocketServer&, int );
   void onError( SocketServer& );

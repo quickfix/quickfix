@@ -36,7 +36,6 @@ ThreadedSocketConnection::ThreadedSocketConnection( int s, Sessions sessions, Ap
 : m_socket( s ), m_application( application ),
   m_sessions( sessions ), m_pSession( 0 ) 
 {
-  socket_setnonblock( m_socket );
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
 }
@@ -47,7 +46,6 @@ ThreadedSocketConnection::ThreadedSocketConnection( const SessionID& sessionID, 
 : m_socket( s ), m_application( application ),
   m_pSession( Session::lookupSession( sessionID ) )
 {
-  socket_setnonblock( m_socket );
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
   if ( m_pSession ) m_pSession->setResponder( this );

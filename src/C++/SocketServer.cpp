@@ -63,6 +63,14 @@ private:
     QF_STACK_POP
   }
 
+  void onWrite( SocketMonitor&, int socket )
+  { QF_STACK_PUSH(ServerWrapper::onWrite)
+
+    m_strategy.onWrite( m_server, socket );
+
+    QF_STACK_POP
+  }
+
   void onError( SocketMonitor&, int socket )
   { QF_STACK_PUSH(ServerWrapper::onError)
 
@@ -122,7 +130,7 @@ int SocketServer::accept( int socket )
   if( info.m_noDelay )
     socket_setsockopt( result, TCP_NODELAY );
   if ( result >= 0 )
-    m_monitor.addWrite( result );
+    m_monitor.addConnect( result );
   return result;
 
   QF_STACK_POP

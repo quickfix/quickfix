@@ -85,8 +85,13 @@ public:
   { return m_messageStoreFactory; }
 
 protected:
-  void setConnected( const SessionID&, bool );
+  void setPending( const SessionID& );
+  void setConnected( const SessionID& );
+  void setDisconnected( const SessionID& );
+
+  bool isPending( const SessionID& );
   bool isConnected( const SessionID& );
+  bool isDisconnected( const SessionID& );
   void connect();
 
 private:
@@ -113,6 +118,7 @@ private:
 
   Sessions m_sessions;
   SessionIDs m_sessionIDs;
+  SessionIDs m_pending;
   SessionIDs m_connected;
   SessionIDs m_disconnected;
   SessionState m_sessionState;

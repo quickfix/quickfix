@@ -52,13 +52,15 @@ public:
   SocketMonitor( int timeout = 0 );
   virtual ~SocketMonitor();
 
+  bool addConnect( int socket );
   bool addRead( int socket );
   bool addWrite( int socket );
   bool drop( int socket );
+  void signal();
   void block( Strategy& strategy, bool poll = 0 );
 
   int numSockets() 
-  { return m_readSockets.size() + m_writeSockets.size(); }
+  { return m_readSockets.size(); }
 
 private:
   typedef std::set < int > Sockets;
@@ -80,6 +82,9 @@ private:
   clock_t m_ticks;
 #endif
 
+  int m_signal;
+  int m_interrupt;
+  Sockets m_connectSockets;
   Sockets m_readSockets;
   Sockets m_writeSockets;
   Queue m_dropped;
@@ -92,6 +97,7 @@ public:
     {}
     virtual void onConnect( SocketMonitor&, int socket ) = 0;
     virtual void onEvent( SocketMonitor&, int socket ) = 0;
+    virtual void onWrite( SocketMonitor&, int socket ) = 0;
     virtual void onError( SocketMonitor&, int socket ) = 0;
     virtual void onError( SocketMonitor& ) = 0;
     virtual void onTimeout( SocketMonitor& )

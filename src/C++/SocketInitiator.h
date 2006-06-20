@@ -56,6 +56,7 @@ private:
 
   bool doConnect( const SessionID&, const Dictionary& d );
   void onConnect( SocketConnector&, int );
+  void onWrite( SocketConnector&, int );
   void onData( SocketConnector&, int );
   void onDisconnect( SocketConnector&, int );
   void onError( SocketConnector& );

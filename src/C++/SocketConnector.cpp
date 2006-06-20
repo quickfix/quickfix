@@ -53,6 +53,14 @@ private:
     QF_STACK_POP
   }
 
+  void onWrite( SocketMonitor&, int socket )
+  { QF_STACK_PUSH(ServerWrapper::onWrite)
+
+    m_strategy.onWrite( m_connector, socket );
+    
+    QF_STACK_POP
+  }
+
   void onEvent( SocketMonitor&, int socket )
   { QF_STACK_PUSH(ConnectorWrapper::onEvent)
 
@@ -98,7 +106,7 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
   {
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
-    m_monitor.addWrite( socket );
+    m_monitor.addConnect( socket );
     socket_connect( socket, address.c_str(), port );
   }
   return socket;

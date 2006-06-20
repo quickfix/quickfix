@@ -38,6 +38,11 @@ SocketMonitor::SocketMonitor( int timeout )
 {
   socket_init();
 
+  std::pair<int, int> sockets = socket_createpair();
+  m_signal = sockets.first;
+  m_interrupt = sockets.second;
+  m_readSockets.insert( m_interrupt );
+
   m_timeval.tv_sec = 0;
   m_timeval.tv_usec = 0;
 #ifndef SELECT_DECREMENTS_TIME
@@ -50,12 +55,26 @@ SocketMonitor::~SocketMonitor()
   Sockets::iterator i;
   for ( i = m_readSockets.begin(); i != m_readSockets.end(); ++i )
     socket_close( *i );
-
+  socket_close( m_signal );
+  socket_close( m_interrupt );
   socket_term();
 }
 
+bool SocketMonitor::addConnect( int s )
+{ QF_STACK_PUSH(SocketMonitor::addConnect)
+
+  socket_setnonblock( s );
+  Sockets::iterator i = m_connectSockets.find( s );
+  if( i != m_connectSockets.end() ) return false;
+
+  m_connectSockets.insert( s );
+  return true;
+
+  QF_STACK_POP
+}
+
 bool SocketMonitor::addRead( int s )
-{ QF_STACK_PUSH(SocketMonitor::add)
+{ QF_STACK_PUSH(SocketMonitor::addRead)
 
   socket_setnonblock( s );
   Sockets::iterator i = m_readSockets.find( s );
@@ -68,7 +87,7 @@ bool SocketMonitor::addRead( int s )
 }
 
 bool SocketMonitor::addWrite( int s )
-{ QF_STACK_PUSH(SocketMonitor::add)
+{ QF_STACK_PUSH(SocketMonitor::addWrite)
 
   socket_setnonblock( s );
   Sockets::iterator i = m_writeSockets.find( s );
@@ -85,12 +104,16 @@ bool SocketMonitor::drop( int s )
 
   Sockets::iterator i = m_readSockets.find( s );
   Sockets::iterator j = m_writeSockets.find( s );
- 
-  if ( i != m_readSockets.end() || j != m_writeSockets.end() )
+  Sockets::iterator k = m_connectSockets.find( s );
+
+  if ( i != m_readSockets.end() || 
+       j != m_writeSockets.end() ||
+       k != m_connectSockets.end() )
   {
     socket_close( s );
     m_readSockets.erase( s );
     m_writeSockets.erase( s );
+    m_connectSockets.erase( s );
     m_dropped.push( s );
     return true;
   }
@@ -140,7 +163,9 @@ bool SocketMonitor::sleepIfEmpty( bool poll )
   if( poll )
     return false;
 
-  if ( m_readSockets.empty() && m_writeSockets.empty() )
+  if ( m_readSockets.empty() && 
+       m_writeSockets.empty() &&
+       m_connectSockets.empty() )
   {
     process_sleep( m_timeout );
     return true;
@@ -148,6 +173,12 @@ bool SocketMonitor::sleepIfEmpty( bool poll )
   else
     return false;
 
+  QF_STACK_POP
+}
+
+void SocketMonitor::signal()
+{ QF_STACK_PUSH(SocketMonitor::signal)
+  socket_send( m_signal, "0", 1 );
   QF_STACK_POP
 }
 
@@ -163,8 +194,11 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
   }
 
   fd_set readSet;
+  FD_ZERO( &readSet );
   buildSet( m_readSockets, readSet );
   fd_set writeSet;
+  FD_ZERO( &writeSet );
+  buildSet( m_connectSockets, writeSet );
   buildSet( m_writeSockets, writeSet );
 
   if ( sleepIfEmpty(poll) )
@@ -182,14 +216,15 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
   }
   else if ( result > 0 )
   {
-    processReadSet( strategy, readSet );
     processWriteSet( strategy, writeSet );
+    processReadSet( strategy, readSet );
   }
 #ifndef _MSC_VER
   else if ( errno == EBADF )
   {
     Sockets::iterator i;
-    for ( i = m_readSockets.begin(); i != m_readSockets.end(); ++i )
+    Sockets sockets = m_readSockets;
+    for ( i = sockets.begin(); i != sockets.end(); ++i )
     {
       if ( socket_isBad( *i ) )
       {
@@ -213,6 +248,11 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
   for ( unsigned i = 0; i < readSet.fd_count; ++i )
   {
     int s = readSet.fd_array[ i ];
+    if( s == m_interrupt )
+    {
+      char buf[1];
+      recv( s, buf, 1, 0 );
+    }
     strategy.onEvent( *this, s );
   }
 #else
@@ -223,7 +263,15 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
       int s = *i;
       if ( !FD_ISSET( *i, &readSet ) )
         continue;
-      strategy.onEvent( *this, s );
+      if( s == m_interrupt )
+      {
+        char buf[1];
+        recv( s, buf, 1, 0 );
+      }
+      else
+      {
+        strategy.onEvent( *this, s );
+      }
     }
 #endif
 
@@ -243,15 +291,25 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
   }
 #else
   Sockets::iterator i;
-  Sockets sockets = m_writeSockets;
-  for ( i = sockets.begin(); i != sockets.end(); ++i )
+  Sockets sockets = m_connectSockets;
+  for( i = sockets.begin(); i != sockets.end(); ++i )
   {
     int s = *i;
     if ( !FD_ISSET( *i, &writeSet ) )
       continue;
-    strategy.onConnect( *this, s );
-    m_writeSockets.erase( s );
+    m_connectSockets.erase( s );
     m_readSockets.insert( s );
+    strategy.onConnect( *this, s );
+  }
+
+  sockets = m_writeSockets;
+  for( i = sockets.begin(); i != sockets.end(); ++i )
+  {
+    int s = *i;
+    if ( !FD_ISSET( *i, &writeSet ) )
+      continue;
+    m_writeSockets.erase( s );
+    strategy.onWrite( *this, s );
   }
 #endif
 
@@ -261,7 +319,6 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
 void SocketMonitor::buildSet( const Sockets& sockets, fd_set& watchSet )
 { QF_STACK_PUSH(SocketMonitor::buildSet)
 
-  FD_ZERO( &watchSet );
   Sockets::const_iterator iter;
   for ( iter = sockets.begin(); iter != sockets.end(); ++iter ) {
     FD_SET( *iter, &watchSet );

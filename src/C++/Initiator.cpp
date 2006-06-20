@@ -74,7 +74,7 @@ void Initiator::initialize() throw ( ConfigError )
     {
       m_sessionIDs.insert( *i );
       m_sessions[ *i ] = factory.create( *i, m_settings.get( *i ) );
-      setConnected( *i, false );
+      setDisconnected( *i );
     }
   }
 
@@ -126,21 +126,47 @@ void Initiator::connect()
   QF_STACK_POP
 }
 
-void Initiator::setConnected( const SessionID& sessionID, bool connected )
+void Initiator::setPending( const SessionID& sessionID )
+{ QF_STACK_PUSH(Initiator::setPending)
+
+  Locker l(m_mutex);
+
+  m_pending.insert( sessionID );
+  m_connected.erase( sessionID );
+  m_disconnected.erase( sessionID );
+
+  QF_STACK_POP
+}
+
+void Initiator::setConnected( const SessionID& sessionID )
 { QF_STACK_PUSH(Initiator::setConnected)
 
   Locker l(m_mutex);
 
-  if ( connected )
-  {
-    m_connected.insert( sessionID );
-    m_disconnected.erase( sessionID );
-  }
-  else
-  {
-    m_disconnected.insert( sessionID );
-    m_connected.erase( sessionID );
-  }
+  m_pending.erase( sessionID );
+  m_connected.insert( sessionID );
+  m_disconnected.erase( sessionID );
+
+  QF_STACK_POP
+}
+
+void Initiator::setDisconnected( const SessionID& sessionID )
+{ QF_STACK_PUSH(Initiator::setDisconnected)
+
+  Locker l(m_mutex);
+
+  m_pending.erase( sessionID );
+  m_connected.erase( sessionID );
+  m_disconnected.insert( sessionID );
+
+  QF_STACK_POP
+}
+
+bool Initiator::isPending( const SessionID& sessionID )
+{ QF_STACK_PUSH(Initiator::isPending)
+
+  Locker l(m_mutex);
+  return m_pending.find( sessionID ) != m_pending.end();
 
   QF_STACK_POP
 }
@@ -150,6 +176,15 @@ bool Initiator::isConnected( const SessionID& sessionID )
 
   Locker l(m_mutex);
   return m_connected.find( sessionID ) != m_connected.end();
+
+  QF_STACK_POP
+}
+
+bool Initiator::isDisconnected( const SessionID& sessionID )
+{ QF_STACK_PUSH(Initiator::isDisconnected)
+
+  Locker l(m_mutex);
+  return m_disconnected.find( sessionID ) != m_disconnected.end();
 
   QF_STACK_POP
 }
@@ -222,7 +257,7 @@ void Initiator::stop( bool force )
   {
     Locker l(m_mutex);
     for ( i = connected.begin(); i != connected.end(); ++i )
-      setConnected( Session::lookupSession(*i)->getSessionID(), false );
+      setDisconnected( Session::lookupSession(*i)->getSessionID() );
   }
 
   m_stop = true;

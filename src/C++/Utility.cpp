@@ -142,11 +142,12 @@ int socket_accept( int s )
 bool socket_send( int s, const char* msg, int length )
 { QF_STACK_PUSH(socket_send)
 
-  return send( s, msg, length, 0 ) !=
+  int result = -1;
+  result = send( s, msg, length, 0 );
 #ifdef _MSC_VER
-  SOCKET_ERROR;
+  return result != SOCKET_ERROR;
 #else
-  -1;
+  return result != -1;
 #endif
 
   QF_STACK_POP
@@ -300,6 +301,32 @@ void socket_invalidate( int& socket )
   QF_STACK_POP
 }
 
+short socket_hostport( int socket )
+{ QF_STACK_PUSH(socket_hostport)
+
+  struct sockaddr_in addr;
+  socklen_t len = sizeof(addr);
+  if( getsockname(socket, (struct sockaddr*)&addr, &len) < 0 )
+    return 0;
+
+  return ntohs( addr.sin_port );
+  
+  QF_STACK_POP
+}
+
+const char* socket_hostname( int socket )
+{ QF_STACK_PUSH(socket_hostname)
+
+  struct sockaddr_in addr;
+  socklen_t len = sizeof(addr);
+  if( getsockname(socket, (struct sockaddr*)&addr, &len) < 0 )
+    return 0;
+
+  return inet_ntoa( addr.sin_addr );
+
+  QF_STACK_POP
+}
+
 const char* socket_hostname( const char* name )
 { QF_STACK_PUSH(socket_hostname)
 
@@ -332,8 +359,8 @@ const char* socket_hostname( const char* name )
   QF_STACK_POP
 }
 
-const char* socket_getpeername( int socket )
-{ QF_STACK_PUSH(socket_getpeername)
+const char* socket_peername( int socket )
+{ QF_STACK_PUSH(socket_peername)
 
   struct sockaddr_in addr;
   socklen_t len = sizeof(addr);
@@ -343,6 +370,20 @@ const char* socket_getpeername( int socket )
   if( host == NULL )
     return 0;
   return host->h_name;
+
+  QF_STACK_POP
+}
+
+std::pair<int, int> socket_createpair()
+{ QF_STACK_PUSH(socket_createpair)
+
+  int acceptor = socket_createAcceptor(0, true);
+  const char* host = socket_hostname( acceptor );
+  short port = socket_hostport( acceptor );
+  int client = socket_createConnector();
+  socket_connect( client, host, port );
+  int server = socket_accept( acceptor );
+  return std::pair<int, int>( client, server );
 
   QF_STACK_POP
 }

@@ -634,9 +634,11 @@ class TestApplication : public FIX::NullApplication
 public:
   TestApplication() : m_count(0) {}
 
-  void fromApp( const FIX::Message&, const FIX::SessionID& )
+  void fromApp( const FIX::Message& m, const FIX::SessionID& )
   throw( FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType )
-  { m_count++; }
+  {
+    m_count++; 
+  }
 
   int getCount() { return m_count; }
 
@@ -652,6 +654,7 @@ int testSendOnSocket( int count )
     << "SocketConnectHost=localhost" << std::endl
     << "SocketConnectPort=5001" << std::endl
     << "SocketAcceptPort=5001" << std::endl
+    << "SocketReuseAddress=Y" << std::endl
     << "StartTime=00:00:00" << std::endl
     << "EndTime=00:00:00" << std::endl
     << "UseDataDictionary=N" << std::endl
@@ -679,6 +682,7 @@ int testSendOnSocket( int count )
   TestApplication application;
   FIX::MemoryStoreFactory factory;
   FIX::SessionSettings settings( stream );
+  FIX::ScreenLogFactory logFactory( settings );
 
   FIX::SocketAcceptor acceptor( application, factory, settings );
   acceptor.start();
@@ -689,10 +693,12 @@ int testSendOnSocket( int count )
   FIX::process_sleep( 1 );
 
   int start = GetTickCount();
+  count = 50000;
   for ( int i = 0; i <= count; ++i )
     FIX::Session::sendToTarget( message, sessionID );
   int ticks = GetTickCount() - start;
 
+  FIX::process_sleep( 1 );
   initiator.stop();
   acceptor.stop();
 
@@ -748,6 +754,8 @@ int testSendOnThreadedSocket( int count )
   for ( int i = 0; i <= count; ++i )
     FIX::Session::sendToTarget( message, sessionID );
   int ticks = GetTickCount() - start;
+
+  FIX::process_sleep( 1 );
 
   initiator.stop();
   acceptor.stop();

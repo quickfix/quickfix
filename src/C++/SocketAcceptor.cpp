@@ -173,8 +173,19 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
   m_connections[ s ] = new SocketConnection( s, sessions, &server.getMonitor() );
 
   std::stringstream stream;
-  stream << "Accepted connection from " << socket_getpeername( s ) << " on port " << port;
+  stream << "Accepted connection from " << socket_peername( s ) << " on port " << port;
   log( stream.str() );
+
+  QF_STACK_POP
+}
+
+void SocketAcceptor::onWrite( SocketServer& connector, int s )
+{ QF_STACK_PUSH(SocketAcceptor::onWrte)
+
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return ;
+  SocketConnection* pSocketConnection = i->second;
+  pSocketConnection->processQueue();
 
   QF_STACK_POP
 }

@@ -141,6 +141,7 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int result = m_connector.connect( address, port, m_noDelay );
+    setPending( s );
 
     m_pendingConnections[ result ] 
       = new SocketConnection( *this, s, result, &m_connector.getMonitor() );
@@ -161,7 +162,18 @@ void SocketInitiator::onConnect( SocketConnector&, int s )
   
   m_connections[s] = pSocketConnection;
   m_pendingConnections.erase( i );
-  setConnected( pSocketConnection->getSession()->getSessionID(), true );
+  setConnected( pSocketConnection->getSession()->getSessionID() );
+
+  QF_STACK_POP
+}
+
+void SocketInitiator::onWrite( SocketConnector& connector, int s )
+{ QF_STACK_PUSH(SocketInitiator::onWrite)
+
+  SocketConnections::iterator i = m_connections.find( s );
+  if ( i == m_connections.end() ) return ;
+  SocketConnection* pSocketConnection = i->second;
+  pSocketConnection->processQueue();
 
   QF_STACK_POP
 }
@@ -187,13 +199,13 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
     return;
 
   SocketConnection* pSocketConnection = i->second;
-  setConnected( pSocketConnection->getSession()->getSessionID(), false );
+  setDisconnected( pSocketConnection->getSession()->getSessionID() );
 
   Session* pSession = pSocketConnection->getSession();
   if ( pSession )
   {
     pSession->disconnect();
-    setConnected( pSession->getSessionID(), false );
+    setDisconnected( pSession->getSessionID() );
   }
 
   delete pSocketConnection;

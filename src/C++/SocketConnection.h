@@ -53,9 +53,13 @@ public:
   Session* getSession() const { return m_pSession; }
   bool read( SocketConnector& s );
   bool read( SocketAcceptor&, SocketServer& );
+  bool processQueue();
   void onTimeout();
 
 private:
+  typedef std::deque<std::string>
+    Queue;
+
   bool isValidSession();
   void readFromSocket() throw( SocketRecvFailed );
   bool readMessage( std::string& msg );
@@ -66,9 +70,11 @@ private:
   int m_socket;
   char m_buffer[4096];
   Parser m_parser;
+  Queue m_sendQueue;
   Sessions m_sessions;
   Session* m_pSession;
   SocketMonitor* m_pMonitor;
+  Mutex m_mutex;
 };
 }
 
