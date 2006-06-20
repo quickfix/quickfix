@@ -176,9 +176,9 @@ bool SocketMonitor::sleepIfEmpty( bool poll )
   QF_STACK_POP
 }
 
-void SocketMonitor::signal()
+void SocketMonitor::signal( int socket )
 { QF_STACK_PUSH(SocketMonitor::signal)
-  socket_send( m_signal, "0", 1 );
+  socket_send( m_signal, (char*)&socket, sizeof(socket) );
   QF_STACK_POP
 }
 
@@ -250,8 +250,9 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
     int s = readSet.fd_array[ i ];
     if( s == m_interrupt )
     {
-      char buf[1];
-      recv( s, buf, 1, 0 );
+      int socket = 0;
+      recv( s, (char*)&socket, sizeof(socket), 0 );
+      addWrite( socket );
     }
     else
     {
@@ -268,8 +269,9 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
         continue;
       if( s == m_interrupt )
       {
-        char buf[1];
-        recv( s, buf, 1, 0 );
+        int socket = 0;
+        recv( s, (char*)&socket, sizeof(socket), 0 );
+        addWrite( socket );
       }
       else
       {

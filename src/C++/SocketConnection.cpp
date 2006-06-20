@@ -57,9 +57,19 @@ bool SocketConnection::send( const std::string& msg )
 { QF_STACK_PUSH(SocketConnection::send)
 
   Locker l( m_mutex );
-  m_sendQueue.push_back( msg );
-  m_pMonitor->addWrite( m_socket );
-  m_pMonitor->signal();
+
+  if( !processQueue() )
+  {
+    m_sendQueue.push_back( msg );
+    m_pMonitor->signal( m_socket );
+    return true;
+  }
+  
+  if( !socket_send(m_socket, msg.c_str(), msg.length()) )
+  {
+    m_sendQueue.push_back( msg );
+    m_pMonitor->signal( m_socket );
+  }
   return true;
 
   QF_STACK_POP
@@ -82,12 +92,11 @@ bool SocketConnection::processQueue()
 
     if( m_sendQueue.size() )
     {
-      m_pMonitor->addWrite( m_socket );
-      m_pMonitor->signal();
+      m_pMonitor->signal( m_socket );
     }
   } while( result && m_sendQueue.size() );
 
-  return result;
+  return !m_sendQueue.size();
 
   QF_STACK_POP
 }
