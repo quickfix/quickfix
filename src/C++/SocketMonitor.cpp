@@ -253,7 +253,10 @@ void SocketMonitor::processReadSet( Strategy& strategy, fd_set& readSet )
       char buf[1];
       recv( s, buf, 1, 0 );
     }
-    strategy.onEvent( *this, s );
+    else
+    {
+      strategy.onEvent( *this, s );
+    }
   }
 #else
     Sockets::iterator i;
@@ -285,9 +288,17 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
   for ( unsigned i = 0; i < writeSet.fd_count; ++i )
   {
     int s = writeSet.fd_array[ i ];
-    strategy.onConnect( *this, s );
-    m_writeSockets.erase( s );
-    m_readSockets.insert( s );
+    if( m_connectSockets.find(s) != m_connectSockets.end() )
+    {
+      m_connectSockets.erase( s );
+      m_readSockets.insert( s );
+      strategy.onConnect( *this, s );
+    }
+    else
+    {
+      m_writeSockets.erase( s );
+      strategy.onWrite( *this, s );
+    }
   }
 #else
   Sockets::iterator i;

@@ -381,7 +381,7 @@ std::pair<int, int> socket_createpair()
   const char* host = socket_hostname( acceptor );
   short port = socket_hostport( acceptor );
   int client = socket_createConnector();
-  socket_connect( client, host, port );
+  socket_connect( client, "localhost", port );
   int server = socket_accept( acceptor );
   return std::pair<int, int>( client, server );
 
