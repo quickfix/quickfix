@@ -50,6 +50,9 @@ public:
   SocketConnection( SocketInitiator&, const SessionID&, int, SocketMonitor* );
   virtual ~SocketConnection();
 
+  void lock() { m_mutex.lock(); }
+  void unlock() { m_mutex.unlock(); }
+
   int getSocket() const { return m_socket; }
   Session* getSession() const { return m_pSession; }
 
