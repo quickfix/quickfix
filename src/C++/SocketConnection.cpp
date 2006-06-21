@@ -58,18 +58,8 @@ bool SocketConnection::send( const std::string& msg )
 
   Locker l( m_mutex );
 
-  if( !processQueue() )
-  {
-    m_sendQueue.push_back( msg );
-    m_pMonitor->signal( m_socket );
-    return true;
-  }
-  
-  if( !socket_send(m_socket, msg.c_str(), msg.length()) )
-  {
-    m_sendQueue.push_back( msg );
-    m_pMonitor->signal( m_socket );
-  }
+  m_sendQueue.push_back( msg );
+  processQueue();
   return true;
 
   QF_STACK_POP
