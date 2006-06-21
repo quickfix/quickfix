@@ -93,7 +93,7 @@ int main( int argc, char** argv )
   }
   count = atol( optarg );
 
-  std::cout << "Converting integers to strings: ";
+  /*  std::cout << "Converting integers to strings: ";
   report( testIntegerToString( count ), count );
 
   std::cout << "Converting strings to integers: ";
@@ -148,7 +148,7 @@ int main( int argc, char** argv )
   report( testValidateQuoteRequest( count ), count );
 
   std::cout << "Validating QuoteRequest messages with data dictionary: ";
-  report( testValidateDictQuoteRequest( count ), count );
+  report( testValidateDictQuoteRequest( count ), count ); */
 
   std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
   report( testSendOnSocket( count ), count );
@@ -696,9 +696,12 @@ int testSendOnSocket( int count )
   count = 50000;
   for ( int i = 0; i <= count; ++i )
     FIX::Session::sendToTarget( message, sessionID );
+
+  while( application.getCount() < count )
+    FIX::process_sleep( 0.1 );
+
   int ticks = GetTickCount() - start;
 
-  FIX::process_sleep( 1 );
   initiator.stop();
   acceptor.stop();
 
@@ -753,9 +756,11 @@ int testSendOnThreadedSocket( int count )
   int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
     FIX::Session::sendToTarget( message, sessionID );
-  int ticks = GetTickCount() - start;
 
-  FIX::process_sleep( 1 );
+  while( application.getCount() < count )
+    FIX::process_sleep( 0.1 );
+
+  int ticks = GetTickCount() - start;
 
   initiator.stop();
   acceptor.stop();
