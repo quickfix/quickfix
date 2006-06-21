@@ -93,7 +93,7 @@ int main( int argc, char** argv )
   }
   count = atol( optarg );
 
-  /*  std::cout << "Converting integers to strings: ";
+  std::cout << "Converting integers to strings: ";
   report( testIntegerToString( count ), count );
 
   std::cout << "Converting strings to integers: ";
@@ -148,7 +148,7 @@ int main( int argc, char** argv )
   report( testValidateQuoteRequest( count ), count );
 
   std::cout << "Validating QuoteRequest messages with data dictionary: ";
-  report( testValidateDictQuoteRequest( count ), count ); */
+  report( testValidateDictQuoteRequest( count ), count );
 
   std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
   report( testSendOnSocket( count ), count );
@@ -698,11 +698,7 @@ int testSendOnSocket( int count )
     FIX::Session::sendToTarget( message, sessionID );
 
   while( application.getCount() < count )
-    {
-      std::cout << application.getCount() << std::endl;
     FIX::process_sleep( 0.1 );
-      std::cout << application.getCount() << std::endl;
-    }
 
   int ticks = GetTickCount() - start;
 
