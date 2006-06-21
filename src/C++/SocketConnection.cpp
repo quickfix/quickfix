@@ -89,12 +89,10 @@ bool SocketConnection::processQueue()
     result = socket_send( m_socket, msg.c_str(), msg.length() );
     if( result )
       m_sendQueue.pop_front();
-
-    if( m_sendQueue.size() )
-    {
-      m_pMonitor->signal( m_socket );
-    }
   } while( result && m_sendQueue.size() );
+
+  if( m_sendQueue.size() )
+    m_pMonitor->signal( m_socket );
 
   return !m_sendQueue.size();
 
