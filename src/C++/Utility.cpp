@@ -377,7 +377,6 @@ const char* socket_peername( int socket )
 std::pair<int, int> socket_createpair()
 { QF_STACK_PUSH(socket_createpair)
 
-#ifdef _MSC_VER
   int acceptor = socket_createAcceptor(0, true);
   const char* host = socket_hostname( acceptor );
   short port = socket_hostport( acceptor );
@@ -385,11 +384,6 @@ std::pair<int, int> socket_createpair()
   socket_connect( client, "localhost", port );
   int server = socket_accept( acceptor );
   return std::pair<int, int>( client, server );
-#else
-  int pair[2];
-  socketpair( AF_UNIX, SOCK_STREAM, 0, pair );
-  return std::pair<int, int>( pair[0], pair[1] );
-#endif
 
   QF_STACK_POP
 }
