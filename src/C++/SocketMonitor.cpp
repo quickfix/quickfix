@@ -309,7 +309,6 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
     }
     else
     {
-      m_writeSockets.erase( s );
       strategy.onWrite( *this, s );
     }
   }
