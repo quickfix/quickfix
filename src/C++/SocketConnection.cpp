@@ -35,7 +35,11 @@ namespace FIX
 {
 SocketConnection::SocketConnection( int s, Sessions sessions,
                                     SocketMonitor* pMonitor )
-: m_socket( s ), m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor ) {}
+: m_socket( s ), m_sessions(sessions), m_pSession( 0 ), m_pMonitor( pMonitor ) 
+{
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
+}
 
 SocketConnection::SocketConnection( SocketInitiator& i,
                                     const SessionID& sessionID, int s,
@@ -44,6 +48,8 @@ SocketConnection::SocketConnection( SocketInitiator& i,
   m_pSession( i.getSession( sessionID, *this ) ),
   m_pMonitor( pMonitor ) 
 {
+  FD_ZERO( &m_fds );
+  FD_SET( m_socket, &m_fds );
   m_sessions.insert( sessionID );
 }
 
@@ -77,6 +83,11 @@ bool SocketConnection::processQueue()
   bool result = true;
   do
   {
+    struct timeval timeout = { 0, 0 };
+    fd_set writeset = m_fds;
+    if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
+      return false;
+    
     const std::string& msg = m_sendQueue.front();
     result = socket_send( m_socket, msg.c_str(), msg.length() );
     if( result )
