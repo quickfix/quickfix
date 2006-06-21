@@ -179,13 +179,14 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
   QF_STACK_POP
 }
 
-void SocketAcceptor::onWrite( SocketServer& connector, int s )
+void SocketAcceptor::onWrite( SocketServer& server, int s )
 { QF_STACK_PUSH(SocketAcceptor::onWrte)
 
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
-  pSocketConnection->processQueue();
+  if( pSocketConnection->processQueue() )
+    server.getMonitor().removeWrite( pSocketConnection->getSocket() );
 
   QF_STACK_POP
 }

@@ -50,7 +50,9 @@ public:
   SocketConnection( SocketInitiator&, const SessionID&, int, SocketMonitor* );
   virtual ~SocketConnection();
 
+  int getSocket() const { return m_socket; }
   Session* getSession() const { return m_pSession; }
+
   bool read( SocketConnector& s );
   bool read( SocketAcceptor&, SocketServer& );
   bool processQueue();

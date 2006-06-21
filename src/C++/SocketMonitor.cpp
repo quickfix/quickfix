@@ -99,6 +99,17 @@ bool SocketMonitor::addWrite( int s )
   QF_STACK_POP
 }
 
+void SocketMonitor::removeWrite( int s )
+{ QF_STACK_PUSH(SocketMonitor::removeWrite)
+
+  Sockets::iterator i = m_writeSockets.find( s );
+  if( i == m_writeSockets.end() ) return;
+
+  m_writeSockets.erase( s );
+
+  QF_STACK_POP
+}
+
 bool SocketMonitor::drop( int s )
 { QF_STACK_PUSH(SocketMonitor::drop)
 

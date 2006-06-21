@@ -693,12 +693,16 @@ int testSendOnSocket( int count )
   FIX::process_sleep( 1 );
 
   int start = GetTickCount();
-  count = 50000;
+
   for ( int i = 0; i <= count; ++i )
     FIX::Session::sendToTarget( message, sessionID );
 
   while( application.getCount() < count )
+    {
+      std::cout << application.getCount() << std::endl;
     FIX::process_sleep( 0.1 );
+      std::cout << application.getCount() << std::endl;
+    }
 
   int ticks = GetTickCount() - start;
 

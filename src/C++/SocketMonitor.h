@@ -55,6 +55,7 @@ public:
   bool addConnect( int socket );
   bool addRead( int socket );
   bool addWrite( int socket );
+  void removeWrite( int socket );
   bool drop( int socket );
   void signal( int socket );
   void block( Strategy& strategy, bool poll = 0 );
