@@ -88,6 +88,7 @@ private:
   char m_buffer[4096];
   Parser m_parser;
   Queue m_sendQueue;
+  unsigned m_sendLength;
   Sessions m_sessions;
   Session* m_pSession;
   SocketMonitor* m_pMonitor;

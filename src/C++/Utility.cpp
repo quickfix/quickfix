@@ -139,17 +139,9 @@ int socket_accept( int s )
   QF_STACK_POP
 }
 
-bool socket_send( int s, const char* msg, int length )
+int socket_send( int s, const char* msg, int length )
 { QF_STACK_PUSH(socket_send)
-
-  int result = -1;
-  result = send( s, msg, length, 0 );
-#ifdef _MSC_VER
-  return result != SOCKET_ERROR;
-#else
-  return result != -1;
-#endif
-
+  return send( s, msg, length, 0 );
   QF_STACK_POP
 }
 
@@ -247,7 +239,7 @@ int socket_setfcntlflag( int s, int arg )
 
   int oldValue = socket_getfcntlflag( s, arg );
   oldValue |= arg;
-  socket_fcntl( s, F_SETFL, arg );
+  return socket_fcntl( s, F_SETFL, arg );
 
   QF_STACK_POP
 }
