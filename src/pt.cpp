@@ -64,8 +64,8 @@ int testValidateNewOrderSingle( int );
 int testValidateDictNewOrderSingle( int );
 int testValidateQuoteRequest( int );
 int testValidateDictQuoteRequest( int );
-int testSendOnSocket( int );
-int testSendOnThreadedSocket( int );
+int testSendOnSocket( int, short );
+int testSendOnThreadedSocket( int, short );
 void report( int, int );
 
 #ifndef _MSC_VER
@@ -84,14 +84,26 @@ long GetTickCount()
 int main( int argc, char** argv )
 {
   int count = 0;
-  if ( getopt( argc, argv, "+c:" ) != 'c' )
+  short port = 0;
+
+  int opt;
+  while ( (opt = getopt( argc, argv, "+p:+c:" )) != -1 )
   {
-    std::cout << "usage: "
-    << argv[ 0 ]
-    << " -c count" << std::endl;
-    return 1;
+    switch( opt )
+    {
+    case 'p':
+      port = (short)atol( optarg );
+      break;
+    case 'c':
+      count = atol( optarg );
+      break;
+    default:
+      std::cout << "usage: "
+      << argv[ 0 ]
+      << " -p port -c count" << std::endl;
+      return 1;
+    }
   }
-  count = atol( optarg );
 
   std::cout << "Converting integers to strings: ";
   report( testIntegerToString( count ), count );
@@ -151,10 +163,10 @@ int main( int argc, char** argv )
   report( testValidateDictQuoteRequest( count ), count );
 
   std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
-  report( testSendOnSocket( count ), count );
+  report( testSendOnSocket( count, port ), count );
 
   std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on ThreadedSocket";
-  report( testSendOnThreadedSocket( count ), count );
+  report( testSendOnThreadedSocket( count, port ), count );
 
   return 0;
 }
@@ -646,14 +658,14 @@ private:
   int m_count;
 };
 
-int testSendOnSocket( int count )
+int testSendOnSocket( int count, short port )
 {
   std::stringstream stream;
   stream
     << "[DEFAULT]" << std::endl
     << "SocketConnectHost=localhost" << std::endl
-    << "SocketConnectPort=5001" << std::endl
-    << "SocketAcceptPort=5001" << std::endl
+    << "SocketConnectPort=" << (ushort)port << std::endl
+    << "SocketAcceptPort=" << (ushort)port << std::endl
     << "SocketReuseAddress=Y" << std::endl
     << "StartTime=00:00:00" << std::endl
     << "EndTime=00:00:00" << std::endl
@@ -708,14 +720,14 @@ int testSendOnSocket( int count )
   return ticks;
 }
 
-int testSendOnThreadedSocket( int count )
+int testSendOnThreadedSocket( int count, short port )
 {
   std::stringstream stream;
   stream
     << "[DEFAULT]" << std::endl
     << "SocketConnectHost=localhost" << std::endl
-    << "SocketConnectPort=5001" << std::endl
-    << "SocketAcceptPort=5001" << std::endl
+    << "SocketConnectPort=" << (ushort)port << std::endl
+    << "SocketAcceptPort=" << (ushort)port << std::endl
     << "SocketReuseAddress=Y" << std::endl
     << "StartTime=00:00:00" << std::endl
     << "EndTime=00:00:00" << std::endl

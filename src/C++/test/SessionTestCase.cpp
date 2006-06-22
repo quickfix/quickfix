@@ -587,7 +587,7 @@ bool SessionTestCase::badMsgType::onSetup( Session*& pObject )
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
 
-  DataDictionary dataDictionary( "spec/FIX42.xml" );
+  DataDictionary dataDictionary( "../spec/FIX42.xml" );
   pObject = new Session( *this, m_factory, sessionID, dataDictionary,
                          SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   return true;

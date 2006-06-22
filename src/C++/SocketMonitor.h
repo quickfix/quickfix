@@ -61,7 +61,7 @@ public:
   void block( Strategy& strategy, bool poll = 0 );
 
   int numSockets() 
-  { return m_readSockets.size(); }
+  { return m_readSockets.size() - 1; }
 
 private:
   typedef std::set < int > Sockets;

@@ -40,31 +40,14 @@ SocketServerTestCase( short port ) : m_accept( port ), m_block( port ),
   }
 
 private:
-  typedef CPPTest::Test < SocketServer > Test;
-
-class accept : public Test
+  class Test : public CPPTest::Test<SocketServer>, public SocketServer::Strategy
   {
   public:
-  accept( short port ) : m_port( port ) {}
-    bool onSetup( SocketServer*& pObject );
-    void onRun( SocketServer& object );
-    void onTeardown( SocketServer* pObject ) { delete pObject; }
-    short m_port;
-  }
-  m_accept;
-
-class block : public Test, public SocketServer::Strategy
-  {
-  public:
-  block( short port ) :
-    m_connect( 0 ), m_write( 0 ), m_data( 0 ), m_disconnect( 0 ),
-    m_connectSocket( 0 ), m_writeSocket( 0 ),
-    m_dataSocket( 0 ), m_disconnectSocket( 0 ),
-    m_bufLen( 0 ), m_port( port ) {}
-
-    bool onSetup( SocketServer*& pObject );
-    void onRun( SocketServer& object );
-    void onTeardown( SocketServer* pObject ) { delete pObject; }
+    Test() 
+    : m_connect( 0 ), m_write( 0 ), m_data( 0 ), m_disconnect( 0 ),
+      m_connectSocket( 0 ), m_writeSocket( 0 ),
+      m_dataSocket( 0 ), m_disconnectSocket( 0 ),
+      m_bufLen( 0 ) {}
 
     void onConnect( SocketServer&, int accept, int socket )
     { m_connect++; m_connectSocket = socket; }
@@ -81,27 +64,48 @@ class block : public Test, public SocketServer::Strategy
     { m_disconnect++; m_disconnectSocket = socket; }
     void onError( SocketServer& )
     { assert( false ); }
+
     int m_connect, m_write, m_data, m_disconnect;
     int m_connectSocket, m_writeSocket;
     int m_dataSocket, m_disconnectSocket;
     char m_buf[ 1 ]; size_t m_bufLen;
-    short m_port;
-  }
-  m_block;
+  };
 
-class close : public Test, public SocketServer::Strategy
+  class accept : public Test
   {
   public:
-  close( short port ) : m_port( port ) {}
+    accept( short port ) : m_port( port ) {}
+
     bool onSetup( SocketServer*& pObject );
     void onRun( SocketServer& object );
     void onTeardown( SocketServer* pObject ) { delete pObject; }
 
-    void onConnect( SocketServer&, int accept, int socket ) {}
-    void onWrite( SocketServer&, int socket ) {}
-    void onData( SocketServer&, int socket ) {}
-    void onDisconnect( SocketServer&, int socket ) {}
-    void onError( SocketServer& ) {}
+    short m_port;
+  }
+  m_accept;
+
+class block : public Test
+  {
+  public:
+    block( short port ) : m_port( port ) {}
+
+    bool onSetup( SocketServer*& pObject );
+    void onRun( SocketServer& object );
+    void onTeardown( SocketServer* pObject ) { delete pObject; }
+
+    short m_port;
+  }
+  m_block;
+
+class close : public Test
+  {
+  public:
+    close( short port ) : m_port( port ) {}
+
+    bool onSetup( SocketServer*& pObject );
+    void onRun( SocketServer& object );
+    void onTeardown( SocketServer* pObject ) { delete pObject; }
+
     short m_port;
   }
   m_close;

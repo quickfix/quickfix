@@ -1,7 +1,7 @@
 #!/bin/sh
 sleep 1
 
-QUICKFIX_TEST_PORT=5000
+QUICKFIX_TEST_PORT=5001
 
 ./runat_java $QUICKFIX_TEST_PORT
 RESULT=$?

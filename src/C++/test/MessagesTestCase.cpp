@@ -179,7 +179,7 @@ void MessageTestCase::setString::onRun( Message& object )
 
 void MessageTestCase::setStringWithGroup::onRun( Message& object )
 {
-  DataDictionary dataDictionary( "spec/FIX43.xml" );
+  DataDictionary dataDictionary( "../spec/FIX43.xml" );
   static const char* str =
     "8=FIX.4.3\0019=199\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152"
     "=20040916-16:19:18.328\00156=SELLSIDE\00166=1095350459\00168=2\00173=2\00111"
@@ -196,7 +196,7 @@ void MessageTestCase::setStringWithGroup::onRun( Message& object )
 
 void MessageTestCase::setStringWithHeaderGroup::onRun( Message& object )
 {
-  DataDictionary dataDictionary( "spec/FIX43.xml" );
+  DataDictionary dataDictionary( "../spec/FIX43.xml" );
   static const char* str =
     "8=FIX.4.3\0019=152\00135=A\00134=125\00149=BUYSIDE\001"
     "52=20040916-16:19:18.328\00156=SELLSIDE\001"
@@ -213,7 +213,7 @@ void MessageTestCase::setStringWithHeaderGroup::onRun( Message& object )
 
 void MessageTestCase::setStringWithHighBit::onRun( Message& object )
 {
-  DataDictionary dataDictionary( "spec/FIX42.xml" );
+  DataDictionary dataDictionary( "../spec/FIX42.xml" );
 
   FIX::Headline headline( "client" );
   FIX42::News msg( headline );
@@ -327,7 +327,7 @@ void MessageTestCase::outOfOrder::onRun( Message& object )
 
 void MessageTestCase::getXML::onRun( Message& object )
 {
-  Message::InitializeXML("spec/FIX42.xml");
+  Message::InitializeXML("../spec/FIX42.xml");
   Message message;
   message.getHeader().setField(BeginString("FIX.4.2"));
   message.getHeader().setField(SenderCompID("SENDER"));
@@ -954,7 +954,7 @@ template<> void NewOrderListParseTestCase::getString::onRun
 template<> void NewOrderListParseTestCase::setString::onRun
 ( NewOrderList& object )
 {
-  DataDictionary dataDictionary( "spec/FIX42.xml" );
+  DataDictionary dataDictionary( "../spec/FIX42.xml" );
   try
   {
     object.setString
@@ -1044,7 +1044,7 @@ template<> void MassQuoteParseTestCase::getString::onRun
 template<> void MassQuoteParseTestCase::setString::onRun
 ( MassQuote& object )
 {
-  DataDictionary dataDictionary( "spec/FIX42.xml" );
+  DataDictionary dataDictionary( "../spec/FIX42.xml" );
   try
   {
     object.setString
@@ -1108,7 +1108,7 @@ template<> void NewOrderCrossParseTestCase::getString::onRun
 template<> void NewOrderCrossParseTestCase::setString::onRun
 ( NewOrderCross& object )
 {
-  DataDictionary dataDictionary( "spec/FIX44.xml" );
+  DataDictionary dataDictionary( "../spec/FIX44.xml" );
   try
   {
     object.setString

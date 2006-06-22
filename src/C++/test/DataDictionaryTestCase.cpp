@@ -442,7 +442,7 @@ void DataDictionaryTestCase::checkGroupCount::onRun
 bool DataDictionaryTestCase::checkGroupRequiredFields::onSetup
 ( DataDictionary*& pObject )
 {
-  pObject = new DataDictionary( "spec/FIX44.xml" );
+  pObject = new DataDictionary( "../spec/FIX44.xml" );
   return true;
 }
 
@@ -519,7 +519,7 @@ void DataDictionaryTestCase::checkGroupRequiredFields::onRun
 bool DataDictionaryTestCase::readFromFile::onSetup
 ( DataDictionary*& pObject )
 {
-  pObject = new DataDictionary( "spec/FIX43.xml" );
+  pObject = new DataDictionary( "../spec/FIX43.xml" );
   return true;
 }
 
@@ -584,7 +584,7 @@ void DataDictionaryTestCase::readFromFile::onRun
 bool DataDictionaryTestCase::readFromStream::onSetup
 ( DataDictionary*& pObject )
 {
-  std::fstream stream( "spec/FIX43.xml" );
+  std::fstream stream( "../spec/FIX43.xml" );
   pObject = new DataDictionary( stream );
   return true;
 }

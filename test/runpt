@@ -2,8 +2,7 @@
 
 DIR=`pwd`
 
-cd ../bin
-./pt -c 50000
+../bin/pt -p $1 -c 50000
 RESULT=$?
 cd $DIR
 exit $RESULT

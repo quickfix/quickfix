@@ -1,25 +1,24 @@
 rem echo off
 if "%1" == "" goto usage
+if "%2" == "" goto usage
+
 if "%1" == "debug" goto debug:
 if "%1" == "release" goto release:
-
 goto usage
 
 :debug
-set DIR=debug\pt
+set DIR=..\bin\debug\pt
 goto start
 
 :release
-set DIR=release\pt
+set DIR=..\bin\release\pt
 goto start
 
 :start
-pushd ..\bin
-%DIR%\pt.exe -c 50000
-popd
+%DIR%\pt.exe -p %2 -c 50000
 goto quit
 
 :usage
-echo "Usage: runut [release | debug]"
+echo "Usage: runpt [release | debug] [port]"
 
 :quit

@@ -49,18 +49,21 @@ void SocketServerTestCase::accept::onRun( SocketServer& object )
   assert( clientS1 > 0 );
   int s1 = object.accept( serverS1 );
   assert( s1 >= 0 );
+  object.block( *this );
   assert( object.numConnections() == 1 );
 
   int clientS2 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
   assert( clientS2 > 0 );
   int s2 = object.accept( serverS1 );
   assert( s2 >= 0 );
+  object.block( *this );
   assert( object.numConnections() == 2 );
 
   int clientS3 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
   assert( clientS3 > 0 );
   int s3 = object.accept( serverS1 );
   assert( s3 >= 0 );
+  object.block( *this );
   assert( object.numConnections() == 3 );
 
   SocketMonitor& monitor = object.getMonitor();
