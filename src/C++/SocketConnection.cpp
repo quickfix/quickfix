@@ -80,18 +80,16 @@ bool SocketConnection::processQueue()
   if( !m_sendQueue.size() ) return true;
 
   bool result = true;
-  do
-  {
-    struct timeval timeout = { 0, 0 };
-    fd_set writeset = m_fds;
-    if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
-      return false;
+
+  struct timeval timeout = { 0, 0 };
+  fd_set writeset = m_fds;
+  if( select( 1 + m_socket, 0, &writeset, 0, &timeout ) <= 0 )
+    return false;
     
-    const std::string& msg = m_sendQueue.front();
-    result = socket_send( m_socket, msg.c_str(), msg.length() );
-    if( result )
-      m_sendQueue.pop_front();
-  } while( result && m_sendQueue.size() );
+  const std::string& msg = m_sendQueue.front();
+  result = socket_send( m_socket, msg.c_str(), msg.length() );
+  if( result )
+    m_sendQueue.pop_front();
 
   return !m_sendQueue.size();
 
