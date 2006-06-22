@@ -664,8 +664,8 @@ int testSendOnSocket( int count, short port )
   stream
     << "[DEFAULT]" << std::endl
     << "SocketConnectHost=localhost" << std::endl
-    << "SocketConnectPort=" << (ushort)port << std::endl
-    << "SocketAcceptPort=" << (ushort)port << std::endl
+    << "SocketConnectPort=" << (unsigned short)port << std::endl
+    << "SocketAcceptPort=" << (unsigned short)port << std::endl
     << "SocketReuseAddress=Y" << std::endl
     << "StartTime=00:00:00" << std::endl
     << "EndTime=00:00:00" << std::endl
@@ -726,8 +726,8 @@ int testSendOnThreadedSocket( int count, short port )
   stream
     << "[DEFAULT]" << std::endl
     << "SocketConnectHost=localhost" << std::endl
-    << "SocketConnectPort=" << (ushort)port << std::endl
-    << "SocketAcceptPort=" << (ushort)port << std::endl
+    << "SocketConnectPort=" << (unsigned short)port << std::endl
+    << "SocketAcceptPort=" << (unsigned short)port << std::endl
     << "SocketReuseAddress=Y" << std::endl
     << "StartTime=00:00:00" << std::endl
     << "EndTime=00:00:00" << std::endl
