@@ -61,6 +61,8 @@ private:
   bool setSession( const std::string& msg );
 
   int m_socket;
+  char m_buffer[BUFSIZ];
+
   Application& m_application;
   Parser m_parser;
   Sessions m_sessions;

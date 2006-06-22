@@ -195,11 +195,8 @@ void SocketConnection::readFromSocket()
 throw( SocketRecvFailed )
 { QF_STACK_PUSH(SocketConnection::readFromSocket)
 
-  int size = recv( m_socket, m_buffer, 4095, 0 );
-  if( size <= 0 )
-    throw SocketRecvFailed( size );
-  m_buffer[ size ] = '\0';
-
+  int size = recv( m_socket, m_buffer, sizeof(m_buffer), 0 );
+  if( size <= 0 ) throw SocketRecvFailed( size );
   m_parser.addToStream( m_buffer, size );
 
   QF_STACK_POP

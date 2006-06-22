@@ -85,7 +85,8 @@ private:
   void disconnect();
 
   int m_socket;
-  char m_buffer[4096];
+  char m_buffer[BUFSIZ];
+
   Parser m_parser;
   Queue m_sendQueue;
   unsigned m_sendLength;

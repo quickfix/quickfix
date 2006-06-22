@@ -75,7 +75,6 @@ void ThreadedSocketConnection::disconnect()
 bool ThreadedSocketConnection::read()
 { QF_STACK_PUSH(ThreadedSocketConnection::read)
 
-  char buffer[BUFSIZ];
   struct timeval timeout = { 1, 0 };
   fd_set readset = m_fds;
 
@@ -87,9 +86,9 @@ bool ThreadedSocketConnection::read()
     if( result > 0 ) // Something to read
     {
       // We can read without blocking
-      result = recv( m_socket, buffer, sizeof(buffer), 0 );
-      if ( result <= 0 ) { throw SocketRecvFailed( result ); }
-      m_parser.addToStream( buffer, result );
+      int size = recv( m_socket, m_buffer, sizeof(m_buffer), 0 );
+      if ( size <= 0 ) { throw SocketRecvFailed( result ); }
+      m_parser.addToStream( m_buffer, size );
     }
     else if( result == 0 && m_pSession ) // Timeout
     {
