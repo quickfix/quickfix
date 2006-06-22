@@ -66,8 +66,7 @@ bool SocketConnection::send( const std::string& msg )
 
   m_sendQueue.push_back( msg );
   processQueue();
-  if( m_sendQueue.size() == 1 )
-    m_pMonitor->signal( m_socket );
+  signal();
   return true;
 
   QF_STACK_POP

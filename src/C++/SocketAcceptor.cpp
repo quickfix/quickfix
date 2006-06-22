@@ -185,11 +185,8 @@ void SocketAcceptor::onWrite( SocketServer& server, int s )
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
   SocketConnection* pSocketConnection = i->second;
-
-  pSocketConnection->lock();
   if( pSocketConnection->processQueue() )
-    server.getMonitor().removeWrite( pSocketConnection->getSocket() );
-  pSocketConnection->unlock();
+    pSocketConnection->unsignal();
 
   QF_STACK_POP
 }

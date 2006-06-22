@@ -99,17 +99,6 @@ bool SocketMonitor::addWrite( int s )
   QF_STACK_POP
 }
 
-void SocketMonitor::removeWrite( int s )
-{ QF_STACK_PUSH(SocketMonitor::removeWrite)
-
-  Sockets::iterator i = m_writeSockets.find( s );
-  if( i == m_writeSockets.end() ) return;
-
-  m_writeSockets.erase( s );
-
-  QF_STACK_POP
-}
-
 bool SocketMonitor::drop( int s )
 { QF_STACK_PUSH(SocketMonitor::drop)
 
@@ -190,6 +179,17 @@ bool SocketMonitor::sleepIfEmpty( bool poll )
 void SocketMonitor::signal( int socket )
 { QF_STACK_PUSH(SocketMonitor::signal)
   socket_send( m_signal, (char*)&socket, sizeof(socket) );
+  QF_STACK_POP
+}
+
+void SocketMonitor::unsignal( int s )
+{ QF_STACK_PUSH(SocketMonitor::unsignal)
+
+  Sockets::iterator i = m_writeSockets.find( s );
+  if( i == m_writeSockets.end() ) return;
+
+  m_writeSockets.erase( s );
+
   QF_STACK_POP
 }
 

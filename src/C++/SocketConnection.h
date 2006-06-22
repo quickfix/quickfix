@@ -29,6 +29,7 @@
 #include "Parser.h"
 #include "Responder.h"
 #include "SessionID.h"
+#include "SocketMonitor.h"
 #include <set>
 
 namespace FIX
@@ -37,7 +38,6 @@ class SocketAcceptor;
 class SocketServer;
 class SocketConnector;
 class SocketInitiator;
-class SocketMonitor;
 class Session;
 
 /// Encapsulates a socket file descriptor (single-threaded).
@@ -50,15 +50,27 @@ public:
   SocketConnection( SocketInitiator&, const SessionID&, int, SocketMonitor* );
   virtual ~SocketConnection();
 
-  void lock() { m_mutex.lock(); }
-  void unlock() { m_mutex.unlock(); }
-
   int getSocket() const { return m_socket; }
   Session* getSession() const { return m_pSession; }
 
   bool read( SocketConnector& s );
   bool read( SocketAcceptor&, SocketServer& );
   bool processQueue();
+
+  void signal()
+  {
+    Locker l( m_mutex );
+    if( m_sendQueue.size() == 1 )
+      m_pMonitor->signal( m_socket );
+  }
+
+  void unsignal()
+  {
+    Locker l( m_mutex );
+    if( m_sendQueue.size() == 0 )
+      m_pMonitor->unsignal( m_socket );
+  }
+
   void onTimeout();
 
 private:
