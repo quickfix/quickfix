@@ -62,7 +62,7 @@ ThreadedSocketConnection::~ThreadedSocketConnection()
 
 bool ThreadedSocketConnection::send( const std::string& msg )
 { QF_STACK_PUSH(ThreadedSocketConnection::send)
-  return socket_send( m_socket, msg.c_str(), msg.length() );
+  return socket_send( m_socket, msg.c_str(), msg.length() ) >= 0;
   QF_STACK_POP
 }
 
