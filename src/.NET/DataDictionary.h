@@ -96,6 +96,90 @@ public:
     delete m_pUnmanaged;
   }
 
+  public String* getVersion()
+  { QF_STACK_TRY
+    return unmanaged().getVersion();
+    QF_STACK_CATCH
+  }
+
+  public String* getFieldName( int field )
+  { QF_STACK_TRY
+    return unmanaged().getFieldName( field );
+    QF_STACK_CATCH
+  }
+
+  public int getFieldTag( String* name )
+  { QF_STACK_TRY
+    return unmanaged().getFieldTag( convertString(name) );
+    QF_STACK_CATCH
+  }
+
+  public String* getValueName( int field, String* value )
+  { QF_STACK_TRY
+    return unmanaged().getValueName( field, convertString(value) );
+    QF_STACK_POP
+  }
+
+  public bool isField( int field )
+  { QF_STACK_TRY
+    return unmanaged().isField( field );
+    QF_STACK_POP
+  }
+
+  public bool isMsgType( String* msgType )
+  { QF_STACK_TRY
+    return unmanaged().isMsgType( convertString(msgType) );
+    QF_STACK_POP
+  }
+
+  public bool isMsgField( String* msgType, int field );
+  { QF_STACK_TRY
+    return unmanaged().isMsgField( convertString(msgType), field );
+    QF_STACK_POP
+  }
+
+  public bool isHeaderField( int field )
+  { QF_STACK_TRY
+    return unmanaged().isHeaderField( field );
+    QF_STACK_POP
+  }
+
+  public bool isTrailerField( int field )
+  { QF_STACK_TRY
+    return unmanaged().isTrailerField( field );
+    QF_STACK_POP
+  }
+
+  public bool isRequiredField( String* msgType, int field )
+  { QF_STACK_TRY
+    return unmanaged().isRequiredField( convertString(msgType), field );
+    QF_STACK_POP
+  }
+
+  public bool hasFieldValue( int field )
+  { QF_STACK_TRY
+    return unmanaged().hasFieldValue( field );
+    QF_STACK_POP
+  }
+
+  public bool isFieldValue( int field, String* value )
+  { QF_STACK_TRY
+    return unmanaged().isFieldValue( int field, String* value );
+    QF_STACK_POP
+  }
+
+  public bool isGroup( String* msg, int field )
+  { QF_STACK_TRY
+    return unmanaged().isGroup( convertString(msg), field );
+    QF_STACK_POP
+  }
+
+  public int getFieldType( int field )
+  { QF_STACK_TRY
+    return unmanaged().getFieldType( field );
+    QF_STACK_POP
+  }
+
   FIX::DataDictionary& unmanaged()
   { return * m_pUnmanaged; }
 
