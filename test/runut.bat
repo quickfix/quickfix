@@ -7,15 +7,15 @@ if "%1" == "release" goto release:
 goto usage
 
 :debug
-set DIR=..\bin\debug\ut
+set DIR=debug\ut
 goto start
 
 :release
-set DIR=..\bin\release\ut
+set DIR=release\ut
 goto start
 
 :start
-%DIR%\ut.exe -p %2 -f ..\test\cfg\ut.cfg
+%DIR%\ut.exe -p %2 -f cfg\ut.cfg
 goto quit
 
 :usage

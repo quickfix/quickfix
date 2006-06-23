@@ -7,16 +7,16 @@ if "%1" == "release" goto release:
 goto usage
 
 :debug
-set DIR=..\bin\debug\at
+set DIR=debug\at
 goto start
 
 :release
-set DIR=..\bin\release\at
+set DIR=release\at
 goto start
 
 :start
 call setup.bat %2
-atrun -t run -s "%DIR%\at.exe -f cfg\at.cfg" -d . -c "ruby Runner.rb 127.0.0.1 %2 definitions\server\fix40\*.def definitions\server\fix41\*.def definitions\server\fix42\*.def definitions\server\fix43\*.def definitions\server\fix44\*.def" -i .\
+%DIR%\atrun -t run -s "%DIR%\at.exe -f cfg\at.cfg" -d . -c "ruby Runner.rb 127.0.0.1 %2 definitions\server\fix40\*.def definitions\server\fix41\*.def definitions\server\fix42\*.def definitions\server\fix43\*.def definitions\server\fix44\*.def" -i .\
 goto quit
 
 :usage

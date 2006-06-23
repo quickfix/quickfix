@@ -14,7 +14,7 @@
 	<Configurations>
 		<Configuration
 			Name="Debug|Win32"
-			OutputDirectory=".."
+			OutputDirectory="$(SolutionDir)\test\debug\at"
 			IntermediateDirectory="debug\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
@@ -75,7 +75,7 @@
 		</Configuration>
 		<Configuration
 			Name="Release|Win32"
-			OutputDirectory=".."
+			OutputDirectory="$(SolutionDir)\test\release\at"
 			IntermediateDirectory="release\vs7"
 			ConfigurationType="1"
 			UseOfMFC="0"
