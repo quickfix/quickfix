@@ -197,19 +197,40 @@ public:
 
   void setString( String* string )
   { QF_STACK_TRY
-    m_pUnmanaged->setString( convertString(string) );
+
+    try
+    {
+      m_pUnmanaged->setString( convertString(string) );
+    }
+    catch( FIX::InvalidMessage& e )
+    { throw new InvalidMessage(); }
+
     QF_STACK_CATCH
   }
 
   void setString( String* string, bool validate )
   { QF_STACK_TRY
-    m_pUnmanaged->setString( convertString(string), validate );
+
+    try
+    {
+      m_pUnmanaged->setString( convertString(string), validate );
+    }
+    catch( FIX::InvalidMessage& e )
+    { throw new InvalidMessage(); }
+
     QF_STACK_CATCH
   }
 
   void setString( String* string, bool validate, DataDictionary* dataDictionary )
   { QF_STACK_TRY
-    m_pUnmanaged->setString( convertString(string), validate, &dataDictionary->unmanaged() );
+
+    try
+    {
+      m_pUnmanaged->setString( convertString(string), validate, &dataDictionary->unmanaged() );
+    }
+    catch( FIX::InvalidMessage& e )
+    { throw new InvalidMessage(); }
+
     QF_STACK_CATCH
   }
 
