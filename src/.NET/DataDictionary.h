@@ -96,87 +96,104 @@ public:
     delete m_pUnmanaged;
   }
 
-  public String* getVersion()
+  String* getVersion()
   { QF_STACK_TRY
-    return unmanaged().getVersion();
+    return unmanaged().getVersion().c_str();
     QF_STACK_CATCH
   }
 
-  public String* getFieldName( int field )
+  String* getFieldName( int field )
   { QF_STACK_TRY
-    return unmanaged().getFieldName( field );
+
+    std::string nameString;
+    bool result = unmanaged().getFieldName( field, nameString );
+    return result ? nameString.c_str() : 0;
+
     QF_STACK_CATCH
   }
 
-  public int getFieldTag( String* name )
+  int getFieldTag( String* name )
   { QF_STACK_TRY
-    return unmanaged().getFieldTag( convertString(name) );
+
+    int field;
+    bool result = unmanaged().getFieldTag( convertString(name), field );
+    return result ? field : 0;
+
     QF_STACK_CATCH
   }
 
-  public String* getValueName( int field, String* value )
+  String* getValueName( int field, String* value )
   { QF_STACK_TRY
-    return unmanaged().getValueName( field, convertString(value) );
+
+    std::string nameString;
+    bool result = unmanaged().getValueName( field, convertString(value), nameString );
+    return result ? nameString.c_str() : 0;
+
     QF_STACK_POP
   }
 
-  public bool isField( int field )
+  bool isField( int field )
   { QF_STACK_TRY
     return unmanaged().isField( field );
     QF_STACK_POP
   }
 
-  public bool isMsgType( String* msgType )
+  bool isMsgType( String* msgType )
   { QF_STACK_TRY
     return unmanaged().isMsgType( convertString(msgType) );
     QF_STACK_POP
   }
 
-  public bool isMsgField( String* msgType, int field );
+  bool isMsgField( String* msgType, int field )
   { QF_STACK_TRY
     return unmanaged().isMsgField( convertString(msgType), field );
     QF_STACK_POP
   }
 
-  public bool isHeaderField( int field )
+  bool isHeaderField( int field )
   { QF_STACK_TRY
     return unmanaged().isHeaderField( field );
     QF_STACK_POP
   }
 
-  public bool isTrailerField( int field )
+  bool isTrailerField( int field )
   { QF_STACK_TRY
     return unmanaged().isTrailerField( field );
     QF_STACK_POP
   }
 
-  public bool isRequiredField( String* msgType, int field )
+  bool isRequiredField( String* msgType, int field )
   { QF_STACK_TRY
     return unmanaged().isRequiredField( convertString(msgType), field );
     QF_STACK_POP
   }
 
-  public bool hasFieldValue( int field )
+  bool hasFieldValue( int field )
   { QF_STACK_TRY
     return unmanaged().hasFieldValue( field );
     QF_STACK_POP
   }
 
-  public bool isFieldValue( int field, String* value )
+  bool isFieldValue( int field, String* value )
   { QF_STACK_TRY
-    return unmanaged().isFieldValue( int field, String* value );
+    return unmanaged().isFieldValue( field, convertString(value) );
     QF_STACK_POP
   }
 
-  public bool isGroup( String* msg, int field )
+  bool isGroup( String* msg, int field )
   { QF_STACK_TRY
     return unmanaged().isGroup( convertString(msg), field );
     QF_STACK_POP
   }
 
-  public int getFieldType( int field )
+  int getFieldType( int field )
   { QF_STACK_TRY
-    return unmanaged().getFieldType( field );
+
+    FIX::TYPE::Type type;
+    bool result = unmanaged().getFieldType( field, type );
+    if( result ) return type;
+    return FIX::TYPE::Unknown;
+
     QF_STACK_POP
   }
 
