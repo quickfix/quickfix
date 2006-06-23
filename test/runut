@@ -2,7 +2,7 @@
 
 DIR=`pwd`
 
-../bin/ut -p $1 -f ../test/cfg/ut.cfg
+./ut -p $1 -f cfg/ut.cfg
 RESULT=$?
 cd $DIR
 exit $RESULT

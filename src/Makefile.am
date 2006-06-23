@@ -27,10 +27,10 @@ pt_LDADD = C++/libquickfix.la
 INCLUDES =-IC++
 
 all-local:
-	rm -f ../bin/ut ../bin/pt ../bin/at
-	ln -s ../src/ut ../bin/ut
-	ln -s ../src/pt ../bin/pt
-	ln -s ../src/at ../bin/at
+	rm -f ../test/ut ../test/pt ../test/at
+	ln -s ../src/ut ../test/ut
+	ln -s ../src/pt ../test/pt
+	ln -s ../src/at ../test/at
 if HAVE_JAVA
 	bash ./build.sh
 endif
