@@ -35,7 +35,7 @@ int main( int argc, char** argv )
 {
   CPPTest::TestDisplay * display;
 
-  short port;
+  short port = 0;
   std::auto_ptr<FIX::SessionSettings> sessionSettingsPtr;
 
   int opt;

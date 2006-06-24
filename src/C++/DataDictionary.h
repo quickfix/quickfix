@@ -454,7 +454,7 @@ private:
     for( groups = body.g_begin(); groups != body.g_end(); ++groups )
     {
       int delim;
-      const DataDictionary* DD;
+      const DataDictionary* DD = 0;
       int field = groups->first;
       if( getGroup( msgType.getValue(), field, delim, DD ) )
       {
