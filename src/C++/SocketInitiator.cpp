@@ -49,11 +49,12 @@ throw( ConfigError )
 
 SocketInitiator::~SocketInitiator()
 {
-  for (SocketConnections::iterator i = m_connections.begin();
+  SocketConnections::iterator i;
+  for (i = m_connections.begin();
        i != m_connections.end(); ++i)
     delete i->second;
 
-  for (SocketConnections::iterator i = m_pendingConnections.begin();
+  for (i = m_pendingConnections.begin();
        i != m_pendingConnections.end(); ++i)
     delete i->second;
 
