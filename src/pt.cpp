@@ -258,22 +258,14 @@ int testSerializeToStringHeartbeat( int count )
 
 int testSerializeFromStringHeartbeat( int count )
 {
-  std::vector < FIX42::Heartbeat > vector;
-  vector.reserve( count );
   FIX42::Heartbeat message;
   std::string string = message.toString();
   count = count - 1;
 
+  int start = GetTickCount();
   for ( int i = 0; i <= count; ++i )
   {
-    vector.push_back( message );
-  }
-
-  int start = GetTickCount();
-  std::vector < FIX42::Heartbeat > ::iterator iter;
-  for ( iter = vector.begin(); iter != vector.end(); ++iter )
-  {
-    iter->setString( string );
+    message.setString( string );
   }
   return GetTickCount() - start;
 }
@@ -357,7 +349,7 @@ int testCreateQuoteRequest( int count )
     FIX42::QuoteRequest massQuote( FIX::QuoteReqID("1") );
     FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
 
-    for( int i = 1; i <= 10; ++i )
+    for( int j = 1; j <= 10; ++j )
     {
       symbol.setValue( "IBM" );
       maturityMonthYear.setValue( "022003" );
@@ -722,6 +714,8 @@ int testSendOnSocket( int count, short port )
 
 int testSendOnThreadedSocket( int count, short port )
 {
+  std::cout << "Storing NewOrderSingle messages: ";
+
   std::stringstream stream;
   stream
     << "[DEFAULT]" << std::endl
