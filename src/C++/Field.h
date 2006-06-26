@@ -55,14 +55,12 @@ public:
   {
     m_field = field;
     m_calculated = false;
-    calculate();
   }
 
   void setString( const std::string& string )
   {
     m_string = string;
     m_calculated = false;
-    calculate();
   }
 
   /// Get the fields integer tag.
@@ -76,21 +74,21 @@ public:
   /// Get the string representation of the Field (i.e.) 55=MSFT[SOH]
   const std::string& getValue() const
   {
-    const_cast<FieldBase*>(this)->calculate();
+    calculate();
     return m_data;
   }
 
   /// Get the length of the fields string representation
   int getLength() const
   {
-    const_cast<FieldBase*>(this)->calculate();
+    calculate();
     return m_length;
   }
 
   /// Get the total value the fields characters added together
   int getTotal() const
   {
-    const_cast<FieldBase*>(this)->calculate();
+    calculate();
     return m_total;
   }
 
@@ -99,7 +97,7 @@ public:
     { return m_field < field.m_field; }
 
 private:
-  void calculate()
+  void calculate() const
   {
     if( m_calculated ) return;
 
@@ -127,10 +125,10 @@ private:
   }
 
   int m_field;
-  std::string m_data;
   std::string m_string;
-  int m_length;
-  int m_total;
+  mutable std::string m_data;
+  mutable int m_length;
+  mutable int m_total;
   mutable bool m_calculated;
 };
 /*! @} */
