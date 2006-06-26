@@ -246,50 +246,50 @@ public:
   void setSessionID( const SessionID& sessionID );
 
 private:
-FieldBase Message::extractField
-( const std::string& string, std::string::size_type& pos,
-  const DataDictionary* pDD = 0, const Group* pGroup = 0)
-{ QF_STACK_PUSH(Message::extractField)
+  FieldBase Message::extractField
+  ( const std::string& string, std::string::size_type& pos,
+    const DataDictionary* pDD = 0, const Group* pGroup = 0)
+  { QF_STACK_PUSH(Message::extractField)
 
-  std::string::size_type equalSign
-    = string.find_first_of( '=', pos );
-  if( equalSign == std::string::npos )
-    throw InvalidMessage("Equal sign not found in field");
+    std::string::size_type equalSign
+      = string.find_first_of( '=', pos );
+    if( equalSign == std::string::npos )
+      throw InvalidMessage("Equal sign not found in field");
 
-  int field = atol(string.substr( pos, equalSign - pos ).c_str());
+    int field = atol(string.substr( pos, equalSign - pos ).c_str());
 
-  std::string::size_type soh =
-    string.find_first_of( '\001', equalSign + 1 );
-  if ( soh == std::string::npos )
-    throw InvalidMessage("SOH not found at end of field");
+    std::string::size_type soh =
+      string.find_first_of( '\001', equalSign + 1 );
+    if ( soh == std::string::npos )
+      throw InvalidMessage("SOH not found at end of field");
 
-  if ( pDD && pDD->isDataField(field) )
-  {
-    std::string fieldLength;
-    // Assume length field is 1 less.
-    int lenField = field - 1;
-    // Special case for Signature which violates above assumption.
-    if ( field == 89 ) lenField = 93;
-
-    if ( pGroup && pGroup->isSetField( lenField ) )
+    if ( pDD && pDD->isDataField(field) )
     {
-      fieldLength = pGroup->getField( lenField);
-      soh = equalSign + 1 + atol( fieldLength.c_str() );
+      std::string fieldLength;
+      // Assume length field is 1 less.
+      int lenField = field - 1;
+      // Special case for Signature which violates above assumption.
+      if ( field == 89 ) lenField = 93;
+
+      if ( pGroup && pGroup->isSetField( lenField ) )
+      {
+        fieldLength = pGroup->getField( lenField);
+        soh = equalSign + 1 + atol( fieldLength.c_str() );
+      }
+      else if ( isSetField( lenField ) )
+      {
+        fieldLength = getField( lenField );
+        soh = equalSign + 1 + atol( fieldLength.c_str() );
+      }
     }
-    else if ( isSetField( lenField ) )
-    {
-      fieldLength = getField( lenField );
-      soh = equalSign + 1 + atol( fieldLength.c_str() );
-    }
+
+    pos = soh + 1;
+    return FieldBase (
+      field,
+      string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
+
+    QF_STACK_POP
   }
-
-  pos = soh + 1;
-  return FieldBase (
-    field,
-    string.substr( equalSign + 1, soh - ( equalSign + 1 ) ) );
-
-  QF_STACK_POP
-}
 
   void validate();
   std::string toXMLFields(const FieldMap& fields, int space) const;
