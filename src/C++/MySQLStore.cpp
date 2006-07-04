@@ -46,7 +46,7 @@ const short MySQLStoreFactory::DEFAULT_PORT = 3306;
 
 MySQLStore::MySQLStore
 ( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p )
-: m_sessionID( s ), m_pConnectionPool( p )
+  : m_pConnectionPool( p ), m_sessionID( s )
 {
   m_pConnection = m_pConnectionPool->create( d );
   populateCache();
@@ -55,7 +55,7 @@ MySQLStore::MySQLStore
 MySQLStore::MySQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-: m_sessionID( s ), m_pConnectionPool( 0 )
+  : m_pConnectionPool( 0 ), m_sessionID( s )
 {
   m_pConnection = new MySQLConnection( database, user, password, host, port );
   populateCache();

@@ -40,6 +40,7 @@ public:
   FileStoreTestCase()
   {
     add( &m_setGet );
+    add( &m_setGetWithQuote );
     add( &m_other );
     add( &m_reload );
     add( &m_refresh );
@@ -58,6 +59,18 @@ private:
     FileStoreFactory m_fileStoreFactory;
   }
   m_setGet;
+
+  class setGetWithQuote : public MessageStoreTestCase::setGetWithQuote
+  {
+  public:
+    setGetWithQuote() : m_fileStoreFactory( "store" ) {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+
+  private:
+    FileStoreFactory m_fileStoreFactory;
+  }
+  m_setGetWithQuote;
 
   class other : public MessageStoreTestCase::other
   {

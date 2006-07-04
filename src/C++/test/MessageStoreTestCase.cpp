@@ -29,6 +29,7 @@
 #include "fix42/Heartbeat.h"
 #include "fix42/TestRequest.h"
 #include "fix42/NewOrderSingle.h"
+#include "fix42/ExecutionReport.h"
 
 namespace FIX
 {
@@ -62,6 +63,33 @@ void MessageStoreTestCase::setGet::onRun( MessageStore& object )
   assert( messages.size() == 2 );
   assert( messages[ 0 ] == heartbeat.toString() );
   assert( messages[ 1 ] == newOrderSingle.toString() );
+}
+
+void MessageStoreTestCase::setGetWithQuote::onRun( MessageStore& object )
+{
+  ExecutionReport singleQuote;
+  singleQuote.setField( Text("Some Text") );
+  object.set( 1, singleQuote.toString() );
+
+  ExecutionReport doubleQuote;
+  doubleQuote.setField( Text("\"Some Text\"") );
+  object.set( 2, doubleQuote.toString() );
+
+  ExecutionReport bothQuote;
+  bothQuote.setField( Text("'\"Some Text\"'") );
+  object.set( 3, bothQuote.toString() );
+
+  ExecutionReport escape;
+  escape.setField( Text("\\Some Text\\") );
+  object.set( 4, escape.toString() );
+
+  std::vector < std::string > messages;
+  object.get( 1, 4, messages );
+  assert( messages.size() == 4 );
+  assert( messages[0] == singleQuote.toString() );
+  assert( messages[1] == doubleQuote.toString() );
+  assert( messages[2] == bothQuote.toString() );
+  assert( messages[3] == escape.toString() );
 }
 
 void MessageStoreTestCase::other::onRun( MessageStore& object )

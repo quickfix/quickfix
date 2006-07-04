@@ -46,6 +46,24 @@ void FileStoreTestCase::setGet::onTeardown( MessageStore* pObject )
   deleteSession( "SETGET", "TEST" );
 }
 
+bool FileStoreTestCase::setGetWithQuote::onSetup( MessageStore*& pObject )
+{
+  deleteSession( "SETGET", "TEST" );
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_fileStoreFactory.create( sessionID );
+  pObject = &( *m_object );
+
+  return true;
+}
+
+void FileStoreTestCase::setGetWithQuote::onTeardown( MessageStore* pObject )
+{
+  m_fileStoreFactory.destroy( pObject );
+  deleteSession( "SETGET", "TEST" );
+}
+
 bool FileStoreTestCase::other::onSetup( MessageStore*& pObject )
 {
   deleteSession( "SETGET", "TEST" );

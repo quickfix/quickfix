@@ -46,7 +46,7 @@ const short PostgreSQLStoreFactory::DEFAULT_PORT = 0;
 
 PostgreSQLStore::PostgreSQLStore
 ( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
-: m_sessionID( s ), m_pConnectionPool( p )
+: m_pConnectionPool( p ), m_sessionID( s )
 {
   m_pConnection = m_pConnectionPool->create( d );
   populateCache();
@@ -55,7 +55,7 @@ PostgreSQLStore::PostgreSQLStore
 PostgreSQLStore::PostgreSQLStore
 ( const SessionID& s, const std::string& database, const std::string& user,
   const std::string& password, const std::string& host, short port )
-: m_sessionID( s ), m_pConnectionPool( 0 )
+  : m_pConnectionPool( 0 ), m_sessionID( s )
 {
   m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
   populateCache();
@@ -181,8 +181,8 @@ bool PostgreSQLStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException )
 { QF_STACK_PUSH(PostgreSQLStore::set)
 
-  std::string msgCopy = msg;
-  string_replace( "\"", "\\\"", msgCopy );
+  char* msgCopy = new char[ (msg.size() * 2) + 1 ];
+  PQescapeString( msgCopy, msg.c_str(), msg.size() );
 
   std::stringstream queryString;
   queryString << "INSERT INTO messages "
@@ -194,6 +194,8 @@ throw ( IOException )
   << "'" << m_sessionID.getSessionQualifier() << "',"
   << msgSeqNum << ","
   << "'" << msgCopy << "')";
+
+  delete [] msgCopy;
 
   PostgreSQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )

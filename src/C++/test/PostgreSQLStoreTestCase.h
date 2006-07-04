@@ -40,11 +40,13 @@ class PostgreSQLStoreTestCase : public MessageStoreTestCase
 public:
   PostgreSQLStoreTestCase( const FIX::SessionSettings& sessionSettings )
   : m_setGet( sessionSettings ),
+    m_setGetWithQuote( sessionSettings ),
     m_other( sessionSettings ),
     m_reload( sessionSettings ),
     m_refresh( sessionSettings )
   {
     add( &m_setGet );
+    add( &m_setGetWithQuote );
     add( &m_other );
     add( &m_reload );
     add( &m_refresh );
@@ -64,6 +66,19 @@ private:
     PostgreSQLStoreFactory m_factory;
   }
   m_setGet;
+
+  class setGetWithQuote : public MessageStoreTestCase::setGetWithQuote
+  {
+  public:
+    setGetWithQuote( const FIX::SessionSettings& sessionSettings )
+    : m_factory( sessionSettings.get() ) {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+
+  private:
+    PostgreSQLStoreFactory m_factory;
+  }
+  m_setGetWithQuote;
 
   class other : public MessageStoreTestCase::other
   {

@@ -5,32 +5,13 @@ require "GeneratorNET"
 require "GeneratorPython"
 require "GeneratorRuby"
 
-processor = Processor.new("FIX40.xml", "../src/C++", GeneratorCPP.new("4", "0", "../src/C++"))
-processor = Processor.new("FIX41.xml", "../src/C++", GeneratorCPP.new("4", "1", "../src/C++"))
-processor = Processor.new("FIX42.xml", "../src/C++", GeneratorCPP.new("4", "2", "../src/C++"))
-processor = Processor.new("FIX43.xml", "../src/C++", GeneratorCPP.new("4", "3", "../src/C++"))
-processor = Processor.new("FIX44.xml", "../src/C++", GeneratorCPP.new("4", "4", "../src/C++"))
+def generateVersion( v )
+  dir = "../src"
+  Processor.new("FIX4#{v}.xml", "#{dir}/C++", GeneratorCPP.new("4", v.to_s, "#{dir}/C++"))
+  Processor.new("FIX4#{v}.xml", "#{dir}/java", GeneratorJava.new("4", v.to_s, "#{dir}/java"))
+  Processor.new("FIX4#{v}.xml", "#{dir}/.NET", GeneratorNET.new("4", v.to_s, "#{dir}/.NET"))
+  Processor.new("FIX4#{v}.xml", "#{dir}/python", GeneratorPython.new("4", v.to_s, "#{dir}/python"))
+  Processor.new("FIX4#{v}.xml", "#{dir}/ruby", GeneratorRuby.new("4", v.to_s, "#{dir}/ruby"))
+end
 
-processor = Processor.new("FIX40.xml", "../src/java", GeneratorJava.new("4", "0", "../src/java"))
-processor = Processor.new("FIX41.xml", "../src/java", GeneratorJava.new("4", "1", "../src/java"))
-processor = Processor.new("FIX42.xml", "../src/java", GeneratorJava.new("4", "2", "../src/java"))
-processor = Processor.new("FIX43.xml", "../src/java", GeneratorJava.new("4", "3", "../src/java"))
-processor = Processor.new("FIX44.xml", "../src/java", GeneratorJava.new("4", "4", "../src/java"))
-
-processor = Processor.new("FIX40.xml", "../src/.NET", GeneratorNET.new("4", "0", "../src/.NET"))
-processor = Processor.new("FIX41.xml", "../src/.NET", GeneratorNET.new("4", "1", "../src/.NET"))
-processor = Processor.new("FIX42.xml", "../src/.NET", GeneratorNET.new("4", "2", "../src/.NET"))
-processor = Processor.new("FIX43.xml", "../src/.NET", GeneratorNET.new("4", "3", "../src/.NET"))
-processor = Processor.new("FIX44.xml", "../src/.NET", GeneratorNET.new("4", "4", "../src/.NET"))
-
-processor = Processor.new("FIX40.xml", "../src/python", GeneratorPython.new("4", "0", "../src/python"))
-processor = Processor.new("FIX41.xml", "../src/python", GeneratorPython.new("4", "1", "../src/python"))
-processor = Processor.new("FIX42.xml", "../src/python", GeneratorPython.new("4", "2", "../src/python"))
-processor = Processor.new("FIX43.xml", "../src/python", GeneratorPython.new("4", "3", "../src/python"))
-processor = Processor.new("FIX44.xml", "../src/python", GeneratorPython.new("4", "4", "../src/python"))
-
-processor = Processor.new("FIX40.xml", "../src/ruby", GeneratorRuby.new("4", "0", "../src/ruby"))
-processor = Processor.new("FIX41.xml", "../src/ruby", GeneratorRuby.new("4", "1", "../src/ruby"))
-processor = Processor.new("FIX42.xml", "../src/ruby", GeneratorRuby.new("4", "2", "../src/ruby"))
-processor = Processor.new("FIX43.xml", "../src/ruby", GeneratorRuby.new("4", "3", "../src/ruby"))
-processor = Processor.new("FIX44.xml", "../src/ruby", GeneratorRuby.new("4", "4", "../src/ruby"))
+(0..4).each { |i| generateVersion( i ) }

@@ -47,6 +47,23 @@ void PostgreSQLStoreTestCase::setGet::onTeardown( MessageStore* pObject )
   m_factory.destroy( pObject );
 }
 
+bool PostgreSQLStoreTestCase::setGetWithQuote::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_factory.create( sessionID );
+  pObject = &( *m_object );
+  pObject->reset();
+
+  return true;
+}
+
+void PostgreSQLStoreTestCase::setGetWithQuote::onTeardown( MessageStore* pObject )
+{
+  m_factory.destroy( pObject );
+}
+
 bool PostgreSQLStoreTestCase::other::onSetup( MessageStore*& pObject )
 {
   SessionID sessionID( BeginString( "FIX.4.2" ),
