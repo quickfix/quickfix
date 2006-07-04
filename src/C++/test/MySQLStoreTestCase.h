@@ -40,10 +40,13 @@ class MySQLStoreTestCase : public MessageStoreTestCase
 public:
   MySQLStoreTestCase()
   : m_setGet(),
+    m_setGetWithQuote(),
     m_other(),
-    m_reload()
+    m_reload(),
+    m_refresh()
   {
     add( &m_setGet );
+    add( &m_setGetWithQuote );
     add( &m_other );
     add( &m_reload );
     add( &m_refresh );
@@ -63,6 +66,19 @@ private:
     MySQLStoreFactory m_factory;
   }
   m_setGet;
+
+  class setGetWithQuote : public MessageStoreTestCase::setGetWithQuote
+  {
+  public:
+    setGetWithQuote()
+    : m_factory() {}
+    bool onSetup( MessageStore*& pObject );
+    void onTeardown( MessageStore* pObject );
+
+  private:
+    MySQLStoreFactory m_factory;
+  }
+  m_setGetWithQuote;
 
   class other : public MessageStoreTestCase::other
   {

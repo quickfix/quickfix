@@ -208,8 +208,8 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   STRING_SPRINTF( sqlTime, "%d-%02d-%02d %02d:%02d:%02d",
            year, month, day, hour, minute, second );
 
-  std::string valueCopy = value;
-  string_replace( "\"", "\\\"", valueCopy );
+  char* valueCopy = new char[ (value.size() * 2) + 1 ];
+  mysql_escape_string( valueCopy, value.c_str(), value.size() );
 
   std::stringstream queryString;
   queryString << "INSERT INTO " << table << " "
@@ -233,6 +233,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
     queryString << "NULL, NULL, NULL, NULL";
   }
 
+  delete [] valueCopy;
   queryString << "\"" << valueCopy << "\")";
 
   MySQLQuery query( queryString.str() );

@@ -180,8 +180,8 @@ bool MySQLStore::set( int msgSeqNum, const std::string& msg )
 throw ( IOException )
 { QF_STACK_PUSH(MySQLStore::set)
 
-  std::string msgCopy = msg;
-  string_replace( "\"", "\\\"", msgCopy );
+  char* msgCopy = new char[ (msg.size() * 2) + 1 ];
+  mysql_escape_string( msgCopy, msg.c_str(), msg.size() );
 
   std::stringstream queryString;
   queryString << "INSERT INTO messages "
@@ -193,6 +193,8 @@ throw ( IOException )
   << "\"" << m_sessionID.getSessionQualifier() << "\","
   << msgSeqNum << ","
   << "\"" << msgCopy << "\")";
+
+  delete [] msgCopy;
 
   MySQLQuery query( queryString.str() );
   if( !m_pConnection->execute(query) )

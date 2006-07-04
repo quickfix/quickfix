@@ -59,6 +59,23 @@ bool MySQLStoreTestCase::other::onSetup( MessageStore*& pObject )
   return true;
 }
 
+bool MySQLStoreTestCase::setGetWithQuote::onSetup( MessageStore*& pObject )
+{
+  SessionID sessionID( BeginString( "FIX.4.2" ),
+                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+
+  m_object = m_factory.create( sessionID );
+  pObject = &( *m_object );
+  pObject->reset();
+
+  return true;
+}
+
+void MySQLStoreTestCase::setGetWithQuote::onTeardown( MessageStore* pObject )
+{
+  m_factory.destroy( pObject );
+}
+
 void MySQLStoreTestCase::other::onTeardown( MessageStore* pObject )
 {
   m_factory.destroy( pObject );
