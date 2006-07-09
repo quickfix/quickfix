@@ -63,7 +63,7 @@ private:
     void onDisconnect( SocketServer&, int socket )
     { m_disconnect++; m_disconnectSocket = socket; }
     void onError( SocketServer& )
-    { assert( false ); }
+    {}
 
     int m_connect, m_write, m_data, m_disconnect;
     int m_connectSocket, m_writeSocket;
