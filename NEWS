@@ -1,3 +1,98 @@
+1.12.0
+------
+SocketAcceptor and ThreadedSocketAcceptor can listen for connections on
+multiple ports.  SocketAcceptPort no longer needs to be in the DEFAULT
+section and can be assigned to sessions.  Sessions can share accepting
+ports like before.
+
+SocketAcceptor/Initiator now implemented using non-blocking sockets.  There
+is no longer a danger of dead-locking when using these objects.
+
+Support for ODBC log and message store.  QuickFIX can now be used with any 
+database with an ODBC driver on windows.
+
+Global log exists for logging that does not pertain to an existing session.
+Things like incoming connections where the session is not yet identified
+go in here.  The message store factory has a new create() method for creating
+a global log without a session id.
+
+MessageStore interface now supports refresh which will load in settings
+from the persisted store.  RefreshOnLogon configuration setting will
+refresh the store whenever the session logs on.  Useful for creating
+backup systems.
+
+Message::replaceGroup can be used to replace a specific instance of a 
+repeating group.
+
+Message::isEmpty can be used to determine if there are any fields in a
+message.  Message::clear can clear all fields from a message.
+
+New configuration parameter LogoutTimeout allows you to adjust amount of
+time before session forces a disconnect when there is no logout response.
+
+CheckCompID configuration parameter can be set to N to disable validation
+of message comp ids.  This is for systems that send incorrect compids by
+design.
+
+DataDictionary can now be parsed from a stream.  This allows you to
+store the DataDictionary however you like as long as you can produce
+a stream in the QuickFIX xml format.
+
+Python API now supports repeating groups.
+
+Database IOExceptions now contain reasons for the IO failure which is logged
+if possible.
+
+MySQL and PostgreSQL implementations properly escape strings so any message
+can be recorded no matter what it contains.
+
+Double fields now have a constructor allowing you to pass in the padding
+length of the decimal value.
+
+ScreenLog can read setting from configuration file.  No longer required to
+hardcode settings into constructor.
+
+The last received time is now only updated if a message passes validation.
+
+Fixed bug where connections weren't being properly decremented inside
+connection pool.  Caused a resource leak by not releasing connections.
+
+Fixed bug with session time when end time is less than the start time on 
+the next day.
+
+Fixed bug with session time which spans different time zones.
+
+Fixed a bug so logouts will show logout reason.
+
+Fixed bugs pertaining to generating SQL to clear logs.
+
+Support for repeating groups in headers and trailers. DataDictionary validation 
+will also process repeating groups within the message header and trailer.
+
+.NET Field objects now have ToString, Equals, and GetHashCode implementations.
+Added GetHashCode implementation to SessionID.
+
+Reject message will always be processed, even when the session isn't logged on.
+
+Fixed support for nested repeating groups in Java API.
+
+OrigSendingTime now always matches SendingTime when sending a SequenceReset.
+
+Dictionary has a setDay method symetrical to getDay.
+
+Fixed 64 bit compatibility errors in JNI layer.
+
+Added default constructor for SessionID in Java and .NET APIs.
+
+Fixed name of message_log table in mysql creation scripts.
+
+Fixed race condition when stopping/starting initiator/acceptors.
+
+ResetOnLogon will reset state before sending/receiving logon messages.
+
+.NET logs, message stores, initiators and acceptors are now disposable so 
+resources can be immediately recovered.
+
 1.11.1
 ------
 Added padding support for double fields.  Allows you to supply the
