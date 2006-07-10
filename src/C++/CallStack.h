@@ -126,16 +126,8 @@ inline bool operator==( const CallStack::Method& rhs, const CallStack::Method& l
 }
 }
 
-#ifdef _MSC_VER
-  #define QF_METHOD_EXISTS(name) \
-  &name;
-#else
-  #define QF_METHOD_EXISTS(name)
-#endif
-
 #ifdef ENABLE_CALLSTACK
 #define QF_STACK_PUSH(name) \
-  QF_METHOD_EXISTS(name) \
   CallStack cs_(#name, __FILE__, __LINE__); \
   try \
   {

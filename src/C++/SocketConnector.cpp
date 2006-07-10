@@ -54,7 +54,7 @@ private:
   }
 
   void onWrite( SocketMonitor&, int socket )
-  { QF_STACK_PUSH(ServerWrapper::onWrite)
+  { QF_STACK_PUSH(ConnectorWrapper::onWrite)
 
     m_strategy.onWrite( m_connector, socket );
     

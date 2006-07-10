@@ -180,7 +180,7 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
 }
 
 void SocketAcceptor::onWrite( SocketServer& server, int s )
-{ QF_STACK_PUSH(SocketAcceptor::onWrte)
+{ QF_STACK_PUSH(SocketAcceptor::onWrite)
 
   SocketConnections::iterator i = m_connections.find( s );
   if ( i == m_connections.end() ) return ;
