@@ -119,6 +119,9 @@ public:
   SessionSettings( std::istream& stream ) throw( ConfigError );
   SessionSettings( const std::string& file ) throw( ConfigError );
 
+  /// Check if session setings are present
+  const bool has( const SessionID& ) const;
+
   /// Get a dictionary for a session.
   const Dictionary& get( const SessionID& ) const throw( ConfigError );
   /// Set a dictionary for a session
