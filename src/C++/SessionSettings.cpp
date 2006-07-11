@@ -85,6 +85,12 @@ throw( ConfigError )
   return stream;
 }
 
+const bool SessionSettings::has( const SessionID& sessionID ) const
+{ QF_STACK_PUSH(SessionSettings::has)
+  return m_settings.find( sessionID ) != m_settings.end();
+  QF_STACK_POP
+}
+
 const Dictionary& SessionSettings::get( const SessionID& sessionID ) const
 throw( ConfigError )
 { QF_STACK_PUSH(SessionSettings::get)

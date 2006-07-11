@@ -100,7 +100,11 @@ Log* OdbcLogFactory::create( const SessionID& s )
   std::string user;
   std::string connectionString;
 
-  init( m_settings.get(s), database, user, connectionString );
+  Dictionary settings;
+  if( m_settings.has(s) ) 
+	  settings = m_settings.get( s );
+
+  init( settings, database, user, connectionString );
   return new OdbcLog( s, database, user, connectionString );
 
   QF_STACK_POP

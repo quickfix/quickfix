@@ -108,7 +108,11 @@ Log* MySQLLogFactory::create( const SessionID& s )
   std::string host;
   short port;
 
-  init( m_settings.get(s), database, user, password, host, port );
+  Dictionary settings;
+  if( m_settings.has(sessionID) ) 
+	  settings = m_settings.get( sessionID );
+
+  init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
   return new MySQLLog( s, id, m_connectionPoolPtr.get() );
 

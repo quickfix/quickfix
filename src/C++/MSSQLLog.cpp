@@ -129,7 +129,11 @@ Log* MSSQLLogFactory::create( const SessionID& s )
   std::string password;
   std::string host;
 
-  init( m_settings.get(s), database, user, password, host );
+  Dictionary settings;
+  if( m_settings.has(s) ) 
+	  settings = m_settings.get( s );
+
+  init( settings, database, user, password, host );
   return new MSSQLLog( s, database, user, password, host );
 
   QF_STACK_POP

@@ -43,8 +43,12 @@ Log* ScreenLogFactory::create()
 Log* ScreenLogFactory::create( const SessionID& sessionID )
 { QF_STACK_PUSH(ScreenLogFactory::create)
 
+  Dictionary settings;
+  if( m_settings.has(sessionID) ) 
+	  settings = m_settings.get( sessionID );
+
   bool incoming, outgoing, event;
-  init( m_settings.get(sessionID), incoming, outgoing, event );
+  init( settings, incoming, outgoing, event );
   return new ScreenLog( sessionID, incoming, outgoing, event );
 
   QF_STACK_POP
