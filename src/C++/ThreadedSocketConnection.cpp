@@ -68,7 +68,10 @@ bool ThreadedSocketConnection::send( const std::string& msg )
 
 void ThreadedSocketConnection::disconnect()
 { QF_STACK_PUSH(ThreadedSocketConnection::disconnect)
+  
+  m_disconnect = true;
   socket_close( m_socket );
+
   QF_STACK_POP
 }
 
@@ -104,6 +107,9 @@ bool ThreadedSocketConnection::read()
   }
   catch ( SocketRecvFailed& e )
   {
+    if( m_disconnect )
+	  return false;
+
     if( m_pSession )
     {
       m_pSession->getLog()->onEvent( e.what() );
