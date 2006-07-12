@@ -179,10 +179,13 @@ void PostgreSQLLog::clear()
 
   if( m_pSessionID )
   {
-	whereClause
+    whereClause
     << "BeginString = '" << m_pSessionID->getBeginString().getValue() << "' "
     << "AND SenderCompID = '" << m_pSessionID->getSenderCompID().getValue() << "' "
-    << "AND TargetCompID = '" << m_pSessionID->getTargetCompID().getValue() << "'";
+    << "AND TargetCompID = '" << m_pSessionID->getTargetCompID().getValue() << "' ";
+
+    if( m_pSessionID->getSessionQualifier().size() )
+      whereClause << "AND SessionQualifier = '" << m_pSessionID->getSessionQualifier() << "'";
   }
   else
   {
