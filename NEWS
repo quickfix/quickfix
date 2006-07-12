@@ -43,6 +43,9 @@ Python API now supports repeating groups.
 Database IOExceptions now contain reasons for the IO failure which is logged
 if possible.
 
+clear() method on database log implementation take the session qualifier into
+account if applicable.
+
 MySQL and PostgreSQL implementations properly escape strings so any message
 can be recorded no matter what it contains.
 
@@ -92,6 +95,9 @@ ResetOnLogon will reset state before sending/receiving logon messages.
 
 .NET logs, message stores, initiators and acceptors are now disposable so 
 resources can be immediately recovered.
+
+Fixed incorrect Socket Error log message when properly stopping a threaded
+connection.
 
 1.11.1
 ------
