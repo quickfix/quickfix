@@ -88,7 +88,7 @@ JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_io_InputStream
   catch( FIX::ConfigError& e )
   { throwNew( "Lquickfix/ConfigError;", e.what() ); }
 
-  QF_STACK_POP
+  QF_STACK_CATCH
 }
 
 JNIEXPORT void JNICALL Java_quickfix_DataDictionary_create__Ljava_lang_String_2

@@ -129,61 +129,61 @@ public:
     bool result = unmanaged().getValueName( field, convertString(value), nameString );
     return result ? nameString.c_str() : 0;
 
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isField( int field )
   { QF_STACK_TRY
     return unmanaged().isField( field );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isMsgType( String* msgType )
   { QF_STACK_TRY
     return unmanaged().isMsgType( convertString(msgType) );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isMsgField( String* msgType, int field )
   { QF_STACK_TRY
     return unmanaged().isMsgField( convertString(msgType), field );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isHeaderField( int field )
   { QF_STACK_TRY
     return unmanaged().isHeaderField( field );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isTrailerField( int field )
   { QF_STACK_TRY
     return unmanaged().isTrailerField( field );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isRequiredField( String* msgType, int field )
   { QF_STACK_TRY
     return unmanaged().isRequiredField( convertString(msgType), field );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool hasFieldValue( int field )
   { QF_STACK_TRY
     return unmanaged().hasFieldValue( field );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isFieldValue( int field, String* value )
   { QF_STACK_TRY
     return unmanaged().isFieldValue( field, convertString(value) );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   bool isGroup( String* msg, int field )
   { QF_STACK_TRY
     return unmanaged().isGroup( convertString(msg), field );
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   int getFieldType( int field )
@@ -194,7 +194,7 @@ public:
     if( result ) return type;
     return FIX::TYPE::Unknown;
 
-    QF_STACK_POP
+    QF_STACK_CATCH
   }
 
   FIX::DataDictionary& unmanaged()

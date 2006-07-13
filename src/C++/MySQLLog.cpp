@@ -109,8 +109,8 @@ Log* MySQLLogFactory::create( const SessionID& s )
   short port;
 
   Dictionary settings;
-  if( m_settings.has(sessionID) ) 
-	  settings = m_settings.get( sessionID );
+  if( m_settings.has(s) ) 
+	  settings = m_settings.get( s );
 
   init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
