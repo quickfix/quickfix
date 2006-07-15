@@ -38,12 +38,12 @@ namespace FIX
 class MySQLStoreTestCase : public MessageStoreTestCase
 {
 public:
-  MySQLStoreTestCase()
-  : m_setGet(),
-    m_setGetWithQuote(),
-    m_other(),
-    m_reload(),
-    m_refresh()
+  MySQLStoreTestCase( const FIX::SessionSettings& sessionSettings )
+  : m_setGet( sessionSettings ),
+    m_setGetWithQuote( sessionSettings ),
+    m_other( sessionSettings ),
+    m_reload( sessionSettings ),
+    m_refresh( sessionSettings )
   {
     add( &m_setGet );
     add( &m_setGetWithQuote );
@@ -57,8 +57,8 @@ private:
   class setGet : public MessageStoreTestCase::setGet
   {
   public:
-    setGet()
-    : m_factory() {}
+    setGet( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -70,8 +70,8 @@ private:
   class setGetWithQuote : public MessageStoreTestCase::setGetWithQuote
   {
   public:
-    setGetWithQuote()
-    : m_factory() {}
+    setGetWithQuote( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -83,8 +83,8 @@ private:
   class other : public MessageStoreTestCase::other
   {
   public:
-    other()
-    : m_factory() {}
+    other( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -96,8 +96,8 @@ private:
   class reload : public MessageStoreTestCase::reload
   {
   public:
-    reload()
-    : m_factory() {}
+    reload( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
@@ -109,8 +109,8 @@ private:
   class refresh : public MessageStoreTestCase::refresh
   {
   public:
-    refresh()
-    : m_factory() {}
+    refresh( const FIX::SessionSettings& sessionSettings ) 
+    : m_factory( sessionSettings.get() ) {}
     bool onSetup( MessageStore*& pObject );
     void onTeardown( MessageStore* pObject );
 
