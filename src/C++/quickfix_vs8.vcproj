@@ -2546,14 +2546,6 @@
 					>
 				</File>
 				<File
-					RelativePath=".\MSSQLLog.cpp"
-					>
-				</File>
-				<File
-					RelativePath=".\MSSQLStore.cpp"
-					>
-				</File>
-				<File
 					RelativePath="MySQLLog.cpp"
 					>
 				</File>
@@ -2697,14 +2689,6 @@
 							Outputs=""
 						/>
 					</FileConfiguration>
-				</File>
-				<File
-					RelativePath=".\MSSQLLog.h"
-					>
-				</File>
-				<File
-					RelativePath=".\MSSQLStore.h"
-					>
 				</File>
 				<File
 					RelativePath=".\MySQLConnection.h"

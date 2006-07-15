@@ -1,5 +1,7 @@
-DROP DATABASE quickfix;
-CREATE DATABASE quickfix;
+DROP DATABASE quickfix
+GO
+CREATE DATABASE quickfix
+GO
 
 USE quickfix;
 CREATE TABLE sessions (

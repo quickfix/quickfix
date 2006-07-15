@@ -138,10 +138,6 @@ SOURCE=".\C++\test\MessageStoreTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\C++\test\MSSQLStoreTestCase.cpp"
-# End Source File
-# Begin Source File
-
 SOURCE=".\C++\test\MySQLStoreTestCase.cpp"
 # End Source File
 # Begin Source File
@@ -259,10 +255,6 @@ SOURCE=".\C++\test\MessagesTestCase.h"
 # Begin Source File
 
 SOURCE=".\C++\test\MessageStoreTestCase.h"
-# End Source File
-# Begin Source File
-
-SOURCE=".\C++\test\MSSQLStoreTestCase.h"
 # End Source File
 # Begin Source File
 

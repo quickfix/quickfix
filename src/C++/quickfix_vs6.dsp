@@ -1578,14 +1578,6 @@ SOURCE=".\MessageStore.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=.\MSSQLLog.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\MSSQLStore.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=".\MySQLLog.cpp"
 # End Source File
 # Begin Source File
@@ -1627,14 +1619,6 @@ SOURCE=".\Log.h"
 # Begin Source File
 
 SOURCE=".\MessageStore.h"
-# End Source File
-# Begin Source File
-
-SOURCE=.\MSSQLLog.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\MSSQLStore.h
 # End Source File
 # Begin Source File
 

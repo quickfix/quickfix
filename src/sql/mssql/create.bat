@@ -1,1 +1,1 @@
-osql -U sa -P -i quickfix_database.sql
+osql -U %1 -i quickfix_database.sql

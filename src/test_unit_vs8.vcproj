@@ -259,10 +259,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\C++\test\MSSQLStoreTestCase.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\C++\test\MySQLStoreTestCase.cpp"
 				>
 			</File>
@@ -381,10 +377,6 @@
 			</File>
 			<File
 				RelativePath=".\C++\test\MessageStoreTestCase.h"
-				>
-			</File>
-			<File
-				RelativePath=".\C++\test\MSSQLStoreTestCase.h"
 				>
 			</File>
 			<File

@@ -164,22 +164,6 @@ SOURCE=.\quickfix_Message.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\quickfix_MSSQLLog.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\quickfix_MSSQLLogFactory.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\quickfix_MSSQLStore.cpp
-# End Source File
-# Begin Source File
-
-SOURCE=.\quickfix_MSSQLStoreFactory.cpp
-# End Source File
-# Begin Source File
-
 SOURCE=.\quickfix_MySQLLog.cpp
 # End Source File
 # Begin Source File
@@ -341,22 +325,6 @@ SOURCE=.\quickfix_MemoryStore.h
 # Begin Source File
 
 SOURCE=.\quickfix_Message.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\quickfix_MSSQLLog.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\quickfix_MSSQLLogFactory.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\quickfix_MSSQLStore.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\quickfix_MSSQLStoreFactory.h
 # End Source File
 # Begin Source File
 

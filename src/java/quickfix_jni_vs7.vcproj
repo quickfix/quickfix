@@ -202,18 +202,6 @@
 				RelativePath="quickfix_Message.cpp">
 			</File>
 			<File
-				RelativePath=".\quickfix_MSSQLLog.cpp">
-			</File>
-			<File
-				RelativePath=".\quickfix_MSSQLLogFactory.cpp">
-			</File>
-			<File
-				RelativePath=".\quickfix_MSSQLStore.cpp">
-			</File>
-			<File
-				RelativePath=".\quickfix_MSSQLStoreFactory.cpp">
-			</File>
-			<File
 				RelativePath="quickfix_MySQLLog.cpp">
 			</File>
 			<File
@@ -336,18 +324,6 @@
 			</File>
 			<File
 				RelativePath="quickfix_Message.h">
-			</File>
-			<File
-				RelativePath=".\quickfix_MSSQLLog.h">
-			</File>
-			<File
-				RelativePath=".\quickfix_MSSQLLogFactory.h">
-			</File>
-			<File
-				RelativePath=".\quickfix_MSSQLStore.h">
-			</File>
-			<File
-				RelativePath=".\quickfix_MSSQLStoreFactory.h">
 			</File>
 			<File
 				RelativePath="quickfix_MySQLLog.h">
