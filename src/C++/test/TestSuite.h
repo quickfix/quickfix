@@ -31,7 +31,6 @@
 #include "C++/test/MemoryStoreTestCase.h"
 #include "C++/test/FileStoreTestCase.h"
 #include "C++/test/MySQLStoreTestCase.h"
-#include "C++/test/MSSQLStoreTestCase.h"
 #include "C++/test/PostgreSQLStoreTestCase.h"
 #include "C++/test/OdbcStoreTestCase.h"
 #include "C++/test/FileStoreFactoryTestCase.h"
@@ -54,8 +53,8 @@ public:
              const FIX::SessionSettings& sessionSettings )
 : CPPTest::TestSuite( display ),
   m_parser( port ),
-#ifdef HAVE_MSSQL
-  m_msSQLStore( sessionSettings ),
+#ifdef HAVE_MYSQL
+  m_mySQLStore( sessionSettings ),
 #endif
 #ifdef HAVE_POSTGRESQL
   m_postgreSQLStore( sessionSettings ),
@@ -94,9 +93,6 @@ public:
     add( &m_fileStore );
 #ifdef HAVE_MYSQL
     add( &m_mySQLStore );
-#endif
-#ifdef HAVE_MSSQL
-    add( &m_msSQLStore );
 #endif
 #ifdef HAVE_POSTGRESQL
     add( &m_postgreSQLStore );
@@ -153,9 +149,6 @@ private:
   FIX::FileStoreTestCase m_fileStore;
 #ifdef HAVE_MYSQL
   FIX::MySQLStoreTestCase m_mySQLStore;
-#endif
-#ifdef HAVE_MSSQL
-  FIX::MSSQLStoreTestCase m_msSQLStore;
 #endif
 #ifdef HAVE_POSTGRESQL
   FIX::PostgreSQLStoreTestCase m_postgreSQLStore;
