@@ -2570,22 +2570,6 @@
 					>
 				</File>
 				<File
-					RelativePath="..\java\quickfix_OdbcLog.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\java\quickfix_OdbcLogFactory.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\java\quickfix_OdbcStore.cpp"
-					>
-				</File>
-				<File
-					RelativePath="..\java\quickfix_OdbcStoreFactory.cpp"
-					>
-				</File>
-				<File
 					RelativePath=".\stdafx.h"
 					>
 				</File>
@@ -2761,22 +2745,6 @@
 				</File>
 				<File
 					RelativePath=".\PostgreSQLStore.h"
-					>
-				</File>
-				<File
-					RelativePath="..\java\quickfix_OdbcLog.h"
-					>
-				</File>
-				<File
-					RelativePath="..\java\quickfix_OdbcLogFactory.h"
-					>
-				</File>
-				<File
-					RelativePath="..\java\quickfix_OdbcStore.h"
-					>
-				</File>
-				<File
-					RelativePath="..\java\quickfix_OdbcStoreFactory.h"
 					>
 				</File>
 			</Filter>
