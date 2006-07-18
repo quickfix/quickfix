@@ -50,7 +50,6 @@ public:
                    ( sessionID->unmanaged(), incoming, outgoing, event );
     QF_STACK_CATCH
   }
-  ~ScreenLog() { delete m_pUnmanaged; }
 };
 
 public __gc class ScreenLogFactory : public LogFactory
