@@ -56,12 +56,6 @@ int main( int argc, char** argv )
     application.run();
     initiator.stop();
 
-	FIX::process_sleep( 10 );
-
-	initiator.start();
-    application.run();
-    initiator.stop();
-
 	return 0;
   }
   catch ( std::exception & e )
