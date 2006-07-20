@@ -17,7 +17,7 @@
                 DelaySign = "false"
                 OutputType = "Library"
                 PreBuildEvent = ""
-                PostBuildEvent = 'set CONFIGURATION_NAME=$(ConfigurationName)&#xd;&#xa;if "%CONFIGURATION_NAME%" == "Release" xcopy "$(TargetPath)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib"&#xd;&#xa;if "%CONFIGURATION_NAME%" == "Debug" xcopy "$(TargetPath)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib\debug"&#xd;&#xa;'
+                PostBuildEvent = 'set CONFIGURATION_NAME=$(ConfigurationName)&#xd;&#xa;if "%CONFIGURATION_NAME%" == "Release" xcopy "$(TargetPath)" /Y "$(SolutionDir)lib"&#xd;&#xa;if "%CONFIGURATION_NAME%" == "Debug" xcopy "$(TargetPath)" /Y "$(SolutionDir)lib\debug"&#xd;&#xa;'
                 RootNamespace = "QuickFix"
                 RunPostBuildEvent = "OnBuildSuccess"
                 StartupObject = ""
