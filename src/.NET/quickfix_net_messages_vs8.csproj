@@ -925,8 +925,8 @@
     <PreBuildEvent>
     </PreBuildEvent>
     <PostBuildEvent>set CONFIGURATION_NAME=$(ConfigurationName)
-if "%25CONFIGURATION_NAME%25" == "Release" xcopy "$(ProjectDir)$(OutDir)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib"
-if "%25CONFIGURATION_NAME%25" == "Debug" xcopy "$(ProjectDir)$(OutDir)quickfix_net_messages.dll" /S/Y "$(SolutionDir)lib\debug"
+if "%25CONFIGURATION_NAME%25" == "Release" xcopy "$(TargetPath)" /Y "$(SolutionDir)lib"
+if "%25CONFIGURATION_NAME%25" == "Debug" xcopy "$(TargetPath)" /Y "$(SolutionDir)lib\debug"
 </PostBuildEvent>
   </PropertyGroup>
 </Project>

@@ -92,7 +92,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\lib\debug&quot;&#x0D;&#x0A;xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\bin\debug&quot;&#x0D;&#x0A;"
+				CommandLine="xcopy &quot;$(TargetPath)&quot; /Y &quot;$(SolutionDir)\lib\debug&quot;"
 			/>
 		</Configuration>
 		<Configuration
@@ -171,7 +171,7 @@
 			/>
 			<Tool
 				Name="VCPostBuildEventTool"
-				CommandLine="xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\lib&quot;&#x0D;&#x0A;xcopy &quot;$(TargetPath)&quot; /S/Y &quot;$(SolutionDir)\bin&quot;&#x0D;&#x0A;"
+				CommandLine="xcopy &quot;$(TargetPath)&quot; /Y &quot;$(SolutionDir)\lib&quot;"
 			/>
 		</Configuration>
 	</Configurations>
