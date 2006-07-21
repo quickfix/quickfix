@@ -1,0 +1,8 @@
+<B><CODE><PRE>
+require 'quickfix_ruby'
+
+def fromApp(message, sessionID):
+	field = Quickfix::StringField.new(44)
+	message.getField(field)
+end
+</PRE></CODE></B>

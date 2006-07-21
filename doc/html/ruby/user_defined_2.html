@@ -1,0 +1,23 @@
+<PRE><B>
+require 'quickfix_ruby'
+
+class MyStringField < Quickfix::StringField
+	def initialize
+		super(6123)
+	end
+
+	def initialize(data)
+		super(6123, data)
+	end
+end
+
+class MyDoubleField < Quickfix::DoubleField
+	def initialize
+		super(self, 8756)
+	end
+
+	def iniitialize(data)
+		super(8756, data)
+	end
+end
+</B></PRE>

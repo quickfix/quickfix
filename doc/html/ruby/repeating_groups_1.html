@@ -1,0 +1,19 @@
+<B><CODE><PRE>
+require 'quickfix_ruby'
+require 'quickfix42'
+
+message = Quickfix42::MarketDataSnapshotFullRefresh.new()
+group = Quickfix42::MarketDataSnapshotFullRefresh.NoMDEntries.new();
+
+group.setField(Quickfix::MDEntryType.new('0'))
+group.setField(Quickfix::MDEntryPx.new(12.32))
+group.setField(Quickfix::MDEntrySize.new(100))
+group.setField(Quickfix::OrderID.new("ORDERID"))
+message.addGroup( group )
+
+group.setField(Quickfix::MDEntryType.new('1'))
+group.setField(Quickfix::MDEntryPx.new(12.32))
+group.setField(Quickfix::MDEntrySize.new(100))
+group.setField(Quickfix::OrderID.new("ORDERID"))
+message.addGroup( group )
+</PRE></CODE></B>

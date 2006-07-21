@@ -1,0 +1,20 @@
+<B><CODE><PRE>
+require 'quickfix_ruby'
+
+def sendOrderCancelRequest
+	message = Quickfix::Message.new();
+	header = Quickfix::getHeader.new();
+
+	header.setField(Quickfix::BeginString.new("FIX.4.2"))
+	header.setField(Quickfix::SenderCompID.new(TW))
+	header.setField(Quickfix::TargetCompID.new("TARGET"))
+	header.setField(Quickfix::MsgType.new("D"))
+	message.setField(Quickfix::OrigClOrdID.new("123"))
+	message.setField(Quickfix::ClOrdID.new("321"))
+	message.setField(Quickfix::Symbol.new("LNUX"))
+	message.setField(Quickfix::Side.new(Side.BUY))
+	message.setField(Quickfix::Text.new("Cancel My Order!"))
+
+	Quickfix::Session.sendToTarget(message)
+end
+</PRE></CODE></B>
