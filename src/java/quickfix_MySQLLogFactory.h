@@ -14,6 +14,7 @@ extern "C" {
  */
 JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1create
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_MySQLLogFactory
  * Method:    _destroy
@@ -21,6 +22,7 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1create
  */
 JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1destroy
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_MySQLLogFactory
  * Method:    create
@@ -28,6 +30,7 @@ JNIEXPORT void JNICALL Java_quickfix_MySQLLogFactory__1destroy
  */
 JNIEXPORT jobject JNICALL Java_quickfix_MySQLLogFactory_create__
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_MySQLLogFactory
  * Method:    create

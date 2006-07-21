@@ -14,6 +14,7 @@ extern "C" {
  */
 JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__Lquickfix_SessionSettings_2
   (JNIEnv *, jobject, jobject);
+
 /*
  * Class:     quickfix_ScreenLogFactory
  * Method:    _create
@@ -21,6 +22,7 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__Lquickfix_Sessio
  */
 JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__ZZZ
   (JNIEnv *, jobject, jboolean, jboolean, jboolean);
+
 /*
  * Class:     quickfix_ScreenLogFactory
  * Method:    _destroy
@@ -28,6 +30,7 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1create__ZZZ
  */
 JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1destroy
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_ScreenLogFactory
  * Method:    create
@@ -35,6 +38,7 @@ JNIEXPORT void JNICALL Java_quickfix_ScreenLogFactory__1destroy
  */
 JNIEXPORT jobject JNICALL Java_quickfix_ScreenLogFactory_create__
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_ScreenLogFactory
  * Method:    create

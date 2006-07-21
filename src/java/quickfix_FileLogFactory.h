@@ -14,6 +14,7 @@ extern "C" {
  */
 JNIEXPORT void JNICALL Java_quickfix_FileLogFactory__1create
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_FileLogFactory
  * Method:    _destroy
@@ -21,6 +22,7 @@ JNIEXPORT void JNICALL Java_quickfix_FileLogFactory__1create
  */
 JNIEXPORT void JNICALL Java_quickfix_FileLogFactory__1destroy
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_FileLogFactory
  * Method:    create
@@ -28,6 +30,7 @@ JNIEXPORT void JNICALL Java_quickfix_FileLogFactory__1destroy
  */
 JNIEXPORT jobject JNICALL Java_quickfix_FileLogFactory_create__
   (JNIEnv *, jobject);
+
 /*
  * Class:     quickfix_FileLogFactory
  * Method:    create
@@ -35,6 +38,7 @@ JNIEXPORT jobject JNICALL Java_quickfix_FileLogFactory_create__
  */
 JNIEXPORT jobject JNICALL Java_quickfix_FileLogFactory_create__Lquickfix_SessionID_2
   (JNIEnv *, jobject, jobject);
+
 #ifdef __cplusplus
 }
 #endif
