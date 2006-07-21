@@ -70,10 +70,12 @@ IntArray_swigregister = _quickfix.IntArray_swigregister
 IntArray_swigregister(IntArray)
 IntArray_frompointer = _quickfix.IntArray_frompointer
 
+#ifdef SWIGPYTHON
 import thread
 
 def _quickfix_start_thread(i_or_a):
 	i_or_a.block()
+#endif
 
 HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
