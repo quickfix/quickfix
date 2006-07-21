@@ -33,11 +33,6 @@
 #include "../C++/Acceptor.h"
 #include "../C++/SocketAcceptor.h"
 using namespace FIX;
-
-void rollback_ruby_call_depth()
-{
-
-}
 %}
 
 %typedef DoubleField PriceField;
@@ -122,7 +117,7 @@ void rollback_ruby_call_depth()
   }
 }
 
-%feature("director:except") FIX::Message::toApp {
+%feature("director:except") FIX::Application::toApp {
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     void* result;
@@ -162,7 +157,7 @@ void rollback_ruby_call_depth()
 #endif
 }
 
-%feature("director:except") FIX::Message::fromAdmin {
+%feature("director:except") FIX::Application::fromAdmin {
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     void* result;
@@ -214,7 +209,7 @@ void rollback_ruby_call_depth()
 #endif
 }
 
-%feature("director:except") FIX::Message::fromApp {
+%feature("director:except") FIX::Application::fromApp {
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     void* result;

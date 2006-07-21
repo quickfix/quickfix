@@ -429,11 +429,19 @@ bool thread_spawn( THREAD_START_ROUTINE func, void* var, unsigned& thread )
 #ifdef _MSC_VER
   unsigned int result = 0;
   unsigned int id = 0;
-  result = _beginthreadex(NULL, 0, &func, var, 0, &id );
+  result = _beginthreadex( NULL, 0, &func, var, 0, &id );
   if ( result == 0 ) return false;
 #else
   pthread_t result = 0;
-  if ( pthread_create( &result, 0, func, var ) != 0 ) return false;
+  pthread_attr_t attribute;
+  size_t stackSize = 0;
+  int requiredStackSize = 1024*1024;
+
+  if( pthread_attr_init(&attribute) != 0 ) return false;
+  if( pthread_attr_getstacksize(&attribute, &stackSize) != 0 ) return false;
+  if( stackSize < requiredStackSize )
+    if( pthread_attr_setstacksize(&attribute, requiredStackSize) != 0 ) return false;
+  if( pthread_create( &result, 0, func, var ) != 0 ) return false;
 #endif
   thread = (unsigned)result;
   return true;
