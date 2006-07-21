@@ -2,26 +2,25 @@ pkgdata_DATA = quickfix_ruby.rb quickfix40.rb quickfix41.rb quickfix42.rb quickf
 
 all-local:
 	bash ./make_ruby.sh $(CXX) $(CXXFLAGS) $(LIBS)
-	rm -rf $(top_builddir)/lib/quickfix*.rb
-	rm -rf $(top_builddir)/lib/quickfix.so
-	rm -rf $(top_builddir)/lib/quickfix.bundle
-	ln -s ../src/ruby/quickfix_ruby.rb $(top_builddir)/lib/quickfix_ruby.rb
-	ln -s ../src/ruby/quickfix40.rb $(top_builddir)/lib/quickfix40.rb
-	ln -s ../src/ruby/quickfix41.rb $(top_builddir)/lib/quickfix41.rb
-	ln -s ../src/ruby/quickfix42.rb $(top_builddir)/lib/quickfix42.rb
-	ln -s ../src/ruby/quickfix43.rb $(top_builddir)/lib/quickfix43.rb
-	ln -s ../src/ruby/quickfix44.rb $(top_builddir)/lib/quickfix44.rb
-	ln -s ../src/ruby/quickfix.so $(top_builddir)/lib/quickfix.so
-	ln -s ../src/ruby/quickfix.bundle $(top_builddir)/lib/quickfix.bundle
+	rm -rf $(top_builddir)/lib/ruby
+	mkdir $(top_builddir)/lib/ruby
+	ln -s ../../src/ruby/quickfix_ruby.rb $(top_builddir)/lib/ruby/quickfix_ruby.rb
+	ln -s ../../src/ruby/quickfix40.rb $(top_builddir)/lib/ruby/quickfix40.rb
+	ln -s ../../src/ruby/quickfix41.rb $(top_builddir)/lib/ruby/quickfix41.rb
+	ln -s ../../src/ruby/quickfix42.rb $(top_builddir)/lib/ruby/quickfix42.rb
+	ln -s ../../src/ruby/quickfix43.rb $(top_builddir)/lib/ruby/quickfix43.rb
+	ln -s ../../src/ruby/quickfix44.rb $(top_builddir)/lib/ruby/quickfix44.rb
+	ln -s ../../src/ruby/quickfix.so $(top_builddir)/lib/ruby/quickfix.so
+	ln -s ../../src/ruby/quickfix.bundle $(top_builddir)/lib/ruby/quickfix.bundle
 
-	bash ./link.sh $(top_builddir)/lib quickfix.so quickfix.bundle
+	bash ./link.sh $(top_builddir)/lib/ruby quickfix.so quickfix.bundle
 
 clean-local:
 	make -f Makefile.ruby clean
 
 install-exec-local:
-	cp -f $(top_builddir)/lib/*.rb $(RUBY_SITE_PACKAGES)
-	cp -f $(top_builddir)/lib/quickfix.bundle $(RUBY_SITE_PACKAGES)
+	cp -f $(top_builddir)/lib/ruby/*.rb $(RUBY_SITE_PACKAGES)
+	cp -f $(top_builddir)/lib/ruby/quickfix.bundle $(RUBY_SITE_PACKAGES)
 
 uninstall-local:
 	rm -rf $(RUBY_SITE_PACKAGES)/quickfix*.rb
