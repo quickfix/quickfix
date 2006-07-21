@@ -49,26 +49,26 @@ except:
     weakref_proxy = lambda x: x
 
 
-class intArray(_object):
+class IntArray(_object):
     __swig_setmethods__ = {}
-    __setattr__ = lambda self, name, value: _swig_setattr(self, intArray, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, IntArray, name, value)
     __swig_getmethods__ = {}
-    __getattr__ = lambda self, name: _swig_getattr(self, intArray, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, IntArray, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_intArray(*args)
+        this = _quickfix.new_IntArray(*args)
         try: self.this.append(this)
         except: self.this = this
-    __swig_destroy__ = _quickfix.delete_intArray
+    __swig_destroy__ = _quickfix.delete_IntArray
     __del__ = lambda self : None;
-    def __getitem__(*args): return _quickfix.intArray___getitem__(*args)
-    def __setitem__(*args): return _quickfix.intArray___setitem__(*args)
-    def cast(*args): return _quickfix.intArray_cast(*args)
-    __swig_getmethods__["frompointer"] = lambda x: _quickfix.intArray_frompointer
-    if _newclass:frompointer = staticmethod(_quickfix.intArray_frompointer)
-intArray_swigregister = _quickfix.intArray_swigregister
-intArray_swigregister(intArray)
-intArray_frompointer = _quickfix.intArray_frompointer
+    def __getitem__(*args): return _quickfix.IntArray___getitem__(*args)
+    def __setitem__(*args): return _quickfix.IntArray___setitem__(*args)
+    def cast(*args): return _quickfix.IntArray_cast(*args)
+    __swig_getmethods__["frompointer"] = lambda x: _quickfix.IntArray_frompointer
+    if _newclass:frompointer = staticmethod(_quickfix.IntArray_frompointer)
+IntArray_swigregister = _quickfix.IntArray_swigregister
+IntArray_swigregister(IntArray)
+IntArray_frompointer = _quickfix.IntArray_frompointer
 
 HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
@@ -95,7 +95,6 @@ TERMINATE_IN_STD = _quickfix.TERMINATE_IN_STD
 TYPEINFO_IN_STD = _quickfix.TYPEINFO_IN_STD
 VERSION = _quickfix.VERSION
 YYTEXT_POINTER = _quickfix.YYTEXT_POINTER
-_REENTRANT = _quickfix._REENTRANT
 class Exception:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Exception, name, value)
@@ -19849,7 +19848,6 @@ class Initiator(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Initiator
     __del__ = lambda self : None;
-    def start(*args): return _quickfix.Initiator_start(*args)
     def block(*args): return _quickfix.Initiator_block(*args)
     def poll(*args): return _quickfix.Initiator_poll(*args)
     def stop(*args): return _quickfix.Initiator_stop(*args)
@@ -19889,7 +19887,6 @@ class Acceptor(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Acceptor
     __del__ = lambda self : None;
-    def start(*args): return _quickfix.Acceptor_start(*args)
     def block(*args): return _quickfix.Acceptor_block(*args)
     def poll(*args): return _quickfix.Acceptor_poll(*args)
     def stop(*args): return _quickfix.Acceptor_stop(*args)

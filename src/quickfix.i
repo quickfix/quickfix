@@ -8,7 +8,11 @@
 %feature("director") FIX::Application;
 %feature("classic") FIX::Exception;
 
-%array_class(int, intArray);
+%array_class(int, IntArray);
+
+%ignore FIX::Initiator::start;
+%ignore FIX::Acceptor::start;
+%ignore _REENTRANT;
 
 %{
 #include <config.h>
