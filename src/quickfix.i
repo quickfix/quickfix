@@ -120,10 +120,12 @@ using namespace FIX;
 }
 
 %pythoncode %{
+#ifdef SWIGPYTHON
 import thread
 
 def _quickfix_start_thread(i_or_a):
 	i_or_a.block()
+#endif
 %}
 
 %feature("shadow") FIX::Initiator::start() %{
