@@ -10,8 +10,6 @@
 
 %array_class(int, IntArray);
 
-%ignore FIX::Initiator::start;
-%ignore FIX::Acceptor::start;
 %ignore _REENTRANT;
 
 %{
@@ -120,6 +118,23 @@ using namespace FIX;
     return self->getValue();
   }
 }
+
+%pythoncode %{
+import thread
+
+def _quickfix_start_thread(i_or_a):
+	i_or_a.block()
+%}
+
+%feature("shadow") FIX::Initiator::start() %{
+def start(self):
+	thread.start_new_thread(_quickfix_start_thread, (self,))
+%}
+
+%feature("shadow") FIX::Acceptor::start() %{
+def start(self):
+	thread.start_new_thread(_quickfix_start_thread, (self,))
+%}
 
 %feature("director:except") FIX::Application::toApp {
 #ifdef SWIGRUBY

@@ -71,9 +71,6 @@ class Application(fix.Application):
 		self.execID = self.execID+1
 		return `self.execID`
 
-def start(acceptor):
-    acceptor.block()
-
 try:
 	print sys.path
 	file = sys.argv[1]
@@ -82,7 +79,8 @@ try:
 	storeFactory = fix.FileStoreFactory( settings )
 	logFactory = fix.ScreenLogFactory( 1, 1, 1 )
 	acceptor = fix.SocketAcceptor( application, storeFactory, settings, logFactory )
-	thread.start_new_thread(start, (acceptor,))
+	acceptor.start()
+
 	while 1:
 	      time.sleep(1)
 except (fix.ConfigError, fix.RuntimeError), e:

@@ -70,6 +70,11 @@ IntArray_swigregister = _quickfix.IntArray_swigregister
 IntArray_swigregister(IntArray)
 IntArray_frompointer = _quickfix.IntArray_frompointer
 
+import thread
+
+def _quickfix_start_thread(i_or_a):
+	i_or_a.block()
+
 HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
 HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H
@@ -19848,6 +19853,10 @@ class Initiator(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Initiator
     __del__ = lambda self : None;
+    def start(self):
+    	thread.start_new_thread(_quickfix_start_thread, (self,))
+
+
     def block(*args): return _quickfix.Initiator_block(*args)
     def poll(*args): return _quickfix.Initiator_poll(*args)
     def stop(*args): return _quickfix.Initiator_stop(*args)
@@ -19887,6 +19896,10 @@ class Acceptor(_object):
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Acceptor
     __del__ = lambda self : None;
+    def start(self):
+    	thread.start_new_thread(_quickfix_start_thread, (self,))
+
+
     def block(*args): return _quickfix.Acceptor_block(*args)
     def poll(*args): return _quickfix.Acceptor_poll(*args)
     def stop(*args): return _quickfix.Acceptor_stop(*args)
