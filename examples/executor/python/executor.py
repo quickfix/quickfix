@@ -2,7 +2,6 @@ import sys
 import time
 import thread
 import quickfix as fix
-import quickfix40 as fix40
 
 class Application(fix.Application):
 	orderID = 0

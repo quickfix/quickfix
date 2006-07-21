@@ -1,5 +1,4 @@
-require 'quickfix'
-require 'quickfix40'
+require 'quickfix_ruby'
 
 class Application < Quickfix::Application
 
