@@ -33,6 +33,11 @@
 #include "../C++/Acceptor.h"
 #include "../C++/SocketAcceptor.h"
 using namespace FIX;
+
+void rollback_ruby_call_depth()
+{
+
+}
 %}
 
 %typedef DoubleField PriceField;
@@ -117,23 +122,15 @@ using namespace FIX;
   }
 }
 
-%feature("director:except") {
+%feature("director:except") FIX::Message::toApp {
 #ifdef SWIGRUBY
   if( $error != 0 ) {
     void* result;
 
+    Application_toApp_call_depth--;
+
     if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
       throw *((DoNotSend*)result);
-    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
-      throw *((FieldNotFound*)result);
-    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
-      throw *((IncorrectDataFormat*)result);
-    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
-      throw *((IncorrectTagValue*)result);
-    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
-      throw *((RejectLogon*)result);
-    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
-      throw *((UnsupportedMessageType*)result);
     } else {
       VALUE message = rb_obj_as_string( $error );
       printf( "%s\n", RSTRING(message)->ptr );
@@ -150,7 +147,51 @@ using namespace FIX;
     try {
       if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__DoNotSend, 0 ) != -1 ) {
 	throw *((DoNotSend*)result);
-      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+      } else {
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+    } catch( ... ) {
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    }
+  }
+#endif
+}
+
+%feature("director:except") FIX::Message::fromAdmin {
+#ifdef SWIGRUBY
+  if( $error != 0 ) {
+    void* result;
+
+    Application_fromAdmin_call_depth--;
+
+    if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+      throw *((FieldNotFound*)result);
+    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
+      throw *((IncorrectDataFormat*)result);
+    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
+      throw *((IncorrectTagValue*)result);
+    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
+      throw *((RejectLogon*)result);
+    } else {
+      VALUE message = rb_obj_as_string( $error );
+      printf( "%s\n", RSTRING(message)->ptr );
+      exit(1);
+    }
+  }
+#endif
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    void *result;
+
+    try {
+      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
 	throw *((FieldNotFound*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
         throw *((IncorrectDataFormat*)result);
@@ -158,6 +199,56 @@ using namespace FIX;
         throw *((IncorrectTagValue*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__RejectLogon, 0 ) != -1 ) {
         throw *((RejectLogon*)result);
+      } else {
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+    } catch( ... ) {
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
+    }
+  }
+#endif
+}
+
+%feature("director:except") FIX::Message::fromApp {
+#ifdef SWIGRUBY
+  if( $error != 0 ) {
+    void* result;
+
+    Application_fromApp_call_depth--;
+
+    if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+      throw *((FieldNotFound*)result);
+    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
+      throw *((IncorrectDataFormat*)result);
+    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
+      throw *((IncorrectTagValue*)result);
+    } else if( SWIG_ConvertPtr($error, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
+      throw *((UnsupportedMessageType*)result);
+    } else {
+      VALUE message = rb_obj_as_string( $error );
+      printf( "%s\n", RSTRING(message)->ptr );
+      exit(1);
+    }
+  }
+#endif
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    void *result;
+
+    try {
+      if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__FieldNotFound, 0 ) != -1 ) {
+	throw *((FieldNotFound*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectDataFormat, 0 ) != -1 ) {
+        throw *((IncorrectDataFormat*)result);
+      } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__IncorrectTagValue, 0 ) != -1 ) {
+        throw *((IncorrectTagValue*)result);
       } else if( SWIG_ConvertPtr(pvalue, &result, SWIGTYPE_p_FIX__UnsupportedMessageType, 0 ) != -1 ) {
         throw *((UnsupportedMessageType*)result);
       } else {
