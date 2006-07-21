@@ -1,5 +1,5 @@
 require 'quickfix'
-module Quickfix40
+module Quickfix44
 
 	class NoHops < Quickfix::Group
 		def initialize

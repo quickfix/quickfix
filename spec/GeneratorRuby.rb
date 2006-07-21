@@ -25,7 +25,7 @@ class GeneratorRuby
 
   def front
     @f.puts "require 'quickfix'"
-    @f.puts "module Quickfix40"
+    @f.puts "module Quickfix#{@major}#{@minor}"
   end
 
   def field(name, number)
