@@ -9,7 +9,8 @@ SocketAcceptor/Initiator now implemented using non-blocking sockets.  There
 is no longer a danger of dead-locking when using these objects.
 
 Support for ODBC log and message store.  QuickFIX can now be used with any 
-database with an ODBC driver on windows.
+database with an ODBC driver on windows.  Direct MSSQL implementation is
+no longer supported.
 
 Global log exists for logging that does not pertain to an existing session.
 Things like incoming connections where the session is not yet identified
@@ -20,6 +21,10 @@ MessageStore interface now supports refresh which will load in settings
 from the persisted store.  RefreshOnLogon configuration setting will
 refresh the store whenever the session logs on.  Useful for creating
 backup systems.
+
+Added funtionally complete Ruby API.
+
+Python API now supports repeating groups and start() method.
 
 Message::replaceGroup can be used to replace a specific instance of a 
 repeating group.
@@ -37,8 +42,6 @@ design.
 DataDictionary can now be parsed from a stream.  This allows you to
 store the DataDictionary however you like as long as you can produce
 a stream in the QuickFIX xml format.
-
-Python API now supports repeating groups.
 
 Database IOExceptions now contain reasons for the IO failure which is logged
 if possible.
