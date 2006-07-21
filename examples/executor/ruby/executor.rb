@@ -72,10 +72,10 @@ class Application < Quickfix::Application
 		executionReport.setField( orderQty )
 
 		if( beginString.getValue() >= Quickfix.BeginString_FIX41 )
-			executionReport.setField( Quickfix::ExecType.new(Quickfix::ExecType_FILL) )
-			executionReport.setField( Quickfix::LeavesQty.new )
+			executionReport.setField( Quickfix::ExecType.new(Quickfix.ExecType_FILL) )
+			executionReport.setField( Quickfix::LeavesQty.new(0) )
 		end
-puts "here6"
+
 		begin
 			Quickfix::Session.sendToTarget( executionReport, sessionID )
 		rescue SessionNotFound
