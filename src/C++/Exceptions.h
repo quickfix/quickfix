@@ -269,7 +269,7 @@ struct SocketSendFailed : public SocketException
 struct SocketRecvFailed : public SocketException
 {
   SocketRecvFailed( int size )
-    : SocketException( size == 0 ? "Connection reset by peer." : size < 0 ? "" : "Success." ) {}
+    : SocketException( size == 0 ? "Connection reset by peer." : size < 0 ? errorToWhat() : "Success." ) {}
   SocketRecvFailed( const std::string& what )
     : SocketException( what ) {}
 };
