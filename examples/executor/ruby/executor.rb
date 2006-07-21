@@ -100,7 +100,7 @@ begin
 	storeFactory = Quickfix::FileStoreFactory.new( settings )
 	logFactory = Quickfix::ScreenLogFactory.new( settings )
 	acceptor = Quickfix::SocketAcceptor.new( application, storeFactory, settings, logFactory )
-	acceptor.start()
+        Thread.new { acceptor.block() }
 
 	while( true )
 		sleep(1)
