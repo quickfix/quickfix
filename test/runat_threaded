@@ -4,7 +4,7 @@ DIR=`pwd`
 PORT=$1
 ./setup $PORT
 
-../bin/at -f cfg/at.cfg -t &
+./at -f cfg/at.cfg -t &
 sleep 5
 cd $DIR
 ruby Runner.rb 127.0.0.1 $PORT definitions/server/fix*/*.def
