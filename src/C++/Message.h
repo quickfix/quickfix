@@ -246,10 +246,10 @@ public:
   void setSessionID( const SessionID& sessionID );
 
 private:
-  FieldBase Message::extractField
+  FieldBase extractField
   ( const std::string& string, std::string::size_type& pos,
     const DataDictionary* pDD = 0, const Group* pGroup = 0)
-  { QF_STACK_PUSH(Message::extractField)
+  { QF_STACK_PUSH(extractField)
 
     std::string::size_type equalSign
       = string.find_first_of( '=', pos );
