@@ -41,9 +41,7 @@ public __gc class FileStore : public CPPMessageStore
 public:
   FileStore( String* path, SessionID* sessionID )
   : CPPMessageStore( new FIX::FileStore(convertString(path), sessionID->unmanaged() ) )
-  { QF_STACK_TRY
-    QF_STACK_CATCH
-  }
+  {}
 };
 
 public __gc class FileStoreFactory : public MessageStoreFactory

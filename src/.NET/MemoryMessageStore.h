@@ -22,7 +22,6 @@
 #pragma once
 
 using namespace System;
-using namespace System::IO;
 
 #include "quickfix_net.h"
 
@@ -38,12 +37,15 @@ public __gc class MemoryStore : public CPPMessageStore
 {
 public:
   MemoryStore() : CPPMessageStore( new FIX::MemoryStore() ) {}
-  ~MemoryStore() { delete m_pUnmanaged; }
 };
 
 public __gc class MemoryStoreFactory : public MessageStoreFactory
 {
+public:
   MessageStore* create( SessionID* )
-  { return new MemoryStore(); }
+  { QF_STACK_TRY
+	return new MemoryStore();
+	QF_STACK_CATCH
+  }
 };
 }
