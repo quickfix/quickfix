@@ -1,3 +1,13 @@
+1.12.1
+------
+Fixed bugs with non-blocking sockets where select statement would go into an
+infinite loop due to a bad file descriptor which was not properly removed.
+
+MemoryStore in .NET api uses proper access specifier so compiler does not
+complain that it is abstract.
+
+Compiles under gcc 4.1
+
 1.12.0
 ------
 SocketAcceptor and ThreadedSocketAcceptor can listen for connections on
