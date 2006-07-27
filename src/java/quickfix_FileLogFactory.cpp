@@ -32,7 +32,7 @@
 #include <quickfix/CallStack.h>
 #include "Conversions.h"
 
-JNIEXPORT void JNICALL Java_quickfix_FileLogFactory__1create__
+JNIEXPORT void JNICALL Java_quickfix_FileLogFactory__1create
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
