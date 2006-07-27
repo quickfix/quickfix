@@ -10,6 +10,8 @@ Compiles under gcc 4.1
 
 Fixed UnsatisfiedLinkError when creating FileLogFactory in java.
 
+Fixed various bugs with ResetOnLogon functionality.
+
 1.12.0
 ------
 SocketAcceptor and ThreadedSocketAcceptor can listen for connections on

@@ -220,7 +220,7 @@ void Session::nextLogon( const Message& logon )
     return ;
   }
 
-  if( !m_state.shouldSendLogon() && m_resetOnLogon )
+  if( !m_state.initiate() && m_resetOnLogon )
     m_state.reset();
 
   if( !verify( logon, false, true ) )
@@ -588,12 +588,10 @@ void Session::generateLogon()
 
   if( m_refreshOnLogon )
     refresh();
-
+  if( m_resetOnLogon )
+	m_state.reset();
   if( shouldSendReset() )
-  {
-    if( m_resetOnLogon ) m_state.reset();
     logon.setField( ResetSeqNumFlag(true) );
-  }
 
   fill( logon.getHeader() );
   UtcTimeStamp now;
