@@ -469,6 +469,7 @@ bool Session::sendRaw( Message& message, int num )
       }
 
       message.toString( messageString );
+
       if (
         msgType == "A" || msgType == "5"
         || msgType == "2" || msgType == "4"

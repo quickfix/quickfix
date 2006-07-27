@@ -180,13 +180,13 @@ void SocketInitiator::onWrite( SocketConnector& connector, int s )
   QF_STACK_POP
 }
 
-void SocketInitiator::onData( SocketConnector& connector, int s )
+bool SocketInitiator::onData( SocketConnector& connector, int s )
 { QF_STACK_PUSH(SocketInitiator::onData)
 
   SocketConnections::iterator i = m_connections.find( s );
-  if ( i == m_connections.end() ) return ;
+  if ( i == m_connections.end() ) return false;
   SocketConnection* pSocketConnection = i->second;
-  pSocketConnection->read( connector );
+  return pSocketConnection->read( connector );
 
   QF_STACK_POP
 }

@@ -82,7 +82,7 @@ public:
     virtual ~Strategy() {}
     virtual void onConnect( SocketServer&, int acceptSocket, int socket ) = 0;
     virtual void onWrite( SocketServer&, int socket ) = 0;
-    virtual void onData( SocketServer&, int socket ) = 0;
+    virtual bool onData( SocketServer&, int socket ) = 0;
     virtual void onDisconnect( SocketServer&, int socket ) = 0;
     virtual void onError( SocketServer& ) = 0;
     virtual void onTimeout( SocketServer& ) {};

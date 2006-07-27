@@ -191,13 +191,13 @@ void SocketAcceptor::onWrite( SocketServer& server, int s )
   QF_STACK_POP
 }
 
-void SocketAcceptor::onData( SocketServer& server, int s )
+bool SocketAcceptor::onData( SocketServer& server, int s )
 { QF_STACK_PUSH(SocketAcceptor::onData)
 
   SocketConnections::iterator i = m_connections.find( s );
-  if ( i == m_connections.end() ) return ;
+  if ( i == m_connections.end() ) return false;
   SocketConnection* pSocketConnection = i->second;
-  pSocketConnection->read( *this, server );
+  return pSocketConnection->read( *this, server );
 
   QF_STACK_POP
 }

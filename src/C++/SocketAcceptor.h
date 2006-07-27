@@ -60,7 +60,7 @@ private:
 
   void onConnect( SocketServer&, int, int );
   void onWrite( SocketServer&, int );
-  void onData( SocketServer&, int );
+  bool onData( SocketServer&, int );
   void onDisconnect( SocketServer&, int );
   void onError( SocketServer& );
   void onTimeout( SocketServer& );

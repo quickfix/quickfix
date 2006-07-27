@@ -126,7 +126,7 @@ bool SocketConnection::read( SocketConnector& s )
   catch( SocketRecvFailed& e )
   {
     m_pSession->getLog()->onEvent( e.what() );
-    s.getMonitor().drop( m_socket );
+    return false;
   }
   return true;
 

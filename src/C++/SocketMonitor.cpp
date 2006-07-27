@@ -89,6 +89,9 @@ bool SocketMonitor::addRead( int s )
 bool SocketMonitor::addWrite( int s )
 { QF_STACK_PUSH(SocketMonitor::addWrite)
 
+  if( m_readSockets.find(s) == m_readSockets.end() )
+    return false;
+
   socket_setnonblock( s );
   Sockets::iterator i = m_writeSockets.find( s );
   if( i != m_writeSockets.end() ) return false;
@@ -215,7 +218,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
   if ( sleepIfEmpty(poll) )
   {
     strategy.onTimeout( *this );
-    return ;
+    return;
   }
 
   int result = select( FD_SETSIZE, &readSet, &writeSet, 0, getTimeval(poll) );
@@ -230,24 +233,10 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
     processWriteSet( strategy, writeSet );
     processReadSet( strategy, readSet );
   }
-#ifndef _MSC_VER
-  else if ( errno == EBADF )
-  {
-    Sockets::iterator i;
-    Sockets sockets = m_readSockets;
-    for ( i = sockets.begin(); i != sockets.end(); ++i )
-    {
-      if ( socket_isBad( *i ) )
-      {
-        m_readSockets.erase( *i );
-        strategy.onError( *this, *i );
-      }
-    }
-    return ;
-  }
-#endif
   else
+  {
     strategy.onError( *this );
+  }
 
   QF_STACK_POP
 }
@@ -345,7 +334,6 @@ void SocketMonitor::buildSet( const Sockets& sockets, fd_set& watchSet )
   for ( iter = sockets.begin(); iter != sockets.end(); ++iter ) {
     FD_SET( *iter, &watchSet );
   }
-
   QF_STACK_POP
 }
 }

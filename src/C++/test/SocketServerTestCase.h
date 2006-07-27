@@ -53,12 +53,11 @@ private:
     { m_connect++; m_connectSocket = socket; }
     void onWrite( SocketServer&, int socket )
     { m_write++; m_writeSocket = socket; }
-    void onData( SocketServer& server, int socket )
+    bool onData( SocketServer& server, int socket )
     {
       m_data++; m_dataSocket = socket;
       m_bufLen = recv( socket, m_buf, 1, 0 );
-      if( m_bufLen <= 0 )
-        onDisconnect( server, socket );
+      return m_bufLen > 0;
     }
     void onDisconnect( SocketServer&, int socket )
     { m_disconnect++; m_disconnectSocket = socket; }

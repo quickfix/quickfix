@@ -64,7 +64,8 @@ private:
   void onEvent( SocketMonitor&, int socket )
   { QF_STACK_PUSH(ConnectorWrapper::onEvent)
 
-    m_strategy.onData( m_connector, socket );
+    if( !m_strategy.onData( m_connector, socket ) )
+      m_strategy.onDisconnect( m_connector, socket );
 
     QF_STACK_POP
   }
@@ -73,7 +74,6 @@ private:
   { QF_STACK_PUSH(ConnectorWrapper::onError)
 
     m_strategy.onDisconnect( m_connector, socket );
-    m_connector.getMonitor().drop( socket );
 
     QF_STACK_POP
   }

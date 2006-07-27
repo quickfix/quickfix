@@ -50,7 +50,7 @@ private:
     QF_STACK_POP
   }
 
-  void onEvent( SocketMonitor&, int socket )
+  void onEvent( SocketMonitor& monitor, int socket )
   { QF_STACK_PUSH(ServerWrapper::onEvent)
 
     if( m_sockets.find(socket) != m_sockets.end() )
@@ -58,7 +58,10 @@ private:
       m_strategy.onConnect( m_server, socket, m_server.accept(socket) );
     }
     else
-        m_strategy.onData( m_server, socket );
+    {
+      if( !m_strategy.onData( m_server, socket ) )
+        onError( monitor, socket );
+    }
 
     QF_STACK_POP
   }
@@ -71,17 +74,17 @@ private:
     QF_STACK_POP
   }
 
-  void onError( SocketMonitor&, int socket )
+  void onError( SocketMonitor& monitor, int socket )
   { QF_STACK_PUSH(ServerWrapper::onError)
 
     m_strategy.onDisconnect( m_server, socket );
-    m_server.getMonitor().drop( socket );
+    monitor.drop( socket );
 
     QF_STACK_POP
   }
 
   void onError( SocketMonitor& )
-  { QF_STACK_PUSH(ServerWrapper::onEvent)
+  { QF_STACK_PUSH(ServerWrapper::onError)
     m_strategy.onError( m_server );
     QF_STACK_POP
   }
