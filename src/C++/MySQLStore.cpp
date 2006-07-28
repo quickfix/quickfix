@@ -208,7 +208,7 @@ throw ( IOException )
     << "msgseqnum=" << msgSeqNum;
     MySQLQuery query2( queryString2.str() );
     if( !m_pConnection->execute(query2) )
-      query.throwException();
+      query2.throwException();
   }
   return true;
 
@@ -345,7 +345,7 @@ void MySQLStore::reset() throw ( IOException )
 
   MySQLQuery query2( queryString2.str() );
   if( !m_pConnection->execute(query2) )
-    query.throwException();
+    query2.throwException();
 
   QF_STACK_POP
 }
