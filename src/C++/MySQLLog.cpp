@@ -240,8 +240,8 @@ void MySQLLog::insert( const std::string& table, const std::string value )
     queryString << "NULL, NULL, NULL, NULL";
   }
 
-  delete [] valueCopy;
   queryString << "\"" << valueCopy << "\")";
+  delete [] valueCopy;
 
   MySQLQuery query( queryString.str() );
   m_pConnection->execute( query );
