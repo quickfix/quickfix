@@ -12,6 +12,12 @@ Fixed UnsatisfiedLinkError when creating FileLogFactory in java.
 
 Fixed various bugs with ResetOnLogon functionality.
 
+Fixed bug where MySQLLog was writing bad strings to table.
+
+Fixed some error messages in MySQL store.
+
+Added support for reconnect in MySQL 5.
+
 1.12.0
 ------
 SocketAcceptor and ThreadedSocketAcceptor can listen for connections on
