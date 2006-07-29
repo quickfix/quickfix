@@ -215,7 +215,7 @@ private:
   void generateTestRequest( const std::string& );
   void generateReject( const Message&, int err, int field = 0 );
   void generateReject( const Message&, const std::string& );
-  void generateBusinessReject( const Message&, int err );
+  void generateBusinessReject( const Message&, int err, int field = 0 );
   void generateLogout( const std::string& text = "" );
 
   void populateRejectReason( Message&, int field, const std::string& );

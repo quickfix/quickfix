@@ -843,7 +843,7 @@ void Session::generateReject( const Message& message, const std::string& str )
   QF_STACK_POP
 }
 
-void Session::generateBusinessReject( const Message& message, int err )
+void Session::generateBusinessReject( const Message& message, int err, int field )
 { QF_STACK_PUSH(Session::generateBusinessReject)
 
   Message reject;
@@ -887,10 +887,22 @@ void Session::generateBusinessReject( const Message& message, int err )
     break;
   };
 
-  populateRejectReason( reject, reason );
+  if ( reason && field )
+  {
+    populateRejectReason( reject, field, reason );
+    m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected: "
+                     + reason + ":" + IntConvertor::convert( field ) );
+  }
+  else if ( reason )
+  {
+    populateRejectReason( reject, reason );
+    m_state.onEvent( "Message " + msgSeqNum.getString()
+         + " Rejected: " + reason );
+  }
+  else
+    m_state.onEvent( "Message " + msgSeqNum.getString() + " Rejected" );
+
   sendRaw( reject );
-  m_state.onEvent( "Message " + msgSeqNum.getString()
-                   + " Rejected: " + reason );
 
   QF_STACK_POP
 }
@@ -913,7 +925,11 @@ void Session::populateRejectReason( Message& reject, int field,
                                     const std::string& text )
 { QF_STACK_PUSH(Session::populateRejectReason)
 
-  if ( m_sessionID.getBeginString() >= FIX::BeginString_FIX42 )
+  MsgType msgType;
+   reject.getHeader().getField( msgType );
+
+  if ( msgType == MsgType_REJECT 
+       && m_sessionID.getBeginString() >= FIX::BeginString_FIX42 )
   {
     reject.setField( RefTagID( field ) );
     reject.setField( Text( text ) );
@@ -1279,7 +1295,7 @@ void Session::next( const Message& message, bool queued )
   {
     if( beginString >= FIX::BeginString_FIX42 && message.isApp() )
     {
-      LOGEX( generateBusinessReject( message, BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING ) );
+      LOGEX( generateBusinessReject( message, BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING, e.field ) );
     }
     else
     {

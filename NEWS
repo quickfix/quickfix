@@ -6,6 +6,8 @@ infinite loop due to a bad file descriptor which was not properly removed.
 MemoryStore in .NET api uses proper access specifier so compiler does not
 complain that it is abstract.
 
+BusinessMessageReject includes field in text if applicable.
+
 Compiles under gcc 4.1
 
 Fixed UnsatisfiedLinkError when creating FileLogFactory in java.
