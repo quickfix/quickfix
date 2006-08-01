@@ -6,6 +6,9 @@ infinite loop due to a bad file descriptor which was not properly removed.
 MemoryStore in .NET api uses proper access specifier so compiler does not
 complain that it is abstract.
 
+Added SendRedundantResendRequests for certifications that require you to
+send a resend request even if it appears redundant.
+
 BusinessMessageReject includes field in text if applicable.
 
 Compiles under gcc 4.1

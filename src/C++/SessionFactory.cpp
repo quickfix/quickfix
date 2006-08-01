@@ -124,6 +124,8 @@ Session* SessionFactory::create( const SessionID& sessionID,
                           SessionTime(startTime, endTime, startDay, endDay),
                           heartBtInt, m_pLogFactory );
 
+  if ( settings.has( SEND_REDUNDANT_RESENDREQUESTS ) )
+    pSession->sendRedundantResendRequests( settings.getBool( SEND_REDUNDANT_RESENDREQUESTS ) );
   if ( settings.has( CHECK_COMPID ) )
     pSession->checkCompId( settings.getBool( CHECK_COMPID ) );
   if ( settings.has( CHECK_LATENCY ) )

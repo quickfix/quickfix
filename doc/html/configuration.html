@@ -154,6 +154,12 @@
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>SendRedundantResendRequests</I> </TD>
+    <TD> If set to Y, QuickFIX will send all necessary resend requests, even if they appear redundant. Some systems will not certify the engine unless it does this. When set to N, QuickFIX will attempt to minimize resend requests. This is particularly useful on high volume systems.</TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>CheckCompID</I> </TD>
     <TD> If set to Y, messages must be received from the counterparty with the correct SenderCompID and TargetCompID. Some systems will send you different CompIDs by design, so you must set this to N. </TD>
     <TD> Y<br>N</TD>

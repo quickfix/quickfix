@@ -41,6 +41,7 @@ const char SESSION_QUALIFIER[] = "SessionQualifier";
 const char CONNECTION_TYPE[] = "ConnectionType";
 const char USE_DATA_DICTIONARY[] = "UseDataDictionary";
 const char SEND_RESETSEQNUMFLAG[] = "SendResetSeqNumFlag";
+const char SEND_REDUNDANT_RESENDREQUESTS[] = "SendRedundantResendRequests";
 const char DATA_DICTIONARY[] = "DataDictionary";
 const char START_TIME[] = "StartTime";
 const char END_TIME[] = "EndTime";

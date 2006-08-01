@@ -47,6 +47,7 @@ Session::Session( Application& application,
 : m_application( application ),
   m_sessionID( sessionID ),
   m_sessionTime( sessionTime ),
+  m_sendRedundantResendRequests( false ),
   m_checkCompId( true ),
   m_checkLatency( true ), 
   m_maxLatency( 120 ),
@@ -1168,7 +1169,7 @@ void Session::doTargetTooHigh( const Message& msg )
   {
     SessionState::ResendRange range = m_state.resendRange();
 
-    if( msgSeqNum >= range.first )
+    if( !m_sendRedundantResendRequests && msgSeqNum >= range.first )
     {
           m_state.onEvent ("Already sent ResendRequest FROM: " +
                            IntConvertor::convert (range.first) + " TO: " +

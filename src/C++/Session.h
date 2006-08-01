@@ -106,6 +106,8 @@ public:
 
   bool isSessionTime()
     { return m_sessionTime.isSessionTime(); }
+  void sendRedundantResendRequests ( bool value )
+    { m_sendRedundantResendRequests = value; } 
   void checkCompId ( bool value )
     { m_checkCompId = value; }
   void checkLatency ( bool value )
@@ -231,6 +233,7 @@ private:
   SessionID m_sessionID;
   SessionTime m_sessionTime;
 
+  bool m_sendRedundantResendRequests;
   bool m_checkCompId;
   bool m_checkLatency;
   int m_maxLatency;
