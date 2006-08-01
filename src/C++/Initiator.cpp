@@ -41,6 +41,7 @@ Initiator::Initiator( Application& application,
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( 0 ),
+  m_pLog( 0 ),
   m_stop( false )
 { initialize(); }
 
@@ -53,6 +54,7 @@ Initiator::Initiator( Application& application,
   m_messageStoreFactory( messageStoreFactory ),
   m_settings( settings ),
   m_pLogFactory( &logFactory ),
+  m_pLog( logFactory.create() ),
   m_stop( false )
 { initialize(); }
 

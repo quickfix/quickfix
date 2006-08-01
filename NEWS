@@ -3,6 +3,9 @@
 Fixed bugs with non-blocking sockets where select statement would go into an
 infinite loop due to a bad file descriptor which was not properly removed.
 
+Fixed bug in SocketInitiator where initator would crash if the socket
+was pending a connection when disconnecting.
+
 MemoryStore in .NET api uses proper access specifier so compiler does not
 complain that it is abstract.
 
@@ -26,6 +29,8 @@ Added support for reconnect in MySQL 5.
 Display file name when FileStore or File Log cannot open a file.
 
 Rejects are delivered to fromAdmin even if sequence number is too high.
+
+Initiator stores and instance of the global log.
 
 1.12.0
 ------
