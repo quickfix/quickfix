@@ -94,18 +94,17 @@ void FileStore::open( bool deleteFile )
   }
 
   populateCache();
-
   m_msgFile = file_fopen( m_msgFileName.c_str(), "r+" );
   if ( !m_msgFile ) m_msgFile = file_fopen( m_msgFileName.c_str(), "w+" );
-  if ( !m_msgFile ) throw ConfigError( "Could not open body file" );
+  if ( !m_msgFile ) throw ConfigError( "Could not open body file: " + m_msgFileName );
 
   m_headerFile = file_fopen( m_headerFileName.c_str(), "r+" );
   if ( !m_headerFile ) m_headerFile = file_fopen( m_headerFileName.c_str(), "w+" );
-  if ( !m_headerFile ) throw ConfigError( "Could not open header file" );
+  if ( !m_headerFile ) throw ConfigError( "Could not open header file: " + m_headerFileName );
 
   m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "r+" );
   if ( !m_seqNumsFile ) m_seqNumsFile = file_fopen( m_seqNumsFileName.c_str(), "w+" );
-  if ( !m_seqNumsFile ) throw ConfigError( "Could not open seqnums file" );
+  if ( !m_seqNumsFile ) throw ConfigError( "Could not open seqnums file: " + m_seqNumsFileName );
 
   bool setCreationTime = false;
   m_sessionFile = file_fopen( m_sessionFileName.c_str(), "r" );

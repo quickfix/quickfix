@@ -120,9 +120,9 @@ void FileLog::init( std::string path, const std::string& prefix )
   m_eventFileName = fullPrefix + "event.log";
 
   m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::app );
-  if ( !m_messages.is_open() ) throw ConfigError( "Could not open messages file" );
+  if ( !m_messages.is_open() ) throw ConfigError( "Could not open messages file: " + m_messagesFileName );
   m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::app );
-  if ( !m_event.is_open() ) throw ConfigError( "Could not open event file" );
+  if ( !m_event.is_open() ) throw ConfigError( "Could not open event file: " + m_eventFileName );
 
   QF_STACK_POP
 }
