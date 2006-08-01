@@ -305,7 +305,7 @@ void Session::nextLogout( const Message& logout )
 void Session::nextReject( const Message& reject )
 { QF_STACK_PUSH(Session::nextReject)
 
-  if ( !verify( reject ) ) return ;
+  if ( !verify( reject, false, true ) ) return ;
   m_state.incrNextTargetMsgSeqNum();
   nextQueued();
 

@@ -25,6 +25,8 @@ Added support for reconnect in MySQL 5.
 
 Display file name when FileStore or File Log cannot open a file.
 
+Rejects are delivered to fromAdmin even if sequence number is too high.
+
 1.12.0
 ------
 SocketAcceptor and ThreadedSocketAcceptor can listen for connections on
