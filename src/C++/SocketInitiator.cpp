@@ -197,10 +197,14 @@ void SocketInitiator::onDisconnect( SocketConnector&, int s )
   SocketConnections::iterator i = m_connections.find( s );
   SocketConnections::iterator j = m_pendingConnections.find( s );
 
-  if ( i == m_connections.end() && j == m_pendingConnections.end() ) 
-    return;
+  SocketConnection* pSocketConnection = 0;
+  if( i != m_connections.end() ) 
+	  pSocketConnection = i->second;
+  if( j != m_pendingConnections.end() )
+	  pSocketConnection = j->second;
+  if( !pSocketConnection )
+	  return;
 
-  SocketConnection* pSocketConnection = i->second;
   setDisconnected( pSocketConnection->getSession()->getSessionID() );
 
   Session* pSession = pSocketConnection->getSession();
