@@ -3,7 +3,7 @@ require 'quickfix_ruby'
 
 def sendOrderCancelRequest
 	message = Quickfix::Message.new();
-	header = Quickfix::getHeader.new();
+	header = message.getHeader();
 
 	header.setField(Quickfix::BeginString.new("FIX.4.2"))
 	header.setField(Quickfix::SenderCompID.new(TW))

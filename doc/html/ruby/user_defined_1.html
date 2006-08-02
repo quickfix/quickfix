@@ -1,4 +1,4 @@
 <PRE><B>
 message.setField(Quickfix::StringField.new(6123, "value"))
-field = message.getField(Quickfix::StringField(6123))
+field = message.getField(Quickfix::StringField(6123).new())
 </PRE></B>
