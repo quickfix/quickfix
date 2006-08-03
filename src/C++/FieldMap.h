@@ -30,10 +30,12 @@
 #include "MessageSorters.h"
 #include "Exceptions.h"
 #include "CallStack.h"
+#include "Utility.h"
 #include <map>
 #include <vector>
 #include <sstream>
 #include <algorithm>
+#include <boost/pool/pool_alloc.hpp>
 
 namespace FIX
 {
@@ -46,15 +48,17 @@ namespace FIX
 class FieldMap
 {
 public:
-  typedef std::multimap < int, FieldBase, message_order > Fields;
-  typedef std::map < int, std::vector < FieldMap* > > Groups;
+  typedef std::multimap < int, FieldBase, message_order, 
+                          ALLOCATOR<std::pair<const int,FieldBase> > > Fields;
+  typedef std::map < int, std::vector < FieldMap* >, std::less<int>, 
+                     ALLOCATOR<std::pair<const int, std::vector< FieldMap* > > > > Groups;
   typedef Fields::const_iterator iterator;
   typedef iterator const_iterator;
   typedef Groups::const_iterator g_iterator;
   typedef Groups::const_iterator g_const_iterator;
 
   FieldMap( const message_order& order =
-              message_order( message_order::normal ) )
+            message_order( message_order::normal ) )
   : m_fields( order ) {}
 
   FieldMap( const int order[] )

@@ -32,6 +32,26 @@ fi
 ########################################
 
 ########################################
+# BOOST
+########################################
+has_boost=false
+AC_ARG_WITH(boost,
+    [  --with-boost=<path>     prefix of boost installation. e.g. /usr/local/include/boost-1_33_1], 
+    [has_boost=true],
+    has_boost=false
+)
+BOOST_PREFIX=$with_boost
+AC_SUBST(BOOST_PREFIX)
+
+if test $has_boost = true
+then
+    BOOST_CFLAGS="-I${BOOST_PREFIX}"
+    AC_SUBST(BOOST_CFLAGS)
+    AC_DEFINE(HAVE_BOOST, 1, Define if you have boost framework)
+fi
+########################################
+
+########################################
 # MYSQL
 ########################################
 has_mysql=false
@@ -45,7 +65,7 @@ AC_SUBST(MYSQL_PREFIX)
 
 if test $has_mysql = true
 then
-    MYSQL_CFLAGS="-I${MYSQL_PREFIX}/include/mysql -I${MYSQL_PREFIX}/mysql/include"    
+    MYSQL_CFLAGS="-I${MYSQL_PREFIX}/include/mysql -I${MYSQL_PREFIX}/mysql/include"
     AC_SUBST(MYSQL_CFLAGS)
     MYSQL_LIBS="-L${MYSQL_PREFIX}/lib/mysql -L${MYSQL_PREFIX}/mysql/lib -lmysqlclient"
     AC_SUBST(MYSQL_LIBS)
@@ -181,7 +201,7 @@ AM_PATH_XML2(2.0.0, , AC_MSG_ERROR(libxml2 must be installed.))
 # libs
 LIBS="$LIBS $STLPORT_LIBS $XML_LIBS $MYSQL_LIBS $POSTGRESQL_LIBS"
 # gcc flags
-SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
+SHAREDFLAGS="-Wall -ansi -Wpointer-arith -Wwrite-strings $BOOST_CFLAGS $STLPORT_CFLAGS $MYSQL_CFLAGS $POSTGRESQL_CFLAGS $XML_CPPFLAGS $XML_CFLAGS $JAVA_CFLAGS $PYTHON_CFLAGS $RUBY_CFLAGS"
 CFLAGS="$CFLAGS $SHAREDFLAGS"
 AC_SUBST(CFLAGS)
 CXXFLAGS="$CXXFLAGS $SHAREDFLAGS"
@@ -325,6 +345,61 @@ AC_TRY_COMPILE(
 	 AC_DEFINE(GETHOSTBYNAME_R_INPUTS_RESULT, 1,
 	 The system has gethostbyname_r which takes a result as a pass-in param),
 	 AC_MSG_RESULT(no))
+
+# check for boost::pool_allocator
+AC_MSG_CHECKING(for boost::pool_allocator)
+AC_TRY_COMPILE(
+	[#include <boost/pool/pool_alloc.hpp>
+	 #include<vector>],
+	[std::vector<int, boost::pool_allocator<int> > x;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_BOOST_POOL_ALLOCATOR, 1,
+	boost::pool_allocator exists),
+	AC_MSG_RESULT(no))
+
+# check for boost::fast_pool_allocator
+AC_MSG_CHECKING(for boost::fast_pool_allocator)
+AC_TRY_COMPILE(
+	[#include <boost/pool/pool_alloc.hpp>
+	 #include<vector>],
+	[std::vector<int, boost::fast_pool_allocator<int> > x;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_BOOST_FAST_POOL_ALLOCATOR, 1,
+	boost::fast_pool_allocator exists),
+	AC_MSG_RESULT(no))
+
+# check for __gnu_cxx::__pool_alloc
+AC_MSG_CHECKING(__gnu_cxx::__pool_alloc)
+AC_TRY_COMPILE(
+	[#include <ext/pool_allocator.h>
+	 #include<vector>],
+	[std::vector<int, __gnu_cxx::__pool_alloc<int> > x;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_POOL_ALLOCATOR, 1,
+	__gnu_cxx::pool_allocator exists),
+	AC_MSG_RESULT(no))
+
+# check for __gnu_cxx::__mt_alloc
+AC_MSG_CHECKING(__gnu_cxx::__mt_alloc)
+AC_TRY_COMPILE(
+	[#include <ext/mt_allocator.h>
+	 #include<vector>],
+	[std::vector<int, __gnu_cxx::__mt_alloc<int> > x;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_MT_ALLOCATOR, 1,
+	__gnu_cxx::mt_allocator exists),
+	AC_MSG_RESULT(no))
+
+# check for __gnu_cxx::bitmap_allocator
+AC_MSG_CHECKING(__gnu_cxx::bitmap_allocator)
+AC_TRY_COMPILE(
+	[#include <ext/bitmap_allocator.h>
+	 #include<vector>],
+	[std::vector<int, __gnu_cxx::bitmap_allocator<int> > x;],
+	AC_MSG_RESULT(yes)
+	AC_DEFINE(HAVE_BITMAP_ALLOCATOR, 1,
+	__gnu_cxx::bitmap_allocator exists),
+	AC_MSG_RESULT(no))
 
 AC_DEFINE(_REENTRANT, 1, enable reentrant system calls)
 

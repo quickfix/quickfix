@@ -26,6 +26,25 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
+#ifdef HAVE_BOOST_FAST_POOL_ALLOCATOR
+  #include <boost/pool/pool_alloc.hpp>
+  #define ALLOCATOR boost::fast_pool_allocator
+#elif HAVE_MT_ALLOCATOR
+  #include <ext/mt_allocator.h>
+  #define ALLOCATOR __gnu_cxx::__mt_alloc
+#elif HAVE_BOOST_POOL_ALLOCATOR
+  #include <boost/pool/pool_alloc.hpp>
+  #define ALLOCATOR boost::pool_allocator
+#elif HAVE_POOL_ALLOCATOR
+  #include <ext/pool_allocator.h>
+  #define ALLOCATOR __gnu_cxx::__pool_alloc
+#elif HAVE_BITMAP_ALLOCATOR
+  #include <ext/bitmap_allocator.h>
+  #define ALLOCATOR __gnu_cxx::bitmap_allocator
+#else
+  #define ALLOCATOR std::allocator
+#endif
+
 #ifdef _MSC_VER
 /////////////////////////////////////////////
 #include <Winsock2.h>
