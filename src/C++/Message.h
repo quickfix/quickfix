@@ -256,7 +256,8 @@ private:
     if( equalSign == std::string::npos )
       throw InvalidMessage("Equal sign not found in field");
 
-    int field = atol(string.substr( pos, equalSign - pos ).c_str());
+    char* pEnd;
+    int field = strtol( string.c_str() + pos, &pEnd, 0 );
 
     std::string::size_type soh =
       string.find_first_of( '\001', equalSign + 1 );
