@@ -15,6 +15,21 @@ AM_PROG_LIBTOOL
 AM_PROG_LEX
 
 ########################################
+# ALLOCATOR
+########################################
+AC_ARG_ENABLE(new_allocator,
+    [  --enable-new_allocator      use new_allocator],
+    [use_new_allocator=$enableval],
+    use_new_allocator=no
+)
+
+if test $use_new_allocator = yes
+then
+    AC_DEFINE(ENABLE_NEW_ALLOCATOR, 1, 
+	Define if you want to use new_allocator)
+fi
+
+########################################
 # CALLSTACK
 ########################################
 use_callstack=no

@@ -26,7 +26,13 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
-#ifdef HAVE_BOOST_FAST_POOL_ALLOCATOR
+#ifdef ENABLE_DEBUG_ALLOCATOR
+  #include <ext/debug_allocator.h>
+  #define ALLOCATOR __gnu_cxx::debug_allocator
+#elif ENABLE_NEW_ALLOCATOR
+  #include <ext/new_allocator.h>
+  #define ALLOCATOR __gnu_cxx::new_allocator
+#elif HAVE_BOOST_FAST_POOL_ALLOCATOR
   #include <boost/pool/pool_alloc.hpp>
   #define ALLOCATOR boost::fast_pool_allocator
 #elif HAVE_MT_ALLOCATOR

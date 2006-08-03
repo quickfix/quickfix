@@ -35,7 +35,6 @@
 #include <vector>
 #include <sstream>
 #include <algorithm>
-#include <boost/pool/pool_alloc.hpp>
 
 namespace FIX
 {
