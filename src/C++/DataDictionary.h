@@ -375,7 +375,7 @@ private:
       }
     }
     catch ( FieldConvertError& )
-    { throw IncorrectDataFormat( field.getField() ); }
+    { throw IncorrectDataFormat( field.getField(), field.getString() ); }
   }
 
   void checkValue( const FieldBase& field ) const

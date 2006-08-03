@@ -263,7 +263,7 @@ public:
     { try
       { return CharConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator const char() const
     { return getValue(); }
 };
@@ -283,7 +283,7 @@ public:
     { try
       { return DoubleConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator const double() const
     { return getValue(); }
 };
@@ -303,7 +303,7 @@ public:
     { try
       { return IntConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator const int() const
     { return getValue(); }
 };
@@ -323,7 +323,7 @@ public:
     { try
       { return BoolConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator const bool() const
     { return getValue(); }
 };
@@ -343,7 +343,7 @@ public:
     { try
       { return UtcTimeStampConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator UtcTimeStamp() const
     { return getValue(); }
 
@@ -370,7 +370,7 @@ public:
     { try
       { return UtcDateConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator UtcDate() const
     { return getValue(); }
 
@@ -397,7 +397,7 @@ public:
     { try
       { return UtcTimeOnlyConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator UtcTimeOnly() const
     { return getValue(); }
 
@@ -424,7 +424,7 @@ public:
     { try
       { return CheckSumConvertor::convert( getString() ); }
       catch( FieldConvertError& )
-      { throw IncorrectDataFormat( getField() ); } }
+      { throw IncorrectDataFormat( getField(), getString() ); } }
   operator const int() const
     { return getValue(); }
 };
