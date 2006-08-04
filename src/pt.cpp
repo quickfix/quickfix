@@ -714,8 +714,6 @@ int testSendOnSocket( int count, short port )
 
 int testSendOnThreadedSocket( int count, short port )
 {
-  std::cout << "Storing NewOrderSingle messages: ";
-
   std::stringstream stream;
   stream
     << "[DEFAULT]" << std::endl

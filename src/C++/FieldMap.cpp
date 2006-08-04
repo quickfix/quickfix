@@ -196,6 +196,20 @@ bool FieldMap::isEmpty()
   QF_STACK_POP
 }
 
+int FieldMap::totalFields() const
+{
+  int result = m_fields.size();
+    
+  Groups::const_iterator i;
+  for ( i = m_groups.begin(); i != m_groups.end(); ++i )
+  {
+    std::vector < FieldMap* > ::const_iterator j;
+    for ( j = i->second.begin(); j != i->second.end(); ++j )
+      result += ( *j ) ->totalFields();
+  }
+  return result;
+}
+
 std::string& FieldMap::calculateString( std::string& result, bool clear ) const
 { QF_STACK_PUSH(FieldMap::calculateString)
 
@@ -205,6 +219,9 @@ std::string& FieldMap::calculateString( std::string& result, bool clear ) const
   if( clear ) result.clear();
 #endif
 
+  if( !result.size() )
+    result.reserve( totalFields() * 32 );
+    
   Fields::const_iterator i;
   for ( i = m_fields.begin(); i != m_fields.end(); ++i )
   {

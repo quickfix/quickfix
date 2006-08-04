@@ -149,6 +149,8 @@ public:
   /// Check if map contains any fields
   bool isEmpty();
 
+  int totalFields() const;
+
   std::string& calculateString( std::string&, bool clear = true ) const;
 
   int calculateLength( int beginStringField = FIELD::BeginString,
