@@ -30,6 +30,7 @@
 #include "Responder.h"
 #include "SessionID.h"
 #include "SocketMonitor.h"
+#include "Utility.h"
 #include <set>
 
 namespace FIX
@@ -74,7 +75,7 @@ public:
   void onTimeout();
 
 private:
-  typedef std::deque<std::string>
+  typedef std::deque<std::string, ALLOCATOR<std::string> >
     Queue;
 
   bool isValidSession();

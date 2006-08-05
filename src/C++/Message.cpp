@@ -526,9 +526,9 @@ void Message::validate()
 
   try
   {
-    const BodyLength& aBodyLength = (const BodyLength&)
-      m_header.getFieldRef( FIELD::BodyLength );
-     if ( aBodyLength != bodyLength() )
+    const BodyLength& aBodyLength = FIELD_GET_REF( m_header, BodyLength );
+
+    if ( aBodyLength != bodyLength() )
     {
       std::stringstream text;
       text << "Expected BodyLength=" << bodyLength()
@@ -536,8 +536,8 @@ void Message::validate()
       throw InvalidMessage(text.str());
     }
 
-    const CheckSum& aCheckSum = (const CheckSum&)
-      m_trailer.getFieldRef( FIELD::CheckSum );
+    const CheckSum& aCheckSum = FIELD_GET_REF( m_trailer, CheckSum );
+
     if ( aCheckSum != checkSum() )
     {
       std::stringstream text;

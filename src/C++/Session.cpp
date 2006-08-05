@@ -443,8 +443,7 @@ bool Session::sendRaw( Message& message, int num )
   {
     bool result = false;
     Header& header = message.getHeader();
-    const MsgType& msgType = (const MsgType&)
-      header.getFieldRef( FIELD::MsgType );
+    const MsgType& msgType = FIELD_GET_REF( header, MsgType );
 
     fill( header );
     std::string messageString;
@@ -962,20 +961,13 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
   {
     const Header& header = msg.getHeader();
 
-    pMsgType = (const MsgType*)&
-      header.getFieldRef( FIELD::MsgType );
-    const SenderCompID& senderCompID = (const SenderCompID&)
-      header.getFieldRef( FIELD::SenderCompID );
-    const TargetCompID& targetCompID = (const TargetCompID&)
-      header.getFieldRef( FIELD::TargetCompID );
-    const SendingTime& sendingTime = (const SendingTime&)
-      header.getFieldRef( FIELD::SendingTime );
- 
+    pMsgType = FIELD_GET_PTR( header, MsgType );
+    const SenderCompID& senderCompID = FIELD_GET_REF( header, SenderCompID );
+    const TargetCompID& targetCompID = FIELD_GET_REF( header, TargetCompID );
+    const SendingTime& sendingTime = FIELD_GET_REF( header, SendingTime );
+
     if( checkTooHigh || checkTooLow )
-    {
-      pMsgSeqNum = (const MsgSeqNum*)&
-        header.getFieldRef( FIELD::MsgSeqNum );
-    }
+      pMsgSeqNum = FIELD_GET_PTR( header, MsgSeqNum );
 
     if ( !validLogonState( *pMsgType ) )
       throw std::logic_error( "Logon state is not valid for message" );
@@ -1261,10 +1253,8 @@ void Session::next( const Message& message, bool queued )
     if ( !checkSessionTime(now) )
       { reset(); return; }
 
-    const MsgType& msgType = (const MsgType&)
-      header.getFieldRef( FIELD::MsgType );
-    const BeginString& beginString = (const BeginString&)
-      header.getFieldRef( FIELD::BeginString );
+    const MsgType& msgType = FIELD_GET_REF( header, MsgType );
+    const BeginString& beginString = FIELD_GET_REF( header, BeginString );
 
     if ( beginString != m_sessionID.getBeginString() )
       throw UnsupportedVersion();
@@ -1453,12 +1443,10 @@ Session* Session::lookupSession( const std::string& string, bool reverse )
 
   try
   {
-    const BeginString& beginString = (const BeginString&)
-      message.getHeader().getFieldRef( FIELD::BeginString );
-    const SenderCompID& senderCompID = (const SenderCompID&)
-      message.getHeader().getFieldRef( FIELD::SenderCompID );
-    const TargetCompID& targetCompID = (const TargetCompID&)
-      message.getHeader().getFieldRef( FIELD::TargetCompID );
+    const Header& header = message.getHeader();
+    const BeginString& beginString = FIELD_GET_REF( header, BeginString );
+    const SenderCompID& senderCompID = FIELD_GET_REF( header, SenderCompID );
+    const TargetCompID& targetCompID = FIELD_GET_REF( header, TargetCompID );
 
     if ( reverse )
     {

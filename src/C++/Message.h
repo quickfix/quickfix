@@ -195,8 +195,7 @@ public:
   { 
     if( m_header.isSetField(FIELD::MsgType) )
     {
-      const MsgType& msgType = (const MsgType&)
-        m_header.getFieldRef( FIELD::MsgType );
+      const MsgType& msgType = FIELD_GET_REF( m_header, MsgType );
       return isAdminMsgType( msgType );
     }
     return false;
@@ -206,8 +205,7 @@ public:
   { 
     if( m_header.isSetField(FIELD::MsgType) )
     {
-      const MsgType& msgType = (const MsgType&)
-        m_header.getFieldRef( FIELD::MsgType );
+      const MsgType& msgType = FIELD_GET_REF( m_header, MsgType );
       return !isAdminMsgType( msgType );
     }
     return false;

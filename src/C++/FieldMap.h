@@ -104,6 +104,13 @@ public:
     return field;
   }
 
+  /// Get a field without a field class
+  const std::string& getField( int field )
+  const throw( FieldNotFound )
+  {
+    return getFieldRef( field ).getString();
+  }
+
   /// Get direct access to a field through a referencce
   const FieldBase& getFieldRef( int field )
   const throw( FieldNotFound )
@@ -114,11 +121,11 @@ public:
     return iter->second;
   }
 
-  /// Get a field without a field class
-  const std::string& getField( int field )
+  /// Get direct access to a field through a pointer
+  const FieldBase* const getFieldPtr( int field )
   const throw( FieldNotFound )
   {
-    return getFieldRef( field ).getString();
+    return &getFieldRef( field );
   }
 
   /// Check to see if a field is set
@@ -187,6 +194,11 @@ void set( const FIELD& field )            \
 { (MAP).setField(field); }                \
 FIELD& get( FIELD& field ) const          \
 { return (FIELD&)(MAP).getField(field); }
+
+#define FIELD_GET_PTR( MAP, FLD ) \
+(const FIX::FLD*)MAP.getFieldPtr( FIX::FIELD::FLD )
+#define FIELD_GET_REF( MAP, FLD ) \
+(const FIX::FLD&)MAP.getFieldRef( FIX::FIELD::FLD )
 
 #endif //FIX_FIELDMAP
 
