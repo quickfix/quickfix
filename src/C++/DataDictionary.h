@@ -439,7 +439,7 @@ private:
     }
 
     MsgTypeToField::const_iterator iM
-      = m_requiredFields.find( msgType.getValue() );
+      = m_requiredFields.find( msgType.getString() );
     if ( iM == m_requiredFields.end() ) return ;
 
     const MsgFields& fields = iM->second;
