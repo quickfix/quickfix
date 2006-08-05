@@ -193,10 +193,10 @@ public:
 
   bool isAdmin() const
   { 
-    MsgType msgType;
-    if( m_header.isSetField(msgType) )
+    if( m_header.isSetField(FIELD::MsgType) )
     {
-      m_header.getField( msgType );
+      const MsgType& msgType = (const MsgType&)
+        m_header.getFieldRef( FIELD::MsgType );
       return isAdminMsgType( msgType );
     }
     return false;
@@ -204,10 +204,10 @@ public:
 
   bool isApp() const
   { 
-    MsgType msgType;
-    if( m_header.isSetField(msgType) )
+    if( m_header.isSetField(FIELD::MsgType) )
     {
-      m_header.getField( msgType );
+      const MsgType& msgType = (const MsgType&)
+        m_header.getFieldRef( FIELD::MsgType );
       return !isAdminMsgType( msgType );
     }
     return false;
@@ -274,7 +274,7 @@ private:
 
       if ( pGroup && pGroup->isSetField( lenField ) )
       {
-        fieldLength = pGroup->getField( lenField);
+        fieldLength = pGroup->getField( lenField );
         soh = equalSign + 1 + atol( fieldLength.c_str() );
       }
       else if ( isSetField( lenField ) )

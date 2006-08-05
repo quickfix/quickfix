@@ -119,10 +119,10 @@ void DataDictionary::validate( const Message& message )
 throw( std::exception )
 { QF_STACK_PUSH(DataDictionary::validate)
 
-  BeginString beginString;
-  MsgType msgType;
-  message.getHeader().getField( beginString );
-  message.getHeader().getField( msgType );
+  const BeginString& beginString = (const BeginString&)
+    message.getHeader().getField( FIELD::BeginString );
+  const MsgType& msgType = (const MsgType&)
+    message.getHeader().getField( FIELD::MsgType );
 
   std::string ddBeginString = getVersion();
   if ( m_hasVersion && m_beginString != beginString )

@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 #ifndef FIX41_MESSAGECRACKER_H
 #define FIX41_MESSAGECRACKER_H
 
@@ -154,9 +154,8 @@ public:
   void crack( const Message& message, 
               const FIX::SessionID& sessionID )
   {
-    FIX::MsgType msgType;
-    message.getHeader().getField(msgType);
-    std::string msgTypeValue = msgType.getValue();
+    const std::string& msgTypeValue 
+      = message.getHeader().getField( FIX::FIELD::MsgType );
     
     if( msgTypeValue == "0" )
       onMessage( (const Heartbeat&)message, sessionID );
@@ -341,4 +340,3 @@ void crack( Message& message,
 }
 
 #endif //FIX41_MESSAGECRACKER_H
-

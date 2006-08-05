@@ -103,13 +103,22 @@ public:
     field = iter->second;
     return field;
   }
-  /// Get a field without a field class
-  std::string getField( int field )
+
+  /// Get direct access to a field through a referencce
+  const FieldBase& getFieldRef( int field )
   const throw( FieldNotFound )
   {
-    FieldBase fieldBase( field, "" );
-    getField( fieldBase );
-    return fieldBase.getString();
+    Fields::const_iterator iter = m_fields.find( field );
+    if ( iter == m_fields.end() )
+      throw FieldNotFound( field );
+    return iter->second;
+  }
+
+  /// Get a field without a field class
+  const std::string& getField( int field )
+  const throw( FieldNotFound )
+  {
+    return getFieldRef( field ).getString();
   }
 
   /// Check to see if a field is set

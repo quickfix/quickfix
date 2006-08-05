@@ -443,8 +443,8 @@ bool Session::sendRaw( Message& message, int num )
   {
     bool result = false;
     Header& header = message.getHeader();
-    MsgType msgType;
-    header.getField( msgType );
+    const MsgType& msgType = (const MsgType&)
+      header.getFieldRef( FIELD::MsgType );
 
     fill( header );
     std::string messageString;
@@ -955,23 +955,29 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
                       bool checkTooLow )
 { QF_STACK_PUSH(Session::verify)
 
-  SenderCompID senderCompID;
-  TargetCompID targetCompID;
-  SendingTime sendingTime;
-  MsgType msgType;
-  MsgSeqNum msgSeqNum;
+  const MsgType* pMsgType = 0;
+  const MsgSeqNum* pMsgSeqNum = 0;
 
   try
   {
     const Header& header = msg.getHeader();
-    header.getField( senderCompID );
-    header.getField( targetCompID );
-    header.getField( sendingTime );
-    header.getField( msgType );
-    if( checkTooHigh || checkTooLow )
-      header.getField( msgSeqNum );
 
-    if ( !validLogonState( msgType ) )
+    pMsgType = (const MsgType*)&
+      header.getFieldRef( FIELD::MsgType );
+    const SenderCompID& senderCompID = (const SenderCompID&)
+      header.getFieldRef( FIELD::SenderCompID );
+    const TargetCompID& targetCompID = (const TargetCompID&)
+      header.getFieldRef( FIELD::TargetCompID );
+    const SendingTime& sendingTime = (const SendingTime&)
+      header.getFieldRef( FIELD::SendingTime );
+ 
+    if( checkTooHigh || checkTooLow )
+    {
+      pMsgSeqNum = (const MsgSeqNum*)&
+        header.getFieldRef( FIELD::MsgSeqNum );
+    }
+
+    if ( !validLogonState( *pMsgType ) )
       throw std::logic_error( "Logon state is not valid for message" );
 
     if ( !isGoodTime( sendingTime ) )
@@ -985,12 +991,12 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
       return false;
     }
 
-    if ( checkTooHigh && isTargetTooHigh( msgSeqNum ) )
+    if ( checkTooHigh && isTargetTooHigh( *pMsgSeqNum ) )
     {
       doTargetTooHigh( msg );
       return false;
     }
-    else if ( checkTooLow && isTargetTooLow( msgSeqNum ) )
+    else if ( checkTooLow && isTargetTooLow( *pMsgSeqNum ) )
     {
       doTargetTooLow( msg );
       return false;
@@ -1000,7 +1006,7 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
     {
       SessionState::ResendRange range = m_state.resendRange();
  
-      if ( msgSeqNum >= range.second )
+      if ( *pMsgSeqNum >= range.second )
       {
         m_state.onEvent ("ResendRequest for messages FROM: " +
                          IntConvertor::convert (range.first) + " TO: " +
@@ -1021,7 +1027,7 @@ bool Session::verify( const Message& msg, bool checkTooHigh,
   m_state.lastReceivedTime( now );
   m_state.testRequest( 0 );
 
-  fromCallback( msgType, msg, m_sessionID );
+  fromCallback( pMsgType ? *pMsgType : MsgType(), msg, m_sessionID );
   return true;
 
   QF_STACK_POP
@@ -1247,10 +1253,7 @@ void Session::next( const std::string& msg, bool queued )
 void Session::next( const Message& message, bool queued )
 { QF_STACK_PUSH(Session::next)
 
-  MsgType msgType;
-  BeginString beginString;
-  SenderCompID senderCompID;
-  TargetCompID targetCompID;
+  const Header& header = message.getHeader();
 
   try
   {
@@ -1258,10 +1261,10 @@ void Session::next( const Message& message, bool queued )
     if ( !checkSessionTime(now) )
       { reset(); return; }
 
-    message.getHeader().getField( msgType );
-    message.getHeader().getField( beginString );
-    message.getHeader().getField( senderCompID );
-    message.getHeader().getField( targetCompID );
+    const MsgType& msgType = (const MsgType&)
+      header.getFieldRef( FIELD::MsgType );
+    const BeginString& beginString = (const BeginString&)
+      header.getFieldRef( FIELD::BeginString );
 
     if ( beginString != m_sessionID.getBeginString() )
       throw UnsupportedVersion();
@@ -1294,14 +1297,14 @@ void Session::next( const Message& message, bool queued )
   { LOGEX( generateReject( message, SessionRejectReason_REQUIRED_TAG_MISSING, e.field ) ); }
   catch ( FieldNotFound & e )
   {
-    if( beginString >= FIX::BeginString_FIX42 && message.isApp() )
+    if( header.getField(FIELD::BeginString) >= FIX::BeginString_FIX42 && message.isApp() )
     {
       LOGEX( generateBusinessReject( message, BusinessRejectReason_CONDITIONALLY_REQUIRED_FIELD_MISSING, e.field ) );
     }
     else
     {
       LOGEX( generateReject( message, SessionRejectReason_REQUIRED_TAG_MISSING, e.field ) );
-      if ( msgType == MsgType_Logon )
+      if ( header.getField(FIELD::MsgType) == MsgType_Logon )
       {
         m_state.onEvent( "Required field missing from logon" );
         disconnect();
@@ -1318,7 +1321,7 @@ void Session::next( const Message& message, bool queued )
   { LOGEX( generateReject( message, SessionRejectReason_INVALID_MSGTYPE ) ); }
   catch ( UnsupportedMessageType& )
   {
-    if ( beginString >= FIX::BeginString_FIX42 )
+    if ( header.getField(FIELD::BeginString) >= FIX::BeginString_FIX42 )
       { LOGEX( generateBusinessReject( message, BusinessRejectReason_UNSUPPORTED_MESSAGE_TYPE ) ); }
     else
       { LOGEX( generateReject( message, "Unsupported message type" ) ); }
@@ -1343,7 +1346,7 @@ void Session::next( const Message& message, bool queued )
   }
   catch ( UnsupportedVersion& )
   {
-    if ( msgType == MsgType_Logout )
+    if ( header.getField(FIELD::MsgType) == MsgType_Logout )
       nextLogout( message );
     else
     {
@@ -1448,25 +1451,25 @@ Session* Session::lookupSession( const std::string& string, bool reverse )
   if ( !message.setStringHeader( string ) )
     return 0;
 
-  BeginString beginString;
-  SenderCompID senderCompID;
-  TargetCompID targetCompID;
   try
   {
-    message.getHeader().getField( beginString );
-    message.getHeader().getField( senderCompID );
-    message.getHeader().getField( targetCompID );
+    const BeginString& beginString = (const BeginString&)
+      message.getHeader().getFieldRef( FIELD::BeginString );
+    const SenderCompID& senderCompID = (const SenderCompID&)
+      message.getHeader().getFieldRef( FIELD::SenderCompID );
+    const TargetCompID& targetCompID = (const TargetCompID&)
+      message.getHeader().getFieldRef( FIELD::TargetCompID );
+
+    if ( reverse )
+    {
+      return lookupSession( SessionID( beginString, SenderCompID( targetCompID ),
+                                     TargetCompID( senderCompID ) ) );
+    }
+
+    return lookupSession( SessionID( beginString, senderCompID,
+                          targetCompID ) );
   }
   catch ( FieldNotFound& ) { return 0; }
-
-  if ( reverse )
-  {
-    return lookupSession( SessionID( beginString, SenderCompID( targetCompID ),
-                                     TargetCompID( senderCompID ) ) );
-  }
-
-  return lookupSession( SessionID( beginString, senderCompID,
-                        targetCompID ) );
 
   QF_STACK_POP
 }

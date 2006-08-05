@@ -45,8 +45,8 @@ public:
   void crack( const Message& message,
               const SessionID& sessionID )
   {
-    FIX::BeginString beginString;
-    message.getHeader().getField( beginString );
+    const FIX::BeginString& beginString = (const FIX::BeginString&)
+      message.getHeader().getFieldRef( FIX::FIELD::BeginString );
     if ( beginString == BeginString_FIX40 )
     {
       ( ( FIX40::MessageCracker& ) ( *this ) )
@@ -77,8 +77,8 @@ public:
   void crack( Message& message,
               const SessionID& sessionID )
   {
-    FIX::BeginString beginString;
-    message.getHeader().getField( beginString );
+    const FIX::BeginString& beginString = (const FIX::BeginString&)
+      message.getHeader().getFieldRef( FIX::FIELD::BeginString );
     if ( beginString == BeginString_FIX40 )
     {
       ( ( FIX40::MessageCracker& ) ( *this ) )

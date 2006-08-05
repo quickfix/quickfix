@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
- 
+
 #ifndef FIX_FIELDNUMBERS_H
 #define FIX_FIELDNUMBERS_H
 
@@ -970,4 +970,3 @@ namespace FIX
 }
 
 #endif //FIX_FIELDNUMBERS_H
-
