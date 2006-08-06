@@ -393,6 +393,10 @@ SOURCE=".\fix40\Logout.h"
 # End Source File
 # Begin Source File
 
+SOURCE=.\fix40\Message.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=".\fix40\Message.h"
 # End Source File
 # Begin Source File
@@ -510,6 +514,10 @@ SOURCE=".\fix41\Logon.h"
 # Begin Source File
 
 SOURCE=".\fix41\Logout.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\fix41\Message.cpp
 # End Source File
 # Begin Source File
 
@@ -670,6 +678,10 @@ SOURCE=".\fix42\MarketDataSnapshotFullRefresh.h"
 # Begin Source File
 
 SOURCE=".\fix42\MassQuote.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\fix42\Message.cpp
 # End Source File
 # Begin Source File
 
@@ -886,6 +898,10 @@ SOURCE=".\fix43\MassQuote.h"
 # Begin Source File
 
 SOURCE=".\fix43\MassQuoteAcknowledgement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\fix43\Message.cpp
 # End Source File
 # Begin Source File
 
@@ -1214,6 +1230,10 @@ SOURCE=".\fix44\MassQuote.h"
 # Begin Source File
 
 SOURCE=".\fix44\MassQuoteAcknowledgement.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\fix44\Message.cpp
 # End Source File
 # Begin Source File
 

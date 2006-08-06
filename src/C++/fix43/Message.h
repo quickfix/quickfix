@@ -60,7 +60,7 @@ namespace FIX43
   public:
     Message( const FIX::MsgType& msgtype )
     : FIX::Message(
-      FIX::BeginString("FIX.4.3"), msgtype ) {}
+      s_beginString, msgtype ) {}
 
     Message(const FIX::Message& m) : FIX::Message(m) {}
     Message(const Message& m) : FIX::Message(m) {}
@@ -68,6 +68,7 @@ namespace FIX43
     const Header& getHeader() const { return (Header&)m_header; }
     Trailer& getTrailer() { return (Trailer&)m_trailer; }
     const Trailer& getTrailer() const { return (Trailer&)m_trailer; }
+    static const FIX::BeginString s_beginString;
   };
 
 }
