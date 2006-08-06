@@ -1220,28 +1220,6 @@
 						>
 					</File>
 					<File
-						RelativePath=".\fix40\Message.cpp"
-						>
-						<FileConfiguration
-							Name="Debug|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)2.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)2.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)2.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)2.xdc"
-							/>
-						</FileConfiguration>
-					</File>
-					<File
 						RelativePath="fix40\Message.h"
 						>
 					</File>
@@ -1360,28 +1338,6 @@
 					<File
 						RelativePath="fix41\Logout.h"
 						>
-					</File>
-					<File
-						RelativePath=".\fix41\Message.cpp"
-						>
-						<FileConfiguration
-							Name="Debug|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)3.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)3.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)3.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)3.xdc"
-							/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="fix41\Message.h"
@@ -1542,28 +1498,6 @@
 					<File
 						RelativePath="fix42\MassQuote.h"
 						>
-					</File>
-					<File
-						RelativePath=".\fix42\Message.cpp"
-						>
-						<FileConfiguration
-							Name="Debug|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)1.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)1.xdc"
-							/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="fix42\Message.h"
@@ -1780,28 +1714,6 @@
 					<File
 						RelativePath="fix43\MassQuoteAcknowledgement.h"
 						>
-					</File>
-					<File
-						RelativePath=".\fix43\Message.cpp"
-						>
-						<FileConfiguration
-							Name="Debug|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)4.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)4.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)4.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)4.xdc"
-							/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="fix43\Message.h"
@@ -2130,28 +2042,6 @@
 					<File
 						RelativePath="fix44\MassQuoteAcknowledgement.h"
 						>
-					</File>
-					<File
-						RelativePath=".\fix44\Message.cpp"
-						>
-						<FileConfiguration
-							Name="Debug|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)5.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)5.xdc"
-							/>
-						</FileConfiguration>
-						<FileConfiguration
-							Name="Release|Win32"
-							>
-							<Tool
-								Name="VCCLCompilerTool"
-								ObjectFile="$(IntDir)\$(InputName)5.obj"
-								XMLDocumentationFileName="$(IntDir)\$(InputName)5.xdc"
-							/>
-						</FileConfiguration>
 					</File>
 					<File
 						RelativePath="fix44\Message.h"
