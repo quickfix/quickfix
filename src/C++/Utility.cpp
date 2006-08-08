@@ -358,10 +358,7 @@ const char* socket_peername( int socket )
   socklen_t len = sizeof(addr);
   if( getpeername( socket, (struct sockaddr*)&addr, &len ) < 0 )
     return 0;
-  hostent* host = gethostbyaddr( (char*)&addr.sin_addr, sizeof(addr.sin_addr), AF_INET );
-  if( host == NULL )
-    return 0;
-  return host->h_name;
+  return inet_ntoa( addr.sin_addr );
 
   QF_STACK_POP
 }
