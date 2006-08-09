@@ -28,6 +28,7 @@
 #include "Utility.h"
 #include "Session.h"
 #include "SessionFactory.h"
+#include "HttpServer.h"
 #include <algorithm>
 #include <fstream>
 
@@ -150,6 +151,8 @@ void Acceptor::start() throw ( ConfigError, RuntimeError )
   onConfigure( m_settings );
   onInitialize( m_settings );
 
+  HttpServer::startGlobal( m_settings );
+
   if( !thread_spawn( &startThread, this, m_threadid ) )
     throw RuntimeError("Unable to spawn thread");
 
@@ -186,6 +189,8 @@ void Acceptor::stop( bool force )
 { QF_STACK_PUSH( Acceptor::stop )
 
   if( isStopped() ) return;
+
+  HttpServer::stopGlobal();
 
   std::vector<Session*> enabledSessions;
 

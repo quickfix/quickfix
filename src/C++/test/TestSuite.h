@@ -45,6 +45,8 @@
 #include "C++/test/SocketConnectorTestCase.h"
 #include "C++/test/SocketServerTestCase.h"
 #include "C++/test/FieldBaseTestCase.h"
+#include "C++/test/HttpParserTestCase.h"
+#include "C++/test/HttpMessageTestCase.h"
 
 class TestSuite : public CPPTest::TestSuite
 {
@@ -116,6 +118,8 @@ public:
     add( &m_socketConnector );
     add( &m_socketServer );
     add( &m_fieldBase );
+    add( &m_httpParser );
+    add( &m_httpMessage );
   }
 
   ~TestSuite() { FIX::socket_term(); }
@@ -170,4 +174,6 @@ private:
   FIX::DictionaryTestCase m_dictionary;
   FIX::DataDictionaryTestCase m_dataDictionary;
   FIX::FieldBaseTestCase m_fieldBase;
+  FIX::HttpParserTestCase m_httpParser;
+  FIX::HttpMessageTestCase m_httpMessage;
 };

@@ -32,6 +32,7 @@
 namespace FIX
 {
 Session::Sessions Session::s_sessions;
+Session::SessionIDs Session::s_sessionIDs;
 Session::Sessions Session::s_registered;
 Mutex Session::s_mutex;
 
@@ -1414,6 +1415,11 @@ throw( SessionNotFound )
   QF_STACK_POP
 }
 
+std::set<SessionID> Session::getSessions()
+{
+  return s_sessionIDs;
+}
+
 bool Session::doesSessionExist( const SessionID& sessionID )
 { QF_STACK_PUSH(Session::doesSessionExist)
 
@@ -1508,6 +1514,7 @@ bool Session::addSession( Session& s )
   if ( it == s_sessions.end() )
   {
     s_sessions[ s.m_sessionID ] = &s;
+    s_sessionIDs.insert( s.m_sessionID );
     return true;
   }
   else
@@ -1521,6 +1528,7 @@ void Session::removeSession( Session& s )
 
   Locker locker( s_mutex );
   s_sessions.erase( s.m_sessionID );
+  s_sessionIDs.erase( s.m_sessionID );
   s_registered.erase( s.m_sessionID );
 
   QF_STACK_POP

@@ -81,6 +81,14 @@ libquickfix_la_SOURCES = \
 	Group.h \
 	MessageSorters.cpp \
 	MessageSorters.h \
+	HttpParser.cpp \
+	HttpParser.h \
+	HttpMessage.cpp \
+	HttpMessage.h \
+	HttpConnection.h \
+	HttpConnection.cpp \
+	HttpServer.cpp \
+	HttpServer.h \
 	Messages.h \
 	SessionID.h \
 	SocketConnector.h \

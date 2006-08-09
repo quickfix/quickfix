@@ -95,6 +95,7 @@ public:
                             const std::string& qualifier = "" )
   throw( SessionNotFound );
 
+  static std::set<SessionID> getSessions();
   static bool doesSessionExist( const SessionID& );
   static Session* lookupSession( const SessionID& );
   static Session* lookupSession( const std::string&, bool reverse = false );
@@ -150,6 +151,8 @@ public:
 
 private:
   typedef std::map < SessionID, Session* > Sessions;
+  typedef std::set < SessionID > SessionIDs;
+
   static bool addSession( Session& );
   static void removeSession( Session& );
 
@@ -251,6 +254,7 @@ private:
   Mutex m_mutex;
 
   static Sessions s_sessions;
+  static SessionIDs s_sessionIDs;
   static Sessions s_registered;
   static Mutex s_mutex;
 

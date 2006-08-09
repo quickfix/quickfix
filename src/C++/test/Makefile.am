@@ -55,6 +55,10 @@ libquickfixcpptest_la_SOURCES = \
 	DataDictionaryTestCase.cpp \
 	DataDictionaryTestCase.h \
 	MemoryStoreTestCase.cpp \
-	MemoryStoreTestCase.h
+	MemoryStoreTestCase.h \
+	HttpParserTestCase.cpp \
+	HttpParserTestCase.h \
+	HttpMessageTestCase.cpp \
+	HttpMessageTestCase.h
 
 INCLUDES = -I..
