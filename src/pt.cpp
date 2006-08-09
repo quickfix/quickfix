@@ -32,7 +32,6 @@
 #include "FieldConvertors.h"
 #include "Values.h"
 #include "FileStore.h"
-#include "MySQLStore.h"
 #include "SessionID.h"
 #include "Session.h"
 #include "DataDictionary.h"
@@ -61,7 +60,6 @@ int testReadFromQuoteRequest( int );
 int testSerializeToStringQuoteRequest( int );
 int testSerializeFromStringQuoteRequest( int );
 int testFileStoreNewOrderSingle( int );
-int testMySQLStoreNewOrderSingle( int );
 int testValidateNewOrderSingle( int );
 int testValidateDictNewOrderSingle( int );
 int testValidateQuoteRequest( int );
@@ -151,9 +149,6 @@ int main( int argc, char** argv )
 
   std::cout << "Storing NewOrderSingle messages: ";
   report( testFileStoreNewOrderSingle( count ), count );
-
-  std::cout << "Storing NewOrderSingle messages: ";
-  report( testMySQLStoreNewOrderSingle( count ), count );
 
   std::cout << "Validating NewOrderSingle messages with no data dictionary: ";
   report( testValidateNewOrderSingle( count ), count );
@@ -517,38 +512,6 @@ int testFileStoreNewOrderSingle( int count )
   std::string messageString = message.toString();
 
   FIX::FileStore store( "store", id );
-  store.reset();
-  count = count - 1;
-
-  int start = GetTickCount();
-  for ( int i = 0; i <= count; ++i )
-  {
-    store.set( ++i, messageString );
-  }
-  int end = GetTickCount();
-  store.reset();
-  return end - start;
-}
-
-int testMySQLStoreNewOrderSingle( int count )
-{
-  FIX::BeginString beginString( FIX::BeginString_FIX42 );
-  FIX::SenderCompID senderCompID( "SENDER" );
-  FIX::TargetCompID targetCompID( "TARGET" );
-  FIX::SessionID id( beginString, senderCompID, targetCompID );
-
-  FIX::ClOrdID clOrdID( "ORDERID" );
-  FIX::HandlInst handlInst( '1' );
-  FIX::Symbol symbol( "LNUX" );
-  FIX::Side side( FIX::Side_BUY );
-  FIX::TransactTime transactTime;
-  FIX::OrdType ordType( FIX::OrdType_MARKET );
-  FIX42::NewOrderSingle message
-  ( clOrdID, handlInst, symbol, side, transactTime, ordType );
-  message.getHeader().set( FIX::MsgSeqNum( 1 ) );
-  std::string messageString = message.toString();
-
-  FIX::MySQLStore store( id, "quickfix", "root", "", "localhost", 3366 );
   store.reset();
   count = count - 1;
 
