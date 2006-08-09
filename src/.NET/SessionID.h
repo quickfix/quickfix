@@ -94,9 +94,18 @@ public:
     return ToString();
   }
 
-  int GetHashCode()
+  virtual int GetHashCode()
   {
       return toString()->GetHashCode();
+  }
+
+  virtual bool Equals( Object* object )
+  {
+	  if( Object::Equals( object ) )
+		  return true;
+	  if( !object->GetType()->Equals( __typeof( SessionID ) ) )
+		  return false;
+	  return static_cast<SessionID*>(object)->ToString()->Equals( ToString() );
   }
 
   void fromString( String* str )

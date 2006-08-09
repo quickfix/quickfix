@@ -50,7 +50,7 @@ public:
   {
     if( Object::Equals(object) == true )
       return true;
-    if( object->GetType()->Equals(__typeof(Field)) )
+    if( !object->GetType()->Equals(__typeof(Field)) )
       return false;
 
     return field == static_cast<Field*>(object)->getField() &&
