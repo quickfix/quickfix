@@ -5,6 +5,8 @@
 #include <string>
 #undef assert
 #include <vector>
+#include <typeinfo>
+#include <sstream>
 
 namespace CPPTest
 {
@@ -68,13 +70,10 @@ namespace CPPTest
       int m_line;
       std::string m_what;
 
-
       bool m_isError;
     };
 
   typedef std::vector<Exception> Exceptions;
-#if defined(HAVE_CPLUS_DEMANGLE)
-
 } // namespace CPPTest
 
 extern "C"
@@ -83,25 +82,36 @@ cplus_demangle(const char*, int);
 
 namespace CPPTest {
 
-#define assert(condition)\
-  if(!(condition))\
-  {\
-  const type_info& type = typeid(*this); \
-        std::string stypename("_Z"); \
-        stypename += type.name(); \
-        const char* dmtypename = cplus_demangle(type.name(), 0); \
-        if (!dmtypename) \
-          dmtypename = cplus_demangle(stypename.c_str(), 0); \
-throw CPPTest::Exception(std::string(dmtypename? dmtypename: stypename + " [demangle failed]"), (#condition), __LINE__, __FILE__);\
-  }
+inline std::string typeName( const std::type_info& type )
+{
+  std::string result;
+
+#if defined(HAVE_CPLUS_DEMANGLE)
+  std::string stypename("_Z");
+  stypename += type.name();
+  const char* dmtypename = cplus_demangle(type.name(), 0);
+  if (!dmtypename)
+    dmtypename = cplus_demangle(stypename.c_str(), 0);
+  result = std::string(dmtypename? dmtypename: stypename + " [demangle failed]");
 #else
-#define assert(condition)\
-  if(!(condition))\
-  {\
-    const type_info& type = typeid(*this);\
-    throw CPPTest::Exception((std::string) type.name(), (#condition), __LINE__, __FILE__);\
-  }
+    result = type.name();
 #endif
+
+  return result;
+}
+
+#define assert(condition) \
+  if(!(condition)) \
+    throw CPPTest::Exception(CPPTest::typeName(typeid(*this)), (#condition), __LINE__, __FILE__);
+
+#define assertEquals(value1, value2) \
+  if( (value1) != (value2) ) \
+  { \
+    std::stringstream __stream; \
+    __stream << "Expected: " << value1 << ", but received: " << value2; \
+    throw CPPTest::Exception(CPPTest::typeName(typeid(*this)), __stream.str(), __LINE__, __FILE__); \
+  }
+
 } // namespace CPPTest
 
 #endif //I_CPPTEST_EXCEPTION_H
