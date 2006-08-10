@@ -133,16 +133,38 @@ void HttpConnection::processStream()
   QF_STACK_POP
 }
 
-void HttpConnection::processRequest( const HttpMessage& message )
+void HttpConnection::processRequest( const HttpMessage& request )
 { QF_STACK_PUSH(HttpConnection::processRequest)
 
+  int error = 200;
   std::stringstream stream;
-  stream << "<HTML><HEAD><H1>QuickFIX</H1></HEAD><BODY>";
-  stream << "<TABLE>";
+  stream << "<HTML><HEAD><H1>QuickFIX Engine Web Interface</H1></HEAD><BODY>";
 
-  stream << "<TR>"
-         << "<TD>Session</TD>"
-         << "<TD>Logged On</TD>"
+  if( request.getUrl() == "/" )
+    processRoot( request, stream );
+  else if( request.getUrl() == "/session" )
+    processSession( request, stream );
+  else
+    error = 404;
+  stream << "</BODY></HTML>";
+
+  send( HttpMessage::createResponse(error, error == 200 ? stream.str() : "") );
+  disconnect();
+
+  QF_STACK_POP
+}
+
+void HttpConnection::processRoot( const HttpMessage& request, std::stringstream& stream )
+{ QF_STACK_PUSH(HttpConnection::processRequest)
+
+  stream << "<TABLE border='1' cellspacing='2' width='100%'>"
+         << "<CAPTION><EM>Sessions managed by QuickFIX</EM></CAPTION>"
+         << "<TR>"
+         << "<TD align='center'>Session</TD>"
+         << "<TD align='center'>Enabled</TD>"
+         << "<TD align='center'>Logged On</TD>"
+         << "<TD align='center'>Next Incoming</TD>"
+         << "<TD align='center'>Next Outgoing</TD>"
          << "</TR>";
 
   std::set<SessionID> sessions = Session::getSessions();
@@ -153,18 +175,55 @@ void HttpConnection::processRequest( const HttpMessage& message )
     {
       Session* pSession = Session::lookupSession( *i );
       stream << "<TR>";
-      stream << "<TD>" << *i << "</TD>";
+      stream << "<TD><A href=/session?beginstring=" << i->getBeginString()
+                                 << "&sendercompid=" << i->getSenderCompID()
+                                 << "&targetcompid=" << i->getTargetCompID()
+                                 << "&sessionqualifier=" << i->getSessionQualifier()
+             << ">" << *i << "</A></TD>";
+
+      stream << "<TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD>";
       stream << "<TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD>";
+      stream << "<TD>" << pSession->getExpectedSenderNum() << "</TD>";
+      stream << "<TD>" << pSession->getExpectedTargetNum() << "</TD>";
       stream << "</TR>";
     }
     catch( SessionNotFound& ) {}
   }
 
   stream << "</TABLE>";
-  stream << "</BODY></HTML>";
 
-  send( HttpMessage::createResponse(200, stream.str()) );
-  disconnect();
+  QF_STACK_POP
+}
+
+void HttpConnection::processSession( const HttpMessage& request, std::stringstream& stream )
+{ QF_STACK_PUSH(HttpConnection::processSession)
+
+  try
+  {
+    std::string beginString = request.getParameter( "beginstring" );
+    std::string senderCompID = request.getParameter( "sendercompid" );
+    std::string targetCompID = request.getParameter( "targetcompid" );
+    std::string sessionQualifier = request.getParameter( "sessionqualifier" );
+
+    SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
+
+    Session* pSession = Session::lookupSession( sessionID );
+    stream << "<TABLE border='1' cellspacing='2' width='100%'>"
+           << "<CAPTION><EM>" << sessionID << "</EM></CAPTION>"
+           << "<TR><TD>Enabled</TD><TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>Logged On</TD><TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>Next Incoming</TD><TD>" << pSession->getExpectedSenderNum() << "</TD></TR>"
+           << "<TR><TD>Next Outgoing</TD><TD>" << pSession->getExpectedTargetNum() << "</TD></TR>"
+           << "</TABLE>";
+  }
+  catch( SessionNotFound& )
+  {
+    stream << "Session not found";
+  }
+  catch( std::exception& e )
+  {
+    stream << e.what();
+  }
 
   QF_STACK_POP
 }

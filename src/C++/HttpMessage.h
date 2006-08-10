@@ -72,6 +72,15 @@ public:
   const Parameters& getParameters() const
   { return m_parameters; }
 
+  const std::string& getParameter( const std::string& key ) const
+  throw( std::logic_error )
+  {
+    Parameters::const_iterator find = m_parameters.find( key );
+    if( find == m_parameters.end() )
+      throw std::logic_error( "Parameter " + key + " not found" );
+    return find->second;
+  }
+
   static std::string createResponse( int error = 0, const std::string& text = "" );
  
 private:
