@@ -125,11 +125,11 @@ Session* SessionFactory::create( const SessionID& sessionID,
                           heartBtInt, m_pLogFactory );
 
   if ( settings.has( SEND_REDUNDANT_RESENDREQUESTS ) )
-    pSession->sendRedundantResendRequests( settings.getBool( SEND_REDUNDANT_RESENDREQUESTS ) );
+    pSession->setSendRedundantResendRequests( settings.getBool( SEND_REDUNDANT_RESENDREQUESTS ) );
   if ( settings.has( CHECK_COMPID ) )
-    pSession->checkCompId( settings.getBool( CHECK_COMPID ) );
+    pSession->setCheckCompId( settings.getBool( CHECK_COMPID ) );
   if ( settings.has( CHECK_LATENCY ) )
-    pSession->checkLatency( settings.getBool( CHECK_LATENCY ) );
+    pSession->setCheckLatency( settings.getBool( CHECK_LATENCY ) );
   if ( settings.has( MAX_LATENCY ) )
     pSession->setMaxLatency( settings.getLong( MAX_LATENCY ) );
   if ( settings.has( LOGON_TIMEOUT ) )

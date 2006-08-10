@@ -107,26 +107,59 @@ public:
 
   bool isSessionTime()
     { return m_sessionTime.isSessionTime(); }
-  void sendRedundantResendRequests ( bool value )
+
+  bool getSendRedundantResendRequests()
+    { return m_sendRedundantResendRequests; }
+  void setSendRedundantResendRequests ( bool value )
     { m_sendRedundantResendRequests = value; } 
-  void checkCompId ( bool value )
+
+  bool getCheckCompId()
+    { return m_checkCompId; }
+  void setCheckCompId ( bool value )
     { m_checkCompId = value; }
-  void checkLatency ( bool value )
+
+  bool getCheckLatency()
+    { return m_checkLatency; }
+  void setCheckLatency ( bool value )
     { m_checkLatency = value; }
+
+  int getMaxLatency()
+    { return m_maxLatency; }
   void setMaxLatency ( int value )
     { m_maxLatency = value; }
+
+  int getLogonTimeout()
+    { return m_state.logonTimeout(); }
   void setLogonTimeout ( int value )
     { m_state.logonTimeout( value ); }
+
+  int getLogoutTimeout()
+    { return m_state.logoutTimeout(); }
   void setLogoutTimeout ( int value )
     { m_state.logoutTimeout( value ); }
+
+  bool getResetOnLogon()
+    { return m_resetOnLogon; }
   void setResetOnLogon ( bool value )
     { m_resetOnLogon = value; }
+
+  bool getResetOnLogout()
+    { return m_resetOnLogout; }
   void setResetOnLogout ( bool value )
     { m_resetOnLogout = value; }
+
+  bool getResetOnDisconnect()
+    { return m_resetOnDisconnect; }
   void setResetOnDisconnect( bool value )
     { m_resetOnDisconnect = value; }
+
+  bool getRefreshOnLogon()
+    { return m_refreshOnLogon; }
   void setRefreshOnLogon( bool value )
     { m_refreshOnLogon = value; } 
+
+  bool getMillisecondsInTimeStamp()
+    { return m_millisecondsInTimeStamp; }
   void setMillisecondsInTimeStamp ( bool value )
     { m_millisecondsInTimeStamp = value; }
 

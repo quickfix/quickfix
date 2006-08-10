@@ -138,7 +138,7 @@ void HttpConnection::processRequest( const HttpMessage& request )
 
   int error = 200;
   std::stringstream stream;
-  stream << "<HTML><HEAD><H1>QuickFIX Engine Web Interface</H1></HEAD><BODY>";
+  stream << "<HTML><HEAD><CENTER><H1>QuickFIX Engine Web Interface</H1></CENTER></HEAD><BODY>";
 
   if( request.getUrl() == "/" )
     processRoot( request, stream );
@@ -158,10 +158,11 @@ void HttpConnection::processRoot( const HttpMessage& request, std::stringstream&
 { QF_STACK_PUSH(HttpConnection::processRequest)
 
   stream << "<TABLE border='1' cellspacing='2' width='100%'>"
-         << "<CAPTION><EM>Sessions managed by QuickFIX</EM></CAPTION>"
+         << "<CAPTION><EM>" << Session::numSessions() << " Sessions managed by QuickFIX</EM></CAPTION>"
          << "<TR>"
          << "<TD align='center'>Session</TD>"
          << "<TD align='center'>Enabled</TD>"
+         << "<TD align='center'>Session Time</TD>"
          << "<TD align='center'>Logged On</TD>"
          << "<TD align='center'>Next Incoming</TD>"
          << "<TD align='center'>Next Outgoing</TD>"
@@ -179,13 +180,13 @@ void HttpConnection::processRoot( const HttpMessage& request, std::stringstream&
                                  << "&sendercompid=" << i->getSenderCompID()
                                  << "&targetcompid=" << i->getTargetCompID()
                                  << "&sessionqualifier=" << i->getSessionQualifier()
-             << ">" << *i << "</A></TD>";
-
-      stream << "<TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD>";
-      stream << "<TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD>";
-      stream << "<TD>" << pSession->getExpectedSenderNum() << "</TD>";
-      stream << "<TD>" << pSession->getExpectedTargetNum() << "</TD>";
-      stream << "</TR>";
+             << ">" << *i << "</A></TD>"
+             << "<TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD>"
+             << "<TD>" << (pSession->isSessionTime() ? "yes" : "no") << "</TD>"
+             << "<TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD>"
+             << "<TD>" << pSession->getExpectedSenderNum() << "</TD>"
+             << "<TD>" << pSession->getExpectedTargetNum() << "</TD>"
+             << "</TR>";
     }
     catch( SessionNotFound& ) {}
   }
@@ -211,9 +212,32 @@ void HttpConnection::processSession( const HttpMessage& request, std::stringstre
     stream << "<TABLE border='1' cellspacing='2' width='100%'>"
            << "<CAPTION><EM>" << sessionID << "</EM></CAPTION>"
            << "<TR><TD>Enabled</TD><TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>Session Time</TD><TD>" << (pSession->isSessionTime() ? "yes" : "no") << "</TD></TR>"
            << "<TR><TD>Logged On</TD><TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD></TR>"
            << "<TR><TD>Next Incoming</TD><TD>" << pSession->getExpectedSenderNum() << "</TD></TR>"
            << "<TR><TD>Next Outgoing</TD><TD>" << pSession->getExpectedTargetNum() << "</TD></TR>"
+           << "<TR><TD>" << SEND_REDUNDANT_RESENDREQUESTS << "</TD>"
+           << "<TD>" << (pSession->getSendRedundantResendRequests() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>" << CHECK_COMPID << "</TD>"
+           << "<TD>" << (pSession->getCheckCompId() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>" << CHECK_LATENCY << "</TD>"
+           << "<TD>" << (pSession->getCheckLatency() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>" << MAX_LATENCY << "</TD>"
+           << "<TD>" << pSession->getMaxLatency() << "</TD></TR>"
+           << "<TR><TD>" << LOGON_TIMEOUT << "</TD>"
+           << "<TD>" << pSession->getLogonTimeout() << "</TD></TR>"
+           << "<TR><TD>" << LOGOUT_TIMEOUT << "</TD>"
+           << "<TD>" << pSession->getLogoutTimeout() << "</TD></TR>"
+           << "<TR><TD>" << RESET_ON_LOGON << "</TD>"
+           << "<TD>" << (pSession->getResetOnLogon() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>" << RESET_ON_LOGOUT << "</TD>"
+           << "<TD>" << (pSession->getResetOnLogout() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>" << RESET_ON_DISCONNECT << "</TD>"
+           << "<TD>" << (pSession->getResetOnDisconnect() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>" << REFRESH_ON_LOGON << "</TD>"
+           << "<TD>" << (pSession->getRefreshOnLogon() ? "yes" : "no") << "</TD></TR>"
+           << "<TR><TD>" << MILLISECONDS_IN_TIMESTAMP << "</TD>"
+           << "<TD>" << (pSession->getMillisecondsInTimeStamp() ? "yes" : "no") << "</TD></TR>"
            << "</TABLE>";
   }
   catch( SessionNotFound& )
