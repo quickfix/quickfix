@@ -50,6 +50,8 @@ public:
   {
     if( Object::Equals(object) == true )
       return true;
+	if( object == 0 )
+	  return false;
     if( !object->GetType()->Equals(__typeof(Field)) )
       return false;
 

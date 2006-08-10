@@ -96,13 +96,15 @@ public:
 
   virtual int GetHashCode()
   {
-      return toString()->GetHashCode();
+      return ToString()->GetHashCode();
   }
 
   virtual bool Equals( Object* object )
   {
 	  if( Object::Equals( object ) )
 		  return true;
+	  if( object == 0 )
+		  return false;
 	  if( !object->GetType()->Equals( __typeof( SessionID ) ) )
 		  return false;
 	  return static_cast<SessionID*>(object)->ToString()->Equals( ToString() );
