@@ -45,8 +45,10 @@ private:
   bool readMessage( std::string& msg ) throw( SocketRecvFailed );
   void processStream();
   void processRequest( const HttpMessage& );
-  void processRoot( const HttpMessage&, std::stringstream& );
-  void processSession( const HttpMessage&, std::stringstream& );
+  void processRoot( const HttpMessage&, std::stringstream& header, std::stringstream& body );
+  void processSession( const HttpMessage&, std::stringstream& header, std::stringstream& body );
+  void processResetSession( const HttpMessage&, std::stringstream& header, std::stringstream& body );
+  void processRefreshSession( const HttpMessage&, std::stringstream& header, std::stringstream& body );
   bool send( const std::string& );
   void disconnect( int error = 0 );
 

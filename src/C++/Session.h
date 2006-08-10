@@ -107,6 +107,10 @@ public:
 
   bool isSessionTime()
     { return m_sessionTime.isSessionTime(); }
+  bool isInitiator()
+    { return m_state.initiate(); }
+  bool isAcceptor()
+    { return !m_state.initiate(); }
 
   bool getSendRedundantResendRequests()
     { return m_sendRedundantResendRequests; }

@@ -47,7 +47,7 @@ public:
 
   HttpMessage( const HttpMessage& copy )
   {
-    m_url = copy.m_url;
+    m_root = copy.m_root;
     m_parameters = copy.m_parameters;
   }
 
@@ -62,15 +62,33 @@ public:
 
   void clear()
   {
-    m_url.clear();
+    m_root.clear();
     m_parameters.clear();
   }
 
-  const std::string& getUrl() const
-  { return m_url; }
+  const std::string& getRootString() const
+  { return m_root; }
+
+  const std::string getParameterString() const
+  {
+    std::string result;
+    Parameters::const_iterator i;
+    for( i = m_parameters.begin(); i != m_parameters.end(); ++i )
+    {
+      result += (i == m_parameters.begin()) ? "?" : "&";
+      result += i->first + "=" + i->second;
+    }
+    return result;
+  }
 
   const Parameters& getParameters() const
   { return m_parameters; }
+
+  bool hasParameter( const std::string& key ) const
+  {
+    Parameters::const_iterator find = m_parameters.find( key );
+    return find != m_parameters.end();
+  }
 
   const std::string& getParameter( const std::string& key ) const
   throw( std::logic_error )
@@ -81,10 +99,20 @@ public:
     return find->second;
   }
 
+  void addParameter( const std::string& key, const std::string& value )
+  {
+    m_parameters[key] = value;
+  }
+
+  void removeParameter( const std::string& key )
+  {
+    m_parameters.erase( key );
+  }  
+
   static std::string createResponse( int error = 0, const std::string& text = "" );
  
 private:
-  std::string m_url;
+  std::string m_root;
   Parameters m_parameters;
 };
 /*! @} */

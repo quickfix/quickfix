@@ -137,116 +137,303 @@ void HttpConnection::processRequest( const HttpMessage& request )
 { QF_STACK_PUSH(HttpConnection::processRequest)
 
   int error = 200;
-  std::stringstream stream;
-  stream << "<HTML><HEAD><CENTER><H1>QuickFIX Engine Web Interface</H1></CENTER></HEAD><BODY>";
+  std::stringstream header;
+  std::stringstream body;
+  std::string title = "QuickFIX Engine Web Interface";
 
-  if( request.getUrl() == "/" )
-    processRoot( request, stream );
-  else if( request.getUrl() == "/session" )
-    processSession( request, stream );
-  else
-    error = 404;
-  stream << "</BODY></HTML>";
+  header << "<HEAD><CENTER><TITLE>" << title << "</TITLE><H1>" << title << "</H1></CENTER>"
+         << "<CENTER>[<A HREF='/'>HOME</A>]"
+         << "&nbsp;[<A HREF='" << request.toString() << "'>REFRESH</A>]"
+         << "</CENTER><HR/>";
+  body << "<BODY>";
 
-  send( HttpMessage::createResponse(error, error == 200 ? stream.str() : "") );
+  try
+  {
+    if( request.getRootString() == "/" )
+      processRoot( request, header, body );
+    else if( request.getRootString() == "/session" )
+      processSession( request, header, body );
+    else if( request.getRootString() == "/resetSession" )
+      processResetSession( request, header, body );
+    else if( request.getRootString() == "/refreshSession" )
+      processRefreshSession( request, header, body );
+    else
+      error = 404;
+  }
+  catch( std::exception& e )
+  {
+    error = 400;
+    body << e.what();
+  }
+
+  header << "</HEADER>";
+  body << "</BODY>";
+
+  std::string response = "<HTML>" + header.str() + body.str() + "</HTML>";
+  send( HttpMessage::createResponse(error, error == 200 ? response : "") );
+
   disconnect();
 
   QF_STACK_POP
 }
 
-void HttpConnection::processRoot( const HttpMessage& request, std::stringstream& stream )
-{ QF_STACK_PUSH(HttpConnection::processRequest)
+void HttpConnection::processRoot
+( const HttpMessage& request, std::stringstream& header, std::stringstream& body )
+{ QF_STACK_PUSH(HttpConnection::processRoot)
 
-  stream << "<TABLE border='1' cellspacing='2' width='100%'>"
-         << "<CAPTION><EM>" << Session::numSessions() << " Sessions managed by QuickFIX</EM></CAPTION>"
-         << "<TR>"
-         << "<TD align='center'>Session</TD>"
-         << "<TD align='center'>Enabled</TD>"
-         << "<TD align='center'>Session Time</TD>"
-         << "<TD align='center'>Logged On</TD>"
-         << "<TD align='center'>Next Incoming</TD>"
-         << "<TD align='center'>Next Outgoing</TD>"
-         << "</TR>";
+  body << "<TABLE border='1' cellspacing='2' width='100%'>"
+       << "<CAPTION><EM>" << Session::numSessions() << " Sessions managed by QuickFIX</EM></CAPTION>"
+       << "<TR>"
+       << "<TD align='center'>Session</TD>"
+       << "<TD align='center'>Type</TD>"
+       << "<TD align='center'>Enabled</TD>"
+       << "<TD align='center'>Session Time</TD>"
+       << "<TD align='center'>Logged On</TD>"
+       << "<TD align='center'>Next Incoming</TD>"
+       << "<TD align='center'>Next Outgoing</TD>"
+       << "</TR>";
 
   std::set<SessionID> sessions = Session::getSessions();
   std::set<SessionID>::iterator i;
   for( i = sessions.begin(); i != sessions.end(); ++i )
   {
-    try
-    {
-      Session* pSession = Session::lookupSession( *i );
-      stream << "<TR>";
-      stream << "<TD><A href=/session?beginstring=" << i->getBeginString()
-                                 << "&sendercompid=" << i->getSenderCompID()
-                                 << "&targetcompid=" << i->getTargetCompID()
-                                 << "&sessionqualifier=" << i->getSessionQualifier()
-             << ">" << *i << "</A></TD>"
-             << "<TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD>"
-             << "<TD>" << (pSession->isSessionTime() ? "yes" : "no") << "</TD>"
-             << "<TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD>"
-             << "<TD>" << pSession->getExpectedSenderNum() << "</TD>"
-             << "<TD>" << pSession->getExpectedTargetNum() << "</TD>"
-             << "</TR>";
-    }
-    catch( SessionNotFound& ) {}
+    Session* pSession = Session::lookupSession( *i );
+    if( !pSession ) continue;
+
+    body << "<TR>"
+         << "<TD><A href=/session?BeginString=" << i->getBeginString()
+                            << "&SenderCompID=" << i->getSenderCompID()
+                            << "&TargetCompID=" << i->getTargetCompID()
+                            << "&SessionQualifier=" << i->getSessionQualifier()
+         << ">" << *i << "</A></TD>"
+         << "<TD>" << (pSession->isInitiator() ? "initiator" : "acceptor") << "</TD>"
+         << "<TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD>"
+         << "<TD>" << (pSession->isSessionTime() ? "yes" : "no") << "</TD>"
+         << "<TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD>"
+         << "<TD>" << pSession->getExpectedSenderNum() << "</TD>"
+         << "<TD>" << pSession->getExpectedTargetNum() << "</TD>"
+         << "</TR>";
   }
 
-  stream << "</TABLE>";
+  body << "</TABLE>";
 
   QF_STACK_POP
 }
 
-void HttpConnection::processSession( const HttpMessage& request, std::stringstream& stream )
+void HttpConnection::processSession
+( const HttpMessage& request, std::stringstream& header, std::stringstream& body )
 { QF_STACK_PUSH(HttpConnection::processSession)
 
   try
   {
-    std::string beginString = request.getParameter( "beginstring" );
-    std::string senderCompID = request.getParameter( "sendercompid" );
-    std::string targetCompID = request.getParameter( "targetcompid" );
-    std::string sessionQualifier = request.getParameter( "sessionqualifier" );
-
+    HttpMessage copy = request;
+    std::string url = request.toString();
+    std::string beginString = copy.getParameter( "BeginString" );
+    std::string senderCompID = copy.getParameter( "SenderCompID" );
+    std::string targetCompID = copy.getParameter( "TargetCompID" );
+    std::string sessionQualifier = copy.getParameter( "SessionQualifier" );
     SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
-
     Session* pSession = Session::lookupSession( sessionID );
-    stream << "<TABLE border='1' cellspacing='2' width='100%'>"
-           << "<CAPTION><EM>" << sessionID << "</EM></CAPTION>"
-           << "<TR><TD>Enabled</TD><TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>Session Time</TD><TD>" << (pSession->isSessionTime() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>Logged On</TD><TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>Next Incoming</TD><TD>" << pSession->getExpectedSenderNum() << "</TD></TR>"
-           << "<TR><TD>Next Outgoing</TD><TD>" << pSession->getExpectedTargetNum() << "</TD></TR>"
-           << "<TR><TD>" << SEND_REDUNDANT_RESENDREQUESTS << "</TD>"
-           << "<TD>" << (pSession->getSendRedundantResendRequests() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>" << CHECK_COMPID << "</TD>"
-           << "<TD>" << (pSession->getCheckCompId() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>" << CHECK_LATENCY << "</TD>"
-           << "<TD>" << (pSession->getCheckLatency() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>" << MAX_LATENCY << "</TD>"
-           << "<TD>" << pSession->getMaxLatency() << "</TD></TR>"
-           << "<TR><TD>" << LOGON_TIMEOUT << "</TD>"
-           << "<TD>" << pSession->getLogonTimeout() << "</TD></TR>"
-           << "<TR><TD>" << LOGOUT_TIMEOUT << "</TD>"
-           << "<TD>" << pSession->getLogoutTimeout() << "</TD></TR>"
-           << "<TR><TD>" << RESET_ON_LOGON << "</TD>"
-           << "<TD>" << (pSession->getResetOnLogon() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>" << RESET_ON_LOGOUT << "</TD>"
-           << "<TD>" << (pSession->getResetOnLogout() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>" << RESET_ON_DISCONNECT << "</TD>"
-           << "<TD>" << (pSession->getResetOnDisconnect() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>" << REFRESH_ON_LOGON << "</TD>"
-           << "<TD>" << (pSession->getRefreshOnLogon() ? "yes" : "no") << "</TD></TR>"
-           << "<TR><TD>" << MILLISECONDS_IN_TIMESTAMP << "</TD>"
-           << "<TD>" << (pSession->getMillisecondsInTimeStamp() ? "yes" : "no") << "</TD></TR>"
-           << "</TABLE>";
-  }
-  catch( SessionNotFound& )
-  {
-    stream << "Session not found";
+    if( pSession == 0 ) throw SessionNotFound();
+
+    if( copy.hasParameter("Enabled") )
+    {
+      IntConvertor::convert(copy.getParameter("Enabled")) ? pSession->logon() : pSession->logout();
+      copy.removeParameter("Enabled");
+    }
+    if( copy.hasParameter(SEND_REDUNDANT_RESENDREQUESTS) )
+    {
+      pSession->setSendRedundantResendRequests( IntConvertor::convert(copy.getParameter(SEND_REDUNDANT_RESENDREQUESTS)) );
+      copy.removeParameter(SEND_REDUNDANT_RESENDREQUESTS);
+    }
+    if( copy.hasParameter(CHECK_COMPID) )
+    {
+      pSession->setCheckCompId( IntConvertor::convert(copy.getParameter(CHECK_COMPID)) );
+      copy.removeParameter(CHECK_COMPID);
+    }
+    if( copy.hasParameter(CHECK_LATENCY) )
+    {
+      pSession->setCheckLatency( IntConvertor::convert(copy.getParameter(CHECK_LATENCY)) );
+      copy.removeParameter(CHECK_LATENCY);
+    }
+    if( copy.hasParameter(RESET_ON_LOGON) )
+    {
+      pSession->setResetOnLogon( IntConvertor::convert(copy.getParameter(RESET_ON_LOGON)) );
+      copy.removeParameter(RESET_ON_LOGON);
+    }
+    if( copy.hasParameter(RESET_ON_LOGOUT) )
+    {
+      pSession->setResetOnLogout( IntConvertor::convert(copy.getParameter(RESET_ON_LOGOUT)) );
+      copy.removeParameter(RESET_ON_LOGOUT);
+    }
+    if( copy.hasParameter(RESET_ON_DISCONNECT) )
+    {
+      pSession->setResetOnDisconnect( IntConvertor::convert(copy.getParameter(RESET_ON_DISCONNECT)) );
+      copy.removeParameter(RESET_ON_DISCONNECT);
+    }
+    if( copy.hasParameter(REFRESH_ON_LOGON) )
+    {
+      pSession->setRefreshOnLogon( IntConvertor::convert(copy.getParameter(REFRESH_ON_LOGON)) );
+      copy.removeParameter(REFRESH_ON_LOGON);
+    }
+    if( copy.hasParameter(MILLISECONDS_IN_TIMESTAMP) )
+    {
+      pSession->setMillisecondsInTimeStamp( IntConvertor::convert(copy.getParameter(MILLISECONDS_IN_TIMESTAMP)) );
+      copy.removeParameter(MILLISECONDS_IN_TIMESTAMP);
+    }
+
+    if( url != copy.toString() )
+      header << "<META http-equiv='refresh' content=0;URL='" << copy.toString() << "'>";
+
+    body << "<TABLE border='1' cellspacing='2' width='100%'>"
+         << "<CAPTION><EM>" << sessionID 
+         << "&nbsp;(<A href='/resetSession" << copy.getParameterString() << "'>RESET</A>)"
+         << "&nbsp;(<A href='/refreshSession" << copy.getParameterString() << "'>REFRESH</A>)"
+         << "</EM></CAPTION>"
+         << "<TR><TD>Enabled</TD><TD>" 
+         << (pSession->isEnabled() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url + "&Enabled=" << !pSession->isEnabled() << "'>" << "[toggle]</A></TD></TR>" 
+         << "<TR><TD>Type</TD><TD>" 
+         << (pSession->isInitiator() ? "initiator" : "acceptor") << "</TD></TR>"
+         << "<TR><TD>Session Time</TD><TD>" 
+         << (pSession->isSessionTime() ? "yes" : "no") << "</TD></TR>"
+         << "<TR><TD>Logged On</TD><TD>" 
+         << (pSession->isLoggedOn() ? "yes" : "no") << "</TD></TR>"
+         << "<TR><TD>Next Incoming</TD><TD>" 
+         << pSession->getExpectedSenderNum() << "</TD></TR>"
+         << "<TR><TD>Next Outgoing</TD><TD>" 
+         << pSession->getExpectedTargetNum() << "</TD></TR>"
+         << "<TD>" << SEND_REDUNDANT_RESENDREQUESTS << "</TD>"
+         << "<TD>" << (pSession->getSendRedundantResendRequests() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << SEND_REDUNDANT_RESENDREQUESTS << "=" << !pSession->getSendRedundantResendRequests() << "'>" << "[toggle]</A></TD></TR>"
+         << "<TD>" << CHECK_COMPID << "</TD>"
+         << "<TD>" << (pSession->getCheckCompId() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << CHECK_COMPID << "=" << !pSession->getCheckCompId() << "'>" << "[toggle]</A></TD></TR>" 
+         << "<TR><TD>" << CHECK_LATENCY << "</TD>"
+         << "<TD>" << (pSession->getCheckLatency() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << CHECK_LATENCY << "=" << !pSession->getCheckLatency() << "'>" << "[toggle]</A></TD></TR>"
+         << "<TR><TD>" << MAX_LATENCY << "</TD>"
+         << "<TD>" << pSession->getMaxLatency() << "</TD></TR>"
+         << "<TR><TD>" << LOGON_TIMEOUT << "</TD>"
+         << "<TD>" << pSession->getLogonTimeout() << "</TD></TR>"
+         << "<TR><TD>" << LOGOUT_TIMEOUT << "</TD>"
+         << "<TD>" << pSession->getLogoutTimeout() << "</TD></TR>"
+         << "<TR><TD>" << RESET_ON_LOGON << "</TD>"
+         << "<TD>" << (pSession->getResetOnLogon() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << RESET_ON_LOGON << "=" << !pSession->getResetOnLogon() << "'>" << "[toggle]</A></TD></TR>"
+         << "<TR><TD>" << RESET_ON_LOGOUT << "</TD>"
+         << "<TD>" << (pSession->getResetOnLogout() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << RESET_ON_LOGOUT << "=" << !pSession->getResetOnLogout() << "'>" << "[toggle]</A></TD></TR>"
+         << "<TR><TD>" << RESET_ON_DISCONNECT << "</TD>"
+         << "<TD>" << (pSession->getResetOnDisconnect() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << RESET_ON_DISCONNECT << "=" << !pSession->getResetOnDisconnect() << "'>" << "[toggle]</A></TD></TR>"
+         << "<TR><TD>" << REFRESH_ON_LOGON << "</TD>"
+         << "<TD>" << (pSession->getRefreshOnLogon() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << REFRESH_ON_LOGON << "=" << !pSession->getRefreshOnLogon() << "'>" << "[toggle]</A></TD></TR>"
+         << "<TR><TD>" << MILLISECONDS_IN_TIMESTAMP << "</TD>"
+         << "<TD>" << (pSession->getMillisecondsInTimeStamp() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << MILLISECONDS_IN_TIMESTAMP << "=" << !pSession->getMillisecondsInTimeStamp() << "'>" << "[toggle]</A></TD></TR>"
+         << "</TABLE>";
   }
   catch( std::exception& e )
   {
-    stream << e.what();
+    body << e.what();
+  }
+
+  QF_STACK_POP
+}
+
+void HttpConnection::processResetSession
+( const HttpMessage& request, std::stringstream& header, std::stringstream& body )
+{ QF_STACK_PUSH(HttpConnection::processResetSession)
+
+  try
+  {
+    HttpMessage copy = request;
+    std::string beginString = request.getParameter( "BeginString" );
+    std::string senderCompID = request.getParameter( "SenderCompID" );
+    std::string targetCompID = request.getParameter( "TargetCompID" );
+    std::string sessionQualifier = request.getParameter( "SessionQualifier" );
+    SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
+    Session* pSession = Session::lookupSession( sessionID );
+    if( pSession == 0 ) throw SessionNotFound();
+
+    std::string sessionUrl = "/session" + request.getParameterString();
+
+    bool confirm = false;
+    if( copy.hasParameter("confirm") && IntConvertor::convert(copy.getParameter("confirm")) )
+    {
+      confirm = true;
+      pSession->reset();
+      copy.removeParameter("confirm");
+    }
+
+    if( confirm )
+    {
+      header << "<META http-equiv='refresh' content=2;URL='" << sessionUrl << "'>";
+      body << "<CENTER><H2><A href='" << sessionUrl << request.getParameterString() << "'>" 
+           << sessionID << "</A> has been reset</H2></CENTER>";
+    }
+    else
+    {
+      body << "<CENTER><H2>Are you sure you want to reset session <A href='" << sessionUrl 
+           << request.getParameterString() << "'>" << sessionID << "</A>?</H2></CENTER>"
+           << "<CENTER>[<A HREF='" << request.toString() + "&confirm=1'>YES, reset session</A>]"
+           << "&nbsp;[<A HREF='" << sessionUrl << "'>NO, do not reset session</A>]"
+           << "</CENTER>";
+    }
+  }
+  catch( std::exception& e )
+  {
+    body << e.what();
+  }
+
+  QF_STACK_POP
+}
+
+void HttpConnection::processRefreshSession
+( const HttpMessage& request, std::stringstream& header, std::stringstream& body )
+{ QF_STACK_PUSH(HttpConnection::processRefreshSession)
+
+  try
+  {
+    HttpMessage copy = request;
+    std::string beginString = request.getParameter( "BeginString" );
+    std::string senderCompID = request.getParameter( "SenderCompID" );
+    std::string targetCompID = request.getParameter( "TargetCompID" );
+    std::string sessionQualifier = request.getParameter( "SessionQualifier" );
+    SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
+    Session* pSession = Session::lookupSession( sessionID );
+    if( pSession == 0 ) throw SessionNotFound();
+
+    std::string sessionUrl = "/session" + request.getParameterString();
+
+    bool confirm = false;
+    if( copy.hasParameter("confirm") && IntConvertor::convert(copy.getParameter("confirm")) )
+    {
+      confirm = true;
+      pSession->refresh();
+      copy.removeParameter("confirm");
+    }
+
+    if( confirm )
+    {
+      header << "<META http-equiv='refresh' content=2;URL='" << sessionUrl << "'>";
+      body << "<CENTER><H2><A href='" << sessionUrl << request.getParameterString() << "'>" 
+           << sessionID << "</A> has been refreshed</H2></CENTER>";
+    }
+    else
+    {
+      body << "<CENTER><H2>Are you sure you want to refresh session <A href='" << sessionUrl 
+           << request.getParameterString() << "'>" << sessionID << "</A>?</H2></CENTER>"
+           << "<CENTER>[<A HREF='" << request.toString() + "&confirm=1'>YES, refresh session</A>]"
+           << "&nbsp;[<A HREF='" << sessionUrl << "'>NO, do not refresh session</A>]"
+           << "</CENTER>";
+    }
+  }
+  catch( std::exception& e )
+  {
+    body << e.what();
   }
 
   QF_STACK_POP

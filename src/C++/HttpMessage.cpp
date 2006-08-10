@@ -52,6 +52,7 @@ std::string HttpMessage::toString() const
 std::string& HttpMessage::toString( std::string& str ) const
 { QF_STACK_PUSH(HttpMessage::toString)
 
+  str = m_root + getParameterString();
   return str;
 
   QF_STACK_POP
@@ -71,11 +72,11 @@ throw( InvalidMessage )
   std::string::size_type httpPos = line.find_last_of( "HTTP", std::string::npos );
   if( httpPos == std::string::npos ) throw InvalidMessage();
 
-  m_url = line.substr( getPos + 4, httpPos - 8 );
-  std::string::size_type paramPos = m_url.find_first_of( "?" );
+  m_root = line.substr( getPos + 4, httpPos - 8 );
+  std::string::size_type paramPos = m_root.find_first_of( "?" );
   if( paramPos == std::string::npos ) return;
-  std::string parameters = m_url.substr( paramPos, m_url.size() - paramPos );
-  m_url = m_url.substr( 0, paramPos );
+  std::string parameters = m_root.substr( paramPos, m_root.size() - paramPos );
+  m_root = m_root.substr( 0, paramPos );
   paramPos = 0;
 
   while( paramPos != std::string::npos )
@@ -147,9 +148,9 @@ std::string HttpMessage::createResponse( int error, const std::string& text )
            << "Content-Type: text/html; charset=iso-8859-1" << "\r\n\r\n"
            << "<!DOCTYPE HTML PUBLIC \"-//IETF//DTD HTML 2.0//EN\">";
 
-  if( !text.size() )
+  if( error < 200 || error >= 300 )
     response << "<HTML><HEAD><TITLE>" << error << " " << errorString << "</TITLE></HEAD><BODY>"
-             << "<H1>" << errorString << "</H1></BODY></HTML>";
+             << "<H1>" << error << " " << errorString << "</H1>" << text << "</BODY></HTML>";
   else
     response << text;
 

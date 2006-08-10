@@ -47,21 +47,21 @@ void HttpMessageTestCase::setString::onRun( HttpMessage& object )
   try
   {
     object.setString( strGood1 );
-    assertEquals( "/", object.getUrl() );
+    assertEquals( "/", object.getRootString() );
     assertEquals( 0, object.getParameters().size() );
   } catch( InvalidMessage& ) { assert(false); }
 
   try
   {
     object.setString( strGood2 );
-    assertEquals( "/another/url", object.getUrl() );
+    assertEquals( "/another/url", object.getRootString() );
     assertEquals( 0, object.getParameters().size() );
   } catch( InvalidMessage& ) { assert(false); }
 
   try
   {
     object.setString( strGoodWithParameters );
-    assertEquals( "/some/url", object.getUrl() );
+    assertEquals( "/some/url", object.getRootString() );
     assertEquals( 3, object.getParameters().size() );
     assertEquals( "one", object.getParameters().find("p1")->second );
     assertEquals( "two", object.getParameters().find("p2")->second );
@@ -71,7 +71,7 @@ void HttpMessageTestCase::setString::onRun( HttpMessage& object )
   try
   {
     object.setString( strGoodWithEmptyParameters );
-    assertEquals( "/some/url", object.getUrl() );
+    assertEquals( "/some/url", object.getRootString() );
     assertEquals( 3, object.getParameters().size() );
     assertEquals( "", object.getParameters().find("p1")->second );
     assertEquals( "", object.getParameters().find("p2")->second );
