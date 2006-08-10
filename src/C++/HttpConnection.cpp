@@ -86,7 +86,7 @@ bool HttpConnection::read()
     processStream();
     return true;
   }
-  catch ( SocketRecvFailed& e )
+  catch ( SocketRecvFailed& )
   {
     disconnect();
     return false;

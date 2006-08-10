@@ -2282,6 +2282,22 @@
 				Filter="*.cpp"
 				>
 				<File
+					RelativePath=".\HttpConnection.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HttpMessage.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HttpParser.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\HttpServer.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\SocketAcceptor.cpp"
 					>
 				</File>
@@ -2322,6 +2338,22 @@
 				Name="Socket Header Files"
 				Filter="*.h"
 				>
+				<File
+					RelativePath=".\HttpConnection.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HttpMessage.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HttpParser.h"
+					>
+				</File>
+				<File
+					RelativePath=".\HttpServer.h"
+					>
+				</File>
 				<File
 					RelativePath=".\SocketAcceptor.h"
 					>

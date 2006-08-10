@@ -1478,6 +1478,22 @@ SOURCE=".\MessageSorters.cpp"
 # PROP Default_Filter "*.cpp"
 # Begin Source File
 
+SOURCE=.\HttpConnection.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HttpMessage.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HttpParser.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\HttpServer.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=".\SocketAcceptor.cpp"
 # End Source File
 # Begin Source File
@@ -1516,6 +1532,22 @@ SOURCE=".\ThreadedSocketInitiator.cpp"
 # Begin Group "Socket Header Files"
 
 # PROP Default_Filter "*.h"
+# Begin Source File
+
+SOURCE=.\HttpConnection.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HttpMessage.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HttpParser.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\HttpServer.h
+# End Source File
 # Begin Source File
 
 SOURCE=".\SocketAcceptor.h"

@@ -126,6 +126,14 @@ SOURCE=.\getopt.c
 # End Source File
 # Begin Source File
 
+SOURCE=".\C++\test\HttpMessageTestCase.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\HttpParserTestCase.cpp"
+# End Source File
+# Begin Source File
+
 SOURCE=".\C++\test\MemoryStoreTestCase.cpp"
 # End Source File
 # Begin Source File
@@ -243,6 +251,14 @@ SOURCE=".\C++\test\FileUtilitiesTestCase.h"
 # Begin Source File
 
 SOURCE=".\getopt-repl.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\HttpMessageTestCase.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\HttpParserTestCase.h"
 # End Source File
 # Begin Source File
 

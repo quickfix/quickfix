@@ -175,6 +175,12 @@
 				RelativePath=".\getopt.c">
 			</File>
 			<File
+				RelativePath=".\C++\test\HttpMessageTestCase.cpp">
+			</File>
+			<File
+				RelativePath=".\C++\test\HttpParserTestCase.cpp">
+			</File>
+			<File
 				RelativePath=".\C++\test\MemoryStoreTestCase.cpp">
 			</File>
 			<File
@@ -264,6 +270,12 @@
 			</File>
 			<File
 				RelativePath=".\getopt-repl.h">
+			</File>
+			<File
+				RelativePath=".\C++\test\HttpMessageTestCase.h">
+			</File>
+			<File
+				RelativePath=".\C++\test\HttpParserTestCase.h">
 			</File>
 			<File
 				RelativePath=".\C++\test\MemoryStoreTestCase.h">
