@@ -118,7 +118,8 @@ void HttpConnection::processStream()
   std::string msg;
   try
   {
-    readMessage(msg);
+    if( !readMessage(msg) )
+      return;
     HttpMessage request( msg );
     processRequest( request );
   }
@@ -203,9 +204,11 @@ void HttpConnection::processRoot
     body << "<TR>"
          << "<TD><A href=/session?BeginString=" << i->getBeginString()
                             << "&SenderCompID=" << i->getSenderCompID()
-                            << "&TargetCompID=" << i->getTargetCompID()
-                            << "&SessionQualifier=" << i->getSessionQualifier()
-         << ">" << *i << "</A></TD>"
+                            << "&TargetCompID=" << i->getTargetCompID();
+    if( i->getSessionQualifier().size() )
+      body << "&SessionQualifier=" << i->getSessionQualifier();
+
+    body << ">" << *i << "</A></TD>"
          << "<TD>" << (pSession->isInitiator() ? "initiator" : "acceptor") << "</TD>"
          << "<TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD>"
          << "<TD>" << (pSession->isSessionTime() ? "yes" : "no") << "</TD>"
@@ -231,7 +234,10 @@ void HttpConnection::processSession
     std::string beginString = copy.getParameter( "BeginString" );
     std::string senderCompID = copy.getParameter( "SenderCompID" );
     std::string targetCompID = copy.getParameter( "TargetCompID" );
-    std::string sessionQualifier = copy.getParameter( "SessionQualifier" );
+    std::string sessionQualifier;
+	if( copy.hasParameter("SessionQualifier") )
+		sessionQualifier = copy.getParameter( "SessionQualifier" );
+
     SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
     Session* pSession = Session::lookupSession( sessionID );
     if( pSession == 0 ) throw SessionNotFound();
@@ -243,42 +249,42 @@ void HttpConnection::processSession
     }
     if( copy.hasParameter(SEND_REDUNDANT_RESENDREQUESTS) )
     {
-      pSession->setSendRedundantResendRequests( IntConvertor::convert(copy.getParameter(SEND_REDUNDANT_RESENDREQUESTS)) );
+      pSession->setSendRedundantResendRequests( IntConvertor::convert(copy.getParameter(SEND_REDUNDANT_RESENDREQUESTS)) != 0 );
       copy.removeParameter(SEND_REDUNDANT_RESENDREQUESTS);
     }
     if( copy.hasParameter(CHECK_COMPID) )
     {
-      pSession->setCheckCompId( IntConvertor::convert(copy.getParameter(CHECK_COMPID)) );
+      pSession->setCheckCompId( IntConvertor::convert(copy.getParameter(CHECK_COMPID)) != 0 );
       copy.removeParameter(CHECK_COMPID);
     }
     if( copy.hasParameter(CHECK_LATENCY) )
     {
-      pSession->setCheckLatency( IntConvertor::convert(copy.getParameter(CHECK_LATENCY)) );
+      pSession->setCheckLatency( IntConvertor::convert(copy.getParameter(CHECK_LATENCY)) != 0 );
       copy.removeParameter(CHECK_LATENCY);
     }
     if( copy.hasParameter(RESET_ON_LOGON) )
     {
-      pSession->setResetOnLogon( IntConvertor::convert(copy.getParameter(RESET_ON_LOGON)) );
+      pSession->setResetOnLogon( IntConvertor::convert(copy.getParameter(RESET_ON_LOGON)) != 0 );
       copy.removeParameter(RESET_ON_LOGON);
     }
     if( copy.hasParameter(RESET_ON_LOGOUT) )
     {
-      pSession->setResetOnLogout( IntConvertor::convert(copy.getParameter(RESET_ON_LOGOUT)) );
+      pSession->setResetOnLogout( IntConvertor::convert(copy.getParameter(RESET_ON_LOGOUT)) != 0 );
       copy.removeParameter(RESET_ON_LOGOUT);
     }
     if( copy.hasParameter(RESET_ON_DISCONNECT) )
     {
-      pSession->setResetOnDisconnect( IntConvertor::convert(copy.getParameter(RESET_ON_DISCONNECT)) );
+      pSession->setResetOnDisconnect( IntConvertor::convert(copy.getParameter(RESET_ON_DISCONNECT)) != 0 );
       copy.removeParameter(RESET_ON_DISCONNECT);
     }
     if( copy.hasParameter(REFRESH_ON_LOGON) )
     {
-      pSession->setRefreshOnLogon( IntConvertor::convert(copy.getParameter(REFRESH_ON_LOGON)) );
+      pSession->setRefreshOnLogon( IntConvertor::convert(copy.getParameter(REFRESH_ON_LOGON)) != 0 );
       copy.removeParameter(REFRESH_ON_LOGON);
     }
     if( copy.hasParameter(MILLISECONDS_IN_TIMESTAMP) )
     {
-      pSession->setMillisecondsInTimeStamp( IntConvertor::convert(copy.getParameter(MILLISECONDS_IN_TIMESTAMP)) );
+      pSession->setMillisecondsInTimeStamp( IntConvertor::convert(copy.getParameter(MILLISECONDS_IN_TIMESTAMP)) != 0 );
       copy.removeParameter(MILLISECONDS_IN_TIMESTAMP);
     }
 
@@ -353,8 +359,11 @@ void HttpConnection::processResetSession
     std::string beginString = request.getParameter( "BeginString" );
     std::string senderCompID = request.getParameter( "SenderCompID" );
     std::string targetCompID = request.getParameter( "TargetCompID" );
-    std::string sessionQualifier = request.getParameter( "SessionQualifier" );
-    SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
+    std::string sessionQualifier;
+	if( copy.hasParameter("SessionQualifier") )
+		sessionQualifier = copy.getParameter( "SessionQualifier" );
+
+	SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
     Session* pSession = Session::lookupSession( sessionID );
     if( pSession == 0 ) throw SessionNotFound();
 
@@ -401,8 +410,11 @@ void HttpConnection::processRefreshSession
     std::string beginString = request.getParameter( "BeginString" );
     std::string senderCompID = request.getParameter( "SenderCompID" );
     std::string targetCompID = request.getParameter( "TargetCompID" );
-    std::string sessionQualifier = request.getParameter( "SessionQualifier" );
-    SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
+    std::string sessionQualifier;
+	if( copy.hasParameter("SessionQualifier") )
+		sessionQualifier = copy.getParameter( "SessionQualifier" );
+
+	SessionID sessionID( beginString, senderCompID, targetCompID, sessionQualifier );
     Session* pSession = Session::lookupSession( sessionID );
     if( pSession == 0 ) throw SessionNotFound();
 

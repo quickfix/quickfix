@@ -155,7 +155,7 @@ void HttpServer::onConnect( SocketServer& server, int a, int s )
 
   if ( !socket_isValid( s ) ) return;
   HttpConnection connection( s );
-  connection.read();
+  while( connection.read() ) {}
   m_pServer->getMonitor().drop( s );
 
   QF_STACK_POP
