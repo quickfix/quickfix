@@ -1,14 +1,5 @@
 import quickfix as fix
 
-
-	class NoHops(fix.Group):
-		def __init__(self):
-			order = fix.intArray(4)
-			order[0] = 628
-			order[1] = 629
-			order[2] = 630
-			order[3] = 0
-			fix.Group.__init__(self, 627, 628, order)
 class Message(fix.Message):
 	def __init__(self):
 		fix.Message.__init__(self)

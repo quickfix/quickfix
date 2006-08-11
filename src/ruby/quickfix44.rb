@@ -1,16 +1,5 @@
 require 'quickfix'
 module Quickfix44
-
-	class NoHops < Quickfix::Group
-		def initialize
-			order = Quickfix.intArray(4)
-			order[0] = 628
-			order[1] = 629
-			order[2] = 630
-			order[3] = 0
-			super(627, 628, order)
-		end
-	end
 class Message < Quickfix::Message
 	def initialize
 		super

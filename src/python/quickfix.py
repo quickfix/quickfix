@@ -91,7 +91,7 @@ HAVE_LIBPTHREAD = _quickfix.HAVE_LIBPTHREAD
 HAVE_MEMORY_H = _quickfix.HAVE_MEMORY_H
 HAVE_MT_ALLOCATOR = _quickfix.HAVE_MT_ALLOCATOR
 HAVE_POOL_ALLOCATOR = _quickfix.HAVE_POOL_ALLOCATOR
-HAVE_RUBY = _quickfix.HAVE_RUBY
+HAVE_PYTHON = _quickfix.HAVE_PYTHON
 HAVE_STDINT_H = _quickfix.HAVE_STDINT_H
 HAVE_STDIO_H = _quickfix.HAVE_STDIO_H
 HAVE_STDLIB_H = _quickfix.HAVE_STDLIB_H
@@ -1182,6 +1182,8 @@ class FieldMap(_object):
 
     def setField(*args): return _quickfix.FieldMap_setField(*args)
     def getField(*args): return _quickfix.FieldMap_getField(*args)
+    def getFieldRef(*args): return _quickfix.FieldMap_getFieldRef(*args)
+    def getFieldPtr(*args): return _quickfix.FieldMap_getFieldPtr(*args)
     def isSetField(*args): return _quickfix.FieldMap_isSetField(*args)
     def removeField(*args): return _quickfix.FieldMap_removeField(*args)
     def addGroup(*args): return _quickfix.FieldMap_addGroup(*args)
@@ -27596,6 +27598,7 @@ RESET_ON_LOGOUT = cvar.RESET_ON_LOGOUT
 RESET_ON_DISCONNECT = cvar.RESET_ON_DISCONNECT
 REFRESH_ON_LOGON = cvar.REFRESH_ON_LOGON
 MILLISECONDS_IN_TIMESTAMP = cvar.MILLISECONDS_IN_TIMESTAMP
+HTTP_SERVER_PORT = cvar.HTTP_SERVER_PORT
 
 class Session(_object):
     __swig_setmethods__ = {}
@@ -27628,6 +27631,8 @@ class Session(_object):
     def getDataDictionary(*args): return _quickfix.Session_getDataDictionary(*args)
     __swig_getmethods__["sendToTarget"] = lambda x: _quickfix.Session_sendToTarget
     if _newclass:sendToTarget = staticmethod(_quickfix.Session_sendToTarget)
+    __swig_getmethods__["getSessions"] = lambda x: _quickfix.Session_getSessions
+    if _newclass:getSessions = staticmethod(_quickfix.Session_getSessions)
     __swig_getmethods__["doesSessionExist"] = lambda x: _quickfix.Session_doesSessionExist
     if _newclass:doesSessionExist = staticmethod(_quickfix.Session_doesSessionExist)
     __swig_getmethods__["lookupSession"] = lambda x: _quickfix.Session_lookupSession
@@ -27641,16 +27646,29 @@ class Session(_object):
     __swig_getmethods__["numSessions"] = lambda x: _quickfix.Session_numSessions
     if _newclass:numSessions = staticmethod(_quickfix.Session_numSessions)
     def isSessionTime(*args): return _quickfix.Session_isSessionTime(*args)
-    def sendRedundantResendRequests(*args): return _quickfix.Session_sendRedundantResendRequests(*args)
-    def checkCompId(*args): return _quickfix.Session_checkCompId(*args)
-    def checkLatency(*args): return _quickfix.Session_checkLatency(*args)
+    def isInitiator(*args): return _quickfix.Session_isInitiator(*args)
+    def isAcceptor(*args): return _quickfix.Session_isAcceptor(*args)
+    def getSendRedundantResendRequests(*args): return _quickfix.Session_getSendRedundantResendRequests(*args)
+    def setSendRedundantResendRequests(*args): return _quickfix.Session_setSendRedundantResendRequests(*args)
+    def getCheckCompId(*args): return _quickfix.Session_getCheckCompId(*args)
+    def setCheckCompId(*args): return _quickfix.Session_setCheckCompId(*args)
+    def getCheckLatency(*args): return _quickfix.Session_getCheckLatency(*args)
+    def setCheckLatency(*args): return _quickfix.Session_setCheckLatency(*args)
+    def getMaxLatency(*args): return _quickfix.Session_getMaxLatency(*args)
     def setMaxLatency(*args): return _quickfix.Session_setMaxLatency(*args)
+    def getLogonTimeout(*args): return _quickfix.Session_getLogonTimeout(*args)
     def setLogonTimeout(*args): return _quickfix.Session_setLogonTimeout(*args)
+    def getLogoutTimeout(*args): return _quickfix.Session_getLogoutTimeout(*args)
     def setLogoutTimeout(*args): return _quickfix.Session_setLogoutTimeout(*args)
+    def getResetOnLogon(*args): return _quickfix.Session_getResetOnLogon(*args)
     def setResetOnLogon(*args): return _quickfix.Session_setResetOnLogon(*args)
+    def getResetOnLogout(*args): return _quickfix.Session_getResetOnLogout(*args)
     def setResetOnLogout(*args): return _quickfix.Session_setResetOnLogout(*args)
+    def getResetOnDisconnect(*args): return _quickfix.Session_getResetOnDisconnect(*args)
     def setResetOnDisconnect(*args): return _quickfix.Session_setResetOnDisconnect(*args)
+    def getRefreshOnLogon(*args): return _quickfix.Session_getRefreshOnLogon(*args)
     def setRefreshOnLogon(*args): return _quickfix.Session_setRefreshOnLogon(*args)
+    def getMillisecondsInTimeStamp(*args): return _quickfix.Session_getMillisecondsInTimeStamp(*args)
     def setMillisecondsInTimeStamp(*args): return _quickfix.Session_setMillisecondsInTimeStamp(*args)
     def setResponder(*args): return _quickfix.Session_setResponder(*args)
     def send(*args): return _quickfix.Session_send(*args)
@@ -27671,6 +27689,8 @@ _quickfix.Session_swigregister(SessionPtr)
 __rshift__ = _quickfix.__rshift__
 
 Session_sendToTarget = _quickfix.Session_sendToTarget
+
+Session_getSessions = _quickfix.Session_getSessions
 
 Session_doesSessionExist = _quickfix.Session_doesSessionExist
 
