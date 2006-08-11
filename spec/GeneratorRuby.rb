@@ -6,6 +6,7 @@ class GeneratorRuby
     @depth = 0;
     @dir = dir + "/"
     @f = createFile( "quickfix" + major + minor + ".rb" )
+    @messageStarted = false
   end
 
   def createFile(name)
@@ -60,6 +61,7 @@ class GeneratorRuby
   end
 
   def groupStart(name, number, delim, order)
+    return if @messageStarted == false
     @f.puts
 
     @depth += 1    
@@ -67,7 +69,7 @@ class GeneratorRuby
     @depth += 1
     @f.puts tabs + "def initialize"
     @depth += 1
-    @f.puts tabs + "order = Quickfix.intArray(#{order.size+1})"
+    @f.puts tabs + "order = Quickfix.IntArray(#{order.size+1})"
     order.each_index { |i| @f.puts tabs + "order[#{i}] = #{order[i]}" }
     @f.puts tabs + "order[#{order.size}] = 0"
     @f.puts tabs + "super(#{number}, #{delim}, order)"
@@ -77,11 +79,13 @@ class GeneratorRuby
   end
 
   def groupEnd
+    return if @messageStarted == false
     @f.puts tabs + "end"
     @depth -= 1
   end
 
   def messageStart(name, msgtype, required)
+    @messageStarted = true
     @f.puts
 
     @f.puts tabs + "class " + name + " < Message"
@@ -96,6 +100,7 @@ class GeneratorRuby
   end
 
   def messageEnd
+    @messageStarted = false
     @f.puts tabs + "end"
   end
 

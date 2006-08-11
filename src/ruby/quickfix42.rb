@@ -22,7 +22,7 @@ class Logon < Message
 
 	class NoMsgTypes < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 372
 			order[1] = 385
 			order[2] = 0
@@ -81,7 +81,7 @@ class IndicationofInterest < Message
 
 	class NoIOIQualifiers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 104
 			order[1] = 0
 			super(199, 104, order)
@@ -90,7 +90,7 @@ class IndicationofInterest < Message
 
 	class NoRoutingIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -107,7 +107,7 @@ class News < Message
 
 	class NoRoutingIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -117,7 +117,7 @@ class News < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(20)
+			order = Quickfix.IntArray(20)
 			order[0] = 46
 			order[1] = 65
 			order[2] = 48
@@ -144,7 +144,7 @@ class News < Message
 
 	class LinesOfText < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 58
 			order[1] = 354
 			order[2] = 355
@@ -162,7 +162,7 @@ class Email < Message
 
 	class NoRoutingIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -172,7 +172,7 @@ class Email < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(20)
+			order = Quickfix.IntArray(20)
 			order[0] = 46
 			order[1] = 65
 			order[2] = 48
@@ -199,7 +199,7 @@ class Email < Message
 
 	class LinesOfText < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 58
 			order[1] = 354
 			order[2] = 355
@@ -217,7 +217,7 @@ class QuoteRequest < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(32)
+			order = Quickfix.IntArray(32)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -270,7 +270,7 @@ class MassQuote < Message
 
 	class NoQuoteSets < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(24)
+			order = Quickfix.IntArray(24)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -300,7 +300,7 @@ class MassQuote < Message
 
 		class NoQuoteEntries < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(37)
+				order = Quickfix.IntArray(37)
 				order[0] = 299
 				order[1] = 55
 				order[2] = 65
@@ -352,7 +352,7 @@ class QuoteCancel < Message
 
 	class NoQuoteEntries < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(21)
+			order = Quickfix.IntArray(21)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -394,7 +394,7 @@ class QuoteAcknowledgement < Message
 
 	class NoQuoteSets < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(23)
+			order = Quickfix.IntArray(23)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -423,7 +423,7 @@ class QuoteAcknowledgement < Message
 
 		class NoQuoteEntries < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(22)
+				order = Quickfix.IntArray(22)
 				order[0] = 299
 				order[1] = 55
 				order[2] = 65
@@ -460,7 +460,7 @@ class MarketDataRequest < Message
 
 	class NoMDEntryTypes < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 269
 			order[1] = 0
 			super(267, 269, order)
@@ -469,7 +469,7 @@ class MarketDataRequest < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(21)
+			order = Quickfix.IntArray(21)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -504,7 +504,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 	class NoMDEntries < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(31)
+			order = Quickfix.IntArray(31)
 			order[0] = 269
 			order[1] = 270
 			order[2] = 15
@@ -549,7 +549,7 @@ class MarketDataIncrementalRefresh < Message
 
 	class NoMDEntries < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(57)
+			order = Quickfix.IntArray(57)
 			order[0] = 279
 			order[1] = 285
 			order[2] = 269
@@ -627,7 +627,7 @@ class SecurityDefinitionRequest < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(23)
+			order = Quickfix.IntArray(23)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -664,7 +664,7 @@ class SecurityDefinition < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(23)
+			order = Quickfix.IntArray(23)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -729,7 +729,7 @@ class NewOrderSingle < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 79
 			order[1] = 80
 			order[2] = 0
@@ -739,7 +739,7 @@ class NewOrderSingle < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 336
 			order[1] = 0
 			super(386, 336, order)
@@ -755,7 +755,7 @@ class ExecutionReport < Message
 
 	class NoContraBrokers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 375
 			order[1] = 337
 			order[2] = 437
@@ -781,7 +781,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 79
 			order[1] = 80
 			order[2] = 0
@@ -791,7 +791,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 336
 			order[1] = 0
 			super(386, 336, order)
@@ -828,7 +828,7 @@ class Allocation < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -841,7 +841,7 @@ class Allocation < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 32
 			order[1] = 17
 			order[2] = 31
@@ -853,7 +853,7 @@ class Allocation < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(24)
+			order = Quickfix.IntArray(24)
 			order[0] = 79
 			order[1] = 366
 			order[2] = 80
@@ -883,7 +883,7 @@ class Allocation < Message
 
 		class NoMiscFees < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(4)
+				order = Quickfix.IntArray(4)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -916,7 +916,7 @@ class BidRequest < Message
 
 	class NoBidDescriptors < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(12)
+			order = Quickfix.IntArray(12)
 			order[0] = 399
 			order[1] = 400
 			order[2] = 401
@@ -935,7 +935,7 @@ class BidRequest < Message
 
 	class NoBidComponents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(8)
+			order = Quickfix.IntArray(8)
 			order[0] = 66
 			order[1] = 54
 			order[2] = 336
@@ -957,7 +957,7 @@ class BidResponse < Message
 
 	class NoBidComponents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(16)
+			order = Quickfix.IntArray(16)
 			order[0] = 12
 			order[1] = 13
 			order[2] = 66
@@ -987,7 +987,7 @@ class NewOrderList < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(75)
+			order = Quickfix.IntArray(75)
 			order[0] = 11
 			order[1] = 67
 			order[2] = 160
@@ -1068,7 +1068,7 @@ class NewOrderList < Message
 
 		class NoAllocs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 79
 				order[1] = 80
 				order[2] = 0
@@ -1078,7 +1078,7 @@ class NewOrderList < Message
 
 		class NoTradingSessions < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(2)
+				order = Quickfix.IntArray(2)
 				order[0] = 336
 				order[1] = 0
 				super(386, 336, order)
@@ -1095,7 +1095,7 @@ class ListStrikePrice < Message
 
 	class NoStrikes < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(28)
+			order = Quickfix.IntArray(28)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -1137,7 +1137,7 @@ class ListStatus < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(11)
+			order = Quickfix.IntArray(11)
 			order[0] = 11
 			order[1] = 14
 			order[2] = 39

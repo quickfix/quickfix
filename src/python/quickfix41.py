@@ -52,7 +52,7 @@ class IndicationofInterest(Message):
 
 	class NoIOIQualifiers(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 104
 			order[1] = 0
 			fix.Group.__init__(self, 199, 104, order)
@@ -64,7 +64,7 @@ class News(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(14)
+			order = fix.IntArray(14)
 			order[0] = 46
 			order[1] = 65
 			order[2] = 48
@@ -83,7 +83,7 @@ class News(Message):
 
 	class LinesOfText(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 58
 			order[1] = 0
 			fix.Group.__init__(self, 33, 58, order)
@@ -95,7 +95,7 @@ class Email(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(14)
+			order = fix.IntArray(14)
 			order[0] = 46
 			order[1] = 65
 			order[2] = 48
@@ -114,7 +114,7 @@ class Email(Message):
 
 	class LinesOfText(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 58
 			order[1] = 0
 			fix.Group.__init__(self, 33, 58, order)
@@ -171,7 +171,7 @@ class Allocation(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(6)
+			order = fix.IntArray(6)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -182,7 +182,7 @@ class Allocation(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 32
 			order[1] = 17
 			order[2] = 31
@@ -192,7 +192,7 @@ class Allocation(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(21)
+			order = fix.IntArray(21)
 			order[0] = 79
 			order[1] = 80
 			order[2] = 81
@@ -218,7 +218,7 @@ class Allocation(Message):
 
 		class NoMiscFees(fix.Group):
 			def __init__(self):
-				order = fix.intArray(4)
+				order = fix.IntArray(4)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -247,7 +247,7 @@ class ListStatus(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(6)
+			order = fix.IntArray(6)
 			order[0] = 11
 			order[1] = 14
 			order[2] = 151

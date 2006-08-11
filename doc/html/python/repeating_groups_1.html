@@ -3,7 +3,7 @@ import quickfix
 import quickfix42
 
 message = quickfix42.MarketDataSnapshotFullRefresh()
-group = quickfix42.MarketDataSnapshotFullRefresh().NoMDEntries();
+group = quickfix42.MarketDataSnapshotFullRefresh().NoMDEntries()
 
 group.setField(quickfix.MDEntryType('0'))
 group.setField(quickfix.MDEntryPx(12.32))

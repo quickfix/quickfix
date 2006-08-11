@@ -71,7 +71,7 @@ class IndicationofInterest < Message
 
 	class NoIOIQualifiers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 104
 			order[1] = 0
 			super(199, 104, order)
@@ -87,7 +87,7 @@ class News < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(14)
+			order = Quickfix.IntArray(14)
 			order[0] = 46
 			order[1] = 65
 			order[2] = 48
@@ -108,7 +108,7 @@ class News < Message
 
 	class LinesOfText < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 58
 			order[1] = 0
 			super(33, 58, order)
@@ -124,7 +124,7 @@ class Email < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(14)
+			order = Quickfix.IntArray(14)
 			order[0] = 46
 			order[1] = 65
 			order[2] = 48
@@ -145,7 +145,7 @@ class Email < Message
 
 	class LinesOfText < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 58
 			order[1] = 0
 			super(33, 58, order)
@@ -224,7 +224,7 @@ class Allocation < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -237,7 +237,7 @@ class Allocation < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 32
 			order[1] = 17
 			order[2] = 31
@@ -249,7 +249,7 @@ class Allocation < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(21)
+			order = Quickfix.IntArray(21)
 			order[0] = 79
 			order[1] = 80
 			order[2] = 81
@@ -276,7 +276,7 @@ class Allocation < Message
 
 		class NoMiscFees < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(4)
+				order = Quickfix.IntArray(4)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -316,7 +316,7 @@ class ListStatus < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 11
 			order[1] = 14
 			order[2] = 151

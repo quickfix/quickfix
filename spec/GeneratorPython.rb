@@ -6,6 +6,7 @@ class GeneratorPython
     @depth = 0;
     @dir = dir + "/"
     @f = createFile( "quickfix" + major + minor + ".py" )
+    @messageStarted = false
   end
 
   def createFile(name)
@@ -58,6 +59,8 @@ class GeneratorPython
   end
 
   def groupStart(name, number, delim, order)
+    return if @messageStarted == false
+
     @f.puts
 
     @depth += 1    
@@ -65,7 +68,7 @@ class GeneratorPython
     @depth += 1
     @f.puts tabs + "def __init__(self):"
     @depth += 1
-    @f.puts tabs + "order = fix.intArray(#{order.size+1})"
+    @f.puts tabs + "order = fix.IntArray(#{order.size+1})"
     order.each_index { |i| @f.puts tabs + "order[#{i}] = #{order[i]}" }
     @f.puts tabs + "order[#{order.size}] = 0"
     @f.puts tabs + "fix.Group.__init__(self, #{number}, #{delim}, order)"
@@ -74,10 +77,12 @@ class GeneratorPython
   end
 
   def groupEnd
+    return if @messageStarted == false
     @depth -= 1
   end
 
   def messageStart(name, msgtype, required)
+    @messageStarted = true;
     @f.puts
 
     @f.puts tabs + "class " + name + "(Message):"
@@ -91,8 +96,10 @@ class GeneratorPython
   end
 
   def messageEnd
+    @messageStarted = false
   end
 
   def back
+    @f.close
   end
 end

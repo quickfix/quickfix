@@ -17,7 +17,7 @@ class Logon(Message):
 
 	class NoMsgTypes(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 372
 			order[1] = 385
 			order[2] = 0
@@ -70,7 +70,7 @@ class Advertisement(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -78,7 +78,7 @@ class Advertisement(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -88,7 +88,7 @@ class Advertisement(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -136,7 +136,7 @@ class Advertisement(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -144,7 +144,7 @@ class Advertisement(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -195,7 +195,7 @@ class Advertisement(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -208,7 +208,7 @@ class IndicationOfInterest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -216,7 +216,7 @@ class IndicationOfInterest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -226,7 +226,7 @@ class IndicationOfInterest(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -234,7 +234,7 @@ class IndicationOfInterest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -285,7 +285,7 @@ class IndicationOfInterest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -293,7 +293,7 @@ class IndicationOfInterest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(45)
+			order = fix.IntArray(45)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -343,7 +343,7 @@ class IndicationOfInterest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -351,7 +351,7 @@ class IndicationOfInterest(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -359,14 +359,14 @@ class IndicationOfInterest(Message):
 
 	class NoIOIQualifiers(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 104
 			order[1] = 0
 			fix.Group.__init__(self, 199, 104, order)
 
 	class NoRoutingIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -379,7 +379,7 @@ class News(Message):
 
 	class NoRoutingIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -387,7 +387,7 @@ class News(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -435,7 +435,7 @@ class News(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -443,7 +443,7 @@ class News(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -453,7 +453,7 @@ class News(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -501,7 +501,7 @@ class News(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -509,7 +509,7 @@ class News(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -560,7 +560,7 @@ class News(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -568,7 +568,7 @@ class News(Message):
 
 	class LinesOfText(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 58
 			order[1] = 354
 			order[2] = 355
@@ -582,7 +582,7 @@ class Email(Message):
 
 	class NoRoutingIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -590,7 +590,7 @@ class Email(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -638,7 +638,7 @@ class Email(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -646,7 +646,7 @@ class Email(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -656,7 +656,7 @@ class Email(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -707,7 +707,7 @@ class Email(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -715,7 +715,7 @@ class Email(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -763,7 +763,7 @@ class Email(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -771,7 +771,7 @@ class Email(Message):
 
 	class LinesOfText(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 58
 			order[1] = 354
 			order[2] = 355
@@ -785,7 +785,7 @@ class QuoteRequest(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(100)
+			order = fix.IntArray(100)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -890,7 +890,7 @@ class QuoteRequest(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -898,7 +898,7 @@ class QuoteRequest(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -908,7 +908,7 @@ class QuoteRequest(Message):
 
 		class NoStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -916,7 +916,7 @@ class QuoteRequest(Message):
 
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -926,7 +926,7 @@ class QuoteRequest(Message):
 
 			class NoPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -934,7 +934,7 @@ class QuoteRequest(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -985,7 +985,7 @@ class QuoteRequest(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -993,7 +993,7 @@ class QuoteRequest(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(54)
+				order = fix.IntArray(54)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -1052,7 +1052,7 @@ class QuoteRequest(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -1060,7 +1060,7 @@ class QuoteRequest(Message):
 
 			class NoLegStipulations(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 688
 					order[1] = 689
 					order[2] = 0
@@ -1068,7 +1068,7 @@ class QuoteRequest(Message):
 
 			class NoNestedPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -1078,7 +1078,7 @@ class QuoteRequest(Message):
 
 				class NoNestedPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -1086,7 +1086,7 @@ class QuoteRequest(Message):
 
 		class NoQuoteQualifiers(fix.Group):
 			def __init__(self):
-				order = fix.intArray(2)
+				order = fix.IntArray(2)
 				order[0] = 695
 				order[1] = 0
 				fix.Group.__init__(self, 735, 695, order)
@@ -1098,7 +1098,7 @@ class QuoteResponse(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -1108,7 +1108,7 @@ class QuoteResponse(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -1116,7 +1116,7 @@ class QuoteResponse(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -1124,7 +1124,7 @@ class QuoteResponse(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -1134,7 +1134,7 @@ class QuoteResponse(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -1142,14 +1142,14 @@ class QuoteResponse(Message):
 
 	class NoQuoteQualifiers(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			fix.Group.__init__(self, 735, 695, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -1200,7 +1200,7 @@ class QuoteResponse(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -1208,7 +1208,7 @@ class QuoteResponse(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(57)
+			order = fix.IntArray(57)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -1270,7 +1270,7 @@ class QuoteResponse(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -1278,7 +1278,7 @@ class QuoteResponse(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -1286,7 +1286,7 @@ class QuoteResponse(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -1296,7 +1296,7 @@ class QuoteResponse(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -1309,7 +1309,7 @@ class QuoteRequestReject(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -1319,7 +1319,7 @@ class QuoteRequestReject(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -1327,7 +1327,7 @@ class QuoteRequestReject(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(76)
+			order = fix.IntArray(76)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -1408,7 +1408,7 @@ class QuoteRequestReject(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -1416,7 +1416,7 @@ class QuoteRequestReject(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -1426,7 +1426,7 @@ class QuoteRequestReject(Message):
 
 		class NoStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -1434,7 +1434,7 @@ class QuoteRequestReject(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -1485,7 +1485,7 @@ class QuoteRequestReject(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -1493,7 +1493,7 @@ class QuoteRequestReject(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(54)
+				order = fix.IntArray(54)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -1552,7 +1552,7 @@ class QuoteRequestReject(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -1560,7 +1560,7 @@ class QuoteRequestReject(Message):
 
 			class NoLegStipulations(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 688
 					order[1] = 689
 					order[2] = 0
@@ -1568,7 +1568,7 @@ class QuoteRequestReject(Message):
 
 			class NoNestedPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -1578,7 +1578,7 @@ class QuoteRequestReject(Message):
 
 				class NoNestedPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -1586,7 +1586,7 @@ class QuoteRequestReject(Message):
 
 	class NoQuoteQualifiers(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			fix.Group.__init__(self, 735, 695, order)
@@ -1598,7 +1598,7 @@ class RFQRequest(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(50)
+			order = fix.IntArray(50)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -1653,7 +1653,7 @@ class RFQRequest(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -1661,7 +1661,7 @@ class RFQRequest(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -1671,7 +1671,7 @@ class RFQRequest(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -1722,7 +1722,7 @@ class RFQRequest(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -1730,7 +1730,7 @@ class RFQRequest(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(43)
+				order = fix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -1778,7 +1778,7 @@ class RFQRequest(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -1791,7 +1791,7 @@ class Quote(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -1801,7 +1801,7 @@ class Quote(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -1809,7 +1809,7 @@ class Quote(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -1817,7 +1817,7 @@ class Quote(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -1827,7 +1827,7 @@ class Quote(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -1835,14 +1835,14 @@ class Quote(Message):
 
 	class NoQuoteQualifiers(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			fix.Group.__init__(self, 735, 695, order)
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -1893,7 +1893,7 @@ class Quote(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -1901,7 +1901,7 @@ class Quote(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(57)
+			order = fix.IntArray(57)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -1963,7 +1963,7 @@ class Quote(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -1971,7 +1971,7 @@ class Quote(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -1979,7 +1979,7 @@ class Quote(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -1989,7 +1989,7 @@ class Quote(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -2002,7 +2002,7 @@ class QuoteCancel(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2012,7 +2012,7 @@ class QuoteCancel(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2020,7 +2020,7 @@ class QuoteCancel(Message):
 
 	class NoQuoteEntries(fix.Group):
 		def __init__(self):
-			order = fix.intArray(54)
+			order = fix.IntArray(54)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -2079,7 +2079,7 @@ class QuoteCancel(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -2087,7 +2087,7 @@ class QuoteCancel(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -2097,7 +2097,7 @@ class QuoteCancel(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -2148,7 +2148,7 @@ class QuoteCancel(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -2156,7 +2156,7 @@ class QuoteCancel(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(43)
+				order = fix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -2204,7 +2204,7 @@ class QuoteCancel(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -2217,7 +2217,7 @@ class QuoteStatusRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -2225,7 +2225,7 @@ class QuoteStatusRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -2235,7 +2235,7 @@ class QuoteStatusRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2245,7 +2245,7 @@ class QuoteStatusRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2253,7 +2253,7 @@ class QuoteStatusRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -2304,7 +2304,7 @@ class QuoteStatusRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2312,7 +2312,7 @@ class QuoteStatusRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -2360,7 +2360,7 @@ class QuoteStatusRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -2373,7 +2373,7 @@ class QuoteStatusReport(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2383,7 +2383,7 @@ class QuoteStatusReport(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2391,7 +2391,7 @@ class QuoteStatusReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -2399,7 +2399,7 @@ class QuoteStatusReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -2409,7 +2409,7 @@ class QuoteStatusReport(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -2417,7 +2417,7 @@ class QuoteStatusReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -2468,7 +2468,7 @@ class QuoteStatusReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2476,7 +2476,7 @@ class QuoteStatusReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(49)
+			order = fix.IntArray(49)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -2530,7 +2530,7 @@ class QuoteStatusReport(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -2538,7 +2538,7 @@ class QuoteStatusReport(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -2546,7 +2546,7 @@ class QuoteStatusReport(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -2556,7 +2556,7 @@ class QuoteStatusReport(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -2564,7 +2564,7 @@ class QuoteStatusReport(Message):
 
 	class NoQuoteQualifiers(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			fix.Group.__init__(self, 735, 695, order)
@@ -2576,7 +2576,7 @@ class MassQuote(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2586,7 +2586,7 @@ class MassQuote(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2594,7 +2594,7 @@ class MassQuote(Message):
 
 	class NoQuoteSets(fix.Group):
 		def __init__(self):
-			order = fix.intArray(51)
+			order = fix.IntArray(51)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -2650,7 +2650,7 @@ class MassQuote(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2658,7 +2658,7 @@ class MassQuote(Message):
 
 		class NoQuoteEntries(fix.Group):
 			def __init__(self):
-				order = fix.intArray(68)
+				order = fix.IntArray(68)
 				order[0] = 299
 				order[1] = 55
 				order[2] = 65
@@ -2731,7 +2731,7 @@ class MassQuote(Message):
 
 			class NoSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 455
 					order[1] = 456
 					order[2] = 0
@@ -2739,7 +2739,7 @@ class MassQuote(Message):
 
 			class NoEvents(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 865
 					order[1] = 866
 					order[2] = 867
@@ -2749,7 +2749,7 @@ class MassQuote(Message):
 
 			class NoLegs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(43)
+					order = fix.IntArray(43)
 					order[0] = 600
 					order[1] = 601
 					order[2] = 602
@@ -2797,7 +2797,7 @@ class MassQuote(Message):
 
 				class NoLegSecurityAltID(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 605
 						order[1] = 606
 						order[2] = 0
@@ -2810,7 +2810,7 @@ class MassQuoteAcknowledgement(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2820,7 +2820,7 @@ class MassQuoteAcknowledgement(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2828,7 +2828,7 @@ class MassQuoteAcknowledgement(Message):
 
 	class NoQuoteSets(fix.Group):
 		def __init__(self):
-			order = fix.intArray(50)
+			order = fix.IntArray(50)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -2883,7 +2883,7 @@ class MassQuoteAcknowledgement(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2891,7 +2891,7 @@ class MassQuoteAcknowledgement(Message):
 
 		class NoQuoteEntries(fix.Group):
 			def __init__(self):
-				order = fix.intArray(69)
+				order = fix.IntArray(69)
 				order[0] = 299
 				order[1] = 55
 				order[2] = 65
@@ -2965,7 +2965,7 @@ class MassQuoteAcknowledgement(Message):
 
 			class NoSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 455
 					order[1] = 456
 					order[2] = 0
@@ -2973,7 +2973,7 @@ class MassQuoteAcknowledgement(Message):
 
 			class NoEvents(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 865
 					order[1] = 866
 					order[2] = 867
@@ -2983,7 +2983,7 @@ class MassQuoteAcknowledgement(Message):
 
 			class NoLegs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(43)
+					order = fix.IntArray(43)
 					order[0] = 600
 					order[1] = 601
 					order[2] = 602
@@ -3031,7 +3031,7 @@ class MassQuoteAcknowledgement(Message):
 
 				class NoLegSecurityAltID(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 605
 						order[1] = 606
 						order[2] = 0
@@ -3044,14 +3044,14 @@ class MarketDataRequest(Message):
 
 	class NoMDEntryTypes(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 269
 			order[1] = 0
 			fix.Group.__init__(self, 267, 269, order)
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(45)
+			order = fix.IntArray(45)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -3101,7 +3101,7 @@ class MarketDataRequest(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -3109,7 +3109,7 @@ class MarketDataRequest(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -3119,7 +3119,7 @@ class MarketDataRequest(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -3170,7 +3170,7 @@ class MarketDataRequest(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -3178,7 +3178,7 @@ class MarketDataRequest(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(43)
+				order = fix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -3226,7 +3226,7 @@ class MarketDataRequest(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -3234,7 +3234,7 @@ class MarketDataRequest(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -3247,7 +3247,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -3255,7 +3255,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -3265,7 +3265,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -3316,7 +3316,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -3324,7 +3324,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -3372,7 +3372,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -3380,7 +3380,7 @@ class MarketDataSnapshotFullRefresh(Message):
 
 	class NoMDEntries(fix.Group):
 		def __init__(self):
-			order = fix.intArray(34)
+			order = fix.IntArray(34)
 			order[0] = 269
 			order[1] = 270
 			order[2] = 15
@@ -3424,7 +3424,7 @@ class MarketDataIncrementalRefresh(Message):
 
 	class NoMDEntries(fix.Group):
 		def __init__(self):
-			order = fix.intArray(85)
+			order = fix.IntArray(85)
 			order[0] = 279
 			order[1] = 285
 			order[2] = 269
@@ -3514,7 +3514,7 @@ class MarketDataIncrementalRefresh(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -3522,7 +3522,7 @@ class MarketDataIncrementalRefresh(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -3532,7 +3532,7 @@ class MarketDataIncrementalRefresh(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -3583,7 +3583,7 @@ class MarketDataIncrementalRefresh(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -3591,7 +3591,7 @@ class MarketDataIncrementalRefresh(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(43)
+				order = fix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -3639,7 +3639,7 @@ class MarketDataIncrementalRefresh(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -3652,7 +3652,7 @@ class MarketDataRequestReject(Message):
 
 	class NoAltMDSource(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 817
 			order[1] = 0
 			fix.Group.__init__(self, 816, 817, order)
@@ -3664,7 +3664,7 @@ class SecurityDefinitionRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -3672,7 +3672,7 @@ class SecurityDefinitionRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -3682,7 +3682,7 @@ class SecurityDefinitionRequest(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -3690,7 +3690,7 @@ class SecurityDefinitionRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -3741,7 +3741,7 @@ class SecurityDefinitionRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -3749,7 +3749,7 @@ class SecurityDefinitionRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -3797,7 +3797,7 @@ class SecurityDefinitionRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -3810,7 +3810,7 @@ class SecurityDefinition(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -3818,7 +3818,7 @@ class SecurityDefinition(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -3828,7 +3828,7 @@ class SecurityDefinition(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -3836,7 +3836,7 @@ class SecurityDefinition(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -3887,7 +3887,7 @@ class SecurityDefinition(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -3895,7 +3895,7 @@ class SecurityDefinition(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -3943,7 +3943,7 @@ class SecurityDefinition(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -3961,7 +3961,7 @@ class SecurityTypes(Message):
 
 	class NoSecurityTypes(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 167
 			order[1] = 762
 			order[2] = 460
@@ -3976,7 +3976,7 @@ class SecurityListRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -3984,7 +3984,7 @@ class SecurityListRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -3994,7 +3994,7 @@ class SecurityListRequest(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -4002,7 +4002,7 @@ class SecurityListRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -4053,7 +4053,7 @@ class SecurityListRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -4061,7 +4061,7 @@ class SecurityListRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4109,7 +4109,7 @@ class SecurityListRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -4122,7 +4122,7 @@ class SecurityList(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(81)
+			order = fix.IntArray(81)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -4208,7 +4208,7 @@ class SecurityList(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -4216,7 +4216,7 @@ class SecurityList(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -4226,7 +4226,7 @@ class SecurityList(Message):
 
 		class NoInstrAttrib(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 871
 				order[1] = 872
 				order[2] = 0
@@ -4234,7 +4234,7 @@ class SecurityList(Message):
 
 		class NoStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -4242,7 +4242,7 @@ class SecurityList(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -4293,7 +4293,7 @@ class SecurityList(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -4301,7 +4301,7 @@ class SecurityList(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(51)
+				order = fix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -4357,7 +4357,7 @@ class SecurityList(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -4365,7 +4365,7 @@ class SecurityList(Message):
 
 			class NoLegStipulations(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 688
 					order[1] = 689
 					order[2] = 0
@@ -4378,7 +4378,7 @@ class DerivativeSecurityListRequest(Message):
 
 	class NoUnderlyingSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -4391,7 +4391,7 @@ class DerivativeSecurityList(Message):
 
 	class NoUnderlyingSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -4399,7 +4399,7 @@ class DerivativeSecurityList(Message):
 
 	class NoRelatedSym(fix.Group):
 		def __init__(self):
-			order = fix.intArray(54)
+			order = fix.IntArray(54)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -4458,7 +4458,7 @@ class DerivativeSecurityList(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -4466,7 +4466,7 @@ class DerivativeSecurityList(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -4476,7 +4476,7 @@ class DerivativeSecurityList(Message):
 
 		class NoInstrAttrib(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 871
 				order[1] = 872
 				order[2] = 0
@@ -4484,7 +4484,7 @@ class DerivativeSecurityList(Message):
 
 		class NoLegs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(43)
+				order = fix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -4532,7 +4532,7 @@ class DerivativeSecurityList(Message):
 
 			class NoLegSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -4545,7 +4545,7 @@ class SecurityStatusRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -4553,7 +4553,7 @@ class SecurityStatusRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -4563,7 +4563,7 @@ class SecurityStatusRequest(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -4571,7 +4571,7 @@ class SecurityStatusRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -4622,7 +4622,7 @@ class SecurityStatusRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -4630,7 +4630,7 @@ class SecurityStatusRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4678,7 +4678,7 @@ class SecurityStatusRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -4691,7 +4691,7 @@ class SecurityStatus(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -4699,7 +4699,7 @@ class SecurityStatus(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -4709,7 +4709,7 @@ class SecurityStatus(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -4717,7 +4717,7 @@ class SecurityStatus(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -4768,7 +4768,7 @@ class SecurityStatus(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -4776,7 +4776,7 @@ class SecurityStatus(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4824,7 +4824,7 @@ class SecurityStatus(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -4847,7 +4847,7 @@ class NewOrderSingle(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -4857,7 +4857,7 @@ class NewOrderSingle(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -4865,7 +4865,7 @@ class NewOrderSingle(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -4873,7 +4873,7 @@ class NewOrderSingle(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -4883,7 +4883,7 @@ class NewOrderSingle(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -4891,7 +4891,7 @@ class NewOrderSingle(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(7)
+			order = fix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -4903,7 +4903,7 @@ class NewOrderSingle(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -4913,7 +4913,7 @@ class NewOrderSingle(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -4921,7 +4921,7 @@ class NewOrderSingle(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -4929,7 +4929,7 @@ class NewOrderSingle(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -4980,7 +4980,7 @@ class NewOrderSingle(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -4993,7 +4993,7 @@ class ExecutionReport(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5003,7 +5003,7 @@ class ExecutionReport(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5011,7 +5011,7 @@ class ExecutionReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5019,7 +5019,7 @@ class ExecutionReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5029,7 +5029,7 @@ class ExecutionReport(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -5037,7 +5037,7 @@ class ExecutionReport(Message):
 
 	class NoContraBrokers(fix.Group):
 		def __init__(self):
-			order = fix.intArray(6)
+			order = fix.IntArray(6)
 			order[0] = 375
 			order[1] = 337
 			order[2] = 437
@@ -5048,7 +5048,7 @@ class ExecutionReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5099,7 +5099,7 @@ class ExecutionReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5107,7 +5107,7 @@ class ExecutionReport(Message):
 
 	class NoContAmts(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 519
 			order[1] = 520
 			order[2] = 521
@@ -5116,7 +5116,7 @@ class ExecutionReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(54)
+			order = fix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5175,7 +5175,7 @@ class ExecutionReport(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -5183,7 +5183,7 @@ class ExecutionReport(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -5191,7 +5191,7 @@ class ExecutionReport(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -5201,7 +5201,7 @@ class ExecutionReport(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -5209,7 +5209,7 @@ class ExecutionReport(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -5224,7 +5224,7 @@ class DontKnowTrade(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5232,7 +5232,7 @@ class DontKnowTrade(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5242,7 +5242,7 @@ class DontKnowTrade(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5293,7 +5293,7 @@ class DontKnowTrade(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5301,7 +5301,7 @@ class DontKnowTrade(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5349,7 +5349,7 @@ class DontKnowTrade(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -5362,7 +5362,7 @@ class OrderCancelReplaceRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5372,7 +5372,7 @@ class OrderCancelReplaceRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5380,7 +5380,7 @@ class OrderCancelReplaceRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5388,7 +5388,7 @@ class OrderCancelReplaceRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5398,7 +5398,7 @@ class OrderCancelReplaceRequest(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(7)
+			order = fix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -5410,7 +5410,7 @@ class OrderCancelReplaceRequest(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -5420,7 +5420,7 @@ class OrderCancelReplaceRequest(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -5428,7 +5428,7 @@ class OrderCancelReplaceRequest(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -5436,7 +5436,7 @@ class OrderCancelReplaceRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5487,7 +5487,7 @@ class OrderCancelReplaceRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5500,7 +5500,7 @@ class OrderCancelRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5510,7 +5510,7 @@ class OrderCancelRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5518,7 +5518,7 @@ class OrderCancelRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5526,7 +5526,7 @@ class OrderCancelRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5536,7 +5536,7 @@ class OrderCancelRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5587,7 +5587,7 @@ class OrderCancelRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5605,7 +5605,7 @@ class OrderStatusRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5615,7 +5615,7 @@ class OrderStatusRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5623,7 +5623,7 @@ class OrderStatusRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5631,7 +5631,7 @@ class OrderStatusRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5641,7 +5641,7 @@ class OrderStatusRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5692,7 +5692,7 @@ class OrderStatusRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5705,7 +5705,7 @@ class OrderMassCancelRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5713,7 +5713,7 @@ class OrderMassCancelRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5723,7 +5723,7 @@ class OrderMassCancelRequest(Message):
 
 	class NoUnderlyingSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -5736,7 +5736,7 @@ class OrderMassCancelReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5744,7 +5744,7 @@ class OrderMassCancelReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5754,7 +5754,7 @@ class OrderMassCancelReport(Message):
 
 	class NoUnderlyingSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -5762,7 +5762,7 @@ class OrderMassCancelReport(Message):
 
 	class NoAffectedOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 41
 			order[1] = 535
 			order[2] = 536
@@ -5776,7 +5776,7 @@ class OrderMassStatusRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5786,7 +5786,7 @@ class OrderMassStatusRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5794,7 +5794,7 @@ class OrderMassStatusRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5802,7 +5802,7 @@ class OrderMassStatusRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5812,7 +5812,7 @@ class OrderMassStatusRequest(Message):
 
 	class NoUnderlyingSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -5825,7 +5825,7 @@ class NewOrderCross(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5833,7 +5833,7 @@ class NewOrderCross(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5843,7 +5843,7 @@ class NewOrderCross(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -5851,7 +5851,7 @@ class NewOrderCross(Message):
 
 	class NoSides(fix.Group):
 		def __init__(self):
-			order = fix.intArray(41)
+			order = fix.IntArray(41)
 			order[0] = 54
 			order[1] = 11
 			order[2] = 526
@@ -5897,7 +5897,7 @@ class NewOrderCross(Message):
 
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -5907,7 +5907,7 @@ class NewOrderCross(Message):
 
 			class NoPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -5915,7 +5915,7 @@ class NewOrderCross(Message):
 
 		class NoAllocs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(7)
+				order = fix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -5927,7 +5927,7 @@ class NewOrderCross(Message):
 
 			class NoNestedPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -5937,7 +5937,7 @@ class NewOrderCross(Message):
 
 				class NoNestedPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -5945,7 +5945,7 @@ class NewOrderCross(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5996,7 +5996,7 @@ class NewOrderCross(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6004,7 +6004,7 @@ class NewOrderCross(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6052,7 +6052,7 @@ class NewOrderCross(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -6060,7 +6060,7 @@ class NewOrderCross(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -6073,7 +6073,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6081,7 +6081,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6091,7 +6091,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -6099,7 +6099,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoSides(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 54
 			order[1] = 41
 			order[2] = 11
@@ -6147,7 +6147,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -6157,7 +6157,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 			class NoPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -6165,7 +6165,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 		class NoAllocs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(7)
+				order = fix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -6177,7 +6177,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 			class NoNestedPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -6187,7 +6187,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 				class NoNestedPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -6195,7 +6195,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6246,7 +6246,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6254,7 +6254,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6302,7 +6302,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -6310,7 +6310,7 @@ class CrossOrderCancelReplaceRequest(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -6323,7 +6323,7 @@ class CrossOrderCancelRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6331,7 +6331,7 @@ class CrossOrderCancelRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6341,7 +6341,7 @@ class CrossOrderCancelRequest(Message):
 
 	class NoSides(fix.Group):
 		def __init__(self):
-			order = fix.intArray(19)
+			order = fix.IntArray(19)
 			order[0] = 54
 			order[1] = 41
 			order[2] = 11
@@ -6365,7 +6365,7 @@ class CrossOrderCancelRequest(Message):
 
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -6375,7 +6375,7 @@ class CrossOrderCancelRequest(Message):
 
 			class NoPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -6383,7 +6383,7 @@ class CrossOrderCancelRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6434,7 +6434,7 @@ class CrossOrderCancelRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6442,7 +6442,7 @@ class CrossOrderCancelRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6490,7 +6490,7 @@ class CrossOrderCancelRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -6503,7 +6503,7 @@ class NewOrderMultileg(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -6513,7 +6513,7 @@ class NewOrderMultileg(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -6521,7 +6521,7 @@ class NewOrderMultileg(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6529,7 +6529,7 @@ class NewOrderMultileg(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6539,7 +6539,7 @@ class NewOrderMultileg(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(7)
+			order = fix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -6551,7 +6551,7 @@ class NewOrderMultileg(Message):
 
 		class NoNested3PartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 949
 				order[1] = 950
 				order[2] = 951
@@ -6561,7 +6561,7 @@ class NewOrderMultileg(Message):
 
 			class NoNested3PartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 953
 					order[1] = 954
 					order[2] = 0
@@ -6569,7 +6569,7 @@ class NewOrderMultileg(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -6577,7 +6577,7 @@ class NewOrderMultileg(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6628,7 +6628,7 @@ class NewOrderMultileg(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6636,7 +6636,7 @@ class NewOrderMultileg(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(54)
+			order = fix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6695,7 +6695,7 @@ class NewOrderMultileg(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -6703,7 +6703,7 @@ class NewOrderMultileg(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -6711,7 +6711,7 @@ class NewOrderMultileg(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -6721,7 +6721,7 @@ class NewOrderMultileg(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -6729,7 +6729,7 @@ class NewOrderMultileg(Message):
 
 		class NoLegAllocs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(7)
+				order = fix.IntArray(7)
 				order[0] = 671
 				order[1] = 672
 				order[2] = 756
@@ -6741,7 +6741,7 @@ class NewOrderMultileg(Message):
 
 			class NoNested2PartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 757
 					order[1] = 758
 					order[2] = 759
@@ -6751,7 +6751,7 @@ class NewOrderMultileg(Message):
 
 				class NoNested2PartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 760
 						order[1] = 807
 						order[2] = 0
@@ -6764,7 +6764,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -6774,7 +6774,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -6782,7 +6782,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6790,7 +6790,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6800,7 +6800,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(7)
+			order = fix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -6812,7 +6812,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 		class NoNested3PartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 949
 				order[1] = 950
 				order[2] = 951
@@ -6822,7 +6822,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 			class NoNested3PartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 953
 					order[1] = 954
 					order[2] = 0
@@ -6830,7 +6830,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -6838,7 +6838,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6889,7 +6889,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6897,7 +6897,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(54)
+			order = fix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6956,7 +6956,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -6964,7 +6964,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -6972,7 +6972,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -6982,7 +6982,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -6990,7 +6990,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 		class NoLegAllocs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(7)
+				order = fix.IntArray(7)
 				order[0] = 671
 				order[1] = 672
 				order[2] = 756
@@ -7002,7 +7002,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 			class NoNested2PartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 757
 					order[1] = 758
 					order[2] = 759
@@ -7012,7 +7012,7 @@ class MultilegOrderCancelReplaceRequest(Message):
 
 				class NoNested2PartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 760
 						order[1] = 807
 						order[2] = 0
@@ -7025,7 +7025,7 @@ class BidRequest(Message):
 
 	class NoBidDescriptors(fix.Group):
 		def __init__(self):
-			order = fix.intArray(12)
+			order = fix.IntArray(12)
 			order[0] = 399
 			order[1] = 400
 			order[2] = 401
@@ -7042,7 +7042,7 @@ class BidRequest(Message):
 
 	class NoBidComponents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(10)
+			order = fix.IntArray(10)
 			order[0] = 66
 			order[1] = 54
 			order[2] = 336
@@ -7062,7 +7062,7 @@ class BidResponse(Message):
 
 	class NoBidComponents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(19)
+			order = fix.IntArray(19)
 			order[0] = 12
 			order[1] = 13
 			order[2] = 479
@@ -7091,7 +7091,7 @@ class NewOrderList(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(147)
+			order = fix.IntArray(147)
 			order[0] = 11
 			order[1] = 526
 			order[2] = 67
@@ -7243,7 +7243,7 @@ class NewOrderList(Message):
 
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -7253,7 +7253,7 @@ class NewOrderList(Message):
 
 			class NoPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -7261,7 +7261,7 @@ class NewOrderList(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -7269,7 +7269,7 @@ class NewOrderList(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -7279,7 +7279,7 @@ class NewOrderList(Message):
 
 		class NoStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -7287,7 +7287,7 @@ class NewOrderList(Message):
 
 		class NoAllocs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(7)
+				order = fix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -7299,7 +7299,7 @@ class NewOrderList(Message):
 
 			class NoNestedPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -7309,7 +7309,7 @@ class NewOrderList(Message):
 
 				class NoNestedPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -7317,7 +7317,7 @@ class NewOrderList(Message):
 
 		class NoTradingSessions(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 336
 				order[1] = 625
 				order[2] = 0
@@ -7325,7 +7325,7 @@ class NewOrderList(Message):
 
 		class NoUnderlyings(fix.Group):
 			def __init__(self):
-				order = fix.intArray(46)
+				order = fix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -7376,7 +7376,7 @@ class NewOrderList(Message):
 
 			class NoUnderlyingSecurityAltID(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -7389,7 +7389,7 @@ class ListStrikePrice(Message):
 
 	class NoStrikes(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -7437,7 +7437,7 @@ class ListStrikePrice(Message):
 
 		class NoSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -7445,7 +7445,7 @@ class ListStrikePrice(Message):
 
 		class NoEvents(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -7455,7 +7455,7 @@ class ListStrikePrice(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(55)
+			order = fix.IntArray(55)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -7515,7 +7515,7 @@ class ListStrikePrice(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -7528,7 +7528,7 @@ class ListStatus(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(13)
+			order = fix.IntArray(13)
 			order[0] = 11
 			order[1] = 526
 			order[2] = 14
@@ -7566,7 +7566,7 @@ class AllocationInstruction(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -7574,7 +7574,7 @@ class AllocationInstruction(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -7584,7 +7584,7 @@ class AllocationInstruction(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -7592,7 +7592,7 @@ class AllocationInstruction(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -7602,7 +7602,7 @@ class AllocationInstruction(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -7610,7 +7610,7 @@ class AllocationInstruction(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -7618,7 +7618,7 @@ class AllocationInstruction(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(10)
+			order = fix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -7633,7 +7633,7 @@ class AllocationInstruction(Message):
 
 		class NoNested2PartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -7643,7 +7643,7 @@ class AllocationInstruction(Message):
 
 			class NoNested2PartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -7651,7 +7651,7 @@ class AllocationInstruction(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(7)
+			order = fix.IntArray(7)
 			order[0] = 32
 			order[1] = 17
 			order[2] = 527
@@ -7663,7 +7663,7 @@ class AllocationInstruction(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -7714,7 +7714,7 @@ class AllocationInstruction(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -7722,7 +7722,7 @@ class AllocationInstruction(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7770,7 +7770,7 @@ class AllocationInstruction(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -7778,7 +7778,7 @@ class AllocationInstruction(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(40)
+			order = fix.IntArray(40)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 573
@@ -7823,7 +7823,7 @@ class AllocationInstruction(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -7833,7 +7833,7 @@ class AllocationInstruction(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -7841,7 +7841,7 @@ class AllocationInstruction(Message):
 
 		class NoDlvyInst(fix.Group):
 			def __init__(self):
-				order = fix.intArray(4)
+				order = fix.IntArray(4)
 				order[0] = 165
 				order[1] = 787
 				order[2] = 781
@@ -7850,7 +7850,7 @@ class AllocationInstruction(Message):
 
 			class NoSettlPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 782
 					order[1] = 783
 					order[2] = 784
@@ -7860,7 +7860,7 @@ class AllocationInstruction(Message):
 
 				class NoSettlPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 785
 						order[1] = 786
 						order[2] = 0
@@ -7868,7 +7868,7 @@ class AllocationInstruction(Message):
 
 		class NoMiscFees(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -7883,7 +7883,7 @@ class AllocationInstructionAck(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -7893,7 +7893,7 @@ class AllocationInstructionAck(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -7901,7 +7901,7 @@ class AllocationInstructionAck(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(9)
+			order = fix.IntArray(9)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 366
@@ -7920,7 +7920,7 @@ class AllocationReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -7928,7 +7928,7 @@ class AllocationReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -7938,7 +7938,7 @@ class AllocationReport(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -7946,7 +7946,7 @@ class AllocationReport(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -7956,7 +7956,7 @@ class AllocationReport(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -7964,7 +7964,7 @@ class AllocationReport(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -7972,7 +7972,7 @@ class AllocationReport(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(10)
+			order = fix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -7987,7 +7987,7 @@ class AllocationReport(Message):
 
 		class NoNested2PartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -7997,7 +7997,7 @@ class AllocationReport(Message):
 
 			class NoNested2PartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -8005,7 +8005,7 @@ class AllocationReport(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(7)
+			order = fix.IntArray(7)
 			order[0] = 32
 			order[1] = 17
 			order[2] = 527
@@ -8017,7 +8017,7 @@ class AllocationReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -8068,7 +8068,7 @@ class AllocationReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -8076,7 +8076,7 @@ class AllocationReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -8124,7 +8124,7 @@ class AllocationReport(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -8132,7 +8132,7 @@ class AllocationReport(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(37)
+			order = fix.IntArray(37)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 573
@@ -8174,7 +8174,7 @@ class AllocationReport(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -8184,7 +8184,7 @@ class AllocationReport(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -8192,7 +8192,7 @@ class AllocationReport(Message):
 
 		class NoDlvyInst(fix.Group):
 			def __init__(self):
-				order = fix.intArray(4)
+				order = fix.IntArray(4)
 				order[0] = 165
 				order[1] = 787
 				order[2] = 781
@@ -8201,7 +8201,7 @@ class AllocationReport(Message):
 
 			class NoSettlPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 782
 					order[1] = 783
 					order[2] = 784
@@ -8211,7 +8211,7 @@ class AllocationReport(Message):
 
 				class NoSettlPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 785
 						order[1] = 786
 						order[2] = 0
@@ -8219,7 +8219,7 @@ class AllocationReport(Message):
 
 		class NoMiscFees(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -8229,7 +8229,7 @@ class AllocationReport(Message):
 
 		class NoClearingInstructions(fix.Group):
 			def __init__(self):
-				order = fix.intArray(2)
+				order = fix.IntArray(2)
 				order[0] = 577
 				order[1] = 0
 				fix.Group.__init__(self, 576, 577, order)
@@ -8241,7 +8241,7 @@ class AllocationReportAck(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -8251,7 +8251,7 @@ class AllocationReportAck(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -8259,7 +8259,7 @@ class AllocationReportAck(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(9)
+			order = fix.IntArray(9)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 366
@@ -8278,7 +8278,7 @@ class Confirmation(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -8288,7 +8288,7 @@ class Confirmation(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -8296,7 +8296,7 @@ class Confirmation(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -8305,7 +8305,7 @@ class Confirmation(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -8313,7 +8313,7 @@ class Confirmation(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -8323,7 +8323,7 @@ class Confirmation(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -8331,7 +8331,7 @@ class Confirmation(Message):
 
 	class NoDlvyInst(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -8340,7 +8340,7 @@ class Confirmation(Message):
 
 		class NoSettlPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -8350,7 +8350,7 @@ class Confirmation(Message):
 
 			class NoSettlPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -8358,7 +8358,7 @@ class Confirmation(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -8366,7 +8366,7 @@ class Confirmation(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(10)
+			order = fix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -8381,7 +8381,7 @@ class Confirmation(Message):
 
 		class NoNested2PartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -8391,7 +8391,7 @@ class Confirmation(Message):
 
 			class NoNested2PartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -8399,7 +8399,7 @@ class Confirmation(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -8450,7 +8450,7 @@ class Confirmation(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -8458,7 +8458,7 @@ class Confirmation(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -8506,7 +8506,7 @@ class Confirmation(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -8514,7 +8514,7 @@ class Confirmation(Message):
 
 	class NoCapacities(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 528
 			order[1] = 529
 			order[2] = 863
@@ -8523,7 +8523,7 @@ class Confirmation(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -8543,7 +8543,7 @@ class ConfirmationRequest(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(10)
+			order = fix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -8558,7 +8558,7 @@ class ConfirmationRequest(Message):
 
 		class NoNested2PartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -8568,7 +8568,7 @@ class ConfirmationRequest(Message):
 
 			class NoNested2PartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -8581,7 +8581,7 @@ class SettlementInstructions(Message):
 
 	class NoSettlInst(fix.Group):
 		def __init__(self):
-			order = fix.intArray(26)
+			order = fix.IntArray(26)
 			order[0] = 162
 			order[1] = 163
 			order[2] = 214
@@ -8612,7 +8612,7 @@ class SettlementInstructions(Message):
 
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -8622,7 +8622,7 @@ class SettlementInstructions(Message):
 
 			class NoPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -8630,7 +8630,7 @@ class SettlementInstructions(Message):
 
 		class NoDlvyInst(fix.Group):
 			def __init__(self):
-				order = fix.intArray(4)
+				order = fix.IntArray(4)
 				order[0] = 165
 				order[1] = 787
 				order[2] = 781
@@ -8639,7 +8639,7 @@ class SettlementInstructions(Message):
 
 			class NoSettlPartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 782
 					order[1] = 783
 					order[2] = 784
@@ -8649,7 +8649,7 @@ class SettlementInstructions(Message):
 
 				class NoSettlPartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 785
 						order[1] = 786
 						order[2] = 0
@@ -8662,7 +8662,7 @@ class SettlementInstructionRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -8672,7 +8672,7 @@ class SettlementInstructionRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -8685,7 +8685,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -8695,7 +8695,7 @@ class TradeCaptureReportRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -8703,7 +8703,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -8711,7 +8711,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -8721,7 +8721,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoInstrAttrib(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -8729,7 +8729,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -8780,7 +8780,7 @@ class TradeCaptureReportRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -8788,7 +8788,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -8836,7 +8836,7 @@ class TradeCaptureReportRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -8844,7 +8844,7 @@ class TradeCaptureReportRequest(Message):
 
 	class NoDates(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 75
 			order[1] = 60
 			order[2] = 0
@@ -8857,7 +8857,7 @@ class TradeCaptureReportRequestAck(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -8865,7 +8865,7 @@ class TradeCaptureReportRequestAck(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -8875,7 +8875,7 @@ class TradeCaptureReportRequestAck(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -8926,7 +8926,7 @@ class TradeCaptureReportRequestAck(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -8934,7 +8934,7 @@ class TradeCaptureReportRequestAck(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -8982,7 +8982,7 @@ class TradeCaptureReportRequestAck(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -8995,7 +8995,7 @@ class TradeCaptureReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -9003,7 +9003,7 @@ class TradeCaptureReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -9013,7 +9013,7 @@ class TradeCaptureReport(Message):
 
 	class NoPosAmt(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -9021,7 +9021,7 @@ class TradeCaptureReport(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -9030,7 +9030,7 @@ class TradeCaptureReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -9081,7 +9081,7 @@ class TradeCaptureReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -9089,7 +9089,7 @@ class TradeCaptureReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(54)
+			order = fix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9148,7 +9148,7 @@ class TradeCaptureReport(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -9156,7 +9156,7 @@ class TradeCaptureReport(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -9164,7 +9164,7 @@ class TradeCaptureReport(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -9174,7 +9174,7 @@ class TradeCaptureReport(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -9182,7 +9182,7 @@ class TradeCaptureReport(Message):
 
 	class NoSides(fix.Group):
 		def __init__(self):
-			order = fix.intArray(63)
+			order = fix.IntArray(63)
 			order[0] = 54
 			order[1] = 37
 			order[2] = 198
@@ -9250,7 +9250,7 @@ class TradeCaptureReport(Message):
 
 		class NoPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -9260,7 +9260,7 @@ class TradeCaptureReport(Message):
 
 			class NoPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -9268,7 +9268,7 @@ class TradeCaptureReport(Message):
 
 		class NoStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -9276,14 +9276,14 @@ class TradeCaptureReport(Message):
 
 		class NoClearingInstructions(fix.Group):
 			def __init__(self):
-				order = fix.intArray(2)
+				order = fix.IntArray(2)
 				order[0] = 577
 				order[1] = 0
 				fix.Group.__init__(self, 576, 577, order)
 
 		class NoContAmts(fix.Group):
 			def __init__(self):
-				order = fix.intArray(4)
+				order = fix.IntArray(4)
 				order[0] = 519
 				order[1] = 520
 				order[2] = 521
@@ -9292,7 +9292,7 @@ class TradeCaptureReport(Message):
 
 		class NoMiscFees(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -9302,7 +9302,7 @@ class TradeCaptureReport(Message):
 
 		class NoAllocs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(7)
+				order = fix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -9314,7 +9314,7 @@ class TradeCaptureReport(Message):
 
 			class NoNested2PartyIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(5)
+					order = fix.IntArray(5)
 					order[0] = 757
 					order[1] = 758
 					order[2] = 759
@@ -9324,7 +9324,7 @@ class TradeCaptureReport(Message):
 
 				class NoNested2PartySubIDs(fix.Group):
 					def __init__(self):
-						order = fix.intArray(3)
+						order = fix.IntArray(3)
 						order[0] = 760
 						order[1] = 807
 						order[2] = 0
@@ -9337,7 +9337,7 @@ class TradeCaptureReportAck(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -9345,7 +9345,7 @@ class TradeCaptureReportAck(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -9355,7 +9355,7 @@ class TradeCaptureReportAck(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -9364,7 +9364,7 @@ class TradeCaptureReportAck(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(54)
+			order = fix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9423,7 +9423,7 @@ class TradeCaptureReportAck(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -9431,7 +9431,7 @@ class TradeCaptureReportAck(Message):
 
 		class NoLegStipulations(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -9439,7 +9439,7 @@ class TradeCaptureReportAck(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -9449,7 +9449,7 @@ class TradeCaptureReportAck(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -9457,7 +9457,7 @@ class TradeCaptureReportAck(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(7)
+			order = fix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -9469,7 +9469,7 @@ class TradeCaptureReportAck(Message):
 
 		class NoNested2PartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -9479,7 +9479,7 @@ class TradeCaptureReportAck(Message):
 
 			class NoNested2PartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -9492,7 +9492,7 @@ class RegistrationInstructions(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9502,7 +9502,7 @@ class RegistrationInstructions(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9510,7 +9510,7 @@ class RegistrationInstructions(Message):
 
 	class NoRegistDtls(fix.Group):
 		def __init__(self):
-			order = fix.intArray(9)
+			order = fix.IntArray(9)
 			order[0] = 509
 			order[1] = 511
 			order[2] = 474
@@ -9524,7 +9524,7 @@ class RegistrationInstructions(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -9534,7 +9534,7 @@ class RegistrationInstructions(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -9542,7 +9542,7 @@ class RegistrationInstructions(Message):
 
 	class NoDistribInsts(fix.Group):
 		def __init__(self):
-			order = fix.intArray(9)
+			order = fix.IntArray(9)
 			order[0] = 477
 			order[1] = 512
 			order[2] = 478
@@ -9561,7 +9561,7 @@ class RegistrationInstructionsResponse(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9571,7 +9571,7 @@ class RegistrationInstructionsResponse(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9584,7 +9584,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9594,7 +9594,7 @@ class PositionMaintenanceRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9602,7 +9602,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -9610,7 +9610,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -9620,7 +9620,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoPositions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(6)
+			order = fix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -9631,7 +9631,7 @@ class PositionMaintenanceRequest(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -9641,7 +9641,7 @@ class PositionMaintenanceRequest(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -9649,7 +9649,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9697,7 +9697,7 @@ class PositionMaintenanceRequest(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -9705,7 +9705,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -9756,7 +9756,7 @@ class PositionMaintenanceRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -9764,7 +9764,7 @@ class PositionMaintenanceRequest(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -9777,7 +9777,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9787,7 +9787,7 @@ class PositionMaintenanceReport(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9795,7 +9795,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -9803,7 +9803,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -9813,7 +9813,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoPositions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(6)
+			order = fix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -9824,7 +9824,7 @@ class PositionMaintenanceReport(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -9834,7 +9834,7 @@ class PositionMaintenanceReport(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -9842,7 +9842,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoPosAmt(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -9850,7 +9850,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9898,7 +9898,7 @@ class PositionMaintenanceReport(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -9906,7 +9906,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -9957,7 +9957,7 @@ class PositionMaintenanceReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -9965,7 +9965,7 @@ class PositionMaintenanceReport(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -9978,7 +9978,7 @@ class RequestForPositions(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9988,7 +9988,7 @@ class RequestForPositions(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9996,7 +9996,7 @@ class RequestForPositions(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10004,7 +10004,7 @@ class RequestForPositions(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10014,7 +10014,7 @@ class RequestForPositions(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10062,7 +10062,7 @@ class RequestForPositions(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -10070,7 +10070,7 @@ class RequestForPositions(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10121,7 +10121,7 @@ class RequestForPositions(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10129,7 +10129,7 @@ class RequestForPositions(Message):
 
 	class NoTradingSessions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -10142,7 +10142,7 @@ class RequestForPositionsAck(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10152,7 +10152,7 @@ class RequestForPositionsAck(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10160,7 +10160,7 @@ class RequestForPositionsAck(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10168,7 +10168,7 @@ class RequestForPositionsAck(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10178,7 +10178,7 @@ class RequestForPositionsAck(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10226,7 +10226,7 @@ class RequestForPositionsAck(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -10234,7 +10234,7 @@ class RequestForPositionsAck(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10285,7 +10285,7 @@ class RequestForPositionsAck(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10298,7 +10298,7 @@ class PositionReport(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10308,7 +10308,7 @@ class PositionReport(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10316,7 +10316,7 @@ class PositionReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10324,7 +10324,7 @@ class PositionReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10334,7 +10334,7 @@ class PositionReport(Message):
 
 	class NoPositions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(6)
+			order = fix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -10345,7 +10345,7 @@ class PositionReport(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -10355,7 +10355,7 @@ class PositionReport(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -10363,7 +10363,7 @@ class PositionReport(Message):
 
 	class NoPosAmt(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -10371,7 +10371,7 @@ class PositionReport(Message):
 
 	class NoLegs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(43)
+			order = fix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10419,7 +10419,7 @@ class PositionReport(Message):
 
 		class NoLegSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -10427,7 +10427,7 @@ class PositionReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(48)
+			order = fix.IntArray(48)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10480,7 +10480,7 @@ class PositionReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10493,7 +10493,7 @@ class AssignmentReport(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10503,7 +10503,7 @@ class AssignmentReport(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10511,7 +10511,7 @@ class AssignmentReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10519,7 +10519,7 @@ class AssignmentReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10529,7 +10529,7 @@ class AssignmentReport(Message):
 
 	class NoLegSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -10537,7 +10537,7 @@ class AssignmentReport(Message):
 
 	class NoPositions(fix.Group):
 		def __init__(self):
-			order = fix.intArray(6)
+			order = fix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -10548,7 +10548,7 @@ class AssignmentReport(Message):
 
 		class NoNestedPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -10558,7 +10558,7 @@ class AssignmentReport(Message):
 
 			class NoNestedPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -10566,7 +10566,7 @@ class AssignmentReport(Message):
 
 	class NoPosAmt(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -10574,7 +10574,7 @@ class AssignmentReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10625,7 +10625,7 @@ class AssignmentReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10638,7 +10638,7 @@ class CollateralRequest(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10648,7 +10648,7 @@ class CollateralRequest(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10656,7 +10656,7 @@ class CollateralRequest(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10664,7 +10664,7 @@ class CollateralRequest(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10674,7 +10674,7 @@ class CollateralRequest(Message):
 
 	class NoLegSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -10682,7 +10682,7 @@ class CollateralRequest(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -10691,7 +10691,7 @@ class CollateralRequest(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -10699,14 +10699,14 @@ class CollateralRequest(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			fix.Group.__init__(self, 124, 17, order)
 
 	class NoTrades(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -10714,7 +10714,7 @@ class CollateralRequest(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(47)
+			order = fix.IntArray(47)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10766,7 +10766,7 @@ class CollateralRequest(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10774,7 +10774,7 @@ class CollateralRequest(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -10789,7 +10789,7 @@ class CollateralAssignment(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10799,7 +10799,7 @@ class CollateralAssignment(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10807,7 +10807,7 @@ class CollateralAssignment(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10815,7 +10815,7 @@ class CollateralAssignment(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10825,7 +10825,7 @@ class CollateralAssignment(Message):
 
 	class NoLegSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -10833,7 +10833,7 @@ class CollateralAssignment(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -10842,7 +10842,7 @@ class CollateralAssignment(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -10850,7 +10850,7 @@ class CollateralAssignment(Message):
 
 	class NoDlvyInst(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -10859,7 +10859,7 @@ class CollateralAssignment(Message):
 
 		class NoSettlPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -10869,7 +10869,7 @@ class CollateralAssignment(Message):
 
 			class NoSettlPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -10877,14 +10877,14 @@ class CollateralAssignment(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			fix.Group.__init__(self, 124, 17, order)
 
 	class NoTrades(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -10892,7 +10892,7 @@ class CollateralAssignment(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(47)
+			order = fix.IntArray(47)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10944,7 +10944,7 @@ class CollateralAssignment(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10952,7 +10952,7 @@ class CollateralAssignment(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -10967,7 +10967,7 @@ class CollateralResponse(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10977,7 +10977,7 @@ class CollateralResponse(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10985,7 +10985,7 @@ class CollateralResponse(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10993,7 +10993,7 @@ class CollateralResponse(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11003,7 +11003,7 @@ class CollateralResponse(Message):
 
 	class NoLegSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -11011,7 +11011,7 @@ class CollateralResponse(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -11020,7 +11020,7 @@ class CollateralResponse(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -11028,14 +11028,14 @@ class CollateralResponse(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			fix.Group.__init__(self, 124, 17, order)
 
 	class NoTrades(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -11043,7 +11043,7 @@ class CollateralResponse(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(47)
+			order = fix.IntArray(47)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11095,7 +11095,7 @@ class CollateralResponse(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11103,7 +11103,7 @@ class CollateralResponse(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -11118,7 +11118,7 @@ class CollateralReport(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11128,7 +11128,7 @@ class CollateralReport(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11136,7 +11136,7 @@ class CollateralReport(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11144,7 +11144,7 @@ class CollateralReport(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11154,7 +11154,7 @@ class CollateralReport(Message):
 
 	class NoLegSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -11162,7 +11162,7 @@ class CollateralReport(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -11171,7 +11171,7 @@ class CollateralReport(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -11179,7 +11179,7 @@ class CollateralReport(Message):
 
 	class NoDlvyInst(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -11188,7 +11188,7 @@ class CollateralReport(Message):
 
 		class NoSettlPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -11198,7 +11198,7 @@ class CollateralReport(Message):
 
 			class NoSettlPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -11206,14 +11206,14 @@ class CollateralReport(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			fix.Group.__init__(self, 124, 17, order)
 
 	class NoTrades(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -11221,7 +11221,7 @@ class CollateralReport(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11272,7 +11272,7 @@ class CollateralReport(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11280,7 +11280,7 @@ class CollateralReport(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -11295,7 +11295,7 @@ class CollateralInquiry(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11305,7 +11305,7 @@ class CollateralInquiry(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11313,7 +11313,7 @@ class CollateralInquiry(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11321,7 +11321,7 @@ class CollateralInquiry(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11331,7 +11331,7 @@ class CollateralInquiry(Message):
 
 	class NoLegSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -11339,7 +11339,7 @@ class CollateralInquiry(Message):
 
 	class NoTrdRegTimestamps(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -11348,7 +11348,7 @@ class CollateralInquiry(Message):
 
 	class NoStipulations(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -11356,7 +11356,7 @@ class CollateralInquiry(Message):
 
 	class NoDlvyInst(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -11365,7 +11365,7 @@ class CollateralInquiry(Message):
 
 		class NoSettlPartyIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(5)
+				order = fix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -11375,7 +11375,7 @@ class CollateralInquiry(Message):
 
 			class NoSettlPartySubIDs(fix.Group):
 				def __init__(self):
-					order = fix.intArray(3)
+					order = fix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -11383,21 +11383,21 @@ class CollateralInquiry(Message):
 
 	class NoCollInquiryQualifier(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 896
 			order[1] = 0
 			fix.Group.__init__(self, 938, 896, order)
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			fix.Group.__init__(self, 124, 17, order)
 
 	class NoTrades(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -11405,7 +11405,7 @@ class CollateralInquiry(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11456,7 +11456,7 @@ class CollateralInquiry(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11469,7 +11469,7 @@ class CollateralInquiryAck(Message):
 
 	class NoPartyIDs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11479,7 +11479,7 @@ class CollateralInquiryAck(Message):
 
 		class NoPartySubIDs(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11487,7 +11487,7 @@ class CollateralInquiryAck(Message):
 
 	class NoSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11495,7 +11495,7 @@ class CollateralInquiryAck(Message):
 
 	class NoEvents(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11505,7 +11505,7 @@ class CollateralInquiryAck(Message):
 
 	class NoLegSecurityAltID(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -11513,21 +11513,21 @@ class CollateralInquiryAck(Message):
 
 	class NoCollInquiryQualifier(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 896
 			order[1] = 0
 			fix.Group.__init__(self, 938, 896, order)
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			fix.Group.__init__(self, 124, 17, order)
 
 	class NoTrades(fix.Group):
 		def __init__(self):
-			order = fix.intArray(3)
+			order = fix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -11535,7 +11535,7 @@ class CollateralInquiryAck(Message):
 
 	class NoUnderlyings(fix.Group):
 		def __init__(self):
-			order = fix.intArray(46)
+			order = fix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11586,7 +11586,7 @@ class CollateralInquiryAck(Message):
 
 		class NoUnderlyingSecurityAltID(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0

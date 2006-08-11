@@ -57,7 +57,7 @@ class News(Message):
 
 	class LinesOfText(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 58
 			order[1] = 0
 			fix.Group.__init__(self, 33, 58, order)
@@ -69,7 +69,7 @@ class Email(Message):
 
 	class LinesOfText(fix.Group):
 		def __init__(self):
-			order = fix.intArray(2)
+			order = fix.IntArray(2)
 			order[0] = 58
 			order[1] = 0
 			fix.Group.__init__(self, 33, 58, order)
@@ -96,7 +96,7 @@ class ExecutionReport(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -135,7 +135,7 @@ class Allocation(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 66
@@ -145,7 +145,7 @@ class Allocation(Message):
 
 	class NoExecs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 17
 			order[1] = 32
 			order[2] = 31
@@ -155,7 +155,7 @@ class Allocation(Message):
 
 	class NoMiscFees(fix.Group):
 		def __init__(self):
-			order = fix.intArray(4)
+			order = fix.IntArray(4)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -164,7 +164,7 @@ class Allocation(Message):
 
 	class NoAllocs(fix.Group):
 		def __init__(self):
-			order = fix.intArray(9)
+			order = fix.IntArray(9)
 			order[0] = 79
 			order[1] = 80
 			order[2] = 81
@@ -178,7 +178,7 @@ class Allocation(Message):
 
 		class NoDlvyInst(fix.Group):
 			def __init__(self):
-				order = fix.intArray(3)
+				order = fix.IntArray(3)
 				order[0] = 92
 				order[1] = 86
 				order[2] = 0
@@ -201,7 +201,7 @@ class ListStatus(Message):
 
 	class NoOrders(fix.Group):
 		def __init__(self):
-			order = fix.intArray(5)
+			order = fix.IntArray(5)
 			order[0] = 11
 			order[1] = 14
 			order[2] = 84

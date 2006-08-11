@@ -22,7 +22,7 @@ class Logon < Message
 
 	class NoMsgTypes < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 372
 			order[1] = 385
 			order[2] = 0
@@ -95,7 +95,7 @@ class Advertisement < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -105,7 +105,7 @@ class Advertisement < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -117,7 +117,7 @@ class Advertisement < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -166,7 +166,7 @@ class Advertisement < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -177,7 +177,7 @@ class Advertisement < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -229,7 +229,7 @@ class Advertisement < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -247,7 +247,7 @@ class IndicationOfInterest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -257,7 +257,7 @@ class IndicationOfInterest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -269,7 +269,7 @@ class IndicationOfInterest < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -279,7 +279,7 @@ class IndicationOfInterest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -331,7 +331,7 @@ class IndicationOfInterest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -342,7 +342,7 @@ class IndicationOfInterest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(45)
+			order = Quickfix.IntArray(45)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -393,7 +393,7 @@ class IndicationOfInterest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -403,7 +403,7 @@ class IndicationOfInterest < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -414,7 +414,7 @@ class IndicationOfInterest < Message
 
 	class NoIOIQualifiers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 104
 			order[1] = 0
 			super(199, 104, order)
@@ -423,7 +423,7 @@ class IndicationOfInterest < Message
 
 	class NoRoutingIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -440,7 +440,7 @@ class News < Message
 
 	class NoRoutingIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -450,7 +450,7 @@ class News < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -499,7 +499,7 @@ class News < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -509,7 +509,7 @@ class News < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -522,7 +522,7 @@ class News < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -571,7 +571,7 @@ class News < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -582,7 +582,7 @@ class News < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -634,7 +634,7 @@ class News < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -645,7 +645,7 @@ class News < Message
 
 	class LinesOfText < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 58
 			order[1] = 354
 			order[2] = 355
@@ -663,7 +663,7 @@ class Email < Message
 
 	class NoRoutingIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 216
 			order[1] = 217
 			order[2] = 0
@@ -673,7 +673,7 @@ class Email < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -722,7 +722,7 @@ class Email < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -732,7 +732,7 @@ class Email < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -745,7 +745,7 @@ class Email < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -797,7 +797,7 @@ class Email < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -808,7 +808,7 @@ class Email < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -857,7 +857,7 @@ class Email < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -868,7 +868,7 @@ class Email < Message
 
 	class LinesOfText < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 58
 			order[1] = 354
 			order[2] = 355
@@ -886,7 +886,7 @@ class QuoteRequest < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(100)
+			order = Quickfix.IntArray(100)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -992,7 +992,7 @@ class QuoteRequest < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -1002,7 +1002,7 @@ class QuoteRequest < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -1014,7 +1014,7 @@ class QuoteRequest < Message
 
 		class NoStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -1024,7 +1024,7 @@ class QuoteRequest < Message
 
 		class NoPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -1035,7 +1035,7 @@ class QuoteRequest < Message
 
 			class NoPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -1046,7 +1046,7 @@ class QuoteRequest < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -1098,7 +1098,7 @@ class QuoteRequest < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -1109,7 +1109,7 @@ class QuoteRequest < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(54)
+				order = Quickfix.IntArray(54)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -1169,7 +1169,7 @@ class QuoteRequest < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -1179,7 +1179,7 @@ class QuoteRequest < Message
 
 			class NoLegStipulations < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 688
 					order[1] = 689
 					order[2] = 0
@@ -1189,7 +1189,7 @@ class QuoteRequest < Message
 
 			class NoNestedPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -1200,7 +1200,7 @@ class QuoteRequest < Message
 
 				class NoNestedPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -1212,7 +1212,7 @@ class QuoteRequest < Message
 
 		class NoQuoteQualifiers < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(2)
+				order = Quickfix.IntArray(2)
 				order[0] = 695
 				order[1] = 0
 				super(735, 695, order)
@@ -1229,7 +1229,7 @@ class QuoteResponse < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -1240,7 +1240,7 @@ class QuoteResponse < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -1251,7 +1251,7 @@ class QuoteResponse < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -1261,7 +1261,7 @@ class QuoteResponse < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -1273,7 +1273,7 @@ class QuoteResponse < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -1283,7 +1283,7 @@ class QuoteResponse < Message
 
 	class NoQuoteQualifiers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			super(735, 695, order)
@@ -1292,7 +1292,7 @@ class QuoteResponse < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -1344,7 +1344,7 @@ class QuoteResponse < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -1355,7 +1355,7 @@ class QuoteResponse < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(57)
+			order = Quickfix.IntArray(57)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -1418,7 +1418,7 @@ class QuoteResponse < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -1428,7 +1428,7 @@ class QuoteResponse < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -1438,7 +1438,7 @@ class QuoteResponse < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -1449,7 +1449,7 @@ class QuoteResponse < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -1468,7 +1468,7 @@ class QuoteRequestReject < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -1479,7 +1479,7 @@ class QuoteRequestReject < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -1490,7 +1490,7 @@ class QuoteRequestReject < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(76)
+			order = Quickfix.IntArray(76)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -1572,7 +1572,7 @@ class QuoteRequestReject < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -1582,7 +1582,7 @@ class QuoteRequestReject < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -1594,7 +1594,7 @@ class QuoteRequestReject < Message
 
 		class NoStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -1604,7 +1604,7 @@ class QuoteRequestReject < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -1656,7 +1656,7 @@ class QuoteRequestReject < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -1667,7 +1667,7 @@ class QuoteRequestReject < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(54)
+				order = Quickfix.IntArray(54)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -1727,7 +1727,7 @@ class QuoteRequestReject < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -1737,7 +1737,7 @@ class QuoteRequestReject < Message
 
 			class NoLegStipulations < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 688
 					order[1] = 689
 					order[2] = 0
@@ -1747,7 +1747,7 @@ class QuoteRequestReject < Message
 
 			class NoNestedPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -1758,7 +1758,7 @@ class QuoteRequestReject < Message
 
 				class NoNestedPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -1771,7 +1771,7 @@ class QuoteRequestReject < Message
 
 	class NoQuoteQualifiers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			super(735, 695, order)
@@ -1787,7 +1787,7 @@ class RFQRequest < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(50)
+			order = Quickfix.IntArray(50)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -1843,7 +1843,7 @@ class RFQRequest < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -1853,7 +1853,7 @@ class RFQRequest < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -1865,7 +1865,7 @@ class RFQRequest < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -1917,7 +1917,7 @@ class RFQRequest < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -1928,7 +1928,7 @@ class RFQRequest < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(43)
+				order = Quickfix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -1977,7 +1977,7 @@ class RFQRequest < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -1996,7 +1996,7 @@ class Quote < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2007,7 +2007,7 @@ class Quote < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2018,7 +2018,7 @@ class Quote < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -2028,7 +2028,7 @@ class Quote < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -2040,7 +2040,7 @@ class Quote < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -2050,7 +2050,7 @@ class Quote < Message
 
 	class NoQuoteQualifiers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			super(735, 695, order)
@@ -2059,7 +2059,7 @@ class Quote < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -2111,7 +2111,7 @@ class Quote < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2122,7 +2122,7 @@ class Quote < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(57)
+			order = Quickfix.IntArray(57)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -2185,7 +2185,7 @@ class Quote < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -2195,7 +2195,7 @@ class Quote < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -2205,7 +2205,7 @@ class Quote < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -2216,7 +2216,7 @@ class Quote < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -2235,7 +2235,7 @@ class QuoteCancel < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2246,7 +2246,7 @@ class QuoteCancel < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2257,7 +2257,7 @@ class QuoteCancel < Message
 
 	class NoQuoteEntries < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(54)
+			order = Quickfix.IntArray(54)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -2317,7 +2317,7 @@ class QuoteCancel < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -2327,7 +2327,7 @@ class QuoteCancel < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -2339,7 +2339,7 @@ class QuoteCancel < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -2391,7 +2391,7 @@ class QuoteCancel < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -2402,7 +2402,7 @@ class QuoteCancel < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(43)
+				order = Quickfix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -2451,7 +2451,7 @@ class QuoteCancel < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -2470,7 +2470,7 @@ class QuoteStatusRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -2480,7 +2480,7 @@ class QuoteStatusRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -2492,7 +2492,7 @@ class QuoteStatusRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2503,7 +2503,7 @@ class QuoteStatusRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2514,7 +2514,7 @@ class QuoteStatusRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -2566,7 +2566,7 @@ class QuoteStatusRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2577,7 +2577,7 @@ class QuoteStatusRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -2626,7 +2626,7 @@ class QuoteStatusRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -2644,7 +2644,7 @@ class QuoteStatusReport < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2655,7 +2655,7 @@ class QuoteStatusReport < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2666,7 +2666,7 @@ class QuoteStatusReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -2676,7 +2676,7 @@ class QuoteStatusReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -2688,7 +2688,7 @@ class QuoteStatusReport < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -2698,7 +2698,7 @@ class QuoteStatusReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -2750,7 +2750,7 @@ class QuoteStatusReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2761,7 +2761,7 @@ class QuoteStatusReport < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(49)
+			order = Quickfix.IntArray(49)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -2816,7 +2816,7 @@ class QuoteStatusReport < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -2826,7 +2826,7 @@ class QuoteStatusReport < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -2836,7 +2836,7 @@ class QuoteStatusReport < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -2847,7 +2847,7 @@ class QuoteStatusReport < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -2859,7 +2859,7 @@ class QuoteStatusReport < Message
 
 	class NoQuoteQualifiers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 695
 			order[1] = 0
 			super(735, 695, order)
@@ -2875,7 +2875,7 @@ class MassQuote < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -2886,7 +2886,7 @@ class MassQuote < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -2897,7 +2897,7 @@ class MassQuote < Message
 
 	class NoQuoteSets < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(51)
+			order = Quickfix.IntArray(51)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -2954,7 +2954,7 @@ class MassQuote < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -2964,7 +2964,7 @@ class MassQuote < Message
 
 		class NoQuoteEntries < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(68)
+				order = Quickfix.IntArray(68)
 				order[0] = 299
 				order[1] = 55
 				order[2] = 65
@@ -3038,7 +3038,7 @@ class MassQuote < Message
 
 			class NoSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 455
 					order[1] = 456
 					order[2] = 0
@@ -3048,7 +3048,7 @@ class MassQuote < Message
 
 			class NoEvents < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 865
 					order[1] = 866
 					order[2] = 867
@@ -3060,7 +3060,7 @@ class MassQuote < Message
 
 			class NoLegs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(43)
+					order = Quickfix.IntArray(43)
 					order[0] = 600
 					order[1] = 601
 					order[2] = 602
@@ -3109,7 +3109,7 @@ class MassQuote < Message
 
 				class NoLegSecurityAltID < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 605
 						order[1] = 606
 						order[2] = 0
@@ -3129,7 +3129,7 @@ class MassQuoteAcknowledgement < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -3140,7 +3140,7 @@ class MassQuoteAcknowledgement < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -3151,7 +3151,7 @@ class MassQuoteAcknowledgement < Message
 
 	class NoQuoteSets < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(50)
+			order = Quickfix.IntArray(50)
 			order[0] = 302
 			order[1] = 311
 			order[2] = 312
@@ -3207,7 +3207,7 @@ class MassQuoteAcknowledgement < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -3217,7 +3217,7 @@ class MassQuoteAcknowledgement < Message
 
 		class NoQuoteEntries < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(69)
+				order = Quickfix.IntArray(69)
 				order[0] = 299
 				order[1] = 55
 				order[2] = 65
@@ -3292,7 +3292,7 @@ class MassQuoteAcknowledgement < Message
 
 			class NoSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 455
 					order[1] = 456
 					order[2] = 0
@@ -3302,7 +3302,7 @@ class MassQuoteAcknowledgement < Message
 
 			class NoEvents < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 865
 					order[1] = 866
 					order[2] = 867
@@ -3314,7 +3314,7 @@ class MassQuoteAcknowledgement < Message
 
 			class NoLegs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(43)
+					order = Quickfix.IntArray(43)
 					order[0] = 600
 					order[1] = 601
 					order[2] = 602
@@ -3363,7 +3363,7 @@ class MassQuoteAcknowledgement < Message
 
 				class NoLegSecurityAltID < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 605
 						order[1] = 606
 						order[2] = 0
@@ -3383,7 +3383,7 @@ class MarketDataRequest < Message
 
 	class NoMDEntryTypes < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 269
 			order[1] = 0
 			super(267, 269, order)
@@ -3392,7 +3392,7 @@ class MarketDataRequest < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(45)
+			order = Quickfix.IntArray(45)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -3443,7 +3443,7 @@ class MarketDataRequest < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -3453,7 +3453,7 @@ class MarketDataRequest < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -3465,7 +3465,7 @@ class MarketDataRequest < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -3517,7 +3517,7 @@ class MarketDataRequest < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -3528,7 +3528,7 @@ class MarketDataRequest < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(43)
+				order = Quickfix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -3577,7 +3577,7 @@ class MarketDataRequest < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -3589,7 +3589,7 @@ class MarketDataRequest < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -3606,7 +3606,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -3616,7 +3616,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -3628,7 +3628,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -3680,7 +3680,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -3691,7 +3691,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -3740,7 +3740,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -3751,7 +3751,7 @@ class MarketDataSnapshotFullRefresh < Message
 
 	class NoMDEntries < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(34)
+			order = Quickfix.IntArray(34)
 			order[0] = 269
 			order[1] = 270
 			order[2] = 15
@@ -3799,7 +3799,7 @@ class MarketDataIncrementalRefresh < Message
 
 	class NoMDEntries < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(85)
+			order = Quickfix.IntArray(85)
 			order[0] = 279
 			order[1] = 285
 			order[2] = 269
@@ -3890,7 +3890,7 @@ class MarketDataIncrementalRefresh < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -3900,7 +3900,7 @@ class MarketDataIncrementalRefresh < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -3912,7 +3912,7 @@ class MarketDataIncrementalRefresh < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -3964,7 +3964,7 @@ class MarketDataIncrementalRefresh < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -3975,7 +3975,7 @@ class MarketDataIncrementalRefresh < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(43)
+				order = Quickfix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -4024,7 +4024,7 @@ class MarketDataIncrementalRefresh < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -4043,7 +4043,7 @@ class MarketDataRequestReject < Message
 
 	class NoAltMDSource < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 817
 			order[1] = 0
 			super(816, 817, order)
@@ -4059,7 +4059,7 @@ class SecurityDefinitionRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -4069,7 +4069,7 @@ class SecurityDefinitionRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -4081,7 +4081,7 @@ class SecurityDefinitionRequest < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -4091,7 +4091,7 @@ class SecurityDefinitionRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -4143,7 +4143,7 @@ class SecurityDefinitionRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -4154,7 +4154,7 @@ class SecurityDefinitionRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4203,7 +4203,7 @@ class SecurityDefinitionRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -4221,7 +4221,7 @@ class SecurityDefinition < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -4231,7 +4231,7 @@ class SecurityDefinition < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -4243,7 +4243,7 @@ class SecurityDefinition < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -4253,7 +4253,7 @@ class SecurityDefinition < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -4305,7 +4305,7 @@ class SecurityDefinition < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -4316,7 +4316,7 @@ class SecurityDefinition < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4365,7 +4365,7 @@ class SecurityDefinition < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -4390,7 +4390,7 @@ class SecurityTypes < Message
 
 	class NoSecurityTypes < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 167
 			order[1] = 762
 			order[2] = 460
@@ -4409,7 +4409,7 @@ class SecurityListRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -4419,7 +4419,7 @@ class SecurityListRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -4431,7 +4431,7 @@ class SecurityListRequest < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -4441,7 +4441,7 @@ class SecurityListRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -4493,7 +4493,7 @@ class SecurityListRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -4504,7 +4504,7 @@ class SecurityListRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -4553,7 +4553,7 @@ class SecurityListRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -4571,7 +4571,7 @@ class SecurityList < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(81)
+			order = Quickfix.IntArray(81)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -4658,7 +4658,7 @@ class SecurityList < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -4668,7 +4668,7 @@ class SecurityList < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -4680,7 +4680,7 @@ class SecurityList < Message
 
 		class NoInstrAttrib < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 871
 				order[1] = 872
 				order[2] = 0
@@ -4690,7 +4690,7 @@ class SecurityList < Message
 
 		class NoStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -4700,7 +4700,7 @@ class SecurityList < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -4752,7 +4752,7 @@ class SecurityList < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -4763,7 +4763,7 @@ class SecurityList < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(51)
+				order = Quickfix.IntArray(51)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -4820,7 +4820,7 @@ class SecurityList < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -4830,7 +4830,7 @@ class SecurityList < Message
 
 			class NoLegStipulations < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 688
 					order[1] = 689
 					order[2] = 0
@@ -4849,7 +4849,7 @@ class DerivativeSecurityListRequest < Message
 
 	class NoUnderlyingSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -4866,7 +4866,7 @@ class DerivativeSecurityList < Message
 
 	class NoUnderlyingSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -4876,7 +4876,7 @@ class DerivativeSecurityList < Message
 
 	class NoRelatedSym < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(54)
+			order = Quickfix.IntArray(54)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -4936,7 +4936,7 @@ class DerivativeSecurityList < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -4946,7 +4946,7 @@ class DerivativeSecurityList < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -4958,7 +4958,7 @@ class DerivativeSecurityList < Message
 
 		class NoInstrAttrib < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 871
 				order[1] = 872
 				order[2] = 0
@@ -4968,7 +4968,7 @@ class DerivativeSecurityList < Message
 
 		class NoLegs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(43)
+				order = Quickfix.IntArray(43)
 				order[0] = 600
 				order[1] = 601
 				order[2] = 602
@@ -5017,7 +5017,7 @@ class DerivativeSecurityList < Message
 
 			class NoLegSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 605
 					order[1] = 606
 					order[2] = 0
@@ -5036,7 +5036,7 @@ class SecurityStatusRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5046,7 +5046,7 @@ class SecurityStatusRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5058,7 +5058,7 @@ class SecurityStatusRequest < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -5068,7 +5068,7 @@ class SecurityStatusRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5120,7 +5120,7 @@ class SecurityStatusRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5131,7 +5131,7 @@ class SecurityStatusRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5180,7 +5180,7 @@ class SecurityStatusRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -5198,7 +5198,7 @@ class SecurityStatus < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5208,7 +5208,7 @@ class SecurityStatus < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5220,7 +5220,7 @@ class SecurityStatus < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -5230,7 +5230,7 @@ class SecurityStatus < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5282,7 +5282,7 @@ class SecurityStatus < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5293,7 +5293,7 @@ class SecurityStatus < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5342,7 +5342,7 @@ class SecurityStatus < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -5374,7 +5374,7 @@ class NewOrderSingle < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5385,7 +5385,7 @@ class NewOrderSingle < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5396,7 +5396,7 @@ class NewOrderSingle < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5406,7 +5406,7 @@ class NewOrderSingle < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5418,7 +5418,7 @@ class NewOrderSingle < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -5428,7 +5428,7 @@ class NewOrderSingle < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(7)
+			order = Quickfix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -5441,7 +5441,7 @@ class NewOrderSingle < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -5452,7 +5452,7 @@ class NewOrderSingle < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -5464,7 +5464,7 @@ class NewOrderSingle < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -5474,7 +5474,7 @@ class NewOrderSingle < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5526,7 +5526,7 @@ class NewOrderSingle < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5544,7 +5544,7 @@ class ExecutionReport < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5555,7 +5555,7 @@ class ExecutionReport < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5566,7 +5566,7 @@ class ExecutionReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5576,7 +5576,7 @@ class ExecutionReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5588,7 +5588,7 @@ class ExecutionReport < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -5598,7 +5598,7 @@ class ExecutionReport < Message
 
 	class NoContraBrokers < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 375
 			order[1] = 337
 			order[2] = 437
@@ -5611,7 +5611,7 @@ class ExecutionReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5663,7 +5663,7 @@ class ExecutionReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5674,7 +5674,7 @@ class ExecutionReport < Message
 
 	class NoContAmts < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 519
 			order[1] = 520
 			order[2] = 521
@@ -5685,7 +5685,7 @@ class ExecutionReport < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(54)
+			order = Quickfix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5745,7 +5745,7 @@ class ExecutionReport < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -5755,7 +5755,7 @@ class ExecutionReport < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -5765,7 +5765,7 @@ class ExecutionReport < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -5776,7 +5776,7 @@ class ExecutionReport < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -5788,7 +5788,7 @@ class ExecutionReport < Message
 
 	class NoMiscFees < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -5807,7 +5807,7 @@ class DontKnowTrade < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5817,7 +5817,7 @@ class DontKnowTrade < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -5829,7 +5829,7 @@ class DontKnowTrade < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -5881,7 +5881,7 @@ class DontKnowTrade < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -5892,7 +5892,7 @@ class DontKnowTrade < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -5941,7 +5941,7 @@ class DontKnowTrade < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -5959,7 +5959,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -5970,7 +5970,7 @@ class OrderCancelReplaceRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -5981,7 +5981,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -5991,7 +5991,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6003,7 +6003,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(7)
+			order = Quickfix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -6016,7 +6016,7 @@ class OrderCancelReplaceRequest < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -6027,7 +6027,7 @@ class OrderCancelReplaceRequest < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -6039,7 +6039,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -6049,7 +6049,7 @@ class OrderCancelReplaceRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6101,7 +6101,7 @@ class OrderCancelReplaceRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6119,7 +6119,7 @@ class OrderCancelRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -6130,7 +6130,7 @@ class OrderCancelRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -6141,7 +6141,7 @@ class OrderCancelRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6151,7 +6151,7 @@ class OrderCancelRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6163,7 +6163,7 @@ class OrderCancelRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6215,7 +6215,7 @@ class OrderCancelRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6240,7 +6240,7 @@ class OrderStatusRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -6251,7 +6251,7 @@ class OrderStatusRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -6262,7 +6262,7 @@ class OrderStatusRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6272,7 +6272,7 @@ class OrderStatusRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6284,7 +6284,7 @@ class OrderStatusRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6336,7 +6336,7 @@ class OrderStatusRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6354,7 +6354,7 @@ class OrderMassCancelRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6364,7 +6364,7 @@ class OrderMassCancelRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6376,7 +6376,7 @@ class OrderMassCancelRequest < Message
 
 	class NoUnderlyingSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -6393,7 +6393,7 @@ class OrderMassCancelReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6403,7 +6403,7 @@ class OrderMassCancelReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6415,7 +6415,7 @@ class OrderMassCancelReport < Message
 
 	class NoUnderlyingSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -6425,7 +6425,7 @@ class OrderMassCancelReport < Message
 
 	class NoAffectedOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 41
 			order[1] = 535
 			order[2] = 536
@@ -6443,7 +6443,7 @@ class OrderMassStatusRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -6454,7 +6454,7 @@ class OrderMassStatusRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -6465,7 +6465,7 @@ class OrderMassStatusRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6475,7 +6475,7 @@ class OrderMassStatusRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6487,7 +6487,7 @@ class OrderMassStatusRequest < Message
 
 	class NoUnderlyingSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 458
 			order[1] = 459
 			order[2] = 0
@@ -6504,7 +6504,7 @@ class NewOrderCross < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6514,7 +6514,7 @@ class NewOrderCross < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6526,7 +6526,7 @@ class NewOrderCross < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -6536,7 +6536,7 @@ class NewOrderCross < Message
 
 	class NoSides < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(41)
+			order = Quickfix.IntArray(41)
 			order[0] = 54
 			order[1] = 11
 			order[2] = 526
@@ -6583,7 +6583,7 @@ class NewOrderCross < Message
 
 		class NoPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -6594,7 +6594,7 @@ class NewOrderCross < Message
 
 			class NoPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -6605,7 +6605,7 @@ class NewOrderCross < Message
 
 		class NoAllocs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(7)
+				order = Quickfix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -6618,7 +6618,7 @@ class NewOrderCross < Message
 
 			class NoNestedPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -6629,7 +6629,7 @@ class NewOrderCross < Message
 
 				class NoNestedPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -6642,7 +6642,7 @@ class NewOrderCross < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6694,7 +6694,7 @@ class NewOrderCross < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6705,7 +6705,7 @@ class NewOrderCross < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -6754,7 +6754,7 @@ class NewOrderCross < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -6765,7 +6765,7 @@ class NewOrderCross < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -6782,7 +6782,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -6792,7 +6792,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -6804,7 +6804,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -6814,7 +6814,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 	class NoSides < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 54
 			order[1] = 41
 			order[2] = 11
@@ -6863,7 +6863,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 		class NoPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -6874,7 +6874,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 			class NoPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -6885,7 +6885,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 		class NoAllocs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(7)
+				order = Quickfix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -6898,7 +6898,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 			class NoNestedPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -6909,7 +6909,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 				class NoNestedPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -6922,7 +6922,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -6974,7 +6974,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -6985,7 +6985,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7034,7 +7034,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -7045,7 +7045,7 @@ class CrossOrderCancelReplaceRequest < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -7062,7 +7062,7 @@ class CrossOrderCancelRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -7072,7 +7072,7 @@ class CrossOrderCancelRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -7084,7 +7084,7 @@ class CrossOrderCancelRequest < Message
 
 	class NoSides < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(19)
+			order = Quickfix.IntArray(19)
 			order[0] = 54
 			order[1] = 41
 			order[2] = 11
@@ -7109,7 +7109,7 @@ class CrossOrderCancelRequest < Message
 
 		class NoPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -7120,7 +7120,7 @@ class CrossOrderCancelRequest < Message
 
 			class NoPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -7132,7 +7132,7 @@ class CrossOrderCancelRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -7184,7 +7184,7 @@ class CrossOrderCancelRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -7195,7 +7195,7 @@ class CrossOrderCancelRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7244,7 +7244,7 @@ class CrossOrderCancelRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -7262,7 +7262,7 @@ class NewOrderMultileg < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -7273,7 +7273,7 @@ class NewOrderMultileg < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -7284,7 +7284,7 @@ class NewOrderMultileg < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -7294,7 +7294,7 @@ class NewOrderMultileg < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -7306,7 +7306,7 @@ class NewOrderMultileg < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(7)
+			order = Quickfix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -7319,7 +7319,7 @@ class NewOrderMultileg < Message
 
 		class NoNested3PartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 949
 				order[1] = 950
 				order[2] = 951
@@ -7330,7 +7330,7 @@ class NewOrderMultileg < Message
 
 			class NoNested3PartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 953
 					order[1] = 954
 					order[2] = 0
@@ -7342,7 +7342,7 @@ class NewOrderMultileg < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -7352,7 +7352,7 @@ class NewOrderMultileg < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -7404,7 +7404,7 @@ class NewOrderMultileg < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -7415,7 +7415,7 @@ class NewOrderMultileg < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(54)
+			order = Quickfix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7475,7 +7475,7 @@ class NewOrderMultileg < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -7485,7 +7485,7 @@ class NewOrderMultileg < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -7495,7 +7495,7 @@ class NewOrderMultileg < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -7506,7 +7506,7 @@ class NewOrderMultileg < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -7517,7 +7517,7 @@ class NewOrderMultileg < Message
 
 		class NoLegAllocs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(7)
+				order = Quickfix.IntArray(7)
 				order[0] = 671
 				order[1] = 672
 				order[2] = 756
@@ -7530,7 +7530,7 @@ class NewOrderMultileg < Message
 
 			class NoNested2PartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 757
 					order[1] = 758
 					order[2] = 759
@@ -7541,7 +7541,7 @@ class NewOrderMultileg < Message
 
 				class NoNested2PartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 760
 						order[1] = 807
 						order[2] = 0
@@ -7561,7 +7561,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -7572,7 +7572,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -7583,7 +7583,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -7593,7 +7593,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -7605,7 +7605,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(7)
+			order = Quickfix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -7618,7 +7618,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 		class NoNested3PartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 949
 				order[1] = 950
 				order[2] = 951
@@ -7629,7 +7629,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 			class NoNested3PartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 953
 					order[1] = 954
 					order[2] = 0
@@ -7641,7 +7641,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -7651,7 +7651,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -7703,7 +7703,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -7714,7 +7714,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(54)
+			order = Quickfix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -7774,7 +7774,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -7784,7 +7784,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -7794,7 +7794,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -7805,7 +7805,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -7816,7 +7816,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 		class NoLegAllocs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(7)
+				order = Quickfix.IntArray(7)
 				order[0] = 671
 				order[1] = 672
 				order[2] = 756
@@ -7829,7 +7829,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 			class NoNested2PartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 757
 					order[1] = 758
 					order[2] = 759
@@ -7840,7 +7840,7 @@ class MultilegOrderCancelReplaceRequest < Message
 
 				class NoNested2PartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 760
 						order[1] = 807
 						order[2] = 0
@@ -7860,7 +7860,7 @@ class BidRequest < Message
 
 	class NoBidDescriptors < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(12)
+			order = Quickfix.IntArray(12)
 			order[0] = 399
 			order[1] = 400
 			order[2] = 401
@@ -7879,7 +7879,7 @@ class BidRequest < Message
 
 	class NoBidComponents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(10)
+			order = Quickfix.IntArray(10)
 			order[0] = 66
 			order[1] = 54
 			order[2] = 336
@@ -7903,7 +7903,7 @@ class BidResponse < Message
 
 	class NoBidComponents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(19)
+			order = Quickfix.IntArray(19)
 			order[0] = 12
 			order[1] = 13
 			order[2] = 479
@@ -7936,7 +7936,7 @@ class NewOrderList < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(147)
+			order = Quickfix.IntArray(147)
 			order[0] = 11
 			order[1] = 526
 			order[2] = 67
@@ -8089,7 +8089,7 @@ class NewOrderList < Message
 
 		class NoPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -8100,7 +8100,7 @@ class NewOrderList < Message
 
 			class NoPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -8111,7 +8111,7 @@ class NewOrderList < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -8121,7 +8121,7 @@ class NewOrderList < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -8133,7 +8133,7 @@ class NewOrderList < Message
 
 		class NoStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -8143,7 +8143,7 @@ class NewOrderList < Message
 
 		class NoAllocs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(7)
+				order = Quickfix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -8156,7 +8156,7 @@ class NewOrderList < Message
 
 			class NoNestedPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 524
 					order[1] = 525
 					order[2] = 538
@@ -8167,7 +8167,7 @@ class NewOrderList < Message
 
 				class NoNestedPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 545
 						order[1] = 805
 						order[2] = 0
@@ -8179,7 +8179,7 @@ class NewOrderList < Message
 
 		class NoTradingSessions < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 336
 				order[1] = 625
 				order[2] = 0
@@ -8189,7 +8189,7 @@ class NewOrderList < Message
 
 		class NoUnderlyings < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(46)
+				order = Quickfix.IntArray(46)
 				order[0] = 311
 				order[1] = 312
 				order[2] = 309
@@ -8241,7 +8241,7 @@ class NewOrderList < Message
 
 			class NoUnderlyingSecurityAltID < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 458
 					order[1] = 459
 					order[2] = 0
@@ -8260,7 +8260,7 @@ class ListStrikePrice < Message
 
 	class NoStrikes < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 55
 			order[1] = 65
 			order[2] = 48
@@ -8309,7 +8309,7 @@ class ListStrikePrice < Message
 
 		class NoSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 455
 				order[1] = 456
 				order[2] = 0
@@ -8319,7 +8319,7 @@ class ListStrikePrice < Message
 
 		class NoEvents < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 865
 				order[1] = 866
 				order[2] = 867
@@ -8332,7 +8332,7 @@ class ListStrikePrice < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(55)
+			order = Quickfix.IntArray(55)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -8393,7 +8393,7 @@ class ListStrikePrice < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -8411,7 +8411,7 @@ class ListStatus < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(13)
+			order = Quickfix.IntArray(13)
 			order[0] = 11
 			order[1] = 526
 			order[2] = 14
@@ -8459,7 +8459,7 @@ class AllocationInstruction < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -8469,7 +8469,7 @@ class AllocationInstruction < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -8481,7 +8481,7 @@ class AllocationInstruction < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -8491,7 +8491,7 @@ class AllocationInstruction < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -8502,7 +8502,7 @@ class AllocationInstruction < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -8513,7 +8513,7 @@ class AllocationInstruction < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -8523,7 +8523,7 @@ class AllocationInstruction < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(10)
+			order = Quickfix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -8539,7 +8539,7 @@ class AllocationInstruction < Message
 
 		class NoNested2PartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -8550,7 +8550,7 @@ class AllocationInstruction < Message
 
 			class NoNested2PartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -8562,7 +8562,7 @@ class AllocationInstruction < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(7)
+			order = Quickfix.IntArray(7)
 			order[0] = 32
 			order[1] = 17
 			order[2] = 527
@@ -8576,7 +8576,7 @@ class AllocationInstruction < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -8628,7 +8628,7 @@ class AllocationInstruction < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -8639,7 +8639,7 @@ class AllocationInstruction < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -8688,7 +8688,7 @@ class AllocationInstruction < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -8699,7 +8699,7 @@ class AllocationInstruction < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(40)
+			order = Quickfix.IntArray(40)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 573
@@ -8745,7 +8745,7 @@ class AllocationInstruction < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -8756,7 +8756,7 @@ class AllocationInstruction < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -8767,7 +8767,7 @@ class AllocationInstruction < Message
 
 		class NoDlvyInst < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(4)
+				order = Quickfix.IntArray(4)
 				order[0] = 165
 				order[1] = 787
 				order[2] = 781
@@ -8777,7 +8777,7 @@ class AllocationInstruction < Message
 
 			class NoSettlPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 782
 					order[1] = 783
 					order[2] = 784
@@ -8788,7 +8788,7 @@ class AllocationInstruction < Message
 
 				class NoSettlPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 785
 						order[1] = 786
 						order[2] = 0
@@ -8800,7 +8800,7 @@ class AllocationInstruction < Message
 
 		class NoMiscFees < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -8820,7 +8820,7 @@ class AllocationInstructionAck < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -8831,7 +8831,7 @@ class AllocationInstructionAck < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -8842,7 +8842,7 @@ class AllocationInstructionAck < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(9)
+			order = Quickfix.IntArray(9)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 366
@@ -8865,7 +8865,7 @@ class AllocationReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -8875,7 +8875,7 @@ class AllocationReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -8887,7 +8887,7 @@ class AllocationReport < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -8897,7 +8897,7 @@ class AllocationReport < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -8908,7 +8908,7 @@ class AllocationReport < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -8919,7 +8919,7 @@ class AllocationReport < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -8929,7 +8929,7 @@ class AllocationReport < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(10)
+			order = Quickfix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -8945,7 +8945,7 @@ class AllocationReport < Message
 
 		class NoNested2PartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -8956,7 +8956,7 @@ class AllocationReport < Message
 
 			class NoNested2PartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -8968,7 +8968,7 @@ class AllocationReport < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(7)
+			order = Quickfix.IntArray(7)
 			order[0] = 32
 			order[1] = 17
 			order[2] = 527
@@ -8982,7 +8982,7 @@ class AllocationReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -9034,7 +9034,7 @@ class AllocationReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -9045,7 +9045,7 @@ class AllocationReport < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9094,7 +9094,7 @@ class AllocationReport < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -9105,7 +9105,7 @@ class AllocationReport < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(37)
+			order = Quickfix.IntArray(37)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 573
@@ -9148,7 +9148,7 @@ class AllocationReport < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -9159,7 +9159,7 @@ class AllocationReport < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -9170,7 +9170,7 @@ class AllocationReport < Message
 
 		class NoDlvyInst < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(4)
+				order = Quickfix.IntArray(4)
 				order[0] = 165
 				order[1] = 787
 				order[2] = 781
@@ -9180,7 +9180,7 @@ class AllocationReport < Message
 
 			class NoSettlPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 782
 					order[1] = 783
 					order[2] = 784
@@ -9191,7 +9191,7 @@ class AllocationReport < Message
 
 				class NoSettlPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 785
 						order[1] = 786
 						order[2] = 0
@@ -9203,7 +9203,7 @@ class AllocationReport < Message
 
 		class NoMiscFees < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -9215,7 +9215,7 @@ class AllocationReport < Message
 
 		class NoClearingInstructions < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(2)
+				order = Quickfix.IntArray(2)
 				order[0] = 577
 				order[1] = 0
 				super(576, 577, order)
@@ -9232,7 +9232,7 @@ class AllocationReportAck < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9243,7 +9243,7 @@ class AllocationReportAck < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9254,7 +9254,7 @@ class AllocationReportAck < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(9)
+			order = Quickfix.IntArray(9)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 366
@@ -9277,7 +9277,7 @@ class Confirmation < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9288,7 +9288,7 @@ class Confirmation < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9299,7 +9299,7 @@ class Confirmation < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -9310,7 +9310,7 @@ class Confirmation < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -9320,7 +9320,7 @@ class Confirmation < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -9332,7 +9332,7 @@ class Confirmation < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -9342,7 +9342,7 @@ class Confirmation < Message
 
 	class NoDlvyInst < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -9352,7 +9352,7 @@ class Confirmation < Message
 
 		class NoSettlPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -9363,7 +9363,7 @@ class Confirmation < Message
 
 			class NoSettlPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -9375,7 +9375,7 @@ class Confirmation < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -9385,7 +9385,7 @@ class Confirmation < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(10)
+			order = Quickfix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -9401,7 +9401,7 @@ class Confirmation < Message
 
 		class NoNested2PartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -9412,7 +9412,7 @@ class Confirmation < Message
 
 			class NoNested2PartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -9424,7 +9424,7 @@ class Confirmation < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -9476,7 +9476,7 @@ class Confirmation < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -9487,7 +9487,7 @@ class Confirmation < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9536,7 +9536,7 @@ class Confirmation < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -9547,7 +9547,7 @@ class Confirmation < Message
 
 	class NoCapacities < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 528
 			order[1] = 529
 			order[2] = 863
@@ -9558,7 +9558,7 @@ class Confirmation < Message
 
 	class NoMiscFees < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -9584,7 +9584,7 @@ class ConfirmationRequest < Message
 
 	class NoOrders < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(10)
+			order = Quickfix.IntArray(10)
 			order[0] = 11
 			order[1] = 37
 			order[2] = 198
@@ -9600,7 +9600,7 @@ class ConfirmationRequest < Message
 
 		class NoNested2PartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -9611,7 +9611,7 @@ class ConfirmationRequest < Message
 
 			class NoNested2PartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -9630,7 +9630,7 @@ class SettlementInstructions < Message
 
 	class NoSettlInst < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(26)
+			order = Quickfix.IntArray(26)
 			order[0] = 162
 			order[1] = 163
 			order[2] = 214
@@ -9662,7 +9662,7 @@ class SettlementInstructions < Message
 
 		class NoPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -9673,7 +9673,7 @@ class SettlementInstructions < Message
 
 			class NoPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -9684,7 +9684,7 @@ class SettlementInstructions < Message
 
 		class NoDlvyInst < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(4)
+				order = Quickfix.IntArray(4)
 				order[0] = 165
 				order[1] = 787
 				order[2] = 781
@@ -9694,7 +9694,7 @@ class SettlementInstructions < Message
 
 			class NoSettlPartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 782
 					order[1] = 783
 					order[2] = 784
@@ -9705,7 +9705,7 @@ class SettlementInstructions < Message
 
 				class NoSettlPartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 785
 						order[1] = 786
 						order[2] = 0
@@ -9725,7 +9725,7 @@ class SettlementInstructionRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9736,7 +9736,7 @@ class SettlementInstructionRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9754,7 +9754,7 @@ class TradeCaptureReportRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -9765,7 +9765,7 @@ class TradeCaptureReportRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -9776,7 +9776,7 @@ class TradeCaptureReportRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -9786,7 +9786,7 @@ class TradeCaptureReportRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -9798,7 +9798,7 @@ class TradeCaptureReportRequest < Message
 
 	class NoInstrAttrib < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 871
 			order[1] = 872
 			order[2] = 0
@@ -9808,7 +9808,7 @@ class TradeCaptureReportRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -9860,7 +9860,7 @@ class TradeCaptureReportRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -9871,7 +9871,7 @@ class TradeCaptureReportRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -9920,7 +9920,7 @@ class TradeCaptureReportRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -9931,7 +9931,7 @@ class TradeCaptureReportRequest < Message
 
 	class NoDates < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 75
 			order[1] = 60
 			order[2] = 0
@@ -9948,7 +9948,7 @@ class TradeCaptureReportRequestAck < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -9958,7 +9958,7 @@ class TradeCaptureReportRequestAck < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -9970,7 +9970,7 @@ class TradeCaptureReportRequestAck < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10022,7 +10022,7 @@ class TradeCaptureReportRequestAck < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10033,7 +10033,7 @@ class TradeCaptureReportRequestAck < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10082,7 +10082,7 @@ class TradeCaptureReportRequestAck < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -10100,7 +10100,7 @@ class TradeCaptureReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10110,7 +10110,7 @@ class TradeCaptureReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10122,7 +10122,7 @@ class TradeCaptureReport < Message
 
 	class NoPosAmt < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -10132,7 +10132,7 @@ class TradeCaptureReport < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -10143,7 +10143,7 @@ class TradeCaptureReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10195,7 +10195,7 @@ class TradeCaptureReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10206,7 +10206,7 @@ class TradeCaptureReport < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(54)
+			order = Quickfix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10266,7 +10266,7 @@ class TradeCaptureReport < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -10276,7 +10276,7 @@ class TradeCaptureReport < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -10286,7 +10286,7 @@ class TradeCaptureReport < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -10297,7 +10297,7 @@ class TradeCaptureReport < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -10309,7 +10309,7 @@ class TradeCaptureReport < Message
 
 	class NoSides < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(63)
+			order = Quickfix.IntArray(63)
 			order[0] = 54
 			order[1] = 37
 			order[2] = 198
@@ -10378,7 +10378,7 @@ class TradeCaptureReport < Message
 
 		class NoPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 448
 				order[1] = 447
 				order[2] = 452
@@ -10389,7 +10389,7 @@ class TradeCaptureReport < Message
 
 			class NoPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 523
 					order[1] = 803
 					order[2] = 0
@@ -10400,7 +10400,7 @@ class TradeCaptureReport < Message
 
 		class NoStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 233
 				order[1] = 234
 				order[2] = 0
@@ -10410,7 +10410,7 @@ class TradeCaptureReport < Message
 
 		class NoClearingInstructions < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(2)
+				order = Quickfix.IntArray(2)
 				order[0] = 577
 				order[1] = 0
 				super(576, 577, order)
@@ -10419,7 +10419,7 @@ class TradeCaptureReport < Message
 
 		class NoContAmts < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(4)
+				order = Quickfix.IntArray(4)
 				order[0] = 519
 				order[1] = 520
 				order[2] = 521
@@ -10430,7 +10430,7 @@ class TradeCaptureReport < Message
 
 		class NoMiscFees < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 137
 				order[1] = 138
 				order[2] = 139
@@ -10442,7 +10442,7 @@ class TradeCaptureReport < Message
 
 		class NoAllocs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(7)
+				order = Quickfix.IntArray(7)
 				order[0] = 79
 				order[1] = 661
 				order[2] = 736
@@ -10455,7 +10455,7 @@ class TradeCaptureReport < Message
 
 			class NoNested2PartyIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(5)
+					order = Quickfix.IntArray(5)
 					order[0] = 757
 					order[1] = 758
 					order[2] = 759
@@ -10466,7 +10466,7 @@ class TradeCaptureReport < Message
 
 				class NoNested2PartySubIDs < Quickfix::Group
 					def initialize
-						order = Quickfix.intArray(3)
+						order = Quickfix.IntArray(3)
 						order[0] = 760
 						order[1] = 807
 						order[2] = 0
@@ -10486,7 +10486,7 @@ class TradeCaptureReportAck < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10496,7 +10496,7 @@ class TradeCaptureReportAck < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10508,7 +10508,7 @@ class TradeCaptureReportAck < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -10519,7 +10519,7 @@ class TradeCaptureReportAck < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(54)
+			order = Quickfix.IntArray(54)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10579,7 +10579,7 @@ class TradeCaptureReportAck < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -10589,7 +10589,7 @@ class TradeCaptureReportAck < Message
 
 		class NoLegStipulations < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 688
 				order[1] = 689
 				order[2] = 0
@@ -10599,7 +10599,7 @@ class TradeCaptureReportAck < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -10610,7 +10610,7 @@ class TradeCaptureReportAck < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -10622,7 +10622,7 @@ class TradeCaptureReportAck < Message
 
 	class NoAllocs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(7)
+			order = Quickfix.IntArray(7)
 			order[0] = 79
 			order[1] = 661
 			order[2] = 736
@@ -10635,7 +10635,7 @@ class TradeCaptureReportAck < Message
 
 		class NoNested2PartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 757
 				order[1] = 758
 				order[2] = 759
@@ -10646,7 +10646,7 @@ class TradeCaptureReportAck < Message
 
 			class NoNested2PartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 760
 					order[1] = 807
 					order[2] = 0
@@ -10665,7 +10665,7 @@ class RegistrationInstructions < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10676,7 +10676,7 @@ class RegistrationInstructions < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10687,7 +10687,7 @@ class RegistrationInstructions < Message
 
 	class NoRegistDtls < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(9)
+			order = Quickfix.IntArray(9)
 			order[0] = 509
 			order[1] = 511
 			order[2] = 474
@@ -10702,7 +10702,7 @@ class RegistrationInstructions < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -10713,7 +10713,7 @@ class RegistrationInstructions < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -10725,7 +10725,7 @@ class RegistrationInstructions < Message
 
 	class NoDistribInsts < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(9)
+			order = Quickfix.IntArray(9)
 			order[0] = 477
 			order[1] = 512
 			order[2] = 478
@@ -10748,7 +10748,7 @@ class RegistrationInstructionsResponse < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10759,7 +10759,7 @@ class RegistrationInstructionsResponse < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10777,7 +10777,7 @@ class PositionMaintenanceRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -10788,7 +10788,7 @@ class PositionMaintenanceRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -10799,7 +10799,7 @@ class PositionMaintenanceRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -10809,7 +10809,7 @@ class PositionMaintenanceRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -10821,7 +10821,7 @@ class PositionMaintenanceRequest < Message
 
 	class NoPositions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -10833,7 +10833,7 @@ class PositionMaintenanceRequest < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -10844,7 +10844,7 @@ class PositionMaintenanceRequest < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -10856,7 +10856,7 @@ class PositionMaintenanceRequest < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -10905,7 +10905,7 @@ class PositionMaintenanceRequest < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -10916,7 +10916,7 @@ class PositionMaintenanceRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -10968,7 +10968,7 @@ class PositionMaintenanceRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -10979,7 +10979,7 @@ class PositionMaintenanceRequest < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -10996,7 +10996,7 @@ class PositionMaintenanceReport < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11007,7 +11007,7 @@ class PositionMaintenanceReport < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11018,7 +11018,7 @@ class PositionMaintenanceReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11028,7 +11028,7 @@ class PositionMaintenanceReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11040,7 +11040,7 @@ class PositionMaintenanceReport < Message
 
 	class NoPositions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -11052,7 +11052,7 @@ class PositionMaintenanceReport < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -11063,7 +11063,7 @@ class PositionMaintenanceReport < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -11075,7 +11075,7 @@ class PositionMaintenanceReport < Message
 
 	class NoPosAmt < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -11085,7 +11085,7 @@ class PositionMaintenanceReport < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11134,7 +11134,7 @@ class PositionMaintenanceReport < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -11145,7 +11145,7 @@ class PositionMaintenanceReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11197,7 +11197,7 @@ class PositionMaintenanceReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11208,7 +11208,7 @@ class PositionMaintenanceReport < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -11225,7 +11225,7 @@ class RequestForPositions < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11236,7 +11236,7 @@ class RequestForPositions < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11247,7 +11247,7 @@ class RequestForPositions < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11257,7 +11257,7 @@ class RequestForPositions < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11269,7 +11269,7 @@ class RequestForPositions < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11318,7 +11318,7 @@ class RequestForPositions < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -11329,7 +11329,7 @@ class RequestForPositions < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11381,7 +11381,7 @@ class RequestForPositions < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11392,7 +11392,7 @@ class RequestForPositions < Message
 
 	class NoTradingSessions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 336
 			order[1] = 625
 			order[2] = 0
@@ -11409,7 +11409,7 @@ class RequestForPositionsAck < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11420,7 +11420,7 @@ class RequestForPositionsAck < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11431,7 +11431,7 @@ class RequestForPositionsAck < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11441,7 +11441,7 @@ class RequestForPositionsAck < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11453,7 +11453,7 @@ class RequestForPositionsAck < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11502,7 +11502,7 @@ class RequestForPositionsAck < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -11513,7 +11513,7 @@ class RequestForPositionsAck < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11565,7 +11565,7 @@ class RequestForPositionsAck < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11583,7 +11583,7 @@ class PositionReport < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11594,7 +11594,7 @@ class PositionReport < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11605,7 +11605,7 @@ class PositionReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11615,7 +11615,7 @@ class PositionReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11627,7 +11627,7 @@ class PositionReport < Message
 
 	class NoPositions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -11639,7 +11639,7 @@ class PositionReport < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -11650,7 +11650,7 @@ class PositionReport < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -11662,7 +11662,7 @@ class PositionReport < Message
 
 	class NoPosAmt < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -11672,7 +11672,7 @@ class PositionReport < Message
 
 	class NoLegs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(43)
+			order = Quickfix.IntArray(43)
 			order[0] = 600
 			order[1] = 601
 			order[2] = 602
@@ -11721,7 +11721,7 @@ class PositionReport < Message
 
 		class NoLegSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 605
 				order[1] = 606
 				order[2] = 0
@@ -11732,7 +11732,7 @@ class PositionReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(48)
+			order = Quickfix.IntArray(48)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11786,7 +11786,7 @@ class PositionReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11804,7 +11804,7 @@ class AssignmentReport < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11815,7 +11815,7 @@ class AssignmentReport < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11826,7 +11826,7 @@ class AssignmentReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -11836,7 +11836,7 @@ class AssignmentReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -11848,7 +11848,7 @@ class AssignmentReport < Message
 
 	class NoLegSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -11858,7 +11858,7 @@ class AssignmentReport < Message
 
 	class NoPositions < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(6)
+			order = Quickfix.IntArray(6)
 			order[0] = 703
 			order[1] = 704
 			order[2] = 705
@@ -11870,7 +11870,7 @@ class AssignmentReport < Message
 
 		class NoNestedPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 524
 				order[1] = 525
 				order[2] = 538
@@ -11881,7 +11881,7 @@ class AssignmentReport < Message
 
 			class NoNestedPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 545
 					order[1] = 805
 					order[2] = 0
@@ -11893,7 +11893,7 @@ class AssignmentReport < Message
 
 	class NoPosAmt < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 707
 			order[1] = 708
 			order[2] = 0
@@ -11903,7 +11903,7 @@ class AssignmentReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -11955,7 +11955,7 @@ class AssignmentReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -11973,7 +11973,7 @@ class CollateralRequest < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -11984,7 +11984,7 @@ class CollateralRequest < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -11995,7 +11995,7 @@ class CollateralRequest < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -12005,7 +12005,7 @@ class CollateralRequest < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -12017,7 +12017,7 @@ class CollateralRequest < Message
 
 	class NoLegSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -12027,7 +12027,7 @@ class CollateralRequest < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -12038,7 +12038,7 @@ class CollateralRequest < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -12048,7 +12048,7 @@ class CollateralRequest < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			super(124, 17, order)
@@ -12057,7 +12057,7 @@ class CollateralRequest < Message
 
 	class NoTrades < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -12067,7 +12067,7 @@ class CollateralRequest < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(47)
+			order = Quickfix.IntArray(47)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -12120,7 +12120,7 @@ class CollateralRequest < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -12131,7 +12131,7 @@ class CollateralRequest < Message
 
 	class NoMiscFees < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -12150,7 +12150,7 @@ class CollateralAssignment < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -12161,7 +12161,7 @@ class CollateralAssignment < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -12172,7 +12172,7 @@ class CollateralAssignment < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -12182,7 +12182,7 @@ class CollateralAssignment < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -12194,7 +12194,7 @@ class CollateralAssignment < Message
 
 	class NoLegSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -12204,7 +12204,7 @@ class CollateralAssignment < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -12215,7 +12215,7 @@ class CollateralAssignment < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -12225,7 +12225,7 @@ class CollateralAssignment < Message
 
 	class NoDlvyInst < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -12235,7 +12235,7 @@ class CollateralAssignment < Message
 
 		class NoSettlPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -12246,7 +12246,7 @@ class CollateralAssignment < Message
 
 			class NoSettlPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -12258,7 +12258,7 @@ class CollateralAssignment < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			super(124, 17, order)
@@ -12267,7 +12267,7 @@ class CollateralAssignment < Message
 
 	class NoTrades < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -12277,7 +12277,7 @@ class CollateralAssignment < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(47)
+			order = Quickfix.IntArray(47)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -12330,7 +12330,7 @@ class CollateralAssignment < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -12341,7 +12341,7 @@ class CollateralAssignment < Message
 
 	class NoMiscFees < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -12360,7 +12360,7 @@ class CollateralResponse < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -12371,7 +12371,7 @@ class CollateralResponse < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -12382,7 +12382,7 @@ class CollateralResponse < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -12392,7 +12392,7 @@ class CollateralResponse < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -12404,7 +12404,7 @@ class CollateralResponse < Message
 
 	class NoLegSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -12414,7 +12414,7 @@ class CollateralResponse < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -12425,7 +12425,7 @@ class CollateralResponse < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -12435,7 +12435,7 @@ class CollateralResponse < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			super(124, 17, order)
@@ -12444,7 +12444,7 @@ class CollateralResponse < Message
 
 	class NoTrades < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -12454,7 +12454,7 @@ class CollateralResponse < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(47)
+			order = Quickfix.IntArray(47)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -12507,7 +12507,7 @@ class CollateralResponse < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -12518,7 +12518,7 @@ class CollateralResponse < Message
 
 	class NoMiscFees < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -12537,7 +12537,7 @@ class CollateralReport < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -12548,7 +12548,7 @@ class CollateralReport < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -12559,7 +12559,7 @@ class CollateralReport < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -12569,7 +12569,7 @@ class CollateralReport < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -12581,7 +12581,7 @@ class CollateralReport < Message
 
 	class NoLegSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -12591,7 +12591,7 @@ class CollateralReport < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -12602,7 +12602,7 @@ class CollateralReport < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -12612,7 +12612,7 @@ class CollateralReport < Message
 
 	class NoDlvyInst < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -12622,7 +12622,7 @@ class CollateralReport < Message
 
 		class NoSettlPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -12633,7 +12633,7 @@ class CollateralReport < Message
 
 			class NoSettlPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -12645,7 +12645,7 @@ class CollateralReport < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			super(124, 17, order)
@@ -12654,7 +12654,7 @@ class CollateralReport < Message
 
 	class NoTrades < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -12664,7 +12664,7 @@ class CollateralReport < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -12716,7 +12716,7 @@ class CollateralReport < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -12727,7 +12727,7 @@ class CollateralReport < Message
 
 	class NoMiscFees < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 137
 			order[1] = 138
 			order[2] = 139
@@ -12746,7 +12746,7 @@ class CollateralInquiry < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -12757,7 +12757,7 @@ class CollateralInquiry < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -12768,7 +12768,7 @@ class CollateralInquiry < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -12778,7 +12778,7 @@ class CollateralInquiry < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -12790,7 +12790,7 @@ class CollateralInquiry < Message
 
 	class NoLegSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -12800,7 +12800,7 @@ class CollateralInquiry < Message
 
 	class NoTrdRegTimestamps < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 769
 			order[1] = 770
 			order[2] = 771
@@ -12811,7 +12811,7 @@ class CollateralInquiry < Message
 
 	class NoStipulations < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 233
 			order[1] = 234
 			order[2] = 0
@@ -12821,7 +12821,7 @@ class CollateralInquiry < Message
 
 	class NoDlvyInst < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(4)
+			order = Quickfix.IntArray(4)
 			order[0] = 165
 			order[1] = 787
 			order[2] = 781
@@ -12831,7 +12831,7 @@ class CollateralInquiry < Message
 
 		class NoSettlPartyIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(5)
+				order = Quickfix.IntArray(5)
 				order[0] = 782
 				order[1] = 783
 				order[2] = 784
@@ -12842,7 +12842,7 @@ class CollateralInquiry < Message
 
 			class NoSettlPartySubIDs < Quickfix::Group
 				def initialize
-					order = Quickfix.intArray(3)
+					order = Quickfix.IntArray(3)
 					order[0] = 785
 					order[1] = 786
 					order[2] = 0
@@ -12854,7 +12854,7 @@ class CollateralInquiry < Message
 
 	class NoCollInquiryQualifier < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 896
 			order[1] = 0
 			super(938, 896, order)
@@ -12863,7 +12863,7 @@ class CollateralInquiry < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			super(124, 17, order)
@@ -12872,7 +12872,7 @@ class CollateralInquiry < Message
 
 	class NoTrades < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -12882,7 +12882,7 @@ class CollateralInquiry < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -12934,7 +12934,7 @@ class CollateralInquiry < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0
@@ -12952,7 +12952,7 @@ class CollateralInquiryAck < Message
 
 	class NoPartyIDs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 448
 			order[1] = 447
 			order[2] = 452
@@ -12963,7 +12963,7 @@ class CollateralInquiryAck < Message
 
 		class NoPartySubIDs < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 523
 				order[1] = 803
 				order[2] = 0
@@ -12974,7 +12974,7 @@ class CollateralInquiryAck < Message
 
 	class NoSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 455
 			order[1] = 456
 			order[2] = 0
@@ -12984,7 +12984,7 @@ class CollateralInquiryAck < Message
 
 	class NoEvents < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(5)
+			order = Quickfix.IntArray(5)
 			order[0] = 865
 			order[1] = 866
 			order[2] = 867
@@ -12996,7 +12996,7 @@ class CollateralInquiryAck < Message
 
 	class NoLegSecurityAltID < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 605
 			order[1] = 606
 			order[2] = 0
@@ -13006,7 +13006,7 @@ class CollateralInquiryAck < Message
 
 	class NoCollInquiryQualifier < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 896
 			order[1] = 0
 			super(938, 896, order)
@@ -13015,7 +13015,7 @@ class CollateralInquiryAck < Message
 
 	class NoExecs < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(2)
+			order = Quickfix.IntArray(2)
 			order[0] = 17
 			order[1] = 0
 			super(124, 17, order)
@@ -13024,7 +13024,7 @@ class CollateralInquiryAck < Message
 
 	class NoTrades < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(3)
+			order = Quickfix.IntArray(3)
 			order[0] = 571
 			order[1] = 818
 			order[2] = 0
@@ -13034,7 +13034,7 @@ class CollateralInquiryAck < Message
 
 	class NoUnderlyings < Quickfix::Group
 		def initialize
-			order = Quickfix.intArray(46)
+			order = Quickfix.IntArray(46)
 			order[0] = 311
 			order[1] = 312
 			order[2] = 309
@@ -13086,7 +13086,7 @@ class CollateralInquiryAck < Message
 
 		class NoUnderlyingSecurityAltID < Quickfix::Group
 			def initialize
-				order = Quickfix.intArray(3)
+				order = Quickfix.IntArray(3)
 				order[0] = 458
 				order[1] = 459
 				order[2] = 0

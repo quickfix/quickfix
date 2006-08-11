@@ -71,7 +71,6 @@ class Application(fix.Application):
 		return `self.execID`
 
 try:
-	print sys.path
 	file = sys.argv[1]
 	settings = fix.SessionSettings( file )
 	application = Application()
