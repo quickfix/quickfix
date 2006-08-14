@@ -379,8 +379,8 @@ void HttpConnection::processResetSession
 
     if( confirm )
     {
-      header << "<META http-equiv='refresh' content=2;URL='" << sessionUrl << "'>";
-      body << "<CENTER><H2><A href='" << sessionUrl << request.getParameterString() << "'>" 
+      header << "<META http-equiv='refresh' content=2;URL='" << "/session" << copy.getParameterString() << "'>";
+      body << "<CENTER><H2><A href='" << "/session" << copy.getParameterString() << "'>" 
            << sessionID << "</A> has been reset</H2></CENTER>";
     }
     else
@@ -430,8 +430,8 @@ void HttpConnection::processRefreshSession
 
     if( confirm )
     {
-      header << "<META http-equiv='refresh' content=2;URL='" << sessionUrl << "'>";
-      body << "<CENTER><H2><A href='" << sessionUrl << request.getParameterString() << "'>" 
+      header << "<META http-equiv='refresh' content=2;URL='" << "/session" << copy.getParameterString() << "'>";
+      body << "<CENTER><H2><A href='" << "/session" << copy.getParameterString() << "'>" 
            << sessionID << "</A> has been refreshed</H2></CENTER>";
     }
     else
