@@ -119,6 +119,36 @@
     <TD> Y<br>N</TD>
     <TD> Y </TD>
   </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>SendRedundantResendRequests</I> </TD>
+    <TD> If set to Y, QuickFIX will send all necessary resend requests, even if they appear redundant. Some systems will not certify the engine unless it does this. When set to N, QuickFIX will attempt to minimize resend requests. This is particularly useful on high volume systems.</TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>ResetOnLogon</I> </TD>
+    <TD> Determines if sequence numbers should be reset when recieving a logon request.  Acceptors only.</TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>ResetOnLogout</I> </TD>
+    <TD> Determines if sequence numbers should be reset to 1 after a normal logout termination. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>ResetOnDisconnect</I> </TD>
+    <TD> Determines if sequence numbers should be reset to 1 after an abnormal termination. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>RefreshOnLogon</I> </TD>
+    <TD> Determines if session state should be restored from persistence layer when logging on. Useful for creating hot failover sessions. </TD>
+    <TD> Y<br>N</TD>
+    <TD> N </TD>
+  </TR>
 
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Validation">Validation</A></TD>
@@ -154,12 +184,6 @@
     <TD> Y </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>SendRedundantResendRequests</I> </TD>
-    <TD> If set to Y, QuickFIX will send all necessary resend requests, even if they appear redundant. Some systems will not certify the engine unless it does this. When set to N, QuickFIX will attempt to minimize resend requests. This is particularly useful on high volume systems.</TD>
-    <TD> Y<br>N</TD>
-    <TD> N </TD>
-  </TR>
-  <TR ALIGN="left" VALIGN="middle">
     <TD> <I>CheckCompID</I> </TD>
     <TD> If set to Y, messages must be received from the counterparty with the correct SenderCompID and TargetCompID. Some systems will send you different CompIDs by design, so you must set this to N. </TD>
     <TD> Y<br>N</TD>
@@ -176,6 +200,16 @@
     <TD> If CheckLatency is set to Y, this defines the number of seconds latency allowed for a message to be processed. Default is 120.</TD>
     <TD> positive integer</TD>
     <TD> 120 </TD>
+  </TR>
+
+  <TR ALIGN="center" VALIGN="middle">
+    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Miscellaneous">Miscellaneous</A></TD>
+  </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>HttpAcceptPort</I> </TD>
+    <TD> Port to listen to HTTP requests. Pointing a browser to this port will bring up a control panel.  Must be in DEFAULT section.</TD>
+    <TD> positive integer</TD>
+    <TD> </TD>
   </TR>
 
   <TR ALIGN="center" VALIGN="middle">
@@ -490,33 +524,6 @@
     <TD> ODBC connection string for database </TD>
     <TD> Valid ODBC connection string </TD>
     <TD> DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local); </TD>
-  </TR>
-  <TR ALIGN="center" VALIGN="middle">
-    <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Miscellaneous">Miscellaneous</A></TD>
-  </TR>
-  <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ResetOnLogon</I> </TD>
-    <TD> Determines if sequence numbers should be reset before sending/recieving a logon request. </TD>
-    <TD> Y<br>N</TD>
-    <TD> N </TD>
-  </TR>
-  <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ResetOnLogout</I> </TD>
-    <TD> Determines if sequence numbers should be reset to 1 after a normal logout termination. </TD>
-    <TD> Y<br>N</TD>
-    <TD> N </TD>
-  </TR>
-  <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>ResetOnDisconnect</I> </TD>
-    <TD> Determines if sequence numbers should be reset to 1 after an abnormal termination. </TD>
-    <TD> Y<br>N</TD>
-    <TD> N </TD>
-  </TR>
-  <TR ALIGN="left" VALIGN="middle">
-    <TD> <I>RefreshOnLogon</I> </TD>
-    <TD> Determines if session state should be restored from persistence layer when logging on. Useful for creating hot failover sessions. </TD>
-    <TD> Y<br>N</TD>
-    <TD> N </TD>
   </TR>
   </tbody>
   </TABLE>
