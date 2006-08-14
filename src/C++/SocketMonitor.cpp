@@ -342,7 +342,7 @@ void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
   }
 #else
     Sockets::iterator i;
-    Sockets sockets = m_exceptSockets;
+    Sockets sockets = m_connectSockets;
     for ( i = sockets.begin(); i != sockets.end(); ++i )
     {
       int s = *i;
