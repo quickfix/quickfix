@@ -40,7 +40,7 @@ throw ( ConfigError, RuntimeError )
 {
   Locker l( s_mutex );
 
-  if( !s.get().has(HTTP_SERVER_PORT) )
+  if( !s.get().has(HTTP_ACCEPT_PORT) )
     return;
 
   s_count += 1;
@@ -70,7 +70,7 @@ HttpServer::HttpServer( const SessionSettings& settings ) throw( ConfigError )
 void HttpServer::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
 { QF_STACK_PUSH(HttpServer::onConfigure)
-  m_port = s.get().getLong( HTTP_SERVER_PORT );
+  m_port = s.get().getLong( HTTP_ACCEPT_PORT );
   QF_STACK_POP
 }
 

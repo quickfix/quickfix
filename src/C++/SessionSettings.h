@@ -103,7 +103,7 @@ const char RESET_ON_LOGOUT[] = "ResetOnLogout";
 const char RESET_ON_DISCONNECT[] = "ResetOnDisconnect";
 const char REFRESH_ON_LOGON[] = "RefreshOnLogon";
 const char MILLISECONDS_IN_TIMESTAMP[] = "MillisecondsInTimeStamp";
-const char HTTP_SERVER_PORT[] = "HttpServerPort";
+const char HTTP_ACCEPT_PORT[] = "HttpAcceptPort";
 
 /// Container for setting dictionaries mapped to sessions.
 class SessionSettings
