@@ -1,3 +1,23 @@
+1.12.2
+------
+Fixed bug in SocketConnector in Windows where failed connections were not
+being detected. Fixes bad behavior in SocketInitiator where it will attempt
+to connect once, but never try to reconnect.
+
+HttpAcceptPort setting added. When set, QuickFIX will accept HTTP requests
+to the given port.  Pointing a browser to this port will bring up a control
+panel that allows you to view/update certain session states.
+
+Fixed Equals method for Field in .NET.  Added Equals and GetHashCode
+implementations for SessionID.
+
+Log will display ip address instead of hostname of incoming connections
+in log.  Fixes problem where hostname is not always available.
+
+Many performance optimizations.  Performance is considerably better.
+
+Fixed bugs when checking for required fields.
+
 1.12.1
 ------
 Fixed bugs with non-blocking sockets where select statement would go into an
