@@ -214,6 +214,9 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
   FD_ZERO( &writeSet );
   buildSet( m_connectSockets, writeSet );
   buildSet( m_writeSockets, writeSet );
+  fd_set exceptSet;
+  FD_ZERO( &exceptSet );
+  buildSet( m_connectSockets, exceptSet );
 
   if ( sleepIfEmpty(poll) )
   {
@@ -221,7 +224,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
     return;
   }
 
-  int result = select( FD_SETSIZE, &readSet, &writeSet, 0, getTimeval(poll) );
+  int result = select( FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll) );
 
   if ( result == 0 )
   {
@@ -230,6 +233,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
   }
   else if ( result > 0 )
   {
+    processExceptSet( strategy, exceptSet );
     processWriteSet( strategy, writeSet );
     processReadSet( strategy, readSet );
   }
@@ -322,6 +326,30 @@ void SocketMonitor::processWriteSet( Strategy& strategy, fd_set& writeSet )
       continue;
     strategy.onWrite( *this, s );
   }
+#endif
+
+  QF_STACK_POP
+}
+
+void SocketMonitor::processExceptSet( Strategy& strategy, fd_set& exceptSet )
+{ QF_STACK_PUSH(SocketMonitor::processExceptSet)
+
+#ifdef _MSC_VER
+  for ( unsigned i = 0; i < exceptSet.fd_count; ++i )
+  {
+    int s = exceptSet.fd_array[ i ];
+    strategy.onError( *this, s );
+  }
+#else
+    Sockets::iterator i;
+    Sockets sockets = m_exceptSockets;
+    for ( i = sockets.begin(); i != sockets.end(); ++i )
+    {
+      int s = *i;
+      if ( !FD_ISSET( *i, &exceptSet ) )
+        continue;
+      strategy.onError( *this, s );
+    }
 #endif
 
   QF_STACK_POP
