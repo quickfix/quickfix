@@ -76,6 +76,7 @@ private:
 
   void processReadSet( Strategy&, fd_set& );
   void processWriteSet( Strategy&, fd_set& );
+  void processExceptSet( Strategy&, fd_set& );
 
   int m_timeout;
   timeval m_timeval;
