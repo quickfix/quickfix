@@ -47,10 +47,16 @@ namespace FIX
 class FieldMap
 {
 public:
+#if defined(_MSC_VER) && _MSC_VER < 1300
+  typedef std::multimap < int, FieldBase, message_order > Fields;
+  typedef std::map < int, std::vector < FieldMap* >, std::less<int> > Groups;
+#else
   typedef std::multimap < int, FieldBase, message_order, 
                           ALLOCATOR<std::pair<const int,FieldBase> > > Fields;
   typedef std::map < int, std::vector < FieldMap* >, std::less<int>, 
                      ALLOCATOR<std::pair<const int, std::vector< FieldMap* > > > > Groups;
+#endif
+
   typedef Fields::const_iterator iterator;
   typedef iterator const_iterator;
   typedef Groups::const_iterator g_iterator;
