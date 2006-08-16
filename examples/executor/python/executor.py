@@ -75,7 +75,7 @@ try:
 	settings = fix.SessionSettings( file )
 	application = Application()
 	storeFactory = fix.FileStoreFactory( settings )
-	logFactory = fix.ScreenLogFactory( 1, 1, 1 )
+	logFactory = fix.ScreenLogFactory( settings )
 	acceptor = fix.SocketAcceptor( application, storeFactory, settings, logFactory )
 	acceptor.start()
 
