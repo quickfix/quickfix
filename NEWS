@@ -8,6 +8,8 @@ HttpAcceptPort setting added. When set, QuickFIX will accept HTTP requests
 to the given port.  Pointing a browser to this port will bring up a control
 panel that allows you to view/update certain session states.
 
+Fixed bugs in Python api generation.
+
 Fixed Equals method for Field in .NET.  Added Equals and GetHashCode
 implementations for SessionID.
 
