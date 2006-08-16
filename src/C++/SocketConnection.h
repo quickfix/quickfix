@@ -75,12 +75,8 @@ public:
   void onTimeout();
 
 private:
-#if ( defined(_MSC_VER) && _MSC_VER < 1300 ) || ( defined(__GNUC__) && __GNUC__ <= 3 )
-  typedef std::deque<std::string> Queue;
-#else
   typedef std::deque<std::string, ALLOCATOR<std::string> >
     Queue;
-#endif
 
   bool isValidSession();
   void readFromSocket() throw( SocketRecvFailed );

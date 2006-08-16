@@ -254,7 +254,7 @@ private:
     if( equalSign == std::string::npos )
       throw InvalidMessage("Equal sign not found in field");
 
-    char* pEnd;
+    char* pEnd = 0;
     int field = strtol( string.c_str() + pos, &pEnd, 0 );
 
     std::string::size_type soh =

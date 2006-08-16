@@ -47,7 +47,7 @@ namespace FIX
 class FieldMap
 {
 public:
-#if ( defined(_MSC_VER) && _MSC_VER < 1300 ) || ( defined(__GNUC__) && __GNUC__ <= 3 )
+#if defined(_MSC_VER) && _MSC_VER < 1300
   typedef std::multimap < int, FieldBase, message_order > Fields;
   typedef std::map < int, std::vector < FieldMap* >, std::less<int> > Groups;
 #else
