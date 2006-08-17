@@ -302,6 +302,12 @@
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4" BGCOLOR="#DDDDDD"><A NAME="Storage">Storage</A></TD>
   </TR>
+  <TR ALIGN="left" VALIGN="middle">
+    <TD> <I>PersistMessages</I> </TD>
+    <TD> If set to N, no messages will be persisted. This will force QuickFIX to always send GapFills instead of resending messages. Use this if you know you never want to resend a message. Useful for market data streams.</TD>
+    <TD> Y<br>N</TD>
+    <TD> N</TD>
+  </TR>
   <TR ALIGN="center" VALIGN="middle">
     <TD COLSPAN="4">FILE</TD>
   </TR>

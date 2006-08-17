@@ -62,7 +62,6 @@ const char VALIDATE_FIELDS_HAVE_VALUES[] = "ValidateFieldsHaveValues";
 const char VALIDATE_USER_DEFINED_FIELDS[] = "ValidateUserDefinedFields";
 const char LOGON_TIMEOUT[] = "LogonTimeout";
 const char LOGOUT_TIMEOUT[] = "LogoutTimeout";
-const char FILE_PATH[] = "FilePath";
 const char FILE_STORE_PATH[] = "FileStorePath";
 const char MYSQL_STORE_USECONNECTIONPOOL[] = "MySQLStoreUseConnectionPool";
 const char MYSQL_STORE_DATABASE[] = "MySQLStoreDatabase";
@@ -104,6 +103,7 @@ const char RESET_ON_DISCONNECT[] = "ResetOnDisconnect";
 const char REFRESH_ON_LOGON[] = "RefreshOnLogon";
 const char MILLISECONDS_IN_TIMESTAMP[] = "MillisecondsInTimeStamp";
 const char HTTP_ACCEPT_PORT[] = "HttpAcceptPort";
+const char PERSIST_MESSAGES[] = "PersistMessages";
 
 /// Container for setting dictionaries mapped to sessions.
 class SessionSettings

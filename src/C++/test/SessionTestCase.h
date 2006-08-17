@@ -54,6 +54,7 @@ public:
     add( &m_nextSequenceReset );
     add( &m_nextGapFill );
     add( &m_nextResendRequest );
+    add( &m_nextResendRequestNoMessagePersist );
     add( &m_badBeginString );
     add( &m_unsupportedMsgType );
     add( &m_resetOnEndTime );
@@ -85,6 +86,7 @@ class Test : public CPPTest::Test < Session > ,
     m_fromLogout( 0 ),
     m_fromReject( 0 ),
     m_fromSequenceReset( 0 ),
+    m_resent( 0 ),
     m_disconnect( 0 )
     {}
 
@@ -146,6 +148,11 @@ class Test : public CPPTest::Test < Session > ,
     void toApp( Message& message, const SessionID& )
     throw( DoNotSend )
     {
+      PossDupFlag possDupFlag(false);
+      if( message.getHeader().isSetField(possDupFlag) )
+        message.getHeader().getField( possDupFlag );
+      if( possDupFlag ) m_resent++;
+
       MsgType msgType;
       message.getHeader().getField( msgType );
       switch ( msgType.getValue() [ 0 ] )
@@ -193,6 +200,7 @@ class Test : public CPPTest::Test < Session > ,
     int m_fromLogout;
     int m_fromReject;
     int m_fromSequenceReset;
+    int m_resent;
     int m_disconnect;
 
     MemoryStoreFactory m_factory;
@@ -348,6 +356,12 @@ class Test : public CPPTest::Test < Session > ,
     void onRun( Session& object );
   }
   m_nextResendRequest;
+
+  class nextResendRequestNoMessagePersist : public AcceptorTest
+  {
+    void onRun( Session& object );
+  }
+  m_nextResendRequestNoMessagePersist;
 
   class badBeginString : public AcceptorTest
   {

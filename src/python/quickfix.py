@@ -78,15 +78,11 @@ def _quickfix_start_thread(i_or_a):
 #endif
 
 HAVE_BITMAP_ALLOCATOR = _quickfix.HAVE_BITMAP_ALLOCATOR
-HAVE_BOOST = _quickfix.HAVE_BOOST
-HAVE_BOOST_FAST_POOL_ALLOCATOR = _quickfix.HAVE_BOOST_FAST_POOL_ALLOCATOR
-HAVE_BOOST_POOL_ALLOCATOR = _quickfix.HAVE_BOOST_POOL_ALLOCATOR
 HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
 HAVE_FTIME = _quickfix.HAVE_FTIME
 HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H
 HAVE_MEMORY_H = _quickfix.HAVE_MEMORY_H
 HAVE_MT_ALLOCATOR = _quickfix.HAVE_MT_ALLOCATOR
-HAVE_MYSQL = _quickfix.HAVE_MYSQL
 HAVE_POOL_ALLOCATOR = _quickfix.HAVE_POOL_ALLOCATOR
 HAVE_STDINT_H = _quickfix.HAVE_STDINT_H
 HAVE_STDIO_H = _quickfix.HAVE_STDIO_H
@@ -19380,7 +19376,6 @@ VALIDATE_FIELDS_HAVE_VALUES = cvar.VALIDATE_FIELDS_HAVE_VALUES
 VALIDATE_USER_DEFINED_FIELDS = cvar.VALIDATE_USER_DEFINED_FIELDS
 LOGON_TIMEOUT = cvar.LOGON_TIMEOUT
 LOGOUT_TIMEOUT = cvar.LOGOUT_TIMEOUT
-FILE_PATH = cvar.FILE_PATH
 FILE_STORE_PATH = cvar.FILE_STORE_PATH
 MYSQL_STORE_USECONNECTIONPOOL = cvar.MYSQL_STORE_USECONNECTIONPOOL
 MYSQL_STORE_DATABASE = cvar.MYSQL_STORE_DATABASE
@@ -19422,6 +19417,7 @@ RESET_ON_DISCONNECT = cvar.RESET_ON_DISCONNECT
 REFRESH_ON_LOGON = cvar.REFRESH_ON_LOGON
 MILLISECONDS_IN_TIMESTAMP = cvar.MILLISECONDS_IN_TIMESTAMP
 HTTP_ACCEPT_PORT = cvar.HTTP_ACCEPT_PORT
+PERSIST_MESSAGES = cvar.PERSIST_MESSAGES
 
 class Session(_object):
     __swig_setmethods__ = {}
@@ -19490,6 +19486,8 @@ class Session(_object):
     def setRefreshOnLogon(*args): return _quickfix.Session_setRefreshOnLogon(*args)
     def getMillisecondsInTimeStamp(*args): return _quickfix.Session_getMillisecondsInTimeStamp(*args)
     def setMillisecondsInTimeStamp(*args): return _quickfix.Session_setMillisecondsInTimeStamp(*args)
+    def getPersistMessages(*args): return _quickfix.Session_getPersistMessages(*args)
+    def setPersistMessages(*args): return _quickfix.Session_setPersistMessages(*args)
     def setResponder(*args): return _quickfix.Session_setResponder(*args)
     def send(*args): return _quickfix.Session_send(*args)
     def next(*args): return _quickfix.Session_next(*args)

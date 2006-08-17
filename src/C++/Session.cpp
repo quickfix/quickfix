@@ -56,6 +56,7 @@ Session::Session( Application& application,
   m_resetOnLogout( false ), 
   m_resetOnDisconnect( false ),
   m_millisecondsInTimeStamp( true ),
+  m_persistMessages( true ),
   m_dataDictionary( dataDictionary ),
   m_messageStoreFactory( messageStoreFactory ),
   m_pLogFactory( pLogFactory ),
@@ -366,6 +367,16 @@ void Session::nextResendRequest( const Message& resendRequest )
        endSeqNo >= getExpectedSenderNum() )
   { endSeqNo = getExpectedSenderNum() - 1; }
 
+  if ( !m_persistMessages )
+  {
+    endSeqNo = EndSeqNo(endSeqNo + 1);
+    int next = m_state.getNextSenderMsgSeqNum();
+    if( endSeqNo > next )
+      endSeqNo = EndSeqNo(next);
+    generateSequenceReset( beginSeqNo, endSeqNo );
+    return;
+  }
+
   std::vector < std::string > messages;
   m_state.get( beginSeqNo, endSeqNo, messages );
 
@@ -501,7 +512,8 @@ bool Session::sendRaw( Message& message, int num )
     {
       MsgSeqNum msgSeqNum;
       header.getField( msgSeqNum );
-      m_state.set( msgSeqNum, messageString );
+      if( m_persistMessages )
+        m_state.set( msgSeqNum, messageString );
       m_state.incrNextSenderMsgSeqNum();
     }
     return result;

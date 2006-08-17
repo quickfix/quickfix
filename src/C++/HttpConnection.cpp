@@ -213,8 +213,8 @@ void HttpConnection::processRoot
          << "<TD>" << (pSession->isEnabled() ? "yes" : "no") << "</TD>"
          << "<TD>" << (pSession->isSessionTime() ? "yes" : "no") << "</TD>"
          << "<TD>" << (pSession->isLoggedOn() ? "yes" : "no") << "</TD>"
-         << "<TD>" << pSession->getExpectedSenderNum() << "</TD>"
          << "<TD>" << pSession->getExpectedTargetNum() << "</TD>"
+         << "<TD>" << pSession->getExpectedSenderNum() << "</TD>"
          << "</TR>";
   }
 
@@ -287,6 +287,11 @@ void HttpConnection::processSession
       pSession->setMillisecondsInTimeStamp( IntConvertor::convert(copy.getParameter(MILLISECONDS_IN_TIMESTAMP)) != 0 );
       copy.removeParameter(MILLISECONDS_IN_TIMESTAMP);
     }
+    if( copy.hasParameter(PERSIST_MESSAGES) )
+    {
+      pSession->setPersistMessages( IntConvertor::convert(copy.getParameter(PERSIST_MESSAGES)) != 0 );
+      copy.removeParameter(PERSIST_MESSAGES);
+    }
 
     if( url != copy.toString() )
       header << "<META http-equiv='refresh' content=0;URL='" << copy.toString() << "'>";
@@ -306,9 +311,9 @@ void HttpConnection::processSession
          << "<TR><TD>Logged On</TD><TD>" 
          << (pSession->isLoggedOn() ? "yes" : "no") << "</TD></TR>"
          << "<TR><TD>Next Incoming</TD><TD>" 
-         << pSession->getExpectedSenderNum() << "</TD></TR>"
-         << "<TR><TD>Next Outgoing</TD><TD>" 
          << pSession->getExpectedTargetNum() << "</TD></TR>"
+         << "<TR><TD>Next Outgoing</TD><TD>" 
+         << pSession->getExpectedSenderNum() << "</TD></TR>"
          << "<TD>" << SEND_REDUNDANT_RESENDREQUESTS << "</TD>"
          << "<TD>" << (pSession->getSendRedundantResendRequests() ? "yes" : "no") << "</TD>"
          << "<TD><A href='" << url << "&" << SEND_REDUNDANT_RESENDREQUESTS << "=" << !pSession->getSendRedundantResendRequests() << "'>" << "[toggle]</A></TD></TR>"
@@ -339,6 +344,9 @@ void HttpConnection::processSession
          << "<TR><TD>" << MILLISECONDS_IN_TIMESTAMP << "</TD>"
          << "<TD>" << (pSession->getMillisecondsInTimeStamp() ? "yes" : "no") << "</TD>"
          << "<TD><A href='" << url << "&" << MILLISECONDS_IN_TIMESTAMP << "=" << !pSession->getMillisecondsInTimeStamp() << "'>" << "[toggle]</A></TD></TR>"
+         << "<TR><TD>" << PERSIST_MESSAGES << "</TD>"
+         << "<TD>" << (pSession->getPersistMessages() ? "yes" : "no") << "</TD>"
+         << "<TD><A href='" << url << "&" << PERSIST_MESSAGES << "=" << !pSession->getPersistMessages() << "'>" << "[toggle]</A></TD></TR>"
          << "</TABLE>";
   }
   catch( std::exception& e )

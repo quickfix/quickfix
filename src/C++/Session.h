@@ -167,6 +167,11 @@ public:
   void setMillisecondsInTimeStamp ( bool value )
     { m_millisecondsInTimeStamp = value; }
 
+  bool getPersistMessages()
+    { return m_persistMessages; }
+  void setPersistMessages ( bool value )
+    { m_persistMessages = value; }
+
   void setResponder( Responder* pR )
   {
     if ( !checkSessionTime( UtcTimeStamp() ) )
@@ -282,6 +287,7 @@ private:
   bool m_resetOnDisconnect;
   bool m_refreshOnLogon;
   bool m_millisecondsInTimeStamp;
+  bool m_persistMessages;
 
   SessionState m_state;
   DataDictionary m_dataDictionary;
