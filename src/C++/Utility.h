@@ -88,6 +88,8 @@ namespace FIX
 void string_replace( const std::string& oldValue,
 		     const std::string& newValue,
 		     std::string& value );
+std::string string_toLower( const std::string& value );
+std::string string_toUpper( const std::string& value );
 
 void socket_init();
 void socket_term();

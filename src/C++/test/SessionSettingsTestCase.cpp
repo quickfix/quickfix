@@ -73,11 +73,24 @@ void SessionSettingsTestCase::readFromIstream::onRun
                       SenderCompID( "ARCA" ),
                       TargetCompID( "WT" ) );
 
-  assert( object.get().getLong( "Value" ) == 4 );
-  assert( object.get( session1 ).getLong( "Value" ) == 1 );
-  assert( object.get( session2 ).getLong( "Value" ) == 2 );
-  assert( object.get( session3 ).getLong( "Value" ) == 3 );
-  assert( object.get( session4 ).getLong( "Value" ) == 4 );
+  assertEquals( 4, object.get().getLong( "Value" ) );
+  assertEquals( 1, object.get( session1 ).getLong( "Value" ) );
+  assertEquals( 2, object.get( session2 ).getLong( "Value" ) );
+  assertEquals( 3, object.get( session3 ).getLong( "Value" ) );
+  assertEquals( 4, object.get( session4 ).getLong( "Value" ) );
+
+  // case insensitivity
+  assertEquals( 4, object.get().getLong( "value" ) );
+  assertEquals( 1, object.get( session1 ).getLong( "value" ) );
+  assertEquals( 2, object.get( session2 ).getLong( "value" ) );
+  assertEquals( 3, object.get( session3 ).getLong( "value" ) );
+  assertEquals( 4, object.get( session4 ).getLong( "value" ) );
+
+  assertEquals( 4, object.get().getLong( "VALUE" ) );
+  assertEquals( 1, object.get( session1 ).getLong( "VALUE" ) );
+  assertEquals( 2, object.get( session2 ).getLong( "VALUE" ) );
+  assertEquals( 3, object.get( session3 ).getLong( "VALUE" ) );
+  assertEquals( 4, object.get( session4 ).getLong( "VALUE" ) );
 }
 
 void SessionSettingsTestCase::validate::onRun( SessionSettings& object )

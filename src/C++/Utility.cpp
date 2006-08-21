@@ -32,6 +32,7 @@
 #endif
 #include <math.h>
 #include <stdio.h>
+#include <algorithm>
 
 namespace FIX
 {
@@ -47,6 +48,26 @@ void string_replace( const std::string& oldValue,
     value.replace( pos, oldValue.size(), newValue );
     pos += newValue.size();
   }
+
+  QF_STACK_POP
+}
+
+std::string string_toUpper( const std::string& value )
+{ QF_STACK_PUSH(string_toUpper)
+
+  std::string copy = value;
+  std::transform( copy.begin(), copy.end(), copy.begin(), std::tolower );
+  return copy;
+
+  QF_STACK_POP
+}
+
+std::string string_toLower( const std::string& value )
+{ QF_STACK_PUSH(string_toLower)
+
+  std::string copy = value;
+  std::transform( copy.begin(), copy.end(), copy.begin(), std::tolower );
+  return copy;
 
   QF_STACK_POP
 }

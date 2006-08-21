@@ -34,7 +34,7 @@ std::string Dictionary::getString( const std::string& key, bool capitalize ) con
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getString)
 
-  Data::const_iterator i = m_data.find( key );
+  Data::const_iterator i = m_data.find( string_toUpper(key) );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
 
   std::string result = i->second;
@@ -52,7 +52,7 @@ long Dictionary::getLong( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getLong)
 
-  Data::const_iterator i = m_data.find( key );
+  Data::const_iterator i = m_data.find( string_toUpper(key) );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
@@ -70,7 +70,7 @@ double Dictionary::getDouble( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getDouble)
 
-  Data::const_iterator i = m_data.find( key );
+  Data::const_iterator i = m_data.find( string_toUpper(key) );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
@@ -88,7 +88,7 @@ bool Dictionary::getBool( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getBool)
 
-  Data::const_iterator i = m_data.find( key );
+  Data::const_iterator i = m_data.find( string_toUpper(key) );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
@@ -106,7 +106,7 @@ int Dictionary::getDay( const std::string& key ) const
 throw( ConfigError, FieldConvertError )
 { QF_STACK_PUSH(Dictionary::getDay)
 
-  Data::const_iterator i = m_data.find( key );
+  Data::const_iterator i = m_data.find( string_toUpper(key) );
   if ( i == m_data.end() ) throw ConfigError( key + " not defined" );
   try
   {
@@ -134,25 +134,25 @@ throw( ConfigError, FieldConvertError )
 
 void Dictionary::setString( const std::string& key, const std::string& value )
 { QF_STACK_PUSH(Dictionary::setString)
-  m_data[ key ] = value;
+  m_data[ string_toUpper(key) ] = value;
   QF_STACK_POP
 }
 
 void Dictionary::setLong( const std::string& key, const long& value )
 { QF_STACK_PUSH(Dictionary::setString)
-  m_data[ key ] = IntConvertor::convert( value );
+  m_data[ string_toUpper(key) ] = IntConvertor::convert( value );
   QF_STACK_POP
 }
 
 void Dictionary::setDouble( const std::string& key, const double& value )
 { QF_STACK_PUSH(Dictionary::setDouble)
-  m_data[ key ] = DoubleConvertor::convert( value );
+  m_data[ string_toUpper(key) ] = DoubleConvertor::convert( value );
   QF_STACK_POP
 }
 
 void Dictionary::setBool( const std::string& key, const bool& value )
 { QF_STACK_PUSH(Dictionary::setBool)
-  m_data[ key ] = BoolConvertor::convert( value );
+  m_data[ string_toUpper(key) ] = BoolConvertor::convert( value );
   QF_STACK_POP
 }
 
@@ -182,7 +182,7 @@ void Dictionary::setDay( const std::string& key, const int& value )
 
 bool Dictionary::has( const std::string& key ) const
 { QF_STACK_PUSH(Dictionary::has)
-  return m_data.find( key ) != m_data.end();
+  return m_data.find( string_toUpper(key) ) != m_data.end();
   QF_STACK_POP
 }
 
