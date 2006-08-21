@@ -34,7 +34,8 @@ namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection( int s, Sessions sessions, Application& application )
 : m_socket( s ), m_application( application ),
-  m_sessions( sessions ), m_pSession( 0 ) 
+  m_sessions( sessions ), m_pSession( 0 ),
+  m_disconnect( false )
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
@@ -44,7 +45,8 @@ ThreadedSocketConnection::ThreadedSocketConnection( const SessionID& sessionID, 
     Application& application )
 
 : m_socket( s ), m_application( application ),
-  m_pSession( Session::lookupSession( sessionID ) )
+  m_pSession( Session::lookupSession( sessionID ) ),
+  m_disconnect( false )
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
@@ -108,7 +110,7 @@ bool ThreadedSocketConnection::read()
   catch ( SocketRecvFailed& e )
   {
     if( m_disconnect )
-	  return false;
+      return false;
 
     if( m_pSession )
     {
