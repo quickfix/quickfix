@@ -256,7 +256,7 @@ JNIEXPORT void JNICALL Java_quickfix_Session_logon
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_Session_logout
+JNIEXPORT void JNICALL Java_quickfix_Session_logout__
 (JNIEnv *pEnv, jobject obj)
 { QF_STACK_TRY
 
