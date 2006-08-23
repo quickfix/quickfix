@@ -101,7 +101,7 @@ throw ( RuntimeError )
   }
   catch( SocketException& e )
   {
-    throw RuntimeError( "Unable to create, bind, or listen to port"
+    throw RuntimeError( "Unable to create, bind, or listen to port "
                        + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
   }
 
