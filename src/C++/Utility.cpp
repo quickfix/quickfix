@@ -56,7 +56,11 @@ std::string string_toUpper( const std::string& value )
 { QF_STACK_PUSH(string_toUpper)
 
   std::string copy = value;
-  std::transform( copy.begin(), copy.end(), copy.begin(), std::tolower );
+#if defined(_MSC_VER) && _MSC_VER < 1300
+  std::transform( copy.begin(), copy.end(), copy.begin(), toupper );
+#else
+  std::transform( copy.begin(), copy.end(), copy.begin(), std::toupper );
+#endif
   return copy;
 
   QF_STACK_POP
@@ -66,7 +70,11 @@ std::string string_toLower( const std::string& value )
 { QF_STACK_PUSH(string_toLower)
 
   std::string copy = value;
+#if defined(_MSC_VER) && _MSC_VER < 1300
+  std::transform( copy.begin(), copy.end(), copy.begin(), tolower );
+#else
   std::transform( copy.begin(), copy.end(), copy.begin(), std::tolower );
+#endif
   return copy;
 
   QF_STACK_POP
