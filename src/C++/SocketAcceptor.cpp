@@ -28,6 +28,7 @@
 #include "Session.h"
 #include "Settings.h"
 #include "Utility.h"
+#include "Exceptions.h"
 
 namespace FIX
 {
@@ -98,9 +99,10 @@ throw ( RuntimeError )
       m_pServer->add( port, reuseAddress, noDelay );      
     }    
   }
-  catch( std::exception& )
+  catch( SocketException& e )
   {
-    throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)port ) );
+    throw RuntimeError( "Unable to create, bind, or listen to port"
+                       + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
   }
 
   QF_STACK_POP

@@ -26,6 +26,7 @@
 
 #include "SocketServer.h"
 #include "Utility.h"
+#include "Exceptions.h"
 #ifndef _MSC_VER
 #include <unistd.h>
 #include <sys/ioctl.h>
@@ -107,13 +108,14 @@ SocketServer::SocketServer( int timeout )
 : m_monitor( timeout ) {}
 
 int SocketServer::add( int port, bool reuse, bool noDelay )
+  throw( SocketException& )
 {
   if( m_portToInfo.find(port) != m_portToInfo.end() )
     return m_portToInfo[port].m_socket;
 
   int socket = socket_createAcceptor( port, reuse );
   if( socket < 0 )
-    throw std::exception();
+    throw SocketException();
   if( noDelay )
     socket_setsockopt( socket, TCP_NODELAY );
   m_monitor.addRead( socket );

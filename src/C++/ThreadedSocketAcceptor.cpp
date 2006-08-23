@@ -98,8 +98,10 @@ throw ( RuntimeError )
     int socket = socket_createAcceptor( port, reuseAddress );
     if( socket < 0 )
     {
+      SocketException e;
       socket_close( socket );
-      throw RuntimeError( "Unable to create, bind, or listen to port " + IntConvertor::convert( (unsigned short)port ) );
+      throw RuntimeError( "Unable to create, bind, or listen to port" 
+                         + IntConvertor::convert( (unsigned short)port ) + " (" + e.what() + ")" );
     }
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
