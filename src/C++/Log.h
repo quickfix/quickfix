@@ -130,6 +130,7 @@ public:
               << ", " << "outgoing>" << std::endl
               << "  (" << value << ")" << std::endl;
   }
+
   void onEvent( const std::string& value )
   {
     if ( !m_event ) return ;

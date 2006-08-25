@@ -48,7 +48,7 @@ class Client;
  * Most users will not need to implement one of these.  The default
  * SocketInitiator implementation will be used in most cases.
  */
-class Initiator
+  class Initiator : public Log
 {
 public:
   Initiator( Application&, MessageStoreFactory&,
@@ -94,9 +94,15 @@ protected:
   bool isDisconnected( const SessionID& );
   void connect();
 
-protected:
-  void log( const std::string& text )
+public:
+  void onEvent( const std::string& text )
   { if( m_pLog ) m_pLog->onEvent( text ); }
+  void onIncoming( const std::string& text )
+  { if( m_pLog ) m_pLog->onIncoming( text ); }
+  void onOutgoing( const std::string& text )
+  { if( m_pLog ) m_pLog->onOutgoing( text ); }
+  void clear()
+  { if( m_pLog ) m_pLog->clear(); }
 
 private:
   void initialize() throw ( ConfigError );

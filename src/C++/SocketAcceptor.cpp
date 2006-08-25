@@ -43,13 +43,18 @@ SocketAcceptor::SocketAcceptor( Application& application,
                                 const SessionSettings& settings,
                                 LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory ),
-  m_pServer( 0 ) {}
+  m_pServer( 0 ) 
+{
+  onEvent( "SocketAcceptor created" );
+}
 
 SocketAcceptor::~SocketAcceptor()
 {
   SocketConnections::iterator iter;
   for ( iter = m_connections.begin(); iter != m_connections.end(); ++iter )
     delete iter->second;
+
+  onEvent( "SocketAcceptor destroyed" );
 }
 
 void SocketAcceptor::onConfigure( const SessionSettings& s )
@@ -111,7 +116,11 @@ throw ( RuntimeError )
 void SocketAcceptor::onStart()
 { QF_STACK_PUSH(SocketAcceptor::onStart)
 
+  onEvent( "SocketAcceptor started" );
+
   while ( !isStopped() && m_pServer && m_pServer->block( *this ) ) {}
+
+  onEvent( "SocketAcceptor stopped" );
 
   if( !m_pServer )
     return;
@@ -176,7 +185,7 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
 
   std::stringstream stream;
   stream << "Accepted connection from " << socket_peername( s ) << " on port " << port;
-  log( stream.str() );
+  onEvent( stream.str() );
 
   QF_STACK_POP
 }

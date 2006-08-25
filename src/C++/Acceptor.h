@@ -46,7 +46,7 @@ class Session;
  * Most users will not need to implement one of these.  The default
  * SocketAcceptor implementation will be used in most cases.
  */
-class Acceptor
+class Acceptor : public Log
 {
 public:
   Acceptor( Application&, MessageStoreFactory&,
@@ -81,9 +81,15 @@ public:
   MessageStoreFactory& getMessageStoreFactory()
   { return m_messageStoreFactory; }
 
-protected:
-  void log( const std::string& text )
+public:
+  void onEvent( const std::string& text )
   { if( m_pLog ) m_pLog->onEvent( text ); }
+  void onIncoming( const std::string& text )
+  { if( m_pLog ) m_pLog->onIncoming( text ); }
+  void onOutgoing( const std::string& text )
+  { if( m_pLog ) m_pLog->onOutgoing( text ); }
+  void clear()
+  { if( m_pLog ) m_pLog->clear(); }
 
 private:
   void initialize() throw ( ConfigError );

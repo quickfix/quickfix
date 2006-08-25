@@ -43,10 +43,16 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
   const SessionSettings& settings,
   LogFactory& logFactory ) throw( ConfigError )
 : Acceptor( application, factory, settings, logFactory )
-{ socket_init(); }
+{ 
+  socket_init(); 
+  onEvent( "ThreadedSocketAcceptor created" );
+}
 
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
-{ socket_term(); }
+{ 
+  socket_term(); 
+  onEvent( "ThreadedSocketAcceptor destroyed" );
+}
 
 void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
@@ -204,6 +210,8 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
   int noDelay = 0;
   socket_getsockopt( s, TCP_NODELAY, noDelay );
 
+  pAcceptor->onEvent( "ThreadedSocketAcceptor started" );
+
   int socket = 0;
   while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) >= 0 ) )
   {
@@ -213,7 +221,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
     Sessions sessions = pAcceptor->m_portToSessions[port];
 
     ThreadedSocketConnection * pConnection =
-      new ThreadedSocketConnection( socket, sessions, pAcceptor->getApplication() );
+      new ThreadedSocketConnection( socket, sessions, pAcceptor->getApplication(), *pAcceptor );
 
     ConnectionThreadInfo* info = new ConnectionThreadInfo( pAcceptor, pConnection );
 
@@ -222,7 +230,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 
       std::stringstream stream;
       stream << "Accepted connection from " << socket_peername( socket ) << " on port " << port;
-      pAcceptor->log( stream.str() );
+      pAcceptor->onEvent( stream.str() );
 
       unsigned thread;
       if ( !thread_spawn( &socketConnectionThread, info, thread ) )
@@ -233,6 +241,9 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 
   if( !pAcceptor->isStopped() )
     pAcceptor->removeThread( s );
+
+  pAcceptor->onEvent( "ThreadedSocketInitiator stopped" );
+
   return 0;
 
   QF_STACK_POP

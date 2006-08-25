@@ -38,6 +38,7 @@ class ThreadedSocketAcceptor;
 class ThreadedSocketInitiator;
 class Session;
 class Application;
+class Log;
 
 /// Encapsulates a socket file descriptor (multi-threaded).
 class ThreadedSocketConnection : Responder
@@ -45,8 +46,8 @@ class ThreadedSocketConnection : Responder
 public:
   typedef std::set<SessionID> Sessions;
 
-  ThreadedSocketConnection( int s, Sessions sessions, Application& application );
-  ThreadedSocketConnection( const SessionID&, int s, Application& );
+  ThreadedSocketConnection( int s, Sessions sessions, Application& application, Log& log );
+  ThreadedSocketConnection( const SessionID&, int s, Application&, Log& log );
   virtual ~ThreadedSocketConnection() ;
 
   Session* getSession() const { return m_pSession; }
@@ -64,6 +65,7 @@ private:
   char m_buffer[BUFSIZ];
 
   Application& m_application;
+  Log& m_log;
   Parser m_parser;
   Sessions m_sessions;
   Session* m_pSession;

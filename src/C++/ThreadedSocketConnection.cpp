@@ -32,8 +32,9 @@
 
 namespace FIX
 {
-ThreadedSocketConnection::ThreadedSocketConnection( int s, Sessions sessions, Application& application )
-: m_socket( s ), m_application( application ),
+ThreadedSocketConnection::ThreadedSocketConnection
+( int s, Sessions sessions, Application& application, Log& log )
+: m_socket( s ), m_application( application ), m_log( log ),
   m_sessions( sessions ), m_pSession( 0 ),
   m_disconnect( false )
 {
@@ -41,10 +42,9 @@ ThreadedSocketConnection::ThreadedSocketConnection( int s, Sessions sessions, Ap
   FD_SET( m_socket, &m_fds );
 }
 
-ThreadedSocketConnection::ThreadedSocketConnection( const SessionID& sessionID, int s,
-    Application& application )
-
-: m_socket( s ), m_application( application ),
+ThreadedSocketConnection::ThreadedSocketConnection
+( const SessionID& sessionID, int s, Application& application, Log& log )
+  : m_socket( s ), m_application( application ), m_log( log ),
   m_pSession( Session::lookupSession( sessionID ) ),
   m_disconnect( false )
 {
@@ -174,7 +174,13 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
 { QF_STACK_PUSH(ThreadedSocketConnection::setSession)
 
   m_pSession = Session::lookupSession( msg, true );
-  if ( !m_pSession ) return false;
+  if ( !m_pSession ) 
+  {
+    m_log.onEvent( "Session not found for incoming message: " + msg );
+    m_log.onIncoming( msg );
+    return false;
+  }
+
   SessionID sessionID = m_pSession->getSessionID();
   m_pSession = 0;
 

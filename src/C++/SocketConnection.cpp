@@ -146,7 +146,11 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       if ( !readMessage( msg ) ) return false;
       m_pSession = Session::lookupSession( msg, true );
       if( !isValidSession() )
+      {
         m_pSession = 0;
+        a.onEvent( "Session not found for incoming message: " + msg );
+        a.onIncoming( msg );
+      }
       if( m_pSession )
         m_pSession = a.getSession( msg, *this );
       if( m_pSession )

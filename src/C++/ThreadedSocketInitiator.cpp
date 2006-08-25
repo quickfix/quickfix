@@ -45,10 +45,16 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   LogFactory& logFactory ) throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false )
-{ socket_init(); }
+{ 
+  socket_init(); 
+  onEvent( "ThreadedSocketInitiator created" );
+}
 
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
-{ socket_term(); }
+{ 
+  socket_term(); 
+  onEvent( "ThreadedSocketInitiator destroyed" );
+}
 
 void ThreadedSocketInitiator::onConfigure( const SessionSettings& s )
 throw ( ConfigError )
@@ -71,6 +77,8 @@ throw ( RuntimeError )
 void ThreadedSocketInitiator::onStart()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStart)
 
+  onEvent( "ThreadedSocketInitiator started" );
+
   while ( !isStopped() )
   {
     time_t now;
@@ -85,6 +93,8 @@ void ThreadedSocketInitiator::onStart()
 
     process_sleep( 1 );
   }
+
+  onEvent( "ThreadedSocketInitiator stopped" );
 
   QF_STACK_POP
 }
@@ -152,7 +162,7 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     log->onEvent( "Connection succeeded" );
 
     ThreadedSocketConnection* pConnection =
-      new ThreadedSocketConnection( s, socket, getApplication() );
+      new ThreadedSocketConnection( s, socket, getApplication(), *this );
 
     ThreadPair* pair = new ThreadPair( this, pConnection );
 

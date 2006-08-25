@@ -45,7 +45,10 @@ SocketInitiator::SocketInitiator( Application& application,
 throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_connector( 1 ), m_lastConnect( 0 ),
-  m_reconnectInterval( 30 ), m_noDelay( false ) {}
+  m_reconnectInterval( 30 ), m_noDelay( false ) 
+{
+  onEvent( "SocketInitiator created" );
+}
 
 SocketInitiator::~SocketInitiator()
 {
@@ -58,6 +61,7 @@ SocketInitiator::~SocketInitiator()
        i != m_pendingConnections.end(); ++i)
     delete i->second;
 
+  onEvent( "SocketInitiator destroyed" );
 }
 
 void SocketInitiator::onConfigure( const SessionSettings& s )
@@ -82,8 +86,13 @@ void SocketInitiator::onStart()
 { QF_STACK_PUSH(SocketInitiator::onStart)
 
   connect();
+
+  onEvent( "SocketInitiator started" );
+
   while ( !isStopped() )
     m_connector.block( *this );
+
+  onEvent( "SocketInitiator stopped" );
 
   time_t start = 0;
   time_t now = 0;
