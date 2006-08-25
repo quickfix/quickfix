@@ -49,14 +49,14 @@ int main( int argc, char** argv )
 
     Application application;
     FIX::FileStoreFactory storeFactory( settings );
-	FIX::ScreenLogFactory logFactory( true, true, true );
+    FIX::ScreenLogFactory logFactory( true, true, true );
     FIX::SocketInitiator initiator( application, storeFactory, settings, logFactory );
 
     initiator.start();
     application.run();
     initiator.stop();
 
-	return 0;
+    return 0;
   }
   catch ( std::exception & e )
   {
