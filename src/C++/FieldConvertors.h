@@ -286,7 +286,7 @@ struct DoubleConvertor
 		}
 
 		if( *i || !haveDigit ) return false;
-		result = strtod( value.c_str(), 0 );
+		result = std::strtod( value.c_str(), 0 );
 		return true;
 	}
 
