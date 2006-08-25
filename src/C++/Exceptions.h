@@ -250,7 +250,7 @@ struct SocketException : public Exception
     return buffer;
 #else
     error = errno;
-    return std::strerror( error );
+    return strerror( error );
 #endif
   }
 

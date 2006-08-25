@@ -76,6 +76,7 @@ typedef int socklen_t;
 #include <signal.h>
 #include <errno.h>
 #include <time.h>
+#include <stdlib.h>
 /////////////////////////////////////////////
 #endif
 
@@ -179,6 +180,9 @@ using std::labs;
 using std::memcpy;
 using std::memset;
 using std::exit;
+using std::strtod;
+using std::strtol;
+using std::strerror;
 #endif
 
 #endif
