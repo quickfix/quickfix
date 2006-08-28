@@ -11,6 +11,8 @@
 %array_class(int, IntArray);
 
 %ignore _REENTRANT;
+%rename(SocketInitiatorBase) FIX::SocketInitiator;
+%rename(SocketAcceptorBase) FIX::SocketAcceptor;
 
 %{
 #include <config.h>
@@ -305,3 +307,44 @@ def start(self):
 %include "../C++/Acceptor.h"
 %include "../C++/SocketAcceptor.h"
 
+%pythoncode %{
+#ifdef SWIGPYTHON
+
+class SocketInitiator(SocketInitiatorBase):
+	application = 0
+	storeFactory = 0
+	setting = 0
+	logFactory = 0
+
+	def __init__(self, application, storeFactory, settings):
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+
+	def __init__(self, application, storeFactory, settings, logFactory):
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+		self.logFactory = logFactory
+
+class SocketAcceptor(SocketAcceptorBase):
+	application = 0
+	storeFactory = 0
+	setting = 0
+	logFactory = 0
+
+	def __init__(self, application, storeFactory, settings):
+		SocketAcceptorBase.__init__(self, application, storeFactory, settings)
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+
+	def __init__(self, application, storeFactory, settings, logFactory):
+		SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+		self.logFactory = logFactory
+
+#endif
+%}

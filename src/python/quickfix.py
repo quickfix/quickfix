@@ -84,6 +84,7 @@ HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H
 HAVE_MEMORY_H = _quickfix.HAVE_MEMORY_H
 HAVE_MT_ALLOCATOR = _quickfix.HAVE_MT_ALLOCATOR
 HAVE_POOL_ALLOCATOR = _quickfix.HAVE_POOL_ALLOCATOR
+HAVE_PYTHON = _quickfix.HAVE_PYTHON
 HAVE_STDINT_H = _quickfix.HAVE_STDINT_H
 HAVE_STDIO_H = _quickfix.HAVE_STDIO_H
 HAVE_STDLIB_H = _quickfix.HAVE_STDLIB_H
@@ -19871,10 +19872,12 @@ class NullApplication(Application):
 NullApplication_swigregister = _quickfix.NullApplication_swigregister
 NullApplication_swigregister(NullApplication)
 
-class Initiator(_object):
+class Initiator(Log):
     __swig_setmethods__ = {}
+    for _s in [Log]: __swig_setmethods__.update(_s.__swig_setmethods__)
     __setattr__ = lambda self, name, value: _swig_setattr(self, Initiator, name, value)
     __swig_getmethods__ = {}
+    for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Initiator, name)
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
@@ -19894,30 +19897,36 @@ class Initiator(_object):
     def isStopped(*args): return _quickfix.Initiator_isStopped(*args)
     def getApplication(*args): return _quickfix.Initiator_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Initiator_getMessageStoreFactory(*args)
+    def onEvent(*args): return _quickfix.Initiator_onEvent(*args)
+    def onIncoming(*args): return _quickfix.Initiator_onIncoming(*args)
+    def onOutgoing(*args): return _quickfix.Initiator_onOutgoing(*args)
+    def clear(*args): return _quickfix.Initiator_clear(*args)
 Initiator_swigregister = _quickfix.Initiator_swigregister
 Initiator_swigregister(Initiator)
 
-class SocketInitiator(Initiator):
+class SocketInitiatorBase(Initiator):
     __swig_setmethods__ = {}
     for _s in [Initiator]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketInitiator, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketInitiatorBase, name, value)
     __swig_getmethods__ = {}
     for _s in [Initiator]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, SocketInitiator, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, SocketInitiatorBase, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketInitiator(*args)
+        this = _quickfix.new_SocketInitiatorBase(*args)
         try: self.this.append(this)
         except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SocketInitiator
+    __swig_destroy__ = _quickfix.delete_SocketInitiatorBase
     __del__ = lambda self : None;
-SocketInitiator_swigregister = _quickfix.SocketInitiator_swigregister
-SocketInitiator_swigregister(SocketInitiator)
+SocketInitiatorBase_swigregister = _quickfix.SocketInitiatorBase_swigregister
+SocketInitiatorBase_swigregister(SocketInitiatorBase)
 
-class Acceptor(_object):
+class Acceptor(Log):
     __swig_setmethods__ = {}
+    for _s in [Log]: __swig_setmethods__.update(_s.__swig_setmethods__)
     __setattr__ = lambda self, name, value: _swig_setattr(self, Acceptor, name, value)
     __swig_getmethods__ = {}
+    for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Acceptor, name)
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
@@ -19937,25 +19946,69 @@ class Acceptor(_object):
     def isStopped(*args): return _quickfix.Acceptor_isStopped(*args)
     def getApplication(*args): return _quickfix.Acceptor_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Acceptor_getMessageStoreFactory(*args)
+    def onEvent(*args): return _quickfix.Acceptor_onEvent(*args)
+    def onIncoming(*args): return _quickfix.Acceptor_onIncoming(*args)
+    def onOutgoing(*args): return _quickfix.Acceptor_onOutgoing(*args)
+    def clear(*args): return _quickfix.Acceptor_clear(*args)
 Acceptor_swigregister = _quickfix.Acceptor_swigregister
 Acceptor_swigregister(Acceptor)
 
-class SocketAcceptor(Acceptor):
+class SocketAcceptorBase(Acceptor):
     __swig_setmethods__ = {}
     for _s in [Acceptor]: __swig_setmethods__.update(_s.__swig_setmethods__)
-    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketAcceptor, name, value)
+    __setattr__ = lambda self, name, value: _swig_setattr(self, SocketAcceptorBase, name, value)
     __swig_getmethods__ = {}
     for _s in [Acceptor]: __swig_getmethods__.update(_s.__swig_getmethods__)
-    __getattr__ = lambda self, name: _swig_getattr(self, SocketAcceptor, name)
+    __getattr__ = lambda self, name: _swig_getattr(self, SocketAcceptorBase, name)
     __repr__ = _swig_repr
     def __init__(self, *args): 
-        this = _quickfix.new_SocketAcceptor(*args)
+        this = _quickfix.new_SocketAcceptorBase(*args)
         try: self.this.append(this)
         except: self.this = this
-    __swig_destroy__ = _quickfix.delete_SocketAcceptor
+    __swig_destroy__ = _quickfix.delete_SocketAcceptorBase
     __del__ = lambda self : None;
-SocketAcceptor_swigregister = _quickfix.SocketAcceptor_swigregister
-SocketAcceptor_swigregister(SocketAcceptor)
+SocketAcceptorBase_swigregister = _quickfix.SocketAcceptorBase_swigregister
+SocketAcceptorBase_swigregister(SocketAcceptorBase)
+
+#ifdef SWIGPYTHON
+
+class SocketInitiator(SocketInitiatorBase):
+	application = 0
+	storeFactory = 0
+	setting = 0
+	logFactory = 0
+
+	def __init__(self, application, storeFactory, settings):
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+
+	def __init__(self, application, storeFactory, settings, logFactory):
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+		self.logFactory = logFactory
+
+class SocketAcceptor(SocketAcceptorBase):
+	application = 0
+	storeFactory = 0
+	setting = 0
+	logFactory = 0
+
+	def __init__(self, application, storeFactory, settings):
+		SocketAcceptorBase.__init__(self, application, storeFactory, settings)
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+
+	def __init__(self, application, storeFactory, settings, logFactory):
+		SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
+		self.application = application
+		self.storeFactory = storeFactory
+		self.settings = settings
+		self.logFactory = logFactory
+
+#endif
 
 
 
