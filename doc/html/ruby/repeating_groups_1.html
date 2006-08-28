@@ -3,7 +3,7 @@ require 'quickfix_ruby'
 require 'quickfix42'
 
 message = Quickfix42::MarketDataSnapshotFullRefresh.new()
-group = Quickfix42::MarketDataSnapshotFullRefresh.NoMDEntries.new();
+group = Quickfix42::MarketDataSnapshotFullRefresh::NoMDEntries.new();
 
 group.setField(Quickfix::MDEntryType.new('0'))
 group.setField(Quickfix::MDEntryPx.new(12.32))
