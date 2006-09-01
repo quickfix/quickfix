@@ -44,6 +44,7 @@ namespace QuickFix
   public __gc class <xsl:value-of select="@name"/> : public <xsl:call-template name="get-field-type"/>Field
   {
   public:
+  static const int FIELD = <xsl:value-of select="@number"/>;
   <xsl:call-template name="values"/>
   
     <xsl:variable name="fieldType"><xsl:call-template name="get-field-type"/></xsl:variable>
@@ -61,6 +62,7 @@ namespace QuickFix
   public __gc class ListNoOrds : public IntField
   {
   public:
+	static int FIELD = 68;
     ListNoOrds() : IntField(68) {}
     ListNoOrds(int data) : IntField(68, data) {}
   };

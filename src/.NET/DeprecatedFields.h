@@ -28,6 +28,7 @@ namespace QuickFix
   public __gc class ExecTransType : public CharField
   {
   public:
+  static const int FIELD = 20;
   static const __wchar_t NEW = '0';
   static const __wchar_t CANCEL = '1';
   static const __wchar_t CORRECT = '2';
@@ -39,6 +40,7 @@ namespace QuickFix
   public __gc class IDSource : public StringField
   {
   public:
+  static const int FIELD = 22;
   static const String* CUSIP = "1";
   static const String* SEDOL = "2";
   static const String* QUIK = "3";
@@ -55,6 +57,7 @@ namespace QuickFix
   public __gc class IOIOthSvc : public CharField
   {
   public:
+  static const int FIELD = 24;
   IOIOthSvc() : CharField(24) {}
     IOIOthSvc(char data) : CharField(24, data) {}
   };
@@ -62,6 +65,7 @@ namespace QuickFix
   public __gc class IOIShares : public StringField
   {
   public:
+  static const int FIELD = 27;
   static const String* SMALL = "S";
   static const String* MEDIUM = "M";
   static const String* LARGE = "L";
@@ -72,6 +76,7 @@ namespace QuickFix
   public __gc class LastShares : public DoubleField
   {
   public:
+  static const int FIELD = 32;
   LastShares() : DoubleField(32) {}
     LastShares(double data) : DoubleField(32, data) {}
   };
@@ -79,6 +84,7 @@ namespace QuickFix
   public __gc class RelatdSym : public StringField
   {
   public:
+  static const int FIELD = 46;
   RelatdSym() : StringField(46) {}
     RelatdSym(String* data) : StringField(46, data) {}
   };
@@ -86,6 +92,7 @@ namespace QuickFix
   public __gc class Rule80A : public CharField
   {
   public:
+  static const int FIELD = 47;
   static const __wchar_t AGENCY_SINGLE_ORDER = 'A';
   static const __wchar_t SHORT_EXEMPT_TRANSACTION_REFER_TO_A_TYPE = 'B';
   static const __wchar_t PROGRAM_ORDER_NON_INDEX_ARB_FOR_MEMBER_FIRM = 'C';
@@ -116,6 +123,7 @@ namespace QuickFix
   public __gc class Shares : public DoubleField
   {
   public:
+  static const int FIELD = 53;
   Shares() : DoubleField(53) {}
   Shares(double data) : DoubleField(53, data) {}
   };
@@ -123,6 +131,7 @@ namespace QuickFix
   public __gc class SettlmntTyp : public CharField
   {
   public:
+  static const int FIELD = 63;
   static const __wchar_t REGULAR = '0';
   static const __wchar_t CASH = '1';
   static const __wchar_t NEXT_DAY = '2';
@@ -141,6 +150,7 @@ namespace QuickFix
   public __gc class FutSettDate : public StringField
   {
   public:
+  static const int FIELD = 64;
   FutSettDate() : StringField(64) {}
     FutSettDate(String* data) : StringField(64, data) {}
   };
@@ -148,6 +158,7 @@ namespace QuickFix
   public __gc class AvgPrxPrecision : public IntField
   {
   public:
+  static const int FIELD = 74;
   AvgPrxPrecision() : IntField(74) {}
     AvgPrxPrecision(int data) : IntField(74, data) {}
   };
@@ -155,6 +166,7 @@ namespace QuickFix
   public __gc class ExecBroker : public StringField
   {
   public:
+  static const int FIELD = 76;
   ExecBroker() : StringField(76) {}
     ExecBroker(String* data) : StringField(76, data) {}
   };
@@ -162,6 +174,7 @@ namespace QuickFix
   public __gc class OpenClose : public CharField
   {
   public:
+  static const int FIELD = 77;
   static const __wchar_t OPEN = 'O';
   static const __wchar_t CLOSE = 'C';
   OpenClose() : CharField(77) {}
@@ -171,6 +184,7 @@ namespace QuickFix
   public __gc class AllocShares : public IntField
   {
   public:
+  static const int FIELD = 80;
   AllocShares() : IntField(80) {}
     AllocShares(int data) : IntField(80, data) {}
   };
@@ -178,6 +192,7 @@ namespace QuickFix
   public __gc class DlvyInst : public CharField
   {
   public:
+  static const int FIELD = 86;
   DlvyInst() : CharField(86) {}
     DlvyInst(__wchar_t data) : CharField(86, data) {}
   };
@@ -185,6 +200,7 @@ namespace QuickFix
   public __gc class BrokerOfCredit : public StringField
   {
   public:
+  static const int FIELD = 92;
   BrokerOfCredit() : StringField(92) {}
     BrokerOfCredit(String* data) : StringField(92, data) {}
   };
@@ -192,6 +208,7 @@ namespace QuickFix
   public __gc class ClientID : public StringField
   {
   public:
+  static const int FIELD = 109;
   ClientID() : StringField(109) {}
     ClientID(String* data) : StringField(109, data) {}
   };
@@ -199,6 +216,7 @@ namespace QuickFix
   public __gc class CxlType : public CharField
   {
   public:
+  static const int FIELD = 125;
   static const __wchar_t PARTIAL_CANCEL = 'P';
   static const __wchar_t FULL_REMAINING_QUANTITY = 'F';
   CxlType() : CharField(125) {}
@@ -208,6 +226,7 @@ namespace QuickFix
   public __gc class SettlLocation : public StringField
   {
   public:
+  static const int FIELD = 166;
   static const String* CEDEL = "CED";
   static const String* DEPOSITORY_TRUST_COMPANY = "DTC";
   static const String* EUROCLEAR = "EUR";
@@ -221,6 +240,7 @@ namespace QuickFix
   public __gc class SettlDepositoryCode : public StringField
   {
   public:
+  static const int FIELD = 173;
   SettlDepositoryCode() : StringField(173) {}
     SettlDepositoryCode(String* data) : StringField(173, data) {}
   };
@@ -228,6 +248,7 @@ namespace QuickFix
   public __gc class SettlBrkrCode : public StringField
   {
   public:
+  static const int FIELD = 174;
   SettlBrkrCode() : StringField(174) {}
     SettlBrkrCode(String* data) : StringField(174, data) {}
   };
@@ -235,6 +256,7 @@ namespace QuickFix
   public __gc class SettlInstCode : public StringField
   {
   public:
+  static const int FIELD = 175;
   SettlInstCode() : StringField(175) {}
     SettlInstCode(String* data) : StringField(175, data) {}
   };
@@ -242,6 +264,7 @@ namespace QuickFix
   public __gc class SecuritySettlAgentName : public StringField
   {
   public:
+  static const int FIELD = 176;
   SecuritySettlAgentName() : StringField(176) {}
     SecuritySettlAgentName(String* data) : StringField(176, data) {}
   };
@@ -249,6 +272,7 @@ namespace QuickFix
   public __gc class SecuritySettlAgentCode : public StringField
   {
   public:
+  static const int FIELD = 177;
   SecuritySettlAgentCode() : StringField(177) {}
     SecuritySettlAgentCode(String* data) : StringField(177, data) {}
   };
@@ -256,6 +280,7 @@ namespace QuickFix
   public __gc class SecuritySettlAgentAcctNum : public StringField
   {
   public:
+ static const int FIELD = 178;
   SecuritySettlAgentAcctNum() : StringField(178) {}
     SecuritySettlAgentAcctNum(String* data) : StringField(178, data) {}
   };
@@ -263,6 +288,7 @@ namespace QuickFix
   public __gc class SecuritySettlAgentAcctName : public StringField
   {
   public:
+  static const int FIELD = 179;
   SecuritySettlAgentAcctName() : StringField(179) {}
     SecuritySettlAgentAcctName(String* data) : StringField(179, data) {}
   };
@@ -270,6 +296,7 @@ namespace QuickFix
   public __gc class SecuritySettlAgentContactName : public StringField
   {
   public:
+  static const int FIELD = 180;
   SecuritySettlAgentContactName() : StringField(180) {}
     SecuritySettlAgentContactName(String* data) : StringField(180, data) {}
   };
@@ -277,6 +304,7 @@ namespace QuickFix
   public __gc class SecuritySettlAgentContactPhone : public StringField
   {
   public:
+  static const int FIELD = 181;
   SecuritySettlAgentContactPhone() : StringField(181) {}
     SecuritySettlAgentContactPhone(String* data) : StringField(181, data) {}
   };
@@ -284,6 +312,7 @@ namespace QuickFix
   public __gc class CashSettlAgentName : public StringField
   {
   public:
+  static const int FIELD = 182;
   CashSettlAgentName() : StringField(182) {}
     CashSettlAgentName(String* data) : StringField(182, data) {}
   };
@@ -291,6 +320,7 @@ namespace QuickFix
   public __gc class CashSettlAgentCode : public StringField
   {
   public:
+  static const int FIELD = 183;
   CashSettlAgentCode() : StringField(183) {}
     CashSettlAgentCode(String* data) : StringField(183, data) {}
   };
@@ -298,6 +328,7 @@ namespace QuickFix
   public __gc class CashSettlAgentAcctNum : public StringField
   {
   public:
+  static const int FIELD = 184;
   CashSettlAgentAcctNum() : StringField(184) {}
     CashSettlAgentAcctNum(String* data) : StringField(184, data) {}
   };
@@ -305,6 +336,7 @@ namespace QuickFix
   public __gc class CashSettlAgentAcctName : public StringField
   {
   public:
+  static const int FIELD = 185;
   CashSettlAgentAcctName() : StringField(185) {}
     CashSettlAgentAcctName(String* data) : StringField(185, data) {}
   };
@@ -312,6 +344,7 @@ namespace QuickFix
   public __gc class CashSettlAgentContactName : public StringField
   {
   public:
+  static const int FIELD = 186;
   CashSettlAgentContactName() : StringField(186) {}
     CashSettlAgentContactName(String* data) : StringField(186, data) {}
   };
@@ -319,6 +352,7 @@ namespace QuickFix
   public __gc class CashSettlAgentContactPhone : public StringField
   {
   public:
+  static const int FIELD = 187;
   CashSettlAgentContactPhone() : StringField(187) {}
     CashSettlAgentContactPhone(String* data) : StringField(187, data) {}
   };
@@ -326,6 +360,7 @@ namespace QuickFix
   public __gc class FutSettDate2 : public StringField
   {
   public:
+  static const int FIELD = 193;
   FutSettDate2() : StringField(193) {}
     FutSettDate2(String* data) : StringField(193, data) {}
   };
@@ -333,6 +368,7 @@ namespace QuickFix
   public __gc class PutOrCall : public IntField
   {
   public:
+  static const int FIELD = 201;
   static const int PUT = 0;
   static const int CALL = 1;
   PutOrCall() : IntField(201) {}
@@ -342,6 +378,7 @@ namespace QuickFix
   public __gc class CustomerOrFirm : public IntField
   {
   public:
+  static const int FIELD = 204;
   static const int CUSTOMER = 0;
   static const int FIRM = 1;
   CustomerOrFirm() : IntField(204) {}
@@ -351,6 +388,7 @@ namespace QuickFix
   public __gc class MaturityDay : public StringField
   {
   public:
+  static const int FIELD = 205;
   MaturityDay() : StringField(205) {}
     MaturityDay(String* data) : StringField(205, data) {}
   };
@@ -358,6 +396,7 @@ namespace QuickFix
   public __gc class PegDifference : public DoubleField
   {
   public:
+  static const int FIELD = 211;
   PegDifference() : DoubleField(211) {}
     PegDifference(double data) : DoubleField(211, data) {}
   };
@@ -365,6 +404,7 @@ namespace QuickFix
   public __gc class SpreadToBenchmark : public IntField
   {
   public:
+  static const int FIELD = 218;
   SpreadToBenchmark() : IntField(218) {}
     SpreadToBenchmark(int data) : IntField(218, data) {}
   };
@@ -372,6 +412,7 @@ namespace QuickFix
   public __gc class Benchmark : public CharField
   {
   public:
+  static const int FIELD = 219;
   static const __wchar_t CURVE = '1';
   static const __wchar_t FIVEYR = '2';
   static const __wchar_t OLD5 = '3';
@@ -388,6 +429,7 @@ namespace QuickFix
   public __gc class UnderlyingIDSource : public IntField
   {
   public:
+  static const int FIELD = 305;
   UnderlyingIDSource() : IntField(305) {}
     UnderlyingIDSource(int data) : IntField(305, data) {}
   };
@@ -395,6 +437,7 @@ namespace QuickFix
   public __gc class OpenCloseSettleFlag : public StringField
   {
   public:
+  static const int FIELD = 286;
   static const __wchar_t DAILY_OPEN = '0';
   static const __wchar_t SESSION_OPEN = '1';
   static const __wchar_t DELIVERY_SETTLEMENT_PRICE = '2';
@@ -407,6 +450,7 @@ namespace QuickFix
   public __gc class QuoteAckStatus : public IntField
   {
   public:
+  static const int FIELD = 297;
   QuoteAckStatus() : IntField(297) {}
     QuoteAckStatus(int data) : IntField(297, data) {}
   };
@@ -414,6 +458,7 @@ namespace QuickFix
   public __gc class TotQuoteEntries : public IntField
   {
   public:
+  static const int FIELD = 304;
   TotQuoteEntries() : IntField(304) {}
     TotQuoteEntries(int data) : IntField(304, data) {}
   };
@@ -421,6 +466,7 @@ namespace QuickFix
   public __gc class UnderlyingMaturityDay : public StringField
   {
   public:
+  static const int FIELD = 314;
   UnderlyingMaturityDay() : StringField(314) {}
     UnderlyingMaturityDay(String* data) : StringField(314, data) {}
   };
@@ -428,6 +474,7 @@ namespace QuickFix
   public __gc class UnderlyingPutOrCall : public IntField
   {
   public:
+  static const int FIELD = 315;
   UnderlyingPutOrCall() : IntField(315) {}
     UnderlyingPutOrCall(int data) : IntField(315, data) {}
   };
@@ -435,6 +482,7 @@ namespace QuickFix
   public __gc class RatioQty : public DoubleField
   {
   public:
+  static const int FIELD = 319;
   RatioQty() : DoubleField(319) {}
     RatioQty(double data) : DoubleField(319, data) {}
   };
@@ -442,6 +490,7 @@ namespace QuickFix
   public __gc class OnBehalfOfSendingTime : public UtcTimeStampField
   {
   public:
+  static const int FIELD = 370;
   OnBehalfOfSendingTime() : UtcTimeStampField(370) {}
     OnBehalfOfSendingTime(DateTime data) : UtcTimeStampField(370, data) {}
   };
@@ -449,6 +498,7 @@ namespace QuickFix
   public __gc class DiscretionOffset : public DoubleField
   {
   public:
+  static const int FIELD = 389;
   DiscretionOffset() : DoubleField(389) {}
     DiscretionOffset(double data) : DoubleField(389, data) {}
   };
@@ -456,6 +506,7 @@ namespace QuickFix
   public __gc class TotalNumSecurities : public IntField
   {
   public:
+  static const int FIELD = 393;
   TotalNumSecurities() : IntField(393) {}
     TotalNumSecurities(int data) : IntField(393, data) {}
   };
@@ -463,6 +514,7 @@ namespace QuickFix
   public __gc class TradeType : public CharField
   {
   public:
+  static const int FIELD = 418;
   TradeType() : CharField(418) {}
     TradeType(__wchar_t data) : CharField(418, data) {}
   };
@@ -470,6 +522,7 @@ namespace QuickFix
   public __gc class ClearingFirm : public StringField
   {
   public:
+  static const int FIELD = 439;
   ClearingFirm() : StringField(439) {}
     ClearingFirm(String* data) : StringField(439, data) {}
   };
@@ -477,6 +530,7 @@ namespace QuickFix
   public __gc class ClearingAccount : public StringField
   {
   public:
+  static const int FIELD = 440;
   ClearingAccount() : StringField(440) {}
     ClearingAccount(String* data) : StringField(440, data) {}
   };
@@ -484,6 +538,7 @@ namespace QuickFix
   public __gc class TotalVolumeTradedDate : public UtcDateField
   {
   public:
+  static const int FIELD = 449;
   TotalVolumeTradedDate() : UtcDateField(449) {}
     TotalVolumeTradedDate(DateTime data) : UtcDateField(449, data) {}
   };
@@ -491,6 +546,7 @@ namespace QuickFix
   public __gc class TotalVolumeTradedTime : public UtcTimeOnlyField
   {
   public:
+  static const int FIELD = 450;
   TotalVolumeTradedTime() : UtcTimeOnlyField(450) {}
     TotalVolumeTradedTime(DateTime data) : UtcTimeOnlyField(450, data) {}
   };
@@ -498,6 +554,7 @@ namespace QuickFix
   public __gc class CardIssNo : public StringField
   {
   public:
+  static const int FIELD = 491;
   CardIssNo() : StringField(491) {}
     CardIssNo(String* data) : StringField(491, data) {}
   };
@@ -505,6 +562,7 @@ namespace QuickFix
   public __gc class RegistDetls : public StringField
   {
   public:
+  static const int FIELD = 509;
   RegistDetls() : StringField(509) {}
     RegistDetls(String* data) : StringField(509, data) {}
   };
@@ -512,6 +570,7 @@ namespace QuickFix
   public __gc class TotalNumSecurityTypes : public IntField
   {
   public:
+  static const int FIELD = 557;
   TotalNumSecurityTypes() : IntField(557) {}
     TotalNumSecurityTypes(int data) : IntField(557, data) {}
   };
@@ -519,6 +578,7 @@ namespace QuickFix
   public __gc class LegSettlmntTyp : public CharField
   {
   public:
+  static const int FIELD = 587;
   LegSettlmntTyp() : CharField(587) {}
     LegSettlmntTyp(__wchar_t data) : CharField(587, data) {}
   };
@@ -526,6 +586,7 @@ namespace QuickFix
   public __gc class LegFutSettDate : public StringField
   {
   public:
+  static const int FIELD = 588;
   LegFutSettDate() : StringField(588) {}
     LegFutSettDate(String* data) : StringField(588, data) {}
   };
