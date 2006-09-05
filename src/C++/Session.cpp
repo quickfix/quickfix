@@ -604,7 +604,7 @@ void Session::generateLogon()
   if( m_refreshOnLogon )
     refresh();
   if( m_resetOnLogon )
-	m_state.reset();
+    m_state.reset();
   if( shouldSendReset() )
     logon.setField( ResetSeqNumFlag(true) );
 

@@ -213,9 +213,11 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   ThreadedSocketInitiator* pInitiator = pair->first;
   ThreadedSocketConnection* pConnection = pair->second;
   FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
+  FIX::Session* pSession = FIX::Session::lookupSession( sessionID );
   delete pair;
 
   pInitiator->setConnected( sessionID );
+  pSession->next();
   int socket = pConnection->getSocket();
 
   while ( pConnection->read() ) {}
