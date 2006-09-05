@@ -284,7 +284,6 @@ def start(self):
 #endif
 }
 
-%include "../config.h"
 %include "../C++/Exceptions.h"
 %include "../C++/Field.h"
 %include "../C++/FieldMap.h"

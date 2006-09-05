@@ -77,32 +77,6 @@ def _quickfix_start_thread(i_or_a):
 	i_or_a.block()
 #endif
 
-HAVE_BITMAP_ALLOCATOR = _quickfix.HAVE_BITMAP_ALLOCATOR
-HAVE_DLFCN_H = _quickfix.HAVE_DLFCN_H
-HAVE_FTIME = _quickfix.HAVE_FTIME
-HAVE_INTTYPES_H = _quickfix.HAVE_INTTYPES_H
-HAVE_MEMORY_H = _quickfix.HAVE_MEMORY_H
-HAVE_MT_ALLOCATOR = _quickfix.HAVE_MT_ALLOCATOR
-HAVE_POOL_ALLOCATOR = _quickfix.HAVE_POOL_ALLOCATOR
-HAVE_STDINT_H = _quickfix.HAVE_STDINT_H
-HAVE_STDIO_H = _quickfix.HAVE_STDIO_H
-HAVE_STDLIB_H = _quickfix.HAVE_STDLIB_H
-HAVE_STRINGS_H = _quickfix.HAVE_STRINGS_H
-HAVE_STRING_H = _quickfix.HAVE_STRING_H
-HAVE_SYS_STAT_H = _quickfix.HAVE_SYS_STAT_H
-HAVE_SYS_TYPES_H = _quickfix.HAVE_SYS_TYPES_H
-HAVE_UNISTD_H = _quickfix.HAVE_UNISTD_H
-PACKAGE = _quickfix.PACKAGE
-PACKAGE_BUGREPORT = _quickfix.PACKAGE_BUGREPORT
-PACKAGE_NAME = _quickfix.PACKAGE_NAME
-PACKAGE_STRING = _quickfix.PACKAGE_STRING
-PACKAGE_TARNAME = _quickfix.PACKAGE_TARNAME
-PACKAGE_VERSION = _quickfix.PACKAGE_VERSION
-STDC_HEADERS = _quickfix.STDC_HEADERS
-TERMINATE_IN_STD = _quickfix.TERMINATE_IN_STD
-TYPEINFO_IN_STD = _quickfix.TYPEINFO_IN_STD
-VERSION = _quickfix.VERSION
-YYTEXT_POINTER = _quickfix.YYTEXT_POINTER
 class Exception:
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, Exception, name, value)
