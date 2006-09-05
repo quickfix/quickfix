@@ -663,6 +663,7 @@ int testSendOnSocket( int count, short port )
     << "EndTime=00:00:00" << std::endl
     << "UseDataDictionary=N" << std::endl
     << "BeginString=FIX.4.2" << std::endl
+    << "PersistMessages=N" << std::endl
     << "[SESSION]" << std::endl
     << "ConnectionType=acceptor" << std::endl
     << "SenderCompID=SERVER" << std::endl
@@ -725,6 +726,7 @@ int testSendOnThreadedSocket( int count, short port )
     << "EndTime=00:00:00" << std::endl
     << "UseDataDictionary=N" << std::endl
     << "BeginString=FIX.4.2" << std::endl
+    << "PersistMessages=N" << std::endl
     << "[SESSION]" << std::endl
     << "ConnectionType=acceptor" << std::endl
     << "SenderCompID=SERVER" << std::endl
