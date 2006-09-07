@@ -1,3 +1,35 @@
+1.12.3
+------
+A logon will now be sent immediately after initiator establishes a connection.
+Previously we were waiting up to 1 second before sending a logon.
+
+PersistMessages configuration setting will not store any messages when sent to Y.
+This is useful for sessions where you never want to do a resend request. Mostly for
+high bandwidth sessions.
+
+.NET field objects have static members for each of their enumeration values.
+This is equivalent to the Java implementation. (i.e., OrderSide.BUY).
+
+Fixed bugs in python and ruby APIs where objects passed into Initiator or
+Acceptor were being garbage collected to early causing random crashed.
+This was due to Swig not creating placeholders for these objects to live.
+
+Additional global logging indicated when an initiator/acceptor is created/destroyed,
+and started/stopped.  Global log also with log messages that do not belong to any
+loaded sessions.
+
+Configuration settings are now case insensitive (the keys, not the values).
+
+Underlying socket exception is provided if acceptor cannot be created.
+
+Fixed problem where file descriptors were not being released in ThreadedSocketInitiator
+due to uninitialized variable.
+
+Fixed some incorrect parsting of HTTP messages. Never manifested itself
+as any problem, but fixed none the less.
+
+Various copilation fixes for SunPRO compiler.
+
 1.12.2
 ------
 Fixed bug in SocketConnector in Windows where failed connections were not
