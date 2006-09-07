@@ -316,11 +316,13 @@ class SocketInitiator(SocketInitiatorBase):
 	logFactory = 0
 
 	def __init__(self, application, storeFactory, settings):
+		SocketInitiatorBase.__init__(self, application, storeFactory, settings)
 		self.application = application
 		self.storeFactory = storeFactory
 		self.settings = settings
 
 	def __init__(self, application, storeFactory, settings, logFactory):
+		SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
 		self.application = application
 		self.storeFactory = storeFactory
 		self.settings = settings
