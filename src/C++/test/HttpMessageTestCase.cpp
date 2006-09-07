@@ -36,13 +36,15 @@ void HttpMessageTestCase::setString::onRun( HttpMessage& object )
   static const char* strGood2 =
     "GET /another/url HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
   static const char* strGoodWithParameters =
-     "GET /some/url?p1=one&p2=two&p3=three HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+    "GET /some/url?p1=one&p2=two&p3=three HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
   static const char* strGoodWithEmptyParameters =
-     "GET /some/url?p1=&p2=&p3= HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+    "GET /some/url?p1=&p2=&p3= HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
   static const char* strBad1 =
-     "MOOB /some/url HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+    "GEB /some/url HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
   static const char* strBad2 =
-     "GET /some/url HTTB/1.0\r\nContent Type: text/html\r\n\r\n";
+    "GET /some/url HTTB/1.0\r\nContent Type: text/html\r\n\r\n";
+  static const char* strBad3 =
+    "GEB /some/url HTTB/1.0\r\nContent Type: text/html\r\n\r\n";
 
   try
   {
@@ -84,5 +86,16 @@ void HttpMessageTestCase::setString::onRun( HttpMessage& object )
     assert( false );
   } catch( InvalidMessage& ) {}
 
+  try
+  {
+    object.setString( strBad2 );
+    assert( false );
+  } catch( InvalidMessage& ) {}
+
+  try
+  {
+    object.setString( strBad3 );
+    assert( false );
+  } catch( InvalidMessage& ) {}
 }
 }

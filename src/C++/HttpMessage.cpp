@@ -67,13 +67,13 @@ throw( InvalidMessage )
   std::string::size_type eolPos = string.find( "\r\n" );
   if( eolPos == std::string::npos ) throw InvalidMessage();
   std::string line = string.substr( 0, eolPos );
-  std::string::size_type getPos = line.find_first_of( "GET ", 0 );
+  std::string::size_type getPos = line.find( "GET " );
   if( getPos != 0 ) throw InvalidMessage();
-  std::string::size_type httpPos = line.find_last_of( "HTTP", std::string::npos );
+  std::string::size_type httpPos = line.rfind( "HTTP", std::string::npos );
   if( httpPos == std::string::npos ) throw InvalidMessage();
 
-  m_root = line.substr( getPos + 4, httpPos - 8 );
-  std::string::size_type paramPos = m_root.find_first_of( "?" );
+  m_root = line.substr( getPos + 4, httpPos - 5 );
+  std::string::size_type paramPos = m_root.find_first_of( '?' );
   if( paramPos == std::string::npos ) return;
   std::string parameters = m_root.substr( paramPos, m_root.size() - paramPos );
   m_root = m_root.substr( 0, paramPos );
