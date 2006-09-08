@@ -203,7 +203,7 @@ void OdbcLog::insert( const std::string& table, const std::string value )
   queryString << "INSERT INTO " << table << " "
   << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
-  << "'" << sqlTime << "',";
+  << "{ts '" << sqlTime << "'},";
 
   if( m_pSessionID )
   {

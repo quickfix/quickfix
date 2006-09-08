@@ -116,7 +116,7 @@ void OdbcStore::populateCache()
     << "'" << m_sessionID.getSenderCompID().getValue() << "',"
     << "'" << m_sessionID.getTargetCompID().getValue() << "',"
     << "'" << m_sessionID.getSessionQualifier() << "',"
-    << "'" << sqlTime << "',"
+	<< "{ts '" << sqlTime << "'},"
     << m_cache.getNextTargetMsgSeqNum() << ","
     << m_cache.getNextSenderMsgSeqNum() << ")";
 
@@ -339,7 +339,7 @@ void OdbcStore::reset() throw ( IOException )
            year, month, day, hour, minute, second );
 
   std::stringstream queryString2;
-  queryString2 << "UPDATE sessions SET creation_time='" << sqlTime << "', "
+  queryString2 << "UPDATE sessions SET creation_time={ts '" << sqlTime << "'}, "
   << "incoming_seqnum=" << m_cache.getNextTargetMsgSeqNum() << ", "
   << "outgoing_seqnum=" << m_cache.getNextSenderMsgSeqNum() << " WHERE "
   << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "

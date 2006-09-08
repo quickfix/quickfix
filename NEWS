@@ -22,6 +22,9 @@ Configuration settings are now case insensitive (the keys, not the values).
 
 Underlying socket exception is provided if acceptor cannot be created.
 
+ODBC escape sequences are used for time columns so correct format is always
+sent to the underlying database.
+
 Fixed problem where file descriptors were not being released in ThreadedSocketInitiator
 due to uninitialized variable.
 
