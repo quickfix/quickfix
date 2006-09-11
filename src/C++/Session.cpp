@@ -457,7 +457,8 @@ bool Session::sendRaw( Message& message, int num )
     Header& header = message.getHeader();
 
     MsgType msgType;
-    header.getField( msgType );
+    if( header.isSetField(msgType) )
+      header.getField( msgType );
 
     fill( header );
     std::string messageString;
