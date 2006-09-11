@@ -3582,6 +3582,30 @@
     <field name="EncodedTextLen" required="N" />
     <field name="EncodedText" required="N" />
   </message>
+  <message name="NetworkStatusRequest" msgtype="BC" msgcat="app">
+    <field name="NetworkRequestType" required="Y" />
+    <field name="NetworkRequestID" required="Y" />
+    <group name="NoCompIDs" required="N">
+      <field name="RefCompID" required="N" />
+      <field name="RefSubID" required="N" />
+      <field name="LocationID" required="N" />
+      <field name="DeskID" required="N" />
+    </group>
+  </message>
+  <message name="NetworkStatusRequest" msgtype="BD" msgcat="app">
+    <field name="NetworkStatusResponseType" required="Y" />
+    <field name="NetworkRequestID" required="N" />
+    <field name="NetworkResponseID" required="N" />
+    <field name="LastNetworkResponseID" required="N" />
+    <group name="NoCompIDs" required="Y">
+      <field name="RefCompID" required="N" />
+      <field name="RefSubID" required="N" />
+      <field name="LocationID" required="N" />
+      <field name="DeskID" required="N" />
+      <field name="StatusValue" required="N" />
+      <field name="StatusText" required="N" />
+    </group>
+  </message>
   <message name="CollateralInquiryAck" msgtype="BG" msgcat="app">
     <field name="CollInquiryID" required="Y" />
     <field name="CollInquiryStatus" required="Y" />
