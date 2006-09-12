@@ -28,6 +28,8 @@ using namespace System;
 #include "quickfix/SessionID.h"
 #include "quickfix/CallStack.h"
 
+#include "Fields.h"
+
 namespace QuickFix
 {
 public __gc class SessionID
@@ -39,13 +41,37 @@ public:
     QF_STACK_CATCH
   }
 
+  SessionID( BeginString* beginString, SenderCompID* senderCompID, TargetCompID* targetCompID )
+  { QF_STACK_TRY
+
+    m_pUnmanaged = new FIX::SessionID(
+                       FIX::BeginString( convertString(beginString->getValue())),
+                       FIX::SenderCompID( convertString(senderCompID->getValue())),
+                       FIX::TargetCompID( convertString(targetCompID->getValue())) );
+
+    QF_STACK_CATCH
+  }
+
+  SessionID( BeginString* beginString, SenderCompID* senderCompID, 
+	         TargetCompID* targetCompID, String* sessionQualifier )
+  { QF_STACK_TRY
+
+    m_pUnmanaged = new FIX::SessionID(
+                       FIX::BeginString( convertString(beginString->getValue())),
+                       FIX::SenderCompID( convertString(senderCompID->getValue())),
+                       FIX::TargetCompID( convertString(targetCompID->getValue())),
+                       convertString(sessionQualifier) );
+
+    QF_STACK_CATCH
+  }
+
   SessionID( String* beginString, String* senderCompID, String* targetCompID )
   { QF_STACK_TRY
 
     m_pUnmanaged = new FIX::SessionID(
-                     FIX::BeginString( convertString( beginString ) ),
-                     FIX::SenderCompID( convertString( senderCompID ) ),
-                     FIX::TargetCompID( convertString( targetCompID ) ) );
+                       FIX::BeginString( convertString( beginString ) ),
+                       FIX::SenderCompID( convertString( senderCompID ) ),
+                       FIX::TargetCompID( convertString( targetCompID ) ) );
 
     QF_STACK_CATCH
   }
@@ -55,10 +81,10 @@ public:
   { QF_STACK_TRY
 
     m_pUnmanaged = new FIX::SessionID(
-                     FIX::BeginString( convertString( beginString ) ),
-                     FIX::SenderCompID( convertString( senderCompID ) ),
-                     FIX::TargetCompID( convertString( targetCompID ) ),
-                     convertString( sessionQualifier ) );
+                       FIX::BeginString( convertString( beginString ) ),
+                       FIX::SenderCompID( convertString( senderCompID ) ),
+                       FIX::TargetCompID( convertString( targetCompID ) ),
+                       convertString( sessionQualifier ) );
 
     QF_STACK_CATCH
   }

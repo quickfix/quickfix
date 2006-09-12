@@ -19,11 +19,28 @@
 
 package quickfix;
 
+import quickfix.field.BeginString;
+import quickfix.field.SenderCompID;
+import quickfix.field.TargetCompID;
+
 public class SessionID {
     private long cppPointer;
 
     public SessionID() {
         create("", "", "", "");
+    }
+
+    public SessionID(BeginString beginString,
+                     SenderCompID senderCompID,
+                     TargetCompID targetCompID) {
+        create(beginString.getValue(), senderCompID.getValue(), targetCompID.getValue(), "");
+    }
+
+    public SessionID(BeginString beginString,
+                     SenderCompID senderCompID,
+                     TargetCompID targetCompID,
+                     String sessionQualifier) {
+        create(beginString.getValue(), senderCompID.getValue(), targetCompID.getValue(), sessionQualifier);
     }
 
     public SessionID(String beginString,
