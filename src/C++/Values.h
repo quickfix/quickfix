@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 #ifndef FIX_VALUES_H
 #define FIX_VALUES_H
 
@@ -122,6 +122,8 @@ namespace FIX
  const char MsgType_CollateralResponse[] = "AZ";
  const char MsgType_CollateralReport[] = "BA";
  const char MsgType_CollateralInquiry[] = "BB";
+ const char MsgType_NetworkStatusRequest[] = "BC";
+ const char MsgType_NetworkStatusResponse[] = "BD";
  const char MsgType_CollateralInquiryAck[] = "BG";
  const char AdvSide_BUY = 'B';
  const char AdvSide_SELL = 'S';
@@ -1705,3 +1707,4 @@ namespace FIX
   const char BusinessRejectReason_DELIVERTO_FIRM_NOT_AVAILABLE_AT_THIS_TIME_TEXT[] = "Deliver to firm not available at this time";
 }
 #endif //FIX_VALUES_H
+

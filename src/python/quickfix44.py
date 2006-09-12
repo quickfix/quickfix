@@ -11462,6 +11462,38 @@ class CollateralInquiry(Message):
 				order[2] = 0
 				fix.Group.__init__(self, 457, 458, order)
 
+class NetworkStatusRequest(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("BC") )
+
+	class NoCompIDs(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(5)
+			order[0] = 930
+			order[1] = 931
+			order[2] = 283
+			order[3] = 284
+			order[4] = 0
+			fix.Group.__init__(self, 936, 930, order)
+
+class NetworkStatusResponse(Message):
+	def __init__(self):
+		Message.__init__(self)
+		self.getHeader().setField( fix.MsgType("BD") )
+
+	class NoCompIDs(fix.Group):
+		def __init__(self):
+			order = fix.IntArray(7)
+			order[0] = 930
+			order[1] = 931
+			order[2] = 283
+			order[3] = 284
+			order[4] = 928
+			order[5] = 929
+			order[6] = 0
+			fix.Group.__init__(self, 936, 930, order)
+
 class CollateralInquiryAck(Message):
 	def __init__(self):
 		Message.__init__(self)

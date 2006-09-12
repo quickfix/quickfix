@@ -206,6 +206,10 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     { throw new UnsupportedMessageType(); }
   public void onMessage( CollateralInquiry message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
+  public void onMessage( NetworkStatusRequest message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
+  public void onMessage( NetworkStatusResponse message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
+    { throw new UnsupportedMessageType(); }
   public void onMessage( CollateralInquiryAck message, SessionID sessionID ) throws FieldNotFound, UnsupportedMessageType, IncorrectTagValue
     { throw new UnsupportedMessageType(); }
  
@@ -486,6 +490,12 @@ public void onMessage( quickfix.Message message, SessionID sessionID ) throws Fi
     else
     if( msgTypeValue.equals("BB") )
       onMessage( (CollateralInquiry)message, sessionID );
+    else
+    if( msgTypeValue.equals("BC") )
+      onMessage( (NetworkStatusRequest)message, sessionID );
+    else
+    if( msgTypeValue.equals("BD") )
+      onMessage( (NetworkStatusResponse)message, sessionID );
     else
     if( msgTypeValue.equals("BG") )
       onMessage( (CollateralInquiryAck)message, sessionID );

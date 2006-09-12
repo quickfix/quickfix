@@ -18,7 +18,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
-
+ 
 #ifndef FIX44_MESSAGECRACKER_H
 #define FIX44_MESSAGECRACKER_H
 
@@ -117,6 +117,8 @@ namespace FIX44
   class CollateralResponse; 
   class CollateralReport; 
   class CollateralInquiry; 
+  class NetworkStatusRequest; 
+  class NetworkStatusResponse; 
   class CollateralInquiryAck;
 
   class MessageCracker
@@ -305,6 +307,10 @@ namespace FIX44
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const CollateralInquiry&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const NetworkStatusRequest&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
+  virtual void onMessage( const NetworkStatusResponse&, const FIX::SessionID& ) 
+    { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( const CollateralInquiryAck&, const FIX::SessionID& ) 
     { throw FIX::UnsupportedMessageType(); }
   virtual void onMessage( Heartbeat&, const FIX::SessionID& ) {} 
@@ -396,6 +402,8 @@ namespace FIX44
  virtual void onMessage( CollateralResponse&, const FIX::SessionID& ) {} 
  virtual void onMessage( CollateralReport&, const FIX::SessionID& ) {} 
  virtual void onMessage( CollateralInquiry&, const FIX::SessionID& ) {} 
+ virtual void onMessage( NetworkStatusRequest&, const FIX::SessionID& ) {} 
+ virtual void onMessage( NetworkStatusResponse&, const FIX::SessionID& ) {} 
  virtual void onMessage( CollateralInquiryAck&, const FIX::SessionID& ) {} 
 
 public:
@@ -671,6 +679,12 @@ public:
     else
     if( msgTypeValue == "BB" )
       onMessage( (const CollateralInquiry&)message, sessionID );
+    else
+    if( msgTypeValue == "BC" )
+      onMessage( (const NetworkStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "BD" )
+      onMessage( (const NetworkStatusResponse&)message, sessionID );
     else
     if( msgTypeValue == "BG" )
       onMessage( (const CollateralInquiryAck&)message, sessionID );
@@ -951,6 +965,12 @@ void crack( Message& message,
     if( msgTypeValue == "BB" )
       onMessage( (CollateralInquiry&)message, sessionID );
     else
+    if( msgTypeValue == "BC" )
+      onMessage( (NetworkStatusRequest&)message, sessionID );
+    else
+    if( msgTypeValue == "BD" )
+      onMessage( (NetworkStatusResponse&)message, sessionID );
+    else
     if( msgTypeValue == "BG" )
       onMessage( (CollateralInquiryAck&)message, sessionID );
     else onMessage( message, sessionID );
@@ -960,3 +980,4 @@ void crack( Message& message,
 }
 
 #endif //FIX44_MESSAGECRACKER_H
+

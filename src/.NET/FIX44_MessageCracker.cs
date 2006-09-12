@@ -205,6 +205,10 @@ namespace QuickFix44
     { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( CollateralInquiry message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( NetworkStatusRequest message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
+  public virtual void onMessage( NetworkStatusResponse message, QuickFix.SessionID session ) 
+    { throw new QuickFix.UnsupportedMessageType(); }
   public virtual void onMessage( CollateralInquiryAck message, QuickFix.SessionID session ) 
     { throw new QuickFix.UnsupportedMessageType(); }
  
@@ -481,6 +485,12 @@ namespace QuickFix44
     else
     if( msgTypeValue == "BB" )
       onMessage( (CollateralInquiry)(message), sessionID );
+    else
+    if( msgTypeValue == "BC" )
+      onMessage( (NetworkStatusRequest)(message), sessionID );
+    else
+    if( msgTypeValue == "BD" )
+      onMessage( (NetworkStatusResponse)(message), sessionID );
     else
     if( msgTypeValue == "BG" )
       onMessage( (CollateralInquiryAck)(message), sessionID );

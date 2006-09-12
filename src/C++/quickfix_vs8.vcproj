@@ -2056,6 +2056,14 @@
 						>
 					</File>
 					<File
+						RelativePath=".\fix44\NetworkStatusRequest.h"
+						>
+					</File>
+					<File
+						RelativePath=".\fix44\NetworkStatusResponse.h"
+						>
+					</File>
+					<File
 						RelativePath="fix44\NewOrderCross.h"
 						>
 					</File>

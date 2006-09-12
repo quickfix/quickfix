@@ -384,6 +384,14 @@ namespace QuickFix44
        return new QuickFix44.CollateralInquiry();
      }
    
+     if(msgType.Equals("BC")) {
+       return new QuickFix44.NetworkStatusRequest();
+     }
+   
+     if(msgType.Equals("BD")) {
+       return new QuickFix44.NetworkStatusResponse();
+     }
+   
      if(msgType.Equals("BG")) {
        return new QuickFix44.CollateralInquiryAck();
      }

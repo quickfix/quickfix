@@ -383,6 +383,14 @@ public class MessageFactory implements quickfix.MessageFactory
      return new quickfix.fix44.CollateralInquiry();
    }
  
+   if("BC".equals(msgType)) {
+     return new quickfix.fix44.NetworkStatusRequest();
+   }
+ 
+   if("BD".equals(msgType)) {
+     return new quickfix.fix44.NetworkStatusResponse();
+   }
+ 
    if("BG".equals(msgType)) {
      return new quickfix.fix44.CollateralInquiryAck();
    }

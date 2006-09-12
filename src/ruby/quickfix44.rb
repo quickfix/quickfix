@@ -12944,6 +12944,46 @@ class CollateralInquiry < Message
 	end
 end
 
+class NetworkStatusRequest < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BC") )
+	end
+
+	class NoCompIDs < Quickfix::Group
+		def initialize
+			order = Quickfix.IntArray(5)
+			order[0] = 930
+			order[1] = 931
+			order[2] = 283
+			order[3] = 284
+			order[4] = 0
+			super(936, 930, order)
+		end
+	end
+end
+
+class NetworkStatusResponse < Message
+	def initialize
+		super
+		getHeader().setField( Quickfix::MsgType.new("BD") )
+	end
+
+	class NoCompIDs < Quickfix::Group
+		def initialize
+			order = Quickfix.IntArray(7)
+			order[0] = 930
+			order[1] = 931
+			order[2] = 283
+			order[3] = 284
+			order[4] = 928
+			order[5] = 929
+			order[6] = 0
+			super(936, 930, order)
+		end
+	end
+end
+
 class CollateralInquiryAck < Message
 	def initialize
 		super

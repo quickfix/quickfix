@@ -393,13 +393,55 @@ public class PerformanceTest extends TestCase {
         TestApplication application = new TestApplication();
         quickfix.MemoryStoreFactory factory = new quickfix.MemoryStoreFactory();
         quickfix.SessionSettings settings = new quickfix.SessionSettings( "pt.cfg" );
-        quickfix.LogFactory logFactory = new quickfix.ScreenLogFactory( settings );
+        quickfix.ScreenLogFactory logFactory = new quickfix.ScreenLogFactory( false, false, false );
         quickfix.MessageFactory messageFactory = new quickfix.DefaultMessageFactory();
 
         quickfix.Acceptor acceptor = new quickfix.SocketAcceptor( application, factory, settings, logFactory, messageFactory );
         acceptor.start();
 
         quickfix.Initiator initiator = new quickfix.SocketInitiator( application, factory, settings, logFactory, messageFactory );
+        initiator.start();
+
+        java.lang.Thread.sleep( 1000 );
+
+        long begin = System.currentTimeMillis();
+
+        for ( int i = 0; i <= 50000; ++i )
+          quickfix.Session.sendToTarget( message, sessionID );
+
+        while( application.getCount() < 50000 )
+          java.lang.Thread.sleep( 1000 );
+
+        long end = System.currentTimeMillis();
+
+        initiator.stop();
+        acceptor.stop();
+
+        report(end- begin, 50000);
+    }
+
+    public void testSendOnThreadedSocket() throws Exception
+    {
+        ClOrdID clOrdID = new ClOrdID( "ORDERID" );
+        HandlInst handlInst = new HandlInst( '1' );
+        Symbol symbol = new Symbol( "LNUX" );
+        Side side = new Side( Side.BUY );
+        TransactTime transactTime = new TransactTime();
+        OrdType ordType = new OrdType( OrdType.MARKET );
+        NewOrderSingle message = new NewOrderSingle( clOrdID, handlInst, symbol, side, transactTime, ordType );
+
+        SessionID sessionID = new SessionID( "FIX.4.2", "CLIENT", "SERVER" );
+
+        TestApplication application = new TestApplication();
+        quickfix.MemoryStoreFactory factory = new quickfix.MemoryStoreFactory();
+        quickfix.SessionSettings settings = new quickfix.SessionSettings( "pt.cfg" );
+        quickfix.ScreenLogFactory logFactory = new quickfix.ScreenLogFactory( false, false, false );
+        quickfix.MessageFactory messageFactory = new quickfix.DefaultMessageFactory();
+
+        quickfix.Acceptor acceptor = new quickfix.ThreadedSocketAcceptor( application, factory, settings, logFactory, messageFactory );
+        acceptor.start();
+
+        quickfix.Initiator initiator = new quickfix.ThreadedSocketInitiator( application, factory, settings, logFactory, messageFactory );
         initiator.start();
 
         java.lang.Thread.sleep( 1000 );

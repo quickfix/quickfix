@@ -1225,6 +1225,16 @@
                     BuildAction = "Compile"
                 />
                 <File
+                    RelPath = "fix44\NetworkStatusRequest.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
+                    RelPath = "fix44\NetworkStatusResponse.cs"
+                    SubType = "Code"
+                    BuildAction = "Compile"
+                />
+                <File
                     RelPath = "fix44\NewOrderCross.cs"
                     SubType = "Code"
                     BuildAction = "Compile"
