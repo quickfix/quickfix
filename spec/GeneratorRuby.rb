@@ -69,7 +69,7 @@ class GeneratorRuby
     @depth += 1
     @f.puts tabs + "def initialize"
     @depth += 1
-    @f.puts tabs + "order = Quickfix.IntArray(#{order.size+1})"
+    @f.puts tabs + "order = Quickfix::IntArray.new(#{order.size+1})"
     order.each_index { |i| @f.puts tabs + "order[#{i}] = #{order[i]}" }
     @f.puts tabs + "order[#{order.size}] = 0"
     @f.puts tabs + "super(#{number}, #{delim}, order)"
