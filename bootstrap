@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 rm -rf *.cache
 rm -rf config
 mkdir config
@@ -7,7 +7,12 @@ aclocal
 echo autoheader...
 autoheader
 echo libtoolize...
-glibtoolize --force --copy --automake
+`which glibtoolize`
+if [ $? = 0 ]; then
+    glibtoolize --force --copy --automake
+else
+    libtoolize --force --copy --automake
+fi
 echo automake...
 automake --foreign --add-missing --copy
 echo autoconf...
