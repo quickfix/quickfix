@@ -45,13 +45,11 @@ ThreadedSocketAcceptor::ThreadedSocketAcceptor(
 : Acceptor( application, factory, settings, logFactory )
 { 
   socket_init(); 
-  onEvent( "ThreadedSocketAcceptor created" );
 }
 
 ThreadedSocketAcceptor::~ThreadedSocketAcceptor()
 { 
   socket_term(); 
-  onEvent( "ThreadedSocketAcceptor destroyed" );
 }
 
 void ThreadedSocketAcceptor::onConfigure( const SessionSettings& s )

@@ -45,7 +45,6 @@ SocketAcceptor::SocketAcceptor( Application& application,
 : Acceptor( application, factory, settings, logFactory ),
   m_pServer( 0 ) 
 {
-  onEvent( "SocketAcceptor created" );
 }
 
 SocketAcceptor::~SocketAcceptor()
@@ -53,8 +52,6 @@ SocketAcceptor::~SocketAcceptor()
   SocketConnections::iterator iter;
   for ( iter = m_connections.begin(); iter != m_connections.end(); ++iter )
     delete iter->second;
-
-  onEvent( "SocketAcceptor destroyed" );
 }
 
 void SocketAcceptor::onConfigure( const SessionSettings& s )

@@ -47,13 +47,11 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false )
 { 
   socket_init(); 
-  onEvent( "ThreadedSocketInitiator created" );
 }
 
 ThreadedSocketInitiator::~ThreadedSocketInitiator()
 { 
   socket_term(); 
-  onEvent( "ThreadedSocketInitiator destroyed" );
 }
 
 void ThreadedSocketInitiator::onConfigure( const SessionSettings& s )

@@ -47,7 +47,6 @@ throw( ConfigError )
   m_connector( 1 ), m_lastConnect( 0 ),
   m_reconnectInterval( 30 ), m_noDelay( false ) 
 {
-  onEvent( "SocketInitiator created" );
 }
 
 SocketInitiator::~SocketInitiator()
@@ -60,8 +59,6 @@ SocketInitiator::~SocketInitiator()
   for (i = m_pendingConnections.begin();
        i != m_pendingConnections.end(); ++i)
     delete i->second;
-
-  onEvent( "SocketInitiator destroyed" );
 }
 
 void SocketInitiator::onConfigure( const SessionSettings& s )
