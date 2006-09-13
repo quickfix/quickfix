@@ -84,12 +84,8 @@ void SocketInitiator::onStart()
 
   connect();
 
-  onEvent( "SocketInitiator started" );
-
   while ( !isStopped() )
     m_connector.block( *this );
-
-  onEvent( "SocketInitiator stopped" );
 
   time_t start = 0;
   time_t now = 0;

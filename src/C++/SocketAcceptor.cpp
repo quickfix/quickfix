@@ -113,11 +113,7 @@ throw ( RuntimeError )
 void SocketAcceptor::onStart()
 { QF_STACK_PUSH(SocketAcceptor::onStart)
 
-  onEvent( "SocketAcceptor started" );
-
   while ( !isStopped() && m_pServer && m_pServer->block( *this ) ) {}
-
-  onEvent( "SocketAcceptor stopped" );
 
   if( !m_pServer )
     return;

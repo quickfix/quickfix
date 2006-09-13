@@ -75,8 +75,6 @@ throw ( RuntimeError )
 void ThreadedSocketInitiator::onStart()
 { QF_STACK_PUSH(ThreadedSocketInitiator::onStart)
 
-  onEvent( "ThreadedSocketInitiator started" );
-
   while ( !isStopped() )
   {
     time_t now;
@@ -91,8 +89,6 @@ void ThreadedSocketInitiator::onStart()
 
     process_sleep( 1 );
   }
-
-  onEvent( "ThreadedSocketInitiator stopped" );
 
   QF_STACK_POP
 }

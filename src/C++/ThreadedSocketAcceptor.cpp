@@ -208,8 +208,6 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
   int noDelay = 0;
   socket_getsockopt( s, TCP_NODELAY, noDelay );
 
-  pAcceptor->onEvent( "ThreadedSocketAcceptor started" );
-
   int socket = 0;
   while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) >= 0 ) )
   {
