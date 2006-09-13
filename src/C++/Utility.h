@@ -26,7 +26,9 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
+#ifndef _MSC_VER
 #include "config.h"
+#endif
 
 #ifdef ENABLE_DEBUG_ALLOCATOR
   #include <ext/debug_allocator.h>
