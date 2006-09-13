@@ -145,6 +145,7 @@ install-exec-local: *.h
 	mkdir $(pkgincludedir)/fix43
 	mkdir $(pkgincludedir)/fix44
 	cp *.h $(pkgincludedir)
+	cp $(top_builddir)/config.h $(pkgincludedir)
 	cp fix40/*.h $(pkgincludedir)/fix40
 	cp fix41/*.h $(pkgincludedir)/fix41
 	cp fix42/*.h $(pkgincludedir)/fix42

@@ -26,6 +26,8 @@
 #pragma warning( disable : 4503 4355 4786 4290 )
 #endif
 
+#include "config.h"
+
 #ifdef ENABLE_DEBUG_ALLOCATOR
   #include <ext/debug_allocator.h>
   #define ALLOCATOR __gnu_cxx::debug_allocator
