@@ -23,6 +23,7 @@
 
 using namespace System;
 using namespace System::IO;
+using namespace System::Collections;
 
 #include "quickfix_net.h"
 
@@ -117,6 +118,23 @@ public:
   int size()
   { QF_STACK_TRY
     return unmanaged().size();
+    QF_STACK_CATCH
+  }
+
+  ArrayList* getSessions()
+  { QF_STACK_TRY
+
+    std::set<FIX::SessionID> sessions = unmanaged().getSessions();
+    ArrayList* result = new ArrayList();
+
+    std::set<FIX::SessionID>::iterator i;
+    for( i = sessions.begin(); i != sessions.end(); ++i )
+    {
+      SessionID* sessionID = new SessionID( *i );
+      result->Add( sessionID );
+    }
+    return result;
+
     QF_STACK_CATCH
   }
 

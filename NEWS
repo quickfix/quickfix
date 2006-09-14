@@ -8,6 +8,8 @@ Added NetworkStatusReport and NetworkStatusRequest messages fix FIX 4.4.
 
 .NET SessionID object can be constructed with field objects.
 
+getSessions implemented in SessionSettings object in .NET.
+
 Fixed repeating groups in ruby which where incorrectly instantiating arrays
 indicating sorting order.
 
