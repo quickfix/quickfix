@@ -83,6 +83,7 @@ public:
   {
     if( m_pUnmanaged )
     {
+      stop( true );
       delete m_pUnmanaged;
       m_pUnmanaged = 0;
       m_application = 0;
