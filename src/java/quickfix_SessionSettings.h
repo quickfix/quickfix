@@ -79,6 +79,14 @@ JNIEXPORT void JNICALL Java_quickfix_SessionSettings_set__Lquickfix_Dictionary_2
 JNIEXPORT jint JNICALL Java_quickfix_SessionSettings_size
   (JNIEnv *, jobject);
 
+/*
+ * Class:     quickfix_SessionSettings
+ * Method:    toString
+ * Signature: ()Ljava/lang/String;
+ */
+JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_toString
+  (JNIEnv *, jobject);
+
 #ifdef __cplusplus
 }
 #endif
