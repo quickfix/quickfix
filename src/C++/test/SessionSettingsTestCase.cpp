@@ -93,6 +93,36 @@ void SessionSettingsTestCase::readFromIstream::onRun
   assertEquals( 4, object.get( session4 ).getLong( "VALUE" ) );
 }
 
+void SessionSettingsTestCase::writeToOstream::onRun
+( SessionSettings& object )
+{
+  std::stringstream istream;
+  istream 
+    << "[DEFAULT]" << std::endl
+    << "BEGINSTRING=FIX.4.0" << std::endl
+    << "CONNECTIONTYPE=initiator" << std::endl
+    << "VALUE=4" << std::endl
+    << std::endl
+    << "[SESSION]" << std::endl
+    << "BEGINSTRING=FIX.4.2" << std::endl
+    << "SENDERCOMPID=SENDER1" << std::endl
+    << "TARGETCOMPID=TARGET1" << std::endl
+    << "VALUE=1" << std::endl
+    << std::endl
+    << "[SESSION]" << std::endl
+    << "BEGINSTRING=FIX.4.2" << std::endl
+    << "SENDERCOMPID=SENDER2" << std::endl
+    << "TARGETCOMPID=TARGET2" << std::endl
+    << "VALUE=2" << std::endl
+    << std::endl;
+
+  istream >> object;
+  
+  std::stringstream ostream;
+  ostream << object;
+  assertEquals( istream.str(), ostream.str() );
+}
+
 void SessionSettingsTestCase::validate::onRun( SessionSettings& object )
 {
   SessionID sessionID = SessionID( "FIX.4.2", "SenderCompID", "TargetCompID" );

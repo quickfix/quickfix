@@ -85,6 +85,39 @@ throw( ConfigError )
   return stream;
 }
 
+std::ostream& operator<<( std::ostream& stream, const SessionSettings& s )
+{
+  const Dictionary& defaults = s.m_defaults;
+  if( defaults.size() )
+  {
+    stream << "[DEFAULT]" << std::endl;
+    Dictionary::iterator i;
+    for( i = defaults.begin(); i != defaults.end(); ++i )
+      stream << i->first << "=" << i->second << std::endl;
+    stream << std::endl;
+  }
+
+  std::set<SessionID> sessions = s.getSessions();
+  std::set<SessionID>::iterator i;
+  for( i = sessions.begin(); i != sessions.end(); ++i )
+  {
+    stream << "[SESSION]" << std::endl;
+    const Dictionary& section = s.get( *i );
+    if( !section.size() ) continue;
+
+    Dictionary::iterator i;
+    for( i = section.begin(); i != section.end(); ++i )
+    {
+      if( defaults.has(i->first) && defaults.getString(i->first) == i->second )
+        continue;
+      stream << i->first << "=" << i->second << std::endl;
+    }
+    stream << std::endl;
+  }
+
+  return stream;
+}
+
 const bool SessionSettings::has( const SessionID& sessionID ) const
 { QF_STACK_PUSH(SessionSettings::has)
   return m_settings.find( sessionID ) != m_settings.end();

@@ -33,6 +33,7 @@ public:
   SessionSettingsTestCase()
   {
     add( &m_readFromIstream );
+    add( &m_writeToOstream );
     add( &m_validate );
   }
 
@@ -45,6 +46,13 @@ private:
     void onRun( SessionSettings& object );
   }
   m_readFromIstream;
+
+  class writeToOstream : public Test
+  {
+  public:
+    void onRun( SessionSettings& object );
+  }
+  m_writeToOstream;
 
   class validate : public Test
   {

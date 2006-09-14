@@ -138,6 +138,16 @@ public:
     QF_STACK_CATCH
   }
 
+  String* ToString()
+  { QF_STACK_TRY
+
+    std::stringstream stream;
+    stream << *m_pUnmanaged;
+    return stream.str().c_str();
+
+    QF_STACK_CATCH
+  }
+
   FIX::SessionSettings& unmanaged()
   { return * m_pUnmanaged; }
 

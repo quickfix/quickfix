@@ -200,4 +200,19 @@ JNIEXPORT jint JNICALL Java_quickfix_SessionSettings_size
   QF_STACK_CATCH
 }
 
+JNIEXPORT jstring JNICALL Java_quickfix_SessionSettings_toString
+( JNIEnv *pEnv, jobject obj )
+{ QF_STACK_TRY
+
+  JVM::set( pEnv );
+  
+  FIX::SessionSettings* pSessionSettings = getCPPSessionSettings( obj );
+  std::stringstream stream;
+  stream << *pSessionSettings;
+  jstring result = newString( stream.str() );
+  return result;
+
+  QF_STACK_CATCH
+}
+
 #endif

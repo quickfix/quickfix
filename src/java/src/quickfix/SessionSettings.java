@@ -52,4 +52,6 @@ public class SessionSettings {
     public native void set( Dictionary dictionary ) throws ConfigError;
 
     public native int size();
+
+    public native String toString();
 }

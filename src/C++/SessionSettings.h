@@ -137,11 +137,14 @@ private:
 
   Dictionaries m_settings;
   Dictionary m_defaults;
+
+  friend std::ostream& operator<<( std::ostream&, const SessionSettings& );
 };
 /*! @} */
 
 std::istream& operator>>( std::istream&, SessionSettings& )
 throw( ConfigError );
+std::ostream& operator<<( std::ostream&, const SessionSettings& );
 }
 
 #endif //FIX_SESSIONSETTINGS_H

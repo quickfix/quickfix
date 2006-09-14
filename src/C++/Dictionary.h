@@ -40,6 +40,10 @@ public:
   Dictionary() {}
   virtual ~Dictionary() {}
 
+  typedef std::map < std::string, std::string > Data;
+  typedef Data::const_iterator iterator;
+  typedef iterator const_iterator;
+
   /// Get the name of the dictionary.
   std::string getName() const { return m_name; }
   /// Return the number of key/value pairs.
@@ -77,8 +81,10 @@ public:
   /// Merge two dictionaries.
   void merge( const Dictionary& );
 
+  iterator begin() const { return m_data.begin(); }
+  iterator end() const { return m_data.end(); }
+
 private:
-  typedef std::map < std::string, std::string > Data;
   Data m_data;
   std::string m_name;
 };
