@@ -1,3 +1,23 @@
+1.12.4
+------
+ODBC escape values for times used in time values so they work with any database.
+
+Session will not throw an exception when sending a message without a MsgType.
+
+Added NetworkStatusReport and NetworkStatusRequest messages fix FIX 4.4.
+
+.NET SessionID object can be constructed with field objects.
+
+Fixed repeating groups in ruby which where incorrectly instantiating arrays
+indicating sorting order.
+
+Fixed crashes in .NET due to logger being called after going out of scope.
+
+Fixed crashes in gcc due to different allocators being used in user application
+vs QuickFIX library by the FieldMap.
+
+Disposing an initiator or acceptor in .NET will also call stop.
+
 1.12.3
 ------
 A logon will now be sent immediately after initiator establishes a connection.
