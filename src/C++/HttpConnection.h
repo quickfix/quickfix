@@ -45,10 +45,24 @@ private:
   bool readMessage( std::string& msg ) throw( SocketRecvFailed );
   void processStream();
   void processRequest( const HttpMessage& );
-  void processRoot( const HttpMessage&, std::stringstream& header, std::stringstream& body );
-  void processSession( const HttpMessage&, std::stringstream& header, std::stringstream& body );
-  void processResetSession( const HttpMessage&, std::stringstream& header, std::stringstream& body );
-  void processRefreshSession( const HttpMessage&, std::stringstream& header, std::stringstream& body );
+  void processRoot( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+  void processResetSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+  void processRefreshSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+  void processEnableSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+  void processDisableSessions( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+  void processSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+  void processResetSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+  void processRefreshSession( const HttpMessage&, std::stringstream& h, std::stringstream& b );
+ 
+ void showToggle
+    ( std::stringstream& s, const std::string& name, bool value, const std::string& url );
+  void showRow
+    ( std::stringstream& s, const std::string& name, bool value, const std::string& url = "" );
+  void showRow
+    ( std::stringstream& s, const std::string& name, const std::string& value, const std::string& url = "" );
+  void showRow
+    ( std::stringstream& s, const std::string& name, int value, const std::string& url = "" );
+
   bool send( const std::string& );
   void disconnect( int error = 0 );
 
@@ -60,4 +74,4 @@ private:
 };
 }
 
-#endif //FIX_HTTPCONNECTION_H
+#endif

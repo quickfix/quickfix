@@ -81,6 +81,7 @@ libquickfix_la_SOURCES = \
 	Group.h \
 	MessageSorters.cpp \
 	MessageSorters.h \
+	HtmlBuilder.h \
 	HttpParser.cpp \
 	HttpParser.h \
 	HttpMessage.cpp \
