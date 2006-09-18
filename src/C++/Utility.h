@@ -27,7 +27,7 @@
 #endif
 
 #ifndef _MSC_VER
-#include "config.h"
+#include "Allocator.h"
 #endif
 
 #ifdef ENABLE_DEBUG_ALLOCATOR

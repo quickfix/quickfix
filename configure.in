@@ -281,14 +281,6 @@ AC_TRY_COMPILE(
 	AC_DEFINE(socklen_t, int,
 	socklen_t needs to be defined if the system doesn't define it))
 
-#AC_MSG_CHECKING(for recursive mutexes)
-#AC_TRY_COMPILE(
-#	 [#include <pthread.h>],
-#	 [PTHREAD_MUTEX_RECURSIVE;],
-#	 AC_MSG_RESULT(yes),
-#	 AC_MSG_RESULT(no)
-#	 AC_MSG_ERROR(recursive mutexes are required))
-
 AC_MSG_CHECKING(for ftime)
 AC_TRY_COMPILE(
 	[#include <sys/timeb.h>],

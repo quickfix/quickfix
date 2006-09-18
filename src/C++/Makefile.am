@@ -4,6 +4,7 @@ LEX += -+ -olex.yy.c
 
 lib_LTLIBRARIES = libquickfix.la
 libquickfix_la_SOURCES = \
+	Allocator.h \
 	Session.cpp \
 	Session.h \
 	SessionTime.cpp \
@@ -120,6 +121,11 @@ libquickfix_la_SOURCES = \
 	CallStack.h \
 	CallStack.cpp
 
+BUILT_SOURCES = Allocator.h
+CLEANFILES = Allocator.h
+Allocator.h: Makefile
+	grep "_ALLOCATOR" $(top_builddir)/config.h >$@
+
 all-local:
 	rm -rf $(top_builddir)/lib/libquickfix.a
 	rm -rf $(top_builddir)/lib/libquickfix.la
@@ -146,7 +152,6 @@ install-exec-local: *.h
 	mkdir $(pkgincludedir)/fix43
 	mkdir $(pkgincludedir)/fix44
 	cp *.h $(pkgincludedir)
-	cp $(top_builddir)/config.h $(pkgincludedir)
 	cp fix40/*.h $(pkgincludedir)/fix40
 	cp fix41/*.h $(pkgincludedir)/fix41
 	cp fix42/*.h $(pkgincludedir)/fix42
