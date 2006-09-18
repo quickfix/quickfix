@@ -19323,7 +19323,6 @@ SessionSettings_swigregister(SessionSettings)
 __lt__ = _quickfix.__lt__
 __eq__ = _quickfix.__eq__
 __ne__ = _quickfix.__ne__
-__lshift__ = _quickfix.__lshift__
 BEGINSTRING = cvar.BEGINSTRING
 SENDERCOMPID = cvar.SENDERCOMPID
 TARGETCOMPID = cvar.TARGETCOMPID
@@ -19475,6 +19474,7 @@ class Session(_object):
 Session_swigregister = _quickfix.Session_swigregister
 Session_swigregister(Session)
 __rshift__ = _quickfix.__rshift__
+__lshift__ = _quickfix.__lshift__
 Session_sendToTarget = _quickfix.Session_sendToTarget
 Session_getSessions = _quickfix.Session_getSessions
 Session_doesSessionExist = _quickfix.Session_doesSessionExist
@@ -19953,14 +19953,12 @@ class SocketInitiator(SocketInitiatorBase):
 	setting = 0
 	logFactory = 0
 
-	def __init__(self, application, storeFactory, settings):
-		SocketInitiatorBase.__init__(self, application, storeFactory, settings)
-		self.application = application
-		self.storeFactory = storeFactory
-		self.settings = settings
+	def __init__(self, application, storeFactory, settings, logFactory=None):
+		if logFactory == None:
+			SocketInitiatorBase.__init__(self, application, storeFactory, settings)
+		else:
+			SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
 
-	def __init__(self, application, storeFactory, settings, logFactory):
-		SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
 		self.application = application
 		self.storeFactory = storeFactory
 		self.settings = settings
@@ -19972,14 +19970,12 @@ class SocketAcceptor(SocketAcceptorBase):
 	setting = 0
 	logFactory = 0
 
-	def __init__(self, application, storeFactory, settings):
-		SocketAcceptorBase.__init__(self, application, storeFactory, settings)
-		self.application = application
-		self.storeFactory = storeFactory
-		self.settings = settings
+	def __init__(self, application, storeFactory, settings, logFactory=None):
+		if logFactory == None:
+			SocketAcceptorBase.__init__(self, application, storeFactory, settings)
+		else:
+			SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
 
-	def __init__(self, application, storeFactory, settings, logFactory):
-		SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
 		self.application = application
 		self.storeFactory = storeFactory
 		self.settings = settings

@@ -25,6 +25,7 @@
 #include "../C++/Values.h"
 #include "../C++/DeprecatedValues.h"
 #include "../C++/SessionID.h"
+#include "../C++/Dictionary.h"
 #include "../C++/SessionSettings.h"
 #include "../C++/Session.h"
 #include "../C++/Log.h"
@@ -315,14 +316,12 @@ class SocketInitiator(SocketInitiatorBase):
 	setting = 0
 	logFactory = 0
 
-	def __init__(self, application, storeFactory, settings):
-		SocketInitiatorBase.__init__(self, application, storeFactory, settings)
-		self.application = application
-		self.storeFactory = storeFactory
-		self.settings = settings
+	def __init__(self, application, storeFactory, settings, logFactory=None):
+		if logFactory == None:
+			SocketInitiatorBase.__init__(self, application, storeFactory, settings)
+		else:
+			SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
 
-	def __init__(self, application, storeFactory, settings, logFactory):
-		SocketInitiatorBase.__init__(self, application, storeFactory, settings, logFactory)
 		self.application = application
 		self.storeFactory = storeFactory
 		self.settings = settings
@@ -334,14 +333,12 @@ class SocketAcceptor(SocketAcceptorBase):
 	setting = 0
 	logFactory = 0
 
-	def __init__(self, application, storeFactory, settings):
-		SocketAcceptorBase.__init__(self, application, storeFactory, settings)
-		self.application = application
-		self.storeFactory = storeFactory
-		self.settings = settings
+	def __init__(self, application, storeFactory, settings, logFactory=None):
+		if logFactory == None:
+			SocketAcceptorBase.__init__(self, application, storeFactory, settings)
+		else:
+			SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
 
-	def __init__(self, application, storeFactory, settings, logFactory):
-		SocketAcceptorBase.__init__(self, application, storeFactory, settings, logFactory)
 		self.application = application
 		self.storeFactory = storeFactory
 		self.settings = settings
