@@ -76,7 +76,7 @@ throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
 
   short port = 0;
-  bool reuseAddress = false;
+  bool reuseAddress = true;
   bool noDelay = false;
 
   std::set<int> ports;

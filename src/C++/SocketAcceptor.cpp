@@ -78,7 +78,7 @@ throw ( RuntimeError )
 { QF_STACK_PUSH(SocketAcceptor::onInitialize)
 
   short port = 0;
-  bool reuseAddress = false;
+  bool reuseAddress = true;
   bool noDelay = false;
 
   try
