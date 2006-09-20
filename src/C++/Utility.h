@@ -30,7 +30,9 @@
 #include "Allocator.h"
 #endif
 
-#ifdef ENABLE_DEBUG_ALLOCATOR
+#ifdef HAVE_STLPORT
+  #define ALLOCATOR std::allocator
+#elif ENABLE_DEBUG_ALLOCATOR
   #include <ext/debug_allocator.h>
   #define ALLOCATOR __gnu_cxx::debug_allocator
 #elif ENABLE_NEW_ALLOCATOR
