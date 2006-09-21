@@ -33,7 +33,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class CPPMessageStore : public MessageStore, public IDisposable
+public __gc class CPPMessageStore : public MessageStore
 {
 public:
   CPPMessageStore() {}
@@ -42,24 +42,6 @@ public:
     m_pUnmanaged = pUnmanaged;
     QF_STACK_CATCH
   }
-
-  void Dispose( bool dispose )
-  {
-    if( m_pUnmanaged )
-    {
-      delete m_pUnmanaged;
-      m_pUnmanaged = 0;
-    }
-
-    if( dispose )
-      System::GC::SuppressFinalize( this );
-  }
-
-  void Dispose()
-  { Dispose( true ); }
-
-  ~CPPMessageStore()
-  { Dispose( false ); }
 
   bool set( int sequence, String* message )
   { QF_STACK_TRY
