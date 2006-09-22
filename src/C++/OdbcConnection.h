@@ -223,11 +223,13 @@ private:
       throw ConfigError( "Unable to allocate ODBC connection" );
 
     std::stringstream connectionStream;
-    connectionStream
-      << "UID=" << m_connectionID.getUser() << ";"
-      << "PWD=" << m_connectionID.getPassword() << ";"
-      << m_connectionID.getHost();
-    std::string connectionString = connectionStream.str();
+    std::string connectionString = m_connectionID.getHost();
+    if( m_connectionID.getHost().find("UID=") == std::string::npos )
+      connectionStream << "UID=" << m_connectionID.getUser() << ";";
+    if( m_connectionID.getHost().find("PWD=") == std::string::npos )
+      connectionStream << "PWD=" << m_connectionID.getPassword() << ";";
+	connectionStream << m_connectionID.getHost();
+    connectionString = connectionStream.str();
 
     SQLCHAR connectionStringOut[255];
 
@@ -252,11 +254,6 @@ private:
   DatabaseConnectionID m_connectionID;
   Mutex m_mutex;
 };
-
-/*typedef DatabaseConnectionPool<MySQLConnection>
-  MySQLConnectionPool;
-typedef std::auto_ptr< MySQLConnectionPool >
-  MySQLConnectionPoolPtr;*/
 }
 
 #endif
