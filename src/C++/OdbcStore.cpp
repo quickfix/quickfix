@@ -71,7 +71,7 @@ void OdbcStore::populateCache()
   OdbcQuery query( queryString.str() );
 
   if( !m_pConnection->execute(query) )
-    throw new ConfigError( "Unable to connect to database" );
+    throw ConfigError( "Unable to connect to database" );
   
   int rows = 0;
   while( query.fetch() )
