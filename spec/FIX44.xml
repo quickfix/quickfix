@@ -3592,7 +3592,7 @@
       <field name="DeskID" required="N" />
     </group>
   </message>
-  <message name="NetworkStatusRequest" msgtype="BD" msgcat="app">
+  <message name="NetworkStatusResponse" msgtype="BD" msgcat="app">
     <field name="NetworkStatusResponseType" required="Y" />
     <field name="NetworkRequestID" required="N" />
     <field name="NetworkResponseID" required="N" />
