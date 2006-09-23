@@ -14,14 +14,14 @@ module Quickfix
 	end
 
 	class SocketInitiator < SocketInitiatorBase
-		def initiatlize( application, storeFactory, settings )
+		def initialize( application, storeFactory, settings )
 			super( application, storeFactory, settings )
 			@application = application;
 			@storeFactory = storeFactory;
 			@settings = settings;
 		end
 
-		def initiatlize( application, storeFactory, settings, logFactory )
+		def initialize( application, storeFactory, settings, logFactory )
 			super( application, storeFactory, settings, logFactory )
 			@application = application;
 			@storeFactory = storeFactory;
@@ -31,14 +31,14 @@ module Quickfix
 	end
 
 	class SocketAcceptor < SocketAcceptorBase
-		def initiatlize( application, storeFactory, settings )
+		def initialize( application, storeFactory, settings )
 			super( application, storeFactory, settings )
 			@application = application;
 			@storeFactory = storeFactory;
 			@settings = settings;
 		end
 
-		def initiatlize( application, storeFactory, settings, logFactory )
+		def initialize( application, storeFactory, settings, logFactory )
 			super( application, storeFactory, settings, logFactory )
 			@application = application;
 			@storeFactory = storeFactory;
