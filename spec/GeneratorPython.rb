@@ -128,7 +128,7 @@ class GeneratorPython
   def fields(name, number, type)
     @f.puts tabs + "class #{name}(quickfix.#{fieldType(type)}Field):"
     @depth += 1
-    @f.puts tabs + "def __init__(data = None):"
+    @f.puts tabs + "def __init__(self, data = None):"
     @depth += 1
     @f.puts tabs + "if data == None:"
     @depth += 1
