@@ -121,7 +121,7 @@ class GeneratorRuby
     return "Double" if type == "FLOAT"
     return "Double" if type == "PRICEOFFSET"
     return "UtcDate" if type == "UTCDATE"
-    return "UtcDateOnly" if type == "UTCDATEONLY"
+    return "UtcDateOnly" if type == "UTCDATE"
     return "UtcTimeOnly" if type == "UTCTIMEONLY"
     return "Int" if type == "NUMINGROUP"
     return "Double" if type == "PERCENTAGE"
