@@ -2,22 +2,22 @@
 require 'quickfix_ruby'
 
 class MyStringField < Quickfix::StringField
-	def initialize
-		super(6123)
-	end
-
-	def initialize(data)
-		super(6123, data)
+	def initialize( data = nil )
+		if( data == nil )
+			super(6123)
+		else
+			super(6123, data)
+		end
 	end
 end
 
 class MyDoubleField < Quickfix::DoubleField
-	def initialize
-		super(self, 8756)
-	end
-
-	def iniitialize(data)
-		super(8756, data)
+	def initialize( data = nil )
+		if( data == nil )
+			super(8756)
+		else
+			super(8756, data)
+		end
 	end
 end
 </B></PRE>

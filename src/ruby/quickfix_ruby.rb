@@ -14,36 +14,30 @@ module Quickfix
 	end
 
 	class SocketInitiator < SocketInitiatorBase
-		def initialize( application, storeFactory, settings )
-			super( application, storeFactory, settings )
+		def initialize( application, storeFactory, settings, logFactory = nil )
+			if( logFactory == nil )
+				super( application, storeFactory, settings )
+			else
+				super( application, storeFactory, settings, logFactory )
+			end
 			@application = application;
 			@storeFactory = storeFactory;
 			@settings = settings;
-		end
-
-		def initialize( application, storeFactory, settings, logFactory )
-			super( application, storeFactory, settings, logFactory )
-			@application = application;
-			@storeFactory = storeFactory;
-			@settings = settings;
-			@logFactory = logFactory;
+			@logFactory = logFactory
 		end
 	end
 
 	class SocketAcceptor < SocketAcceptorBase
-		def initialize( application, storeFactory, settings )
-			super( application, storeFactory, settings )
+		def initialize( application, storeFactory, settings, logFactory = nil )
+			if( logFactory == nil )
+				super( application, storeFactory, settings )
+			else
+				super( application, storeFactory, settings, logFactory )
+			end
 			@application = application;
 			@storeFactory = storeFactory;
 			@settings = settings;
-		end
-
-		def initialize( application, storeFactory, settings, logFactory )
-			super( application, storeFactory, settings, logFactory )
-			@application = application;
-			@storeFactory = storeFactory;
-			@settings = settings;
-			@logFactory = logFactory;
+			@logFactory = logFactory
 		end
 	end
 end
