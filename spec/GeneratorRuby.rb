@@ -103,6 +103,53 @@ class GeneratorRuby
     @messageStarted = false
     @f.puts tabs + "end"
   end
+  
+  def fieldsStart
+    @f = createFile("quickfix_fields.rb")
+  end
+  
+  def fieldType( type )
+    return "Char" if type == "CHAR"
+    return "Double" if type == "PRICE"
+    return "Int" if type == "INT"
+    return "Double" if type == "AMT"
+    return "Double" if type == "QTY"
+    return "UtcTimeStamp" if type == "UTCTIMESTAMP"
+    return "Boolean" if type == "BOOLEAN"
+    return "Double" if type == "FLOAT"
+    return "Double" if type == "PRICEOFFSET"
+    return "UtcDate" if type == "UTCDATE"
+    return "UtcDateOnly" if type == "UTCDATEONLY"
+    return "UtcTimeOnly" if type == "UTCTIMEONLY"
+    return "Int" if type == "NUMINGROUP"
+    return "Double" if type == "PERCENTAGE"
+    return "Int" if type == "SEQNUM"
+    return "Int" if type == "LENGTH"
+    return "String"
+  end
+  
+  def fields(name, number, type)
+    @f.puts tabs + "class #{name} < QuickFix::#{fieldType(type)}Field"
+    @depth += 1
+    @f.puts tabs + "def initialize"
+    @depth += 1
+    @f.puts tabs + "super(#{number})"
+    @depth -= 1
+    @f.puts tabs + "end"
+    @f.puts
+    @f.puts tabs + "def initialize(data)"
+    @depth += 1
+    @f.puts tabs + "super(#{number}, data)"
+    @depth -= 1
+    @f.puts tabs + "end"
+    @depth -= 1
+    @f.puts tabs + "end"
+    @f.puts
+  end
+  
+  def fieldsEnd
+    @f.close
+  end
 
   def back
     @f.puts tabs + "end"
