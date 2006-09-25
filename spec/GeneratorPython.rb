@@ -99,6 +99,52 @@ class GeneratorPython
     @messageStarted = false
   end
 
+  def fieldsStart
+    @f = createFile("quickfix_fields.py")
+  end
+  
+  def fieldType( type )
+    return "Char" if type == "CHAR"
+    return "Double" if type == "PRICE"
+    return "Int" if type == "INT"
+    return "Double" if type == "AMT"
+    return "Double" if type == "QTY"
+    return "UtcTimeStamp" if type == "UTCTIMESTAMP"
+    return "Bool" if type == "BOOLEAN"
+    return "Double" if type == "FLOAT"
+    return "Double" if type == "PRICEOFFSET"
+    return "UtcDate" if type == "UTCDATE"
+    return "UtcDate" if type == "UTCDATEONLY"
+    return "UtcTimeOnly" if type == "UTCTIMEONLY"
+    return "Int" if type == "NUMINGROUP"
+    return "Double" if type == "PERCENTAGE"
+    return "Int" if type == "SEQNUM"
+    return "Int" if type == "LENGTH"
+    return "String"
+  end
+  
+  def fields(name, number, type)
+    @f.puts tabs + "class #{name}(quickfix.#{fieldType(type)}Field):"
+    @depth += 1
+    @f.puts tabs + "def __init__(data = None)"
+    @depth += 1
+    @f.puts tabs + "if data == None:"
+    @depth += 1
+    @f.puts tabs + "quickfix.#{fieldType(type)}Field.__init__(self, #{number})"
+    @depth -= 1
+    @f.puts tabs + "else"
+    @depth += 1
+    @f.puts tabs + "quickfix.#{fieldType(type)}Field.__init__(self, #{number}, data)"
+    @depth -= 1
+    @depth -= 1
+    @depth -= 1
+    @f.puts
+  end
+
+  def fieldsEnd
+    @f.close
+  end
+
   def back
     @f.close
   end
