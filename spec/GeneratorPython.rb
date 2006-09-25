@@ -101,6 +101,8 @@ class GeneratorPython
 
   def fieldsStart
     @f = createFile("quickfix_fields.py")
+    @f.puts tabs + "import quickfix"
+    @f.puts
   end
   
   def fieldType( type )
@@ -126,13 +128,13 @@ class GeneratorPython
   def fields(name, number, type)
     @f.puts tabs + "class #{name}(quickfix.#{fieldType(type)}Field):"
     @depth += 1
-    @f.puts tabs + "def __init__(data = None)"
+    @f.puts tabs + "def __init__(data = None):"
     @depth += 1
     @f.puts tabs + "if data == None:"
     @depth += 1
     @f.puts tabs + "quickfix.#{fieldType(type)}Field.__init__(self, #{number})"
     @depth -= 1
-    @f.puts tabs + "else"
+    @f.puts tabs + "else:"
     @depth += 1
     @f.puts tabs + "quickfix.#{fieldType(type)}Field.__init__(self, #{number}, data)"
     @depth -= 1
