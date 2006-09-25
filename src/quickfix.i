@@ -20,7 +20,6 @@
 #include "../C++/Field.h"
 #include "../C++/Message.h"
 #include "../C++/Group.h"
-#include "../C++/Fields.h"
 #include "../C++/DeprecatedFields.h"
 #include "../C++/Values.h"
 #include "../C++/DeprecatedValues.h"
@@ -123,12 +122,10 @@ using namespace FIX;
 }
 
 %pythoncode %{
-#ifdef SWIGPYTHON
 import thread
 
 def _quickfix_start_thread(i_or_a):
 	i_or_a.block()
-#endif
 %}
 
 %feature("shadow") FIX::Initiator::start() %{
@@ -290,7 +287,6 @@ def start(self):
 %include "../C++/FieldMap.h"
 %include "../C++/Message.h"
 %include "../C++/Group.h"
-%include "../C++/Fields.h"
 %include "../C++/DeprecatedFields.h"
 %include "../C++/Values.h"
 %include "../C++/DeprecatedValues.h"
@@ -308,8 +304,6 @@ def start(self):
 %include "../C++/SocketAcceptor.h"
 
 %pythoncode %{
-#ifdef SWIGPYTHON
-
 class SocketInitiator(SocketInitiatorBase):
 	application = 0
 	storeFactory = 0
@@ -343,6 +337,4 @@ class SocketAcceptor(SocketAcceptorBase):
 		self.storeFactory = storeFactory
 		self.settings = settings
 		self.logFactory = logFactory
-
-#endif
 %}

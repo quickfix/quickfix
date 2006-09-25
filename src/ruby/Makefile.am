@@ -1,9 +1,10 @@
-pkgdata_DATA = quickfix_ruby.rb quickfix40.rb quickfix41.rb quickfix42.rb quickfix43.rb quickfix44.rb
+pkgdata_DATA = quickfix_ruby.rb quickfix_fields.rb quickfix40.rb quickfix41.rb quickfix42.rb quickfix43.rb quickfix44.rb
 
 all-local:
 	bash ./make_ruby.sh $(CXX) $(CXXFLAGS) $(LIBS)
 	mkdir -p $(top_builddir)/lib/ruby
 	ln -sf ../../src/ruby/quickfix_ruby.rb $(top_builddir)/lib/ruby/quickfix_ruby.rb
+	ln -sf ../../src/ruby/quickfix_fields.rb $(top_builddir)/lib/ruby/quickfix_fields.rb
 	ln -sf ../../src/ruby/quickfix40.rb $(top_builddir)/lib/ruby/quickfix40.rb
 	ln -sf ../../src/ruby/quickfix41.rb $(top_builddir)/lib/ruby/quickfix41.rb
 	ln -sf ../../src/ruby/quickfix42.rb $(top_builddir)/lib/ruby/quickfix42.rb
