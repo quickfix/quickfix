@@ -10,6 +10,8 @@ Added NetworkStatusReport and NetworkStatusRequest messages fix FIX 4.4.
 
 getSessions implemented in SessionSettings object in .NET.
 
+SessionSettings can be output in the same format as the input stream.
+
 Fixed repeating groups in ruby which where incorrectly instantiating arrays
 indicating sorting order.
 
