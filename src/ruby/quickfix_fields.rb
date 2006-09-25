@@ -1,9140 +1,9142 @@
-class Account < QuickFix::StringField
-	def initialize
-		super(1)
-	end
+module Quickfix
+	class Account < Quickfix::StringField
+		def initialize
+			super(1)
+		end
 
-	def initialize(data)
-		super(1, data)
+		def initialize(data)
+			super(1, data)
+		end
 	end
-end
 
-class AdvId < QuickFix::StringField
-	def initialize
-		super(2)
-	end
+	class AdvId < Quickfix::StringField
+		def initialize
+			super(2)
+		end
 
-	def initialize(data)
-		super(2, data)
+		def initialize(data)
+			super(2, data)
+		end
 	end
-end
 
-class AdvRefID < QuickFix::StringField
-	def initialize
-		super(3)
-	end
+	class AdvRefID < Quickfix::StringField
+		def initialize
+			super(3)
+		end
 
-	def initialize(data)
-		super(3, data)
+		def initialize(data)
+			super(3, data)
+		end
 	end
-end
 
-class AdvSide < QuickFix::CharField
-	def initialize
-		super(4)
-	end
+	class AdvSide < Quickfix::CharField
+		def initialize
+			super(4)
+		end
 
-	def initialize(data)
-		super(4, data)
+		def initialize(data)
+			super(4, data)
+		end
 	end
-end
 
-class AdvTransType < QuickFix::StringField
-	def initialize
-		super(5)
-	end
+	class AdvTransType < Quickfix::StringField
+		def initialize
+			super(5)
+		end
 
-	def initialize(data)
-		super(5, data)
+		def initialize(data)
+			super(5, data)
+		end
 	end
-end
 
-class AvgPx < QuickFix::DoubleField
-	def initialize
-		super(6)
-	end
+	class AvgPx < Quickfix::DoubleField
+		def initialize
+			super(6)
+		end
 
-	def initialize(data)
-		super(6, data)
+		def initialize(data)
+			super(6, data)
+		end
 	end
-end
 
-class BeginSeqNo < QuickFix::IntField
-	def initialize
-		super(7)
-	end
+	class BeginSeqNo < Quickfix::IntField
+		def initialize
+			super(7)
+		end
 
-	def initialize(data)
-		super(7, data)
+		def initialize(data)
+			super(7, data)
+		end
 	end
-end
 
-class BeginString < QuickFix::StringField
-	def initialize
-		super(8)
-	end
+	class BeginString < Quickfix::StringField
+		def initialize
+			super(8)
+		end
 
-	def initialize(data)
-		super(8, data)
+		def initialize(data)
+			super(8, data)
+		end
 	end
-end
 
-class BodyLength < QuickFix::IntField
-	def initialize
-		super(9)
-	end
+	class BodyLength < Quickfix::IntField
+		def initialize
+			super(9)
+		end
 
-	def initialize(data)
-		super(9, data)
+		def initialize(data)
+			super(9, data)
+		end
 	end
-end
 
-class CheckSum < QuickFix::StringField
-	def initialize
-		super(10)
-	end
+	class CheckSum < Quickfix::StringField
+		def initialize
+			super(10)
+		end
 
-	def initialize(data)
-		super(10, data)
+		def initialize(data)
+			super(10, data)
+		end
 	end
-end
 
-class ClOrdID < QuickFix::StringField
-	def initialize
-		super(11)
-	end
+	class ClOrdID < Quickfix::StringField
+		def initialize
+			super(11)
+		end
 
-	def initialize(data)
-		super(11, data)
+		def initialize(data)
+			super(11, data)
+		end
 	end
-end
 
-class Commission < QuickFix::DoubleField
-	def initialize
-		super(12)
-	end
+	class Commission < Quickfix::DoubleField
+		def initialize
+			super(12)
+		end
 
-	def initialize(data)
-		super(12, data)
+		def initialize(data)
+			super(12, data)
+		end
 	end
-end
 
-class CommType < QuickFix::CharField
-	def initialize
-		super(13)
-	end
+	class CommType < Quickfix::CharField
+		def initialize
+			super(13)
+		end
 
-	def initialize(data)
-		super(13, data)
+		def initialize(data)
+			super(13, data)
+		end
 	end
-end
 
-class CumQty < QuickFix::DoubleField
-	def initialize
-		super(14)
-	end
+	class CumQty < Quickfix::DoubleField
+		def initialize
+			super(14)
+		end
 
-	def initialize(data)
-		super(14, data)
+		def initialize(data)
+			super(14, data)
+		end
 	end
-end
 
-class Currency < QuickFix::StringField
-	def initialize
-		super(15)
-	end
+	class Currency < Quickfix::StringField
+		def initialize
+			super(15)
+		end
 
-	def initialize(data)
-		super(15, data)
+		def initialize(data)
+			super(15, data)
+		end
 	end
-end
 
-class EndSeqNo < QuickFix::IntField
-	def initialize
-		super(16)
-	end
+	class EndSeqNo < Quickfix::IntField
+		def initialize
+			super(16)
+		end
 
-	def initialize(data)
-		super(16, data)
+		def initialize(data)
+			super(16, data)
+		end
 	end
-end
 
-class ExecID < QuickFix::StringField
-	def initialize
-		super(17)
-	end
+	class ExecID < Quickfix::StringField
+		def initialize
+			super(17)
+		end
 
-	def initialize(data)
-		super(17, data)
+		def initialize(data)
+			super(17, data)
+		end
 	end
-end
 
-class ExecInst < QuickFix::StringField
-	def initialize
-		super(18)
-	end
+	class ExecInst < Quickfix::StringField
+		def initialize
+			super(18)
+		end
 
-	def initialize(data)
-		super(18, data)
+		def initialize(data)
+			super(18, data)
+		end
 	end
-end
 
-class ExecRefID < QuickFix::StringField
-	def initialize
-		super(19)
-	end
+	class ExecRefID < Quickfix::StringField
+		def initialize
+			super(19)
+		end
 
-	def initialize(data)
-		super(19, data)
+		def initialize(data)
+			super(19, data)
+		end
 	end
-end
 
-class HandlInst < QuickFix::CharField
-	def initialize
-		super(21)
-	end
+	class HandlInst < Quickfix::CharField
+		def initialize
+			super(21)
+		end
 
-	def initialize(data)
-		super(21, data)
+		def initialize(data)
+			super(21, data)
+		end
 	end
-end
 
-class SecurityIDSource < QuickFix::StringField
-	def initialize
-		super(22)
-	end
+	class SecurityIDSource < Quickfix::StringField
+		def initialize
+			super(22)
+		end
 
-	def initialize(data)
-		super(22, data)
+		def initialize(data)
+			super(22, data)
+		end
 	end
-end
 
-class IOIid < QuickFix::StringField
-	def initialize
-		super(23)
-	end
+	class IOIid < Quickfix::StringField
+		def initialize
+			super(23)
+		end
 
-	def initialize(data)
-		super(23, data)
+		def initialize(data)
+			super(23, data)
+		end
 	end
-end
 
-class IOIQltyInd < QuickFix::CharField
-	def initialize
-		super(25)
-	end
+	class IOIQltyInd < Quickfix::CharField
+		def initialize
+			super(25)
+		end
 
-	def initialize(data)
-		super(25, data)
+		def initialize(data)
+			super(25, data)
+		end
 	end
-end
 
-class IOIRefID < QuickFix::StringField
-	def initialize
-		super(26)
-	end
+	class IOIRefID < Quickfix::StringField
+		def initialize
+			super(26)
+		end
 
-	def initialize(data)
-		super(26, data)
+		def initialize(data)
+			super(26, data)
+		end
 	end
-end
 
-class IOIQty < QuickFix::StringField
-	def initialize
-		super(27)
-	end
+	class IOIQty < Quickfix::StringField
+		def initialize
+			super(27)
+		end
 
-	def initialize(data)
-		super(27, data)
+		def initialize(data)
+			super(27, data)
+		end
 	end
-end
 
-class IOITransType < QuickFix::CharField
-	def initialize
-		super(28)
-	end
+	class IOITransType < Quickfix::CharField
+		def initialize
+			super(28)
+		end
 
-	def initialize(data)
-		super(28, data)
+		def initialize(data)
+			super(28, data)
+		end
 	end
-end
 
-class LastCapacity < QuickFix::CharField
-	def initialize
-		super(29)
-	end
+	class LastCapacity < Quickfix::CharField
+		def initialize
+			super(29)
+		end
 
-	def initialize(data)
-		super(29, data)
+		def initialize(data)
+			super(29, data)
+		end
 	end
-end
 
-class LastMkt < QuickFix::StringField
-	def initialize
-		super(30)
-	end
+	class LastMkt < Quickfix::StringField
+		def initialize
+			super(30)
+		end
 
-	def initialize(data)
-		super(30, data)
+		def initialize(data)
+			super(30, data)
+		end
 	end
-end
 
-class LastPx < QuickFix::DoubleField
-	def initialize
-		super(31)
-	end
+	class LastPx < Quickfix::DoubleField
+		def initialize
+			super(31)
+		end
 
-	def initialize(data)
-		super(31, data)
+		def initialize(data)
+			super(31, data)
+		end
 	end
-end
 
-class LastQty < QuickFix::DoubleField
-	def initialize
-		super(32)
-	end
+	class LastQty < Quickfix::DoubleField
+		def initialize
+			super(32)
+		end
 
-	def initialize(data)
-		super(32, data)
+		def initialize(data)
+			super(32, data)
+		end
 	end
-end
 
-class LinesOfText < QuickFix::IntField
-	def initialize
-		super(33)
-	end
+	class LinesOfText < Quickfix::IntField
+		def initialize
+			super(33)
+		end
 
-	def initialize(data)
-		super(33, data)
+		def initialize(data)
+			super(33, data)
+		end
 	end
-end
 
-class MsgSeqNum < QuickFix::IntField
-	def initialize
-		super(34)
-	end
+	class MsgSeqNum < Quickfix::IntField
+		def initialize
+			super(34)
+		end
 
-	def initialize(data)
-		super(34, data)
+		def initialize(data)
+			super(34, data)
+		end
 	end
-end
 
-class MsgType < QuickFix::StringField
-	def initialize
-		super(35)
-	end
+	class MsgType < Quickfix::StringField
+		def initialize
+			super(35)
+		end
 
-	def initialize(data)
-		super(35, data)
+		def initialize(data)
+			super(35, data)
+		end
 	end
-end
 
-class NewSeqNo < QuickFix::IntField
-	def initialize
-		super(36)
-	end
+	class NewSeqNo < Quickfix::IntField
+		def initialize
+			super(36)
+		end
 
-	def initialize(data)
-		super(36, data)
+		def initialize(data)
+			super(36, data)
+		end
 	end
-end
 
-class OrderID < QuickFix::StringField
-	def initialize
-		super(37)
-	end
+	class OrderID < Quickfix::StringField
+		def initialize
+			super(37)
+		end
 
-	def initialize(data)
-		super(37, data)
+		def initialize(data)
+			super(37, data)
+		end
 	end
-end
 
-class OrderQty < QuickFix::DoubleField
-	def initialize
-		super(38)
-	end
+	class OrderQty < Quickfix::DoubleField
+		def initialize
+			super(38)
+		end
 
-	def initialize(data)
-		super(38, data)
+		def initialize(data)
+			super(38, data)
+		end
 	end
-end
 
-class OrdStatus < QuickFix::CharField
-	def initialize
-		super(39)
-	end
+	class OrdStatus < Quickfix::CharField
+		def initialize
+			super(39)
+		end
 
-	def initialize(data)
-		super(39, data)
+		def initialize(data)
+			super(39, data)
+		end
 	end
-end
 
-class OrdType < QuickFix::CharField
-	def initialize
-		super(40)
-	end
+	class OrdType < Quickfix::CharField
+		def initialize
+			super(40)
+		end
 
-	def initialize(data)
-		super(40, data)
+		def initialize(data)
+			super(40, data)
+		end
 	end
-end
 
-class OrigClOrdID < QuickFix::StringField
-	def initialize
-		super(41)
-	end
+	class OrigClOrdID < Quickfix::StringField
+		def initialize
+			super(41)
+		end
 
-	def initialize(data)
-		super(41, data)
+		def initialize(data)
+			super(41, data)
+		end
 	end
-end
 
-class OrigTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(42)
-	end
+	class OrigTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(42)
+		end
 
-	def initialize(data)
-		super(42, data)
+		def initialize(data)
+			super(42, data)
+		end
 	end
-end
 
-class PossDupFlag < QuickFix::BooleanField
-	def initialize
-		super(43)
-	end
+	class PossDupFlag < Quickfix::BoolField
+		def initialize
+			super(43)
+		end
 
-	def initialize(data)
-		super(43, data)
+		def initialize(data)
+			super(43, data)
+		end
 	end
-end
 
-class Price < QuickFix::DoubleField
-	def initialize
-		super(44)
-	end
+	class Price < Quickfix::DoubleField
+		def initialize
+			super(44)
+		end
 
-	def initialize(data)
-		super(44, data)
+		def initialize(data)
+			super(44, data)
+		end
 	end
-end
 
-class RefSeqNum < QuickFix::IntField
-	def initialize
-		super(45)
-	end
+	class RefSeqNum < Quickfix::IntField
+		def initialize
+			super(45)
+		end
 
-	def initialize(data)
-		super(45, data)
+		def initialize(data)
+			super(45, data)
+		end
 	end
-end
 
-class SecurityID < QuickFix::StringField
-	def initialize
-		super(48)
-	end
+	class SecurityID < Quickfix::StringField
+		def initialize
+			super(48)
+		end
 
-	def initialize(data)
-		super(48, data)
+		def initialize(data)
+			super(48, data)
+		end
 	end
-end
 
-class SenderCompID < QuickFix::StringField
-	def initialize
-		super(49)
-	end
+	class SenderCompID < Quickfix::StringField
+		def initialize
+			super(49)
+		end
 
-	def initialize(data)
-		super(49, data)
+		def initialize(data)
+			super(49, data)
+		end
 	end
-end
 
-class SenderSubID < QuickFix::StringField
-	def initialize
-		super(50)
-	end
+	class SenderSubID < Quickfix::StringField
+		def initialize
+			super(50)
+		end
 
-	def initialize(data)
-		super(50, data)
+		def initialize(data)
+			super(50, data)
+		end
 	end
-end
 
-class SendingTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(52)
-	end
+	class SendingTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(52)
+		end
 
-	def initialize(data)
-		super(52, data)
+		def initialize(data)
+			super(52, data)
+		end
 	end
-end
 
-class Quantity < QuickFix::DoubleField
-	def initialize
-		super(53)
-	end
+	class Quantity < Quickfix::DoubleField
+		def initialize
+			super(53)
+		end
 
-	def initialize(data)
-		super(53, data)
+		def initialize(data)
+			super(53, data)
+		end
 	end
-end
 
-class Side < QuickFix::CharField
-	def initialize
-		super(54)
-	end
+	class Side < Quickfix::CharField
+		def initialize
+			super(54)
+		end
 
-	def initialize(data)
-		super(54, data)
+		def initialize(data)
+			super(54, data)
+		end
 	end
-end
 
-class Symbol < QuickFix::StringField
-	def initialize
-		super(55)
-	end
+	class Symbol < Quickfix::StringField
+		def initialize
+			super(55)
+		end
 
-	def initialize(data)
-		super(55, data)
+		def initialize(data)
+			super(55, data)
+		end
 	end
-end
 
-class TargetCompID < QuickFix::StringField
-	def initialize
-		super(56)
-	end
+	class TargetCompID < Quickfix::StringField
+		def initialize
+			super(56)
+		end
 
-	def initialize(data)
-		super(56, data)
+		def initialize(data)
+			super(56, data)
+		end
 	end
-end
 
-class TargetSubID < QuickFix::StringField
-	def initialize
-		super(57)
-	end
+	class TargetSubID < Quickfix::StringField
+		def initialize
+			super(57)
+		end
 
-	def initialize(data)
-		super(57, data)
+		def initialize(data)
+			super(57, data)
+		end
 	end
-end
 
-class Text < QuickFix::StringField
-	def initialize
-		super(58)
-	end
+	class Text < Quickfix::StringField
+		def initialize
+			super(58)
+		end
 
-	def initialize(data)
-		super(58, data)
+		def initialize(data)
+			super(58, data)
+		end
 	end
-end
 
-class TimeInForce < QuickFix::CharField
-	def initialize
-		super(59)
-	end
+	class TimeInForce < Quickfix::CharField
+		def initialize
+			super(59)
+		end
 
-	def initialize(data)
-		super(59, data)
+		def initialize(data)
+			super(59, data)
+		end
 	end
-end
 
-class TransactTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(60)
-	end
+	class TransactTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(60)
+		end
 
-	def initialize(data)
-		super(60, data)
+		def initialize(data)
+			super(60, data)
+		end
 	end
-end
 
-class Urgency < QuickFix::CharField
-	def initialize
-		super(61)
-	end
+	class Urgency < Quickfix::CharField
+		def initialize
+			super(61)
+		end
 
-	def initialize(data)
-		super(61, data)
+		def initialize(data)
+			super(61, data)
+		end
 	end
-end
 
-class ValidUntilTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(62)
-	end
+	class ValidUntilTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(62)
+		end
 
-	def initialize(data)
-		super(62, data)
+		def initialize(data)
+			super(62, data)
+		end
 	end
-end
 
-class SettlType < QuickFix::CharField
-	def initialize
-		super(63)
-	end
+	class SettlType < Quickfix::CharField
+		def initialize
+			super(63)
+		end
 
-	def initialize(data)
-		super(63, data)
+		def initialize(data)
+			super(63, data)
+		end
 	end
-end
 
-class SettlDate < QuickFix::StringField
-	def initialize
-		super(64)
-	end
+	class SettlDate < Quickfix::StringField
+		def initialize
+			super(64)
+		end
 
-	def initialize(data)
-		super(64, data)
+		def initialize(data)
+			super(64, data)
+		end
 	end
-end
 
-class SymbolSfx < QuickFix::StringField
-	def initialize
-		super(65)
-	end
+	class SymbolSfx < Quickfix::StringField
+		def initialize
+			super(65)
+		end
 
-	def initialize(data)
-		super(65, data)
+		def initialize(data)
+			super(65, data)
+		end
 	end
-end
 
-class ListID < QuickFix::StringField
-	def initialize
-		super(66)
-	end
+	class ListID < Quickfix::StringField
+		def initialize
+			super(66)
+		end
 
-	def initialize(data)
-		super(66, data)
+		def initialize(data)
+			super(66, data)
+		end
 	end
-end
 
-class ListSeqNo < QuickFix::IntField
-	def initialize
-		super(67)
-	end
+	class ListSeqNo < Quickfix::IntField
+		def initialize
+			super(67)
+		end
 
-	def initialize(data)
-		super(67, data)
+		def initialize(data)
+			super(67, data)
+		end
 	end
-end
 
-class TotNoOrders < QuickFix::IntField
-	def initialize
-		super(68)
-	end
+	class TotNoOrders < Quickfix::IntField
+		def initialize
+			super(68)
+		end
 
-	def initialize(data)
-		super(68, data)
+		def initialize(data)
+			super(68, data)
+		end
 	end
-end
 
-class ListExecInst < QuickFix::StringField
-	def initialize
-		super(69)
-	end
+	class ListExecInst < Quickfix::StringField
+		def initialize
+			super(69)
+		end
 
-	def initialize(data)
-		super(69, data)
+		def initialize(data)
+			super(69, data)
+		end
 	end
-end
 
-class AllocID < QuickFix::StringField
-	def initialize
-		super(70)
-	end
+	class AllocID < Quickfix::StringField
+		def initialize
+			super(70)
+		end
 
-	def initialize(data)
-		super(70, data)
+		def initialize(data)
+			super(70, data)
+		end
 	end
-end
 
-class AllocTransType < QuickFix::CharField
-	def initialize
-		super(71)
-	end
+	class AllocTransType < Quickfix::CharField
+		def initialize
+			super(71)
+		end
 
-	def initialize(data)
-		super(71, data)
+		def initialize(data)
+			super(71, data)
+		end
 	end
-end
 
-class RefAllocID < QuickFix::StringField
-	def initialize
-		super(72)
-	end
+	class RefAllocID < Quickfix::StringField
+		def initialize
+			super(72)
+		end
 
-	def initialize(data)
-		super(72, data)
+		def initialize(data)
+			super(72, data)
+		end
 	end
-end
 
-class NoOrders < QuickFix::IntField
-	def initialize
-		super(73)
-	end
+	class NoOrders < Quickfix::IntField
+		def initialize
+			super(73)
+		end
 
-	def initialize(data)
-		super(73, data)
+		def initialize(data)
+			super(73, data)
+		end
 	end
-end
 
-class AvgPxPrecision < QuickFix::IntField
-	def initialize
-		super(74)
-	end
+	class AvgPxPrecision < Quickfix::IntField
+		def initialize
+			super(74)
+		end
 
-	def initialize(data)
-		super(74, data)
+		def initialize(data)
+			super(74, data)
+		end
 	end
-end
 
-class TradeDate < QuickFix::StringField
-	def initialize
-		super(75)
-	end
+	class TradeDate < Quickfix::StringField
+		def initialize
+			super(75)
+		end
 
-	def initialize(data)
-		super(75, data)
+		def initialize(data)
+			super(75, data)
+		end
 	end
-end
 
-class PositionEffect < QuickFix::CharField
-	def initialize
-		super(77)
-	end
+	class PositionEffect < Quickfix::CharField
+		def initialize
+			super(77)
+		end
 
-	def initialize(data)
-		super(77, data)
+		def initialize(data)
+			super(77, data)
+		end
 	end
-end
 
-class NoAllocs < QuickFix::IntField
-	def initialize
-		super(78)
-	end
+	class NoAllocs < Quickfix::IntField
+		def initialize
+			super(78)
+		end
 
-	def initialize(data)
-		super(78, data)
+		def initialize(data)
+			super(78, data)
+		end
 	end
-end
 
-class AllocAccount < QuickFix::StringField
-	def initialize
-		super(79)
-	end
+	class AllocAccount < Quickfix::StringField
+		def initialize
+			super(79)
+		end
 
-	def initialize(data)
-		super(79, data)
+		def initialize(data)
+			super(79, data)
+		end
 	end
-end
 
-class AllocQty < QuickFix::DoubleField
-	def initialize
-		super(80)
-	end
+	class AllocQty < Quickfix::DoubleField
+		def initialize
+			super(80)
+		end
 
-	def initialize(data)
-		super(80, data)
+		def initialize(data)
+			super(80, data)
+		end
 	end
-end
 
-class ProcessCode < QuickFix::CharField
-	def initialize
-		super(81)
-	end
+	class ProcessCode < Quickfix::CharField
+		def initialize
+			super(81)
+		end
 
-	def initialize(data)
-		super(81, data)
+		def initialize(data)
+			super(81, data)
+		end
 	end
-end
 
-class NoRpts < QuickFix::IntField
-	def initialize
-		super(82)
-	end
+	class NoRpts < Quickfix::IntField
+		def initialize
+			super(82)
+		end
 
-	def initialize(data)
-		super(82, data)
+		def initialize(data)
+			super(82, data)
+		end
 	end
-end
 
-class RptSeq < QuickFix::IntField
-	def initialize
-		super(83)
-	end
+	class RptSeq < Quickfix::IntField
+		def initialize
+			super(83)
+		end
 
-	def initialize(data)
-		super(83, data)
+		def initialize(data)
+			super(83, data)
+		end
 	end
-end
 
-class CxlQty < QuickFix::DoubleField
-	def initialize
-		super(84)
-	end
+	class CxlQty < Quickfix::DoubleField
+		def initialize
+			super(84)
+		end
 
-	def initialize(data)
-		super(84, data)
+		def initialize(data)
+			super(84, data)
+		end
 	end
-end
 
-class NoDlvyInst < QuickFix::IntField
-	def initialize
-		super(85)
-	end
+	class NoDlvyInst < Quickfix::IntField
+		def initialize
+			super(85)
+		end
 
-	def initialize(data)
-		super(85, data)
+		def initialize(data)
+			super(85, data)
+		end
 	end
-end
 
-class AllocStatus < QuickFix::IntField
-	def initialize
-		super(87)
-	end
+	class AllocStatus < Quickfix::IntField
+		def initialize
+			super(87)
+		end
 
-	def initialize(data)
-		super(87, data)
+		def initialize(data)
+			super(87, data)
+		end
 	end
-end
 
-class AllocRejCode < QuickFix::IntField
-	def initialize
-		super(88)
-	end
+	class AllocRejCode < Quickfix::IntField
+		def initialize
+			super(88)
+		end
 
-	def initialize(data)
-		super(88, data)
+		def initialize(data)
+			super(88, data)
+		end
 	end
-end
 
-class Signature < QuickFix::StringField
-	def initialize
-		super(89)
-	end
+	class Signature < Quickfix::StringField
+		def initialize
+			super(89)
+		end
 
-	def initialize(data)
-		super(89, data)
+		def initialize(data)
+			super(89, data)
+		end
 	end
-end
 
-class SecureDataLen < QuickFix::IntField
-	def initialize
-		super(90)
-	end
+	class SecureDataLen < Quickfix::IntField
+		def initialize
+			super(90)
+		end
 
-	def initialize(data)
-		super(90, data)
+		def initialize(data)
+			super(90, data)
+		end
 	end
-end
 
-class SecureData < QuickFix::StringField
-	def initialize
-		super(91)
-	end
+	class SecureData < Quickfix::StringField
+		def initialize
+			super(91)
+		end
 
-	def initialize(data)
-		super(91, data)
+		def initialize(data)
+			super(91, data)
+		end
 	end
-end
 
-class SignatureLength < QuickFix::IntField
-	def initialize
-		super(93)
-	end
+	class SignatureLength < Quickfix::IntField
+		def initialize
+			super(93)
+		end
 
-	def initialize(data)
-		super(93, data)
+		def initialize(data)
+			super(93, data)
+		end
 	end
-end
 
-class EmailType < QuickFix::CharField
-	def initialize
-		super(94)
-	end
+	class EmailType < Quickfix::CharField
+		def initialize
+			super(94)
+		end
 
-	def initialize(data)
-		super(94, data)
+		def initialize(data)
+			super(94, data)
+		end
 	end
-end
 
-class RawDataLength < QuickFix::IntField
-	def initialize
-		super(95)
-	end
+	class RawDataLength < Quickfix::IntField
+		def initialize
+			super(95)
+		end
 
-	def initialize(data)
-		super(95, data)
+		def initialize(data)
+			super(95, data)
+		end
 	end
-end
 
-class RawData < QuickFix::StringField
-	def initialize
-		super(96)
-	end
+	class RawData < Quickfix::StringField
+		def initialize
+			super(96)
+		end
 
-	def initialize(data)
-		super(96, data)
+		def initialize(data)
+			super(96, data)
+		end
 	end
-end
 
-class PossResend < QuickFix::BooleanField
-	def initialize
-		super(97)
-	end
+	class PossResend < Quickfix::BoolField
+		def initialize
+			super(97)
+		end
 
-	def initialize(data)
-		super(97, data)
+		def initialize(data)
+			super(97, data)
+		end
 	end
-end
 
-class EncryptMethod < QuickFix::IntField
-	def initialize
-		super(98)
-	end
+	class EncryptMethod < Quickfix::IntField
+		def initialize
+			super(98)
+		end
 
-	def initialize(data)
-		super(98, data)
+		def initialize(data)
+			super(98, data)
+		end
 	end
-end
 
-class StopPx < QuickFix::DoubleField
-	def initialize
-		super(99)
-	end
+	class StopPx < Quickfix::DoubleField
+		def initialize
+			super(99)
+		end
 
-	def initialize(data)
-		super(99, data)
+		def initialize(data)
+			super(99, data)
+		end
 	end
-end
 
-class ExDestination < QuickFix::StringField
-	def initialize
-		super(100)
-	end
+	class ExDestination < Quickfix::StringField
+		def initialize
+			super(100)
+		end
 
-	def initialize(data)
-		super(100, data)
+		def initialize(data)
+			super(100, data)
+		end
 	end
-end
 
-class CxlRejReason < QuickFix::IntField
-	def initialize
-		super(102)
-	end
+	class CxlRejReason < Quickfix::IntField
+		def initialize
+			super(102)
+		end
 
-	def initialize(data)
-		super(102, data)
+		def initialize(data)
+			super(102, data)
+		end
 	end
-end
 
-class OrdRejReason < QuickFix::IntField
-	def initialize
-		super(103)
-	end
+	class OrdRejReason < Quickfix::IntField
+		def initialize
+			super(103)
+		end
 
-	def initialize(data)
-		super(103, data)
+		def initialize(data)
+			super(103, data)
+		end
 	end
-end
 
-class IOIQualifier < QuickFix::CharField
-	def initialize
-		super(104)
-	end
+	class IOIQualifier < Quickfix::CharField
+		def initialize
+			super(104)
+		end
 
-	def initialize(data)
-		super(104, data)
+		def initialize(data)
+			super(104, data)
+		end
 	end
-end
 
-class WaveNo < QuickFix::StringField
-	def initialize
-		super(105)
-	end
+	class WaveNo < Quickfix::StringField
+		def initialize
+			super(105)
+		end
 
-	def initialize(data)
-		super(105, data)
+		def initialize(data)
+			super(105, data)
+		end
 	end
-end
 
-class Issuer < QuickFix::StringField
-	def initialize
-		super(106)
-	end
+	class Issuer < Quickfix::StringField
+		def initialize
+			super(106)
+		end
 
-	def initialize(data)
-		super(106, data)
+		def initialize(data)
+			super(106, data)
+		end
 	end
-end
 
-class SecurityDesc < QuickFix::StringField
-	def initialize
-		super(107)
-	end
+	class SecurityDesc < Quickfix::StringField
+		def initialize
+			super(107)
+		end
 
-	def initialize(data)
-		super(107, data)
+		def initialize(data)
+			super(107, data)
+		end
 	end
-end
 
-class HeartBtInt < QuickFix::IntField
-	def initialize
-		super(108)
-	end
+	class HeartBtInt < Quickfix::IntField
+		def initialize
+			super(108)
+		end
 
-	def initialize(data)
-		super(108, data)
+		def initialize(data)
+			super(108, data)
+		end
 	end
-end
 
-class MinQty < QuickFix::DoubleField
-	def initialize
-		super(110)
-	end
+	class MinQty < Quickfix::DoubleField
+		def initialize
+			super(110)
+		end
 
-	def initialize(data)
-		super(110, data)
+		def initialize(data)
+			super(110, data)
+		end
 	end
-end
 
-class MaxFloor < QuickFix::DoubleField
-	def initialize
-		super(111)
-	end
+	class MaxFloor < Quickfix::DoubleField
+		def initialize
+			super(111)
+		end
 
-	def initialize(data)
-		super(111, data)
+		def initialize(data)
+			super(111, data)
+		end
 	end
-end
 
-class TestReqID < QuickFix::StringField
-	def initialize
-		super(112)
-	end
+	class TestReqID < Quickfix::StringField
+		def initialize
+			super(112)
+		end
 
-	def initialize(data)
-		super(112, data)
+		def initialize(data)
+			super(112, data)
+		end
 	end
-end
 
-class ReportToExch < QuickFix::BooleanField
-	def initialize
-		super(113)
-	end
+	class ReportToExch < Quickfix::BoolField
+		def initialize
+			super(113)
+		end
 
-	def initialize(data)
-		super(113, data)
+		def initialize(data)
+			super(113, data)
+		end
 	end
-end
 
-class LocateReqd < QuickFix::BooleanField
-	def initialize
-		super(114)
-	end
+	class LocateReqd < Quickfix::BoolField
+		def initialize
+			super(114)
+		end
 
-	def initialize(data)
-		super(114, data)
+		def initialize(data)
+			super(114, data)
+		end
 	end
-end
 
-class OnBehalfOfCompID < QuickFix::StringField
-	def initialize
-		super(115)
-	end
+	class OnBehalfOfCompID < Quickfix::StringField
+		def initialize
+			super(115)
+		end
 
-	def initialize(data)
-		super(115, data)
+		def initialize(data)
+			super(115, data)
+		end
 	end
-end
 
-class OnBehalfOfSubID < QuickFix::StringField
-	def initialize
-		super(116)
-	end
+	class OnBehalfOfSubID < Quickfix::StringField
+		def initialize
+			super(116)
+		end
 
-	def initialize(data)
-		super(116, data)
+		def initialize(data)
+			super(116, data)
+		end
 	end
-end
 
-class QuoteID < QuickFix::StringField
-	def initialize
-		super(117)
-	end
+	class QuoteID < Quickfix::StringField
+		def initialize
+			super(117)
+		end
 
-	def initialize(data)
-		super(117, data)
+		def initialize(data)
+			super(117, data)
+		end
 	end
-end
 
-class NetMoney < QuickFix::DoubleField
-	def initialize
-		super(118)
-	end
+	class NetMoney < Quickfix::DoubleField
+		def initialize
+			super(118)
+		end
 
-	def initialize(data)
-		super(118, data)
+		def initialize(data)
+			super(118, data)
+		end
 	end
-end
 
-class SettlCurrAmt < QuickFix::DoubleField
-	def initialize
-		super(119)
-	end
+	class SettlCurrAmt < Quickfix::DoubleField
+		def initialize
+			super(119)
+		end
 
-	def initialize(data)
-		super(119, data)
+		def initialize(data)
+			super(119, data)
+		end
 	end
-end
 
-class SettlCurrency < QuickFix::StringField
-	def initialize
-		super(120)
-	end
+	class SettlCurrency < Quickfix::StringField
+		def initialize
+			super(120)
+		end
 
-	def initialize(data)
-		super(120, data)
+		def initialize(data)
+			super(120, data)
+		end
 	end
-end
 
-class ForexReq < QuickFix::BooleanField
-	def initialize
-		super(121)
-	end
+	class ForexReq < Quickfix::BoolField
+		def initialize
+			super(121)
+		end
 
-	def initialize(data)
-		super(121, data)
+		def initialize(data)
+			super(121, data)
+		end
 	end
-end
 
-class OrigSendingTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(122)
-	end
+	class OrigSendingTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(122)
+		end
 
-	def initialize(data)
-		super(122, data)
+		def initialize(data)
+			super(122, data)
+		end
 	end
-end
 
-class GapFillFlag < QuickFix::BooleanField
-	def initialize
-		super(123)
-	end
+	class GapFillFlag < Quickfix::BoolField
+		def initialize
+			super(123)
+		end
 
-	def initialize(data)
-		super(123, data)
+		def initialize(data)
+			super(123, data)
+		end
 	end
-end
 
-class NoExecs < QuickFix::IntField
-	def initialize
-		super(124)
-	end
+	class NoExecs < Quickfix::IntField
+		def initialize
+			super(124)
+		end
 
-	def initialize(data)
-		super(124, data)
+		def initialize(data)
+			super(124, data)
+		end
 	end
-end
 
-class ExpireTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(126)
-	end
+	class ExpireTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(126)
+		end
 
-	def initialize(data)
-		super(126, data)
+		def initialize(data)
+			super(126, data)
+		end
 	end
-end
 
-class DKReason < QuickFix::CharField
-	def initialize
-		super(127)
-	end
+	class DKReason < Quickfix::CharField
+		def initialize
+			super(127)
+		end
 
-	def initialize(data)
-		super(127, data)
+		def initialize(data)
+			super(127, data)
+		end
 	end
-end
 
-class DeliverToCompID < QuickFix::StringField
-	def initialize
-		super(128)
-	end
+	class DeliverToCompID < Quickfix::StringField
+		def initialize
+			super(128)
+		end
 
-	def initialize(data)
-		super(128, data)
+		def initialize(data)
+			super(128, data)
+		end
 	end
-end
 
-class DeliverToSubID < QuickFix::StringField
-	def initialize
-		super(129)
-	end
+	class DeliverToSubID < Quickfix::StringField
+		def initialize
+			super(129)
+		end
 
-	def initialize(data)
-		super(129, data)
+		def initialize(data)
+			super(129, data)
+		end
 	end
-end
 
-class IOINaturalFlag < QuickFix::BooleanField
-	def initialize
-		super(130)
-	end
+	class IOINaturalFlag < Quickfix::BoolField
+		def initialize
+			super(130)
+		end
 
-	def initialize(data)
-		super(130, data)
+		def initialize(data)
+			super(130, data)
+		end
 	end
-end
 
-class QuoteReqID < QuickFix::StringField
-	def initialize
-		super(131)
-	end
+	class QuoteReqID < Quickfix::StringField
+		def initialize
+			super(131)
+		end
 
-	def initialize(data)
-		super(131, data)
+		def initialize(data)
+			super(131, data)
+		end
 	end
-end
 
-class BidPx < QuickFix::DoubleField
-	def initialize
-		super(132)
-	end
+	class BidPx < Quickfix::DoubleField
+		def initialize
+			super(132)
+		end
 
-	def initialize(data)
-		super(132, data)
+		def initialize(data)
+			super(132, data)
+		end
 	end
-end
 
-class OfferPx < QuickFix::DoubleField
-	def initialize
-		super(133)
-	end
+	class OfferPx < Quickfix::DoubleField
+		def initialize
+			super(133)
+		end
 
-	def initialize(data)
-		super(133, data)
+		def initialize(data)
+			super(133, data)
+		end
 	end
-end
 
-class BidSize < QuickFix::DoubleField
-	def initialize
-		super(134)
-	end
+	class BidSize < Quickfix::DoubleField
+		def initialize
+			super(134)
+		end
 
-	def initialize(data)
-		super(134, data)
+		def initialize(data)
+			super(134, data)
+		end
 	end
-end
 
-class OfferSize < QuickFix::DoubleField
-	def initialize
-		super(135)
-	end
+	class OfferSize < Quickfix::DoubleField
+		def initialize
+			super(135)
+		end
 
-	def initialize(data)
-		super(135, data)
+		def initialize(data)
+			super(135, data)
+		end
 	end
-end
 
-class NoMiscFees < QuickFix::IntField
-	def initialize
-		super(136)
-	end
+	class NoMiscFees < Quickfix::IntField
+		def initialize
+			super(136)
+		end
 
-	def initialize(data)
-		super(136, data)
+		def initialize(data)
+			super(136, data)
+		end
 	end
-end
 
-class MiscFeeAmt < QuickFix::DoubleField
-	def initialize
-		super(137)
-	end
+	class MiscFeeAmt < Quickfix::DoubleField
+		def initialize
+			super(137)
+		end
 
-	def initialize(data)
-		super(137, data)
+		def initialize(data)
+			super(137, data)
+		end
 	end
-end
 
-class MiscFeeCurr < QuickFix::StringField
-	def initialize
-		super(138)
-	end
+	class MiscFeeCurr < Quickfix::StringField
+		def initialize
+			super(138)
+		end
 
-	def initialize(data)
-		super(138, data)
+		def initialize(data)
+			super(138, data)
+		end
 	end
-end
 
-class MiscFeeType < QuickFix::CharField
-	def initialize
-		super(139)
-	end
+	class MiscFeeType < Quickfix::CharField
+		def initialize
+			super(139)
+		end
 
-	def initialize(data)
-		super(139, data)
+		def initialize(data)
+			super(139, data)
+		end
 	end
-end
 
-class PrevClosePx < QuickFix::DoubleField
-	def initialize
-		super(140)
-	end
+	class PrevClosePx < Quickfix::DoubleField
+		def initialize
+			super(140)
+		end
 
-	def initialize(data)
-		super(140, data)
+		def initialize(data)
+			super(140, data)
+		end
 	end
-end
-
-class ResetSeqNumFlag < QuickFix::BooleanField
-	def initialize
-		super(141)
-	end
-
-	def initialize(data)
-		super(141, data)
-	end
-end
-
-class SenderLocationID < QuickFix::StringField
-	def initialize
-		super(142)
-	end
-
-	def initialize(data)
-		super(142, data)
-	end
-end
-
-class TargetLocationID < QuickFix::StringField
-	def initialize
-		super(143)
-	end
-
-	def initialize(data)
-		super(143, data)
-	end
-end
-
-class OnBehalfOfLocationID < QuickFix::StringField
-	def initialize
-		super(144)
-	end
-
-	def initialize(data)
-		super(144, data)
-	end
-end
-
-class DeliverToLocationID < QuickFix::StringField
-	def initialize
-		super(145)
-	end
 
-	def initialize(data)
-		super(145, data)
-	end
-end
+	class ResetSeqNumFlag < Quickfix::BoolField
+		def initialize
+			super(141)
+		end
 
-class NoRelatedSym < QuickFix::IntField
-	def initialize
-		super(146)
+		def initialize(data)
+			super(141, data)
+		end
 	end
 
-	def initialize(data)
-		super(146, data)
-	end
-end
+	class SenderLocationID < Quickfix::StringField
+		def initialize
+			super(142)
+		end
 
-class Subject < QuickFix::StringField
-	def initialize
-		super(147)
+		def initialize(data)
+			super(142, data)
+		end
 	end
 
-	def initialize(data)
-		super(147, data)
-	end
-end
+	class TargetLocationID < Quickfix::StringField
+		def initialize
+			super(143)
+		end
 
-class Headline < QuickFix::StringField
-	def initialize
-		super(148)
+		def initialize(data)
+			super(143, data)
+		end
 	end
 
-	def initialize(data)
-		super(148, data)
-	end
-end
+	class OnBehalfOfLocationID < Quickfix::StringField
+		def initialize
+			super(144)
+		end
 
-class URLLink < QuickFix::StringField
-	def initialize
-		super(149)
+		def initialize(data)
+			super(144, data)
+		end
 	end
 
-	def initialize(data)
-		super(149, data)
-	end
-end
+	class DeliverToLocationID < Quickfix::StringField
+		def initialize
+			super(145)
+		end
 
-class ExecType < QuickFix::CharField
-	def initialize
-		super(150)
+		def initialize(data)
+			super(145, data)
+		end
 	end
 
-	def initialize(data)
-		super(150, data)
-	end
-end
+	class NoRelatedSym < Quickfix::IntField
+		def initialize
+			super(146)
+		end
 
-class LeavesQty < QuickFix::DoubleField
-	def initialize
-		super(151)
+		def initialize(data)
+			super(146, data)
+		end
 	end
 
-	def initialize(data)
-		super(151, data)
-	end
-end
+	class Subject < Quickfix::StringField
+		def initialize
+			super(147)
+		end
 
-class CashOrderQty < QuickFix::DoubleField
-	def initialize
-		super(152)
+		def initialize(data)
+			super(147, data)
+		end
 	end
 
-	def initialize(data)
-		super(152, data)
-	end
-end
+	class Headline < Quickfix::StringField
+		def initialize
+			super(148)
+		end
 
-class AllocAvgPx < QuickFix::DoubleField
-	def initialize
-		super(153)
+		def initialize(data)
+			super(148, data)
+		end
 	end
 
-	def initialize(data)
-		super(153, data)
-	end
-end
+	class URLLink < Quickfix::StringField
+		def initialize
+			super(149)
+		end
 
-class AllocNetMoney < QuickFix::DoubleField
-	def initialize
-		super(154)
+		def initialize(data)
+			super(149, data)
+		end
 	end
 
-	def initialize(data)
-		super(154, data)
-	end
-end
+	class ExecType < Quickfix::CharField
+		def initialize
+			super(150)
+		end
 
-class SettlCurrFxRate < QuickFix::DoubleField
-	def initialize
-		super(155)
+		def initialize(data)
+			super(150, data)
+		end
 	end
 
-	def initialize(data)
-		super(155, data)
-	end
-end
+	class LeavesQty < Quickfix::DoubleField
+		def initialize
+			super(151)
+		end
 
-class SettlCurrFxRateCalc < QuickFix::CharField
-	def initialize
-		super(156)
+		def initialize(data)
+			super(151, data)
+		end
 	end
 
-	def initialize(data)
-		super(156, data)
-	end
-end
+	class CashOrderQty < Quickfix::DoubleField
+		def initialize
+			super(152)
+		end
 
-class NumDaysInterest < QuickFix::IntField
-	def initialize
-		super(157)
+		def initialize(data)
+			super(152, data)
+		end
 	end
 
-	def initialize(data)
-		super(157, data)
-	end
-end
+	class AllocAvgPx < Quickfix::DoubleField
+		def initialize
+			super(153)
+		end
 
-class AccruedInterestRate < QuickFix::DoubleField
-	def initialize
-		super(158)
+		def initialize(data)
+			super(153, data)
+		end
 	end
 
-	def initialize(data)
-		super(158, data)
-	end
-end
+	class AllocNetMoney < Quickfix::DoubleField
+		def initialize
+			super(154)
+		end
 
-class AccruedInterestAmt < QuickFix::DoubleField
-	def initialize
-		super(159)
+		def initialize(data)
+			super(154, data)
+		end
 	end
 
-	def initialize(data)
-		super(159, data)
-	end
-end
+	class SettlCurrFxRate < Quickfix::DoubleField
+		def initialize
+			super(155)
+		end
 
-class SettlInstMode < QuickFix::CharField
-	def initialize
-		super(160)
+		def initialize(data)
+			super(155, data)
+		end
 	end
 
-	def initialize(data)
-		super(160, data)
-	end
-end
+	class SettlCurrFxRateCalc < Quickfix::CharField
+		def initialize
+			super(156)
+		end
 
-class AllocText < QuickFix::StringField
-	def initialize
-		super(161)
+		def initialize(data)
+			super(156, data)
+		end
 	end
 
-	def initialize(data)
-		super(161, data)
-	end
-end
+	class NumDaysInterest < Quickfix::IntField
+		def initialize
+			super(157)
+		end
 
-class SettlInstID < QuickFix::StringField
-	def initialize
-		super(162)
+		def initialize(data)
+			super(157, data)
+		end
 	end
 
-	def initialize(data)
-		super(162, data)
-	end
-end
+	class AccruedInterestRate < Quickfix::DoubleField
+		def initialize
+			super(158)
+		end
 
-class SettlInstTransType < QuickFix::CharField
-	def initialize
-		super(163)
+		def initialize(data)
+			super(158, data)
+		end
 	end
 
-	def initialize(data)
-		super(163, data)
-	end
-end
+	class AccruedInterestAmt < Quickfix::DoubleField
+		def initialize
+			super(159)
+		end
 
-class EmailThreadID < QuickFix::StringField
-	def initialize
-		super(164)
+		def initialize(data)
+			super(159, data)
+		end
 	end
 
-	def initialize(data)
-		super(164, data)
-	end
-end
+	class SettlInstMode < Quickfix::CharField
+		def initialize
+			super(160)
+		end
 
-class SettlInstSource < QuickFix::CharField
-	def initialize
-		super(165)
+		def initialize(data)
+			super(160, data)
+		end
 	end
 
-	def initialize(data)
-		super(165, data)
-	end
-end
+	class AllocText < Quickfix::StringField
+		def initialize
+			super(161)
+		end
 
-class SecurityType < QuickFix::StringField
-	def initialize
-		super(167)
+		def initialize(data)
+			super(161, data)
+		end
 	end
 
-	def initialize(data)
-		super(167, data)
-	end
-end
+	class SettlInstID < Quickfix::StringField
+		def initialize
+			super(162)
+		end
 
-class EffectiveTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(168)
+		def initialize(data)
+			super(162, data)
+		end
 	end
 
-	def initialize(data)
-		super(168, data)
-	end
-end
+	class SettlInstTransType < Quickfix::CharField
+		def initialize
+			super(163)
+		end
 
-class StandInstDbType < QuickFix::IntField
-	def initialize
-		super(169)
+		def initialize(data)
+			super(163, data)
+		end
 	end
 
-	def initialize(data)
-		super(169, data)
-	end
-end
+	class EmailThreadID < Quickfix::StringField
+		def initialize
+			super(164)
+		end
 
-class StandInstDbName < QuickFix::StringField
-	def initialize
-		super(170)
+		def initialize(data)
+			super(164, data)
+		end
 	end
 
-	def initialize(data)
-		super(170, data)
-	end
-end
+	class SettlInstSource < Quickfix::CharField
+		def initialize
+			super(165)
+		end
 
-class StandInstDbID < QuickFix::StringField
-	def initialize
-		super(171)
+		def initialize(data)
+			super(165, data)
+		end
 	end
 
-	def initialize(data)
-		super(171, data)
-	end
-end
+	class SecurityType < Quickfix::StringField
+		def initialize
+			super(167)
+		end
 
-class SettlDeliveryType < QuickFix::IntField
-	def initialize
-		super(172)
+		def initialize(data)
+			super(167, data)
+		end
 	end
 
-	def initialize(data)
-		super(172, data)
-	end
-end
+	class EffectiveTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(168)
+		end
 
-class BidSpotRate < QuickFix::DoubleField
-	def initialize
-		super(188)
+		def initialize(data)
+			super(168, data)
+		end
 	end
 
-	def initialize(data)
-		super(188, data)
-	end
-end
+	class StandInstDbType < Quickfix::IntField
+		def initialize
+			super(169)
+		end
 
-class BidForwardPoints < QuickFix::DoubleField
-	def initialize
-		super(189)
+		def initialize(data)
+			super(169, data)
+		end
 	end
 
-	def initialize(data)
-		super(189, data)
-	end
-end
+	class StandInstDbName < Quickfix::StringField
+		def initialize
+			super(170)
+		end
 
-class OfferSpotRate < QuickFix::DoubleField
-	def initialize
-		super(190)
+		def initialize(data)
+			super(170, data)
+		end
 	end
 
-	def initialize(data)
-		super(190, data)
-	end
-end
+	class StandInstDbID < Quickfix::StringField
+		def initialize
+			super(171)
+		end
 
-class OfferForwardPoints < QuickFix::DoubleField
-	def initialize
-		super(191)
+		def initialize(data)
+			super(171, data)
+		end
 	end
 
-	def initialize(data)
-		super(191, data)
-	end
-end
+	class SettlDeliveryType < Quickfix::IntField
+		def initialize
+			super(172)
+		end
 
-class OrderQty2 < QuickFix::DoubleField
-	def initialize
-		super(192)
+		def initialize(data)
+			super(172, data)
+		end
 	end
 
-	def initialize(data)
-		super(192, data)
-	end
-end
+	class BidSpotRate < Quickfix::DoubleField
+		def initialize
+			super(188)
+		end
 
-class SettlDate2 < QuickFix::StringField
-	def initialize
-		super(193)
+		def initialize(data)
+			super(188, data)
+		end
 	end
 
-	def initialize(data)
-		super(193, data)
-	end
-end
+	class BidForwardPoints < Quickfix::DoubleField
+		def initialize
+			super(189)
+		end
 
-class LastSpotRate < QuickFix::DoubleField
-	def initialize
-		super(194)
+		def initialize(data)
+			super(189, data)
+		end
 	end
 
-	def initialize(data)
-		super(194, data)
-	end
-end
+	class OfferSpotRate < Quickfix::DoubleField
+		def initialize
+			super(190)
+		end
 
-class LastForwardPoints < QuickFix::DoubleField
-	def initialize
-		super(195)
+		def initialize(data)
+			super(190, data)
+		end
 	end
 
-	def initialize(data)
-		super(195, data)
-	end
-end
+	class OfferForwardPoints < Quickfix::DoubleField
+		def initialize
+			super(191)
+		end
 
-class AllocLinkID < QuickFix::StringField
-	def initialize
-		super(196)
+		def initialize(data)
+			super(191, data)
+		end
 	end
 
-	def initialize(data)
-		super(196, data)
-	end
-end
+	class OrderQty2 < Quickfix::DoubleField
+		def initialize
+			super(192)
+		end
 
-class AllocLinkType < QuickFix::IntField
-	def initialize
-		super(197)
+		def initialize(data)
+			super(192, data)
+		end
 	end
 
-	def initialize(data)
-		super(197, data)
-	end
-end
+	class SettlDate2 < Quickfix::StringField
+		def initialize
+			super(193)
+		end
 
-class SecondaryOrderID < QuickFix::StringField
-	def initialize
-		super(198)
+		def initialize(data)
+			super(193, data)
+		end
 	end
 
-	def initialize(data)
-		super(198, data)
-	end
-end
+	class LastSpotRate < Quickfix::DoubleField
+		def initialize
+			super(194)
+		end
 
-class NoIOIQualifiers < QuickFix::IntField
-	def initialize
-		super(199)
+		def initialize(data)
+			super(194, data)
+		end
 	end
 
-	def initialize(data)
-		super(199, data)
-	end
-end
+	class LastForwardPoints < Quickfix::DoubleField
+		def initialize
+			super(195)
+		end
 
-class MaturityMonthYear < QuickFix::StringField
-	def initialize
-		super(200)
+		def initialize(data)
+			super(195, data)
+		end
 	end
 
-	def initialize(data)
-		super(200, data)
-	end
-end
+	class AllocLinkID < Quickfix::StringField
+		def initialize
+			super(196)
+		end
 
-class StrikePrice < QuickFix::DoubleField
-	def initialize
-		super(202)
+		def initialize(data)
+			super(196, data)
+		end
 	end
 
-	def initialize(data)
-		super(202, data)
-	end
-end
+	class AllocLinkType < Quickfix::IntField
+		def initialize
+			super(197)
+		end
 
-class CoveredOrUncovered < QuickFix::IntField
-	def initialize
-		super(203)
+		def initialize(data)
+			super(197, data)
+		end
 	end
 
-	def initialize(data)
-		super(203, data)
-	end
-end
+	class SecondaryOrderID < Quickfix::StringField
+		def initialize
+			super(198)
+		end
 
-class OptAttribute < QuickFix::CharField
-	def initialize
-		super(206)
+		def initialize(data)
+			super(198, data)
+		end
 	end
 
-	def initialize(data)
-		super(206, data)
-	end
-end
+	class NoIOIQualifiers < Quickfix::IntField
+		def initialize
+			super(199)
+		end
 
-class SecurityExchange < QuickFix::StringField
-	def initialize
-		super(207)
+		def initialize(data)
+			super(199, data)
+		end
 	end
 
-	def initialize(data)
-		super(207, data)
-	end
-end
+	class MaturityMonthYear < Quickfix::StringField
+		def initialize
+			super(200)
+		end
 
-class NotifyBrokerOfCredit < QuickFix::BooleanField
-	def initialize
-		super(208)
+		def initialize(data)
+			super(200, data)
+		end
 	end
 
-	def initialize(data)
-		super(208, data)
-	end
-end
+	class StrikePrice < Quickfix::DoubleField
+		def initialize
+			super(202)
+		end
 
-class AllocHandlInst < QuickFix::IntField
-	def initialize
-		super(209)
+		def initialize(data)
+			super(202, data)
+		end
 	end
 
-	def initialize(data)
-		super(209, data)
-	end
-end
+	class CoveredOrUncovered < Quickfix::IntField
+		def initialize
+			super(203)
+		end
 
-class MaxShow < QuickFix::DoubleField
-	def initialize
-		super(210)
+		def initialize(data)
+			super(203, data)
+		end
 	end
 
-	def initialize(data)
-		super(210, data)
-	end
-end
+	class OptAttribute < Quickfix::CharField
+		def initialize
+			super(206)
+		end
 
-class PegOffsetValue < QuickFix::DoubleField
-	def initialize
-		super(211)
+		def initialize(data)
+			super(206, data)
+		end
 	end
 
-	def initialize(data)
-		super(211, data)
-	end
-end
+	class SecurityExchange < Quickfix::StringField
+		def initialize
+			super(207)
+		end
 
-class XmlDataLen < QuickFix::IntField
-	def initialize
-		super(212)
+		def initialize(data)
+			super(207, data)
+		end
 	end
 
-	def initialize(data)
-		super(212, data)
-	end
-end
+	class NotifyBrokerOfCredit < Quickfix::BoolField
+		def initialize
+			super(208)
+		end
 
-class XmlData < QuickFix::StringField
-	def initialize
-		super(213)
+		def initialize(data)
+			super(208, data)
+		end
 	end
 
-	def initialize(data)
-		super(213, data)
-	end
-end
+	class AllocHandlInst < Quickfix::IntField
+		def initialize
+			super(209)
+		end
 
-class SettlInstRefID < QuickFix::StringField
-	def initialize
-		super(214)
+		def initialize(data)
+			super(209, data)
+		end
 	end
 
-	def initialize(data)
-		super(214, data)
-	end
-end
+	class MaxShow < Quickfix::DoubleField
+		def initialize
+			super(210)
+		end
 
-class NoRoutingIDs < QuickFix::IntField
-	def initialize
-		super(215)
+		def initialize(data)
+			super(210, data)
+		end
 	end
 
-	def initialize(data)
-		super(215, data)
-	end
-end
+	class PegOffsetValue < Quickfix::DoubleField
+		def initialize
+			super(211)
+		end
 
-class RoutingType < QuickFix::IntField
-	def initialize
-		super(216)
+		def initialize(data)
+			super(211, data)
+		end
 	end
 
-	def initialize(data)
-		super(216, data)
-	end
-end
+	class XmlDataLen < Quickfix::IntField
+		def initialize
+			super(212)
+		end
 
-class RoutingID < QuickFix::StringField
-	def initialize
-		super(217)
+		def initialize(data)
+			super(212, data)
+		end
 	end
 
-	def initialize(data)
-		super(217, data)
-	end
-end
+	class XmlData < Quickfix::StringField
+		def initialize
+			super(213)
+		end
 
-class Spread < QuickFix::DoubleField
-	def initialize
-		super(218)
+		def initialize(data)
+			super(213, data)
+		end
 	end
 
-	def initialize(data)
-		super(218, data)
-	end
-end
+	class SettlInstRefID < Quickfix::StringField
+		def initialize
+			super(214)
+		end
 
-class BenchmarkCurveCurrency < QuickFix::StringField
-	def initialize
-		super(220)
+		def initialize(data)
+			super(214, data)
+		end
 	end
 
-	def initialize(data)
-		super(220, data)
-	end
-end
+	class NoRoutingIDs < Quickfix::IntField
+		def initialize
+			super(215)
+		end
 
-class BenchmarkCurveName < QuickFix::StringField
-	def initialize
-		super(221)
+		def initialize(data)
+			super(215, data)
+		end
 	end
 
-	def initialize(data)
-		super(221, data)
-	end
-end
+	class RoutingType < Quickfix::IntField
+		def initialize
+			super(216)
+		end
 
-class BenchmarkCurvePoint < QuickFix::StringField
-	def initialize
-		super(222)
+		def initialize(data)
+			super(216, data)
+		end
 	end
 
-	def initialize(data)
-		super(222, data)
-	end
-end
+	class RoutingID < Quickfix::StringField
+		def initialize
+			super(217)
+		end
 
-class CouponRate < QuickFix::DoubleField
-	def initialize
-		super(223)
+		def initialize(data)
+			super(217, data)
+		end
 	end
 
-	def initialize(data)
-		super(223, data)
-	end
-end
+	class Spread < Quickfix::DoubleField
+		def initialize
+			super(218)
+		end
 
-class CouponPaymentDate < QuickFix::StringField
-	def initialize
-		super(224)
+		def initialize(data)
+			super(218, data)
+		end
 	end
 
-	def initialize(data)
-		super(224, data)
-	end
-end
+	class BenchmarkCurveCurrency < Quickfix::StringField
+		def initialize
+			super(220)
+		end
 
-class IssueDate < QuickFix::StringField
-	def initialize
-		super(225)
+		def initialize(data)
+			super(220, data)
+		end
 	end
 
-	def initialize(data)
-		super(225, data)
-	end
-end
+	class BenchmarkCurveName < Quickfix::StringField
+		def initialize
+			super(221)
+		end
 
-class RepurchaseTerm < QuickFix::IntField
-	def initialize
-		super(226)
+		def initialize(data)
+			super(221, data)
+		end
 	end
 
-	def initialize(data)
-		super(226, data)
-	end
-end
+	class BenchmarkCurvePoint < Quickfix::StringField
+		def initialize
+			super(222)
+		end
 
-class RepurchaseRate < QuickFix::DoubleField
-	def initialize
-		super(227)
+		def initialize(data)
+			super(222, data)
+		end
 	end
 
-	def initialize(data)
-		super(227, data)
-	end
-end
+	class CouponRate < Quickfix::DoubleField
+		def initialize
+			super(223)
+		end
 
-class Factor < QuickFix::DoubleField
-	def initialize
-		super(228)
+		def initialize(data)
+			super(223, data)
+		end
 	end
 
-	def initialize(data)
-		super(228, data)
-	end
-end
+	class CouponPaymentDate < Quickfix::StringField
+		def initialize
+			super(224)
+		end
 
-class TradeOriginationDate < QuickFix::StringField
-	def initialize
-		super(229)
+		def initialize(data)
+			super(224, data)
+		end
 	end
 
-	def initialize(data)
-		super(229, data)
-	end
-end
+	class IssueDate < Quickfix::StringField
+		def initialize
+			super(225)
+		end
 
-class ExDate < QuickFix::StringField
-	def initialize
-		super(230)
+		def initialize(data)
+			super(225, data)
+		end
 	end
 
-	def initialize(data)
-		super(230, data)
-	end
-end
+	class RepurchaseTerm < Quickfix::IntField
+		def initialize
+			super(226)
+		end
 
-class ContractMultiplier < QuickFix::DoubleField
-	def initialize
-		super(231)
+		def initialize(data)
+			super(226, data)
+		end
 	end
 
-	def initialize(data)
-		super(231, data)
-	end
-end
+	class RepurchaseRate < Quickfix::DoubleField
+		def initialize
+			super(227)
+		end
 
-class NoStipulations < QuickFix::IntField
-	def initialize
-		super(232)
+		def initialize(data)
+			super(227, data)
+		end
 	end
 
-	def initialize(data)
-		super(232, data)
-	end
-end
+	class Factor < Quickfix::DoubleField
+		def initialize
+			super(228)
+		end
 
-class StipulationType < QuickFix::StringField
-	def initialize
-		super(233)
+		def initialize(data)
+			super(228, data)
+		end
 	end
 
-	def initialize(data)
-		super(233, data)
-	end
-end
+	class TradeOriginationDate < Quickfix::StringField
+		def initialize
+			super(229)
+		end
 
-class StipulationValue < QuickFix::StringField
-	def initialize
-		super(234)
+		def initialize(data)
+			super(229, data)
+		end
 	end
 
-	def initialize(data)
-		super(234, data)
-	end
-end
+	class ExDate < Quickfix::StringField
+		def initialize
+			super(230)
+		end
 
-class YieldType < QuickFix::StringField
-	def initialize
-		super(235)
+		def initialize(data)
+			super(230, data)
+		end
 	end
 
-	def initialize(data)
-		super(235, data)
-	end
-end
+	class ContractMultiplier < Quickfix::DoubleField
+		def initialize
+			super(231)
+		end
 
-class Yield < QuickFix::DoubleField
-	def initialize
-		super(236)
+		def initialize(data)
+			super(231, data)
+		end
 	end
 
-	def initialize(data)
-		super(236, data)
-	end
-end
+	class NoStipulations < Quickfix::IntField
+		def initialize
+			super(232)
+		end
 
-class TotalTakedown < QuickFix::DoubleField
-	def initialize
-		super(237)
+		def initialize(data)
+			super(232, data)
+		end
 	end
 
-	def initialize(data)
-		super(237, data)
-	end
-end
+	class StipulationType < Quickfix::StringField
+		def initialize
+			super(233)
+		end
 
-class Concession < QuickFix::DoubleField
-	def initialize
-		super(238)
+		def initialize(data)
+			super(233, data)
+		end
 	end
 
-	def initialize(data)
-		super(238, data)
-	end
-end
+	class StipulationValue < Quickfix::StringField
+		def initialize
+			super(234)
+		end
 
-class RepoCollateralSecurityType < QuickFix::IntField
-	def initialize
-		super(239)
+		def initialize(data)
+			super(234, data)
+		end
 	end
 
-	def initialize(data)
-		super(239, data)
-	end
-end
+	class YieldType < Quickfix::StringField
+		def initialize
+			super(235)
+		end
 
-class RedemptionDate < QuickFix::StringField
-	def initialize
-		super(240)
+		def initialize(data)
+			super(235, data)
+		end
 	end
 
-	def initialize(data)
-		super(240, data)
-	end
-end
+	class Yield < Quickfix::DoubleField
+		def initialize
+			super(236)
+		end
 
-class UnderlyingCouponPaymentDate < QuickFix::StringField
-	def initialize
-		super(241)
+		def initialize(data)
+			super(236, data)
+		end
 	end
 
-	def initialize(data)
-		super(241, data)
-	end
-end
+	class TotalTakedown < Quickfix::DoubleField
+		def initialize
+			super(237)
+		end
 
-class UnderlyingIssueDate < QuickFix::StringField
-	def initialize
-		super(242)
+		def initialize(data)
+			super(237, data)
+		end
 	end
 
-	def initialize(data)
-		super(242, data)
-	end
-end
+	class Concession < Quickfix::DoubleField
+		def initialize
+			super(238)
+		end
 
-class UnderlyingRepoCollateralSecurityType < QuickFix::IntField
-	def initialize
-		super(243)
+		def initialize(data)
+			super(238, data)
+		end
 	end
 
-	def initialize(data)
-		super(243, data)
-	end
-end
+	class RepoCollateralSecurityType < Quickfix::IntField
+		def initialize
+			super(239)
+		end
 
-class UnderlyingRepurchaseTerm < QuickFix::IntField
-	def initialize
-		super(244)
+		def initialize(data)
+			super(239, data)
+		end
 	end
 
-	def initialize(data)
-		super(244, data)
-	end
-end
+	class RedemptionDate < Quickfix::StringField
+		def initialize
+			super(240)
+		end
 
-class UnderlyingRepurchaseRate < QuickFix::DoubleField
-	def initialize
-		super(245)
+		def initialize(data)
+			super(240, data)
+		end
 	end
 
-	def initialize(data)
-		super(245, data)
-	end
-end
+	class UnderlyingCouponPaymentDate < Quickfix::StringField
+		def initialize
+			super(241)
+		end
 
-class UnderlyingFactor < QuickFix::DoubleField
-	def initialize
-		super(246)
+		def initialize(data)
+			super(241, data)
+		end
 	end
 
-	def initialize(data)
-		super(246, data)
-	end
-end
+	class UnderlyingIssueDate < Quickfix::StringField
+		def initialize
+			super(242)
+		end
 
-class UnderlyingRedemptionDate < QuickFix::StringField
-	def initialize
-		super(247)
+		def initialize(data)
+			super(242, data)
+		end
 	end
 
-	def initialize(data)
-		super(247, data)
-	end
-end
+	class UnderlyingRepoCollateralSecurityType < Quickfix::IntField
+		def initialize
+			super(243)
+		end
 
-class LegCouponPaymentDate < QuickFix::StringField
-	def initialize
-		super(248)
+		def initialize(data)
+			super(243, data)
+		end
 	end
 
-	def initialize(data)
-		super(248, data)
-	end
-end
+	class UnderlyingRepurchaseTerm < Quickfix::IntField
+		def initialize
+			super(244)
+		end
 
-class LegIssueDate < QuickFix::StringField
-	def initialize
-		super(249)
+		def initialize(data)
+			super(244, data)
+		end
 	end
 
-	def initialize(data)
-		super(249, data)
-	end
-end
+	class UnderlyingRepurchaseRate < Quickfix::DoubleField
+		def initialize
+			super(245)
+		end
 
-class LegRepoCollateralSecurityType < QuickFix::IntField
-	def initialize
-		super(250)
+		def initialize(data)
+			super(245, data)
+		end
 	end
 
-	def initialize(data)
-		super(250, data)
-	end
-end
+	class UnderlyingFactor < Quickfix::DoubleField
+		def initialize
+			super(246)
+		end
 
-class LegRepurchaseTerm < QuickFix::IntField
-	def initialize
-		super(251)
+		def initialize(data)
+			super(246, data)
+		end
 	end
 
-	def initialize(data)
-		super(251, data)
-	end
-end
+	class UnderlyingRedemptionDate < Quickfix::StringField
+		def initialize
+			super(247)
+		end
 
-class LegRepurchaseRate < QuickFix::DoubleField
-	def initialize
-		super(252)
+		def initialize(data)
+			super(247, data)
+		end
 	end
 
-	def initialize(data)
-		super(252, data)
-	end
-end
+	class LegCouponPaymentDate < Quickfix::StringField
+		def initialize
+			super(248)
+		end
 
-class LegFactor < QuickFix::DoubleField
-	def initialize
-		super(253)
+		def initialize(data)
+			super(248, data)
+		end
 	end
 
-	def initialize(data)
-		super(253, data)
-	end
-end
+	class LegIssueDate < Quickfix::StringField
+		def initialize
+			super(249)
+		end
 
-class LegRedemptionDate < QuickFix::StringField
-	def initialize
-		super(254)
+		def initialize(data)
+			super(249, data)
+		end
 	end
 
-	def initialize(data)
-		super(254, data)
-	end
-end
+	class LegRepoCollateralSecurityType < Quickfix::IntField
+		def initialize
+			super(250)
+		end
 
-class CreditRating < QuickFix::StringField
-	def initialize
-		super(255)
+		def initialize(data)
+			super(250, data)
+		end
 	end
 
-	def initialize(data)
-		super(255, data)
-	end
-end
+	class LegRepurchaseTerm < Quickfix::IntField
+		def initialize
+			super(251)
+		end
 
-class UnderlyingCreditRating < QuickFix::StringField
-	def initialize
-		super(256)
+		def initialize(data)
+			super(251, data)
+		end
 	end
 
-	def initialize(data)
-		super(256, data)
-	end
-end
+	class LegRepurchaseRate < Quickfix::DoubleField
+		def initialize
+			super(252)
+		end
 
-class LegCreditRating < QuickFix::StringField
-	def initialize
-		super(257)
+		def initialize(data)
+			super(252, data)
+		end
 	end
 
-	def initialize(data)
-		super(257, data)
-	end
-end
+	class LegFactor < Quickfix::DoubleField
+		def initialize
+			super(253)
+		end
 
-class TradedFlatSwitch < QuickFix::BooleanField
-	def initialize
-		super(258)
+		def initialize(data)
+			super(253, data)
+		end
 	end
 
-	def initialize(data)
-		super(258, data)
-	end
-end
+	class LegRedemptionDate < Quickfix::StringField
+		def initialize
+			super(254)
+		end
 
-class BasisFeatureDate < QuickFix::StringField
-	def initialize
-		super(259)
+		def initialize(data)
+			super(254, data)
+		end
 	end
 
-	def initialize(data)
-		super(259, data)
-	end
-end
+	class CreditRating < Quickfix::StringField
+		def initialize
+			super(255)
+		end
 
-class BasisFeaturePrice < QuickFix::DoubleField
-	def initialize
-		super(260)
+		def initialize(data)
+			super(255, data)
+		end
 	end
 
-	def initialize(data)
-		super(260, data)
-	end
-end
+	class UnderlyingCreditRating < Quickfix::StringField
+		def initialize
+			super(256)
+		end
 
-class MDReqID < QuickFix::StringField
-	def initialize
-		super(262)
+		def initialize(data)
+			super(256, data)
+		end
 	end
 
-	def initialize(data)
-		super(262, data)
-	end
-end
+	class LegCreditRating < Quickfix::StringField
+		def initialize
+			super(257)
+		end
 
-class SubscriptionRequestType < QuickFix::CharField
-	def initialize
-		super(263)
+		def initialize(data)
+			super(257, data)
+		end
 	end
 
-	def initialize(data)
-		super(263, data)
-	end
-end
+	class TradedFlatSwitch < Quickfix::BoolField
+		def initialize
+			super(258)
+		end
 
-class MarketDepth < QuickFix::IntField
-	def initialize
-		super(264)
+		def initialize(data)
+			super(258, data)
+		end
 	end
 
-	def initialize(data)
-		super(264, data)
-	end
-end
+	class BasisFeatureDate < Quickfix::StringField
+		def initialize
+			super(259)
+		end
 
-class MDUpdateType < QuickFix::IntField
-	def initialize
-		super(265)
+		def initialize(data)
+			super(259, data)
+		end
 	end
 
-	def initialize(data)
-		super(265, data)
-	end
-end
+	class BasisFeaturePrice < Quickfix::DoubleField
+		def initialize
+			super(260)
+		end
 
-class AggregatedBook < QuickFix::BooleanField
-	def initialize
-		super(266)
+		def initialize(data)
+			super(260, data)
+		end
 	end
 
-	def initialize(data)
-		super(266, data)
-	end
-end
+	class MDReqID < Quickfix::StringField
+		def initialize
+			super(262)
+		end
 
-class NoMDEntryTypes < QuickFix::IntField
-	def initialize
-		super(267)
+		def initialize(data)
+			super(262, data)
+		end
 	end
 
-	def initialize(data)
-		super(267, data)
-	end
-end
+	class SubscriptionRequestType < Quickfix::CharField
+		def initialize
+			super(263)
+		end
 
-class NoMDEntries < QuickFix::IntField
-	def initialize
-		super(268)
+		def initialize(data)
+			super(263, data)
+		end
 	end
 
-	def initialize(data)
-		super(268, data)
-	end
-end
+	class MarketDepth < Quickfix::IntField
+		def initialize
+			super(264)
+		end
 
-class MDEntryType < QuickFix::CharField
-	def initialize
-		super(269)
+		def initialize(data)
+			super(264, data)
+		end
 	end
 
-	def initialize(data)
-		super(269, data)
-	end
-end
+	class MDUpdateType < Quickfix::IntField
+		def initialize
+			super(265)
+		end
 
-class MDEntryPx < QuickFix::DoubleField
-	def initialize
-		super(270)
+		def initialize(data)
+			super(265, data)
+		end
 	end
 
-	def initialize(data)
-		super(270, data)
-	end
-end
+	class AggregatedBook < Quickfix::BoolField
+		def initialize
+			super(266)
+		end
 
-class MDEntrySize < QuickFix::DoubleField
-	def initialize
-		super(271)
+		def initialize(data)
+			super(266, data)
+		end
 	end
 
-	def initialize(data)
-		super(271, data)
-	end
-end
+	class NoMDEntryTypes < Quickfix::IntField
+		def initialize
+			super(267)
+		end
 
-class MDEntryDate < QuickFix::UtcDateOnlyField
-	def initialize
-		super(272)
+		def initialize(data)
+			super(267, data)
+		end
 	end
 
-	def initialize(data)
-		super(272, data)
-	end
-end
+	class NoMDEntries < Quickfix::IntField
+		def initialize
+			super(268)
+		end
 
-class MDEntryTime < QuickFix::UtcTimeOnlyField
-	def initialize
-		super(273)
+		def initialize(data)
+			super(268, data)
+		end
 	end
 
-	def initialize(data)
-		super(273, data)
-	end
-end
+	class MDEntryType < Quickfix::CharField
+		def initialize
+			super(269)
+		end
 
-class TickDirection < QuickFix::CharField
-	def initialize
-		super(274)
+		def initialize(data)
+			super(269, data)
+		end
 	end
 
-	def initialize(data)
-		super(274, data)
-	end
-end
+	class MDEntryPx < Quickfix::DoubleField
+		def initialize
+			super(270)
+		end
 
-class MDMkt < QuickFix::StringField
-	def initialize
-		super(275)
+		def initialize(data)
+			super(270, data)
+		end
 	end
 
-	def initialize(data)
-		super(275, data)
-	end
-end
+	class MDEntrySize < Quickfix::DoubleField
+		def initialize
+			super(271)
+		end
 
-class QuoteCondition < QuickFix::StringField
-	def initialize
-		super(276)
+		def initialize(data)
+			super(271, data)
+		end
 	end
 
-	def initialize(data)
-		super(276, data)
-	end
-end
+	class MDEntryDate < Quickfix::UtcDateOnlyField
+		def initialize
+			super(272)
+		end
 
-class TradeCondition < QuickFix::StringField
-	def initialize
-		super(277)
+		def initialize(data)
+			super(272, data)
+		end
 	end
 
-	def initialize(data)
-		super(277, data)
-	end
-end
+	class MDEntryTime < Quickfix::UtcTimeOnlyField
+		def initialize
+			super(273)
+		end
 
-class MDEntryID < QuickFix::StringField
-	def initialize
-		super(278)
+		def initialize(data)
+			super(273, data)
+		end
 	end
 
-	def initialize(data)
-		super(278, data)
-	end
-end
+	class TickDirection < Quickfix::CharField
+		def initialize
+			super(274)
+		end
 
-class MDUpdateAction < QuickFix::CharField
-	def initialize
-		super(279)
+		def initialize(data)
+			super(274, data)
+		end
 	end
 
-	def initialize(data)
-		super(279, data)
-	end
-end
+	class MDMkt < Quickfix::StringField
+		def initialize
+			super(275)
+		end
 
-class MDEntryRefID < QuickFix::StringField
-	def initialize
-		super(280)
+		def initialize(data)
+			super(275, data)
+		end
 	end
 
-	def initialize(data)
-		super(280, data)
-	end
-end
+	class QuoteCondition < Quickfix::StringField
+		def initialize
+			super(276)
+		end
 
-class MDReqRejReason < QuickFix::CharField
-	def initialize
-		super(281)
+		def initialize(data)
+			super(276, data)
+		end
 	end
 
-	def initialize(data)
-		super(281, data)
-	end
-end
+	class TradeCondition < Quickfix::StringField
+		def initialize
+			super(277)
+		end
 
-class MDEntryOriginator < QuickFix::StringField
-	def initialize
-		super(282)
+		def initialize(data)
+			super(277, data)
+		end
 	end
 
-	def initialize(data)
-		super(282, data)
-	end
-end
+	class MDEntryID < Quickfix::StringField
+		def initialize
+			super(278)
+		end
 
-class LocationID < QuickFix::StringField
-	def initialize
-		super(283)
+		def initialize(data)
+			super(278, data)
+		end
 	end
 
-	def initialize(data)
-		super(283, data)
-	end
-end
+	class MDUpdateAction < Quickfix::CharField
+		def initialize
+			super(279)
+		end
 
-class DeskID < QuickFix::StringField
-	def initialize
-		super(284)
+		def initialize(data)
+			super(279, data)
+		end
 	end
 
-	def initialize(data)
-		super(284, data)
-	end
-end
+	class MDEntryRefID < Quickfix::StringField
+		def initialize
+			super(280)
+		end
 
-class DeleteReason < QuickFix::CharField
-	def initialize
-		super(285)
+		def initialize(data)
+			super(280, data)
+		end
 	end
 
-	def initialize(data)
-		super(285, data)
-	end
-end
+	class MDReqRejReason < Quickfix::CharField
+		def initialize
+			super(281)
+		end
 
-class OpenCloseSettlFlag < QuickFix::StringField
-	def initialize
-		super(286)
+		def initialize(data)
+			super(281, data)
+		end
 	end
 
-	def initialize(data)
-		super(286, data)
-	end
-end
+	class MDEntryOriginator < Quickfix::StringField
+		def initialize
+			super(282)
+		end
 
-class SellerDays < QuickFix::IntField
-	def initialize
-		super(287)
+		def initialize(data)
+			super(282, data)
+		end
 	end
 
-	def initialize(data)
-		super(287, data)
-	end
-end
+	class LocationID < Quickfix::StringField
+		def initialize
+			super(283)
+		end
 
-class MDEntryBuyer < QuickFix::StringField
-	def initialize
-		super(288)
+		def initialize(data)
+			super(283, data)
+		end
 	end
 
-	def initialize(data)
-		super(288, data)
-	end
-end
+	class DeskID < Quickfix::StringField
+		def initialize
+			super(284)
+		end
 
-class MDEntrySeller < QuickFix::StringField
-	def initialize
-		super(289)
+		def initialize(data)
+			super(284, data)
+		end
 	end
 
-	def initialize(data)
-		super(289, data)
-	end
-end
+	class DeleteReason < Quickfix::CharField
+		def initialize
+			super(285)
+		end
 
-class MDEntryPositionNo < QuickFix::IntField
-	def initialize
-		super(290)
+		def initialize(data)
+			super(285, data)
+		end
 	end
 
-	def initialize(data)
-		super(290, data)
-	end
-end
+	class OpenCloseSettlFlag < Quickfix::StringField
+		def initialize
+			super(286)
+		end
 
-class FinancialStatus < QuickFix::StringField
-	def initialize
-		super(291)
+		def initialize(data)
+			super(286, data)
+		end
 	end
 
-	def initialize(data)
-		super(291, data)
-	end
-end
+	class SellerDays < Quickfix::IntField
+		def initialize
+			super(287)
+		end
 
-class CorporateAction < QuickFix::StringField
-	def initialize
-		super(292)
+		def initialize(data)
+			super(287, data)
+		end
 	end
 
-	def initialize(data)
-		super(292, data)
-	end
-end
+	class MDEntryBuyer < Quickfix::StringField
+		def initialize
+			super(288)
+		end
 
-class DefBidSize < QuickFix::DoubleField
-	def initialize
-		super(293)
+		def initialize(data)
+			super(288, data)
+		end
 	end
 
-	def initialize(data)
-		super(293, data)
-	end
-end
+	class MDEntrySeller < Quickfix::StringField
+		def initialize
+			super(289)
+		end
 
-class DefOfferSize < QuickFix::DoubleField
-	def initialize
-		super(294)
+		def initialize(data)
+			super(289, data)
+		end
 	end
 
-	def initialize(data)
-		super(294, data)
-	end
-end
+	class MDEntryPositionNo < Quickfix::IntField
+		def initialize
+			super(290)
+		end
 
-class NoQuoteEntries < QuickFix::IntField
-	def initialize
-		super(295)
+		def initialize(data)
+			super(290, data)
+		end
 	end
 
-	def initialize(data)
-		super(295, data)
-	end
-end
+	class FinancialStatus < Quickfix::StringField
+		def initialize
+			super(291)
+		end
 
-class NoQuoteSets < QuickFix::IntField
-	def initialize
-		super(296)
+		def initialize(data)
+			super(291, data)
+		end
 	end
 
-	def initialize(data)
-		super(296, data)
-	end
-end
+	class CorporateAction < Quickfix::StringField
+		def initialize
+			super(292)
+		end
 
-class QuoteStatus < QuickFix::IntField
-	def initialize
-		super(297)
+		def initialize(data)
+			super(292, data)
+		end
 	end
 
-	def initialize(data)
-		super(297, data)
-	end
-end
+	class DefBidSize < Quickfix::DoubleField
+		def initialize
+			super(293)
+		end
 
-class QuoteCancelType < QuickFix::IntField
-	def initialize
-		super(298)
+		def initialize(data)
+			super(293, data)
+		end
 	end
 
-	def initialize(data)
-		super(298, data)
-	end
-end
+	class DefOfferSize < Quickfix::DoubleField
+		def initialize
+			super(294)
+		end
 
-class QuoteEntryID < QuickFix::StringField
-	def initialize
-		super(299)
+		def initialize(data)
+			super(294, data)
+		end
 	end
 
-	def initialize(data)
-		super(299, data)
-	end
-end
+	class NoQuoteEntries < Quickfix::IntField
+		def initialize
+			super(295)
+		end
 
-class QuoteRejectReason < QuickFix::IntField
-	def initialize
-		super(300)
+		def initialize(data)
+			super(295, data)
+		end
 	end
 
-	def initialize(data)
-		super(300, data)
-	end
-end
+	class NoQuoteSets < Quickfix::IntField
+		def initialize
+			super(296)
+		end
 
-class QuoteResponseLevel < QuickFix::IntField
-	def initialize
-		super(301)
+		def initialize(data)
+			super(296, data)
+		end
 	end
 
-	def initialize(data)
-		super(301, data)
-	end
-end
+	class QuoteStatus < Quickfix::IntField
+		def initialize
+			super(297)
+		end
 
-class QuoteSetID < QuickFix::StringField
-	def initialize
-		super(302)
+		def initialize(data)
+			super(297, data)
+		end
 	end
 
-	def initialize(data)
-		super(302, data)
-	end
-end
+	class QuoteCancelType < Quickfix::IntField
+		def initialize
+			super(298)
+		end
 
-class QuoteRequestType < QuickFix::IntField
-	def initialize
-		super(303)
+		def initialize(data)
+			super(298, data)
+		end
 	end
 
-	def initialize(data)
-		super(303, data)
-	end
-end
+	class QuoteEntryID < Quickfix::StringField
+		def initialize
+			super(299)
+		end
 
-class TotNoQuoteEntries < QuickFix::IntField
-	def initialize
-		super(304)
+		def initialize(data)
+			super(299, data)
+		end
 	end
 
-	def initialize(data)
-		super(304, data)
-	end
-end
+	class QuoteRejectReason < Quickfix::IntField
+		def initialize
+			super(300)
+		end
 
-class UnderlyingSecurityIDSource < QuickFix::StringField
-	def initialize
-		super(305)
+		def initialize(data)
+			super(300, data)
+		end
 	end
 
-	def initialize(data)
-		super(305, data)
-	end
-end
+	class QuoteResponseLevel < Quickfix::IntField
+		def initialize
+			super(301)
+		end
 
-class UnderlyingIssuer < QuickFix::StringField
-	def initialize
-		super(306)
+		def initialize(data)
+			super(301, data)
+		end
 	end
 
-	def initialize(data)
-		super(306, data)
-	end
-end
+	class QuoteSetID < Quickfix::StringField
+		def initialize
+			super(302)
+		end
 
-class UnderlyingSecurityDesc < QuickFix::StringField
-	def initialize
-		super(307)
+		def initialize(data)
+			super(302, data)
+		end
 	end
 
-	def initialize(data)
-		super(307, data)
-	end
-end
+	class QuoteRequestType < Quickfix::IntField
+		def initialize
+			super(303)
+		end
 
-class UnderlyingSecurityExchange < QuickFix::StringField
-	def initialize
-		super(308)
+		def initialize(data)
+			super(303, data)
+		end
 	end
 
-	def initialize(data)
-		super(308, data)
-	end
-end
+	class TotNoQuoteEntries < Quickfix::IntField
+		def initialize
+			super(304)
+		end
 
-class UnderlyingSecurityID < QuickFix::StringField
-	def initialize
-		super(309)
+		def initialize(data)
+			super(304, data)
+		end
 	end
 
-	def initialize(data)
-		super(309, data)
-	end
-end
+	class UnderlyingSecurityIDSource < Quickfix::StringField
+		def initialize
+			super(305)
+		end
 
-class UnderlyingSecurityType < QuickFix::StringField
-	def initialize
-		super(310)
+		def initialize(data)
+			super(305, data)
+		end
 	end
 
-	def initialize(data)
-		super(310, data)
-	end
-end
+	class UnderlyingIssuer < Quickfix::StringField
+		def initialize
+			super(306)
+		end
 
-class UnderlyingSymbol < QuickFix::StringField
-	def initialize
-		super(311)
+		def initialize(data)
+			super(306, data)
+		end
 	end
 
-	def initialize(data)
-		super(311, data)
-	end
-end
+	class UnderlyingSecurityDesc < Quickfix::StringField
+		def initialize
+			super(307)
+		end
 
-class UnderlyingSymbolSfx < QuickFix::StringField
-	def initialize
-		super(312)
+		def initialize(data)
+			super(307, data)
+		end
 	end
 
-	def initialize(data)
-		super(312, data)
-	end
-end
+	class UnderlyingSecurityExchange < Quickfix::StringField
+		def initialize
+			super(308)
+		end
 
-class UnderlyingMaturityMonthYear < QuickFix::StringField
-	def initialize
-		super(313)
+		def initialize(data)
+			super(308, data)
+		end
 	end
 
-	def initialize(data)
-		super(313, data)
-	end
-end
+	class UnderlyingSecurityID < Quickfix::StringField
+		def initialize
+			super(309)
+		end
 
-class UnderlyingStrikePrice < QuickFix::DoubleField
-	def initialize
-		super(316)
+		def initialize(data)
+			super(309, data)
+		end
 	end
 
-	def initialize(data)
-		super(316, data)
-	end
-end
+	class UnderlyingSecurityType < Quickfix::StringField
+		def initialize
+			super(310)
+		end
 
-class UnderlyingOptAttribute < QuickFix::CharField
-	def initialize
-		super(317)
+		def initialize(data)
+			super(310, data)
+		end
 	end
 
-	def initialize(data)
-		super(317, data)
-	end
-end
+	class UnderlyingSymbol < Quickfix::StringField
+		def initialize
+			super(311)
+		end
 
-class UnderlyingCurrency < QuickFix::StringField
-	def initialize
-		super(318)
+		def initialize(data)
+			super(311, data)
+		end
 	end
 
-	def initialize(data)
-		super(318, data)
-	end
-end
+	class UnderlyingSymbolSfx < Quickfix::StringField
+		def initialize
+			super(312)
+		end
 
-class SecurityReqID < QuickFix::StringField
-	def initialize
-		super(320)
+		def initialize(data)
+			super(312, data)
+		end
 	end
 
-	def initialize(data)
-		super(320, data)
-	end
-end
+	class UnderlyingMaturityMonthYear < Quickfix::StringField
+		def initialize
+			super(313)
+		end
 
-class SecurityRequestType < QuickFix::IntField
-	def initialize
-		super(321)
+		def initialize(data)
+			super(313, data)
+		end
 	end
 
-	def initialize(data)
-		super(321, data)
-	end
-end
+	class UnderlyingStrikePrice < Quickfix::DoubleField
+		def initialize
+			super(316)
+		end
 
-class SecurityResponseID < QuickFix::StringField
-	def initialize
-		super(322)
+		def initialize(data)
+			super(316, data)
+		end
 	end
 
-	def initialize(data)
-		super(322, data)
-	end
-end
+	class UnderlyingOptAttribute < Quickfix::CharField
+		def initialize
+			super(317)
+		end
 
-class SecurityResponseType < QuickFix::IntField
-	def initialize
-		super(323)
+		def initialize(data)
+			super(317, data)
+		end
 	end
 
-	def initialize(data)
-		super(323, data)
-	end
-end
+	class UnderlyingCurrency < Quickfix::StringField
+		def initialize
+			super(318)
+		end
 
-class SecurityStatusReqID < QuickFix::StringField
-	def initialize
-		super(324)
+		def initialize(data)
+			super(318, data)
+		end
 	end
 
-	def initialize(data)
-		super(324, data)
-	end
-end
+	class SecurityReqID < Quickfix::StringField
+		def initialize
+			super(320)
+		end
 
-class UnsolicitedIndicator < QuickFix::BooleanField
-	def initialize
-		super(325)
+		def initialize(data)
+			super(320, data)
+		end
 	end
 
-	def initialize(data)
-		super(325, data)
-	end
-end
+	class SecurityRequestType < Quickfix::IntField
+		def initialize
+			super(321)
+		end
 
-class SecurityTradingStatus < QuickFix::IntField
-	def initialize
-		super(326)
+		def initialize(data)
+			super(321, data)
+		end
 	end
 
-	def initialize(data)
-		super(326, data)
-	end
-end
+	class SecurityResponseID < Quickfix::StringField
+		def initialize
+			super(322)
+		end
 
-class HaltReason < QuickFix::CharField
-	def initialize
-		super(327)
+		def initialize(data)
+			super(322, data)
+		end
 	end
 
-	def initialize(data)
-		super(327, data)
-	end
-end
+	class SecurityResponseType < Quickfix::IntField
+		def initialize
+			super(323)
+		end
 
-class InViewOfCommon < QuickFix::BooleanField
-	def initialize
-		super(328)
+		def initialize(data)
+			super(323, data)
+		end
 	end
 
-	def initialize(data)
-		super(328, data)
-	end
-end
+	class SecurityStatusReqID < Quickfix::StringField
+		def initialize
+			super(324)
+		end
 
-class DueToRelated < QuickFix::BooleanField
-	def initialize
-		super(329)
+		def initialize(data)
+			super(324, data)
+		end
 	end
 
-	def initialize(data)
-		super(329, data)
-	end
-end
+	class UnsolicitedIndicator < Quickfix::BoolField
+		def initialize
+			super(325)
+		end
 
-class BuyVolume < QuickFix::DoubleField
-	def initialize
-		super(330)
+		def initialize(data)
+			super(325, data)
+		end
 	end
 
-	def initialize(data)
-		super(330, data)
-	end
-end
+	class SecurityTradingStatus < Quickfix::IntField
+		def initialize
+			super(326)
+		end
 
-class SellVolume < QuickFix::DoubleField
-	def initialize
-		super(331)
+		def initialize(data)
+			super(326, data)
+		end
 	end
 
-	def initialize(data)
-		super(331, data)
-	end
-end
+	class HaltReason < Quickfix::CharField
+		def initialize
+			super(327)
+		end
 
-class HighPx < QuickFix::DoubleField
-	def initialize
-		super(332)
+		def initialize(data)
+			super(327, data)
+		end
 	end
 
-	def initialize(data)
-		super(332, data)
-	end
-end
+	class InViewOfCommon < Quickfix::BoolField
+		def initialize
+			super(328)
+		end
 
-class LowPx < QuickFix::DoubleField
-	def initialize
-		super(333)
+		def initialize(data)
+			super(328, data)
+		end
 	end
 
-	def initialize(data)
-		super(333, data)
-	end
-end
+	class DueToRelated < Quickfix::BoolField
+		def initialize
+			super(329)
+		end
 
-class Adjustment < QuickFix::IntField
-	def initialize
-		super(334)
+		def initialize(data)
+			super(329, data)
+		end
 	end
 
-	def initialize(data)
-		super(334, data)
-	end
-end
+	class BuyVolume < Quickfix::DoubleField
+		def initialize
+			super(330)
+		end
 
-class TradSesReqID < QuickFix::StringField
-	def initialize
-		super(335)
+		def initialize(data)
+			super(330, data)
+		end
 	end
 
-	def initialize(data)
-		super(335, data)
-	end
-end
+	class SellVolume < Quickfix::DoubleField
+		def initialize
+			super(331)
+		end
 
-class TradingSessionID < QuickFix::StringField
-	def initialize
-		super(336)
+		def initialize(data)
+			super(331, data)
+		end
 	end
 
-	def initialize(data)
-		super(336, data)
-	end
-end
+	class HighPx < Quickfix::DoubleField
+		def initialize
+			super(332)
+		end
 
-class ContraTrader < QuickFix::StringField
-	def initialize
-		super(337)
+		def initialize(data)
+			super(332, data)
+		end
 	end
 
-	def initialize(data)
-		super(337, data)
-	end
-end
+	class LowPx < Quickfix::DoubleField
+		def initialize
+			super(333)
+		end
 
-class TradSesMethod < QuickFix::IntField
-	def initialize
-		super(338)
+		def initialize(data)
+			super(333, data)
+		end
 	end
 
-	def initialize(data)
-		super(338, data)
-	end
-end
+	class Adjustment < Quickfix::IntField
+		def initialize
+			super(334)
+		end
 
-class TradSesMode < QuickFix::IntField
-	def initialize
-		super(339)
+		def initialize(data)
+			super(334, data)
+		end
 	end
 
-	def initialize(data)
-		super(339, data)
-	end
-end
+	class TradSesReqID < Quickfix::StringField
+		def initialize
+			super(335)
+		end
 
-class TradSesStatus < QuickFix::IntField
-	def initialize
-		super(340)
+		def initialize(data)
+			super(335, data)
+		end
 	end
 
-	def initialize(data)
-		super(340, data)
-	end
-end
+	class TradingSessionID < Quickfix::StringField
+		def initialize
+			super(336)
+		end
 
-class TradSesStartTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(341)
+		def initialize(data)
+			super(336, data)
+		end
 	end
 
-	def initialize(data)
-		super(341, data)
-	end
-end
+	class ContraTrader < Quickfix::StringField
+		def initialize
+			super(337)
+		end
 
-class TradSesOpenTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(342)
+		def initialize(data)
+			super(337, data)
+		end
 	end
 
-	def initialize(data)
-		super(342, data)
-	end
-end
+	class TradSesMethod < Quickfix::IntField
+		def initialize
+			super(338)
+		end
 
-class TradSesPreCloseTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(343)
+		def initialize(data)
+			super(338, data)
+		end
 	end
 
-	def initialize(data)
-		super(343, data)
-	end
-end
+	class TradSesMode < Quickfix::IntField
+		def initialize
+			super(339)
+		end
 
-class TradSesCloseTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(344)
+		def initialize(data)
+			super(339, data)
+		end
 	end
 
-	def initialize(data)
-		super(344, data)
-	end
-end
+	class TradSesStatus < Quickfix::IntField
+		def initialize
+			super(340)
+		end
 
-class TradSesEndTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(345)
+		def initialize(data)
+			super(340, data)
+		end
 	end
 
-	def initialize(data)
-		super(345, data)
-	end
-end
+	class TradSesStartTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(341)
+		end
 
-class NumberOfOrders < QuickFix::IntField
-	def initialize
-		super(346)
+		def initialize(data)
+			super(341, data)
+		end
 	end
 
-	def initialize(data)
-		super(346, data)
-	end
-end
+	class TradSesOpenTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(342)
+		end
 
-class MessageEncoding < QuickFix::StringField
-	def initialize
-		super(347)
+		def initialize(data)
+			super(342, data)
+		end
 	end
 
-	def initialize(data)
-		super(347, data)
-	end
-end
+	class TradSesPreCloseTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(343)
+		end
 
-class EncodedIssuerLen < QuickFix::IntField
-	def initialize
-		super(348)
+		def initialize(data)
+			super(343, data)
+		end
 	end
 
-	def initialize(data)
-		super(348, data)
-	end
-end
+	class TradSesCloseTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(344)
+		end
 
-class EncodedIssuer < QuickFix::StringField
-	def initialize
-		super(349)
+		def initialize(data)
+			super(344, data)
+		end
 	end
 
-	def initialize(data)
-		super(349, data)
-	end
-end
+	class TradSesEndTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(345)
+		end
 
-class EncodedSecurityDescLen < QuickFix::IntField
-	def initialize
-		super(350)
+		def initialize(data)
+			super(345, data)
+		end
 	end
 
-	def initialize(data)
-		super(350, data)
-	end
-end
+	class NumberOfOrders < Quickfix::IntField
+		def initialize
+			super(346)
+		end
 
-class EncodedSecurityDesc < QuickFix::StringField
-	def initialize
-		super(351)
+		def initialize(data)
+			super(346, data)
+		end
 	end
 
-	def initialize(data)
-		super(351, data)
-	end
-end
+	class MessageEncoding < Quickfix::StringField
+		def initialize
+			super(347)
+		end
 
-class EncodedListExecInstLen < QuickFix::IntField
-	def initialize
-		super(352)
+		def initialize(data)
+			super(347, data)
+		end
 	end
 
-	def initialize(data)
-		super(352, data)
-	end
-end
+	class EncodedIssuerLen < Quickfix::IntField
+		def initialize
+			super(348)
+		end
 
-class EncodedListExecInst < QuickFix::StringField
-	def initialize
-		super(353)
+		def initialize(data)
+			super(348, data)
+		end
 	end
 
-	def initialize(data)
-		super(353, data)
-	end
-end
+	class EncodedIssuer < Quickfix::StringField
+		def initialize
+			super(349)
+		end
 
-class EncodedTextLen < QuickFix::IntField
-	def initialize
-		super(354)
+		def initialize(data)
+			super(349, data)
+		end
 	end
 
-	def initialize(data)
-		super(354, data)
-	end
-end
+	class EncodedSecurityDescLen < Quickfix::IntField
+		def initialize
+			super(350)
+		end
 
-class EncodedText < QuickFix::StringField
-	def initialize
-		super(355)
+		def initialize(data)
+			super(350, data)
+		end
 	end
 
-	def initialize(data)
-		super(355, data)
-	end
-end
+	class EncodedSecurityDesc < Quickfix::StringField
+		def initialize
+			super(351)
+		end
 
-class EncodedSubjectLen < QuickFix::IntField
-	def initialize
-		super(356)
+		def initialize(data)
+			super(351, data)
+		end
 	end
 
-	def initialize(data)
-		super(356, data)
-	end
-end
+	class EncodedListExecInstLen < Quickfix::IntField
+		def initialize
+			super(352)
+		end
 
-class EncodedSubject < QuickFix::StringField
-	def initialize
-		super(357)
+		def initialize(data)
+			super(352, data)
+		end
 	end
 
-	def initialize(data)
-		super(357, data)
-	end
-end
+	class EncodedListExecInst < Quickfix::StringField
+		def initialize
+			super(353)
+		end
 
-class EncodedHeadlineLen < QuickFix::IntField
-	def initialize
-		super(358)
+		def initialize(data)
+			super(353, data)
+		end
 	end
 
-	def initialize(data)
-		super(358, data)
-	end
-end
+	class EncodedTextLen < Quickfix::IntField
+		def initialize
+			super(354)
+		end
 
-class EncodedHeadline < QuickFix::StringField
-	def initialize
-		super(359)
+		def initialize(data)
+			super(354, data)
+		end
 	end
 
-	def initialize(data)
-		super(359, data)
-	end
-end
+	class EncodedText < Quickfix::StringField
+		def initialize
+			super(355)
+		end
 
-class EncodedAllocTextLen < QuickFix::IntField
-	def initialize
-		super(360)
+		def initialize(data)
+			super(355, data)
+		end
 	end
 
-	def initialize(data)
-		super(360, data)
-	end
-end
+	class EncodedSubjectLen < Quickfix::IntField
+		def initialize
+			super(356)
+		end
 
-class EncodedAllocText < QuickFix::StringField
-	def initialize
-		super(361)
+		def initialize(data)
+			super(356, data)
+		end
 	end
 
-	def initialize(data)
-		super(361, data)
-	end
-end
+	class EncodedSubject < Quickfix::StringField
+		def initialize
+			super(357)
+		end
 
-class EncodedUnderlyingIssuerLen < QuickFix::IntField
-	def initialize
-		super(362)
+		def initialize(data)
+			super(357, data)
+		end
 	end
 
-	def initialize(data)
-		super(362, data)
-	end
-end
+	class EncodedHeadlineLen < Quickfix::IntField
+		def initialize
+			super(358)
+		end
 
-class EncodedUnderlyingIssuer < QuickFix::StringField
-	def initialize
-		super(363)
+		def initialize(data)
+			super(358, data)
+		end
 	end
 
-	def initialize(data)
-		super(363, data)
-	end
-end
+	class EncodedHeadline < Quickfix::StringField
+		def initialize
+			super(359)
+		end
 
-class EncodedUnderlyingSecurityDescLen < QuickFix::IntField
-	def initialize
-		super(364)
+		def initialize(data)
+			super(359, data)
+		end
 	end
 
-	def initialize(data)
-		super(364, data)
-	end
-end
+	class EncodedAllocTextLen < Quickfix::IntField
+		def initialize
+			super(360)
+		end
 
-class EncodedUnderlyingSecurityDesc < QuickFix::StringField
-	def initialize
-		super(365)
+		def initialize(data)
+			super(360, data)
+		end
 	end
 
-	def initialize(data)
-		super(365, data)
-	end
-end
+	class EncodedAllocText < Quickfix::StringField
+		def initialize
+			super(361)
+		end
 
-class AllocPrice < QuickFix::DoubleField
-	def initialize
-		super(366)
+		def initialize(data)
+			super(361, data)
+		end
 	end
 
-	def initialize(data)
-		super(366, data)
-	end
-end
+	class EncodedUnderlyingIssuerLen < Quickfix::IntField
+		def initialize
+			super(362)
+		end
 
-class QuoteSetValidUntilTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(367)
+		def initialize(data)
+			super(362, data)
+		end
 	end
 
-	def initialize(data)
-		super(367, data)
-	end
-end
+	class EncodedUnderlyingIssuer < Quickfix::StringField
+		def initialize
+			super(363)
+		end
 
-class QuoteEntryRejectReason < QuickFix::IntField
-	def initialize
-		super(368)
+		def initialize(data)
+			super(363, data)
+		end
 	end
 
-	def initialize(data)
-		super(368, data)
-	end
-end
+	class EncodedUnderlyingSecurityDescLen < Quickfix::IntField
+		def initialize
+			super(364)
+		end
 
-class LastMsgSeqNumProcessed < QuickFix::IntField
-	def initialize
-		super(369)
+		def initialize(data)
+			super(364, data)
+		end
 	end
 
-	def initialize(data)
-		super(369, data)
-	end
-end
+	class EncodedUnderlyingSecurityDesc < Quickfix::StringField
+		def initialize
+			super(365)
+		end
 
-class RefTagID < QuickFix::IntField
-	def initialize
-		super(371)
+		def initialize(data)
+			super(365, data)
+		end
 	end
 
-	def initialize(data)
-		super(371, data)
-	end
-end
+	class AllocPrice < Quickfix::DoubleField
+		def initialize
+			super(366)
+		end
 
-class RefMsgType < QuickFix::StringField
-	def initialize
-		super(372)
+		def initialize(data)
+			super(366, data)
+		end
 	end
 
-	def initialize(data)
-		super(372, data)
-	end
-end
+	class QuoteSetValidUntilTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(367)
+		end
 
-class SessionRejectReason < QuickFix::IntField
-	def initialize
-		super(373)
+		def initialize(data)
+			super(367, data)
+		end
 	end
 
-	def initialize(data)
-		super(373, data)
-	end
-end
+	class QuoteEntryRejectReason < Quickfix::IntField
+		def initialize
+			super(368)
+		end
 
-class BidRequestTransType < QuickFix::CharField
-	def initialize
-		super(374)
+		def initialize(data)
+			super(368, data)
+		end
 	end
 
-	def initialize(data)
-		super(374, data)
-	end
-end
+	class LastMsgSeqNumProcessed < Quickfix::IntField
+		def initialize
+			super(369)
+		end
 
-class ContraBroker < QuickFix::StringField
-	def initialize
-		super(375)
+		def initialize(data)
+			super(369, data)
+		end
 	end
 
-	def initialize(data)
-		super(375, data)
-	end
-end
+	class RefTagID < Quickfix::IntField
+		def initialize
+			super(371)
+		end
 
-class ComplianceID < QuickFix::StringField
-	def initialize
-		super(376)
+		def initialize(data)
+			super(371, data)
+		end
 	end
 
-	def initialize(data)
-		super(376, data)
-	end
-end
+	class RefMsgType < Quickfix::StringField
+		def initialize
+			super(372)
+		end
 
-class SolicitedFlag < QuickFix::BooleanField
-	def initialize
-		super(377)
+		def initialize(data)
+			super(372, data)
+		end
 	end
 
-	def initialize(data)
-		super(377, data)
-	end
-end
+	class SessionRejectReason < Quickfix::IntField
+		def initialize
+			super(373)
+		end
 
-class ExecRestatementReason < QuickFix::IntField
-	def initialize
-		super(378)
+		def initialize(data)
+			super(373, data)
+		end
 	end
 
-	def initialize(data)
-		super(378, data)
-	end
-end
+	class BidRequestTransType < Quickfix::CharField
+		def initialize
+			super(374)
+		end
 
-class BusinessRejectRefID < QuickFix::StringField
-	def initialize
-		super(379)
+		def initialize(data)
+			super(374, data)
+		end
 	end
 
-	def initialize(data)
-		super(379, data)
-	end
-end
+	class ContraBroker < Quickfix::StringField
+		def initialize
+			super(375)
+		end
 
-class BusinessRejectReason < QuickFix::IntField
-	def initialize
-		super(380)
+		def initialize(data)
+			super(375, data)
+		end
 	end
 
-	def initialize(data)
-		super(380, data)
-	end
-end
+	class ComplianceID < Quickfix::StringField
+		def initialize
+			super(376)
+		end
 
-class GrossTradeAmt < QuickFix::DoubleField
-	def initialize
-		super(381)
+		def initialize(data)
+			super(376, data)
+		end
 	end
 
-	def initialize(data)
-		super(381, data)
-	end
-end
+	class SolicitedFlag < Quickfix::BoolField
+		def initialize
+			super(377)
+		end
 
-class NoContraBrokers < QuickFix::IntField
-	def initialize
-		super(382)
+		def initialize(data)
+			super(377, data)
+		end
 	end
 
-	def initialize(data)
-		super(382, data)
-	end
-end
+	class ExecRestatementReason < Quickfix::IntField
+		def initialize
+			super(378)
+		end
 
-class MaxMessageSize < QuickFix::IntField
-	def initialize
-		super(383)
+		def initialize(data)
+			super(378, data)
+		end
 	end
 
-	def initialize(data)
-		super(383, data)
-	end
-end
+	class BusinessRejectRefID < Quickfix::StringField
+		def initialize
+			super(379)
+		end
 
-class NoMsgTypes < QuickFix::IntField
-	def initialize
-		super(384)
+		def initialize(data)
+			super(379, data)
+		end
 	end
 
-	def initialize(data)
-		super(384, data)
-	end
-end
+	class BusinessRejectReason < Quickfix::IntField
+		def initialize
+			super(380)
+		end
 
-class MsgDirection < QuickFix::CharField
-	def initialize
-		super(385)
+		def initialize(data)
+			super(380, data)
+		end
 	end
 
-	def initialize(data)
-		super(385, data)
-	end
-end
+	class GrossTradeAmt < Quickfix::DoubleField
+		def initialize
+			super(381)
+		end
 
-class NoTradingSessions < QuickFix::IntField
-	def initialize
-		super(386)
+		def initialize(data)
+			super(381, data)
+		end
 	end
 
-	def initialize(data)
-		super(386, data)
-	end
-end
+	class NoContraBrokers < Quickfix::IntField
+		def initialize
+			super(382)
+		end
 
-class TotalVolumeTraded < QuickFix::DoubleField
-	def initialize
-		super(387)
+		def initialize(data)
+			super(382, data)
+		end
 	end
 
-	def initialize(data)
-		super(387, data)
-	end
-end
+	class MaxMessageSize < Quickfix::IntField
+		def initialize
+			super(383)
+		end
 
-class DiscretionInst < QuickFix::CharField
-	def initialize
-		super(388)
+		def initialize(data)
+			super(383, data)
+		end
 	end
 
-	def initialize(data)
-		super(388, data)
-	end
-end
+	class NoMsgTypes < Quickfix::IntField
+		def initialize
+			super(384)
+		end
 
-class DiscretionOffsetValue < QuickFix::DoubleField
-	def initialize
-		super(389)
+		def initialize(data)
+			super(384, data)
+		end
 	end
 
-	def initialize(data)
-		super(389, data)
-	end
-end
+	class MsgDirection < Quickfix::CharField
+		def initialize
+			super(385)
+		end
 
-class BidID < QuickFix::StringField
-	def initialize
-		super(390)
+		def initialize(data)
+			super(385, data)
+		end
 	end
 
-	def initialize(data)
-		super(390, data)
-	end
-end
+	class NoTradingSessions < Quickfix::IntField
+		def initialize
+			super(386)
+		end
 
-class ClientBidID < QuickFix::StringField
-	def initialize
-		super(391)
+		def initialize(data)
+			super(386, data)
+		end
 	end
 
-	def initialize(data)
-		super(391, data)
-	end
-end
+	class TotalVolumeTraded < Quickfix::DoubleField
+		def initialize
+			super(387)
+		end
 
-class ListName < QuickFix::StringField
-	def initialize
-		super(392)
+		def initialize(data)
+			super(387, data)
+		end
 	end
 
-	def initialize(data)
-		super(392, data)
-	end
-end
+	class DiscretionInst < Quickfix::CharField
+		def initialize
+			super(388)
+		end
 
-class TotNoRelatedSym < QuickFix::IntField
-	def initialize
-		super(393)
+		def initialize(data)
+			super(388, data)
+		end
 	end
 
-	def initialize(data)
-		super(393, data)
-	end
-end
+	class DiscretionOffsetValue < Quickfix::DoubleField
+		def initialize
+			super(389)
+		end
 
-class BidType < QuickFix::IntField
-	def initialize
-		super(394)
+		def initialize(data)
+			super(389, data)
+		end
 	end
 
-	def initialize(data)
-		super(394, data)
-	end
-end
+	class BidID < Quickfix::StringField
+		def initialize
+			super(390)
+		end
 
-class NumTickets < QuickFix::IntField
-	def initialize
-		super(395)
+		def initialize(data)
+			super(390, data)
+		end
 	end
 
-	def initialize(data)
-		super(395, data)
-	end
-end
+	class ClientBidID < Quickfix::StringField
+		def initialize
+			super(391)
+		end
 
-class SideValue1 < QuickFix::DoubleField
-	def initialize
-		super(396)
+		def initialize(data)
+			super(391, data)
+		end
 	end
 
-	def initialize(data)
-		super(396, data)
-	end
-end
+	class ListName < Quickfix::StringField
+		def initialize
+			super(392)
+		end
 
-class SideValue2 < QuickFix::DoubleField
-	def initialize
-		super(397)
+		def initialize(data)
+			super(392, data)
+		end
 	end
 
-	def initialize(data)
-		super(397, data)
-	end
-end
+	class TotNoRelatedSym < Quickfix::IntField
+		def initialize
+			super(393)
+		end
 
-class NoBidDescriptors < QuickFix::IntField
-	def initialize
-		super(398)
+		def initialize(data)
+			super(393, data)
+		end
 	end
 
-	def initialize(data)
-		super(398, data)
-	end
-end
+	class BidType < Quickfix::IntField
+		def initialize
+			super(394)
+		end
 
-class BidDescriptorType < QuickFix::IntField
-	def initialize
-		super(399)
+		def initialize(data)
+			super(394, data)
+		end
 	end
 
-	def initialize(data)
-		super(399, data)
-	end
-end
+	class NumTickets < Quickfix::IntField
+		def initialize
+			super(395)
+		end
 
-class BidDescriptor < QuickFix::StringField
-	def initialize
-		super(400)
+		def initialize(data)
+			super(395, data)
+		end
 	end
 
-	def initialize(data)
-		super(400, data)
-	end
-end
+	class SideValue1 < Quickfix::DoubleField
+		def initialize
+			super(396)
+		end
 
-class SideValueInd < QuickFix::IntField
-	def initialize
-		super(401)
+		def initialize(data)
+			super(396, data)
+		end
 	end
 
-	def initialize(data)
-		super(401, data)
-	end
-end
+	class SideValue2 < Quickfix::DoubleField
+		def initialize
+			super(397)
+		end
 
-class LiquidityPctLow < QuickFix::DoubleField
-	def initialize
-		super(402)
+		def initialize(data)
+			super(397, data)
+		end
 	end
 
-	def initialize(data)
-		super(402, data)
-	end
-end
+	class NoBidDescriptors < Quickfix::IntField
+		def initialize
+			super(398)
+		end
 
-class LiquidityPctHigh < QuickFix::DoubleField
-	def initialize
-		super(403)
+		def initialize(data)
+			super(398, data)
+		end
 	end
 
-	def initialize(data)
-		super(403, data)
-	end
-end
+	class BidDescriptorType < Quickfix::IntField
+		def initialize
+			super(399)
+		end
 
-class LiquidityValue < QuickFix::DoubleField
-	def initialize
-		super(404)
+		def initialize(data)
+			super(399, data)
+		end
 	end
 
-	def initialize(data)
-		super(404, data)
-	end
-end
+	class BidDescriptor < Quickfix::StringField
+		def initialize
+			super(400)
+		end
 
-class EFPTrackingError < QuickFix::DoubleField
-	def initialize
-		super(405)
+		def initialize(data)
+			super(400, data)
+		end
 	end
 
-	def initialize(data)
-		super(405, data)
-	end
-end
+	class SideValueInd < Quickfix::IntField
+		def initialize
+			super(401)
+		end
 
-class FairValue < QuickFix::DoubleField
-	def initialize
-		super(406)
+		def initialize(data)
+			super(401, data)
+		end
 	end
 
-	def initialize(data)
-		super(406, data)
-	end
-end
+	class LiquidityPctLow < Quickfix::DoubleField
+		def initialize
+			super(402)
+		end
 
-class OutsideIndexPct < QuickFix::DoubleField
-	def initialize
-		super(407)
+		def initialize(data)
+			super(402, data)
+		end
 	end
 
-	def initialize(data)
-		super(407, data)
-	end
-end
+	class LiquidityPctHigh < Quickfix::DoubleField
+		def initialize
+			super(403)
+		end
 
-class ValueOfFutures < QuickFix::DoubleField
-	def initialize
-		super(408)
+		def initialize(data)
+			super(403, data)
+		end
 	end
 
-	def initialize(data)
-		super(408, data)
-	end
-end
+	class LiquidityValue < Quickfix::DoubleField
+		def initialize
+			super(404)
+		end
 
-class LiquidityIndType < QuickFix::IntField
-	def initialize
-		super(409)
+		def initialize(data)
+			super(404, data)
+		end
 	end
 
-	def initialize(data)
-		super(409, data)
-	end
-end
+	class EFPTrackingError < Quickfix::DoubleField
+		def initialize
+			super(405)
+		end
 
-class WtAverageLiquidity < QuickFix::DoubleField
-	def initialize
-		super(410)
+		def initialize(data)
+			super(405, data)
+		end
 	end
 
-	def initialize(data)
-		super(410, data)
-	end
-end
+	class FairValue < Quickfix::DoubleField
+		def initialize
+			super(406)
+		end
 
-class ExchangeForPhysical < QuickFix::BooleanField
-	def initialize
-		super(411)
+		def initialize(data)
+			super(406, data)
+		end
 	end
 
-	def initialize(data)
-		super(411, data)
-	end
-end
+	class OutsideIndexPct < Quickfix::DoubleField
+		def initialize
+			super(407)
+		end
 
-class OutMainCntryUIndex < QuickFix::DoubleField
-	def initialize
-		super(412)
+		def initialize(data)
+			super(407, data)
+		end
 	end
 
-	def initialize(data)
-		super(412, data)
-	end
-end
+	class ValueOfFutures < Quickfix::DoubleField
+		def initialize
+			super(408)
+		end
 
-class CrossPercent < QuickFix::DoubleField
-	def initialize
-		super(413)
+		def initialize(data)
+			super(408, data)
+		end
 	end
 
-	def initialize(data)
-		super(413, data)
-	end
-end
+	class LiquidityIndType < Quickfix::IntField
+		def initialize
+			super(409)
+		end
 
-class ProgRptReqs < QuickFix::IntField
-	def initialize
-		super(414)
+		def initialize(data)
+			super(409, data)
+		end
 	end
 
-	def initialize(data)
-		super(414, data)
-	end
-end
+	class WtAverageLiquidity < Quickfix::DoubleField
+		def initialize
+			super(410)
+		end
 
-class ProgPeriodInterval < QuickFix::IntField
-	def initialize
-		super(415)
+		def initialize(data)
+			super(410, data)
+		end
 	end
 
-	def initialize(data)
-		super(415, data)
-	end
-end
+	class ExchangeForPhysical < Quickfix::BoolField
+		def initialize
+			super(411)
+		end
 
-class IncTaxInd < QuickFix::IntField
-	def initialize
-		super(416)
+		def initialize(data)
+			super(411, data)
+		end
 	end
 
-	def initialize(data)
-		super(416, data)
-	end
-end
+	class OutMainCntryUIndex < Quickfix::DoubleField
+		def initialize
+			super(412)
+		end
 
-class NumBidders < QuickFix::IntField
-	def initialize
-		super(417)
+		def initialize(data)
+			super(412, data)
+		end
 	end
 
-	def initialize(data)
-		super(417, data)
-	end
-end
+	class CrossPercent < Quickfix::DoubleField
+		def initialize
+			super(413)
+		end
 
-class BidTradeType < QuickFix::CharField
-	def initialize
-		super(418)
+		def initialize(data)
+			super(413, data)
+		end
 	end
 
-	def initialize(data)
-		super(418, data)
-	end
-end
+	class ProgRptReqs < Quickfix::IntField
+		def initialize
+			super(414)
+		end
 
-class BasisPxType < QuickFix::CharField
-	def initialize
-		super(419)
+		def initialize(data)
+			super(414, data)
+		end
 	end
 
-	def initialize(data)
-		super(419, data)
-	end
-end
+	class ProgPeriodInterval < Quickfix::IntField
+		def initialize
+			super(415)
+		end
 
-class NoBidComponents < QuickFix::IntField
-	def initialize
-		super(420)
+		def initialize(data)
+			super(415, data)
+		end
 	end
 
-	def initialize(data)
-		super(420, data)
-	end
-end
+	class IncTaxInd < Quickfix::IntField
+		def initialize
+			super(416)
+		end
 
-class Country < QuickFix::StringField
-	def initialize
-		super(421)
+		def initialize(data)
+			super(416, data)
+		end
 	end
 
-	def initialize(data)
-		super(421, data)
-	end
-end
+	class NumBidders < Quickfix::IntField
+		def initialize
+			super(417)
+		end
 
-class TotNoStrikes < QuickFix::IntField
-	def initialize
-		super(422)
+		def initialize(data)
+			super(417, data)
+		end
 	end
 
-	def initialize(data)
-		super(422, data)
-	end
-end
+	class BidTradeType < Quickfix::CharField
+		def initialize
+			super(418)
+		end
 
-class PriceType < QuickFix::IntField
-	def initialize
-		super(423)
+		def initialize(data)
+			super(418, data)
+		end
 	end
 
-	def initialize(data)
-		super(423, data)
-	end
-end
+	class BasisPxType < Quickfix::CharField
+		def initialize
+			super(419)
+		end
 
-class DayOrderQty < QuickFix::DoubleField
-	def initialize
-		super(424)
+		def initialize(data)
+			super(419, data)
+		end
 	end
 
-	def initialize(data)
-		super(424, data)
-	end
-end
+	class NoBidComponents < Quickfix::IntField
+		def initialize
+			super(420)
+		end
 
-class DayCumQty < QuickFix::DoubleField
-	def initialize
-		super(425)
+		def initialize(data)
+			super(420, data)
+		end
 	end
 
-	def initialize(data)
-		super(425, data)
-	end
-end
+	class Country < Quickfix::StringField
+		def initialize
+			super(421)
+		end
 
-class DayAvgPx < QuickFix::DoubleField
-	def initialize
-		super(426)
+		def initialize(data)
+			super(421, data)
+		end
 	end
 
-	def initialize(data)
-		super(426, data)
-	end
-end
+	class TotNoStrikes < Quickfix::IntField
+		def initialize
+			super(422)
+		end
 
-class GTBookingInst < QuickFix::IntField
-	def initialize
-		super(427)
+		def initialize(data)
+			super(422, data)
+		end
 	end
 
-	def initialize(data)
-		super(427, data)
-	end
-end
+	class PriceType < Quickfix::IntField
+		def initialize
+			super(423)
+		end
 
-class NoStrikes < QuickFix::IntField
-	def initialize
-		super(428)
+		def initialize(data)
+			super(423, data)
+		end
 	end
 
-	def initialize(data)
-		super(428, data)
-	end
-end
+	class DayOrderQty < Quickfix::DoubleField
+		def initialize
+			super(424)
+		end
 
-class ListStatusType < QuickFix::IntField
-	def initialize
-		super(429)
+		def initialize(data)
+			super(424, data)
+		end
 	end
 
-	def initialize(data)
-		super(429, data)
-	end
-end
+	class DayCumQty < Quickfix::DoubleField
+		def initialize
+			super(425)
+		end
 
-class NetGrossInd < QuickFix::IntField
-	def initialize
-		super(430)
+		def initialize(data)
+			super(425, data)
+		end
 	end
 
-	def initialize(data)
-		super(430, data)
-	end
-end
+	class DayAvgPx < Quickfix::DoubleField
+		def initialize
+			super(426)
+		end
 
-class ListOrderStatus < QuickFix::IntField
-	def initialize
-		super(431)
+		def initialize(data)
+			super(426, data)
+		end
 	end
 
-	def initialize(data)
-		super(431, data)
-	end
-end
+	class GTBookingInst < Quickfix::IntField
+		def initialize
+			super(427)
+		end
 
-class ExpireDate < QuickFix::StringField
-	def initialize
-		super(432)
+		def initialize(data)
+			super(427, data)
+		end
 	end
 
-	def initialize(data)
-		super(432, data)
-	end
-end
+	class NoStrikes < Quickfix::IntField
+		def initialize
+			super(428)
+		end
 
-class ListExecInstType < QuickFix::CharField
-	def initialize
-		super(433)
+		def initialize(data)
+			super(428, data)
+		end
 	end
 
-	def initialize(data)
-		super(433, data)
-	end
-end
+	class ListStatusType < Quickfix::IntField
+		def initialize
+			super(429)
+		end
 
-class CxlRejResponseTo < QuickFix::CharField
-	def initialize
-		super(434)
+		def initialize(data)
+			super(429, data)
+		end
 	end
 
-	def initialize(data)
-		super(434, data)
-	end
-end
+	class NetGrossInd < Quickfix::IntField
+		def initialize
+			super(430)
+		end
 
-class UnderlyingCouponRate < QuickFix::DoubleField
-	def initialize
-		super(435)
+		def initialize(data)
+			super(430, data)
+		end
 	end
 
-	def initialize(data)
-		super(435, data)
-	end
-end
+	class ListOrderStatus < Quickfix::IntField
+		def initialize
+			super(431)
+		end
 
-class UnderlyingContractMultiplier < QuickFix::DoubleField
-	def initialize
-		super(436)
+		def initialize(data)
+			super(431, data)
+		end
 	end
 
-	def initialize(data)
-		super(436, data)
-	end
-end
+	class ExpireDate < Quickfix::StringField
+		def initialize
+			super(432)
+		end
 
-class ContraTradeQty < QuickFix::DoubleField
-	def initialize
-		super(437)
+		def initialize(data)
+			super(432, data)
+		end
 	end
 
-	def initialize(data)
-		super(437, data)
-	end
-end
+	class ListExecInstType < Quickfix::CharField
+		def initialize
+			super(433)
+		end
 
-class ContraTradeTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(438)
+		def initialize(data)
+			super(433, data)
+		end
 	end
 
-	def initialize(data)
-		super(438, data)
+	class CxlRejResponseTo < Quickfix::CharField
+		def initialize
+			super(434)
+		end
+
+		def initialize(data)
+			super(434, data)
+		end
 	end
-end
+
+	class UnderlyingCouponRate < Quickfix::DoubleField
+		def initialize
+			super(435)
+		end
 
-class LiquidityNumSecurities < QuickFix::IntField
-	def initialize
-		super(441)
+		def initialize(data)
+			super(435, data)
+		end
 	end
 
-	def initialize(data)
-		super(441, data)
-	end
-end
+	class UnderlyingContractMultiplier < Quickfix::DoubleField
+		def initialize
+			super(436)
+		end
 
-class MultiLegReportingType < QuickFix::CharField
-	def initialize
-		super(442)
+		def initialize(data)
+			super(436, data)
+		end
 	end
 
-	def initialize(data)
-		super(442, data)
-	end
-end
+	class ContraTradeQty < Quickfix::DoubleField
+		def initialize
+			super(437)
+		end
 
-class StrikeTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(443)
+		def initialize(data)
+			super(437, data)
+		end
 	end
 
-	def initialize(data)
-		super(443, data)
-	end
-end
+	class ContraTradeTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(438)
+		end
 
-class ListStatusText < QuickFix::StringField
-	def initialize
-		super(444)
+		def initialize(data)
+			super(438, data)
+		end
 	end
 
-	def initialize(data)
-		super(444, data)
-	end
-end
+	class LiquidityNumSecurities < Quickfix::IntField
+		def initialize
+			super(441)
+		end
 
-class EncodedListStatusTextLen < QuickFix::IntField
-	def initialize
-		super(445)
+		def initialize(data)
+			super(441, data)
+		end
 	end
 
-	def initialize(data)
-		super(445, data)
-	end
-end
+	class MultiLegReportingType < Quickfix::CharField
+		def initialize
+			super(442)
+		end
 
-class EncodedListStatusText < QuickFix::StringField
-	def initialize
-		super(446)
+		def initialize(data)
+			super(442, data)
+		end
 	end
 
-	def initialize(data)
-		super(446, data)
-	end
-end
+	class StrikeTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(443)
+		end
 
-class PartyIDSource < QuickFix::CharField
-	def initialize
-		super(447)
+		def initialize(data)
+			super(443, data)
+		end
 	end
 
-	def initialize(data)
-		super(447, data)
-	end
-end
+	class ListStatusText < Quickfix::StringField
+		def initialize
+			super(444)
+		end
 
-class PartyID < QuickFix::StringField
-	def initialize
-		super(448)
+		def initialize(data)
+			super(444, data)
+		end
 	end
 
-	def initialize(data)
-		super(448, data)
-	end
-end
+	class EncodedListStatusTextLen < Quickfix::IntField
+		def initialize
+			super(445)
+		end
 
-class NetChgPrevDay < QuickFix::DoubleField
-	def initialize
-		super(451)
+		def initialize(data)
+			super(445, data)
+		end
 	end
 
-	def initialize(data)
-		super(451, data)
-	end
-end
+	class EncodedListStatusText < Quickfix::StringField
+		def initialize
+			super(446)
+		end
 
-class PartyRole < QuickFix::IntField
-	def initialize
-		super(452)
+		def initialize(data)
+			super(446, data)
+		end
 	end
 
-	def initialize(data)
-		super(452, data)
-	end
-end
+	class PartyIDSource < Quickfix::CharField
+		def initialize
+			super(447)
+		end
 
-class NoPartyIDs < QuickFix::IntField
-	def initialize
-		super(453)
+		def initialize(data)
+			super(447, data)
+		end
 	end
 
-	def initialize(data)
-		super(453, data)
-	end
-end
+	class PartyID < Quickfix::StringField
+		def initialize
+			super(448)
+		end
 
-class NoSecurityAltID < QuickFix::IntField
-	def initialize
-		super(454)
+		def initialize(data)
+			super(448, data)
+		end
 	end
 
-	def initialize(data)
-		super(454, data)
-	end
-end
+	class NetChgPrevDay < Quickfix::DoubleField
+		def initialize
+			super(451)
+		end
 
-class SecurityAltID < QuickFix::StringField
-	def initialize
-		super(455)
+		def initialize(data)
+			super(451, data)
+		end
 	end
 
-	def initialize(data)
-		super(455, data)
-	end
-end
+	class PartyRole < Quickfix::IntField
+		def initialize
+			super(452)
+		end
 
-class SecurityAltIDSource < QuickFix::StringField
-	def initialize
-		super(456)
+		def initialize(data)
+			super(452, data)
+		end
 	end
 
-	def initialize(data)
-		super(456, data)
-	end
-end
+	class NoPartyIDs < Quickfix::IntField
+		def initialize
+			super(453)
+		end
 
-class NoUnderlyingSecurityAltID < QuickFix::IntField
-	def initialize
-		super(457)
+		def initialize(data)
+			super(453, data)
+		end
 	end
 
-	def initialize(data)
-		super(457, data)
-	end
-end
+	class NoSecurityAltID < Quickfix::IntField
+		def initialize
+			super(454)
+		end
 
-class UnderlyingSecurityAltID < QuickFix::StringField
-	def initialize
-		super(458)
+		def initialize(data)
+			super(454, data)
+		end
 	end
 
-	def initialize(data)
-		super(458, data)
-	end
-end
+	class SecurityAltID < Quickfix::StringField
+		def initialize
+			super(455)
+		end
 
-class UnderlyingSecurityAltIDSource < QuickFix::StringField
-	def initialize
-		super(459)
+		def initialize(data)
+			super(455, data)
+		end
 	end
 
-	def initialize(data)
-		super(459, data)
-	end
-end
+	class SecurityAltIDSource < Quickfix::StringField
+		def initialize
+			super(456)
+		end
 
-class Product < QuickFix::IntField
-	def initialize
-		super(460)
+		def initialize(data)
+			super(456, data)
+		end
 	end
 
-	def initialize(data)
-		super(460, data)
-	end
-end
+	class NoUnderlyingSecurityAltID < Quickfix::IntField
+		def initialize
+			super(457)
+		end
 
-class CFICode < QuickFix::StringField
-	def initialize
-		super(461)
+		def initialize(data)
+			super(457, data)
+		end
 	end
 
-	def initialize(data)
-		super(461, data)
-	end
-end
+	class UnderlyingSecurityAltID < Quickfix::StringField
+		def initialize
+			super(458)
+		end
 
-class UnderlyingProduct < QuickFix::IntField
-	def initialize
-		super(462)
+		def initialize(data)
+			super(458, data)
+		end
 	end
 
-	def initialize(data)
-		super(462, data)
-	end
-end
+	class UnderlyingSecurityAltIDSource < Quickfix::StringField
+		def initialize
+			super(459)
+		end
 
-class UnderlyingCFICode < QuickFix::StringField
-	def initialize
-		super(463)
+		def initialize(data)
+			super(459, data)
+		end
 	end
 
-	def initialize(data)
-		super(463, data)
-	end
-end
+	class Product < Quickfix::IntField
+		def initialize
+			super(460)
+		end
 
-class TestMessageIndicator < QuickFix::BooleanField
-	def initialize
-		super(464)
+		def initialize(data)
+			super(460, data)
+		end
 	end
 
-	def initialize(data)
-		super(464, data)
-	end
-end
+	class CFICode < Quickfix::StringField
+		def initialize
+			super(461)
+		end
 
-class QuantityType < QuickFix::IntField
-	def initialize
-		super(465)
+		def initialize(data)
+			super(461, data)
+		end
 	end
 
-	def initialize(data)
-		super(465, data)
-	end
-end
+	class UnderlyingProduct < Quickfix::IntField
+		def initialize
+			super(462)
+		end
 
-class BookingRefID < QuickFix::StringField
-	def initialize
-		super(466)
+		def initialize(data)
+			super(462, data)
+		end
 	end
 
-	def initialize(data)
-		super(466, data)
-	end
-end
+	class UnderlyingCFICode < Quickfix::StringField
+		def initialize
+			super(463)
+		end
 
-class IndividualAllocID < QuickFix::StringField
-	def initialize
-		super(467)
+		def initialize(data)
+			super(463, data)
+		end
 	end
 
-	def initialize(data)
-		super(467, data)
-	end
-end
+	class TestMessageIndicator < Quickfix::BoolField
+		def initialize
+			super(464)
+		end
 
-class RoundingDirection < QuickFix::CharField
-	def initialize
-		super(468)
+		def initialize(data)
+			super(464, data)
+		end
 	end
 
-	def initialize(data)
-		super(468, data)
-	end
-end
+	class QuantityType < Quickfix::IntField
+		def initialize
+			super(465)
+		end
 
-class RoundingModulus < QuickFix::DoubleField
-	def initialize
-		super(469)
+		def initialize(data)
+			super(465, data)
+		end
 	end
 
-	def initialize(data)
-		super(469, data)
-	end
-end
+	class BookingRefID < Quickfix::StringField
+		def initialize
+			super(466)
+		end
 
-class CountryOfIssue < QuickFix::StringField
-	def initialize
-		super(470)
+		def initialize(data)
+			super(466, data)
+		end
 	end
 
-	def initialize(data)
-		super(470, data)
-	end
-end
+	class IndividualAllocID < Quickfix::StringField
+		def initialize
+			super(467)
+		end
 
-class StateOrProvinceOfIssue < QuickFix::StringField
-	def initialize
-		super(471)
+		def initialize(data)
+			super(467, data)
+		end
 	end
 
-	def initialize(data)
-		super(471, data)
-	end
-end
+	class RoundingDirection < Quickfix::CharField
+		def initialize
+			super(468)
+		end
 
-class LocaleOfIssue < QuickFix::StringField
-	def initialize
-		super(472)
+		def initialize(data)
+			super(468, data)
+		end
 	end
 
-	def initialize(data)
-		super(472, data)
-	end
-end
+	class RoundingModulus < Quickfix::DoubleField
+		def initialize
+			super(469)
+		end
 
-class NoRegistDtls < QuickFix::IntField
-	def initialize
-		super(473)
+		def initialize(data)
+			super(469, data)
+		end
 	end
 
-	def initialize(data)
-		super(473, data)
-	end
-end
+	class CountryOfIssue < Quickfix::StringField
+		def initialize
+			super(470)
+		end
 
-class MailingDtls < QuickFix::StringField
-	def initialize
-		super(474)
+		def initialize(data)
+			super(470, data)
+		end
 	end
 
-	def initialize(data)
-		super(474, data)
-	end
-end
+	class StateOrProvinceOfIssue < Quickfix::StringField
+		def initialize
+			super(471)
+		end
 
-class InvestorCountryOfResidence < QuickFix::StringField
-	def initialize
-		super(475)
+		def initialize(data)
+			super(471, data)
+		end
 	end
 
-	def initialize(data)
-		super(475, data)
-	end
-end
+	class LocaleOfIssue < Quickfix::StringField
+		def initialize
+			super(472)
+		end
 
-class PaymentRef < QuickFix::StringField
-	def initialize
-		super(476)
+		def initialize(data)
+			super(472, data)
+		end
 	end
 
-	def initialize(data)
-		super(476, data)
-	end
-end
+	class NoRegistDtls < Quickfix::IntField
+		def initialize
+			super(473)
+		end
 
-class DistribPaymentMethod < QuickFix::IntField
-	def initialize
-		super(477)
+		def initialize(data)
+			super(473, data)
+		end
 	end
 
-	def initialize(data)
-		super(477, data)
-	end
-end
+	class MailingDtls < Quickfix::StringField
+		def initialize
+			super(474)
+		end
 
-class CashDistribCurr < QuickFix::StringField
-	def initialize
-		super(478)
+		def initialize(data)
+			super(474, data)
+		end
 	end
 
-	def initialize(data)
-		super(478, data)
-	end
-end
+	class InvestorCountryOfResidence < Quickfix::StringField
+		def initialize
+			super(475)
+		end
 
-class CommCurrency < QuickFix::StringField
-	def initialize
-		super(479)
+		def initialize(data)
+			super(475, data)
+		end
 	end
 
-	def initialize(data)
-		super(479, data)
-	end
-end
+	class PaymentRef < Quickfix::StringField
+		def initialize
+			super(476)
+		end
 
-class CancellationRights < QuickFix::CharField
-	def initialize
-		super(480)
+		def initialize(data)
+			super(476, data)
+		end
 	end
 
-	def initialize(data)
-		super(480, data)
-	end
-end
+	class DistribPaymentMethod < Quickfix::IntField
+		def initialize
+			super(477)
+		end
 
-class MoneyLaunderingStatus < QuickFix::CharField
-	def initialize
-		super(481)
+		def initialize(data)
+			super(477, data)
+		end
 	end
 
-	def initialize(data)
-		super(481, data)
-	end
-end
+	class CashDistribCurr < Quickfix::StringField
+		def initialize
+			super(478)
+		end
 
-class MailingInst < QuickFix::StringField
-	def initialize
-		super(482)
+		def initialize(data)
+			super(478, data)
+		end
 	end
 
-	def initialize(data)
-		super(482, data)
-	end
-end
+	class CommCurrency < Quickfix::StringField
+		def initialize
+			super(479)
+		end
 
-class TransBkdTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(483)
+		def initialize(data)
+			super(479, data)
+		end
 	end
 
-	def initialize(data)
-		super(483, data)
-	end
-end
+	class CancellationRights < Quickfix::CharField
+		def initialize
+			super(480)
+		end
 
-class ExecPriceType < QuickFix::CharField
-	def initialize
-		super(484)
+		def initialize(data)
+			super(480, data)
+		end
 	end
 
-	def initialize(data)
-		super(484, data)
-	end
-end
+	class MoneyLaunderingStatus < Quickfix::CharField
+		def initialize
+			super(481)
+		end
 
-class ExecPriceAdjustment < QuickFix::DoubleField
-	def initialize
-		super(485)
+		def initialize(data)
+			super(481, data)
+		end
 	end
 
-	def initialize(data)
-		super(485, data)
-	end
-end
+	class MailingInst < Quickfix::StringField
+		def initialize
+			super(482)
+		end
 
-class DateOfBirth < QuickFix::StringField
-	def initialize
-		super(486)
+		def initialize(data)
+			super(482, data)
+		end
 	end
 
-	def initialize(data)
-		super(486, data)
-	end
-end
+	class TransBkdTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(483)
+		end
 
-class TradeReportTransType < QuickFix::IntField
-	def initialize
-		super(487)
+		def initialize(data)
+			super(483, data)
+		end
 	end
 
-	def initialize(data)
-		super(487, data)
-	end
-end
+	class ExecPriceType < Quickfix::CharField
+		def initialize
+			super(484)
+		end
 
-class CardHolderName < QuickFix::StringField
-	def initialize
-		super(488)
+		def initialize(data)
+			super(484, data)
+		end
 	end
 
-	def initialize(data)
-		super(488, data)
-	end
-end
+	class ExecPriceAdjustment < Quickfix::DoubleField
+		def initialize
+			super(485)
+		end
 
-class CardNumber < QuickFix::StringField
-	def initialize
-		super(489)
+		def initialize(data)
+			super(485, data)
+		end
 	end
 
-	def initialize(data)
-		super(489, data)
-	end
-end
+	class DateOfBirth < Quickfix::StringField
+		def initialize
+			super(486)
+		end
 
-class CardExpDate < QuickFix::StringField
-	def initialize
-		super(490)
+		def initialize(data)
+			super(486, data)
+		end
 	end
 
-	def initialize(data)
-		super(490, data)
-	end
-end
+	class TradeReportTransType < Quickfix::IntField
+		def initialize
+			super(487)
+		end
 
-class CardIssNum < QuickFix::StringField
-	def initialize
-		super(491)
+		def initialize(data)
+			super(487, data)
+		end
 	end
 
-	def initialize(data)
-		super(491, data)
-	end
-end
+	class CardHolderName < Quickfix::StringField
+		def initialize
+			super(488)
+		end
 
-class PaymentMethod < QuickFix::IntField
-	def initialize
-		super(492)
+		def initialize(data)
+			super(488, data)
+		end
 	end
 
-	def initialize(data)
-		super(492, data)
-	end
-end
+	class CardNumber < Quickfix::StringField
+		def initialize
+			super(489)
+		end
 
-class RegistAcctType < QuickFix::StringField
-	def initialize
-		super(493)
+		def initialize(data)
+			super(489, data)
+		end
 	end
 
-	def initialize(data)
-		super(493, data)
-	end
-end
+	class CardExpDate < Quickfix::StringField
+		def initialize
+			super(490)
+		end
 
-class Designation < QuickFix::StringField
-	def initialize
-		super(494)
+		def initialize(data)
+			super(490, data)
+		end
 	end
 
-	def initialize(data)
-		super(494, data)
-	end
-end
+	class CardIssNum < Quickfix::StringField
+		def initialize
+			super(491)
+		end
 
-class TaxAdvantageType < QuickFix::IntField
-	def initialize
-		super(495)
+		def initialize(data)
+			super(491, data)
+		end
 	end
 
-	def initialize(data)
-		super(495, data)
-	end
-end
+	class PaymentMethod < Quickfix::IntField
+		def initialize
+			super(492)
+		end
 
-class RegistRejReasonText < QuickFix::StringField
-	def initialize
-		super(496)
+		def initialize(data)
+			super(492, data)
+		end
 	end
 
-	def initialize(data)
-		super(496, data)
-	end
-end
+	class RegistAcctType < Quickfix::StringField
+		def initialize
+			super(493)
+		end
 
-class FundRenewWaiv < QuickFix::CharField
-	def initialize
-		super(497)
+		def initialize(data)
+			super(493, data)
+		end
 	end
 
-	def initialize(data)
-		super(497, data)
-	end
-end
+	class Designation < Quickfix::StringField
+		def initialize
+			super(494)
+		end
 
-class CashDistribAgentName < QuickFix::StringField
-	def initialize
-		super(498)
+		def initialize(data)
+			super(494, data)
+		end
 	end
 
-	def initialize(data)
-		super(498, data)
-	end
-end
+	class TaxAdvantageType < Quickfix::IntField
+		def initialize
+			super(495)
+		end
 
-class CashDistribAgentCode < QuickFix::StringField
-	def initialize
-		super(499)
+		def initialize(data)
+			super(495, data)
+		end
 	end
 
-	def initialize(data)
-		super(499, data)
-	end
-end
+	class RegistRejReasonText < Quickfix::StringField
+		def initialize
+			super(496)
+		end
 
-class CashDistribAgentAcctNumber < QuickFix::StringField
-	def initialize
-		super(500)
+		def initialize(data)
+			super(496, data)
+		end
 	end
 
-	def initialize(data)
-		super(500, data)
-	end
-end
+	class FundRenewWaiv < Quickfix::CharField
+		def initialize
+			super(497)
+		end
 
-class CashDistribPayRef < QuickFix::StringField
-	def initialize
-		super(501)
+		def initialize(data)
+			super(497, data)
+		end
 	end
 
-	def initialize(data)
-		super(501, data)
-	end
-end
+	class CashDistribAgentName < Quickfix::StringField
+		def initialize
+			super(498)
+		end
 
-class CashDistribAgentAcctName < QuickFix::StringField
-	def initialize
-		super(502)
+		def initialize(data)
+			super(498, data)
+		end
 	end
 
-	def initialize(data)
-		super(502, data)
-	end
-end
+	class CashDistribAgentCode < Quickfix::StringField
+		def initialize
+			super(499)
+		end
 
-class CardStartDate < QuickFix::StringField
-	def initialize
-		super(503)
+		def initialize(data)
+			super(499, data)
+		end
 	end
 
-	def initialize(data)
-		super(503, data)
-	end
-end
+	class CashDistribAgentAcctNumber < Quickfix::StringField
+		def initialize
+			super(500)
+		end
 
-class PaymentDate < QuickFix::StringField
-	def initialize
-		super(504)
+		def initialize(data)
+			super(500, data)
+		end
 	end
 
-	def initialize(data)
-		super(504, data)
-	end
-end
+	class CashDistribPayRef < Quickfix::StringField
+		def initialize
+			super(501)
+		end
 
-class PaymentRemitterID < QuickFix::StringField
-	def initialize
-		super(505)
+		def initialize(data)
+			super(501, data)
+		end
 	end
 
-	def initialize(data)
-		super(505, data)
-	end
-end
+	class CashDistribAgentAcctName < Quickfix::StringField
+		def initialize
+			super(502)
+		end
 
-class RegistStatus < QuickFix::CharField
-	def initialize
-		super(506)
+		def initialize(data)
+			super(502, data)
+		end
 	end
 
-	def initialize(data)
-		super(506, data)
-	end
-end
+	class CardStartDate < Quickfix::StringField
+		def initialize
+			super(503)
+		end
 
-class RegistRejReasonCode < QuickFix::IntField
-	def initialize
-		super(507)
+		def initialize(data)
+			super(503, data)
+		end
 	end
 
-	def initialize(data)
-		super(507, data)
-	end
-end
+	class PaymentDate < Quickfix::StringField
+		def initialize
+			super(504)
+		end
 
-class RegistRefID < QuickFix::StringField
-	def initialize
-		super(508)
+		def initialize(data)
+			super(504, data)
+		end
 	end
 
-	def initialize(data)
-		super(508, data)
-	end
-end
+	class PaymentRemitterID < Quickfix::StringField
+		def initialize
+			super(505)
+		end
 
-class RegistDtls < QuickFix::StringField
-	def initialize
-		super(509)
+		def initialize(data)
+			super(505, data)
+		end
 	end
 
-	def initialize(data)
-		super(509, data)
-	end
-end
+	class RegistStatus < Quickfix::CharField
+		def initialize
+			super(506)
+		end
 
-class NoDistribInsts < QuickFix::IntField
-	def initialize
-		super(510)
+		def initialize(data)
+			super(506, data)
+		end
 	end
 
-	def initialize(data)
-		super(510, data)
-	end
-end
+	class RegistRejReasonCode < Quickfix::IntField
+		def initialize
+			super(507)
+		end
 
-class RegistEmail < QuickFix::StringField
-	def initialize
-		super(511)
+		def initialize(data)
+			super(507, data)
+		end
 	end
 
-	def initialize(data)
-		super(511, data)
-	end
-end
+	class RegistRefID < Quickfix::StringField
+		def initialize
+			super(508)
+		end
 
-class DistribPercentage < QuickFix::DoubleField
-	def initialize
-		super(512)
+		def initialize(data)
+			super(508, data)
+		end
 	end
 
-	def initialize(data)
-		super(512, data)
-	end
-end
+	class RegistDtls < Quickfix::StringField
+		def initialize
+			super(509)
+		end
 
-class RegistID < QuickFix::StringField
-	def initialize
-		super(513)
+		def initialize(data)
+			super(509, data)
+		end
 	end
 
-	def initialize(data)
-		super(513, data)
-	end
-end
+	class NoDistribInsts < Quickfix::IntField
+		def initialize
+			super(510)
+		end
 
-class RegistTransType < QuickFix::CharField
-	def initialize
-		super(514)
+		def initialize(data)
+			super(510, data)
+		end
 	end
 
-	def initialize(data)
-		super(514, data)
-	end
-end
+	class RegistEmail < Quickfix::StringField
+		def initialize
+			super(511)
+		end
 
-class ExecValuationPoint < QuickFix::UtcTimeStampField
-	def initialize
-		super(515)
+		def initialize(data)
+			super(511, data)
+		end
 	end
 
-	def initialize(data)
-		super(515, data)
-	end
-end
+	class DistribPercentage < Quickfix::DoubleField
+		def initialize
+			super(512)
+		end
 
-class OrderPercent < QuickFix::DoubleField
-	def initialize
-		super(516)
+		def initialize(data)
+			super(512, data)
+		end
 	end
 
-	def initialize(data)
-		super(516, data)
-	end
-end
+	class RegistID < Quickfix::StringField
+		def initialize
+			super(513)
+		end
 
-class OwnershipType < QuickFix::CharField
-	def initialize
-		super(517)
+		def initialize(data)
+			super(513, data)
+		end
 	end
 
-	def initialize(data)
-		super(517, data)
-	end
-end
+	class RegistTransType < Quickfix::CharField
+		def initialize
+			super(514)
+		end
 
-class NoContAmts < QuickFix::IntField
-	def initialize
-		super(518)
+		def initialize(data)
+			super(514, data)
+		end
 	end
 
-	def initialize(data)
-		super(518, data)
-	end
-end
+	class ExecValuationPoint < Quickfix::UtcTimeStampField
+		def initialize
+			super(515)
+		end
 
-class ContAmtType < QuickFix::IntField
-	def initialize
-		super(519)
+		def initialize(data)
+			super(515, data)
+		end
 	end
 
-	def initialize(data)
-		super(519, data)
-	end
-end
+	class OrderPercent < Quickfix::DoubleField
+		def initialize
+			super(516)
+		end
 
-class ContAmtValue < QuickFix::DoubleField
-	def initialize
-		super(520)
+		def initialize(data)
+			super(516, data)
+		end
 	end
 
-	def initialize(data)
-		super(520, data)
-	end
-end
+	class OwnershipType < Quickfix::CharField
+		def initialize
+			super(517)
+		end
 
-class ContAmtCurr < QuickFix::StringField
-	def initialize
-		super(521)
+		def initialize(data)
+			super(517, data)
+		end
 	end
 
-	def initialize(data)
-		super(521, data)
-	end
-end
+	class NoContAmts < Quickfix::IntField
+		def initialize
+			super(518)
+		end
 
-class OwnerType < QuickFix::IntField
-	def initialize
-		super(522)
+		def initialize(data)
+			super(518, data)
+		end
 	end
 
-	def initialize(data)
-		super(522, data)
-	end
-end
+	class ContAmtType < Quickfix::IntField
+		def initialize
+			super(519)
+		end
 
-class PartySubID < QuickFix::StringField
-	def initialize
-		super(523)
+		def initialize(data)
+			super(519, data)
+		end
 	end
 
-	def initialize(data)
-		super(523, data)
-	end
-end
+	class ContAmtValue < Quickfix::DoubleField
+		def initialize
+			super(520)
+		end
 
-class NestedPartyID < QuickFix::StringField
-	def initialize
-		super(524)
+		def initialize(data)
+			super(520, data)
+		end
 	end
 
-	def initialize(data)
-		super(524, data)
-	end
-end
+	class ContAmtCurr < Quickfix::StringField
+		def initialize
+			super(521)
+		end
 
-class NestedPartyIDSource < QuickFix::CharField
-	def initialize
-		super(525)
+		def initialize(data)
+			super(521, data)
+		end
 	end
 
-	def initialize(data)
-		super(525, data)
-	end
-end
+	class OwnerType < Quickfix::IntField
+		def initialize
+			super(522)
+		end
 
-class SecondaryClOrdID < QuickFix::StringField
-	def initialize
-		super(526)
+		def initialize(data)
+			super(522, data)
+		end
 	end
 
-	def initialize(data)
-		super(526, data)
-	end
-end
+	class PartySubID < Quickfix::StringField
+		def initialize
+			super(523)
+		end
 
-class SecondaryExecID < QuickFix::StringField
-	def initialize
-		super(527)
+		def initialize(data)
+			super(523, data)
+		end
 	end
 
-	def initialize(data)
-		super(527, data)
-	end
-end
+	class NestedPartyID < Quickfix::StringField
+		def initialize
+			super(524)
+		end
 
-class OrderCapacity < QuickFix::CharField
-	def initialize
-		super(528)
+		def initialize(data)
+			super(524, data)
+		end
 	end
 
-	def initialize(data)
-		super(528, data)
-	end
-end
+	class NestedPartyIDSource < Quickfix::CharField
+		def initialize
+			super(525)
+		end
 
-class OrderRestrictions < QuickFix::StringField
-	def initialize
-		super(529)
+		def initialize(data)
+			super(525, data)
+		end
 	end
 
-	def initialize(data)
-		super(529, data)
-	end
-end
+	class SecondaryClOrdID < Quickfix::StringField
+		def initialize
+			super(526)
+		end
 
-class MassCancelRequestType < QuickFix::CharField
-	def initialize
-		super(530)
+		def initialize(data)
+			super(526, data)
+		end
 	end
 
-	def initialize(data)
-		super(530, data)
-	end
-end
+	class SecondaryExecID < Quickfix::StringField
+		def initialize
+			super(527)
+		end
 
-class MassCancelResponse < QuickFix::CharField
-	def initialize
-		super(531)
+		def initialize(data)
+			super(527, data)
+		end
 	end
 
-	def initialize(data)
-		super(531, data)
-	end
-end
+	class OrderCapacity < Quickfix::CharField
+		def initialize
+			super(528)
+		end
 
-class MassCancelRejectReason < QuickFix::CharField
-	def initialize
-		super(532)
+		def initialize(data)
+			super(528, data)
+		end
 	end
 
-	def initialize(data)
-		super(532, data)
-	end
-end
+	class OrderRestrictions < Quickfix::StringField
+		def initialize
+			super(529)
+		end
 
-class TotalAffectedOrders < QuickFix::IntField
-	def initialize
-		super(533)
+		def initialize(data)
+			super(529, data)
+		end
 	end
 
-	def initialize(data)
-		super(533, data)
-	end
-end
+	class MassCancelRequestType < Quickfix::CharField
+		def initialize
+			super(530)
+		end
 
-class NoAffectedOrders < QuickFix::IntField
-	def initialize
-		super(534)
+		def initialize(data)
+			super(530, data)
+		end
 	end
 
-	def initialize(data)
-		super(534, data)
-	end
-end
+	class MassCancelResponse < Quickfix::CharField
+		def initialize
+			super(531)
+		end
 
-class AffectedOrderID < QuickFix::StringField
-	def initialize
-		super(535)
+		def initialize(data)
+			super(531, data)
+		end
 	end
 
-	def initialize(data)
-		super(535, data)
-	end
-end
+	class MassCancelRejectReason < Quickfix::CharField
+		def initialize
+			super(532)
+		end
 
-class AffectedSecondaryOrderID < QuickFix::StringField
-	def initialize
-		super(536)
+		def initialize(data)
+			super(532, data)
+		end
 	end
 
-	def initialize(data)
-		super(536, data)
-	end
-end
+	class TotalAffectedOrders < Quickfix::IntField
+		def initialize
+			super(533)
+		end
 
-class QuoteType < QuickFix::IntField
-	def initialize
-		super(537)
+		def initialize(data)
+			super(533, data)
+		end
 	end
 
-	def initialize(data)
-		super(537, data)
-	end
-end
+	class NoAffectedOrders < Quickfix::IntField
+		def initialize
+			super(534)
+		end
 
-class NestedPartyRole < QuickFix::IntField
-	def initialize
-		super(538)
+		def initialize(data)
+			super(534, data)
+		end
 	end
 
-	def initialize(data)
-		super(538, data)
-	end
-end
+	class AffectedOrderID < Quickfix::StringField
+		def initialize
+			super(535)
+		end
 
-class NoNestedPartyIDs < QuickFix::IntField
-	def initialize
-		super(539)
+		def initialize(data)
+			super(535, data)
+		end
 	end
 
-	def initialize(data)
-		super(539, data)
-	end
-end
+	class AffectedSecondaryOrderID < Quickfix::StringField
+		def initialize
+			super(536)
+		end
 
-class TotalAccruedInterestAmt < QuickFix::DoubleField
-	def initialize
-		super(540)
+		def initialize(data)
+			super(536, data)
+		end
 	end
 
-	def initialize(data)
-		super(540, data)
-	end
-end
+	class QuoteType < Quickfix::IntField
+		def initialize
+			super(537)
+		end
 
-class MaturityDate < QuickFix::StringField
-	def initialize
-		super(541)
+		def initialize(data)
+			super(537, data)
+		end
 	end
 
-	def initialize(data)
-		super(541, data)
-	end
-end
+	class NestedPartyRole < Quickfix::IntField
+		def initialize
+			super(538)
+		end
 
-class UnderlyingMaturityDate < QuickFix::StringField
-	def initialize
-		super(542)
+		def initialize(data)
+			super(538, data)
+		end
 	end
 
-	def initialize(data)
-		super(542, data)
-	end
-end
+	class NoNestedPartyIDs < Quickfix::IntField
+		def initialize
+			super(539)
+		end
 
-class InstrRegistry < QuickFix::StringField
-	def initialize
-		super(543)
+		def initialize(data)
+			super(539, data)
+		end
 	end
 
-	def initialize(data)
-		super(543, data)
-	end
-end
+	class TotalAccruedInterestAmt < Quickfix::DoubleField
+		def initialize
+			super(540)
+		end
 
-class CashMargin < QuickFix::CharField
-	def initialize
-		super(544)
+		def initialize(data)
+			super(540, data)
+		end
 	end
 
-	def initialize(data)
-		super(544, data)
-	end
-end
+	class MaturityDate < Quickfix::StringField
+		def initialize
+			super(541)
+		end
 
-class NestedPartySubID < QuickFix::StringField
-	def initialize
-		super(545)
+		def initialize(data)
+			super(541, data)
+		end
 	end
 
-	def initialize(data)
-		super(545, data)
-	end
-end
+	class UnderlyingMaturityDate < Quickfix::StringField
+		def initialize
+			super(542)
+		end
 
-class Scope < QuickFix::StringField
-	def initialize
-		super(546)
+		def initialize(data)
+			super(542, data)
+		end
 	end
 
-	def initialize(data)
-		super(546, data)
-	end
-end
+	class InstrRegistry < Quickfix::StringField
+		def initialize
+			super(543)
+		end
 
-class MDImplicitDelete < QuickFix::BooleanField
-	def initialize
-		super(547)
+		def initialize(data)
+			super(543, data)
+		end
 	end
 
-	def initialize(data)
-		super(547, data)
-	end
-end
+	class CashMargin < Quickfix::CharField
+		def initialize
+			super(544)
+		end
 
-class CrossID < QuickFix::StringField
-	def initialize
-		super(548)
+		def initialize(data)
+			super(544, data)
+		end
 	end
 
-	def initialize(data)
-		super(548, data)
-	end
-end
+	class NestedPartySubID < Quickfix::StringField
+		def initialize
+			super(545)
+		end
 
-class CrossType < QuickFix::IntField
-	def initialize
-		super(549)
+		def initialize(data)
+			super(545, data)
+		end
 	end
 
-	def initialize(data)
-		super(549, data)
-	end
-end
+	class Scope < Quickfix::StringField
+		def initialize
+			super(546)
+		end
 
-class CrossPrioritization < QuickFix::IntField
-	def initialize
-		super(550)
+		def initialize(data)
+			super(546, data)
+		end
 	end
 
-	def initialize(data)
-		super(550, data)
-	end
-end
+	class MDImplicitDelete < Quickfix::BoolField
+		def initialize
+			super(547)
+		end
 
-class OrigCrossID < QuickFix::StringField
-	def initialize
-		super(551)
+		def initialize(data)
+			super(547, data)
+		end
 	end
 
-	def initialize(data)
-		super(551, data)
-	end
-end
+	class CrossID < Quickfix::StringField
+		def initialize
+			super(548)
+		end
 
-class NoSides < QuickFix::IntField
-	def initialize
-		super(552)
+		def initialize(data)
+			super(548, data)
+		end
 	end
 
-	def initialize(data)
-		super(552, data)
-	end
-end
+	class CrossType < Quickfix::IntField
+		def initialize
+			super(549)
+		end
 
-class Username < QuickFix::StringField
-	def initialize
-		super(553)
+		def initialize(data)
+			super(549, data)
+		end
 	end
 
-	def initialize(data)
-		super(553, data)
-	end
-end
+	class CrossPrioritization < Quickfix::IntField
+		def initialize
+			super(550)
+		end
 
-class Password < QuickFix::StringField
-	def initialize
-		super(554)
+		def initialize(data)
+			super(550, data)
+		end
 	end
 
-	def initialize(data)
-		super(554, data)
-	end
-end
+	class OrigCrossID < Quickfix::StringField
+		def initialize
+			super(551)
+		end
 
-class NoLegs < QuickFix::IntField
-	def initialize
-		super(555)
+		def initialize(data)
+			super(551, data)
+		end
 	end
 
-	def initialize(data)
-		super(555, data)
-	end
-end
+	class NoSides < Quickfix::IntField
+		def initialize
+			super(552)
+		end
 
-class LegCurrency < QuickFix::StringField
-	def initialize
-		super(556)
+		def initialize(data)
+			super(552, data)
+		end
 	end
 
-	def initialize(data)
-		super(556, data)
-	end
-end
+	class Username < Quickfix::StringField
+		def initialize
+			super(553)
+		end
 
-class TotNoSecurityTypes < QuickFix::IntField
-	def initialize
-		super(557)
+		def initialize(data)
+			super(553, data)
+		end
 	end
 
-	def initialize(data)
-		super(557, data)
-	end
-end
+	class Password < Quickfix::StringField
+		def initialize
+			super(554)
+		end
 
-class NoSecurityTypes < QuickFix::IntField
-	def initialize
-		super(558)
+		def initialize(data)
+			super(554, data)
+		end
 	end
 
-	def initialize(data)
-		super(558, data)
-	end
-end
+	class NoLegs < Quickfix::IntField
+		def initialize
+			super(555)
+		end
 
-class SecurityListRequestType < QuickFix::IntField
-	def initialize
-		super(559)
+		def initialize(data)
+			super(555, data)
+		end
 	end
 
-	def initialize(data)
-		super(559, data)
-	end
-end
+	class LegCurrency < Quickfix::StringField
+		def initialize
+			super(556)
+		end
 
-class SecurityRequestResult < QuickFix::IntField
-	def initialize
-		super(560)
+		def initialize(data)
+			super(556, data)
+		end
 	end
 
-	def initialize(data)
-		super(560, data)
-	end
-end
+	class TotNoSecurityTypes < Quickfix::IntField
+		def initialize
+			super(557)
+		end
 
-class RoundLot < QuickFix::DoubleField
-	def initialize
-		super(561)
+		def initialize(data)
+			super(557, data)
+		end
 	end
 
-	def initialize(data)
-		super(561, data)
-	end
-end
+	class NoSecurityTypes < Quickfix::IntField
+		def initialize
+			super(558)
+		end
 
-class MinTradeVol < QuickFix::DoubleField
-	def initialize
-		super(562)
+		def initialize(data)
+			super(558, data)
+		end
 	end
 
-	def initialize(data)
-		super(562, data)
-	end
-end
+	class SecurityListRequestType < Quickfix::IntField
+		def initialize
+			super(559)
+		end
 
-class MultiLegRptTypeReq < QuickFix::IntField
-	def initialize
-		super(563)
+		def initialize(data)
+			super(559, data)
+		end
 	end
 
-	def initialize(data)
-		super(563, data)
-	end
-end
+	class SecurityRequestResult < Quickfix::IntField
+		def initialize
+			super(560)
+		end
 
-class LegPositionEffect < QuickFix::CharField
-	def initialize
-		super(564)
+		def initialize(data)
+			super(560, data)
+		end
 	end
 
-	def initialize(data)
-		super(564, data)
-	end
-end
+	class RoundLot < Quickfix::DoubleField
+		def initialize
+			super(561)
+		end
 
-class LegCoveredOrUncovered < QuickFix::IntField
-	def initialize
-		super(565)
+		def initialize(data)
+			super(561, data)
+		end
 	end
 
-	def initialize(data)
-		super(565, data)
-	end
-end
+	class MinTradeVol < Quickfix::DoubleField
+		def initialize
+			super(562)
+		end
 
-class LegPrice < QuickFix::DoubleField
-	def initialize
-		super(566)
+		def initialize(data)
+			super(562, data)
+		end
 	end
 
-	def initialize(data)
-		super(566, data)
-	end
-end
+	class MultiLegRptTypeReq < Quickfix::IntField
+		def initialize
+			super(563)
+		end
 
-class TradSesStatusRejReason < QuickFix::IntField
-	def initialize
-		super(567)
+		def initialize(data)
+			super(563, data)
+		end
 	end
 
-	def initialize(data)
-		super(567, data)
-	end
-end
+	class LegPositionEffect < Quickfix::CharField
+		def initialize
+			super(564)
+		end
 
-class TradeRequestID < QuickFix::StringField
-	def initialize
-		super(568)
+		def initialize(data)
+			super(564, data)
+		end
 	end
 
-	def initialize(data)
-		super(568, data)
-	end
-end
+	class LegCoveredOrUncovered < Quickfix::IntField
+		def initialize
+			super(565)
+		end
 
-class TradeRequestType < QuickFix::IntField
-	def initialize
-		super(569)
+		def initialize(data)
+			super(565, data)
+		end
 	end
 
-	def initialize(data)
-		super(569, data)
-	end
-end
+	class LegPrice < Quickfix::DoubleField
+		def initialize
+			super(566)
+		end
 
-class PreviouslyReported < QuickFix::BooleanField
-	def initialize
-		super(570)
+		def initialize(data)
+			super(566, data)
+		end
 	end
 
-	def initialize(data)
-		super(570, data)
+	class TradSesStatusRejReason < Quickfix::IntField
+		def initialize
+			super(567)
+		end
+
+		def initialize(data)
+			super(567, data)
+		end
 	end
-end
+
+	class TradeRequestID < Quickfix::StringField
+		def initialize
+			super(568)
+		end
 
-class TradeReportID < QuickFix::StringField
-	def initialize
-		super(571)
+		def initialize(data)
+			super(568, data)
+		end
 	end
 
-	def initialize(data)
-		super(571, data)
-	end
-end
+	class TradeRequestType < Quickfix::IntField
+		def initialize
+			super(569)
+		end
 
-class TradeReportRefID < QuickFix::StringField
-	def initialize
-		super(572)
+		def initialize(data)
+			super(569, data)
+		end
 	end
 
-	def initialize(data)
-		super(572, data)
-	end
-end
+	class PreviouslyReported < Quickfix::BoolField
+		def initialize
+			super(570)
+		end
 
-class MatchStatus < QuickFix::CharField
-	def initialize
-		super(573)
+		def initialize(data)
+			super(570, data)
+		end
 	end
 
-	def initialize(data)
-		super(573, data)
-	end
-end
+	class TradeReportID < Quickfix::StringField
+		def initialize
+			super(571)
+		end
 
-class MatchType < QuickFix::StringField
-	def initialize
-		super(574)
+		def initialize(data)
+			super(571, data)
+		end
 	end
 
-	def initialize(data)
-		super(574, data)
-	end
-end
+	class TradeReportRefID < Quickfix::StringField
+		def initialize
+			super(572)
+		end
 
-class OddLot < QuickFix::BooleanField
-	def initialize
-		super(575)
+		def initialize(data)
+			super(572, data)
+		end
 	end
 
-	def initialize(data)
-		super(575, data)
-	end
-end
+	class MatchStatus < Quickfix::CharField
+		def initialize
+			super(573)
+		end
 
-class NoClearingInstructions < QuickFix::IntField
-	def initialize
-		super(576)
+		def initialize(data)
+			super(573, data)
+		end
 	end
 
-	def initialize(data)
-		super(576, data)
-	end
-end
+	class MatchType < Quickfix::StringField
+		def initialize
+			super(574)
+		end
 
-class ClearingInstruction < QuickFix::IntField
-	def initialize
-		super(577)
+		def initialize(data)
+			super(574, data)
+		end
 	end
 
-	def initialize(data)
-		super(577, data)
-	end
-end
+	class OddLot < Quickfix::BoolField
+		def initialize
+			super(575)
+		end
 
-class TradeInputSource < QuickFix::StringField
-	def initialize
-		super(578)
+		def initialize(data)
+			super(575, data)
+		end
 	end
 
-	def initialize(data)
-		super(578, data)
-	end
-end
+	class NoClearingInstructions < Quickfix::IntField
+		def initialize
+			super(576)
+		end
 
-class TradeInputDevice < QuickFix::StringField
-	def initialize
-		super(579)
+		def initialize(data)
+			super(576, data)
+		end
 	end
 
-	def initialize(data)
-		super(579, data)
-	end
-end
+	class ClearingInstruction < Quickfix::IntField
+		def initialize
+			super(577)
+		end
 
-class NoDates < QuickFix::IntField
-	def initialize
-		super(580)
+		def initialize(data)
+			super(577, data)
+		end
 	end
 
-	def initialize(data)
-		super(580, data)
-	end
-end
+	class TradeInputSource < Quickfix::StringField
+		def initialize
+			super(578)
+		end
 
-class AccountType < QuickFix::IntField
-	def initialize
-		super(581)
+		def initialize(data)
+			super(578, data)
+		end
 	end
 
-	def initialize(data)
-		super(581, data)
-	end
-end
+	class TradeInputDevice < Quickfix::StringField
+		def initialize
+			super(579)
+		end
 
-class CustOrderCapacity < QuickFix::IntField
-	def initialize
-		super(582)
+		def initialize(data)
+			super(579, data)
+		end
 	end
 
-	def initialize(data)
-		super(582, data)
-	end
-end
+	class NoDates < Quickfix::IntField
+		def initialize
+			super(580)
+		end
 
-class ClOrdLinkID < QuickFix::StringField
-	def initialize
-		super(583)
+		def initialize(data)
+			super(580, data)
+		end
 	end
 
-	def initialize(data)
-		super(583, data)
-	end
-end
+	class AccountType < Quickfix::IntField
+		def initialize
+			super(581)
+		end
 
-class MassStatusReqID < QuickFix::StringField
-	def initialize
-		super(584)
+		def initialize(data)
+			super(581, data)
+		end
 	end
 
-	def initialize(data)
-		super(584, data)
-	end
-end
+	class CustOrderCapacity < Quickfix::IntField
+		def initialize
+			super(582)
+		end
 
-class MassStatusReqType < QuickFix::IntField
-	def initialize
-		super(585)
+		def initialize(data)
+			super(582, data)
+		end
 	end
 
-	def initialize(data)
-		super(585, data)
-	end
-end
+	class ClOrdLinkID < Quickfix::StringField
+		def initialize
+			super(583)
+		end
 
-class OrigOrdModTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(586)
+		def initialize(data)
+			super(583, data)
+		end
 	end
 
-	def initialize(data)
-		super(586, data)
-	end
-end
+	class MassStatusReqID < Quickfix::StringField
+		def initialize
+			super(584)
+		end
 
-class LegSettlType < QuickFix::CharField
-	def initialize
-		super(587)
+		def initialize(data)
+			super(584, data)
+		end
 	end
 
-	def initialize(data)
-		super(587, data)
-	end
-end
+	class MassStatusReqType < Quickfix::IntField
+		def initialize
+			super(585)
+		end
 
-class LegSettlDate < QuickFix::StringField
-	def initialize
-		super(588)
+		def initialize(data)
+			super(585, data)
+		end
 	end
 
-	def initialize(data)
-		super(588, data)
-	end
-end
+	class OrigOrdModTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(586)
+		end
 
-class DayBookingInst < QuickFix::CharField
-	def initialize
-		super(589)
+		def initialize(data)
+			super(586, data)
+		end
 	end
 
-	def initialize(data)
-		super(589, data)
-	end
-end
+	class LegSettlType < Quickfix::CharField
+		def initialize
+			super(587)
+		end
 
-class BookingUnit < QuickFix::CharField
-	def initialize
-		super(590)
+		def initialize(data)
+			super(587, data)
+		end
 	end
 
-	def initialize(data)
-		super(590, data)
-	end
-end
+	class LegSettlDate < Quickfix::StringField
+		def initialize
+			super(588)
+		end
 
-class PreallocMethod < QuickFix::CharField
-	def initialize
-		super(591)
+		def initialize(data)
+			super(588, data)
+		end
 	end
 
-	def initialize(data)
-		super(591, data)
-	end
-end
+	class DayBookingInst < Quickfix::CharField
+		def initialize
+			super(589)
+		end
 
-class UnderlyingCountryOfIssue < QuickFix::StringField
-	def initialize
-		super(592)
+		def initialize(data)
+			super(589, data)
+		end
 	end
 
-	def initialize(data)
-		super(592, data)
-	end
-end
+	class BookingUnit < Quickfix::CharField
+		def initialize
+			super(590)
+		end
 
-class UnderlyingStateOrProvinceOfIssue < QuickFix::StringField
-	def initialize
-		super(593)
+		def initialize(data)
+			super(590, data)
+		end
 	end
 
-	def initialize(data)
-		super(593, data)
-	end
-end
+	class PreallocMethod < Quickfix::CharField
+		def initialize
+			super(591)
+		end
 
-class UnderlyingLocaleOfIssue < QuickFix::StringField
-	def initialize
-		super(594)
+		def initialize(data)
+			super(591, data)
+		end
 	end
 
-	def initialize(data)
-		super(594, data)
-	end
-end
+	class UnderlyingCountryOfIssue < Quickfix::StringField
+		def initialize
+			super(592)
+		end
 
-class UnderlyingInstrRegistry < QuickFix::StringField
-	def initialize
-		super(595)
+		def initialize(data)
+			super(592, data)
+		end
 	end
 
-	def initialize(data)
-		super(595, data)
-	end
-end
+	class UnderlyingStateOrProvinceOfIssue < Quickfix::StringField
+		def initialize
+			super(593)
+		end
 
-class LegCountryOfIssue < QuickFix::StringField
-	def initialize
-		super(596)
+		def initialize(data)
+			super(593, data)
+		end
 	end
 
-	def initialize(data)
-		super(596, data)
-	end
-end
+	class UnderlyingLocaleOfIssue < Quickfix::StringField
+		def initialize
+			super(594)
+		end
 
-class LegStateOrProvinceOfIssue < QuickFix::StringField
-	def initialize
-		super(597)
+		def initialize(data)
+			super(594, data)
+		end
 	end
 
-	def initialize(data)
-		super(597, data)
-	end
-end
+	class UnderlyingInstrRegistry < Quickfix::StringField
+		def initialize
+			super(595)
+		end
 
-class LegLocaleOfIssue < QuickFix::StringField
-	def initialize
-		super(598)
+		def initialize(data)
+			super(595, data)
+		end
 	end
 
-	def initialize(data)
-		super(598, data)
-	end
-end
+	class LegCountryOfIssue < Quickfix::StringField
+		def initialize
+			super(596)
+		end
 
-class LegInstrRegistry < QuickFix::StringField
-	def initialize
-		super(599)
+		def initialize(data)
+			super(596, data)
+		end
 	end
 
-	def initialize(data)
-		super(599, data)
-	end
-end
+	class LegStateOrProvinceOfIssue < Quickfix::StringField
+		def initialize
+			super(597)
+		end
 
-class LegSymbol < QuickFix::StringField
-	def initialize
-		super(600)
+		def initialize(data)
+			super(597, data)
+		end
 	end
 
-	def initialize(data)
-		super(600, data)
-	end
-end
+	class LegLocaleOfIssue < Quickfix::StringField
+		def initialize
+			super(598)
+		end
 
-class LegSymbolSfx < QuickFix::StringField
-	def initialize
-		super(601)
+		def initialize(data)
+			super(598, data)
+		end
 	end
 
-	def initialize(data)
-		super(601, data)
-	end
-end
+	class LegInstrRegistry < Quickfix::StringField
+		def initialize
+			super(599)
+		end
 
-class LegSecurityID < QuickFix::StringField
-	def initialize
-		super(602)
+		def initialize(data)
+			super(599, data)
+		end
 	end
 
-	def initialize(data)
-		super(602, data)
-	end
-end
+	class LegSymbol < Quickfix::StringField
+		def initialize
+			super(600)
+		end
 
-class LegSecurityIDSource < QuickFix::StringField
-	def initialize
-		super(603)
+		def initialize(data)
+			super(600, data)
+		end
 	end
 
-	def initialize(data)
-		super(603, data)
-	end
-end
+	class LegSymbolSfx < Quickfix::StringField
+		def initialize
+			super(601)
+		end
 
-class NoLegSecurityAltID < QuickFix::StringField
-	def initialize
-		super(604)
+		def initialize(data)
+			super(601, data)
+		end
 	end
 
-	def initialize(data)
-		super(604, data)
-	end
-end
+	class LegSecurityID < Quickfix::StringField
+		def initialize
+			super(602)
+		end
 
-class LegSecurityAltID < QuickFix::StringField
-	def initialize
-		super(605)
+		def initialize(data)
+			super(602, data)
+		end
 	end
 
-	def initialize(data)
-		super(605, data)
-	end
-end
+	class LegSecurityIDSource < Quickfix::StringField
+		def initialize
+			super(603)
+		end
 
-class LegSecurityAltIDSource < QuickFix::StringField
-	def initialize
-		super(606)
+		def initialize(data)
+			super(603, data)
+		end
 	end
 
-	def initialize(data)
-		super(606, data)
-	end
-end
+	class NoLegSecurityAltID < Quickfix::StringField
+		def initialize
+			super(604)
+		end
 
-class LegProduct < QuickFix::IntField
-	def initialize
-		super(607)
+		def initialize(data)
+			super(604, data)
+		end
 	end
 
-	def initialize(data)
-		super(607, data)
-	end
-end
+	class LegSecurityAltID < Quickfix::StringField
+		def initialize
+			super(605)
+		end
 
-class LegCFICode < QuickFix::StringField
-	def initialize
-		super(608)
+		def initialize(data)
+			super(605, data)
+		end
 	end
 
-	def initialize(data)
-		super(608, data)
-	end
-end
+	class LegSecurityAltIDSource < Quickfix::StringField
+		def initialize
+			super(606)
+		end
 
-class LegSecurityType < QuickFix::StringField
-	def initialize
-		super(609)
+		def initialize(data)
+			super(606, data)
+		end
 	end
 
-	def initialize(data)
-		super(609, data)
-	end
-end
+	class LegProduct < Quickfix::IntField
+		def initialize
+			super(607)
+		end
 
-class LegMaturityMonthYear < QuickFix::StringField
-	def initialize
-		super(610)
+		def initialize(data)
+			super(607, data)
+		end
 	end
 
-	def initialize(data)
-		super(610, data)
-	end
-end
+	class LegCFICode < Quickfix::StringField
+		def initialize
+			super(608)
+		end
 
-class LegMaturityDate < QuickFix::StringField
-	def initialize
-		super(611)
+		def initialize(data)
+			super(608, data)
+		end
 	end
 
-	def initialize(data)
-		super(611, data)
-	end
-end
+	class LegSecurityType < Quickfix::StringField
+		def initialize
+			super(609)
+		end
 
-class LegStrikePrice < QuickFix::DoubleField
-	def initialize
-		super(612)
+		def initialize(data)
+			super(609, data)
+		end
 	end
 
-	def initialize(data)
-		super(612, data)
-	end
-end
+	class LegMaturityMonthYear < Quickfix::StringField
+		def initialize
+			super(610)
+		end
 
-class LegOptAttribute < QuickFix::CharField
-	def initialize
-		super(613)
+		def initialize(data)
+			super(610, data)
+		end
 	end
 
-	def initialize(data)
-		super(613, data)
-	end
-end
+	class LegMaturityDate < Quickfix::StringField
+		def initialize
+			super(611)
+		end
 
-class LegContractMultiplier < QuickFix::DoubleField
-	def initialize
-		super(614)
+		def initialize(data)
+			super(611, data)
+		end
 	end
 
-	def initialize(data)
-		super(614, data)
-	end
-end
+	class LegStrikePrice < Quickfix::DoubleField
+		def initialize
+			super(612)
+		end
 
-class LegCouponRate < QuickFix::DoubleField
-	def initialize
-		super(615)
+		def initialize(data)
+			super(612, data)
+		end
 	end
 
-	def initialize(data)
-		super(615, data)
-	end
-end
+	class LegOptAttribute < Quickfix::CharField
+		def initialize
+			super(613)
+		end
 
-class LegSecurityExchange < QuickFix::StringField
-	def initialize
-		super(616)
+		def initialize(data)
+			super(613, data)
+		end
 	end
 
-	def initialize(data)
-		super(616, data)
-	end
-end
+	class LegContractMultiplier < Quickfix::DoubleField
+		def initialize
+			super(614)
+		end
 
-class LegIssuer < QuickFix::StringField
-	def initialize
-		super(617)
+		def initialize(data)
+			super(614, data)
+		end
 	end
 
-	def initialize(data)
-		super(617, data)
-	end
-end
+	class LegCouponRate < Quickfix::DoubleField
+		def initialize
+			super(615)
+		end
 
-class EncodedLegIssuerLen < QuickFix::IntField
-	def initialize
-		super(618)
+		def initialize(data)
+			super(615, data)
+		end
 	end
 
-	def initialize(data)
-		super(618, data)
-	end
-end
+	class LegSecurityExchange < Quickfix::StringField
+		def initialize
+			super(616)
+		end
 
-class EncodedLegIssuer < QuickFix::StringField
-	def initialize
-		super(619)
+		def initialize(data)
+			super(616, data)
+		end
 	end
 
-	def initialize(data)
-		super(619, data)
-	end
-end
+	class LegIssuer < Quickfix::StringField
+		def initialize
+			super(617)
+		end
 
-class LegSecurityDesc < QuickFix::StringField
-	def initialize
-		super(620)
+		def initialize(data)
+			super(617, data)
+		end
 	end
 
-	def initialize(data)
-		super(620, data)
-	end
-end
+	class EncodedLegIssuerLen < Quickfix::IntField
+		def initialize
+			super(618)
+		end
 
-class EncodedLegSecurityDescLen < QuickFix::IntField
-	def initialize
-		super(621)
+		def initialize(data)
+			super(618, data)
+		end
 	end
 
-	def initialize(data)
-		super(621, data)
-	end
-end
+	class EncodedLegIssuer < Quickfix::StringField
+		def initialize
+			super(619)
+		end
 
-class EncodedLegSecurityDesc < QuickFix::StringField
-	def initialize
-		super(622)
+		def initialize(data)
+			super(619, data)
+		end
 	end
 
-	def initialize(data)
-		super(622, data)
-	end
-end
+	class LegSecurityDesc < Quickfix::StringField
+		def initialize
+			super(620)
+		end
 
-class LegRatioQty < QuickFix::DoubleField
-	def initialize
-		super(623)
+		def initialize(data)
+			super(620, data)
+		end
 	end
 
-	def initialize(data)
-		super(623, data)
-	end
-end
+	class EncodedLegSecurityDescLen < Quickfix::IntField
+		def initialize
+			super(621)
+		end
 
-class LegSide < QuickFix::CharField
-	def initialize
-		super(624)
+		def initialize(data)
+			super(621, data)
+		end
 	end
 
-	def initialize(data)
-		super(624, data)
-	end
-end
+	class EncodedLegSecurityDesc < Quickfix::StringField
+		def initialize
+			super(622)
+		end
 
-class TradingSessionSubID < QuickFix::StringField
-	def initialize
-		super(625)
+		def initialize(data)
+			super(622, data)
+		end
 	end
 
-	def initialize(data)
-		super(625, data)
-	end
-end
+	class LegRatioQty < Quickfix::DoubleField
+		def initialize
+			super(623)
+		end
 
-class AllocType < QuickFix::IntField
-	def initialize
-		super(626)
+		def initialize(data)
+			super(623, data)
+		end
 	end
 
-	def initialize(data)
-		super(626, data)
-	end
-end
+	class LegSide < Quickfix::CharField
+		def initialize
+			super(624)
+		end
 
-class NoHops < QuickFix::IntField
-	def initialize
-		super(627)
+		def initialize(data)
+			super(624, data)
+		end
 	end
 
-	def initialize(data)
-		super(627, data)
-	end
-end
+	class TradingSessionSubID < Quickfix::StringField
+		def initialize
+			super(625)
+		end
 
-class HopCompID < QuickFix::StringField
-	def initialize
-		super(628)
+		def initialize(data)
+			super(625, data)
+		end
 	end
 
-	def initialize(data)
-		super(628, data)
-	end
-end
+	class AllocType < Quickfix::IntField
+		def initialize
+			super(626)
+		end
 
-class HopSendingTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(629)
+		def initialize(data)
+			super(626, data)
+		end
 	end
 
-	def initialize(data)
-		super(629, data)
-	end
-end
+	class NoHops < Quickfix::IntField
+		def initialize
+			super(627)
+		end
 
-class HopRefID < QuickFix::IntField
-	def initialize
-		super(630)
+		def initialize(data)
+			super(627, data)
+		end
 	end
 
-	def initialize(data)
-		super(630, data)
-	end
-end
+	class HopCompID < Quickfix::StringField
+		def initialize
+			super(628)
+		end
 
-class MidPx < QuickFix::DoubleField
-	def initialize
-		super(631)
+		def initialize(data)
+			super(628, data)
+		end
 	end
 
-	def initialize(data)
-		super(631, data)
-	end
-end
+	class HopSendingTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(629)
+		end
 
-class BidYield < QuickFix::DoubleField
-	def initialize
-		super(632)
+		def initialize(data)
+			super(629, data)
+		end
 	end
 
-	def initialize(data)
-		super(632, data)
-	end
-end
+	class HopRefID < Quickfix::IntField
+		def initialize
+			super(630)
+		end
 
-class MidYield < QuickFix::DoubleField
-	def initialize
-		super(633)
+		def initialize(data)
+			super(630, data)
+		end
 	end
 
-	def initialize(data)
-		super(633, data)
-	end
-end
+	class MidPx < Quickfix::DoubleField
+		def initialize
+			super(631)
+		end
 
-class OfferYield < QuickFix::DoubleField
-	def initialize
-		super(634)
+		def initialize(data)
+			super(631, data)
+		end
 	end
 
-	def initialize(data)
-		super(634, data)
-	end
-end
+	class BidYield < Quickfix::DoubleField
+		def initialize
+			super(632)
+		end
 
-class ClearingFeeIndicator < QuickFix::StringField
-	def initialize
-		super(635)
+		def initialize(data)
+			super(632, data)
+		end
 	end
 
-	def initialize(data)
-		super(635, data)
-	end
-end
+	class MidYield < Quickfix::DoubleField
+		def initialize
+			super(633)
+		end
 
-class WorkingIndicator < QuickFix::BooleanField
-	def initialize
-		super(636)
+		def initialize(data)
+			super(633, data)
+		end
 	end
 
-	def initialize(data)
-		super(636, data)
-	end
-end
+	class OfferYield < Quickfix::DoubleField
+		def initialize
+			super(634)
+		end
 
-class LegLastPx < QuickFix::DoubleField
-	def initialize
-		super(637)
+		def initialize(data)
+			super(634, data)
+		end
 	end
 
-	def initialize(data)
-		super(637, data)
-	end
-end
+	class ClearingFeeIndicator < Quickfix::StringField
+		def initialize
+			super(635)
+		end
 
-class PriorityIndicator < QuickFix::IntField
-	def initialize
-		super(638)
+		def initialize(data)
+			super(635, data)
+		end
 	end
 
-	def initialize(data)
-		super(638, data)
-	end
-end
+	class WorkingIndicator < Quickfix::BoolField
+		def initialize
+			super(636)
+		end
 
-class PriceImprovement < QuickFix::DoubleField
-	def initialize
-		super(639)
+		def initialize(data)
+			super(636, data)
+		end
 	end
 
-	def initialize(data)
-		super(639, data)
-	end
-end
+	class LegLastPx < Quickfix::DoubleField
+		def initialize
+			super(637)
+		end
 
-class Price2 < QuickFix::DoubleField
-	def initialize
-		super(640)
+		def initialize(data)
+			super(637, data)
+		end
 	end
 
-	def initialize(data)
-		super(640, data)
-	end
-end
+	class PriorityIndicator < Quickfix::IntField
+		def initialize
+			super(638)
+		end
 
-class LastForwardPoints2 < QuickFix::DoubleField
-	def initialize
-		super(641)
+		def initialize(data)
+			super(638, data)
+		end
 	end
 
-	def initialize(data)
-		super(641, data)
-	end
-end
+	class PriceImprovement < Quickfix::DoubleField
+		def initialize
+			super(639)
+		end
 
-class BidForwardPoints2 < QuickFix::DoubleField
-	def initialize
-		super(642)
+		def initialize(data)
+			super(639, data)
+		end
 	end
 
-	def initialize(data)
-		super(642, data)
-	end
-end
+	class Price2 < Quickfix::DoubleField
+		def initialize
+			super(640)
+		end
 
-class OfferForwardPoints2 < QuickFix::DoubleField
-	def initialize
-		super(643)
+		def initialize(data)
+			super(640, data)
+		end
 	end
 
-	def initialize(data)
-		super(643, data)
-	end
-end
+	class LastForwardPoints2 < Quickfix::DoubleField
+		def initialize
+			super(641)
+		end
 
-class RFQReqID < QuickFix::StringField
-	def initialize
-		super(644)
+		def initialize(data)
+			super(641, data)
+		end
 	end
 
-	def initialize(data)
-		super(644, data)
-	end
-end
+	class BidForwardPoints2 < Quickfix::DoubleField
+		def initialize
+			super(642)
+		end
 
-class MktBidPx < QuickFix::DoubleField
-	def initialize
-		super(645)
+		def initialize(data)
+			super(642, data)
+		end
 	end
 
-	def initialize(data)
-		super(645, data)
-	end
-end
+	class OfferForwardPoints2 < Quickfix::DoubleField
+		def initialize
+			super(643)
+		end
 
-class MktOfferPx < QuickFix::DoubleField
-	def initialize
-		super(646)
+		def initialize(data)
+			super(643, data)
+		end
 	end
 
-	def initialize(data)
-		super(646, data)
-	end
-end
+	class RFQReqID < Quickfix::StringField
+		def initialize
+			super(644)
+		end
 
-class MinBidSize < QuickFix::DoubleField
-	def initialize
-		super(647)
+		def initialize(data)
+			super(644, data)
+		end
 	end
 
-	def initialize(data)
-		super(647, data)
-	end
-end
+	class MktBidPx < Quickfix::DoubleField
+		def initialize
+			super(645)
+		end
 
-class MinOfferSize < QuickFix::DoubleField
-	def initialize
-		super(648)
+		def initialize(data)
+			super(645, data)
+		end
 	end
 
-	def initialize(data)
-		super(648, data)
-	end
-end
+	class MktOfferPx < Quickfix::DoubleField
+		def initialize
+			super(646)
+		end
 
-class QuoteStatusReqID < QuickFix::StringField
-	def initialize
-		super(649)
+		def initialize(data)
+			super(646, data)
+		end
 	end
 
-	def initialize(data)
-		super(649, data)
-	end
-end
+	class MinBidSize < Quickfix::DoubleField
+		def initialize
+			super(647)
+		end
 
-class LegalConfirm < QuickFix::BooleanField
-	def initialize
-		super(650)
+		def initialize(data)
+			super(647, data)
+		end
 	end
 
-	def initialize(data)
-		super(650, data)
-	end
-end
+	class MinOfferSize < Quickfix::DoubleField
+		def initialize
+			super(648)
+		end
 
-class UnderlyingLastPx < QuickFix::DoubleField
-	def initialize
-		super(651)
+		def initialize(data)
+			super(648, data)
+		end
 	end
 
-	def initialize(data)
-		super(651, data)
-	end
-end
+	class QuoteStatusReqID < Quickfix::StringField
+		def initialize
+			super(649)
+		end
 
-class UnderlyingLastQty < QuickFix::DoubleField
-	def initialize
-		super(652)
+		def initialize(data)
+			super(649, data)
+		end
 	end
 
-	def initialize(data)
-		super(652, data)
-	end
-end
+	class LegalConfirm < Quickfix::BoolField
+		def initialize
+			super(650)
+		end
 
-class LegRefID < QuickFix::StringField
-	def initialize
-		super(654)
+		def initialize(data)
+			super(650, data)
+		end
 	end
 
-	def initialize(data)
-		super(654, data)
-	end
-end
+	class UnderlyingLastPx < Quickfix::DoubleField
+		def initialize
+			super(651)
+		end
 
-class ContraLegRefID < QuickFix::StringField
-	def initialize
-		super(655)
+		def initialize(data)
+			super(651, data)
+		end
 	end
 
-	def initialize(data)
-		super(655, data)
-	end
-end
+	class UnderlyingLastQty < Quickfix::DoubleField
+		def initialize
+			super(652)
+		end
 
-class SettlCurrBidFxRate < QuickFix::DoubleField
-	def initialize
-		super(656)
+		def initialize(data)
+			super(652, data)
+		end
 	end
 
-	def initialize(data)
-		super(656, data)
-	end
-end
+	class LegRefID < Quickfix::StringField
+		def initialize
+			super(654)
+		end
 
-class SettlCurrOfferFxRate < QuickFix::DoubleField
-	def initialize
-		super(657)
+		def initialize(data)
+			super(654, data)
+		end
 	end
 
-	def initialize(data)
-		super(657, data)
-	end
-end
+	class ContraLegRefID < Quickfix::StringField
+		def initialize
+			super(655)
+		end
 
-class QuoteRequestRejectReason < QuickFix::IntField
-	def initialize
-		super(658)
+		def initialize(data)
+			super(655, data)
+		end
 	end
 
-	def initialize(data)
-		super(658, data)
-	end
-end
+	class SettlCurrBidFxRate < Quickfix::DoubleField
+		def initialize
+			super(656)
+		end
 
-class SideComplianceID < QuickFix::StringField
-	def initialize
-		super(659)
+		def initialize(data)
+			super(656, data)
+		end
 	end
 
-	def initialize(data)
-		super(659, data)
-	end
-end
+	class SettlCurrOfferFxRate < Quickfix::DoubleField
+		def initialize
+			super(657)
+		end
 
-class AcctIDSource < QuickFix::IntField
-	def initialize
-		super(660)
+		def initialize(data)
+			super(657, data)
+		end
 	end
 
-	def initialize(data)
-		super(660, data)
-	end
-end
+	class QuoteRequestRejectReason < Quickfix::IntField
+		def initialize
+			super(658)
+		end
 
-class AllocAcctIDSource < QuickFix::IntField
-	def initialize
-		super(661)
+		def initialize(data)
+			super(658, data)
+		end
 	end
 
-	def initialize(data)
-		super(661, data)
-	end
-end
+	class SideComplianceID < Quickfix::StringField
+		def initialize
+			super(659)
+		end
 
-class BenchmarkPrice < QuickFix::DoubleField
-	def initialize
-		super(662)
+		def initialize(data)
+			super(659, data)
+		end
 	end
 
-	def initialize(data)
-		super(662, data)
-	end
-end
+	class AcctIDSource < Quickfix::IntField
+		def initialize
+			super(660)
+		end
 
-class BenchmarkPriceType < QuickFix::IntField
-	def initialize
-		super(663)
+		def initialize(data)
+			super(660, data)
+		end
 	end
 
-	def initialize(data)
-		super(663, data)
-	end
-end
+	class AllocAcctIDSource < Quickfix::IntField
+		def initialize
+			super(661)
+		end
 
-class ConfirmID < QuickFix::StringField
-	def initialize
-		super(664)
+		def initialize(data)
+			super(661, data)
+		end
 	end
 
-	def initialize(data)
-		super(664, data)
-	end
-end
+	class BenchmarkPrice < Quickfix::DoubleField
+		def initialize
+			super(662)
+		end
 
-class ConfirmStatus < QuickFix::IntField
-	def initialize
-		super(665)
+		def initialize(data)
+			super(662, data)
+		end
 	end
 
-	def initialize(data)
-		super(665, data)
-	end
-end
+	class BenchmarkPriceType < Quickfix::IntField
+		def initialize
+			super(663)
+		end
 
-class ConfirmTransType < QuickFix::IntField
-	def initialize
-		super(666)
+		def initialize(data)
+			super(663, data)
+		end
 	end
 
-	def initialize(data)
-		super(666, data)
-	end
-end
+	class ConfirmID < Quickfix::StringField
+		def initialize
+			super(664)
+		end
 
-class ContractSettlMonth < QuickFix::StringField
-	def initialize
-		super(667)
+		def initialize(data)
+			super(664, data)
+		end
 	end
 
-	def initialize(data)
-		super(667, data)
-	end
-end
+	class ConfirmStatus < Quickfix::IntField
+		def initialize
+			super(665)
+		end
 
-class DeliveryForm < QuickFix::IntField
-	def initialize
-		super(668)
+		def initialize(data)
+			super(665, data)
+		end
 	end
 
-	def initialize(data)
-		super(668, data)
-	end
-end
+	class ConfirmTransType < Quickfix::IntField
+		def initialize
+			super(666)
+		end
 
-class LastParPx < QuickFix::DoubleField
-	def initialize
-		super(669)
+		def initialize(data)
+			super(666, data)
+		end
 	end
 
-	def initialize(data)
-		super(669, data)
-	end
-end
+	class ContractSettlMonth < Quickfix::StringField
+		def initialize
+			super(667)
+		end
 
-class NoLegAllocs < QuickFix::IntField
-	def initialize
-		super(670)
+		def initialize(data)
+			super(667, data)
+		end
 	end
 
-	def initialize(data)
-		super(670, data)
-	end
-end
+	class DeliveryForm < Quickfix::IntField
+		def initialize
+			super(668)
+		end
 
-class LegAllocAccount < QuickFix::StringField
-	def initialize
-		super(671)
+		def initialize(data)
+			super(668, data)
+		end
 	end
 
-	def initialize(data)
-		super(671, data)
-	end
-end
+	class LastParPx < Quickfix::DoubleField
+		def initialize
+			super(669)
+		end
 
-class LegIndividualAllocID < QuickFix::StringField
-	def initialize
-		super(672)
+		def initialize(data)
+			super(669, data)
+		end
 	end
 
-	def initialize(data)
-		super(672, data)
-	end
-end
+	class NoLegAllocs < Quickfix::IntField
+		def initialize
+			super(670)
+		end
 
-class LegAllocQty < QuickFix::DoubleField
-	def initialize
-		super(673)
+		def initialize(data)
+			super(670, data)
+		end
 	end
 
-	def initialize(data)
-		super(673, data)
-	end
-end
+	class LegAllocAccount < Quickfix::StringField
+		def initialize
+			super(671)
+		end
 
-class LegAllocAcctIDSource < QuickFix::StringField
-	def initialize
-		super(674)
+		def initialize(data)
+			super(671, data)
+		end
 	end
 
-	def initialize(data)
-		super(674, data)
-	end
-end
+	class LegIndividualAllocID < Quickfix::StringField
+		def initialize
+			super(672)
+		end
 
-class LegSettlCurrency < QuickFix::StringField
-	def initialize
-		super(675)
+		def initialize(data)
+			super(672, data)
+		end
 	end
 
-	def initialize(data)
-		super(675, data)
-	end
-end
+	class LegAllocQty < Quickfix::DoubleField
+		def initialize
+			super(673)
+		end
 
-class LegBenchmarkCurveCurrency < QuickFix::StringField
-	def initialize
-		super(676)
+		def initialize(data)
+			super(673, data)
+		end
 	end
 
-	def initialize(data)
-		super(676, data)
-	end
-end
+	class LegAllocAcctIDSource < Quickfix::StringField
+		def initialize
+			super(674)
+		end
 
-class LegBenchmarkCurveName < QuickFix::StringField
-	def initialize
-		super(677)
+		def initialize(data)
+			super(674, data)
+		end
 	end
 
-	def initialize(data)
-		super(677, data)
-	end
-end
+	class LegSettlCurrency < Quickfix::StringField
+		def initialize
+			super(675)
+		end
 
-class LegBenchmarkCurvePoint < QuickFix::StringField
-	def initialize
-		super(678)
+		def initialize(data)
+			super(675, data)
+		end
 	end
 
-	def initialize(data)
-		super(678, data)
-	end
-end
+	class LegBenchmarkCurveCurrency < Quickfix::StringField
+		def initialize
+			super(676)
+		end
 
-class LegBenchmarkPrice < QuickFix::DoubleField
-	def initialize
-		super(679)
+		def initialize(data)
+			super(676, data)
+		end
 	end
 
-	def initialize(data)
-		super(679, data)
-	end
-end
+	class LegBenchmarkCurveName < Quickfix::StringField
+		def initialize
+			super(677)
+		end
 
-class LegBenchmarkPriceType < QuickFix::IntField
-	def initialize
-		super(680)
+		def initialize(data)
+			super(677, data)
+		end
 	end
 
-	def initialize(data)
-		super(680, data)
-	end
-end
+	class LegBenchmarkCurvePoint < Quickfix::StringField
+		def initialize
+			super(678)
+		end
 
-class LegBidPx < QuickFix::DoubleField
-	def initialize
-		super(681)
+		def initialize(data)
+			super(678, data)
+		end
 	end
 
-	def initialize(data)
-		super(681, data)
-	end
-end
+	class LegBenchmarkPrice < Quickfix::DoubleField
+		def initialize
+			super(679)
+		end
 
-class LegIOIQty < QuickFix::StringField
-	def initialize
-		super(682)
+		def initialize(data)
+			super(679, data)
+		end
 	end
 
-	def initialize(data)
-		super(682, data)
-	end
-end
+	class LegBenchmarkPriceType < Quickfix::IntField
+		def initialize
+			super(680)
+		end
 
-class NoLegStipulations < QuickFix::IntField
-	def initialize
-		super(683)
+		def initialize(data)
+			super(680, data)
+		end
 	end
 
-	def initialize(data)
-		super(683, data)
-	end
-end
+	class LegBidPx < Quickfix::DoubleField
+		def initialize
+			super(681)
+		end
 
-class LegOfferPx < QuickFix::DoubleField
-	def initialize
-		super(684)
+		def initialize(data)
+			super(681, data)
+		end
 	end
 
-	def initialize(data)
-		super(684, data)
-	end
-end
+	class LegIOIQty < Quickfix::StringField
+		def initialize
+			super(682)
+		end
 
-class LegOrderQty < QuickFix::DoubleField
-	def initialize
-		super(685)
+		def initialize(data)
+			super(682, data)
+		end
 	end
 
-	def initialize(data)
-		super(685, data)
-	end
-end
+	class NoLegStipulations < Quickfix::IntField
+		def initialize
+			super(683)
+		end
 
-class LegPriceType < QuickFix::IntField
-	def initialize
-		super(686)
+		def initialize(data)
+			super(683, data)
+		end
 	end
 
-	def initialize(data)
-		super(686, data)
-	end
-end
+	class LegOfferPx < Quickfix::DoubleField
+		def initialize
+			super(684)
+		end
 
-class LegQty < QuickFix::DoubleField
-	def initialize
-		super(687)
+		def initialize(data)
+			super(684, data)
+		end
 	end
 
-	def initialize(data)
-		super(687, data)
-	end
-end
+	class LegOrderQty < Quickfix::DoubleField
+		def initialize
+			super(685)
+		end
 
-class LegStipulationType < QuickFix::StringField
-	def initialize
-		super(688)
+		def initialize(data)
+			super(685, data)
+		end
 	end
 
-	def initialize(data)
-		super(688, data)
-	end
-end
+	class LegPriceType < Quickfix::IntField
+		def initialize
+			super(686)
+		end
 
-class LegStipulationValue < QuickFix::StringField
-	def initialize
-		super(689)
+		def initialize(data)
+			super(686, data)
+		end
 	end
 
-	def initialize(data)
-		super(689, data)
-	end
-end
+	class LegQty < Quickfix::DoubleField
+		def initialize
+			super(687)
+		end
 
-class LegSwapType < QuickFix::IntField
-	def initialize
-		super(690)
+		def initialize(data)
+			super(687, data)
+		end
 	end
 
-	def initialize(data)
-		super(690, data)
-	end
-end
+	class LegStipulationType < Quickfix::StringField
+		def initialize
+			super(688)
+		end
 
-class Pool < QuickFix::StringField
-	def initialize
-		super(691)
+		def initialize(data)
+			super(688, data)
+		end
 	end
 
-	def initialize(data)
-		super(691, data)
-	end
-end
+	class LegStipulationValue < Quickfix::StringField
+		def initialize
+			super(689)
+		end
 
-class QuotePriceType < QuickFix::IntField
-	def initialize
-		super(692)
+		def initialize(data)
+			super(689, data)
+		end
 	end
 
-	def initialize(data)
-		super(692, data)
-	end
-end
+	class LegSwapType < Quickfix::IntField
+		def initialize
+			super(690)
+		end
 
-class QuoteRespID < QuickFix::StringField
-	def initialize
-		super(693)
+		def initialize(data)
+			super(690, data)
+		end
 	end
 
-	def initialize(data)
-		super(693, data)
-	end
-end
+	class Pool < Quickfix::StringField
+		def initialize
+			super(691)
+		end
 
-class QuoteRespType < QuickFix::IntField
-	def initialize
-		super(694)
+		def initialize(data)
+			super(691, data)
+		end
 	end
 
-	def initialize(data)
-		super(694, data)
-	end
-end
+	class QuotePriceType < Quickfix::IntField
+		def initialize
+			super(692)
+		end
 
-class QuoteQualifier < QuickFix::CharField
-	def initialize
-		super(695)
+		def initialize(data)
+			super(692, data)
+		end
 	end
 
-	def initialize(data)
-		super(695, data)
-	end
-end
+	class QuoteRespID < Quickfix::StringField
+		def initialize
+			super(693)
+		end
 
-class YieldRedemptionDate < QuickFix::StringField
-	def initialize
-		super(696)
+		def initialize(data)
+			super(693, data)
+		end
 	end
 
-	def initialize(data)
-		super(696, data)
-	end
-end
+	class QuoteRespType < Quickfix::IntField
+		def initialize
+			super(694)
+		end
 
-class YieldRedemptionPrice < QuickFix::DoubleField
-	def initialize
-		super(697)
+		def initialize(data)
+			super(694, data)
+		end
 	end
 
-	def initialize(data)
-		super(697, data)
-	end
-end
+	class QuoteQualifier < Quickfix::CharField
+		def initialize
+			super(695)
+		end
 
-class YieldRedemptionPriceType < QuickFix::IntField
-	def initialize
-		super(698)
+		def initialize(data)
+			super(695, data)
+		end
 	end
 
-	def initialize(data)
-		super(698, data)
-	end
-end
+	class YieldRedemptionDate < Quickfix::StringField
+		def initialize
+			super(696)
+		end
 
-class BenchmarkSecurityID < QuickFix::StringField
-	def initialize
-		super(699)
+		def initialize(data)
+			super(696, data)
+		end
 	end
 
-	def initialize(data)
-		super(699, data)
+	class YieldRedemptionPrice < Quickfix::DoubleField
+		def initialize
+			super(697)
+		end
+
+		def initialize(data)
+			super(697, data)
+		end
 	end
-end
+
+	class YieldRedemptionPriceType < Quickfix::IntField
+		def initialize
+			super(698)
+		end
 
-class ReversalIndicator < QuickFix::BooleanField
-	def initialize
-		super(700)
+		def initialize(data)
+			super(698, data)
+		end
 	end
 
-	def initialize(data)
-		super(700, data)
-	end
-end
+	class BenchmarkSecurityID < Quickfix::StringField
+		def initialize
+			super(699)
+		end
 
-class YieldCalcDate < QuickFix::StringField
-	def initialize
-		super(701)
+		def initialize(data)
+			super(699, data)
+		end
 	end
 
-	def initialize(data)
-		super(701, data)
-	end
-end
+	class ReversalIndicator < Quickfix::BoolField
+		def initialize
+			super(700)
+		end
 
-class NoPositions < QuickFix::IntField
-	def initialize
-		super(702)
+		def initialize(data)
+			super(700, data)
+		end
 	end
 
-	def initialize(data)
-		super(702, data)
-	end
-end
+	class YieldCalcDate < Quickfix::StringField
+		def initialize
+			super(701)
+		end
 
-class PosType < QuickFix::StringField
-	def initialize
-		super(703)
+		def initialize(data)
+			super(701, data)
+		end
 	end
 
-	def initialize(data)
-		super(703, data)
-	end
-end
+	class NoPositions < Quickfix::IntField
+		def initialize
+			super(702)
+		end
 
-class LongQty < QuickFix::DoubleField
-	def initialize
-		super(704)
+		def initialize(data)
+			super(702, data)
+		end
 	end
 
-	def initialize(data)
-		super(704, data)
-	end
-end
+	class PosType < Quickfix::StringField
+		def initialize
+			super(703)
+		end
 
-class ShortQty < QuickFix::DoubleField
-	def initialize
-		super(705)
+		def initialize(data)
+			super(703, data)
+		end
 	end
 
-	def initialize(data)
-		super(705, data)
-	end
-end
+	class LongQty < Quickfix::DoubleField
+		def initialize
+			super(704)
+		end
 
-class PosQtyStatus < QuickFix::IntField
-	def initialize
-		super(706)
+		def initialize(data)
+			super(704, data)
+		end
 	end
 
-	def initialize(data)
-		super(706, data)
-	end
-end
+	class ShortQty < Quickfix::DoubleField
+		def initialize
+			super(705)
+		end
 
-class PosAmtType < QuickFix::StringField
-	def initialize
-		super(707)
+		def initialize(data)
+			super(705, data)
+		end
 	end
 
-	def initialize(data)
-		super(707, data)
-	end
-end
+	class PosQtyStatus < Quickfix::IntField
+		def initialize
+			super(706)
+		end
 
-class PosAmt < QuickFix::DoubleField
-	def initialize
-		super(708)
+		def initialize(data)
+			super(706, data)
+		end
 	end
 
-	def initialize(data)
-		super(708, data)
-	end
-end
+	class PosAmtType < Quickfix::StringField
+		def initialize
+			super(707)
+		end
 
-class PosTransType < QuickFix::IntField
-	def initialize
-		super(709)
+		def initialize(data)
+			super(707, data)
+		end
 	end
 
-	def initialize(data)
-		super(709, data)
-	end
-end
+	class PosAmt < Quickfix::DoubleField
+		def initialize
+			super(708)
+		end
 
-class PosReqID < QuickFix::StringField
-	def initialize
-		super(710)
+		def initialize(data)
+			super(708, data)
+		end
 	end
 
-	def initialize(data)
-		super(710, data)
-	end
-end
+	class PosTransType < Quickfix::IntField
+		def initialize
+			super(709)
+		end
 
-class NoUnderlyings < QuickFix::IntField
-	def initialize
-		super(711)
+		def initialize(data)
+			super(709, data)
+		end
 	end
 
-	def initialize(data)
-		super(711, data)
-	end
-end
+	class PosReqID < Quickfix::StringField
+		def initialize
+			super(710)
+		end
 
-class PosMaintAction < QuickFix::IntField
-	def initialize
-		super(712)
+		def initialize(data)
+			super(710, data)
+		end
 	end
 
-	def initialize(data)
-		super(712, data)
-	end
-end
+	class NoUnderlyings < Quickfix::IntField
+		def initialize
+			super(711)
+		end
 
-class OrigPosReqRefID < QuickFix::StringField
-	def initialize
-		super(713)
+		def initialize(data)
+			super(711, data)
+		end
 	end
 
-	def initialize(data)
-		super(713, data)
-	end
-end
+	class PosMaintAction < Quickfix::IntField
+		def initialize
+			super(712)
+		end
 
-class PosMaintRptRefID < QuickFix::StringField
-	def initialize
-		super(714)
+		def initialize(data)
+			super(712, data)
+		end
 	end
 
-	def initialize(data)
-		super(714, data)
-	end
-end
+	class OrigPosReqRefID < Quickfix::StringField
+		def initialize
+			super(713)
+		end
 
-class ClearingBusinessDate < QuickFix::StringField
-	def initialize
-		super(715)
+		def initialize(data)
+			super(713, data)
+		end
 	end
 
-	def initialize(data)
-		super(715, data)
-	end
-end
+	class PosMaintRptRefID < Quickfix::StringField
+		def initialize
+			super(714)
+		end
 
-class SettlSessID < QuickFix::StringField
-	def initialize
-		super(716)
+		def initialize(data)
+			super(714, data)
+		end
 	end
 
-	def initialize(data)
-		super(716, data)
-	end
-end
+	class ClearingBusinessDate < Quickfix::StringField
+		def initialize
+			super(715)
+		end
 
-class SettlSessSubID < QuickFix::StringField
-	def initialize
-		super(717)
+		def initialize(data)
+			super(715, data)
+		end
 	end
 
-	def initialize(data)
-		super(717, data)
-	end
-end
+	class SettlSessID < Quickfix::StringField
+		def initialize
+			super(716)
+		end
 
-class AdjustmentType < QuickFix::IntField
-	def initialize
-		super(718)
+		def initialize(data)
+			super(716, data)
+		end
 	end
 
-	def initialize(data)
-		super(718, data)
-	end
-end
+	class SettlSessSubID < Quickfix::StringField
+		def initialize
+			super(717)
+		end
 
-class ContraryInstructionIndicator < QuickFix::BooleanField
-	def initialize
-		super(719)
+		def initialize(data)
+			super(717, data)
+		end
 	end
 
-	def initialize(data)
-		super(719, data)
-	end
-end
+	class AdjustmentType < Quickfix::IntField
+		def initialize
+			super(718)
+		end
 
-class PriorSpreadIndicator < QuickFix::BooleanField
-	def initialize
-		super(720)
+		def initialize(data)
+			super(718, data)
+		end
 	end
 
-	def initialize(data)
-		super(720, data)
-	end
-end
+	class ContraryInstructionIndicator < Quickfix::BoolField
+		def initialize
+			super(719)
+		end
 
-class PosMaintRptID < QuickFix::StringField
-	def initialize
-		super(721)
+		def initialize(data)
+			super(719, data)
+		end
 	end
 
-	def initialize(data)
-		super(721, data)
-	end
-end
+	class PriorSpreadIndicator < Quickfix::BoolField
+		def initialize
+			super(720)
+		end
 
-class PosMaintStatus < QuickFix::IntField
-	def initialize
-		super(722)
+		def initialize(data)
+			super(720, data)
+		end
 	end
 
-	def initialize(data)
-		super(722, data)
-	end
-end
+	class PosMaintRptID < Quickfix::StringField
+		def initialize
+			super(721)
+		end
 
-class PosMaintResult < QuickFix::IntField
-	def initialize
-		super(723)
+		def initialize(data)
+			super(721, data)
+		end
 	end
 
-	def initialize(data)
-		super(723, data)
-	end
-end
+	class PosMaintStatus < Quickfix::IntField
+		def initialize
+			super(722)
+		end
 
-class PosReqType < QuickFix::IntField
-	def initialize
-		super(724)
+		def initialize(data)
+			super(722, data)
+		end
 	end
 
-	def initialize(data)
-		super(724, data)
-	end
-end
+	class PosMaintResult < Quickfix::IntField
+		def initialize
+			super(723)
+		end
 
-class ResponseTransportType < QuickFix::IntField
-	def initialize
-		super(725)
+		def initialize(data)
+			super(723, data)
+		end
 	end
 
-	def initialize(data)
-		super(725, data)
-	end
-end
+	class PosReqType < Quickfix::IntField
+		def initialize
+			super(724)
+		end
 
-class ResponseDestination < QuickFix::StringField
-	def initialize
-		super(726)
+		def initialize(data)
+			super(724, data)
+		end
 	end
 
-	def initialize(data)
-		super(726, data)
-	end
-end
+	class ResponseTransportType < Quickfix::IntField
+		def initialize
+			super(725)
+		end
 
-class TotalNumPosReports < QuickFix::IntField
-	def initialize
-		super(727)
+		def initialize(data)
+			super(725, data)
+		end
 	end
 
-	def initialize(data)
-		super(727, data)
-	end
-end
+	class ResponseDestination < Quickfix::StringField
+		def initialize
+			super(726)
+		end
 
-class PosReqResult < QuickFix::IntField
-	def initialize
-		super(728)
+		def initialize(data)
+			super(726, data)
+		end
 	end
 
-	def initialize(data)
-		super(728, data)
-	end
-end
+	class TotalNumPosReports < Quickfix::IntField
+		def initialize
+			super(727)
+		end
 
-class PosReqStatus < QuickFix::IntField
-	def initialize
-		super(729)
+		def initialize(data)
+			super(727, data)
+		end
 	end
 
-	def initialize(data)
-		super(729, data)
-	end
-end
+	class PosReqResult < Quickfix::IntField
+		def initialize
+			super(728)
+		end
 
-class SettlPrice < QuickFix::DoubleField
-	def initialize
-		super(730)
+		def initialize(data)
+			super(728, data)
+		end
 	end
 
-	def initialize(data)
-		super(730, data)
-	end
-end
+	class PosReqStatus < Quickfix::IntField
+		def initialize
+			super(729)
+		end
 
-class SettlPriceType < QuickFix::IntField
-	def initialize
-		super(731)
+		def initialize(data)
+			super(729, data)
+		end
 	end
 
-	def initialize(data)
-		super(731, data)
-	end
-end
+	class SettlPrice < Quickfix::DoubleField
+		def initialize
+			super(730)
+		end
 
-class UnderlyingSettlPrice < QuickFix::DoubleField
-	def initialize
-		super(732)
+		def initialize(data)
+			super(730, data)
+		end
 	end
 
-	def initialize(data)
-		super(732, data)
-	end
-end
+	class SettlPriceType < Quickfix::IntField
+		def initialize
+			super(731)
+		end
 
-class UnderlyingSettlPriceType < QuickFix::IntField
-	def initialize
-		super(733)
+		def initialize(data)
+			super(731, data)
+		end
 	end
 
-	def initialize(data)
-		super(733, data)
-	end
-end
+	class UnderlyingSettlPrice < Quickfix::DoubleField
+		def initialize
+			super(732)
+		end
 
-class PriorSettlPrice < QuickFix::DoubleField
-	def initialize
-		super(734)
+		def initialize(data)
+			super(732, data)
+		end
 	end
 
-	def initialize(data)
-		super(734, data)
-	end
-end
+	class UnderlyingSettlPriceType < Quickfix::IntField
+		def initialize
+			super(733)
+		end
 
-class NoQuoteQualifiers < QuickFix::IntField
-	def initialize
-		super(735)
+		def initialize(data)
+			super(733, data)
+		end
 	end
 
-	def initialize(data)
-		super(735, data)
-	end
-end
+	class PriorSettlPrice < Quickfix::DoubleField
+		def initialize
+			super(734)
+		end
 
-class AllocSettlCurrency < QuickFix::StringField
-	def initialize
-		super(736)
+		def initialize(data)
+			super(734, data)
+		end
 	end
 
-	def initialize(data)
-		super(736, data)
-	end
-end
+	class NoQuoteQualifiers < Quickfix::IntField
+		def initialize
+			super(735)
+		end
 
-class AllocSettlCurrAmt < QuickFix::DoubleField
-	def initialize
-		super(737)
+		def initialize(data)
+			super(735, data)
+		end
 	end
 
-	def initialize(data)
-		super(737, data)
-	end
-end
+	class AllocSettlCurrency < Quickfix::StringField
+		def initialize
+			super(736)
+		end
 
-class InterestAtMaturity < QuickFix::DoubleField
-	def initialize
-		super(738)
+		def initialize(data)
+			super(736, data)
+		end
 	end
 
-	def initialize(data)
-		super(738, data)
-	end
-end
+	class AllocSettlCurrAmt < Quickfix::DoubleField
+		def initialize
+			super(737)
+		end
 
-class LegDatedDate < QuickFix::StringField
-	def initialize
-		super(739)
+		def initialize(data)
+			super(737, data)
+		end
 	end
 
-	def initialize(data)
-		super(739, data)
-	end
-end
+	class InterestAtMaturity < Quickfix::DoubleField
+		def initialize
+			super(738)
+		end
 
-class LegPool < QuickFix::StringField
-	def initialize
-		super(740)
+		def initialize(data)
+			super(738, data)
+		end
 	end
 
-	def initialize(data)
-		super(740, data)
-	end
-end
+	class LegDatedDate < Quickfix::StringField
+		def initialize
+			super(739)
+		end
 
-class AllocInterestAtMaturity < QuickFix::DoubleField
-	def initialize
-		super(741)
+		def initialize(data)
+			super(739, data)
+		end
 	end
 
-	def initialize(data)
-		super(741, data)
-	end
-end
+	class LegPool < Quickfix::StringField
+		def initialize
+			super(740)
+		end
 
-class AllocAccruedInterestAmt < QuickFix::DoubleField
-	def initialize
-		super(742)
+		def initialize(data)
+			super(740, data)
+		end
 	end
 
-	def initialize(data)
-		super(742, data)
-	end
-end
+	class AllocInterestAtMaturity < Quickfix::DoubleField
+		def initialize
+			super(741)
+		end
 
-class DeliveryDate < QuickFix::StringField
-	def initialize
-		super(743)
+		def initialize(data)
+			super(741, data)
+		end
 	end
 
-	def initialize(data)
-		super(743, data)
-	end
-end
+	class AllocAccruedInterestAmt < Quickfix::DoubleField
+		def initialize
+			super(742)
+		end
 
-class AssignmentMethod < QuickFix::CharField
-	def initialize
-		super(744)
+		def initialize(data)
+			super(742, data)
+		end
 	end
 
-	def initialize(data)
-		super(744, data)
-	end
-end
+	class DeliveryDate < Quickfix::StringField
+		def initialize
+			super(743)
+		end
 
-class AssignmentUnit < QuickFix::DoubleField
-	def initialize
-		super(745)
+		def initialize(data)
+			super(743, data)
+		end
 	end
 
-	def initialize(data)
-		super(745, data)
-	end
-end
+	class AssignmentMethod < Quickfix::CharField
+		def initialize
+			super(744)
+		end
 
-class OpenInterest < QuickFix::DoubleField
-	def initialize
-		super(746)
+		def initialize(data)
+			super(744, data)
+		end
 	end
 
-	def initialize(data)
-		super(746, data)
-	end
-end
+	class AssignmentUnit < Quickfix::DoubleField
+		def initialize
+			super(745)
+		end
 
-class ExerciseMethod < QuickFix::CharField
-	def initialize
-		super(747)
+		def initialize(data)
+			super(745, data)
+		end
 	end
 
-	def initialize(data)
-		super(747, data)
-	end
-end
+	class OpenInterest < Quickfix::DoubleField
+		def initialize
+			super(746)
+		end
 
-class TotNumTradeReports < QuickFix::IntField
-	def initialize
-		super(748)
+		def initialize(data)
+			super(746, data)
+		end
 	end
 
-	def initialize(data)
-		super(748, data)
-	end
-end
+	class ExerciseMethod < Quickfix::CharField
+		def initialize
+			super(747)
+		end
 
-class TradeRequestResult < QuickFix::IntField
-	def initialize
-		super(749)
+		def initialize(data)
+			super(747, data)
+		end
 	end
 
-	def initialize(data)
-		super(749, data)
-	end
-end
+	class TotNumTradeReports < Quickfix::IntField
+		def initialize
+			super(748)
+		end
 
-class TradeRequestStatus < QuickFix::IntField
-	def initialize
-		super(750)
+		def initialize(data)
+			super(748, data)
+		end
 	end
 
-	def initialize(data)
-		super(750, data)
-	end
-end
+	class TradeRequestResult < Quickfix::IntField
+		def initialize
+			super(749)
+		end
 
-class TradeReportRejectReason < QuickFix::IntField
-	def initialize
-		super(751)
+		def initialize(data)
+			super(749, data)
+		end
 	end
 
-	def initialize(data)
-		super(751, data)
-	end
-end
+	class TradeRequestStatus < Quickfix::IntField
+		def initialize
+			super(750)
+		end
 
-class SideMultiLegReportingType < QuickFix::IntField
-	def initialize
-		super(752)
+		def initialize(data)
+			super(750, data)
+		end
 	end
 
-	def initialize(data)
-		super(752, data)
-	end
-end
+	class TradeReportRejectReason < Quickfix::IntField
+		def initialize
+			super(751)
+		end
 
-class NoPosAmt < QuickFix::IntField
-	def initialize
-		super(753)
+		def initialize(data)
+			super(751, data)
+		end
 	end
 
-	def initialize(data)
-		super(753, data)
-	end
-end
+	class SideMultiLegReportingType < Quickfix::IntField
+		def initialize
+			super(752)
+		end
 
-class AutoAcceptIndicator < QuickFix::BooleanField
-	def initialize
-		super(754)
+		def initialize(data)
+			super(752, data)
+		end
 	end
 
-	def initialize(data)
-		super(754, data)
-	end
-end
+	class NoPosAmt < Quickfix::IntField
+		def initialize
+			super(753)
+		end
 
-class AllocReportID < QuickFix::StringField
-	def initialize
-		super(755)
+		def initialize(data)
+			super(753, data)
+		end
 	end
 
-	def initialize(data)
-		super(755, data)
-	end
-end
+	class AutoAcceptIndicator < Quickfix::BoolField
+		def initialize
+			super(754)
+		end
 
-class NoNested2PartyIDs < QuickFix::IntField
-	def initialize
-		super(756)
+		def initialize(data)
+			super(754, data)
+		end
 	end
 
-	def initialize(data)
-		super(756, data)
-	end
-end
+	class AllocReportID < Quickfix::StringField
+		def initialize
+			super(755)
+		end
 
-class Nested2PartyID < QuickFix::StringField
-	def initialize
-		super(757)
+		def initialize(data)
+			super(755, data)
+		end
 	end
 
-	def initialize(data)
-		super(757, data)
-	end
-end
+	class NoNested2PartyIDs < Quickfix::IntField
+		def initialize
+			super(756)
+		end
 
-class Nested2PartyIDSource < QuickFix::CharField
-	def initialize
-		super(758)
+		def initialize(data)
+			super(756, data)
+		end
 	end
 
-	def initialize(data)
-		super(758, data)
-	end
-end
+	class Nested2PartyID < Quickfix::StringField
+		def initialize
+			super(757)
+		end
 
-class Nested2PartyRole < QuickFix::IntField
-	def initialize
-		super(759)
+		def initialize(data)
+			super(757, data)
+		end
 	end
 
-	def initialize(data)
-		super(759, data)
-	end
-end
+	class Nested2PartyIDSource < Quickfix::CharField
+		def initialize
+			super(758)
+		end
 
-class Nested2PartySubID < QuickFix::StringField
-	def initialize
-		super(760)
+		def initialize(data)
+			super(758, data)
+		end
 	end
 
-	def initialize(data)
-		super(760, data)
-	end
-end
+	class Nested2PartyRole < Quickfix::IntField
+		def initialize
+			super(759)
+		end
 
-class BenchmarkSecurityIDSource < QuickFix::StringField
-	def initialize
-		super(761)
+		def initialize(data)
+			super(759, data)
+		end
 	end
 
-	def initialize(data)
-		super(761, data)
-	end
-end
+	class Nested2PartySubID < Quickfix::StringField
+		def initialize
+			super(760)
+		end
 
-class SecuritySubType < QuickFix::StringField
-	def initialize
-		super(762)
+		def initialize(data)
+			super(760, data)
+		end
 	end
 
-	def initialize(data)
-		super(762, data)
-	end
-end
+	class BenchmarkSecurityIDSource < Quickfix::StringField
+		def initialize
+			super(761)
+		end
 
-class UnderlyingSecuritySubType < QuickFix::StringField
-	def initialize
-		super(763)
+		def initialize(data)
+			super(761, data)
+		end
 	end
 
-	def initialize(data)
-		super(763, data)
-	end
-end
+	class SecuritySubType < Quickfix::StringField
+		def initialize
+			super(762)
+		end
 
-class LegSecuritySubType < QuickFix::StringField
-	def initialize
-		super(764)
+		def initialize(data)
+			super(762, data)
+		end
 	end
 
-	def initialize(data)
-		super(764, data)
-	end
-end
+	class UnderlyingSecuritySubType < Quickfix::StringField
+		def initialize
+			super(763)
+		end
 
-class AllowableOneSidednessPct < QuickFix::DoubleField
-	def initialize
-		super(765)
+		def initialize(data)
+			super(763, data)
+		end
 	end
 
-	def initialize(data)
-		super(765, data)
-	end
-end
+	class LegSecuritySubType < Quickfix::StringField
+		def initialize
+			super(764)
+		end
 
-class AllowableOneSidednessValue < QuickFix::DoubleField
-	def initialize
-		super(766)
+		def initialize(data)
+			super(764, data)
+		end
 	end
 
-	def initialize(data)
-		super(766, data)
-	end
-end
+	class AllowableOneSidednessPct < Quickfix::DoubleField
+		def initialize
+			super(765)
+		end
 
-class AllowableOneSidednessCurr < QuickFix::StringField
-	def initialize
-		super(767)
+		def initialize(data)
+			super(765, data)
+		end
 	end
 
-	def initialize(data)
-		super(767, data)
-	end
-end
+	class AllowableOneSidednessValue < Quickfix::DoubleField
+		def initialize
+			super(766)
+		end
 
-class NoTrdRegTimestamps < QuickFix::IntField
-	def initialize
-		super(768)
+		def initialize(data)
+			super(766, data)
+		end
 	end
 
-	def initialize(data)
-		super(768, data)
-	end
-end
+	class AllowableOneSidednessCurr < Quickfix::StringField
+		def initialize
+			super(767)
+		end
 
-class TrdRegTimestamp < QuickFix::UtcTimeStampField
-	def initialize
-		super(769)
+		def initialize(data)
+			super(767, data)
+		end
 	end
 
-	def initialize(data)
-		super(769, data)
-	end
-end
+	class NoTrdRegTimestamps < Quickfix::IntField
+		def initialize
+			super(768)
+		end
 
-class TrdRegTimestampType < QuickFix::IntField
-	def initialize
-		super(770)
+		def initialize(data)
+			super(768, data)
+		end
 	end
 
-	def initialize(data)
-		super(770, data)
-	end
-end
+	class TrdRegTimestamp < Quickfix::UtcTimeStampField
+		def initialize
+			super(769)
+		end
 
-class TrdRegTimestampOrigin < QuickFix::StringField
-	def initialize
-		super(771)
+		def initialize(data)
+			super(769, data)
+		end
 	end
 
-	def initialize(data)
-		super(771, data)
-	end
-end
+	class TrdRegTimestampType < Quickfix::IntField
+		def initialize
+			super(770)
+		end
 
-class ConfirmRefID < QuickFix::StringField
-	def initialize
-		super(772)
+		def initialize(data)
+			super(770, data)
+		end
 	end
 
-	def initialize(data)
-		super(772, data)
-	end
-end
+	class TrdRegTimestampOrigin < Quickfix::StringField
+		def initialize
+			super(771)
+		end
 
-class ConfirmType < QuickFix::IntField
-	def initialize
-		super(773)
+		def initialize(data)
+			super(771, data)
+		end
 	end
 
-	def initialize(data)
-		super(773, data)
-	end
-end
+	class ConfirmRefID < Quickfix::StringField
+		def initialize
+			super(772)
+		end
 
-class ConfirmRejReason < QuickFix::IntField
-	def initialize
-		super(774)
+		def initialize(data)
+			super(772, data)
+		end
 	end
 
-	def initialize(data)
-		super(774, data)
-	end
-end
+	class ConfirmType < Quickfix::IntField
+		def initialize
+			super(773)
+		end
 
-class BookingType < QuickFix::IntField
-	def initialize
-		super(775)
+		def initialize(data)
+			super(773, data)
+		end
 	end
 
-	def initialize(data)
-		super(775, data)
-	end
-end
+	class ConfirmRejReason < Quickfix::IntField
+		def initialize
+			super(774)
+		end
 
-class IndividualAllocRejCode < QuickFix::IntField
-	def initialize
-		super(776)
+		def initialize(data)
+			super(774, data)
+		end
 	end
 
-	def initialize(data)
-		super(776, data)
-	end
-end
+	class BookingType < Quickfix::IntField
+		def initialize
+			super(775)
+		end
 
-class SettlInstMsgID < QuickFix::StringField
-	def initialize
-		super(777)
+		def initialize(data)
+			super(775, data)
+		end
 	end
 
-	def initialize(data)
-		super(777, data)
-	end
-end
+	class IndividualAllocRejCode < Quickfix::IntField
+		def initialize
+			super(776)
+		end
 
-class NoSettlInst < QuickFix::IntField
-	def initialize
-		super(778)
+		def initialize(data)
+			super(776, data)
+		end
 	end
 
-	def initialize(data)
-		super(778, data)
-	end
-end
+	class SettlInstMsgID < Quickfix::StringField
+		def initialize
+			super(777)
+		end
 
-class LastUpdateTime < QuickFix::UtcTimeStampField
-	def initialize
-		super(779)
+		def initialize(data)
+			super(777, data)
+		end
 	end
 
-	def initialize(data)
-		super(779, data)
-	end
-end
+	class NoSettlInst < Quickfix::IntField
+		def initialize
+			super(778)
+		end
 
-class AllocSettlInstType < QuickFix::IntField
-	def initialize
-		super(780)
+		def initialize(data)
+			super(778, data)
+		end
 	end
 
-	def initialize(data)
-		super(780, data)
-	end
-end
+	class LastUpdateTime < Quickfix::UtcTimeStampField
+		def initialize
+			super(779)
+		end
 
-class NoSettlPartyIDs < QuickFix::IntField
-	def initialize
-		super(781)
+		def initialize(data)
+			super(779, data)
+		end
 	end
 
-	def initialize(data)
-		super(781, data)
-	end
-end
+	class AllocSettlInstType < Quickfix::IntField
+		def initialize
+			super(780)
+		end
 
-class SettlPartyID < QuickFix::StringField
-	def initialize
-		super(782)
+		def initialize(data)
+			super(780, data)
+		end
 	end
 
-	def initialize(data)
-		super(782, data)
-	end
-end
+	class NoSettlPartyIDs < Quickfix::IntField
+		def initialize
+			super(781)
+		end
 
-class SettlPartyIDSource < QuickFix::CharField
-	def initialize
-		super(783)
+		def initialize(data)
+			super(781, data)
+		end
 	end
 
-	def initialize(data)
-		super(783, data)
-	end
-end
+	class SettlPartyID < Quickfix::StringField
+		def initialize
+			super(782)
+		end
 
-class SettlPartyRole < QuickFix::IntField
-	def initialize
-		super(784)
+		def initialize(data)
+			super(782, data)
+		end
 	end
 
-	def initialize(data)
-		super(784, data)
-	end
-end
+	class SettlPartyIDSource < Quickfix::CharField
+		def initialize
+			super(783)
+		end
 
-class SettlPartySubID < QuickFix::StringField
-	def initialize
-		super(785)
+		def initialize(data)
+			super(783, data)
+		end
 	end
 
-	def initialize(data)
-		super(785, data)
-	end
-end
+	class SettlPartyRole < Quickfix::IntField
+		def initialize
+			super(784)
+		end
 
-class SettlPartySubIDType < QuickFix::IntField
-	def initialize
-		super(786)
+		def initialize(data)
+			super(784, data)
+		end
 	end
 
-	def initialize(data)
-		super(786, data)
-	end
-end
+	class SettlPartySubID < Quickfix::StringField
+		def initialize
+			super(785)
+		end
 
-class DlvyInstType < QuickFix::CharField
-	def initialize
-		super(787)
+		def initialize(data)
+			super(785, data)
+		end
 	end
 
-	def initialize(data)
-		super(787, data)
-	end
-end
+	class SettlPartySubIDType < Quickfix::IntField
+		def initialize
+			super(786)
+		end
 
-class TerminationType < QuickFix::IntField
-	def initialize
-		super(788)
+		def initialize(data)
+			super(786, data)
+		end
 	end
 
-	def initialize(data)
-		super(788, data)
-	end
-end
+	class DlvyInstType < Quickfix::CharField
+		def initialize
+			super(787)
+		end
 
-class NextExpectedMsgSeqNum < QuickFix::IntField
-	def initialize
-		super(789)
+		def initialize(data)
+			super(787, data)
+		end
 	end
 
-	def initialize(data)
-		super(789, data)
-	end
-end
+	class TerminationType < Quickfix::IntField
+		def initialize
+			super(788)
+		end
 
-class OrdStatusReqID < QuickFix::StringField
-	def initialize
-		super(790)
+		def initialize(data)
+			super(788, data)
+		end
 	end
 
-	def initialize(data)
-		super(790, data)
-	end
-end
+	class NextExpectedMsgSeqNum < Quickfix::IntField
+		def initialize
+			super(789)
+		end
 
-class SettlInstReqID < QuickFix::StringField
-	def initialize
-		super(791)
+		def initialize(data)
+			super(789, data)
+		end
 	end
 
-	def initialize(data)
-		super(791, data)
-	end
-end
+	class OrdStatusReqID < Quickfix::StringField
+		def initialize
+			super(790)
+		end
 
-class SettlInstReqRejCode < QuickFix::IntField
-	def initialize
-		super(792)
+		def initialize(data)
+			super(790, data)
+		end
 	end
 
-	def initialize(data)
-		super(792, data)
-	end
-end
+	class SettlInstReqID < Quickfix::StringField
+		def initialize
+			super(791)
+		end
 
-class SecondaryAllocID < QuickFix::StringField
-	def initialize
-		super(793)
+		def initialize(data)
+			super(791, data)
+		end
 	end
 
-	def initialize(data)
-		super(793, data)
-	end
-end
+	class SettlInstReqRejCode < Quickfix::IntField
+		def initialize
+			super(792)
+		end
 
-class AllocReportType < QuickFix::IntField
-	def initialize
-		super(794)
+		def initialize(data)
+			super(792, data)
+		end
 	end
 
-	def initialize(data)
-		super(794, data)
-	end
-end
+	class SecondaryAllocID < Quickfix::StringField
+		def initialize
+			super(793)
+		end
 
-class AllocReportRefID < QuickFix::StringField
-	def initialize
-		super(795)
+		def initialize(data)
+			super(793, data)
+		end
 	end
 
-	def initialize(data)
-		super(795, data)
-	end
-end
+	class AllocReportType < Quickfix::IntField
+		def initialize
+			super(794)
+		end
 
-class AllocCancReplaceReason < QuickFix::IntField
-	def initialize
-		super(796)
+		def initialize(data)
+			super(794, data)
+		end
 	end
 
-	def initialize(data)
-		super(796, data)
-	end
-end
+	class AllocReportRefID < Quickfix::StringField
+		def initialize
+			super(795)
+		end
 
-class CopyMsgIndicator < QuickFix::BooleanField
-	def initialize
-		super(797)
+		def initialize(data)
+			super(795, data)
+		end
 	end
 
-	def initialize(data)
-		super(797, data)
-	end
-end
+	class AllocCancReplaceReason < Quickfix::IntField
+		def initialize
+			super(796)
+		end
 
-class AllocAccountType < QuickFix::IntField
-	def initialize
-		super(798)
+		def initialize(data)
+			super(796, data)
+		end
 	end
 
-	def initialize(data)
-		super(798, data)
-	end
-end
+	class CopyMsgIndicator < Quickfix::BoolField
+		def initialize
+			super(797)
+		end
 
-class OrderAvgPx < QuickFix::DoubleField
-	def initialize
-		super(799)
+		def initialize(data)
+			super(797, data)
+		end
 	end
 
-	def initialize(data)
-		super(799, data)
-	end
-end
+	class AllocAccountType < Quickfix::IntField
+		def initialize
+			super(798)
+		end
 
-class OrderBookingQty < QuickFix::DoubleField
-	def initialize
-		super(800)
+		def initialize(data)
+			super(798, data)
+		end
 	end
 
-	def initialize(data)
-		super(800, data)
-	end
-end
+	class OrderAvgPx < Quickfix::DoubleField
+		def initialize
+			super(799)
+		end
 
-class NoSettlPartySubIDs < QuickFix::IntField
-	def initialize
-		super(801)
+		def initialize(data)
+			super(799, data)
+		end
 	end
 
-	def initialize(data)
-		super(801, data)
-	end
-end
+	class OrderBookingQty < Quickfix::DoubleField
+		def initialize
+			super(800)
+		end
 
-class NoPartySubIDs < QuickFix::IntField
-	def initialize
-		super(802)
+		def initialize(data)
+			super(800, data)
+		end
 	end
 
-	def initialize(data)
-		super(802, data)
-	end
-end
+	class NoSettlPartySubIDs < Quickfix::IntField
+		def initialize
+			super(801)
+		end
 
-class PartySubIDType < QuickFix::IntField
-	def initialize
-		super(803)
+		def initialize(data)
+			super(801, data)
+		end
 	end
 
-	def initialize(data)
-		super(803, data)
-	end
-end
+	class NoPartySubIDs < Quickfix::IntField
+		def initialize
+			super(802)
+		end
 
-class NoNestedPartySubIDs < QuickFix::IntField
-	def initialize
-		super(804)
+		def initialize(data)
+			super(802, data)
+		end
 	end
 
-	def initialize(data)
-		super(804, data)
-	end
-end
+	class PartySubIDType < Quickfix::IntField
+		def initialize
+			super(803)
+		end
 
-class NestedPartySubIDType < QuickFix::IntField
-	def initialize
-		super(805)
+		def initialize(data)
+			super(803, data)
+		end
 	end
 
-	def initialize(data)
-		super(805, data)
-	end
-end
+	class NoNestedPartySubIDs < Quickfix::IntField
+		def initialize
+			super(804)
+		end
 
-class NoNested2PartySubIDs < QuickFix::IntField
-	def initialize
-		super(806)
+		def initialize(data)
+			super(804, data)
+		end
 	end
 
-	def initialize(data)
-		super(806, data)
-	end
-end
+	class NestedPartySubIDType < Quickfix::IntField
+		def initialize
+			super(805)
+		end
 
-class Nested2PartySubIDType < QuickFix::IntField
-	def initialize
-		super(807)
+		def initialize(data)
+			super(805, data)
+		end
 	end
 
-	def initialize(data)
-		super(807, data)
-	end
-end
+	class NoNested2PartySubIDs < Quickfix::IntField
+		def initialize
+			super(806)
+		end
 
-class AllocIntermedReqType < QuickFix::IntField
-	def initialize
-		super(808)
+		def initialize(data)
+			super(806, data)
+		end
 	end
 
-	def initialize(data)
-		super(808, data)
-	end
-end
+	class Nested2PartySubIDType < Quickfix::IntField
+		def initialize
+			super(807)
+		end
 
-class UnderlyingPx < QuickFix::DoubleField
-	def initialize
-		super(810)
+		def initialize(data)
+			super(807, data)
+		end
 	end
 
-	def initialize(data)
-		super(810, data)
-	end
-end
+	class AllocIntermedReqType < Quickfix::IntField
+		def initialize
+			super(808)
+		end
 
-class PriceDelta < QuickFix::DoubleField
-	def initialize
-		super(811)
+		def initialize(data)
+			super(808, data)
+		end
 	end
 
-	def initialize(data)
-		super(811, data)
-	end
-end
+	class UnderlyingPx < Quickfix::DoubleField
+		def initialize
+			super(810)
+		end
 
-class ApplQueueMax < QuickFix::IntField
-	def initialize
-		super(812)
+		def initialize(data)
+			super(810, data)
+		end
 	end
 
-	def initialize(data)
-		super(812, data)
-	end
-end
+	class PriceDelta < Quickfix::DoubleField
+		def initialize
+			super(811)
+		end
 
-class ApplQueueDepth < QuickFix::IntField
-	def initialize
-		super(813)
+		def initialize(data)
+			super(811, data)
+		end
 	end
 
-	def initialize(data)
-		super(813, data)
-	end
-end
+	class ApplQueueMax < Quickfix::IntField
+		def initialize
+			super(812)
+		end
 
-class ApplQueueResolution < QuickFix::IntField
-	def initialize
-		super(814)
+		def initialize(data)
+			super(812, data)
+		end
 	end
 
-	def initialize(data)
-		super(814, data)
-	end
-end
+	class ApplQueueDepth < Quickfix::IntField
+		def initialize
+			super(813)
+		end
 
-class ApplQueueAction < QuickFix::IntField
-	def initialize
-		super(815)
+		def initialize(data)
+			super(813, data)
+		end
 	end
 
-	def initialize(data)
-		super(815, data)
-	end
-end
+	class ApplQueueResolution < Quickfix::IntField
+		def initialize
+			super(814)
+		end
 
-class NoAltMDSource < QuickFix::IntField
-	def initialize
-		super(816)
+		def initialize(data)
+			super(814, data)
+		end
 	end
 
-	def initialize(data)
-		super(816, data)
-	end
-end
+	class ApplQueueAction < Quickfix::IntField
+		def initialize
+			super(815)
+		end
 
-class AltMDSourceID < QuickFix::StringField
-	def initialize
-		super(817)
+		def initialize(data)
+			super(815, data)
+		end
 	end
 
-	def initialize(data)
-		super(817, data)
-	end
-end
+	class NoAltMDSource < Quickfix::IntField
+		def initialize
+			super(816)
+		end
 
-class SecondaryTradeReportID < QuickFix::StringField
-	def initialize
-		super(818)
+		def initialize(data)
+			super(816, data)
+		end
 	end
 
-	def initialize(data)
-		super(818, data)
-	end
-end
+	class AltMDSourceID < Quickfix::StringField
+		def initialize
+			super(817)
+		end
 
-class AvgPxIndicator < QuickFix::IntField
-	def initialize
-		super(819)
+		def initialize(data)
+			super(817, data)
+		end
 	end
 
-	def initialize(data)
-		super(819, data)
-	end
-end
+	class SecondaryTradeReportID < Quickfix::StringField
+		def initialize
+			super(818)
+		end
 
-class TradeLinkID < QuickFix::StringField
-	def initialize
-		super(820)
+		def initialize(data)
+			super(818, data)
+		end
 	end
 
-	def initialize(data)
-		super(820, data)
-	end
-end
+	class AvgPxIndicator < Quickfix::IntField
+		def initialize
+			super(819)
+		end
 
-class OrderInputDevice < QuickFix::StringField
-	def initialize
-		super(821)
+		def initialize(data)
+			super(819, data)
+		end
 	end
 
-	def initialize(data)
-		super(821, data)
-	end
-end
+	class TradeLinkID < Quickfix::StringField
+		def initialize
+			super(820)
+		end
 
-class UnderlyingTradingSessionID < QuickFix::StringField
-	def initialize
-		super(822)
+		def initialize(data)
+			super(820, data)
+		end
 	end
 
-	def initialize(data)
-		super(822, data)
-	end
-end
+	class OrderInputDevice < Quickfix::StringField
+		def initialize
+			super(821)
+		end
 
-class UnderlyingTradingSessionSubID < QuickFix::StringField
-	def initialize
-		super(823)
+		def initialize(data)
+			super(821, data)
+		end
 	end
 
-	def initialize(data)
-		super(823, data)
-	end
-end
+	class UnderlyingTradingSessionID < Quickfix::StringField
+		def initialize
+			super(822)
+		end
 
-class TradeLegRefID < QuickFix::StringField
-	def initialize
-		super(824)
+		def initialize(data)
+			super(822, data)
+		end
 	end
 
-	def initialize(data)
-		super(824, data)
-	end
-end
+	class UnderlyingTradingSessionSubID < Quickfix::StringField
+		def initialize
+			super(823)
+		end
 
-class ExchangeRule < QuickFix::StringField
-	def initialize
-		super(825)
+		def initialize(data)
+			super(823, data)
+		end
 	end
 
-	def initialize(data)
-		super(825, data)
-	end
-end
+	class TradeLegRefID < Quickfix::StringField
+		def initialize
+			super(824)
+		end
 
-class TradeAllocIndicator < QuickFix::IntField
-	def initialize
-		super(826)
+		def initialize(data)
+			super(824, data)
+		end
 	end
 
-	def initialize(data)
-		super(826, data)
-	end
-end
+	class ExchangeRule < Quickfix::StringField
+		def initialize
+			super(825)
+		end
 
-class ExpirationCycle < QuickFix::IntField
-	def initialize
-		super(827)
+		def initialize(data)
+			super(825, data)
+		end
 	end
 
-	def initialize(data)
-		super(827, data)
-	end
-end
+	class TradeAllocIndicator < Quickfix::IntField
+		def initialize
+			super(826)
+		end
 
-class TrdType < QuickFix::IntField
-	def initialize
-		super(828)
+		def initialize(data)
+			super(826, data)
+		end
 	end
 
-	def initialize(data)
-		super(828, data)
+	class ExpirationCycle < Quickfix::IntField
+		def initialize
+			super(827)
+		end
+
+		def initialize(data)
+			super(827, data)
+		end
 	end
-end
+
+	class TrdType < Quickfix::IntField
+		def initialize
+			super(828)
+		end
 
-class TrdSubType < QuickFix::IntField
-	def initialize
-		super(829)
+		def initialize(data)
+			super(828, data)
+		end
 	end
 
-	def initialize(data)
-		super(829, data)
-	end
-end
+	class TrdSubType < Quickfix::IntField
+		def initialize
+			super(829)
+		end
 
-class TransferReason < QuickFix::StringField
-	def initialize
-		super(830)
+		def initialize(data)
+			super(829, data)
+		end
 	end
 
-	def initialize(data)
-		super(830, data)
-	end
-end
+	class TransferReason < Quickfix::StringField
+		def initialize
+			super(830)
+		end
 
-class AsgnReqID < QuickFix::StringField
-	def initialize
-		super(831)
+		def initialize(data)
+			super(830, data)
+		end
 	end
 
-	def initialize(data)
-		super(831, data)
-	end
-end
+	class AsgnReqID < Quickfix::StringField
+		def initialize
+			super(831)
+		end
 
-class TotNumAssignmentReports < QuickFix::IntField
-	def initialize
-		super(832)
+		def initialize(data)
+			super(831, data)
+		end
 	end
 
-	def initialize(data)
-		super(832, data)
-	end
-end
+	class TotNumAssignmentReports < Quickfix::IntField
+		def initialize
+			super(832)
+		end
 
-class AsgnRptID < QuickFix::StringField
-	def initialize
-		super(833)
+		def initialize(data)
+			super(832, data)
+		end
 	end
 
-	def initialize(data)
-		super(833, data)
-	end
-end
+	class AsgnRptID < Quickfix::StringField
+		def initialize
+			super(833)
+		end
 
-class ThresholdAmount < QuickFix::DoubleField
-	def initialize
-		super(834)
+		def initialize(data)
+			super(833, data)
+		end
 	end
 
-	def initialize(data)
-		super(834, data)
-	end
-end
+	class ThresholdAmount < Quickfix::DoubleField
+		def initialize
+			super(834)
+		end
 
-class PegMoveType < QuickFix::IntField
-	def initialize
-		super(835)
+		def initialize(data)
+			super(834, data)
+		end
 	end
 
-	def initialize(data)
-		super(835, data)
-	end
-end
+	class PegMoveType < Quickfix::IntField
+		def initialize
+			super(835)
+		end
 
-class PegOffsetType < QuickFix::IntField
-	def initialize
-		super(836)
+		def initialize(data)
+			super(835, data)
+		end
 	end
 
-	def initialize(data)
-		super(836, data)
-	end
-end
+	class PegOffsetType < Quickfix::IntField
+		def initialize
+			super(836)
+		end
 
-class PegLimitType < QuickFix::IntField
-	def initialize
-		super(837)
+		def initialize(data)
+			super(836, data)
+		end
 	end
 
-	def initialize(data)
-		super(837, data)
-	end
-end
+	class PegLimitType < Quickfix::IntField
+		def initialize
+			super(837)
+		end
 
-class PegRoundDirection < QuickFix::IntField
-	def initialize
-		super(838)
+		def initialize(data)
+			super(837, data)
+		end
 	end
 
-	def initialize(data)
-		super(838, data)
-	end
-end
+	class PegRoundDirection < Quickfix::IntField
+		def initialize
+			super(838)
+		end
 
-class PeggedPrice < QuickFix::DoubleField
-	def initialize
-		super(839)
+		def initialize(data)
+			super(838, data)
+		end
 	end
 
-	def initialize(data)
-		super(839, data)
-	end
-end
+	class PeggedPrice < Quickfix::DoubleField
+		def initialize
+			super(839)
+		end
 
-class PegScope < QuickFix::IntField
-	def initialize
-		super(840)
+		def initialize(data)
+			super(839, data)
+		end
 	end
 
-	def initialize(data)
-		super(840, data)
-	end
-end
+	class PegScope < Quickfix::IntField
+		def initialize
+			super(840)
+		end
 
-class DiscretionMoveType < QuickFix::IntField
-	def initialize
-		super(841)
+		def initialize(data)
+			super(840, data)
+		end
 	end
 
-	def initialize(data)
-		super(841, data)
-	end
-end
+	class DiscretionMoveType < Quickfix::IntField
+		def initialize
+			super(841)
+		end
 
-class DiscretionOffsetType < QuickFix::IntField
-	def initialize
-		super(842)
+		def initialize(data)
+			super(841, data)
+		end
 	end
 
-	def initialize(data)
-		super(842, data)
-	end
-end
+	class DiscretionOffsetType < Quickfix::IntField
+		def initialize
+			super(842)
+		end
 
-class DiscretionLimitType < QuickFix::IntField
-	def initialize
-		super(843)
+		def initialize(data)
+			super(842, data)
+		end
 	end
 
-	def initialize(data)
-		super(843, data)
-	end
-end
+	class DiscretionLimitType < Quickfix::IntField
+		def initialize
+			super(843)
+		end
 
-class DiscretionRoundDirection < QuickFix::IntField
-	def initialize
-		super(844)
+		def initialize(data)
+			super(843, data)
+		end
 	end
 
-	def initialize(data)
-		super(844, data)
-	end
-end
+	class DiscretionRoundDirection < Quickfix::IntField
+		def initialize
+			super(844)
+		end
 
-class DiscretionPrice < QuickFix::DoubleField
-	def initialize
-		super(845)
+		def initialize(data)
+			super(844, data)
+		end
 	end
 
-	def initialize(data)
-		super(845, data)
-	end
-end
+	class DiscretionPrice < Quickfix::DoubleField
+		def initialize
+			super(845)
+		end
 
-class DiscretionScope < QuickFix::IntField
-	def initialize
-		super(846)
+		def initialize(data)
+			super(845, data)
+		end
 	end
 
-	def initialize(data)
-		super(846, data)
-	end
-end
+	class DiscretionScope < Quickfix::IntField
+		def initialize
+			super(846)
+		end
 
-class TargetStrategy < QuickFix::IntField
-	def initialize
-		super(847)
+		def initialize(data)
+			super(846, data)
+		end
 	end
 
-	def initialize(data)
-		super(847, data)
-	end
-end
+	class TargetStrategy < Quickfix::IntField
+		def initialize
+			super(847)
+		end
 
-class TargetStrategyParameters < QuickFix::StringField
-	def initialize
-		super(848)
+		def initialize(data)
+			super(847, data)
+		end
 	end
 
-	def initialize(data)
-		super(848, data)
-	end
-end
+	class TargetStrategyParameters < Quickfix::StringField
+		def initialize
+			super(848)
+		end
 
-class ParticipationRate < QuickFix::DoubleField
-	def initialize
-		super(849)
+		def initialize(data)
+			super(848, data)
+		end
 	end
 
-	def initialize(data)
-		super(849, data)
-	end
-end
+	class ParticipationRate < Quickfix::DoubleField
+		def initialize
+			super(849)
+		end
 
-class TargetStrategyPerformance < QuickFix::DoubleField
-	def initialize
-		super(850)
+		def initialize(data)
+			super(849, data)
+		end
 	end
 
-	def initialize(data)
-		super(850, data)
-	end
-end
+	class TargetStrategyPerformance < Quickfix::DoubleField
+		def initialize
+			super(850)
+		end
 
-class LastLiquidityInd < QuickFix::IntField
-	def initialize
-		super(851)
+		def initialize(data)
+			super(850, data)
+		end
 	end
 
-	def initialize(data)
-		super(851, data)
-	end
-end
+	class LastLiquidityInd < Quickfix::IntField
+		def initialize
+			super(851)
+		end
 
-class PublishTrdIndicator < QuickFix::BooleanField
-	def initialize
-		super(852)
+		def initialize(data)
+			super(851, data)
+		end
 	end
 
-	def initialize(data)
-		super(852, data)
-	end
-end
+	class PublishTrdIndicator < Quickfix::BoolField
+		def initialize
+			super(852)
+		end
 
-class ShortSaleReason < QuickFix::IntField
-	def initialize
-		super(853)
+		def initialize(data)
+			super(852, data)
+		end
 	end
 
-	def initialize(data)
-		super(853, data)
-	end
-end
+	class ShortSaleReason < Quickfix::IntField
+		def initialize
+			super(853)
+		end
 
-class QtyType < QuickFix::IntField
-	def initialize
-		super(854)
+		def initialize(data)
+			super(853, data)
+		end
 	end
 
-	def initialize(data)
-		super(854, data)
-	end
-end
+	class QtyType < Quickfix::IntField
+		def initialize
+			super(854)
+		end
 
-class SecondaryTrdType < QuickFix::IntField
-	def initialize
-		super(855)
+		def initialize(data)
+			super(854, data)
+		end
 	end
 
-	def initialize(data)
-		super(855, data)
-	end
-end
+	class SecondaryTrdType < Quickfix::IntField
+		def initialize
+			super(855)
+		end
 
-class TradeReportType < QuickFix::IntField
-	def initialize
-		super(856)
+		def initialize(data)
+			super(855, data)
+		end
 	end
 
-	def initialize(data)
-		super(856, data)
-	end
-end
+	class TradeReportType < Quickfix::IntField
+		def initialize
+			super(856)
+		end
 
-class AllocNoOrdersType < QuickFix::IntField
-	def initialize
-		super(857)
+		def initialize(data)
+			super(856, data)
+		end
 	end
 
-	def initialize(data)
-		super(857, data)
-	end
-end
+	class AllocNoOrdersType < Quickfix::IntField
+		def initialize
+			super(857)
+		end
 
-class SharedCommission < QuickFix::DoubleField
-	def initialize
-		super(858)
+		def initialize(data)
+			super(857, data)
+		end
 	end
 
-	def initialize(data)
-		super(858, data)
-	end
-end
+	class SharedCommission < Quickfix::DoubleField
+		def initialize
+			super(858)
+		end
 
-class ConfirmReqID < QuickFix::StringField
-	def initialize
-		super(859)
+		def initialize(data)
+			super(858, data)
+		end
 	end
 
-	def initialize(data)
-		super(859, data)
-	end
-end
+	class ConfirmReqID < Quickfix::StringField
+		def initialize
+			super(859)
+		end
 
-class AvgParPx < QuickFix::DoubleField
-	def initialize
-		super(860)
+		def initialize(data)
+			super(859, data)
+		end
 	end
 
-	def initialize(data)
-		super(860, data)
-	end
-end
+	class AvgParPx < Quickfix::DoubleField
+		def initialize
+			super(860)
+		end
 
-class ReportedPx < QuickFix::DoubleField
-	def initialize
-		super(861)
+		def initialize(data)
+			super(860, data)
+		end
 	end
 
-	def initialize(data)
-		super(861, data)
-	end
-end
+	class ReportedPx < Quickfix::DoubleField
+		def initialize
+			super(861)
+		end
 
-class NoCapacities < QuickFix::IntField
-	def initialize
-		super(862)
+		def initialize(data)
+			super(861, data)
+		end
 	end
 
-	def initialize(data)
-		super(862, data)
-	end
-end
+	class NoCapacities < Quickfix::IntField
+		def initialize
+			super(862)
+		end
 
-class OrderCapacityQty < QuickFix::DoubleField
-	def initialize
-		super(863)
+		def initialize(data)
+			super(862, data)
+		end
 	end
 
-	def initialize(data)
-		super(863, data)
-	end
-end
+	class OrderCapacityQty < Quickfix::DoubleField
+		def initialize
+			super(863)
+		end
 
-class NoEvents < QuickFix::IntField
-	def initialize
-		super(864)
+		def initialize(data)
+			super(863, data)
+		end
 	end
 
-	def initialize(data)
-		super(864, data)
-	end
-end
+	class NoEvents < Quickfix::IntField
+		def initialize
+			super(864)
+		end
 
-class EventType < QuickFix::IntField
-	def initialize
-		super(865)
+		def initialize(data)
+			super(864, data)
+		end
 	end
 
-	def initialize(data)
-		super(865, data)
-	end
-end
+	class EventType < Quickfix::IntField
+		def initialize
+			super(865)
+		end
 
-class EventDate < QuickFix::StringField
-	def initialize
-		super(866)
+		def initialize(data)
+			super(865, data)
+		end
 	end
 
-	def initialize(data)
-		super(866, data)
-	end
-end
+	class EventDate < Quickfix::StringField
+		def initialize
+			super(866)
+		end
 
-class EventPx < QuickFix::DoubleField
-	def initialize
-		super(867)
+		def initialize(data)
+			super(866, data)
+		end
 	end
 
-	def initialize(data)
-		super(867, data)
-	end
-end
+	class EventPx < Quickfix::DoubleField
+		def initialize
+			super(867)
+		end
 
-class EventText < QuickFix::StringField
-	def initialize
-		super(868)
+		def initialize(data)
+			super(867, data)
+		end
 	end
 
-	def initialize(data)
-		super(868, data)
-	end
-end
+	class EventText < Quickfix::StringField
+		def initialize
+			super(868)
+		end
 
-class PctAtRisk < QuickFix::DoubleField
-	def initialize
-		super(869)
+		def initialize(data)
+			super(868, data)
+		end
 	end
 
-	def initialize(data)
-		super(869, data)
-	end
-end
+	class PctAtRisk < Quickfix::DoubleField
+		def initialize
+			super(869)
+		end
 
-class NoInstrAttrib < QuickFix::IntField
-	def initialize
-		super(870)
+		def initialize(data)
+			super(869, data)
+		end
 	end
 
-	def initialize(data)
-		super(870, data)
-	end
-end
+	class NoInstrAttrib < Quickfix::IntField
+		def initialize
+			super(870)
+		end
 
-class InstrAttribType < QuickFix::IntField
-	def initialize
-		super(871)
+		def initialize(data)
+			super(870, data)
+		end
 	end
 
-	def initialize(data)
-		super(871, data)
-	end
-end
+	class InstrAttribType < Quickfix::IntField
+		def initialize
+			super(871)
+		end
 
-class InstrAttribValue < QuickFix::StringField
-	def initialize
-		super(872)
+		def initialize(data)
+			super(871, data)
+		end
 	end
 
-	def initialize(data)
-		super(872, data)
-	end
-end
+	class InstrAttribValue < Quickfix::StringField
+		def initialize
+			super(872)
+		end
 
-class DatedDate < QuickFix::StringField
-	def initialize
-		super(873)
+		def initialize(data)
+			super(872, data)
+		end
 	end
 
-	def initialize(data)
-		super(873, data)
-	end
-end
+	class DatedDate < Quickfix::StringField
+		def initialize
+			super(873)
+		end
 
-class InterestAccrualDate < QuickFix::StringField
-	def initialize
-		super(874)
+		def initialize(data)
+			super(873, data)
+		end
 	end
 
-	def initialize(data)
-		super(874, data)
-	end
-end
+	class InterestAccrualDate < Quickfix::StringField
+		def initialize
+			super(874)
+		end
 
-class CPProgram < QuickFix::IntField
-	def initialize
-		super(875)
+		def initialize(data)
+			super(874, data)
+		end
 	end
 
-	def initialize(data)
-		super(875, data)
-	end
-end
+	class CPProgram < Quickfix::IntField
+		def initialize
+			super(875)
+		end
 
-class CPRegType < QuickFix::StringField
-	def initialize
-		super(876)
+		def initialize(data)
+			super(875, data)
+		end
 	end
 
-	def initialize(data)
-		super(876, data)
-	end
-end
+	class CPRegType < Quickfix::StringField
+		def initialize
+			super(876)
+		end
 
-class UnderlyingCPProgram < QuickFix::StringField
-	def initialize
-		super(877)
+		def initialize(data)
+			super(876, data)
+		end
 	end
 
-	def initialize(data)
-		super(877, data)
-	end
-end
+	class UnderlyingCPProgram < Quickfix::StringField
+		def initialize
+			super(877)
+		end
 
-class UnderlyingCPRegType < QuickFix::StringField
-	def initialize
-		super(878)
+		def initialize(data)
+			super(877, data)
+		end
 	end
 
-	def initialize(data)
-		super(878, data)
-	end
-end
+	class UnderlyingCPRegType < Quickfix::StringField
+		def initialize
+			super(878)
+		end
 
-class UnderlyingQty < QuickFix::DoubleField
-	def initialize
-		super(879)
+		def initialize(data)
+			super(878, data)
+		end
 	end
 
-	def initialize(data)
-		super(879, data)
-	end
-end
+	class UnderlyingQty < Quickfix::DoubleField
+		def initialize
+			super(879)
+		end
 
-class TrdMatchID < QuickFix::StringField
-	def initialize
-		super(880)
+		def initialize(data)
+			super(879, data)
+		end
 	end
 
-	def initialize(data)
-		super(880, data)
-	end
-end
+	class TrdMatchID < Quickfix::StringField
+		def initialize
+			super(880)
+		end
 
-class SecondaryTradeReportRefID < QuickFix::StringField
-	def initialize
-		super(881)
+		def initialize(data)
+			super(880, data)
+		end
 	end
 
-	def initialize(data)
-		super(881, data)
-	end
-end
+	class SecondaryTradeReportRefID < Quickfix::StringField
+		def initialize
+			super(881)
+		end
 
-class UnderlyingDirtyPrice < QuickFix::DoubleField
-	def initialize
-		super(882)
+		def initialize(data)
+			super(881, data)
+		end
 	end
 
-	def initialize(data)
-		super(882, data)
-	end
-end
+	class UnderlyingDirtyPrice < Quickfix::DoubleField
+		def initialize
+			super(882)
+		end
 
-class UnderlyingEndPrice < QuickFix::DoubleField
-	def initialize
-		super(883)
+		def initialize(data)
+			super(882, data)
+		end
 	end
 
-	def initialize(data)
-		super(883, data)
-	end
-end
+	class UnderlyingEndPrice < Quickfix::DoubleField
+		def initialize
+			super(883)
+		end
 
-class UnderlyingStartValue < QuickFix::DoubleField
-	def initialize
-		super(884)
+		def initialize(data)
+			super(883, data)
+		end
 	end
 
-	def initialize(data)
-		super(884, data)
-	end
-end
+	class UnderlyingStartValue < Quickfix::DoubleField
+		def initialize
+			super(884)
+		end
 
-class UnderlyingCurrentValue < QuickFix::DoubleField
-	def initialize
-		super(885)
+		def initialize(data)
+			super(884, data)
+		end
 	end
 
-	def initialize(data)
-		super(885, data)
-	end
-end
+	class UnderlyingCurrentValue < Quickfix::DoubleField
+		def initialize
+			super(885)
+		end
 
-class UnderlyingEndValue < QuickFix::DoubleField
-	def initialize
-		super(886)
+		def initialize(data)
+			super(885, data)
+		end
 	end
 
-	def initialize(data)
-		super(886, data)
-	end
-end
+	class UnderlyingEndValue < Quickfix::DoubleField
+		def initialize
+			super(886)
+		end
 
-class NoUnderlyingStips < QuickFix::IntField
-	def initialize
-		super(887)
+		def initialize(data)
+			super(886, data)
+		end
 	end
 
-	def initialize(data)
-		super(887, data)
-	end
-end
+	class NoUnderlyingStips < Quickfix::IntField
+		def initialize
+			super(887)
+		end
 
-class UnderlyingStipType < QuickFix::StringField
-	def initialize
-		super(888)
+		def initialize(data)
+			super(887, data)
+		end
 	end
 
-	def initialize(data)
-		super(888, data)
-	end
-end
+	class UnderlyingStipType < Quickfix::StringField
+		def initialize
+			super(888)
+		end
 
-class UnderlyingStipValue < QuickFix::StringField
-	def initialize
-		super(889)
+		def initialize(data)
+			super(888, data)
+		end
 	end
 
-	def initialize(data)
-		super(889, data)
-	end
-end
+	class UnderlyingStipValue < Quickfix::StringField
+		def initialize
+			super(889)
+		end
 
-class MaturityNetMoney < QuickFix::DoubleField
-	def initialize
-		super(890)
+		def initialize(data)
+			super(889, data)
+		end
 	end
 
-	def initialize(data)
-		super(890, data)
-	end
-end
+	class MaturityNetMoney < Quickfix::DoubleField
+		def initialize
+			super(890)
+		end
 
-class MiscFeeBasis < QuickFix::IntField
-	def initialize
-		super(891)
+		def initialize(data)
+			super(890, data)
+		end
 	end
 
-	def initialize(data)
-		super(891, data)
-	end
-end
+	class MiscFeeBasis < Quickfix::IntField
+		def initialize
+			super(891)
+		end
 
-class TotNoAllocs < QuickFix::IntField
-	def initialize
-		super(892)
+		def initialize(data)
+			super(891, data)
+		end
 	end
 
-	def initialize(data)
-		super(892, data)
-	end
-end
+	class TotNoAllocs < Quickfix::IntField
+		def initialize
+			super(892)
+		end
 
-class LastFragment < QuickFix::BooleanField
-	def initialize
-		super(893)
+		def initialize(data)
+			super(892, data)
+		end
 	end
 
-	def initialize(data)
-		super(893, data)
-	end
-end
+	class LastFragment < Quickfix::BoolField
+		def initialize
+			super(893)
+		end
 
-class CollReqID < QuickFix::StringField
-	def initialize
-		super(894)
+		def initialize(data)
+			super(893, data)
+		end
 	end
 
-	def initialize(data)
-		super(894, data)
-	end
-end
+	class CollReqID < Quickfix::StringField
+		def initialize
+			super(894)
+		end
 
-class CollAsgnReason < QuickFix::IntField
-	def initialize
-		super(895)
+		def initialize(data)
+			super(894, data)
+		end
 	end
 
-	def initialize(data)
-		super(895, data)
-	end
-end
+	class CollAsgnReason < Quickfix::IntField
+		def initialize
+			super(895)
+		end
 
-class CollInquiryQualifier < QuickFix::IntField
-	def initialize
-		super(896)
+		def initialize(data)
+			super(895, data)
+		end
 	end
 
-	def initialize(data)
-		super(896, data)
-	end
-end
+	class CollInquiryQualifier < Quickfix::IntField
+		def initialize
+			super(896)
+		end
 
-class NoTrades < QuickFix::IntField
-	def initialize
-		super(897)
+		def initialize(data)
+			super(896, data)
+		end
 	end
 
-	def initialize(data)
-		super(897, data)
-	end
-end
+	class NoTrades < Quickfix::IntField
+		def initialize
+			super(897)
+		end
 
-class MarginRatio < QuickFix::DoubleField
-	def initialize
-		super(898)
+		def initialize(data)
+			super(897, data)
+		end
 	end
 
-	def initialize(data)
-		super(898, data)
-	end
-end
+	class MarginRatio < Quickfix::DoubleField
+		def initialize
+			super(898)
+		end
 
-class MarginExcess < QuickFix::DoubleField
-	def initialize
-		super(899)
+		def initialize(data)
+			super(898, data)
+		end
 	end
 
-	def initialize(data)
-		super(899, data)
-	end
-end
+	class MarginExcess < Quickfix::DoubleField
+		def initialize
+			super(899)
+		end
 
-class TotalNetValue < QuickFix::DoubleField
-	def initialize
-		super(900)
+		def initialize(data)
+			super(899, data)
+		end
 	end
 
-	def initialize(data)
-		super(900, data)
-	end
-end
+	class TotalNetValue < Quickfix::DoubleField
+		def initialize
+			super(900)
+		end
 
-class CashOutstanding < QuickFix::DoubleField
-	def initialize
-		super(901)
+		def initialize(data)
+			super(900, data)
+		end
 	end
 
-	def initialize(data)
-		super(901, data)
-	end
-end
+	class CashOutstanding < Quickfix::DoubleField
+		def initialize
+			super(901)
+		end
 
-class CollAsgnID < QuickFix::StringField
-	def initialize
-		super(902)
+		def initialize(data)
+			super(901, data)
+		end
 	end
 
-	def initialize(data)
-		super(902, data)
-	end
-end
+	class CollAsgnID < Quickfix::StringField
+		def initialize
+			super(902)
+		end
 
-class CollAsgnTransType < QuickFix::IntField
-	def initialize
-		super(903)
+		def initialize(data)
+			super(902, data)
+		end
 	end
 
-	def initialize(data)
-		super(903, data)
-	end
-end
+	class CollAsgnTransType < Quickfix::IntField
+		def initialize
+			super(903)
+		end
 
-class CollRespID < QuickFix::StringField
-	def initialize
-		super(904)
+		def initialize(data)
+			super(903, data)
+		end
 	end
 
-	def initialize(data)
-		super(904, data)
-	end
-end
+	class CollRespID < Quickfix::StringField
+		def initialize
+			super(904)
+		end
 
-class CollAsgnRespType < QuickFix::IntField
-	def initialize
-		super(905)
+		def initialize(data)
+			super(904, data)
+		end
 	end
 
-	def initialize(data)
-		super(905, data)
-	end
-end
+	class CollAsgnRespType < Quickfix::IntField
+		def initialize
+			super(905)
+		end
 
-class CollAsgnRejectReason < QuickFix::IntField
-	def initialize
-		super(906)
+		def initialize(data)
+			super(905, data)
+		end
 	end
 
-	def initialize(data)
-		super(906, data)
-	end
-end
+	class CollAsgnRejectReason < Quickfix::IntField
+		def initialize
+			super(906)
+		end
 
-class CollAsgnRefID < QuickFix::StringField
-	def initialize
-		super(907)
+		def initialize(data)
+			super(906, data)
+		end
 	end
 
-	def initialize(data)
-		super(907, data)
-	end
-end
+	class CollAsgnRefID < Quickfix::StringField
+		def initialize
+			super(907)
+		end
 
-class CollRptID < QuickFix::StringField
-	def initialize
-		super(908)
+		def initialize(data)
+			super(907, data)
+		end
 	end
 
-	def initialize(data)
-		super(908, data)
-	end
-end
+	class CollRptID < Quickfix::StringField
+		def initialize
+			super(908)
+		end
 
-class CollInquiryID < QuickFix::StringField
-	def initialize
-		super(909)
+		def initialize(data)
+			super(908, data)
+		end
 	end
 
-	def initialize(data)
-		super(909, data)
-	end
-end
+	class CollInquiryID < Quickfix::StringField
+		def initialize
+			super(909)
+		end
 
-class CollStatus < QuickFix::IntField
-	def initialize
-		super(910)
+		def initialize(data)
+			super(909, data)
+		end
 	end
 
-	def initialize(data)
-		super(910, data)
-	end
-end
+	class CollStatus < Quickfix::IntField
+		def initialize
+			super(910)
+		end
 
-class TotNumReports < QuickFix::IntField
-	def initialize
-		super(911)
+		def initialize(data)
+			super(910, data)
+		end
 	end
 
-	def initialize(data)
-		super(911, data)
-	end
-end
+	class TotNumReports < Quickfix::IntField
+		def initialize
+			super(911)
+		end
 
-class LastRptRequested < QuickFix::BooleanField
-	def initialize
-		super(912)
+		def initialize(data)
+			super(911, data)
+		end
 	end
 
-	def initialize(data)
-		super(912, data)
-	end
-end
+	class LastRptRequested < Quickfix::BoolField
+		def initialize
+			super(912)
+		end
 
-class AgreementDesc < QuickFix::StringField
-	def initialize
-		super(913)
+		def initialize(data)
+			super(912, data)
+		end
 	end
 
-	def initialize(data)
-		super(913, data)
-	end
-end
+	class AgreementDesc < Quickfix::StringField
+		def initialize
+			super(913)
+		end
 
-class AgreementID < QuickFix::StringField
-	def initialize
-		super(914)
+		def initialize(data)
+			super(913, data)
+		end
 	end
 
-	def initialize(data)
-		super(914, data)
-	end
-end
+	class AgreementID < Quickfix::StringField
+		def initialize
+			super(914)
+		end
 
-class AgreementDate < QuickFix::StringField
-	def initialize
-		super(915)
+		def initialize(data)
+			super(914, data)
+		end
 	end
 
-	def initialize(data)
-		super(915, data)
-	end
-end
+	class AgreementDate < Quickfix::StringField
+		def initialize
+			super(915)
+		end
 
-class StartDate < QuickFix::StringField
-	def initialize
-		super(916)
+		def initialize(data)
+			super(915, data)
+		end
 	end
 
-	def initialize(data)
-		super(916, data)
-	end
-end
+	class StartDate < Quickfix::StringField
+		def initialize
+			super(916)
+		end
 
-class EndDate < QuickFix::StringField
-	def initialize
-		super(917)
+		def initialize(data)
+			super(916, data)
+		end
 	end
 
-	def initialize(data)
-		super(917, data)
-	end
-end
+	class EndDate < Quickfix::StringField
+		def initialize
+			super(917)
+		end
 
-class AgreementCurrency < QuickFix::StringField
-	def initialize
-		super(918)
+		def initialize(data)
+			super(917, data)
+		end
 	end
 
-	def initialize(data)
-		super(918, data)
-	end
-end
+	class AgreementCurrency < Quickfix::StringField
+		def initialize
+			super(918)
+		end
 
-class DeliveryType < QuickFix::IntField
-	def initialize
-		super(919)
+		def initialize(data)
+			super(918, data)
+		end
 	end
 
-	def initialize(data)
-		super(919, data)
-	end
-end
+	class DeliveryType < Quickfix::IntField
+		def initialize
+			super(919)
+		end
 
-class EndAccruedInterestAmt < QuickFix::DoubleField
-	def initialize
-		super(920)
+		def initialize(data)
+			super(919, data)
+		end
 	end
 
-	def initialize(data)
-		super(920, data)
-	end
-end
+	class EndAccruedInterestAmt < Quickfix::DoubleField
+		def initialize
+			super(920)
+		end
 
-class StartCash < QuickFix::DoubleField
-	def initialize
-		super(921)
+		def initialize(data)
+			super(920, data)
+		end
 	end
 
-	def initialize(data)
-		super(921, data)
-	end
-end
+	class StartCash < Quickfix::DoubleField
+		def initialize
+			super(921)
+		end
 
-class EndCash < QuickFix::DoubleField
-	def initialize
-		super(922)
+		def initialize(data)
+			super(921, data)
+		end
 	end
 
-	def initialize(data)
-		super(922, data)
-	end
-end
+	class EndCash < Quickfix::DoubleField
+		def initialize
+			super(922)
+		end
 
-class UserRequestID < QuickFix::StringField
-	def initialize
-		super(923)
+		def initialize(data)
+			super(922, data)
+		end
 	end
 
-	def initialize(data)
-		super(923, data)
-	end
-end
+	class UserRequestID < Quickfix::StringField
+		def initialize
+			super(923)
+		end
 
-class UserRequestType < QuickFix::IntField
-	def initialize
-		super(924)
+		def initialize(data)
+			super(923, data)
+		end
 	end
 
-	def initialize(data)
-		super(924, data)
-	end
-end
+	class UserRequestType < Quickfix::IntField
+		def initialize
+			super(924)
+		end
 
-class NewPassword < QuickFix::StringField
-	def initialize
-		super(925)
+		def initialize(data)
+			super(924, data)
+		end
 	end
 
-	def initialize(data)
-		super(925, data)
-	end
-end
+	class NewPassword < Quickfix::StringField
+		def initialize
+			super(925)
+		end
 
-class UserStatus < QuickFix::IntField
-	def initialize
-		super(926)
+		def initialize(data)
+			super(925, data)
+		end
 	end
 
-	def initialize(data)
-		super(926, data)
-	end
-end
+	class UserStatus < Quickfix::IntField
+		def initialize
+			super(926)
+		end
 
-class UserStatusText < QuickFix::StringField
-	def initialize
-		super(927)
+		def initialize(data)
+			super(926, data)
+		end
 	end
 
-	def initialize(data)
-		super(927, data)
-	end
-end
+	class UserStatusText < Quickfix::StringField
+		def initialize
+			super(927)
+		end
 
-class StatusValue < QuickFix::IntField
-	def initialize
-		super(928)
+		def initialize(data)
+			super(927, data)
+		end
 	end
 
-	def initialize(data)
-		super(928, data)
-	end
-end
+	class StatusValue < Quickfix::IntField
+		def initialize
+			super(928)
+		end
 
-class StatusText < QuickFix::StringField
-	def initialize
-		super(929)
+		def initialize(data)
+			super(928, data)
+		end
 	end
 
-	def initialize(data)
-		super(929, data)
-	end
-end
+	class StatusText < Quickfix::StringField
+		def initialize
+			super(929)
+		end
 
-class RefCompID < QuickFix::StringField
-	def initialize
-		super(930)
+		def initialize(data)
+			super(929, data)
+		end
 	end
 
-	def initialize(data)
-		super(930, data)
-	end
-end
+	class RefCompID < Quickfix::StringField
+		def initialize
+			super(930)
+		end
 
-class RefSubID < QuickFix::StringField
-	def initialize
-		super(931)
+		def initialize(data)
+			super(930, data)
+		end
 	end
 
-	def initialize(data)
-		super(931, data)
-	end
-end
+	class RefSubID < Quickfix::StringField
+		def initialize
+			super(931)
+		end
 
-class NetworkResponseID < QuickFix::StringField
-	def initialize
-		super(932)
+		def initialize(data)
+			super(931, data)
+		end
 	end
 
-	def initialize(data)
-		super(932, data)
-	end
-end
+	class NetworkResponseID < Quickfix::StringField
+		def initialize
+			super(932)
+		end
 
-class NetworkRequestID < QuickFix::StringField
-	def initialize
-		super(933)
+		def initialize(data)
+			super(932, data)
+		end
 	end
 
-	def initialize(data)
-		super(933, data)
-	end
-end
+	class NetworkRequestID < Quickfix::StringField
+		def initialize
+			super(933)
+		end
 
-class LastNetworkResponseID < QuickFix::StringField
-	def initialize
-		super(934)
+		def initialize(data)
+			super(933, data)
+		end
 	end
 
-	def initialize(data)
-		super(934, data)
-	end
-end
+	class LastNetworkResponseID < Quickfix::StringField
+		def initialize
+			super(934)
+		end
 
-class NetworkRequestType < QuickFix::IntField
-	def initialize
-		super(935)
+		def initialize(data)
+			super(934, data)
+		end
 	end
 
-	def initialize(data)
-		super(935, data)
-	end
-end
+	class NetworkRequestType < Quickfix::IntField
+		def initialize
+			super(935)
+		end
 
-class NoCompIDs < QuickFix::IntField
-	def initialize
-		super(936)
+		def initialize(data)
+			super(935, data)
+		end
 	end
 
-	def initialize(data)
-		super(936, data)
-	end
-end
+	class NoCompIDs < Quickfix::IntField
+		def initialize
+			super(936)
+		end
 
-class NetworkStatusResponseType < QuickFix::IntField
-	def initialize
-		super(937)
+		def initialize(data)
+			super(936, data)
+		end
 	end
 
-	def initialize(data)
-		super(937, data)
-	end
-end
+	class NetworkStatusResponseType < Quickfix::IntField
+		def initialize
+			super(937)
+		end
 
-class NoCollInquiryQualifier < QuickFix::IntField
-	def initialize
-		super(938)
+		def initialize(data)
+			super(937, data)
+		end
 	end
 
-	def initialize(data)
-		super(938, data)
-	end
-end
+	class NoCollInquiryQualifier < Quickfix::IntField
+		def initialize
+			super(938)
+		end
 
-class TrdRptStatus < QuickFix::IntField
-	def initialize
-		super(939)
+		def initialize(data)
+			super(938, data)
+		end
 	end
 
-	def initialize(data)
-		super(939, data)
-	end
-end
+	class TrdRptStatus < Quickfix::IntField
+		def initialize
+			super(939)
+		end
 
-class AffirmStatus < QuickFix::IntField
-	def initialize
-		super(940)
+		def initialize(data)
+			super(939, data)
+		end
 	end
 
-	def initialize(data)
-		super(940, data)
-	end
-end
+	class AffirmStatus < Quickfix::IntField
+		def initialize
+			super(940)
+		end
 
-class UnderlyingStrikeCurrency < QuickFix::StringField
-	def initialize
-		super(941)
+		def initialize(data)
+			super(940, data)
+		end
 	end
 
-	def initialize(data)
-		super(941, data)
-	end
-end
+	class UnderlyingStrikeCurrency < Quickfix::StringField
+		def initialize
+			super(941)
+		end
 
-class LegStrikeCurrency < QuickFix::StringField
-	def initialize
-		super(942)
+		def initialize(data)
+			super(941, data)
+		end
 	end
 
-	def initialize(data)
-		super(942, data)
-	end
-end
+	class LegStrikeCurrency < Quickfix::StringField
+		def initialize
+			super(942)
+		end
 
-class TimeBracket < QuickFix::StringField
-	def initialize
-		super(943)
+		def initialize(data)
+			super(942, data)
+		end
 	end
 
-	def initialize(data)
-		super(943, data)
-	end
-end
+	class TimeBracket < Quickfix::StringField
+		def initialize
+			super(943)
+		end
 
-class CollAction < QuickFix::IntField
-	def initialize
-		super(944)
+		def initialize(data)
+			super(943, data)
+		end
 	end
 
-	def initialize(data)
-		super(944, data)
-	end
-end
+	class CollAction < Quickfix::IntField
+		def initialize
+			super(944)
+		end
 
-class CollInquiryStatus < QuickFix::IntField
-	def initialize
-		super(945)
+		def initialize(data)
+			super(944, data)
+		end
 	end
 
-	def initialize(data)
-		super(945, data)
-	end
-end
+	class CollInquiryStatus < Quickfix::IntField
+		def initialize
+			super(945)
+		end
 
-class CollInquiryResult < QuickFix::IntField
-	def initialize
-		super(946)
+		def initialize(data)
+			super(945, data)
+		end
 	end
 
-	def initialize(data)
-		super(946, data)
-	end
-end
+	class CollInquiryResult < Quickfix::IntField
+		def initialize
+			super(946)
+		end
 
-class StrikeCurrency < QuickFix::StringField
-	def initialize
-		super(947)
+		def initialize(data)
+			super(946, data)
+		end
 	end
 
-	def initialize(data)
-		super(947, data)
-	end
-end
+	class StrikeCurrency < Quickfix::StringField
+		def initialize
+			super(947)
+		end
 
-class NoNested3PartyIDs < QuickFix::IntField
-	def initialize
-		super(948)
+		def initialize(data)
+			super(947, data)
+		end
 	end
 
-	def initialize(data)
-		super(948, data)
-	end
-end
+	class NoNested3PartyIDs < Quickfix::IntField
+		def initialize
+			super(948)
+		end
 
-class Nested3PartyID < QuickFix::StringField
-	def initialize
-		super(949)
+		def initialize(data)
+			super(948, data)
+		end
 	end
 
-	def initialize(data)
-		super(949, data)
-	end
-end
+	class Nested3PartyID < Quickfix::StringField
+		def initialize
+			super(949)
+		end
 
-class Nested3PartyIDSource < QuickFix::CharField
-	def initialize
-		super(950)
+		def initialize(data)
+			super(949, data)
+		end
 	end
 
-	def initialize(data)
-		super(950, data)
-	end
-end
+	class Nested3PartyIDSource < Quickfix::CharField
+		def initialize
+			super(950)
+		end
 
-class Nested3PartyRole < QuickFix::IntField
-	def initialize
-		super(951)
+		def initialize(data)
+			super(950, data)
+		end
 	end
 
-	def initialize(data)
-		super(951, data)
-	end
-end
+	class Nested3PartyRole < Quickfix::IntField
+		def initialize
+			super(951)
+		end
 
-class NoNested3PartySubIDs < QuickFix::IntField
-	def initialize
-		super(952)
+		def initialize(data)
+			super(951, data)
+		end
 	end
 
-	def initialize(data)
-		super(952, data)
-	end
-end
+	class NoNested3PartySubIDs < Quickfix::IntField
+		def initialize
+			super(952)
+		end
 
-class Nested3PartySubID < QuickFix::StringField
-	def initialize
-		super(953)
+		def initialize(data)
+			super(952, data)
+		end
 	end
 
-	def initialize(data)
-		super(953, data)
-	end
-end
+	class Nested3PartySubID < Quickfix::StringField
+		def initialize
+			super(953)
+		end
 
-class Nested3PartySubIDType < QuickFix::IntField
-	def initialize
-		super(954)
+		def initialize(data)
+			super(953, data)
+		end
 	end
 
-	def initialize(data)
-		super(954, data)
-	end
-end
+	class Nested3PartySubIDType < Quickfix::IntField
+		def initialize
+			super(954)
+		end
 
-class LegContractSettlMonth < QuickFix::StringField
-	def initialize
-		super(955)
+		def initialize(data)
+			super(954, data)
+		end
 	end
 
-	def initialize(data)
-		super(955, data)
-	end
-end
+	class LegContractSettlMonth < Quickfix::StringField
+		def initialize
+			super(955)
+		end
 
-class LegInterestAccrualDate < QuickFix::StringField
-	def initialize
-		super(956)
+		def initialize(data)
+			super(955, data)
+		end
 	end
 
-	def initialize(data)
-		super(956, data)
+	class LegInterestAccrualDate < Quickfix::StringField
+		def initialize
+			super(956)
+		end
+
+		def initialize(data)
+			super(956, data)
+		end
 	end
-end
 
+end

@@ -106,6 +106,8 @@ class GeneratorRuby
   
   def fieldsStart
     @f = createFile("quickfix_fields.rb")
+    @f.puts tabs + "module Quickfix"
+    @depth += 1
   end
   
   def fieldType( type )
@@ -115,7 +117,7 @@ class GeneratorRuby
     return "Double" if type == "AMT"
     return "Double" if type == "QTY"
     return "UtcTimeStamp" if type == "UTCTIMESTAMP"
-    return "Boolean" if type == "BOOLEAN"
+    return "Bool" if type == "BOOLEAN"
     return "Double" if type == "FLOAT"
     return "Double" if type == "PRICEOFFSET"
     return "UtcDate" if type == "UTCDATE"
@@ -129,7 +131,7 @@ class GeneratorRuby
   end
   
   def fields(name, number, type)
-    @f.puts tabs + "class #{name} < QuickFix::#{fieldType(type)}Field"
+    @f.puts tabs + "class #{name} < Quickfix::#{fieldType(type)}Field"
     @depth += 1
     @f.puts tabs + "def initialize"
     @depth += 1
@@ -148,6 +150,8 @@ class GeneratorRuby
   end
   
   def fieldsEnd
+    @depth -= 1
+    @f.puts tabs + "end"
     @f.close
   end
 
