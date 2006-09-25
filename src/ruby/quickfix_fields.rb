@@ -2389,7 +2389,7 @@ module Quickfix
 		end
 	end
 
-	class MDEntryDate < Quickfix::StringField
+	class MDEntryDate < Quickfix::UtcDateField
 		def initialize
 			super(272)
 		end
