@@ -172,4 +172,14 @@ class GeneratorNET
     @f.puts "}"
     @f.puts
   end
+
+  def fieldsStart
+  end
+    
+  def fields(name, number, type)
+  end
+
+  def fieldsEnd
+  end
+
 end

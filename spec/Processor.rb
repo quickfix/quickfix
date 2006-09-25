@@ -47,6 +47,7 @@ class Processor
     baseMessage
     messages
     back
+    fields
   end
 
   def front
@@ -146,6 +147,17 @@ class Processor
       groups( message )
       @generator.messageEnd
     }
+  end
+
+  def fields
+    @generator.fieldsStart
+    @fields.elements.each("field") { |field|
+      name = field.attributes["name"]
+      number = field.attributes["number"]
+      type = field.attributes["type"]
+      @generator.fields(name, number, type)
+    }
+    @generator.fieldsEnd
   end
 
   def back

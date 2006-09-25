@@ -172,4 +172,14 @@ class GeneratorCPP
     @f.puts
     @f.puts "#endif"
   end
+
+  def fieldsStart
+  end
+    
+  def fields(name, number, type)
+  end
+
+  def fieldsEnd
+  end
+
 end

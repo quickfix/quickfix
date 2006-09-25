@@ -158,4 +158,14 @@ class GeneratorJava
   def back
     @f = @basefile
   end
+
+  def fieldsStart
+  end
+    
+  def fields(name, number, type)
+  end
+
+  def fieldsEnd
+  end
+
 end
