@@ -11,7 +11,7 @@ class MyStringField(quickfix.StringField):
 class MyPriceField(quickfix.DoubleField):
 	def __init__(self, data = None)
 		if data == None:
-			quickfix.StringField.__init__(self, 8756)
+			quickfix.DoubleField.__init__(self, 8756)
 		else:
-			quickfix.StringField.__init__(self, 8756, data)
+			quickfix.DoubleField.__init__(self, 8756, data)
 </B></PRE>
