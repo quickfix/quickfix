@@ -403,13 +403,13 @@
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>OdbcStoreUser</I> </TD>
     <TD> User name logging in to ODBC database. </TD>
-    <TD> valid user with read/write access to appropriate tables in database </TD>
+    <TD> valid user with read/write access to appropriate tables in database. Ignored if UID is in the OdbcStoreConnectionString. </TD>
     <TD> sa </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>OdbcStorePassword</I> </TD>
     <TD> Users password. </TD>
-    <TD> correct ODBC password for user </TD>
+    <TD> correct ODBC password for user. Ignored if PWD is in the OdbcStoreConnectionString. </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
@@ -522,13 +522,13 @@
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>OdbcLogPassword</I> </TD>
     <TD> Users password. </TD>
-    <TD> correct ODBC password for user </TD>
+    <TD> correct ODBC password for user. Ignored if UID is in the OdbcLogConnectionString. </TD>
     <TD> empty password </TD>
   </TR>
   <TR ALIGN="left" VALIGN="middle">
     <TD> <I>OdbcLogConnectionString</I> </TD>
     <TD> ODBC connection string for database </TD>
-    <TD> Valid ODBC connection string </TD>
+    <TD> Valid ODBC connection string. Ignored if PWD is in the OdbcStoreConnectionString. </TD>
     <TD> DATABASE=quickfix;DRIVER={SQL Server};SERVER=(local); </TD>
   </TR>
   </tbody>
