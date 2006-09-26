@@ -2166,7 +2166,6 @@ SWIGINTERN std::string FIX_SessionID___str__(FIX::SessionID *self){
   }
 
 #ifdef SWIGPYTHON
-
 class SocketInitiator(SocketInitiatorBase):
 	application = 0
 	storeFactory = 0
@@ -2200,7 +2199,6 @@ class SocketAcceptor(SocketAcceptorBase):
 		self.storeFactory = storeFactory
 		self.settings = settings
 		self.logFactory = logFactory
-
 #endif
 
 /* -----------------------------------------------------------------------------
@@ -2677,39 +2675,174 @@ SwigDirector_Application::SwigDirector_Application(VALUE self): FIX::Application
 
 
 
+static int Application_onCreate_call_depth = 0;
+VALUE Application_onCreate_body(VALUE data) {
+  Swig::body_args * args = reinterpret_cast<Swig::body_args *>(data) ;
+  VALUE result = Qnil ;
+  
+  Application_onCreate_call_depth++;
+  result = rb_funcall2(args->recv, args->id, args->argc, args->argv);
+  Application_onCreate_call_depth--;
+  return result;
+}
+
+VALUE Application_onCreate_rescue(VALUE args, VALUE error) {
+  if (Application_onCreate_call_depth == 1) {
+    if( error != 0 ) {
+      VALUE message = rb_obj_as_string( error );
+      printf( "%s\n", RSTRING(message)->ptr );
+      exit(1);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+  Application_onCreate_call_depth--;
+  rb_exc_raise(error);
+}
+
 void SwigDirector_Application::onCreate(FIX::SessionID const &arg0) {
   VALUE obj0 = Qnil ;
   VALUE result;
+  Swig::body_args args ;
+  int status ;
   
   if (swig_get_up()) {
     throw Swig::DirectorPureVirtualException();
   }
   obj0 = SWIG_NewPointerObj(SWIG_as_voidptr(&arg0), SWIGTYPE_p_FIX__SessionID,  0 );
-  result = rb_funcall(swig_get_self(), rb_intern("onCreate"), 1,obj0);
+  args.recv = swig_get_self();
+  args.id = rb_intern("onCreate");
+  args.argc = 1;
+  args.argv = new VALUE[1];
+  args.argv[0] = obj0;
+  result = rb_protect(PROTECTFUNC(Application_onCreate_body), reinterpret_cast<VALUE>(&args), &status);
+  if (status) {
+    VALUE lastErr = rb_gv_get("$!");
+    Application_onCreate_rescue(reinterpret_cast<VALUE>(&args), lastErr);
+  }
+  delete [] args.argv;
 }
 
+
+static int Application_onLogon_call_depth = 0;
+VALUE Application_onLogon_body(VALUE data) {
+  Swig::body_args * args = reinterpret_cast<Swig::body_args *>(data) ;
+  VALUE result = Qnil ;
+  
+  Application_onLogon_call_depth++;
+  result = rb_funcall2(args->recv, args->id, args->argc, args->argv);
+  Application_onLogon_call_depth--;
+  return result;
+}
+
+VALUE Application_onLogon_rescue(VALUE args, VALUE error) {
+  if (Application_onLogon_call_depth == 1) {
+    if( error != 0 ) {
+      VALUE message = rb_obj_as_string( error );
+      printf( "%s\n", RSTRING(message)->ptr );
+      exit(1);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+  Application_onLogon_call_depth--;
+  rb_exc_raise(error);
+}
 
 void SwigDirector_Application::onLogon(FIX::SessionID const &arg0) {
   VALUE obj0 = Qnil ;
   VALUE result;
+  Swig::body_args args ;
+  int status ;
   
   if (swig_get_up()) {
     throw Swig::DirectorPureVirtualException();
   }
   obj0 = SWIG_NewPointerObj(SWIG_as_voidptr(&arg0), SWIGTYPE_p_FIX__SessionID,  0 );
-  result = rb_funcall(swig_get_self(), rb_intern("onLogon"), 1,obj0);
+  args.recv = swig_get_self();
+  args.id = rb_intern("onLogon");
+  args.argc = 1;
+  args.argv = new VALUE[1];
+  args.argv[0] = obj0;
+  result = rb_protect(PROTECTFUNC(Application_onLogon_body), reinterpret_cast<VALUE>(&args), &status);
+  if (status) {
+    VALUE lastErr = rb_gv_get("$!");
+    Application_onLogon_rescue(reinterpret_cast<VALUE>(&args), lastErr);
+  }
+  delete [] args.argv;
 }
 
+
+static int Application_onLogout_call_depth = 0;
+VALUE Application_onLogout_body(VALUE data) {
+  Swig::body_args * args = reinterpret_cast<Swig::body_args *>(data) ;
+  VALUE result = Qnil ;
+  
+  Application_onLogout_call_depth++;
+  result = rb_funcall2(args->recv, args->id, args->argc, args->argv);
+  Application_onLogout_call_depth--;
+  return result;
+}
+
+VALUE Application_onLogout_rescue(VALUE args, VALUE error) {
+  if (Application_onLogout_call_depth == 1) {
+    if( error != 0 ) {
+      VALUE message = rb_obj_as_string( error );
+      printf( "%s\n", RSTRING(message)->ptr );
+      exit(1);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+  Application_onLogout_call_depth--;
+  rb_exc_raise(error);
+}
 
 void SwigDirector_Application::onLogout(FIX::SessionID const &arg0) {
   VALUE obj0 = Qnil ;
   VALUE result;
+  Swig::body_args args ;
+  int status ;
   
   if (swig_get_up()) {
     throw Swig::DirectorPureVirtualException();
   }
   obj0 = SWIG_NewPointerObj(SWIG_as_voidptr(&arg0), SWIGTYPE_p_FIX__SessionID,  0 );
-  result = rb_funcall(swig_get_self(), rb_intern("onLogout"), 1,obj0);
+  args.recv = swig_get_self();
+  args.id = rb_intern("onLogout");
+  args.argc = 1;
+  args.argv = new VALUE[1];
+  args.argv[0] = obj0;
+  result = rb_protect(PROTECTFUNC(Application_onLogout_body), reinterpret_cast<VALUE>(&args), &status);
+  if (status) {
+    VALUE lastErr = rb_gv_get("$!");
+    Application_onLogout_rescue(reinterpret_cast<VALUE>(&args), lastErr);
+  }
+  delete [] args.argv;
 }
 
 
@@ -2739,6 +2872,13 @@ VALUE Application_toApp_rescue(VALUE args, VALUE error) {
         exit(1);
       }
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2826,6 +2966,13 @@ VALUE Application_fromAdmin_rescue(VALUE args, VALUE error) {
         exit(1);
       }
     }
+    
+    
+    
+    
+    
+    
+    
     
     
     
@@ -2948,6 +3095,13 @@ VALUE Application_fromApp_rescue(VALUE args, VALUE error) {
     
     
     
+    
+    
+    
+    
+    
+    
+    
   }
   Application_fromApp_call_depth--;
   rb_exc_raise(error);
@@ -2983,17 +3137,63 @@ void SwigDirector_Application::fromApp(FIX::Message const &arg0, FIX::SessionID 
 SwigDirector_Application::~SwigDirector_Application() {
 }
 
+static int Application_toAdmin_call_depth = 0;
+VALUE Application_toAdmin_body(VALUE data) {
+  Swig::body_args * args = reinterpret_cast<Swig::body_args *>(data) ;
+  VALUE result = Qnil ;
+  
+  Application_toAdmin_call_depth++;
+  result = rb_funcall2(args->recv, args->id, args->argc, args->argv);
+  Application_toAdmin_call_depth--;
+  return result;
+}
+
+VALUE Application_toAdmin_rescue(VALUE args, VALUE error) {
+  if (Application_toAdmin_call_depth == 1) {
+    if( error != 0 ) {
+      VALUE message = rb_obj_as_string( error );
+      printf( "%s\n", RSTRING(message)->ptr );
+      exit(1);
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  }
+  Application_toAdmin_call_depth--;
+  rb_exc_raise(error);
+}
+
 void SwigDirector_Application::toAdmin(FIX::Message &arg0, FIX::SessionID const &arg1) {
   VALUE obj0 = Qnil ;
   VALUE obj1 = Qnil ;
   VALUE result;
+  Swig::body_args args ;
+  int status ;
   
   if (swig_get_up()) {
     throw Swig::DirectorPureVirtualException();
   }
   obj0 = SWIG_NewPointerObj(SWIG_as_voidptr(&arg0), SWIGTYPE_p_FIX__Message,  0 );
   obj1 = SWIG_NewPointerObj(SWIG_as_voidptr(&arg1), SWIGTYPE_p_FIX__SessionID,  0 );
-  result = rb_funcall(swig_get_self(), rb_intern("toAdmin"), 2,obj0,obj1);
+  args.recv = swig_get_self();
+  args.id = rb_intern("toAdmin");
+  args.argc = 2;
+  args.argv = new VALUE[2];
+  args.argv[0] = obj0;
+  args.argv[1] = obj1;
+  result = rb_protect(PROTECTFUNC(Application_toAdmin_body), reinterpret_cast<VALUE>(&args), &status);
+  if (status) {
+    VALUE lastErr = rb_gv_get("$!");
+    Application_toAdmin_rescue(reinterpret_cast<VALUE>(&args), lastErr);
+  }
+  delete [] args.argv;
 }
 
 

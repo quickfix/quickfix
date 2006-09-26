@@ -70,10 +70,12 @@ IntArray_swigregister = _quickfix.IntArray_swigregister
 IntArray_swigregister(IntArray)
 IntArray_frompointer = _quickfix.IntArray_frompointer
 
+#ifdef SWIGPYTHON
 import thread
 
 def _quickfix_start_thread(i_or_a):
 	i_or_a.block()
+#endif
 
 class Exception:
     __swig_setmethods__ = {}
@@ -4388,6 +4390,7 @@ class SocketAcceptorBase(Acceptor):
 SocketAcceptorBase_swigregister = _quickfix.SocketAcceptorBase_swigregister
 SocketAcceptorBase_swigregister(SocketAcceptorBase)
 
+#ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):
 	application = 0
 	storeFactory = 0
@@ -4421,6 +4424,7 @@ class SocketAcceptor(SocketAcceptorBase):
 		self.storeFactory = storeFactory
 		self.settings = settings
 		self.logFactory = logFactory
+#endif
 
 
 

@@ -3322,8 +3322,15 @@ void SwigDirector_Application::onCreate(FIX::SessionID const &arg0) {
 #endif
   if (result == NULL) {
     PyObject *error = PyErr_Occurred();
-    if (error != NULL) {
-      Swig::DirectorMethodException::raise("Error detected when calling 'Application.onCreate'");
+    {
+      if( error != NULL ) {
+        PyObject *ptype, *pvalue, *ptraceback;
+        PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+      
     }
   }
 }
@@ -3348,8 +3355,15 @@ void SwigDirector_Application::onLogon(FIX::SessionID const &arg0) {
 #endif
   if (result == NULL) {
     PyObject *error = PyErr_Occurred();
-    if (error != NULL) {
-      Swig::DirectorMethodException::raise("Error detected when calling 'Application.onLogon'");
+    {
+      if( error != NULL ) {
+        PyObject *ptype, *pvalue, *ptraceback;
+        PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+      
     }
   }
 }
@@ -3374,8 +3388,15 @@ void SwigDirector_Application::onLogout(FIX::SessionID const &arg0) {
 #endif
   if (result == NULL) {
     PyObject *error = PyErr_Occurred();
-    if (error != NULL) {
-      Swig::DirectorMethodException::raise("Error detected when calling 'Application.onLogout'");
+    {
+      if( error != NULL ) {
+        PyObject *ptype, *pvalue, *ptraceback;
+        PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+      
     }
   }
 }
@@ -3416,7 +3437,14 @@ void SwigDirector_Application::toApp(FIX::Message &arg0, FIX::SessionID const &a
             PyErr_Print();
             Py_Exit(1);
           }
+        } catch( std::exception& e ) {
+          std::cout << e.what() << std::endl;
+          Py_XDECREF( ptype );
+          Py_XDECREF( pvalue );
+          Py_XDECREF( ptraceback );
+          throw;
         } catch( ... ) {
+          std::cout << "Fatal exception" << std::endl;
           Py_XDECREF( ptype );
           Py_XDECREF( pvalue );
           Py_XDECREF( ptraceback );
@@ -3470,7 +3498,14 @@ void SwigDirector_Application::fromAdmin(FIX::Message const &arg0, FIX::SessionI
             PyErr_Print();
             Py_Exit(1);
           }
+        } catch( std::exception& e ) {
+          std::cout << e.what() << std::endl;
+          Py_XDECREF( ptype );
+          Py_XDECREF( pvalue );
+          Py_XDECREF( ptraceback );
+          throw;
         } catch( ... ) {
+          std::cout << "Fatal exception" << std::endl;
           Py_XDECREF( ptype );
           Py_XDECREF( pvalue );
           Py_XDECREF( ptraceback );
@@ -3524,7 +3559,14 @@ void SwigDirector_Application::fromApp(FIX::Message const &arg0, FIX::SessionID 
             PyErr_Print();
             Py_Exit(1);
           }
+        } catch( std::exception& e ) {
+          std::cout << e.what() << std::endl;
+          Py_XDECREF( ptype );
+          Py_XDECREF( pvalue );
+          Py_XDECREF( ptraceback );
+          throw;
         } catch( ... ) {
+          std::cout << "Fatal exception" << std::endl;
           Py_XDECREF( ptype );
           Py_XDECREF( pvalue );
           Py_XDECREF( ptraceback );
@@ -3561,8 +3603,15 @@ void SwigDirector_Application::toAdmin(FIX::Message &arg0, FIX::SessionID const 
 #endif
   if (result == NULL) {
     PyObject *error = PyErr_Occurred();
-    if (error != NULL) {
-      Swig::DirectorMethodException::raise("Error detected when calling 'Application.toAdmin'");
+    {
+      if( error != NULL ) {
+        PyObject *ptype, *pvalue, *ptraceback;
+        PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+        PyErr_Restore( ptype, pvalue, ptraceback );
+        PyErr_Print();
+        Py_Exit(1);
+      }
+      
     }
   }
 }

@@ -122,10 +122,12 @@ using namespace FIX;
 }
 
 %pythoncode %{
+#ifdef SWIGPYTHON
 import thread
 
 def _quickfix_start_thread(i_or_a):
 	i_or_a.block()
+#endif
 %}
 
 %feature("shadow") FIX::Initiator::start() %{
@@ -137,6 +139,82 @@ def start(self):
 def start(self):
 	thread.start_new_thread(_quickfix_start_thread, (self,))
 %}
+
+%feature("director:except") FIX::Application::onCreate {
+#ifdef SWIGRUBY
+  if( $error != 0 ) {
+    VALUE message = rb_obj_as_string( $error );
+    printf( "%s\n", RSTRING(message)->ptr );
+    exit(1);
+  }
+#endif
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::onLogon {
+#ifdef SWIGRUBY
+  if( $error != 0 ) {
+    VALUE message = rb_obj_as_string( $error );
+    printf( "%s\n", RSTRING(message)->ptr );
+    exit(1);
+  }
+#endif
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::onLogout {
+#ifdef SWIGRUBY
+  if( $error != 0 ) {
+    VALUE message = rb_obj_as_string( $error );
+    printf( "%s\n", RSTRING(message)->ptr );
+    exit(1);
+  }
+#endif
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
+
+%feature("director:except") FIX::Application::toAdmin {
+#ifdef SWIGRUBY
+  if( $error != 0 ) {
+    VALUE message = rb_obj_as_string( $error );
+    printf( "%s\n", RSTRING(message)->ptr );
+    exit(1);
+  }
+#endif
+#ifdef SWIGPYTHON
+  if( $error != NULL ) {
+    PyObject *ptype, *pvalue, *ptraceback;
+    PyErr_Fetch( &ptype, &pvalue, &ptraceback );
+    PyErr_Restore( ptype, pvalue, ptraceback );
+    PyErr_Print();
+    Py_Exit(1);
+  }
+#endif
+}
 
 %feature("director:except") FIX::Application::toApp {
 #ifdef SWIGRUBY
@@ -168,7 +246,14 @@ def start(self):
         PyErr_Print();
         Py_Exit(1);
       }
+    } catch( std::exception& e ) {
+      std::cout << e.what() << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
     } catch( ... ) {
+      std::cout << "Fatal exception" << std::endl;
       Py_XDECREF( ptype );
       Py_XDECREF( pvalue );
       Py_XDECREF( ptraceback );
@@ -220,7 +305,14 @@ def start(self):
         PyErr_Print();
         Py_Exit(1);
       }
+    } catch( std::exception& e ) {
+      std::cout << e.what() << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
     } catch( ... ) {
+      std::cout << "Fatal exception" << std::endl;
       Py_XDECREF( ptype );
       Py_XDECREF( pvalue );
       Py_XDECREF( ptraceback );
@@ -272,7 +364,14 @@ def start(self):
         PyErr_Print();
         Py_Exit(1);
       }
+    } catch( std::exception& e ) {
+      std::cout << e.what() << std::endl;
+      Py_XDECREF( ptype );
+      Py_XDECREF( pvalue );
+      Py_XDECREF( ptraceback );
+      throw;
     } catch( ... ) {
+      std::cout << "Fatal exception" << std::endl;
       Py_XDECREF( ptype );
       Py_XDECREF( pvalue );
       Py_XDECREF( ptraceback );
@@ -304,6 +403,7 @@ def start(self):
 %include "../C++/SocketAcceptor.h"
 
 %pythoncode %{
+#ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):
 	application = 0
 	storeFactory = 0
@@ -337,4 +437,5 @@ class SocketAcceptor(SocketAcceptorBase):
 		self.storeFactory = storeFactory
 		self.settings = settings
 		self.logFactory = logFactory
+#endif
 %}
