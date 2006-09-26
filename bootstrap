@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/bin/sh
 rm -rf *.cache
 rm -rf config
 mkdir config
