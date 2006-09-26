@@ -1537,174 +1537,184 @@ SWIG_Ruby_SetModule(swig_module_info *pointer)
 #define SWIGTYPE_p_Dictionary swig_types[4]
 #define SWIGTYPE_p_DoubleField swig_types[5]
 #define SWIGTYPE_p_FIELD__Field swig_types[6]
-#define SWIGTYPE_p_FIX__Acceptor swig_types[7]
-#define SWIGTYPE_p_FIX__AllocShares swig_types[8]
-#define SWIGTYPE_p_FIX__Application swig_types[9]
-#define SWIGTYPE_p_FIX__AvgPrxPrecision swig_types[10]
-#define SWIGTYPE_p_FIX__Benchmark swig_types[11]
-#define SWIGTYPE_p_FIX__BoolField swig_types[12]
-#define SWIGTYPE_p_FIX__BrokerOfCredit swig_types[13]
-#define SWIGTYPE_p_FIX__CardIssNo swig_types[14]
-#define SWIGTYPE_p_FIX__CashSettlAgentAcctName swig_types[15]
-#define SWIGTYPE_p_FIX__CashSettlAgentAcctNum swig_types[16]
-#define SWIGTYPE_p_FIX__CashSettlAgentCode swig_types[17]
-#define SWIGTYPE_p_FIX__CashSettlAgentContactName swig_types[18]
-#define SWIGTYPE_p_FIX__CashSettlAgentContactPhone swig_types[19]
-#define SWIGTYPE_p_FIX__CashSettlAgentName swig_types[20]
-#define SWIGTYPE_p_FIX__CharField swig_types[21]
-#define SWIGTYPE_p_FIX__CheckSumField swig_types[22]
-#define SWIGTYPE_p_FIX__ClearingAccount swig_types[23]
-#define SWIGTYPE_p_FIX__ClearingFirm swig_types[24]
-#define SWIGTYPE_p_FIX__ClientID swig_types[25]
-#define SWIGTYPE_p_FIX__ConfigError swig_types[26]
-#define SWIGTYPE_p_FIX__CustomerOrFirm swig_types[27]
-#define SWIGTYPE_p_FIX__CxlType swig_types[28]
-#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[29]
-#define SWIGTYPE_p_FIX__DlvyInst swig_types[30]
-#define SWIGTYPE_p_FIX__DoNotSend swig_types[31]
-#define SWIGTYPE_p_FIX__DoubleField swig_types[32]
-#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[33]
-#define SWIGTYPE_p_FIX__Exception swig_types[34]
-#define SWIGTYPE_p_FIX__ExecBroker swig_types[35]
-#define SWIGTYPE_p_FIX__ExecTransType swig_types[36]
-#define SWIGTYPE_p_FIX__FieldBase swig_types[37]
-#define SWIGTYPE_p_FIX__FieldConvertError swig_types[38]
-#define SWIGTYPE_p_FIX__FieldMap swig_types[39]
-#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[40]
-#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[41]
-#define SWIGTYPE_p_FIX__FieldNotFound swig_types[42]
-#define SWIGTYPE_p_FIX__FileLog swig_types[43]
-#define SWIGTYPE_p_FIX__FileLogFactory swig_types[44]
-#define SWIGTYPE_p_FIX__FileStore swig_types[45]
-#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[46]
-#define SWIGTYPE_p_FIX__FutSettDate swig_types[47]
-#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[48]
-#define SWIGTYPE_p_FIX__Group swig_types[49]
-#define SWIGTYPE_p_FIX__IDSource swig_types[50]
-#define SWIGTYPE_p_FIX__IOException swig_types[51]
-#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[52]
-#define SWIGTYPE_p_FIX__IOIShares swig_types[53]
-#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[54]
-#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[55]
-#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[56]
-#define SWIGTYPE_p_FIX__Initiator swig_types[57]
-#define SWIGTYPE_p_FIX__IntField swig_types[58]
-#define SWIGTYPE_p_FIX__InvalidMessage swig_types[59]
-#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[60]
-#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[61]
-#define SWIGTYPE_p_FIX__LastShares swig_types[62]
-#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[63]
-#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[64]
-#define SWIGTYPE_p_FIX__Log swig_types[65]
-#define SWIGTYPE_p_FIX__LogFactory swig_types[66]
-#define SWIGTYPE_p_FIX__MaturityDay swig_types[67]
-#define SWIGTYPE_p_FIX__MemoryStore swig_types[68]
-#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[69]
-#define SWIGTYPE_p_FIX__Message swig_types[70]
-#define SWIGTYPE_p_FIX__MessageParseError swig_types[71]
-#define SWIGTYPE_p_FIX__MessageStore swig_types[72]
-#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[73]
-#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[74]
-#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[75]
-#define SWIGTYPE_p_FIX__NoTagValue swig_types[76]
-#define SWIGTYPE_p_FIX__NullApplication swig_types[77]
-#define SWIGTYPE_p_FIX__OnBehalfOfSendingTime swig_types[78]
-#define SWIGTYPE_p_FIX__OpenClose swig_types[79]
-#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[80]
-#define SWIGTYPE_p_FIX__PegDifference swig_types[81]
-#define SWIGTYPE_p_FIX__PutOrCall swig_types[82]
-#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[83]
-#define SWIGTYPE_p_FIX__RatioQty swig_types[84]
-#define SWIGTYPE_p_FIX__RegistDetls swig_types[85]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[86]
-#define SWIGTYPE_p_FIX__RelatdSym swig_types[87]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[88]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[89]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[90]
-#define SWIGTYPE_p_FIX__Rule80A swig_types[91]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[92]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[93]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[94]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctName swig_types[95]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum swig_types[96]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentCode swig_types[97]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactName swig_types[98]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone swig_types[99]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentName swig_types[100]
-#define SWIGTYPE_p_FIX__Session swig_types[101]
-#define SWIGTYPE_p_FIX__SessionID swig_types[102]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[103]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[104]
-#define SWIGTYPE_p_FIX__SettlBrkrCode swig_types[105]
-#define SWIGTYPE_p_FIX__SettlDepositoryCode swig_types[106]
-#define SWIGTYPE_p_FIX__SettlInstCode swig_types[107]
-#define SWIGTYPE_p_FIX__SettlLocation swig_types[108]
-#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[109]
-#define SWIGTYPE_p_FIX__Shares swig_types[110]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[111]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[112]
-#define SWIGTYPE_p_FIX__SocketException swig_types[113]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[114]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[115]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[116]
-#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[117]
-#define SWIGTYPE_p_FIX__StringField swig_types[118]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[119]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[120]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[121]
-#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[122]
-#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[123]
-#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[124]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedDate swig_types[125]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedTime swig_types[126]
-#define SWIGTYPE_p_FIX__TradeType swig_types[127]
-#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[128]
-#define SWIGTYPE_p_FIX__UnderlyingMaturityDay swig_types[129]
-#define SWIGTYPE_p_FIX__UnderlyingPutOrCall swig_types[130]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[131]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[132]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[133]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[134]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[135]
-#define SWIGTYPE_p_Fields swig_types[136]
-#define SWIGTYPE_p_Group swig_types[137]
-#define SWIGTYPE_p_Groups swig_types[138]
-#define SWIGTYPE_p_IntArray swig_types[139]
-#define SWIGTYPE_p_IntField swig_types[140]
-#define SWIGTYPE_p_Log swig_types[141]
-#define SWIGTYPE_p_LogFactory swig_types[142]
-#define SWIGTYPE_p_MessageStore swig_types[143]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[144]
-#define SWIGTYPE_p_MsgType swig_types[145]
-#define SWIGTYPE_p_Mutex swig_types[146]
-#define SWIGTYPE_p_Responder swig_types[147]
-#define SWIGTYPE_p_SenderCompID swig_types[148]
-#define SWIGTYPE_p_SessionID swig_types[149]
-#define SWIGTYPE_p_SessionTime swig_types[150]
-#define SWIGTYPE_p_StringField swig_types[151]
-#define SWIGTYPE_p_TargetCompID swig_types[152]
-#define SWIGTYPE_p_UtcDate swig_types[153]
-#define SWIGTYPE_p_UtcDateField swig_types[154]
-#define SWIGTYPE_p_UtcDateOnly swig_types[155]
-#define SWIGTYPE_p_UtcTimeOnly swig_types[156]
-#define SWIGTYPE_p_UtcTimeStamp swig_types[157]
-#define SWIGTYPE_p_bool swig_types[158]
-#define SWIGTYPE_p_char swig_types[159]
-#define SWIGTYPE_p_const_iterator swig_types[160]
-#define SWIGTYPE_p_double swig_types[161]
-#define SWIGTYPE_p_g_const_iterator swig_types[162]
-#define SWIGTYPE_p_g_iterator swig_types[163]
-#define SWIGTYPE_p_int swig_types[164]
-#define SWIGTYPE_p_iterator swig_types[165]
-#define SWIGTYPE_p_message_order swig_types[166]
-#define SWIGTYPE_p_std__istream swig_types[167]
-#define SWIGTYPE_p_std__ostream swig_types[168]
-#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[169]
-#define SWIGTYPE_p_std__string swig_types[170]
-#define SWIGTYPE_p_std__string__size_type swig_types[171]
-#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[172]
-static swig_type_info *swig_types[174];
-static swig_module_info swig_module = {swig_types, 173, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX_CHAR swig_types[7]
+#define SWIGTYPE_p_FIX_DAYOFMONTH swig_types[8]
+#define SWIGTYPE_p_FIX_INT swig_types[9]
+#define SWIGTYPE_p_FIX_LOCALMKTDATE swig_types[10]
+#define SWIGTYPE_p_FIX_PRICEOFFSET swig_types[11]
+#define SWIGTYPE_p_FIX_QTY swig_types[12]
+#define SWIGTYPE_p_FIX_STRING swig_types[13]
+#define SWIGTYPE_p_FIX_UTCDATE swig_types[14]
+#define SWIGTYPE_p_FIX_UTCTIMEONLY swig_types[15]
+#define SWIGTYPE_p_FIX_UTCTIMESTAMP swig_types[16]
+#define SWIGTYPE_p_FIX__Acceptor swig_types[17]
+#define SWIGTYPE_p_FIX__AllocShares swig_types[18]
+#define SWIGTYPE_p_FIX__Application swig_types[19]
+#define SWIGTYPE_p_FIX__AvgPrxPrecision swig_types[20]
+#define SWIGTYPE_p_FIX__Benchmark swig_types[21]
+#define SWIGTYPE_p_FIX__BoolField swig_types[22]
+#define SWIGTYPE_p_FIX__BrokerOfCredit swig_types[23]
+#define SWIGTYPE_p_FIX__CardIssNo swig_types[24]
+#define SWIGTYPE_p_FIX__CashSettlAgentAcctName swig_types[25]
+#define SWIGTYPE_p_FIX__CashSettlAgentAcctNum swig_types[26]
+#define SWIGTYPE_p_FIX__CashSettlAgentCode swig_types[27]
+#define SWIGTYPE_p_FIX__CashSettlAgentContactName swig_types[28]
+#define SWIGTYPE_p_FIX__CashSettlAgentContactPhone swig_types[29]
+#define SWIGTYPE_p_FIX__CashSettlAgentName swig_types[30]
+#define SWIGTYPE_p_FIX__CharField swig_types[31]
+#define SWIGTYPE_p_FIX__CheckSumField swig_types[32]
+#define SWIGTYPE_p_FIX__ClearingAccount swig_types[33]
+#define SWIGTYPE_p_FIX__ClearingFirm swig_types[34]
+#define SWIGTYPE_p_FIX__ClientID swig_types[35]
+#define SWIGTYPE_p_FIX__ConfigError swig_types[36]
+#define SWIGTYPE_p_FIX__CustomerOrFirm swig_types[37]
+#define SWIGTYPE_p_FIX__CxlType swig_types[38]
+#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[39]
+#define SWIGTYPE_p_FIX__DlvyInst swig_types[40]
+#define SWIGTYPE_p_FIX__DoNotSend swig_types[41]
+#define SWIGTYPE_p_FIX__DoubleField swig_types[42]
+#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[43]
+#define SWIGTYPE_p_FIX__Exception swig_types[44]
+#define SWIGTYPE_p_FIX__ExecBroker swig_types[45]
+#define SWIGTYPE_p_FIX__ExecTransType swig_types[46]
+#define SWIGTYPE_p_FIX__FieldBase swig_types[47]
+#define SWIGTYPE_p_FIX__FieldConvertError swig_types[48]
+#define SWIGTYPE_p_FIX__FieldMap swig_types[49]
+#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[50]
+#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[51]
+#define SWIGTYPE_p_FIX__FieldNotFound swig_types[52]
+#define SWIGTYPE_p_FIX__FileLog swig_types[53]
+#define SWIGTYPE_p_FIX__FileLogFactory swig_types[54]
+#define SWIGTYPE_p_FIX__FileStore swig_types[55]
+#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[56]
+#define SWIGTYPE_p_FIX__FutSettDate swig_types[57]
+#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[58]
+#define SWIGTYPE_p_FIX__Group swig_types[59]
+#define SWIGTYPE_p_FIX__IDSource swig_types[60]
+#define SWIGTYPE_p_FIX__IOException swig_types[61]
+#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[62]
+#define SWIGTYPE_p_FIX__IOIShares swig_types[63]
+#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[64]
+#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[65]
+#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[66]
+#define SWIGTYPE_p_FIX__Initiator swig_types[67]
+#define SWIGTYPE_p_FIX__IntField swig_types[68]
+#define SWIGTYPE_p_FIX__InvalidMessage swig_types[69]
+#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[70]
+#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[71]
+#define SWIGTYPE_p_FIX__LastShares swig_types[72]
+#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[73]
+#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[74]
+#define SWIGTYPE_p_FIX__Log swig_types[75]
+#define SWIGTYPE_p_FIX__LogFactory swig_types[76]
+#define SWIGTYPE_p_FIX__MaturityDay swig_types[77]
+#define SWIGTYPE_p_FIX__MemoryStore swig_types[78]
+#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[79]
+#define SWIGTYPE_p_FIX__Message swig_types[80]
+#define SWIGTYPE_p_FIX__MessageParseError swig_types[81]
+#define SWIGTYPE_p_FIX__MessageStore swig_types[82]
+#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[83]
+#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[84]
+#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[85]
+#define SWIGTYPE_p_FIX__NoTagValue swig_types[86]
+#define SWIGTYPE_p_FIX__NullApplication swig_types[87]
+#define SWIGTYPE_p_FIX__OnBehalfOfSendingTime swig_types[88]
+#define SWIGTYPE_p_FIX__OpenClose swig_types[89]
+#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[90]
+#define SWIGTYPE_p_FIX__PegDifference swig_types[91]
+#define SWIGTYPE_p_FIX__PutOrCall swig_types[92]
+#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[93]
+#define SWIGTYPE_p_FIX__RatioQty swig_types[94]
+#define SWIGTYPE_p_FIX__RegistDetls swig_types[95]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[96]
+#define SWIGTYPE_p_FIX__RelatdSym swig_types[97]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[98]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[99]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[100]
+#define SWIGTYPE_p_FIX__Rule80A swig_types[101]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[102]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[103]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[104]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctName swig_types[105]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum swig_types[106]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentCode swig_types[107]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentContactName swig_types[108]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone swig_types[109]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentName swig_types[110]
+#define SWIGTYPE_p_FIX__Session swig_types[111]
+#define SWIGTYPE_p_FIX__SessionID swig_types[112]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[113]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[114]
+#define SWIGTYPE_p_FIX__SettlBrkrCode swig_types[115]
+#define SWIGTYPE_p_FIX__SettlDepositoryCode swig_types[116]
+#define SWIGTYPE_p_FIX__SettlInstCode swig_types[117]
+#define SWIGTYPE_p_FIX__SettlLocation swig_types[118]
+#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[119]
+#define SWIGTYPE_p_FIX__Shares swig_types[120]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[121]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[122]
+#define SWIGTYPE_p_FIX__SocketException swig_types[123]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[124]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[125]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[126]
+#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[127]
+#define SWIGTYPE_p_FIX__StringField swig_types[128]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[129]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[130]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[131]
+#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[132]
+#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[133]
+#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[134]
+#define SWIGTYPE_p_FIX__TotalVolumeTradedDate swig_types[135]
+#define SWIGTYPE_p_FIX__TotalVolumeTradedTime swig_types[136]
+#define SWIGTYPE_p_FIX__TradeType swig_types[137]
+#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[138]
+#define SWIGTYPE_p_FIX__UnderlyingMaturityDay swig_types[139]
+#define SWIGTYPE_p_FIX__UnderlyingPutOrCall swig_types[140]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[141]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[142]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[143]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[144]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[145]
+#define SWIGTYPE_p_Fields swig_types[146]
+#define SWIGTYPE_p_Group swig_types[147]
+#define SWIGTYPE_p_Groups swig_types[148]
+#define SWIGTYPE_p_IntArray swig_types[149]
+#define SWIGTYPE_p_IntField swig_types[150]
+#define SWIGTYPE_p_Log swig_types[151]
+#define SWIGTYPE_p_LogFactory swig_types[152]
+#define SWIGTYPE_p_MessageStore swig_types[153]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[154]
+#define SWIGTYPE_p_MsgType swig_types[155]
+#define SWIGTYPE_p_Mutex swig_types[156]
+#define SWIGTYPE_p_Responder swig_types[157]
+#define SWIGTYPE_p_SenderCompID swig_types[158]
+#define SWIGTYPE_p_SessionID swig_types[159]
+#define SWIGTYPE_p_SessionTime swig_types[160]
+#define SWIGTYPE_p_StringField swig_types[161]
+#define SWIGTYPE_p_TargetCompID swig_types[162]
+#define SWIGTYPE_p_UtcDate swig_types[163]
+#define SWIGTYPE_p_UtcDateField swig_types[164]
+#define SWIGTYPE_p_UtcDateOnly swig_types[165]
+#define SWIGTYPE_p_UtcTimeOnly swig_types[166]
+#define SWIGTYPE_p_UtcTimeStamp swig_types[167]
+#define SWIGTYPE_p_bool swig_types[168]
+#define SWIGTYPE_p_char swig_types[169]
+#define SWIGTYPE_p_const_iterator swig_types[170]
+#define SWIGTYPE_p_double swig_types[171]
+#define SWIGTYPE_p_g_const_iterator swig_types[172]
+#define SWIGTYPE_p_g_iterator swig_types[173]
+#define SWIGTYPE_p_int swig_types[174]
+#define SWIGTYPE_p_iterator swig_types[175]
+#define SWIGTYPE_p_message_order swig_types[176]
+#define SWIGTYPE_p_std__istream swig_types[177]
+#define SWIGTYPE_p_std__ostream swig_types[178]
+#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[179]
+#define SWIGTYPE_p_std__string swig_types[180]
+#define SWIGTYPE_p_std__string__size_type swig_types[181]
+#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[182]
+static swig_type_info *swig_types[184];
+static swig_module_info swig_module = {swig_types, 183, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -16920,23 +16930,24 @@ _wrap_ExecTransType_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_ExecTransType__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::ExecTransType *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::ExecTransType";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::ExecTransType" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::ExecTransType *)new FIX::ExecTransType((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ExecTransType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ExecTransType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::ExecTransType *)new FIX::ExecTransType((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -16959,10 +16970,9 @@ SWIGINTERN VALUE _wrap_new_ExecTransType(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_ExecTransType__SWIG_1(nargs, args, self);
     }
@@ -17016,31 +17026,27 @@ _wrap_IDSource_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_IDSource__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::IDSource *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::IDSource";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::IDSource" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::IDSource" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::IDSource" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::IDSource *)new FIX::IDSource((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::IDSource" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::IDSource *)new FIX::IDSource((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -17060,7 +17066,8 @@ SWIGINTERN VALUE _wrap_new_IDSource(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_IDSource__SWIG_1(nargs, args, self);
@@ -17115,23 +17122,24 @@ _wrap_IOIOthSvc_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_IOIOthSvc__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::IOIOthSvc *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::IOIOthSvc";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::IOIOthSvc" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::IOIOthSvc *)new FIX::IOIOthSvc((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::IOIOthSvc" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::IOIOthSvc" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::IOIOthSvc *)new FIX::IOIOthSvc((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -17154,10 +17162,9 @@ SWIGINTERN VALUE _wrap_new_IOIOthSvc(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_IOIOthSvc__SWIG_1(nargs, args, self);
     }
@@ -17211,31 +17218,27 @@ _wrap_IOIShares_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_IOIShares__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::IOIShares *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::IOIShares";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::IOIShares" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::IOIShares" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::IOIShares" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::IOIShares *)new FIX::IOIShares((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::IOIShares" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::IOIShares *)new FIX::IOIShares((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -17255,7 +17258,8 @@ SWIGINTERN VALUE _wrap_new_IOIShares(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_IOIShares__SWIG_1(nargs, args, self);
@@ -17310,23 +17314,24 @@ _wrap_LastShares_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_LastShares__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  QTY *arg1 = 0 ;
+  FIX_QTY *arg1 = 0 ;
   FIX::LastShares *result = 0 ;
-  QTY temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::LastShares";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_double(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::LastShares" "', argument " "1"" of type '" "QTY""'");
-  } 
-  temp1 = static_cast< QTY >(val1);
-  arg1 = &temp1;
-  result = (FIX::LastShares *)new FIX::LastShares((QTY const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_QTY,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::LastShares" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::LastShares" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_QTY * >(argp1);
+  result = (FIX::LastShares *)new FIX::LastShares((FIX_QTY const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -17349,10 +17354,9 @@ SWIGINTERN VALUE _wrap_new_LastShares(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_QTY, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_LastShares__SWIG_1(nargs, args, self);
     }
@@ -17406,31 +17410,27 @@ _wrap_RelatdSym_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_RelatdSym__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::RelatdSym *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::RelatdSym";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::RelatdSym" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::RelatdSym" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::RelatdSym" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::RelatdSym *)new FIX::RelatdSym((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::RelatdSym" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::RelatdSym *)new FIX::RelatdSym((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -17450,7 +17450,8 @@ SWIGINTERN VALUE _wrap_new_RelatdSym(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_RelatdSym__SWIG_1(nargs, args, self);
@@ -17505,23 +17506,24 @@ _wrap_Rule80A_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_Rule80A__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::Rule80A *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::Rule80A";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::Rule80A" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::Rule80A *)new FIX::Rule80A((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Rule80A" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Rule80A" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::Rule80A *)new FIX::Rule80A((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -17544,10 +17546,9 @@ SWIGINTERN VALUE _wrap_new_Rule80A(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_Rule80A__SWIG_1(nargs, args, self);
     }
@@ -17601,23 +17602,24 @@ _wrap_Shares_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_Shares__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  QTY *arg1 = 0 ;
+  FIX_QTY *arg1 = 0 ;
   FIX::Shares *result = 0 ;
-  QTY temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::Shares";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_double(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::Shares" "', argument " "1"" of type '" "QTY""'");
-  } 
-  temp1 = static_cast< QTY >(val1);
-  arg1 = &temp1;
-  result = (FIX::Shares *)new FIX::Shares((QTY const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_QTY,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Shares" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Shares" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_QTY * >(argp1);
+  result = (FIX::Shares *)new FIX::Shares((FIX_QTY const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -17640,10 +17642,9 @@ SWIGINTERN VALUE _wrap_new_Shares(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_QTY, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_Shares__SWIG_1(nargs, args, self);
     }
@@ -17697,23 +17698,24 @@ _wrap_SettlmntTyp_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SettlmntTyp__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::SettlmntTyp *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SettlmntTyp";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::SettlmntTyp" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::SettlmntTyp *)new FIX::SettlmntTyp((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlmntTyp" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlmntTyp" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::SettlmntTyp *)new FIX::SettlmntTyp((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -17736,10 +17738,9 @@ SWIGINTERN VALUE _wrap_new_SettlmntTyp(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SettlmntTyp__SWIG_1(nargs, args, self);
     }
@@ -17793,31 +17794,27 @@ _wrap_FutSettDate_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_FutSettDate__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  LOCALMKTDATE *arg1 = 0 ;
+  FIX_LOCALMKTDATE *arg1 = 0 ;
   FIX::FutSettDate *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::FutSettDate";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::FutSettDate" "', argument " "1"" of type '" "LOCALMKTDATE const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FutSettDate" "', argument " "1"" of type '" "LOCALMKTDATE const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_LOCALMKTDATE,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::FutSettDate" "', argument " "1"" of type '" "FIX_LOCALMKTDATE const &""'"); 
   }
-  result = (FIX::FutSettDate *)new FIX::FutSettDate((LOCALMKTDATE const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FutSettDate" "', argument " "1"" of type '" "FIX_LOCALMKTDATE const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_LOCALMKTDATE * >(argp1);
+  result = (FIX::FutSettDate *)new FIX::FutSettDate((FIX_LOCALMKTDATE const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -17837,7 +17834,8 @@ SWIGINTERN VALUE _wrap_new_FutSettDate(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_LOCALMKTDATE, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_FutSettDate__SWIG_1(nargs, args, self);
@@ -17892,23 +17890,24 @@ _wrap_AvgPrxPrecision_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_AvgPrxPrecision__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::AvgPrxPrecision *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::AvgPrxPrecision";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::AvgPrxPrecision" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::AvgPrxPrecision *)new FIX::AvgPrxPrecision((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::AvgPrxPrecision" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::AvgPrxPrecision" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::AvgPrxPrecision *)new FIX::AvgPrxPrecision((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -17931,10 +17930,9 @@ SWIGINTERN VALUE _wrap_new_AvgPrxPrecision(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_AvgPrxPrecision__SWIG_1(nargs, args, self);
     }
@@ -17988,31 +17986,27 @@ _wrap_ExecBroker_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_ExecBroker__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::ExecBroker *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::ExecBroker";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ExecBroker" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ExecBroker" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ExecBroker" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::ExecBroker *)new FIX::ExecBroker((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ExecBroker" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::ExecBroker *)new FIX::ExecBroker((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -18032,7 +18026,8 @@ SWIGINTERN VALUE _wrap_new_ExecBroker(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_ExecBroker__SWIG_1(nargs, args, self);
@@ -18087,23 +18082,24 @@ _wrap_OpenClose_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_OpenClose__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::OpenClose *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::OpenClose";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::OpenClose" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::OpenClose *)new FIX::OpenClose((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OpenClose" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OpenClose" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::OpenClose *)new FIX::OpenClose((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -18126,10 +18122,9 @@ SWIGINTERN VALUE _wrap_new_OpenClose(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_OpenClose__SWIG_1(nargs, args, self);
     }
@@ -18183,23 +18178,24 @@ _wrap_AllocShares_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_AllocShares__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::AllocShares *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::AllocShares";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::AllocShares" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::AllocShares *)new FIX::AllocShares((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::AllocShares" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::AllocShares" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::AllocShares *)new FIX::AllocShares((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -18222,10 +18218,9 @@ SWIGINTERN VALUE _wrap_new_AllocShares(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_AllocShares__SWIG_1(nargs, args, self);
     }
@@ -18279,23 +18274,24 @@ _wrap_DlvyInst_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_DlvyInst__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::DlvyInst *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::DlvyInst";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::DlvyInst" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::DlvyInst *)new FIX::DlvyInst((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::DlvyInst" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::DlvyInst" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::DlvyInst *)new FIX::DlvyInst((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -18318,10 +18314,9 @@ SWIGINTERN VALUE _wrap_new_DlvyInst(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_DlvyInst__SWIG_1(nargs, args, self);
     }
@@ -18375,31 +18370,27 @@ _wrap_BrokerOfCredit_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_BrokerOfCredit__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::BrokerOfCredit *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::BrokerOfCredit";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::BrokerOfCredit" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::BrokerOfCredit" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::BrokerOfCredit" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::BrokerOfCredit *)new FIX::BrokerOfCredit((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::BrokerOfCredit" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::BrokerOfCredit *)new FIX::BrokerOfCredit((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -18419,7 +18410,8 @@ SWIGINTERN VALUE _wrap_new_BrokerOfCredit(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_BrokerOfCredit__SWIG_1(nargs, args, self);
@@ -18474,31 +18466,27 @@ _wrap_ClientID_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_ClientID__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::ClientID *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::ClientID";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClientID" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClientID" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClientID" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::ClientID *)new FIX::ClientID((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClientID" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::ClientID *)new FIX::ClientID((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -18518,7 +18506,8 @@ SWIGINTERN VALUE _wrap_new_ClientID(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_ClientID__SWIG_1(nargs, args, self);
@@ -18573,23 +18562,24 @@ _wrap_CxlType_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CxlType__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::CxlType *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CxlType";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::CxlType" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::CxlType *)new FIX::CxlType((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CxlType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CxlType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::CxlType *)new FIX::CxlType((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -18612,10 +18602,9 @@ SWIGINTERN VALUE _wrap_new_CxlType(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CxlType__SWIG_1(nargs, args, self);
     }
@@ -18669,31 +18658,27 @@ _wrap_SettlLocation_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SettlLocation__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SettlLocation *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SettlLocation";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlLocation" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlLocation" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlLocation" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SettlLocation *)new FIX::SettlLocation((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlLocation" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SettlLocation *)new FIX::SettlLocation((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -18713,7 +18698,8 @@ SWIGINTERN VALUE _wrap_new_SettlLocation(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SettlLocation__SWIG_1(nargs, args, self);
@@ -18768,31 +18754,27 @@ _wrap_SettlDepositoryCode_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SettlDepositoryCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SettlDepositoryCode *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SettlDepositoryCode";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlDepositoryCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlDepositoryCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlDepositoryCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SettlDepositoryCode *)new FIX::SettlDepositoryCode((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlDepositoryCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SettlDepositoryCode *)new FIX::SettlDepositoryCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -18812,7 +18794,8 @@ SWIGINTERN VALUE _wrap_new_SettlDepositoryCode(int nargs, VALUE *args, VALUE sel
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SettlDepositoryCode__SWIG_1(nargs, args, self);
@@ -18867,31 +18850,27 @@ _wrap_SettlBrkrCode_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SettlBrkrCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SettlBrkrCode *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SettlBrkrCode";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlBrkrCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlBrkrCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlBrkrCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SettlBrkrCode *)new FIX::SettlBrkrCode((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlBrkrCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SettlBrkrCode *)new FIX::SettlBrkrCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -18911,7 +18890,8 @@ SWIGINTERN VALUE _wrap_new_SettlBrkrCode(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SettlBrkrCode__SWIG_1(nargs, args, self);
@@ -18966,31 +18946,27 @@ _wrap_SettlInstCode_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SettlInstCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SettlInstCode *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SettlInstCode";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlInstCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlInstCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SettlInstCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SettlInstCode *)new FIX::SettlInstCode((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SettlInstCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SettlInstCode *)new FIX::SettlInstCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19010,7 +18986,8 @@ SWIGINTERN VALUE _wrap_new_SettlInstCode(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SettlInstCode__SWIG_1(nargs, args, self);
@@ -19065,31 +19042,27 @@ _wrap_SecuritySettlAgentName_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SecuritySettlAgentName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SecuritySettlAgentName *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentName";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SecuritySettlAgentName *)new FIX::SecuritySettlAgentName((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SecuritySettlAgentName *)new FIX::SecuritySettlAgentName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19109,7 +19082,8 @@ SWIGINTERN VALUE _wrap_new_SecuritySettlAgentName(int nargs, VALUE *args, VALUE 
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SecuritySettlAgentName__SWIG_1(nargs, args, self);
@@ -19164,31 +19138,27 @@ _wrap_SecuritySettlAgentCode_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SecuritySettlAgentCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SecuritySettlAgentCode *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentCode";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SecuritySettlAgentCode *)new FIX::SecuritySettlAgentCode((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SecuritySettlAgentCode *)new FIX::SecuritySettlAgentCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19208,7 +19178,8 @@ SWIGINTERN VALUE _wrap_new_SecuritySettlAgentCode(int nargs, VALUE *args, VALUE 
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SecuritySettlAgentCode__SWIG_1(nargs, args, self);
@@ -19263,31 +19234,27 @@ _wrap_SecuritySettlAgentAcctNum_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SecuritySettlAgentAcctNum__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SecuritySettlAgentAcctNum *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentAcctNum";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentAcctNum" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentAcctNum" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SecuritySettlAgentAcctNum *)new FIX::SecuritySettlAgentAcctNum((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SecuritySettlAgentAcctNum *)new FIX::SecuritySettlAgentAcctNum((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19307,7 +19274,8 @@ SWIGINTERN VALUE _wrap_new_SecuritySettlAgentAcctNum(int nargs, VALUE *args, VAL
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SecuritySettlAgentAcctNum__SWIG_1(nargs, args, self);
@@ -19362,31 +19330,27 @@ _wrap_SecuritySettlAgentAcctName_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SecuritySettlAgentAcctName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SecuritySettlAgentAcctName *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentAcctName";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentAcctName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentAcctName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SecuritySettlAgentAcctName *)new FIX::SecuritySettlAgentAcctName((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SecuritySettlAgentAcctName *)new FIX::SecuritySettlAgentAcctName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19406,7 +19370,8 @@ SWIGINTERN VALUE _wrap_new_SecuritySettlAgentAcctName(int nargs, VALUE *args, VA
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SecuritySettlAgentAcctName__SWIG_1(nargs, args, self);
@@ -19461,31 +19426,27 @@ _wrap_SecuritySettlAgentContactName_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SecuritySettlAgentContactName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SecuritySettlAgentContactName *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentContactName";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentContactName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentContactName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SecuritySettlAgentContactName *)new FIX::SecuritySettlAgentContactName((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SecuritySettlAgentContactName *)new FIX::SecuritySettlAgentContactName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19505,7 +19466,8 @@ SWIGINTERN VALUE _wrap_new_SecuritySettlAgentContactName(int nargs, VALUE *args,
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SecuritySettlAgentContactName__SWIG_1(nargs, args, self);
@@ -19560,31 +19522,27 @@ _wrap_SecuritySettlAgentContactPhone_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SecuritySettlAgentContactPhone__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::SecuritySettlAgentContactPhone *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SecuritySettlAgentContactPhone";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentContactPhone" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentContactPhone" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SecuritySettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::SecuritySettlAgentContactPhone *)new FIX::SecuritySettlAgentContactPhone((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SecuritySettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::SecuritySettlAgentContactPhone *)new FIX::SecuritySettlAgentContactPhone((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19604,7 +19562,8 @@ SWIGINTERN VALUE _wrap_new_SecuritySettlAgentContactPhone(int nargs, VALUE *args
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SecuritySettlAgentContactPhone__SWIG_1(nargs, args, self);
@@ -19659,31 +19618,27 @@ _wrap_CashSettlAgentName_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CashSettlAgentName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::CashSettlAgentName *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentName";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::CashSettlAgentName *)new FIX::CashSettlAgentName((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::CashSettlAgentName *)new FIX::CashSettlAgentName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19703,7 +19658,8 @@ SWIGINTERN VALUE _wrap_new_CashSettlAgentName(int nargs, VALUE *args, VALUE self
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CashSettlAgentName__SWIG_1(nargs, args, self);
@@ -19758,31 +19714,27 @@ _wrap_CashSettlAgentCode_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CashSettlAgentCode__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::CashSettlAgentCode *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentCode";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentCode" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::CashSettlAgentCode *)new FIX::CashSettlAgentCode((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentCode" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::CashSettlAgentCode *)new FIX::CashSettlAgentCode((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19802,7 +19754,8 @@ SWIGINTERN VALUE _wrap_new_CashSettlAgentCode(int nargs, VALUE *args, VALUE self
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CashSettlAgentCode__SWIG_1(nargs, args, self);
@@ -19857,31 +19810,27 @@ _wrap_CashSettlAgentAcctNum_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CashSettlAgentAcctNum__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::CashSettlAgentAcctNum *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentAcctNum";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentAcctNum" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentAcctNum" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::CashSettlAgentAcctNum *)new FIX::CashSettlAgentAcctNum((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentAcctNum" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::CashSettlAgentAcctNum *)new FIX::CashSettlAgentAcctNum((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -19901,7 +19850,8 @@ SWIGINTERN VALUE _wrap_new_CashSettlAgentAcctNum(int nargs, VALUE *args, VALUE s
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CashSettlAgentAcctNum__SWIG_1(nargs, args, self);
@@ -19956,31 +19906,27 @@ _wrap_CashSettlAgentAcctName_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CashSettlAgentAcctName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::CashSettlAgentAcctName *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentAcctName";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentAcctName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentAcctName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::CashSettlAgentAcctName *)new FIX::CashSettlAgentAcctName((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentAcctName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::CashSettlAgentAcctName *)new FIX::CashSettlAgentAcctName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -20000,7 +19946,8 @@ SWIGINTERN VALUE _wrap_new_CashSettlAgentAcctName(int nargs, VALUE *args, VALUE 
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CashSettlAgentAcctName__SWIG_1(nargs, args, self);
@@ -20055,31 +20002,27 @@ _wrap_CashSettlAgentContactName_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CashSettlAgentContactName__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::CashSettlAgentContactName *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentContactName";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentContactName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentContactName" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::CashSettlAgentContactName *)new FIX::CashSettlAgentContactName((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentContactName" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::CashSettlAgentContactName *)new FIX::CashSettlAgentContactName((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -20099,7 +20042,8 @@ SWIGINTERN VALUE _wrap_new_CashSettlAgentContactName(int nargs, VALUE *args, VAL
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CashSettlAgentContactName__SWIG_1(nargs, args, self);
@@ -20154,31 +20098,27 @@ _wrap_CashSettlAgentContactPhone_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CashSettlAgentContactPhone__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::CashSettlAgentContactPhone *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CashSettlAgentContactPhone";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentContactPhone" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentContactPhone" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CashSettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::CashSettlAgentContactPhone *)new FIX::CashSettlAgentContactPhone((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CashSettlAgentContactPhone" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::CashSettlAgentContactPhone *)new FIX::CashSettlAgentContactPhone((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -20198,7 +20138,8 @@ SWIGINTERN VALUE _wrap_new_CashSettlAgentContactPhone(int nargs, VALUE *args, VA
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CashSettlAgentContactPhone__SWIG_1(nargs, args, self);
@@ -20253,31 +20194,27 @@ _wrap_FutSettDate2_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_FutSettDate2__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  LOCALMKTDATE *arg1 = 0 ;
+  FIX_LOCALMKTDATE *arg1 = 0 ;
   FIX::FutSettDate2 *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::FutSettDate2";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::FutSettDate2" "', argument " "1"" of type '" "LOCALMKTDATE const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FutSettDate2" "', argument " "1"" of type '" "LOCALMKTDATE const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_LOCALMKTDATE,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::FutSettDate2" "', argument " "1"" of type '" "FIX_LOCALMKTDATE const &""'"); 
   }
-  result = (FIX::FutSettDate2 *)new FIX::FutSettDate2((LOCALMKTDATE const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FutSettDate2" "', argument " "1"" of type '" "FIX_LOCALMKTDATE const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_LOCALMKTDATE * >(argp1);
+  result = (FIX::FutSettDate2 *)new FIX::FutSettDate2((FIX_LOCALMKTDATE const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -20297,7 +20234,8 @@ SWIGINTERN VALUE _wrap_new_FutSettDate2(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_LOCALMKTDATE, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_FutSettDate2__SWIG_1(nargs, args, self);
@@ -20352,23 +20290,24 @@ _wrap_PutOrCall_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_PutOrCall__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::PutOrCall *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::PutOrCall";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::PutOrCall" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::PutOrCall *)new FIX::PutOrCall((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::PutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::PutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::PutOrCall *)new FIX::PutOrCall((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -20391,10 +20330,9 @@ SWIGINTERN VALUE _wrap_new_PutOrCall(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_PutOrCall__SWIG_1(nargs, args, self);
     }
@@ -20448,23 +20386,24 @@ _wrap_CustomerOrFirm_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CustomerOrFirm__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::CustomerOrFirm *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CustomerOrFirm";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::CustomerOrFirm" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::CustomerOrFirm *)new FIX::CustomerOrFirm((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CustomerOrFirm" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CustomerOrFirm" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::CustomerOrFirm *)new FIX::CustomerOrFirm((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -20487,10 +20426,9 @@ SWIGINTERN VALUE _wrap_new_CustomerOrFirm(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CustomerOrFirm__SWIG_1(nargs, args, self);
     }
@@ -20544,31 +20482,27 @@ _wrap_MaturityDay_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_MaturityDay__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  DAYOFMONTH *arg1 = 0 ;
+  FIX_DAYOFMONTH *arg1 = 0 ;
   FIX::MaturityDay *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::MaturityDay";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::MaturityDay" "', argument " "1"" of type '" "DAYOFMONTH const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::MaturityDay" "', argument " "1"" of type '" "DAYOFMONTH const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_DAYOFMONTH,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::MaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
   }
-  result = (FIX::MaturityDay *)new FIX::MaturityDay((DAYOFMONTH const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::MaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_DAYOFMONTH * >(argp1);
+  result = (FIX::MaturityDay *)new FIX::MaturityDay((FIX_DAYOFMONTH const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -20588,7 +20522,8 @@ SWIGINTERN VALUE _wrap_new_MaturityDay(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_DAYOFMONTH, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_MaturityDay__SWIG_1(nargs, args, self);
@@ -20643,23 +20578,24 @@ _wrap_PegDifference_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_PegDifference__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  PRICEOFFSET *arg1 = 0 ;
+  FIX_PRICEOFFSET *arg1 = 0 ;
   FIX::PegDifference *result = 0 ;
-  PRICEOFFSET temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::PegDifference";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_double(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::PegDifference" "', argument " "1"" of type '" "PRICEOFFSET""'");
-  } 
-  temp1 = static_cast< PRICEOFFSET >(val1);
-  arg1 = &temp1;
-  result = (FIX::PegDifference *)new FIX::PegDifference((PRICEOFFSET const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_PRICEOFFSET,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::PegDifference" "', argument " "1"" of type '" "FIX_PRICEOFFSET const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::PegDifference" "', argument " "1"" of type '" "FIX_PRICEOFFSET const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_PRICEOFFSET * >(argp1);
+  result = (FIX::PegDifference *)new FIX::PegDifference((FIX_PRICEOFFSET const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -20682,10 +20618,9 @@ SWIGINTERN VALUE _wrap_new_PegDifference(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_PRICEOFFSET, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_PegDifference__SWIG_1(nargs, args, self);
     }
@@ -20739,23 +20674,24 @@ _wrap_SpreadToBenchmark_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_SpreadToBenchmark__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  PRICEOFFSET *arg1 = 0 ;
+  FIX_PRICEOFFSET *arg1 = 0 ;
   FIX::SpreadToBenchmark *result = 0 ;
-  PRICEOFFSET temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::SpreadToBenchmark";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_double(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::SpreadToBenchmark" "', argument " "1"" of type '" "PRICEOFFSET""'");
-  } 
-  temp1 = static_cast< PRICEOFFSET >(val1);
-  arg1 = &temp1;
-  result = (FIX::SpreadToBenchmark *)new FIX::SpreadToBenchmark((PRICEOFFSET const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_PRICEOFFSET,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::SpreadToBenchmark" "', argument " "1"" of type '" "FIX_PRICEOFFSET const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::SpreadToBenchmark" "', argument " "1"" of type '" "FIX_PRICEOFFSET const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_PRICEOFFSET * >(argp1);
+  result = (FIX::SpreadToBenchmark *)new FIX::SpreadToBenchmark((FIX_PRICEOFFSET const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -20778,10 +20714,9 @@ SWIGINTERN VALUE _wrap_new_SpreadToBenchmark(int nargs, VALUE *args, VALUE self)
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_PRICEOFFSET, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_SpreadToBenchmark__SWIG_1(nargs, args, self);
     }
@@ -20835,23 +20770,24 @@ _wrap_Benchmark_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_Benchmark__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::Benchmark *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::Benchmark";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::Benchmark" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::Benchmark *)new FIX::Benchmark((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::Benchmark" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Benchmark" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::Benchmark *)new FIX::Benchmark((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -20874,10 +20810,9 @@ SWIGINTERN VALUE _wrap_new_Benchmark(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_Benchmark__SWIG_1(nargs, args, self);
     }
@@ -20931,31 +20866,27 @@ _wrap_OpenCloseSettleFlag_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_OpenCloseSettleFlag__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::OpenCloseSettleFlag *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::OpenCloseSettleFlag";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OpenCloseSettleFlag" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OpenCloseSettleFlag" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OpenCloseSettleFlag" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::OpenCloseSettleFlag *)new FIX::OpenCloseSettleFlag((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OpenCloseSettleFlag" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::OpenCloseSettleFlag *)new FIX::OpenCloseSettleFlag((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -20975,7 +20906,8 @@ SWIGINTERN VALUE _wrap_new_OpenCloseSettleFlag(int nargs, VALUE *args, VALUE sel
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_OpenCloseSettleFlag__SWIG_1(nargs, args, self);
@@ -21030,31 +20962,27 @@ _wrap_UnderlyingIDSource_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_UnderlyingIDSource__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::UnderlyingIDSource *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::UnderlyingIDSource";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::UnderlyingIDSource" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::UnderlyingIDSource" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::UnderlyingIDSource" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::UnderlyingIDSource *)new FIX::UnderlyingIDSource((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::UnderlyingIDSource" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::UnderlyingIDSource *)new FIX::UnderlyingIDSource((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -21074,7 +21002,8 @@ SWIGINTERN VALUE _wrap_new_UnderlyingIDSource(int nargs, VALUE *args, VALUE self
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_UnderlyingIDSource__SWIG_1(nargs, args, self);
@@ -21129,23 +21058,24 @@ _wrap_QuoteAckStatus_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_QuoteAckStatus__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::QuoteAckStatus *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::QuoteAckStatus";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::QuoteAckStatus" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::QuoteAckStatus *)new FIX::QuoteAckStatus((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::QuoteAckStatus" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::QuoteAckStatus" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::QuoteAckStatus *)new FIX::QuoteAckStatus((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21168,10 +21098,9 @@ SWIGINTERN VALUE _wrap_new_QuoteAckStatus(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_QuoteAckStatus__SWIG_1(nargs, args, self);
     }
@@ -21225,23 +21154,24 @@ _wrap_TotQuoteEntries_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_TotQuoteEntries__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::TotQuoteEntries *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::TotQuoteEntries";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::TotQuoteEntries" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::TotQuoteEntries *)new FIX::TotQuoteEntries((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotQuoteEntries" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotQuoteEntries" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::TotQuoteEntries *)new FIX::TotQuoteEntries((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21264,10 +21194,9 @@ SWIGINTERN VALUE _wrap_new_TotQuoteEntries(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_TotQuoteEntries__SWIG_1(nargs, args, self);
     }
@@ -21321,31 +21250,27 @@ _wrap_UnderlyingMaturityDay_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_UnderlyingMaturityDay__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  DAYOFMONTH *arg1 = 0 ;
+  FIX_DAYOFMONTH *arg1 = 0 ;
   FIX::UnderlyingMaturityDay *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::UnderlyingMaturityDay";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::UnderlyingMaturityDay" "', argument " "1"" of type '" "DAYOFMONTH const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::UnderlyingMaturityDay" "', argument " "1"" of type '" "DAYOFMONTH const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_DAYOFMONTH,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::UnderlyingMaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
   }
-  result = (FIX::UnderlyingMaturityDay *)new FIX::UnderlyingMaturityDay((DAYOFMONTH const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::UnderlyingMaturityDay" "', argument " "1"" of type '" "FIX_DAYOFMONTH const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_DAYOFMONTH * >(argp1);
+  result = (FIX::UnderlyingMaturityDay *)new FIX::UnderlyingMaturityDay((FIX_DAYOFMONTH const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -21365,7 +21290,8 @@ SWIGINTERN VALUE _wrap_new_UnderlyingMaturityDay(int nargs, VALUE *args, VALUE s
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_DAYOFMONTH, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_UnderlyingMaturityDay__SWIG_1(nargs, args, self);
@@ -21420,23 +21346,24 @@ _wrap_UnderlyingPutOrCall_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_UnderlyingPutOrCall__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::UnderlyingPutOrCall *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::UnderlyingPutOrCall";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::UnderlyingPutOrCall" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::UnderlyingPutOrCall *)new FIX::UnderlyingPutOrCall((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::UnderlyingPutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::UnderlyingPutOrCall" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::UnderlyingPutOrCall *)new FIX::UnderlyingPutOrCall((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21459,10 +21386,9 @@ SWIGINTERN VALUE _wrap_new_UnderlyingPutOrCall(int nargs, VALUE *args, VALUE sel
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_UnderlyingPutOrCall__SWIG_1(nargs, args, self);
     }
@@ -21516,23 +21442,24 @@ _wrap_RatioQty_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_RatioQty__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  QTY *arg1 = 0 ;
+  FIX_QTY *arg1 = 0 ;
   FIX::RatioQty *result = 0 ;
-  QTY temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::RatioQty";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_double(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::RatioQty" "', argument " "1"" of type '" "QTY""'");
-  } 
-  temp1 = static_cast< QTY >(val1);
-  arg1 = &temp1;
-  result = (FIX::RatioQty *)new FIX::RatioQty((QTY const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_QTY,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::RatioQty" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::RatioQty" "', argument " "1"" of type '" "FIX_QTY const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_QTY * >(argp1);
+  result = (FIX::RatioQty *)new FIX::RatioQty((FIX_QTY const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21555,10 +21482,9 @@ SWIGINTERN VALUE _wrap_new_RatioQty(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_QTY, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_RatioQty__SWIG_1(nargs, args, self);
     }
@@ -21619,7 +21545,7 @@ fail:
 
 SWIGINTERN VALUE
 _wrap_new_OnBehalfOfSendingTime__SWIG_2(int argc, VALUE *argv, VALUE self) {
-  UTCTIMESTAMP *arg1 = 0 ;
+  FIX_UTCTIMESTAMP *arg1 = 0 ;
   FIX::OnBehalfOfSendingTime *result = 0 ;
   void *argp1 ;
   int res1 = 0 ;
@@ -21628,15 +21554,15 @@ _wrap_new_OnBehalfOfSendingTime__SWIG_2(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_UtcTimeStamp,  0 );
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCTIMESTAMP,  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "UTCTIMESTAMP const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
   }
   if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "UTCTIMESTAMP const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
   }
-  arg1 = reinterpret_cast< UTCTIMESTAMP * >(argp1);
-  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime((UTCTIMESTAMP const &)*arg1);DATA_PTR(self) = result;
+  arg1 = reinterpret_cast< FIX_UTCTIMESTAMP * >(argp1);
+  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime((FIX_UTCTIMESTAMP const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21663,7 +21589,7 @@ _wrap_OnBehalfOfSendingTime_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_OnBehalfOfSendingTime__SWIG_3(int argc, VALUE *argv, VALUE self) {
-  UTCTIMESTAMP *arg1 = 0 ;
+  FIX_UTCTIMESTAMP *arg1 = 0 ;
   bool arg2 ;
   FIX::OnBehalfOfSendingTime *result = 0 ;
   void *argp1 ;
@@ -21675,20 +21601,20 @@ _wrap_new_OnBehalfOfSendingTime__SWIG_3(int argc, VALUE *argv, VALUE self) {
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_UtcTimeStamp,  0 );
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCTIMESTAMP,  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "UTCTIMESTAMP const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
   }
   if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "UTCTIMESTAMP const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "1"" of type '" "FIX_UTCTIMESTAMP const &""'"); 
   }
-  arg1 = reinterpret_cast< UTCTIMESTAMP * >(argp1);
+  arg1 = reinterpret_cast< FIX_UTCTIMESTAMP * >(argp1);
   ecode2 = SWIG_AsVal_bool(argv[1], &val2);
   if (!SWIG_IsOK(ecode2)) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "FIX::OnBehalfOfSendingTime" "', argument " "2"" of type '" "bool""'");
   } 
   arg2 = static_cast< bool >(val2);
-  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime((UTCTIMESTAMP const &)*arg1,arg2);DATA_PTR(self) = result;
+  result = (FIX::OnBehalfOfSendingTime *)new FIX::OnBehalfOfSendingTime((FIX_UTCTIMESTAMP const &)*arg1,arg2);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21712,7 +21638,7 @@ SWIGINTERN VALUE _wrap_new_OnBehalfOfSendingTime(int nargs, VALUE *args, VALUE s
   if (argc == 1) {
     int _v;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_UtcTimeStamp, 0);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCTIMESTAMP, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_OnBehalfOfSendingTime__SWIG_2(nargs, args, self);
@@ -21731,7 +21657,7 @@ SWIGINTERN VALUE _wrap_new_OnBehalfOfSendingTime(int nargs, VALUE *args, VALUE s
   if (argc == 2) {
     int _v;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_UtcTimeStamp, 0);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCTIMESTAMP, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       {
@@ -21792,23 +21718,24 @@ _wrap_DiscretionOffset_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_DiscretionOffset__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  PRICEOFFSET *arg1 = 0 ;
+  FIX_PRICEOFFSET *arg1 = 0 ;
   FIX::DiscretionOffset *result = 0 ;
-  PRICEOFFSET temp1 ;
-  double val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::DiscretionOffset";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_double(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::DiscretionOffset" "', argument " "1"" of type '" "PRICEOFFSET""'");
-  } 
-  temp1 = static_cast< PRICEOFFSET >(val1);
-  arg1 = &temp1;
-  result = (FIX::DiscretionOffset *)new FIX::DiscretionOffset((PRICEOFFSET const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_PRICEOFFSET,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::DiscretionOffset" "', argument " "1"" of type '" "FIX_PRICEOFFSET const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::DiscretionOffset" "', argument " "1"" of type '" "FIX_PRICEOFFSET const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_PRICEOFFSET * >(argp1);
+  result = (FIX::DiscretionOffset *)new FIX::DiscretionOffset((FIX_PRICEOFFSET const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21831,10 +21758,9 @@ SWIGINTERN VALUE _wrap_new_DiscretionOffset(int nargs, VALUE *args, VALUE self) 
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_double(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_PRICEOFFSET, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_DiscretionOffset__SWIG_1(nargs, args, self);
     }
@@ -21888,23 +21814,24 @@ _wrap_TotalNumSecurities_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_TotalNumSecurities__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::TotalNumSecurities *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::TotalNumSecurities";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::TotalNumSecurities" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::TotalNumSecurities *)new FIX::TotalNumSecurities((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalNumSecurities" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalNumSecurities" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::TotalNumSecurities *)new FIX::TotalNumSecurities((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -21927,10 +21854,9 @@ SWIGINTERN VALUE _wrap_new_TotalNumSecurities(int nargs, VALUE *args, VALUE self
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_TotalNumSecurities__SWIG_1(nargs, args, self);
     }
@@ -21984,23 +21910,24 @@ _wrap_TradeType_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_TradeType__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::TradeType *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::TradeType";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::TradeType" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::TradeType *)new FIX::TradeType((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TradeType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TradeType" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::TradeType *)new FIX::TradeType((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -22023,10 +21950,9 @@ SWIGINTERN VALUE _wrap_new_TradeType(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_TradeType__SWIG_1(nargs, args, self);
     }
@@ -22080,31 +22006,27 @@ _wrap_ClearingFirm_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_ClearingFirm__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::ClearingFirm *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::ClearingFirm";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClearingFirm" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClearingFirm" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClearingFirm" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::ClearingFirm *)new FIX::ClearingFirm((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClearingFirm" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::ClearingFirm *)new FIX::ClearingFirm((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -22124,7 +22046,8 @@ SWIGINTERN VALUE _wrap_new_ClearingFirm(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_ClearingFirm__SWIG_1(nargs, args, self);
@@ -22179,31 +22102,27 @@ _wrap_ClearingAccount_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_ClearingAccount__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::ClearingAccount *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::ClearingAccount";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClearingAccount" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClearingAccount" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::ClearingAccount" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::ClearingAccount *)new FIX::ClearingAccount((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::ClearingAccount" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::ClearingAccount *)new FIX::ClearingAccount((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -22223,7 +22142,8 @@ SWIGINTERN VALUE _wrap_new_ClearingAccount(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_ClearingAccount__SWIG_1(nargs, args, self);
@@ -22278,7 +22198,7 @@ _wrap_TotalVolumeTradedDate_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_TotalVolumeTradedDate__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  UTCDATE *arg1 = 0 ;
+  FIX_UTCDATE *arg1 = 0 ;
   FIX::TotalVolumeTradedDate *result = 0 ;
   void *argp1 ;
   int res1 = 0 ;
@@ -22287,15 +22207,15 @@ _wrap_new_TotalVolumeTradedDate__SWIG_1(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_UtcDate,  0 );
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCDATE,  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalVolumeTradedDate" "', argument " "1"" of type '" "UTCDATE const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalVolumeTradedDate" "', argument " "1"" of type '" "FIX_UTCDATE const &""'"); 
   }
   if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalVolumeTradedDate" "', argument " "1"" of type '" "UTCDATE const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalVolumeTradedDate" "', argument " "1"" of type '" "FIX_UTCDATE const &""'"); 
   }
-  arg1 = reinterpret_cast< UTCDATE * >(argp1);
-  result = (FIX::TotalVolumeTradedDate *)new FIX::TotalVolumeTradedDate((UTCDATE const &)*arg1);DATA_PTR(self) = result;
+  arg1 = reinterpret_cast< FIX_UTCDATE * >(argp1);
+  result = (FIX::TotalVolumeTradedDate *)new FIX::TotalVolumeTradedDate((FIX_UTCDATE const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -22319,7 +22239,7 @@ SWIGINTERN VALUE _wrap_new_TotalVolumeTradedDate(int nargs, VALUE *args, VALUE s
   if (argc == 1) {
     int _v;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_UtcDate, 0);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCDATE, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_TotalVolumeTradedDate__SWIG_1(nargs, args, self);
@@ -22374,7 +22294,7 @@ _wrap_TotalVolumeTradedTime_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_TotalVolumeTradedTime__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  UTCTIMEONLY *arg1 = 0 ;
+  FIX_UTCTIMEONLY *arg1 = 0 ;
   FIX::TotalVolumeTradedTime *result = 0 ;
   void *argp1 ;
   int res1 = 0 ;
@@ -22383,15 +22303,15 @@ _wrap_new_TotalVolumeTradedTime__SWIG_1(int argc, VALUE *argv, VALUE self) {
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_UtcTimeOnly,  0 );
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_UTCTIMEONLY,  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalVolumeTradedTime" "', argument " "1"" of type '" "UTCTIMEONLY const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalVolumeTradedTime" "', argument " "1"" of type '" "FIX_UTCTIMEONLY const &""'"); 
   }
   if (!argp1) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalVolumeTradedTime" "', argument " "1"" of type '" "UTCTIMEONLY const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalVolumeTradedTime" "', argument " "1"" of type '" "FIX_UTCTIMEONLY const &""'"); 
   }
-  arg1 = reinterpret_cast< UTCTIMEONLY * >(argp1);
-  result = (FIX::TotalVolumeTradedTime *)new FIX::TotalVolumeTradedTime((UTCTIMEONLY const &)*arg1);DATA_PTR(self) = result;
+  arg1 = reinterpret_cast< FIX_UTCTIMEONLY * >(argp1);
+  result = (FIX::TotalVolumeTradedTime *)new FIX::TotalVolumeTradedTime((FIX_UTCTIMEONLY const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -22415,7 +22335,7 @@ SWIGINTERN VALUE _wrap_new_TotalVolumeTradedTime(int nargs, VALUE *args, VALUE s
   if (argc == 1) {
     int _v;
     void *vptr = 0;
-    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_UtcTimeOnly, 0);
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_UTCTIMEONLY, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_TotalVolumeTradedTime__SWIG_1(nargs, args, self);
@@ -22470,31 +22390,27 @@ _wrap_CardIssNo_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_CardIssNo__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::CardIssNo *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::CardIssNo";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CardIssNo" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CardIssNo" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::CardIssNo" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::CardIssNo *)new FIX::CardIssNo((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::CardIssNo" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::CardIssNo *)new FIX::CardIssNo((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -22514,7 +22430,8 @@ SWIGINTERN VALUE _wrap_new_CardIssNo(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_CardIssNo__SWIG_1(nargs, args, self);
@@ -22569,31 +22486,27 @@ _wrap_RegistDetls_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_RegistDetls__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::RegistDetls *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::RegistDetls";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::RegistDetls" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::RegistDetls" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::RegistDetls" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::RegistDetls *)new FIX::RegistDetls((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::RegistDetls" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::RegistDetls *)new FIX::RegistDetls((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -22613,7 +22526,8 @@ SWIGINTERN VALUE _wrap_new_RegistDetls(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_RegistDetls__SWIG_1(nargs, args, self);
@@ -22668,23 +22582,24 @@ _wrap_TotalNumSecurityTypes_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_TotalNumSecurityTypes__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  INT *arg1 = 0 ;
+  FIX_INT *arg1 = 0 ;
   FIX::TotalNumSecurityTypes *result = 0 ;
-  INT temp1 ;
-  int val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::TotalNumSecurityTypes";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::TotalNumSecurityTypes" "', argument " "1"" of type '" "INT""'");
-  } 
-  temp1 = static_cast< INT >(val1);
-  arg1 = &temp1;
-  result = (FIX::TotalNumSecurityTypes *)new FIX::TotalNumSecurityTypes((INT const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_INT,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::TotalNumSecurityTypes" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::TotalNumSecurityTypes" "', argument " "1"" of type '" "FIX_INT const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_INT * >(argp1);
+  result = (FIX::TotalNumSecurityTypes *)new FIX::TotalNumSecurityTypes((FIX_INT const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -22707,10 +22622,9 @@ SWIGINTERN VALUE _wrap_new_TotalNumSecurityTypes(int nargs, VALUE *args, VALUE s
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_INT, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_TotalNumSecurityTypes__SWIG_1(nargs, args, self);
     }
@@ -22764,23 +22678,24 @@ _wrap_LegSettlmntTyp_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_LegSettlmntTyp__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  CHAR *arg1 = 0 ;
+  FIX_CHAR *arg1 = 0 ;
   FIX::LegSettlmntTyp *result = 0 ;
-  CHAR temp1 ;
-  char val1 ;
-  int ecode1 = 0 ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::LegSettlmntTyp";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  ecode1 = SWIG_AsVal_char(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::LegSettlmntTyp" "', argument " "1"" of type '" "CHAR""'");
-  } 
-  temp1 = static_cast< CHAR >(val1);
-  arg1 = &temp1;
-  result = (FIX::LegSettlmntTyp *)new FIX::LegSettlmntTyp((CHAR const &)*arg1);DATA_PTR(self) = result;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_CHAR,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::LegSettlmntTyp" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::LegSettlmntTyp" "', argument " "1"" of type '" "FIX_CHAR const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_CHAR * >(argp1);
+  result = (FIX::LegSettlmntTyp *)new FIX::LegSettlmntTyp((FIX_CHAR const &)*arg1);DATA_PTR(self) = result;
   
   return self;
 fail:
@@ -22803,10 +22718,9 @@ SWIGINTERN VALUE _wrap_new_LegSettlmntTyp(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    {
-      int res = SWIG_AsVal_char(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_CHAR, 0);
+    _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_LegSettlmntTyp__SWIG_1(nargs, args, self);
     }
@@ -22860,31 +22774,27 @@ _wrap_LegFutSettDate_allocate(VALUE self) {
 
 SWIGINTERN VALUE
 _wrap_new_LegFutSettDate__SWIG_1(int argc, VALUE *argv, VALUE self) {
-  STRING *arg1 = 0 ;
+  FIX_STRING *arg1 = 0 ;
   FIX::LegFutSettDate *result = 0 ;
-  int res1 = SWIG_OLDOBJ ;
+  void *argp1 ;
+  int res1 = 0 ;
   const char *classname SWIGUNUSED = "Quickfix::LegFutSettDate";
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
   }
-  {
-    std::string *ptr = (std::string *)0;
-    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res1)) {
-      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::LegFutSettDate" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::LegFutSettDate" "', argument " "1"" of type '" "STRING const &""'"); 
-    }
-    arg1 = ptr;
+  res1 = SWIG_ConvertPtr(argv[0], &argp1, SWIGTYPE_p_FIX_STRING,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FIX::LegFutSettDate" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
   }
-  result = (FIX::LegFutSettDate *)new FIX::LegFutSettDate((STRING const &)*arg1);DATA_PTR(self) = result;
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::LegFutSettDate" "', argument " "1"" of type '" "FIX_STRING const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX_STRING * >(argp1);
+  result = (FIX::LegFutSettDate *)new FIX::LegFutSettDate((FIX_STRING const &)*arg1);DATA_PTR(self) = result;
   
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
-  if (SWIG_IsNewObj(res1)) delete arg1;
   return Qnil;
 }
 
@@ -22904,7 +22814,8 @@ SWIGINTERN VALUE _wrap_new_LegFutSettDate(int nargs, VALUE *args, VALUE self) {
   }
   if (argc == 1) {
     int _v;
-    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX_STRING, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
       return _wrap_new_LegFutSettDate__SWIG_1(nargs, args, self);
@@ -51001,6 +50912,16 @@ static swig_type_info _swigt__p_Dictionaries = {"_p_Dictionaries", "Dictionaries
 static swig_type_info _swigt__p_Dictionary = {"_p_Dictionary", "Dictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DoubleField = {"_p_DoubleField", "DoubleField *|PercentageField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIELD__Field = {"_p_FIELD__Field", "FIELD::Field *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_CHAR = {"_p_FIX_CHAR", "FIX_CHAR *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_DAYOFMONTH = {"_p_FIX_DAYOFMONTH", "FIX_DAYOFMONTH *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_INT = {"_p_FIX_INT", "FIX_INT *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_LOCALMKTDATE = {"_p_FIX_LOCALMKTDATE", "FIX_LOCALMKTDATE *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_PRICEOFFSET = {"_p_FIX_PRICEOFFSET", "FIX_PRICEOFFSET *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_QTY = {"_p_FIX_QTY", "FIX_QTY *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_STRING = {"_p_FIX_STRING", "FIX_STRING *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_UTCDATE = {"_p_FIX_UTCDATE", "FIX_UTCDATE *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_UTCTIMEONLY = {"_p_FIX_UTCTIMEONLY", "FIX_UTCTIMEONLY *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX_UTCTIMESTAMP = {"_p_FIX_UTCTIMESTAMP", "FIX_UTCTIMESTAMP *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Acceptor = {"_p_FIX__Acceptor", "FIX::Acceptor *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__AllocShares = {"_p_FIX__AllocShares", "FIX::AllocShares *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__Application = {"_p_FIX__Application", "FIX::Application *", 0, 0, (void*)0, 0};
@@ -51147,10 +51068,10 @@ static swig_type_info _swigt__p_SessionID = {"_p_SessionID", "SessionID *", 0, 0
 static swig_type_info _swigt__p_SessionTime = {"_p_SessionTime", "SessionTime *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_StringField = {"_p_StringField", "StringField *|CountryField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_TargetCompID = {"_p_TargetCompID", "TargetCompID *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_UtcDate = {"_p_UtcDate", "UtcDate *|UTCDATE *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_UtcDate = {"_p_UtcDate", "UtcDate *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_UtcDateField = {"_p_UtcDateField", "UtcDateField *|UtcDateOnlyField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_UtcDateOnly = {"_p_UtcDateOnly", "UtcDateOnly *|UTCDATEONLY *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_UtcTimeOnly = {"_p_UtcTimeOnly", "UtcTimeOnly *|UTCTIMEONLY *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_UtcTimeOnly = {"_p_UtcTimeOnly", "UtcTimeOnly *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_UtcTimeStamp = {"_p_UtcTimeStamp", "UtcTimeStamp *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_bool = {"_p_bool", "bool *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_char = {"_p_char", "char *|CHAR *", 0, 0, (void*)0, 0};
@@ -51176,6 +51097,16 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Dictionary,
   &_swigt__p_DoubleField,
   &_swigt__p_FIELD__Field,
+  &_swigt__p_FIX_CHAR,
+  &_swigt__p_FIX_DAYOFMONTH,
+  &_swigt__p_FIX_INT,
+  &_swigt__p_FIX_LOCALMKTDATE,
+  &_swigt__p_FIX_PRICEOFFSET,
+  &_swigt__p_FIX_QTY,
+  &_swigt__p_FIX_STRING,
+  &_swigt__p_FIX_UTCDATE,
+  &_swigt__p_FIX_UTCTIMEONLY,
+  &_swigt__p_FIX_UTCTIMESTAMP,
   &_swigt__p_FIX__Acceptor,
   &_swigt__p_FIX__AllocShares,
   &_swigt__p_FIX__Application,
@@ -51351,6 +51282,16 @@ static swig_cast_info _swigc__p_Dictionaries[] = {  {&_swigt__p_Dictionaries, 0,
 static swig_cast_info _swigc__p_Dictionary[] = {  {&_swigt__p_Dictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DoubleField[] = {  {&_swigt__p_DoubleField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIELD__Field[] = {  {&_swigt__p_FIELD__Field, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_CHAR[] = {  {&_swigt__p_FIX_CHAR, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_DAYOFMONTH[] = {  {&_swigt__p_FIX_DAYOFMONTH, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_INT[] = {  {&_swigt__p_FIX_INT, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_LOCALMKTDATE[] = {  {&_swigt__p_FIX_LOCALMKTDATE, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_PRICEOFFSET[] = {  {&_swigt__p_FIX_PRICEOFFSET, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_QTY[] = {  {&_swigt__p_FIX_QTY, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_STRING[] = {  {&_swigt__p_FIX_STRING, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_UTCDATE[] = {  {&_swigt__p_FIX_UTCDATE, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_UTCTIMEONLY[] = {  {&_swigt__p_FIX_UTCTIMEONLY, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX_UTCTIMESTAMP[] = {  {&_swigt__p_FIX_UTCTIMESTAMP, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Acceptor[] = {  {&_swigt__p_FIX__Acceptor, 0, 0, 0},  {&_swigt__p_FIX__SocketAcceptor, _p_FIX__SocketAcceptorTo_p_FIX__Acceptor, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__AllocShares[] = {  {&_swigt__p_FIX__AllocShares, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__Application[] = {  {&_swigt__p_FIX__Application, 0, 0, 0},  {&_swigt__p_FIX__SynchronizedApplication, _p_FIX__SynchronizedApplicationTo_p_FIX__Application, 0, 0},  {&_swigt__p_FIX__NullApplication, _p_FIX__NullApplicationTo_p_FIX__Application, 0, 0},{0, 0, 0, 0}};
@@ -51526,6 +51467,16 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Dictionary,
   _swigc__p_DoubleField,
   _swigc__p_FIELD__Field,
+  _swigc__p_FIX_CHAR,
+  _swigc__p_FIX_DAYOFMONTH,
+  _swigc__p_FIX_INT,
+  _swigc__p_FIX_LOCALMKTDATE,
+  _swigc__p_FIX_PRICEOFFSET,
+  _swigc__p_FIX_QTY,
+  _swigc__p_FIX_STRING,
+  _swigc__p_FIX_UTCDATE,
+  _swigc__p_FIX_UTCTIMEONLY,
+  _swigc__p_FIX_UTCTIMESTAMP,
   _swigc__p_FIX__Acceptor,
   _swigc__p_FIX__AllocShares,
   _swigc__p_FIX__Application,
