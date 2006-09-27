@@ -112,8 +112,6 @@ public:
                    const std::string& password, const std::string& host, short port );
   ~PostgreSQLStore();
 
-  void connect() throw ( IOException );
-
   bool set( int, const std::string& ) throw ( IOException );
   void get( int, int, std::vector < std::string > & ) const throw ( IOException );
 
