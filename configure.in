@@ -200,8 +200,9 @@ AC_SUBST(STLPORT_PREFIX)
 
 if test $has_stlport = true
 then
-    STLPORT_CFLAGS="-I${STLPORT_PREFIX}"
+    STLPORT_CFLAGS="-I${STLPORT_PREFIX}/stlport/include"
     AC_SUBST(STLPORT_CFLAGS)
+    STLPORT_LIBS="-L${STLPORT_PREFIX}/lib -lstlport_gcc"
     AC_SUBST(STLPORT_LIBS)
     AC_DEFINE(HAVE_STLPORT, 1, Define if you have stlport library (-lstlport_gcc))
 fi
