@@ -2465,189 +2465,194 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 
 #define SWIGTYPE_p_Application swig_types[0]
 #define SWIGTYPE_p_BeginString swig_types[1]
-#define SWIGTYPE_p_DataDictionary swig_types[2]
-#define SWIGTYPE_p_Dictionaries swig_types[3]
-#define SWIGTYPE_p_Dictionary swig_types[4]
-#define SWIGTYPE_p_DoubleField swig_types[5]
-#define SWIGTYPE_p_FIELD__Field swig_types[6]
-#define SWIGTYPE_p_FIX_CHAR swig_types[7]
-#define SWIGTYPE_p_FIX_DAYOFMONTH swig_types[8]
-#define SWIGTYPE_p_FIX_INT swig_types[9]
-#define SWIGTYPE_p_FIX_LOCALMKTDATE swig_types[10]
-#define SWIGTYPE_p_FIX_PRICEOFFSET swig_types[11]
-#define SWIGTYPE_p_FIX_QTY swig_types[12]
-#define SWIGTYPE_p_FIX_STRING swig_types[13]
-#define SWIGTYPE_p_FIX_UTCDATE swig_types[14]
-#define SWIGTYPE_p_FIX_UTCTIMEONLY swig_types[15]
-#define SWIGTYPE_p_FIX_UTCTIMESTAMP swig_types[16]
-#define SWIGTYPE_p_FIX__Acceptor swig_types[17]
-#define SWIGTYPE_p_FIX__AllocShares swig_types[18]
-#define SWIGTYPE_p_FIX__Application swig_types[19]
-#define SWIGTYPE_p_FIX__AvgPrxPrecision swig_types[20]
-#define SWIGTYPE_p_FIX__Benchmark swig_types[21]
-#define SWIGTYPE_p_FIX__BoolField swig_types[22]
-#define SWIGTYPE_p_FIX__BrokerOfCredit swig_types[23]
-#define SWIGTYPE_p_FIX__CardIssNo swig_types[24]
-#define SWIGTYPE_p_FIX__CashSettlAgentAcctName swig_types[25]
-#define SWIGTYPE_p_FIX__CashSettlAgentAcctNum swig_types[26]
-#define SWIGTYPE_p_FIX__CashSettlAgentCode swig_types[27]
-#define SWIGTYPE_p_FIX__CashSettlAgentContactName swig_types[28]
-#define SWIGTYPE_p_FIX__CashSettlAgentContactPhone swig_types[29]
-#define SWIGTYPE_p_FIX__CashSettlAgentName swig_types[30]
-#define SWIGTYPE_p_FIX__CharField swig_types[31]
-#define SWIGTYPE_p_FIX__CheckSumField swig_types[32]
-#define SWIGTYPE_p_FIX__ClearingAccount swig_types[33]
-#define SWIGTYPE_p_FIX__ClearingFirm swig_types[34]
-#define SWIGTYPE_p_FIX__ClientID swig_types[35]
-#define SWIGTYPE_p_FIX__ConfigError swig_types[36]
-#define SWIGTYPE_p_FIX__CustomerOrFirm swig_types[37]
-#define SWIGTYPE_p_FIX__CxlType swig_types[38]
-#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[39]
-#define SWIGTYPE_p_FIX__DlvyInst swig_types[40]
-#define SWIGTYPE_p_FIX__DoNotSend swig_types[41]
-#define SWIGTYPE_p_FIX__DoubleField swig_types[42]
-#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[43]
-#define SWIGTYPE_p_FIX__Exception swig_types[44]
-#define SWIGTYPE_p_FIX__ExecBroker swig_types[45]
-#define SWIGTYPE_p_FIX__ExecTransType swig_types[46]
-#define SWIGTYPE_p_FIX__FieldBase swig_types[47]
-#define SWIGTYPE_p_FIX__FieldConvertError swig_types[48]
-#define SWIGTYPE_p_FIX__FieldMap swig_types[49]
-#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[50]
-#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[51]
-#define SWIGTYPE_p_FIX__FieldNotFound swig_types[52]
-#define SWIGTYPE_p_FIX__FileLog swig_types[53]
-#define SWIGTYPE_p_FIX__FileLogFactory swig_types[54]
-#define SWIGTYPE_p_FIX__FileStore swig_types[55]
-#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[56]
-#define SWIGTYPE_p_FIX__FutSettDate swig_types[57]
-#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[58]
-#define SWIGTYPE_p_FIX__Group swig_types[59]
-#define SWIGTYPE_p_FIX__IDSource swig_types[60]
-#define SWIGTYPE_p_FIX__IOException swig_types[61]
-#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[62]
-#define SWIGTYPE_p_FIX__IOIShares swig_types[63]
-#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[64]
-#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[65]
-#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[66]
-#define SWIGTYPE_p_FIX__Initiator swig_types[67]
-#define SWIGTYPE_p_FIX__IntField swig_types[68]
-#define SWIGTYPE_p_FIX__InvalidMessage swig_types[69]
-#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[70]
-#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[71]
-#define SWIGTYPE_p_FIX__LastShares swig_types[72]
-#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[73]
-#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[74]
-#define SWIGTYPE_p_FIX__Log swig_types[75]
-#define SWIGTYPE_p_FIX__LogFactory swig_types[76]
-#define SWIGTYPE_p_FIX__MaturityDay swig_types[77]
-#define SWIGTYPE_p_FIX__MemoryStore swig_types[78]
-#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[79]
-#define SWIGTYPE_p_FIX__Message swig_types[80]
-#define SWIGTYPE_p_FIX__MessageParseError swig_types[81]
-#define SWIGTYPE_p_FIX__MessageStore swig_types[82]
-#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[83]
-#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[84]
-#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[85]
-#define SWIGTYPE_p_FIX__NoTagValue swig_types[86]
-#define SWIGTYPE_p_FIX__NullApplication swig_types[87]
-#define SWIGTYPE_p_FIX__OnBehalfOfSendingTime swig_types[88]
-#define SWIGTYPE_p_FIX__OpenClose swig_types[89]
-#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[90]
-#define SWIGTYPE_p_FIX__PegDifference swig_types[91]
-#define SWIGTYPE_p_FIX__PutOrCall swig_types[92]
-#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[93]
-#define SWIGTYPE_p_FIX__RatioQty swig_types[94]
-#define SWIGTYPE_p_FIX__RegistDetls swig_types[95]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[96]
-#define SWIGTYPE_p_FIX__RelatdSym swig_types[97]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[98]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[99]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[100]
-#define SWIGTYPE_p_FIX__Rule80A swig_types[101]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[102]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[103]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[104]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctName swig_types[105]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum swig_types[106]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentCode swig_types[107]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactName swig_types[108]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone swig_types[109]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentName swig_types[110]
-#define SWIGTYPE_p_FIX__Session swig_types[111]
-#define SWIGTYPE_p_FIX__SessionID swig_types[112]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[113]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[114]
-#define SWIGTYPE_p_FIX__SettlBrkrCode swig_types[115]
-#define SWIGTYPE_p_FIX__SettlDepositoryCode swig_types[116]
-#define SWIGTYPE_p_FIX__SettlInstCode swig_types[117]
-#define SWIGTYPE_p_FIX__SettlLocation swig_types[118]
-#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[119]
-#define SWIGTYPE_p_FIX__Shares swig_types[120]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[121]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[122]
-#define SWIGTYPE_p_FIX__SocketException swig_types[123]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[124]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[125]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[126]
-#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[127]
-#define SWIGTYPE_p_FIX__StringField swig_types[128]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[129]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[130]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[131]
-#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[132]
-#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[133]
-#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[134]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedDate swig_types[135]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedTime swig_types[136]
-#define SWIGTYPE_p_FIX__TradeType swig_types[137]
-#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[138]
-#define SWIGTYPE_p_FIX__UnderlyingMaturityDay swig_types[139]
-#define SWIGTYPE_p_FIX__UnderlyingPutOrCall swig_types[140]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[141]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[142]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[143]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[144]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[145]
-#define SWIGTYPE_p_Fields swig_types[146]
-#define SWIGTYPE_p_Group swig_types[147]
-#define SWIGTYPE_p_Groups swig_types[148]
-#define SWIGTYPE_p_IntArray swig_types[149]
-#define SWIGTYPE_p_IntField swig_types[150]
-#define SWIGTYPE_p_Log swig_types[151]
-#define SWIGTYPE_p_LogFactory swig_types[152]
-#define SWIGTYPE_p_MessageStore swig_types[153]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[154]
-#define SWIGTYPE_p_MsgType swig_types[155]
-#define SWIGTYPE_p_Mutex swig_types[156]
-#define SWIGTYPE_p_Responder swig_types[157]
-#define SWIGTYPE_p_SenderCompID swig_types[158]
-#define SWIGTYPE_p_SessionID swig_types[159]
-#define SWIGTYPE_p_SessionTime swig_types[160]
-#define SWIGTYPE_p_StringField swig_types[161]
-#define SWIGTYPE_p_TargetCompID swig_types[162]
-#define SWIGTYPE_p_UtcDate swig_types[163]
-#define SWIGTYPE_p_UtcDateField swig_types[164]
-#define SWIGTYPE_p_UtcDateOnly swig_types[165]
-#define SWIGTYPE_p_UtcTimeOnly swig_types[166]
-#define SWIGTYPE_p_UtcTimeStamp swig_types[167]
-#define SWIGTYPE_p_bool swig_types[168]
-#define SWIGTYPE_p_char swig_types[169]
-#define SWIGTYPE_p_const_iterator swig_types[170]
-#define SWIGTYPE_p_double swig_types[171]
-#define SWIGTYPE_p_g_const_iterator swig_types[172]
-#define SWIGTYPE_p_g_iterator swig_types[173]
-#define SWIGTYPE_p_int swig_types[174]
-#define SWIGTYPE_p_iterator swig_types[175]
-#define SWIGTYPE_p_message_order swig_types[176]
-#define SWIGTYPE_p_std__istream swig_types[177]
-#define SWIGTYPE_p_std__ostream swig_types[178]
-#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[179]
-#define SWIGTYPE_p_std__string swig_types[180]
-#define SWIGTYPE_p_std__string__size_type swig_types[181]
-#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[182]
-static swig_type_info *swig_types[184];
-static swig_module_info swig_module = {swig_types, 183, 0, 0, 0, 0};
+#define SWIGTYPE_p_DOMDocumentPtr swig_types[2]
+#define SWIGTYPE_p_DataDictionary swig_types[3]
+#define SWIGTYPE_p_Dictionaries swig_types[4]
+#define SWIGTYPE_p_Dictionary swig_types[5]
+#define SWIGTYPE_p_DoubleField swig_types[6]
+#define SWIGTYPE_p_FIELD__Field swig_types[7]
+#define SWIGTYPE_p_FIX_CHAR swig_types[8]
+#define SWIGTYPE_p_FIX_DAYOFMONTH swig_types[9]
+#define SWIGTYPE_p_FIX_INT swig_types[10]
+#define SWIGTYPE_p_FIX_LOCALMKTDATE swig_types[11]
+#define SWIGTYPE_p_FIX_PRICEOFFSET swig_types[12]
+#define SWIGTYPE_p_FIX_QTY swig_types[13]
+#define SWIGTYPE_p_FIX_STRING swig_types[14]
+#define SWIGTYPE_p_FIX_UTCDATE swig_types[15]
+#define SWIGTYPE_p_FIX_UTCTIMEONLY swig_types[16]
+#define SWIGTYPE_p_FIX_UTCTIMESTAMP swig_types[17]
+#define SWIGTYPE_p_FIX__Acceptor swig_types[18]
+#define SWIGTYPE_p_FIX__AllocShares swig_types[19]
+#define SWIGTYPE_p_FIX__Application swig_types[20]
+#define SWIGTYPE_p_FIX__AvgPrxPrecision swig_types[21]
+#define SWIGTYPE_p_FIX__Benchmark swig_types[22]
+#define SWIGTYPE_p_FIX__BoolField swig_types[23]
+#define SWIGTYPE_p_FIX__BrokerOfCredit swig_types[24]
+#define SWIGTYPE_p_FIX__CardIssNo swig_types[25]
+#define SWIGTYPE_p_FIX__CashSettlAgentAcctName swig_types[26]
+#define SWIGTYPE_p_FIX__CashSettlAgentAcctNum swig_types[27]
+#define SWIGTYPE_p_FIX__CashSettlAgentCode swig_types[28]
+#define SWIGTYPE_p_FIX__CashSettlAgentContactName swig_types[29]
+#define SWIGTYPE_p_FIX__CashSettlAgentContactPhone swig_types[30]
+#define SWIGTYPE_p_FIX__CashSettlAgentName swig_types[31]
+#define SWIGTYPE_p_FIX__CharField swig_types[32]
+#define SWIGTYPE_p_FIX__CheckSumField swig_types[33]
+#define SWIGTYPE_p_FIX__ClearingAccount swig_types[34]
+#define SWIGTYPE_p_FIX__ClearingFirm swig_types[35]
+#define SWIGTYPE_p_FIX__ClientID swig_types[36]
+#define SWIGTYPE_p_FIX__ConfigError swig_types[37]
+#define SWIGTYPE_p_FIX__CustomerOrFirm swig_types[38]
+#define SWIGTYPE_p_FIX__CxlType swig_types[39]
+#define SWIGTYPE_p_FIX__DataDictionary swig_types[40]
+#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[41]
+#define SWIGTYPE_p_FIX__DlvyInst swig_types[42]
+#define SWIGTYPE_p_FIX__DoNotSend swig_types[43]
+#define SWIGTYPE_p_FIX__DoubleField swig_types[44]
+#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[45]
+#define SWIGTYPE_p_FIX__Exception swig_types[46]
+#define SWIGTYPE_p_FIX__ExecBroker swig_types[47]
+#define SWIGTYPE_p_FIX__ExecTransType swig_types[48]
+#define SWIGTYPE_p_FIX__FieldBase swig_types[49]
+#define SWIGTYPE_p_FIX__FieldConvertError swig_types[50]
+#define SWIGTYPE_p_FIX__FieldMap swig_types[51]
+#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[52]
+#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[53]
+#define SWIGTYPE_p_FIX__FieldNotFound swig_types[54]
+#define SWIGTYPE_p_FIX__FileLog swig_types[55]
+#define SWIGTYPE_p_FIX__FileLogFactory swig_types[56]
+#define SWIGTYPE_p_FIX__FileStore swig_types[57]
+#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[58]
+#define SWIGTYPE_p_FIX__FutSettDate swig_types[59]
+#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[60]
+#define SWIGTYPE_p_FIX__Group swig_types[61]
+#define SWIGTYPE_p_FIX__IDSource swig_types[62]
+#define SWIGTYPE_p_FIX__IOException swig_types[63]
+#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[64]
+#define SWIGTYPE_p_FIX__IOIShares swig_types[65]
+#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[66]
+#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[67]
+#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[68]
+#define SWIGTYPE_p_FIX__Initiator swig_types[69]
+#define SWIGTYPE_p_FIX__IntField swig_types[70]
+#define SWIGTYPE_p_FIX__InvalidMessage swig_types[71]
+#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[72]
+#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[73]
+#define SWIGTYPE_p_FIX__LastShares swig_types[74]
+#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[75]
+#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[76]
+#define SWIGTYPE_p_FIX__Log swig_types[77]
+#define SWIGTYPE_p_FIX__LogFactory swig_types[78]
+#define SWIGTYPE_p_FIX__MaturityDay swig_types[79]
+#define SWIGTYPE_p_FIX__MemoryStore swig_types[80]
+#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[81]
+#define SWIGTYPE_p_FIX__Message swig_types[82]
+#define SWIGTYPE_p_FIX__MessageParseError swig_types[83]
+#define SWIGTYPE_p_FIX__MessageStore swig_types[84]
+#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[85]
+#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[86]
+#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[87]
+#define SWIGTYPE_p_FIX__NoTagValue swig_types[88]
+#define SWIGTYPE_p_FIX__NullApplication swig_types[89]
+#define SWIGTYPE_p_FIX__OnBehalfOfSendingTime swig_types[90]
+#define SWIGTYPE_p_FIX__OpenClose swig_types[91]
+#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[92]
+#define SWIGTYPE_p_FIX__PegDifference swig_types[93]
+#define SWIGTYPE_p_FIX__PutOrCall swig_types[94]
+#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[95]
+#define SWIGTYPE_p_FIX__RatioQty swig_types[96]
+#define SWIGTYPE_p_FIX__RegistDetls swig_types[97]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[98]
+#define SWIGTYPE_p_FIX__RelatdSym swig_types[99]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[100]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[101]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[102]
+#define SWIGTYPE_p_FIX__Rule80A swig_types[103]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[104]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[105]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[106]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctName swig_types[107]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum swig_types[108]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentCode swig_types[109]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentContactName swig_types[110]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone swig_types[111]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentName swig_types[112]
+#define SWIGTYPE_p_FIX__Session swig_types[113]
+#define SWIGTYPE_p_FIX__SessionID swig_types[114]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[115]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[116]
+#define SWIGTYPE_p_FIX__SettlBrkrCode swig_types[117]
+#define SWIGTYPE_p_FIX__SettlDepositoryCode swig_types[118]
+#define SWIGTYPE_p_FIX__SettlInstCode swig_types[119]
+#define SWIGTYPE_p_FIX__SettlLocation swig_types[120]
+#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[121]
+#define SWIGTYPE_p_FIX__Shares swig_types[122]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[123]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[124]
+#define SWIGTYPE_p_FIX__SocketException swig_types[125]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[126]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[127]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[128]
+#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[129]
+#define SWIGTYPE_p_FIX__StringField swig_types[130]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[131]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[132]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[133]
+#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[134]
+#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[135]
+#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[136]
+#define SWIGTYPE_p_FIX__TotalVolumeTradedDate swig_types[137]
+#define SWIGTYPE_p_FIX__TotalVolumeTradedTime swig_types[138]
+#define SWIGTYPE_p_FIX__TradeType swig_types[139]
+#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[140]
+#define SWIGTYPE_p_FIX__UnderlyingMaturityDay swig_types[141]
+#define SWIGTYPE_p_FIX__UnderlyingPutOrCall swig_types[142]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[143]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[144]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[145]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[146]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[147]
+#define SWIGTYPE_p_Fields swig_types[148]
+#define SWIGTYPE_p_Group swig_types[149]
+#define SWIGTYPE_p_Groups swig_types[150]
+#define SWIGTYPE_p_IntArray swig_types[151]
+#define SWIGTYPE_p_IntField swig_types[152]
+#define SWIGTYPE_p_Log swig_types[153]
+#define SWIGTYPE_p_LogFactory swig_types[154]
+#define SWIGTYPE_p_MessageStore swig_types[155]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[156]
+#define SWIGTYPE_p_MsgType swig_types[157]
+#define SWIGTYPE_p_Mutex swig_types[158]
+#define SWIGTYPE_p_Responder swig_types[159]
+#define SWIGTYPE_p_SenderCompID swig_types[160]
+#define SWIGTYPE_p_SessionID swig_types[161]
+#define SWIGTYPE_p_SessionTime swig_types[162]
+#define SWIGTYPE_p_StringField swig_types[163]
+#define SWIGTYPE_p_TYPE__Type swig_types[164]
+#define SWIGTYPE_p_TargetCompID swig_types[165]
+#define SWIGTYPE_p_UtcDate swig_types[166]
+#define SWIGTYPE_p_UtcDateField swig_types[167]
+#define SWIGTYPE_p_UtcDateOnly swig_types[168]
+#define SWIGTYPE_p_UtcTimeOnly swig_types[169]
+#define SWIGTYPE_p_UtcTimeStamp swig_types[170]
+#define SWIGTYPE_p_bool swig_types[171]
+#define SWIGTYPE_p_char swig_types[172]
+#define SWIGTYPE_p_const_iterator swig_types[173]
+#define SWIGTYPE_p_double swig_types[174]
+#define SWIGTYPE_p_g_const_iterator swig_types[175]
+#define SWIGTYPE_p_g_iterator swig_types[176]
+#define SWIGTYPE_p_int swig_types[177]
+#define SWIGTYPE_p_iterator swig_types[178]
+#define SWIGTYPE_p_message_order swig_types[179]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[180]
+#define SWIGTYPE_p_std__exception swig_types[181]
+#define SWIGTYPE_p_std__istream swig_types[182]
+#define SWIGTYPE_p_std__ostream swig_types[183]
+#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[184]
+#define SWIGTYPE_p_std__string swig_types[185]
+#define SWIGTYPE_p_std__string__size_type swig_types[186]
+#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[187]
+static swig_type_info *swig_types[189];
+static swig_module_info swig_module = {swig_types, 188, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -2992,6 +2997,7 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include "../C++/SocketInitiator.h"
 #include "../C++/Acceptor.h"
 #include "../C++/SocketAcceptor.h"
+#include "../C++/DataDictionary.h"
 using namespace FIX;
 
 
@@ -60120,6 +60126,1698 @@ SWIGINTERN PyObject *SocketAcceptorBase_swigregister(PyObject *SWIGUNUSEDPARM(se
   return SWIG_Py_Void();
 }
 
+SWIGINTERN PyObject *_wrap_new_DataDictionary__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_DataDictionary")) SWIG_fail;
+  result = (FIX::DataDictionary *)new FIX::DataDictionary();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DataDictionary, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_DataDictionary__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = 0 ;
+  FIX::DataDictionary *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_DataDictionary",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_FIX__DataDictionary,  0  | 0);
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_DataDictionary" "', argument " "1"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_DataDictionary" "', argument " "1"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  result = (FIX::DataDictionary *)new FIX::DataDictionary((FIX::DataDictionary const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DataDictionary, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_DataDictionary__SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::istream *arg1 = 0 ;
+  FIX::DataDictionary *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_DataDictionary",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1, SWIGTYPE_p_std__istream,  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_DataDictionary" "', argument " "1"" of type '" "std::istream &""'"); 
+  }
+  if (!argp1) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_DataDictionary" "', argument " "1"" of type '" "std::istream &""'"); 
+  }
+  arg1 = reinterpret_cast< std::istream * >(argp1);
+  try {
+    result = (FIX::DataDictionary *)new FIX::DataDictionary(*arg1);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DataDictionary, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_DataDictionary__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  FIX::DataDictionary *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_DataDictionary",&obj0)) SWIG_fail;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(obj0, &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_DataDictionary" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_DataDictionary" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  try {
+    result = (FIX::DataDictionary *)new FIX::DataDictionary((std::string const &)*arg1);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DataDictionary, SWIG_POINTER_NEW |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_DataDictionary(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = PyObject_Length(args);
+  for (ii = 0; (ii < argc) && (ii < 1); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_DataDictionary__SWIG_0(self, args);
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_ConvertPtr(argv[0], 0, SWIGTYPE_p_FIX__DataDictionary, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_DataDictionary__SWIG_1(self, args);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_std__istream, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_DataDictionary__SWIG_2(self, args);
+    }
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_DataDictionary__SWIG_3(self, args);
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_DataDictionary'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_DataDictionary(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_DataDictionary",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_DataDictionary" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  delete arg1;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_readFromURL(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_readFromURL",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_readFromURL" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_readFromURL" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_readFromURL" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  try {
+    (arg1)->readFromURL((std::string const &)*arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_readFromDocument(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  DOMDocumentPtr arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_readFromDocument",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_readFromDocument" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_DOMDocumentPtr,  0  | 0);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_readFromDocument" "', argument " "2"" of type '" "DOMDocumentPtr""'"); 
+    }  
+    if (!argp2) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_readFromDocument" "', argument " "2"" of type '" "DOMDocumentPtr""'");
+    } else {
+      DOMDocumentPtr * temp = reinterpret_cast< DOMDocumentPtr * >(argp2);
+      arg2 = *temp;
+      if (SWIG_IsNewObj(res2)) delete temp;
+    }
+  }
+  try {
+    (arg1)->readFromDocument(arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_readFromStream(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::istream *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_readFromStream",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_readFromStream" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__istream,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_readFromStream" "', argument " "2"" of type '" "std::istream &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_readFromStream" "', argument " "2"" of type '" "std::istream &""'"); 
+  }
+  arg2 = reinterpret_cast< std::istream * >(argp2);
+  try {
+    (arg1)->readFromStream(*arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_getOrderedFields(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:DataDictionary_getOrderedFields",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_getOrderedFields" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  result = (int *)((FIX::DataDictionary const *)arg1)->getOrderedFields();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_int, 0 |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_setVersion(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_setVersion",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_setVersion" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_setVersion" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_setVersion" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  (arg1)->setVersion((std::string const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_getVersion(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:DataDictionary_getVersion",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_getVersion" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  result = ((FIX::DataDictionary const *)arg1)->getVersion();
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_addField",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addField" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_addField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  (arg1)->addField(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addFieldName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_addFieldName",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addFieldName" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_addFieldName" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_addFieldName" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addFieldName" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  (arg1)->addFieldName(arg2,(std::string const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_getFieldName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_getFieldName",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_getFieldName" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_getFieldName" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__string,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_getFieldName" "', argument " "3"" of type '" "std::string &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getFieldName" "', argument " "3"" of type '" "std::string &""'"); 
+  }
+  arg3 = reinterpret_cast< std::string * >(argp3);
+  result = (bool)((FIX::DataDictionary const *)arg1)->getFieldName(arg2,*arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_getFieldTag(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string arg2 ;
+  int *arg3 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_getFieldTag",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_getFieldTag" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    int res = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res) || !ptr) {
+      SWIG_exception_fail(SWIG_ArgError((ptr ? res : SWIG_TypeError)), "in method '" "DataDictionary_getFieldTag" "', argument " "2"" of type '" "std::string""'"); 
+    }
+    arg2 = *ptr;
+    if (SWIG_IsNewObj(res)) delete ptr;
+  }
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_getFieldTag" "', argument " "3"" of type '" "int &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getFieldTag" "', argument " "3"" of type '" "int &""'"); 
+  }
+  arg3 = reinterpret_cast< int * >(argp3);
+  result = (bool)((FIX::DataDictionary const *)arg1)->getFieldTag(arg2,*arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addValueName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  int res4 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:DataDictionary_addValueName",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addValueName" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_addValueName" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_addValueName" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addValueName" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res4 = SWIG_AsPtr_std_string(obj3, &ptr);
+    if (!SWIG_IsOK(res4)) {
+      SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "DataDictionary_addValueName" "', argument " "4"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addValueName" "', argument " "4"" of type '" "std::string const &""'"); 
+    }
+    arg4 = ptr;
+  }
+  (arg1)->addValueName(arg2,(std::string const &)*arg3,(std::string const &)*arg4);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  if (SWIG_IsNewObj(res4)) delete arg4;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_getValueName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  std::string *arg4 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOO:DataDictionary_getValueName",&obj0,&obj1,&obj2,&obj3)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_getValueName" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_getValueName" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_getValueName" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getValueName" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__string,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "DataDictionary_getValueName" "', argument " "4"" of type '" "std::string &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getValueName" "', argument " "4"" of type '" "std::string &""'"); 
+  }
+  arg4 = reinterpret_cast< std::string * >(argp4);
+  result = (bool)((FIX::DataDictionary const *)arg1)->getValueName(arg2,(std::string const &)*arg3,*arg4);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_isField",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_isField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isField(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addMsgType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_addMsgType",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addMsgType" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_addMsgType" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addMsgType" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  (arg1)->addMsgType((std::string const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isMsgType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_isMsgType",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isMsgType" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_isMsgType" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_isMsgType" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  result = (bool)((FIX::DataDictionary const *)arg1)->isMsgType((std::string const &)*arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addMsgField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_addMsgField",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addMsgField" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_addMsgField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addMsgField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_addMsgField" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  (arg1)->addMsgField((std::string const &)*arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isMsgField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_isMsgField",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isMsgField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_isMsgField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_isMsgField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_isMsgField" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isMsgField((std::string const &)*arg2,arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addHeaderField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_addHeaderField",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addHeaderField" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_addHeaderField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_bool(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_addHeaderField" "', argument " "3"" of type '" "bool""'");
+  } 
+  arg3 = static_cast< bool >(val3);
+  (arg1)->addHeaderField(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isHeaderField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_isHeaderField",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isHeaderField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_isHeaderField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isHeaderField(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addTrailerField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_addTrailerField",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addTrailerField" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_addTrailerField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  ecode3 = SWIG_AsVal_bool(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_addTrailerField" "', argument " "3"" of type '" "bool""'");
+  } 
+  arg3 = static_cast< bool >(val3);
+  (arg1)->addTrailerField(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isTrailerField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_isTrailerField",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isTrailerField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_isTrailerField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isTrailerField(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addFieldType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  TYPE::Type arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_addFieldType",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addFieldType" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_addFieldType" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_TYPE__Type,  0  | 0);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_addFieldType" "', argument " "3"" of type '" "TYPE::Type""'"); 
+    }  
+    if (!argp3) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addFieldType" "', argument " "3"" of type '" "TYPE::Type""'");
+    } else {
+      TYPE::Type * temp = reinterpret_cast< TYPE::Type * >(argp3);
+      arg3 = *temp;
+      if (SWIG_IsNewObj(res3)) delete temp;
+    }
+  }
+  (arg1)->addFieldType(arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_getFieldType(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  TYPE::Type *arg3 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  void *argp3 = 0 ;
+  int res3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_getFieldType",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_getFieldType" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_getFieldType" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_TYPE__Type,  0 );
+  if (!SWIG_IsOK(res3)) {
+    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_getFieldType" "', argument " "3"" of type '" "TYPE::Type &""'"); 
+  }
+  if (!argp3) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getFieldType" "', argument " "3"" of type '" "TYPE::Type &""'"); 
+  }
+  arg3 = reinterpret_cast< TYPE::Type * >(argp3);
+  result = (bool)((FIX::DataDictionary const *)arg1)->getFieldType(arg2,*arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addRequiredField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_addRequiredField",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addRequiredField" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_addRequiredField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addRequiredField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_addRequiredField" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  (arg1)->addRequiredField((std::string const &)*arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isRequiredField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_isRequiredField",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isRequiredField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_isRequiredField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_isRequiredField" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_isRequiredField" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isRequiredField((std::string const &)*arg2,arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addFieldValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_addFieldValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addFieldValue" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_addFieldValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_addFieldValue" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addFieldValue" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  (arg1)->addFieldValue(arg2,(std::string const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_hasFieldValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_hasFieldValue",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_hasFieldValue" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_hasFieldValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (bool)((FIX::DataDictionary const *)arg1)->hasFieldValue(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isFieldValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  std::string *arg3 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  int res3 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_isFieldValue",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isFieldValue" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_isFieldValue" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_isFieldValue" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_isFieldValue" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  result = (bool)((FIX::DataDictionary const *)arg1)->isFieldValue(arg2,(std::string const &)*arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_addGroup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  int arg4 ;
+  FIX::DataDictionary *arg5 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  int val4 ;
+  int ecode4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:DataDictionary_addGroup",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_addGroup" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_addGroup" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addGroup" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_addGroup" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  ecode4 = SWIG_AsVal_int(obj3, &val4);
+  if (!SWIG_IsOK(ecode4)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode4), "in method '" "DataDictionary_addGroup" "', argument " "4"" of type '" "int""'");
+  } 
+  arg4 = static_cast< int >(val4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_FIX__DataDictionary,  0  | 0);
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "DataDictionary_addGroup" "', argument " "5"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  if (!argp5) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_addGroup" "', argument " "5"" of type '" "FIX::DataDictionary const &""'"); 
+  }
+  arg5 = reinterpret_cast< FIX::DataDictionary * >(argp5);
+  (arg1)->addGroup((std::string const &)*arg2,arg3,arg4,(FIX::DataDictionary const &)*arg5);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isGroup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:DataDictionary_isGroup",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isGroup" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_isGroup" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_isGroup" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_isGroup" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isGroup((std::string const &)*arg2,arg3);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_getGroup(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  int *arg4 = 0 ;
+  FIX::DataDictionary **arg5 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  void *argp4 = 0 ;
+  int res4 = 0 ;
+  void *argp5 = 0 ;
+  int res5 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  PyObject * obj3 = 0 ;
+  PyObject * obj4 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOOOO:DataDictionary_getGroup",&obj0,&obj1,&obj2,&obj3,&obj4)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_getGroup" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_getGroup" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getGroup" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_getGroup" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_int,  0 );
+  if (!SWIG_IsOK(res4)) {
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "DataDictionary_getGroup" "', argument " "4"" of type '" "int &""'"); 
+  }
+  if (!argp4) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getGroup" "', argument " "4"" of type '" "int &""'"); 
+  }
+  arg4 = reinterpret_cast< int * >(argp4);
+  res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_p_FIX__DataDictionary,  0 );
+  if (!SWIG_IsOK(res5)) {
+    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "DataDictionary_getGroup" "', argument " "5"" of type '" "FIX::DataDictionary const *&""'"); 
+  }
+  if (!argp5) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getGroup" "', argument " "5"" of type '" "FIX::DataDictionary const *&""'"); 
+  }
+  arg5 = reinterpret_cast< FIX::DataDictionary ** >(argp5);
+  result = (bool)((FIX::DataDictionary const *)arg1)->getGroup((std::string const &)*arg2,arg3,*arg4,(FIX::DataDictionary const *&)*arg5);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isDataField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_isDataField",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isDataField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_isDataField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isDataField(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_isMultipleValueStringField(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  int arg2 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_isMultipleValueStringField",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_isMultipleValueStringField" "', argument " "1"" of type '" "FIX::DataDictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_int(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_isMultipleValueStringField" "', argument " "2"" of type '" "int""'");
+  } 
+  arg2 = static_cast< int >(val2);
+  result = (bool)((FIX::DataDictionary const *)arg1)->isMultipleValueStringField(arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_checkFieldsOutOfOrder(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_checkFieldsOutOfOrder",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_checkFieldsOutOfOrder" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_checkFieldsOutOfOrder" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  (arg1)->checkFieldsOutOfOrder(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_checkFieldsHaveValues(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_checkFieldsHaveValues",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_checkFieldsHaveValues" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_checkFieldsHaveValues" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  (arg1)->checkFieldsHaveValues(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_checkUserDefinedFields(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  bool arg2 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  bool val2 ;
+  int ecode2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_checkUserDefinedFields",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_checkUserDefinedFields" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  ecode2 = SWIG_AsVal_bool(obj1, &val2);
+  if (!SWIG_IsOK(ecode2)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_checkUserDefinedFields" "', argument " "2"" of type '" "bool""'");
+  } 
+  arg2 = static_cast< bool >(val2);
+  (arg1)->checkUserDefinedFields(arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_DataDictionary_validate(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
+  FIX::Message *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:DataDictionary_validate",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "DataDictionary_validate" "', argument " "1"" of type '" "FIX::DataDictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::DataDictionary * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_FIX__Message,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "DataDictionary_validate" "', argument " "2"" of type '" "FIX::Message const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_validate" "', argument " "2"" of type '" "FIX::Message const &""'"); 
+  }
+  arg2 = reinterpret_cast< FIX::Message * >(argp2);
+  try {
+    (arg1)->validate((FIX::Message const &)*arg2);
+  }
+  catch(std::exception &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new std::exception(static_cast< const std::exception& >(_e))),SWIGTYPE_p_std__exception,SWIG_POINTER_OWN), "std::exception", SWIGTYPE_p_std__exception); SWIG_fail;
+  }
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *DataDictionary_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O|swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_FIX__DataDictionary, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_IntArray", _wrap_new_IntArray, METH_VARARGS, NULL},
 	 { (char *)"delete_IntArray", _wrap_delete_IntArray, METH_VARARGS, NULL},
@@ -60829,6 +62527,46 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"new_SocketAcceptorBase", _wrap_new_SocketAcceptorBase, METH_VARARGS, NULL},
 	 { (char *)"delete_SocketAcceptorBase", _wrap_delete_SocketAcceptorBase, METH_VARARGS, NULL},
 	 { (char *)"SocketAcceptorBase_swigregister", SocketAcceptorBase_swigregister, METH_VARARGS, NULL},
+	 { (char *)"new_DataDictionary", _wrap_new_DataDictionary, METH_VARARGS, NULL},
+	 { (char *)"delete_DataDictionary", _wrap_delete_DataDictionary, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_readFromURL", _wrap_DataDictionary_readFromURL, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_readFromDocument", _wrap_DataDictionary_readFromDocument, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_readFromStream", _wrap_DataDictionary_readFromStream, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_getOrderedFields", _wrap_DataDictionary_getOrderedFields, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_setVersion", _wrap_DataDictionary_setVersion, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_getVersion", _wrap_DataDictionary_getVersion, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addField", _wrap_DataDictionary_addField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addFieldName", _wrap_DataDictionary_addFieldName, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_getFieldName", _wrap_DataDictionary_getFieldName, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_getFieldTag", _wrap_DataDictionary_getFieldTag, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addValueName", _wrap_DataDictionary_addValueName, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_getValueName", _wrap_DataDictionary_getValueName, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isField", _wrap_DataDictionary_isField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addMsgType", _wrap_DataDictionary_addMsgType, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isMsgType", _wrap_DataDictionary_isMsgType, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addMsgField", _wrap_DataDictionary_addMsgField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isMsgField", _wrap_DataDictionary_isMsgField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addHeaderField", _wrap_DataDictionary_addHeaderField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isHeaderField", _wrap_DataDictionary_isHeaderField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addTrailerField", _wrap_DataDictionary_addTrailerField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isTrailerField", _wrap_DataDictionary_isTrailerField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addFieldType", _wrap_DataDictionary_addFieldType, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_getFieldType", _wrap_DataDictionary_getFieldType, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addRequiredField", _wrap_DataDictionary_addRequiredField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isRequiredField", _wrap_DataDictionary_isRequiredField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addFieldValue", _wrap_DataDictionary_addFieldValue, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_hasFieldValue", _wrap_DataDictionary_hasFieldValue, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isFieldValue", _wrap_DataDictionary_isFieldValue, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_addGroup", _wrap_DataDictionary_addGroup, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isGroup", _wrap_DataDictionary_isGroup, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_getGroup", _wrap_DataDictionary_getGroup, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isDataField", _wrap_DataDictionary_isDataField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_isMultipleValueStringField", _wrap_DataDictionary_isMultipleValueStringField, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_checkFieldsOutOfOrder", _wrap_DataDictionary_checkFieldsOutOfOrder, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_checkFieldsHaveValues", _wrap_DataDictionary_checkFieldsHaveValues, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_checkUserDefinedFields", _wrap_DataDictionary_checkUserDefinedFields, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_validate", _wrap_DataDictionary_validate, METH_VARARGS, NULL},
+	 { (char *)"DataDictionary_swigregister", DataDictionary_swigregister, METH_VARARGS, NULL},
 	 { NULL, NULL, 0, NULL }
 };
 
@@ -61380,6 +63118,7 @@ static void *_p_FIX__OnBehalfOfSendingTimeTo_p_FIX__UtcTimeStampField(void *x) {
 }
 static swig_type_info _swigt__p_Application = {"_p_Application", "Application *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_BeginString = {"_p_BeginString", "BeginString *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_DOMDocumentPtr = {"_p_DOMDocumentPtr", "DOMDocumentPtr *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DataDictionary = {"_p_DataDictionary", "DataDictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Dictionaries = {"_p_Dictionaries", "Dictionaries *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Dictionary = {"_p_Dictionary", "Dictionary *", 0, 0, (void*)0, 0};
@@ -61417,6 +63156,7 @@ static swig_type_info _swigt__p_FIX__ClientID = {"_p_FIX__ClientID", "FIX::Clien
 static swig_type_info _swigt__p_FIX__ConfigError = {"_p_FIX__ConfigError", "FIX::ConfigError *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__CustomerOrFirm = {"_p_FIX__CustomerOrFirm", "FIX::CustomerOrFirm *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__CxlType = {"_p_FIX__CxlType", "FIX::CxlType *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__DataDictionary = {"_p_FIX__DataDictionary", "FIX::DataDictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DiscretionOffset = {"_p_FIX__DiscretionOffset", "FIX::DiscretionOffset *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DlvyInst = {"_p_FIX__DlvyInst", "FIX::DlvyInst *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DoNotSend = {"_p_FIX__DoNotSend", "FIX::DoNotSend *", 0, 0, (void*)0, 0};
@@ -61540,6 +63280,7 @@ static swig_type_info _swigt__p_SenderCompID = {"_p_SenderCompID", "SenderCompID
 static swig_type_info _swigt__p_SessionID = {"_p_SessionID", "SessionID *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_SessionTime = {"_p_SessionTime", "SessionTime *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_StringField = {"_p_StringField", "StringField *|CountryField *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_TYPE__Type = {"_p_TYPE__Type", "TYPE::Type *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_TargetCompID = {"_p_TargetCompID", "TargetCompID *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_UtcDate = {"_p_UtcDate", "UtcDate *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_UtcDateField = {"_p_UtcDateField", "UtcDateField *|UtcDateOnlyField *", 0, 0, (void*)0, 0};
@@ -61555,6 +63296,8 @@ static swig_type_info _swigt__p_g_iterator = {"_p_g_iterator", "g_iterator *", 0
 static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_iterator = {"_p_iterator", "iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_message_order = {"_p_message_order", "message_order *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_p_FIX__DataDictionary = {"_p_p_FIX__DataDictionary", "FIX::DataDictionary **", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_std__exception = {"_p_std__exception", "std::exception *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__istream = {"_p_std__istream", "std::istream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__ostream = {"_p_std__ostream", "std::ostream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__setTFIX__SessionID_t = {"_p_std__setTFIX__SessionID_t", "std::set<FIX::SessionID > *", 0, 0, (void*)0, 0};
@@ -61565,6 +63308,7 @@ static swig_type_info _swigt__p_std__vectorTstd__string_t = {"_p_std__vectorTstd
 static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Application,
   &_swigt__p_BeginString,
+  &_swigt__p_DOMDocumentPtr,
   &_swigt__p_DataDictionary,
   &_swigt__p_Dictionaries,
   &_swigt__p_Dictionary,
@@ -61602,6 +63346,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__ConfigError,
   &_swigt__p_FIX__CustomerOrFirm,
   &_swigt__p_FIX__CxlType,
+  &_swigt__p_FIX__DataDictionary,
   &_swigt__p_FIX__DiscretionOffset,
   &_swigt__p_FIX__DlvyInst,
   &_swigt__p_FIX__DoNotSend,
@@ -61725,6 +63470,7 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_SessionID,
   &_swigt__p_SessionTime,
   &_swigt__p_StringField,
+  &_swigt__p_TYPE__Type,
   &_swigt__p_TargetCompID,
   &_swigt__p_UtcDate,
   &_swigt__p_UtcDateField,
@@ -61740,6 +63486,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_int,
   &_swigt__p_iterator,
   &_swigt__p_message_order,
+  &_swigt__p_p_FIX__DataDictionary,
+  &_swigt__p_std__exception,
   &_swigt__p_std__istream,
   &_swigt__p_std__ostream,
   &_swigt__p_std__setTFIX__SessionID_t,
@@ -61750,6 +63498,7 @@ static swig_type_info *swig_type_initial[] = {
 
 static swig_cast_info _swigc__p_Application[] = {  {&_swigt__p_Application, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_BeginString[] = {  {&_swigt__p_BeginString, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_DOMDocumentPtr[] = {  {&_swigt__p_DOMDocumentPtr, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DataDictionary[] = {  {&_swigt__p_DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Dictionaries[] = {  {&_swigt__p_Dictionaries, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Dictionary[] = {  {&_swigt__p_Dictionary, 0, 0, 0},{0, 0, 0, 0}};
@@ -61787,6 +63536,7 @@ static swig_cast_info _swigc__p_FIX__ClientID[] = {  {&_swigt__p_FIX__ClientID, 
 static swig_cast_info _swigc__p_FIX__ConfigError[] = {  {&_swigt__p_FIX__ConfigError, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__CustomerOrFirm[] = {  {&_swigt__p_FIX__CustomerOrFirm, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__CxlType[] = {  {&_swigt__p_FIX__CxlType, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__DataDictionary[] = {  {&_swigt__p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DiscretionOffset[] = {  {&_swigt__p_FIX__DiscretionOffset, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DlvyInst[] = {  {&_swigt__p_FIX__DlvyInst, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DoNotSend[] = {  {&_swigt__p_FIX__DoNotSend, 0, 0, 0},{0, 0, 0, 0}};
@@ -61910,6 +63660,7 @@ static swig_cast_info _swigc__p_SenderCompID[] = {  {&_swigt__p_SenderCompID, 0,
 static swig_cast_info _swigc__p_SessionID[] = {  {&_swigt__p_SessionID, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_SessionTime[] = {  {&_swigt__p_SessionTime, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_StringField[] = {  {&_swigt__p_StringField, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_TYPE__Type[] = {  {&_swigt__p_TYPE__Type, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_TargetCompID[] = {  {&_swigt__p_TargetCompID, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_UtcDate[] = {  {&_swigt__p_UtcDate, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_UtcDateField[] = {  {&_swigt__p_UtcDateField, 0, 0, 0},{0, 0, 0, 0}};
@@ -61925,6 +63676,8 @@ static swig_cast_info _swigc__p_g_iterator[] = {  {&_swigt__p_g_iterator, 0, 0, 
 static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_IntArray, _p_IntArrayTo_p_int, 0, 0},  {&_swigt__p_int, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_iterator[] = {  {&_swigt__p_iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_message_order[] = {  {&_swigt__p_message_order, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_p_FIX__DataDictionary[] = {  {&_swigt__p_p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_std__exception[] = {  {&_swigt__p_std__exception, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__istream[] = {  {&_swigt__p_std__istream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__ostream[] = {  {&_swigt__p_std__ostream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__setTFIX__SessionID_t[] = {  {&_swigt__p_std__setTFIX__SessionID_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -61935,6 +63688,7 @@ static swig_cast_info _swigc__p_std__vectorTstd__string_t[] = {  {&_swigt__p_std
 static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Application,
   _swigc__p_BeginString,
+  _swigc__p_DOMDocumentPtr,
   _swigc__p_DataDictionary,
   _swigc__p_Dictionaries,
   _swigc__p_Dictionary,
@@ -61972,6 +63726,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__ConfigError,
   _swigc__p_FIX__CustomerOrFirm,
   _swigc__p_FIX__CxlType,
+  _swigc__p_FIX__DataDictionary,
   _swigc__p_FIX__DiscretionOffset,
   _swigc__p_FIX__DlvyInst,
   _swigc__p_FIX__DoNotSend,
@@ -62095,6 +63850,7 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_SessionID,
   _swigc__p_SessionTime,
   _swigc__p_StringField,
+  _swigc__p_TYPE__Type,
   _swigc__p_TargetCompID,
   _swigc__p_UtcDate,
   _swigc__p_UtcDateField,
@@ -62110,6 +63866,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_int,
   _swigc__p_iterator,
   _swigc__p_message_order,
+  _swigc__p_p_FIX__DataDictionary,
+  _swigc__p_std__exception,
   _swigc__p_std__istream,
   _swigc__p_std__ostream,
   _swigc__p_std__setTFIX__SessionID_t,

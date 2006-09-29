@@ -215,7 +215,6 @@ class InvalidTagNumber(Exception):
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.InvalidTagNumber_field_set
     __swig_getmethods__["field"] = _quickfix.InvalidTagNumber_field_get
-    if _newclass:field = property(_quickfix.InvalidTagNumber_field_get, _quickfix.InvalidTagNumber_field_set)
     __swig_destroy__ = _quickfix.delete_InvalidTagNumber
     __del__ = lambda self : None;
 InvalidTagNumber_swigregister = _quickfix.InvalidTagNumber_swigregister
@@ -235,7 +234,6 @@ class RequiredTagMissing(Exception):
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.RequiredTagMissing_field_set
     __swig_getmethods__["field"] = _quickfix.RequiredTagMissing_field_get
-    if _newclass:field = property(_quickfix.RequiredTagMissing_field_get, _quickfix.RequiredTagMissing_field_set)
     __swig_destroy__ = _quickfix.delete_RequiredTagMissing
     __del__ = lambda self : None;
 RequiredTagMissing_swigregister = _quickfix.RequiredTagMissing_swigregister
@@ -255,7 +253,6 @@ class TagNotDefinedForMessage(Exception):
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.TagNotDefinedForMessage_field_set
     __swig_getmethods__["field"] = _quickfix.TagNotDefinedForMessage_field_get
-    if _newclass:field = property(_quickfix.TagNotDefinedForMessage_field_get, _quickfix.TagNotDefinedForMessage_field_set)
     __swig_destroy__ = _quickfix.delete_TagNotDefinedForMessage
     __del__ = lambda self : None;
 TagNotDefinedForMessage_swigregister = _quickfix.TagNotDefinedForMessage_swigregister
@@ -456,7 +453,6 @@ class RepeatingGroupCountMismatch(Exception):
         except: self.this = this
     __swig_setmethods__["field"] = _quickfix.RepeatingGroupCountMismatch_field_set
     __swig_getmethods__["field"] = _quickfix.RepeatingGroupCountMismatch_field_get
-    if _newclass:field = property(_quickfix.RepeatingGroupCountMismatch_field_get, _quickfix.RepeatingGroupCountMismatch_field_set)
     __swig_destroy__ = _quickfix.delete_RepeatingGroupCountMismatch
     __del__ = lambda self : None;
 RepeatingGroupCountMismatch_swigregister = _quickfix.RepeatingGroupCountMismatch_swigregister
@@ -4389,6 +4385,58 @@ class SocketAcceptorBase(Acceptor):
     __del__ = lambda self : None;
 SocketAcceptorBase_swigregister = _quickfix.SocketAcceptorBase_swigregister
 SocketAcceptorBase_swigregister(SocketAcceptorBase)
+
+class DataDictionary(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, DataDictionary, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, DataDictionary, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_DataDictionary(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_DataDictionary
+    __del__ = lambda self : None;
+    def readFromURL(*args): return _quickfix.DataDictionary_readFromURL(*args)
+    def readFromDocument(*args): return _quickfix.DataDictionary_readFromDocument(*args)
+    def readFromStream(*args): return _quickfix.DataDictionary_readFromStream(*args)
+    def getOrderedFields(*args): return _quickfix.DataDictionary_getOrderedFields(*args)
+    def setVersion(*args): return _quickfix.DataDictionary_setVersion(*args)
+    def getVersion(*args): return _quickfix.DataDictionary_getVersion(*args)
+    def addField(*args): return _quickfix.DataDictionary_addField(*args)
+    def addFieldName(*args): return _quickfix.DataDictionary_addFieldName(*args)
+    def getFieldName(*args): return _quickfix.DataDictionary_getFieldName(*args)
+    def getFieldTag(*args): return _quickfix.DataDictionary_getFieldTag(*args)
+    def addValueName(*args): return _quickfix.DataDictionary_addValueName(*args)
+    def getValueName(*args): return _quickfix.DataDictionary_getValueName(*args)
+    def isField(*args): return _quickfix.DataDictionary_isField(*args)
+    def addMsgType(*args): return _quickfix.DataDictionary_addMsgType(*args)
+    def isMsgType(*args): return _quickfix.DataDictionary_isMsgType(*args)
+    def addMsgField(*args): return _quickfix.DataDictionary_addMsgField(*args)
+    def isMsgField(*args): return _quickfix.DataDictionary_isMsgField(*args)
+    def addHeaderField(*args): return _quickfix.DataDictionary_addHeaderField(*args)
+    def isHeaderField(*args): return _quickfix.DataDictionary_isHeaderField(*args)
+    def addTrailerField(*args): return _quickfix.DataDictionary_addTrailerField(*args)
+    def isTrailerField(*args): return _quickfix.DataDictionary_isTrailerField(*args)
+    def addFieldType(*args): return _quickfix.DataDictionary_addFieldType(*args)
+    def getFieldType(*args): return _quickfix.DataDictionary_getFieldType(*args)
+    def addRequiredField(*args): return _quickfix.DataDictionary_addRequiredField(*args)
+    def isRequiredField(*args): return _quickfix.DataDictionary_isRequiredField(*args)
+    def addFieldValue(*args): return _quickfix.DataDictionary_addFieldValue(*args)
+    def hasFieldValue(*args): return _quickfix.DataDictionary_hasFieldValue(*args)
+    def isFieldValue(*args): return _quickfix.DataDictionary_isFieldValue(*args)
+    def addGroup(*args): return _quickfix.DataDictionary_addGroup(*args)
+    def isGroup(*args): return _quickfix.DataDictionary_isGroup(*args)
+    def getGroup(*args): return _quickfix.DataDictionary_getGroup(*args)
+    def isDataField(*args): return _quickfix.DataDictionary_isDataField(*args)
+    def isMultipleValueStringField(*args): return _quickfix.DataDictionary_isMultipleValueStringField(*args)
+    def checkFieldsOutOfOrder(*args): return _quickfix.DataDictionary_checkFieldsOutOfOrder(*args)
+    def checkFieldsHaveValues(*args): return _quickfix.DataDictionary_checkFieldsHaveValues(*args)
+    def checkUserDefinedFields(*args): return _quickfix.DataDictionary_checkUserDefinedFields(*args)
+    def validate(*args): return _quickfix.DataDictionary_validate(*args)
+DataDictionary_swigregister = _quickfix.DataDictionary_swigregister
+DataDictionary_swigregister(DataDictionary)
 
 #ifdef SWIGPYTHON
 class SocketInitiator(SocketInitiatorBase):

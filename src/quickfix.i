@@ -36,6 +36,7 @@
 #include "../C++/SocketInitiator.h"
 #include "../C++/Acceptor.h"
 #include "../C++/SocketAcceptor.h"
+#include "../C++/DataDictionary.h"
 using namespace FIX;
 %}
 
@@ -401,6 +402,7 @@ def start(self):
 %include "../C++/SocketInitiator.h"
 %include "../C++/Acceptor.h"
 %include "../C++/SocketAcceptor.h"
+%include "../C++/DataDictionary.h"
 
 %pythoncode %{
 #ifdef SWIGPYTHON
