@@ -153,7 +153,7 @@ void HttpConnection::processRequest( const HttpMessage& request )
     { CENTER center(h); center.text();
       { A a(h); a.href("/").text("HOME"); }
       h << NBSP;
-      { A a(h); a.href(request.toString()).text("REFRESH"); }
+      { A a(h); a.href(request.toString()).text("RELOAD"); }
     }
     HR hr(h); hr.text();
   }
