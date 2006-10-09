@@ -46,10 +46,12 @@ class FieldBase
 {
   friend class Message;
 public:
-  FieldBase( int field, const std::string& string, bool doCalculate = true )
+  FieldBase( int field, const std::string& string )
     : m_field( field ), m_string(string), m_length( 0 ), m_total( 0 ),
       m_calculated( false )
   {}
+
+  virtual ~FieldBase() {}
 
   void setField( int field )
   {
@@ -154,9 +156,9 @@ public:
 
   void setValue( const std::string& value )
     { setString( value ); }
-  const std::string getValue() const
+  const std::string& getValue() const
     { return getString(); }
-  operator const std::string() const
+  operator const std::string&() const
     { return getString(); }
 
   bool operator<( const StringField& rhs ) const
@@ -259,12 +261,12 @@ public:
 
   void setValue( char value )
     { setString( CharConvertor::convert( value ) ); }
-  const char getValue() const throw ( IncorrectDataFormat )
+  char getValue() const throw ( IncorrectDataFormat )
     { try
       { return CharConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField(), getString() ); } }
-  operator const char() const
+  operator char() const
     { return getValue(); }
 };
 
@@ -279,12 +281,12 @@ public:
 
   void setValue( double value, int padding = 0 )
     { setString( DoubleConvertor::convert( value, padding ) ); }
-  const double getValue() const throw ( IncorrectDataFormat )
+  double getValue() const throw ( IncorrectDataFormat )
     { try
       { return DoubleConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField(), getString() ); } }
-  operator const double() const
+  operator double() const
     { return getValue(); }
 };
 
@@ -299,12 +301,12 @@ public:
 
   void setValue( int value )
     { setString( IntConvertor::convert( value ) ); }
-  const int getValue() const throw ( IncorrectDataFormat )
+  int getValue() const throw ( IncorrectDataFormat )
     { try
       { return IntConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField(), getString() ); } }
-  operator const int() const
+  operator int() const
     { return getValue(); }
 };
 
@@ -319,12 +321,12 @@ public:
 
   void setValue( bool value )
     { setString( BoolConvertor::convert( value ) ); }
-  const bool getValue() const throw ( IncorrectDataFormat )
+  bool getValue() const throw ( IncorrectDataFormat )
     { try
       { return BoolConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField(), getString() ); } }
-  operator const bool() const
+  operator bool() const
     { return getValue(); }
 };
 
@@ -420,12 +422,12 @@ public:
 
   void setValue( int value )
     { setString( CheckSumConvertor::convert( value ) ); }
-  const int getValue() const throw ( IncorrectDataFormat )
+  int getValue() const throw ( IncorrectDataFormat )
     { try
       { return CheckSumConvertor::convert( getString() ); }
       catch( FieldConvertError& )
       { throw IncorrectDataFormat( getField(), getString() ); } }
-  operator const int() const
+  operator int() const
     { return getValue(); }
 };
 

@@ -83,6 +83,8 @@ struct DateTime
     m_time = makeHMS( hour, minute, second, millis );
   }
 
+  virtual ~DateTime() {}
+
   /// Return the year portion of the date
   inline int getYear() const 
   {
