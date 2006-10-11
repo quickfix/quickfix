@@ -608,6 +608,8 @@ class FieldBase(_object):
         this = _quickfix.new_FieldBase(*args)
         try: self.this.append(this)
         except: self.this = this
+    __swig_destroy__ = _quickfix.delete_FieldBase
+    __del__ = lambda self : None;
     def setField(*args): return _quickfix.FieldBase_setField(*args)
     def setString(*args): return _quickfix.FieldBase_setString(*args)
     def getField(*args): return _quickfix.FieldBase_getField(*args)
@@ -617,8 +619,6 @@ class FieldBase(_object):
     def getTotal(*args): return _quickfix.FieldBase_getTotal(*args)
     def __lt__(*args): return _quickfix.FieldBase___lt__(*args)
     def __str__(*args): return _quickfix.FieldBase___str__(*args)
-    __swig_destroy__ = _quickfix.delete_FieldBase
-    __del__ = lambda self : None;
 FieldBase_swigregister = _quickfix.FieldBase_swigregister
 FieldBase_swigregister(FieldBase)
 

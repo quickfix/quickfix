@@ -2037,26 +2037,6 @@ SWIGINTERN std::string FIX_Exception___str__(FIX::Exception *self){
     return self->what();
   }
 
-SWIGINTERN int
-SWIG_AsVal_bool (VALUE obj, bool *val)
-{
-  if (obj == Qtrue) {
-    if (val) *val = true;
-    return SWIG_OK;
-  } else if (obj == Qfalse) {
-    if (val) *val = false;
-    return SWIG_OK;
-  } else {
-    int res = 0;
-    if (SWIG_AsVal_int (obj, &res) == SWIG_OK) {    
-      if (val) *val = res ? true : false;
-      return SWIG_OK;
-    }
-  }  
-  return SWIG_TypeError;
-}
-
-
 SWIGINTERNINLINE VALUE
 SWIG_From_bool  (bool value)
 {
@@ -2150,6 +2130,26 @@ SWIG_AsVal_double (VALUE obj, double *val)
 
 
   #define SWIG_From_double   rb_float_new 
+
+
+SWIGINTERN int
+SWIG_AsVal_bool (VALUE obj, bool *val)
+{
+  if (obj == Qtrue) {
+    if (val) *val = true;
+    return SWIG_OK;
+  } else if (obj == Qfalse) {
+    if (val) *val = false;
+    return SWIG_OK;
+  } else {
+    int res = 0;
+    if (SWIG_AsVal_int (obj, &res) == SWIG_OK) {    
+      if (val) *val = res ? true : false;
+      return SWIG_OK;
+    }
+  }  
+  return SWIG_TypeError;
+}
 
 
 SWIGINTERN int
@@ -7490,53 +7490,6 @@ free_FIX_SocketCloseFailed(FIX::SocketCloseFailed *arg1) {
 
 swig_class cFieldBase;
 
-SWIGINTERN VALUE
-_wrap_new_FieldBase__SWIG_0(int argc, VALUE *argv, VALUE self) {
-  int arg1 ;
-  std::string *arg2 = 0 ;
-  bool arg3 ;
-  FIX::FieldBase *result = 0 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  bool val3 ;
-  int ecode3 = 0 ;
-  const char *classname SWIGUNUSED = "Quickfix::FieldBase";
-  
-  if ((argc < 3) || (argc > 3)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
-  }
-  ecode1 = SWIG_AsVal_int(argv[0], &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "FIX::FieldBase" "', argument " "1"" of type '" "int""'");
-  } 
-  arg1 = static_cast< int >(val1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[1], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::FieldBase" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::FieldBase" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  ecode3 = SWIG_AsVal_bool(argv[2], &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "FIX::FieldBase" "', argument " "3"" of type '" "bool""'");
-  } 
-  arg3 = static_cast< bool >(val3);
-  result = (FIX::FieldBase *)new FIX::FieldBase(arg1,(std::string const &)*arg2,arg3);DATA_PTR(self) = result;
-  
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return self;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
 #ifdef HAVE_RB_DEFINE_ALLOC_FUNC
 SWIGINTERN VALUE
 _wrap_FieldBase_allocate(VALUE self) {
@@ -7555,7 +7508,7 @@ _wrap_FieldBase_allocate(VALUE self) {
   
 
 SWIGINTERN VALUE
-_wrap_new_FieldBase__SWIG_1(int argc, VALUE *argv, VALUE self) {
+_wrap_new_FieldBase(int argc, VALUE *argv, VALUE self) {
   int arg1 ;
   std::string *arg2 = 0 ;
   FIX::FieldBase *result = 0 ;
@@ -7593,56 +7546,10 @@ fail:
 }
 
 
-SWIGINTERN VALUE _wrap_new_FieldBase(int nargs, VALUE *args, VALUE self) {
-  int argc;
-  VALUE argv[3];
-  int ii;
-  
-  argc = nargs;
-  if (argc > 3) SWIG_fail;
-  for (ii = 0; (ii < argc); ii++) {
-    argv[ii] = args[ii];
-  }
-  if (argc == 2) {
-    int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_new_FieldBase__SWIG_1(nargs, args, self);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        {
-          int res = SWIG_AsVal_bool(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_new_FieldBase__SWIG_0(nargs, args, self);
-        }
-      }
-    }
-  }
-  
-fail:
-  rb_raise(rb_eArgError, "No matching function for overloaded 'new_FieldBase'");
-  return Qnil;
+SWIGINTERN void
+free_FIX_FieldBase(FIX::FieldBase *arg1) {
+    delete arg1;
 }
-
 
 SWIGINTERN VALUE
 _wrap_FieldBase_setField(int argc, VALUE *argv, VALUE self) {
@@ -7894,11 +7801,6 @@ fail:
 }
 
 
-SWIGINTERN void
-free_FIX_FieldBase(FIX::FieldBase *arg1) {
-    delete arg1;
-}
-
 SWIGINTERN VALUE
 _wrap___lshift____SWIG_0(int argc, VALUE *argv, VALUE self) {
   std::ostream *arg1 = 0 ;
@@ -8102,7 +8004,7 @@ fail:
 SWIGINTERN VALUE
 _wrap_StringField_getValue(int argc, VALUE *argv, VALUE self) {
   FIX::StringField *arg1 = (FIX::StringField *) 0 ;
-  std::string result;
+  std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   VALUE vresult = Qnil;
@@ -8115,8 +8017,11 @@ _wrap_StringField_getValue(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getValue" "', argument " "1"" of type '" "FIX::StringField const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::StringField * >(argp1);
-  result = ((FIX::StringField const *)arg1)->getValue();
-  vresult = SWIG_From_std_string(static_cast< std::string >(result));
+  {
+    std::string const &_result_ref = ((FIX::StringField const *)arg1)->getValue();
+    result = (std::string *) &_result_ref;
+  }
+  vresult = SWIG_From_std_string(static_cast< std::string >(*result));
   return vresult;
 fail:
   return Qnil;

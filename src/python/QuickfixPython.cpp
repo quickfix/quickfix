@@ -3124,24 +3124,6 @@ SWIGINTERN std::string FIX_Exception___str__(FIX::Exception *self){
     return self->what();
   }
 
-SWIGINTERN int
-SWIG_AsVal_bool (PyObject *obj, bool *val)
-{
-  if (obj == Py_True) {
-    if (val) *val = true;
-    return SWIG_OK;
-  } else if (obj == Py_False) {
-    if (val) *val = false;
-    return SWIG_OK;
-  } else {
-    long v = 0;
-    int res = SWIG_AddCast(SWIG_AsVal_long (obj, val ? &v : 0));
-    if (SWIG_IsOK(res) && val) *val = v ? true : false;
-    return res;
-  }
-}
-
-
 SWIGINTERNINLINE PyObject*
   SWIG_From_bool  (bool value)
 {
@@ -3206,6 +3188,24 @@ SWIG_From_char  (char c)
 
 
   #define SWIG_From_double   PyFloat_FromDouble 
+
+
+SWIGINTERN int
+SWIG_AsVal_bool (PyObject *obj, bool *val)
+{
+  if (obj == Py_True) {
+    if (val) *val = true;
+    return SWIG_OK;
+  } else if (obj == Py_False) {
+    if (val) *val = false;
+    return SWIG_OK;
+  } else {
+    long v = 0;
+    int res = SWIG_AddCast(SWIG_AsVal_long (obj, val ? &v : 0));
+    if (SWIG_IsOK(res) && val) *val = v ? true : false;
+    return res;
+  }
+}
 
 
 SWIGINTERN int
@@ -7886,54 +7886,7 @@ SWIGINTERN PyObject *SocketCloseFailed_swigregister(PyObject *SWIGUNUSEDPARM(sel
   return SWIG_Py_Void();
 }
 
-SWIGINTERN PyObject *_wrap_new_FieldBase__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  int arg1 ;
-  std::string *arg2 = 0 ;
-  bool arg3 ;
-  FIX::FieldBase *result = 0 ;
-  int val1 ;
-  int ecode1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  bool val3 ;
-  int ecode3 = 0 ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  PyObject * obj2 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OOO:new_FieldBase",&obj0,&obj1,&obj2)) SWIG_fail;
-  ecode1 = SWIG_AsVal_int(obj0, &val1);
-  if (!SWIG_IsOK(ecode1)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode1), "in method '" "new_FieldBase" "', argument " "1"" of type '" "int""'");
-  } 
-  arg1 = static_cast< int >(val1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_FieldBase" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_FieldBase" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  ecode3 = SWIG_AsVal_bool(obj2, &val3);
-  if (!SWIG_IsOK(ecode3)) {
-    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_FieldBase" "', argument " "3"" of type '" "bool""'");
-  } 
-  arg3 = static_cast< bool >(val3);
-  result = (FIX::FieldBase *)new FIX::FieldBase(arg1,(std::string const &)*arg2,arg3);
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, SWIG_POINTER_NEW |  0 );
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_new_FieldBase__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_new_FieldBase(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   int arg1 ;
   std::string *arg2 = 0 ;
@@ -7971,53 +7924,24 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_new_FieldBase(PyObject *self, PyObject *args) {
-  int argc;
-  PyObject *argv[4];
-  int ii;
+SWIGINTERN PyObject *_wrap_delete_FieldBase(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::FieldBase *arg1 = (FIX::FieldBase *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
   
-  if (!PyTuple_Check(args)) SWIG_fail;
-  argc = PyObject_Length(args);
-  for (ii = 0; (ii < argc) && (ii < 3); ii++) {
-    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_FieldBase",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__FieldBase, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_FieldBase" "', argument " "1"" of type '" "FIX::FieldBase *""'"); 
   }
-  if (argc == 2) {
-    int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        return _wrap_new_FieldBase__SWIG_1(self, args);
-      }
-    }
-  }
-  if (argc == 3) {
-    int _v;
-    {
-      int res = SWIG_AsVal_int(argv[0], NULL);
-      _v = SWIG_CheckState(res);
-    }
-    if (_v) {
-      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
-      _v = SWIG_CheckState(res);
-      if (_v) {
-        {
-          int res = SWIG_AsVal_bool(argv[2], NULL);
-          _v = SWIG_CheckState(res);
-        }
-        if (_v) {
-          return _wrap_new_FieldBase__SWIG_0(self, args);
-        }
-      }
-    }
-  }
+  arg1 = reinterpret_cast< FIX::FieldBase * >(argp1);
+  delete arg1;
   
+  resultobj = SWIG_Py_Void();
+  return resultobj;
 fail:
-  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_FieldBase'");
   return NULL;
 }
 
@@ -8261,28 +8185,6 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_delete_FieldBase(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::FieldBase *arg1 = (FIX::FieldBase *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:delete_FieldBase",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__FieldBase, SWIG_POINTER_DISOWN |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_FieldBase" "', argument " "1"" of type '" "FIX::FieldBase *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::FieldBase * >(argp1);
-  delete arg1;
-  
-  resultobj = SWIG_Py_Void();
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
 SWIGINTERN PyObject *FieldBase_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *obj;
   if (!PyArg_ParseTuple(args,(char*)"O|swigregister", &obj)) return NULL;
@@ -8471,7 +8373,7 @@ fail:
 SWIGINTERN PyObject *_wrap_StringField_getValue(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   FIX::StringField *arg1 = (FIX::StringField *) 0 ;
-  std::string result;
+  std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -8482,8 +8384,11 @@ SWIGINTERN PyObject *_wrap_StringField_getValue(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "StringField_getValue" "', argument " "1"" of type '" "FIX::StringField const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::StringField * >(argp1);
-  result = ((FIX::StringField const *)arg1)->getValue();
-  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  {
+    std::string const &_result_ref = ((FIX::StringField const *)arg1)->getValue();
+    result = (std::string *) &_result_ref;
+  }
+  resultobj = SWIG_From_std_string(static_cast< std::string >(*result));
   return resultobj;
 fail:
   return NULL;
@@ -61942,6 +61847,7 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"delete_SocketCloseFailed", _wrap_delete_SocketCloseFailed, METH_VARARGS, NULL},
 	 { (char *)"SocketCloseFailed_swigregister", SocketCloseFailed_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_FieldBase", _wrap_new_FieldBase, METH_VARARGS, NULL},
+	 { (char *)"delete_FieldBase", _wrap_delete_FieldBase, METH_VARARGS, NULL},
 	 { (char *)"FieldBase_setField", _wrap_FieldBase_setField, METH_VARARGS, NULL},
 	 { (char *)"FieldBase_setString", _wrap_FieldBase_setString, METH_VARARGS, NULL},
 	 { (char *)"FieldBase_getField", _wrap_FieldBase_getField, METH_VARARGS, NULL},
@@ -61951,7 +61857,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"FieldBase_getTotal", _wrap_FieldBase_getTotal, METH_VARARGS, NULL},
 	 { (char *)"FieldBase___lt__", _wrap_FieldBase___lt__, METH_VARARGS, NULL},
 	 { (char *)"FieldBase___str__", _wrap_FieldBase___str__, METH_VARARGS, NULL},
-	 { (char *)"delete_FieldBase", _wrap_delete_FieldBase, METH_VARARGS, NULL},
 	 { (char *)"FieldBase_swigregister", FieldBase_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_StringField", _wrap_new_StringField, METH_VARARGS, NULL},
 	 { (char *)"StringField_setValue", _wrap_StringField_setValue, METH_VARARGS, NULL},
