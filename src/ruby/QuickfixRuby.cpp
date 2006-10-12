@@ -15551,8 +15551,7 @@ _wrap_Message_hasValidStructure(int argc, VALUE *argv, VALUE self) {
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  int temp2 ;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -15563,16 +15562,18 @@ _wrap_Message_hasValidStructure(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "hasValidStructure" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_int,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "hasValidStructure" "', argument " "2"" of type '" "int &""'"); 
+  {
+    temp2 = NUM2INT(argv[0]);
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "hasValidStructure" "', argument " "2"" of type '" "int &""'"); 
-  }
-  arg2 = reinterpret_cast< int * >(argp2);
   result = (bool)((FIX::Message const *)arg1)->hasValidStructure(*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("int &") == "int &" )
+    {
+      vresult = SWIG_From_int(static_cast< int >(*arg2));
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -51592,15 +51593,14 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_DataDictionary_getFieldTag(int argc, VALUE *argv, VALUE self) {
+_wrap_DataDictionary__getFieldTag(int argc, VALUE *argv, VALUE self) {
   FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
   std::string arg2 ;
   int *arg3 = 0 ;
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  int temp3 ;
   VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
@@ -51620,16 +51620,18 @@ _wrap_DataDictionary_getFieldTag(int argc, VALUE *argv, VALUE self) {
     arg2 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
   }
-  res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_int,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "getFieldTag" "', argument " "3"" of type '" "int &""'"); 
+  {
+    temp3 = NUM2INT(argv[1]);
+    arg3 = &temp3;
   }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "getFieldTag" "', argument " "3"" of type '" "int &""'"); 
-  }
-  arg3 = reinterpret_cast< int * >(argp3);
   result = (bool)((FIX::DataDictionary const *)arg1)->getFieldTag(arg2,*arg3);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("int &") == "int &" )
+    {
+      vresult = SWIG_From_int(static_cast< int >(*arg3));
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -52611,8 +52613,7 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
   int res2 = SWIG_OLDOBJ ;
   int val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  int temp4 ;
   void *argp5 = 0 ;
   int res5 = 0 ;
   VALUE vresult = Qnil;
@@ -52641,14 +52642,10 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "getGroup" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
-  res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_int,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "getGroup" "', argument " "4"" of type '" "int &""'"); 
+  {
+    temp4 = NUM2INT(argv[2]);
+    arg4 = &temp4;
   }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "getGroup" "', argument " "4"" of type '" "int &""'"); 
-  }
-  arg4 = reinterpret_cast< int * >(argp4);
   res5 = SWIG_ConvertPtr(argv[3], &argp5, SWIGTYPE_p_p_FIX__DataDictionary,  0 );
   if (!SWIG_IsOK(res5)) {
     SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "getGroup" "', argument " "5"" of type '" "FIX::DataDictionary const *&""'"); 
@@ -52664,6 +52661,12 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
     {
       rb_str_resize( argv[0], 0 );
       rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("int &") == "int &" )
+    {
+      vresult = SWIG_From_int(static_cast< int >(*arg4));
     }
   }
   if (SWIG_IsNewObj(res2)) delete arg2;
@@ -57591,7 +57594,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cDataDictionary.klass, "addField", VALUEFUNC(_wrap_DataDictionary_addField), -1);
   rb_define_method(cDataDictionary.klass, "addFieldName", VALUEFUNC(_wrap_DataDictionary_addFieldName), -1);
   rb_define_method(cDataDictionary.klass, "_getFieldName", VALUEFUNC(_wrap_DataDictionary__getFieldName), -1);
-  rb_define_method(cDataDictionary.klass, "getFieldTag", VALUEFUNC(_wrap_DataDictionary_getFieldTag), -1);
+  rb_define_method(cDataDictionary.klass, "_getFieldTag", VALUEFUNC(_wrap_DataDictionary__getFieldTag), -1);
   rb_define_method(cDataDictionary.klass, "addValueName", VALUEFUNC(_wrap_DataDictionary_addValueName), -1);
   rb_define_method(cDataDictionary.klass, "_getValueName", VALUEFUNC(_wrap_DataDictionary__getValueName), -1);
   rb_define_method(cDataDictionary.klass, "isField", VALUEFUNC(_wrap_DataDictionary_isField), -1);

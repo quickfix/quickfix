@@ -20,6 +20,11 @@ module Quickfix
 				return nil
 			end
 		end
+
+		def getFieldTag( field )
+			tag = 0
+			return  _getFieldTag(field, tag)
+		end
 	end
 
 	class Initiator

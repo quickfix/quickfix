@@ -17,6 +17,7 @@
 #ifdef SWIGRUBY
 %rename(_getFieldName) FIX::DataDictionary::getFieldName;
 %rename(_getValueName) FIX::DataDictionary::getValueName;
+%rename(_getFieldTag) FIX::DataDictionary::getFieldTag;
 #endif
 
 %{
@@ -106,6 +107,19 @@ using namespace FIX;
     rb_str_append( $input, rb_str_new2($1->c_str()) );
   }
 }
+
+%typemap(in) int& (int temp) {
+  temp = NUM2INT($input);
+  $1 = &temp;
+}
+
+%typemap(argout) int& {
+  if( std::string("$1_type") == "int &" )
+  {
+    vresult = SWIG_From_int(static_cast< int >(*$1));
+  }
+}
+
 #endif
 
 %init %{
