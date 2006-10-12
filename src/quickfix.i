@@ -116,7 +116,7 @@ using namespace FIX;
 %typemap(argout) int& {
   if( std::string("$1_type") == "int &" )
   {
-    vresult = SWIG_From_int(static_cast< int >(*$1));
+    vresult = result ? SWIG_From_int(static_cast< int >(*$1)) : Qnil;
   }
 }
 
