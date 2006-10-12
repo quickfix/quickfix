@@ -3436,6 +3436,20 @@ _wrap_new_Exception(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::Exception *)new FIX::Exception((std::string const &)*arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
@@ -3458,6 +3472,7 @@ _wrap_Exception_type_set(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -3480,8 +3495,15 @@ _wrap_Exception_type_set(int argc, VALUE *argv, VALUE self) {
   }
   if (arg1) (arg1)->type = *arg2;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -3522,6 +3544,7 @@ _wrap_Exception_detail_set(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -3544,8 +3567,15 @@ _wrap_Exception_detail_set(int argc, VALUE *argv, VALUE self) {
   }
   if (arg1) (arg1)->detail = *arg2;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -3636,6 +3666,13 @@ _wrap_new_FieldNotFound__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::FieldNotFound *)new FIX::FieldNotFound(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -3829,6 +3866,13 @@ _wrap_new_FieldConvertError__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::FieldConvertError *)new FIX::FieldConvertError((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -3928,6 +3972,13 @@ _wrap_new_MessageParseError__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::MessageParseError *)new FIX::MessageParseError((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -4027,6 +4078,13 @@ _wrap_new_InvalidMessage__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::InvalidMessage *)new FIX::InvalidMessage((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -4126,6 +4184,13 @@ _wrap_new_ConfigError__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::ConfigError *)new FIX::ConfigError((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -4225,6 +4290,13 @@ _wrap_new_RuntimeError__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::RuntimeError *)new FIX::RuntimeError((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -4332,6 +4404,13 @@ _wrap_new_InvalidTagNumber__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::InvalidTagNumber *)new FIX::InvalidTagNumber(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -4533,6 +4612,13 @@ _wrap_new_RequiredTagMissing__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::RequiredTagMissing *)new FIX::RequiredTagMissing(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -4734,6 +4820,13 @@ _wrap_new_TagNotDefinedForMessage__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::TagNotDefinedForMessage *)new FIX::TagNotDefinedForMessage(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -4935,6 +5028,13 @@ _wrap_new_NoTagValue__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::NoTagValue *)new FIX::NoTagValue(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -5136,6 +5236,13 @@ _wrap_new_IncorrectTagValue__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::IncorrectTagValue *)new FIX::IncorrectTagValue(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -5337,6 +5444,13 @@ _wrap_new_IncorrectDataFormat__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::IncorrectDataFormat *)new FIX::IncorrectDataFormat(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -5530,6 +5644,13 @@ _wrap_new_IncorrectMessageStructure__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::IncorrectMessageStructure *)new FIX::IncorrectMessageStructure((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -5629,6 +5750,13 @@ _wrap_new_DuplicateFieldNumber__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::DuplicateFieldNumber *)new FIX::DuplicateFieldNumber((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -5728,6 +5856,13 @@ _wrap_new_InvalidMessageType__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::InvalidMessageType *)new FIX::InvalidMessageType((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -5827,6 +5962,13 @@ _wrap_new_UnsupportedMessageType__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::UnsupportedMessageType *)new FIX::UnsupportedMessageType((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -5926,6 +6068,13 @@ _wrap_new_UnsupportedVersion__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::UnsupportedVersion *)new FIX::UnsupportedVersion((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -6033,6 +6182,13 @@ _wrap_new_TagOutOfOrder__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::TagOutOfOrder *)new FIX::TagOutOfOrder(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -6234,6 +6390,13 @@ _wrap_new_RepeatedTag__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::RepeatedTag *)new FIX::RepeatedTag(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -6435,6 +6598,13 @@ _wrap_new_RepeatingGroupCountMismatch__SWIG_0(int argc, VALUE *argv, VALUE self)
   }
   result = (FIX::RepeatingGroupCountMismatch *)new FIX::RepeatingGroupCountMismatch(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -6628,6 +6798,13 @@ _wrap_new_DoNotSend__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::DoNotSend *)new FIX::DoNotSend((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -6727,6 +6904,13 @@ _wrap_new_RejectLogon__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::RejectLogon *)new FIX::RejectLogon((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -6826,6 +7010,13 @@ _wrap_new_SessionNotFound__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SessionNotFound *)new FIX::SessionNotFound((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -6925,6 +7116,13 @@ _wrap_new_IOException__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::IOException *)new FIX::IOException((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -7057,6 +7255,13 @@ _wrap_new_SocketException__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SocketException *)new FIX::SocketException((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -7234,6 +7439,13 @@ _wrap_new_SocketSendFailed__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SocketSendFailed *)new FIX::SocketSendFailed((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -7341,6 +7553,13 @@ _wrap_new_SocketRecvFailed__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SocketRecvFailed *)new FIX::SocketRecvFailed((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -7447,6 +7666,13 @@ _wrap_new_SocketCloseFailed__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SocketCloseFailed *)new FIX::SocketCloseFailed((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -7538,6 +7764,13 @@ _wrap_new_FieldBase(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::FieldBase *)new FIX::FieldBase(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -7587,6 +7820,7 @@ _wrap_FieldBase_setString(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -7608,8 +7842,15 @@ _wrap_FieldBase_setString(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   (arg1)->setString((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -7875,6 +8116,13 @@ _wrap_new_StringField__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::StringField *)new FIX::StringField(arg1,(std::string const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return self;
 fail:
@@ -7972,6 +8220,7 @@ _wrap_StringField_setValue(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -7993,8 +8242,15 @@ _wrap_StringField_setValue(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   (arg1)->setValue((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -8622,6 +8878,13 @@ _wrap___lt____SWIG_2(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)FIX::operator <((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -8664,6 +8927,13 @@ _wrap___lt____SWIG_3(int argc, VALUE *argv, VALUE self) {
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator <((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -8706,6 +8976,13 @@ _wrap___gt____SWIG_2(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)FIX::operator >((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -8748,6 +9025,13 @@ _wrap___gt____SWIG_3(int argc, VALUE *argv, VALUE self) {
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator >((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -8859,6 +9143,13 @@ _wrap___eq____SWIG_2(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)FIX::operator ==((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -8901,6 +9192,13 @@ _wrap___eq____SWIG_3(int argc, VALUE *argv, VALUE self) {
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator ==((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -8943,6 +9241,13 @@ _wrap___le____SWIG_2(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)FIX::operator <=((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -8985,6 +9290,13 @@ _wrap___le____SWIG_3(int argc, VALUE *argv, VALUE self) {
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator <=((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -9096,6 +9408,13 @@ _wrap___ge____SWIG_2(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)FIX::operator >=((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -9138,6 +9457,13 @@ _wrap___ge____SWIG_3(int argc, VALUE *argv, VALUE self) {
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator >=((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -11532,6 +11858,7 @@ _wrap_FieldMap_setField__SWIG_2(int argc, VALUE *argv, VALUE self) {
   int val2 ;
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
@@ -11567,8 +11894,15 @@ _wrap_FieldMap_setField__SWIG_2(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__NoTagValue, SWIG_NewPointerObj((new FIX::NoTagValue(static_cast< const FIX::NoTagValue& >(_e))),SWIGTYPE_p_FIX__NoTagValue,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res3)) delete arg3;
   return Qnil;
@@ -12615,8 +12949,7 @@ _wrap_FieldMap_calculateString__SWIG_0(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   bool val3 ;
   int ecode3 = 0 ;
   VALUE vresult = Qnil;
@@ -12629,14 +12962,10 @@ _wrap_FieldMap_calculateString__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "calculateString" "', argument " "1"" of type '" "FIX::FieldMap const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::FieldMap * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "calculateString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "calculateString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_bool(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "calculateString" "', argument " "3"" of type '" "bool""'");
@@ -12647,6 +12976,13 @@ _wrap_FieldMap_calculateString__SWIG_0(int argc, VALUE *argv, VALUE self) {
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -12660,8 +12996,7 @@ _wrap_FieldMap_calculateString__SWIG_1(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -12672,19 +13007,22 @@ _wrap_FieldMap_calculateString__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "calculateString" "', argument " "1"" of type '" "FIX::FieldMap const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::FieldMap * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "calculateString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "calculateString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::FieldMap const *)arg1)->calculateString(*arg2);
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -13234,6 +13572,13 @@ _wrap_new_Message__SWIG_1(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -13270,6 +13615,13 @@ _wrap_new_Message__SWIG_2(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -13325,6 +13677,13 @@ _wrap_new_Message__SWIG_3(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -13372,6 +13731,13 @@ _wrap_new_Message__SWIG_4(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -13530,6 +13896,13 @@ _wrap_Message_InitializeXML(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)FIX::Message::InitializeXML((std::string const &)*arg1);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -14070,8 +14443,7 @@ _wrap_Message_toString__SWIG_4(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   int val3 ;
   int ecode3 = 0 ;
   int val4 ;
@@ -14088,14 +14460,10 @@ _wrap_Message_toString__SWIG_4(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "toString" "', argument " "3"" of type '" "int""'");
@@ -14116,6 +14484,13 @@ _wrap_Message_toString__SWIG_4(int argc, VALUE *argv, VALUE self) {
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -14131,8 +14506,7 @@ _wrap_Message_toString__SWIG_5(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   int val3 ;
   int ecode3 = 0 ;
   int val4 ;
@@ -14147,14 +14521,10 @@ _wrap_Message_toString__SWIG_5(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "toString" "', argument " "3"" of type '" "int""'");
@@ -14170,6 +14540,13 @@ _wrap_Message_toString__SWIG_5(int argc, VALUE *argv, VALUE self) {
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -14184,8 +14561,7 @@ _wrap_Message_toString__SWIG_6(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   int val3 ;
   int ecode3 = 0 ;
   VALUE vresult = Qnil;
@@ -14198,14 +14574,10 @@ _wrap_Message_toString__SWIG_6(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_int(argv[1], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "toString" "', argument " "3"" of type '" "int""'");
@@ -14216,6 +14588,13 @@ _wrap_Message_toString__SWIG_6(int argc, VALUE *argv, VALUE self) {
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -14229,8 +14608,7 @@ _wrap_Message_toString__SWIG_7(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -14241,19 +14619,22 @@ _wrap_Message_toString__SWIG_7(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::Message const *)arg1)->toString(*arg2);
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -14473,8 +14854,7 @@ _wrap_Message_toXML__SWIG_1(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -14485,19 +14865,22 @@ _wrap_Message_toXML__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "toXML" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "toXML" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "toXML" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::Message const *)arg1)->toXML(*arg2);
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -14590,6 +14973,7 @@ _wrap_Message_setString__SWIG_0(int argc, VALUE *argv, VALUE self) {
   int ecode3 = 0 ;
   void *argp4 = 0 ;
   int res4 = 0 ;
+  VALUE vresult = Qnil;
   
   if ((argc < 3) || (argc > 3)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
@@ -14627,8 +15011,15 @@ _wrap_Message_setString__SWIG_0(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -14645,6 +15036,7 @@ _wrap_Message_setString__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int res2 = SWIG_OLDOBJ ;
   bool val3 ;
   int ecode3 = 0 ;
+  VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
@@ -14677,8 +15069,15 @@ _wrap_Message_setString__SWIG_1(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -14692,6 +15091,7 @@ _wrap_Message_setString__SWIG_2(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -14719,8 +15119,15 @@ _wrap_Message_setString__SWIG_2(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -14822,6 +15229,7 @@ _wrap_Message_setGroup(int argc, VALUE *argv, VALUE self) {
   int res6 = 0 ;
   void *argp7 ;
   int res7 = 0 ;
+  VALUE vresult = Qnil;
   
   if ((argc < 6) || (argc > 6)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 6)",argc); SWIG_fail;
@@ -14886,9 +15294,23 @@ _wrap_Message_setGroup(int argc, VALUE *argv, VALUE self) {
   }
   arg7 = reinterpret_cast< DataDictionary * >(argp7);
   (arg1)->setGroup((std::string const &)*arg2,(FIX::FieldBase const &)*arg3,(std::string const &)*arg4,*arg5,*arg6,(DataDictionary const &)*arg7);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res4)) delete arg4;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res4)) delete arg4;
@@ -14927,6 +15349,13 @@ _wrap_Message_setStringHeader(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)(arg1)->setStringHeader((std::string const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -15911,6 +16340,13 @@ _wrap_Message_getSessionID__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   
   vresult = SWIG_NewPointerObj((new SessionID(static_cast< const SessionID& >(result))), SWIGTYPE_p_SessionID, SWIG_POINTER_OWN |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -16120,6 +16556,13 @@ _wrap_identifyType(int argc, VALUE *argv, VALUE self) {
   }
   
   vresult = SWIG_NewPointerObj((new MsgType(static_cast< const MsgType& >(result))), SWIGTYPE_p_MsgType, SWIG_POINTER_OWN |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -38613,6 +39056,13 @@ _wrap_new_SessionID__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SessionID *)new FIX::SessionID((BeginString const &)*arg1,(SenderCompID const &)*arg2,(TargetCompID const &)*arg3,(std::string const &)*arg4);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res4)) delete arg4;
   return self;
 fail:
@@ -38732,6 +39182,34 @@ _wrap_new_SessionID__SWIG_3(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SessionID *)new FIX::SessionID((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
@@ -38812,6 +39290,27 @@ _wrap_new_SessionID__SWIG_4(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::SessionID *)new FIX::SessionID((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
@@ -39061,6 +39560,7 @@ _wrap_SessionID_fromString(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -39082,8 +39582,15 @@ _wrap_SessionID_fromString(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   (arg1)->fromString((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -39097,8 +39604,7 @@ _wrap_SessionID_toString__SWIG_1(int argc, VALUE *argv, VALUE self) {
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
@@ -39109,19 +39615,22 @@ _wrap_SessionID_toString__SWIG_1(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "toString" "', argument " "1"" of type '" "FIX::SessionID const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
-  res2 = SWIG_ConvertPtr(argv[0], &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)STR2CSTR(argv[0]));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::SessionID const *)arg1)->toString(*arg2);
     result = (std::string *) &_result_ref;
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -40271,6 +40780,13 @@ _wrap_new_SessionSettings__SWIG_2(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__ConfigError, SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -41002,6 +41518,7 @@ _wrap_Session_logout__SWIG_0(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -41023,8 +41540,15 @@ _wrap_Session_logout__SWIG_0(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   (arg1)->logout((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -41462,6 +41986,13 @@ _wrap_Session_sendToTarget__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -41609,6 +42140,13 @@ _wrap_Session_sendToTarget__SWIG_3(int argc, VALUE *argv, VALUE self) {
   }
   
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res4)) delete arg4;
   return vresult;
 fail:
@@ -41738,6 +42276,27 @@ _wrap_Session_sendToTarget__SWIG_5(int argc, VALUE *argv, VALUE self) {
   }
   
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[3], 0 );
+      rb_str_append( argv[3], rb_str_new2(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
@@ -41803,6 +42362,20 @@ _wrap_Session_sendToTarget__SWIG_6(int argc, VALUE *argv, VALUE self) {
   }
   
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   return vresult;
@@ -42047,6 +42620,13 @@ _wrap_Session_lookupSession__SWIG_1(int argc, VALUE *argv, VALUE self) {
   arg2 = static_cast< bool >(val2);
   result = (FIX::Session *)FIX::Session::lookupSession((std::string const &)*arg1,arg2);
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Session, 0 |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -42078,6 +42658,13 @@ _wrap_Session_lookupSession__SWIG_2(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::Session *)FIX::Session::lookupSession((std::string const &)*arg1);
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Session, 0 |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return vresult;
 fail:
@@ -43031,6 +43618,7 @@ _wrap_Session_next__SWIG_1(int argc, VALUE *argv, VALUE self) {
   int res2 = SWIG_OLDOBJ ;
   bool val3 ;
   int ecode3 = 0 ;
+  VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
@@ -43057,8 +43645,15 @@ _wrap_Session_next__SWIG_1(int argc, VALUE *argv, VALUE self) {
   } 
   arg3 = static_cast< bool >(val3);
   (arg1)->next((std::string const &)*arg2,arg3);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -43072,6 +43667,7 @@ _wrap_Session_next__SWIG_2(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -43093,8 +43689,15 @@ _wrap_Session_next__SWIG_2(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   (arg1)->next((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -43898,6 +44501,7 @@ _wrap_Log_onIncoming(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -43927,8 +44531,15 @@ _wrap_Log_onIncoming(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -43943,6 +44554,7 @@ _wrap_Log_onOutgoing(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -43972,8 +44584,15 @@ _wrap_Log_onOutgoing(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -43988,6 +44607,7 @@ _wrap_Log_onEvent(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -44017,8 +44637,15 @@ _wrap_Log_onEvent(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -44239,6 +44866,7 @@ _wrap_ScreenLog_onIncoming(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -44268,8 +44896,15 @@ _wrap_ScreenLog_onIncoming(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -44284,6 +44919,7 @@ _wrap_ScreenLog_onOutgoing(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -44313,8 +44949,15 @@ _wrap_ScreenLog_onOutgoing(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -44329,6 +44972,7 @@ _wrap_ScreenLog_onEvent(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -44358,8 +45002,15 @@ _wrap_ScreenLog_onEvent(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -44440,6 +45091,13 @@ _wrap_new_FileLogFactory__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::FileLogFactory *)new FIX::FileLogFactory((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -44674,6 +45332,13 @@ _wrap_new_FileLog__SWIG_0(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::FileLog *)new FIX::FileLog((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -44733,6 +45398,13 @@ _wrap_new_FileLog__SWIG_1(int argc, VALUE *argv, VALUE self) {
   arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
   result = (FIX::FileLog *)new FIX::FileLog((std::string const &)*arg1,(FIX::SessionID const &)*arg2);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -44822,6 +45494,7 @@ _wrap_FileLog_onIncoming(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -44851,8 +45524,15 @@ _wrap_FileLog_onIncoming(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -44867,6 +45547,7 @@ _wrap_FileLog_onOutgoing(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -44896,8 +45577,15 @@ _wrap_FileLog_onOutgoing(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -44912,6 +45600,7 @@ _wrap_FileLog_onEvent(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -44941,8 +45630,15 @@ _wrap_FileLog_onEvent(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -45227,6 +45923,13 @@ _wrap_MessageStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_fail;
   }
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return vresult;
 fail:
@@ -45736,6 +46439,13 @@ _wrap_MemoryStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_fail;
   }
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return vresult;
 fail:
@@ -46442,6 +47152,13 @@ _wrap_MessageStoreExceptionWrapper_set(int argc, VALUE *argv, VALUE self) {
   arg5 = reinterpret_cast< FIX::IOException * >(argp5);
   result = (bool)(arg1)->set(arg2,(std::string const &)*arg3,*arg4,*arg5);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return vresult;
 fail:
@@ -47001,6 +47718,13 @@ _wrap_new_FileStoreFactory__SWIG_1(int argc, VALUE *argv, VALUE self) {
   }
   result = (FIX::FileStoreFactory *)new FIX::FileStoreFactory((std::string const &)*arg1);DATA_PTR(self) = result;
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -47248,6 +47972,13 @@ _wrap_FileStore_set(int argc, VALUE *argv, VALUE self) {
     SWIG_fail;
   }
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return vresult;
 fail:
@@ -49133,6 +49864,7 @@ _wrap_Initiator_onEvent(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -49162,8 +49894,15 @@ _wrap_Initiator_onEvent(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -49178,6 +49917,7 @@ _wrap_Initiator_onIncoming(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -49207,8 +49947,15 @@ _wrap_Initiator_onIncoming(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -49223,6 +49970,7 @@ _wrap_Initiator_onOutgoing(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -49252,8 +50000,15 @@ _wrap_Initiator_onOutgoing(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -49751,6 +50506,13 @@ _wrap_Acceptor_getSession(int argc, VALUE *argv, VALUE self) {
   arg3 = reinterpret_cast< Responder * >(argp3);
   result = (FIX::Session *)(arg1)->getSession((std::string const &)*arg2,*arg3);
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Session, 0 |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -49910,6 +50672,7 @@ _wrap_Acceptor_onEvent(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -49939,8 +50702,15 @@ _wrap_Acceptor_onEvent(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -49955,6 +50725,7 @@ _wrap_Acceptor_onIncoming(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -49984,8 +50755,15 @@ _wrap_Acceptor_onIncoming(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -50000,6 +50778,7 @@ _wrap_Acceptor_onOutgoing(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
   Swig::Director *director = 0;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -50029,8 +50808,15 @@ _wrap_Acceptor_onOutgoing(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(e.getError());
     SWIG_fail;
   }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -50392,6 +51178,13 @@ _wrap_new_DataDictionary__SWIG_3(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__ConfigError, SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return self;
 fail:
@@ -50458,6 +51251,7 @@ _wrap_DataDictionary_readFromURL(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -50485,8 +51279,15 @@ _wrap_DataDictionary_readFromURL(int argc, VALUE *argv, VALUE self) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__ConfigError, SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -50603,6 +51404,7 @@ _wrap_DataDictionary_setVersion(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -50624,8 +51426,15 @@ _wrap_DataDictionary_setVersion(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   (arg1)->setVersion((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -50695,6 +51504,7 @@ _wrap_DataDictionary_addFieldName(int argc, VALUE *argv, VALUE self) {
   int val2 ;
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
@@ -50721,8 +51531,15 @@ _wrap_DataDictionary_addFieldName(int argc, VALUE *argv, VALUE self) {
     arg3 = ptr;
   }
   (arg1)->addFieldName(arg2,(std::string const &)*arg3);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res3)) delete arg3;
   return Qnil;
@@ -50739,8 +51556,7 @@ _wrap_DataDictionary_getFieldName(int argc, VALUE *argv, VALUE self) {
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  std::string temp3 ;
   VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
@@ -50756,16 +51572,19 @@ _wrap_DataDictionary_getFieldName(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "getFieldName" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  res3 = SWIG_ConvertPtr(argv[1], &argp3, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "getFieldName" "', argument " "3"" of type '" "std::string &""'"); 
+  {
+    temp3 = std::string((char*)STR2CSTR(argv[1]));
+    arg3 = &temp3;
   }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "getFieldName" "', argument " "3"" of type '" "std::string &""'"); 
-  }
-  arg3 = reinterpret_cast< std::string * >(argp3);
   result = (bool)((FIX::DataDictionary const *)arg1)->getFieldName(arg2,*arg3);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   return vresult;
 fail:
   return Qnil;
@@ -50829,6 +51648,7 @@ _wrap_DataDictionary_addValueName(int argc, VALUE *argv, VALUE self) {
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
   int res4 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 3) || (argc > 3)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 3)",argc); SWIG_fail;
@@ -50866,9 +51686,23 @@ _wrap_DataDictionary_addValueName(int argc, VALUE *argv, VALUE self) {
     arg4 = ptr;
   }
   (arg1)->addValueName(arg2,(std::string const &)*arg3,(std::string const &)*arg4);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
@@ -50888,8 +51722,7 @@ _wrap_DataDictionary_getValueName(int argc, VALUE *argv, VALUE self) {
   int val2 ;
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  std::string temp4 ;
   VALUE vresult = Qnil;
   
   if ((argc < 3) || (argc > 3)) {
@@ -50916,16 +51749,26 @@ _wrap_DataDictionary_getValueName(int argc, VALUE *argv, VALUE self) {
     }
     arg3 = ptr;
   }
-  res4 = SWIG_ConvertPtr(argv[2], &argp4, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "getValueName" "', argument " "4"" of type '" "std::string &""'"); 
+  {
+    temp4 = std::string((char*)STR2CSTR(argv[2]));
+    arg4 = &temp4;
   }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "getValueName" "', argument " "4"" of type '" "std::string &""'"); 
-  }
-  arg4 = reinterpret_cast< std::string * >(argp4);
   result = (bool)((FIX::DataDictionary const *)arg1)->getValueName(arg2,(std::string const &)*arg3,*arg4);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      rb_str_resize( argv[2], 0 );
+      rb_str_append( argv[2], rb_str_new2(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return vresult;
 fail:
@@ -50973,6 +51816,7 @@ _wrap_DataDictionary_addMsgType(int argc, VALUE *argv, VALUE self) {
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 1) || (argc > 1)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
@@ -50994,8 +51838,15 @@ _wrap_DataDictionary_addMsgType(int argc, VALUE *argv, VALUE self) {
     arg2 = ptr;
   }
   (arg1)->addMsgType((std::string const &)*arg2);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -51033,6 +51884,13 @@ _wrap_DataDictionary_isMsgType(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)((FIX::DataDictionary const *)arg1)->isMsgType((std::string const &)*arg2);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -51051,6 +51909,7 @@ _wrap_DataDictionary_addMsgField(int argc, VALUE *argv, VALUE self) {
   int res2 = SWIG_OLDOBJ ;
   int val3 ;
   int ecode3 = 0 ;
+  VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
@@ -51077,8 +51936,15 @@ _wrap_DataDictionary_addMsgField(int argc, VALUE *argv, VALUE self) {
   } 
   arg3 = static_cast< int >(val3);
   (arg1)->addMsgField((std::string const &)*arg2,arg3);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -51124,6 +51990,13 @@ _wrap_DataDictionary_isMsgField(int argc, VALUE *argv, VALUE self) {
   arg3 = static_cast< int >(val3);
   result = (bool)((FIX::DataDictionary const *)arg1)->isMsgField((std::string const &)*arg2,arg3);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -51366,6 +52239,7 @@ _wrap_DataDictionary_addRequiredField(int argc, VALUE *argv, VALUE self) {
   int res2 = SWIG_OLDOBJ ;
   int val3 ;
   int ecode3 = 0 ;
+  VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
@@ -51392,8 +52266,15 @@ _wrap_DataDictionary_addRequiredField(int argc, VALUE *argv, VALUE self) {
   } 
   arg3 = static_cast< int >(val3);
   (arg1)->addRequiredField((std::string const &)*arg2,arg3);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -51439,6 +52320,13 @@ _wrap_DataDictionary_isRequiredField(int argc, VALUE *argv, VALUE self) {
   arg3 = static_cast< int >(val3);
   result = (bool)((FIX::DataDictionary const *)arg1)->isRequiredField((std::string const &)*arg2,arg3);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -51457,6 +52345,7 @@ _wrap_DataDictionary_addFieldValue(int argc, VALUE *argv, VALUE self) {
   int val2 ;
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
+  VALUE vresult = Qnil;
   
   if ((argc < 2) || (argc > 2)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
@@ -51483,8 +52372,15 @@ _wrap_DataDictionary_addFieldValue(int argc, VALUE *argv, VALUE self) {
     arg3 = ptr;
   }
   (arg1)->addFieldValue(arg2,(std::string const &)*arg3);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res3)) delete arg3;
   return Qnil;
@@ -51562,6 +52458,13 @@ _wrap_DataDictionary_isFieldValue(int argc, VALUE *argv, VALUE self) {
   }
   result = (bool)((FIX::DataDictionary const *)arg1)->isFieldValue(arg2,(std::string const &)*arg3);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[1], 0 );
+      rb_str_append( argv[1], rb_str_new2(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return vresult;
 fail:
@@ -51586,6 +52489,7 @@ _wrap_DataDictionary_addGroup(int argc, VALUE *argv, VALUE self) {
   int ecode4 = 0 ;
   void *argp5 ;
   int res5 = 0 ;
+  VALUE vresult = Qnil;
   
   if ((argc < 4) || (argc > 4)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 4)",argc); SWIG_fail;
@@ -51625,8 +52529,15 @@ _wrap_DataDictionary_addGroup(int argc, VALUE *argv, VALUE self) {
   }
   arg5 = reinterpret_cast< FIX::DataDictionary * >(argp5);
   (arg1)->addGroup((std::string const &)*arg2,arg3,arg4,(FIX::DataDictionary const &)*arg5);
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
+  return vresult;
 fail:
   if (SWIG_IsNewObj(res2)) delete arg2;
   return Qnil;
@@ -51672,6 +52583,13 @@ _wrap_DataDictionary_isGroup(int argc, VALUE *argv, VALUE self) {
   arg3 = static_cast< int >(val3);
   result = (bool)((FIX::DataDictionary const *)arg1)->isGroup((std::string const &)*arg2,arg3);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:
@@ -51741,6 +52659,13 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
   arg5 = reinterpret_cast< FIX::DataDictionary ** >(argp5);
   result = (bool)((FIX::DataDictionary const *)arg1)->getGroup((std::string const &)*arg2,arg3,*arg4,(FIX::DataDictionary const *&)*arg5);
   vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
 fail:

@@ -88,6 +88,21 @@ using namespace FIX;
 
 %exceptionclass FIX::Exception;
 
+#ifdef SWIGRUBY
+%typemap(in) std::string& (std::string temp) {
+  temp = std::string((char*)STR2CSTR($input));
+  $1 = &temp;
+}
+
+%typemap(argout) std::string& {
+  if( std::string("$1_type") == "std::string &" )
+  {
+    rb_str_resize( $input, 0 );
+    rb_str_append( $input, rb_str_new2($1->c_str()) );
+  }
+}
+#endif
+
 %init %{
 #ifndef _MSC_VER
       struct sigaction new_action, old_action;

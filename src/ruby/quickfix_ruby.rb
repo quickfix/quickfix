@@ -1,4 +1,5 @@
 require 'quickfix'
+require 'quickfix_fields'
 
 module Quickfix
 	class Initiator
