@@ -2,6 +2,26 @@ require 'quickfix'
 require 'quickfix_fields'
 
 module Quickfix
+	class DataDictionary
+		def getFieldName( field )
+			name = String.new
+			if( _getFieldName(field, name) )
+				return name
+			else
+				return nil
+			end
+		end
+
+		def getValueName( field, value )
+			name = String.new
+			if( _getValueName(field, value, name) )
+				return name
+			else
+				return nil
+			end
+		end
+	end
+
 	class Initiator
 		def start
 			Thread.new { block() }

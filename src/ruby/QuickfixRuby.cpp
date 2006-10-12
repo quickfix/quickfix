@@ -51547,7 +51547,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_DataDictionary_getFieldName(int argc, VALUE *argv, VALUE self) {
+_wrap_DataDictionary__getFieldName(int argc, VALUE *argv, VALUE self) {
   FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
   int arg2 ;
   std::string *arg3 = 0 ;
@@ -51711,7 +51711,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_DataDictionary_getValueName(int argc, VALUE *argv, VALUE self) {
+_wrap_DataDictionary__getValueName(int argc, VALUE *argv, VALUE self) {
   FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
   int arg2 ;
   std::string *arg3 = 0 ;
@@ -57590,10 +57590,10 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cDataDictionary.klass, "getVersion", VALUEFUNC(_wrap_DataDictionary_getVersion), -1);
   rb_define_method(cDataDictionary.klass, "addField", VALUEFUNC(_wrap_DataDictionary_addField), -1);
   rb_define_method(cDataDictionary.klass, "addFieldName", VALUEFUNC(_wrap_DataDictionary_addFieldName), -1);
-  rb_define_method(cDataDictionary.klass, "getFieldName", VALUEFUNC(_wrap_DataDictionary_getFieldName), -1);
+  rb_define_method(cDataDictionary.klass, "_getFieldName", VALUEFUNC(_wrap_DataDictionary__getFieldName), -1);
   rb_define_method(cDataDictionary.klass, "getFieldTag", VALUEFUNC(_wrap_DataDictionary_getFieldTag), -1);
   rb_define_method(cDataDictionary.klass, "addValueName", VALUEFUNC(_wrap_DataDictionary_addValueName), -1);
-  rb_define_method(cDataDictionary.klass, "getValueName", VALUEFUNC(_wrap_DataDictionary_getValueName), -1);
+  rb_define_method(cDataDictionary.klass, "_getValueName", VALUEFUNC(_wrap_DataDictionary__getValueName), -1);
   rb_define_method(cDataDictionary.klass, "isField", VALUEFUNC(_wrap_DataDictionary_isField), -1);
   rb_define_method(cDataDictionary.klass, "addMsgType", VALUEFUNC(_wrap_DataDictionary_addMsgType), -1);
   rb_define_method(cDataDictionary.klass, "isMsgType", VALUEFUNC(_wrap_DataDictionary_isMsgType), -1);

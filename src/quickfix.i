@@ -14,6 +14,11 @@
 %rename(SocketInitiatorBase) FIX::SocketInitiator;
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
 
+#ifdef SWIGRUBY
+%rename(_getFieldName) FIX::DataDictionary::getFieldName;
+%rename(_getValueName) FIX::DataDictionary::getValueName;
+#endif
+
 %{
 #include <config.h>
 #include "../C++/Exceptions.h"
