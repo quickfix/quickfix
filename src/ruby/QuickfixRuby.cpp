@@ -15571,7 +15571,7 @@ _wrap_Message_hasValidStructure(int argc, VALUE *argv, VALUE self) {
   {
     if( std::string("int &") == "int &" )
     {
-      vresult = SWIG_From_int(static_cast< int >(*arg2));
+      vresult = result ? SWIG_From_int(static_cast< int >(*arg2)) : Qnil;
     }
   }
   return vresult;
@@ -51629,7 +51629,7 @@ _wrap_DataDictionary__getFieldTag(int argc, VALUE *argv, VALUE self) {
   {
     if( std::string("int &") == "int &" )
     {
-      vresult = SWIG_From_int(static_cast< int >(*arg3));
+      vresult = result ? SWIG_From_int(static_cast< int >(*arg3)) : Qnil;
     }
   }
   return vresult;
@@ -52666,7 +52666,7 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
   {
     if( std::string("int &") == "int &" )
     {
-      vresult = SWIG_From_int(static_cast< int >(*arg4));
+      vresult = result ? SWIG_From_int(static_cast< int >(*arg4)) : Qnil;
     }
   }
   if (SWIG_IsNewObj(res2)) delete arg2;
