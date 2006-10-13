@@ -133,6 +133,13 @@ class GeneratorRuby
   def fields(name, number, type)
     @f.puts tabs + "class #{name} < Quickfix::#{fieldType(type)}Field"
     @depth += 1
+    @f.puts tabs + "def #{name}.field"
+    @depth += 1
+    @f.puts tabs + "return #{number}"
+    @depth -= 1
+    @f.puts tabs + "end"
+    @depth -= 1
+    @depth += 1
     @f.puts tabs + "def initialize(data = nil)"
     @depth += 1
     @f.puts tabs + "if( data == nil )"

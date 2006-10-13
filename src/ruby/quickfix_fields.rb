@@ -1,5 +1,8 @@
 module Quickfix
 	class Account < Quickfix::StringField
+		def Account.field
+			return 1
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(1)
@@ -10,6 +13,9 @@ module Quickfix
 	end
 
 	class AdvId < Quickfix::StringField
+		def AdvId.field
+			return 2
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(2)
@@ -20,6 +26,9 @@ module Quickfix
 	end
 
 	class AdvRefID < Quickfix::StringField
+		def AdvRefID.field
+			return 3
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(3)
@@ -30,6 +39,9 @@ module Quickfix
 	end
 
 	class AdvSide < Quickfix::CharField
+		def AdvSide.field
+			return 4
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(4)
@@ -40,6 +52,9 @@ module Quickfix
 	end
 
 	class AdvTransType < Quickfix::StringField
+		def AdvTransType.field
+			return 5
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(5)
@@ -50,6 +65,9 @@ module Quickfix
 	end
 
 	class AvgPx < Quickfix::DoubleField
+		def AvgPx.field
+			return 6
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(6)
@@ -60,6 +78,9 @@ module Quickfix
 	end
 
 	class BeginSeqNo < Quickfix::IntField
+		def BeginSeqNo.field
+			return 7
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(7)
@@ -70,6 +91,9 @@ module Quickfix
 	end
 
 	class BeginString < Quickfix::StringField
+		def BeginString.field
+			return 8
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(8)
@@ -80,6 +104,9 @@ module Quickfix
 	end
 
 	class BodyLength < Quickfix::IntField
+		def BodyLength.field
+			return 9
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(9)
@@ -90,6 +117,9 @@ module Quickfix
 	end
 
 	class CheckSum < Quickfix::StringField
+		def CheckSum.field
+			return 10
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(10)
@@ -100,6 +130,9 @@ module Quickfix
 	end
 
 	class ClOrdID < Quickfix::StringField
+		def ClOrdID.field
+			return 11
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(11)
@@ -110,6 +143,9 @@ module Quickfix
 	end
 
 	class Commission < Quickfix::DoubleField
+		def Commission.field
+			return 12
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(12)
@@ -120,6 +156,9 @@ module Quickfix
 	end
 
 	class CommType < Quickfix::CharField
+		def CommType.field
+			return 13
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(13)
@@ -130,6 +169,9 @@ module Quickfix
 	end
 
 	class CumQty < Quickfix::DoubleField
+		def CumQty.field
+			return 14
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(14)
@@ -140,6 +182,9 @@ module Quickfix
 	end
 
 	class Currency < Quickfix::StringField
+		def Currency.field
+			return 15
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(15)
@@ -150,6 +195,9 @@ module Quickfix
 	end
 
 	class EndSeqNo < Quickfix::IntField
+		def EndSeqNo.field
+			return 16
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(16)
@@ -160,6 +208,9 @@ module Quickfix
 	end
 
 	class ExecID < Quickfix::StringField
+		def ExecID.field
+			return 17
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(17)
@@ -170,6 +221,9 @@ module Quickfix
 	end
 
 	class ExecInst < Quickfix::StringField
+		def ExecInst.field
+			return 18
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(18)
@@ -180,6 +234,9 @@ module Quickfix
 	end
 
 	class ExecRefID < Quickfix::StringField
+		def ExecRefID.field
+			return 19
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(19)
@@ -190,6 +247,9 @@ module Quickfix
 	end
 
 	class HandlInst < Quickfix::CharField
+		def HandlInst.field
+			return 21
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(21)
@@ -200,6 +260,9 @@ module Quickfix
 	end
 
 	class SecurityIDSource < Quickfix::StringField
+		def SecurityIDSource.field
+			return 22
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(22)
@@ -210,6 +273,9 @@ module Quickfix
 	end
 
 	class IOIid < Quickfix::StringField
+		def IOIid.field
+			return 23
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(23)
@@ -220,6 +286,9 @@ module Quickfix
 	end
 
 	class IOIQltyInd < Quickfix::CharField
+		def IOIQltyInd.field
+			return 25
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(25)
@@ -230,6 +299,9 @@ module Quickfix
 	end
 
 	class IOIRefID < Quickfix::StringField
+		def IOIRefID.field
+			return 26
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(26)
@@ -240,6 +312,9 @@ module Quickfix
 	end
 
 	class IOIQty < Quickfix::StringField
+		def IOIQty.field
+			return 27
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(27)
@@ -250,6 +325,9 @@ module Quickfix
 	end
 
 	class IOITransType < Quickfix::CharField
+		def IOITransType.field
+			return 28
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(28)
@@ -260,6 +338,9 @@ module Quickfix
 	end
 
 	class LastCapacity < Quickfix::CharField
+		def LastCapacity.field
+			return 29
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(29)
@@ -270,6 +351,9 @@ module Quickfix
 	end
 
 	class LastMkt < Quickfix::StringField
+		def LastMkt.field
+			return 30
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(30)
@@ -280,6 +364,9 @@ module Quickfix
 	end
 
 	class LastPx < Quickfix::DoubleField
+		def LastPx.field
+			return 31
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(31)
@@ -290,6 +377,9 @@ module Quickfix
 	end
 
 	class LastQty < Quickfix::DoubleField
+		def LastQty.field
+			return 32
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(32)
@@ -300,6 +390,9 @@ module Quickfix
 	end
 
 	class LinesOfText < Quickfix::IntField
+		def LinesOfText.field
+			return 33
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(33)
@@ -310,6 +403,9 @@ module Quickfix
 	end
 
 	class MsgSeqNum < Quickfix::IntField
+		def MsgSeqNum.field
+			return 34
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(34)
@@ -320,6 +416,9 @@ module Quickfix
 	end
 
 	class MsgType < Quickfix::StringField
+		def MsgType.field
+			return 35
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(35)
@@ -330,6 +429,9 @@ module Quickfix
 	end
 
 	class NewSeqNo < Quickfix::IntField
+		def NewSeqNo.field
+			return 36
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(36)
@@ -340,6 +442,9 @@ module Quickfix
 	end
 
 	class OrderID < Quickfix::StringField
+		def OrderID.field
+			return 37
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(37)
@@ -350,6 +455,9 @@ module Quickfix
 	end
 
 	class OrderQty < Quickfix::DoubleField
+		def OrderQty.field
+			return 38
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(38)
@@ -360,6 +468,9 @@ module Quickfix
 	end
 
 	class OrdStatus < Quickfix::CharField
+		def OrdStatus.field
+			return 39
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(39)
@@ -370,6 +481,9 @@ module Quickfix
 	end
 
 	class OrdType < Quickfix::CharField
+		def OrdType.field
+			return 40
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(40)
@@ -380,6 +494,9 @@ module Quickfix
 	end
 
 	class OrigClOrdID < Quickfix::StringField
+		def OrigClOrdID.field
+			return 41
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(41)
@@ -390,6 +507,9 @@ module Quickfix
 	end
 
 	class OrigTime < Quickfix::UtcTimeStampField
+		def OrigTime.field
+			return 42
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(42)
@@ -400,6 +520,9 @@ module Quickfix
 	end
 
 	class PossDupFlag < Quickfix::BoolField
+		def PossDupFlag.field
+			return 43
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(43)
@@ -410,6 +533,9 @@ module Quickfix
 	end
 
 	class Price < Quickfix::DoubleField
+		def Price.field
+			return 44
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(44)
@@ -420,6 +546,9 @@ module Quickfix
 	end
 
 	class RefSeqNum < Quickfix::IntField
+		def RefSeqNum.field
+			return 45
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(45)
@@ -430,6 +559,9 @@ module Quickfix
 	end
 
 	class SecurityID < Quickfix::StringField
+		def SecurityID.field
+			return 48
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(48)
@@ -440,6 +572,9 @@ module Quickfix
 	end
 
 	class SenderCompID < Quickfix::StringField
+		def SenderCompID.field
+			return 49
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(49)
@@ -450,6 +585,9 @@ module Quickfix
 	end
 
 	class SenderSubID < Quickfix::StringField
+		def SenderSubID.field
+			return 50
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(50)
@@ -460,6 +598,9 @@ module Quickfix
 	end
 
 	class SendingTime < Quickfix::UtcTimeStampField
+		def SendingTime.field
+			return 52
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(52)
@@ -470,6 +611,9 @@ module Quickfix
 	end
 
 	class Quantity < Quickfix::DoubleField
+		def Quantity.field
+			return 53
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(53)
@@ -480,6 +624,9 @@ module Quickfix
 	end
 
 	class Side < Quickfix::CharField
+		def Side.field
+			return 54
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(54)
@@ -490,6 +637,9 @@ module Quickfix
 	end
 
 	class Symbol < Quickfix::StringField
+		def Symbol.field
+			return 55
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(55)
@@ -500,6 +650,9 @@ module Quickfix
 	end
 
 	class TargetCompID < Quickfix::StringField
+		def TargetCompID.field
+			return 56
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(56)
@@ -510,6 +663,9 @@ module Quickfix
 	end
 
 	class TargetSubID < Quickfix::StringField
+		def TargetSubID.field
+			return 57
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(57)
@@ -520,6 +676,9 @@ module Quickfix
 	end
 
 	class Text < Quickfix::StringField
+		def Text.field
+			return 58
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(58)
@@ -530,6 +689,9 @@ module Quickfix
 	end
 
 	class TimeInForce < Quickfix::CharField
+		def TimeInForce.field
+			return 59
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(59)
@@ -540,6 +702,9 @@ module Quickfix
 	end
 
 	class TransactTime < Quickfix::UtcTimeStampField
+		def TransactTime.field
+			return 60
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(60)
@@ -550,6 +715,9 @@ module Quickfix
 	end
 
 	class Urgency < Quickfix::CharField
+		def Urgency.field
+			return 61
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(61)
@@ -560,6 +728,9 @@ module Quickfix
 	end
 
 	class ValidUntilTime < Quickfix::UtcTimeStampField
+		def ValidUntilTime.field
+			return 62
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(62)
@@ -570,6 +741,9 @@ module Quickfix
 	end
 
 	class SettlType < Quickfix::CharField
+		def SettlType.field
+			return 63
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(63)
@@ -580,6 +754,9 @@ module Quickfix
 	end
 
 	class SettlDate < Quickfix::StringField
+		def SettlDate.field
+			return 64
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(64)
@@ -590,6 +767,9 @@ module Quickfix
 	end
 
 	class SymbolSfx < Quickfix::StringField
+		def SymbolSfx.field
+			return 65
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(65)
@@ -600,6 +780,9 @@ module Quickfix
 	end
 
 	class ListID < Quickfix::StringField
+		def ListID.field
+			return 66
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(66)
@@ -610,6 +793,9 @@ module Quickfix
 	end
 
 	class ListSeqNo < Quickfix::IntField
+		def ListSeqNo.field
+			return 67
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(67)
@@ -620,6 +806,9 @@ module Quickfix
 	end
 
 	class TotNoOrders < Quickfix::IntField
+		def TotNoOrders.field
+			return 68
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(68)
@@ -630,6 +819,9 @@ module Quickfix
 	end
 
 	class ListExecInst < Quickfix::StringField
+		def ListExecInst.field
+			return 69
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(69)
@@ -640,6 +832,9 @@ module Quickfix
 	end
 
 	class AllocID < Quickfix::StringField
+		def AllocID.field
+			return 70
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(70)
@@ -650,6 +845,9 @@ module Quickfix
 	end
 
 	class AllocTransType < Quickfix::CharField
+		def AllocTransType.field
+			return 71
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(71)
@@ -660,6 +858,9 @@ module Quickfix
 	end
 
 	class RefAllocID < Quickfix::StringField
+		def RefAllocID.field
+			return 72
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(72)
@@ -670,6 +871,9 @@ module Quickfix
 	end
 
 	class NoOrders < Quickfix::IntField
+		def NoOrders.field
+			return 73
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(73)
@@ -680,6 +884,9 @@ module Quickfix
 	end
 
 	class AvgPxPrecision < Quickfix::IntField
+		def AvgPxPrecision.field
+			return 74
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(74)
@@ -690,6 +897,9 @@ module Quickfix
 	end
 
 	class TradeDate < Quickfix::StringField
+		def TradeDate.field
+			return 75
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(75)
@@ -700,6 +910,9 @@ module Quickfix
 	end
 
 	class PositionEffect < Quickfix::CharField
+		def PositionEffect.field
+			return 77
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(77)
@@ -710,6 +923,9 @@ module Quickfix
 	end
 
 	class NoAllocs < Quickfix::IntField
+		def NoAllocs.field
+			return 78
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(78)
@@ -720,6 +936,9 @@ module Quickfix
 	end
 
 	class AllocAccount < Quickfix::StringField
+		def AllocAccount.field
+			return 79
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(79)
@@ -730,6 +949,9 @@ module Quickfix
 	end
 
 	class AllocQty < Quickfix::DoubleField
+		def AllocQty.field
+			return 80
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(80)
@@ -740,6 +962,9 @@ module Quickfix
 	end
 
 	class ProcessCode < Quickfix::CharField
+		def ProcessCode.field
+			return 81
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(81)
@@ -750,6 +975,9 @@ module Quickfix
 	end
 
 	class NoRpts < Quickfix::IntField
+		def NoRpts.field
+			return 82
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(82)
@@ -760,6 +988,9 @@ module Quickfix
 	end
 
 	class RptSeq < Quickfix::IntField
+		def RptSeq.field
+			return 83
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(83)
@@ -770,6 +1001,9 @@ module Quickfix
 	end
 
 	class CxlQty < Quickfix::DoubleField
+		def CxlQty.field
+			return 84
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(84)
@@ -780,6 +1014,9 @@ module Quickfix
 	end
 
 	class NoDlvyInst < Quickfix::IntField
+		def NoDlvyInst.field
+			return 85
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(85)
@@ -790,6 +1027,9 @@ module Quickfix
 	end
 
 	class AllocStatus < Quickfix::IntField
+		def AllocStatus.field
+			return 87
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(87)
@@ -800,6 +1040,9 @@ module Quickfix
 	end
 
 	class AllocRejCode < Quickfix::IntField
+		def AllocRejCode.field
+			return 88
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(88)
@@ -810,6 +1053,9 @@ module Quickfix
 	end
 
 	class Signature < Quickfix::StringField
+		def Signature.field
+			return 89
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(89)
@@ -820,6 +1066,9 @@ module Quickfix
 	end
 
 	class SecureDataLen < Quickfix::IntField
+		def SecureDataLen.field
+			return 90
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(90)
@@ -830,6 +1079,9 @@ module Quickfix
 	end
 
 	class SecureData < Quickfix::StringField
+		def SecureData.field
+			return 91
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(91)
@@ -840,6 +1092,9 @@ module Quickfix
 	end
 
 	class SignatureLength < Quickfix::IntField
+		def SignatureLength.field
+			return 93
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(93)
@@ -850,6 +1105,9 @@ module Quickfix
 	end
 
 	class EmailType < Quickfix::CharField
+		def EmailType.field
+			return 94
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(94)
@@ -860,6 +1118,9 @@ module Quickfix
 	end
 
 	class RawDataLength < Quickfix::IntField
+		def RawDataLength.field
+			return 95
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(95)
@@ -870,6 +1131,9 @@ module Quickfix
 	end
 
 	class RawData < Quickfix::StringField
+		def RawData.field
+			return 96
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(96)
@@ -880,6 +1144,9 @@ module Quickfix
 	end
 
 	class PossResend < Quickfix::BoolField
+		def PossResend.field
+			return 97
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(97)
@@ -890,6 +1157,9 @@ module Quickfix
 	end
 
 	class EncryptMethod < Quickfix::IntField
+		def EncryptMethod.field
+			return 98
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(98)
@@ -900,6 +1170,9 @@ module Quickfix
 	end
 
 	class StopPx < Quickfix::DoubleField
+		def StopPx.field
+			return 99
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(99)
@@ -910,6 +1183,9 @@ module Quickfix
 	end
 
 	class ExDestination < Quickfix::StringField
+		def ExDestination.field
+			return 100
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(100)
@@ -920,6 +1196,9 @@ module Quickfix
 	end
 
 	class CxlRejReason < Quickfix::IntField
+		def CxlRejReason.field
+			return 102
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(102)
@@ -930,6 +1209,9 @@ module Quickfix
 	end
 
 	class OrdRejReason < Quickfix::IntField
+		def OrdRejReason.field
+			return 103
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(103)
@@ -940,6 +1222,9 @@ module Quickfix
 	end
 
 	class IOIQualifier < Quickfix::CharField
+		def IOIQualifier.field
+			return 104
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(104)
@@ -950,6 +1235,9 @@ module Quickfix
 	end
 
 	class WaveNo < Quickfix::StringField
+		def WaveNo.field
+			return 105
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(105)
@@ -960,6 +1248,9 @@ module Quickfix
 	end
 
 	class Issuer < Quickfix::StringField
+		def Issuer.field
+			return 106
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(106)
@@ -970,6 +1261,9 @@ module Quickfix
 	end
 
 	class SecurityDesc < Quickfix::StringField
+		def SecurityDesc.field
+			return 107
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(107)
@@ -980,6 +1274,9 @@ module Quickfix
 	end
 
 	class HeartBtInt < Quickfix::IntField
+		def HeartBtInt.field
+			return 108
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(108)
@@ -990,6 +1287,9 @@ module Quickfix
 	end
 
 	class MinQty < Quickfix::DoubleField
+		def MinQty.field
+			return 110
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(110)
@@ -1000,6 +1300,9 @@ module Quickfix
 	end
 
 	class MaxFloor < Quickfix::DoubleField
+		def MaxFloor.field
+			return 111
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(111)
@@ -1010,6 +1313,9 @@ module Quickfix
 	end
 
 	class TestReqID < Quickfix::StringField
+		def TestReqID.field
+			return 112
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(112)
@@ -1020,6 +1326,9 @@ module Quickfix
 	end
 
 	class ReportToExch < Quickfix::BoolField
+		def ReportToExch.field
+			return 113
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(113)
@@ -1030,6 +1339,9 @@ module Quickfix
 	end
 
 	class LocateReqd < Quickfix::BoolField
+		def LocateReqd.field
+			return 114
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(114)
@@ -1040,6 +1352,9 @@ module Quickfix
 	end
 
 	class OnBehalfOfCompID < Quickfix::StringField
+		def OnBehalfOfCompID.field
+			return 115
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(115)
@@ -1050,6 +1365,9 @@ module Quickfix
 	end
 
 	class OnBehalfOfSubID < Quickfix::StringField
+		def OnBehalfOfSubID.field
+			return 116
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(116)
@@ -1060,6 +1378,9 @@ module Quickfix
 	end
 
 	class QuoteID < Quickfix::StringField
+		def QuoteID.field
+			return 117
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(117)
@@ -1070,6 +1391,9 @@ module Quickfix
 	end
 
 	class NetMoney < Quickfix::DoubleField
+		def NetMoney.field
+			return 118
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(118)
@@ -1080,6 +1404,9 @@ module Quickfix
 	end
 
 	class SettlCurrAmt < Quickfix::DoubleField
+		def SettlCurrAmt.field
+			return 119
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(119)
@@ -1090,6 +1417,9 @@ module Quickfix
 	end
 
 	class SettlCurrency < Quickfix::StringField
+		def SettlCurrency.field
+			return 120
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(120)
@@ -1100,6 +1430,9 @@ module Quickfix
 	end
 
 	class ForexReq < Quickfix::BoolField
+		def ForexReq.field
+			return 121
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(121)
@@ -1110,6 +1443,9 @@ module Quickfix
 	end
 
 	class OrigSendingTime < Quickfix::UtcTimeStampField
+		def OrigSendingTime.field
+			return 122
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(122)
@@ -1120,6 +1456,9 @@ module Quickfix
 	end
 
 	class GapFillFlag < Quickfix::BoolField
+		def GapFillFlag.field
+			return 123
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(123)
@@ -1130,6 +1469,9 @@ module Quickfix
 	end
 
 	class NoExecs < Quickfix::IntField
+		def NoExecs.field
+			return 124
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(124)
@@ -1140,6 +1482,9 @@ module Quickfix
 	end
 
 	class ExpireTime < Quickfix::UtcTimeStampField
+		def ExpireTime.field
+			return 126
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(126)
@@ -1150,6 +1495,9 @@ module Quickfix
 	end
 
 	class DKReason < Quickfix::CharField
+		def DKReason.field
+			return 127
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(127)
@@ -1160,6 +1508,9 @@ module Quickfix
 	end
 
 	class DeliverToCompID < Quickfix::StringField
+		def DeliverToCompID.field
+			return 128
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(128)
@@ -1170,6 +1521,9 @@ module Quickfix
 	end
 
 	class DeliverToSubID < Quickfix::StringField
+		def DeliverToSubID.field
+			return 129
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(129)
@@ -1180,6 +1534,9 @@ module Quickfix
 	end
 
 	class IOINaturalFlag < Quickfix::BoolField
+		def IOINaturalFlag.field
+			return 130
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(130)
@@ -1190,6 +1547,9 @@ module Quickfix
 	end
 
 	class QuoteReqID < Quickfix::StringField
+		def QuoteReqID.field
+			return 131
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(131)
@@ -1200,6 +1560,9 @@ module Quickfix
 	end
 
 	class BidPx < Quickfix::DoubleField
+		def BidPx.field
+			return 132
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(132)
@@ -1210,6 +1573,9 @@ module Quickfix
 	end
 
 	class OfferPx < Quickfix::DoubleField
+		def OfferPx.field
+			return 133
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(133)
@@ -1220,6 +1586,9 @@ module Quickfix
 	end
 
 	class BidSize < Quickfix::DoubleField
+		def BidSize.field
+			return 134
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(134)
@@ -1230,6 +1599,9 @@ module Quickfix
 	end
 
 	class OfferSize < Quickfix::DoubleField
+		def OfferSize.field
+			return 135
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(135)
@@ -1240,6 +1612,9 @@ module Quickfix
 	end
 
 	class NoMiscFees < Quickfix::IntField
+		def NoMiscFees.field
+			return 136
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(136)
@@ -1250,6 +1625,9 @@ module Quickfix
 	end
 
 	class MiscFeeAmt < Quickfix::DoubleField
+		def MiscFeeAmt.field
+			return 137
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(137)
@@ -1260,6 +1638,9 @@ module Quickfix
 	end
 
 	class MiscFeeCurr < Quickfix::StringField
+		def MiscFeeCurr.field
+			return 138
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(138)
@@ -1270,6 +1651,9 @@ module Quickfix
 	end
 
 	class MiscFeeType < Quickfix::CharField
+		def MiscFeeType.field
+			return 139
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(139)
@@ -1280,6 +1664,9 @@ module Quickfix
 	end
 
 	class PrevClosePx < Quickfix::DoubleField
+		def PrevClosePx.field
+			return 140
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(140)
@@ -1290,6 +1677,9 @@ module Quickfix
 	end
 
 	class ResetSeqNumFlag < Quickfix::BoolField
+		def ResetSeqNumFlag.field
+			return 141
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(141)
@@ -1300,6 +1690,9 @@ module Quickfix
 	end
 
 	class SenderLocationID < Quickfix::StringField
+		def SenderLocationID.field
+			return 142
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(142)
@@ -1310,6 +1703,9 @@ module Quickfix
 	end
 
 	class TargetLocationID < Quickfix::StringField
+		def TargetLocationID.field
+			return 143
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(143)
@@ -1320,6 +1716,9 @@ module Quickfix
 	end
 
 	class OnBehalfOfLocationID < Quickfix::StringField
+		def OnBehalfOfLocationID.field
+			return 144
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(144)
@@ -1330,6 +1729,9 @@ module Quickfix
 	end
 
 	class DeliverToLocationID < Quickfix::StringField
+		def DeliverToLocationID.field
+			return 145
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(145)
@@ -1340,6 +1742,9 @@ module Quickfix
 	end
 
 	class NoRelatedSym < Quickfix::IntField
+		def NoRelatedSym.field
+			return 146
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(146)
@@ -1350,6 +1755,9 @@ module Quickfix
 	end
 
 	class Subject < Quickfix::StringField
+		def Subject.field
+			return 147
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(147)
@@ -1360,6 +1768,9 @@ module Quickfix
 	end
 
 	class Headline < Quickfix::StringField
+		def Headline.field
+			return 148
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(148)
@@ -1370,6 +1781,9 @@ module Quickfix
 	end
 
 	class URLLink < Quickfix::StringField
+		def URLLink.field
+			return 149
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(149)
@@ -1380,6 +1794,9 @@ module Quickfix
 	end
 
 	class ExecType < Quickfix::CharField
+		def ExecType.field
+			return 150
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(150)
@@ -1390,6 +1807,9 @@ module Quickfix
 	end
 
 	class LeavesQty < Quickfix::DoubleField
+		def LeavesQty.field
+			return 151
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(151)
@@ -1400,6 +1820,9 @@ module Quickfix
 	end
 
 	class CashOrderQty < Quickfix::DoubleField
+		def CashOrderQty.field
+			return 152
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(152)
@@ -1410,6 +1833,9 @@ module Quickfix
 	end
 
 	class AllocAvgPx < Quickfix::DoubleField
+		def AllocAvgPx.field
+			return 153
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(153)
@@ -1420,6 +1846,9 @@ module Quickfix
 	end
 
 	class AllocNetMoney < Quickfix::DoubleField
+		def AllocNetMoney.field
+			return 154
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(154)
@@ -1430,6 +1859,9 @@ module Quickfix
 	end
 
 	class SettlCurrFxRate < Quickfix::DoubleField
+		def SettlCurrFxRate.field
+			return 155
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(155)
@@ -1440,6 +1872,9 @@ module Quickfix
 	end
 
 	class SettlCurrFxRateCalc < Quickfix::CharField
+		def SettlCurrFxRateCalc.field
+			return 156
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(156)
@@ -1450,6 +1885,9 @@ module Quickfix
 	end
 
 	class NumDaysInterest < Quickfix::IntField
+		def NumDaysInterest.field
+			return 157
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(157)
@@ -1460,6 +1898,9 @@ module Quickfix
 	end
 
 	class AccruedInterestRate < Quickfix::DoubleField
+		def AccruedInterestRate.field
+			return 158
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(158)
@@ -1470,6 +1911,9 @@ module Quickfix
 	end
 
 	class AccruedInterestAmt < Quickfix::DoubleField
+		def AccruedInterestAmt.field
+			return 159
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(159)
@@ -1480,6 +1924,9 @@ module Quickfix
 	end
 
 	class SettlInstMode < Quickfix::CharField
+		def SettlInstMode.field
+			return 160
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(160)
@@ -1490,6 +1937,9 @@ module Quickfix
 	end
 
 	class AllocText < Quickfix::StringField
+		def AllocText.field
+			return 161
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(161)
@@ -1500,6 +1950,9 @@ module Quickfix
 	end
 
 	class SettlInstID < Quickfix::StringField
+		def SettlInstID.field
+			return 162
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(162)
@@ -1510,6 +1963,9 @@ module Quickfix
 	end
 
 	class SettlInstTransType < Quickfix::CharField
+		def SettlInstTransType.field
+			return 163
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(163)
@@ -1520,6 +1976,9 @@ module Quickfix
 	end
 
 	class EmailThreadID < Quickfix::StringField
+		def EmailThreadID.field
+			return 164
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(164)
@@ -1530,6 +1989,9 @@ module Quickfix
 	end
 
 	class SettlInstSource < Quickfix::CharField
+		def SettlInstSource.field
+			return 165
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(165)
@@ -1540,6 +2002,9 @@ module Quickfix
 	end
 
 	class SecurityType < Quickfix::StringField
+		def SecurityType.field
+			return 167
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(167)
@@ -1550,6 +2015,9 @@ module Quickfix
 	end
 
 	class EffectiveTime < Quickfix::UtcTimeStampField
+		def EffectiveTime.field
+			return 168
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(168)
@@ -1560,6 +2028,9 @@ module Quickfix
 	end
 
 	class StandInstDbType < Quickfix::IntField
+		def StandInstDbType.field
+			return 169
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(169)
@@ -1570,6 +2041,9 @@ module Quickfix
 	end
 
 	class StandInstDbName < Quickfix::StringField
+		def StandInstDbName.field
+			return 170
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(170)
@@ -1580,6 +2054,9 @@ module Quickfix
 	end
 
 	class StandInstDbID < Quickfix::StringField
+		def StandInstDbID.field
+			return 171
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(171)
@@ -1590,6 +2067,9 @@ module Quickfix
 	end
 
 	class SettlDeliveryType < Quickfix::IntField
+		def SettlDeliveryType.field
+			return 172
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(172)
@@ -1600,6 +2080,9 @@ module Quickfix
 	end
 
 	class BidSpotRate < Quickfix::DoubleField
+		def BidSpotRate.field
+			return 188
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(188)
@@ -1610,6 +2093,9 @@ module Quickfix
 	end
 
 	class BidForwardPoints < Quickfix::DoubleField
+		def BidForwardPoints.field
+			return 189
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(189)
@@ -1620,6 +2106,9 @@ module Quickfix
 	end
 
 	class OfferSpotRate < Quickfix::DoubleField
+		def OfferSpotRate.field
+			return 190
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(190)
@@ -1630,6 +2119,9 @@ module Quickfix
 	end
 
 	class OfferForwardPoints < Quickfix::DoubleField
+		def OfferForwardPoints.field
+			return 191
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(191)
@@ -1640,6 +2132,9 @@ module Quickfix
 	end
 
 	class OrderQty2 < Quickfix::DoubleField
+		def OrderQty2.field
+			return 192
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(192)
@@ -1650,6 +2145,9 @@ module Quickfix
 	end
 
 	class SettlDate2 < Quickfix::StringField
+		def SettlDate2.field
+			return 193
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(193)
@@ -1660,6 +2158,9 @@ module Quickfix
 	end
 
 	class LastSpotRate < Quickfix::DoubleField
+		def LastSpotRate.field
+			return 194
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(194)
@@ -1670,6 +2171,9 @@ module Quickfix
 	end
 
 	class LastForwardPoints < Quickfix::DoubleField
+		def LastForwardPoints.field
+			return 195
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(195)
@@ -1680,6 +2184,9 @@ module Quickfix
 	end
 
 	class AllocLinkID < Quickfix::StringField
+		def AllocLinkID.field
+			return 196
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(196)
@@ -1690,6 +2197,9 @@ module Quickfix
 	end
 
 	class AllocLinkType < Quickfix::IntField
+		def AllocLinkType.field
+			return 197
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(197)
@@ -1700,6 +2210,9 @@ module Quickfix
 	end
 
 	class SecondaryOrderID < Quickfix::StringField
+		def SecondaryOrderID.field
+			return 198
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(198)
@@ -1710,6 +2223,9 @@ module Quickfix
 	end
 
 	class NoIOIQualifiers < Quickfix::IntField
+		def NoIOIQualifiers.field
+			return 199
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(199)
@@ -1720,6 +2236,9 @@ module Quickfix
 	end
 
 	class MaturityMonthYear < Quickfix::StringField
+		def MaturityMonthYear.field
+			return 200
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(200)
@@ -1730,6 +2249,9 @@ module Quickfix
 	end
 
 	class StrikePrice < Quickfix::DoubleField
+		def StrikePrice.field
+			return 202
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(202)
@@ -1740,6 +2262,9 @@ module Quickfix
 	end
 
 	class CoveredOrUncovered < Quickfix::IntField
+		def CoveredOrUncovered.field
+			return 203
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(203)
@@ -1750,6 +2275,9 @@ module Quickfix
 	end
 
 	class OptAttribute < Quickfix::CharField
+		def OptAttribute.field
+			return 206
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(206)
@@ -1760,6 +2288,9 @@ module Quickfix
 	end
 
 	class SecurityExchange < Quickfix::StringField
+		def SecurityExchange.field
+			return 207
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(207)
@@ -1770,6 +2301,9 @@ module Quickfix
 	end
 
 	class NotifyBrokerOfCredit < Quickfix::BoolField
+		def NotifyBrokerOfCredit.field
+			return 208
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(208)
@@ -1780,6 +2314,9 @@ module Quickfix
 	end
 
 	class AllocHandlInst < Quickfix::IntField
+		def AllocHandlInst.field
+			return 209
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(209)
@@ -1790,6 +2327,9 @@ module Quickfix
 	end
 
 	class MaxShow < Quickfix::DoubleField
+		def MaxShow.field
+			return 210
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(210)
@@ -1800,6 +2340,9 @@ module Quickfix
 	end
 
 	class PegOffsetValue < Quickfix::DoubleField
+		def PegOffsetValue.field
+			return 211
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(211)
@@ -1810,6 +2353,9 @@ module Quickfix
 	end
 
 	class XmlDataLen < Quickfix::IntField
+		def XmlDataLen.field
+			return 212
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(212)
@@ -1820,6 +2366,9 @@ module Quickfix
 	end
 
 	class XmlData < Quickfix::StringField
+		def XmlData.field
+			return 213
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(213)
@@ -1830,6 +2379,9 @@ module Quickfix
 	end
 
 	class SettlInstRefID < Quickfix::StringField
+		def SettlInstRefID.field
+			return 214
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(214)
@@ -1840,6 +2392,9 @@ module Quickfix
 	end
 
 	class NoRoutingIDs < Quickfix::IntField
+		def NoRoutingIDs.field
+			return 215
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(215)
@@ -1850,6 +2405,9 @@ module Quickfix
 	end
 
 	class RoutingType < Quickfix::IntField
+		def RoutingType.field
+			return 216
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(216)
@@ -1860,6 +2418,9 @@ module Quickfix
 	end
 
 	class RoutingID < Quickfix::StringField
+		def RoutingID.field
+			return 217
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(217)
@@ -1870,6 +2431,9 @@ module Quickfix
 	end
 
 	class Spread < Quickfix::DoubleField
+		def Spread.field
+			return 218
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(218)
@@ -1880,6 +2444,9 @@ module Quickfix
 	end
 
 	class BenchmarkCurveCurrency < Quickfix::StringField
+		def BenchmarkCurveCurrency.field
+			return 220
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(220)
@@ -1890,6 +2457,9 @@ module Quickfix
 	end
 
 	class BenchmarkCurveName < Quickfix::StringField
+		def BenchmarkCurveName.field
+			return 221
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(221)
@@ -1900,6 +2470,9 @@ module Quickfix
 	end
 
 	class BenchmarkCurvePoint < Quickfix::StringField
+		def BenchmarkCurvePoint.field
+			return 222
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(222)
@@ -1910,6 +2483,9 @@ module Quickfix
 	end
 
 	class CouponRate < Quickfix::DoubleField
+		def CouponRate.field
+			return 223
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(223)
@@ -1920,6 +2496,9 @@ module Quickfix
 	end
 
 	class CouponPaymentDate < Quickfix::StringField
+		def CouponPaymentDate.field
+			return 224
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(224)
@@ -1930,6 +2509,9 @@ module Quickfix
 	end
 
 	class IssueDate < Quickfix::StringField
+		def IssueDate.field
+			return 225
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(225)
@@ -1940,6 +2522,9 @@ module Quickfix
 	end
 
 	class RepurchaseTerm < Quickfix::IntField
+		def RepurchaseTerm.field
+			return 226
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(226)
@@ -1950,6 +2535,9 @@ module Quickfix
 	end
 
 	class RepurchaseRate < Quickfix::DoubleField
+		def RepurchaseRate.field
+			return 227
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(227)
@@ -1960,6 +2548,9 @@ module Quickfix
 	end
 
 	class Factor < Quickfix::DoubleField
+		def Factor.field
+			return 228
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(228)
@@ -1970,6 +2561,9 @@ module Quickfix
 	end
 
 	class TradeOriginationDate < Quickfix::StringField
+		def TradeOriginationDate.field
+			return 229
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(229)
@@ -1980,6 +2574,9 @@ module Quickfix
 	end
 
 	class ExDate < Quickfix::StringField
+		def ExDate.field
+			return 230
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(230)
@@ -1990,6 +2587,9 @@ module Quickfix
 	end
 
 	class ContractMultiplier < Quickfix::DoubleField
+		def ContractMultiplier.field
+			return 231
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(231)
@@ -2000,6 +2600,9 @@ module Quickfix
 	end
 
 	class NoStipulations < Quickfix::IntField
+		def NoStipulations.field
+			return 232
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(232)
@@ -2010,6 +2613,9 @@ module Quickfix
 	end
 
 	class StipulationType < Quickfix::StringField
+		def StipulationType.field
+			return 233
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(233)
@@ -2020,6 +2626,9 @@ module Quickfix
 	end
 
 	class StipulationValue < Quickfix::StringField
+		def StipulationValue.field
+			return 234
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(234)
@@ -2030,6 +2639,9 @@ module Quickfix
 	end
 
 	class YieldType < Quickfix::StringField
+		def YieldType.field
+			return 235
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(235)
@@ -2040,6 +2652,9 @@ module Quickfix
 	end
 
 	class Yield < Quickfix::DoubleField
+		def Yield.field
+			return 236
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(236)
@@ -2050,6 +2665,9 @@ module Quickfix
 	end
 
 	class TotalTakedown < Quickfix::DoubleField
+		def TotalTakedown.field
+			return 237
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(237)
@@ -2060,6 +2678,9 @@ module Quickfix
 	end
 
 	class Concession < Quickfix::DoubleField
+		def Concession.field
+			return 238
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(238)
@@ -2070,6 +2691,9 @@ module Quickfix
 	end
 
 	class RepoCollateralSecurityType < Quickfix::IntField
+		def RepoCollateralSecurityType.field
+			return 239
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(239)
@@ -2080,6 +2704,9 @@ module Quickfix
 	end
 
 	class RedemptionDate < Quickfix::StringField
+		def RedemptionDate.field
+			return 240
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(240)
@@ -2090,6 +2717,9 @@ module Quickfix
 	end
 
 	class UnderlyingCouponPaymentDate < Quickfix::StringField
+		def UnderlyingCouponPaymentDate.field
+			return 241
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(241)
@@ -2100,6 +2730,9 @@ module Quickfix
 	end
 
 	class UnderlyingIssueDate < Quickfix::StringField
+		def UnderlyingIssueDate.field
+			return 242
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(242)
@@ -2110,6 +2743,9 @@ module Quickfix
 	end
 
 	class UnderlyingRepoCollateralSecurityType < Quickfix::IntField
+		def UnderlyingRepoCollateralSecurityType.field
+			return 243
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(243)
@@ -2120,6 +2756,9 @@ module Quickfix
 	end
 
 	class UnderlyingRepurchaseTerm < Quickfix::IntField
+		def UnderlyingRepurchaseTerm.field
+			return 244
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(244)
@@ -2130,6 +2769,9 @@ module Quickfix
 	end
 
 	class UnderlyingRepurchaseRate < Quickfix::DoubleField
+		def UnderlyingRepurchaseRate.field
+			return 245
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(245)
@@ -2140,6 +2782,9 @@ module Quickfix
 	end
 
 	class UnderlyingFactor < Quickfix::DoubleField
+		def UnderlyingFactor.field
+			return 246
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(246)
@@ -2150,6 +2795,9 @@ module Quickfix
 	end
 
 	class UnderlyingRedemptionDate < Quickfix::StringField
+		def UnderlyingRedemptionDate.field
+			return 247
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(247)
@@ -2160,6 +2808,9 @@ module Quickfix
 	end
 
 	class LegCouponPaymentDate < Quickfix::StringField
+		def LegCouponPaymentDate.field
+			return 248
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(248)
@@ -2170,6 +2821,9 @@ module Quickfix
 	end
 
 	class LegIssueDate < Quickfix::StringField
+		def LegIssueDate.field
+			return 249
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(249)
@@ -2180,6 +2834,9 @@ module Quickfix
 	end
 
 	class LegRepoCollateralSecurityType < Quickfix::IntField
+		def LegRepoCollateralSecurityType.field
+			return 250
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(250)
@@ -2190,6 +2847,9 @@ module Quickfix
 	end
 
 	class LegRepurchaseTerm < Quickfix::IntField
+		def LegRepurchaseTerm.field
+			return 251
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(251)
@@ -2200,6 +2860,9 @@ module Quickfix
 	end
 
 	class LegRepurchaseRate < Quickfix::DoubleField
+		def LegRepurchaseRate.field
+			return 252
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(252)
@@ -2210,6 +2873,9 @@ module Quickfix
 	end
 
 	class LegFactor < Quickfix::DoubleField
+		def LegFactor.field
+			return 253
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(253)
@@ -2220,6 +2886,9 @@ module Quickfix
 	end
 
 	class LegRedemptionDate < Quickfix::StringField
+		def LegRedemptionDate.field
+			return 254
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(254)
@@ -2230,6 +2899,9 @@ module Quickfix
 	end
 
 	class CreditRating < Quickfix::StringField
+		def CreditRating.field
+			return 255
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(255)
@@ -2240,6 +2912,9 @@ module Quickfix
 	end
 
 	class UnderlyingCreditRating < Quickfix::StringField
+		def UnderlyingCreditRating.field
+			return 256
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(256)
@@ -2250,6 +2925,9 @@ module Quickfix
 	end
 
 	class LegCreditRating < Quickfix::StringField
+		def LegCreditRating.field
+			return 257
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(257)
@@ -2260,6 +2938,9 @@ module Quickfix
 	end
 
 	class TradedFlatSwitch < Quickfix::BoolField
+		def TradedFlatSwitch.field
+			return 258
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(258)
@@ -2270,6 +2951,9 @@ module Quickfix
 	end
 
 	class BasisFeatureDate < Quickfix::StringField
+		def BasisFeatureDate.field
+			return 259
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(259)
@@ -2280,6 +2964,9 @@ module Quickfix
 	end
 
 	class BasisFeaturePrice < Quickfix::DoubleField
+		def BasisFeaturePrice.field
+			return 260
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(260)
@@ -2290,6 +2977,9 @@ module Quickfix
 	end
 
 	class MDReqID < Quickfix::StringField
+		def MDReqID.field
+			return 262
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(262)
@@ -2300,6 +2990,9 @@ module Quickfix
 	end
 
 	class SubscriptionRequestType < Quickfix::CharField
+		def SubscriptionRequestType.field
+			return 263
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(263)
@@ -2310,6 +3003,9 @@ module Quickfix
 	end
 
 	class MarketDepth < Quickfix::IntField
+		def MarketDepth.field
+			return 264
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(264)
@@ -2320,6 +3016,9 @@ module Quickfix
 	end
 
 	class MDUpdateType < Quickfix::IntField
+		def MDUpdateType.field
+			return 265
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(265)
@@ -2330,6 +3029,9 @@ module Quickfix
 	end
 
 	class AggregatedBook < Quickfix::BoolField
+		def AggregatedBook.field
+			return 266
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(266)
@@ -2340,6 +3042,9 @@ module Quickfix
 	end
 
 	class NoMDEntryTypes < Quickfix::IntField
+		def NoMDEntryTypes.field
+			return 267
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(267)
@@ -2350,6 +3055,9 @@ module Quickfix
 	end
 
 	class NoMDEntries < Quickfix::IntField
+		def NoMDEntries.field
+			return 268
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(268)
@@ -2360,6 +3068,9 @@ module Quickfix
 	end
 
 	class MDEntryType < Quickfix::CharField
+		def MDEntryType.field
+			return 269
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(269)
@@ -2370,6 +3081,9 @@ module Quickfix
 	end
 
 	class MDEntryPx < Quickfix::DoubleField
+		def MDEntryPx.field
+			return 270
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(270)
@@ -2380,6 +3094,9 @@ module Quickfix
 	end
 
 	class MDEntrySize < Quickfix::DoubleField
+		def MDEntrySize.field
+			return 271
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(271)
@@ -2390,6 +3107,9 @@ module Quickfix
 	end
 
 	class MDEntryDate < Quickfix::UtcDateField
+		def MDEntryDate.field
+			return 272
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(272)
@@ -2400,6 +3120,9 @@ module Quickfix
 	end
 
 	class MDEntryTime < Quickfix::UtcTimeOnlyField
+		def MDEntryTime.field
+			return 273
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(273)
@@ -2410,6 +3133,9 @@ module Quickfix
 	end
 
 	class TickDirection < Quickfix::CharField
+		def TickDirection.field
+			return 274
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(274)
@@ -2420,6 +3146,9 @@ module Quickfix
 	end
 
 	class MDMkt < Quickfix::StringField
+		def MDMkt.field
+			return 275
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(275)
@@ -2430,6 +3159,9 @@ module Quickfix
 	end
 
 	class QuoteCondition < Quickfix::StringField
+		def QuoteCondition.field
+			return 276
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(276)
@@ -2440,6 +3172,9 @@ module Quickfix
 	end
 
 	class TradeCondition < Quickfix::StringField
+		def TradeCondition.field
+			return 277
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(277)
@@ -2450,6 +3185,9 @@ module Quickfix
 	end
 
 	class MDEntryID < Quickfix::StringField
+		def MDEntryID.field
+			return 278
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(278)
@@ -2460,6 +3198,9 @@ module Quickfix
 	end
 
 	class MDUpdateAction < Quickfix::CharField
+		def MDUpdateAction.field
+			return 279
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(279)
@@ -2470,6 +3211,9 @@ module Quickfix
 	end
 
 	class MDEntryRefID < Quickfix::StringField
+		def MDEntryRefID.field
+			return 280
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(280)
@@ -2480,6 +3224,9 @@ module Quickfix
 	end
 
 	class MDReqRejReason < Quickfix::CharField
+		def MDReqRejReason.field
+			return 281
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(281)
@@ -2490,6 +3237,9 @@ module Quickfix
 	end
 
 	class MDEntryOriginator < Quickfix::StringField
+		def MDEntryOriginator.field
+			return 282
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(282)
@@ -2500,6 +3250,9 @@ module Quickfix
 	end
 
 	class LocationID < Quickfix::StringField
+		def LocationID.field
+			return 283
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(283)
@@ -2510,6 +3263,9 @@ module Quickfix
 	end
 
 	class DeskID < Quickfix::StringField
+		def DeskID.field
+			return 284
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(284)
@@ -2520,6 +3276,9 @@ module Quickfix
 	end
 
 	class DeleteReason < Quickfix::CharField
+		def DeleteReason.field
+			return 285
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(285)
@@ -2530,6 +3289,9 @@ module Quickfix
 	end
 
 	class OpenCloseSettlFlag < Quickfix::StringField
+		def OpenCloseSettlFlag.field
+			return 286
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(286)
@@ -2540,6 +3302,9 @@ module Quickfix
 	end
 
 	class SellerDays < Quickfix::IntField
+		def SellerDays.field
+			return 287
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(287)
@@ -2550,6 +3315,9 @@ module Quickfix
 	end
 
 	class MDEntryBuyer < Quickfix::StringField
+		def MDEntryBuyer.field
+			return 288
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(288)
@@ -2560,6 +3328,9 @@ module Quickfix
 	end
 
 	class MDEntrySeller < Quickfix::StringField
+		def MDEntrySeller.field
+			return 289
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(289)
@@ -2570,6 +3341,9 @@ module Quickfix
 	end
 
 	class MDEntryPositionNo < Quickfix::IntField
+		def MDEntryPositionNo.field
+			return 290
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(290)
@@ -2580,6 +3354,9 @@ module Quickfix
 	end
 
 	class FinancialStatus < Quickfix::StringField
+		def FinancialStatus.field
+			return 291
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(291)
@@ -2590,6 +3367,9 @@ module Quickfix
 	end
 
 	class CorporateAction < Quickfix::StringField
+		def CorporateAction.field
+			return 292
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(292)
@@ -2600,6 +3380,9 @@ module Quickfix
 	end
 
 	class DefBidSize < Quickfix::DoubleField
+		def DefBidSize.field
+			return 293
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(293)
@@ -2610,6 +3393,9 @@ module Quickfix
 	end
 
 	class DefOfferSize < Quickfix::DoubleField
+		def DefOfferSize.field
+			return 294
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(294)
@@ -2620,6 +3406,9 @@ module Quickfix
 	end
 
 	class NoQuoteEntries < Quickfix::IntField
+		def NoQuoteEntries.field
+			return 295
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(295)
@@ -2630,6 +3419,9 @@ module Quickfix
 	end
 
 	class NoQuoteSets < Quickfix::IntField
+		def NoQuoteSets.field
+			return 296
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(296)
@@ -2640,6 +3432,9 @@ module Quickfix
 	end
 
 	class QuoteStatus < Quickfix::IntField
+		def QuoteStatus.field
+			return 297
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(297)
@@ -2650,6 +3445,9 @@ module Quickfix
 	end
 
 	class QuoteCancelType < Quickfix::IntField
+		def QuoteCancelType.field
+			return 298
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(298)
@@ -2660,6 +3458,9 @@ module Quickfix
 	end
 
 	class QuoteEntryID < Quickfix::StringField
+		def QuoteEntryID.field
+			return 299
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(299)
@@ -2670,6 +3471,9 @@ module Quickfix
 	end
 
 	class QuoteRejectReason < Quickfix::IntField
+		def QuoteRejectReason.field
+			return 300
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(300)
@@ -2680,6 +3484,9 @@ module Quickfix
 	end
 
 	class QuoteResponseLevel < Quickfix::IntField
+		def QuoteResponseLevel.field
+			return 301
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(301)
@@ -2690,6 +3497,9 @@ module Quickfix
 	end
 
 	class QuoteSetID < Quickfix::StringField
+		def QuoteSetID.field
+			return 302
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(302)
@@ -2700,6 +3510,9 @@ module Quickfix
 	end
 
 	class QuoteRequestType < Quickfix::IntField
+		def QuoteRequestType.field
+			return 303
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(303)
@@ -2710,6 +3523,9 @@ module Quickfix
 	end
 
 	class TotNoQuoteEntries < Quickfix::IntField
+		def TotNoQuoteEntries.field
+			return 304
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(304)
@@ -2720,6 +3536,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecurityIDSource < Quickfix::StringField
+		def UnderlyingSecurityIDSource.field
+			return 305
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(305)
@@ -2730,6 +3549,9 @@ module Quickfix
 	end
 
 	class UnderlyingIssuer < Quickfix::StringField
+		def UnderlyingIssuer.field
+			return 306
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(306)
@@ -2740,6 +3562,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecurityDesc < Quickfix::StringField
+		def UnderlyingSecurityDesc.field
+			return 307
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(307)
@@ -2750,6 +3575,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecurityExchange < Quickfix::StringField
+		def UnderlyingSecurityExchange.field
+			return 308
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(308)
@@ -2760,6 +3588,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecurityID < Quickfix::StringField
+		def UnderlyingSecurityID.field
+			return 309
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(309)
@@ -2770,6 +3601,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecurityType < Quickfix::StringField
+		def UnderlyingSecurityType.field
+			return 310
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(310)
@@ -2780,6 +3614,9 @@ module Quickfix
 	end
 
 	class UnderlyingSymbol < Quickfix::StringField
+		def UnderlyingSymbol.field
+			return 311
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(311)
@@ -2790,6 +3627,9 @@ module Quickfix
 	end
 
 	class UnderlyingSymbolSfx < Quickfix::StringField
+		def UnderlyingSymbolSfx.field
+			return 312
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(312)
@@ -2800,6 +3640,9 @@ module Quickfix
 	end
 
 	class UnderlyingMaturityMonthYear < Quickfix::StringField
+		def UnderlyingMaturityMonthYear.field
+			return 313
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(313)
@@ -2810,6 +3653,9 @@ module Quickfix
 	end
 
 	class UnderlyingStrikePrice < Quickfix::DoubleField
+		def UnderlyingStrikePrice.field
+			return 316
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(316)
@@ -2820,6 +3666,9 @@ module Quickfix
 	end
 
 	class UnderlyingOptAttribute < Quickfix::CharField
+		def UnderlyingOptAttribute.field
+			return 317
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(317)
@@ -2830,6 +3679,9 @@ module Quickfix
 	end
 
 	class UnderlyingCurrency < Quickfix::StringField
+		def UnderlyingCurrency.field
+			return 318
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(318)
@@ -2840,6 +3692,9 @@ module Quickfix
 	end
 
 	class SecurityReqID < Quickfix::StringField
+		def SecurityReqID.field
+			return 320
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(320)
@@ -2850,6 +3705,9 @@ module Quickfix
 	end
 
 	class SecurityRequestType < Quickfix::IntField
+		def SecurityRequestType.field
+			return 321
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(321)
@@ -2860,6 +3718,9 @@ module Quickfix
 	end
 
 	class SecurityResponseID < Quickfix::StringField
+		def SecurityResponseID.field
+			return 322
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(322)
@@ -2870,6 +3731,9 @@ module Quickfix
 	end
 
 	class SecurityResponseType < Quickfix::IntField
+		def SecurityResponseType.field
+			return 323
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(323)
@@ -2880,6 +3744,9 @@ module Quickfix
 	end
 
 	class SecurityStatusReqID < Quickfix::StringField
+		def SecurityStatusReqID.field
+			return 324
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(324)
@@ -2890,6 +3757,9 @@ module Quickfix
 	end
 
 	class UnsolicitedIndicator < Quickfix::BoolField
+		def UnsolicitedIndicator.field
+			return 325
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(325)
@@ -2900,6 +3770,9 @@ module Quickfix
 	end
 
 	class SecurityTradingStatus < Quickfix::IntField
+		def SecurityTradingStatus.field
+			return 326
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(326)
@@ -2910,6 +3783,9 @@ module Quickfix
 	end
 
 	class HaltReason < Quickfix::CharField
+		def HaltReason.field
+			return 327
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(327)
@@ -2920,6 +3796,9 @@ module Quickfix
 	end
 
 	class InViewOfCommon < Quickfix::BoolField
+		def InViewOfCommon.field
+			return 328
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(328)
@@ -2930,6 +3809,9 @@ module Quickfix
 	end
 
 	class DueToRelated < Quickfix::BoolField
+		def DueToRelated.field
+			return 329
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(329)
@@ -2940,6 +3822,9 @@ module Quickfix
 	end
 
 	class BuyVolume < Quickfix::DoubleField
+		def BuyVolume.field
+			return 330
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(330)
@@ -2950,6 +3835,9 @@ module Quickfix
 	end
 
 	class SellVolume < Quickfix::DoubleField
+		def SellVolume.field
+			return 331
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(331)
@@ -2960,6 +3848,9 @@ module Quickfix
 	end
 
 	class HighPx < Quickfix::DoubleField
+		def HighPx.field
+			return 332
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(332)
@@ -2970,6 +3861,9 @@ module Quickfix
 	end
 
 	class LowPx < Quickfix::DoubleField
+		def LowPx.field
+			return 333
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(333)
@@ -2980,6 +3874,9 @@ module Quickfix
 	end
 
 	class Adjustment < Quickfix::IntField
+		def Adjustment.field
+			return 334
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(334)
@@ -2990,6 +3887,9 @@ module Quickfix
 	end
 
 	class TradSesReqID < Quickfix::StringField
+		def TradSesReqID.field
+			return 335
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(335)
@@ -3000,6 +3900,9 @@ module Quickfix
 	end
 
 	class TradingSessionID < Quickfix::StringField
+		def TradingSessionID.field
+			return 336
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(336)
@@ -3010,6 +3913,9 @@ module Quickfix
 	end
 
 	class ContraTrader < Quickfix::StringField
+		def ContraTrader.field
+			return 337
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(337)
@@ -3020,6 +3926,9 @@ module Quickfix
 	end
 
 	class TradSesMethod < Quickfix::IntField
+		def TradSesMethod.field
+			return 338
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(338)
@@ -3030,6 +3939,9 @@ module Quickfix
 	end
 
 	class TradSesMode < Quickfix::IntField
+		def TradSesMode.field
+			return 339
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(339)
@@ -3040,6 +3952,9 @@ module Quickfix
 	end
 
 	class TradSesStatus < Quickfix::IntField
+		def TradSesStatus.field
+			return 340
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(340)
@@ -3050,6 +3965,9 @@ module Quickfix
 	end
 
 	class TradSesStartTime < Quickfix::UtcTimeStampField
+		def TradSesStartTime.field
+			return 341
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(341)
@@ -3060,6 +3978,9 @@ module Quickfix
 	end
 
 	class TradSesOpenTime < Quickfix::UtcTimeStampField
+		def TradSesOpenTime.field
+			return 342
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(342)
@@ -3070,6 +3991,9 @@ module Quickfix
 	end
 
 	class TradSesPreCloseTime < Quickfix::UtcTimeStampField
+		def TradSesPreCloseTime.field
+			return 343
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(343)
@@ -3080,6 +4004,9 @@ module Quickfix
 	end
 
 	class TradSesCloseTime < Quickfix::UtcTimeStampField
+		def TradSesCloseTime.field
+			return 344
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(344)
@@ -3090,6 +4017,9 @@ module Quickfix
 	end
 
 	class TradSesEndTime < Quickfix::UtcTimeStampField
+		def TradSesEndTime.field
+			return 345
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(345)
@@ -3100,6 +4030,9 @@ module Quickfix
 	end
 
 	class NumberOfOrders < Quickfix::IntField
+		def NumberOfOrders.field
+			return 346
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(346)
@@ -3110,6 +4043,9 @@ module Quickfix
 	end
 
 	class MessageEncoding < Quickfix::StringField
+		def MessageEncoding.field
+			return 347
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(347)
@@ -3120,6 +4056,9 @@ module Quickfix
 	end
 
 	class EncodedIssuerLen < Quickfix::IntField
+		def EncodedIssuerLen.field
+			return 348
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(348)
@@ -3130,6 +4069,9 @@ module Quickfix
 	end
 
 	class EncodedIssuer < Quickfix::StringField
+		def EncodedIssuer.field
+			return 349
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(349)
@@ -3140,6 +4082,9 @@ module Quickfix
 	end
 
 	class EncodedSecurityDescLen < Quickfix::IntField
+		def EncodedSecurityDescLen.field
+			return 350
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(350)
@@ -3150,6 +4095,9 @@ module Quickfix
 	end
 
 	class EncodedSecurityDesc < Quickfix::StringField
+		def EncodedSecurityDesc.field
+			return 351
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(351)
@@ -3160,6 +4108,9 @@ module Quickfix
 	end
 
 	class EncodedListExecInstLen < Quickfix::IntField
+		def EncodedListExecInstLen.field
+			return 352
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(352)
@@ -3170,6 +4121,9 @@ module Quickfix
 	end
 
 	class EncodedListExecInst < Quickfix::StringField
+		def EncodedListExecInst.field
+			return 353
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(353)
@@ -3180,6 +4134,9 @@ module Quickfix
 	end
 
 	class EncodedTextLen < Quickfix::IntField
+		def EncodedTextLen.field
+			return 354
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(354)
@@ -3190,6 +4147,9 @@ module Quickfix
 	end
 
 	class EncodedText < Quickfix::StringField
+		def EncodedText.field
+			return 355
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(355)
@@ -3200,6 +4160,9 @@ module Quickfix
 	end
 
 	class EncodedSubjectLen < Quickfix::IntField
+		def EncodedSubjectLen.field
+			return 356
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(356)
@@ -3210,6 +4173,9 @@ module Quickfix
 	end
 
 	class EncodedSubject < Quickfix::StringField
+		def EncodedSubject.field
+			return 357
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(357)
@@ -3220,6 +4186,9 @@ module Quickfix
 	end
 
 	class EncodedHeadlineLen < Quickfix::IntField
+		def EncodedHeadlineLen.field
+			return 358
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(358)
@@ -3230,6 +4199,9 @@ module Quickfix
 	end
 
 	class EncodedHeadline < Quickfix::StringField
+		def EncodedHeadline.field
+			return 359
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(359)
@@ -3240,6 +4212,9 @@ module Quickfix
 	end
 
 	class EncodedAllocTextLen < Quickfix::IntField
+		def EncodedAllocTextLen.field
+			return 360
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(360)
@@ -3250,6 +4225,9 @@ module Quickfix
 	end
 
 	class EncodedAllocText < Quickfix::StringField
+		def EncodedAllocText.field
+			return 361
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(361)
@@ -3260,6 +4238,9 @@ module Quickfix
 	end
 
 	class EncodedUnderlyingIssuerLen < Quickfix::IntField
+		def EncodedUnderlyingIssuerLen.field
+			return 362
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(362)
@@ -3270,6 +4251,9 @@ module Quickfix
 	end
 
 	class EncodedUnderlyingIssuer < Quickfix::StringField
+		def EncodedUnderlyingIssuer.field
+			return 363
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(363)
@@ -3280,6 +4264,9 @@ module Quickfix
 	end
 
 	class EncodedUnderlyingSecurityDescLen < Quickfix::IntField
+		def EncodedUnderlyingSecurityDescLen.field
+			return 364
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(364)
@@ -3290,6 +4277,9 @@ module Quickfix
 	end
 
 	class EncodedUnderlyingSecurityDesc < Quickfix::StringField
+		def EncodedUnderlyingSecurityDesc.field
+			return 365
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(365)
@@ -3300,6 +4290,9 @@ module Quickfix
 	end
 
 	class AllocPrice < Quickfix::DoubleField
+		def AllocPrice.field
+			return 366
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(366)
@@ -3310,6 +4303,9 @@ module Quickfix
 	end
 
 	class QuoteSetValidUntilTime < Quickfix::UtcTimeStampField
+		def QuoteSetValidUntilTime.field
+			return 367
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(367)
@@ -3320,6 +4316,9 @@ module Quickfix
 	end
 
 	class QuoteEntryRejectReason < Quickfix::IntField
+		def QuoteEntryRejectReason.field
+			return 368
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(368)
@@ -3330,6 +4329,9 @@ module Quickfix
 	end
 
 	class LastMsgSeqNumProcessed < Quickfix::IntField
+		def LastMsgSeqNumProcessed.field
+			return 369
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(369)
@@ -3340,6 +4342,9 @@ module Quickfix
 	end
 
 	class RefTagID < Quickfix::IntField
+		def RefTagID.field
+			return 371
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(371)
@@ -3350,6 +4355,9 @@ module Quickfix
 	end
 
 	class RefMsgType < Quickfix::StringField
+		def RefMsgType.field
+			return 372
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(372)
@@ -3360,6 +4368,9 @@ module Quickfix
 	end
 
 	class SessionRejectReason < Quickfix::IntField
+		def SessionRejectReason.field
+			return 373
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(373)
@@ -3370,6 +4381,9 @@ module Quickfix
 	end
 
 	class BidRequestTransType < Quickfix::CharField
+		def BidRequestTransType.field
+			return 374
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(374)
@@ -3380,6 +4394,9 @@ module Quickfix
 	end
 
 	class ContraBroker < Quickfix::StringField
+		def ContraBroker.field
+			return 375
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(375)
@@ -3390,6 +4407,9 @@ module Quickfix
 	end
 
 	class ComplianceID < Quickfix::StringField
+		def ComplianceID.field
+			return 376
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(376)
@@ -3400,6 +4420,9 @@ module Quickfix
 	end
 
 	class SolicitedFlag < Quickfix::BoolField
+		def SolicitedFlag.field
+			return 377
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(377)
@@ -3410,6 +4433,9 @@ module Quickfix
 	end
 
 	class ExecRestatementReason < Quickfix::IntField
+		def ExecRestatementReason.field
+			return 378
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(378)
@@ -3420,6 +4446,9 @@ module Quickfix
 	end
 
 	class BusinessRejectRefID < Quickfix::StringField
+		def BusinessRejectRefID.field
+			return 379
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(379)
@@ -3430,6 +4459,9 @@ module Quickfix
 	end
 
 	class BusinessRejectReason < Quickfix::IntField
+		def BusinessRejectReason.field
+			return 380
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(380)
@@ -3440,6 +4472,9 @@ module Quickfix
 	end
 
 	class GrossTradeAmt < Quickfix::DoubleField
+		def GrossTradeAmt.field
+			return 381
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(381)
@@ -3450,6 +4485,9 @@ module Quickfix
 	end
 
 	class NoContraBrokers < Quickfix::IntField
+		def NoContraBrokers.field
+			return 382
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(382)
@@ -3460,6 +4498,9 @@ module Quickfix
 	end
 
 	class MaxMessageSize < Quickfix::IntField
+		def MaxMessageSize.field
+			return 383
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(383)
@@ -3470,6 +4511,9 @@ module Quickfix
 	end
 
 	class NoMsgTypes < Quickfix::IntField
+		def NoMsgTypes.field
+			return 384
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(384)
@@ -3480,6 +4524,9 @@ module Quickfix
 	end
 
 	class MsgDirection < Quickfix::CharField
+		def MsgDirection.field
+			return 385
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(385)
@@ -3490,6 +4537,9 @@ module Quickfix
 	end
 
 	class NoTradingSessions < Quickfix::IntField
+		def NoTradingSessions.field
+			return 386
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(386)
@@ -3500,6 +4550,9 @@ module Quickfix
 	end
 
 	class TotalVolumeTraded < Quickfix::DoubleField
+		def TotalVolumeTraded.field
+			return 387
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(387)
@@ -3510,6 +4563,9 @@ module Quickfix
 	end
 
 	class DiscretionInst < Quickfix::CharField
+		def DiscretionInst.field
+			return 388
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(388)
@@ -3520,6 +4576,9 @@ module Quickfix
 	end
 
 	class DiscretionOffsetValue < Quickfix::DoubleField
+		def DiscretionOffsetValue.field
+			return 389
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(389)
@@ -3530,6 +4589,9 @@ module Quickfix
 	end
 
 	class BidID < Quickfix::StringField
+		def BidID.field
+			return 390
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(390)
@@ -3540,6 +4602,9 @@ module Quickfix
 	end
 
 	class ClientBidID < Quickfix::StringField
+		def ClientBidID.field
+			return 391
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(391)
@@ -3550,6 +4615,9 @@ module Quickfix
 	end
 
 	class ListName < Quickfix::StringField
+		def ListName.field
+			return 392
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(392)
@@ -3560,6 +4628,9 @@ module Quickfix
 	end
 
 	class TotNoRelatedSym < Quickfix::IntField
+		def TotNoRelatedSym.field
+			return 393
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(393)
@@ -3570,6 +4641,9 @@ module Quickfix
 	end
 
 	class BidType < Quickfix::IntField
+		def BidType.field
+			return 394
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(394)
@@ -3580,6 +4654,9 @@ module Quickfix
 	end
 
 	class NumTickets < Quickfix::IntField
+		def NumTickets.field
+			return 395
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(395)
@@ -3590,6 +4667,9 @@ module Quickfix
 	end
 
 	class SideValue1 < Quickfix::DoubleField
+		def SideValue1.field
+			return 396
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(396)
@@ -3600,6 +4680,9 @@ module Quickfix
 	end
 
 	class SideValue2 < Quickfix::DoubleField
+		def SideValue2.field
+			return 397
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(397)
@@ -3610,6 +4693,9 @@ module Quickfix
 	end
 
 	class NoBidDescriptors < Quickfix::IntField
+		def NoBidDescriptors.field
+			return 398
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(398)
@@ -3620,6 +4706,9 @@ module Quickfix
 	end
 
 	class BidDescriptorType < Quickfix::IntField
+		def BidDescriptorType.field
+			return 399
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(399)
@@ -3630,6 +4719,9 @@ module Quickfix
 	end
 
 	class BidDescriptor < Quickfix::StringField
+		def BidDescriptor.field
+			return 400
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(400)
@@ -3640,6 +4732,9 @@ module Quickfix
 	end
 
 	class SideValueInd < Quickfix::IntField
+		def SideValueInd.field
+			return 401
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(401)
@@ -3650,6 +4745,9 @@ module Quickfix
 	end
 
 	class LiquidityPctLow < Quickfix::DoubleField
+		def LiquidityPctLow.field
+			return 402
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(402)
@@ -3660,6 +4758,9 @@ module Quickfix
 	end
 
 	class LiquidityPctHigh < Quickfix::DoubleField
+		def LiquidityPctHigh.field
+			return 403
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(403)
@@ -3670,6 +4771,9 @@ module Quickfix
 	end
 
 	class LiquidityValue < Quickfix::DoubleField
+		def LiquidityValue.field
+			return 404
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(404)
@@ -3680,6 +4784,9 @@ module Quickfix
 	end
 
 	class EFPTrackingError < Quickfix::DoubleField
+		def EFPTrackingError.field
+			return 405
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(405)
@@ -3690,6 +4797,9 @@ module Quickfix
 	end
 
 	class FairValue < Quickfix::DoubleField
+		def FairValue.field
+			return 406
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(406)
@@ -3700,6 +4810,9 @@ module Quickfix
 	end
 
 	class OutsideIndexPct < Quickfix::DoubleField
+		def OutsideIndexPct.field
+			return 407
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(407)
@@ -3710,6 +4823,9 @@ module Quickfix
 	end
 
 	class ValueOfFutures < Quickfix::DoubleField
+		def ValueOfFutures.field
+			return 408
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(408)
@@ -3720,6 +4836,9 @@ module Quickfix
 	end
 
 	class LiquidityIndType < Quickfix::IntField
+		def LiquidityIndType.field
+			return 409
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(409)
@@ -3730,6 +4849,9 @@ module Quickfix
 	end
 
 	class WtAverageLiquidity < Quickfix::DoubleField
+		def WtAverageLiquidity.field
+			return 410
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(410)
@@ -3740,6 +4862,9 @@ module Quickfix
 	end
 
 	class ExchangeForPhysical < Quickfix::BoolField
+		def ExchangeForPhysical.field
+			return 411
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(411)
@@ -3750,6 +4875,9 @@ module Quickfix
 	end
 
 	class OutMainCntryUIndex < Quickfix::DoubleField
+		def OutMainCntryUIndex.field
+			return 412
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(412)
@@ -3760,6 +4888,9 @@ module Quickfix
 	end
 
 	class CrossPercent < Quickfix::DoubleField
+		def CrossPercent.field
+			return 413
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(413)
@@ -3770,6 +4901,9 @@ module Quickfix
 	end
 
 	class ProgRptReqs < Quickfix::IntField
+		def ProgRptReqs.field
+			return 414
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(414)
@@ -3780,6 +4914,9 @@ module Quickfix
 	end
 
 	class ProgPeriodInterval < Quickfix::IntField
+		def ProgPeriodInterval.field
+			return 415
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(415)
@@ -3790,6 +4927,9 @@ module Quickfix
 	end
 
 	class IncTaxInd < Quickfix::IntField
+		def IncTaxInd.field
+			return 416
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(416)
@@ -3800,6 +4940,9 @@ module Quickfix
 	end
 
 	class NumBidders < Quickfix::IntField
+		def NumBidders.field
+			return 417
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(417)
@@ -3810,6 +4953,9 @@ module Quickfix
 	end
 
 	class BidTradeType < Quickfix::CharField
+		def BidTradeType.field
+			return 418
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(418)
@@ -3820,6 +4966,9 @@ module Quickfix
 	end
 
 	class BasisPxType < Quickfix::CharField
+		def BasisPxType.field
+			return 419
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(419)
@@ -3830,6 +4979,9 @@ module Quickfix
 	end
 
 	class NoBidComponents < Quickfix::IntField
+		def NoBidComponents.field
+			return 420
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(420)
@@ -3840,6 +4992,9 @@ module Quickfix
 	end
 
 	class Country < Quickfix::StringField
+		def Country.field
+			return 421
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(421)
@@ -3850,6 +5005,9 @@ module Quickfix
 	end
 
 	class TotNoStrikes < Quickfix::IntField
+		def TotNoStrikes.field
+			return 422
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(422)
@@ -3860,6 +5018,9 @@ module Quickfix
 	end
 
 	class PriceType < Quickfix::IntField
+		def PriceType.field
+			return 423
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(423)
@@ -3870,6 +5031,9 @@ module Quickfix
 	end
 
 	class DayOrderQty < Quickfix::DoubleField
+		def DayOrderQty.field
+			return 424
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(424)
@@ -3880,6 +5044,9 @@ module Quickfix
 	end
 
 	class DayCumQty < Quickfix::DoubleField
+		def DayCumQty.field
+			return 425
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(425)
@@ -3890,6 +5057,9 @@ module Quickfix
 	end
 
 	class DayAvgPx < Quickfix::DoubleField
+		def DayAvgPx.field
+			return 426
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(426)
@@ -3900,6 +5070,9 @@ module Quickfix
 	end
 
 	class GTBookingInst < Quickfix::IntField
+		def GTBookingInst.field
+			return 427
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(427)
@@ -3910,6 +5083,9 @@ module Quickfix
 	end
 
 	class NoStrikes < Quickfix::IntField
+		def NoStrikes.field
+			return 428
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(428)
@@ -3920,6 +5096,9 @@ module Quickfix
 	end
 
 	class ListStatusType < Quickfix::IntField
+		def ListStatusType.field
+			return 429
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(429)
@@ -3930,6 +5109,9 @@ module Quickfix
 	end
 
 	class NetGrossInd < Quickfix::IntField
+		def NetGrossInd.field
+			return 430
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(430)
@@ -3940,6 +5122,9 @@ module Quickfix
 	end
 
 	class ListOrderStatus < Quickfix::IntField
+		def ListOrderStatus.field
+			return 431
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(431)
@@ -3950,6 +5135,9 @@ module Quickfix
 	end
 
 	class ExpireDate < Quickfix::StringField
+		def ExpireDate.field
+			return 432
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(432)
@@ -3960,6 +5148,9 @@ module Quickfix
 	end
 
 	class ListExecInstType < Quickfix::CharField
+		def ListExecInstType.field
+			return 433
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(433)
@@ -3970,6 +5161,9 @@ module Quickfix
 	end
 
 	class CxlRejResponseTo < Quickfix::CharField
+		def CxlRejResponseTo.field
+			return 434
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(434)
@@ -3980,6 +5174,9 @@ module Quickfix
 	end
 
 	class UnderlyingCouponRate < Quickfix::DoubleField
+		def UnderlyingCouponRate.field
+			return 435
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(435)
@@ -3990,6 +5187,9 @@ module Quickfix
 	end
 
 	class UnderlyingContractMultiplier < Quickfix::DoubleField
+		def UnderlyingContractMultiplier.field
+			return 436
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(436)
@@ -4000,6 +5200,9 @@ module Quickfix
 	end
 
 	class ContraTradeQty < Quickfix::DoubleField
+		def ContraTradeQty.field
+			return 437
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(437)
@@ -4010,6 +5213,9 @@ module Quickfix
 	end
 
 	class ContraTradeTime < Quickfix::UtcTimeStampField
+		def ContraTradeTime.field
+			return 438
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(438)
@@ -4020,6 +5226,9 @@ module Quickfix
 	end
 
 	class LiquidityNumSecurities < Quickfix::IntField
+		def LiquidityNumSecurities.field
+			return 441
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(441)
@@ -4030,6 +5239,9 @@ module Quickfix
 	end
 
 	class MultiLegReportingType < Quickfix::CharField
+		def MultiLegReportingType.field
+			return 442
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(442)
@@ -4040,6 +5252,9 @@ module Quickfix
 	end
 
 	class StrikeTime < Quickfix::UtcTimeStampField
+		def StrikeTime.field
+			return 443
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(443)
@@ -4050,6 +5265,9 @@ module Quickfix
 	end
 
 	class ListStatusText < Quickfix::StringField
+		def ListStatusText.field
+			return 444
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(444)
@@ -4060,6 +5278,9 @@ module Quickfix
 	end
 
 	class EncodedListStatusTextLen < Quickfix::IntField
+		def EncodedListStatusTextLen.field
+			return 445
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(445)
@@ -4070,6 +5291,9 @@ module Quickfix
 	end
 
 	class EncodedListStatusText < Quickfix::StringField
+		def EncodedListStatusText.field
+			return 446
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(446)
@@ -4080,6 +5304,9 @@ module Quickfix
 	end
 
 	class PartyIDSource < Quickfix::CharField
+		def PartyIDSource.field
+			return 447
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(447)
@@ -4090,6 +5317,9 @@ module Quickfix
 	end
 
 	class PartyID < Quickfix::StringField
+		def PartyID.field
+			return 448
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(448)
@@ -4100,6 +5330,9 @@ module Quickfix
 	end
 
 	class NetChgPrevDay < Quickfix::DoubleField
+		def NetChgPrevDay.field
+			return 451
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(451)
@@ -4110,6 +5343,9 @@ module Quickfix
 	end
 
 	class PartyRole < Quickfix::IntField
+		def PartyRole.field
+			return 452
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(452)
@@ -4120,6 +5356,9 @@ module Quickfix
 	end
 
 	class NoPartyIDs < Quickfix::IntField
+		def NoPartyIDs.field
+			return 453
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(453)
@@ -4130,6 +5369,9 @@ module Quickfix
 	end
 
 	class NoSecurityAltID < Quickfix::IntField
+		def NoSecurityAltID.field
+			return 454
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(454)
@@ -4140,6 +5382,9 @@ module Quickfix
 	end
 
 	class SecurityAltID < Quickfix::StringField
+		def SecurityAltID.field
+			return 455
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(455)
@@ -4150,6 +5395,9 @@ module Quickfix
 	end
 
 	class SecurityAltIDSource < Quickfix::StringField
+		def SecurityAltIDSource.field
+			return 456
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(456)
@@ -4160,6 +5408,9 @@ module Quickfix
 	end
 
 	class NoUnderlyingSecurityAltID < Quickfix::IntField
+		def NoUnderlyingSecurityAltID.field
+			return 457
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(457)
@@ -4170,6 +5421,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecurityAltID < Quickfix::StringField
+		def UnderlyingSecurityAltID.field
+			return 458
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(458)
@@ -4180,6 +5434,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecurityAltIDSource < Quickfix::StringField
+		def UnderlyingSecurityAltIDSource.field
+			return 459
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(459)
@@ -4190,6 +5447,9 @@ module Quickfix
 	end
 
 	class Product < Quickfix::IntField
+		def Product.field
+			return 460
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(460)
@@ -4200,6 +5460,9 @@ module Quickfix
 	end
 
 	class CFICode < Quickfix::StringField
+		def CFICode.field
+			return 461
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(461)
@@ -4210,6 +5473,9 @@ module Quickfix
 	end
 
 	class UnderlyingProduct < Quickfix::IntField
+		def UnderlyingProduct.field
+			return 462
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(462)
@@ -4220,6 +5486,9 @@ module Quickfix
 	end
 
 	class UnderlyingCFICode < Quickfix::StringField
+		def UnderlyingCFICode.field
+			return 463
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(463)
@@ -4230,6 +5499,9 @@ module Quickfix
 	end
 
 	class TestMessageIndicator < Quickfix::BoolField
+		def TestMessageIndicator.field
+			return 464
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(464)
@@ -4240,6 +5512,9 @@ module Quickfix
 	end
 
 	class QuantityType < Quickfix::IntField
+		def QuantityType.field
+			return 465
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(465)
@@ -4250,6 +5525,9 @@ module Quickfix
 	end
 
 	class BookingRefID < Quickfix::StringField
+		def BookingRefID.field
+			return 466
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(466)
@@ -4260,6 +5538,9 @@ module Quickfix
 	end
 
 	class IndividualAllocID < Quickfix::StringField
+		def IndividualAllocID.field
+			return 467
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(467)
@@ -4270,6 +5551,9 @@ module Quickfix
 	end
 
 	class RoundingDirection < Quickfix::CharField
+		def RoundingDirection.field
+			return 468
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(468)
@@ -4280,6 +5564,9 @@ module Quickfix
 	end
 
 	class RoundingModulus < Quickfix::DoubleField
+		def RoundingModulus.field
+			return 469
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(469)
@@ -4290,6 +5577,9 @@ module Quickfix
 	end
 
 	class CountryOfIssue < Quickfix::StringField
+		def CountryOfIssue.field
+			return 470
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(470)
@@ -4300,6 +5590,9 @@ module Quickfix
 	end
 
 	class StateOrProvinceOfIssue < Quickfix::StringField
+		def StateOrProvinceOfIssue.field
+			return 471
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(471)
@@ -4310,6 +5603,9 @@ module Quickfix
 	end
 
 	class LocaleOfIssue < Quickfix::StringField
+		def LocaleOfIssue.field
+			return 472
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(472)
@@ -4320,6 +5616,9 @@ module Quickfix
 	end
 
 	class NoRegistDtls < Quickfix::IntField
+		def NoRegistDtls.field
+			return 473
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(473)
@@ -4330,6 +5629,9 @@ module Quickfix
 	end
 
 	class MailingDtls < Quickfix::StringField
+		def MailingDtls.field
+			return 474
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(474)
@@ -4340,6 +5642,9 @@ module Quickfix
 	end
 
 	class InvestorCountryOfResidence < Quickfix::StringField
+		def InvestorCountryOfResidence.field
+			return 475
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(475)
@@ -4350,6 +5655,9 @@ module Quickfix
 	end
 
 	class PaymentRef < Quickfix::StringField
+		def PaymentRef.field
+			return 476
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(476)
@@ -4360,6 +5668,9 @@ module Quickfix
 	end
 
 	class DistribPaymentMethod < Quickfix::IntField
+		def DistribPaymentMethod.field
+			return 477
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(477)
@@ -4370,6 +5681,9 @@ module Quickfix
 	end
 
 	class CashDistribCurr < Quickfix::StringField
+		def CashDistribCurr.field
+			return 478
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(478)
@@ -4380,6 +5694,9 @@ module Quickfix
 	end
 
 	class CommCurrency < Quickfix::StringField
+		def CommCurrency.field
+			return 479
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(479)
@@ -4390,6 +5707,9 @@ module Quickfix
 	end
 
 	class CancellationRights < Quickfix::CharField
+		def CancellationRights.field
+			return 480
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(480)
@@ -4400,6 +5720,9 @@ module Quickfix
 	end
 
 	class MoneyLaunderingStatus < Quickfix::CharField
+		def MoneyLaunderingStatus.field
+			return 481
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(481)
@@ -4410,6 +5733,9 @@ module Quickfix
 	end
 
 	class MailingInst < Quickfix::StringField
+		def MailingInst.field
+			return 482
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(482)
@@ -4420,6 +5746,9 @@ module Quickfix
 	end
 
 	class TransBkdTime < Quickfix::UtcTimeStampField
+		def TransBkdTime.field
+			return 483
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(483)
@@ -4430,6 +5759,9 @@ module Quickfix
 	end
 
 	class ExecPriceType < Quickfix::CharField
+		def ExecPriceType.field
+			return 484
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(484)
@@ -4440,6 +5772,9 @@ module Quickfix
 	end
 
 	class ExecPriceAdjustment < Quickfix::DoubleField
+		def ExecPriceAdjustment.field
+			return 485
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(485)
@@ -4450,6 +5785,9 @@ module Quickfix
 	end
 
 	class DateOfBirth < Quickfix::StringField
+		def DateOfBirth.field
+			return 486
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(486)
@@ -4460,6 +5798,9 @@ module Quickfix
 	end
 
 	class TradeReportTransType < Quickfix::IntField
+		def TradeReportTransType.field
+			return 487
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(487)
@@ -4470,6 +5811,9 @@ module Quickfix
 	end
 
 	class CardHolderName < Quickfix::StringField
+		def CardHolderName.field
+			return 488
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(488)
@@ -4480,6 +5824,9 @@ module Quickfix
 	end
 
 	class CardNumber < Quickfix::StringField
+		def CardNumber.field
+			return 489
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(489)
@@ -4490,6 +5837,9 @@ module Quickfix
 	end
 
 	class CardExpDate < Quickfix::StringField
+		def CardExpDate.field
+			return 490
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(490)
@@ -4500,6 +5850,9 @@ module Quickfix
 	end
 
 	class CardIssNum < Quickfix::StringField
+		def CardIssNum.field
+			return 491
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(491)
@@ -4510,6 +5863,9 @@ module Quickfix
 	end
 
 	class PaymentMethod < Quickfix::IntField
+		def PaymentMethod.field
+			return 492
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(492)
@@ -4520,6 +5876,9 @@ module Quickfix
 	end
 
 	class RegistAcctType < Quickfix::StringField
+		def RegistAcctType.field
+			return 493
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(493)
@@ -4530,6 +5889,9 @@ module Quickfix
 	end
 
 	class Designation < Quickfix::StringField
+		def Designation.field
+			return 494
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(494)
@@ -4540,6 +5902,9 @@ module Quickfix
 	end
 
 	class TaxAdvantageType < Quickfix::IntField
+		def TaxAdvantageType.field
+			return 495
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(495)
@@ -4550,6 +5915,9 @@ module Quickfix
 	end
 
 	class RegistRejReasonText < Quickfix::StringField
+		def RegistRejReasonText.field
+			return 496
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(496)
@@ -4560,6 +5928,9 @@ module Quickfix
 	end
 
 	class FundRenewWaiv < Quickfix::CharField
+		def FundRenewWaiv.field
+			return 497
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(497)
@@ -4570,6 +5941,9 @@ module Quickfix
 	end
 
 	class CashDistribAgentName < Quickfix::StringField
+		def CashDistribAgentName.field
+			return 498
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(498)
@@ -4580,6 +5954,9 @@ module Quickfix
 	end
 
 	class CashDistribAgentCode < Quickfix::StringField
+		def CashDistribAgentCode.field
+			return 499
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(499)
@@ -4590,6 +5967,9 @@ module Quickfix
 	end
 
 	class CashDistribAgentAcctNumber < Quickfix::StringField
+		def CashDistribAgentAcctNumber.field
+			return 500
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(500)
@@ -4600,6 +5980,9 @@ module Quickfix
 	end
 
 	class CashDistribPayRef < Quickfix::StringField
+		def CashDistribPayRef.field
+			return 501
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(501)
@@ -4610,6 +5993,9 @@ module Quickfix
 	end
 
 	class CashDistribAgentAcctName < Quickfix::StringField
+		def CashDistribAgentAcctName.field
+			return 502
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(502)
@@ -4620,6 +6006,9 @@ module Quickfix
 	end
 
 	class CardStartDate < Quickfix::StringField
+		def CardStartDate.field
+			return 503
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(503)
@@ -4630,6 +6019,9 @@ module Quickfix
 	end
 
 	class PaymentDate < Quickfix::StringField
+		def PaymentDate.field
+			return 504
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(504)
@@ -4640,6 +6032,9 @@ module Quickfix
 	end
 
 	class PaymentRemitterID < Quickfix::StringField
+		def PaymentRemitterID.field
+			return 505
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(505)
@@ -4650,6 +6045,9 @@ module Quickfix
 	end
 
 	class RegistStatus < Quickfix::CharField
+		def RegistStatus.field
+			return 506
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(506)
@@ -4660,6 +6058,9 @@ module Quickfix
 	end
 
 	class RegistRejReasonCode < Quickfix::IntField
+		def RegistRejReasonCode.field
+			return 507
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(507)
@@ -4670,6 +6071,9 @@ module Quickfix
 	end
 
 	class RegistRefID < Quickfix::StringField
+		def RegistRefID.field
+			return 508
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(508)
@@ -4680,6 +6084,9 @@ module Quickfix
 	end
 
 	class RegistDtls < Quickfix::StringField
+		def RegistDtls.field
+			return 509
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(509)
@@ -4690,6 +6097,9 @@ module Quickfix
 	end
 
 	class NoDistribInsts < Quickfix::IntField
+		def NoDistribInsts.field
+			return 510
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(510)
@@ -4700,6 +6110,9 @@ module Quickfix
 	end
 
 	class RegistEmail < Quickfix::StringField
+		def RegistEmail.field
+			return 511
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(511)
@@ -4710,6 +6123,9 @@ module Quickfix
 	end
 
 	class DistribPercentage < Quickfix::DoubleField
+		def DistribPercentage.field
+			return 512
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(512)
@@ -4720,6 +6136,9 @@ module Quickfix
 	end
 
 	class RegistID < Quickfix::StringField
+		def RegistID.field
+			return 513
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(513)
@@ -4730,6 +6149,9 @@ module Quickfix
 	end
 
 	class RegistTransType < Quickfix::CharField
+		def RegistTransType.field
+			return 514
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(514)
@@ -4740,6 +6162,9 @@ module Quickfix
 	end
 
 	class ExecValuationPoint < Quickfix::UtcTimeStampField
+		def ExecValuationPoint.field
+			return 515
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(515)
@@ -4750,6 +6175,9 @@ module Quickfix
 	end
 
 	class OrderPercent < Quickfix::DoubleField
+		def OrderPercent.field
+			return 516
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(516)
@@ -4760,6 +6188,9 @@ module Quickfix
 	end
 
 	class OwnershipType < Quickfix::CharField
+		def OwnershipType.field
+			return 517
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(517)
@@ -4770,6 +6201,9 @@ module Quickfix
 	end
 
 	class NoContAmts < Quickfix::IntField
+		def NoContAmts.field
+			return 518
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(518)
@@ -4780,6 +6214,9 @@ module Quickfix
 	end
 
 	class ContAmtType < Quickfix::IntField
+		def ContAmtType.field
+			return 519
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(519)
@@ -4790,6 +6227,9 @@ module Quickfix
 	end
 
 	class ContAmtValue < Quickfix::DoubleField
+		def ContAmtValue.field
+			return 520
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(520)
@@ -4800,6 +6240,9 @@ module Quickfix
 	end
 
 	class ContAmtCurr < Quickfix::StringField
+		def ContAmtCurr.field
+			return 521
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(521)
@@ -4810,6 +6253,9 @@ module Quickfix
 	end
 
 	class OwnerType < Quickfix::IntField
+		def OwnerType.field
+			return 522
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(522)
@@ -4820,6 +6266,9 @@ module Quickfix
 	end
 
 	class PartySubID < Quickfix::StringField
+		def PartySubID.field
+			return 523
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(523)
@@ -4830,6 +6279,9 @@ module Quickfix
 	end
 
 	class NestedPartyID < Quickfix::StringField
+		def NestedPartyID.field
+			return 524
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(524)
@@ -4840,6 +6292,9 @@ module Quickfix
 	end
 
 	class NestedPartyIDSource < Quickfix::CharField
+		def NestedPartyIDSource.field
+			return 525
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(525)
@@ -4850,6 +6305,9 @@ module Quickfix
 	end
 
 	class SecondaryClOrdID < Quickfix::StringField
+		def SecondaryClOrdID.field
+			return 526
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(526)
@@ -4860,6 +6318,9 @@ module Quickfix
 	end
 
 	class SecondaryExecID < Quickfix::StringField
+		def SecondaryExecID.field
+			return 527
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(527)
@@ -4870,6 +6331,9 @@ module Quickfix
 	end
 
 	class OrderCapacity < Quickfix::CharField
+		def OrderCapacity.field
+			return 528
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(528)
@@ -4880,6 +6344,9 @@ module Quickfix
 	end
 
 	class OrderRestrictions < Quickfix::StringField
+		def OrderRestrictions.field
+			return 529
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(529)
@@ -4890,6 +6357,9 @@ module Quickfix
 	end
 
 	class MassCancelRequestType < Quickfix::CharField
+		def MassCancelRequestType.field
+			return 530
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(530)
@@ -4900,6 +6370,9 @@ module Quickfix
 	end
 
 	class MassCancelResponse < Quickfix::CharField
+		def MassCancelResponse.field
+			return 531
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(531)
@@ -4910,6 +6383,9 @@ module Quickfix
 	end
 
 	class MassCancelRejectReason < Quickfix::CharField
+		def MassCancelRejectReason.field
+			return 532
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(532)
@@ -4920,6 +6396,9 @@ module Quickfix
 	end
 
 	class TotalAffectedOrders < Quickfix::IntField
+		def TotalAffectedOrders.field
+			return 533
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(533)
@@ -4930,6 +6409,9 @@ module Quickfix
 	end
 
 	class NoAffectedOrders < Quickfix::IntField
+		def NoAffectedOrders.field
+			return 534
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(534)
@@ -4940,6 +6422,9 @@ module Quickfix
 	end
 
 	class AffectedOrderID < Quickfix::StringField
+		def AffectedOrderID.field
+			return 535
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(535)
@@ -4950,6 +6435,9 @@ module Quickfix
 	end
 
 	class AffectedSecondaryOrderID < Quickfix::StringField
+		def AffectedSecondaryOrderID.field
+			return 536
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(536)
@@ -4960,6 +6448,9 @@ module Quickfix
 	end
 
 	class QuoteType < Quickfix::IntField
+		def QuoteType.field
+			return 537
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(537)
@@ -4970,6 +6461,9 @@ module Quickfix
 	end
 
 	class NestedPartyRole < Quickfix::IntField
+		def NestedPartyRole.field
+			return 538
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(538)
@@ -4980,6 +6474,9 @@ module Quickfix
 	end
 
 	class NoNestedPartyIDs < Quickfix::IntField
+		def NoNestedPartyIDs.field
+			return 539
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(539)
@@ -4990,6 +6487,9 @@ module Quickfix
 	end
 
 	class TotalAccruedInterestAmt < Quickfix::DoubleField
+		def TotalAccruedInterestAmt.field
+			return 540
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(540)
@@ -5000,6 +6500,9 @@ module Quickfix
 	end
 
 	class MaturityDate < Quickfix::StringField
+		def MaturityDate.field
+			return 541
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(541)
@@ -5010,6 +6513,9 @@ module Quickfix
 	end
 
 	class UnderlyingMaturityDate < Quickfix::StringField
+		def UnderlyingMaturityDate.field
+			return 542
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(542)
@@ -5020,6 +6526,9 @@ module Quickfix
 	end
 
 	class InstrRegistry < Quickfix::StringField
+		def InstrRegistry.field
+			return 543
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(543)
@@ -5030,6 +6539,9 @@ module Quickfix
 	end
 
 	class CashMargin < Quickfix::CharField
+		def CashMargin.field
+			return 544
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(544)
@@ -5040,6 +6552,9 @@ module Quickfix
 	end
 
 	class NestedPartySubID < Quickfix::StringField
+		def NestedPartySubID.field
+			return 545
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(545)
@@ -5050,6 +6565,9 @@ module Quickfix
 	end
 
 	class Scope < Quickfix::StringField
+		def Scope.field
+			return 546
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(546)
@@ -5060,6 +6578,9 @@ module Quickfix
 	end
 
 	class MDImplicitDelete < Quickfix::BoolField
+		def MDImplicitDelete.field
+			return 547
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(547)
@@ -5070,6 +6591,9 @@ module Quickfix
 	end
 
 	class CrossID < Quickfix::StringField
+		def CrossID.field
+			return 548
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(548)
@@ -5080,6 +6604,9 @@ module Quickfix
 	end
 
 	class CrossType < Quickfix::IntField
+		def CrossType.field
+			return 549
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(549)
@@ -5090,6 +6617,9 @@ module Quickfix
 	end
 
 	class CrossPrioritization < Quickfix::IntField
+		def CrossPrioritization.field
+			return 550
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(550)
@@ -5100,6 +6630,9 @@ module Quickfix
 	end
 
 	class OrigCrossID < Quickfix::StringField
+		def OrigCrossID.field
+			return 551
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(551)
@@ -5110,6 +6643,9 @@ module Quickfix
 	end
 
 	class NoSides < Quickfix::IntField
+		def NoSides.field
+			return 552
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(552)
@@ -5120,6 +6656,9 @@ module Quickfix
 	end
 
 	class Username < Quickfix::StringField
+		def Username.field
+			return 553
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(553)
@@ -5130,6 +6669,9 @@ module Quickfix
 	end
 
 	class Password < Quickfix::StringField
+		def Password.field
+			return 554
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(554)
@@ -5140,6 +6682,9 @@ module Quickfix
 	end
 
 	class NoLegs < Quickfix::IntField
+		def NoLegs.field
+			return 555
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(555)
@@ -5150,6 +6695,9 @@ module Quickfix
 	end
 
 	class LegCurrency < Quickfix::StringField
+		def LegCurrency.field
+			return 556
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(556)
@@ -5160,6 +6708,9 @@ module Quickfix
 	end
 
 	class TotNoSecurityTypes < Quickfix::IntField
+		def TotNoSecurityTypes.field
+			return 557
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(557)
@@ -5170,6 +6721,9 @@ module Quickfix
 	end
 
 	class NoSecurityTypes < Quickfix::IntField
+		def NoSecurityTypes.field
+			return 558
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(558)
@@ -5180,6 +6734,9 @@ module Quickfix
 	end
 
 	class SecurityListRequestType < Quickfix::IntField
+		def SecurityListRequestType.field
+			return 559
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(559)
@@ -5190,6 +6747,9 @@ module Quickfix
 	end
 
 	class SecurityRequestResult < Quickfix::IntField
+		def SecurityRequestResult.field
+			return 560
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(560)
@@ -5200,6 +6760,9 @@ module Quickfix
 	end
 
 	class RoundLot < Quickfix::DoubleField
+		def RoundLot.field
+			return 561
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(561)
@@ -5210,6 +6773,9 @@ module Quickfix
 	end
 
 	class MinTradeVol < Quickfix::DoubleField
+		def MinTradeVol.field
+			return 562
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(562)
@@ -5220,6 +6786,9 @@ module Quickfix
 	end
 
 	class MultiLegRptTypeReq < Quickfix::IntField
+		def MultiLegRptTypeReq.field
+			return 563
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(563)
@@ -5230,6 +6799,9 @@ module Quickfix
 	end
 
 	class LegPositionEffect < Quickfix::CharField
+		def LegPositionEffect.field
+			return 564
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(564)
@@ -5240,6 +6812,9 @@ module Quickfix
 	end
 
 	class LegCoveredOrUncovered < Quickfix::IntField
+		def LegCoveredOrUncovered.field
+			return 565
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(565)
@@ -5250,6 +6825,9 @@ module Quickfix
 	end
 
 	class LegPrice < Quickfix::DoubleField
+		def LegPrice.field
+			return 566
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(566)
@@ -5260,6 +6838,9 @@ module Quickfix
 	end
 
 	class TradSesStatusRejReason < Quickfix::IntField
+		def TradSesStatusRejReason.field
+			return 567
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(567)
@@ -5270,6 +6851,9 @@ module Quickfix
 	end
 
 	class TradeRequestID < Quickfix::StringField
+		def TradeRequestID.field
+			return 568
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(568)
@@ -5280,6 +6864,9 @@ module Quickfix
 	end
 
 	class TradeRequestType < Quickfix::IntField
+		def TradeRequestType.field
+			return 569
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(569)
@@ -5290,6 +6877,9 @@ module Quickfix
 	end
 
 	class PreviouslyReported < Quickfix::BoolField
+		def PreviouslyReported.field
+			return 570
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(570)
@@ -5300,6 +6890,9 @@ module Quickfix
 	end
 
 	class TradeReportID < Quickfix::StringField
+		def TradeReportID.field
+			return 571
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(571)
@@ -5310,6 +6903,9 @@ module Quickfix
 	end
 
 	class TradeReportRefID < Quickfix::StringField
+		def TradeReportRefID.field
+			return 572
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(572)
@@ -5320,6 +6916,9 @@ module Quickfix
 	end
 
 	class MatchStatus < Quickfix::CharField
+		def MatchStatus.field
+			return 573
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(573)
@@ -5330,6 +6929,9 @@ module Quickfix
 	end
 
 	class MatchType < Quickfix::StringField
+		def MatchType.field
+			return 574
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(574)
@@ -5340,6 +6942,9 @@ module Quickfix
 	end
 
 	class OddLot < Quickfix::BoolField
+		def OddLot.field
+			return 575
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(575)
@@ -5350,6 +6955,9 @@ module Quickfix
 	end
 
 	class NoClearingInstructions < Quickfix::IntField
+		def NoClearingInstructions.field
+			return 576
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(576)
@@ -5360,6 +6968,9 @@ module Quickfix
 	end
 
 	class ClearingInstruction < Quickfix::IntField
+		def ClearingInstruction.field
+			return 577
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(577)
@@ -5370,6 +6981,9 @@ module Quickfix
 	end
 
 	class TradeInputSource < Quickfix::StringField
+		def TradeInputSource.field
+			return 578
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(578)
@@ -5380,6 +6994,9 @@ module Quickfix
 	end
 
 	class TradeInputDevice < Quickfix::StringField
+		def TradeInputDevice.field
+			return 579
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(579)
@@ -5390,6 +7007,9 @@ module Quickfix
 	end
 
 	class NoDates < Quickfix::IntField
+		def NoDates.field
+			return 580
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(580)
@@ -5400,6 +7020,9 @@ module Quickfix
 	end
 
 	class AccountType < Quickfix::IntField
+		def AccountType.field
+			return 581
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(581)
@@ -5410,6 +7033,9 @@ module Quickfix
 	end
 
 	class CustOrderCapacity < Quickfix::IntField
+		def CustOrderCapacity.field
+			return 582
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(582)
@@ -5420,6 +7046,9 @@ module Quickfix
 	end
 
 	class ClOrdLinkID < Quickfix::StringField
+		def ClOrdLinkID.field
+			return 583
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(583)
@@ -5430,6 +7059,9 @@ module Quickfix
 	end
 
 	class MassStatusReqID < Quickfix::StringField
+		def MassStatusReqID.field
+			return 584
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(584)
@@ -5440,6 +7072,9 @@ module Quickfix
 	end
 
 	class MassStatusReqType < Quickfix::IntField
+		def MassStatusReqType.field
+			return 585
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(585)
@@ -5450,6 +7085,9 @@ module Quickfix
 	end
 
 	class OrigOrdModTime < Quickfix::UtcTimeStampField
+		def OrigOrdModTime.field
+			return 586
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(586)
@@ -5460,6 +7098,9 @@ module Quickfix
 	end
 
 	class LegSettlType < Quickfix::CharField
+		def LegSettlType.field
+			return 587
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(587)
@@ -5470,6 +7111,9 @@ module Quickfix
 	end
 
 	class LegSettlDate < Quickfix::StringField
+		def LegSettlDate.field
+			return 588
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(588)
@@ -5480,6 +7124,9 @@ module Quickfix
 	end
 
 	class DayBookingInst < Quickfix::CharField
+		def DayBookingInst.field
+			return 589
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(589)
@@ -5490,6 +7137,9 @@ module Quickfix
 	end
 
 	class BookingUnit < Quickfix::CharField
+		def BookingUnit.field
+			return 590
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(590)
@@ -5500,6 +7150,9 @@ module Quickfix
 	end
 
 	class PreallocMethod < Quickfix::CharField
+		def PreallocMethod.field
+			return 591
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(591)
@@ -5510,6 +7163,9 @@ module Quickfix
 	end
 
 	class UnderlyingCountryOfIssue < Quickfix::StringField
+		def UnderlyingCountryOfIssue.field
+			return 592
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(592)
@@ -5520,6 +7176,9 @@ module Quickfix
 	end
 
 	class UnderlyingStateOrProvinceOfIssue < Quickfix::StringField
+		def UnderlyingStateOrProvinceOfIssue.field
+			return 593
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(593)
@@ -5530,6 +7189,9 @@ module Quickfix
 	end
 
 	class UnderlyingLocaleOfIssue < Quickfix::StringField
+		def UnderlyingLocaleOfIssue.field
+			return 594
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(594)
@@ -5540,6 +7202,9 @@ module Quickfix
 	end
 
 	class UnderlyingInstrRegistry < Quickfix::StringField
+		def UnderlyingInstrRegistry.field
+			return 595
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(595)
@@ -5550,6 +7215,9 @@ module Quickfix
 	end
 
 	class LegCountryOfIssue < Quickfix::StringField
+		def LegCountryOfIssue.field
+			return 596
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(596)
@@ -5560,6 +7228,9 @@ module Quickfix
 	end
 
 	class LegStateOrProvinceOfIssue < Quickfix::StringField
+		def LegStateOrProvinceOfIssue.field
+			return 597
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(597)
@@ -5570,6 +7241,9 @@ module Quickfix
 	end
 
 	class LegLocaleOfIssue < Quickfix::StringField
+		def LegLocaleOfIssue.field
+			return 598
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(598)
@@ -5580,6 +7254,9 @@ module Quickfix
 	end
 
 	class LegInstrRegistry < Quickfix::StringField
+		def LegInstrRegistry.field
+			return 599
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(599)
@@ -5590,6 +7267,9 @@ module Quickfix
 	end
 
 	class LegSymbol < Quickfix::StringField
+		def LegSymbol.field
+			return 600
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(600)
@@ -5600,6 +7280,9 @@ module Quickfix
 	end
 
 	class LegSymbolSfx < Quickfix::StringField
+		def LegSymbolSfx.field
+			return 601
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(601)
@@ -5610,6 +7293,9 @@ module Quickfix
 	end
 
 	class LegSecurityID < Quickfix::StringField
+		def LegSecurityID.field
+			return 602
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(602)
@@ -5620,6 +7306,9 @@ module Quickfix
 	end
 
 	class LegSecurityIDSource < Quickfix::StringField
+		def LegSecurityIDSource.field
+			return 603
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(603)
@@ -5630,6 +7319,9 @@ module Quickfix
 	end
 
 	class NoLegSecurityAltID < Quickfix::StringField
+		def NoLegSecurityAltID.field
+			return 604
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(604)
@@ -5640,6 +7332,9 @@ module Quickfix
 	end
 
 	class LegSecurityAltID < Quickfix::StringField
+		def LegSecurityAltID.field
+			return 605
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(605)
@@ -5650,6 +7345,9 @@ module Quickfix
 	end
 
 	class LegSecurityAltIDSource < Quickfix::StringField
+		def LegSecurityAltIDSource.field
+			return 606
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(606)
@@ -5660,6 +7358,9 @@ module Quickfix
 	end
 
 	class LegProduct < Quickfix::IntField
+		def LegProduct.field
+			return 607
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(607)
@@ -5670,6 +7371,9 @@ module Quickfix
 	end
 
 	class LegCFICode < Quickfix::StringField
+		def LegCFICode.field
+			return 608
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(608)
@@ -5680,6 +7384,9 @@ module Quickfix
 	end
 
 	class LegSecurityType < Quickfix::StringField
+		def LegSecurityType.field
+			return 609
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(609)
@@ -5690,6 +7397,9 @@ module Quickfix
 	end
 
 	class LegMaturityMonthYear < Quickfix::StringField
+		def LegMaturityMonthYear.field
+			return 610
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(610)
@@ -5700,6 +7410,9 @@ module Quickfix
 	end
 
 	class LegMaturityDate < Quickfix::StringField
+		def LegMaturityDate.field
+			return 611
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(611)
@@ -5710,6 +7423,9 @@ module Quickfix
 	end
 
 	class LegStrikePrice < Quickfix::DoubleField
+		def LegStrikePrice.field
+			return 612
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(612)
@@ -5720,6 +7436,9 @@ module Quickfix
 	end
 
 	class LegOptAttribute < Quickfix::CharField
+		def LegOptAttribute.field
+			return 613
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(613)
@@ -5730,6 +7449,9 @@ module Quickfix
 	end
 
 	class LegContractMultiplier < Quickfix::DoubleField
+		def LegContractMultiplier.field
+			return 614
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(614)
@@ -5740,6 +7462,9 @@ module Quickfix
 	end
 
 	class LegCouponRate < Quickfix::DoubleField
+		def LegCouponRate.field
+			return 615
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(615)
@@ -5750,6 +7475,9 @@ module Quickfix
 	end
 
 	class LegSecurityExchange < Quickfix::StringField
+		def LegSecurityExchange.field
+			return 616
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(616)
@@ -5760,6 +7488,9 @@ module Quickfix
 	end
 
 	class LegIssuer < Quickfix::StringField
+		def LegIssuer.field
+			return 617
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(617)
@@ -5770,6 +7501,9 @@ module Quickfix
 	end
 
 	class EncodedLegIssuerLen < Quickfix::IntField
+		def EncodedLegIssuerLen.field
+			return 618
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(618)
@@ -5780,6 +7514,9 @@ module Quickfix
 	end
 
 	class EncodedLegIssuer < Quickfix::StringField
+		def EncodedLegIssuer.field
+			return 619
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(619)
@@ -5790,6 +7527,9 @@ module Quickfix
 	end
 
 	class LegSecurityDesc < Quickfix::StringField
+		def LegSecurityDesc.field
+			return 620
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(620)
@@ -5800,6 +7540,9 @@ module Quickfix
 	end
 
 	class EncodedLegSecurityDescLen < Quickfix::IntField
+		def EncodedLegSecurityDescLen.field
+			return 621
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(621)
@@ -5810,6 +7553,9 @@ module Quickfix
 	end
 
 	class EncodedLegSecurityDesc < Quickfix::StringField
+		def EncodedLegSecurityDesc.field
+			return 622
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(622)
@@ -5820,6 +7566,9 @@ module Quickfix
 	end
 
 	class LegRatioQty < Quickfix::DoubleField
+		def LegRatioQty.field
+			return 623
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(623)
@@ -5830,6 +7579,9 @@ module Quickfix
 	end
 
 	class LegSide < Quickfix::CharField
+		def LegSide.field
+			return 624
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(624)
@@ -5840,6 +7592,9 @@ module Quickfix
 	end
 
 	class TradingSessionSubID < Quickfix::StringField
+		def TradingSessionSubID.field
+			return 625
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(625)
@@ -5850,6 +7605,9 @@ module Quickfix
 	end
 
 	class AllocType < Quickfix::IntField
+		def AllocType.field
+			return 626
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(626)
@@ -5860,6 +7618,9 @@ module Quickfix
 	end
 
 	class NoHops < Quickfix::IntField
+		def NoHops.field
+			return 627
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(627)
@@ -5870,6 +7631,9 @@ module Quickfix
 	end
 
 	class HopCompID < Quickfix::StringField
+		def HopCompID.field
+			return 628
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(628)
@@ -5880,6 +7644,9 @@ module Quickfix
 	end
 
 	class HopSendingTime < Quickfix::UtcTimeStampField
+		def HopSendingTime.field
+			return 629
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(629)
@@ -5890,6 +7657,9 @@ module Quickfix
 	end
 
 	class HopRefID < Quickfix::IntField
+		def HopRefID.field
+			return 630
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(630)
@@ -5900,6 +7670,9 @@ module Quickfix
 	end
 
 	class MidPx < Quickfix::DoubleField
+		def MidPx.field
+			return 631
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(631)
@@ -5910,6 +7683,9 @@ module Quickfix
 	end
 
 	class BidYield < Quickfix::DoubleField
+		def BidYield.field
+			return 632
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(632)
@@ -5920,6 +7696,9 @@ module Quickfix
 	end
 
 	class MidYield < Quickfix::DoubleField
+		def MidYield.field
+			return 633
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(633)
@@ -5930,6 +7709,9 @@ module Quickfix
 	end
 
 	class OfferYield < Quickfix::DoubleField
+		def OfferYield.field
+			return 634
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(634)
@@ -5940,6 +7722,9 @@ module Quickfix
 	end
 
 	class ClearingFeeIndicator < Quickfix::StringField
+		def ClearingFeeIndicator.field
+			return 635
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(635)
@@ -5950,6 +7735,9 @@ module Quickfix
 	end
 
 	class WorkingIndicator < Quickfix::BoolField
+		def WorkingIndicator.field
+			return 636
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(636)
@@ -5960,6 +7748,9 @@ module Quickfix
 	end
 
 	class LegLastPx < Quickfix::DoubleField
+		def LegLastPx.field
+			return 637
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(637)
@@ -5970,6 +7761,9 @@ module Quickfix
 	end
 
 	class PriorityIndicator < Quickfix::IntField
+		def PriorityIndicator.field
+			return 638
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(638)
@@ -5980,6 +7774,9 @@ module Quickfix
 	end
 
 	class PriceImprovement < Quickfix::DoubleField
+		def PriceImprovement.field
+			return 639
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(639)
@@ -5990,6 +7787,9 @@ module Quickfix
 	end
 
 	class Price2 < Quickfix::DoubleField
+		def Price2.field
+			return 640
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(640)
@@ -6000,6 +7800,9 @@ module Quickfix
 	end
 
 	class LastForwardPoints2 < Quickfix::DoubleField
+		def LastForwardPoints2.field
+			return 641
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(641)
@@ -6010,6 +7813,9 @@ module Quickfix
 	end
 
 	class BidForwardPoints2 < Quickfix::DoubleField
+		def BidForwardPoints2.field
+			return 642
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(642)
@@ -6020,6 +7826,9 @@ module Quickfix
 	end
 
 	class OfferForwardPoints2 < Quickfix::DoubleField
+		def OfferForwardPoints2.field
+			return 643
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(643)
@@ -6030,6 +7839,9 @@ module Quickfix
 	end
 
 	class RFQReqID < Quickfix::StringField
+		def RFQReqID.field
+			return 644
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(644)
@@ -6040,6 +7852,9 @@ module Quickfix
 	end
 
 	class MktBidPx < Quickfix::DoubleField
+		def MktBidPx.field
+			return 645
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(645)
@@ -6050,6 +7865,9 @@ module Quickfix
 	end
 
 	class MktOfferPx < Quickfix::DoubleField
+		def MktOfferPx.field
+			return 646
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(646)
@@ -6060,6 +7878,9 @@ module Quickfix
 	end
 
 	class MinBidSize < Quickfix::DoubleField
+		def MinBidSize.field
+			return 647
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(647)
@@ -6070,6 +7891,9 @@ module Quickfix
 	end
 
 	class MinOfferSize < Quickfix::DoubleField
+		def MinOfferSize.field
+			return 648
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(648)
@@ -6080,6 +7904,9 @@ module Quickfix
 	end
 
 	class QuoteStatusReqID < Quickfix::StringField
+		def QuoteStatusReqID.field
+			return 649
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(649)
@@ -6090,6 +7917,9 @@ module Quickfix
 	end
 
 	class LegalConfirm < Quickfix::BoolField
+		def LegalConfirm.field
+			return 650
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(650)
@@ -6100,6 +7930,9 @@ module Quickfix
 	end
 
 	class UnderlyingLastPx < Quickfix::DoubleField
+		def UnderlyingLastPx.field
+			return 651
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(651)
@@ -6110,6 +7943,9 @@ module Quickfix
 	end
 
 	class UnderlyingLastQty < Quickfix::DoubleField
+		def UnderlyingLastQty.field
+			return 652
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(652)
@@ -6120,6 +7956,9 @@ module Quickfix
 	end
 
 	class LegRefID < Quickfix::StringField
+		def LegRefID.field
+			return 654
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(654)
@@ -6130,6 +7969,9 @@ module Quickfix
 	end
 
 	class ContraLegRefID < Quickfix::StringField
+		def ContraLegRefID.field
+			return 655
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(655)
@@ -6140,6 +7982,9 @@ module Quickfix
 	end
 
 	class SettlCurrBidFxRate < Quickfix::DoubleField
+		def SettlCurrBidFxRate.field
+			return 656
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(656)
@@ -6150,6 +7995,9 @@ module Quickfix
 	end
 
 	class SettlCurrOfferFxRate < Quickfix::DoubleField
+		def SettlCurrOfferFxRate.field
+			return 657
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(657)
@@ -6160,6 +8008,9 @@ module Quickfix
 	end
 
 	class QuoteRequestRejectReason < Quickfix::IntField
+		def QuoteRequestRejectReason.field
+			return 658
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(658)
@@ -6170,6 +8021,9 @@ module Quickfix
 	end
 
 	class SideComplianceID < Quickfix::StringField
+		def SideComplianceID.field
+			return 659
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(659)
@@ -6180,6 +8034,9 @@ module Quickfix
 	end
 
 	class AcctIDSource < Quickfix::IntField
+		def AcctIDSource.field
+			return 660
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(660)
@@ -6190,6 +8047,9 @@ module Quickfix
 	end
 
 	class AllocAcctIDSource < Quickfix::IntField
+		def AllocAcctIDSource.field
+			return 661
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(661)
@@ -6200,6 +8060,9 @@ module Quickfix
 	end
 
 	class BenchmarkPrice < Quickfix::DoubleField
+		def BenchmarkPrice.field
+			return 662
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(662)
@@ -6210,6 +8073,9 @@ module Quickfix
 	end
 
 	class BenchmarkPriceType < Quickfix::IntField
+		def BenchmarkPriceType.field
+			return 663
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(663)
@@ -6220,6 +8086,9 @@ module Quickfix
 	end
 
 	class ConfirmID < Quickfix::StringField
+		def ConfirmID.field
+			return 664
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(664)
@@ -6230,6 +8099,9 @@ module Quickfix
 	end
 
 	class ConfirmStatus < Quickfix::IntField
+		def ConfirmStatus.field
+			return 665
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(665)
@@ -6240,6 +8112,9 @@ module Quickfix
 	end
 
 	class ConfirmTransType < Quickfix::IntField
+		def ConfirmTransType.field
+			return 666
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(666)
@@ -6250,6 +8125,9 @@ module Quickfix
 	end
 
 	class ContractSettlMonth < Quickfix::StringField
+		def ContractSettlMonth.field
+			return 667
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(667)
@@ -6260,6 +8138,9 @@ module Quickfix
 	end
 
 	class DeliveryForm < Quickfix::IntField
+		def DeliveryForm.field
+			return 668
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(668)
@@ -6270,6 +8151,9 @@ module Quickfix
 	end
 
 	class LastParPx < Quickfix::DoubleField
+		def LastParPx.field
+			return 669
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(669)
@@ -6280,6 +8164,9 @@ module Quickfix
 	end
 
 	class NoLegAllocs < Quickfix::IntField
+		def NoLegAllocs.field
+			return 670
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(670)
@@ -6290,6 +8177,9 @@ module Quickfix
 	end
 
 	class LegAllocAccount < Quickfix::StringField
+		def LegAllocAccount.field
+			return 671
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(671)
@@ -6300,6 +8190,9 @@ module Quickfix
 	end
 
 	class LegIndividualAllocID < Quickfix::StringField
+		def LegIndividualAllocID.field
+			return 672
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(672)
@@ -6310,6 +8203,9 @@ module Quickfix
 	end
 
 	class LegAllocQty < Quickfix::DoubleField
+		def LegAllocQty.field
+			return 673
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(673)
@@ -6320,6 +8216,9 @@ module Quickfix
 	end
 
 	class LegAllocAcctIDSource < Quickfix::StringField
+		def LegAllocAcctIDSource.field
+			return 674
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(674)
@@ -6330,6 +8229,9 @@ module Quickfix
 	end
 
 	class LegSettlCurrency < Quickfix::StringField
+		def LegSettlCurrency.field
+			return 675
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(675)
@@ -6340,6 +8242,9 @@ module Quickfix
 	end
 
 	class LegBenchmarkCurveCurrency < Quickfix::StringField
+		def LegBenchmarkCurveCurrency.field
+			return 676
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(676)
@@ -6350,6 +8255,9 @@ module Quickfix
 	end
 
 	class LegBenchmarkCurveName < Quickfix::StringField
+		def LegBenchmarkCurveName.field
+			return 677
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(677)
@@ -6360,6 +8268,9 @@ module Quickfix
 	end
 
 	class LegBenchmarkCurvePoint < Quickfix::StringField
+		def LegBenchmarkCurvePoint.field
+			return 678
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(678)
@@ -6370,6 +8281,9 @@ module Quickfix
 	end
 
 	class LegBenchmarkPrice < Quickfix::DoubleField
+		def LegBenchmarkPrice.field
+			return 679
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(679)
@@ -6380,6 +8294,9 @@ module Quickfix
 	end
 
 	class LegBenchmarkPriceType < Quickfix::IntField
+		def LegBenchmarkPriceType.field
+			return 680
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(680)
@@ -6390,6 +8307,9 @@ module Quickfix
 	end
 
 	class LegBidPx < Quickfix::DoubleField
+		def LegBidPx.field
+			return 681
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(681)
@@ -6400,6 +8320,9 @@ module Quickfix
 	end
 
 	class LegIOIQty < Quickfix::StringField
+		def LegIOIQty.field
+			return 682
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(682)
@@ -6410,6 +8333,9 @@ module Quickfix
 	end
 
 	class NoLegStipulations < Quickfix::IntField
+		def NoLegStipulations.field
+			return 683
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(683)
@@ -6420,6 +8346,9 @@ module Quickfix
 	end
 
 	class LegOfferPx < Quickfix::DoubleField
+		def LegOfferPx.field
+			return 684
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(684)
@@ -6430,6 +8359,9 @@ module Quickfix
 	end
 
 	class LegOrderQty < Quickfix::DoubleField
+		def LegOrderQty.field
+			return 685
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(685)
@@ -6440,6 +8372,9 @@ module Quickfix
 	end
 
 	class LegPriceType < Quickfix::IntField
+		def LegPriceType.field
+			return 686
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(686)
@@ -6450,6 +8385,9 @@ module Quickfix
 	end
 
 	class LegQty < Quickfix::DoubleField
+		def LegQty.field
+			return 687
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(687)
@@ -6460,6 +8398,9 @@ module Quickfix
 	end
 
 	class LegStipulationType < Quickfix::StringField
+		def LegStipulationType.field
+			return 688
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(688)
@@ -6470,6 +8411,9 @@ module Quickfix
 	end
 
 	class LegStipulationValue < Quickfix::StringField
+		def LegStipulationValue.field
+			return 689
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(689)
@@ -6480,6 +8424,9 @@ module Quickfix
 	end
 
 	class LegSwapType < Quickfix::IntField
+		def LegSwapType.field
+			return 690
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(690)
@@ -6490,6 +8437,9 @@ module Quickfix
 	end
 
 	class Pool < Quickfix::StringField
+		def Pool.field
+			return 691
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(691)
@@ -6500,6 +8450,9 @@ module Quickfix
 	end
 
 	class QuotePriceType < Quickfix::IntField
+		def QuotePriceType.field
+			return 692
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(692)
@@ -6510,6 +8463,9 @@ module Quickfix
 	end
 
 	class QuoteRespID < Quickfix::StringField
+		def QuoteRespID.field
+			return 693
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(693)
@@ -6520,6 +8476,9 @@ module Quickfix
 	end
 
 	class QuoteRespType < Quickfix::IntField
+		def QuoteRespType.field
+			return 694
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(694)
@@ -6530,6 +8489,9 @@ module Quickfix
 	end
 
 	class QuoteQualifier < Quickfix::CharField
+		def QuoteQualifier.field
+			return 695
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(695)
@@ -6540,6 +8502,9 @@ module Quickfix
 	end
 
 	class YieldRedemptionDate < Quickfix::StringField
+		def YieldRedemptionDate.field
+			return 696
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(696)
@@ -6550,6 +8515,9 @@ module Quickfix
 	end
 
 	class YieldRedemptionPrice < Quickfix::DoubleField
+		def YieldRedemptionPrice.field
+			return 697
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(697)
@@ -6560,6 +8528,9 @@ module Quickfix
 	end
 
 	class YieldRedemptionPriceType < Quickfix::IntField
+		def YieldRedemptionPriceType.field
+			return 698
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(698)
@@ -6570,6 +8541,9 @@ module Quickfix
 	end
 
 	class BenchmarkSecurityID < Quickfix::StringField
+		def BenchmarkSecurityID.field
+			return 699
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(699)
@@ -6580,6 +8554,9 @@ module Quickfix
 	end
 
 	class ReversalIndicator < Quickfix::BoolField
+		def ReversalIndicator.field
+			return 700
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(700)
@@ -6590,6 +8567,9 @@ module Quickfix
 	end
 
 	class YieldCalcDate < Quickfix::StringField
+		def YieldCalcDate.field
+			return 701
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(701)
@@ -6600,6 +8580,9 @@ module Quickfix
 	end
 
 	class NoPositions < Quickfix::IntField
+		def NoPositions.field
+			return 702
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(702)
@@ -6610,6 +8593,9 @@ module Quickfix
 	end
 
 	class PosType < Quickfix::StringField
+		def PosType.field
+			return 703
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(703)
@@ -6620,6 +8606,9 @@ module Quickfix
 	end
 
 	class LongQty < Quickfix::DoubleField
+		def LongQty.field
+			return 704
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(704)
@@ -6630,6 +8619,9 @@ module Quickfix
 	end
 
 	class ShortQty < Quickfix::DoubleField
+		def ShortQty.field
+			return 705
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(705)
@@ -6640,6 +8632,9 @@ module Quickfix
 	end
 
 	class PosQtyStatus < Quickfix::IntField
+		def PosQtyStatus.field
+			return 706
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(706)
@@ -6650,6 +8645,9 @@ module Quickfix
 	end
 
 	class PosAmtType < Quickfix::StringField
+		def PosAmtType.field
+			return 707
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(707)
@@ -6660,6 +8658,9 @@ module Quickfix
 	end
 
 	class PosAmt < Quickfix::DoubleField
+		def PosAmt.field
+			return 708
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(708)
@@ -6670,6 +8671,9 @@ module Quickfix
 	end
 
 	class PosTransType < Quickfix::IntField
+		def PosTransType.field
+			return 709
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(709)
@@ -6680,6 +8684,9 @@ module Quickfix
 	end
 
 	class PosReqID < Quickfix::StringField
+		def PosReqID.field
+			return 710
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(710)
@@ -6690,6 +8697,9 @@ module Quickfix
 	end
 
 	class NoUnderlyings < Quickfix::IntField
+		def NoUnderlyings.field
+			return 711
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(711)
@@ -6700,6 +8710,9 @@ module Quickfix
 	end
 
 	class PosMaintAction < Quickfix::IntField
+		def PosMaintAction.field
+			return 712
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(712)
@@ -6710,6 +8723,9 @@ module Quickfix
 	end
 
 	class OrigPosReqRefID < Quickfix::StringField
+		def OrigPosReqRefID.field
+			return 713
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(713)
@@ -6720,6 +8736,9 @@ module Quickfix
 	end
 
 	class PosMaintRptRefID < Quickfix::StringField
+		def PosMaintRptRefID.field
+			return 714
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(714)
@@ -6730,6 +8749,9 @@ module Quickfix
 	end
 
 	class ClearingBusinessDate < Quickfix::StringField
+		def ClearingBusinessDate.field
+			return 715
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(715)
@@ -6740,6 +8762,9 @@ module Quickfix
 	end
 
 	class SettlSessID < Quickfix::StringField
+		def SettlSessID.field
+			return 716
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(716)
@@ -6750,6 +8775,9 @@ module Quickfix
 	end
 
 	class SettlSessSubID < Quickfix::StringField
+		def SettlSessSubID.field
+			return 717
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(717)
@@ -6760,6 +8788,9 @@ module Quickfix
 	end
 
 	class AdjustmentType < Quickfix::IntField
+		def AdjustmentType.field
+			return 718
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(718)
@@ -6770,6 +8801,9 @@ module Quickfix
 	end
 
 	class ContraryInstructionIndicator < Quickfix::BoolField
+		def ContraryInstructionIndicator.field
+			return 719
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(719)
@@ -6780,6 +8814,9 @@ module Quickfix
 	end
 
 	class PriorSpreadIndicator < Quickfix::BoolField
+		def PriorSpreadIndicator.field
+			return 720
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(720)
@@ -6790,6 +8827,9 @@ module Quickfix
 	end
 
 	class PosMaintRptID < Quickfix::StringField
+		def PosMaintRptID.field
+			return 721
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(721)
@@ -6800,6 +8840,9 @@ module Quickfix
 	end
 
 	class PosMaintStatus < Quickfix::IntField
+		def PosMaintStatus.field
+			return 722
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(722)
@@ -6810,6 +8853,9 @@ module Quickfix
 	end
 
 	class PosMaintResult < Quickfix::IntField
+		def PosMaintResult.field
+			return 723
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(723)
@@ -6820,6 +8866,9 @@ module Quickfix
 	end
 
 	class PosReqType < Quickfix::IntField
+		def PosReqType.field
+			return 724
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(724)
@@ -6830,6 +8879,9 @@ module Quickfix
 	end
 
 	class ResponseTransportType < Quickfix::IntField
+		def ResponseTransportType.field
+			return 725
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(725)
@@ -6840,6 +8892,9 @@ module Quickfix
 	end
 
 	class ResponseDestination < Quickfix::StringField
+		def ResponseDestination.field
+			return 726
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(726)
@@ -6850,6 +8905,9 @@ module Quickfix
 	end
 
 	class TotalNumPosReports < Quickfix::IntField
+		def TotalNumPosReports.field
+			return 727
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(727)
@@ -6860,6 +8918,9 @@ module Quickfix
 	end
 
 	class PosReqResult < Quickfix::IntField
+		def PosReqResult.field
+			return 728
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(728)
@@ -6870,6 +8931,9 @@ module Quickfix
 	end
 
 	class PosReqStatus < Quickfix::IntField
+		def PosReqStatus.field
+			return 729
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(729)
@@ -6880,6 +8944,9 @@ module Quickfix
 	end
 
 	class SettlPrice < Quickfix::DoubleField
+		def SettlPrice.field
+			return 730
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(730)
@@ -6890,6 +8957,9 @@ module Quickfix
 	end
 
 	class SettlPriceType < Quickfix::IntField
+		def SettlPriceType.field
+			return 731
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(731)
@@ -6900,6 +8970,9 @@ module Quickfix
 	end
 
 	class UnderlyingSettlPrice < Quickfix::DoubleField
+		def UnderlyingSettlPrice.field
+			return 732
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(732)
@@ -6910,6 +8983,9 @@ module Quickfix
 	end
 
 	class UnderlyingSettlPriceType < Quickfix::IntField
+		def UnderlyingSettlPriceType.field
+			return 733
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(733)
@@ -6920,6 +8996,9 @@ module Quickfix
 	end
 
 	class PriorSettlPrice < Quickfix::DoubleField
+		def PriorSettlPrice.field
+			return 734
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(734)
@@ -6930,6 +9009,9 @@ module Quickfix
 	end
 
 	class NoQuoteQualifiers < Quickfix::IntField
+		def NoQuoteQualifiers.field
+			return 735
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(735)
@@ -6940,6 +9022,9 @@ module Quickfix
 	end
 
 	class AllocSettlCurrency < Quickfix::StringField
+		def AllocSettlCurrency.field
+			return 736
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(736)
@@ -6950,6 +9035,9 @@ module Quickfix
 	end
 
 	class AllocSettlCurrAmt < Quickfix::DoubleField
+		def AllocSettlCurrAmt.field
+			return 737
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(737)
@@ -6960,6 +9048,9 @@ module Quickfix
 	end
 
 	class InterestAtMaturity < Quickfix::DoubleField
+		def InterestAtMaturity.field
+			return 738
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(738)
@@ -6970,6 +9061,9 @@ module Quickfix
 	end
 
 	class LegDatedDate < Quickfix::StringField
+		def LegDatedDate.field
+			return 739
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(739)
@@ -6980,6 +9074,9 @@ module Quickfix
 	end
 
 	class LegPool < Quickfix::StringField
+		def LegPool.field
+			return 740
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(740)
@@ -6990,6 +9087,9 @@ module Quickfix
 	end
 
 	class AllocInterestAtMaturity < Quickfix::DoubleField
+		def AllocInterestAtMaturity.field
+			return 741
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(741)
@@ -7000,6 +9100,9 @@ module Quickfix
 	end
 
 	class AllocAccruedInterestAmt < Quickfix::DoubleField
+		def AllocAccruedInterestAmt.field
+			return 742
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(742)
@@ -7010,6 +9113,9 @@ module Quickfix
 	end
 
 	class DeliveryDate < Quickfix::StringField
+		def DeliveryDate.field
+			return 743
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(743)
@@ -7020,6 +9126,9 @@ module Quickfix
 	end
 
 	class AssignmentMethod < Quickfix::CharField
+		def AssignmentMethod.field
+			return 744
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(744)
@@ -7030,6 +9139,9 @@ module Quickfix
 	end
 
 	class AssignmentUnit < Quickfix::DoubleField
+		def AssignmentUnit.field
+			return 745
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(745)
@@ -7040,6 +9152,9 @@ module Quickfix
 	end
 
 	class OpenInterest < Quickfix::DoubleField
+		def OpenInterest.field
+			return 746
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(746)
@@ -7050,6 +9165,9 @@ module Quickfix
 	end
 
 	class ExerciseMethod < Quickfix::CharField
+		def ExerciseMethod.field
+			return 747
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(747)
@@ -7060,6 +9178,9 @@ module Quickfix
 	end
 
 	class TotNumTradeReports < Quickfix::IntField
+		def TotNumTradeReports.field
+			return 748
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(748)
@@ -7070,6 +9191,9 @@ module Quickfix
 	end
 
 	class TradeRequestResult < Quickfix::IntField
+		def TradeRequestResult.field
+			return 749
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(749)
@@ -7080,6 +9204,9 @@ module Quickfix
 	end
 
 	class TradeRequestStatus < Quickfix::IntField
+		def TradeRequestStatus.field
+			return 750
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(750)
@@ -7090,6 +9217,9 @@ module Quickfix
 	end
 
 	class TradeReportRejectReason < Quickfix::IntField
+		def TradeReportRejectReason.field
+			return 751
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(751)
@@ -7100,6 +9230,9 @@ module Quickfix
 	end
 
 	class SideMultiLegReportingType < Quickfix::IntField
+		def SideMultiLegReportingType.field
+			return 752
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(752)
@@ -7110,6 +9243,9 @@ module Quickfix
 	end
 
 	class NoPosAmt < Quickfix::IntField
+		def NoPosAmt.field
+			return 753
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(753)
@@ -7120,6 +9256,9 @@ module Quickfix
 	end
 
 	class AutoAcceptIndicator < Quickfix::BoolField
+		def AutoAcceptIndicator.field
+			return 754
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(754)
@@ -7130,6 +9269,9 @@ module Quickfix
 	end
 
 	class AllocReportID < Quickfix::StringField
+		def AllocReportID.field
+			return 755
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(755)
@@ -7140,6 +9282,9 @@ module Quickfix
 	end
 
 	class NoNested2PartyIDs < Quickfix::IntField
+		def NoNested2PartyIDs.field
+			return 756
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(756)
@@ -7150,6 +9295,9 @@ module Quickfix
 	end
 
 	class Nested2PartyID < Quickfix::StringField
+		def Nested2PartyID.field
+			return 757
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(757)
@@ -7160,6 +9308,9 @@ module Quickfix
 	end
 
 	class Nested2PartyIDSource < Quickfix::CharField
+		def Nested2PartyIDSource.field
+			return 758
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(758)
@@ -7170,6 +9321,9 @@ module Quickfix
 	end
 
 	class Nested2PartyRole < Quickfix::IntField
+		def Nested2PartyRole.field
+			return 759
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(759)
@@ -7180,6 +9334,9 @@ module Quickfix
 	end
 
 	class Nested2PartySubID < Quickfix::StringField
+		def Nested2PartySubID.field
+			return 760
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(760)
@@ -7190,6 +9347,9 @@ module Quickfix
 	end
 
 	class BenchmarkSecurityIDSource < Quickfix::StringField
+		def BenchmarkSecurityIDSource.field
+			return 761
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(761)
@@ -7200,6 +9360,9 @@ module Quickfix
 	end
 
 	class SecuritySubType < Quickfix::StringField
+		def SecuritySubType.field
+			return 762
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(762)
@@ -7210,6 +9373,9 @@ module Quickfix
 	end
 
 	class UnderlyingSecuritySubType < Quickfix::StringField
+		def UnderlyingSecuritySubType.field
+			return 763
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(763)
@@ -7220,6 +9386,9 @@ module Quickfix
 	end
 
 	class LegSecuritySubType < Quickfix::StringField
+		def LegSecuritySubType.field
+			return 764
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(764)
@@ -7230,6 +9399,9 @@ module Quickfix
 	end
 
 	class AllowableOneSidednessPct < Quickfix::DoubleField
+		def AllowableOneSidednessPct.field
+			return 765
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(765)
@@ -7240,6 +9412,9 @@ module Quickfix
 	end
 
 	class AllowableOneSidednessValue < Quickfix::DoubleField
+		def AllowableOneSidednessValue.field
+			return 766
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(766)
@@ -7250,6 +9425,9 @@ module Quickfix
 	end
 
 	class AllowableOneSidednessCurr < Quickfix::StringField
+		def AllowableOneSidednessCurr.field
+			return 767
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(767)
@@ -7260,6 +9438,9 @@ module Quickfix
 	end
 
 	class NoTrdRegTimestamps < Quickfix::IntField
+		def NoTrdRegTimestamps.field
+			return 768
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(768)
@@ -7270,6 +9451,9 @@ module Quickfix
 	end
 
 	class TrdRegTimestamp < Quickfix::UtcTimeStampField
+		def TrdRegTimestamp.field
+			return 769
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(769)
@@ -7280,6 +9464,9 @@ module Quickfix
 	end
 
 	class TrdRegTimestampType < Quickfix::IntField
+		def TrdRegTimestampType.field
+			return 770
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(770)
@@ -7290,6 +9477,9 @@ module Quickfix
 	end
 
 	class TrdRegTimestampOrigin < Quickfix::StringField
+		def TrdRegTimestampOrigin.field
+			return 771
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(771)
@@ -7300,6 +9490,9 @@ module Quickfix
 	end
 
 	class ConfirmRefID < Quickfix::StringField
+		def ConfirmRefID.field
+			return 772
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(772)
@@ -7310,6 +9503,9 @@ module Quickfix
 	end
 
 	class ConfirmType < Quickfix::IntField
+		def ConfirmType.field
+			return 773
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(773)
@@ -7320,6 +9516,9 @@ module Quickfix
 	end
 
 	class ConfirmRejReason < Quickfix::IntField
+		def ConfirmRejReason.field
+			return 774
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(774)
@@ -7330,6 +9529,9 @@ module Quickfix
 	end
 
 	class BookingType < Quickfix::IntField
+		def BookingType.field
+			return 775
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(775)
@@ -7340,6 +9542,9 @@ module Quickfix
 	end
 
 	class IndividualAllocRejCode < Quickfix::IntField
+		def IndividualAllocRejCode.field
+			return 776
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(776)
@@ -7350,6 +9555,9 @@ module Quickfix
 	end
 
 	class SettlInstMsgID < Quickfix::StringField
+		def SettlInstMsgID.field
+			return 777
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(777)
@@ -7360,6 +9568,9 @@ module Quickfix
 	end
 
 	class NoSettlInst < Quickfix::IntField
+		def NoSettlInst.field
+			return 778
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(778)
@@ -7370,6 +9581,9 @@ module Quickfix
 	end
 
 	class LastUpdateTime < Quickfix::UtcTimeStampField
+		def LastUpdateTime.field
+			return 779
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(779)
@@ -7380,6 +9594,9 @@ module Quickfix
 	end
 
 	class AllocSettlInstType < Quickfix::IntField
+		def AllocSettlInstType.field
+			return 780
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(780)
@@ -7390,6 +9607,9 @@ module Quickfix
 	end
 
 	class NoSettlPartyIDs < Quickfix::IntField
+		def NoSettlPartyIDs.field
+			return 781
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(781)
@@ -7400,6 +9620,9 @@ module Quickfix
 	end
 
 	class SettlPartyID < Quickfix::StringField
+		def SettlPartyID.field
+			return 782
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(782)
@@ -7410,6 +9633,9 @@ module Quickfix
 	end
 
 	class SettlPartyIDSource < Quickfix::CharField
+		def SettlPartyIDSource.field
+			return 783
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(783)
@@ -7420,6 +9646,9 @@ module Quickfix
 	end
 
 	class SettlPartyRole < Quickfix::IntField
+		def SettlPartyRole.field
+			return 784
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(784)
@@ -7430,6 +9659,9 @@ module Quickfix
 	end
 
 	class SettlPartySubID < Quickfix::StringField
+		def SettlPartySubID.field
+			return 785
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(785)
@@ -7440,6 +9672,9 @@ module Quickfix
 	end
 
 	class SettlPartySubIDType < Quickfix::IntField
+		def SettlPartySubIDType.field
+			return 786
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(786)
@@ -7450,6 +9685,9 @@ module Quickfix
 	end
 
 	class DlvyInstType < Quickfix::CharField
+		def DlvyInstType.field
+			return 787
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(787)
@@ -7460,6 +9698,9 @@ module Quickfix
 	end
 
 	class TerminationType < Quickfix::IntField
+		def TerminationType.field
+			return 788
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(788)
@@ -7470,6 +9711,9 @@ module Quickfix
 	end
 
 	class NextExpectedMsgSeqNum < Quickfix::IntField
+		def NextExpectedMsgSeqNum.field
+			return 789
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(789)
@@ -7480,6 +9724,9 @@ module Quickfix
 	end
 
 	class OrdStatusReqID < Quickfix::StringField
+		def OrdStatusReqID.field
+			return 790
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(790)
@@ -7490,6 +9737,9 @@ module Quickfix
 	end
 
 	class SettlInstReqID < Quickfix::StringField
+		def SettlInstReqID.field
+			return 791
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(791)
@@ -7500,6 +9750,9 @@ module Quickfix
 	end
 
 	class SettlInstReqRejCode < Quickfix::IntField
+		def SettlInstReqRejCode.field
+			return 792
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(792)
@@ -7510,6 +9763,9 @@ module Quickfix
 	end
 
 	class SecondaryAllocID < Quickfix::StringField
+		def SecondaryAllocID.field
+			return 793
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(793)
@@ -7520,6 +9776,9 @@ module Quickfix
 	end
 
 	class AllocReportType < Quickfix::IntField
+		def AllocReportType.field
+			return 794
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(794)
@@ -7530,6 +9789,9 @@ module Quickfix
 	end
 
 	class AllocReportRefID < Quickfix::StringField
+		def AllocReportRefID.field
+			return 795
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(795)
@@ -7540,6 +9802,9 @@ module Quickfix
 	end
 
 	class AllocCancReplaceReason < Quickfix::IntField
+		def AllocCancReplaceReason.field
+			return 796
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(796)
@@ -7550,6 +9815,9 @@ module Quickfix
 	end
 
 	class CopyMsgIndicator < Quickfix::BoolField
+		def CopyMsgIndicator.field
+			return 797
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(797)
@@ -7560,6 +9828,9 @@ module Quickfix
 	end
 
 	class AllocAccountType < Quickfix::IntField
+		def AllocAccountType.field
+			return 798
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(798)
@@ -7570,6 +9841,9 @@ module Quickfix
 	end
 
 	class OrderAvgPx < Quickfix::DoubleField
+		def OrderAvgPx.field
+			return 799
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(799)
@@ -7580,6 +9854,9 @@ module Quickfix
 	end
 
 	class OrderBookingQty < Quickfix::DoubleField
+		def OrderBookingQty.field
+			return 800
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(800)
@@ -7590,6 +9867,9 @@ module Quickfix
 	end
 
 	class NoSettlPartySubIDs < Quickfix::IntField
+		def NoSettlPartySubIDs.field
+			return 801
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(801)
@@ -7600,6 +9880,9 @@ module Quickfix
 	end
 
 	class NoPartySubIDs < Quickfix::IntField
+		def NoPartySubIDs.field
+			return 802
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(802)
@@ -7610,6 +9893,9 @@ module Quickfix
 	end
 
 	class PartySubIDType < Quickfix::IntField
+		def PartySubIDType.field
+			return 803
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(803)
@@ -7620,6 +9906,9 @@ module Quickfix
 	end
 
 	class NoNestedPartySubIDs < Quickfix::IntField
+		def NoNestedPartySubIDs.field
+			return 804
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(804)
@@ -7630,6 +9919,9 @@ module Quickfix
 	end
 
 	class NestedPartySubIDType < Quickfix::IntField
+		def NestedPartySubIDType.field
+			return 805
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(805)
@@ -7640,6 +9932,9 @@ module Quickfix
 	end
 
 	class NoNested2PartySubIDs < Quickfix::IntField
+		def NoNested2PartySubIDs.field
+			return 806
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(806)
@@ -7650,6 +9945,9 @@ module Quickfix
 	end
 
 	class Nested2PartySubIDType < Quickfix::IntField
+		def Nested2PartySubIDType.field
+			return 807
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(807)
@@ -7660,6 +9958,9 @@ module Quickfix
 	end
 
 	class AllocIntermedReqType < Quickfix::IntField
+		def AllocIntermedReqType.field
+			return 808
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(808)
@@ -7670,6 +9971,9 @@ module Quickfix
 	end
 
 	class UnderlyingPx < Quickfix::DoubleField
+		def UnderlyingPx.field
+			return 810
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(810)
@@ -7680,6 +9984,9 @@ module Quickfix
 	end
 
 	class PriceDelta < Quickfix::DoubleField
+		def PriceDelta.field
+			return 811
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(811)
@@ -7690,6 +9997,9 @@ module Quickfix
 	end
 
 	class ApplQueueMax < Quickfix::IntField
+		def ApplQueueMax.field
+			return 812
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(812)
@@ -7700,6 +10010,9 @@ module Quickfix
 	end
 
 	class ApplQueueDepth < Quickfix::IntField
+		def ApplQueueDepth.field
+			return 813
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(813)
@@ -7710,6 +10023,9 @@ module Quickfix
 	end
 
 	class ApplQueueResolution < Quickfix::IntField
+		def ApplQueueResolution.field
+			return 814
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(814)
@@ -7720,6 +10036,9 @@ module Quickfix
 	end
 
 	class ApplQueueAction < Quickfix::IntField
+		def ApplQueueAction.field
+			return 815
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(815)
@@ -7730,6 +10049,9 @@ module Quickfix
 	end
 
 	class NoAltMDSource < Quickfix::IntField
+		def NoAltMDSource.field
+			return 816
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(816)
@@ -7740,6 +10062,9 @@ module Quickfix
 	end
 
 	class AltMDSourceID < Quickfix::StringField
+		def AltMDSourceID.field
+			return 817
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(817)
@@ -7750,6 +10075,9 @@ module Quickfix
 	end
 
 	class SecondaryTradeReportID < Quickfix::StringField
+		def SecondaryTradeReportID.field
+			return 818
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(818)
@@ -7760,6 +10088,9 @@ module Quickfix
 	end
 
 	class AvgPxIndicator < Quickfix::IntField
+		def AvgPxIndicator.field
+			return 819
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(819)
@@ -7770,6 +10101,9 @@ module Quickfix
 	end
 
 	class TradeLinkID < Quickfix::StringField
+		def TradeLinkID.field
+			return 820
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(820)
@@ -7780,6 +10114,9 @@ module Quickfix
 	end
 
 	class OrderInputDevice < Quickfix::StringField
+		def OrderInputDevice.field
+			return 821
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(821)
@@ -7790,6 +10127,9 @@ module Quickfix
 	end
 
 	class UnderlyingTradingSessionID < Quickfix::StringField
+		def UnderlyingTradingSessionID.field
+			return 822
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(822)
@@ -7800,6 +10140,9 @@ module Quickfix
 	end
 
 	class UnderlyingTradingSessionSubID < Quickfix::StringField
+		def UnderlyingTradingSessionSubID.field
+			return 823
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(823)
@@ -7810,6 +10153,9 @@ module Quickfix
 	end
 
 	class TradeLegRefID < Quickfix::StringField
+		def TradeLegRefID.field
+			return 824
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(824)
@@ -7820,6 +10166,9 @@ module Quickfix
 	end
 
 	class ExchangeRule < Quickfix::StringField
+		def ExchangeRule.field
+			return 825
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(825)
@@ -7830,6 +10179,9 @@ module Quickfix
 	end
 
 	class TradeAllocIndicator < Quickfix::IntField
+		def TradeAllocIndicator.field
+			return 826
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(826)
@@ -7840,6 +10192,9 @@ module Quickfix
 	end
 
 	class ExpirationCycle < Quickfix::IntField
+		def ExpirationCycle.field
+			return 827
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(827)
@@ -7850,6 +10205,9 @@ module Quickfix
 	end
 
 	class TrdType < Quickfix::IntField
+		def TrdType.field
+			return 828
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(828)
@@ -7860,6 +10218,9 @@ module Quickfix
 	end
 
 	class TrdSubType < Quickfix::IntField
+		def TrdSubType.field
+			return 829
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(829)
@@ -7870,6 +10231,9 @@ module Quickfix
 	end
 
 	class TransferReason < Quickfix::StringField
+		def TransferReason.field
+			return 830
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(830)
@@ -7880,6 +10244,9 @@ module Quickfix
 	end
 
 	class AsgnReqID < Quickfix::StringField
+		def AsgnReqID.field
+			return 831
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(831)
@@ -7890,6 +10257,9 @@ module Quickfix
 	end
 
 	class TotNumAssignmentReports < Quickfix::IntField
+		def TotNumAssignmentReports.field
+			return 832
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(832)
@@ -7900,6 +10270,9 @@ module Quickfix
 	end
 
 	class AsgnRptID < Quickfix::StringField
+		def AsgnRptID.field
+			return 833
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(833)
@@ -7910,6 +10283,9 @@ module Quickfix
 	end
 
 	class ThresholdAmount < Quickfix::DoubleField
+		def ThresholdAmount.field
+			return 834
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(834)
@@ -7920,6 +10296,9 @@ module Quickfix
 	end
 
 	class PegMoveType < Quickfix::IntField
+		def PegMoveType.field
+			return 835
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(835)
@@ -7930,6 +10309,9 @@ module Quickfix
 	end
 
 	class PegOffsetType < Quickfix::IntField
+		def PegOffsetType.field
+			return 836
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(836)
@@ -7940,6 +10322,9 @@ module Quickfix
 	end
 
 	class PegLimitType < Quickfix::IntField
+		def PegLimitType.field
+			return 837
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(837)
@@ -7950,6 +10335,9 @@ module Quickfix
 	end
 
 	class PegRoundDirection < Quickfix::IntField
+		def PegRoundDirection.field
+			return 838
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(838)
@@ -7960,6 +10348,9 @@ module Quickfix
 	end
 
 	class PeggedPrice < Quickfix::DoubleField
+		def PeggedPrice.field
+			return 839
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(839)
@@ -7970,6 +10361,9 @@ module Quickfix
 	end
 
 	class PegScope < Quickfix::IntField
+		def PegScope.field
+			return 840
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(840)
@@ -7980,6 +10374,9 @@ module Quickfix
 	end
 
 	class DiscretionMoveType < Quickfix::IntField
+		def DiscretionMoveType.field
+			return 841
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(841)
@@ -7990,6 +10387,9 @@ module Quickfix
 	end
 
 	class DiscretionOffsetType < Quickfix::IntField
+		def DiscretionOffsetType.field
+			return 842
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(842)
@@ -8000,6 +10400,9 @@ module Quickfix
 	end
 
 	class DiscretionLimitType < Quickfix::IntField
+		def DiscretionLimitType.field
+			return 843
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(843)
@@ -8010,6 +10413,9 @@ module Quickfix
 	end
 
 	class DiscretionRoundDirection < Quickfix::IntField
+		def DiscretionRoundDirection.field
+			return 844
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(844)
@@ -8020,6 +10426,9 @@ module Quickfix
 	end
 
 	class DiscretionPrice < Quickfix::DoubleField
+		def DiscretionPrice.field
+			return 845
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(845)
@@ -8030,6 +10439,9 @@ module Quickfix
 	end
 
 	class DiscretionScope < Quickfix::IntField
+		def DiscretionScope.field
+			return 846
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(846)
@@ -8040,6 +10452,9 @@ module Quickfix
 	end
 
 	class TargetStrategy < Quickfix::IntField
+		def TargetStrategy.field
+			return 847
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(847)
@@ -8050,6 +10465,9 @@ module Quickfix
 	end
 
 	class TargetStrategyParameters < Quickfix::StringField
+		def TargetStrategyParameters.field
+			return 848
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(848)
@@ -8060,6 +10478,9 @@ module Quickfix
 	end
 
 	class ParticipationRate < Quickfix::DoubleField
+		def ParticipationRate.field
+			return 849
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(849)
@@ -8070,6 +10491,9 @@ module Quickfix
 	end
 
 	class TargetStrategyPerformance < Quickfix::DoubleField
+		def TargetStrategyPerformance.field
+			return 850
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(850)
@@ -8080,6 +10504,9 @@ module Quickfix
 	end
 
 	class LastLiquidityInd < Quickfix::IntField
+		def LastLiquidityInd.field
+			return 851
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(851)
@@ -8090,6 +10517,9 @@ module Quickfix
 	end
 
 	class PublishTrdIndicator < Quickfix::BoolField
+		def PublishTrdIndicator.field
+			return 852
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(852)
@@ -8100,6 +10530,9 @@ module Quickfix
 	end
 
 	class ShortSaleReason < Quickfix::IntField
+		def ShortSaleReason.field
+			return 853
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(853)
@@ -8110,6 +10543,9 @@ module Quickfix
 	end
 
 	class QtyType < Quickfix::IntField
+		def QtyType.field
+			return 854
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(854)
@@ -8120,6 +10556,9 @@ module Quickfix
 	end
 
 	class SecondaryTrdType < Quickfix::IntField
+		def SecondaryTrdType.field
+			return 855
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(855)
@@ -8130,6 +10569,9 @@ module Quickfix
 	end
 
 	class TradeReportType < Quickfix::IntField
+		def TradeReportType.field
+			return 856
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(856)
@@ -8140,6 +10582,9 @@ module Quickfix
 	end
 
 	class AllocNoOrdersType < Quickfix::IntField
+		def AllocNoOrdersType.field
+			return 857
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(857)
@@ -8150,6 +10595,9 @@ module Quickfix
 	end
 
 	class SharedCommission < Quickfix::DoubleField
+		def SharedCommission.field
+			return 858
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(858)
@@ -8160,6 +10608,9 @@ module Quickfix
 	end
 
 	class ConfirmReqID < Quickfix::StringField
+		def ConfirmReqID.field
+			return 859
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(859)
@@ -8170,6 +10621,9 @@ module Quickfix
 	end
 
 	class AvgParPx < Quickfix::DoubleField
+		def AvgParPx.field
+			return 860
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(860)
@@ -8180,6 +10634,9 @@ module Quickfix
 	end
 
 	class ReportedPx < Quickfix::DoubleField
+		def ReportedPx.field
+			return 861
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(861)
@@ -8190,6 +10647,9 @@ module Quickfix
 	end
 
 	class NoCapacities < Quickfix::IntField
+		def NoCapacities.field
+			return 862
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(862)
@@ -8200,6 +10660,9 @@ module Quickfix
 	end
 
 	class OrderCapacityQty < Quickfix::DoubleField
+		def OrderCapacityQty.field
+			return 863
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(863)
@@ -8210,6 +10673,9 @@ module Quickfix
 	end
 
 	class NoEvents < Quickfix::IntField
+		def NoEvents.field
+			return 864
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(864)
@@ -8220,6 +10686,9 @@ module Quickfix
 	end
 
 	class EventType < Quickfix::IntField
+		def EventType.field
+			return 865
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(865)
@@ -8230,6 +10699,9 @@ module Quickfix
 	end
 
 	class EventDate < Quickfix::StringField
+		def EventDate.field
+			return 866
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(866)
@@ -8240,6 +10712,9 @@ module Quickfix
 	end
 
 	class EventPx < Quickfix::DoubleField
+		def EventPx.field
+			return 867
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(867)
@@ -8250,6 +10725,9 @@ module Quickfix
 	end
 
 	class EventText < Quickfix::StringField
+		def EventText.field
+			return 868
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(868)
@@ -8260,6 +10738,9 @@ module Quickfix
 	end
 
 	class PctAtRisk < Quickfix::DoubleField
+		def PctAtRisk.field
+			return 869
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(869)
@@ -8270,6 +10751,9 @@ module Quickfix
 	end
 
 	class NoInstrAttrib < Quickfix::IntField
+		def NoInstrAttrib.field
+			return 870
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(870)
@@ -8280,6 +10764,9 @@ module Quickfix
 	end
 
 	class InstrAttribType < Quickfix::IntField
+		def InstrAttribType.field
+			return 871
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(871)
@@ -8290,6 +10777,9 @@ module Quickfix
 	end
 
 	class InstrAttribValue < Quickfix::StringField
+		def InstrAttribValue.field
+			return 872
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(872)
@@ -8300,6 +10790,9 @@ module Quickfix
 	end
 
 	class DatedDate < Quickfix::StringField
+		def DatedDate.field
+			return 873
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(873)
@@ -8310,6 +10803,9 @@ module Quickfix
 	end
 
 	class InterestAccrualDate < Quickfix::StringField
+		def InterestAccrualDate.field
+			return 874
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(874)
@@ -8320,6 +10816,9 @@ module Quickfix
 	end
 
 	class CPProgram < Quickfix::IntField
+		def CPProgram.field
+			return 875
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(875)
@@ -8330,6 +10829,9 @@ module Quickfix
 	end
 
 	class CPRegType < Quickfix::StringField
+		def CPRegType.field
+			return 876
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(876)
@@ -8340,6 +10842,9 @@ module Quickfix
 	end
 
 	class UnderlyingCPProgram < Quickfix::StringField
+		def UnderlyingCPProgram.field
+			return 877
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(877)
@@ -8350,6 +10855,9 @@ module Quickfix
 	end
 
 	class UnderlyingCPRegType < Quickfix::StringField
+		def UnderlyingCPRegType.field
+			return 878
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(878)
@@ -8360,6 +10868,9 @@ module Quickfix
 	end
 
 	class UnderlyingQty < Quickfix::DoubleField
+		def UnderlyingQty.field
+			return 879
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(879)
@@ -8370,6 +10881,9 @@ module Quickfix
 	end
 
 	class TrdMatchID < Quickfix::StringField
+		def TrdMatchID.field
+			return 880
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(880)
@@ -8380,6 +10894,9 @@ module Quickfix
 	end
 
 	class SecondaryTradeReportRefID < Quickfix::StringField
+		def SecondaryTradeReportRefID.field
+			return 881
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(881)
@@ -8390,6 +10907,9 @@ module Quickfix
 	end
 
 	class UnderlyingDirtyPrice < Quickfix::DoubleField
+		def UnderlyingDirtyPrice.field
+			return 882
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(882)
@@ -8400,6 +10920,9 @@ module Quickfix
 	end
 
 	class UnderlyingEndPrice < Quickfix::DoubleField
+		def UnderlyingEndPrice.field
+			return 883
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(883)
@@ -8410,6 +10933,9 @@ module Quickfix
 	end
 
 	class UnderlyingStartValue < Quickfix::DoubleField
+		def UnderlyingStartValue.field
+			return 884
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(884)
@@ -8420,6 +10946,9 @@ module Quickfix
 	end
 
 	class UnderlyingCurrentValue < Quickfix::DoubleField
+		def UnderlyingCurrentValue.field
+			return 885
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(885)
@@ -8430,6 +10959,9 @@ module Quickfix
 	end
 
 	class UnderlyingEndValue < Quickfix::DoubleField
+		def UnderlyingEndValue.field
+			return 886
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(886)
@@ -8440,6 +10972,9 @@ module Quickfix
 	end
 
 	class NoUnderlyingStips < Quickfix::IntField
+		def NoUnderlyingStips.field
+			return 887
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(887)
@@ -8450,6 +10985,9 @@ module Quickfix
 	end
 
 	class UnderlyingStipType < Quickfix::StringField
+		def UnderlyingStipType.field
+			return 888
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(888)
@@ -8460,6 +10998,9 @@ module Quickfix
 	end
 
 	class UnderlyingStipValue < Quickfix::StringField
+		def UnderlyingStipValue.field
+			return 889
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(889)
@@ -8470,6 +11011,9 @@ module Quickfix
 	end
 
 	class MaturityNetMoney < Quickfix::DoubleField
+		def MaturityNetMoney.field
+			return 890
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(890)
@@ -8480,6 +11024,9 @@ module Quickfix
 	end
 
 	class MiscFeeBasis < Quickfix::IntField
+		def MiscFeeBasis.field
+			return 891
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(891)
@@ -8490,6 +11037,9 @@ module Quickfix
 	end
 
 	class TotNoAllocs < Quickfix::IntField
+		def TotNoAllocs.field
+			return 892
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(892)
@@ -8500,6 +11050,9 @@ module Quickfix
 	end
 
 	class LastFragment < Quickfix::BoolField
+		def LastFragment.field
+			return 893
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(893)
@@ -8510,6 +11063,9 @@ module Quickfix
 	end
 
 	class CollReqID < Quickfix::StringField
+		def CollReqID.field
+			return 894
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(894)
@@ -8520,6 +11076,9 @@ module Quickfix
 	end
 
 	class CollAsgnReason < Quickfix::IntField
+		def CollAsgnReason.field
+			return 895
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(895)
@@ -8530,6 +11089,9 @@ module Quickfix
 	end
 
 	class CollInquiryQualifier < Quickfix::IntField
+		def CollInquiryQualifier.field
+			return 896
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(896)
@@ -8540,6 +11102,9 @@ module Quickfix
 	end
 
 	class NoTrades < Quickfix::IntField
+		def NoTrades.field
+			return 897
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(897)
@@ -8550,6 +11115,9 @@ module Quickfix
 	end
 
 	class MarginRatio < Quickfix::DoubleField
+		def MarginRatio.field
+			return 898
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(898)
@@ -8560,6 +11128,9 @@ module Quickfix
 	end
 
 	class MarginExcess < Quickfix::DoubleField
+		def MarginExcess.field
+			return 899
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(899)
@@ -8570,6 +11141,9 @@ module Quickfix
 	end
 
 	class TotalNetValue < Quickfix::DoubleField
+		def TotalNetValue.field
+			return 900
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(900)
@@ -8580,6 +11154,9 @@ module Quickfix
 	end
 
 	class CashOutstanding < Quickfix::DoubleField
+		def CashOutstanding.field
+			return 901
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(901)
@@ -8590,6 +11167,9 @@ module Quickfix
 	end
 
 	class CollAsgnID < Quickfix::StringField
+		def CollAsgnID.field
+			return 902
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(902)
@@ -8600,6 +11180,9 @@ module Quickfix
 	end
 
 	class CollAsgnTransType < Quickfix::IntField
+		def CollAsgnTransType.field
+			return 903
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(903)
@@ -8610,6 +11193,9 @@ module Quickfix
 	end
 
 	class CollRespID < Quickfix::StringField
+		def CollRespID.field
+			return 904
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(904)
@@ -8620,6 +11206,9 @@ module Quickfix
 	end
 
 	class CollAsgnRespType < Quickfix::IntField
+		def CollAsgnRespType.field
+			return 905
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(905)
@@ -8630,6 +11219,9 @@ module Quickfix
 	end
 
 	class CollAsgnRejectReason < Quickfix::IntField
+		def CollAsgnRejectReason.field
+			return 906
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(906)
@@ -8640,6 +11232,9 @@ module Quickfix
 	end
 
 	class CollAsgnRefID < Quickfix::StringField
+		def CollAsgnRefID.field
+			return 907
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(907)
@@ -8650,6 +11245,9 @@ module Quickfix
 	end
 
 	class CollRptID < Quickfix::StringField
+		def CollRptID.field
+			return 908
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(908)
@@ -8660,6 +11258,9 @@ module Quickfix
 	end
 
 	class CollInquiryID < Quickfix::StringField
+		def CollInquiryID.field
+			return 909
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(909)
@@ -8670,6 +11271,9 @@ module Quickfix
 	end
 
 	class CollStatus < Quickfix::IntField
+		def CollStatus.field
+			return 910
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(910)
@@ -8680,6 +11284,9 @@ module Quickfix
 	end
 
 	class TotNumReports < Quickfix::IntField
+		def TotNumReports.field
+			return 911
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(911)
@@ -8690,6 +11297,9 @@ module Quickfix
 	end
 
 	class LastRptRequested < Quickfix::BoolField
+		def LastRptRequested.field
+			return 912
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(912)
@@ -8700,6 +11310,9 @@ module Quickfix
 	end
 
 	class AgreementDesc < Quickfix::StringField
+		def AgreementDesc.field
+			return 913
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(913)
@@ -8710,6 +11323,9 @@ module Quickfix
 	end
 
 	class AgreementID < Quickfix::StringField
+		def AgreementID.field
+			return 914
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(914)
@@ -8720,6 +11336,9 @@ module Quickfix
 	end
 
 	class AgreementDate < Quickfix::StringField
+		def AgreementDate.field
+			return 915
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(915)
@@ -8730,6 +11349,9 @@ module Quickfix
 	end
 
 	class StartDate < Quickfix::StringField
+		def StartDate.field
+			return 916
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(916)
@@ -8740,6 +11362,9 @@ module Quickfix
 	end
 
 	class EndDate < Quickfix::StringField
+		def EndDate.field
+			return 917
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(917)
@@ -8750,6 +11375,9 @@ module Quickfix
 	end
 
 	class AgreementCurrency < Quickfix::StringField
+		def AgreementCurrency.field
+			return 918
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(918)
@@ -8760,6 +11388,9 @@ module Quickfix
 	end
 
 	class DeliveryType < Quickfix::IntField
+		def DeliveryType.field
+			return 919
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(919)
@@ -8770,6 +11401,9 @@ module Quickfix
 	end
 
 	class EndAccruedInterestAmt < Quickfix::DoubleField
+		def EndAccruedInterestAmt.field
+			return 920
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(920)
@@ -8780,6 +11414,9 @@ module Quickfix
 	end
 
 	class StartCash < Quickfix::DoubleField
+		def StartCash.field
+			return 921
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(921)
@@ -8790,6 +11427,9 @@ module Quickfix
 	end
 
 	class EndCash < Quickfix::DoubleField
+		def EndCash.field
+			return 922
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(922)
@@ -8800,6 +11440,9 @@ module Quickfix
 	end
 
 	class UserRequestID < Quickfix::StringField
+		def UserRequestID.field
+			return 923
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(923)
@@ -8810,6 +11453,9 @@ module Quickfix
 	end
 
 	class UserRequestType < Quickfix::IntField
+		def UserRequestType.field
+			return 924
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(924)
@@ -8820,6 +11466,9 @@ module Quickfix
 	end
 
 	class NewPassword < Quickfix::StringField
+		def NewPassword.field
+			return 925
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(925)
@@ -8830,6 +11479,9 @@ module Quickfix
 	end
 
 	class UserStatus < Quickfix::IntField
+		def UserStatus.field
+			return 926
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(926)
@@ -8840,6 +11492,9 @@ module Quickfix
 	end
 
 	class UserStatusText < Quickfix::StringField
+		def UserStatusText.field
+			return 927
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(927)
@@ -8850,6 +11505,9 @@ module Quickfix
 	end
 
 	class StatusValue < Quickfix::IntField
+		def StatusValue.field
+			return 928
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(928)
@@ -8860,6 +11518,9 @@ module Quickfix
 	end
 
 	class StatusText < Quickfix::StringField
+		def StatusText.field
+			return 929
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(929)
@@ -8870,6 +11531,9 @@ module Quickfix
 	end
 
 	class RefCompID < Quickfix::StringField
+		def RefCompID.field
+			return 930
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(930)
@@ -8880,6 +11544,9 @@ module Quickfix
 	end
 
 	class RefSubID < Quickfix::StringField
+		def RefSubID.field
+			return 931
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(931)
@@ -8890,6 +11557,9 @@ module Quickfix
 	end
 
 	class NetworkResponseID < Quickfix::StringField
+		def NetworkResponseID.field
+			return 932
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(932)
@@ -8900,6 +11570,9 @@ module Quickfix
 	end
 
 	class NetworkRequestID < Quickfix::StringField
+		def NetworkRequestID.field
+			return 933
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(933)
@@ -8910,6 +11583,9 @@ module Quickfix
 	end
 
 	class LastNetworkResponseID < Quickfix::StringField
+		def LastNetworkResponseID.field
+			return 934
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(934)
@@ -8920,6 +11596,9 @@ module Quickfix
 	end
 
 	class NetworkRequestType < Quickfix::IntField
+		def NetworkRequestType.field
+			return 935
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(935)
@@ -8930,6 +11609,9 @@ module Quickfix
 	end
 
 	class NoCompIDs < Quickfix::IntField
+		def NoCompIDs.field
+			return 936
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(936)
@@ -8940,6 +11622,9 @@ module Quickfix
 	end
 
 	class NetworkStatusResponseType < Quickfix::IntField
+		def NetworkStatusResponseType.field
+			return 937
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(937)
@@ -8950,6 +11635,9 @@ module Quickfix
 	end
 
 	class NoCollInquiryQualifier < Quickfix::IntField
+		def NoCollInquiryQualifier.field
+			return 938
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(938)
@@ -8960,6 +11648,9 @@ module Quickfix
 	end
 
 	class TrdRptStatus < Quickfix::IntField
+		def TrdRptStatus.field
+			return 939
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(939)
@@ -8970,6 +11661,9 @@ module Quickfix
 	end
 
 	class AffirmStatus < Quickfix::IntField
+		def AffirmStatus.field
+			return 940
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(940)
@@ -8980,6 +11674,9 @@ module Quickfix
 	end
 
 	class UnderlyingStrikeCurrency < Quickfix::StringField
+		def UnderlyingStrikeCurrency.field
+			return 941
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(941)
@@ -8990,6 +11687,9 @@ module Quickfix
 	end
 
 	class LegStrikeCurrency < Quickfix::StringField
+		def LegStrikeCurrency.field
+			return 942
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(942)
@@ -9000,6 +11700,9 @@ module Quickfix
 	end
 
 	class TimeBracket < Quickfix::StringField
+		def TimeBracket.field
+			return 943
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(943)
@@ -9010,6 +11713,9 @@ module Quickfix
 	end
 
 	class CollAction < Quickfix::IntField
+		def CollAction.field
+			return 944
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(944)
@@ -9020,6 +11726,9 @@ module Quickfix
 	end
 
 	class CollInquiryStatus < Quickfix::IntField
+		def CollInquiryStatus.field
+			return 945
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(945)
@@ -9030,6 +11739,9 @@ module Quickfix
 	end
 
 	class CollInquiryResult < Quickfix::IntField
+		def CollInquiryResult.field
+			return 946
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(946)
@@ -9040,6 +11752,9 @@ module Quickfix
 	end
 
 	class StrikeCurrency < Quickfix::StringField
+		def StrikeCurrency.field
+			return 947
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(947)
@@ -9050,6 +11765,9 @@ module Quickfix
 	end
 
 	class NoNested3PartyIDs < Quickfix::IntField
+		def NoNested3PartyIDs.field
+			return 948
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(948)
@@ -9060,6 +11778,9 @@ module Quickfix
 	end
 
 	class Nested3PartyID < Quickfix::StringField
+		def Nested3PartyID.field
+			return 949
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(949)
@@ -9070,6 +11791,9 @@ module Quickfix
 	end
 
 	class Nested3PartyIDSource < Quickfix::CharField
+		def Nested3PartyIDSource.field
+			return 950
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(950)
@@ -9080,6 +11804,9 @@ module Quickfix
 	end
 
 	class Nested3PartyRole < Quickfix::IntField
+		def Nested3PartyRole.field
+			return 951
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(951)
@@ -9090,6 +11817,9 @@ module Quickfix
 	end
 
 	class NoNested3PartySubIDs < Quickfix::IntField
+		def NoNested3PartySubIDs.field
+			return 952
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(952)
@@ -9100,6 +11830,9 @@ module Quickfix
 	end
 
 	class Nested3PartySubID < Quickfix::StringField
+		def Nested3PartySubID.field
+			return 953
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(953)
@@ -9110,6 +11843,9 @@ module Quickfix
 	end
 
 	class Nested3PartySubIDType < Quickfix::IntField
+		def Nested3PartySubIDType.field
+			return 954
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(954)
@@ -9120,6 +11856,9 @@ module Quickfix
 	end
 
 	class LegContractSettlMonth < Quickfix::StringField
+		def LegContractSettlMonth.field
+			return 955
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(955)
@@ -9130,6 +11869,9 @@ module Quickfix
 	end
 
 	class LegInterestAccrualDate < Quickfix::StringField
+		def LegInterestAccrualDate.field
+			return 956
+		end
 		def initialize(data = nil)
 			if( data == nil )
 				super(956)
