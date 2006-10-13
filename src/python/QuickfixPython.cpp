@@ -2466,9 +2466,9 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_Application swig_types[0]
 #define SWIGTYPE_p_BeginString swig_types[1]
 #define SWIGTYPE_p_DOMDocumentPtr swig_types[2]
-#define SWIGTYPE_p_DataDictionary swig_types[3]
-#define SWIGTYPE_p_Dictionaries swig_types[4]
-#define SWIGTYPE_p_Dictionary swig_types[5]
+#define SWIGTYPE_p_Data swig_types[3]
+#define SWIGTYPE_p_DataDictionary swig_types[4]
+#define SWIGTYPE_p_Dictionaries swig_types[5]
 #define SWIGTYPE_p_DoubleField swig_types[6]
 #define SWIGTYPE_p_FIELD__Field swig_types[7]
 #define SWIGTYPE_p_FIX_CHAR swig_types[8]
@@ -2504,155 +2504,156 @@ SWIG_Python_MustGetPtr(PyObject *obj, swig_type_info *ty, int argnum, int flags)
 #define SWIGTYPE_p_FIX__CustomerOrFirm swig_types[38]
 #define SWIGTYPE_p_FIX__CxlType swig_types[39]
 #define SWIGTYPE_p_FIX__DataDictionary swig_types[40]
-#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[41]
-#define SWIGTYPE_p_FIX__DlvyInst swig_types[42]
-#define SWIGTYPE_p_FIX__DoNotSend swig_types[43]
-#define SWIGTYPE_p_FIX__DoubleField swig_types[44]
-#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[45]
-#define SWIGTYPE_p_FIX__Exception swig_types[46]
-#define SWIGTYPE_p_FIX__ExecBroker swig_types[47]
-#define SWIGTYPE_p_FIX__ExecTransType swig_types[48]
-#define SWIGTYPE_p_FIX__FieldBase swig_types[49]
-#define SWIGTYPE_p_FIX__FieldConvertError swig_types[50]
-#define SWIGTYPE_p_FIX__FieldMap swig_types[51]
-#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[52]
-#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[53]
-#define SWIGTYPE_p_FIX__FieldNotFound swig_types[54]
-#define SWIGTYPE_p_FIX__FileLog swig_types[55]
-#define SWIGTYPE_p_FIX__FileLogFactory swig_types[56]
-#define SWIGTYPE_p_FIX__FileStore swig_types[57]
-#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[58]
-#define SWIGTYPE_p_FIX__FutSettDate swig_types[59]
-#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[60]
-#define SWIGTYPE_p_FIX__Group swig_types[61]
-#define SWIGTYPE_p_FIX__IDSource swig_types[62]
-#define SWIGTYPE_p_FIX__IOException swig_types[63]
-#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[64]
-#define SWIGTYPE_p_FIX__IOIShares swig_types[65]
-#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[66]
-#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[67]
-#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[68]
-#define SWIGTYPE_p_FIX__Initiator swig_types[69]
-#define SWIGTYPE_p_FIX__IntField swig_types[70]
-#define SWIGTYPE_p_FIX__InvalidMessage swig_types[71]
-#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[72]
-#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[73]
-#define SWIGTYPE_p_FIX__LastShares swig_types[74]
-#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[75]
-#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[76]
-#define SWIGTYPE_p_FIX__Log swig_types[77]
-#define SWIGTYPE_p_FIX__LogFactory swig_types[78]
-#define SWIGTYPE_p_FIX__MaturityDay swig_types[79]
-#define SWIGTYPE_p_FIX__MemoryStore swig_types[80]
-#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[81]
-#define SWIGTYPE_p_FIX__Message swig_types[82]
-#define SWIGTYPE_p_FIX__MessageParseError swig_types[83]
-#define SWIGTYPE_p_FIX__MessageStore swig_types[84]
-#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[85]
-#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[86]
-#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[87]
-#define SWIGTYPE_p_FIX__NoTagValue swig_types[88]
-#define SWIGTYPE_p_FIX__NullApplication swig_types[89]
-#define SWIGTYPE_p_FIX__OnBehalfOfSendingTime swig_types[90]
-#define SWIGTYPE_p_FIX__OpenClose swig_types[91]
-#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[92]
-#define SWIGTYPE_p_FIX__PegDifference swig_types[93]
-#define SWIGTYPE_p_FIX__PutOrCall swig_types[94]
-#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[95]
-#define SWIGTYPE_p_FIX__RatioQty swig_types[96]
-#define SWIGTYPE_p_FIX__RegistDetls swig_types[97]
-#define SWIGTYPE_p_FIX__RejectLogon swig_types[98]
-#define SWIGTYPE_p_FIX__RelatdSym swig_types[99]
-#define SWIGTYPE_p_FIX__RepeatedTag swig_types[100]
-#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[101]
-#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[102]
-#define SWIGTYPE_p_FIX__Rule80A swig_types[103]
-#define SWIGTYPE_p_FIX__RuntimeError swig_types[104]
-#define SWIGTYPE_p_FIX__ScreenLog swig_types[105]
-#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[106]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctName swig_types[107]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum swig_types[108]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentCode swig_types[109]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactName swig_types[110]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone swig_types[111]
-#define SWIGTYPE_p_FIX__SecuritySettlAgentName swig_types[112]
-#define SWIGTYPE_p_FIX__Session swig_types[113]
-#define SWIGTYPE_p_FIX__SessionID swig_types[114]
-#define SWIGTYPE_p_FIX__SessionNotFound swig_types[115]
-#define SWIGTYPE_p_FIX__SessionSettings swig_types[116]
-#define SWIGTYPE_p_FIX__SettlBrkrCode swig_types[117]
-#define SWIGTYPE_p_FIX__SettlDepositoryCode swig_types[118]
-#define SWIGTYPE_p_FIX__SettlInstCode swig_types[119]
-#define SWIGTYPE_p_FIX__SettlLocation swig_types[120]
-#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[121]
-#define SWIGTYPE_p_FIX__Shares swig_types[122]
-#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[123]
-#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[124]
-#define SWIGTYPE_p_FIX__SocketException swig_types[125]
-#define SWIGTYPE_p_FIX__SocketInitiator swig_types[126]
-#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[127]
-#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[128]
-#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[129]
-#define SWIGTYPE_p_FIX__StringField swig_types[130]
-#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[131]
-#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[132]
-#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[133]
-#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[134]
-#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[135]
-#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[136]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedDate swig_types[137]
-#define SWIGTYPE_p_FIX__TotalVolumeTradedTime swig_types[138]
-#define SWIGTYPE_p_FIX__TradeType swig_types[139]
-#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[140]
-#define SWIGTYPE_p_FIX__UnderlyingMaturityDay swig_types[141]
-#define SWIGTYPE_p_FIX__UnderlyingPutOrCall swig_types[142]
-#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[143]
-#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[144]
-#define SWIGTYPE_p_FIX__UtcDateField swig_types[145]
-#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[146]
-#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[147]
-#define SWIGTYPE_p_Fields swig_types[148]
-#define SWIGTYPE_p_Group swig_types[149]
-#define SWIGTYPE_p_Groups swig_types[150]
-#define SWIGTYPE_p_IntArray swig_types[151]
-#define SWIGTYPE_p_IntField swig_types[152]
-#define SWIGTYPE_p_Log swig_types[153]
-#define SWIGTYPE_p_LogFactory swig_types[154]
-#define SWIGTYPE_p_MessageStore swig_types[155]
-#define SWIGTYPE_p_MessageStoreFactory swig_types[156]
-#define SWIGTYPE_p_MsgType swig_types[157]
-#define SWIGTYPE_p_Mutex swig_types[158]
-#define SWIGTYPE_p_Responder swig_types[159]
-#define SWIGTYPE_p_SenderCompID swig_types[160]
-#define SWIGTYPE_p_SessionID swig_types[161]
-#define SWIGTYPE_p_SessionTime swig_types[162]
-#define SWIGTYPE_p_StringField swig_types[163]
-#define SWIGTYPE_p_TYPE__Type swig_types[164]
-#define SWIGTYPE_p_TargetCompID swig_types[165]
-#define SWIGTYPE_p_UtcDate swig_types[166]
-#define SWIGTYPE_p_UtcDateField swig_types[167]
-#define SWIGTYPE_p_UtcDateOnly swig_types[168]
-#define SWIGTYPE_p_UtcTimeOnly swig_types[169]
-#define SWIGTYPE_p_UtcTimeStamp swig_types[170]
-#define SWIGTYPE_p_bool swig_types[171]
-#define SWIGTYPE_p_char swig_types[172]
-#define SWIGTYPE_p_const_iterator swig_types[173]
-#define SWIGTYPE_p_double swig_types[174]
-#define SWIGTYPE_p_g_const_iterator swig_types[175]
-#define SWIGTYPE_p_g_iterator swig_types[176]
-#define SWIGTYPE_p_int swig_types[177]
-#define SWIGTYPE_p_iterator swig_types[178]
-#define SWIGTYPE_p_message_order swig_types[179]
-#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[180]
-#define SWIGTYPE_p_std__exception swig_types[181]
-#define SWIGTYPE_p_std__istream swig_types[182]
-#define SWIGTYPE_p_std__ostream swig_types[183]
-#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[184]
-#define SWIGTYPE_p_std__string swig_types[185]
-#define SWIGTYPE_p_std__string__size_type swig_types[186]
-#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[187]
-static swig_type_info *swig_types[189];
-static swig_module_info swig_module = {swig_types, 188, 0, 0, 0, 0};
+#define SWIGTYPE_p_FIX__Dictionary swig_types[41]
+#define SWIGTYPE_p_FIX__Dictionary__Data__const_iterator swig_types[42]
+#define SWIGTYPE_p_FIX__DiscretionOffset swig_types[43]
+#define SWIGTYPE_p_FIX__DlvyInst swig_types[44]
+#define SWIGTYPE_p_FIX__DoNotSend swig_types[45]
+#define SWIGTYPE_p_FIX__DoubleField swig_types[46]
+#define SWIGTYPE_p_FIX__DuplicateFieldNumber swig_types[47]
+#define SWIGTYPE_p_FIX__Exception swig_types[48]
+#define SWIGTYPE_p_FIX__ExecBroker swig_types[49]
+#define SWIGTYPE_p_FIX__ExecTransType swig_types[50]
+#define SWIGTYPE_p_FIX__FieldBase swig_types[51]
+#define SWIGTYPE_p_FIX__FieldConvertError swig_types[52]
+#define SWIGTYPE_p_FIX__FieldMap swig_types[53]
+#define SWIGTYPE_p_FIX__FieldMap__Fields__const_iterator swig_types[54]
+#define SWIGTYPE_p_FIX__FieldMap__Groups__const_iterator swig_types[55]
+#define SWIGTYPE_p_FIX__FieldNotFound swig_types[56]
+#define SWIGTYPE_p_FIX__FileLog swig_types[57]
+#define SWIGTYPE_p_FIX__FileLogFactory swig_types[58]
+#define SWIGTYPE_p_FIX__FileStore swig_types[59]
+#define SWIGTYPE_p_FIX__FileStoreFactory swig_types[60]
+#define SWIGTYPE_p_FIX__FutSettDate swig_types[61]
+#define SWIGTYPE_p_FIX__FutSettDate2 swig_types[62]
+#define SWIGTYPE_p_FIX__Group swig_types[63]
+#define SWIGTYPE_p_FIX__IDSource swig_types[64]
+#define SWIGTYPE_p_FIX__IOException swig_types[65]
+#define SWIGTYPE_p_FIX__IOIOthSvc swig_types[66]
+#define SWIGTYPE_p_FIX__IOIShares swig_types[67]
+#define SWIGTYPE_p_FIX__IncorrectDataFormat swig_types[68]
+#define SWIGTYPE_p_FIX__IncorrectMessageStructure swig_types[69]
+#define SWIGTYPE_p_FIX__IncorrectTagValue swig_types[70]
+#define SWIGTYPE_p_FIX__Initiator swig_types[71]
+#define SWIGTYPE_p_FIX__IntField swig_types[72]
+#define SWIGTYPE_p_FIX__InvalidMessage swig_types[73]
+#define SWIGTYPE_p_FIX__InvalidMessageType swig_types[74]
+#define SWIGTYPE_p_FIX__InvalidTagNumber swig_types[75]
+#define SWIGTYPE_p_FIX__LastShares swig_types[76]
+#define SWIGTYPE_p_FIX__LegFutSettDate swig_types[77]
+#define SWIGTYPE_p_FIX__LegSettlmntTyp swig_types[78]
+#define SWIGTYPE_p_FIX__Log swig_types[79]
+#define SWIGTYPE_p_FIX__LogFactory swig_types[80]
+#define SWIGTYPE_p_FIX__MaturityDay swig_types[81]
+#define SWIGTYPE_p_FIX__MemoryStore swig_types[82]
+#define SWIGTYPE_p_FIX__MemoryStoreFactory swig_types[83]
+#define SWIGTYPE_p_FIX__Message swig_types[84]
+#define SWIGTYPE_p_FIX__MessageParseError swig_types[85]
+#define SWIGTYPE_p_FIX__MessageStore swig_types[86]
+#define SWIGTYPE_p_FIX__MessageStoreExceptionWrapper swig_types[87]
+#define SWIGTYPE_p_FIX__MessageStoreFactory swig_types[88]
+#define SWIGTYPE_p_FIX__MessageStoreFactoryExceptionWrapper swig_types[89]
+#define SWIGTYPE_p_FIX__NoTagValue swig_types[90]
+#define SWIGTYPE_p_FIX__NullApplication swig_types[91]
+#define SWIGTYPE_p_FIX__OnBehalfOfSendingTime swig_types[92]
+#define SWIGTYPE_p_FIX__OpenClose swig_types[93]
+#define SWIGTYPE_p_FIX__OpenCloseSettleFlag swig_types[94]
+#define SWIGTYPE_p_FIX__PegDifference swig_types[95]
+#define SWIGTYPE_p_FIX__PutOrCall swig_types[96]
+#define SWIGTYPE_p_FIX__QuoteAckStatus swig_types[97]
+#define SWIGTYPE_p_FIX__RatioQty swig_types[98]
+#define SWIGTYPE_p_FIX__RegistDetls swig_types[99]
+#define SWIGTYPE_p_FIX__RejectLogon swig_types[100]
+#define SWIGTYPE_p_FIX__RelatdSym swig_types[101]
+#define SWIGTYPE_p_FIX__RepeatedTag swig_types[102]
+#define SWIGTYPE_p_FIX__RepeatingGroupCountMismatch swig_types[103]
+#define SWIGTYPE_p_FIX__RequiredTagMissing swig_types[104]
+#define SWIGTYPE_p_FIX__Rule80A swig_types[105]
+#define SWIGTYPE_p_FIX__RuntimeError swig_types[106]
+#define SWIGTYPE_p_FIX__ScreenLog swig_types[107]
+#define SWIGTYPE_p_FIX__ScreenLogFactory swig_types[108]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctName swig_types[109]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentAcctNum swig_types[110]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentCode swig_types[111]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentContactName swig_types[112]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentContactPhone swig_types[113]
+#define SWIGTYPE_p_FIX__SecuritySettlAgentName swig_types[114]
+#define SWIGTYPE_p_FIX__Session swig_types[115]
+#define SWIGTYPE_p_FIX__SessionID swig_types[116]
+#define SWIGTYPE_p_FIX__SessionNotFound swig_types[117]
+#define SWIGTYPE_p_FIX__SessionSettings swig_types[118]
+#define SWIGTYPE_p_FIX__SettlBrkrCode swig_types[119]
+#define SWIGTYPE_p_FIX__SettlDepositoryCode swig_types[120]
+#define SWIGTYPE_p_FIX__SettlInstCode swig_types[121]
+#define SWIGTYPE_p_FIX__SettlLocation swig_types[122]
+#define SWIGTYPE_p_FIX__SettlmntTyp swig_types[123]
+#define SWIGTYPE_p_FIX__Shares swig_types[124]
+#define SWIGTYPE_p_FIX__SocketAcceptor swig_types[125]
+#define SWIGTYPE_p_FIX__SocketCloseFailed swig_types[126]
+#define SWIGTYPE_p_FIX__SocketException swig_types[127]
+#define SWIGTYPE_p_FIX__SocketInitiator swig_types[128]
+#define SWIGTYPE_p_FIX__SocketRecvFailed swig_types[129]
+#define SWIGTYPE_p_FIX__SocketSendFailed swig_types[130]
+#define SWIGTYPE_p_FIX__SpreadToBenchmark swig_types[131]
+#define SWIGTYPE_p_FIX__StringField swig_types[132]
+#define SWIGTYPE_p_FIX__SynchronizedApplication swig_types[133]
+#define SWIGTYPE_p_FIX__TagNotDefinedForMessage swig_types[134]
+#define SWIGTYPE_p_FIX__TagOutOfOrder swig_types[135]
+#define SWIGTYPE_p_FIX__TotQuoteEntries swig_types[136]
+#define SWIGTYPE_p_FIX__TotalNumSecurities swig_types[137]
+#define SWIGTYPE_p_FIX__TotalNumSecurityTypes swig_types[138]
+#define SWIGTYPE_p_FIX__TotalVolumeTradedDate swig_types[139]
+#define SWIGTYPE_p_FIX__TotalVolumeTradedTime swig_types[140]
+#define SWIGTYPE_p_FIX__TradeType swig_types[141]
+#define SWIGTYPE_p_FIX__UnderlyingIDSource swig_types[142]
+#define SWIGTYPE_p_FIX__UnderlyingMaturityDay swig_types[143]
+#define SWIGTYPE_p_FIX__UnderlyingPutOrCall swig_types[144]
+#define SWIGTYPE_p_FIX__UnsupportedMessageType swig_types[145]
+#define SWIGTYPE_p_FIX__UnsupportedVersion swig_types[146]
+#define SWIGTYPE_p_FIX__UtcDateField swig_types[147]
+#define SWIGTYPE_p_FIX__UtcTimeOnlyField swig_types[148]
+#define SWIGTYPE_p_FIX__UtcTimeStampField swig_types[149]
+#define SWIGTYPE_p_Fields swig_types[150]
+#define SWIGTYPE_p_Group swig_types[151]
+#define SWIGTYPE_p_Groups swig_types[152]
+#define SWIGTYPE_p_IntArray swig_types[153]
+#define SWIGTYPE_p_IntField swig_types[154]
+#define SWIGTYPE_p_Log swig_types[155]
+#define SWIGTYPE_p_LogFactory swig_types[156]
+#define SWIGTYPE_p_MessageStore swig_types[157]
+#define SWIGTYPE_p_MessageStoreFactory swig_types[158]
+#define SWIGTYPE_p_MsgType swig_types[159]
+#define SWIGTYPE_p_Mutex swig_types[160]
+#define SWIGTYPE_p_Responder swig_types[161]
+#define SWIGTYPE_p_SenderCompID swig_types[162]
+#define SWIGTYPE_p_SessionID swig_types[163]
+#define SWIGTYPE_p_SessionTime swig_types[164]
+#define SWIGTYPE_p_StringField swig_types[165]
+#define SWIGTYPE_p_TYPE__Type swig_types[166]
+#define SWIGTYPE_p_TargetCompID swig_types[167]
+#define SWIGTYPE_p_UtcDate swig_types[168]
+#define SWIGTYPE_p_UtcDateField swig_types[169]
+#define SWIGTYPE_p_UtcDateOnly swig_types[170]
+#define SWIGTYPE_p_UtcTimeOnly swig_types[171]
+#define SWIGTYPE_p_UtcTimeStamp swig_types[172]
+#define SWIGTYPE_p_bool swig_types[173]
+#define SWIGTYPE_p_char swig_types[174]
+#define SWIGTYPE_p_const_iterator swig_types[175]
+#define SWIGTYPE_p_double swig_types[176]
+#define SWIGTYPE_p_g_const_iterator swig_types[177]
+#define SWIGTYPE_p_g_iterator swig_types[178]
+#define SWIGTYPE_p_int swig_types[179]
+#define SWIGTYPE_p_iterator swig_types[180]
+#define SWIGTYPE_p_message_order swig_types[181]
+#define SWIGTYPE_p_p_FIX__DataDictionary swig_types[182]
+#define SWIGTYPE_p_std__istream swig_types[183]
+#define SWIGTYPE_p_std__ostream swig_types[184]
+#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[185]
+#define SWIGTYPE_p_std__string swig_types[186]
+#define SWIGTYPE_p_std__string__size_type swig_types[187]
+#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[188]
+static swig_type_info *swig_types[190];
+static swig_module_info swig_module = {swig_types, 189, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -48909,6 +48910,841 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_new_Dictionary__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  FIX::Dictionary *result = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:new_Dictionary",&obj0)) SWIG_fail;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(obj0, &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "new_Dictionary" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Dictionary" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  result = (FIX::Dictionary *)new FIX::Dictionary((std::string const &)*arg1);
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Dictionary, SWIG_POINTER_NEW |  0 );
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Dictionary__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *result = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)":new_Dictionary")) SWIG_fail;
+  result = (FIX::Dictionary *)new FIX::Dictionary();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Dictionary, SWIG_POINTER_NEW |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_new_Dictionary(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[2];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = PyObject_Length(args);
+  for (ii = 0; (ii < argc) && (ii < 1); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 0) {
+    return _wrap_new_Dictionary__SWIG_1(self, args);
+  }
+  if (argc == 1) {
+    int _v;
+    int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      return _wrap_new_Dictionary__SWIG_0(self, args);
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'new_Dictionary'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_delete_Dictionary(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:delete_Dictionary",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, SWIG_POINTER_DISOWN |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "delete_Dictionary" "', argument " "1"" of type '" "FIX::Dictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  delete arg1;
+  
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getName(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Dictionary_getName",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_getName" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  result = ((FIX::Dictionary const *)arg1)->getName();
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_size(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Dictionary_size",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_size" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  result = (int)((FIX::Dictionary const *)arg1)->size();
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getString__SWIG_0(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  bool arg3 ;
+  std::string result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Dictionary_getString",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_getString" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_getString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_getString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_bool(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Dictionary_getString" "', argument " "3"" of type '" "bool""'");
+  } 
+  arg3 = static_cast< bool >(val3);
+  try {
+    result = ((FIX::Dictionary const *)arg1)->getString((std::string const &)*arg2,arg3);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldConvertError(static_cast< const FIX::FieldConvertError& >(_e))),SWIGTYPE_p_FIX__FieldConvertError,SWIG_POINTER_OWN), "FIX::FieldConvertError", SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getString__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  std::string result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Dictionary_getString",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_getString" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_getString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_getString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  try {
+    result = ((FIX::Dictionary const *)arg1)->getString((std::string const &)*arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldConvertError(static_cast< const FIX::FieldConvertError& >(_e))),SWIGTYPE_p_FIX__FieldConvertError,SWIG_POINTER_OWN), "FIX::FieldConvertError", SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getString(PyObject *self, PyObject *args) {
+  int argc;
+  PyObject *argv[4];
+  int ii;
+  
+  if (!PyTuple_Check(args)) SWIG_fail;
+  argc = PyObject_Length(args);
+  for (ii = 0; (ii < argc) && (ii < 3); ii++) {
+    argv[ii] = PyTuple_GET_ITEM(args,ii);
+  }
+  if (argc == 2) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Dictionary, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        return _wrap_Dictionary_getString__SWIG_1(self, args);
+      }
+    }
+  }
+  if (argc == 3) {
+    int _v;
+    void *vptr = 0;
+    int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__Dictionary, 0);
+    _v = SWIG_CheckState(res);
+    if (_v) {
+      int res = SWIG_AsPtr_std_string(argv[1], (std::string**)(0));
+      _v = SWIG_CheckState(res);
+      if (_v) {
+        {
+          int res = SWIG_AsVal_bool(argv[2], NULL);
+          _v = SWIG_CheckState(res);
+        }
+        if (_v) {
+          return _wrap_Dictionary_getString__SWIG_0(self, args);
+        }
+      }
+    }
+  }
+  
+fail:
+  SWIG_SetErrorMsg(PyExc_NotImplementedError,"No matching function for overloaded 'Dictionary_getString'");
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getLong(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  long result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Dictionary_getLong",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_getLong" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_getLong" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_getLong" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  try {
+    result = (long)((FIX::Dictionary const *)arg1)->getLong((std::string const &)*arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldConvertError(static_cast< const FIX::FieldConvertError& >(_e))),SWIGTYPE_p_FIX__FieldConvertError,SWIG_POINTER_OWN), "FIX::FieldConvertError", SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_From_long(static_cast< long >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getDouble(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  double result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Dictionary_getDouble",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_getDouble" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_getDouble" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_getDouble" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  try {
+    result = (double)((FIX::Dictionary const *)arg1)->getDouble((std::string const &)*arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldConvertError(static_cast< const FIX::FieldConvertError& >(_e))),SWIGTYPE_p_FIX__FieldConvertError,SWIG_POINTER_OWN), "FIX::FieldConvertError", SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_From_double(static_cast< double >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getBool(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Dictionary_getBool",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_getBool" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_getBool" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_getBool" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  try {
+    result = (bool)((FIX::Dictionary const *)arg1)->getBool((std::string const &)*arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldConvertError(static_cast< const FIX::FieldConvertError& >(_e))),SWIGTYPE_p_FIX__FieldConvertError,SWIG_POINTER_OWN), "FIX::FieldConvertError", SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_getDay(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Dictionary_getDay",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_getDay" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_getDay" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_getDay" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  try {
+    result = (int)((FIX::Dictionary const *)arg1)->getDay((std::string const &)*arg2);
+  }
+  catch(FIX::ConfigError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
+  }
+  catch(FIX::FieldConvertError &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldConvertError(static_cast< const FIX::FieldConvertError& >(_e))),SWIGTYPE_p_FIX__FieldConvertError,SWIG_POINTER_OWN), "FIX::FieldConvertError", SWIGTYPE_p_FIX__FieldConvertError); SWIG_fail;
+  }
+  
+  resultobj = SWIG_From_int(static_cast< int >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_setString(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  std::string *arg3 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int res3 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Dictionary_setString",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_setString" "', argument " "1"" of type '" "FIX::Dictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_setString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_setString" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res3 = SWIG_AsPtr_std_string(obj2, &ptr);
+    if (!SWIG_IsOK(res3)) {
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "Dictionary_setString" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_setString" "', argument " "3"" of type '" "std::string const &""'"); 
+    }
+    arg3 = ptr;
+  }
+  (arg1)->setString((std::string const &)*arg2,(std::string const &)*arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  if (SWIG_IsNewObj(res3)) delete arg3;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_setLong(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  long arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  long val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Dictionary_setLong",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_setLong" "', argument " "1"" of type '" "FIX::Dictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_setLong" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_setLong" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_long(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Dictionary_setLong" "', argument " "3"" of type '" "long""'");
+  } 
+  arg3 = static_cast< long >(val3);
+  (arg1)->setLong((std::string const &)*arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_setDouble(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  double arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  double val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Dictionary_setDouble",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_setDouble" "', argument " "1"" of type '" "FIX::Dictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_setDouble" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_setDouble" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_double(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Dictionary_setDouble" "', argument " "3"" of type '" "double""'");
+  } 
+  arg3 = static_cast< double >(val3);
+  (arg1)->setDouble((std::string const &)*arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_setBool(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  bool arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  bool val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Dictionary_setBool",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_setBool" "', argument " "1"" of type '" "FIX::Dictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_setBool" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_setBool" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_bool(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Dictionary_setBool" "', argument " "3"" of type '" "bool""'");
+  } 
+  arg3 = static_cast< bool >(val3);
+  (arg1)->setBool((std::string const &)*arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_setDay(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  int arg3 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  int val3 ;
+  int ecode3 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  PyObject * obj2 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OOO:Dictionary_setDay",&obj0,&obj1,&obj2)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_setDay" "', argument " "1"" of type '" "FIX::Dictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_setDay" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_setDay" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  ecode3 = SWIG_AsVal_int(obj2, &val3);
+  if (!SWIG_IsOK(ecode3)) {
+    SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Dictionary_setDay" "', argument " "3"" of type '" "int""'");
+  } 
+  arg3 = static_cast< int >(val3);
+  (arg1)->setDay((std::string const &)*arg2,arg3);
+  resultobj = SWIG_Py_Void();
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_has(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  std::string *arg2 = 0 ;
+  bool result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  int res2 = SWIG_OLDOBJ ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Dictionary_has",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_has" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  {
+    std::string *ptr = (std::string *)0;
+    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
+    if (!SWIG_IsOK(res2)) {
+      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_has" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_has" "', argument " "2"" of type '" "std::string const &""'"); 
+    }
+    arg2 = ptr;
+  }
+  result = (bool)((FIX::Dictionary const *)arg1)->has((std::string const &)*arg2);
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res2)) delete arg2;
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_merge(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  FIX::Dictionary *arg2 = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject * obj0 = 0 ;
+  PyObject * obj1 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"OO:Dictionary_merge",&obj0,&obj1)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_merge" "', argument " "1"" of type '" "FIX::Dictionary *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_FIX__Dictionary,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Dictionary_merge" "', argument " "2"" of type '" "FIX::Dictionary const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Dictionary_merge" "', argument " "2"" of type '" "FIX::Dictionary const &""'"); 
+  }
+  arg2 = reinterpret_cast< FIX::Dictionary * >(argp2);
+  (arg1)->merge((FIX::Dictionary const &)*arg2);
+  resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_begin(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  FIX::Dictionary::iterator result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Dictionary_begin",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_begin" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  result = ((FIX::Dictionary const *)arg1)->begin();
+  resultobj = SWIG_NewPointerObj((new FIX::Dictionary::iterator(static_cast< const FIX::Dictionary::iterator& >(result))), SWIGTYPE_p_FIX__Dictionary__Data__const_iterator, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Dictionary_end(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Dictionary *arg1 = (FIX::Dictionary *) 0 ;
+  FIX::Dictionary::iterator result;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Dictionary_end",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Dictionary_end" "', argument " "1"" of type '" "FIX::Dictionary const *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Dictionary * >(argp1);
+  result = ((FIX::Dictionary const *)arg1)->end();
+  resultobj = SWIG_NewPointerObj((new FIX::Dictionary::iterator(static_cast< const FIX::Dictionary::iterator& >(result))), SWIGTYPE_p_FIX__Dictionary__Data__const_iterator, SWIG_POINTER_OWN |  0 );
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *Dictionary_swigregister(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *obj;
+  if (!PyArg_ParseTuple(args,(char*)"O|swigregister", &obj)) return NULL;
+  SWIG_TypeNewClientData(SWIGTYPE_p_FIX__Dictionary, SWIG_NewClientData(obj));
+  return SWIG_Py_Void();
+}
+
 SWIGINTERN int BEGINSTRING_set(PyObject *) {
   SWIG_Error(SWIG_AttributeError,"Variable BEGINSTRING is read-only.");
   return 1;
@@ -50043,7 +50879,7 @@ SWIGINTERN PyObject *_wrap_SessionSettings_get__SWIG_0(PyObject *SWIGUNUSEDPARM(
   PyObject *resultobj = 0;
   FIX::SessionSettings *arg1 = (FIX::SessionSettings *) 0 ;
   FIX::SessionID *arg2 = 0 ;
-  Dictionary *result = 0 ;
+  FIX::Dictionary *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -50067,15 +50903,15 @@ SWIGINTERN PyObject *_wrap_SessionSettings_get__SWIG_0(PyObject *SWIGUNUSEDPARM(
   arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
   try {
     {
-      Dictionary const &_result_ref = ((FIX::SessionSettings const *)arg1)->get((FIX::SessionID const &)*arg2);
-      result = (Dictionary *) &_result_ref;
+      FIX::Dictionary const &_result_ref = ((FIX::SessionSettings const *)arg1)->get((FIX::SessionID const &)*arg2);
+      result = (FIX::Dictionary *) &_result_ref;
     }
   }
   catch(FIX::ConfigError &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
   }
   
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Dictionary, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -50086,7 +50922,7 @@ SWIGINTERN PyObject *_wrap_SessionSettings_set__SWIG_0(PyObject *SWIGUNUSEDPARM(
   PyObject *resultobj = 0;
   FIX::SessionSettings *arg1 = (FIX::SessionSettings *) 0 ;
   FIX::SessionID *arg2 = 0 ;
-  Dictionary arg3 ;
+  FIX::Dictionary arg3 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -50112,14 +50948,14 @@ SWIGINTERN PyObject *_wrap_SessionSettings_set__SWIG_0(PyObject *SWIGUNUSEDPARM(
   }
   arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
   {
-    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_Dictionary,  0  | 0);
+    res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_FIX__Dictionary,  0  | 0);
     if (!SWIG_IsOK(res3)) {
-      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SessionSettings_set" "', argument " "3"" of type '" "Dictionary""'"); 
+      SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "SessionSettings_set" "', argument " "3"" of type '" "FIX::Dictionary""'"); 
     }  
     if (!argp3) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SessionSettings_set" "', argument " "3"" of type '" "Dictionary""'");
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SessionSettings_set" "', argument " "3"" of type '" "FIX::Dictionary""'");
     } else {
-      Dictionary * temp = reinterpret_cast< Dictionary * >(argp3);
+      FIX::Dictionary * temp = reinterpret_cast< FIX::Dictionary * >(argp3);
       arg3 = *temp;
       if (SWIG_IsNewObj(res3)) delete temp;
     }
@@ -50141,7 +50977,7 @@ fail:
 SWIGINTERN PyObject *_wrap_SessionSettings_get__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   FIX::SessionSettings *arg1 = (FIX::SessionSettings *) 0 ;
-  Dictionary *result = 0 ;
+  FIX::Dictionary *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
@@ -50153,10 +50989,10 @@ SWIGINTERN PyObject *_wrap_SessionSettings_get__SWIG_1(PyObject *SWIGUNUSEDPARM(
   }
   arg1 = reinterpret_cast< FIX::SessionSettings * >(argp1);
   {
-    Dictionary const &_result_ref = ((FIX::SessionSettings const *)arg1)->get();
-    result = (Dictionary *) &_result_ref;
+    FIX::Dictionary const &_result_ref = ((FIX::SessionSettings const *)arg1)->get();
+    result = (FIX::Dictionary *) &_result_ref;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_Dictionary, 0 |  0 );
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Dictionary, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -50205,7 +51041,7 @@ fail:
 SWIGINTERN PyObject *_wrap_SessionSettings_set__SWIG_1(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   FIX::SessionSettings *arg1 = (FIX::SessionSettings *) 0 ;
-  Dictionary *arg2 = 0 ;
+  FIX::Dictionary *arg2 = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   void *argp2 = 0 ;
@@ -50219,16 +51055,16 @@ SWIGINTERN PyObject *_wrap_SessionSettings_set__SWIG_1(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SessionSettings_set" "', argument " "1"" of type '" "FIX::SessionSettings *""'"); 
   }
   arg1 = reinterpret_cast< FIX::SessionSettings * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_Dictionary,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_FIX__Dictionary,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SessionSettings_set" "', argument " "2"" of type '" "Dictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SessionSettings_set" "', argument " "2"" of type '" "FIX::Dictionary const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SessionSettings_set" "', argument " "2"" of type '" "Dictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SessionSettings_set" "', argument " "2"" of type '" "FIX::Dictionary const &""'"); 
   }
-  arg2 = reinterpret_cast< Dictionary * >(argp2);
+  arg2 = reinterpret_cast< FIX::Dictionary * >(argp2);
   try {
-    (arg1)->set((Dictionary const &)*arg2);
+    (arg1)->set((FIX::Dictionary const &)*arg2);
   }
   catch(FIX::ConfigError &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::ConfigError(static_cast< const FIX::ConfigError& >(_e))),SWIGTYPE_p_FIX__ConfigError,SWIG_POINTER_OWN), "FIX::ConfigError", SWIGTYPE_p_FIX__ConfigError); SWIG_fail;
@@ -50257,7 +51093,7 @@ SWIGINTERN PyObject *_wrap_SessionSettings_set(PyObject *self, PyObject *args) {
     int res = SWIG_ConvertPtr(argv[0], &vptr, SWIGTYPE_p_FIX__SessionSettings, 0);
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_Dictionary, 0);
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_FIX__Dictionary, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         return _wrap_SessionSettings_set__SWIG_1(self, args);
@@ -50273,7 +51109,7 @@ SWIGINTERN PyObject *_wrap_SessionSettings_set(PyObject *self, PyObject *args) {
       int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_FIX__SessionID, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
-        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_Dictionary, 0);
+        int res = SWIG_ConvertPtr(argv[2], 0, SWIGTYPE_p_FIX__Dictionary, 0);
         _v = SWIG_CheckState(res);
         if (_v) {
           return _wrap_SessionSettings_set__SWIG_0(self, args);
@@ -61705,8 +62541,8 @@ SWIGINTERN PyObject *_wrap_DataDictionary_validate(PyObject *SWIGUNUSEDPARM(self
   try {
     (arg1)->validate((FIX::Message const &)*arg2);
   }
-  catch(std::exception &_e) {
-    SWIG_Python_Raise(SWIG_NewPointerObj((new std::exception(static_cast< const std::exception& >(_e))),SWIGTYPE_p_std__exception,SWIG_POINTER_OWN), "std::exception", SWIGTYPE_p_std__exception); SWIG_fail;
+  catch(FIX::Exception &_e) {
+    SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::Exception(static_cast< const FIX::Exception& >(_e))),SWIGTYPE_p_FIX__Exception,SWIG_POINTER_OWN), "FIX::Exception", SWIGTYPE_p_FIX__Exception); SWIG_fail;
   }
   
   resultobj = SWIG_Py_Void();
@@ -62184,6 +63020,25 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"__lt__", _wrap___lt__, METH_VARARGS, NULL},
 	 { (char *)"__eq__", _wrap___eq__, METH_VARARGS, NULL},
 	 { (char *)"__ne__", _wrap___ne__, METH_VARARGS, NULL},
+	 { (char *)"new_Dictionary", _wrap_new_Dictionary, METH_VARARGS, NULL},
+	 { (char *)"delete_Dictionary", _wrap_delete_Dictionary, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_getName", _wrap_Dictionary_getName, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_size", _wrap_Dictionary_size, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_getString", _wrap_Dictionary_getString, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_getLong", _wrap_Dictionary_getLong, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_getDouble", _wrap_Dictionary_getDouble, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_getBool", _wrap_Dictionary_getBool, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_getDay", _wrap_Dictionary_getDay, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_setString", _wrap_Dictionary_setString, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_setLong", _wrap_Dictionary_setLong, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_setDouble", _wrap_Dictionary_setDouble, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_setBool", _wrap_Dictionary_setBool, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_setDay", _wrap_Dictionary_setDay, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_has", _wrap_Dictionary_has, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_merge", _wrap_Dictionary_merge, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_begin", _wrap_Dictionary_begin, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_end", _wrap_Dictionary_end, METH_VARARGS, NULL},
+	 { (char *)"Dictionary_swigregister", Dictionary_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_SessionSettings", _wrap_new_SessionSettings, METH_VARARGS, NULL},
 	 { (char *)"SessionSettings_has", _wrap_SessionSettings_has, METH_VARARGS, NULL},
 	 { (char *)"SessionSettings_get", _wrap_SessionSettings_get, METH_VARARGS, NULL},
@@ -63024,9 +63879,9 @@ static void *_p_FIX__OnBehalfOfSendingTimeTo_p_FIX__UtcTimeStampField(void *x) {
 static swig_type_info _swigt__p_Application = {"_p_Application", "Application *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_BeginString = {"_p_BeginString", "BeginString *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DOMDocumentPtr = {"_p_DOMDocumentPtr", "DOMDocumentPtr *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_Data = {"_p_Data", "Data *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DataDictionary = {"_p_DataDictionary", "DataDictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_Dictionaries = {"_p_Dictionaries", "Dictionaries *", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_Dictionary = {"_p_Dictionary", "Dictionary *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_DoubleField = {"_p_DoubleField", "DoubleField *|PercentageField *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIELD__Field = {"_p_FIELD__Field", "FIELD::Field *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX_CHAR = {"_p_FIX_CHAR", "FIX_CHAR *", 0, 0, (void*)0, 0};
@@ -63062,6 +63917,8 @@ static swig_type_info _swigt__p_FIX__ConfigError = {"_p_FIX__ConfigError", "FIX:
 static swig_type_info _swigt__p_FIX__CustomerOrFirm = {"_p_FIX__CustomerOrFirm", "FIX::CustomerOrFirm *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__CxlType = {"_p_FIX__CxlType", "FIX::CxlType *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DataDictionary = {"_p_FIX__DataDictionary", "FIX::DataDictionary *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__Dictionary = {"_p_FIX__Dictionary", "FIX::Dictionary *", 0, 0, (void*)0, 0};
+static swig_type_info _swigt__p_FIX__Dictionary__Data__const_iterator = {"_p_FIX__Dictionary__Data__const_iterator", "FIX::Dictionary::Data::const_iterator *|FIX::Dictionary::iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DiscretionOffset = {"_p_FIX__DiscretionOffset", "FIX::DiscretionOffset *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DlvyInst = {"_p_FIX__DlvyInst", "FIX::DlvyInst *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_FIX__DoNotSend = {"_p_FIX__DoNotSend", "FIX::DoNotSend *", 0, 0, (void*)0, 0};
@@ -63202,7 +64059,6 @@ static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_iterator = {"_p_iterator", "iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_message_order = {"_p_message_order", "message_order *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_FIX__DataDictionary = {"_p_p_FIX__DataDictionary", "FIX::DataDictionary **", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__exception = {"_p_std__exception", "std::exception *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__istream = {"_p_std__istream", "std::istream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__ostream = {"_p_std__ostream", "std::ostream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__setTFIX__SessionID_t = {"_p_std__setTFIX__SessionID_t", "std::set<FIX::SessionID > *", 0, 0, (void*)0, 0};
@@ -63214,9 +64070,9 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_Application,
   &_swigt__p_BeginString,
   &_swigt__p_DOMDocumentPtr,
+  &_swigt__p_Data,
   &_swigt__p_DataDictionary,
   &_swigt__p_Dictionaries,
-  &_swigt__p_Dictionary,
   &_swigt__p_DoubleField,
   &_swigt__p_FIELD__Field,
   &_swigt__p_FIX_CHAR,
@@ -63252,6 +64108,8 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_FIX__CustomerOrFirm,
   &_swigt__p_FIX__CxlType,
   &_swigt__p_FIX__DataDictionary,
+  &_swigt__p_FIX__Dictionary,
+  &_swigt__p_FIX__Dictionary__Data__const_iterator,
   &_swigt__p_FIX__DiscretionOffset,
   &_swigt__p_FIX__DlvyInst,
   &_swigt__p_FIX__DoNotSend,
@@ -63392,7 +64250,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_iterator,
   &_swigt__p_message_order,
   &_swigt__p_p_FIX__DataDictionary,
-  &_swigt__p_std__exception,
   &_swigt__p_std__istream,
   &_swigt__p_std__ostream,
   &_swigt__p_std__setTFIX__SessionID_t,
@@ -63404,9 +64261,9 @@ static swig_type_info *swig_type_initial[] = {
 static swig_cast_info _swigc__p_Application[] = {  {&_swigt__p_Application, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_BeginString[] = {  {&_swigt__p_BeginString, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DOMDocumentPtr[] = {  {&_swigt__p_DOMDocumentPtr, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_Data[] = {  {&_swigt__p_Data, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DataDictionary[] = {  {&_swigt__p_DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_Dictionaries[] = {  {&_swigt__p_Dictionaries, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_Dictionary[] = {  {&_swigt__p_Dictionary, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_DoubleField[] = {  {&_swigt__p_DoubleField, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIELD__Field[] = {  {&_swigt__p_FIELD__Field, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX_CHAR[] = {  {&_swigt__p_FIX_CHAR, 0, 0, 0},{0, 0, 0, 0}};
@@ -63442,6 +64299,8 @@ static swig_cast_info _swigc__p_FIX__ConfigError[] = {  {&_swigt__p_FIX__ConfigE
 static swig_cast_info _swigc__p_FIX__CustomerOrFirm[] = {  {&_swigt__p_FIX__CustomerOrFirm, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__CxlType[] = {  {&_swigt__p_FIX__CxlType, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DataDictionary[] = {  {&_swigt__p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Dictionary[] = {  {&_swigt__p_FIX__Dictionary, 0, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Dictionary__Data__const_iterator[] = {  {&_swigt__p_FIX__Dictionary__Data__const_iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DiscretionOffset[] = {  {&_swigt__p_FIX__DiscretionOffset, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DlvyInst[] = {  {&_swigt__p_FIX__DlvyInst, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__DoNotSend[] = {  {&_swigt__p_FIX__DoNotSend, 0, 0, 0},{0, 0, 0, 0}};
@@ -63582,7 +64441,6 @@ static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_IntArray, _p_IntArrayTo_p
 static swig_cast_info _swigc__p_iterator[] = {  {&_swigt__p_iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_message_order[] = {  {&_swigt__p_message_order, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FIX__DataDictionary[] = {  {&_swigt__p_p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__exception[] = {  {&_swigt__p_std__exception, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__istream[] = {  {&_swigt__p_std__istream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__ostream[] = {  {&_swigt__p_std__ostream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__setTFIX__SessionID_t[] = {  {&_swigt__p_std__setTFIX__SessionID_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -63594,9 +64452,9 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_Application,
   _swigc__p_BeginString,
   _swigc__p_DOMDocumentPtr,
+  _swigc__p_Data,
   _swigc__p_DataDictionary,
   _swigc__p_Dictionaries,
-  _swigc__p_Dictionary,
   _swigc__p_DoubleField,
   _swigc__p_FIELD__Field,
   _swigc__p_FIX_CHAR,
@@ -63632,6 +64490,8 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_FIX__CustomerOrFirm,
   _swigc__p_FIX__CxlType,
   _swigc__p_FIX__DataDictionary,
+  _swigc__p_FIX__Dictionary,
+  _swigc__p_FIX__Dictionary__Data__const_iterator,
   _swigc__p_FIX__DiscretionOffset,
   _swigc__p_FIX__DlvyInst,
   _swigc__p_FIX__DoNotSend,
@@ -63772,7 +64632,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_iterator,
   _swigc__p_message_order,
   _swigc__p_p_FIX__DataDictionary,
-  _swigc__p_std__exception,
   _swigc__p_std__istream,
   _swigc__p_std__ostream,
   _swigc__p_std__setTFIX__SessionID_t,

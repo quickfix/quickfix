@@ -3742,6 +3742,40 @@ OpenCloseSettleFlag_DELIVERY_SETTLEMENT_PRICE = cvar.OpenCloseSettleFlag_DELIVER
 OpenCloseSettleFlag_EXPECTED_PRICE = cvar.OpenCloseSettleFlag_EXPECTED_PRICE
 OpenCloseSettleFlag_PRICE_FROM_PREVIOUS_BUSINESS_DAY = cvar.OpenCloseSettleFlag_PRICE_FROM_PREVIOUS_BUSINESS_DAY
 
+class Dictionary(_object):
+    __swig_setmethods__ = {}
+    __setattr__ = lambda self, name, value: _swig_setattr(self, Dictionary, name, value)
+    __swig_getmethods__ = {}
+    __getattr__ = lambda self, name: _swig_getattr(self, Dictionary, name)
+    __repr__ = _swig_repr
+    def __init__(self, *args): 
+        this = _quickfix.new_Dictionary(*args)
+        try: self.this.append(this)
+        except: self.this = this
+    __swig_destroy__ = _quickfix.delete_Dictionary
+    __del__ = lambda self : None;
+    def getName(*args): return _quickfix.Dictionary_getName(*args)
+    def size(*args): return _quickfix.Dictionary_size(*args)
+    def getString(*args): return _quickfix.Dictionary_getString(*args)
+    def getLong(*args): return _quickfix.Dictionary_getLong(*args)
+    def getDouble(*args): return _quickfix.Dictionary_getDouble(*args)
+    def getBool(*args): return _quickfix.Dictionary_getBool(*args)
+    def getDay(*args): return _quickfix.Dictionary_getDay(*args)
+    def setString(*args): return _quickfix.Dictionary_setString(*args)
+    def setLong(*args): return _quickfix.Dictionary_setLong(*args)
+    def setDouble(*args): return _quickfix.Dictionary_setDouble(*args)
+    def setBool(*args): return _quickfix.Dictionary_setBool(*args)
+    def setDay(*args): return _quickfix.Dictionary_setDay(*args)
+    def has(*args): return _quickfix.Dictionary_has(*args)
+    def merge(*args): return _quickfix.Dictionary_merge(*args)
+    def begin(*args): return _quickfix.Dictionary_begin(*args)
+    def end(*args): return _quickfix.Dictionary_end(*args)
+Dictionary_swigregister = _quickfix.Dictionary_swigregister
+Dictionary_swigregister(Dictionary)
+__lt__ = _quickfix.__lt__
+__eq__ = _quickfix.__eq__
+__ne__ = _quickfix.__ne__
+
 class SessionSettings(_object):
     __swig_setmethods__ = {}
     __setattr__ = lambda self, name, value: _swig_setattr(self, SessionSettings, name, value)
@@ -3761,9 +3795,6 @@ class SessionSettings(_object):
     __del__ = lambda self : None;
 SessionSettings_swigregister = _quickfix.SessionSettings_swigregister
 SessionSettings_swigregister(SessionSettings)
-__lt__ = _quickfix.__lt__
-__eq__ = _quickfix.__eq__
-__ne__ = _quickfix.__ne__
 BEGINSTRING = cvar.BEGINSTRING
 SENDERCOMPID = cvar.SENDERCOMPID
 TARGETCOMPID = cvar.TARGETCOMPID

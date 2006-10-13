@@ -68,13 +68,13 @@ public:
   /// Set a value from a string.
   void setString( const std::string&, const std::string& );
   /// Set a value from a long.
-  void setLong( const std::string&, const long& );
+  void setLong( const std::string&, long );
   /// Set a value from a double.
-  void setDouble( const std::string&, const double& );
+  void setDouble( const std::string&, double );
   /// Set a value from a bool
-  void setBool( const std::string&, const bool& );
+  void setBool( const std::string&, bool );
   /// Set a value from a day
-  void setDay( const std::string&, const int& );
+  void setDay( const std::string&, int );
 
   /// Check if the dictionary contains a value for key.
   bool has( const std::string& ) const;

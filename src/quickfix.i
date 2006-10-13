@@ -443,6 +443,7 @@ def start(self):
 %include "../C++/Values.h"
 %include "../C++/DeprecatedValues.h"
 %include "../C++/SessionID.h"
+%include "../C++/Dictionary.h"
 %include "../C++/SessionSettings.h"
 %include "../C++/Session.h"
 %include "../C++/Log.h"
