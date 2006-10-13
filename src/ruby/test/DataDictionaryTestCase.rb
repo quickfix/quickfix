@@ -137,13 +137,13 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 
 	def test_checkValidTagNumber
 		@object.setVersion( Quickfix::BeginString_FIX40() );
-		@object.addField( Quickfix::BeginString.new.getField );
-		@object.addField( Quickfix::BodyLength.new.getField );
-		@object.addField( Quickfix::MsgType.new.getField );
-		@object.addField( Quickfix::CheckSum.new.getField );
-		@object.addField( Quickfix::TestReqID.new.getField );
+		@object.addField( Quickfix::BeginString.field );
+		@object.addField( Quickfix::BodyLength.field );
+		@object.addField( Quickfix::MsgType.field );
+		@object.addField( Quickfix::CheckSum.field );
+		@object.addField( Quickfix::TestReqID.field );
 		@object.addMsgType( Quickfix::MsgType_TestRequest() );
-		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.new.getField )
+		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
 
 		testReqID = Quickfix::TestReqID.new( "1" )
 		message = Quickfix40::TestRequest.new()
@@ -192,14 +192,14 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 
 	def test_checkIsInMessage
 		@object.setVersion( Quickfix::BeginString_FIX40() );
-		@object.addField( Quickfix::BeginString.new.getField );
-		@object.addField( Quickfix::BodyLength.new.getField );
-		@object.addField( Quickfix::MsgType.new.getField );
-		@object.addField( Quickfix::CheckSum.new.getField );
-		@object.addField( Quickfix::TestReqID.new.getField );
-		@object.addField( Quickfix::Symbol.new.getField );
+		@object.addField( Quickfix::BeginString.field );
+		@object.addField( Quickfix::BodyLength.field );
+		@object.addField( Quickfix::MsgType.field );
+		@object.addField( Quickfix::CheckSum.field );
+		@object.addField( Quickfix::TestReqID.field );
+		@object.addField( Quickfix::Symbol.field );
 		@object.addMsgType( Quickfix::MsgType_TestRequest() );
-		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.new.getField )
+		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
 
 		testReqID = Quickfix::TestReqID.new( "1" );
 
@@ -221,18 +221,18 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 
 	def test_checkHasRequired
 		@object.setVersion( Quickfix::BeginString_FIX40() );
-		@object.addField( Quickfix::BeginString.new.getField );
-		@object.addField( Quickfix::BodyLength.new.getField );
-		@object.addField( Quickfix::MsgType.new.getField );
-		@object.addField( Quickfix::SenderCompID.new.getField );
-		@object.addField( Quickfix::TargetCompID.new.getField );
-		@object.addHeaderField( Quickfix::SenderCompID.new.getField, true );
-		@object.addHeaderField( Quickfix::TargetCompID.new.getField, false );
-		@object.addField( Quickfix::CheckSum.new.getField );
-		@object.addField( Quickfix::TestReqID.new.getField );
+		@object.addField( Quickfix::BeginString.field );
+		@object.addField( Quickfix::BodyLength.field );
+		@object.addField( Quickfix::MsgType.field );
+		@object.addField( Quickfix::SenderCompID.field );
+		@object.addField( Quickfix::TargetCompID.field );
+		@object.addHeaderField( Quickfix::SenderCompID.field, true );
+		@object.addHeaderField( Quickfix::TargetCompID.field, false );
+		@object.addField( Quickfix::CheckSum.field );
+		@object.addField( Quickfix::TestReqID.field );
 		@object.addMsgType( Quickfix::MsgType_TestRequest() );
-		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.new.getField )
-		@object.addRequiredField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.new.getField )
+		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
+		@object.addRequiredField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
 
 		message = Quickfix40::TestRequest.new;
 		begin
@@ -255,7 +255,7 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 			assert( false )
 		end
 
-		message.getHeader().removeField( Quickfix::SenderCompID.new.getField );
+		message.getHeader().removeField( Quickfix::SenderCompID.field );
 		message.setField( Quickfix::SenderCompID.new("SENDER") );
 		begin 
 			@object.validate( message )
