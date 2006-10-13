@@ -1,5 +1,10 @@
 require 'quickfix'
 require 'quickfix_fields'
+require 'quickfix40'
+require 'quickfix41'
+require 'quickfix42'
+require 'quickfix43'
+require 'quickfix44'
 
 module Quickfix
 	class DataDictionary
@@ -24,6 +29,14 @@ module Quickfix
 		def getFieldTag( field )
 			tag = 0
 			return  _getFieldTag(field, tag)
+		end
+
+		def getGroup( msgType, group )
+			delim = 0
+			dictionary = Quickfix::DataDictionary.new
+			delim = _getGroup( msgType, group, delim, dictionary )
+			return nil if delim == nil
+			return [delim, dictionary]
 		end
 	end
 

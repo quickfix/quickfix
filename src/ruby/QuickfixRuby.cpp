@@ -1711,15 +1711,14 @@ SWIG_Ruby_SetModule(swig_module_info *pointer)
 #define SWIGTYPE_p_iterator swig_types[178]
 #define SWIGTYPE_p_message_order swig_types[179]
 #define SWIGTYPE_p_p_FIX__DataDictionary swig_types[180]
-#define SWIGTYPE_p_std__exception swig_types[181]
-#define SWIGTYPE_p_std__istream swig_types[182]
-#define SWIGTYPE_p_std__ostream swig_types[183]
-#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[184]
-#define SWIGTYPE_p_std__string swig_types[185]
-#define SWIGTYPE_p_std__string__size_type swig_types[186]
-#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[187]
-static swig_type_info *swig_types[189];
-static swig_module_info swig_module = {swig_types, 188, 0, 0, 0, 0};
+#define SWIGTYPE_p_std__istream swig_types[181]
+#define SWIGTYPE_p_std__ostream swig_types[182]
+#define SWIGTYPE_p_std__setTFIX__SessionID_t swig_types[183]
+#define SWIGTYPE_p_std__string swig_types[184]
+#define SWIGTYPE_p_std__string__size_type swig_types[185]
+#define SWIGTYPE_p_std__vectorTstd__string_t swig_types[186]
+static swig_type_info *swig_types[188];
+static swig_module_info swig_module = {swig_types, 187, 0, 0, 0, 0};
 #define SWIG_TypeQuery(name) SWIG_TypeQueryModule(&swig_module, &swig_module, name)
 #define SWIG_MangledTypeQuery(name) SWIG_MangledTypeQueryModule(&swig_module, &swig_module, name)
 
@@ -52601,7 +52600,7 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
+_wrap_DataDictionary__getGroup(int argc, VALUE *argv, VALUE self) {
   FIX::DataDictionary *arg1 = (FIX::DataDictionary *) 0 ;
   std::string *arg2 = 0 ;
   int arg3 ;
@@ -52614,8 +52613,7 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
   int val3 ;
   int ecode3 = 0 ;
   int temp4 ;
-  void *argp5 = 0 ;
-  int res5 = 0 ;
+  FIX::DataDictionary *temp5 ;
   VALUE vresult = Qnil;
   
   if ((argc < 4) || (argc > 4)) {
@@ -52646,14 +52644,10 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
     temp4 = NUM2INT(argv[2]);
     arg4 = &temp4;
   }
-  res5 = SWIG_ConvertPtr(argv[3], &argp5, SWIGTYPE_p_p_FIX__DataDictionary,  0 );
-  if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "getGroup" "', argument " "5"" of type '" "FIX::DataDictionary const *&""'"); 
+  {
+    arg5 = new FIX::DataDictionary*[1];
+    *arg5 = temp5;
   }
-  if (!argp5) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "getGroup" "', argument " "5"" of type '" "FIX::DataDictionary const *&""'"); 
-  }
-  arg5 = reinterpret_cast< FIX::DataDictionary ** >(argp5);
   result = (bool)((FIX::DataDictionary const *)arg1)->getGroup((std::string const &)*arg2,arg3,*arg4,(FIX::DataDictionary const *&)*arg5);
   vresult = SWIG_From_bool(static_cast< bool >(result));
   {
@@ -52668,6 +52662,13 @@ _wrap_DataDictionary_getGroup(int argc, VALUE *argv, VALUE self) {
     {
       vresult = result ? SWIG_From_int(static_cast< int >(*arg4)) : Qnil;
     }
+  }
+  {
+    void* argp;
+    FIX::DataDictionary* pDD = 0;
+    int res = SWIG_ConvertPtr(argv[3], &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
+    pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
+    *pDD = *(*arg5);
   }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return vresult;
@@ -52856,8 +52857,8 @@ _wrap_DataDictionary_validate(int argc, VALUE *argv, VALUE self) {
   try {
     (arg1)->validate((FIX::Message const &)*arg2);
   }
-  catch(std::exception &_e) {
-    rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_std__exception, SWIG_NewPointerObj((new std::exception(static_cast< const std::exception& >(_e))),SWIGTYPE_p_std__exception,SWIG_POINTER_OWN))); SWIG_fail;
+  catch(FIX::Exception &_e) {
+    rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__Exception, SWIG_NewPointerObj((new FIX::Exception(static_cast< const FIX::Exception& >(_e))),SWIGTYPE_p_FIX__Exception,SWIG_POINTER_OWN))); SWIG_fail;
   }
   
   return Qnil;
@@ -53593,7 +53594,6 @@ static swig_type_info _swigt__p_int = {"_p_int", "int *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_iterator = {"_p_iterator", "iterator *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_message_order = {"_p_message_order", "message_order *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_p_FIX__DataDictionary = {"_p_p_FIX__DataDictionary", "FIX::DataDictionary **", 0, 0, (void*)0, 0};
-static swig_type_info _swigt__p_std__exception = {"_p_std__exception", "std::exception *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__istream = {"_p_std__istream", "std::istream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__ostream = {"_p_std__ostream", "std::ostream *", 0, 0, (void*)0, 0};
 static swig_type_info _swigt__p_std__setTFIX__SessionID_t = {"_p_std__setTFIX__SessionID_t", "std::set<FIX::SessionID > *", 0, 0, (void*)0, 0};
@@ -53783,7 +53783,6 @@ static swig_type_info *swig_type_initial[] = {
   &_swigt__p_iterator,
   &_swigt__p_message_order,
   &_swigt__p_p_FIX__DataDictionary,
-  &_swigt__p_std__exception,
   &_swigt__p_std__istream,
   &_swigt__p_std__ostream,
   &_swigt__p_std__setTFIX__SessionID_t,
@@ -53973,7 +53972,6 @@ static swig_cast_info _swigc__p_int[] = {  {&_swigt__p_IntArray, _p_IntArrayTo_p
 static swig_cast_info _swigc__p_iterator[] = {  {&_swigt__p_iterator, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_message_order[] = {  {&_swigt__p_message_order, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_p_FIX__DataDictionary[] = {  {&_swigt__p_p_FIX__DataDictionary, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_std__exception[] = {  {&_swigt__p_std__exception, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__istream[] = {  {&_swigt__p_std__istream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__ostream[] = {  {&_swigt__p_std__ostream, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_std__setTFIX__SessionID_t[] = {  {&_swigt__p_std__setTFIX__SessionID_t, 0, 0, 0},{0, 0, 0, 0}};
@@ -54163,7 +54161,6 @@ static swig_cast_info *swig_cast_initial[] = {
   _swigc__p_iterator,
   _swigc__p_message_order,
   _swigc__p_p_FIX__DataDictionary,
-  _swigc__p_std__exception,
   _swigc__p_std__istream,
   _swigc__p_std__ostream,
   _swigc__p_std__setTFIX__SessionID_t,
@@ -57615,7 +57612,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cDataDictionary.klass, "isFieldValue", VALUEFUNC(_wrap_DataDictionary_isFieldValue), -1);
   rb_define_method(cDataDictionary.klass, "addGroup", VALUEFUNC(_wrap_DataDictionary_addGroup), -1);
   rb_define_method(cDataDictionary.klass, "isGroup", VALUEFUNC(_wrap_DataDictionary_isGroup), -1);
-  rb_define_method(cDataDictionary.klass, "getGroup", VALUEFUNC(_wrap_DataDictionary_getGroup), -1);
+  rb_define_method(cDataDictionary.klass, "_getGroup", VALUEFUNC(_wrap_DataDictionary__getGroup), -1);
   rb_define_method(cDataDictionary.klass, "isDataField", VALUEFUNC(_wrap_DataDictionary_isDataField), -1);
   rb_define_method(cDataDictionary.klass, "isMultipleValueStringField", VALUEFUNC(_wrap_DataDictionary_isMultipleValueStringField), -1);
   rb_define_method(cDataDictionary.klass, "checkFieldsOutOfOrder", VALUEFUNC(_wrap_DataDictionary_checkFieldsOutOfOrder), -1);

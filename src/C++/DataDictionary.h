@@ -283,7 +283,7 @@ public:
   { m_checkUserDefinedFields = value; }
 
   /// Validate a message.
-  void validate( const Message& message ) throw( std::exception );
+  void validate( const Message& message ) throw( FIX::Exception );
   DataDictionary& operator=( const DataDictionary& rhs );
 
 private:

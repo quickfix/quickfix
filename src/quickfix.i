@@ -18,6 +18,7 @@
 %rename(_getFieldName) FIX::DataDictionary::getFieldName;
 %rename(_getValueName) FIX::DataDictionary::getValueName;
 %rename(_getFieldTag) FIX::DataDictionary::getFieldTag;
+%rename(_getGroup) FIX::DataDictionary::getGroup;
 #endif
 
 %{
@@ -118,6 +119,23 @@ using namespace FIX;
   {
     vresult = result ? SWIG_From_int(static_cast< int >(*$1)) : Qnil;
   }
+}
+
+%typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
+  $1 = new FIX::DataDictionary*[1];
+  *$1 = temp;
+}
+
+%typemap(free) FIX::DataDictionary const *& {
+  delete[] temp;
+}
+
+%typemap(argout) FIX::DataDictionary const *& {
+  void* argp;
+  FIX::DataDictionary* pDD = 0;
+  int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
+  pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
+  *pDD = *(*$1);
 }
 
 #endif

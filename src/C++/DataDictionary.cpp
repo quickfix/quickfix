@@ -116,7 +116,7 @@ DataDictionary& DataDictionary::operator=( const DataDictionary& rhs )
 }
 
 void DataDictionary::validate( const Message& message )
-throw( std::exception )
+throw( FIX::Exception )
 { QF_STACK_PUSH(DataDictionary::validate)
 
   const Header& header = message.getHeader();

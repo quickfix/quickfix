@@ -250,7 +250,8 @@ void DataDictionaryTestCase::checkHasValue::onRun
   FIX42::TestRequest message( testReqID );
 
   try{ object.validate( message ); assert( false ); }
-  catch ( NoTagValue& ) {}}
+  catch ( NoTagValue& ) {}
+}
 
 bool DataDictionaryTestCase::checkIsInMessage::onSetup
 ( DataDictionary*& pObject )
