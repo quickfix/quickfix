@@ -116,7 +116,7 @@ module Quickfix
 		end
 	end
 
-	class CheckSum < Quickfix::StringField
+	class CheckSum < Quickfix::CheckSumField
 		def CheckSum.field
 			return 10
 		end

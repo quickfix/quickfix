@@ -13634,7 +13634,7 @@ fail:
 SWIGINTERN VALUE
 _wrap_new_Message__SWIG_3(int argc, VALUE *argv, VALUE self) {
   std::string *arg1 = 0 ;
-  DataDictionary *arg2 = 0 ;
+  FIX::DataDictionary *arg2 = 0 ;
   bool arg3 ;
   FIX::Message *result = 0 ;
   int res1 = SWIG_OLDOBJ ;
@@ -13658,21 +13658,21 @@ _wrap_new_Message__SWIG_3(int argc, VALUE *argv, VALUE self) {
     }
     arg1 = ptr;
   }
-  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_DataDictionary,  0 );
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DataDictionary,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
-  arg2 = reinterpret_cast< DataDictionary * >(argp2);
+  arg2 = reinterpret_cast< FIX::DataDictionary * >(argp2);
   ecode3 = SWIG_AsVal_bool(argv[2], &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "FIX::Message" "', argument " "3"" of type '" "bool""'");
   } 
   arg3 = static_cast< bool >(val3);
   try {
-    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(DataDictionary const &)*arg2,arg3);DATA_PTR(self) = result;
+    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(FIX::DataDictionary const &)*arg2,arg3);DATA_PTR(self) = result;
   }
   catch(FIX::InvalidMessage &_e) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
@@ -13696,7 +13696,7 @@ fail:
 SWIGINTERN VALUE
 _wrap_new_Message__SWIG_4(int argc, VALUE *argv, VALUE self) {
   std::string *arg1 = 0 ;
-  DataDictionary *arg2 = 0 ;
+  FIX::DataDictionary *arg2 = 0 ;
   FIX::Message *result = 0 ;
   int res1 = SWIG_OLDOBJ ;
   void *argp2 ;
@@ -13717,16 +13717,16 @@ _wrap_new_Message__SWIG_4(int argc, VALUE *argv, VALUE self) {
     }
     arg1 = ptr;
   }
-  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_DataDictionary,  0 );
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__DataDictionary,  0 );
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FIX::Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
-  arg2 = reinterpret_cast< DataDictionary * >(argp2);
+  arg2 = reinterpret_cast< FIX::DataDictionary * >(argp2);
   try {
-    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(DataDictionary const &)*arg2);DATA_PTR(self) = result;
+    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(FIX::DataDictionary const &)*arg2);DATA_PTR(self) = result;
   }
   catch(FIX::InvalidMessage &_e) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
@@ -13827,7 +13827,7 @@ SWIGINTERN VALUE _wrap_new_Message(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_DataDictionary, 0);
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         return _wrap_new_Message__SWIG_4(nargs, args, self);
@@ -13854,7 +13854,7 @@ SWIGINTERN VALUE _wrap_new_Message(int nargs, VALUE *args, VALUE self) {
     _v = SWIG_CheckState(res);
     if (_v) {
       void *vptr = 0;
-      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_DataDictionary, 0);
+      int res = SWIG_ConvertPtr(argv[1], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         {
@@ -14966,7 +14966,7 @@ _wrap_Message_setString__SWIG_0(int argc, VALUE *argv, VALUE self) {
   FIX::Message *arg1 = (FIX::Message *) 0 ;
   std::string *arg2 = 0 ;
   bool arg3 ;
-  DataDictionary *arg4 = (DataDictionary *) 0 ;
+  FIX::DataDictionary *arg4 = (FIX::DataDictionary *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
@@ -15000,13 +15000,13 @@ _wrap_Message_setString__SWIG_0(int argc, VALUE *argv, VALUE self) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "setString" "', argument " "3"" of type '" "bool""'");
   } 
   arg3 = static_cast< bool >(val3);
-  res4 = SWIG_ConvertPtr(argv[2], &argp4,SWIGTYPE_p_DataDictionary, 0 |  0 );
+  res4 = SWIG_ConvertPtr(argv[2], &argp4,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "setString" "', argument " "4"" of type '" "DataDictionary const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "setString" "', argument " "4"" of type '" "FIX::DataDictionary const *""'"); 
   }
-  arg4 = reinterpret_cast< DataDictionary * >(argp4);
+  arg4 = reinterpret_cast< FIX::DataDictionary * >(argp4);
   try {
-    (arg1)->setString((std::string const &)*arg2,arg3,(DataDictionary const *)arg4);
+    (arg1)->setString((std::string const &)*arg2,arg3,(FIX::DataDictionary const *)arg4);
   }
   catch(FIX::InvalidMessage &_e) {
     rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__InvalidMessage, SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN))); SWIG_fail;
@@ -15193,7 +15193,7 @@ SWIGINTERN VALUE _wrap_Message_setString(int nargs, VALUE *args, VALUE self) {
         }
         if (_v) {
           void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_DataDictionary, 0);
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
           _v = SWIG_CheckState(res);
           if (_v) {
             return _wrap_Message_setString__SWIG_0(nargs, args, self);

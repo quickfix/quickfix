@@ -68,7 +68,7 @@ public:
   throw( InvalidMessage );
 
   /// Construct a message from a string using a data dictionary
-  Message( const std::string& string, const DataDictionary& dataDictionary,
+  Message( const std::string& string, const FIX::DataDictionary& dataDictionary,
            bool validate = true )
   throw( InvalidMessage );
 
@@ -149,7 +149,7 @@ public:
    */
   void setString( const std::string& string,
                   bool validate = true,
-                  const DataDictionary* pDataDictionary = 0 )
+                  const FIX::DataDictionary* pDataDictionary = 0 )
   throw( InvalidMessage );
 
   void setGroup( const std::string& msg, const FieldBase& field,

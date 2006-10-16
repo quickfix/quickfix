@@ -3837,6 +3837,22 @@ SWIGINTERN PyObject *_wrap_new_Exception(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   result = (FIX::Exception *)new FIX::Exception((std::string const &)*arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Exception, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
@@ -3899,6 +3915,14 @@ SWIGINTERN PyObject *_wrap_Exception_type_set(PyObject *SWIGUNUSEDPARM(self), Py
   if (arg1) (arg1)->type = *arg2;
   
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -3962,6 +3986,14 @@ SWIGINTERN PyObject *_wrap_Exception_detail_set(PyObject *SWIGUNUSEDPARM(self), 
   if (arg1) (arg1)->detail = *arg2;
   
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -4054,6 +4086,14 @@ SWIGINTERN PyObject *_wrap_new_FieldNotFound__SWIG_0(PyObject *SWIGUNUSEDPARM(se
   }
   result = (FIX::FieldNotFound *)new FIX::FieldNotFound(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldNotFound, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -4244,6 +4284,14 @@ SWIGINTERN PyObject *_wrap_new_FieldConvertError__SWIG_0(PyObject *SWIGUNUSEDPAR
   }
   result = (FIX::FieldConvertError *)new FIX::FieldConvertError((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldConvertError, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -4343,6 +4391,14 @@ SWIGINTERN PyObject *_wrap_new_MessageParseError__SWIG_0(PyObject *SWIGUNUSEDPAR
   }
   result = (FIX::MessageParseError *)new FIX::MessageParseError((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__MessageParseError, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -4442,6 +4498,14 @@ SWIGINTERN PyObject *_wrap_new_InvalidMessage__SWIG_0(PyObject *SWIGUNUSEDPARM(s
   }
   result = (FIX::InvalidMessage *)new FIX::InvalidMessage((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__InvalidMessage, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -4541,6 +4605,14 @@ SWIGINTERN PyObject *_wrap_new_ConfigError__SWIG_0(PyObject *SWIGUNUSEDPARM(self
   }
   result = (FIX::ConfigError *)new FIX::ConfigError((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__ConfigError, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -4640,6 +4712,14 @@ SWIGINTERN PyObject *_wrap_new_RuntimeError__SWIG_0(PyObject *SWIGUNUSEDPARM(sel
   }
   result = (FIX::RuntimeError *)new FIX::RuntimeError((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__RuntimeError, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -4748,6 +4828,14 @@ SWIGINTERN PyObject *_wrap_new_InvalidTagNumber__SWIG_0(PyObject *SWIGUNUSEDPARM
   }
   result = (FIX::InvalidTagNumber *)new FIX::InvalidTagNumber(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__InvalidTagNumber, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -4947,6 +5035,14 @@ SWIGINTERN PyObject *_wrap_new_RequiredTagMissing__SWIG_0(PyObject *SWIGUNUSEDPA
   }
   result = (FIX::RequiredTagMissing *)new FIX::RequiredTagMissing(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__RequiredTagMissing, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -5146,6 +5242,14 @@ SWIGINTERN PyObject *_wrap_new_TagNotDefinedForMessage__SWIG_0(PyObject *SWIGUNU
   }
   result = (FIX::TagNotDefinedForMessage *)new FIX::TagNotDefinedForMessage(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__TagNotDefinedForMessage, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -5345,6 +5449,14 @@ SWIGINTERN PyObject *_wrap_new_NoTagValue__SWIG_0(PyObject *SWIGUNUSEDPARM(self)
   }
   result = (FIX::NoTagValue *)new FIX::NoTagValue(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__NoTagValue, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -5544,6 +5656,14 @@ SWIGINTERN PyObject *_wrap_new_IncorrectTagValue__SWIG_0(PyObject *SWIGUNUSEDPAR
   }
   result = (FIX::IncorrectTagValue *)new FIX::IncorrectTagValue(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__IncorrectTagValue, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -5743,6 +5863,14 @@ SWIGINTERN PyObject *_wrap_new_IncorrectDataFormat__SWIG_0(PyObject *SWIGUNUSEDP
   }
   result = (FIX::IncorrectDataFormat *)new FIX::IncorrectDataFormat(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__IncorrectDataFormat, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -5933,6 +6061,14 @@ SWIGINTERN PyObject *_wrap_new_IncorrectMessageStructure__SWIG_0(PyObject *SWIGU
   }
   result = (FIX::IncorrectMessageStructure *)new FIX::IncorrectMessageStructure((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__IncorrectMessageStructure, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -6032,6 +6168,14 @@ SWIGINTERN PyObject *_wrap_new_DuplicateFieldNumber__SWIG_0(PyObject *SWIGUNUSED
   }
   result = (FIX::DuplicateFieldNumber *)new FIX::DuplicateFieldNumber((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DuplicateFieldNumber, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -6131,6 +6275,14 @@ SWIGINTERN PyObject *_wrap_new_InvalidMessageType__SWIG_0(PyObject *SWIGUNUSEDPA
   }
   result = (FIX::InvalidMessageType *)new FIX::InvalidMessageType((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__InvalidMessageType, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -6230,6 +6382,14 @@ SWIGINTERN PyObject *_wrap_new_UnsupportedMessageType__SWIG_0(PyObject *SWIGUNUS
   }
   result = (FIX::UnsupportedMessageType *)new FIX::UnsupportedMessageType((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__UnsupportedMessageType, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -6329,6 +6489,14 @@ SWIGINTERN PyObject *_wrap_new_UnsupportedVersion__SWIG_0(PyObject *SWIGUNUSEDPA
   }
   result = (FIX::UnsupportedVersion *)new FIX::UnsupportedVersion((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__UnsupportedVersion, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -6437,6 +6605,14 @@ SWIGINTERN PyObject *_wrap_new_TagOutOfOrder__SWIG_0(PyObject *SWIGUNUSEDPARM(se
   }
   result = (FIX::TagOutOfOrder *)new FIX::TagOutOfOrder(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__TagOutOfOrder, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -6636,6 +6812,14 @@ SWIGINTERN PyObject *_wrap_new_RepeatedTag__SWIG_0(PyObject *SWIGUNUSEDPARM(self
   }
   result = (FIX::RepeatedTag *)new FIX::RepeatedTag(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__RepeatedTag, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -6835,6 +7019,14 @@ SWIGINTERN PyObject *_wrap_new_RepeatingGroupCountMismatch__SWIG_0(PyObject *SWI
   }
   result = (FIX::RepeatingGroupCountMismatch *)new FIX::RepeatingGroupCountMismatch(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__RepeatingGroupCountMismatch, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -7025,6 +7217,14 @@ SWIGINTERN PyObject *_wrap_new_DoNotSend__SWIG_0(PyObject *SWIGUNUSEDPARM(self),
   }
   result = (FIX::DoNotSend *)new FIX::DoNotSend((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DoNotSend, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7124,6 +7324,14 @@ SWIGINTERN PyObject *_wrap_new_RejectLogon__SWIG_0(PyObject *SWIGUNUSEDPARM(self
   }
   result = (FIX::RejectLogon *)new FIX::RejectLogon((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__RejectLogon, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7223,6 +7431,14 @@ SWIGINTERN PyObject *_wrap_new_SessionNotFound__SWIG_0(PyObject *SWIGUNUSEDPARM(
   }
   result = (FIX::SessionNotFound *)new FIX::SessionNotFound((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SessionNotFound, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7322,6 +7538,14 @@ SWIGINTERN PyObject *_wrap_new_IOException__SWIG_0(PyObject *SWIGUNUSEDPARM(self
   }
   result = (FIX::IOException *)new FIX::IOException((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__IOException, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7434,6 +7658,14 @@ SWIGINTERN PyObject *_wrap_new_SocketException__SWIG_1(PyObject *SWIGUNUSEDPARM(
   }
   result = (FIX::SocketException *)new FIX::SocketException((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SocketException, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7608,6 +7840,14 @@ SWIGINTERN PyObject *_wrap_new_SocketSendFailed__SWIG_1(PyObject *SWIGUNUSEDPARM
   }
   result = (FIX::SocketSendFailed *)new FIX::SocketSendFailed((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SocketSendFailed, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7716,6 +7956,14 @@ SWIGINTERN PyObject *_wrap_new_SocketRecvFailed__SWIG_1(PyObject *SWIGUNUSEDPARM
   }
   result = (FIX::SocketRecvFailed *)new FIX::SocketRecvFailed((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SocketRecvFailed, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7822,6 +8070,14 @@ SWIGINTERN PyObject *_wrap_new_SocketCloseFailed__SWIG_1(PyObject *SWIGUNUSEDPAR
   }
   result = (FIX::SocketCloseFailed *)new FIX::SocketCloseFailed((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SocketCloseFailed, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -7917,6 +8173,14 @@ SWIGINTERN PyObject *_wrap_new_FieldBase(PyObject *SWIGUNUSEDPARM(self), PyObjec
   }
   result = (FIX::FieldBase *)new FIX::FieldBase(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -8006,6 +8270,14 @@ SWIGINTERN PyObject *_wrap_FieldBase_setString(PyObject *SWIGUNUSEDPARM(self), P
   }
   (arg1)->setString((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -8263,6 +8535,14 @@ SWIGINTERN PyObject *_wrap_new_StringField__SWIG_0(PyObject *SWIGUNUSEDPARM(self
   }
   result = (FIX::StringField *)new FIX::StringField(arg1,(std::string const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -8363,6 +8643,14 @@ SWIGINTERN PyObject *_wrap_StringField_setValue(PyObject *SWIGUNUSEDPARM(self), 
   }
   (arg1)->setValue((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -9106,6 +9394,14 @@ SWIGINTERN PyObject *_wrap___lt____SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   result = (bool)FIX::operator <((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -9147,6 +9443,14 @@ SWIGINTERN PyObject *_wrap___lt____SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator <((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -9188,6 +9492,14 @@ SWIGINTERN PyObject *_wrap___gt____SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   result = (bool)FIX::operator >((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -9229,6 +9541,14 @@ SWIGINTERN PyObject *_wrap___gt____SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator >((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -9335,6 +9655,14 @@ SWIGINTERN PyObject *_wrap___eq____SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   result = (bool)FIX::operator ==((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -9376,6 +9704,14 @@ SWIGINTERN PyObject *_wrap___eq____SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator ==((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -9417,6 +9753,14 @@ SWIGINTERN PyObject *_wrap___ne____SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   result = (bool)FIX::operator !=((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -9458,6 +9802,14 @@ SWIGINTERN PyObject *_wrap___ne____SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator !=((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -9499,6 +9851,14 @@ SWIGINTERN PyObject *_wrap___le____SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   result = (bool)FIX::operator <=((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -9540,6 +9900,14 @@ SWIGINTERN PyObject *_wrap___le____SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator <=((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -9646,6 +10014,14 @@ SWIGINTERN PyObject *_wrap___ge____SWIG_2(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   result = (bool)FIX::operator >=((FIX::StringField const &)*arg1,(std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -9687,6 +10063,14 @@ SWIGINTERN PyObject *_wrap___ge____SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObje
   arg2 = reinterpret_cast< FIX::StringField * >(argp2);
   result = (bool)FIX::operator >=((std::string const &)*arg1,(FIX::StringField const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -12202,6 +12586,14 @@ SWIGINTERN PyObject *_wrap_FieldMap_setField__SWIG_2(PyObject *SWIGUNUSEDPARM(se
   }
   
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -13240,8 +13632,7 @@ SWIGINTERN PyObject *_wrap_FieldMap_calculateString__SWIG_0(PyObject *SWIGUNUSED
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   bool val3 ;
   int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
@@ -13254,14 +13645,10 @@ SWIGINTERN PyObject *_wrap_FieldMap_calculateString__SWIG_0(PyObject *SWIGUNUSED
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FieldMap_calculateString" "', argument " "1"" of type '" "FIX::FieldMap const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::FieldMap * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FieldMap_calculateString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FieldMap_calculateString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_bool(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "FieldMap_calculateString" "', argument " "3"" of type '" "bool""'");
@@ -13272,6 +13659,14 @@ SWIGINTERN PyObject *_wrap_FieldMap_calculateString__SWIG_0(PyObject *SWIGUNUSED
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -13285,8 +13680,7 @@ SWIGINTERN PyObject *_wrap_FieldMap_calculateString__SWIG_1(PyObject *SWIGUNUSED
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -13296,19 +13690,23 @@ SWIGINTERN PyObject *_wrap_FieldMap_calculateString__SWIG_1(PyObject *SWIGUNUSED
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "FieldMap_calculateString" "', argument " "1"" of type '" "FIX::FieldMap const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::FieldMap * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "FieldMap_calculateString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "FieldMap_calculateString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::FieldMap const *)arg1)->calculateString(*arg2);
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -13849,6 +14247,14 @@ SWIGINTERN PyObject *_wrap_new_Message__SWIG_1(PyObject *SWIGUNUSEDPARM(self), P
   }
   
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Message, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -13884,6 +14290,14 @@ SWIGINTERN PyObject *_wrap_new_Message__SWIG_2(PyObject *SWIGUNUSEDPARM(self), P
   }
   
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Message, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -13895,7 +14309,7 @@ fail:
 SWIGINTERN PyObject *_wrap_new_Message__SWIG_3(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   std::string *arg1 = 0 ;
-  DataDictionary *arg2 = 0 ;
+  FIX::DataDictionary *arg2 = 0 ;
   bool arg3 ;
   FIX::Message *result = 0 ;
   int res1 = SWIG_OLDOBJ ;
@@ -13919,27 +14333,35 @@ SWIGINTERN PyObject *_wrap_new_Message__SWIG_3(PyObject *SWIGUNUSEDPARM(self), P
     }
     arg1 = ptr;
   }
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_DataDictionary,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_FIX__DataDictionary,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
-  arg2 = reinterpret_cast< DataDictionary * >(argp2);
+  arg2 = reinterpret_cast< FIX::DataDictionary * >(argp2);
   ecode3 = SWIG_AsVal_bool(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "new_Message" "', argument " "3"" of type '" "bool""'");
   } 
   arg3 = static_cast< bool >(val3);
   try {
-    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(DataDictionary const &)*arg2,arg3);
+    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(FIX::DataDictionary const &)*arg2,arg3);
   }
   catch(FIX::InvalidMessage &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN), "FIX::InvalidMessage", SWIGTYPE_p_FIX__InvalidMessage); SWIG_fail;
   }
   
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Message, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -13951,7 +14373,7 @@ fail:
 SWIGINTERN PyObject *_wrap_new_Message__SWIG_4(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   std::string *arg1 = 0 ;
-  DataDictionary *arg2 = 0 ;
+  FIX::DataDictionary *arg2 = 0 ;
   FIX::Message *result = 0 ;
   int res1 = SWIG_OLDOBJ ;
   void *argp2 = 0 ;
@@ -13971,22 +14393,30 @@ SWIGINTERN PyObject *_wrap_new_Message__SWIG_4(PyObject *SWIGUNUSEDPARM(self), P
     }
     arg1 = ptr;
   }
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_DataDictionary,  0  | 0);
+  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_FIX__DataDictionary,  0  | 0);
   if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "new_Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
   if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Message" "', argument " "2"" of type '" "DataDictionary const &""'"); 
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "new_Message" "', argument " "2"" of type '" "FIX::DataDictionary const &""'"); 
   }
-  arg2 = reinterpret_cast< DataDictionary * >(argp2);
+  arg2 = reinterpret_cast< FIX::DataDictionary * >(argp2);
   try {
-    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(DataDictionary const &)*arg2);
+    result = (FIX::Message *)new FIX::Message((std::string const &)*arg1,(FIX::DataDictionary const &)*arg2);
   }
   catch(FIX::InvalidMessage &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN), "FIX::InvalidMessage", SWIGTYPE_p_FIX__InvalidMessage); SWIG_fail;
   }
   
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Message, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -14054,7 +14484,7 @@ SWIGINTERN PyObject *_wrap_new_Message(PyObject *self, PyObject *args) {
     int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_DataDictionary, 0);
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_FIX__DataDictionary, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         return _wrap_new_Message__SWIG_4(self, args);
@@ -14080,7 +14510,7 @@ SWIGINTERN PyObject *_wrap_new_Message(PyObject *self, PyObject *args) {
     int res = SWIG_AsPtr_std_string(argv[0], (std::string**)(0));
     _v = SWIG_CheckState(res);
     if (_v) {
-      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_DataDictionary, 0);
+      int res = SWIG_ConvertPtr(argv[1], 0, SWIGTYPE_p_FIX__DataDictionary, 0);
       _v = SWIG_CheckState(res);
       if (_v) {
         {
@@ -14121,6 +14551,14 @@ SWIGINTERN PyObject *_wrap_Message_InitializeXML(PyObject *SWIGUNUSEDPARM(self),
   }
   result = (bool)FIX::Message::InitializeXML((std::string const &)*arg1);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -14661,8 +15099,7 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_4(PyObject *SWIGUNUSEDPARM(sel
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   int val3 ;
   int ecode3 = 0 ;
   int val4 ;
@@ -14681,14 +15118,10 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_4(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Message_toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Message_toString" "', argument " "3"" of type '" "int""'");
@@ -14709,6 +15142,14 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_4(PyObject *SWIGUNUSEDPARM(sel
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -14724,8 +15165,7 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_5(PyObject *SWIGUNUSEDPARM(sel
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   int val3 ;
   int ecode3 = 0 ;
   int val4 ;
@@ -14741,14 +15181,10 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_5(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Message_toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Message_toString" "', argument " "3"" of type '" "int""'");
@@ -14764,6 +15200,14 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_5(PyObject *SWIGUNUSEDPARM(sel
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -14778,8 +15222,7 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_6(PyObject *SWIGUNUSEDPARM(sel
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   int val3 ;
   int ecode3 = 0 ;
   PyObject * obj0 = 0 ;
@@ -14792,14 +15235,10 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_6(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Message_toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   ecode3 = SWIG_AsVal_int(obj2, &val3);
   if (!SWIG_IsOK(ecode3)) {
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Message_toString" "', argument " "3"" of type '" "int""'");
@@ -14810,6 +15249,14 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_6(PyObject *SWIGUNUSEDPARM(sel
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -14823,8 +15270,7 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_7(PyObject *SWIGUNUSEDPARM(sel
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -14834,19 +15280,23 @@ SWIGINTERN PyObject *_wrap_Message_toString__SWIG_7(PyObject *SWIGUNUSEDPARM(sel
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Message_toString" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Message_toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::Message const *)arg1)->toString(*arg2);
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -15063,8 +15513,7 @@ SWIGINTERN PyObject *_wrap_Message_toXML__SWIG_1(PyObject *SWIGUNUSEDPARM(self),
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -15074,19 +15523,23 @@ SWIGINTERN PyObject *_wrap_Message_toXML__SWIG_1(PyObject *SWIGUNUSEDPARM(self),
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Message_toXML" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Message_toXML" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Message_toXML" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::Message const *)arg1)->toXML(*arg2);
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -15171,7 +15624,7 @@ SWIGINTERN PyObject *_wrap_Message_setString__SWIG_0(PyObject *SWIGUNUSEDPARM(se
   FIX::Message *arg1 = (FIX::Message *) 0 ;
   std::string *arg2 = 0 ;
   bool arg3 ;
-  DataDictionary *arg4 = (DataDictionary *) 0 ;
+  FIX::DataDictionary *arg4 = (FIX::DataDictionary *) 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   int res2 = SWIG_OLDOBJ ;
@@ -15206,19 +15659,27 @@ SWIGINTERN PyObject *_wrap_Message_setString__SWIG_0(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "Message_setString" "', argument " "3"" of type '" "bool""'");
   } 
   arg3 = static_cast< bool >(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_DataDictionary, 0 |  0 );
+  res4 = SWIG_ConvertPtr(obj3, &argp4,SWIGTYPE_p_FIX__DataDictionary, 0 |  0 );
   if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Message_setString" "', argument " "4"" of type '" "DataDictionary const *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "Message_setString" "', argument " "4"" of type '" "FIX::DataDictionary const *""'"); 
   }
-  arg4 = reinterpret_cast< DataDictionary * >(argp4);
+  arg4 = reinterpret_cast< FIX::DataDictionary * >(argp4);
   try {
-    (arg1)->setString((std::string const &)*arg2,arg3,(DataDictionary const *)arg4);
+    (arg1)->setString((std::string const &)*arg2,arg3,(FIX::DataDictionary const *)arg4);
   }
   catch(FIX::InvalidMessage &_e) {
     SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::InvalidMessage(static_cast< const FIX::InvalidMessage& >(_e))),SWIGTYPE_p_FIX__InvalidMessage,SWIG_POINTER_OWN), "FIX::InvalidMessage", SWIGTYPE_p_FIX__InvalidMessage); SWIG_fail;
   }
   
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -15271,6 +15732,14 @@ SWIGINTERN PyObject *_wrap_Message_setString__SWIG_1(PyObject *SWIGUNUSEDPARM(se
   }
   
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -15314,6 +15783,14 @@ SWIGINTERN PyObject *_wrap_Message_setString__SWIG_2(PyObject *SWIGUNUSEDPARM(se
   }
   
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -15379,7 +15856,7 @@ SWIGINTERN PyObject *_wrap_Message_setString(PyObject *self, PyObject *args) {
         }
         if (_v) {
           void *vptr = 0;
-          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_DataDictionary, 0);
+          int res = SWIG_ConvertPtr(argv[3], &vptr, SWIGTYPE_p_FIX__DataDictionary, 0);
           _v = SWIG_CheckState(res);
           if (_v) {
             return _wrap_Message_setString__SWIG_0(self, args);
@@ -15486,6 +15963,22 @@ SWIGINTERN PyObject *_wrap_Message_setGroup(PyObject *SWIGUNUSEDPARM(self), PyOb
   arg7 = reinterpret_cast< DataDictionary * >(argp7);
   (arg1)->setGroup((std::string const &)*arg2,(FIX::FieldBase const &)*arg3,(std::string const &)*arg4,*arg5,*arg6,(DataDictionary const &)*arg7);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res4)) delete arg4;
   return resultobj;
@@ -15526,6 +16019,14 @@ SWIGINTERN PyObject *_wrap_Message_setStringHeader(PyObject *SWIGUNUSEDPARM(self
   }
   result = (bool)(arg1)->setStringHeader((std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -15711,8 +16212,7 @@ SWIGINTERN PyObject *_wrap_Message_hasValidStructure(PyObject *SWIGUNUSEDPARM(se
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  int temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -15722,16 +16222,20 @@ SWIGINTERN PyObject *_wrap_Message_hasValidStructure(PyObject *SWIGUNUSEDPARM(se
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Message_hasValidStructure" "', argument " "1"" of type '" "FIX::Message const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Message * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_int,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Message_hasValidStructure" "', argument " "2"" of type '" "int &""'"); 
+  {
+    SWIG_AsVal_int(obj1, &temp2);
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Message_hasValidStructure" "', argument " "2"" of type '" "int &""'"); 
-  }
-  arg2 = reinterpret_cast< int * >(argp2);
   result = (bool)((FIX::Message const *)arg1)->hasValidStructure(*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("int &") == "int &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*arg2) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -16469,6 +16973,14 @@ SWIGINTERN PyObject *_wrap_Message_getSessionID__SWIG_0(PyObject *SWIGUNUSEDPARM
   }
   
   resultobj = SWIG_NewPointerObj((new SessionID(static_cast< const SessionID& >(result))), SWIGTYPE_p_SessionID, SWIG_POINTER_OWN |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -16695,6 +17207,14 @@ SWIGINTERN PyObject *_wrap_identifyType(PyObject *SWIGUNUSEDPARM(self), PyObject
   }
   
   resultobj = SWIG_NewPointerObj((new MsgType(static_cast< const MsgType& >(result))), SWIGTYPE_p_MsgType, SWIG_POINTER_OWN |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -47892,6 +48412,14 @@ SWIGINTERN PyObject *_wrap_new_SessionID__SWIG_1(PyObject *SWIGUNUSEDPARM(self),
   }
   result = (FIX::SessionID *)new FIX::SessionID((BeginString const &)*arg1,(SenderCompID const &)*arg2,(TargetCompID const &)*arg3,(std::string const &)*arg4);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res4)) delete arg4;
   return resultobj;
 fail:
@@ -48012,6 +48540,38 @@ SWIGINTERN PyObject *_wrap_new_SessionID__SWIG_3(PyObject *SWIGUNUSEDPARM(self),
   }
   result = (FIX::SessionID *)new FIX::SessionID((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3,(std::string const &)*arg4);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
@@ -48075,6 +48635,30 @@ SWIGINTERN PyObject *_wrap_new_SessionID__SWIG_4(PyObject *SWIGUNUSEDPARM(self),
   }
   result = (FIX::SessionID *)new FIX::SessionID((std::string const &)*arg1,(std::string const &)*arg2,(std::string const &)*arg3);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SessionID, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
@@ -48330,6 +48914,14 @@ SWIGINTERN PyObject *_wrap_SessionID_fromString(PyObject *SWIGUNUSEDPARM(self), 
   }
   (arg1)->fromString((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -48345,8 +48937,7 @@ SWIGINTERN PyObject *_wrap_SessionID_toString__SWIG_1(PyObject *SWIGUNUSEDPARM(s
   std::string *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp2 = 0 ;
-  int res2 = 0 ;
+  std::string temp2 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   
@@ -48356,19 +48947,23 @@ SWIGINTERN PyObject *_wrap_SessionID_toString__SWIG_1(PyObject *SWIGUNUSEDPARM(s
     SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "SessionID_toString" "', argument " "1"" of type '" "FIX::SessionID const *""'"); 
   }
   arg1 = reinterpret_cast< FIX::SessionID * >(argp1);
-  res2 = SWIG_ConvertPtr(obj1, &argp2, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res2)) {
-    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "SessionID_toString" "', argument " "2"" of type '" "std::string &""'"); 
+  {
+    temp2 = std::string((char*)PyString_AsString(obj1));
+    arg2 = &temp2;
   }
-  if (!argp2) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "SessionID_toString" "', argument " "2"" of type '" "std::string &""'"); 
-  }
-  arg2 = reinterpret_cast< std::string * >(argp2);
   {
     std::string &_result_ref = ((FIX::SessionID const *)arg1)->toString(*arg2);
     result = (std::string *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_std__string, 0 |  0 );
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -48931,6 +49526,14 @@ SWIGINTERN PyObject *_wrap_new_Dictionary__SWIG_0(PyObject *SWIGUNUSEDPARM(self)
   }
   result = (FIX::Dictionary *)new FIX::Dictionary((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Dictionary, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -49094,6 +49697,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_getString__SWIG_0(PyObject *SWIGUNUSEDPARM
   }
   
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49141,6 +49752,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_getString__SWIG_1(PyObject *SWIGUNUSEDPARM
   }
   
   resultobj = SWIG_From_std_string(static_cast< std::string >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49237,6 +49856,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_getLong(PyObject *SWIGUNUSEDPARM(self), Py
   }
   
   resultobj = SWIG_From_long(static_cast< long >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49284,6 +49911,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_getDouble(PyObject *SWIGUNUSEDPARM(self), 
   }
   
   resultobj = SWIG_From_double(static_cast< double >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49331,6 +49966,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_getBool(PyObject *SWIGUNUSEDPARM(self), Py
   }
   
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49378,6 +50021,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_getDay(PyObject *SWIGUNUSEDPARM(self), PyO
   }
   
   resultobj = SWIG_From_int(static_cast< int >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49429,6 +50080,22 @@ SWIGINTERN PyObject *_wrap_Dictionary_setString(PyObject *SWIGUNUSEDPARM(self), 
   }
   (arg1)->setString((std::string const &)*arg2,(std::string const &)*arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
@@ -49477,6 +50144,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_setLong(PyObject *SWIGUNUSEDPARM(self), Py
   arg3 = static_cast< long >(val3);
   (arg1)->setLong((std::string const &)*arg2,arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49523,6 +50198,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_setDouble(PyObject *SWIGUNUSEDPARM(self), 
   arg3 = static_cast< double >(val3);
   (arg1)->setDouble((std::string const &)*arg2,arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49569,6 +50252,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_setBool(PyObject *SWIGUNUSEDPARM(self), Py
   arg3 = static_cast< bool >(val3);
   (arg1)->setBool((std::string const &)*arg2,arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49615,6 +50306,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_setDay(PyObject *SWIGUNUSEDPARM(self), PyO
   arg3 = static_cast< int >(val3);
   (arg1)->setDay((std::string const &)*arg2,arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -49653,6 +50352,14 @@ SWIGINTERN PyObject *_wrap_Dictionary_has(PyObject *SWIGUNUSEDPARM(self), PyObje
   }
   result = (bool)((FIX::Dictionary const *)arg1)->has((std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -50796,6 +51503,14 @@ SWIGINTERN PyObject *_wrap_new_SessionSettings__SWIG_2(PyObject *SWIGUNUSEDPARM(
   }
   
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__SessionSettings, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -51560,6 +52275,14 @@ SWIGINTERN PyObject *_wrap_Session_logout__SWIG_0(PyObject *SWIGUNUSEDPARM(self)
   }
   (arg1)->logout((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -51986,6 +52709,14 @@ SWIGINTERN PyObject *_wrap_Session_sendToTarget__SWIG_0(PyObject *SWIGUNUSEDPARM
   }
   
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -52131,6 +52862,14 @@ SWIGINTERN PyObject *_wrap_Session_sendToTarget__SWIG_3(PyObject *SWIGUNUSEDPARM
   }
   
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res4)) delete arg4;
   return resultobj;
 fail:
@@ -52261,6 +53000,30 @@ SWIGINTERN PyObject *_wrap_Session_sendToTarget__SWIG_5(PyObject *SWIGUNUSEDPARM
   }
   
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
@@ -52326,6 +53089,22 @@ SWIGINTERN PyObject *_wrap_Session_sendToTarget__SWIG_6(PyObject *SWIGUNUSEDPARM
   }
   
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
@@ -52557,6 +53336,14 @@ SWIGINTERN PyObject *_wrap_Session_lookupSession__SWIG_1(PyObject *SWIGUNUSEDPAR
   arg2 = static_cast< bool >(val2);
   result = (FIX::Session *)FIX::Session::lookupSession((std::string const &)*arg1,arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Session, 0 |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -52586,6 +53373,14 @@ SWIGINTERN PyObject *_wrap_Session_lookupSession__SWIG_2(PyObject *SWIGUNUSEDPAR
   }
   result = (FIX::Session *)FIX::Session::lookupSession((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Session, 0 |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -53541,6 +54336,14 @@ SWIGINTERN PyObject *_wrap_Session_next__SWIG_1(PyObject *SWIGUNUSEDPARM(self), 
   arg3 = static_cast< bool >(val3);
   (arg1)->next((std::string const &)*arg2,arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -53578,6 +54381,14 @@ SWIGINTERN PyObject *_wrap_Session_next__SWIG_2(PyObject *SWIGUNUSEDPARM(self), 
   }
   (arg1)->next((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -54435,6 +55246,14 @@ SWIGINTERN PyObject *_wrap_Log_onIncoming(PyObject *SWIGUNUSEDPARM(self), PyObje
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -54480,6 +55299,14 @@ SWIGINTERN PyObject *_wrap_Log_onOutgoing(PyObject *SWIGUNUSEDPARM(self), PyObje
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -54525,6 +55352,14 @@ SWIGINTERN PyObject *_wrap_Log_onEvent(PyObject *SWIGUNUSEDPARM(self), PyObject 
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -54763,6 +55598,14 @@ SWIGINTERN PyObject *_wrap_ScreenLog_onIncoming(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -54808,6 +55651,14 @@ SWIGINTERN PyObject *_wrap_ScreenLog_onOutgoing(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -54853,6 +55704,14 @@ SWIGINTERN PyObject *_wrap_ScreenLog_onEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -54936,6 +55795,14 @@ SWIGINTERN PyObject *_wrap_new_FileLogFactory__SWIG_1(PyObject *SWIGUNUSEDPARM(s
   }
   result = (FIX::FileLogFactory *)new FIX::FileLogFactory((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FileLogFactory, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -55182,6 +56049,14 @@ SWIGINTERN PyObject *_wrap_new_FileLog__SWIG_0(PyObject *SWIGUNUSEDPARM(self), P
   }
   result = (FIX::FileLog *)new FIX::FileLog((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FileLog, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -55223,6 +56098,14 @@ SWIGINTERN PyObject *_wrap_new_FileLog__SWIG_1(PyObject *SWIGUNUSEDPARM(self), P
   arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
   result = (FIX::FileLog *)new FIX::FileLog((std::string const &)*arg1,(FIX::SessionID const &)*arg2);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FileLog, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -55356,6 +56239,14 @@ SWIGINTERN PyObject *_wrap_FileLog_onIncoming(PyObject *SWIGUNUSEDPARM(self), Py
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -55401,6 +56292,14 @@ SWIGINTERN PyObject *_wrap_FileLog_onOutgoing(PyObject *SWIGUNUSEDPARM(self), Py
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -55446,6 +56345,14 @@ SWIGINTERN PyObject *_wrap_FileLog_onEvent(PyObject *SWIGUNUSEDPARM(self), PyObj
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -55773,6 +56680,14 @@ SWIGINTERN PyObject *_wrap_MessageStore_set(PyObject *SWIGUNUSEDPARM(self), PyOb
     SWIG_fail;
   }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -56255,6 +57170,14 @@ SWIGINTERN PyObject *_wrap_MemoryStore_set(PyObject *SWIGUNUSEDPARM(self), PyObj
     SWIG_fail;
   }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -56978,6 +57901,14 @@ SWIGINTERN PyObject *_wrap_MessageStoreExceptionWrapper_set(PyObject *SWIGUNUSED
   arg5 = reinterpret_cast< FIX::IOException * >(argp5);
   result = (bool)(arg1)->set(arg2,(std::string const &)*arg3,*arg4,*arg5);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -57540,6 +58471,14 @@ SWIGINTERN PyObject *_wrap_new_FileStoreFactory__SWIG_1(PyObject *SWIGUNUSEDPARM
   }
   result = (FIX::FileStoreFactory *)new FIX::FileStoreFactory((std::string const &)*arg1);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FileStoreFactory, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -57804,6 +58743,14 @@ SWIGINTERN PyObject *_wrap_FileStore_set(PyObject *SWIGUNUSEDPARM(self), PyObjec
     SWIG_fail;
   }
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -59732,6 +60679,14 @@ SWIGINTERN PyObject *_wrap_Initiator_onEvent(PyObject *SWIGUNUSEDPARM(self), PyO
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -59777,6 +60732,14 @@ SWIGINTERN PyObject *_wrap_Initiator_onIncoming(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -59822,6 +60785,14 @@ SWIGINTERN PyObject *_wrap_Initiator_onOutgoing(PyObject *SWIGUNUSEDPARM(self), 
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -60344,6 +61315,14 @@ SWIGINTERN PyObject *_wrap_Acceptor_getSession(PyObject *SWIGUNUSEDPARM(self), P
   arg3 = reinterpret_cast< Responder * >(argp3);
   result = (FIX::Session *)(arg1)->getSession((std::string const &)*arg2,*arg3);
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Session, 0 |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -60524,6 +61503,14 @@ SWIGINTERN PyObject *_wrap_Acceptor_onEvent(PyObject *SWIGUNUSEDPARM(self), PyOb
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -60569,6 +61556,14 @@ SWIGINTERN PyObject *_wrap_Acceptor_onIncoming(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -60614,6 +61609,14 @@ SWIGINTERN PyObject *_wrap_Acceptor_onOutgoing(PyObject *SWIGUNUSEDPARM(self), P
     SWIG_fail;
   }
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -60963,6 +61966,14 @@ SWIGINTERN PyObject *_wrap_new_DataDictionary__SWIG_3(PyObject *SWIGUNUSEDPARM(s
   }
   
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__DataDictionary, SWIG_POINTER_NEW |  0 );
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg1->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res1)) delete arg1;
   return resultobj;
 fail:
@@ -61073,6 +62084,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_readFromURL(PyObject *SWIGUNUSEDPARM(s
   }
   
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -61215,6 +62234,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_setVersion(PyObject *SWIGUNUSEDPARM(se
   }
   (arg1)->setVersion((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -61313,6 +62340,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_addFieldName(PyObject *SWIGUNUSEDPARM(
   }
   (arg1)->addFieldName(arg2,(std::string const &)*arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -61331,8 +62366,7 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getFieldName(PyObject *SWIGUNUSEDPARM(
   int res1 = 0 ;
   int val2 ;
   int ecode2 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  std::string temp3 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -61348,16 +62382,20 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getFieldName(PyObject *SWIGUNUSEDPARM(
     SWIG_exception_fail(SWIG_ArgError(ecode2), "in method '" "DataDictionary_getFieldName" "', argument " "2"" of type '" "int""'");
   } 
   arg2 = static_cast< int >(val2);
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_getFieldName" "', argument " "3"" of type '" "std::string &""'"); 
+  {
+    temp3 = std::string((char*)PyString_AsString(obj2));
+    arg3 = &temp3;
   }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getFieldName" "', argument " "3"" of type '" "std::string &""'"); 
-  }
-  arg3 = reinterpret_cast< std::string * >(argp3);
   result = (bool)((FIX::DataDictionary const *)arg1)->getFieldName(arg2,*arg3);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -61372,8 +62410,7 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getFieldTag(PyObject *SWIGUNUSEDPARM(s
   bool result;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  void *argp3 = 0 ;
-  int res3 = 0 ;
+  int temp3 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -61393,16 +62430,20 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getFieldTag(PyObject *SWIGUNUSEDPARM(s
     arg2 = *ptr;
     if (SWIG_IsNewObj(res)) delete ptr;
   }
-  res3 = SWIG_ConvertPtr(obj2, &argp3, SWIGTYPE_p_int,  0 );
-  if (!SWIG_IsOK(res3)) {
-    SWIG_exception_fail(SWIG_ArgError(res3), "in method '" "DataDictionary_getFieldTag" "', argument " "3"" of type '" "int &""'"); 
+  {
+    SWIG_AsVal_int(obj2, &temp3);
+    arg3 = &temp3;
   }
-  if (!argp3) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getFieldTag" "', argument " "3"" of type '" "int &""'"); 
-  }
-  arg3 = reinterpret_cast< int * >(argp3);
   result = (bool)((FIX::DataDictionary const *)arg1)->getFieldTag(arg2,*arg3);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("int &") == "int &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*arg3) );
+    }
+  }
   return resultobj;
 fail:
   return NULL;
@@ -61461,6 +62502,22 @@ SWIGINTERN PyObject *_wrap_DataDictionary_addValueName(PyObject *SWIGUNUSEDPARM(
   }
   (arg1)->addValueName(arg2,(std::string const &)*arg3,(std::string const &)*arg4);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   if (SWIG_IsNewObj(res4)) delete arg4;
   return resultobj;
@@ -61483,8 +62540,7 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getValueName(PyObject *SWIGUNUSEDPARM(
   int val2 ;
   int ecode2 = 0 ;
   int res3 = SWIG_OLDOBJ ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
+  std::string temp4 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -61512,16 +62568,28 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getValueName(PyObject *SWIGUNUSEDPARM(
     }
     arg3 = ptr;
   }
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_std__string,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "DataDictionary_getValueName" "', argument " "4"" of type '" "std::string &""'"); 
+  {
+    temp4 = std::string((char*)PyString_AsString(obj3));
+    arg4 = &temp4;
   }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getValueName" "', argument " "4"" of type '" "std::string &""'"); 
-  }
-  arg4 = reinterpret_cast< std::string * >(argp4);
   result = (bool)((FIX::DataDictionary const *)arg1)->getValueName(arg2,(std::string const &)*arg3,*arg4);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
+  {
+    if( std::string("std::string &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg4->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -61590,6 +62658,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_addMsgType(PyObject *SWIGUNUSEDPARM(se
   }
   (arg1)->addMsgType((std::string const &)*arg2);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -61628,6 +62704,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_isMsgType(PyObject *SWIGUNUSEDPARM(sel
   }
   result = (bool)((FIX::DataDictionary const *)arg1)->isMsgType((std::string const &)*arg2);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -61674,6 +62758,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_addMsgField(PyObject *SWIGUNUSEDPARM(s
   arg3 = static_cast< int >(val3);
   (arg1)->addMsgField((std::string const &)*arg2,arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -61721,6 +62813,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_isMsgField(PyObject *SWIGUNUSEDPARM(se
   arg3 = static_cast< int >(val3);
   result = (bool)((FIX::DataDictionary const *)arg1)->isMsgField((std::string const &)*arg2,arg3);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -61997,6 +63097,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_addRequiredField(PyObject *SWIGUNUSEDP
   arg3 = static_cast< int >(val3);
   (arg1)->addRequiredField((std::string const &)*arg2,arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -62044,6 +63152,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_isRequiredField(PyObject *SWIGUNUSEDPA
   arg3 = static_cast< int >(val3);
   result = (bool)((FIX::DataDictionary const *)arg1)->isRequiredField((std::string const &)*arg2,arg3);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -62090,6 +63206,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_addFieldValue(PyObject *SWIGUNUSEDPARM
   }
   (arg1)->addFieldValue(arg2,(std::string const &)*arg3);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -62168,6 +63292,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_isFieldValue(PyObject *SWIGUNUSEDPARM(
   }
   result = (bool)((FIX::DataDictionary const *)arg1)->isFieldValue(arg2,(std::string const &)*arg3);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg3->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res3)) delete arg3;
   return resultobj;
 fail:
@@ -62235,6 +63367,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_addGroup(PyObject *SWIGUNUSEDPARM(self
   arg5 = reinterpret_cast< FIX::DataDictionary * >(argp5);
   (arg1)->addGroup((std::string const &)*arg2,arg3,arg4,(FIX::DataDictionary const &)*arg5);
   resultobj = SWIG_Py_Void();
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -62282,6 +63422,14 @@ SWIGINTERN PyObject *_wrap_DataDictionary_isGroup(PyObject *SWIGUNUSEDPARM(self)
   arg3 = static_cast< int >(val3);
   result = (bool)((FIX::DataDictionary const *)arg1)->isGroup((std::string const &)*arg2,arg3);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:
@@ -62303,10 +63451,8 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getGroup(PyObject *SWIGUNUSEDPARM(self
   int res2 = SWIG_OLDOBJ ;
   int val3 ;
   int ecode3 = 0 ;
-  void *argp4 = 0 ;
-  int res4 = 0 ;
-  void *argp5 = 0 ;
-  int res5 = 0 ;
+  int temp4 ;
+  FIX::DataDictionary *temp5 ;
   PyObject * obj0 = 0 ;
   PyObject * obj1 = 0 ;
   PyObject * obj2 = 0 ;
@@ -62335,24 +63481,39 @@ SWIGINTERN PyObject *_wrap_DataDictionary_getGroup(PyObject *SWIGUNUSEDPARM(self
     SWIG_exception_fail(SWIG_ArgError(ecode3), "in method '" "DataDictionary_getGroup" "', argument " "3"" of type '" "int""'");
   } 
   arg3 = static_cast< int >(val3);
-  res4 = SWIG_ConvertPtr(obj3, &argp4, SWIGTYPE_p_int,  0 );
-  if (!SWIG_IsOK(res4)) {
-    SWIG_exception_fail(SWIG_ArgError(res4), "in method '" "DataDictionary_getGroup" "', argument " "4"" of type '" "int &""'"); 
+  {
+    SWIG_AsVal_int(obj3, &temp4);
+    arg4 = &temp4;
   }
-  if (!argp4) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getGroup" "', argument " "4"" of type '" "int &""'"); 
+  {
+    arg5 = new FIX::DataDictionary*[1];
+    *arg5 = temp5;
   }
-  arg4 = reinterpret_cast< int * >(argp4);
-  res5 = SWIG_ConvertPtr(obj4, &argp5, SWIGTYPE_p_p_FIX__DataDictionary,  0 );
-  if (!SWIG_IsOK(res5)) {
-    SWIG_exception_fail(SWIG_ArgError(res5), "in method '" "DataDictionary_getGroup" "', argument " "5"" of type '" "FIX::DataDictionary const *&""'"); 
-  }
-  if (!argp5) {
-    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "DataDictionary_getGroup" "', argument " "5"" of type '" "FIX::DataDictionary const *&""'"); 
-  }
-  arg5 = reinterpret_cast< FIX::DataDictionary ** >(argp5);
   result = (bool)((FIX::DataDictionary const *)arg1)->getGroup((std::string const &)*arg2,arg3,*arg4,(FIX::DataDictionary const *&)*arg5);
   resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
+    }
+  }
+  {
+    if( std::string("int &") == "int &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*arg4) );
+    }
+  }
+  {
+    void* argp;
+    FIX::DataDictionary* pDD = 0;
+    int res = SWIG_ConvertPtr(obj4, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
+    pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
+    *pDD = *(*arg5);
+  }
   if (SWIG_IsNewObj(res2)) delete arg2;
   return resultobj;
 fail:

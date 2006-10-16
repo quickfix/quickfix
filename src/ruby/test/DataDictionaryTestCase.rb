@@ -14,7 +14,7 @@ end
 class DataDictionaryTestCase < Test::Unit::TestCase
 
 	def setup
-		@object = Quickfix::DataDictionary.new();
+		@object = Quickfix::DataDictionary.new()
 		assert_not_nil( @object )
 	end
 
@@ -89,60 +89,60 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 		group2 = Quickfix::DataDictionary.new
 		group2.addMsgType( "2" )
 		group3 = Quickfix::DataDictionary.new
-		group3.addMsgType( "3" );
+		group3.addMsgType( "3" )
 
-		@object.addGroup( "A", 100, 101, group1 );
-		@object.addGroup( "A", 200, 201, group2 );
-		@object.addGroup( "A", 300, 301, group3 );
+		@object.addGroup( "A", 100, 101, group1 )
+		@object.addGroup( "A", 200, 201, group2 )
+		@object.addGroup( "A", 300, 301, group3 )
 
 		result = @object.getGroup( "A", 100 )
-		assert_equal( 101, result[0] );
-		assert( result[1].isMsgType( "1" ) );
+		assert_equal( 101, result[0] )
+		assert( result[1].isMsgType( "1" ) )
 
-		result = @object.getGroup( "A", 200 );
-		assert( 201, result[0] );
-		assert( result[1].isMsgType( "2" ) );
+		result = @object.getGroup( "A", 200 )
+		assert( 201, result[0] )
+		assert( result[1].isMsgType( "2" ) )
 
-		result = @object.getGroup( "A", 300 );
-		assert( 301, result[0] );
-		assert( result[1].isMsgType( "3" ) );
+		result = @object.getGroup( "A", 300 )
+		assert( 301, result[0] )
+		assert( result[1].isMsgType( "3" ) )
 	end
 
 	def test_addFieldName
-		@object.setVersion( "FIX.4.2" );
+		@object.setVersion( "FIX.4.2" )
 
-		@object.addFieldName( 1, "Account" );
-		@object.addFieldName( 11, "ClOrdID" );
-		@object.addFieldName( 8, "BeginString" );
+		@object.addFieldName( 1, "Account" )
+		@object.addFieldName( 11, "ClOrdID" )
+		@object.addFieldName( 8, "BeginString" )
 
-		assert_equal( "Account", @object.getFieldName(1) );
-		assert_equal( 1, @object.getFieldTag("Account") );
-		assert_equal( "ClOrdID", @object.getFieldName(11) );
-		assert_equal( 11, @object.getFieldTag("ClOrdID") );
-		assert_equal( "BeginString", @object.getFieldName(8) );
-		assert_equal( 8, @object.getFieldTag("BeginString") );
+		assert_equal( "Account", @object.getFieldName(1) )
+		assert_equal( 1, @object.getFieldTag("Account") )
+		assert_equal( "ClOrdID", @object.getFieldName(11) )
+		assert_equal( 11, @object.getFieldTag("ClOrdID") )
+		assert_equal( "BeginString", @object.getFieldName(8) )
+		assert_equal( 8, @object.getFieldTag("BeginString") )
 	end
 
 	def test_addValueName
-		@object.setVersion( "FIX.4.2" );
+		@object.setVersion( "FIX.4.2" )
 
-		@object.addValueName( 12, "0", "VALUE_12_0" );
-		@object.addValueName( 12, "B", "VALUE_12_B" );
-		@object.addValueName( 23, "BOO", "VALUE_23_BOO" );
+		@object.addValueName( 12, "0", "VALUE_12_0" )
+		@object.addValueName( 12, "B", "VALUE_12_B" )
+		@object.addValueName( 23, "BOO", "VALUE_23_BOO" )
 
-		assert_equal( "VALUE_12_0", @object.getValueName(12, "0") );
-		assert_equal( "VALUE_12_B", @object.getValueName(12, "B") );
-		assert_equal( "VALUE_23_BOO", @object.getValueName(23, "BOO") );
+		assert_equal( "VALUE_12_0", @object.getValueName(12, "0") )
+		assert_equal( "VALUE_12_B", @object.getValueName(12, "B") )
+		assert_equal( "VALUE_23_BOO", @object.getValueName(23, "BOO") )
 	end
 
 	def test_checkValidTagNumber
-		@object.setVersion( Quickfix::BeginString_FIX40() );
-		@object.addField( Quickfix::BeginString.field );
-		@object.addField( Quickfix::BodyLength.field );
-		@object.addField( Quickfix::MsgType.field );
-		@object.addField( Quickfix::CheckSum.field );
-		@object.addField( Quickfix::TestReqID.field );
-		@object.addMsgType( Quickfix::MsgType_TestRequest() );
+		@object.setVersion( Quickfix::BeginString_FIX40() )
+		@object.addField( Quickfix::BeginString.field )
+		@object.addField( Quickfix::BodyLength.field )
+		@object.addField( Quickfix::MsgType.field )
+		@object.addField( Quickfix::CheckSum.field )
+		@object.addField( Quickfix::TestReqID.field )
+		@object.addMsgType( Quickfix::MsgType_TestRequest() )
 		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
 
 		testReqID = Quickfix::TestReqID.new( "1" )
@@ -191,20 +191,20 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 	end
 
 	def test_checkIsInMessage
-		@object.setVersion( Quickfix::BeginString_FIX40() );
-		@object.addField( Quickfix::BeginString.field );
-		@object.addField( Quickfix::BodyLength.field );
-		@object.addField( Quickfix::MsgType.field );
-		@object.addField( Quickfix::CheckSum.field );
-		@object.addField( Quickfix::TestReqID.field );
-		@object.addField( Quickfix::Symbol.field );
-		@object.addMsgType( Quickfix::MsgType_TestRequest() );
+		@object.setVersion( Quickfix::BeginString_FIX40() )
+		@object.addField( Quickfix::BeginString.field )
+		@object.addField( Quickfix::BodyLength.field )
+		@object.addField( Quickfix::MsgType.field )
+		@object.addField( Quickfix::CheckSum.field )
+		@object.addField( Quickfix::TestReqID.field )
+		@object.addField( Quickfix::Symbol.field )
+		@object.addMsgType( Quickfix::MsgType_TestRequest() )
 		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
 
-		testReqID = Quickfix::TestReqID.new( "1" );
+		testReqID = Quickfix::TestReqID.new( "1" )
 
-		message = Quickfix40::TestRequest.new;
-		message.setField( testReqID );
+		message = Quickfix40::TestRequest.new
+		message.setField( testReqID )
   		begin
 			@object.validate( message )
 		rescue Quickfix::Exception
@@ -220,43 +220,43 @@ class DataDictionaryTestCase < Test::Unit::TestCase
 	end
 
 	def test_checkHasRequired
-		@object.setVersion( Quickfix::BeginString_FIX40() );
-		@object.addField( Quickfix::BeginString.field );
-		@object.addField( Quickfix::BodyLength.field );
-		@object.addField( Quickfix::MsgType.field );
-		@object.addField( Quickfix::SenderCompID.field );
-		@object.addField( Quickfix::TargetCompID.field );
-		@object.addHeaderField( Quickfix::SenderCompID.field, true );
-		@object.addHeaderField( Quickfix::TargetCompID.field, false );
-		@object.addField( Quickfix::CheckSum.field );
-		@object.addField( Quickfix::TestReqID.field );
-		@object.addMsgType( Quickfix::MsgType_TestRequest() );
+		@object.setVersion( Quickfix::BeginString_FIX40() )
+		@object.addField( Quickfix::BeginString.field )
+		@object.addField( Quickfix::BodyLength.field )
+		@object.addField( Quickfix::MsgType.field )
+		@object.addField( Quickfix::SenderCompID.field )
+		@object.addField( Quickfix::TargetCompID.field )
+		@object.addHeaderField( Quickfix::SenderCompID.field, true )
+		@object.addHeaderField( Quickfix::TargetCompID.field, false )
+		@object.addField( Quickfix::CheckSum.field )
+		@object.addField( Quickfix::TestReqID.field )
+		@object.addMsgType( Quickfix::MsgType_TestRequest() )
 		@object.addMsgField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
 		@object.addRequiredField( Quickfix::MsgType_TestRequest(), Quickfix::TestReqID.field )
 
-		message = Quickfix40::TestRequest.new;
+		message = Quickfix40::TestRequest.new
 		begin
 			@object.validate( message )
 			assert( false )
 		rescue Quickfix::Exception
 		end
 
-		message.getHeader().setField( Quickfix::SenderCompID.new("SENDER") );
+		message.getHeader().setField( Quickfix::SenderCompID.new("SENDER") )
 		begin
 			@object.validate( message )
 			assert( false )
 		rescue Quickfix::Exception
 		end
 
-		message.setField( Quickfix::TestReqID.new( "1" ) );
+		message.setField( Quickfix::TestReqID.new( "1" ) )
 		begin
 			@object.validate( message )
 		rescue Quickfix::Exception
 			assert( false )
 		end
 
-		message.getHeader().removeField( Quickfix::SenderCompID.field );
-		message.setField( Quickfix::SenderCompID.new("SENDER") );
+		message.getHeader().removeField( Quickfix::SenderCompID.field )
+		message.setField( Quickfix::SenderCompID.new("SENDER") )
 		begin 
 			@object.validate( message )
 			assert( false )

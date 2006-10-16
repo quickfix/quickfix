@@ -4572,12 +4572,12 @@ class BodyLength(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 9, data)
 
-class CheckSum(quickfix.StringField):
+class CheckSum(quickfix.CheckSumField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.StringField.__init__(self, 10)
+			quickfix.CheckSumField.__init__(self, 10)
 		else:
-			quickfix.StringField.__init__(self, 10, data)
+			quickfix.CheckSumField.__init__(self, 10, data)
 
 class ClOrdID(quickfix.StringField):
 	def __init__(self, data = None):

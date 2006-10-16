@@ -110,7 +110,8 @@ class GeneratorRuby
     @depth += 1
   end
   
-  def fieldType( type )
+  def fieldType( name, type )
+    return "CheckSum" if name == "CheckSum"
     return "Char" if type == "CHAR"
     return "Double" if type == "PRICE"
     return "Int" if type == "INT"
@@ -131,7 +132,7 @@ class GeneratorRuby
   end
   
   def fields(name, number, type)
-    @f.puts tabs + "class #{name} < Quickfix::#{fieldType(type)}Field"
+    @f.puts tabs + "class #{name} < Quickfix::#{fieldType(name, type)}Field"
     @depth += 1
     @f.puts tabs + "def #{name}.field"
     @depth += 1

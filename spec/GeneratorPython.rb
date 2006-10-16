@@ -105,7 +105,8 @@ class GeneratorPython
     @f.puts
   end
   
-  def fieldType( type )
+  def fieldType( name, type )
+    return "CheckSum" if name == "CheckSum"
     return "Char" if type == "CHAR"
     return "Double" if type == "PRICE"
     return "Int" if type == "INT"
@@ -126,17 +127,17 @@ class GeneratorPython
   end
   
   def fields(name, number, type)
-    @f.puts tabs + "class #{name}(quickfix.#{fieldType(type)}Field):"
+    @f.puts tabs + "class #{name}(quickfix.#{fieldType(name, type)}Field):"
     @depth += 1
     @f.puts tabs + "def __init__(self, data = None):"
     @depth += 1
     @f.puts tabs + "if data == None:"
     @depth += 1
-    @f.puts tabs + "quickfix.#{fieldType(type)}Field.__init__(self, #{number})"
+    @f.puts tabs + "quickfix.#{fieldType(name, type)}Field.__init__(self, #{number})"
     @depth -= 1
     @f.puts tabs + "else:"
     @depth += 1
-    @f.puts tabs + "quickfix.#{fieldType(type)}Field.__init__(self, #{number}, data)"
+    @f.puts tabs + "quickfix.#{fieldType(name, type)}Field.__init__(self, #{number}, data)"
     @depth -= 1
     @depth -= 1
     @depth -= 1

@@ -120,6 +120,37 @@ using namespace FIX;
     vresult = result ? SWIG_From_int(static_cast< int >(*$1)) : Qnil;
   }
 }
+#endif
+
+#ifdef SWIGPYTHON
+%typemap(in) std::string& (std::string temp) {
+  temp = std::string((char*)PyString_AsString($input));
+  $1 = &temp;
+}
+
+%typemap(argout) std::string& {
+  if( std::string("$1_type") == "std::string &" )
+  {
+    if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString($1->c_str()) );
+  }
+}
+
+%typemap(in) int& (int temp) {
+  SWIG_AsVal_int($input, &temp);
+  $1 = &temp;
+}
+
+%typemap(argout) int& {
+  if( std::string("$1_type") == "int &" )
+  {
+    if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+    PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyInt_FromLong(*$1) );
+  }
+}
+#endif
 
 %typemap(in) FIX::DataDictionary const *& (FIX::DataDictionary* temp) {
   $1 = new FIX::DataDictionary*[1];
@@ -137,8 +168,6 @@ using namespace FIX;
   pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
   *pDD = *(*$1);
 }
-
-#endif
 
 %init %{
 #ifndef _MSC_VER
