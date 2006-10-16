@@ -29,8 +29,9 @@ class Application < Quickfix::Application
 	end
 
 	def fromApp(message, sessionID)
-		msgType = message.getHeader().getField( Quickfix::MsgType.new )
-		if( msgType.getString() == Quickfix::MsgType_NewOrderSingle() )
+		msgType = Quickfix::MsgType.new
+		message.getHeader().getField( msgType )
+		if( msgType.getValue() == Quickfix::MsgType_NewOrderSingle() )
 			echo = Quickfix::Message.new( message )
 			possResend = Quickfix::PossResend.new( false )
 			if( message.getHeader().isSetField( possResend ) )
@@ -47,7 +48,7 @@ class Application < Quickfix::Application
 			end
 			@orderIDs[[clOrdID.getString(), sessionID.toString()]] = [clOrdID.getString(), sessionID.toString()]
 			Quickfix::Session::sendToTarget( echo, sessionID )
-		elsif( msgType.getString() == Quickfix::MsgType_SecurityDefinition() )
+		elsif( msgType.getValue() == Quickfix::MsgType_SecurityDefinition() )
 			echo = Quickfix::Message.new( message )
 			Quickfix::Session::sendToTarget( echo, sessionID )
 		else
