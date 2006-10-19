@@ -46,7 +46,7 @@ namespace FIX
     m_pNodeMap->getNamedItem(_bstr_t(name.c_str()), &pNode);
     if( pNode == NULL ) return false;
 
-    BSTR result;
+    CComBSTR result;
     pNode->get_text(&result);
     value = (char*)_bstr_t(result);
     pNode->Release();
@@ -97,7 +97,7 @@ namespace FIX
   std::string MSXML_DOMNode::getName()
   { QF_STACK_PUSH(MSXML_DOMNode::getName)
 
-    BSTR result;
+    CComBSTR result;
     m_pNode->get_nodeName(&result);
     return (char*)_bstr_t(result);
 
@@ -107,7 +107,7 @@ namespace FIX
   std::string MSXML_DOMNode::getText()
   { QF_STACK_PUSH(MSXML_DOMNode::getText)
 
-    BSTR result;
+    CComBSTR result;
     m_pNode->get_text(&result);
     return (char*)_bstr_t(result);
 
@@ -183,7 +183,7 @@ namespace FIX
 
     try
     {
-      BSTR result;
+      CComBSTR result;
       HRESULT hr = m_pDoc->get_xml(&result);
       if( hr != S_OK ) return false;
       out << (char*)_bstr_t(result);
