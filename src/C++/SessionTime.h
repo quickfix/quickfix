@@ -34,41 +34,148 @@ namespace FIX
 class SessionTime
 {
 public:
-  SessionTime( const UtcTimeOnly& startTime, const UtcTimeOnly &endTime,
+  SessionTime( const UtcTimeOnly& startTime, const UtcTimeOnly& endTime,
+               int startDay = -1, int endDay = -1 );
+
+  SessionTime( const LocalTimeOnly& startTime, const LocalTimeOnly& endTime,
                int startDay = -1, int endDay = -1 );
 
   static bool isSessionTime( const UtcTimeOnly& start,
                              const UtcTimeOnly& end,
-                             const UtcTimeStamp& time );
+                             const DateTime& time )
+  {
+    return isSessionTime
+      ( (DateTime)start, (DateTime)end, (DateTime)time );
+  }
 
   static bool isSessionTime( const UtcTimeOnly& startTime,
                              const UtcTimeOnly& endTime,
                              int startDay,
                              int endDay,
-                             const UtcTimeStamp& time );
+                             const DateTime& time )
+  {
+    return isSessionTime
+      ( (DateTime)startTime, (DateTime)endTime, 
+        startDay, endDay, 
+        (DateTime)time );
+  }
 
   static bool isSameSession( const UtcTimeOnly& start,
                              const UtcTimeOnly& end,
-                             const UtcTimeStamp& time1,
-                             const UtcTimeStamp& time2 );
+                             const DateTime& time1,
+                             const DateTime& time2 )
+  {
+    return isSameSession
+      ( (DateTime)start, (DateTime)end, 
+        (DateTime)time1, (DateTime)time2 );
+  }
 
   static bool isSameSession( const UtcTimeOnly& startTime,
                              const UtcTimeOnly& endTime,
                              int startDay,
                              int endDay,
-                             const UtcTimeStamp& time1,
-                             const UtcTimeStamp& time2 );
+                             const DateTime& time1,
+                             const DateTime& time2 )
+  {
+    return isSameSession
+      ( (DateTime)startTime, (DateTime)endTime, 
+        startDay, endDay, 
+        (DateTime)time1, (DateTime)time2 );
+  }
 
+  static bool isSessionTime( const LocalTimeOnly& start,
+                             const LocalTimeOnly& end,
+                             const DateTime& time )
+  {
+    return isSessionTime
+      ( (DateTime)start, (DateTime)end, (DateTime)time );
+  }
+
+  static bool isSessionTime( const LocalTimeOnly& startTime,
+                             const LocalTimeOnly& endTime,
+                             int startDay,
+                             int endDay,
+                             const DateTime& time )
+  {
+    return isSessionTime
+      ( (DateTime)startTime, (DateTime)endTime, 
+        startDay, endDay, 
+        (DateTime)time );
+  }
+
+  static bool isSameSession( const LocalTimeOnly& start,
+                             const LocalTimeOnly& end,
+                             const DateTime& time1,
+                             const DateTime& time2 )
+  {
+    return isSameSession
+      ( (DateTime)start, (DateTime)end, 
+        (DateTime)time1, (DateTime)time2 );
+  }
+
+  static bool isSameSession( const LocalTimeOnly& startTime,
+                             const LocalTimeOnly& endTime,
+                             int startDay,
+                             int endDay,
+                             const DateTime& time1,
+                             const DateTime& time2 )
+  {
+    return isSameSession
+      ( (DateTime)startTime, (DateTime)endTime, 
+        startDay, endDay, 
+        (DateTime)time1, (DateTime)time2 );
+  }
+
+private:
+  static bool isSessionTime( const DateTime& start,
+                             const DateTime& end,
+                             const DateTime& time );
+
+  static bool isSessionTime( const DateTime& startTime,
+                             const DateTime& endTime,
+                             int startDay,
+                             int endDay,
+                             const DateTime& time );
+
+  static bool isSameSession( const DateTime& start,
+                             const DateTime& end,
+                             const DateTime& time1,
+                             const DateTime& time2 );
+
+  static bool isSameSession( const DateTime& startTime,
+                             const DateTime& endTime,
+                             int startDay,
+                             int endDay,
+                             const DateTime& time1,
+                             const DateTime& time2 );
+public:
   bool isSessionTime()
   {
+    DateTime now = m_useLocalTime ? DateTime::nowLocal() : DateTime::nowUtc();
+
     if( m_startDay < 0 && m_endDay < 0 )
-      return isSessionTime( m_startTime, m_endTime, UtcTimeStamp() );
+      return isSessionTime( m_startTime, m_endTime, now );
     else
       return isSessionTime
-        ( m_startTime, m_endTime, m_startDay, m_endDay, UtcTimeStamp() );
+        ( m_startTime, m_endTime, m_startDay, m_endDay, now );
   }
 
   bool isSameSession( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
+  {
+    if( m_useLocalTime ) return false;
+
+    return isSameSession( (DateTime)time1, (DateTime)time2 );
+  }
+
+  bool isSameSession( const LocalTimeStamp& time1, const LocalTimeStamp& time2 )
+  {
+    if( !m_useLocalTime ) return false;
+
+    return isSameSession( (DateTime)time1, (DateTime)time2 );
+  }
+
+private:
+  bool isSameSession( const DateTime& time1, const DateTime& time2 )
   {
     if( m_startDay < 0 && m_endDay < 0 )
       return isSameSession( m_startTime, m_endTime, time1, time2 );
@@ -77,11 +184,11 @@ public:
         ( m_startTime, m_endTime, m_startDay, m_endDay, time1, time2 );
   }
 
-private:
   UtcTimeOnly m_startTime;
   UtcTimeOnly m_endTime;
   int m_startDay;
   int m_endDay;
+  bool m_useLocalTime;
 };
 }
 

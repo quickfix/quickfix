@@ -34,7 +34,8 @@ namespace FIX
                             int startDay,
                             int endDay )
   : m_startTime( startTime ), m_endTime( endTime ),
-    m_startDay( startDay ), m_endDay( endDay )
+    m_startDay( startDay ), m_endDay( endDay ),
+    m_useLocalTime( false )
   {
     if( startDay > 0
         && endDay > 0
@@ -43,9 +44,24 @@ namespace FIX
     { m_endTime = m_startTime; }
   }
 
-  bool SessionTime::isSessionTime( const UtcTimeOnly& start,
-                                   const UtcTimeOnly& end,
-                                   const UtcTimeStamp& time )
+  SessionTime::SessionTime( const LocalTimeOnly& startTime,
+                            const LocalTimeOnly& endTime,
+                            int startDay,
+                            int endDay )
+  : m_startTime( startTime ), m_endTime( endTime ),
+    m_startDay( startDay ), m_endDay( endDay ),
+    m_useLocalTime( true )
+  {
+    if( startDay > 0
+        && endDay > 0
+        && startDay == endDay
+        && endTime > startTime )
+    { m_endTime = m_startTime; }
+  }
+
+  bool SessionTime::isSessionTime( const DateTime& start,
+                                   const DateTime& end,
+                                   const DateTime& time )
   { QF_STACK_PUSH(SessionTime::isSessionTime)
 
     UtcTimeOnly timeOnly (time);
@@ -58,11 +74,11 @@ namespace FIX
     QF_STACK_POP
   }
 
-  bool SessionTime::isSessionTime( const UtcTimeOnly& startTime,
-                                   const UtcTimeOnly& endTime,
+  bool SessionTime::isSessionTime( const DateTime& startTime,
+                                   const DateTime& endTime,
                                    int startDay,
                                    int endDay,
-                                   const UtcTimeStamp& time )
+                                   const DateTime& time )
   { QF_STACK_PUSH(SessionTime::isSessionTime)
 
     int currentDay = time.getWeekDay();
@@ -95,10 +111,10 @@ namespace FIX
     QF_STACK_POP
   }
 
-  bool SessionTime::isSameSession( const UtcTimeOnly& start,
-                                   const UtcTimeOnly& end,
-                                   const UtcTimeStamp& time1,
-                                   const UtcTimeStamp& time2 )
+  bool SessionTime::isSameSession( const DateTime& start,
+                                   const DateTime& end,
+                                   const DateTime& time1,
+                                   const DateTime& time2 )
   { QF_STACK_PUSH(SessionTime::isSameSession)
 
     if( !isSessionTime( start, end, time1 ) ) return false;
@@ -136,12 +152,12 @@ namespace FIX
     QF_STACK_POP
   }
 
-  bool SessionTime::isSameSession( const UtcTimeOnly& startTime,
-                                   const UtcTimeOnly& endTime,
+  bool SessionTime::isSameSession( const DateTime& startTime,
+                                   const DateTime& endTime,
                                    int startDay,
                                    int endDay,
-                                   const UtcTimeStamp& time1,
-                                   const UtcTimeStamp& time2 )
+                                   const DateTime& time1,
+                                   const DateTime& time2 )
   { QF_STACK_PUSH(SessionTime::isSameSession)
 
     if( !isSessionTime( startTime, endTime, startDay, endDay, time1 ) )

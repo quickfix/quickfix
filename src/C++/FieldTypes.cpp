@@ -32,19 +32,33 @@
 
 namespace FIX {
 
-DateTime
-DateTime::now ()
+DateTime DateTime::nowUtc()
 {
-#if defined (HAVE_FTIME)
+#if defined( HAVE_FTIME )
     timeb tb;
     ftime (&tb);
-    return fromTimeT (tb.time, tb.millitm);
-#elif defined (_POSIX_SOURCE)
+    return fromUtcTimeT (tb.time, tb.millitm);
+#elif defined( _POSIX_SOURCE )
     struct timeval tv;
     gettimeofday (&tv, 0);
-    return fromTimeT (tv.tv_sec, tv.tv_usec / 1000);
+    return fromUtcTimeT( tv.tv_sec, tv.tv_usec / 1000 );
 #else
-    return fromTimeT (::time (0), 0);
+    return fromUtcTimeT( ::time (0), 0 );
+#endif
+}
+
+DateTime DateTime::nowLocal()
+{
+#if defined( HAVE_FTIME )
+    timeb tb;
+    ftime (&tb);
+    return fromLocalTimeT( tb.time, tb.millitm );
+#elif defined( _POSIX_SOURCE )
+    struct timeval tv;
+    gettimeofday (&tv, 0);
+    return fromLocalTimeT( tv.tv_sec, tv.tv_usec / 1000 );
+#else
+    return fromLocalTimeT( ::time (0), 0 );
 #endif
 }
 

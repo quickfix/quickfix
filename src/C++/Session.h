@@ -174,7 +174,7 @@ public:
 
   void setResponder( Responder* pR )
   {
-    if ( !checkSessionTime( UtcTimeStamp() ) )
+    if ( !checkSessionTime() )
       reset();
     m_pResponder = pR;
   }
@@ -213,10 +213,11 @@ private:
     UtcTimeStamp now;
     return labs( now - sendingTime ) <= m_maxLatency;
   }
-  bool checkSessionTime( const UtcTimeStamp& time )
+  bool checkSessionTime()
   {
+    UtcTimeStamp now;
     UtcTimeStamp creationTime = m_state.getCreationTime();
-    return m_sessionTime.isSameSession(time, creationTime);
+    return m_sessionTime.isSameSession(now, creationTime);
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }

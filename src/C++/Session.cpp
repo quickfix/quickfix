@@ -68,7 +68,7 @@ Session::Session( Application& application,
   if ( m_pLogFactory )
     m_state.log( m_pLogFactory->create( m_sessionID ) );
 
-  if( !checkSessionTime( UtcTimeStamp() ) )
+  if( !checkSessionTime() )
     reset();
 
   addSession( *this );
@@ -137,8 +137,7 @@ void Session::next()
         return;
     }
 
-    UtcTimeStamp now;
-    if ( !checkSessionTime( now ) )
+    if ( !checkSessionTime() )
       { reset(); return; }
 
     if ( !m_state.receivedLogon() )
@@ -1265,8 +1264,7 @@ void Session::next( const Message& message, bool queued )
 
   try
   {
-    UtcTimeStamp now;
-    if ( !checkSessionTime(now) )
+    if ( !checkSessionTime() )
       { reset(); return; }
 
     const MsgType& msgType = FIELD_GET_REF( header, MsgType );

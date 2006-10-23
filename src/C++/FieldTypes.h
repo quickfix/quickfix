@@ -122,7 +122,7 @@ struct DateTime
     return m_time / MILLIS_PER_HOUR;
   }
 
-    /// Return the minute portion of the time (0-59)
+  /// Return the minute portion of the time (0-59)
   inline int getMinute() const 
   {
     return (m_time / MILLIS_PER_MIN) % MINUTES_PER_HOUR;
@@ -297,13 +297,22 @@ struct DateTime
                              second) + millis;
   }
 
-  /// Return the current wall-clock time as a DateTime
-  static DateTime now();
+  /// Return the current wall-clock time as a utc DateTime
+  static DateTime nowUtc();
+
+  /// Return the current wall-clock time as a local DateTime
+  static DateTime nowLocal();
 
   /// Convert a time_t and optional milliseconds to a DateTime
-  static DateTime fromTimeT( time_t t, int millis = 0 ) 
+  static DateTime fromUtcTimeT( time_t t, int millis = 0 ) 
   {
     struct tm tm = time_gmtime( &t );
+    return fromTm( tm, millis );
+  }
+
+  static DateTime fromLocalTimeT( time_t t, int millis = 0 )
+  {
+    struct tm tm = time_localtime( &t );
     return fromTm( tm, millis );
   }
 
@@ -386,24 +395,20 @@ inline int operator-( const DateTime& lhs, const DateTime& rhs )
           lhs.m_time / 1000 - rhs.m_time / 1000);
 }
 
-class UtcTimeOnly;
-class UtcDate;
-
 /// Date and Time represented in UTC.
 class UtcTimeStamp : public DateTime
 {
 public:
   /// Defaults to the current date and time
   UtcTimeStamp()
-  : DateTime( DateTime::now() ) {}
+  : DateTime( DateTime::nowUtc() ) {}
 
   /// Defaults to the current date
   UtcTimeStamp( int hour, int minute, int second, int millisecond = 0 )
-  : DateTime( DateTime::now () )
+  : DateTime( DateTime::nowUtc() )
   {
     setHMS( hour, minute, second, millisecond );
   }
-
 
   UtcTimeStamp( int hour, int minute, int second,
                 int date, int month, int year )
@@ -414,14 +419,49 @@ public:
   : DateTime( year, month, date, hour, minute, second, millisecond ) {}
 
   UtcTimeStamp( time_t time, int millisecond = 0 )
-  : DateTime( fromTimeT (time, millisecond) ) {}
+  : DateTime( fromUtcTimeT (time, millisecond) ) {}
 
   UtcTimeStamp( const tm* time, int millisecond = 0 )
   : DateTime( fromTm (*time, millisecond) ) {}
 
   void setCurrent() 
   {
-    set( DateTime::now() );
+    set( DateTime::nowUtc() );
+  }
+};
+
+/// Date and Time represented in local time.
+class LocalTimeStamp : public DateTime
+{
+public:
+  /// Defaults to the current date and time
+  LocalTimeStamp()
+  : DateTime( DateTime::nowLocal() ) {}
+
+  /// Defaults to the current date
+  LocalTimeStamp( int hour, int minute, int second, int millisecond = 0 )
+  : DateTime( DateTime::nowLocal() )
+  {
+    setHMS( hour, minute, second, millisecond );
+  }
+
+  LocalTimeStamp( int hour, int minute, int second,
+                int date, int month, int year )
+  : DateTime( year, month, date, hour, minute, second, 0 ) {}
+
+  LocalTimeStamp( int hour, int minute, int second, int millisecond,
+                int date, int month, int year )
+  : DateTime( year, month, date, hour, minute, second, millisecond ) {}
+
+  LocalTimeStamp( time_t time, int millisecond = 0 )
+  : DateTime( fromLocalTimeT (time, millisecond) ) {}
+
+  LocalTimeStamp( const tm* time, int millisecond = 0 )
+  : DateTime( fromTm (*time, millisecond) ) {}
+
+  void setCurrent() 
+  {
+    set( DateTime::nowLocal() );
   }
 };
 
@@ -447,7 +487,7 @@ public:
   }
 
   UtcTimeOnly( time_t time, int millisecond = 0 )
-  : DateTime( fromTimeT (time, millisecond) )
+  : DateTime( fromUtcTimeT (time, millisecond) )
   {
     clearDate();
   }
@@ -461,7 +501,48 @@ public:
   /// Set to the current time.
   void setCurrent()
   {
-    DateTime d = now();
+    DateTime d = nowUtc();
+    m_time = d.m_time;
+  }
+};
+
+/// Time only represented in local time.
+class LocalTimeOnly : public DateTime
+{
+public:
+  /// Defaults to the current time
+  LocalTimeOnly()
+  {
+    setCurrent();
+  }
+
+  LocalTimeOnly( const DateTime& val )
+  : DateTime(val)
+  {
+    clearDate();
+  }
+
+  LocalTimeOnly( int hour, int minute, int second, int millisecond = 0 )
+  {
+    setHMS( hour, minute, second, millisecond );
+  }
+
+  LocalTimeOnly( time_t time, int millisecond = 0 )
+  : DateTime( fromLocalTimeT (time, millisecond) )
+  {
+    clearDate();
+  }
+
+  LocalTimeOnly( const tm* time, int millisecond = 0 )
+  : DateTime( fromTm (*time, millisecond) )
+  {
+    clearDate();
+  }
+
+  /// Set to the current time.
+  void setCurrent()
+  {
+    DateTime d = nowLocal();
     m_time = d.m_time;
   }
 };
@@ -497,10 +578,47 @@ public:
   /// Set to the current time.
   void setCurrent()
   {
-    DateTime d = now();
+    DateTime d = nowUtc();
     m_date = d.m_date;
   }
 };
+
+/// Date only represented in local time.
+class LocalDate : public DateTime
+{
+public:
+  /// Defaults to the current date
+  LocalDate()
+  {
+    setCurrent();
+  }
+
+  LocalDate( const DateTime& val )
+  : DateTime( val )
+  {
+    clearTime();
+  }
+
+  LocalDate( int date, int month, int year )
+  : DateTime(year, month, date, 0, 0, 0, 0) {}
+
+  LocalDate( long sec )
+  : DateTime( sec / DateTime::SECONDS_PER_DAY, 0 ) {}
+
+  LocalDate( const tm* time )
+  : DateTime( fromTm (*time) )
+  {
+    clearTime();
+  }
+
+  /// Set to the current time.
+  void setCurrent()
+  {
+    DateTime d = nowLocal();
+    m_date = d.m_date;
+  }
+};
+
 /*! @} */
 
 typedef UtcDate UtcDateOnly;
