@@ -215,9 +215,16 @@ private:
   }
   bool checkSessionTime()
   {
-    UtcTimeStamp now;
     UtcTimeStamp creationTime = m_state.getCreationTime();
-    return m_sessionTime.isSameSession(now, creationTime);
+    if( m_sessionTime.useLocalTime() )
+    {
+      return m_sessionTime.isSameSession
+        ( LocalTimeStamp(), LocalTimeStamp(creationTime.getTimeT()) );
+    }
+    else
+    {
+      return m_sessionTime.isSameSession( UtcTimeStamp(), creationTime );
+    }
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
   { return msgSeqNum > ( m_state.getNextTargetMsgSeqNum() ); }

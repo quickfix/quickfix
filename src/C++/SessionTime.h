@@ -149,6 +149,9 @@ private:
                              const DateTime& time1,
                              const DateTime& time2 );
 public:
+  bool useLocalTime()
+  { return m_useLocalTime; }
+
   bool isSessionTime()
   {
     DateTime now = m_useLocalTime ? DateTime::nowLocal() : DateTime::nowUtc();

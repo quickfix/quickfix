@@ -84,6 +84,20 @@ Session* SessionFactory::create( const SessionID& sessionID,
     ( settings.getBool( VALIDATE_USER_DEFINED_FIELDS ) );
   }    
 
+  bool useLocalTime = false;
+  if( settings.has(USE_LOCAL_TIME) )
+    useLocalTime = settings.getBool( USE_LOCAL_TIME );
+
+  int startDay = -1;
+  int endDay = -1;
+  try
+  {
+    startDay = settings.getDay( START_DAY );
+    endDay = settings.getDay( END_DAY );
+  }
+  catch( ConfigError & ) {}
+  catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
+
   UtcTimeOnly startTime;
   UtcTimeOnly endTime;
   try
@@ -95,16 +109,12 @@ Session* SessionFactory::create( const SessionID& sessionID,
   }
   catch ( FieldConvertError & e ) { throw ConfigError( e.what() ); }
 
-  int startDay = -1;
-  int endDay = -1;
-
-  try
-  {
-    startDay = settings.getDay( START_DAY );
-    endDay = settings.getDay( END_DAY );
-  }
-  catch( ConfigError & ) {}
-  catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
+  SessionTime utcSessionTime
+    ( startTime, endTime, startDay, endDay );
+  SessionTime localSessionTime
+    ( LocalTimeOnly(startTime.getHour(), startTime.getMinute(), startTime.getSecond()),
+      LocalTimeOnly(endTime.getHour(), endTime.getMinute(), endTime.getSecond()),
+      startDay, endDay );
 
   if( startDay >= 0 && endDay < 0 )
     throw ConfigError( "StartDay used without EndDay" );
@@ -121,7 +131,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
   Session* pSession = 0;
   pSession = new Session( m_application, m_messageStoreFactory,
                           sessionID, dataDictionary,
-                          SessionTime(startTime, endTime, startDay, endDay),
+                          useLocalTime ? localSessionTime : utcSessionTime,
                           heartBtInt, m_pLogFactory );
 
   if ( settings.has( SEND_REDUNDANT_RESENDREQUESTS ) )

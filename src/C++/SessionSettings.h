@@ -43,6 +43,7 @@ const char USE_DATA_DICTIONARY[] = "UseDataDictionary";
 const char SEND_RESETSEQNUMFLAG[] = "SendResetSeqNumFlag";
 const char SEND_REDUNDANT_RESENDREQUESTS[] = "SendRedundantResendRequests";
 const char DATA_DICTIONARY[] = "DataDictionary";
+const char USE_LOCAL_TIME[] = "UseLocalTime";
 const char START_TIME[] = "StartTime";
 const char END_TIME[] = "EndTime";
 const char START_DAY[] = "StartDay";
