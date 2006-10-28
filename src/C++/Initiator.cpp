@@ -94,6 +94,9 @@ Initiator::~Initiator()
   for ( i = m_sessions.begin(); i != m_sessions.end(); ++i )
     delete i->second;
 
+  if( m_pLogFactory && m_pLog )
+    m_pLogFactory->destroy( m_pLog );
+
   QF_STACK_IGNORE_END
 }
 
