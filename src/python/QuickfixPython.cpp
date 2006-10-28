@@ -50578,6 +50578,20 @@ SWIGINTERN PyObject *DATA_DICTIONARY_get(void) {
 }
 
 
+SWIGINTERN int USE_LOCAL_TIME_set(PyObject *) {
+  SWIG_Error(SWIG_AttributeError,"Variable USE_LOCAL_TIME is read-only.");
+  return 1;
+}
+
+
+SWIGINTERN PyObject *USE_LOCAL_TIME_get(void) {
+  PyObject *pyobj = 0;
+  
+  pyobj = SWIG_FromCharPtr(FIX::USE_LOCAL_TIME);
+  return pyobj;
+}
+
+
 SWIGINTERN int START_TIME_set(PyObject *) {
   SWIG_Error(SWIG_AttributeError,"Variable START_TIME is read-only.");
   return 1;
@@ -60642,188 +60656,22 @@ fail:
 }
 
 
-SWIGINTERN PyObject *_wrap_Initiator_onEvent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+SWIGINTERN PyObject *_wrap_Initiator_getLog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
   PyObject *resultobj = 0;
   FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Swig::Director *director = 0;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Initiator_onEvent",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Initiator_onEvent" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Initiator_onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Initiator_onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onEvent((std::string const &)*arg2);
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Initiator_onIncoming(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Swig::Director *director = 0;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Initiator_onIncoming",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Initiator_onIncoming" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Initiator_onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Initiator_onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onIncoming((std::string const &)*arg2);
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Initiator_onOutgoing(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Swig::Director *director = 0;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Initiator_onOutgoing",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Initiator_onOutgoing" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Initiator_onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Initiator_onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onOutgoing((std::string const &)*arg2);
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Initiator_clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
+  FIX::Log *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
   PyObject * obj0 = 0 ;
-  Swig::Director *director = 0;
   
-  if (!PyArg_ParseTuple(args,(char *)"O:Initiator_clear",&obj0)) SWIG_fail;
+  if (!PyArg_ParseTuple(args,(char *)"O:Initiator_getLog",&obj0)) SWIG_fail;
   res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Initiator_clear" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Initiator_getLog" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->clear();
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
+  result = (FIX::Log *)(arg1)->getLog();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -61062,6 +60910,28 @@ SWIGINTERN PyObject *_wrap_delete_Acceptor(PyObject *SWIGUNUSEDPARM(self), PyObj
   delete arg1;
   
   resultobj = SWIG_Py_Void();
+  return resultobj;
+fail:
+  return NULL;
+}
+
+
+SWIGINTERN PyObject *_wrap_Acceptor_getLog(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
+  PyObject *resultobj = 0;
+  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
+  FIX::Log *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  PyObject * obj0 = 0 ;
+  
+  if (!PyArg_ParseTuple(args,(char *)"O:Acceptor_getLog",&obj0)) SWIG_fail;
+  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Acceptor_getLog" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
+  result = (FIX::Log *)(arg1)->getLog();
+  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
   return resultobj;
 fail:
   return NULL;
@@ -61460,194 +61330,6 @@ SWIGINTERN PyObject *_wrap_Acceptor_getMessageStoreFactory(PyObject *SWIGUNUSEDP
     result = (FIX::MessageStoreFactory *) &_result_ref;
   }
   resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__MessageStoreFactory, 0 |  0 );
-  return resultobj;
-fail:
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Acceptor_onEvent(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Swig::Director *director = 0;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Acceptor_onEvent",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Acceptor_onEvent" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Acceptor_onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Acceptor_onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onEvent((std::string const &)*arg2);
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Acceptor_onIncoming(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Swig::Director *director = 0;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Acceptor_onIncoming",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Acceptor_onIncoming" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Acceptor_onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Acceptor_onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onIncoming((std::string const &)*arg2);
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Acceptor_onOutgoing(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  PyObject * obj0 = 0 ;
-  PyObject * obj1 = 0 ;
-  Swig::Director *director = 0;
-  
-  if (!PyArg_ParseTuple(args,(char *)"OO:Acceptor_onOutgoing",&obj0,&obj1)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Acceptor_onOutgoing" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(obj1, &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Acceptor_onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Acceptor_onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onOutgoing((std::string const &)*arg2);
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      if( !PyDict_Check(resultobj) )
-      resultobj = PyDict_New();
-      PyDict_SetItem( resultobj, PyInt_FromLong(PyDict_Size(resultobj)), PyString_FromString(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return resultobj;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return NULL;
-}
-
-
-SWIGINTERN PyObject *_wrap_Acceptor_clear(PyObject *SWIGUNUSEDPARM(self), PyObject *args) {
-  PyObject *resultobj = 0;
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  PyObject * obj0 = 0 ;
-  Swig::Director *director = 0;
-  
-  if (!PyArg_ParseTuple(args,(char *)"O:Acceptor_clear",&obj0)) SWIG_fail;
-  res1 = SWIG_ConvertPtr(obj0, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Acceptor_clear" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  director = SWIG_DIRECTOR_CAST(arg1);
-  if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->clear();
-  } catch (Swig::DirectorException&) {
-    SWIG_fail;
-  }
-  resultobj = SWIG_Py_Void();
   return resultobj;
 fail:
   return NULL;
@@ -64420,15 +64102,13 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Initiator_isStopped", _wrap_Initiator_isStopped, METH_VARARGS, NULL},
 	 { (char *)"Initiator_getApplication", _wrap_Initiator_getApplication, METH_VARARGS, NULL},
 	 { (char *)"Initiator_getMessageStoreFactory", _wrap_Initiator_getMessageStoreFactory, METH_VARARGS, NULL},
-	 { (char *)"Initiator_onEvent", _wrap_Initiator_onEvent, METH_VARARGS, NULL},
-	 { (char *)"Initiator_onIncoming", _wrap_Initiator_onIncoming, METH_VARARGS, NULL},
-	 { (char *)"Initiator_onOutgoing", _wrap_Initiator_onOutgoing, METH_VARARGS, NULL},
-	 { (char *)"Initiator_clear", _wrap_Initiator_clear, METH_VARARGS, NULL},
+	 { (char *)"Initiator_getLog", _wrap_Initiator_getLog, METH_VARARGS, NULL},
 	 { (char *)"Initiator_swigregister", Initiator_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_SocketInitiatorBase", _wrap_new_SocketInitiatorBase, METH_VARARGS, NULL},
 	 { (char *)"delete_SocketInitiatorBase", _wrap_delete_SocketInitiatorBase, METH_VARARGS, NULL},
 	 { (char *)"SocketInitiatorBase_swigregister", SocketInitiatorBase_swigregister, METH_VARARGS, NULL},
 	 { (char *)"delete_Acceptor", _wrap_delete_Acceptor, METH_VARARGS, NULL},
+	 { (char *)"Acceptor_getLog", _wrap_Acceptor_getLog, METH_VARARGS, NULL},
 	 { (char *)"Acceptor_start", _wrap_Acceptor_start, METH_VARARGS, NULL},
 	 { (char *)"Acceptor_block", _wrap_Acceptor_block, METH_VARARGS, NULL},
 	 { (char *)"Acceptor_poll", _wrap_Acceptor_poll, METH_VARARGS, NULL},
@@ -64440,10 +64120,6 @@ static PyMethodDef SwigMethods[] = {
 	 { (char *)"Acceptor_isStopped", _wrap_Acceptor_isStopped, METH_VARARGS, NULL},
 	 { (char *)"Acceptor_getApplication", _wrap_Acceptor_getApplication, METH_VARARGS, NULL},
 	 { (char *)"Acceptor_getMessageStoreFactory", _wrap_Acceptor_getMessageStoreFactory, METH_VARARGS, NULL},
-	 { (char *)"Acceptor_onEvent", _wrap_Acceptor_onEvent, METH_VARARGS, NULL},
-	 { (char *)"Acceptor_onIncoming", _wrap_Acceptor_onIncoming, METH_VARARGS, NULL},
-	 { (char *)"Acceptor_onOutgoing", _wrap_Acceptor_onOutgoing, METH_VARARGS, NULL},
-	 { (char *)"Acceptor_clear", _wrap_Acceptor_clear, METH_VARARGS, NULL},
 	 { (char *)"Acceptor_swigregister", Acceptor_swigregister, METH_VARARGS, NULL},
 	 { (char *)"new_SocketAcceptorBase", _wrap_new_SocketAcceptorBase, METH_VARARGS, NULL},
 	 { (char *)"delete_SocketAcceptorBase", _wrap_delete_SocketAcceptorBase, METH_VARARGS, NULL},
@@ -64640,18 +64316,6 @@ static void *_p_FIX__GroupTo_p_FIX__FieldMap(void *x) {
 }
 static void *_p_FIX__MessageTo_p_FIX__FieldMap(void *x) {
     return (void *)((FIX::FieldMap *)  ((FIX::Message *) x));
-}
-static void *_p_FIX__InitiatorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *)  ((FIX::Initiator *) x));
-}
-static void *_p_FIX__SocketInitiatorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *) (FIX::Initiator *) ((FIX::SocketInitiator *) x));
-}
-static void *_p_FIX__AcceptorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *)  ((FIX::Acceptor *) x));
-}
-static void *_p_FIX__SocketAcceptorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *) (FIX::Acceptor *) ((FIX::SocketAcceptor *) x));
 }
 static void *_p_FIX__FileLogTo_p_FIX__Log(void *x) {
     return (void *)((FIX::Log *)  ((FIX::FileLog *) x));
@@ -65498,7 +65162,7 @@ static swig_cast_info _swigc__p_FIX__InvalidTagNumber[] = {  {&_swigt__p_FIX__In
 static swig_cast_info _swigc__p_FIX__LastShares[] = {  {&_swigt__p_FIX__LastShares, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LegFutSettDate[] = {  {&_swigt__p_FIX__LegFutSettDate, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LegSettlmntTyp[] = {  {&_swigt__p_FIX__LegSettlmntTyp, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Initiator, _p_FIX__InitiatorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__SocketInitiator, _p_FIX__SocketInitiatorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__Acceptor, _p_FIX__AcceptorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__SocketAcceptor, _p_FIX__SocketAcceptorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LogFactory[] = {  {&_swigt__p_FIX__LogFactory, 0, 0, 0},  {&_swigt__p_FIX__ScreenLogFactory, _p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__FileLogFactory, _p_FIX__FileLogFactoryTo_p_FIX__LogFactory, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MaturityDay[] = {  {&_swigt__p_FIX__MaturityDay, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStore[] = {  {&_swigt__p_FIX__MemoryStore, 0, 0, 0},{0, 0, 0, 0}};
@@ -68077,6 +67741,7 @@ SWIGEXPORT void SWIG_init(void) {
   SWIG_addvarlink(SWIG_globals(),(char*)"SEND_RESETSEQNUMFLAG",SEND_RESETSEQNUMFLAG_get, SEND_RESETSEQNUMFLAG_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"SEND_REDUNDANT_RESENDREQUESTS",SEND_REDUNDANT_RESENDREQUESTS_get, SEND_REDUNDANT_RESENDREQUESTS_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"DATA_DICTIONARY",DATA_DICTIONARY_get, DATA_DICTIONARY_set);
+  SWIG_addvarlink(SWIG_globals(),(char*)"USE_LOCAL_TIME",USE_LOCAL_TIME_get, USE_LOCAL_TIME_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"START_TIME",START_TIME_get, START_TIME_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"END_TIME",END_TIME_get, END_TIME_set);
   SWIG_addvarlink(SWIG_globals(),(char*)"START_DAY",START_DAY_get, START_DAY_set);

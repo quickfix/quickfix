@@ -41081,6 +41081,15 @@ DATA_DICTIONARY_get(VALUE self) {
 
 
 SWIGINTERN VALUE
+USE_LOCAL_TIME_get(VALUE self) {
+  VALUE _val;
+  
+  _val = SWIG_FromCharPtr(FIX::USE_LOCAL_TIME);
+  return _val;
+}
+
+
+SWIGINTERN VALUE
 START_TIME_get(VALUE self) {
   VALUE _val;
   
@@ -50801,189 +50810,24 @@ fail:
 
 
 SWIGINTERN VALUE
-_wrap_Initiator_onEvent(int argc, VALUE *argv, VALUE self) {
+_wrap_Initiator_getLog(int argc, VALUE *argv, VALUE self) {
   FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
-  std::string *arg2 = 0 ;
+  FIX::Log *result = 0 ;
   void *argp1 = 0 ;
   int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  Swig::Director *director = 0;
   VALUE vresult = Qnil;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "onEvent" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onEvent((std::string const &)*arg2);
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[0], 0 );
-      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return vresult;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Initiator_onIncoming(int argc, VALUE *argv, VALUE self) {
-  FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  Swig::Director *director = 0;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "onIncoming" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onIncoming((std::string const &)*arg2);
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[0], 0 );
-      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return vresult;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Initiator_onOutgoing(int argc, VALUE *argv, VALUE self) {
-  FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  Swig::Director *director = 0;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "onOutgoing" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onOutgoing((std::string const &)*arg2);
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[0], 0 );
-      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return vresult;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Initiator_clear(int argc, VALUE *argv, VALUE self) {
-  FIX::Initiator *arg1 = (FIX::Initiator *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  Swig::Director *director = 0;
   
   if ((argc < 0) || (argc > 0)) {
     rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
   }
   res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Initiator, 0 |  0 );
   if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "clear" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getLog" "', argument " "1"" of type '" "FIX::Initiator *""'"); 
   }
   arg1 = reinterpret_cast< FIX::Initiator * >(argp1);
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->clear();
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  return Qnil;
+  result = (FIX::Log *)(arg1)->getLog();
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  return vresult;
 fail:
   return Qnil;
 }
@@ -51198,6 +51042,30 @@ SWIGINTERN void
 free_FIX_Acceptor(FIX::Acceptor *arg1) {
     delete arg1;
 }
+
+SWIGINTERN VALUE
+_wrap_Acceptor_getLog(int argc, VALUE *argv, VALUE self) {
+  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
+  FIX::Log *result = 0 ;
+  void *argp1 = 0 ;
+  int res1 = 0 ;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 0) || (argc > 0)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
+  }
+  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
+  if (!SWIG_IsOK(res1)) {
+    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "getLog" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
+  }
+  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
+  result = (FIX::Log *)(arg1)->getLog();
+  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__Log, 0 |  0 );
+  return vresult;
+fail:
+  return Qnil;
+}
+
 
 SWIGINTERN VALUE
 _wrap_Acceptor_start(int argc, VALUE *argv, VALUE self) {
@@ -51603,195 +51471,6 @@ _wrap_Acceptor_getMessageStoreFactory(int argc, VALUE *argv, VALUE self) {
   }
   vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__MessageStoreFactory, 0 |  0 );
   return vresult;
-fail:
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Acceptor_onEvent(int argc, VALUE *argv, VALUE self) {
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  Swig::Director *director = 0;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "onEvent" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "onEvent" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onEvent((std::string const &)*arg2);
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[0], 0 );
-      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return vresult;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Acceptor_onIncoming(int argc, VALUE *argv, VALUE self) {
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  Swig::Director *director = 0;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "onIncoming" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "onIncoming" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onIncoming((std::string const &)*arg2);
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[0], 0 );
-      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return vresult;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Acceptor_onOutgoing(int argc, VALUE *argv, VALUE self) {
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  std::string *arg2 = 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  int res2 = SWIG_OLDOBJ ;
-  Swig::Director *director = 0;
-  VALUE vresult = Qnil;
-  
-  if ((argc < 1) || (argc > 1)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 1)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "onOutgoing" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  {
-    std::string *ptr = (std::string *)0;
-    res2 = SWIG_AsPtr_std_string(argv[0], &ptr);
-    if (!SWIG_IsOK(res2)) {
-      SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    if (!ptr) {
-      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "onOutgoing" "', argument " "2"" of type '" "std::string const &""'"); 
-    }
-    arg2 = ptr;
-  }
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->onOutgoing((std::string const &)*arg2);
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  {
-    if( std::string("std::string const &") == "std::string &" )
-    {
-      rb_str_resize( argv[0], 0 );
-      rb_str_append( argv[0], rb_str_new2(arg2->c_str()) );
-    }
-  }
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return vresult;
-fail:
-  if (SWIG_IsNewObj(res2)) delete arg2;
-  return Qnil;
-}
-
-
-SWIGINTERN VALUE
-_wrap_Acceptor_clear(int argc, VALUE *argv, VALUE self) {
-  FIX::Acceptor *arg1 = (FIX::Acceptor *) 0 ;
-  void *argp1 = 0 ;
-  int res1 = 0 ;
-  Swig::Director *director = 0;
-  
-  if ((argc < 0) || (argc > 0)) {
-    rb_raise(rb_eArgError, "wrong # of arguments(%d for 0)",argc); SWIG_fail;
-  }
-  res1 = SWIG_ConvertPtr(self, &argp1,SWIGTYPE_p_FIX__Acceptor, 0 |  0 );
-  if (!SWIG_IsOK(res1)) {
-    SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "clear" "', argument " "1"" of type '" "FIX::Acceptor *""'"); 
-  }
-  arg1 = reinterpret_cast< FIX::Acceptor * >(argp1);
-  director = dynamic_cast<Swig::Director *>(arg1);
-  if (director && (director->swig_get_self() == self)) director->swig_set_up();
-  try {
-    Swig::UnknownExceptionHandler dh;
-    (arg1)->clear();
-  } catch (Swig::DirectorException& e) {
-    rb_exc_raise(e.getError());
-    SWIG_fail;
-  }
-  return Qnil;
 fail:
   return Qnil;
 }
@@ -53961,18 +53640,6 @@ static void *_p_FIX__GroupTo_p_FIX__FieldMap(void *x) {
 static void *_p_FIX__MessageTo_p_FIX__FieldMap(void *x) {
     return (void *)((FIX::FieldMap *)  ((FIX::Message *) x));
 }
-static void *_p_FIX__InitiatorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *)  ((FIX::Initiator *) x));
-}
-static void *_p_FIX__SocketInitiatorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *) (FIX::Initiator *) ((FIX::SocketInitiator *) x));
-}
-static void *_p_FIX__AcceptorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *)  ((FIX::Acceptor *) x));
-}
-static void *_p_FIX__SocketAcceptorTo_p_FIX__Log(void *x) {
-    return (void *)((FIX::Log *) (FIX::Acceptor *) ((FIX::SocketAcceptor *) x));
-}
 static void *_p_FIX__FileLogTo_p_FIX__Log(void *x) {
     return (void *)((FIX::Log *)  ((FIX::FileLog *) x));
 }
@@ -54818,7 +54485,7 @@ static swig_cast_info _swigc__p_FIX__InvalidTagNumber[] = {  {&_swigt__p_FIX__In
 static swig_cast_info _swigc__p_FIX__LastShares[] = {  {&_swigt__p_FIX__LastShares, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LegFutSettDate[] = {  {&_swigt__p_FIX__LegFutSettDate, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LegSettlmntTyp[] = {  {&_swigt__p_FIX__LegSettlmntTyp, 0, 0, 0},{0, 0, 0, 0}};
-static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Initiator, _p_FIX__InitiatorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__SocketInitiator, _p_FIX__SocketInitiatorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__Acceptor, _p_FIX__AcceptorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__SocketAcceptor, _p_FIX__SocketAcceptorTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
+static swig_cast_info _swigc__p_FIX__Log[] = {  {&_swigt__p_FIX__Log, 0, 0, 0},  {&_swigt__p_FIX__FileLog, _p_FIX__FileLogTo_p_FIX__Log, 0, 0},  {&_swigt__p_FIX__ScreenLog, _p_FIX__ScreenLogTo_p_FIX__Log, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__LogFactory[] = {  {&_swigt__p_FIX__LogFactory, 0, 0, 0},  {&_swigt__p_FIX__ScreenLogFactory, _p_FIX__ScreenLogFactoryTo_p_FIX__LogFactory, 0, 0},  {&_swigt__p_FIX__FileLogFactory, _p_FIX__FileLogFactoryTo_p_FIX__LogFactory, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MaturityDay[] = {  {&_swigt__p_FIX__MaturityDay, 0, 0, 0},{0, 0, 0, 0}};
 static swig_cast_info _swigc__p_FIX__MemoryStore[] = {  {&_swigt__p_FIX__MemoryStore, 0, 0, 0},{0, 0, 0, 0}};
@@ -58129,6 +57796,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_singleton_method(mQuickfix, "SEND_RESETSEQNUMFLAG", VALUEFUNC(SEND_RESETSEQNUMFLAG_get), 0);
   rb_define_singleton_method(mQuickfix, "SEND_REDUNDANT_RESENDREQUESTS", VALUEFUNC(SEND_REDUNDANT_RESENDREQUESTS_get), 0);
   rb_define_singleton_method(mQuickfix, "DATA_DICTIONARY", VALUEFUNC(DATA_DICTIONARY_get), 0);
+  rb_define_singleton_method(mQuickfix, "USE_LOCAL_TIME", VALUEFUNC(USE_LOCAL_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "START_TIME", VALUEFUNC(START_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "END_TIME", VALUEFUNC(END_TIME_get), 0);
   rb_define_singleton_method(mQuickfix, "START_DAY", VALUEFUNC(START_DAY_get), 0);
@@ -58494,7 +58162,7 @@ SWIGEXPORT void Init_quickfix(void) {
   cNullApplication.destroy = (void (*)(void *)) free_FIX_NullApplication;
   cNullApplication.trackObjects = 0;
   
-  cInitiator.klass = rb_define_class_under(mQuickfix, "Initiator", ((swig_class *) SWIGTYPE_p_FIX__Log->clientdata)->klass);
+  cInitiator.klass = rb_define_class_under(mQuickfix, "Initiator", rb_cObject);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__Initiator, (void *) &cInitiator);
   rb_undef_alloc_func(cInitiator.klass);
   rb_define_method(cInitiator.klass, "start", VALUEFUNC(_wrap_Initiator_start), -1);
@@ -58508,10 +58176,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cInitiator.klass, "isStopped", VALUEFUNC(_wrap_Initiator_isStopped), -1);
   rb_define_method(cInitiator.klass, "getApplication", VALUEFUNC(_wrap_Initiator_getApplication), -1);
   rb_define_method(cInitiator.klass, "getMessageStoreFactory", VALUEFUNC(_wrap_Initiator_getMessageStoreFactory), -1);
-  rb_define_method(cInitiator.klass, "onEvent", VALUEFUNC(_wrap_Initiator_onEvent), -1);
-  rb_define_method(cInitiator.klass, "onIncoming", VALUEFUNC(_wrap_Initiator_onIncoming), -1);
-  rb_define_method(cInitiator.klass, "onOutgoing", VALUEFUNC(_wrap_Initiator_onOutgoing), -1);
-  rb_define_method(cInitiator.klass, "clear", VALUEFUNC(_wrap_Initiator_clear), -1);
+  rb_define_method(cInitiator.klass, "getLog", VALUEFUNC(_wrap_Initiator_getLog), -1);
   cInitiator.mark = 0;
   cInitiator.destroy = (void (*)(void *)) free_FIX_Initiator;
   cInitiator.trackObjects = 0;
@@ -58524,9 +58189,10 @@ SWIGEXPORT void Init_quickfix(void) {
   cSocketInitiatorBase.destroy = (void (*)(void *)) free_FIX_SocketInitiator;
   cSocketInitiatorBase.trackObjects = 0;
   
-  cAcceptor.klass = rb_define_class_under(mQuickfix, "Acceptor", ((swig_class *) SWIGTYPE_p_FIX__Log->clientdata)->klass);
+  cAcceptor.klass = rb_define_class_under(mQuickfix, "Acceptor", rb_cObject);
   SWIG_TypeClientData(SWIGTYPE_p_FIX__Acceptor, (void *) &cAcceptor);
   rb_undef_alloc_func(cAcceptor.klass);
+  rb_define_method(cAcceptor.klass, "getLog", VALUEFUNC(_wrap_Acceptor_getLog), -1);
   rb_define_method(cAcceptor.klass, "start", VALUEFUNC(_wrap_Acceptor_start), -1);
   rb_define_method(cAcceptor.klass, "block", VALUEFUNC(_wrap_Acceptor_block), -1);
   rb_define_method(cAcceptor.klass, "poll", VALUEFUNC(_wrap_Acceptor_poll), -1);
@@ -58538,10 +58204,6 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(cAcceptor.klass, "isStopped", VALUEFUNC(_wrap_Acceptor_isStopped), -1);
   rb_define_method(cAcceptor.klass, "getApplication", VALUEFUNC(_wrap_Acceptor_getApplication), -1);
   rb_define_method(cAcceptor.klass, "getMessageStoreFactory", VALUEFUNC(_wrap_Acceptor_getMessageStoreFactory), -1);
-  rb_define_method(cAcceptor.klass, "onEvent", VALUEFUNC(_wrap_Acceptor_onEvent), -1);
-  rb_define_method(cAcceptor.klass, "onIncoming", VALUEFUNC(_wrap_Acceptor_onIncoming), -1);
-  rb_define_method(cAcceptor.klass, "onOutgoing", VALUEFUNC(_wrap_Acceptor_onOutgoing), -1);
-  rb_define_method(cAcceptor.klass, "clear", VALUEFUNC(_wrap_Acceptor_clear), -1);
   cAcceptor.mark = 0;
   cAcceptor.destroy = (void (*)(void *)) free_FIX_Acceptor;
   cAcceptor.trackObjects = 0;

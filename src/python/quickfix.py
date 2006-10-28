@@ -3804,6 +3804,7 @@ USE_DATA_DICTIONARY = cvar.USE_DATA_DICTIONARY
 SEND_RESETSEQNUMFLAG = cvar.SEND_RESETSEQNUMFLAG
 SEND_REDUNDANT_RESENDREQUESTS = cvar.SEND_REDUNDANT_RESENDREQUESTS
 DATA_DICTIONARY = cvar.DATA_DICTIONARY
+USE_LOCAL_TIME = cvar.USE_LOCAL_TIME
 START_TIME = cvar.START_TIME
 END_TIME = cvar.END_TIME
 START_DAY = cvar.START_DAY
@@ -4319,12 +4320,10 @@ class NullApplication(Application):
 NullApplication_swigregister = _quickfix.NullApplication_swigregister
 NullApplication_swigregister(NullApplication)
 
-class Initiator(Log):
+class Initiator(_object):
     __swig_setmethods__ = {}
-    for _s in [Log]: __swig_setmethods__.update(_s.__swig_setmethods__)
     __setattr__ = lambda self, name, value: _swig_setattr(self, Initiator, name, value)
     __swig_getmethods__ = {}
-    for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Initiator, name)
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
@@ -4344,10 +4343,7 @@ class Initiator(Log):
     def isStopped(*args): return _quickfix.Initiator_isStopped(*args)
     def getApplication(*args): return _quickfix.Initiator_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Initiator_getMessageStoreFactory(*args)
-    def onEvent(*args): return _quickfix.Initiator_onEvent(*args)
-    def onIncoming(*args): return _quickfix.Initiator_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.Initiator_onOutgoing(*args)
-    def clear(*args): return _quickfix.Initiator_clear(*args)
+    def getLog(*args): return _quickfix.Initiator_getLog(*args)
 Initiator_swigregister = _quickfix.Initiator_swigregister
 Initiator_swigregister(Initiator)
 
@@ -4368,17 +4364,16 @@ class SocketInitiatorBase(Initiator):
 SocketInitiatorBase_swigregister = _quickfix.SocketInitiatorBase_swigregister
 SocketInitiatorBase_swigregister(SocketInitiatorBase)
 
-class Acceptor(Log):
+class Acceptor(_object):
     __swig_setmethods__ = {}
-    for _s in [Log]: __swig_setmethods__.update(_s.__swig_setmethods__)
     __setattr__ = lambda self, name, value: _swig_setattr(self, Acceptor, name, value)
     __swig_getmethods__ = {}
-    for _s in [Log]: __swig_getmethods__.update(_s.__swig_getmethods__)
     __getattr__ = lambda self, name: _swig_getattr(self, Acceptor, name)
     def __init__(self): raise AttributeError, "No constructor defined"
     __repr__ = _swig_repr
     __swig_destroy__ = _quickfix.delete_Acceptor
     __del__ = lambda self : None;
+    def getLog(*args): return _quickfix.Acceptor_getLog(*args)
     def start(self):
     	thread.start_new_thread(_quickfix_start_thread, (self,))
 
@@ -4393,10 +4388,6 @@ class Acceptor(Log):
     def isStopped(*args): return _quickfix.Acceptor_isStopped(*args)
     def getApplication(*args): return _quickfix.Acceptor_getApplication(*args)
     def getMessageStoreFactory(*args): return _quickfix.Acceptor_getMessageStoreFactory(*args)
-    def onEvent(*args): return _quickfix.Acceptor_onEvent(*args)
-    def onIncoming(*args): return _quickfix.Acceptor_onIncoming(*args)
-    def onOutgoing(*args): return _quickfix.Acceptor_onOutgoing(*args)
-    def clear(*args): return _quickfix.Acceptor_clear(*args)
 Acceptor_swigregister = _quickfix.Acceptor_swigregister
 Acceptor_swigregister(Acceptor)
 

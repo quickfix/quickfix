@@ -1,7 +1,7 @@
 # When we receive a valid logon, we must respond with one
 
 iCONNECT
-I8=FIX.4.235=A34=149=TW52=<TIME>56=ISLD98=0108=30
+I8=FIX.4.235=A34=149=CLIENT152=20060101-01:01:01.00056=EXECUTOR98=0108=30
 E8=FIX.4.29=6135=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=3010=0
 
 # logout message and response
