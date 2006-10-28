@@ -148,8 +148,11 @@ bool SocketConnection::read( SocketAcceptor& a, SocketServer& s )
       if( !isValidSession() )
       {
         m_pSession = 0;
-        a.onEvent( "Session not found for incoming message: " + msg );
-        a.onIncoming( msg );
+        if( a.getLog() )
+	{
+          a.getLog()->onEvent( "Session not found for incoming message: " + msg );
+          a.getLog()->onIncoming( msg );
+        }
       }
       if( m_pSession )
         m_pSession = a.getSession( msg, *this );

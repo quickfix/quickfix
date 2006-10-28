@@ -178,7 +178,9 @@ void SocketAcceptor::onConnect( SocketServer& server, int a, int s )
 
   std::stringstream stream;
   stream << "Accepted connection from " << socket_peername( s ) << " on port " << port;
-  onEvent( stream.str() );
+
+  if( getLog() )
+    getLog()->onEvent( stream.str() );
 
   QF_STACK_POP
 }

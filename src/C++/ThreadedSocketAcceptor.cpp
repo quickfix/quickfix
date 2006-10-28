@@ -217,7 +217,8 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
     Sessions sessions = pAcceptor->m_portToSessions[port];
 
     ThreadedSocketConnection * pConnection =
-      new ThreadedSocketConnection( socket, sessions, pAcceptor->getApplication(), *pAcceptor );
+      new ThreadedSocketConnection
+        ( socket, sessions, pAcceptor->getApplication(), pAcceptor->getLog() );
 
     ConnectionThreadInfo* info = new ConnectionThreadInfo( pAcceptor, pConnection );
 
@@ -226,7 +227,9 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 
       std::stringstream stream;
       stream << "Accepted connection from " << socket_peername( socket ) << " on port " << port;
-      pAcceptor->onEvent( stream.str() );
+
+      if( pAcceptor->getLog() )
+        pAcceptor->getLog()->onEvent( stream.str() );
 
       unsigned thread;
       if ( !thread_spawn( &socketConnectionThread, info, thread ) )
@@ -237,8 +240,6 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
 
   if( !pAcceptor->isStopped() )
     pAcceptor->removeThread( s );
-
-  pAcceptor->onEvent( "ThreadedSocketInitiator stopped" );
 
   return 0;
 

@@ -46,8 +46,8 @@ class ThreadedSocketConnection : Responder
 public:
   typedef std::set<SessionID> Sessions;
 
-  ThreadedSocketConnection( int s, Sessions sessions, Application& application, Log& log );
-  ThreadedSocketConnection( const SessionID&, int s, Application&, Log& log );
+  ThreadedSocketConnection( int s, Sessions sessions, Application& application, Log* pLog );
+  ThreadedSocketConnection( const SessionID&, int s, Application&, Log* pLog );
   virtual ~ThreadedSocketConnection() ;
 
   Session* getSession() const { return m_pSession; }
@@ -65,7 +65,7 @@ private:
   char m_buffer[BUFSIZ];
 
   Application& m_application;
-  Log& m_log;
+  Log* m_pLog;
   Parser m_parser;
   Sessions m_sessions;
   Session* m_pSession;

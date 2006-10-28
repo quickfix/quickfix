@@ -156,7 +156,7 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     log->onEvent( "Connection succeeded" );
 
     ThreadedSocketConnection* pConnection =
-      new ThreadedSocketConnection( s, socket, getApplication(), *this );
+      new ThreadedSocketConnection( s, socket, getApplication(), getLog() );
 
     ThreadPair* pair = new ThreadPair( this, pConnection );
 

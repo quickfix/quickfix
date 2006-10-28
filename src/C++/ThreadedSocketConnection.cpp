@@ -33,8 +33,8 @@
 namespace FIX
 {
 ThreadedSocketConnection::ThreadedSocketConnection
-( int s, Sessions sessions, Application& application, Log& log )
-: m_socket( s ), m_application( application ), m_log( log ),
+( int s, Sessions sessions, Application& application, Log* pLog )
+: m_socket( s ), m_application( application ), m_pLog( pLog ),
   m_sessions( sessions ), m_pSession( 0 ),
   m_disconnect( false )
 {
@@ -43,8 +43,8 @@ ThreadedSocketConnection::ThreadedSocketConnection
 }
 
 ThreadedSocketConnection::ThreadedSocketConnection
-( const SessionID& sessionID, int s, Application& application, Log& log )
-  : m_socket( s ), m_application( application ), m_log( log ),
+( const SessionID& sessionID, int s, Application& application, Log* pLog )
+  : m_socket( s ), m_application( application ), m_pLog( m_pLog ),
   m_pSession( Session::lookupSession( sessionID ) ),
   m_disconnect( false )
 {
@@ -176,8 +176,11 @@ bool ThreadedSocketConnection::setSession( const std::string& msg )
   m_pSession = Session::lookupSession( msg, true );
   if ( !m_pSession ) 
   {
-    m_log.onEvent( "Session not found for incoming message: " + msg );
-    m_log.onIncoming( msg );
+    if( m_pLog )
+    {
+      m_pLog->onEvent( "Session not found for incoming message: " + msg );
+      m_pLog->onIncoming( msg );
+    }
     return false;
   }
 
