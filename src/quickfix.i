@@ -13,6 +13,9 @@
 %ignore _REENTRANT;
 %rename(SocketInitiatorBase) FIX::SocketInitiator;
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
+#%ignore FIX::SessionID::getBeginString() const;
+#%ignore FIX::SessionID::getSenderCompID() const;
+#%ignore FIX::SessionID::getTargetCompID() const;
 
 #ifdef SWIGRUBY
 %rename(_getFieldName) FIX::DataDictionary::getFieldName;
@@ -34,6 +37,7 @@
 #include "../C++/Dictionary.h"
 #include "../C++/SessionSettings.h"
 #include "../C++/Session.h"
+#include "../C++/SessionID.h"
 #include "../C++/Log.h"
 #include "../C++/FileLog.h"
 #include "../C++/MessageStore.h"
@@ -167,6 +171,18 @@ using namespace FIX;
   int res = SWIG_ConvertPtr($input, &argp, SWIGTYPE_p_FIX__DataDictionary, 0 );
   pDD = reinterpret_cast< FIX::DataDictionary * >(argp);
   *pDD = *(*$1);
+}
+
+%typemap(out) const BeginString & {
+  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+}
+
+%typemap(out) const SenderCompID & {
+  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+}
+
+%typemap(out) const TargetCompID & {
+  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
 }
 
 %init %{
@@ -475,6 +491,7 @@ def start(self):
 %include "../C++/Dictionary.h"
 %include "../C++/SessionSettings.h"
 %include "../C++/Session.h"
+%include "../C++/SessionID.h"
 %include "../C++/Log.h"
 %include "../C++/FileLog.h"
 %include "../C++/MessageStore.h"

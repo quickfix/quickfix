@@ -2989,6 +2989,7 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include "../C++/Dictionary.h"
 #include "../C++/SessionSettings.h"
 #include "../C++/Session.h"
+#include "../C++/SessionID.h"
 #include "../C++/Log.h"
 #include "../C++/FileLog.h"
 #include "../C++/MessageStore.h"
@@ -48781,7 +48782,9 @@ SWIGINTERN PyObject *_wrap_SessionID_getBeginString(PyObject *SWIGUNUSEDPARM(sel
     BeginString const &_result_ref = ((FIX::SessionID const *)arg1)->getBeginString();
     result = (BeginString *) &_result_ref;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_BeginString, 0 |  0 );
+  {
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  }
   return resultobj;
 fail:
   return NULL;
@@ -48806,7 +48809,9 @@ SWIGINTERN PyObject *_wrap_SessionID_getSenderCompID(PyObject *SWIGUNUSEDPARM(se
     SenderCompID const &_result_ref = ((FIX::SessionID const *)arg1)->getSenderCompID();
     result = (SenderCompID *) &_result_ref;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SenderCompID, 0 |  0 );
+  {
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  }
   return resultobj;
 fail:
   return NULL;
@@ -48831,7 +48836,9 @@ SWIGINTERN PyObject *_wrap_SessionID_getTargetCompID(PyObject *SWIGUNUSEDPARM(se
     TargetCompID const &_result_ref = ((FIX::SessionID const *)arg1)->getTargetCompID();
     result = (TargetCompID *) &_result_ref;
   }
-  resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_TargetCompID, 0 |  0 );
+  {
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  }
   return resultobj;
 fail:
   return NULL;

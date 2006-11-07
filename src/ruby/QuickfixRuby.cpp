@@ -1908,6 +1908,7 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include "../C++/Dictionary.h"
 #include "../C++/SessionSettings.h"
 #include "../C++/Session.h"
+#include "../C++/SessionID.h"
 #include "../C++/Log.h"
 #include "../C++/FileLog.h"
 #include "../C++/MessageStore.h"
@@ -39443,7 +39444,9 @@ _wrap_SessionID_getBeginString(int argc, VALUE *argv, VALUE self) {
     BeginString const &_result_ref = ((FIX::SessionID const *)arg1)->getBeginString();
     result = (BeginString *) &_result_ref;
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_BeginString, 0 |  0 );
+  {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -39470,7 +39473,9 @@ _wrap_SessionID_getSenderCompID(int argc, VALUE *argv, VALUE self) {
     SenderCompID const &_result_ref = ((FIX::SessionID const *)arg1)->getSenderCompID();
     result = (SenderCompID *) &_result_ref;
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_SenderCompID, 0 |  0 );
+  {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
@@ -39497,7 +39502,9 @@ _wrap_SessionID_getTargetCompID(int argc, VALUE *argv, VALUE self) {
     TargetCompID const &_result_ref = ((FIX::SessionID const *)arg1)->getTargetCompID();
     result = (TargetCompID *) &_result_ref;
   }
-  vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_TargetCompID, 0 |  0 );
+  {
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  }
   return vresult;
 fail:
   return Qnil;
