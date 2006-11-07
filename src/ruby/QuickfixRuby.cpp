@@ -39445,7 +39445,7 @@ _wrap_SessionID_getBeginString(int argc, VALUE *argv, VALUE self) {
     result = (BeginString *) &_result_ref;
   }
   {
-    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
   }
   return vresult;
 fail:
@@ -39474,7 +39474,7 @@ _wrap_SessionID_getSenderCompID(int argc, VALUE *argv, VALUE self) {
     result = (SenderCompID *) &_result_ref;
   }
   {
-    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
   }
   return vresult;
 fail:
@@ -39503,7 +39503,7 @@ _wrap_SessionID_getTargetCompID(int argc, VALUE *argv, VALUE self) {
     result = (TargetCompID *) &_result_ref;
   }
   {
-    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+    vresult = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
   }
   return vresult;
 fail:

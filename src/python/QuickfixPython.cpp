@@ -48783,7 +48783,7 @@ SWIGINTERN PyObject *_wrap_SessionID_getBeginString(PyObject *SWIGUNUSEDPARM(sel
     result = (BeginString *) &_result_ref;
   }
   {
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
   }
   return resultobj;
 fail:
@@ -48810,7 +48810,7 @@ SWIGINTERN PyObject *_wrap_SessionID_getSenderCompID(PyObject *SWIGUNUSEDPARM(se
     result = (SenderCompID *) &_result_ref;
   }
   {
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
   }
   return resultobj;
 fail:
@@ -48837,7 +48837,7 @@ SWIGINTERN PyObject *_wrap_SessionID_getTargetCompID(PyObject *SWIGUNUSEDPARM(se
     result = (TargetCompID *) &_result_ref;
   }
   {
-    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+    resultobj = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
   }
   return resultobj;
 fail:

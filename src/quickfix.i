@@ -13,9 +13,6 @@
 %ignore _REENTRANT;
 %rename(SocketInitiatorBase) FIX::SocketInitiator;
 %rename(SocketAcceptorBase) FIX::SocketAcceptor;
-#%ignore FIX::SessionID::getBeginString() const;
-#%ignore FIX::SessionID::getSenderCompID() const;
-#%ignore FIX::SessionID::getTargetCompID() const;
 
 #ifdef SWIGRUBY
 %rename(_getFieldName) FIX::DataDictionary::getFieldName;
@@ -174,15 +171,15 @@ using namespace FIX;
 }
 
 %typemap(out) const BeginString & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
 }
 
 %typemap(out) const SenderCompID & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
 }
 
 %typemap(out) const TargetCompID & {
-  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__FieldBase, 0 |  0 );
+  $result = SWIG_NewPointerObj(SWIG_as_voidptr(result), SWIGTYPE_p_FIX__StringField, 0 |  0 );
 }
 
 %init %{
