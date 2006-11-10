@@ -61,6 +61,7 @@ JNIEXPORT void JNICALL Java_quickfix_Group_create__II_3I
   jint *body = pEnv->GetIntArrayElements(array, 0);
   int* carray = new int[ size + 1 ];
   memcpy(carray, body, size * sizeof(int));
+  carray[size] = 0;
   FIX::Group* pGroup = new FIX::Group( field, delim, carray );
   jobject.setLong( "cppPointer", ( long ) pGroup );
   delete [] carray;
