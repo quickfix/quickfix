@@ -110,7 +110,7 @@ public:
   friend std::ostream& operator<<( std::ostream&, const SessionID& );
   friend std::ostream& operator>>( std::ostream&, const SessionID& );
 
-  SessionID operator~()
+  SessionID operator~() const
   {
     return SessionID( m_beginString, SenderCompID( m_targetCompID ),
                       TargetCompID( m_senderCompID ), m_sessionQualifier );
