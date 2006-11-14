@@ -117,7 +117,7 @@ public:
     return getFieldRef( field ).getString();
   }
 
-  /// Get direct access to a field through a referencce
+  /// Get direct access to a field through a reference
   const FieldBase& getFieldRef( int field )
   const throw( FieldNotFound )
   {
@@ -152,7 +152,28 @@ public:
 
   /// Get a specific instance of a group.
   FieldMap& getGroup( int num, int field, FieldMap& group ) const
-    throw( FieldNotFound );
+  throw( FieldNotFound )
+  {
+    return group = getGroupRef( num, field );
+  }
+
+  /// Get direct access to a field through a reference
+  FieldMap& getGroupRef( int num, int field ) const
+  throw( FieldNotFound )
+  {
+    Groups::const_iterator i = m_groups.find( field );
+    if( i == m_groups.end() ) throw FieldNotFound( field );
+    if( num <= 0 ) throw FieldNotFound( field );
+    if( i->second.size() < (unsigned)num ) throw FieldNotFound( field );
+    return *( *(i->second.begin() + (num-1) ) );
+  }
+
+  /// Get direct access to a field through a pointer
+  FieldMap* getGroupPtr( int num, int field ) const
+  throw( FieldNotFound )
+  {
+    return &getGroupRef( num, field );
+  }
 
   /// Remove a specific instance of a group.
   void removeGroup( int num, int field );

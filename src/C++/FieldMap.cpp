@@ -82,20 +82,6 @@ void FieldMap::replaceGroup( int num, int field, FieldMap& group )
   QF_STACK_POP
 }
 
-FieldMap& FieldMap::getGroup( int num, int field, FieldMap& group ) const
-throw( FieldNotFound )
-{ QF_STACK_PUSH(FieldMap::getGroup)
-
-  Groups::const_iterator i = m_groups.find( field );
-  if ( i == m_groups.end() ) throw FieldNotFound( field );
-  if ( num <= 0 ) throw FieldNotFound( field );
-  if ( i->second.size() < ( unsigned ) num ) throw FieldNotFound( field );
-  group = *( *( i->second.begin() + ( num - 1 ) ) );
-  return group;
-
-  QF_STACK_POP
-}
-
 void FieldMap::removeGroup( int num, int field )
 {
   Groups::iterator i = m_groups.find( field );
