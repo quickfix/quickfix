@@ -93,8 +93,8 @@ public:
   void setUnmanaged( const FIX::Group& group )
   { *m_pUnmanaged = group; }
 
-  int field() { return m_pUnmanaged->field(); }
-  int delim() { return m_pUnmanaged->delim(); }
+  int field() { checkDisposed(); return m_pUnmanaged->field(); }
+  int delim() { checkDisposed(); return m_pUnmanaged->delim(); }
 
   void setField( StringField* field );
   void setField( BooleanField* field );
@@ -134,13 +134,13 @@ public:
 
   void addGroup( Group* group )
   { QF_STACK_TRY
-    m_pUnmanaged->addGroup( group->unmanaged() );
+    checkDisposed(); m_pUnmanaged->addGroup( group->unmanaged() );
     QF_STACK_CATCH
   }
 
   void replaceGroup( unsigned num, Group* group )
   { QF_STACK_TRY
-    m_pUnmanaged->replaceGroup( num, group->unmanaged() );
+    checkDisposed(); m_pUnmanaged->replaceGroup( num, group->unmanaged() );
     QF_STACK_CATCH
   }
 
@@ -149,7 +149,7 @@ public:
 
     try
     {
-      m_pUnmanaged->getGroup( num, group->unmanaged() );
+      checkDisposed(); m_pUnmanaged->getGroup( num, group->unmanaged() );
       return group;
     }
     catch ( FIX::FieldNotFound & e )
