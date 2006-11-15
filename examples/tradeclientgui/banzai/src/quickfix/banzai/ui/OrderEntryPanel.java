@@ -25,6 +25,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.border.LineBorder;
+import javax.swing.JOptionPane;
 import quickfix.banzai.*;
 import quickfix.SessionID;
 
@@ -239,8 +240,15 @@ public class OrderEntryPanel extends JPanel implements Observer {
             order.setSessionID((SessionID)sessionComboBox.getSelectedItem());
 
             orderTableModel.addOrder(order);
-            application.send(order);
-
+            
+            try {
+              application.send(order);
+            } catch(IllegalArgumentException ex) {
+              JOptionPane.showMessageDialog(null,
+                  ex.getMessage(),
+                  "Failed to send message",
+                  JOptionPane.ERROR_MESSAGE);
+            }
         }
     }
 
