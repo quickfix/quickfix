@@ -86,7 +86,7 @@ public:
   }
   std::string getVersion() const
   {
-    return m_beginString;
+    return m_beginString.getString();
   }
 
   void addField( int field )

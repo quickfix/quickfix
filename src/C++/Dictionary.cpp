@@ -39,10 +39,8 @@ throw( ConfigError, FieldConvertError )
 
   std::string result = i->second;
   if( capitalize )
-  {
-    for( std::string::size_type i = 0; i <= result.size(); ++i )
-      result[i] = toupper(result[i]);
-  }
+     std::transform(result.begin(), result.end(), result.begin(), toupper);
+
   return result;
 
   QF_STACK_POP
