@@ -3003,10 +3003,6 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
 #include "../C++/DataDictionary.h"
 using namespace FIX;
 
-#ifdef SWIGPYTHON
-      PyThreadState *_save;
-#endif
-
 
 SWIGINTERN swig_type_info*
 SWIG_pchar_descriptor()
@@ -65017,11 +65013,7 @@ SWIGINTERN PyObject *_wrap_Application_onCreate(PyObject *SWIGUNUSEDPARM(self), 
   if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
   try {
     Swig::UnknownExceptionHandler dh;
-    {
-      PyEval_RestoreThread(_save);
-      (arg1)->onCreate((FIX::SessionID const &)*arg2);
-      _save = PyEval_SaveThread();
-    }
+    (arg1)->onCreate((FIX::SessionID const &)*arg2);
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
@@ -65065,11 +65057,7 @@ SWIGINTERN PyObject *_wrap_Application_onLogon(PyObject *SWIGUNUSEDPARM(self), P
   if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
   try {
     Swig::UnknownExceptionHandler dh;
-    {
-      PyEval_RestoreThread(_save);
-      (arg1)->onLogon((FIX::SessionID const &)*arg2);
-      _save = PyEval_SaveThread();
-    }
+    (arg1)->onLogon((FIX::SessionID const &)*arg2);
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
@@ -65358,26 +65346,22 @@ SWIGINTERN PyObject *_wrap_Application_fromApp(PyObject *SWIGUNUSEDPARM(self), P
   if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
   try {
     Swig::UnknownExceptionHandler dh;
-    {
-      PyEval_RestoreThread(_save);
-      try {
-        (arg1)->fromApp((FIX::Message const &)*arg2,(FIX::SessionID const &)*arg3);
-      }
-      catch(FIX::FieldNotFound &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldNotFound(static_cast< const FIX::FieldNotFound& >(_e))),SWIGTYPE_p_FIX__FieldNotFound,SWIG_POINTER_OWN), "FIX::FieldNotFound", SWIGTYPE_p_FIX__FieldNotFound); SWIG_fail;
-      }
-      catch(FIX::IncorrectDataFormat &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectDataFormat(static_cast< const FIX::IncorrectDataFormat& >(_e))),SWIGTYPE_p_FIX__IncorrectDataFormat,SWIG_POINTER_OWN), "FIX::IncorrectDataFormat", SWIGTYPE_p_FIX__IncorrectDataFormat); SWIG_fail;
-      }
-      catch(FIX::IncorrectTagValue &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectTagValue(static_cast< const FIX::IncorrectTagValue& >(_e))),SWIGTYPE_p_FIX__IncorrectTagValue,SWIG_POINTER_OWN), "FIX::IncorrectTagValue", SWIGTYPE_p_FIX__IncorrectTagValue); SWIG_fail;
-      }
-      catch(FIX::UnsupportedMessageType &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::UnsupportedMessageType(static_cast< const FIX::UnsupportedMessageType& >(_e))),SWIGTYPE_p_FIX__UnsupportedMessageType,SWIG_POINTER_OWN), "FIX::UnsupportedMessageType", SWIGTYPE_p_FIX__UnsupportedMessageType); SWIG_fail;
-      }
-      
-      _save = PyEval_SaveThread();
+    try {
+      (arg1)->fromApp((FIX::Message const &)*arg2,(FIX::SessionID const &)*arg3);
     }
+    catch(FIX::FieldNotFound &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldNotFound(static_cast< const FIX::FieldNotFound& >(_e))),SWIGTYPE_p_FIX__FieldNotFound,SWIG_POINTER_OWN), "FIX::FieldNotFound", SWIGTYPE_p_FIX__FieldNotFound); SWIG_fail;
+    }
+    catch(FIX::IncorrectDataFormat &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectDataFormat(static_cast< const FIX::IncorrectDataFormat& >(_e))),SWIGTYPE_p_FIX__IncorrectDataFormat,SWIG_POINTER_OWN), "FIX::IncorrectDataFormat", SWIGTYPE_p_FIX__IncorrectDataFormat); SWIG_fail;
+    }
+    catch(FIX::IncorrectTagValue &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectTagValue(static_cast< const FIX::IncorrectTagValue& >(_e))),SWIGTYPE_p_FIX__IncorrectTagValue,SWIG_POINTER_OWN), "FIX::IncorrectTagValue", SWIGTYPE_p_FIX__IncorrectTagValue); SWIG_fail;
+    }
+    catch(FIX::UnsupportedMessageType &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::UnsupportedMessageType(static_cast< const FIX::UnsupportedMessageType& >(_e))),SWIGTYPE_p_FIX__UnsupportedMessageType,SWIG_POINTER_OWN), "FIX::UnsupportedMessageType", SWIGTYPE_p_FIX__UnsupportedMessageType); SWIG_fail;
+    }
+    
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
@@ -65522,11 +65506,7 @@ SWIGINTERN PyObject *_wrap_SynchronizedApplication_onCreate(PyObject *SWIGUNUSED
   if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
   try {
     Swig::UnknownExceptionHandler dh;
-    {
-      PyEval_RestoreThread(_save);
-      (arg1)->onCreate((FIX::SessionID const &)*arg2);
-      _save = PyEval_SaveThread();
-    }
+    (arg1)->onCreate((FIX::SessionID const &)*arg2);
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
@@ -65570,11 +65550,7 @@ SWIGINTERN PyObject *_wrap_SynchronizedApplication_onLogon(PyObject *SWIGUNUSEDP
   if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
   try {
     Swig::UnknownExceptionHandler dh;
-    {
-      PyEval_RestoreThread(_save);
-      (arg1)->onLogon((FIX::SessionID const &)*arg2);
-      _save = PyEval_SaveThread();
-    }
+    (arg1)->onLogon((FIX::SessionID const &)*arg2);
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
@@ -65863,26 +65839,22 @@ SWIGINTERN PyObject *_wrap_SynchronizedApplication_fromApp(PyObject *SWIGUNUSEDP
   if (director && (director->swig_get_self()==obj0)) director->swig_set_up();
   try {
     Swig::UnknownExceptionHandler dh;
-    {
-      PyEval_RestoreThread(_save);
-      try {
-        (arg1)->fromApp((FIX::Message const &)*arg2,(FIX::SessionID const &)*arg3);
-      }
-      catch(FIX::FieldNotFound &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldNotFound(static_cast< const FIX::FieldNotFound& >(_e))),SWIGTYPE_p_FIX__FieldNotFound,SWIG_POINTER_OWN), "FIX::FieldNotFound", SWIGTYPE_p_FIX__FieldNotFound); SWIG_fail;
-      }
-      catch(FIX::IncorrectDataFormat &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectDataFormat(static_cast< const FIX::IncorrectDataFormat& >(_e))),SWIGTYPE_p_FIX__IncorrectDataFormat,SWIG_POINTER_OWN), "FIX::IncorrectDataFormat", SWIGTYPE_p_FIX__IncorrectDataFormat); SWIG_fail;
-      }
-      catch(FIX::IncorrectTagValue &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectTagValue(static_cast< const FIX::IncorrectTagValue& >(_e))),SWIGTYPE_p_FIX__IncorrectTagValue,SWIG_POINTER_OWN), "FIX::IncorrectTagValue", SWIGTYPE_p_FIX__IncorrectTagValue); SWIG_fail;
-      }
-      catch(FIX::UnsupportedMessageType &_e) {
-        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::UnsupportedMessageType(static_cast< const FIX::UnsupportedMessageType& >(_e))),SWIGTYPE_p_FIX__UnsupportedMessageType,SWIG_POINTER_OWN), "FIX::UnsupportedMessageType", SWIGTYPE_p_FIX__UnsupportedMessageType); SWIG_fail;
-      }
-      
-      _save = PyEval_SaveThread();
+    try {
+      (arg1)->fromApp((FIX::Message const &)*arg2,(FIX::SessionID const &)*arg3);
     }
+    catch(FIX::FieldNotFound &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::FieldNotFound(static_cast< const FIX::FieldNotFound& >(_e))),SWIGTYPE_p_FIX__FieldNotFound,SWIG_POINTER_OWN), "FIX::FieldNotFound", SWIGTYPE_p_FIX__FieldNotFound); SWIG_fail;
+    }
+    catch(FIX::IncorrectDataFormat &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectDataFormat(static_cast< const FIX::IncorrectDataFormat& >(_e))),SWIGTYPE_p_FIX__IncorrectDataFormat,SWIG_POINTER_OWN), "FIX::IncorrectDataFormat", SWIGTYPE_p_FIX__IncorrectDataFormat); SWIG_fail;
+    }
+    catch(FIX::IncorrectTagValue &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::IncorrectTagValue(static_cast< const FIX::IncorrectTagValue& >(_e))),SWIGTYPE_p_FIX__IncorrectTagValue,SWIG_POINTER_OWN), "FIX::IncorrectTagValue", SWIGTYPE_p_FIX__IncorrectTagValue); SWIG_fail;
+    }
+    catch(FIX::UnsupportedMessageType &_e) {
+      SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::UnsupportedMessageType(static_cast< const FIX::UnsupportedMessageType& >(_e))),SWIGTYPE_p_FIX__UnsupportedMessageType,SWIG_POINTER_OWN), "FIX::UnsupportedMessageType", SWIGTYPE_p_FIX__UnsupportedMessageType); SWIG_fail;
+    }
+    
   } catch (Swig::DirectorException&) {
     SWIG_fail;
   }
