@@ -86,8 +86,9 @@ namespace FIX
 
     if( startDay == endDay )
     {
-      if( timeOnly < startTime && timeOnly > endTime )
-        return false;
+      if( currentDay != startDay )
+        return true;
+      return isSessionTime( startTime, endTime, time );
     }
     else if( startDay < endDay )
     {

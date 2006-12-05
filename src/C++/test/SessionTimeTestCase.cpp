@@ -66,32 +66,12 @@ void SessionTimeTestCase::isSessionTime::onRun( SessionTime& object )
 
 void SessionTimeTestCase::isSessionTimeWithDay::onRun( SessionTime& object )
 {
-  UtcTimeOnly startTime( 18, 0, 0 );
-  UtcTimeOnly endTime( 3, 0, 0 );
-  int startDay = 7;
-  int endDay = 7;
+  UtcTimeOnly startTime( 3, 0, 0 );
+  UtcTimeOnly endTime( 18, 0, 0 );
+  int startDay = 2;
+  int endDay = 5;
 
-  UtcTimeStamp now( 10, 0, 0, 24, 7, 2004 );
-  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
-  now = UtcTimeStamp( 18, 0, 0, 24, 7, 2004 );
-  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
-  now = UtcTimeStamp( 3, 0, 0, 24, 7, 2004 );
-  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
-  now = UtcTimeStamp( 3, 0, 1, 24, 7, 2004 );
-  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
-  now = UtcTimeStamp( 18, 0, 1, 24, 7, 2004 );
-  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
-  now = UtcTimeStamp( 3, 0, 1, 25, 7, 2004 );
-  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
-  now = UtcTimeStamp( 18, 0, 1, 26, 7, 2004 );
-  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
-
-  startTime = UtcTimeOnly( 3, 0, 0 );
-  endTime = UtcTimeOnly( 18, 0, 0 );
-  startDay = 2;
-  endDay = 5;
-
-  now = UtcTimeStamp( 2, 0, 0, 28, 7, 2004 );
+  UtcTimeStamp now( 2, 0, 0, 28, 7, 2004 );
   assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
   now = UtcTimeStamp( 18, 0, 0, 27, 7, 2004 );
   assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
@@ -117,6 +97,29 @@ void SessionTimeTestCase::isSessionTimeWithDay::onRun( SessionTime& object )
   assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
   now = UtcTimeStamp( 18, 0, 1, 26, 7, 2004 );
   assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+
+  startTime = UtcTimeOnly( 9, 1, 0 );
+  endTime = UtcTimeOnly( 8, 59, 0 );
+  startDay = 1;
+  endDay = 1;
+
+  now = UtcTimeStamp( 8, 59, 0, 3, 12, 2006 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 8, 59, 1, 3, 12, 2006 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 9, 1, 0, 3, 12, 2006 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 9, 0, 0, 3, 12, 2006 );
+  assert(!SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+
+  now = UtcTimeStamp( 8, 59, 0, 4, 12, 2006 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 8, 59, 1, 4, 12, 2006 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 9, 1, 0, 4, 12, 2006 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
+  now = UtcTimeStamp( 9, 0, 0, 4, 12, 2006 );
+  assert(SessionTime::isSessionTime(startTime, endTime, startDay, endDay, now));
 }
 
 void SessionTimeTestCase::isSameSession::onRun( SessionTime& object )
@@ -265,6 +268,19 @@ void SessionTimeTestCase::isSameSessionWithDay::onRun( SessionTime& object )
   // Check that "missing" start and end days are handled as isSameSession without days
   startDay = -1;
   endDay = -1;
+  assert( SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
+
+  // Session days are the same
+  startDay = 1;
+  endDay = 1;
+  startTime = UtcTimeOnly(9, 1, 0);
+  endTime = UtcTimeOnly(8, 59, 0);
+  time1 = UtcTimeStamp(9, 1, 0, 3, 12, 2006);
+  time2 = UtcTimeStamp(9, 1, 0, 3, 12, 2006);
+  assert( SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
+  time2 = UtcTimeStamp(9, 1, 0, 10, 12, 2006);
+  assert( !SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
+  time2 = UtcTimeStamp(9, 1, 0, 4, 12, 2006);
   assert( SessionTime::isSameSession(startTime, endTime, startDay, endDay, time1, time2) );
 }
 
