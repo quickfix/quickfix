@@ -27,6 +27,7 @@
 #endif
 
 #include "HttpParser.h"
+#include <stdio.h>
 
 namespace FIX
 {
