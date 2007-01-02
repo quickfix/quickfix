@@ -39,6 +39,7 @@ namespace FIX
     xmlChar* result = xmlGetProp(m_pNode, (const xmlChar*)name.c_str());
     if(result == NULL) return false;
     value = (char*)result;
+    xmlFree( result );
     return true;
 
     QF_STACK_POP
