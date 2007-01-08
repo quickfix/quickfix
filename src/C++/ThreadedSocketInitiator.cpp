@@ -150,6 +150,7 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     if( socket_connect(socket, address.c_str(), port) < 0 )
     {
       log->onEvent( "Connection failed" );
+      socket_close( socket );
       return false;
     }
 
