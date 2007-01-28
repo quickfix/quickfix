@@ -109,9 +109,9 @@ Session* SessionFactory::create( const SessionID& sessionID,
   }
   catch ( FieldConvertError & e ) { throw ConfigError( e.what() ); }
 
-  SessionTime utcSessionTime
+  TimeRange utcSessionTime
     ( startTime, endTime, startDay, endDay );
-  SessionTime localSessionTime
+  TimeRange localSessionTime
     ( LocalTimeOnly(startTime.getHour(), startTime.getMinute(), startTime.getSecond()),
       LocalTimeOnly(endTime.getHour(), endTime.getMinute(), endTime.getSecond()),
       startDay, endDay );

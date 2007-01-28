@@ -24,12 +24,12 @@
 #endif
 #include "CallStack.h"
 
-#include "SessionTime.h"
+#include "TimeRange.h"
 #include "Utility.h"
 
 namespace FIX
 {
-  SessionTime::SessionTime( const UtcTimeOnly& startTime,
+  TimeRange::TimeRange( const UtcTimeOnly& startTime,
                             const UtcTimeOnly& endTime,
                             int startDay,
                             int endDay )
@@ -44,7 +44,7 @@ namespace FIX
     { m_endTime = m_startTime; }
   }
 
-  SessionTime::SessionTime( const LocalTimeOnly& startTime,
+  TimeRange::TimeRange( const LocalTimeOnly& startTime,
                             const LocalTimeOnly& endTime,
                             int startDay,
                             int endDay )
@@ -59,10 +59,10 @@ namespace FIX
     { m_endTime = m_startTime; }
   }
 
-  bool SessionTime::isSessionTime( const DateTime& start,
+  bool TimeRange::isInRange( const DateTime& start,
                                    const DateTime& end,
                                    const DateTime& time )
-  { QF_STACK_PUSH(SessionTime::isSessionTime)
+  { QF_STACK_PUSH(TimeRange::isInRange)
 
     UtcTimeOnly timeOnly (time);
 
@@ -74,12 +74,12 @@ namespace FIX
     QF_STACK_POP
   }
 
-  bool SessionTime::isSessionTime( const DateTime& startTime,
+  bool TimeRange::isInRange( const DateTime& startTime,
                                    const DateTime& endTime,
                                    int startDay,
                                    int endDay,
                                    const DateTime& time )
-  { QF_STACK_PUSH(SessionTime::isSessionTime)
+  { QF_STACK_PUSH(TimeRange::isInRange)
 
     int currentDay = time.getWeekDay();
     UtcTimeOnly timeOnly (time);
@@ -88,7 +88,7 @@ namespace FIX
     {
       if( currentDay != startDay )
         return true;
-      return isSessionTime( startTime, endTime, time );
+      return isInRange( startTime, endTime, time );
     }
     else if( startDay < endDay )
     {
@@ -112,14 +112,14 @@ namespace FIX
     QF_STACK_POP
   }
 
-  bool SessionTime::isSameSession( const DateTime& start,
+  bool TimeRange::isInSameRange( const DateTime& start,
                                    const DateTime& end,
                                    const DateTime& time1,
                                    const DateTime& time2 )
-  { QF_STACK_PUSH(SessionTime::isSameSession)
+  { QF_STACK_PUSH(TimeRange::isInSameRange)
 
-    if( !isSessionTime( start, end, time1 ) ) return false;
-    if( !isSessionTime( start, end, time2 ) ) return false;
+    if( !isInRange( start, end, time1 ) ) return false;
+    if( !isInRange( start, end, time2 ) ) return false;
 
     if( time1 == time2 ) return true;
 
@@ -153,18 +153,18 @@ namespace FIX
     QF_STACK_POP
   }
 
-  bool SessionTime::isSameSession( const DateTime& startTime,
+  bool TimeRange::isInSameRange( const DateTime& startTime,
                                    const DateTime& endTime,
                                    int startDay,
                                    int endDay,
                                    const DateTime& time1,
                                    const DateTime& time2 )
-  { QF_STACK_PUSH(SessionTime::isSameSession)
+  { QF_STACK_PUSH(TimeRange::isInSameRange)
 
-    if( !isSessionTime( startTime, endTime, startDay, endDay, time1 ) )
+    if( !isInRange( startTime, endTime, startDay, endDay, time1 ) )
       return false;
 
-    if( !isSessionTime( startTime, endTime, startDay, endDay, time2 ) )
+    if( !isInRange( startTime, endTime, startDay, endDay, time2 ) )
       return false;
 
     int absoluteDay1 = time1.getJulianDate() - time1.getWeekDay();

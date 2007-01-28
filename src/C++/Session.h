@@ -27,7 +27,7 @@
 #endif
 
 #include "SessionState.h"
-#include "SessionTime.h"
+#include "TimeRange.h"
 #include "SessionID.h"
 #include "Responder.h"
 #include "Fields.h"
@@ -48,7 +48,7 @@ public:
   Session( Application&, MessageStoreFactory&,
            const SessionID&,
            const DataDictionary&,
-           const SessionTime&,
+           const TimeRange&,
            int heartBtInt, LogFactory* pLogFactory );
   ~Session();
 
@@ -106,11 +106,18 @@ public:
   static int numSessions();
 
   bool isSessionTime()
-    { return m_sessionTime.isSessionTime(); }
+    { return m_sessionTime.isInRange(); }
+  bool isLogonTime()
+    { return m_logonTime.isInRange(); }
   bool isInitiator()
     { return m_state.initiate(); }
   bool isAcceptor()
     { return !m_state.initiate(); }
+
+  const TimeRange& getLogonTime()
+    { return m_logonTime; }
+  void setLogonTime( const TimeRange& value )
+    { m_logonTime = value; }
 
   bool getSendRedundantResendRequests()
     { return m_sendRedundantResendRequests; }
@@ -218,12 +225,12 @@ private:
     UtcTimeStamp creationTime = m_state.getCreationTime();
     if( m_sessionTime.useLocalTime() )
     {
-      return m_sessionTime.isSameSession
+      return m_sessionTime.isInSameRange
         ( LocalTimeStamp(), LocalTimeStamp(creationTime.getTimeT()) );
     }
     else
     {
-      return m_sessionTime.isSameSession( UtcTimeStamp(), creationTime );
+      return m_sessionTime.isInSameRange( UtcTimeStamp(), creationTime );
     }
   }
   bool isTargetTooHigh( const MsgSeqNum& msgSeqNum )
@@ -284,7 +291,8 @@ private:
 
   Application& m_application;
   SessionID m_sessionID;
-  SessionTime m_sessionTime;
+  TimeRange m_sessionTime;
+  TimeRange m_logonTime;
 
   bool m_sendRedundantResendRequests;
   bool m_checkCompId;

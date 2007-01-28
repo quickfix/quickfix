@@ -286,23 +286,23 @@ void SessionTestCase::doesSessionExist::onRun( Session& object )
   Session * pSession1 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession2 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "WT" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession3 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "TW" ), TargetCompID( "DLSI" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession4 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   Session* pSession5 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
   pSession1->setResponder( this );
   pSession2->setResponder( this );
@@ -354,23 +354,23 @@ bool SessionTestCase::lookupSession::onSetup( Session*& pObject )
   m_pSession1 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   m_pSession2 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "WT" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   m_pSession3 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "TW" ), TargetCompID( "DLSI" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   m_pSession4 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   m_pSession5 = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                                    SenderCompID( "OREN" ), TargetCompID( "NERO" ) ), DataDictionary(),
-                                   SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                                   TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
   m_pSession1->setResponder( this );
   m_pSession2->setResponder( this );
@@ -407,7 +407,7 @@ bool SessionTestCase::registerSession::onSetup( Session*& pObject )
   m_pSession = new Session
     ( *this, m_factory, SessionID( BeginString( "FIX.4.2" ),
                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), DataDictionary(),
-                        SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                        TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   return true;
 }
 
@@ -589,7 +589,7 @@ bool SessionTestCase::badMsgType::onSetup( Session*& pObject )
 
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
   pObject = new Session( *this, m_factory, sessionID, dataDictionary,
-                         SessionTime(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
+                         TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
   return true;
 }
 
@@ -809,6 +809,7 @@ void SessionTestCase::resetOnEndTime::onRun( Session& object )
   object.next( createLogon( "ISLD", "TW", 1 ) );
   object.next( createHeartbeat( "ISLD", "TW", 2 ) );
 
+  assert( m_toLogon == 1 );
   assert( m_disconnect == 0 );
   process_sleep( 1 );
   object.next();
@@ -817,6 +818,8 @@ void SessionTestCase::resetOnEndTime::onRun( Session& object )
   object.next();
   assert( m_disconnect == 1 );
   assert( m_toLogout == 1 );
+  assert( object.getExpectedSenderNum() == 1 );
+  assert( object.getExpectedTargetNum() == 1 );
 }
 
 bool SessionTestCase::disconnectBeforeStartTime::onSetup( Session*& pObject )
@@ -857,6 +860,49 @@ void SessionTestCase::resetOnNewSession::onRun( Session& object )
   assert( m_disconnect == 1 );
 }
 
+bool SessionTestCase::logonAtLogonStartTime::onSetup( Session*& pObject )
+{
+  m_startTime.setCurrent();
+  m_startTime.setMillisecond(0);
+
+  m_endTime.setCurrent();
+  m_endTime.setMillisecond(0);
+
+  m_startTime += -10;
+  m_endTime += 10;
+
+  UtcTimeOnly logonStartTime;
+  UtcTimeOnly logonEndTime;
+  logonStartTime += 1;
+  logonEndTime += 2;
+  TimeRange logonTime( logonStartTime, logonEndTime );
+
+  bool result = AcceptorTest::onSetup( pObject );
+  pObject->setLogonTime( logonTime );
+  return result;
+}
+
+void SessionTestCase::logonAtLogonStartTime::onRun( Session& object )
+{
+  object.next( createLogon( "ISLD", "TW", 1 ) );
+  object.next( createHeartbeat( "ISLD", "TW", 2 ) );
+
+  assert( m_toLogon == 0 );
+  assert( m_toLogout == 0 );
+  process_sleep( 1 );
+
+  object.next( createLogon( "ISLD", "TW", 1 ) );
+  object.next( createHeartbeat( "ISLD", "TW", 2 ) );
+  object.next();
+  assert( m_toLogon == 1 );
+  assert( m_toLogout == 0 );
+
+  process_sleep( 2 );
+  object.next();
+  assert( m_toLogon == 1 );
+  assert( m_toLogout == 1 );
+}
+
 bool SessionTestCase::processQueuedMessages::onSetup( Session*& pObject )
 {
   return AcceptorTest::onSetup( pObject );
@@ -884,7 +930,7 @@ Session* SessionTestCase::resetOnNewSession::createSession()
 {
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
-  SessionTime sessionTime( m_startTime, m_endTime );
+  TimeRange sessionTime( m_startTime, m_endTime );
   return new Session( *this, m_previousDayFactory, sessionID,
                       DataDictionary(), sessionTime , 0, 0 );
 }

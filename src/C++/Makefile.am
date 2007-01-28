@@ -7,8 +7,8 @@ libquickfix_la_SOURCES = \
 	Allocator.h \
 	Session.cpp \
 	Session.h \
-	SessionTime.cpp \
-	SessionTime.h \
+	TimeRange.cpp \
+	TimeRange.h \
 	SessionState.h \
 	SessionFactory.h \
 	SessionFactory.cpp \

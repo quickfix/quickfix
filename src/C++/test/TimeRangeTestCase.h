@@ -19,48 +19,48 @@
 **
 ****************************************************************************/
 
-#ifndef FIX_SESSIONTIMETESTCASE_H
-#define FIX_SESSIONTIMETESTCASE_H
+#ifndef FIX_TIMERANGETESTCASE_H
+#define FIX_TIMERANGETESTCASE_H
 
 #include <CPPTest/TestCase.h>
-#include "SessionTime.h"
+#include "TimeRange.h"
 
 namespace FIX
 {
-class SessionTimeTestCase : public CPPTest::TestCase < SessionTime >
+class TimeRangeTestCase : public CPPTest::TestCase < TimeRange >
 {
 public:
-  SessionTimeTestCase()
+  TimeRangeTestCase()
   {
-    add( &m_isSessionTime );
-    add( &m_isSessionTimeWithDay );
-    add( &m_isSameSession );
-    add( &m_isSameSessionWithDay );
+    add( &m_isInRange );
+    add( &m_isInRangeWithDay );
+    add( &m_isInSameRange );
+    add( &m_isInSameRangeWithDay );
   }
 
 private:
-  typedef CPPTest::EmptyTest<SessionTime> Test;
+  typedef CPPTest::EmptyTest<TimeRange> Test;
 
-  class isSessionTime : public Test
+  class isInRange : public Test
   {
-    void onRun( SessionTime& object );
-  } m_isSessionTime;
+    void onRun( TimeRange& object );
+  } m_isInRange;
 
-  class isSessionTimeWithDay : public Test
+  class isInRangeWithDay : public Test
   {
-    void onRun( SessionTime& object );
-  } m_isSessionTimeWithDay;
+    void onRun( TimeRange& object );
+  } m_isInRangeWithDay;
 
-  class isSameSession : public Test
+  class isInSameRange : public Test
   {
-    void onRun( SessionTime& object );
-  } m_isSameSession;
+    void onRun( TimeRange& object );
+  } m_isInSameRange;
 
-  class isSameSessionWithDay : public Test
+  class isInSameRangeWithDay : public Test
   {
-    void onRun( SessionTime& object );
-  } m_isSameSessionWithDay;
+    void onRun( TimeRange& object );
+  } m_isInSameRangeWithDay;
 };
 }
 
-#endif //FIX_SESSIONTIMETESTCASE_H
+#endif //FIX_TIMERANGETESTCASE_H

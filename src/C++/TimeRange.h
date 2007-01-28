@@ -19,8 +19,8 @@
 **
 ****************************************************************************/
 
-#ifndef FIX_SESSIONTIME_H
-#define FIX_SESSIONTIME_H
+#ifndef FIX_TIMERANGE_H
+#define FIX_TIMERANGE_H
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 4290 )
@@ -31,118 +31,118 @@
 namespace FIX
 {
 /// Keeps track of when session is active
-class SessionTime
+class TimeRange
 {
 public:
-  SessionTime( const UtcTimeOnly& startTime, const UtcTimeOnly& endTime,
+  TimeRange( const UtcTimeOnly& startTime, const UtcTimeOnly& endTime,
                int startDay = -1, int endDay = -1 );
 
-  SessionTime( const LocalTimeOnly& startTime, const LocalTimeOnly& endTime,
+  TimeRange( const LocalTimeOnly& startTime, const LocalTimeOnly& endTime,
                int startDay = -1, int endDay = -1 );
 
-  static bool isSessionTime( const UtcTimeOnly& start,
+  static bool isInRange( const UtcTimeOnly& start,
                              const UtcTimeOnly& end,
                              const DateTime& time )
   {
-    return isSessionTime
+    return isInRange
       ( (DateTime)start, (DateTime)end, (DateTime)time );
   }
 
-  static bool isSessionTime( const UtcTimeOnly& startTime,
+  static bool isInRange( const UtcTimeOnly& startTime,
                              const UtcTimeOnly& endTime,
                              int startDay,
                              int endDay,
                              const DateTime& time )
   {
-    return isSessionTime
+    return isInRange
       ( (DateTime)startTime, (DateTime)endTime, 
         startDay, endDay, 
         (DateTime)time );
   }
 
-  static bool isSameSession( const UtcTimeOnly& start,
+  static bool isInSameRange( const UtcTimeOnly& start,
                              const UtcTimeOnly& end,
                              const DateTime& time1,
                              const DateTime& time2 )
   {
-    return isSameSession
+    return isInSameRange
       ( (DateTime)start, (DateTime)end, 
         (DateTime)time1, (DateTime)time2 );
   }
 
-  static bool isSameSession( const UtcTimeOnly& startTime,
+  static bool isInSameRange( const UtcTimeOnly& startTime,
                              const UtcTimeOnly& endTime,
                              int startDay,
                              int endDay,
                              const DateTime& time1,
                              const DateTime& time2 )
   {
-    return isSameSession
+    return isInSameRange
       ( (DateTime)startTime, (DateTime)endTime, 
         startDay, endDay, 
         (DateTime)time1, (DateTime)time2 );
   }
 
-  static bool isSessionTime( const LocalTimeOnly& start,
+  static bool isInRange( const LocalTimeOnly& start,
                              const LocalTimeOnly& end,
                              const DateTime& time )
   {
-    return isSessionTime
+    return isInRange
       ( (DateTime)start, (DateTime)end, (DateTime)time );
   }
 
-  static bool isSessionTime( const LocalTimeOnly& startTime,
+  static bool isInRange( const LocalTimeOnly& startTime,
                              const LocalTimeOnly& endTime,
                              int startDay,
                              int endDay,
                              const DateTime& time )
   {
-    return isSessionTime
+    return isInRange
       ( (DateTime)startTime, (DateTime)endTime, 
         startDay, endDay, 
         (DateTime)time );
   }
 
-  static bool isSameSession( const LocalTimeOnly& start,
+  static bool isInSameRange( const LocalTimeOnly& start,
                              const LocalTimeOnly& end,
                              const DateTime& time1,
                              const DateTime& time2 )
   {
-    return isSameSession
+    return isInSameRange
       ( (DateTime)start, (DateTime)end, 
         (DateTime)time1, (DateTime)time2 );
   }
 
-  static bool isSameSession( const LocalTimeOnly& startTime,
+  static bool isInSameRange( const LocalTimeOnly& startTime,
                              const LocalTimeOnly& endTime,
                              int startDay,
                              int endDay,
                              const DateTime& time1,
                              const DateTime& time2 )
   {
-    return isSameSession
+    return isInSameRange
       ( (DateTime)startTime, (DateTime)endTime, 
         startDay, endDay, 
         (DateTime)time1, (DateTime)time2 );
   }
 
 private:
-  static bool isSessionTime( const DateTime& start,
+  static bool isInRange( const DateTime& start,
                              const DateTime& end,
                              const DateTime& time );
 
-  static bool isSessionTime( const DateTime& startTime,
+  static bool isInRange( const DateTime& startTime,
                              const DateTime& endTime,
                              int startDay,
                              int endDay,
                              const DateTime& time );
 
-  static bool isSameSession( const DateTime& start,
+  static bool isInSameRange( const DateTime& start,
                              const DateTime& end,
                              const DateTime& time1,
                              const DateTime& time2 );
 
-  static bool isSameSession( const DateTime& startTime,
+  static bool isInSameRange( const DateTime& startTime,
                              const DateTime& endTime,
                              int startDay,
                              int endDay,
@@ -152,38 +152,38 @@ public:
   bool useLocalTime()
   { return m_useLocalTime; }
 
-  bool isSessionTime()
+  bool isInRange()
   {
     DateTime now = m_useLocalTime ? DateTime::nowLocal() : DateTime::nowUtc();
 
     if( m_startDay < 0 && m_endDay < 0 )
-      return isSessionTime( m_startTime, m_endTime, now );
+      return isInRange( m_startTime, m_endTime, now );
     else
-      return isSessionTime
+      return isInRange
         ( m_startTime, m_endTime, m_startDay, m_endDay, now );
   }
 
-  bool isSameSession( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
+  bool isInSameRange( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
   {
     if( m_useLocalTime ) return false;
 
-    return isSameSession( (DateTime)time1, (DateTime)time2 );
+    return isInSameRange( (DateTime)time1, (DateTime)time2 );
   }
 
-  bool isSameSession( const LocalTimeStamp& time1, const LocalTimeStamp& time2 )
+  bool isInSameRange( const LocalTimeStamp& time1, const LocalTimeStamp& time2 )
   {
     if( !m_useLocalTime ) return false;
 
-    return isSameSession( (DateTime)time1, (DateTime)time2 );
+    return isInSameRange( (DateTime)time1, (DateTime)time2 );
   }
 
 private:
-  bool isSameSession( const DateTime& time1, const DateTime& time2 )
+  bool isInSameRange( const DateTime& time1, const DateTime& time2 )
   {
     if( m_startDay < 0 && m_endDay < 0 )
-      return isSameSession( m_startTime, m_endTime, time1, time2 );
+      return isInSameRange( m_startTime, m_endTime, time1, time2 );
     else
-      return isSameSession
+      return isInSameRange
         ( m_startTime, m_endTime, m_startDay, m_endDay, time1, time2 );
   }
 

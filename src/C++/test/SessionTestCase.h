@@ -60,6 +60,7 @@ public:
     add( &m_resetOnEndTime );
     add( &m_disconnectBeforeStartTime );
     add( &m_resetOnNewSession );
+    add( &m_logonAtLogonStartTime );
     add( &m_processQueuedMessages );
   }
 
@@ -168,7 +169,7 @@ class Test : public CPPTest::Test < Session > ,
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
-    SessionTime sessionTime( m_startTime, m_endTime );
+    TimeRange sessionTime( m_startTime, m_endTime );
 
     return new Session( *this, m_factory, sessionID, DataDictionary(),
                         sessionTime, 0, 0 );
@@ -178,7 +179,7 @@ class Test : public CPPTest::Test < Session > ,
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
-    SessionTime sessionTime( m_startTime, m_endTime );
+    TimeRange sessionTime( m_startTime, m_endTime );
 
     return new Session( *this, m_factory, sessionID, DataDictionary(),
                         sessionTime, 1, 0 );
@@ -410,6 +411,13 @@ class Test : public CPPTest::Test < Session > ,
     Session* createSession();
   }
   m_resetOnNewSession;
+
+  class logonAtLogonStartTime : public AcceptorTest
+  {
+    bool onSetup( Session*& pObject );
+    void onRun( Session& object );
+  }
+  m_logonAtLogonStartTime;
 
   class processQueuedMessages : public AcceptorTest
   {

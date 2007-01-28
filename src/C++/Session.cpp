@@ -43,11 +43,12 @@ Session::Session( Application& application,
                   MessageStoreFactory& messageStoreFactory,
                   const SessionID& sessionID,
                   const DataDictionary& dataDictionary,
-                  const SessionTime& sessionTime,
+                  const TimeRange& sessionTime,
                   int heartBtInt, LogFactory* pLogFactory )
 : m_application( application ),
   m_sessionID( sessionID ),
   m_sessionTime( sessionTime ),
+  m_logonTime( sessionTime ),
   m_sendRedundantResendRequests( false ),
   m_checkCompId( true ),
   m_checkLatency( true ), 
@@ -123,7 +124,10 @@ void Session::next()
 
   try
   {
-    if( !isEnabled() )
+    if ( !checkSessionTime() )
+      { reset(); return; }
+
+    if( !isEnabled() || !isLogonTime() )
     {
       if( isLoggedOn() )
       {
@@ -137,12 +141,9 @@ void Session::next()
         return;
     }
 
-    if ( !checkSessionTime() )
-      { reset(); return; }
-
     if ( !m_state.receivedLogon() )
     {
-      if ( m_state.shouldSendLogon() )
+      if ( m_state.shouldSendLogon() && isLogonTime() )
       {
         generateLogon();
         m_state.onEvent( "Initiated logon request" );
@@ -204,6 +205,13 @@ void Session::nextLogon( const Message& logon )
   if( m_refreshOnLogon )
     refresh();
 
+  if( !isLogonTime() )
+  {
+    m_state.onEvent( "Received logon outside of valid logon time" );
+    disconnect();
+    return;
+  }
+
   ResetSeqNumFlag resetSeqNumFlag(false);
   if( logon.isSetField(resetSeqNumFlag) )
     logon.getField( resetSeqNumFlag );
@@ -219,7 +227,7 @@ void Session::nextLogon( const Message& logon )
   {
     m_state.onEvent( "Received logon response before sending request" );
     disconnect();
-    return ;
+    return;
   }
 
   if( !m_state.initiate() && m_resetOnLogon )

@@ -39,7 +39,7 @@
 #include "C++/test/FileUtilitiesTestCase.h"
 #include "C++/test/StringUtilitiesTestCase.h"
 #include "C++/test/SessionIDTestCase.h"
-#include "C++/test/SessionTimeTestCase.h"
+#include "C++/test/TimeRangeTestCase.h"
 #include "C++/test/DictionaryTestCase.h"
 #include "C++/test/DataDictionaryTestCase.h"
 #include "C++/test/SocketConnectorTestCase.h"
@@ -112,7 +112,7 @@ public:
     // someone please take a look
     add( &m_sessionID );
 #endif
-    add( &m_sessionTime );
+    add( &m_timeRange );
     add( &m_dictionary );
     add( &m_dataDictionary );
     add( &m_socketConnector );
@@ -170,7 +170,7 @@ private:
 #if !defined(__SUNPRO_CC)
   FIX::SessionIDTestCase m_sessionID;
 #endif
-  FIX::SessionTimeTestCase m_sessionTime;
+  FIX::TimeRangeTestCase m_timeRange;
   FIX::DictionaryTestCase m_dictionary;
   FIX::DataDictionaryTestCase m_dataDictionary;
   FIX::FieldBaseTestCase m_fieldBase;
