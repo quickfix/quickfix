@@ -115,6 +115,7 @@ Session* SessionFactory::create( const SessionID& sessionID,
     ( LocalTimeOnly(startTime.getHour(), startTime.getMinute(), startTime.getSecond()),
       LocalTimeOnly(endTime.getHour(), endTime.getMinute(), endTime.getSecond()),
       startDay, endDay );
+  TimeRange sessionTimeRange = useLocalTime ? localSessionTime : utcSessionTime;
 
   if( startDay >= 0 && endDay < 0 )
     throw ConfigError( "StartDay used without EndDay" );
@@ -130,9 +131,49 @@ Session* SessionFactory::create( const SessionID& sessionID,
 
   Session* pSession = 0;
   pSession = new Session( m_application, m_messageStoreFactory,
-                          sessionID, dataDictionary,
-                          useLocalTime ? localSessionTime : utcSessionTime,
+                          sessionID, dataDictionary, sessionTimeRange,
                           heartBtInt, m_pLogFactory );
+
+  int logonDay = startDay;
+  int logoutDay = endDay;
+  try
+  {
+    logonDay = settings.getDay( LOGON_DAY );
+    logoutDay = settings.getDay( LOGOUT_DAY );
+  }
+  catch( ConfigError & ) {}
+  catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
+
+  UtcTimeOnly logonTime( startTime );
+  UtcTimeOnly logoutTime( endTime );
+  try
+  {
+    logonTime = UtcTimeOnlyConvertor::convert
+                ( settings.getString( LOGON_TIME ) );
+  }
+  catch( ConfigError & ) {}
+  catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
+  try
+  {
+    logoutTime = UtcTimeOnlyConvertor::convert
+              ( settings.getString( LOGOUT_TIME ) );
+  }
+  catch( ConfigError & ) {}
+  catch( FieldConvertError & e ) { throw ConfigError( e.what() ); }
+
+  TimeRange utcLogonTime
+    ( logonTime, logoutTime, logonDay, logoutDay );
+  TimeRange localLogonTime
+    ( LocalTimeOnly(logonTime.getHour(), logonTime.getMinute(), logonTime.getSecond()),
+      LocalTimeOnly(logoutTime.getHour(), logoutTime.getMinute(), logoutTime.getSecond()),
+      logonDay, logoutDay );
+  TimeRange logonTimeRange = useLocalTime ? localLogonTime : utcLogonTime;
+
+  if( !sessionTimeRange.isInRange(logonTime) )
+    throw ConfigError( "LogonTime must be between StartTime and EndTime" );
+  if( !sessionTimeRange.isInRange(logoutTime) )
+    throw ConfigError( "LogoutTime must be between StartTime and EndTime" );
+  pSession->setLogonTime( logonTimeRange );
 
   if ( settings.has( SEND_REDUNDANT_RESENDREQUESTS ) )
     pSession->setSendRedundantResendRequests( settings.getBool( SEND_REDUNDANT_RESENDREQUESTS ) );

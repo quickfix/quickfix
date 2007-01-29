@@ -152,15 +152,19 @@ public:
   bool useLocalTime()
   { return m_useLocalTime; }
 
+  bool isInRange( DateTime& dateTime )
+  {
+    if( m_startDay < 0 && m_endDay < 0 )
+      return isInRange( m_startTime, m_endTime, dateTime );
+    else
+      return isInRange
+        ( m_startTime, m_endTime, m_startDay, m_endDay, dateTime );
+  }
+
   bool isInRange()
   {
     DateTime now = m_useLocalTime ? DateTime::nowLocal() : DateTime::nowUtc();
-
-    if( m_startDay < 0 && m_endDay < 0 )
-      return isInRange( m_startTime, m_endTime, now );
-    else
-      return isInRange
-        ( m_startTime, m_endTime, m_startDay, m_endDay, now );
+    return isInRange( now );
   }
 
   bool isInSameRange( const UtcTimeStamp& time1, const UtcTimeStamp& time2 )
