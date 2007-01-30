@@ -529,12 +529,22 @@ std::string file_separator()
 void file_mkdir( const char* path )
 { QF_STACK_PUSH(file_mkdir)
 
-#ifdef _MSC_VER
-  _mkdir( path );
-#else
-  // use umask to override rwx for all
-  mkdir( path, 0777 );
-#endif
+  int length = strlen( path );
+  std::string createPath = "";
+
+  for( const char* pos = path; pos - path <= length; ++pos )
+  {
+    createPath += *pos;
+    if( *pos == '/' || *pos == '\\' || pos - path == length )
+    {
+    #ifdef _MSC_VER
+      _mkdir( createPath.c_str() );
+    #else
+      // use umask to override rwx for all
+      mkdir( createPath.c_str(), 0777 );
+    #endif
+    }
+  }
 
   QF_STACK_POP
 }

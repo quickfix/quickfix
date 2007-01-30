@@ -71,8 +71,8 @@ void FileLogFactory::destroy( Log* pLog )
     m_globalLogCount--;
     if( m_globalLogCount == 0 )
     {
-	  delete pLog;
-	  m_globalLogCount = 0;
+	    delete pLog;
+	    m_globalLogCount = 0;
     }	
   }
   else
