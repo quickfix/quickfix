@@ -295,10 +295,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\C++\test\SessionTimeTestCase.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\C++\test\SettingsTestCase.cpp"
 				>
 			</File>
@@ -320,6 +316,10 @@
 			</File>
 			<File
 				RelativePath=".\C++\test\StringUtilitiesTestCase.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\C++\test\TimeRangeTestCase.cpp"
 				>
 			</File>
 			<File
@@ -424,10 +424,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\C++\test\SessionTimeTestCase.h"
-				>
-			</File>
-			<File
 				RelativePath=".\C++\test\SettingsTestCase.h"
 				>
 			</File>
@@ -453,6 +449,10 @@
 			</File>
 			<File
 				RelativePath=".\C++\test\TestSuite.h"
+				>
+			</File>
+			<File
+				RelativePath=".\C++\test\TimeRangeTestCase.h"
 				>
 			</File>
 			<File

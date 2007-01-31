@@ -223,15 +223,15 @@
 				>
 			</File>
 			<File
-				RelativePath="SessionTime.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\Settings.cpp"
 				>
 			</File>
 			<File
 				RelativePath="strptime.c"
+				>
+			</File>
+			<File
+				RelativePath=".\TimeRange.cpp"
 				>
 			</File>
 			<File
@@ -710,10 +710,6 @@
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="SessionTime.h"
-				>
-			</File>
-			<File
 				RelativePath=".\Settings.h"
 				>
 				<FileConfiguration
@@ -756,6 +752,10 @@
 						Outputs=""
 					/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\TimeRange.h"
+				>
 			</File>
 			<File
 				RelativePath=".\Utility.h"
