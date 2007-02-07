@@ -231,9 +231,9 @@ int socket_getsockopt( int s, int opt, int& optval )
     level = IPPROTO_TCP;
 
 #ifdef _MSC_VER
-  int length;
+  int length = sizeof(int);
 #else
-  socklen_t length;
+  socklen_t length = sizeof(socklen_t);
 #endif
 
   return ::getsockopt( s, level, opt, 
