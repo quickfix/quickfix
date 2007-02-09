@@ -35,7 +35,7 @@ public __abstract __gc class FieldMap {
 public:
   virtual void setString(int field, String* value) = 0;
   virtual void setBoolean(int field, bool value) = 0;
-  virtual void setChar(int field, char value) = 0;
+  virtual void setChar(int field, wchar_t value) = 0;
   virtual void setInt(int field, int value) = 0;
   virtual void setDouble(int field, double value) = 0;
   virtual void setUtcTimeStamp(int field, DateTime value) = 0;
@@ -43,7 +43,7 @@ public:
   virtual void setUtcDateOnly(int field, DateTime value) = 0;
   virtual String* getString(int field) = 0;
   virtual bool getBoolean(int field) = 0;
-  virtual char getChar(int field) = 0;
+  virtual wchar_t getChar(int field) = 0;
   virtual int getInt(int field) = 0;
   virtual double getDouble(int field) = 0;
   virtual DateTime getUtcTimeStamp(int field) = 0;

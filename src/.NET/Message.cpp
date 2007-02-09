@@ -62,7 +62,7 @@ void Message::setBoolean(int field, bool value)
   QF_STACK_CATCH
 }
 
-void Message::setChar(int field, char value)
+void Message::setChar(int field, wchar_t value)
 { QF_STACK_TRY
   checkDisposed(); mapSetChar( field, value, *m_pUnmanaged );
   QF_STACK_CATCH
@@ -128,7 +128,7 @@ bool Message::getBoolean(int field)
   QF_STACK_CATCH
 }
 
-char Message::getChar(int field)
+wchar_t Message::getChar(int field)
 { QF_STACK_TRY
   checkDisposed(); return mapGetChar( field, *m_pUnmanaged );
   QF_STACK_CATCH
@@ -342,7 +342,7 @@ void Message::Header::setBoolean(int field, bool value)
   QF_STACK_CATCH
 }
 
-void Message::Header::setChar(int field, char value)
+void Message::Header::setChar(int field, wchar_t value)
 { QF_STACK_TRY
   checkDisposed(); m_message->mapSetChar( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
@@ -408,7 +408,7 @@ bool Message::Header::getBoolean(int field)
   QF_STACK_CATCH
 }
 
-char Message::Header::getChar(int field)
+wchar_t Message::Header::getChar(int field)
 { QF_STACK_TRY
   checkDisposed(); return m_message->mapGetChar( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
@@ -654,7 +654,7 @@ void Message::Trailer::setBoolean(int field, bool value)
   QF_STACK_CATCH
 }
 
-void Message::Trailer::setChar(int field, char value)
+void Message::Trailer::setChar(int field, wchar_t value)
 { QF_STACK_TRY
   checkDisposed(); m_message->mapSetChar( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
@@ -720,7 +720,7 @@ bool Message::Trailer::getBoolean(int field)
   QF_STACK_CATCH
 }
 
-char Message::Trailer::getChar(int field)
+wchar_t Message::Trailer::getChar(int field)
 { QF_STACK_TRY
   checkDisposed(); return m_message->mapGetChar( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH

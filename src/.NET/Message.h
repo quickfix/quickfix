@@ -158,7 +158,7 @@ public:
 
   void setString(int field, String* value);
   void setBoolean(int field, bool value);
-  void setChar(int field, char value);
+  void setChar(int field, wchar_t value);
   void setInt(int field, int value);
   void setDouble(int field, double value);
   void setDouble(int field, double value, int padding);
@@ -170,7 +170,7 @@ public:
 
   String* getString(int field);
   bool getBoolean(int field);
-  char getChar(int field);
+  wchar_t getChar(int field);
   int getInt(int field);
   double getDouble(int field);
   DateTime getUtcTimeStamp(int field);
@@ -306,7 +306,7 @@ public:
 
     void setString(int field, String* value);
     void setBoolean(int field, bool value);
-    void setChar(int field, char value);
+    void setChar(int field, wchar_t value);
     void setInt(int field, int value);
     void setDouble(int field, double value);
     void setDouble(int field, double value, int padding);
@@ -318,7 +318,7 @@ public:
 
     String* getString(int field);
     bool getBoolean(int field);
-    char getChar(int field);
+    wchar_t getChar(int field);
     int getInt(int field);
     double getDouble(int field);
     DateTime getUtcTimeStamp(int field);
@@ -446,7 +446,7 @@ public:
 
     void setString(int field, String* value);
     void setBoolean(int field, bool value);
-    void setChar(int field, char value);
+    void setChar(int field, wchar_t value);
     void setInt(int field, int value);
     void setDouble(int field, double value);
     void setDouble(int field, double value, int padding);
@@ -458,7 +458,7 @@ public:
 
     String* getString(int field);
     bool getBoolean(int field);
-    char getChar(int field);
+    wchar_t getChar(int field);
     int getInt(int field);
     double getDouble(int field);
     DateTime getUtcTimeStamp(int field);
