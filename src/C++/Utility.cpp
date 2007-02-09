@@ -72,6 +72,23 @@ std::string string_toLower( const std::string& value )
   QF_STACK_POP
 }
 
+std::string string_strip( const std::string& value )
+{ QF_STACK_PUSH(string_strip)
+
+  if( !value.size() )
+    return value;
+
+  int startPos = value.find_first_not_of(" \t\r\n");
+  int endPos = value.find_last_not_of(" \t\r\n");
+
+  if( startPos == -1 )
+   return value;
+
+   return std::string( value, startPos, endPos - startPos + 1 );
+
+  QF_STACK_POP
+}
+
 void socket_init()
 { QF_STACK_PUSH(socket_init)
 

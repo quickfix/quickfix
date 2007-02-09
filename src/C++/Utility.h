@@ -97,6 +97,7 @@ void string_replace( const std::string& oldValue,
 		     std::string& value );
 std::string string_toLower( const std::string& value );
 std::string string_toUpper( const std::string& value );
+std::string string_strip( const std::string& value );
 
 void socket_init();
 void socket_term();

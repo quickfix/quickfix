@@ -37,6 +37,7 @@ void SessionSettingsTestCase::readFromIstream::onRun
     "ConnectionType=initiator\n"
     "BeginString=FIX.4.0\n"
     "Value=4\n"
+    "Empty=\n"
     "[SESSION]\n"
     "BeginString=FIX.4.2\n"
     "SenderCompID=ISLD\n"
@@ -72,6 +73,8 @@ void SessionSettingsTestCase::readFromIstream::onRun
   SessionID session4( BeginString( "FIX.4.0" ),
                       SenderCompID( "ARCA" ),
                       TargetCompID( "WT" ) );
+
+  assertEquals( "", object.get().getString( "Empty" ) );
 
   assertEquals( 4, object.get().getLong( "Value" ) );
   assertEquals( 1, object.get( session1 ).getLong( "Value" ) );

@@ -57,19 +57,19 @@ void SettingsTestCase::readFromIstream::onRun( Settings& object )
   assert( foo[ 0 ].size() == 2 );
 
   Settings::Sections oren = object.get( "OREN" );
-  assert( oren.size() == 2 );
-  assert( oren[ 0 ].size() == 1 );
-  assert( oren[ 0 ].getString( "Nero" ) == "TW" );
-  assert( oren[ 1 ].size() == 2 );
-  assert( oren[ 1 ].getString( "ISLD" ) == "Nero" );
-  assert( oren[ 1 ].getString( "STUFF" ) == "./\\:" );
+  assertEquals( 2, oren.size() );
+  assertEquals( 1, oren[ 0 ].size() );
+  assertEquals( "TW", oren[ 0 ].getString( "Nero" ) );
+  assertEquals( 2, oren[ 1 ].size() );
+  assertEquals( "Nero", oren[ 1 ].getString( "ISLD" ) );
+  assertEquals( "./\\:", oren[ 1 ].getString( "STUFF" ) );
 
   Settings::Sections nero = object.get( "NERO" );
-  assert( nero.size() == 1 );
-  assert( nero[ 0 ].size() == 4 );
-  assert( nero[ 0 ].getString( "WINDIR" ) == "D:\\This Is\\A-Directory\\ok\\" );
-  assert( nero[ 0 ].getString( "UNIXDIR" ) == "/This Is/A Directory/ok/" );
-  assert( nero[ 0 ].getString( "WINFILE" ) == "D:\\Program Files\\Tomcat 4.1\\webapps\\mek\\WEB-INF\\HTTPtoFIX.cfg" );
-  assert( nero[ 0 ].getString( "stripspace" ) == "last spaces stripped" );
+  assertEquals( 1, nero.size() );
+  assertEquals( 4, nero[ 0 ].size() );
+  assertEquals( "D:\\This Is\\A-Directory\\ok\\", nero[ 0 ].getString( "WINDIR" ) );
+  assertEquals( "/This Is/A Directory/ok/", nero[ 0 ].getString( "UNIXDIR" ) );
+  assertEquals( "D:\\Program Files\\Tomcat 4.1\\webapps\\mek\\WEB-INF\\HTTPtoFIX.cfg", nero[ 0 ].getString( "WINFILE" ) );
+  assertEquals( "last spaces stripped", nero[ 0 ].getString( "stripspace" ) );
 }
 }

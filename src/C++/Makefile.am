@@ -20,8 +20,6 @@ libquickfix_la_SOURCES = \
 	FileLog.h \
 	Settings.cpp \
 	Settings.h \
-	ConfigLexer.cpp \
-	ConfigLexer.h \
 	MessageStore.cpp \
 	MessageStore.h \
 	SocketServer.cpp \

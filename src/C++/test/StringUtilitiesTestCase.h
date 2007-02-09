@@ -33,6 +33,9 @@ public:
   StringUtilitiesTestCase()
   {
     add( &m_replace );
+    add( &m_toUpper );
+    add( &m_toLower );
+    add( &m_strip );
   }
 
 private:
@@ -41,8 +44,22 @@ private:
   class replace : public Test
   {
     void onRun( std::string& object );
-  }
-  m_replace;
+  } m_replace;
+
+  class toUpper : public Test
+  {
+    void onRun( std::string& object );
+  } m_toUpper;
+
+  class toLower : public Test
+  {
+    void onRun( std::string& object );
+  } m_toLower;
+
+  class strip : public Test
+  {
+    void onRun( std::string& object );
+  } m_strip;
 };
 }
 
