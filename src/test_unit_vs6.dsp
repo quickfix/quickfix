@@ -174,10 +174,6 @@ SOURCE=".\C++\test\SessionTestCase.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\C++\test\SessionTimeTestCase.cpp"
-# End Source File
-# Begin Source File
-
 SOURCE=".\C++\test\SettingsTestCase.cpp"
 # End Source File
 # Begin Source File
@@ -199,6 +195,10 @@ SOURCE=".\C++\test\SocketUtilitiesTestCase.cpp"
 # Begin Source File
 
 SOURCE=".\C++\test\StringUtilitiesTestCase.cpp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\TimeRangeTestCase.cpp"
 # End Source File
 # Begin Source File
 
@@ -302,10 +302,6 @@ SOURCE=".\C++\test\SessionTestCase.h"
 # End Source File
 # Begin Source File
 
-SOURCE=".\C++\test\SessionTimeTestCase.h"
-# End Source File
-# Begin Source File
-
 SOURCE=".\C++\test\SettingsTestCase.h"
 # End Source File
 # Begin Source File
@@ -331,6 +327,10 @@ SOURCE=".\C++\test\StringUtilitiesTestCase.h"
 # Begin Source File
 
 SOURCE=".\C++\test\TestSuite.h"
+# End Source File
+# Begin Source File
+
+SOURCE=".\C++\test\TimeRangeTestCase.h"
 # End Source File
 # Begin Source File
 

@@ -103,10 +103,6 @@ SOURCE=".\CallStack.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\ConfigLexer.cpp"
-# End Source File
-# Begin Source File
-
 SOURCE=".\Dictionary.cpp"
 # End Source File
 # Begin Source File
@@ -139,10 +135,6 @@ SOURCE=".\SessionSettings.cpp"
 # End Source File
 # Begin Source File
 
-SOURCE=".\SessionTime.cpp"
-# End Source File
-# Begin Source File
-
 SOURCE=".\Settings.cpp"
 # End Source File
 # Begin Source File
@@ -152,6 +144,10 @@ SOURCE=".\stdafx.cpp"
 # Begin Source File
 
 SOURCE=".\strptime.c"
+# End Source File
+# Begin Source File
+
+SOURCE=.\TimeRange.cpp
 # End Source File
 # Begin Source File
 
@@ -172,10 +168,6 @@ SOURCE=".\Application.h"
 # Begin Source File
 
 SOURCE=".\CallStack.h"
-# End Source File
-# Begin Source File
-
-SOURCE=".\ConfigLexer.h"
 # End Source File
 # Begin Source File
 
@@ -260,6 +252,10 @@ SOURCE=".\Settings.h"
 # Begin Source File
 
 SOURCE=".\strptime.h"
+# End Source File
+# Begin Source File
+
+SOURCE=.\TimeRange.h
 # End Source File
 # Begin Source File
 
