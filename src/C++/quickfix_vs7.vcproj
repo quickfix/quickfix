@@ -145,9 +145,6 @@ del /F EXCLUDE
 				RelativePath="CallStack.cpp">
 			</File>
 			<File
-				RelativePath=".\ConfigLexer.cpp">
-			</File>
-			<File
 				RelativePath=".\Dictionary.cpp">
 			</File>
 			<File
@@ -172,13 +169,13 @@ del /F EXCLUDE
 				RelativePath=".\SessionSettings.cpp">
 			</File>
 			<File
-				RelativePath="SessionTime.cpp">
-			</File>
-			<File
 				RelativePath=".\Settings.cpp">
 			</File>
 			<File
 				RelativePath="strptime.c">
+			</File>
+			<File
+				RelativePath=".\TimeRange.cpp">
 			</File>
 			<File
 				RelativePath=".\Utility.cpp">
@@ -223,23 +220,6 @@ del /F EXCLUDE
 			</File>
 			<File
 				RelativePath="CallStack.h">
-				<FileConfiguration
-					Name="Debug|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32">
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\ConfigLexer.h">
 				<FileConfiguration
 					Name="Debug|Win32">
 					<Tool
@@ -548,9 +528,6 @@ del /F EXCLUDE
 				</FileConfiguration>
 			</File>
 			<File
-				RelativePath="SessionTime.h">
-			</File>
-			<File
 				RelativePath=".\Settings.h">
 				<FileConfiguration
 					Name="Debug|Win32">
@@ -583,6 +560,9 @@ del /F EXCLUDE
 						CommandLine=""
 						Outputs=""/>
 				</FileConfiguration>
+			</File>
+			<File
+				RelativePath=".\TimeRange.h">
 			</File>
 			<File
 				RelativePath=".\Utility.h">
