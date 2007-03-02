@@ -3248,7 +3248,7 @@
     </group>
     <component name="PositionQty" required="Y" />
     <component name="PositionAmountData" required="Y" />
-    <field name="RegistStatus" required="N" />   RegNonRegInd
+    <field name="RegistStatus" required="N" />
     <field name="DeliveryDate" required="N" />   
     <field name="Text" required="N" />   
     <field name="EncodedTextLen" required="N" />
