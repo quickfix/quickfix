@@ -779,7 +779,36 @@
     <field number="32" name="LastShares" type="INT"/>
     <field number="33" name="LinesOfText" type="INT"/>
     <field number="34" name="MsgSeqNum" type="INT"/>
-    <field number="35" name="MsgType" type="STRING"/>
+    <field number="35" name="MsgType" type="STRING">
+      <value enum="0" description="HEARTBEAT" />
+      <value enum="1" description="TEST_REQUEST" />
+      <value enum="2" description="RESEND_REQUEST" />
+      <value enum="3" description="REJECT" />
+      <value enum="4" description="SEQUENCE_RESET" />
+      <value enum="5" description="LOGOUT" />
+      <value enum="6" description="INDICATION_OF_INTEREST" />
+      <value enum="7" description="ADVERTISEMENT" />
+      <value enum="8" description="EXECUTION_REPORT" />
+      <value enum="9" description="ORDER_CANCEL_REJECT" />
+      <value enum="A" description="LOGON" />
+      <value enum="B" description="NEWS" />
+      <value enum="C" description="EMAIL" />
+      <value enum="D" description="ORDER_SINGLE" />
+      <value enum="E" description="ORDER_LIST" />
+      <value enum="F" description="ORDER_CANCEL_REQUEST" />
+      <value enum="G" description="ORDER_CANCEL" />
+      <value enum="H" description="ORDER_STATUS_REQUEST" />
+      <value enum="J" description="ALLOCATION" />
+      <value enum="K" description="LIST_CANCEL_REQUEST" />
+      <value enum="L" description="LIST_EXECUTE" />
+      <value enum="M" description="LIST_STATUS_REQUEST" />
+      <value enum="N" description="LIST_STATUS" />
+      <value enum="P" description="ALLOCATION_ACK" />
+      <value enum="Q" description="DONT_KNOW_TRADE" />
+      <value enum="R" description="QUOTE_REQUEST" />
+      <value enum="S" description="QUOTE" />
+      <value enum="T" description="SETTLEMENT_INSTRUCTIONS" />
+    </field>
     <field number="36" name="NewSeqNo" type="INT"/>
     <field number="37" name="OrderID" type="STRING"/>
     <field number="38" name="OrderQty" type="INT"/>

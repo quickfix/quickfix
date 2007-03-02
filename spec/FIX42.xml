@@ -1709,7 +1709,54 @@
     <field number="32" name="LastShares" type="QTY"/>
     <field number="33" name="LinesOfText" type="INT"/>
     <field number="34" name="MsgSeqNum" type="INT"/>
-    <field number="35" name="MsgType" type="STRING"/>
+    <field number="35" name="MsgType" type="STRING">
+      <value enum="0" description="HEARTBEAT" />
+      <value enum="1" description="TEST_REQUEST" />
+      <value enum="2" description="RESEND_REQUEST" />
+      <value enum="3" description="REJECT" />
+      <value enum="4" description="SEQUENCE_RESET" />
+      <value enum="5" description="LOGOUT" />
+      <value enum="6" description="INDICATION_OF_INTEREST" />
+      <value enum="7" description="ADVERTISEMENT" />
+      <value enum="8" description="EXECUTION_REPORT" />
+      <value enum="9" description="ORDER_CANCEL_REJECT" />
+      <value enum="A" description="LOGON" />
+      <value enum="B" description="NEWS" />
+      <value enum="C" description="EMAIL" />
+      <value enum="D" description="ORDER_SINGLE" />
+      <value enum="E" description="ORDER_LIST" />
+      <value enum="F" description="ORDER_CANCEL_REQUEST" />
+      <value enum="G" description="ORDER_CANCEL" />
+      <value enum="H" description="ORDER_STATUS_REQUEST" />
+      <value enum="J" description="ALLOCATION" />
+      <value enum="K" description="LIST_CANCEL_REQUEST" />
+      <value enum="L" description="LIST_EXECUTE" />
+      <value enum="M" description="LIST_STATUS_REQUEST" />
+      <value enum="N" description="LIST_STATUS" />
+      <value enum="P" description="ALLOCATION_ACK" />
+      <value enum="Q" description="DONT_KNOW_TRADE" />
+      <value enum="R" description="QUOTE_REQUEST" />
+      <value enum="S" description="QUOTE" />
+      <value enum="T" description="SETTLEMENT_INSTRUCTIONS" />
+      <value enum="V" description="MARKET_DATA_REQUEST" />
+      <value enum="W" description="MARKET_DATA_SNAPSHOT" />
+      <value enum="X" description="MARKET_DATA_INCREMENTAL_REFRESH" />
+      <value enum="Y" description="MARKET_DATA_REQUEST_REJECT" />
+      <value enum="Z" description="QUOTE_CANCEL" />
+      <value enum="a" description="QUOTE_STATUS_REQUEST" />
+      <value enum="b" description="MASS_QUOTE_ACKNOWLEDGEMENT" />
+      <value enum="c" description="SECURITY_DEFINITION_REQUEST" />
+      <value enum="d" description="SECURITY_DEFINITION" />
+      <value enum="e" description="SECURITY_STATUS_REQUEST" />
+      <value enum="f" description="SECURITY_STATUS" />
+      <value enum="g" description="TRADING_SESSION_STATUS_REQUEST" />
+      <value enum="h" description="TRADING_SESSION_STATUS" />
+      <value enum="i" description="MASS_QUOTE" />
+      <value enum="j" description="BUSINESS_MESSAGE_REJECT" />
+      <value enum="k" description="BID_REQUEST" />
+      <value enum="l" description="BID_RESPONSE" />
+      <value enum="m" description="LIST_STRIKE_PRICE" />
+    </field>
     <field number="36" name="NewSeqNo" type="INT"/>
     <field number="37" name="OrderID" type="STRING"/>
     <field number="38" name="OrderQty" type="QTY"/>
