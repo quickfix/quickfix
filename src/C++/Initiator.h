@@ -72,7 +72,7 @@ public:
   bool isLoggedOn();
 
   Session* getSession( const SessionID& sessionID, Responder& );
-  const std::set<SessionID> getSessions() const { return m_sessionIDs; }
+  const std::set<SessionID>& getSessions() const { return m_sessionIDs; }
 
   bool has( const SessionID& id )
   { return m_sessions.find( id ) != m_sessions.end(); }
