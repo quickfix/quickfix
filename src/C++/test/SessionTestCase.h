@@ -94,7 +94,7 @@ class Test : public CPPTest::Test < Session > ,
     void onTeardown( Session* pObject ) { delete pObject; }
 
     bool send( const std::string& ) { return true; }
-    void onRun() {}
+    void onRun( Session* pObject ) {}
     void toAdmin( Message& message, const SessionID& )
     {
       MsgType msgType;
