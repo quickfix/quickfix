@@ -136,7 +136,7 @@ void SocketAcceptor::onStart()
   QF_STACK_POP
 }
 
-bool SocketAcceptor::onPoll()
+bool SocketAcceptor::onPoll( double timeout )
 { QF_STACK_PUSH(SocketAcceptor::onPoll)
 
   if( !m_pServer )

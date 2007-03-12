@@ -155,7 +155,7 @@ void SocketServer::close()
   QF_STACK_POP
 }
 
-bool SocketServer::block( Strategy& strategy, bool poll )
+bool SocketServer::block( Strategy& strategy, bool poll, double timeout )
 { QF_STACK_PUSH(SocketServer::block)
 
   std::set<int> sockets;
@@ -168,7 +168,7 @@ bool SocketServer::block( Strategy& strategy, bool poll )
   }
 
   ServerWrapper wrapper( sockets, *this, strategy );
-  m_monitor.block( wrapper, poll );
+  m_monitor.block( wrapper, poll, timeout );
   return true;
 
   QF_STACK_POP

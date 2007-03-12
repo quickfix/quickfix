@@ -222,7 +222,7 @@ void Initiator::block() throw ( ConfigError, RuntimeError )
   QF_STACK_POP
 }
 
-bool Initiator::poll() throw ( ConfigError, RuntimeError )
+bool Initiator::poll( double timeout ) throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH(Initiator::poll)
 
   if( m_firstPoll )
@@ -232,7 +232,7 @@ bool Initiator::poll() throw ( ConfigError, RuntimeError )
     m_firstPoll = false;
   }
 
-  return onPoll();
+  return onPoll( timeout );
 
   QF_STACK_POP
 }

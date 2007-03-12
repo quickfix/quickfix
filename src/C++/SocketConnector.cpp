@@ -124,11 +124,11 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
   QF_STACK_POP
 }
 
-void SocketConnector::block( Strategy& strategy, bool poll )
+void SocketConnector::block( Strategy& strategy, bool poll, double timeout )
 { QF_STACK_PUSH(SocketConnector::block)
 
   ConnectorWrapper wrapper( *this, strategy );
-  m_monitor.block( wrapper, poll );
+  m_monitor.block( wrapper, poll, timeout );
 
   QF_STACK_POP
 }

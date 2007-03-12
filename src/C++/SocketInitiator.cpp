@@ -101,7 +101,7 @@ void SocketInitiator::onStart()
   QF_STACK_POP
 }
 
-bool SocketInitiator::onPoll()
+bool SocketInitiator::onPoll( double timeout )
 { QF_STACK_PUSH(SocketInitiator::onPoll)
 
   time_t start = 0;

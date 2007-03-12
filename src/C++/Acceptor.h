@@ -63,7 +63,7 @@ public:
   /// Block on the acceptor
   void block() throw ( ConfigError, RuntimeError );
   /// Poll the acceptor
-  bool poll() throw ( ConfigError, RuntimeError );
+  bool poll( double timeout = 0.0 ) throw ( ConfigError, RuntimeError );
 
   /// Stop acceptor.
   void stop( bool force = false );
@@ -93,7 +93,7 @@ private:
   /// Implemented to start listening for connections.
   virtual void onStart() = 0;
   /// Implemented to connect and poll for events.
-  virtual bool onPoll() = 0;
+  virtual bool onPoll( double second ) = 0;
   /// Implemented to stop a running acceptor.
   virtual void onStop() = 0;
 

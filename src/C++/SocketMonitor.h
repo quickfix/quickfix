@@ -58,7 +58,7 @@ public:
   bool drop( int socket );
   void signal( int socket );
   void unsignal( int socket );
-  void block( Strategy& strategy, bool poll = 0 );
+  void block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );
 
   int numSockets() 
   { return m_readSockets.size() - 1; }
@@ -71,7 +71,7 @@ private:
   bool bind();
   bool listen();
   void buildSet( const Sockets&, fd_set& );
-  inline timeval* getTimeval( bool poll );
+  inline timeval* getTimeval( bool poll, double timeout );
   inline bool sleepIfEmpty( bool poll );
 
   void processReadSet( Strategy&, fd_set& );

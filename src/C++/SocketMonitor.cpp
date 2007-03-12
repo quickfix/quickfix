@@ -125,34 +125,30 @@ bool SocketMonitor::drop( int s )
   QF_STACK_POP
 }
 
-inline timeval* SocketMonitor::getTimeval( bool poll )
+inline timeval* SocketMonitor::getTimeval( bool poll, double timeout )
 { QF_STACK_PUSH(SocketMonitor::getTimeval)
 
-  if ( poll )
-  {
-    m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = 0;
-    return &m_timeval;
-  }
+  if ( !poll )
+    timeout = m_timeout;
 
-  if ( !m_timeout )
+  if ( !timeout )
     return 0;
 #ifdef SELECT_MODIFIES_TIMEVAL
-  if ( !m_timeval.tv_sec && !m_timeval.tv_usec && m_timeout )
-    m_timeval.tv_sec = m_timeout;
+  if ( !m_timeval.tv_sec && !m_timeval.tv_usec && timeout )
+    m_timeval.tv_sec = timeout;
   return &m_timeval;
 #else
 double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
-  if ( elapsed >= m_timeout || elapsed == 0.0 )
+  if ( elapsed >= timeout || elapsed == 0.0 )
   {
     m_ticks = clock();
     m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = m_timeout * 1000000;
+    m_timeval.tv_usec = timeout * 1000000;
   }
   else
   {
     m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = ( long ) ( ( m_timeout - elapsed ) * 1000000 );
+    m_timeval.tv_usec = ( long ) ( ( timeout - elapsed ) * 1000000 );
   }
   return &m_timeval;
 #endif
@@ -196,7 +192,7 @@ void SocketMonitor::unsignal( int s )
   QF_STACK_POP
 }
 
-void SocketMonitor::block( Strategy& strategy, bool poll )
+void SocketMonitor::block( Strategy& strategy, bool poll, double timeout )
 { QF_STACK_PUSH(SocketMonitor::block)
 
   while ( m_dropped.size() )
@@ -224,7 +220,7 @@ void SocketMonitor::block( Strategy& strategy, bool poll )
     return;
   }
 
-  int result = select( FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll) );
+  int result = select( FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll, timeout) );
 
   if ( result == 0 )
   {

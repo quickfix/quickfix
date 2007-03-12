@@ -93,7 +93,7 @@ void ThreadedSocketInitiator::onStart()
   QF_STACK_POP
 }
 
-bool ThreadedSocketInitiator::onPoll()
+bool ThreadedSocketInitiator::onPoll( double timeout )
 { QF_STACK_PUSH(ThreadedSocketInitiator::onPoll)
 
   return false;

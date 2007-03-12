@@ -44,7 +44,7 @@ public:
   ~TestAcceptor() { delete m_pApp; }
   void onInitialize( const SessionSettings& ) throw( RuntimeError ) {}
   void onStart() {}
-  bool onPoll() { return false; }
+  bool onPoll( double timeout ) { return false; }
   void onStop() {}
   TestApplication* m_pApp;
 };

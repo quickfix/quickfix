@@ -134,7 +134,7 @@ void ThreadedSocketAcceptor::onStart()
   QF_STACK_POP
 }
 
-bool ThreadedSocketAcceptor::onPoll()
+bool ThreadedSocketAcceptor::onPoll( double timeout )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onPoll)
 
   return false;

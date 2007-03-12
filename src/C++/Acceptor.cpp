@@ -170,7 +170,7 @@ void Acceptor::block() throw ( ConfigError, RuntimeError )
   QF_STACK_POP
 }
 
-bool Acceptor::poll() throw ( ConfigError, RuntimeError )
+bool Acceptor::poll( double timeout ) throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH( Acceptor::poll )
 
   if( m_firstPoll )
@@ -180,7 +180,7 @@ bool Acceptor::poll() throw ( ConfigError, RuntimeError )
     m_firstPoll = false;
   }
 
-  return onPoll();
+  return onPoll( timeout );
 
   QF_STACK_POP
 }
