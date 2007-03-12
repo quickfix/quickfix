@@ -133,6 +133,12 @@ void MessageTestCase::setString::onRun( Message& object )
   static const char* strNoLengthAndChk =
     "8=FIX.4.2\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\001";
+  static const char* strBadLength =
+    "8=FIX.4.2\0019=AB\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=218\001";
+  static const char* strBadChecksum =
+    "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
+    "52=20000426-12:05:06\00156=ISLD\00110=ABC\001";
   static const char* strJunk =
     "paste your FIX message here, then hit ENTER";
   static const char* strEmpty =
@@ -156,6 +162,8 @@ void MessageTestCase::setString::onRun( Message& object )
   try{ object.setString( strBadHeaderOrder ); assert(false) }
   catch( InvalidMessage& ) {}
   try{ object.setString( strNoLengthAndChk ); assert(false) }
+  catch( InvalidMessage& ) {}
+  try{ object.setString( strBadLength ); assert(false) }
   catch( InvalidMessage& ) {}
   try{ object.setString( strJunk ); assert(false) }
   catch( InvalidMessage& ) {}

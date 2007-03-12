@@ -550,6 +550,10 @@ void Message::validate()
   {
     throw InvalidMessage("BodyLength or CheckSum missing");
   }
+  catch ( IncorrectDataFormat& )
+  {
+    throw InvalidMessage("BodyLength or Checksum has wrong format");
+  }
 
   QF_STACK_POP
 }
