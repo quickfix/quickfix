@@ -145,10 +145,16 @@ public:
 
   bool poll()
   { QF_STACK_TRY
+    return poll( 0.0 );
+    QF_STACK_CATCH
+  }
+
+  bool poll( double timeout )
+  { QF_STACK_TRY
 
     try
     {
-      return m_pUnmanaged->poll();
+      return m_pUnmanaged->poll( timeout );
     }
     catch( FIX::ConfigError& e )
     {
