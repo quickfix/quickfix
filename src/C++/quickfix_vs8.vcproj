@@ -187,10 +187,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\ConfigLexer.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\Dictionary.cpp"
 				>
 			</File>
@@ -289,28 +285,6 @@
 			</File>
 			<File
 				RelativePath="CallStack.h"
-				>
-				<FileConfiguration
-					Name="Debug|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""
-					/>
-				</FileConfiguration>
-				<FileConfiguration
-					Name="Release|Win32"
-					>
-					<Tool
-						Name="VCCustomBuildTool"
-						CommandLine=""
-						Outputs=""
-					/>
-				</FileConfiguration>
-			</File>
-			<File
-				RelativePath=".\ConfigLexer.h"
 				>
 				<FileConfiguration
 					Name="Debug|Win32"
