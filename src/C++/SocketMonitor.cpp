@@ -143,7 +143,7 @@ double elapsed = ( double ) ( clock() - m_ticks ) / ( double ) CLOCKS_PER_SEC;
   {
     m_ticks = clock();
     m_timeval.tv_sec = 0;
-    m_timeval.tv_usec = timeout * 1000000;
+    m_timeval.tv_usec = (long)(timeout * 1000000);
   }
   else
   {
