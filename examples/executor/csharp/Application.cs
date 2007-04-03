@@ -42,7 +42,6 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
-    Account account = new Account();
 
     order.get( ordType );
 
@@ -70,8 +69,8 @@ public class Application: MessageCracker, QuickFix.Application
 
     executionReport.set( clOrdID );
 
-    if( executionReport.isSet(account) )
-      executionReport.setField( executionReport.get(account) );
+    if( order.isSetAccount() )
+      executionReport.set( order.getAccount() );
 
     try
     {
@@ -88,7 +87,6 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
-    Account account = new Account();
 
     order.get( ordType );
 
@@ -118,8 +116,8 @@ public class Application: MessageCracker, QuickFix.Application
 
     executionReport.set( clOrdID );
 
-    if( executionReport.isSet(account) )
-      executionReport.setField( executionReport.get(account) );
+    if( order.isSetAccount() )
+      executionReport.set( order.getAccount() );
 
     try
     {
@@ -136,7 +134,6 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
-    Account account = new Account();
 
     order.get( ordType );
 
@@ -153,21 +150,21 @@ public class Application: MessageCracker, QuickFix.Application
                                             ( genOrderID(),
                                               genExecID(),
                                               new ExecTransType( ExecTransType.NEW ),
-                                              new ExecType ( ExecType.FILL ),
-                                              new OrdStatus ( OrdStatus.FILLED ),
+                                              new ExecType( ExecType.FILL ),
+                                              new OrdStatus( OrdStatus.FILLED ),
                                               symbol,
                                               side,
-                                              new LeavesQty ( 0 ),
-                                              new CumQty ( orderQty.getValue() ),
-                                              new AvgPx ( price.getValue() ) );
+                                              new LeavesQty( 0 ),
+                                              new CumQty( orderQty.getValue() ),
+                                              new AvgPx( price.getValue() ) );
 
     executionReport.set( clOrdID );
     executionReport.set( orderQty );
     executionReport.set( new LastShares( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
-    if( executionReport.isSet(account) )
-      executionReport.setField( executionReport.get(account) );
+    if( order.isSetAccount() )
+      executionReport.set( order.getAccount() );
 
     try
     {
@@ -184,7 +181,6 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
-    Account account = new Account();
 
     order.get( ordType );
 
@@ -213,8 +209,8 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( new LastQty( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
-    if( executionReport.isSet(account) )
-      executionReport.setField( executionReport.get(account) );
+    if( order.isSetAccount() )
+      executionReport.set( order.getAccount() );
 
     try
     {
@@ -232,7 +228,6 @@ public class Application: MessageCracker, QuickFix.Application
     OrderQty orderQty = new OrderQty();
     Price price = new Price();
     ClOrdID clOrdID = new ClOrdID();
-    Account account = new Account();
 
     order.get( ordType );
 
@@ -261,8 +256,8 @@ public class Application: MessageCracker, QuickFix.Application
     executionReport.set( new LastQty( orderQty.getValue() ) );
     executionReport.set( new LastPx( price.getValue() ) );
 
-    if( executionReport.isSet(account) )
-      executionReport.setField( executionReport.get(account) );
+    if( order.isSetAccount() )
+      executionReport.setField( order.getAccount() );
 
     try
     {
@@ -281,7 +276,7 @@ public class Application: MessageCracker, QuickFix.Application
     return new ExecID( ( ++m_execID ).ToString() );
   }
 
-  private Int32 m_orderID;
-  private Int32 m_execID;
+  private int m_orderID;
+  private int m_execID;
 }
 }
