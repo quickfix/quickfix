@@ -32,6 +32,7 @@ Message::Message( BeginString* beginString ) : disposed( false )
   m_header = new Header( this );
   m_trailer = new Trailer( this );
   mapSetField( beginString, m_pUnmanaged->getHeader() );
+  addMemoryPressure();
 
   QF_STACK_CATCH
 }
@@ -46,6 +47,7 @@ Message::Message( BeginString* beginString, MsgType* msgType )
   m_trailer = new Trailer( this );
   mapSetField( beginString, m_pUnmanaged->getHeader() );
   mapSetField( msgType, m_pUnmanaged->getHeader() );
+  addMemoryPressure();
 
   QF_STACK_CATCH
 }

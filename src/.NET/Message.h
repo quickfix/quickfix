@@ -41,6 +41,21 @@ public __gc class MsgType;
 
 public __gc class Message : public FieldMap, public IDisposable
 {
+private:
+  void addMemoryPressure()
+  {
+#if defined(_MSC_VER) && _MSC_VER >= 1300
+    GC::AddMemoryPressure( 2048 );
+#endif
+  }
+
+  void removeMemoryPressure()
+  {
+#if defined(_MSC_VER) && _MSC_VER >= 1300
+    GC::RemoveMemoryPressure( 2048 );
+#endif
+  }
+
 public:
   Message() : disposed( false )
   { QF_STACK_TRY
@@ -48,6 +63,7 @@ public:
     m_pUnmanaged = new FIX::Message();
     m_header = new Header( this );
     m_trailer = new Trailer( this );
+    addMemoryPressure();
 
     QF_STACK_CATCH
   }
@@ -67,6 +83,8 @@ public:
     catch ( FIX::InvalidMessage & e )
     { throw new InvalidMessage(); }
 
+    addMemoryPressure();
+
     QF_STACK_CATCH
   }
 
@@ -84,6 +102,8 @@ public:
     }
     catch ( FIX::InvalidMessage & e )
     { throw new InvalidMessage(); }
+
+    addMemoryPressure();
 
     QF_STACK_CATCH
   }
@@ -103,6 +123,8 @@ public:
     catch ( FIX::InvalidMessage & e )
     { throw new InvalidMessage(); }
 
+    addMemoryPressure();
+
     QF_STACK_CATCH
   }
 
@@ -113,6 +135,8 @@ public:
     *m_pUnmanaged = message;
     m_header = new Header( this );
     m_trailer = new Trailer( this );
+
+    addMemoryPressure();
 
     QF_STACK_CATCH
   }
@@ -128,8 +152,7 @@ public:
 
   ~Message()
   {
-    delete m_pUnmanaged;
-    m_pUnmanaged = 0;
+    Dispose();
   }
 
   void Dispose()
@@ -141,6 +164,7 @@ public:
       delete m_pUnmanaged; m_pUnmanaged = 0;
       System::GC::SuppressFinalize( this );
       disposed = true;
+      removeMemoryPressure();
     }
   }
 
