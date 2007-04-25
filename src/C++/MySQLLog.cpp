@@ -220,9 +220,9 @@ void MySQLLog::insert( const std::string& table, const std::string value )
 
   std::stringstream queryString;
   queryString << "INSERT INTO " << table << " "
-  << "(time, beginstring, sendercompid, targetcompid, session_qualifier, text) "
+  << "(time, time_milliseconds, beginstring, sendercompid, targetcompid, session_qualifier, text) "
   << "VALUES ("
-  << "'" << sqlTime << "',";
+  << "'" << sqlTime << "','" << millis << "',";
 
   if( m_pSessionID )
   {

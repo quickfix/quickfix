@@ -80,9 +80,9 @@ public:
   void clear();
 
   void onIncoming( const std::string& value )
-  { m_messages << value << std::endl << std::flush; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp()) << " : " << value << std::endl << std::flush; }
   void onOutgoing( const std::string& value )
-  { m_messages << value << std::endl << std::flush; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp()) << " : "  << value << std::endl << std::flush; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
