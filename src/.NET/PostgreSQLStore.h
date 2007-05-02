@@ -37,7 +37,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class PostgreSQLStore : public CPPMessageStore, public IDisposable
+public __gc class PostgreSQLStore : public CPPMessageStore
 {
 public:
   PostgreSQLStore( SessionID* sessionID, String* database, String* user,
@@ -52,11 +52,6 @@ public:
 
   PostgreSQLStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
-
-  void Dispose()
-  {
-    delete m_pUnmanaged;
-  }
 };
 
 public __gc class PostgreSQLStoreFactory : public MessageStoreFactory
