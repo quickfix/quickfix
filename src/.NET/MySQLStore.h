@@ -37,7 +37,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class MySQLStore : public CPPMessageStore
+public __gc class MySQLStore : public CPPMessageStore, public IDisposable
 {
 public:
   MySQLStore( SessionID* sessionID, String* database, String* user,
@@ -52,6 +52,11 @@ public:
 
   MySQLStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
+
+  void Dispose()
+  {
+    delete m_pUnmanaged;
+  }
 };
 
 public __gc class MySQLStoreFactory : public MessageStoreFactory

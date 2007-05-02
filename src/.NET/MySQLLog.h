@@ -38,12 +38,17 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class MySQLLog : public CPPLog
+public __gc class MySQLLog : public CPPLog, public IDisposable
 {
 public:
   MySQLLog( FIX::Log* pUnmanaged )
   {
     m_pUnmanaged = pUnmanaged;
+  }
+
+  void Dispose()
+  {
+    delete m_pUnmanaged;
   }
 };
 

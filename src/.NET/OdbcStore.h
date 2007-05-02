@@ -37,7 +37,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class OdbcStore : public CPPMessageStore
+public __gc class OdbcStore : public CPPMessageStore, public IDisposable
 {
 public:
   OdbcStore( SessionID* sessionID, String* user, String* password,
@@ -50,6 +50,11 @@ public:
 
   OdbcStore( FIX::MessageStore* pUnmanaged )
   : CPPMessageStore( pUnmanaged ) {}
+
+  void Dispose()
+  {
+    delete m_pUnmanaged;
+  }
 };
 
 public __gc class OdbcStoreFactory : public MessageStoreFactory

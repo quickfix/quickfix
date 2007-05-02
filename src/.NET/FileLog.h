@@ -35,12 +35,17 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class FileLog : public CPPLog
+public __gc class FileLog : public CPPLog, public IDisposable
 {
 public:
   FileLog( FIX::Log* pUnmanaged )
   {
     m_pUnmanaged = pUnmanaged;
+  }
+
+  void Dispose()
+  {
+    delete m_pUnmanaged;
   }
 };
 

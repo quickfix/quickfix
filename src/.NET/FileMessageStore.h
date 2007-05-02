@@ -36,12 +36,17 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class FileStore : public CPPMessageStore
+public __gc class FileStore : public CPPMessageStore, public IDisposable
 {
 public:
   FileStore( String* path, SessionID* sessionID )
   : CPPMessageStore( new FIX::FileStore(convertString(path), sessionID->unmanaged() ) )
   {}
+
+  void Dispose()
+  {
+    delete m_pUnmanaged;
+  }
 };
 
 public __gc class FileStoreFactory : public MessageStoreFactory

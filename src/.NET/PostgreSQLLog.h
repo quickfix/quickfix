@@ -38,12 +38,17 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class PostgreSQLLog : public CPPLog
+public __gc class PostgreSQLLog : public CPPLog, public IDisposable
 {
 public:
   PostgreSQLLog( FIX::Log* pUnmanaged )
   {
     m_pUnmanaged = pUnmanaged;
+  }
+
+  void Dispose()
+  {
+    delete m_pUnmanaged;
   }
 };
 

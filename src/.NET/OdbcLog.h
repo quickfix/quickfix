@@ -38,12 +38,17 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class OdbcLog : public CPPLog
+public __gc class OdbcLog : public CPPLog, public IDisposable
 {
 public:
   OdbcLog( FIX::Log* pUnmanaged )
   {
     m_pUnmanaged = pUnmanaged;
+  }
+
+  void Dispose()
+  {
+    delete m_pUnmanaged;
   }
 };
 
