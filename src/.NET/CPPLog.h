@@ -22,6 +22,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::Threading;
 
 #include "quickfix_net.h"
 
@@ -41,6 +42,7 @@ public:
   CPPLog( FIX::Log* pUnmanaged )
   { QF_STACK_TRY
     m_pUnmanaged = pUnmanaged;
+    System::GC::SuppressFinalize( this );
     QF_STACK_CATCH
   }
 
@@ -51,9 +53,6 @@ public:
       delete m_pUnmanaged;
       m_pUnmanaged = 0;
     }
-
-    if( dispose )
-      System::GC::SuppressFinalize( this );
   }
 
   void Dispose()

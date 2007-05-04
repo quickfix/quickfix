@@ -22,6 +22,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::Threading;
 
 #include "quickfix_net.h"
 
@@ -40,6 +41,7 @@ public:
   CPPMessageStore( FIX::MessageStore* pUnmanaged )
   { QF_STACK_TRY
     m_pUnmanaged = pUnmanaged;
+    System::GC::SuppressFinalize( this );
     QF_STACK_CATCH
   }
 
