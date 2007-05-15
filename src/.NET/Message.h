@@ -44,14 +44,14 @@ public __gc class Message : public FieldMap, public IDisposable
 private:
   void addMemoryPressure()
   {
-#if defined(_MSC_VER) && _MSC_VER >= 1300
+#if defined(_MSC_VER) && _MSC_VER >= 1400
     GC::AddMemoryPressure( 2048 );
 #endif
   }
 
   void removeMemoryPressure()
   {
-#if defined(_MSC_VER) && _MSC_VER >= 1300
+#if defined(_MSC_VER) && _MSC_VER >= 1400
     GC::RemoveMemoryPressure( 2048 );
 #endif
   }
