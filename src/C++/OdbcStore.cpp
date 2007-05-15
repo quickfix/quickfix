@@ -26,6 +26,10 @@
 
 #ifdef HAVE_ODBC
 
+#ifndef SQLLEN
+#define SQLLEN SQLINTEGER
+#endif
+
 #include "OdbcStore.h"
 #include "SessionID.h"
 #include "SessionSettings.h"
@@ -81,14 +85,14 @@ void OdbcStore::populateCache()
       throw ConfigError( "Multiple entries found for session in database" );
 
     SQL_TIMESTAMP_STRUCT creationTime;  
-    SQLINTEGER creationTimeLength;
+    SQLLEN creationTimeLength;
     SQLGetData( query.statement(), 1, SQL_C_TYPE_TIMESTAMP, &creationTime, 0, &creationTimeLength );
-    SQLINTEGER incomingSeqNum;
-    SQLINTEGER incomingSeqNumLength;
+    SQLLEN incomingSeqNum;
+    SQLLEN incomingSeqNumLength;
     SQLGetData( query.statement(), 2, SQL_C_SLONG, &incomingSeqNum, 0, &incomingSeqNumLength );
 
-    SQLINTEGER outgoingSeqNum;
-    SQLINTEGER outgoingSeqNumLength;
+    SQLLEN outgoingSeqNum;
+    SQLLEN outgoingSeqNumLength;
     SQLGetData( query.statement(), 3, SQL_C_SLONG, &outgoingSeqNum, 0, &outgoingSeqNumLength );
 
     UtcTimeStamp time;
@@ -230,7 +234,7 @@ throw ( IOException )
   {
     std::string message;
     SQLVARCHAR messageBuffer[4096];
-    SQLINTEGER messageLength;
+    SQLLEN messageLength;
 
     while( odbcSuccess(SQLGetData( query.statement(), 1, SQL_C_CHAR, &messageBuffer, 4095, &messageLength)) )
     {  
