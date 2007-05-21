@@ -128,7 +128,7 @@ void SocketInitiator::onStop()
   QF_STACK_POP
 }
 
-bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
+void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 { QF_STACK_PUSH(SocketInitiator::doConnect)
 
   try
@@ -136,7 +136,7 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     std::string address;
     short port = 0;
     Session* session = Session::lookupSession( s );
-    if( !session->isSessionTime() ) return false;
+    if( !session->isSessionTime() ) return;
 
     Log* log = session->getLog();
 
@@ -148,10 +148,8 @@ bool SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 
     m_pendingConnections[ result ] 
       = new SocketConnection( *this, s, result, &m_connector.getMonitor() );
-
-    return true;
   }
-  catch ( std::exception& ) { return false; }
+  catch ( std::exception& ) {}
 
   QF_STACK_POP
 }

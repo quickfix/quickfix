@@ -59,7 +59,7 @@ private:
   bool onPoll( double timeout );
   void onStop();
 
-  bool doConnect( const SessionID& s, const Dictionary& d );
+  void doConnect( const SessionID& s, const Dictionary& d );
 
   void addThread( int s, int t );
   void removeThread( int s );

@@ -131,13 +131,13 @@ void ThreadedSocketInitiator::onStop()
   QF_STACK_POP
 }
 
-bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
+void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
 { QF_STACK_PUSH(ThreadedSocketInitiator::doConnect)
 
   try
   {
     Session* session = Session::lookupSession( s );
-    if( !session->isSessionTime() ) return false;
+    if( !session->isSessionTime() ) return;
 
     std::string address;
     short port = 0;
@@ -161,9 +161,8 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
         delete pair;
       addThread( socket, thread );
     }
-    return true;
   }
-  catch ( std::exception& ) { return false; }
+  catch ( std::exception& ) {}
 
   QF_STACK_POP
 }

@@ -54,7 +54,7 @@ private:
   bool onPoll( double timeout );
   void onStop();
 
-  bool doConnect( const SessionID&, const Dictionary& d );
+  void doConnect( const SessionID&, const Dictionary& d );
   void onConnect( SocketConnector&, int );
   void onWrite( SocketConnector&, int );
   bool onData( SocketConnector&, int );

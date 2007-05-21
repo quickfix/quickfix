@@ -110,7 +110,7 @@ private:
   /// Implemented to stop a running initiator.
   virtual void onStop() = 0;
   /// Implemented to connect a session to its target.
-  virtual bool doConnect( const SessionID&, const Dictionary& ) = 0;
+  virtual void doConnect( const SessionID&, const Dictionary& ) = 0;
 
   static THREAD_PROC startThread( void* p );
 
