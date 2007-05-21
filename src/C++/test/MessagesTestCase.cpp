@@ -165,6 +165,8 @@ void MessageTestCase::setString::onRun( Message& object )
   catch( InvalidMessage& ) {}
   try{ object.setString( strBadLength ); assert(false) }
   catch( InvalidMessage& ) {}
+  try{ object.setString( strBadChecksum ); assert(false) }
+  catch( InvalidMessage& ) {}
   try{ object.setString( strJunk ); assert(false) }
   catch( InvalidMessage& ) {}
   try{ object.setString( strEmpty ); assert(false) }
