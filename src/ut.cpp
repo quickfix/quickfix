@@ -31,6 +31,13 @@
 #include <CPPTest/TestXMLFileOutputDisplay.h>
 #include "getopt-repl.h"
 
+void print_usage( char** argv )
+{
+  std::cout << "usage: "
+            << argv[ 0 ]
+            << " -p port -f file" << std::endl;
+}
+
 int main( int argc, char** argv )
 {
   CPPTest::TestDisplay * display;
@@ -51,12 +58,17 @@ int main( int argc, char** argv )
         ( new FIX::SessionSettings(optarg) );
       break;
     default:
-      std::cout << "usage: "
-      << argv[ 0 ]
-      << " -p port -f file" << std::endl;
+      print_usage( argv );
       return 1;
     }
   }
+
+  if( opt < 0 )
+  {
+    print_usage( argv );
+    return 1;
+  }
+
   display = new CPPTest::TestXMLFileOutputDisplay();
 
   TestSuite suite( *display, port, *sessionSettingsPtr );
