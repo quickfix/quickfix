@@ -43,10 +43,13 @@ ThreadedSocketConnection::ThreadedSocketConnection
 }
 
 ThreadedSocketConnection::ThreadedSocketConnection
-( const SessionID& sessionID, int s, Application& application, Log* pLog )
-  : m_socket( s ), m_application( application ), m_pLog( m_pLog ),
-  m_pSession( Session::lookupSession( sessionID ) ),
-  m_disconnect( false )
+( const SessionID& sessionID, int s,
+  const std::string& address, short port, 
+  Application& application, Log* pLog )
+  : m_socket( s ), m_address( address ), m_port( port ),
+    m_application( application ), m_pLog( m_pLog ),
+    m_pSession( Session::lookupSession( sessionID ) ),
+    m_disconnect( false )
 {
   FD_ZERO( &m_fds );
   FD_SET( m_socket, &m_fds );
@@ -65,6 +68,12 @@ ThreadedSocketConnection::~ThreadedSocketConnection()
 bool ThreadedSocketConnection::send( const std::string& msg )
 { QF_STACK_PUSH(ThreadedSocketConnection::send)
   return socket_send( m_socket, msg.c_str(), msg.length() ) >= 0;
+  QF_STACK_POP
+}
+
+bool ThreadedSocketConnection::connect()
+{ QF_STACK_PUSH(ThreadedSocketConnection::connect)
+  return socket_connect(getSocket(), m_address.c_str(), m_port) >= 0;
   QF_STACK_POP
 }
 

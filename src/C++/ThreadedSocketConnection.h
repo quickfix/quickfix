@@ -47,22 +47,28 @@ public:
   typedef std::set<SessionID> Sessions;
 
   ThreadedSocketConnection( int s, Sessions sessions, Application& application, Log* pLog );
-  ThreadedSocketConnection( const SessionID&, int s, Application&, Log* pLog );
+  ThreadedSocketConnection( const SessionID&, int s, 
+                            const std::string& address, short port, 
+                            Application&, Log* pLog );
   virtual ~ThreadedSocketConnection() ;
 
   Session* getSession() const { return m_pSession; }
   int getSocket() const { return m_socket; }
+  bool connect();
+  void disconnect();
   bool read();
 
 private:
   bool readMessage( std::string& msg ) throw( SocketRecvFailed );
   void processStream();
   bool send( const std::string& );
-  void disconnect();
   bool setSession( const std::string& msg );
 
   int m_socket;
   char m_buffer[BUFSIZ];
+
+  std::string m_address;
+  int m_port;
 
   Application& m_application;
   Log* m_pLog;

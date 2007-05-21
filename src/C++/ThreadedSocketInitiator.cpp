@@ -147,17 +147,10 @@ bool ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int socket = socket_createConnector();
 
-    if( socket_connect(socket, address.c_str(), port) < 0 )
-    {
-      log->onEvent( "Connection failed" );
-      socket_close( socket );
-      return false;
-    }
-
     log->onEvent( "Connection succeeded" );
 
     ThreadedSocketConnection* pConnection =
-      new ThreadedSocketConnection( s, socket, getApplication(), getLog() );
+      new ThreadedSocketConnection( s, socket, address, port, getApplication(), getLog() );
 
     ThreadPair* pair = new ThreadPair( this, pConnection );
 
@@ -212,6 +205,15 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   delete pair;
 
   pInitiator->setConnected( sessionID );
+
+  if( !pConnection->connect() )
+  {
+    pInitiator->getLog()->onEvent( "Connection failed" );
+    pConnection->disconnect();
+    pInitiator->setDisconnected( sessionID );
+    return 0;
+  }
+
   pSession->next();
   int socket = pConnection->getSocket();
 
