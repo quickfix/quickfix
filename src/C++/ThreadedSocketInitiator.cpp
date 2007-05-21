@@ -139,15 +139,15 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     Session* session = Session::lookupSession( s );
     if( !session->isSessionTime() ) return;
 
+    Log* log = session->getLog();
+
     std::string address;
     short port = 0;
     getHost( s, d, address, port );
 
-    Log* log = session->getLog();
-    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
     int socket = socket_createConnector();
-
-    log->onEvent( "Connection succeeded" );
+    setPending( s );
+    log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
 
     ThreadedSocketConnection* pConnection =
       new ThreadedSocketConnection( s, socket, address, port, getApplication(), getLog() );
@@ -203,8 +203,6 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   FIX::Session* pSession = FIX::Session::lookupSession( sessionID );
   delete pair;
 
-  pInitiator->setConnected( sessionID );
-
   if( !pConnection->connect() )
   {
     pInitiator->getLog()->onEvent( "Connection failed" );
@@ -212,6 +210,9 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
     pInitiator->setDisconnected( sessionID );
     return 0;
   }
+
+  pInitiator->setConnected( sessionID );
+  pInitiator->getLog()->onEvent( "Connection succeeded" );
 
   pSession->next();
   int socket = pConnection->getSocket();
