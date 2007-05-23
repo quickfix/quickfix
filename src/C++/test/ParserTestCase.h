@@ -39,11 +39,13 @@ public:
     add( &m_extractLength );
     add( &m_readFixMessage );
     add( &m_readPartialFixMessage );
+    add( &m_readMessagesByteByByte );
     add( &m_readMessageWithBadLength );
   }
 
 private:
   typedef CPPTest::Test < Parser > Test;
+  typedef CPPTest::SimpleTest < Parser > SimpleTest;
 
   class extractLength : public Test
   {
@@ -79,6 +81,12 @@ private:
     std::string m_partFixMsg1, m_partFixMsg2;
   }
   m_readPartialFixMessage;
+
+  class readMessagesByteByByte : public SimpleTest
+  {
+    void onRun( Parser& object );
+  }
+  m_readMessagesByteByByte;
 
   class readMessageWithBadLength : public Test
   {

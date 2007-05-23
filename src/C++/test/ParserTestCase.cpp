@@ -117,6 +117,21 @@ void ParserTestCase::readPartialFixMessage::onRun( Parser& object )
   assert( partFixMsg == ( m_partFixMsg1 + m_partFixMsg2 ) );
 }
 
+void ParserTestCase::readMessagesByteByByte::onRun( Parser& object )
+{
+  std::string fixMsg;
+  std::string fixMsg1 = "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
+                        "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001";
+  std::string m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
+  std::string m_fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
+  
+  for( unsigned int i = 0; i < fixMsg1.length(); ++i )
+  {
+    object.addToStream( fixMsg1.c_str() + i, 1 );
+    std::cout << object.readFixMessage( fixMsg ) << " " << fixMsg << std::endl;
+  }
+}
+
 bool ParserTestCase::readMessageWithBadLength::onSetup( Parser*& pObject )
 {
   m_fixMsg = "8=TEST\0019=TEST\00135=TEST\00149=SS1\00156=RORE\00134=3\00152=20050222-16:45:53\00110=TEST\001";
