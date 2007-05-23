@@ -46,6 +46,7 @@ PostgreSQLLog::PostgreSQLLog
 ( const SessionID& s, const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
 : m_pConnectionPool( p )
 {
+  init();
   m_pSessionID = new SessionID( s );
   m_pConnection = m_pConnectionPool->create( d );
 }
@@ -54,6 +55,7 @@ PostgreSQLLog::PostgreSQLLog
 ( const DatabaseConnectionID& d, PostgreSQLConnectionPool* p )
 : m_pConnectionPool( p ), m_pSessionID( 0 )
 {
+  init();
   m_pConnection = m_pConnectionPool->create( d );
 }
 
@@ -62,6 +64,7 @@ PostgreSQLLog::PostgreSQLLog
   const std::string& password, const std::string& host, short port )
   : m_pConnectionPool( 0 )
 {
+  init();
   m_pSessionID = new SessionID( s );
   m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
 }
@@ -71,7 +74,15 @@ PostgreSQLLog::PostgreSQLLog
   const std::string& password, const std::string& host, short port )
   : m_pConnectionPool( 0 ), m_pSessionID( 0 )
 {
+  init();
   m_pConnection = new PostgreSQLConnection( database, user, password, host, port );
+}
+
+void PostgreSQLLog::init()
+{
+  setIncomingTable( "messages_log" );
+  setOutgoingTable( "messages_log" );
+  setEventTable( "event_log" );
 }
 
 PostgreSQLLog::~PostgreSQLLog()
@@ -94,7 +105,9 @@ Log* PostgreSQLLogFactory::create()
 
   init( m_settings.get(), database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
-  return new PostgreSQLLog( id, m_connectionPoolPtr.get() );
+  PostgreSQLLog* result = new PostgreSQLLog( id, m_connectionPoolPtr.get() );
+  initLog( m_settings.get(), *result );
+  return result;
  
   QF_STACK_POP
 }
@@ -114,7 +127,9 @@ Log* PostgreSQLLogFactory::create( const SessionID& s )
 
   init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
-  return new PostgreSQLLog( s, id, m_connectionPoolPtr.get() );
+  PostgreSQLLog* result = new PostgreSQLLog( id, m_connectionPoolPtr.get() );
+  initLog( settings, *result );
+  return result;
 
   QF_STACK_POP
 }
@@ -160,6 +175,18 @@ void PostgreSQLLogFactory::init( const Dictionary& settings,
   }
 
   QF_STACK_POP
+}
+
+void PostgreSQLLogFactory::initLog( const Dictionary& settings, PostgreSQLLog& log )
+{
+    try { log.setIncomingTable( settings.getString( POSTGRESQL_LOG_INCOMING_TABLE ) ); }
+    catch( ConfigError& ) {}
+
+    try { log.setOutgoingTable( settings.getString( POSTGRESQL_LOG_OUTGOING_TABLE ) ); }
+    catch( ConfigError& ) {}
+
+    try { log.setEventTable( settings.getString( POSTGRESQL_LOG_EVENT_TABLE ) ); }
+    catch( ConfigError& ) {}
 }
 
 void PostgreSQLLogFactory::destroy( Log* pLog )
@@ -237,7 +264,7 @@ void PostgreSQLLog::insert( const std::string& table, const std::string value )
   }
   else
   {	
-    queryString << "NULL, NULL, NULL, NULL";
+    queryString << "NULL, NULL, NULL, NULL, ";
   }
 
   queryString << "'" << valueCopy << "')";

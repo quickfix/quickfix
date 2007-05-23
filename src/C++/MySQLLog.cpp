@@ -79,9 +79,9 @@ MySQLLog::MySQLLog
 
 void MySQLLog::init()
 {
-  setIncomingTable("messages_log");
-  setOutgoingTable("messages_log");
-  setEventTable("event_log");
+  setIncomingTable( "messages_log" );
+  setOutgoingTable( "messages_log" );
+  setEventTable( "event_log" );
 }
 
 MySQLLog::~MySQLLog()
@@ -101,9 +101,6 @@ Log* MySQLLogFactory::create()
   std::string password;
   std::string host;
   short port;
-  std::string incoming;
-  std::string outgoing;
-  std::string event;
 
   init( m_settings.get(), database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
@@ -122,9 +119,6 @@ Log* MySQLLogFactory::create( const SessionID& s )
   std::string password;
   std::string host;
   short port;
-  std::string incoming;
-  std::string outgoing;
-  std::string event;
 
   Dictionary settings;
   if( m_settings.has(s) ) 
