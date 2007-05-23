@@ -45,6 +45,12 @@ int main( int argc, char** argv )
   short port = 0;
   std::auto_ptr<FIX::SessionSettings> sessionSettingsPtr;
 
+  if( argc != 5 )
+  {
+    print_usage( argv );
+    return 1;
+  }
+
   int opt;
   while ( (opt = getopt( argc, argv, "+p:+f:" )) != -1 )
   {
@@ -61,12 +67,6 @@ int main( int argc, char** argv )
       print_usage( argv );
       return 1;
     }
-  }
-
-  if( opt < 0 )
-  {
-    print_usage( argv );
-    return 1;
   }
 
   display = new CPPTest::TestXMLFileOutputDisplay();
