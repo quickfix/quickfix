@@ -49,7 +49,7 @@ public:
       convertString(connectionString) ) ) {}
 
   OdbcStore( FIX::MessageStore* pUnmanaged )
-  : CPPMessageStore( pUnmanaged 
+  : CPPMessageStore( pUnmanaged ) {}
 };
 
 public __gc class OdbcStoreFactory : public MessageStoreFactory
