@@ -171,7 +171,7 @@ private:
         m_connectionID.getPassword().c_str(), m_connectionID.getDatabase().c_str(), port, 0, 0 ) )
     {
         if( !connected() )
-          throw ConfigError( "Unable to connect to database" );
+          throw ConfigError( std::string("Unable to connect to database [") + mysql_error(m_pConnection) + "]" );
     }
     #if( MYSQL_VERSION_ID > 50000 )
     my_bool reconnect = 1;

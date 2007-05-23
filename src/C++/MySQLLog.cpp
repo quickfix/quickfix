@@ -46,6 +46,7 @@ MySQLLog::MySQLLog
 ( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p )
 : m_pConnectionPool( p )
 {
+  init();
   m_pSessionID = new SessionID( s );
   m_pConnection = m_pConnectionPool->create( d );
 }
@@ -54,6 +55,7 @@ MySQLLog::MySQLLog
 ( const DatabaseConnectionID& d, MySQLConnectionPool* p )
 : m_pConnectionPool( p ), m_pSessionID( 0 )
 {
+  init();
   m_pConnection = m_pConnectionPool->create( d );
 }
 
@@ -62,6 +64,7 @@ MySQLLog::MySQLLog
   const std::string& password, const std::string& host, short port )
   : m_pConnectionPool( 0 )
 {
+  init();
   m_pSessionID = new SessionID( s );
   m_pConnection = new MySQLConnection( database, user, password, host, port );
 }
@@ -72,6 +75,13 @@ MySQLLog::MySQLLog
   : m_pConnectionPool( 0 ), m_pSessionID( 0 )
 {
   m_pConnection = new MySQLConnection( database, user, password, host, port );
+}
+
+void MySQLLog::init()
+{
+  setIncomingTable("messages_log");
+  setOutgoingTable("messages_log");
+  setEventTable("event_log");
 }
 
 MySQLLog::~MySQLLog()
@@ -91,11 +101,16 @@ Log* MySQLLogFactory::create()
   std::string password;
   std::string host;
   short port;
+  std::string incoming;
+  std::string outgoing;
+  std::string event;
 
   init( m_settings.get(), database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
-  return new MySQLLog( id, m_connectionPoolPtr.get() );
- 
+  MySQLLog* result = new MySQLLog( id, m_connectionPoolPtr.get() );
+  initLog( m_settings.get(), *result );
+  return result;
+
   QF_STACK_POP
 }
 
@@ -107,6 +122,9 @@ Log* MySQLLogFactory::create( const SessionID& s )
   std::string password;
   std::string host;
   short port;
+  std::string incoming;
+  std::string outgoing;
+  std::string event;
 
   Dictionary settings;
   if( m_settings.has(s) ) 
@@ -114,7 +132,9 @@ Log* MySQLLogFactory::create( const SessionID& s )
 
   init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
-  return new MySQLLog( s, id, m_connectionPoolPtr.get() );
+  MySQLLog* result = new MySQLLog( id, m_connectionPoolPtr.get() );
+  initLog( settings, *result );
+  return result;
 
   QF_STACK_POP
 }
@@ -160,6 +180,18 @@ void MySQLLogFactory::init( const Dictionary& settings,
   }
 
   QF_STACK_POP
+}
+
+void MySQLLogFactory::initLog( const Dictionary& settings, MySQLLog& log )
+{
+    try { log.setIncomingTable( settings.getString( MYSQL_LOG_INCOMING_TABLE ) ); }
+    catch( ConfigError& ) {}
+
+    try { log.setOutgoingTable( settings.getString( MYSQL_LOG_OUTGOING_TABLE ) ); }
+    catch( ConfigError& ) {}
+
+    try { log.setEventTable( settings.getString( MYSQL_LOG_EVENT_TABLE ) ); }
+    catch( ConfigError& ) {}
 }
 
 void MySQLLogFactory::destroy( Log* pLog )
@@ -237,7 +269,7 @@ void MySQLLog::insert( const std::string& table, const std::string value )
   }
   else
   {
-    queryString << "NULL, NULL, NULL, NULL";
+    queryString << "NULL, NULL, NULL, NULL, ";
   }
 
   queryString << "\"" << valueCopy << "\")";

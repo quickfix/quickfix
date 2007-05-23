@@ -40,6 +40,46 @@
 
 namespace FIX
 {
+/// MySQL based implementation of Log.
+class MySQLLog : public Log
+{
+public:
+  MySQLLog( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p );
+  MySQLLog( const DatabaseConnectionID& d, MySQLConnectionPool* p );
+  MySQLLog( const SessionID& s, const std::string& database, const std::string& user,
+            const std::string& password, const std::string& host, short port );
+  MySQLLog( const std::string& database, const std::string& user,
+            const std::string& password, const std::string& host, short port );
+
+  ~MySQLLog();
+
+  void clear();
+  void setIncomingTable( const std::string& incomingTable )
+  { m_incomingTable = incomingTable; }
+  void setOutgoingTable( const std::string& outgoingTable )
+  { m_outgoingTable = outgoingTable; }
+  void setEventTable( const std::string& eventTable )
+  { m_eventTable = eventTable; }
+
+  void onIncoming( const std::string& value )
+  { insert( m_incomingTable, value ); }
+  void onOutgoing( const std::string& value )
+  { insert( m_outgoingTable, value ); }
+  void onEvent( const std::string& value )
+  { insert( m_eventTable, value ); }
+
+private:
+  void init();
+  void insert( const std::string& table, const std::string value );
+
+  std::string m_incomingTable;
+  std::string m_outgoingTable;
+  std::string m_eventTable;
+  MySQLConnection* m_pConnection;
+  MySQLConnectionPool* m_pConnectionPool;
+  SessionID* m_pSessionID;
+};
+
 /// Creates a MySQL based implementation of Log.
 class MySQLLogFactory : public LogFactory
 {
@@ -87,6 +127,8 @@ private:
              std::string& user, std::string& password,
              std::string& host, short& port );
 
+  void initLog( const Dictionary& settings, MySQLLog& log );
+
   MySQLConnectionPoolPtr m_connectionPoolPtr;
   SessionSettings m_settings;
   std::string m_database;
@@ -95,35 +137,6 @@ private:
   std::string m_host;
   short m_port;
   bool m_useSettings;
-};
-/*! @} */
-
-/// MySQL based implementation of Log.
-class MySQLLog : public Log
-{
-public:
-  MySQLLog( const SessionID& s, const DatabaseConnectionID& d, MySQLConnectionPool* p );
-  MySQLLog( const DatabaseConnectionID& d, MySQLConnectionPool* p );
-  MySQLLog( const SessionID& s, const std::string& database, const std::string& user,
-            const std::string& password, const std::string& host, short port );
-  MySQLLog( const std::string& database, const std::string& user,
-            const std::string& password, const std::string& host, short port );
-
-  ~MySQLLog();
-
-  void clear();
-  void onIncoming( const std::string& value )
-  { insert( "messages_log", value ); }
-  void onOutgoing( const std::string& value )
-  { insert( "messages_log", value ); }
-  void onEvent( const std::string& value )
-  { insert( "event_log", value ); }
-
-private:
-  void insert( const std::string& table, const std::string value );
-  MySQLConnection* m_pConnection;
-  MySQLConnectionPool* m_pConnectionPool;
-  SessionID* m_pSessionID;
 };
 }
 
