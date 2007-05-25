@@ -39,6 +39,43 @@
 
 namespace FIX
 {
+/// ODBC based implementation of Log.
+class OdbcLog : public Log
+{
+public:
+  OdbcLog( const SessionID& s, const std::string& user, const std::string& password, 
+           const std::string& connectionString );
+  OdbcLog( const std::string& user, const std::string& password, 
+           const std::string& connectionString );
+
+  ~OdbcLog();
+
+  void clear();
+  void setIncomingTable( const std::string& incomingTable )
+  { m_incomingTable = incomingTable; }
+  void setOutgoingTable( const std::string& outgoingTable )
+  { m_outgoingTable = outgoingTable; }
+  void setEventTable( const std::string& eventTable )
+  { m_eventTable = eventTable; }
+
+  void onIncoming( const std::string& value )
+  { insert( m_incomingTable, value ); }
+  void onOutgoing( const std::string& value )
+  { insert( m_outgoingTable, value ); }
+  void onEvent( const std::string& value )
+  { insert( m_eventTable, value ); }
+
+private:
+  void init();
+  void insert( const std::string& table, const std::string value );
+
+  std::string m_incomingTable;
+  std::string m_outgoingTable;
+  std::string m_eventTable;
+  OdbcConnection* m_pConnection;
+  SessionID* m_pSessionID;
+};
+
 /// Creates a ODBC based implementation of Log.
 class OdbcLogFactory : public LogFactory
 {
@@ -65,38 +102,13 @@ private:
              std::string& user, std::string& password, 
              std::string& connectionString );
 
+  void initLog( const Dictionary& settings, OdbcLog& log );
+
   SessionSettings m_settings;
   std::string m_user;
   std::string m_password;
   std::string m_connectionString;
   bool m_useSettings;
-};
-/*! @} */
-
-/// ODBC based implementation of Log.
-class OdbcLog : public Log
-{
-public:
-  OdbcLog( const SessionID& s, const std::string& user, const std::string& password, 
-           const std::string& connectionString );
-  OdbcLog( const std::string& user, const std::string& password, 
-           const std::string& connectionString );
-
-  ~OdbcLog();
-
-  void clear();
-  void onIncoming( const std::string& value )
-  { insert( "messages_log", value ); }
-  void onOutgoing( const std::string& value )
-  { insert( "messages_log", value ); }
-  void onEvent( const std::string& value )
-  { insert( "event_log", value ); }  
-
-private:
-  void insert( const std::string& table, const std::string value );
-
-  OdbcConnection* m_pConnection;
-  SessionID* m_pSessionID;
 };
 }
 

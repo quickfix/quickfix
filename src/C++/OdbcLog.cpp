@@ -45,6 +45,7 @@ OdbcLog::OdbcLog
 ( const SessionID& s, const std::string& user, const std::string& password, 
   const std::string& connectionString )
 {
+  init();
   m_pSessionID = new SessionID( s );
   m_pConnection = new OdbcConnection( user, password, connectionString );
 }
@@ -54,7 +55,15 @@ OdbcLog::OdbcLog
   const std::string& connectionString )
 : m_pSessionID( 0 )
 {
+  init();
   m_pConnection = new OdbcConnection( user, password, connectionString );
+}
+
+void OdbcLog::init()
+{
+  setIncomingTable( "messages_log" );
+  setOutgoingTable( "messages_log" );
+  setEventTable( "event_log" );
 }
 
 OdbcLog::~OdbcLog()
@@ -88,7 +97,9 @@ Log* OdbcLogFactory::create()
   std::string connectionString;
 
   init( m_settings.get(), database, user, connectionString );
-  return new OdbcLog( database, user, connectionString );
+  OdbcLog* result = new OdbcLog( database, user, connectionString );
+  initLog( m_settings.get(), *result );
+  return result;
 
   QF_STACK_POP
 }
@@ -105,7 +116,9 @@ Log* OdbcLogFactory::create( const SessionID& s )
 	  settings = m_settings.get( s );
 
   init( settings, database, user, connectionString );
-  return new OdbcLog( s, database, user, connectionString );
+  OdbcLog* result = new OdbcLog( s, database, user, connectionString );
+  initLog( settings, *result );
+  return result;
 
   QF_STACK_POP
 }
@@ -139,6 +152,18 @@ void OdbcLogFactory::init( const Dictionary& settings,
   }
 
   QF_STACK_POP
+}
+
+void OdbcLogFactory::initLog( const Dictionary& settings, OdbcLog& log )
+{
+    try { log.setIncomingTable( settings.getString( ODBC_LOG_INCOMING_TABLE ) ); }
+    catch( ConfigError& ) {}
+
+    try { log.setOutgoingTable( settings.getString( ODBC_LOG_OUTGOING_TABLE ) ); }
+    catch( ConfigError& ) {}
+
+    try { log.setEventTable( settings.getString( ODBC_LOG_EVENT_TABLE ) ); }
+    catch( ConfigError& ) {}
 }
 
 void OdbcLogFactory::destroy( Log* pLog )
@@ -218,7 +243,7 @@ void OdbcLog::insert( const std::string& table, const std::string value )
   }
   else
   {
-    queryString << "NULL, NULL, NULL, NULL";
+    queryString << "NULL, NULL, NULL, NULL, ";
   }
 
   queryString << "'" << valueCopy << "')";
