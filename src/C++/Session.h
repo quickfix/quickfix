@@ -208,6 +208,7 @@ private:
   bool send( const std::string& );
   bool sendRaw( Message&, int msgSeqNum = 0 );
   bool resend( Message& message );
+  void persist( const Message&, const std::string& ) throw ( IOException );
 
   void insertSendingTime( Header& );
   void insertOrigSendingTime( Header&,

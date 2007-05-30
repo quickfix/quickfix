@@ -461,7 +461,6 @@ bool Session::sendRaw( Message& message, int num )
 
   try
   {
-    bool result = false;
     Header& header = message.getHeader();
 
     MsgType msgType;
@@ -493,12 +492,15 @@ bool Session::sendRaw( Message& message, int num )
 
       message.toString( messageString );
 
+      if( !num )
+        persist( message, messageString );
+
       if (
         msgType == "A" || msgType == "5"
         || msgType == "2" || msgType == "4"
         || isLoggedOn() )
       {
-        result = send( messageString );
+        send( messageString );
       }
     }
     else
@@ -511,21 +513,17 @@ bool Session::sendRaw( Message& message, int num )
       {
         m_application.toApp( message, m_sessionID );
         message.toString( messageString );
+
+        if( !num )
+          persist( message, messageString );
+
         if ( isLoggedOn() )
-          result = send( messageString );
+          send( messageString );
       }
       catch ( DoNotSend& ) { return false; }
     }
 
-    if ( !num )
-    {
-      MsgSeqNum msgSeqNum;
-      header.getField( msgSeqNum );
-      if( m_persistMessages )
-        m_state.set( msgSeqNum, messageString );
-      m_state.incrNextSenderMsgSeqNum();
-    }
-    return result;
+    return true;
   }
   catch ( IOException& e )
   {
@@ -600,6 +598,16 @@ bool Session::resend( Message& message )
   { return false; }
 
   QF_STACK_POP
+}
+
+void Session::persist( const Message& message,  const std::string& messageString ) 
+throw ( IOException )
+{
+  MsgSeqNum msgSeqNum;
+  message.getHeader().getField( msgSeqNum );
+  if( m_persistMessages )
+    m_state.set( msgSeqNum, messageString );
+  m_state.incrNextSenderMsgSeqNum();
 }
 
 void Session::generateLogon()
