@@ -471,7 +471,6 @@ void HttpConnection::processSession
 
     if( copy.hasParameter("Enabled") )
     {
-      std::cout << copy.getParameter("Enabled");
       copy.getParameter("Enabled") == "0" ? pSession->logout() : pSession->logon();
       copy.removeParameter("Enabled");
     }
