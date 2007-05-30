@@ -128,7 +128,6 @@ void ParserTestCase::readMessagesByteByByte::onRun( Parser& object )
   for( unsigned int i = 0; i < fixMsg1.length(); ++i )
   {
     object.addToStream( fixMsg1.c_str() + i, 1 );
-    std::cout << object.readFixMessage( fixMsg ) << " " << fixMsg << std::endl;
   }
 }
 
