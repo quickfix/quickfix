@@ -50,9 +50,9 @@ public:
   {
     if( Object::Equals(object) == true )
       return true;
-	if( object == 0 )
-	  return false;
-    if( !object->GetType()->Equals(__typeof(Field)) )
+    if( object == 0 )
+	    return false;
+    if( !object->GetType()->Equals(GetType()) )
       return false;
 
     return field == static_cast<Field*>(object)->getField() &&
@@ -66,7 +66,7 @@ public:
 
   virtual int GetHashCode()
   {
-    return Object::GetHashCode();
+    return ToString()->GetHashCode();
   }
 
 protected:

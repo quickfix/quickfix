@@ -109,31 +109,27 @@ public:
   FIX::SessionID& unmanaged()
   { return * m_pUnmanaged; }
 
-  String* ToString()
-  { QF_STACK_TRY
-    return m_pUnmanaged->toString().c_str();
-    QF_STACK_CATCH
-  }
-
-  String* toString()
-  {
-    return ToString();
-  }
-
-  virtual int GetHashCode()
-  {
-      return ToString()->GetHashCode();
-  }
-
   virtual bool Equals( Object* object )
   {
 	  if( Object::Equals( object ) )
 		  return true;
 	  if( object == 0 )
 		  return false;
-	  if( !object->GetType()->Equals( __typeof( SessionID ) ) )
+	  if( !object->GetType()->Equals(GetType()) )
 		  return false;
+
 	  return static_cast<SessionID*>(object)->ToString()->Equals( ToString() );
+  }
+
+  String* ToString()
+  { QF_STACK_TRY
+    return m_pUnmanaged->toString().c_str();
+    QF_STACK_CATCH
+  }
+
+  virtual int GetHashCode()
+  {
+    return ToString()->GetHashCode();
   }
 
   void fromString( String* str )
