@@ -199,8 +199,6 @@ void PostgreSQLLog::clear()
 { QF_STACK_PUSH(PostgreSQLLog::clear)
 
   std::stringstream whereClause;
-  std::stringstream messagesQuery;
-  std::stringstream eventQuery;
 
   whereClause << "WHERE ";
 
@@ -219,12 +217,22 @@ void PostgreSQLLog::clear()
 	whereClause << "BeginString = NULL AND SenderCompID = NULL && TargetCompID = NULL";
   }
 
-  messagesQuery << "DELETE FROM messages_log " << whereClause.str();
-  eventQuery << "DELETE FROM event_log " << whereClause.str();
+  std::stringstream incomingQuery;
+  std::stringstream outgoingQuery;
+  std::stringstream eventQuery;
 
-  PostgreSQLQuery messages( messagesQuery.str() );
+  incomingQuery 
+    << "DELETE FROM " << m_incomingTable << " " << whereClause.str();
+  outgoingQuery 
+    << "DELETE FROM " << m_outgoingTable << " " << whereClause.str();
+  eventQuery 
+    << "DELETE FROM " << m_eventTable << " " << whereClause.str();
+
+  PostgreSQLQuery incoming( incomingQuery.str() );
+  PostgreSQLQuery outgoing( outgoingQuery.str() );
   PostgreSQLQuery event( eventQuery.str() );
-  m_pConnection->execute( messages );
+  m_pConnection->execute( incoming );
+  m_pConnection->execute( outgoing );
   m_pConnection->execute( event );
 
   QF_STACK_POP
