@@ -157,9 +157,17 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     {
       Locker l( m_mutex );
       unsigned thread;
-      if ( !thread_spawn( &socketThread, pair, thread ) )
+      if ( thread_spawn( &socketThread, pair, thread ) )
+      {
+        addThread( socket, thread );
+      }
+      else
+      {
         delete pair;
-      addThread( socket, thread );
+        pConnection->disconnect();
+        delete pConnection;
+        setDisconnected( s );
+      }
     }
   }
   catch ( std::exception& ) {}
@@ -201,12 +209,17 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   ThreadedSocketConnection* pConnection = pair->second;
   FIX::SessionID sessionID = pConnection->getSession()->getSessionID();
   FIX::Session* pSession = FIX::Session::lookupSession( sessionID );
+  int socket = pConnection->getSocket();
   delete pair;
+
+  pInitiator->lock();
 
   if( !pConnection->connect() )
   {
     pInitiator->getLog()->onEvent( "Connection failed" );
     pConnection->disconnect();
+    delete pConnection;
+    pInitiator->removeThread( socket );
     pInitiator->setDisconnected( sessionID );
     return 0;
   }
@@ -215,7 +228,6 @@ THREAD_PROC ThreadedSocketInitiator::socketThread( void* p )
   pInitiator->getLog()->onEvent( "Connection succeeded" );
 
   pSession->next();
-  int socket = pConnection->getSocket();
 
   while ( pConnection->read() ) {}
 

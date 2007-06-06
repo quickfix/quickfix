@@ -63,6 +63,7 @@ private:
 
   void addThread( int s, int t );
   void removeThread( int s );
+  void lock() { Locker l(m_mutex); }
   static THREAD_PROC socketThread( void* p );
 
   void getHost( const SessionID&, const Dictionary&, std::string&, short& );
