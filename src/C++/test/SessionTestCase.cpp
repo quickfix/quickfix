@@ -111,6 +111,24 @@ NewOrderSingle createNewOrderSingle( const char* sender, const char* target, int
   return newOrderSingle;
 }
 
+ExecutionReport createExecutionReport( const char* sender, const char* target, int seq )
+{
+  ExecutionReport executionReport;
+  fillHeader( executionReport.getHeader(), sender, target, seq );
+  ExecutionReport::NoContraBrokers noContraBrokers;
+  noContraBrokers.set( ContraBroker("BROKER") );
+  noContraBrokers.set( ContraTrader("TRADER") );
+  noContraBrokers.set( ContraTradeQty(100) );
+  noContraBrokers.set( ContraTradeTime() );
+  executionReport.addGroup( noContraBrokers );
+  noContraBrokers.set( ContraBroker("BROKER2") );
+  noContraBrokers.set( ContraTrader("TRADER2") );
+  noContraBrokers.set( ContraTradeQty(100) );
+  noContraBrokers.set( ContraTradeTime() );
+  executionReport.addGroup( noContraBrokers );
+  return executionReport;
+}
+
 bool SessionTestCase::InitiatorTest::onSetup( Session*& pObject )
 {
   pObject = createInitiatorSession();
@@ -722,6 +740,25 @@ void SessionTestCase::nextResendRequest::onRun( Session& object )
   object.next( createResendRequest( "ISLD", "TW", 8, 1, 20 ) );
   assert( m_toSequenceReset == 6 );
   assertEquals( 11, m_resent );
+}
+
+void SessionTestCase::nextResendRequestRepeatingGroup::onRun( Session& object )
+{
+  object.next( createLogon( "ISLD", "TW", 1 ) );
+  FIX::Message message = createExecutionReport( "ISLD", "TW", 2 );
+  assert( object.send( message ) );
+  object.next( createResendRequest( "ISLD", "TW", 3, 2, 2 ) );
+
+  PossDupFlag possDupFlag;
+  OrigSendingTime origSendingTime;
+  SendingTime sendingTime;
+  m_lastResent.getHeader().getField( possDupFlag );
+  m_lastResent.getHeader().getField( origSendingTime );
+  m_lastResent.getHeader().getField( sendingTime );
+  message.getHeader().setField( possDupFlag );
+  message.getHeader().setField( origSendingTime );
+  message.getHeader().setField( sendingTime );
+  assertEquals( message.toString(), m_lastResent.toString() );
 }
 
 void SessionTestCase::nextResendRequestNoMessagePersist::onRun( Session& object )

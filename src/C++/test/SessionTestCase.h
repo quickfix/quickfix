@@ -55,6 +55,7 @@ public:
     add( &m_nextGapFill );
     add( &m_nextResendRequest );
     add( &m_nextResendRequestNoMessagePersist );
+    add( &m_nextResendRequestRepeatingGroup );
     add( &m_badBeginString );
     add( &m_unsupportedMsgType );
     add( &m_resetOnEndTime );
@@ -71,6 +72,7 @@ class Test : public CPPTest::Test < Session > ,
   protected:
     UtcTimeOnly m_startTime;
     UtcTimeOnly m_endTime;
+    Message m_lastResent;
 
   public:
     Test()
@@ -152,7 +154,11 @@ class Test : public CPPTest::Test < Session > ,
       PossDupFlag possDupFlag(false);
       if( message.getHeader().isSetField(possDupFlag) )
         message.getHeader().getField( possDupFlag );
-      if( possDupFlag ) m_resent++;
+      if( possDupFlag ) 
+      {
+        m_resent++;
+        m_lastResent = message;
+      }
 
       MsgType msgType;
       message.getHeader().getField( msgType );
@@ -357,6 +363,12 @@ class Test : public CPPTest::Test < Session > ,
     void onRun( Session& object );
   }
   m_nextResendRequest;
+
+  class nextResendRequestRepeatingGroup : public AcceptorTest
+  {
+    void onRun( Session& object );
+  }
+  m_nextResendRequestRepeatingGroup;
 
   class nextResendRequestNoMessagePersist : public AcceptorTest
   {
