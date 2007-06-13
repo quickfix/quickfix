@@ -165,7 +165,8 @@ MessageStore* MySQLStoreFactory::create( const SessionID& s, const Dictionary& s
   try { port = ( short ) settings.getLong( MYSQL_STORE_PORT ); }
   catch( ConfigError& ) {}
 
-  return new MySQLStore( s, database, user, password, host, port );
+  DatabaseConnectionID id( database, user, password, host, port );
+  return new MySQLStore( s, id, m_connectionPoolPtr.get() );
 
   QF_STACK_POP
 }
