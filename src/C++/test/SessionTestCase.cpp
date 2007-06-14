@@ -106,14 +106,15 @@ Reject createReject( const char* sender, const char* target, int seq, int refSeq
 
 NewOrderSingle createNewOrderSingle( const char* sender, const char* target, int seq )
 {
-  NewOrderSingle newOrderSingle;
+  NewOrderSingle newOrderSingle
+    ( ClOrdID("ID"), HandlInst('1'), Symbol("SYMBOL"), Side(Side_BUY), TransactTime(), OrdType(OrdType_MARKET) );
   fillHeader( newOrderSingle.getHeader(), sender, target, seq );
   return newOrderSingle;
 }
 
 ExecutionReport createExecutionReport( const char* sender, const char* target, int seq )
 {
-  ExecutionReport executionReport;
+  ExecutionReport executionReport( OrderID("ID"), ExecID("ID"), ExecTransType('0'), ExecType('0'), OrdStatus('0'), Symbol("SYMBOL"), Side(Side_BUY), LeavesQty(100), CumQty(0), AvgPx(0) );
   fillHeader( executionReport.getHeader(), sender, target, seq );
   ExecutionReport::NoContraBrokers noContraBrokers;
   noContraBrokers.set( ContraBroker("BROKER") );
@@ -183,16 +184,13 @@ void SessionTestCase::nextLogon::onRun( Session& object )
   assert( targetCompID == "ISLD" );
   assert( heartBtInt == 30 );
   assert( encryptMethod == 0 );
-
 }
 
 void SessionTestCase::nextLogonNoEncryptMethod::onRun( Session& object )
 {
   // send a correct logon
   object.setResponder( this );
-  Logon logon;
-  logon.setField( HeartBtInt( 30 ) );
-  fillHeader( logon.getHeader(), "ISLD", "TW", 1 );
+  Logon logon = createLogon( "ISLD", "TW", 1 );
   object.next( logon );
   assert( object.receivedLogon() );
   assert( m_toLogon == 1 );
@@ -823,8 +821,7 @@ void SessionTestCase::unsupportedMsgType::onRun( Session& object )
   object.setResponder( this );
   object.next( createLogon( "ISLD", "TW", 1 ) );
 
-  ExecutionReport message;
-  fillHeader( message.getHeader(), "ISLD", "TW", 2 );
+  ExecutionReport message = createExecutionReport( "ISLD", "TW", 2 );
   object.next( message );
   assert( m_toBusinessMessageReject == 1 );
 }

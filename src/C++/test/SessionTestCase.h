@@ -177,7 +177,7 @@ class Test : public CPPTest::Test < Session > ,
                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
     TimeRange sessionTime( m_startTime, m_endTime );
 
-    return new Session( *this, m_factory, sessionID, DataDictionary(),
+    return new Session( *this, m_factory, sessionID, DataDictionary("..\\spec\\FIX42.xml"),
                         sessionTime, 0, 0 );
   }
 
@@ -187,7 +187,7 @@ class Test : public CPPTest::Test < Session > ,
                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
     TimeRange sessionTime( m_startTime, m_endTime );
 
-    return new Session( *this, m_factory, sessionID, DataDictionary(),
+    return new Session( *this, m_factory, sessionID, DataDictionary("..\\spec\\FIX42.xml"),
                         sessionTime, 1, 0 );
   }
 
