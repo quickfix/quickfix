@@ -144,6 +144,33 @@ Session* Acceptor::getSession
   QF_STACK_POP
 }
 
+Session* Acceptor::getSession( const SessionID& sessionID ) const
+{ QF_STACK_PUSH(Initiator::getSession)
+
+  Sessions::const_iterator i = m_sessions.find( sessionID );
+  if( i != m_sessions.end() )
+    return i->second;
+  else
+    return 0;
+
+  QF_STACK_POP
+}
+
+const Dictionary* const Acceptor::getSessionSettings( const SessionID& sessionID ) const
+{ QF_STACK_PUSH(Initiator::getSessionSettings)
+
+  try
+  {
+    return &m_settings.get( sessionID );
+  }
+  catch( ConfigError& )
+  {
+    return 0;
+  }
+
+  QF_STACK_POP
+}
+
 void Acceptor::start() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH( Acceptor::start )
 
