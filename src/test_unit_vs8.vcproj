@@ -400,6 +400,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\C++\test\NullStoreTestCase.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\C++\test\NullStoreTestCase.h"
+				>
+			</File>
+			<File
 				RelativePath=".\C++\test\OdbcStoreTestCase.h"
 				>
 			</File>

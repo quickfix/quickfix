@@ -1967,6 +1967,9 @@ del /F EXCLUDE
 					RelativePath="MySQLStore.cpp">
 				</File>
 				<File
+					RelativePath=".\NullStore.cpp">
+				</File>
+				<File
 					RelativePath=".\OdbcLog.cpp">
 				</File>
 				<File
@@ -2097,6 +2100,9 @@ del /F EXCLUDE
 							AdditionalDependencies=""
 							Outputs=""/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\NullStore.h">
 				</File>
 				<File
 					RelativePath=".\OdbcConnection.h">

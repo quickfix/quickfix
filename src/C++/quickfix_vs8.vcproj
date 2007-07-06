@@ -2568,6 +2568,10 @@
 					>
 				</File>
 				<File
+					RelativePath=".\NullStore.cpp"
+					>
+				</File>
+				<File
 					RelativePath=".\OdbcLog.cpp"
 					>
 				</File>
@@ -2736,6 +2740,10 @@
 							Outputs=""
 						/>
 					</FileConfiguration>
+				</File>
+				<File
+					RelativePath=".\NullStore.h"
+					>
 				</File>
 				<File
 					RelativePath=".\OdbcConnection.h"
