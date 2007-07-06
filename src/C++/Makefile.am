@@ -43,6 +43,8 @@ libquickfix_la_SOURCES = \
 	ThreadedSocketInitiator.h \
 	ThreadedSocketConnection.cpp \
 	ThreadedSocketConnection.h \
+	NullStore.cpp \
+	NullStore.h \
 	FileStore.cpp \
 	FileStore.h \
 	MySQLConnection.h \

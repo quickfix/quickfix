@@ -54,6 +54,8 @@ libquickfixcpptest_la_SOURCES = \
 	SessionSettingsTestCase.h \
 	DataDictionaryTestCase.cpp \
 	DataDictionaryTestCase.h \
+	NullStoreTestCase.cpp \
+	NullStoreTestCase.h \
 	MemoryStoreTestCase.cpp \
 	MemoryStoreTestCase.h \
 	HttpParserTestCase.cpp \
