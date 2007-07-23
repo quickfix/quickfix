@@ -126,7 +126,7 @@ Log* MySQLLogFactory::create( const SessionID& s )
 
   init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
-  MySQLLog* result = new MySQLLog( id, m_connectionPoolPtr.get() );
+  MySQLLog* result = new MySQLLog( s, id, m_connectionPoolPtr.get() );
   initLog( settings, *result );
   return result;
 

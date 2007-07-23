@@ -127,7 +127,7 @@ Log* PostgreSQLLogFactory::create( const SessionID& s )
 
   init( settings, database, user, password, host, port );
   DatabaseConnectionID id( database, user, password, host, port );
-  PostgreSQLLog* result = new PostgreSQLLog( id, m_connectionPoolPtr.get() );
+  PostgreSQLLog* result = new PostgreSQLLog( s, id, m_connectionPoolPtr.get() );
   initLog( settings, *result );
   return result;
 
