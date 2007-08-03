@@ -25,50 +25,50 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_destroy
 
 /*
  * Class:     quickfix_SocketInitiator
- * Method:    doStart
+ * Method:    start
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStart
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_start
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketInitiator
- * Method:    doBlock
+ * Method:    block
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doBlock
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_block
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketInitiator
- * Method:    doStop
+ * Method:    stop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_stop__
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketInitiator
- * Method:    doStop
+ * Method:    stop
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__Z
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_stop__Z
   (JNIEnv *, jobject, jboolean);
 
 /*
  * Class:     quickfix_SocketInitiator
- * Method:    doIsLoggedOn
+ * Method:    isLoggedOn
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doIsLoggedOn
+JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_isLoggedOn
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketInitiator
- * Method:    doGetSessions
+ * Method:    getSessions
  * Signature: ()Ljava/util/ArrayList;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_SocketInitiator_doGetSessions
+JNIEXPORT jobject JNICALL Java_quickfix_SocketInitiator_getSessions
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

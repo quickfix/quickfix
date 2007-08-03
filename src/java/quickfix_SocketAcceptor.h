@@ -25,50 +25,50 @@ JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_destroy
 
 /*
  * Class:     quickfix_SocketAcceptor
- * Method:    doStart
+ * Method:    start
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_doStart
+JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_start
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketAcceptor
- * Method:    doBlock
+ * Method:    block
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_doBlock
+JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_block
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketAcceptor
- * Method:    doStop
+ * Method:    stop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_doStop__
+JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_stop__
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketAcceptor
- * Method:    doStop
+ * Method:    stop
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_doStop__Z
+JNIEXPORT void JNICALL Java_quickfix_SocketAcceptor_stop__Z
   (JNIEnv *, jobject, jboolean);
 
 /*
  * Class:     quickfix_SocketAcceptor
- * Method:    doIsLoggedOn
+ * Method:    isLoggedOn
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_SocketAcceptor_doIsLoggedOn
+JNIEXPORT jboolean JNICALL Java_quickfix_SocketAcceptor_isLoggedOn
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_SocketAcceptor
- * Method:    doGetSessions
+ * Method:    getSessions
  * Signature: ()Ljava/util/ArrayList;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_SocketAcceptor_doGetSessions
+JNIEXPORT jobject JNICALL Java_quickfix_SocketAcceptor_getSessions
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

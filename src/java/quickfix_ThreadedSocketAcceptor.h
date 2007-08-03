@@ -25,58 +25,50 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_destroy
 
 /*
  * Class:     quickfix_ThreadedSocketAcceptor
- * Method:    doStart
+ * Method:    start
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStart
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_start
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketAcceptor
- * Method:    doBlock
+ * Method:    block
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doBlock
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_block
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketAcceptor
- * Method:    doPoll
- * Signature: ()Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doPoll
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_ThreadedSocketAcceptor
- * Method:    doStop
+ * Method:    stop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_stop__
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketAcceptor
- * Method:    doStop
+ * Method:    stop
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__Z
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_stop__Z
   (JNIEnv *, jobject, jboolean);
 
 /*
  * Class:     quickfix_ThreadedSocketAcceptor
- * Method:    doIsLoggedOn
+ * Method:    isLoggedOn
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doIsLoggedOn
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_isLoggedOn
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketAcceptor
- * Method:    doGetSessions
+ * Method:    getSessions
  * Signature: ()Ljava/util/ArrayList;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketAcceptor_doGetSessions
+JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketAcceptor_getSessions
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

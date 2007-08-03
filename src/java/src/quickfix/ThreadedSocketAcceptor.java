@@ -61,39 +61,10 @@ public class ThreadedSocketAcceptor implements Acceptor {
     private native void create();
     private native void destroy();
 
-    public void start() throws ConfigError, RuntimeError {
-        doStart();
-    }
-
-    public void block() throws ConfigError, RuntimeError {
-        doBlock();
-    }
-
-    public boolean poll() throws ConfigError, RuntimeError {
-        return doPoll();
-    }
-
-    public void stop() {
-        doStop();
-    }
-
-    public void stop( boolean force ) {
-        doStop( force );
-    }
-
-    public boolean isLoggedOn() {
-        return doIsLoggedOn();
-    }
-
-	public ArrayList getSessions() {
-        return doGetSessions();
-    }
-
-    private native void doStart() throws ConfigError, RuntimeError;
-    private native void doBlock() throws ConfigError, RuntimeError;
-    private native boolean doPoll() throws ConfigError, RuntimeError;
-    private native void doStop();
-    private native void doStop( boolean force );
-    private native boolean doIsLoggedOn();
-    private native ArrayList doGetSessions();
+    public native void start() throws RuntimeError, ConfigError;
+    public native void block() throws RuntimeError, ConfigError;
+    public native void stop();
+    public native void stop( boolean force );
+    public native boolean isLoggedOn();
+    public native ArrayList getSessions();
 }

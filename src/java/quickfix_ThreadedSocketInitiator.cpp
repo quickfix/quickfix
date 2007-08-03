@@ -119,7 +119,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_destroy
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStart
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_start
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -140,7 +140,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStart
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doBlock
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_block
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -161,7 +161,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doBlock
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doPoll
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_poll
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -183,7 +183,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doPoll
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_stop__
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -193,7 +193,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__Z
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_stop__Z
 ( JNIEnv *pEnv, jobject obj, jboolean force )
 { QF_STACK_TRY
 
@@ -203,7 +203,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__Z
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doIsLoggedOn
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_isLoggedOn
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -213,7 +213,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doIsLoggedOn
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketInitiator_doGetSessions
+JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketInitiator_getSessions
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 

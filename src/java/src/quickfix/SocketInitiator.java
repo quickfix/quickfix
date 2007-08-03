@@ -60,35 +60,11 @@ public class SocketInitiator implements Initiator {
 
     private native void create();
     private native void destroy();
-
-    public void start() throws RuntimeError, ConfigError {
-        doStart();
-    }
-
-    public void block() throws RuntimeError, ConfigError {
-        doBlock();
-    }
-
-    public void stop() {
-        doStop();
-    }
-
-    public void stop( boolean force ) {
-        doStop( force );
-    }
-
-    public boolean isLoggedOn() {
-        return doIsLoggedOn();
-    }
-
-    public ArrayList getSessions() {
-        return doGetSessions();
-    }
-
-    private native void doStart() throws RuntimeError, ConfigError;
-    private native void doBlock() throws RuntimeError, ConfigError;
-    private native void doStop();
-    private native void doStop( boolean force );
-    private native boolean doIsLoggedOn();
-    private native ArrayList doGetSessions();
+    
+    public native void start() throws RuntimeError, ConfigError;
+    public native void block() throws RuntimeError, ConfigError;
+    public native void stop();
+    public native void stop( boolean force );
+    public native boolean isLoggedOn();
+    public native ArrayList getSessions();
 }

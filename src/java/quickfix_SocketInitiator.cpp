@@ -122,7 +122,7 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_destroy
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStart
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_start
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -143,7 +143,7 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStart
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doBlock
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_block
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -164,7 +164,7 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doBlock
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doPoll
+JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_poll
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -186,7 +186,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doPoll
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_stop__
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -196,7 +196,7 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__Z
+JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_stop__Z
 ( JNIEnv *pEnv, jobject obj, jboolean force )
 { QF_STACK_TRY
 
@@ -206,7 +206,7 @@ JNIEXPORT void JNICALL Java_quickfix_SocketInitiator_doStop__Z
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doIsLoggedOn
+JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_isLoggedOn
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -216,7 +216,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_SocketInitiator_doIsLoggedOn
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_SocketInitiator_doGetSessions
+JNIEXPORT jobject JNICALL Java_quickfix_SocketInitiator_getSessions
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 

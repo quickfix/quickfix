@@ -25,58 +25,50 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_destroy
 
 /*
  * Class:     quickfix_ThreadedSocketInitiator
- * Method:    doStart
+ * Method:    start
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStart
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_start
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketInitiator
- * Method:    doBlock
+ * Method:    block
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doBlock
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_block
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketInitiator
- * Method:    doPoll
- * Signature: ()Z
- */
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doPoll
-  (JNIEnv *, jobject);
-
-/*
- * Class:     quickfix_ThreadedSocketInitiator
- * Method:    doStop
+ * Method:    stop
  * Signature: ()V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_stop__
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketInitiator
- * Method:    doStop
+ * Method:    stop
  * Signature: (Z)V
  */
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_doStop__Z
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketInitiator_stop__Z
   (JNIEnv *, jobject, jboolean);
 
 /*
  * Class:     quickfix_ThreadedSocketInitiator
- * Method:    doIsLoggedOn
+ * Method:    isLoggedOn
  * Signature: ()Z
  */
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_doIsLoggedOn
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketInitiator_isLoggedOn
   (JNIEnv *, jobject);
 
 /*
  * Class:     quickfix_ThreadedSocketInitiator
- * Method:    doGetSessions
+ * Method:    getSessions
  * Signature: ()Ljava/util/ArrayList;
  */
-JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketInitiator_doGetSessions
+JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketInitiator_getSessions
   (JNIEnv *, jobject);
 
 #ifdef __cplusplus

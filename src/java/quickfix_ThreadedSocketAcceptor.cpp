@@ -119,7 +119,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_destroy
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStart
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_start
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -140,7 +140,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStart
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doBlock
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_block
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -161,7 +161,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doBlock
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doPoll
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_poll
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -183,7 +183,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doPoll
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_stop__
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -193,7 +193,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__
   QF_STACK_CATCH
 }
 
-JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__Z
+JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_stop__Z
 ( JNIEnv *pEnv, jobject obj, jboolean force )
 { QF_STACK_TRY
 
@@ -203,7 +203,7 @@ JNIEXPORT void JNICALL Java_quickfix_ThreadedSocketAcceptor_doStop__Z
   QF_STACK_CATCH
 }
 
-JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doIsLoggedOn
+JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_isLoggedOn
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
@@ -213,7 +213,7 @@ JNIEXPORT jboolean JNICALL Java_quickfix_ThreadedSocketAcceptor_doIsLoggedOn
   QF_STACK_CATCH
 }
 
-JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketAcceptor_doGetSessions
+JNIEXPORT jobject JNICALL Java_quickfix_ThreadedSocketAcceptor_getSessions
 ( JNIEnv *pEnv, jobject obj )
 { QF_STACK_TRY
 
