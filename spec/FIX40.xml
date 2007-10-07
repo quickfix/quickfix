@@ -624,6 +624,7 @@
     <field number="46" name="RelatdSym" type="STRING"/>
     <field number="47" name="Rule80A" type="STRING">
       <value enum="A" description="AGENCY_SINGLE_ORDER"/>
+      <value enum="I" description="INDIVIDUAL_INVESTOR"/>
       <value enum="D" description="PROGRAM_ORDER_INDEX_ARB_FOR_MEMBER_FIRMORG"/>
       <value enum="C" description="PROGRAM_ORDER_NONINDEX_ARB_FOR_MEMBER_FIRMORG"/>
       <value enum="J" description="PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER"/>

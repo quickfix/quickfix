@@ -864,6 +864,7 @@
       <value enum="E" description="REGISTERED_EQUITY_MARKET_MAKER_TRADES"/>
       <value enum="F" description="SHORT_EXEMPT_TRANSACTION_F"/>
       <value enum="H" description="SHORT_EXEMPT_TRANSACTION_H"/>
+      <value enum="I" description="INDIVIDUAL_INVESTOR"/>
       <value enum="J" description="PROGRAM_ORDER_INDEX_ARB_FOR_INDIVIDUAL_CUSTOMER"/>
       <value enum="K" description="PROGRAM_ORDER_NONINDEX_ARB_FOR_INDIVIDUAL_CUSTOMER"/>
       <value enum="L" description="SHORT_EXEMPT_AFFILIATED"/>
