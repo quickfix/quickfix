@@ -494,7 +494,7 @@ bool Message::isTrailerField( const FieldBase& field,
   QF_STACK_POP
 }
 
-SessionID Message::getSessionID( const std::string& qualifier )
+SessionID Message::getSessionID( const std::string& qualifier ) const
 throw( FieldNotFound )
 { QF_STACK_PUSH(Message::getSessionID)
 
