@@ -103,9 +103,9 @@ public:
   void removeGroup( FIX::Group& group )
   { FieldMap::removeGroup( group.field() ); }
 
-  bool hasGroup( const FIX::Group& group )
+  bool hasGroup( const FIX::Group& group ) const
   { return FieldMap::hasGroup( group.field() ); }
-  bool hasGroup( unsigned num, FIX::Group& group )
+  bool hasGroup( unsigned num, FIX::Group& group ) const
   { return FieldMap::hasGroup( num, group.field() ); }
 
 protected:
