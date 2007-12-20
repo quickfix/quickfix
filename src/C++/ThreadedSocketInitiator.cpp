@@ -107,19 +107,22 @@ void ThreadedSocketInitiator::onStop()
   SocketToThread threads;
   SocketToThread::iterator i;
   
-  Locker l(m_mutex);
-
-  time_t start = 0;
-  time_t now = 0;
-
-  ::time( &start );
-  while ( isLoggedOn() )
   {
-    if( ::time(&now) -5 >= start )
-      break;
-  }
+    Locker l(m_mutex);
 
-  threads = m_threads;
+    time_t start = 0;
+    time_t now = 0;
+
+    ::time( &start );
+    while ( isLoggedOn() )
+    {
+      if( ::time(&now) -5 >= start )
+        break;
+    }
+
+    threads = m_threads;
+    m_threads.clear();
+  }   
 
   for ( i = threads.begin(); i != threads.end(); ++i )
     socket_close( i->first );
