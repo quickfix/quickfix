@@ -80,15 +80,20 @@ public:
   void clear();
 
   void onIncoming( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp()) << " : " << value << std::endl << std::flush; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl << std::flush; }
   void onOutgoing( const std::string& value )
-  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp()) << " : "  << value << std::endl << std::flush; }
+  { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl << std::flush; }
   void onEvent( const std::string& value )
   {
     UtcTimeStamp now;
-    m_event << UtcTimeStampConvertor::convert( now )
+    m_event << UtcTimeStampConvertor::convert( now, m_millisecondsInTimeStamp )
     << " : " << value << std::endl << std::flush;
   }
+
+  bool getMillisecondsInTimeStamp() const
+  { return m_millisecondsInTimeStamp; }
+  void setMillisecondsInTimeStamp ( bool value )
+  { m_millisecondsInTimeStamp = value; }
 
 private:
   void init( std::string path, const std::string& prefix );
@@ -97,6 +102,7 @@ private:
   std::ofstream m_event;
   std::string m_messagesFileName;
   std::string m_eventFileName;
+  bool m_millisecondsInTimeStamp;
 };
 }
 

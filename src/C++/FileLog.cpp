@@ -84,11 +84,13 @@ void FileLogFactory::destroy( Log* pLog )
 }
 
 FileLog::FileLog( const std::string& path )
+: m_millisecondsInTimeStamp( true )
 {
   init( path, "GLOBAL" );
 }
 
 FileLog::FileLog( const std::string& path, const SessionID& s )
+: m_millisecondsInTimeStamp( true )
 {
   const std::string& begin =
     s.getBeginString().getString();
