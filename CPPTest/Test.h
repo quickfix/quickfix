@@ -34,22 +34,28 @@ namespace CPPTest
     private:
       bool setup( TestDisplay& testDisplay )
         {
-          bool result = false;
           try
             {
-              result = onSetup(m_pObject);
+              if( !onSetup(m_pObject) )
+                {
+                  throw std::runtime_error("onSetup() failed - no further information available");
+                }
+              return true;
             }
-          catch(...) {}
-
-          if( !result )
+          catch(std::exception& exception)
+            {
+              m_pException = new Exception(exception);
+            }
+          catch(...)
             {
               const type_info& type = typeid(this);
               m_pException = new Exception
                 ( (std::string) type.name(),
-                  "no futher information available" );
-              testDisplay.onFail( *this );
+                  "onSetup() failed - no further information available");
             }
-          return result;
+
+          testDisplay.onFail( *this );
+          return false;
         }
       void teardown( TestDisplay& testDisplay )
         {
@@ -62,7 +68,7 @@ namespace CPPTest
               const type_info& type = typeid(this);
               m_pException = new Exception
                 ( (std::string) type.name(),
-                  "no futher information available" );
+                  "onTeardown() failed - no further information available" );
             }
         }
       bool run( TestDisplay& testDisplay )
@@ -88,7 +94,7 @@ namespace CPPTest
               const type_info& type = typeid(this);
               m_pException = new Exception
                 ( (std::string) type.name(),
-                  "no futher information available"  );
+                  "no further information available"  );
               m_pException->setError(true);
             }
           testDisplay.onFail( *this );
