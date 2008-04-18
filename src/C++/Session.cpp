@@ -1238,8 +1238,7 @@ bool Session::nextQueued( int num )
     }
     else
     {
-      std::string msgString;
-      next( msg.toString(msgString), true );
+      next( msg, true );
     }
     return true;
   }
