@@ -149,11 +149,7 @@ unsigned thread_self();
 void process_sleep( double s );
 
 std::string file_separator();
-#ifdef _MSC_VER
 void file_mkdir( const char* path );
-#else
-void file_mkdir( const char* path );
-#endif
 FILE* file_fopen( const char* path, const char* mode );
 void file_unlink( const char* path );
 std::string file_appendpath( const std::string& path, const std::string& file );
