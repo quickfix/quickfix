@@ -151,7 +151,9 @@ void process_sleep( double s );
 std::string file_separator();
 void file_mkdir( const char* path );
 FILE* file_fopen( const char* path, const char* mode );
+void file_fclose( FILE* file );
 void file_unlink( const char* path );
+int file_rename( const char* oldpath, const char* newpath );
 std::string file_appendpath( const std::string& path, const std::string& file );
 }
 

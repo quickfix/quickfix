@@ -60,14 +60,8 @@ private:
 /**
  * File based implementation of Log
  *
- * Three files are created by this implementation.  One for outgoing
- * messages, one for incoming message, and one for events.
- *
- * The formats of the files are:<br>
- * &nbsp;&nbsp;
- *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].messages<br>
- * &nbsp;&nbsp;
- *   [path]+[BeginString]-[SenderCompID]-[TargetCompID].event<br>
+ * Two files are created by this implementation.  One for messages, 
+ * and one for events.
  *
  */
 class FileLog : public Log
@@ -78,6 +72,7 @@ public:
   virtual ~FileLog();
 
   void clear();
+  void backup();
 
   void onIncoming( const std::string& value )
   { m_messages << UtcTimeStampConvertor::convert(UtcTimeStamp(), m_millisecondsInTimeStamp) << " : " << value << std::endl << std::flush; }
@@ -102,6 +97,7 @@ private:
   std::ofstream m_event;
   std::string m_messagesFileName;
   std::string m_eventFileName;
+  std::string m_fullPrefix;
   bool m_millisecondsInTimeStamp;
 };
 }

@@ -29,6 +29,7 @@
 #include "C++/test/ParserTestCase.h"
 #include "C++/test/SettingsTestCase.h"
 #include "C++/test/MemoryStoreTestCase.h"
+#include "C++/test/FileLogTestCase.h"
 #include "C++/test/FileStoreTestCase.h"
 #include "C++/test/MySQLStoreTestCase.h"
 #include "C++/test/PostgreSQLStoreTestCase.h"
@@ -91,6 +92,7 @@ public:
     add( &m_parser );
     add( &m_settings );
     add( &m_sessionSettings );
+    add( &m_fileLog );
     add( &m_memoryStore );
     add( &m_fileStore );
 #ifdef HAVE_MYSQL
@@ -149,6 +151,7 @@ private:
   FIX::ParserTestCase m_parser;
   FIX::SettingsTestCase m_settings;
   FIX::SessionSettingsTestCase m_sessionSettings;
+  FIX::FileLogTestCase m_fileLog;
   FIX::MemoryStoreTestCase m_memoryStore;
   FIX::FileStoreTestCase m_fileStore;
 #ifdef HAVE_MYSQL

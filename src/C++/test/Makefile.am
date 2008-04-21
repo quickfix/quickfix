@@ -40,6 +40,8 @@ libquickfixcpptest_la_SOURCES = \
 	SessionIDTestCase.h \
 	TimeRangeTestCase.cpp \
 	TimeRangeTestCase.h \
+	FileLogTestCase.cpp \
+	FileLogTestCase.h \
 	FileStoreTestCase.cpp \
 	FileStoreTestCase.h \
 	FileStoreFactoryTestCase.cpp \

@@ -580,6 +580,12 @@ FILE* file_fopen( const char* path, const char* mode )
   QF_STACK_POP
 }
 
+void file_fclose( FILE* file )
+{ QF_STACK_PUSH(file_fclose)
+  fclose( file );
+  QF_STACK_POP
+}
+
 void file_unlink( const char* path )
 { QF_STACK_PUSH(file_unlink)
 
@@ -587,6 +593,18 @@ void file_unlink( const char* path )
   _unlink( path );
 #else
   unlink( path );
+#endif
+
+  QF_STACK_POP
+}
+
+int file_rename( const char* oldpath, const char* newpath )
+{ QF_STACK_PUSH(file_rename)
+
+#ifdef _MSC_VER
+  return _rename( oldpath, newpath );
+#else
+  return rename( oldpath, newpath );
 #endif
 
   QF_STACK_POP

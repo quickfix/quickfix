@@ -84,6 +84,7 @@ public:
   virtual ~Log() {}
 
   virtual void clear() = 0;
+  virtual void backup() {};
   virtual void onIncoming( const std::string& ) = 0;
   virtual void onOutgoing( const std::string& ) = 0;
   virtual void onEvent( const std::string& ) = 0;

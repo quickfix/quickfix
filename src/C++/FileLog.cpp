@@ -115,11 +115,11 @@ void FileLog::init( std::string path, const std::string& prefix )
 
   if ( path.empty() ) path = ".";
 
-  std::string fullPrefix
+  m_fullPrefix
     = file_appendpath(path, prefix + ".");
 
-  m_messagesFileName = fullPrefix + "messages.log";
-  m_eventFileName = fullPrefix + "event.log";
+  m_messagesFileName = m_fullPrefix + "messages.current.log";
+  m_eventFileName = m_fullPrefix + "event.current.log";
 
   m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::app );
   if ( !m_messages.is_open() ) throw ConfigError( "Could not open messages file: " + m_messagesFileName );
@@ -142,6 +142,36 @@ void FileLog::clear()
 
   m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::trunc );
   m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::trunc );
+}
+
+void FileLog::backup()
+{
+  m_messages.close();
+  m_event.close();
+
+  int i = 0;
+  while( true )
+  {
+    std::stringstream messagesFileName;
+    std::stringstream eventFileName;
+ 
+    messagesFileName << m_fullPrefix << "messages.backup." << ++i << ".log";
+    eventFileName << m_fullPrefix << "event.backup." << i << ".log";
+    FILE* messagesLogFile = file_fopen( messagesFileName.str().c_str(), "r" );
+    FILE* eventLogFile = file_fopen( eventFileName.str().c_str(), "r" );
+
+    if( messagesLogFile == NULL && eventLogFile == NULL )
+    {
+      file_rename( m_messagesFileName.c_str(), messagesFileName.str().c_str() );
+      file_rename( m_eventFileName.c_str(), eventFileName.str().c_str() );
+      m_messages.open( m_messagesFileName.c_str(), std::ios::out | std::ios::trunc );
+      m_event.open( m_eventFileName.c_str(), std::ios::out | std::ios::trunc );
+      return;
+    }
+    
+    if( messagesLogFile != NULL ) file_fclose( messagesLogFile );
+    if( eventLogFile != NULL ) file_fclose( eventLogFile );
+  }
 }
 
 } //namespace FIX
