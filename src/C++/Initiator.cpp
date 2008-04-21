@@ -241,6 +241,7 @@ void Initiator::start() throw ( ConfigError, RuntimeError )
 void Initiator::block() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH(Initiator::block)
 
+  m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
 

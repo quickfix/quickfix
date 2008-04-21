@@ -189,6 +189,7 @@ void Acceptor::start() throw ( ConfigError, RuntimeError )
 void Acceptor::block() throw ( ConfigError, RuntimeError )
 { QF_STACK_PUSH( Acceptor::start )
 
+  m_stop = false;
   onConfigure( m_settings );
   onInitialize( m_settings );
 
