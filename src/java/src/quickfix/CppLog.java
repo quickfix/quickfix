@@ -30,6 +30,7 @@ public class CppLog implements Log {
     }
 
     public native void clear();
+    public native void backup();
     public native void onIncoming( String string );
     public native void onOutgoing( String string );
     public native void onEvent( String string );

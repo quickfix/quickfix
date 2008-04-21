@@ -33,6 +33,8 @@ JavaLog::JavaLog( JVMObject object )
 {
   clearId = object.getClass()
             .getMethodID( "clear", "()V" );
+  backupId = object.getClass()
+            .getMethodID( "backup", "()V" );
   onIncomingId = object.getClass()
                  .getMethodID( "onIncoming", "(Ljava/lang/String;)V" );
   onOutgoingId = object.getClass()
@@ -47,6 +49,12 @@ void JavaLog::clear()
 {
   JNIEnv * pEnv = ENV::get();
   pEnv->CallVoidMethod( m_object, clearId );
+}
+
+void JavaLog::backup()
+{
+  JNIEnv * pEnv = ENV::get();
+  pEnv->CallVoidMethod( m_object, backupId );
 }
 
 void JavaLog::onIncoming( const std::string& string )

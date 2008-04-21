@@ -237,6 +237,11 @@ void MySQLLog::clear()
   QF_STACK_POP
 }
 
+void MySQLLog::backup()
+{ QF_STACK_PUSH(MySQLLog::backup)
+  QF_STACK_POP
+}
+
 void MySQLLog::insert( const std::string& table, const std::string value )
 { QF_STACK_PUSH(MySQLLog::insert)
 

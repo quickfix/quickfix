@@ -195,6 +195,8 @@ public:
 
   void clear()
   { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->clear(); }
+  void backup()
+  { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->backup(); }
   void onIncoming( const std::string& string )
   { if ( !m_pLog ) return ; Locker l( m_mutex ); m_pLog->onIncoming( string ); }
   void onOutgoing( const std::string& string )

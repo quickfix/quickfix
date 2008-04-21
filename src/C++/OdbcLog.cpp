@@ -217,6 +217,11 @@ void OdbcLog::clear()
   QF_STACK_POP
 }
 
+void OdbcLog::backup()
+{ QF_STACK_PUSH(OdbcLog::backup)
+  QF_STACK_POP
+}
+
 void OdbcLog::insert( const std::string& table, const std::string value )
 { QF_STACK_PUSH(OdbcLog::insert)
 

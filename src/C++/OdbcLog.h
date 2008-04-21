@@ -51,6 +51,7 @@ public:
   ~OdbcLog();
 
   void clear();
+  void backup();
   void setIncomingTable( const std::string& incomingTable )
   { m_incomingTable = incomingTable; }
   void setOutgoingTable( const std::string& outgoingTable )

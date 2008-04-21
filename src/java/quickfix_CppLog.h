@@ -17,6 +17,14 @@ JNIEXPORT void JNICALL Java_quickfix_CppLog_clear
 
 /*
  * Class:     quickfix_CppLog
+ * Method:    backup
+ * Signature: ()V
+ */
+JNIEXPORT void JNICALL Java_quickfix_CppLog_backup
+  (JNIEnv *, jobject);
+
+/*
+ * Class:     quickfix_CppLog
  * Method:    onIncoming
  * Signature: (Ljava/lang/String;)V
  */

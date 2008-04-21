@@ -238,6 +238,11 @@ void PostgreSQLLog::clear()
   QF_STACK_POP
 }
 
+void PostgreSQLLog::backup()
+{ QF_STACK_PUSH(PostgreSQLLog::backup)
+  QF_STACK_POP
+}
+
 void PostgreSQLLog::insert( const std::string& table, const std::string value )
 { QF_STACK_PUSH(PostgreSQLLog::insert)
 

@@ -21,6 +21,7 @@ package quickfix;
 
 public interface Log {
     void clear();
+    void backup();
     void onIncoming( String string );
     void onOutgoing( String string );
     void onEvent( String string );
