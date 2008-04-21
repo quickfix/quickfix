@@ -117,7 +117,7 @@ bool SocketInitiator::onPoll( double timeout )
       return false;
   }
 
-  m_connector.block( *this, true );
+  m_connector.block( *this, true, timeout );
   return true;
 
   QF_STACK_POP

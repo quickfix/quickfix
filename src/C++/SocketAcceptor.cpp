@@ -150,12 +150,18 @@ bool SocketAcceptor::onPoll( double timeout )
     if( start == 0 )
       ::time( &start );
     if( !isLoggedOn() )
+    {
+      start = 0;
       return false;
+    }
     if( ::time(&now) - 5 >= start )
+    {
+      start = 0;
       return false;
+    }
   }
 
-  m_pServer->block( *this, true );
+  m_pServer->block( *this, true, timeout );
   return true;
 
   QF_STACK_POP
