@@ -43,7 +43,9 @@ public:
   FileLogFactory( const SessionSettings& settings )
 : m_settings( settings ), m_globalLog(0), m_globalLogCount(0) {};
   FileLogFactory( const std::string& path )
-: m_path( path ), m_globalLog(0), m_globalLogCount(0) {};
+: m_path( path ), m_backupPath( path ), m_globalLog(0), m_globalLogCount(0) {};
+  FileLogFactory( const std::string& path, const std::string& backupPath )
+: m_path( path ), m_backupPath( backupPath ), m_globalLog(0), m_globalLogCount(0) {};
 
 public:
   Log* create();
@@ -52,6 +54,7 @@ public:
 
 private:
   std::string m_path;
+  std::string m_backupPath;
   SessionSettings m_settings;
   Log* m_globalLog;
   int m_globalLogCount;
@@ -69,6 +72,7 @@ class FileLog : public Log
 public:
   FileLog( const std::string& path );
   FileLog( const std::string& path, const SessionID& sessionID );
+  FileLog( const std::string& path, const std::string& backupPath, const SessionID& sessionID );
   virtual ~FileLog();
 
   void clear();
@@ -91,13 +95,15 @@ public:
   { m_millisecondsInTimeStamp = value; }
 
 private:
-  void init( std::string path, const std::string& prefix );
+  std::string generatePrefix( const SessionID& sessionID );
+  void init( std::string path, std::string backupPath, const std::string& prefix );
 
   std::ofstream m_messages;
   std::ofstream m_event;
   std::string m_messagesFileName;
   std::string m_eventFileName;
   std::string m_fullPrefix;
+  std::string m_fullBackupPrefix;
   bool m_millisecondsInTimeStamp;
 };
 }

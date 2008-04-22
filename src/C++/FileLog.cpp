@@ -38,8 +38,14 @@ Log* FileLogFactory::create()
   {
     if ( m_path.size() ) return new FileLog( m_path );
     std::string path;
+    std::string backupPath;
+
     Dictionary settings = m_settings.get();
     path = settings.getString( FILE_LOG_PATH );
+    backupPath = path;
+    if( settings.has( FILE_LOG_BACKUP_PATH ) )
+      backupPath = settings.getString( FILE_LOG_BACKUP_PATH );
+
     return m_globalLog = new FileLog( path );
   }
   catch( ConfigError& )
@@ -54,7 +60,11 @@ Log* FileLogFactory::create()
 Log* FileLogFactory::create( const SessionID& s )
 { QF_STACK_PUSH(FileLogFactory::create)
 
-  if ( m_path.size() ) return new FileLog( m_path, s );
+  if ( m_path.size() && m_backupPath.size() )
+    return new FileLog( m_path, m_backupPath, s );
+  if ( m_path.size() ) 
+    return new FileLog( m_path, s );
+
   std::string path;
   Dictionary settings = m_settings.get( s );
   path = settings.getString( FILE_LOG_PATH );
@@ -86,11 +96,22 @@ void FileLogFactory::destroy( Log* pLog )
 FileLog::FileLog( const std::string& path )
 : m_millisecondsInTimeStamp( true )
 {
-  init( path, "GLOBAL" );
+  init( path, path, "GLOBAL" );
 }
 
 FileLog::FileLog( const std::string& path, const SessionID& s )
 : m_millisecondsInTimeStamp( true )
+{
+  init( path, path, generatePrefix(s) );
+}
+
+FileLog::FileLog( const std::string& path, const std::string& backupPath, const SessionID& s )
+: m_millisecondsInTimeStamp( true )
+{
+  init( path, backupPath, generatePrefix(s) );
+}
+
+std::string FileLog::generatePrefix( const SessionID& s )
 {
   const std::string& begin =
     s.getBeginString().getString();
@@ -105,18 +126,22 @@ FileLog::FileLog( const std::string& path, const SessionID& s )
   if( qualifier.size() )
     prefix += "-" + qualifier;
 
-  init( path, prefix );
+  return prefix;
 }
 
-void FileLog::init( std::string path, const std::string& prefix )
+void FileLog::init( std::string path, std::string backupPath, const std::string& prefix )
 { QF_STACK_PUSH(FileLog::init)
 	
   file_mkdir( path.c_str() );
+  file_mkdir( backupPath.c_str() );
 
   if ( path.empty() ) path = ".";
+  if ( backupPath.empty() ) backupPath = path;
 
   m_fullPrefix
     = file_appendpath(path, prefix + ".");
+  m_fullBackupPrefix
+    = file_appendpath(backupPath, prefix + ".");
 
   m_messagesFileName = m_fullPrefix + "messages.current.log";
   m_eventFileName = m_fullPrefix + "event.current.log";
@@ -155,8 +180,8 @@ void FileLog::backup()
     std::stringstream messagesFileName;
     std::stringstream eventFileName;
  
-    messagesFileName << m_fullPrefix << "messages.backup." << ++i << ".log";
-    eventFileName << m_fullPrefix << "event.backup." << i << ".log";
+    messagesFileName << m_fullBackupPrefix << "messages.backup." << ++i << ".log";
+    eventFileName << m_fullBackupPrefix << "event.backup." << i << ".log";
     FILE* messagesLogFile = file_fopen( messagesFileName.str().c_str(), "r" );
     FILE* eventLogFile = file_fopen( eventFileName.str().c_str(), "r" );
 

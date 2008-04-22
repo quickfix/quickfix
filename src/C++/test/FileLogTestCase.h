@@ -47,7 +47,7 @@ public:
   class generateFileName : public Test
   {
   public:
-    generateFileName() : m_fileLogFactory( "log" ) {}
+    generateFileName() : m_fileLogFactory( "log", "log/backup" ) {}
     bool onSetup( FileLog*& pObject );
     void onTeardown( FileLog* pObject );
     void onRun( FileLog& object );
@@ -62,14 +62,18 @@ public:
 inline void deleteLogSession( std::string sender, std::string target )
 {
   file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".event.current.log" ).c_str() );
-  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".event.backup.1.log" ).c_str() );
-  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".event.backup.2.log" ).c_str() );
-  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".event.backup.3.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.1.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.2.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.3.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.4.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.5.log" ).c_str() );
 
   file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".messages.current.log" ).c_str() );
-  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".messages.backup.1.log" ).c_str() );
-  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".messages.backup.2.log" ).c_str() );
-  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".messages.backup.3.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.1.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.2.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.3.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.4.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.5.log" ).c_str() );
 }
 }
 

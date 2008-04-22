@@ -84,6 +84,7 @@ const char ODBC_STORE_USER[] = "OdbcStoreUser";
 const char ODBC_STORE_PASSWORD[] = "OdbcStorePassword";
 const char ODBC_STORE_CONNECTION_STRING[] = "OdbcStoreConnectionString";
 const char FILE_LOG_PATH[] = "FileLogPath";
+const char FILE_LOG_BACKUP_PATH[] = "FileLogBackupPath";
 const char SCREEN_LOG_SHOW_INCOMING[] = "ScreenLogShowIncoming";
 const char SCREEN_LOG_SHOW_OUTGOING[] = "ScreenLogShowOutgoing";
 const char SCREEN_LOG_SHOW_EVENTS[] = "ScreenLogShowEvents";
