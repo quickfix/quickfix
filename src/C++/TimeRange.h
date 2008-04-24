@@ -49,10 +49,10 @@ public:
   }
 
   static bool isInRange( const UtcTimeOnly& startTime,
-                             const UtcTimeOnly& endTime,
-                             int startDay,
-                             int endDay,
-                             const DateTime& time )
+                         const UtcTimeOnly& endTime,
+                         int startDay,
+                         int endDay,
+                         const DateTime& time )
   {
     return isInRange
       ( (DateTime)startTime, (DateTime)endTime, 
@@ -92,10 +92,10 @@ public:
   }
 
   static bool isInRange( const LocalTimeOnly& startTime,
-                             const LocalTimeOnly& endTime,
-                             int startDay,
-                             int endDay,
-                             const DateTime& time )
+                         const LocalTimeOnly& endTime,
+                         int startDay,
+                         int endDay,
+                         const DateTime& time )
   {
     return isInRange
       ( (DateTime)startTime, (DateTime)endTime, 
@@ -128,14 +128,14 @@ public:
 
 private:
   static bool isInRange( const DateTime& start,
-                             const DateTime& end,
-                             const DateTime& time );
+                         const DateTime& end,
+                         const DateTime& time );
 
   static bool isInRange( const DateTime& startTime,
-                             const DateTime& endTime,
-                             int startDay,
-                             int endDay,
-                             const DateTime& time );
+                         const DateTime& endTime,
+                         int startDay,
+                         int endDay,
+                         const DateTime& time );
 
   static bool isInSameRange( const DateTime& start,
                              const DateTime& end,
