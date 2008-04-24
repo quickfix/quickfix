@@ -41,6 +41,8 @@ SocketMonitor::SocketMonitor( int timeout )
   std::pair<int, int> sockets = socket_createpair();
   m_signal = sockets.first;
   m_interrupt = sockets.second;
+  socket_setnonblock( m_signal );
+  socket_setnonblock( m_interrupt );
   m_readSockets.insert( m_interrupt );
 
   m_timeval.tv_sec = 0;
