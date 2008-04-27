@@ -233,7 +233,7 @@ public class Message extends FieldMap {
         String value = message.substring( startValue, soh );
         return new MsgType( value );
       } catch( RuntimeException e ) {
-	throw new MessageParseError();
+        throw new MessageParseError();
       }
     }
 

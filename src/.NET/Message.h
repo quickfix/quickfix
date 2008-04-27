@@ -27,6 +27,7 @@ using namespace System::Collections;
 #include "quickfix_net.h"
 #include "FieldMap.h"
 #include "Field.h"
+#include "Fields.h"
 #include "Exceptions.h"
 #include "Group.h"
 #include "DataDictionary.h"
@@ -321,6 +322,25 @@ public:
     }
 
     QF_STACK_CATCH
+  }
+
+  MsgType* identifyType( String* message )
+  {
+    try 
+    {
+      int index = message->IndexOf( "\00135=" );
+      if( index == -1 ) throw new MessageParseError();
+
+      int startValue = index + 4;
+      int soh = message->IndexOf( "\001", startValue );
+      if( soh == -1 ) throw new MessageParseError();
+      String* value = message->Substring( startValue, soh - startValue );
+      return new MsgType( value );
+    }
+    catch( Exception* e ) 
+    {
+      throw new MessageParseError();
+    }
   }
 
   __gc class Header : public FieldMap, public IDisposable

@@ -37,6 +37,8 @@ public:
   int field;
 };
 
+public __gc class MessageParseError : public Exception {};
+
 public __gc class FieldConvertError : public Exception
 {
 public:
