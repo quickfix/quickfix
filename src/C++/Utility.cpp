@@ -600,13 +600,7 @@ void file_unlink( const char* path )
 
 int file_rename( const char* oldpath, const char* newpath )
 { QF_STACK_PUSH(file_rename)
-
-#ifdef _MSC_VER
-  return _rename( oldpath, newpath );
-#else
   return rename( oldpath, newpath );
-#endif
-
   QF_STACK_POP
 }
 
