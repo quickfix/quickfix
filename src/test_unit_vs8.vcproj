@@ -231,6 +231,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\C++\test\FileLogTestCase.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\C++\test\FileLogTestCase.h"
+				>
+			</File>
+			<File
 				RelativePath=".\C++\test\FileStoreFactoryTestCase.cpp"
 				>
 			</File>
