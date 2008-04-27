@@ -72,6 +72,19 @@ public class PerformanceTest extends TestCase {
         report(end - begin, 50000);
     }
 
+    public void testIdentifyType() throws Exception {
+        System.out.println("Identifying message types: ");
+        Heartbeat message = new Heartbeat();
+        String messageString = message.toString();
+
+        long begin = System.currentTimeMillis();
+        for(int i = 1; i < 50000; ++i)
+            Message.identifyType( messageString );
+        long end = System.currentTimeMillis();
+            
+        report(end - begin, 50000);
+    }
+
     public void testSerializeToStringHeartbeat() {
         System.out.println("Serializing Heartbeat messages to strings: ");
 

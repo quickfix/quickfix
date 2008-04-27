@@ -50,6 +50,7 @@ int testStringToInteger( int );
 int testDoubleToString( int );
 int testStringToDouble( int );
 int testCreateHeartbeat( int );
+int testIdentifyType( int );
 int testSerializeToStringHeartbeat( int );
 int testSerializeFromStringHeartbeat( int );
 int testCreateNewOrderSingle( int );
@@ -119,6 +120,9 @@ int main( int argc, char** argv )
 
   std::cout << "Creating Heartbeat messages: ";
   report( testCreateHeartbeat( count ), count );
+
+  std::cout << "Identifying message types: ";
+  report( testIdentifyType( count ), count );
 
   std::cout << "Serializing Heartbeat messages to strings: ";
   report( testSerializeToStringHeartbeat( count ), count );
@@ -238,6 +242,22 @@ int testCreateHeartbeat( int count )
   for ( int i = 0; i <= count; ++i )
   {
     FIX42::Heartbeat();
+  }
+
+  return GetTickCount() - start;
+}
+
+int testIdentifyType( int count )
+{
+  FIX42::Heartbeat message;
+  std::string messageString = message.toString();
+
+  count = count - 1;
+
+  int start = GetTickCount();
+  for ( int i = 0; i <= count; ++i )
+  {
+    FIX::identifyType( messageString );
   }
 
   return GetTickCount() - start;

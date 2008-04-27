@@ -18,6 +18,8 @@
 ****************************************************************************/
 
 package quickfix;
+
+import quickfix.field.MsgType;
 import java.util.Date;
 
 public class Message extends FieldMap {
@@ -219,6 +221,21 @@ public class Message extends FieldMap {
 
     public native boolean isAdmin();
     public native boolean isApp();
+
+    public static MsgType identifyType( String message ) throws MessageParseError {
+      try {
+        int index = message.indexOf( "\00135=" );
+        if( index == -1 ) throw new MessageParseError();
+
+        int startValue = index + 4;
+        int soh = message.indexOf( "\001", startValue );
+        if( soh == -1 ) throw new MessageParseError();
+        String value = message.substring( startValue, soh );
+        return new MsgType( value );
+      } catch( RuntimeException e ) {
+	throw new MessageParseError();
+      }
+    }
 
     public class Iterator implements java.util.Iterator {
         private Message message;

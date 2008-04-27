@@ -3,6 +3,7 @@ package quickfix.test;
 import quickfix.Message;
 import quickfix.FieldNotFound;
 import quickfix.InvalidMessage;
+import quickfix.MessageParseError;
 import quickfix.StringField;
 import quickfix.DoubleField;
 import quickfix.field.*;
@@ -26,6 +27,21 @@ public class MessageTest extends TestCase {
     }
 
     public void tearDown() throws Exception {
+    }
+
+    public void testIdentifyType() {
+        try {
+            assertEquals( "A", Message.identifyType("8=FIX.4.2\0019=12\00135=A\001108=30\00110=031\001").getValue() );
+	} catch( MessageParseError e ) { assertTrue("Message could not be parsed", false); }
+
+        try {
+            assertEquals( "AB", Message.identifyType("8=FIX.4.2\0019=12\00135=AB\001108=30\00110=031\001").getValue() );
+	} catch( MessageParseError e ) { assertTrue("Message could not be parsed", false); }
+
+        try {
+            Message.identifyType("8=FIX.4.2\0019=12\001108=30\00110=031\001");
+            assertTrue("Message should not have a type", false);
+	} catch( MessageParseError e ) {}
     }
 
     public void testMessageFromString() {

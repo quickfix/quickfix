@@ -53,6 +53,14 @@ void MessageTestCase::identifyType::onRun( Message& )
   try
   {
     assert
+    ( FIX::identifyType( "8=FIX.4.2\0019=12\00135=AB\001108=30\001"
+                         "10=031\001" ) == "AB" );
+  }
+  catch ( std::logic_error& ) { assert( false ); }
+
+  try
+  {
+    assert
     ( FIX::identifyType( "8=FIX.4.2\0019=12\001108=30\00110=031\001" )
       == "A" );
     assert( false );
