@@ -67,6 +67,12 @@ public:
     QF_STACK_CATCH
   }
 
+  void backup()
+  { QF_STACK_TRY
+    m_pUnmanaged->backup();
+    QF_STACK_POP
+  }
+
   void onIncoming( String* s )
   { QF_STACK_TRY
 
