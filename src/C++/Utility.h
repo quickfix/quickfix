@@ -94,8 +94,9 @@ typedef int socklen_t;
 namespace FIX
 {
 void string_replace( const std::string& oldValue,
-		     const std::string& newValue,
-		     std::string& value );
+                     const std::string& newValue,
+                     std::string& value );
+
 std::string string_toLower( const std::string& value );
 std::string string_toUpper( const std::string& value );
 std::string string_strip( const std::string& value );
@@ -152,6 +153,7 @@ std::string file_separator();
 void file_mkdir( const char* path );
 FILE* file_fopen( const char* path, const char* mode );
 void file_fclose( FILE* file );
+bool file_exists( const char* path );
 void file_unlink( const char* path );
 int file_rename( const char* oldpath, const char* newpath );
 std::string file_appendpath( const std::string& path, const std::string& file );

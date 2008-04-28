@@ -33,6 +33,7 @@
 #include <math.h>
 #include <stdio.h>
 #include <algorithm>
+#include <fstream>
 
 namespace FIX
 {
@@ -583,6 +584,21 @@ FILE* file_fopen( const char* path, const char* mode )
 void file_fclose( FILE* file )
 { QF_STACK_PUSH(file_fclose)
   fclose( file );
+  QF_STACK_POP
+}
+
+bool file_exists( const char* path )
+{ QF_STACK_PUSH(file_exists)
+
+  std::ifstream stream;
+  stream.open( path, std::ios_base::in );
+  if( stream.is_open() )
+  {
+    stream.close();
+    return true;
+  }
+  return false;
+  
   QF_STACK_POP
 }
 
