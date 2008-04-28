@@ -141,6 +141,9 @@ void SessionSettings::set( const SessionID& sessionID,
 throw( ConfigError )
 { QF_STACK_PUSH(SessionSettings::set)
 
+  if( has(sessionID) )
+    throw ConfigError( "Duplicate Session " + sessionID.toString() );
+
   settings.setString( BEGINSTRING, sessionID.getBeginString() );
   settings.setString( SENDERCOMPID, sessionID.getSenderCompID() );
   settings.setString( TARGETCOMPID, sessionID.getTargetCompID() );

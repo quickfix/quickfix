@@ -96,6 +96,32 @@ void SessionSettingsTestCase::readFromIstream::onRun
   assertEquals( 4, object.get( session4 ).getLong( "VALUE" ) );
 }
 
+void SessionSettingsTestCase::readFromIstreamDuplicateSession::onRun
+( SessionSettings& object )
+{
+  std::string configuration =
+    "[DEFAULT]\n"
+    "ConnectionType=initiator\n"
+    "BeginString=FIX.4.0\n"
+    "[SESSION]\n"
+    "BeginString=FIX.4.2\n"
+    "SenderCompID=ISLD\n"
+    "TargetCompID=TW\n"
+    "[SESSION]\n"
+    "BeginString=FIX.4.2\n"
+    "SenderCompID=ISLD\n"
+    "TargetCompID=TW\n";
+
+  std::istringstream input( configuration );
+
+  try
+  {
+    input >> object;
+    assert( false );
+  }
+  catch( FIX::ConfigError& ) {}
+}
+
 void SessionSettingsTestCase::writeToOstream::onRun
 ( SessionSettings& object )
 {
