@@ -47,7 +47,7 @@ public:
   class generateFileName : public Test
   {
   public:
-    generateFileName() : m_fileLogFactory( "log", "log/backup" ) {}
+    generateFileName() : m_fileLogFactory( "log", "log" + file_separator() + "backup" ) {}
     bool onSetup( FileLog*& pObject );
     void onTeardown( FileLog* pObject );
     void onRun( FileLog& object );

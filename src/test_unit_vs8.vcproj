@@ -235,10 +235,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\C++\test\FileLogTestCase.h"
-				>
-			</File>
-			<File
 				RelativePath=".\C++\test\FileStoreFactoryTestCase.cpp"
 				>
 			</File>
@@ -365,6 +361,10 @@
 			</File>
 			<File
 				RelativePath=".\C++\test\FieldConvertorsTestCase.h"
+				>
+			</File>
+			<File
+				RelativePath=".\C++\test\FileLogTestCase.h"
 				>
 			</File>
 			<File
