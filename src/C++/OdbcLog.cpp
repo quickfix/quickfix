@@ -207,9 +207,9 @@ void OdbcLog::clear()
   eventQuery 
     << "DELETE FROM " << m_eventTable << " " << whereClause.str();
 
-  PostgreSQLQuery incoming( incomingQuery.str() );
-  PostgreSQLQuery outgoing( outgoingQuery.str() );
-  PostgreSQLQuery event( eventQuery.str() );
+  OdbcQuery incoming( incomingQuery.str() );
+  OdbcQuery outgoing( outgoingQuery.str() );
+  OdbcQuery event( eventQuery.str() );
   m_pConnection->execute( incoming );
   m_pConnection->execute( outgoing );
   m_pConnection->execute( event );
