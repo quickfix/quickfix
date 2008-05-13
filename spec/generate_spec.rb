@@ -52,23 +52,28 @@ class DataDictionary
 
 	def parseEnums
 		@tagToEnum = Hash.new
+		enumHash = Hash.new
+		lastTag = 0
 
 		@enumsDoc.elements["dataroot"].elements.each("Enums") { |enumsElement|
-			tag = fieldElement.elements["Tag"].text.to_i
+			tag = enumsElement.elements["Tag"].text.to_i
 			next if tagShouldBeSkipped( tag )
 
-			enum = fieldsElement.elements["Enum"]
-			description = fieldElement.elements["Description"]
+			enum = enumsElement.elements["Enum"]
+			description = enumsElement.elements["Description"]
 
-			enumHash = Hash.new
-			enumHash[ "enum" ] = enum
-			enumHash[ "description" ] = description
-			enumHash[ tag ] = enumHash
+			enumHash = Hash.new if lastTag != tag
+
+			enumHash[ enum.text ] = description.text
+			@tagToEnum[ tag ] = enumHash
+
+			lastTag = tag
 		}
 	end
 
 	def parseDictionary
 		parseFields
+		parseEnums
 	end
 
 	def printVersion
@@ -84,15 +89,16 @@ class DataDictionary
 			type = fieldHash[ "type" ]
 			fieldName = fieldHash[ "fieldName" ]
 			outs( "<field number='#{tag}' name='#{fieldName}' type='#{type}'>" )
+			printEnums( tag )
 		}
 	end
 
 	def printEnums( tag )
+		return if !@tagToEnum.has_key?( tag )
+
 		tabUp
 			enumHash = @tagToEnum[ tag ]
-			@tagToEnum.sort.each { |tag, enumHash|
-				enum = enumHash[ "enum" ]
-				description = descriptionHash[ "description" ]
+ 			enumHash.sort.each { |enum, description|
 				outs( "<value enum='#{enum}' description='#{description}'/>" )
 			}
 		tabDown
