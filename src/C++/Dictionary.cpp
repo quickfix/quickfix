@@ -132,25 +132,25 @@ throw( ConfigError, FieldConvertError )
 
 void Dictionary::setString( const std::string& key, const std::string& value )
 { QF_STACK_PUSH(Dictionary::setString)
-  m_data[ string_toUpper(key) ] = value;
+  m_data[ string_strip(string_toUpper(key)) ] = string_strip(value);
   QF_STACK_POP
 }
 
 void Dictionary::setLong( const std::string& key, long value )
 { QF_STACK_PUSH(Dictionary::setString)
-  m_data[ string_toUpper(key) ] = IntConvertor::convert( value );
+  m_data[ string_strip(string_toUpper(key)) ] = IntConvertor::convert( value );
   QF_STACK_POP
 }
 
 void Dictionary::setDouble( const std::string& key, double value )
 { QF_STACK_PUSH(Dictionary::setDouble)
-  m_data[ string_toUpper(key) ] = DoubleConvertor::convert( value );
+  m_data[ string_strip(string_toUpper(key)) ] = DoubleConvertor::convert( value );
   QF_STACK_POP
 }
 
 void Dictionary::setBool( const std::string& key, bool value )
 { QF_STACK_PUSH(Dictionary::setBool)
-  m_data[ string_toUpper(key) ] = BoolConvertor::convert( value );
+  m_data[ string_strip(string_toUpper(key)) ] = BoolConvertor::convert( value );
   QF_STACK_POP
 }
 

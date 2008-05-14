@@ -122,6 +122,65 @@ void SessionSettingsTestCase::readFromIstreamDuplicateSession::onRun
   catch( FIX::ConfigError& ) {}
 }
 
+void SessionSettingsTestCase::stripSpaces::onRun
+( SessionSettings& object )
+{
+  std::string configuration =
+    " [ DEFAULT ] \n"
+    "StringValue1=StringValue1\n"
+    "StringValue2=StringValue2 \n"
+    "StringValue3= StringValue3\n"
+    "StringValue4 =StringValue4\n"
+    " StringValue5=StringValue5\n"
+    "  StringValue6  =  StringValue6  \n"
+    "IntegerValue1=1\n"
+    "IntegerValue2=2 \n"
+    "IntegerValue3= 3\n"
+    "IntegerValue4 =4\n"
+    " IntegerValue5=5\n"
+    "  IntegerValue6  =  6  \n"
+    "  [  SESSION  ]  \n"
+    "ConnectionType=initiator\n"
+    "BeginString=FIX.4.0\n"
+    "SenderCompID=ISLD\n"
+    "TargetCompID=TW\n"
+    "DoubleValue1=1.1\n"
+    "DoubleValue2=2.2 \n"
+    "DoubleValue3= 3.3\n"
+    "DoubleValue4 =4.4\n"
+    " DoubleValue5=5.5\n"
+    "  DoubleValue6  =  6.6  \n";
+
+  std::istringstream input( configuration );
+
+  input >> object;
+
+  SessionID session1( BeginString( "FIX.4.0" ),
+                      SenderCompID( "ISLD" ),
+                      TargetCompID( "TW" ) );
+
+  assertEquals( "StringValue1", object.get().getString( "StringValue1" ) );
+  assertEquals( "StringValue2", object.get().getString( "StringValue2" ) );
+  assertEquals( "StringValue3", object.get().getString( "StringValue3" ) );
+  assertEquals( "StringValue4", object.get().getString( "StringValue4" ) );
+  assertEquals( "StringValue5", object.get().getString( "StringValue5" ) );
+  assertEquals( "StringValue6", object.get().getString( "StringValue6" ) );
+
+  assertEquals( 1, object.get().getLong( "IntegerValue1" ) );
+  assertEquals( 2, object.get().getLong( "IntegerValue2" ) );
+  assertEquals( 3, object.get().getLong( "IntegerValue3" ) );
+  assertEquals( 4, object.get().getLong( "IntegerValue4" ) );
+  assertEquals( 5, object.get().getLong( "IntegerValue5" ) );
+  assertEquals( 6, object.get().getLong( "IntegerValue6" ) );
+
+  assertEquals( 1.1, object.get(session1).getDouble( "DoubleValue1" ) );
+  assertEquals( 2.2, object.get(session1).getDouble( "DoubleValue2" ) );
+  assertEquals( 3.3, object.get(session1).getDouble( "DoubleValue3" ) );
+  assertEquals( 4.4, object.get(session1).getDouble( "DoubleValue4" ) );
+  assertEquals( 5.5, object.get(session1).getDouble( "DoubleValue5" ) );
+  assertEquals( 6.6, object.get(session1).getDouble( "DoubleValue6" ) );
+}
+
 void SessionSettingsTestCase::writeToOstream::onRun
 ( SessionSettings& object )
 {

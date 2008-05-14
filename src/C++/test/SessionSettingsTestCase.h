@@ -34,6 +34,7 @@ public:
   {
     add( &m_readFromIstream );
     add( &m_readFromIstreamDuplicateSession );
+    add( &m_stripSpaces );
     add( &m_writeToOstream );
     add( &m_validate );
   }
@@ -54,6 +55,13 @@ private:
     void onRun( SessionSettings& object );
   }
   m_readFromIstreamDuplicateSession;
+
+  class stripSpaces : public Test
+  {
+  public:
+    void onRun( SessionSettings& object );
+  }
+  m_stripSpaces;
 
   class writeToOstream : public Test
   {

@@ -46,7 +46,7 @@ bool isSection( const std::string& line )
 
 std::string splitSection( const std::string& line )
 {
-  return std::string( line, 1, line.size() - 2 );
+  return string_strip(std::string( line, 1, line.size() - 2 ));
 }
 
 bool isKeyValue( const std::string& line )
