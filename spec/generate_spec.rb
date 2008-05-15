@@ -10,6 +10,8 @@ class DataDictionary
 		@fieldsDoc = REXML::Document.new( File.new( "#{directory}/Fields.xml" ) )
 		@enumsDoc = REXML::Document.new( File.new( "#{directory}/Enums.xml" ) )
 
+		@specDoc = REXML::Document.new()
+
 		parseDictionary
 		printDictionary
 	end
@@ -24,6 +26,21 @@ class DataDictionary
 		fieldName.split(" (")[0].split("(")[0].strip
 	end
 
+	def toDescription( description )
+		old = description.clone
+		description.upcase!
+		description = description.split("(")[0]
+		description = description.split(",")[0]
+		description.strip!
+		description.gsub!('+ ', '+')
+		description.gsub!(' ', '_')
+		description.gsub!('-', '_')
+		description.gsub!('/', '_')
+		description.gsub!('+', 'PLUS')
+		description = description.split("___")[0]
+		return description
+	end
+
 	def toType( type )
 		case type
 			when "CHAR"
@@ -31,7 +48,7 @@ class DataDictionary
 			else
 				return type
 		end
-	end
+		end
 
 	def parseFields
 		@tagToField = Hash.new
@@ -60,11 +77,11 @@ class DataDictionary
 			next if tagShouldBeSkipped( tag )
 
 			enum = enumsElement.elements["Enum"]
-			description = enumsElement.elements["Description"]
+			description = toDescription(enumsElement.elements["Description"].text)
 
 			enumHash = Hash.new if lastTag != tag
 
-			enumHash[ enum.text ] = description.text
+			enumHash[ enum.text ] = description
 			@tagToEnum[ tag ] = enumHash
 
 			lastTag = tag
@@ -77,7 +94,7 @@ class DataDictionary
 	end
 
 	def printVersion
-		outs( '<fix major="4" minor="0">' )
+		return @specDoc.add_element( "fix", { "major" => @major.to_s, "minor" => @minor.to_s } )
 	end
 
 	def printFields
@@ -88,25 +105,26 @@ class DataDictionary
 		@tagToField.sort.each { |tag, fieldHash|
 			type = fieldHash[ "type" ]
 			fieldName = fieldHash[ "fieldName" ]
-			outs( "<field number='#{tag}' name='#{fieldName}' type='#{type}'>" )
-			printEnums( tag )
+			fieldElement = @fixElement.add_element( "field", { "field" => tag, "name" => fieldName, "type" => type } )
+			printEnums( fieldElement, tag )
 		}
 	end
 
-	def printEnums( tag )
+	def printEnums( fieldElement, tag )
 		return if !@tagToEnum.has_key?( tag )
 
 		tabUp
 			enumHash = @tagToEnum[ tag ]
  			enumHash.sort.each { |enum, description|
-				outs( "<value enum='#{enum}' description='#{description}'/>" )
+				fieldElement.add_element( "value", { "enum" => enum, "description" => description } )
 			}
 		tabDown
 	end
 
 	def printDictionary
-		printVersion
+		@fixElement = printVersion
 		printFields
+		@specDoc.write( $stdout, 1, false, true )
 	end
 
 	def tabUp
