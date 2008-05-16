@@ -2,6 +2,7 @@ require "rexml/document"
 
 class DataDictionary
 	def initialize( major, minor )
+		@f = File.new( "FIX#{major}#{minor}.out.xml", File::CREAT|File::TRUNC|File::RDWR )
 		@major = major
 		@minor = minor
 
@@ -29,19 +30,12 @@ class DataDictionary
 	end
 
 	def toDescription( description )
+		return "" if description == nil
 		old = description.clone
-
-		#while (pos = description =~ /[a-z][A-Z]/) != nil
-		#	description.insert( pos + 1, ' ' )
-		#end
-
-		#while (pos = description =~ /[A-Z][A-Z]/) != nil
-		#	description.insert( pos + 1, ' ' )
-		#end
-
 		description.upcase!
 		description = description.split("(")[0]
 		description = description.split(",")[0]
+		return "" if description == nil
 		description.strip!
 		description.gsub!('+ ', '+')
 		description.gsub!(' ', '_')
@@ -49,7 +43,7 @@ class DataDictionary
 		description.gsub!('/', '_')
 		description.gsub!('+', 'PLUS')
 		description = description.split("___")[0]
-		return description + " | " + old
+		return description
 	end
 
 	def toType( type )
@@ -69,7 +63,9 @@ class DataDictionary
 			next if tagShouldBeSkipped( tag )
 
 			fieldName = toFieldName(fieldsElement.elements["FieldName"].text)
-			type = fieldsElement.elements["Type"].text.upcase
+			type = fieldsElement.elements["Type"].text
+			next if type == nil
+			type.upcase!
 
 			fieldHash = Hash.new
 			fieldHash[ "type" ] = toType( type )
@@ -130,10 +126,11 @@ class DataDictionary
 	end
 
 	def printFields
+		@fieldsElement = @fixElement.add_element( "fields" )
 		@tagToField.sort.each { |tag, fieldHash|
 			type = fieldHash[ "type" ]
 			fieldName = fieldHash[ "fieldName" ]
-			fieldElement = @fixElement.add_element( "field", { "field" => tag.to_s, "name" => fieldName, "type" => type } )
+			fieldElement = @fieldsElement.add_element( "field", { "field" => tag.to_s, "name" => fieldName, "type" => type } )
 			printEnums( fieldElement, tag )
 		}
 	end
@@ -142,7 +139,11 @@ class DataDictionary
 		return if !@tagToEnum.has_key?( tag )
 
 		enumHash = @tagToEnum[ tag ]
+		isBool = (enumHash.size == 2 && enumHash.has_key?("Y") && enumHash.has_key?("N"))
+
  		enumHash.sort.each { |enum, description|
+			description = "YES" if isBool && enum == "Y"
+			description = "NO" if isBool && enum == "N"
 			fieldElement.add_element( "value", { "enum" => enum, "description" => description } )
 		}
 	end
@@ -161,8 +162,8 @@ class DataDictionary
 		@fixElement = printVersion
 		printFields
 		printMessages
-		@specDoc.write( $stdout, 1, false, true )
+		@specDoc.write( @f, 1, false, true )
 	end
 end
 
-DataDictionary.new( 5, 0 )
+DataDictionary.new( 4, 2 )
