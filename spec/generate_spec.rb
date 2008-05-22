@@ -15,6 +15,10 @@ class DataDictionary
 
 		@specDoc = REXML::Document.new()
 
+		@tagToField = Hash.new
+		@tagToEnum = Hash.new
+		@msgIdToMsgType = Hash.new
+
 		parseDictionary
 		printDictionary
 	end
@@ -23,6 +27,24 @@ class DataDictionary
 		return true if tag == 101
 		return true if tag == 261
 		return true if tag == 809
+	end
+
+	def enumsShouldBeSkipped( tag )
+		return true if tagShouldBeSkipped( tag )
+		return true if tag == 264
+	end
+
+	def addEnumsToTag( tag )
+		enumHash = Hash.new
+
+		if( tag == 156 )
+			enumHash[ "M" ] = "MULTIPLY"
+			enumHash[ "D" ] = "DIVIDE"
+		else
+			return
+		end
+
+		@tagToEnum[ tag ] = enumHash
 	end
 
 	def toFieldName( fieldName )
@@ -34,15 +56,18 @@ class DataDictionary
 		old = description.clone
 		description.upcase!
 		description = description.split("(")[0]
-		description = description.split(",")[0]
 		return "" if description == nil
 		description.strip!
 		description.gsub!('+ ', '+')
+		description.gsub!(',', '_')
 		description.gsub!(' ', '_')
 		description.gsub!('-', '_')
 		description.gsub!('/', '_')
 		description.gsub!('+', 'PLUS')
+		description.gsub!("'", '')
+		description.gsub!("&", '')
 		description = description.split("___")[0]
+		description.squeeze!("_") if description != nil
 		return description
 	end
 
@@ -53,14 +78,13 @@ class DataDictionary
 			else
 				return type
 		end
-		end
+	end
 
 	def parseFields
-		@tagToField = Hash.new
-
 		@fieldsDoc.elements["dataroot"].elements.each("Fields") { |fieldsElement|
 			tag = fieldsElement.elements["Tag"].text.to_i
 			next if tagShouldBeSkipped( tag )
+			addEnumsToTag( tag )
 
 			fieldName = toFieldName(fieldsElement.elements["FieldName"].text)
 			type = fieldsElement.elements["Type"].text
@@ -75,20 +99,20 @@ class DataDictionary
 	end
 
 	def parseEnums
-		@tagToEnum = Hash.new
 		enumHash = Hash.new
 		lastTag = 0
 
 		@enumsDoc.elements["dataroot"].elements.each("Enums") { |enumsElement|
 			tag = enumsElement.elements["Tag"].text.to_i
-			next if tagShouldBeSkipped( tag )
+			next if enumsShouldBeSkipped( tag )
 
-			enum = enumsElement.elements["Enum"]
+			enum = enumsElement.elements["Enum"].text
+			next if enum.upcase == "(NOT SPECIFIED)"
 			description = toDescription(enumsElement.elements["Description"].text)
-
+			description = "NOT_ASSIGNED" if description == nil
 			enumHash = Hash.new if lastTag != tag
 
-			enumHash[ enum.text ] = description
+			enumHash[ enum ] = description
 			@tagToEnum[ tag ] = enumHash
 
 			lastTag = tag
@@ -96,8 +120,6 @@ class DataDictionary
 	end
 
 	def parseMsgType
-		@msgIdToMsgType = Hash.new
-
 		@msgTypeDoc.elements["dataroot"].elements.each("MsgType") { |msgTypeElement|
 			msgId = msgTypeElement.elements["MsgID"].text.to_i
 			msgType = msgTypeElement.elements["MsgType"].text
@@ -166,4 +188,4 @@ class DataDictionary
 	end
 end
 
-DataDictionary.new( 4, 2 )
+DataDictionary.new( 4, 3 )
