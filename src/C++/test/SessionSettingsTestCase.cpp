@@ -55,7 +55,17 @@ void SessionSettingsTestCase::readFromIstream::onRun
     "Value=3\n"
     "[SESSION]\n"
     "SenderCompID=ARCA\n"
-    "TargetCompID=WT\n";
+    "TargetCompID=WT\n"
+    "[SESSION]\n"
+    "SenderCompID=NYSE\n"
+    "TargetCompID=TW\n"
+    "SessionQualifier=QUAL1\n"
+    "Value=5\n"
+    "[SESSION]\n"
+    "SenderCompID=NYSE\n"
+    "TargetCompID=TW\n"
+    "SessionQualifier=QUAL2\n"
+    "Value=6\n";
 
   std::istringstream input( configuration );
 
@@ -73,6 +83,14 @@ void SessionSettingsTestCase::readFromIstream::onRun
   SessionID session4( BeginString( "FIX.4.0" ),
                       SenderCompID( "ARCA" ),
                       TargetCompID( "WT" ) );
+  SessionID session5( BeginString( "FIX.4.0" ),
+                      SenderCompID( "NYSE" ),
+                      TargetCompID( "TW" ),
+                      "QUAL1" );
+  SessionID session6( BeginString( "FIX.4.0" ),
+                      SenderCompID( "NYSE" ),
+                      TargetCompID( "TW" ),
+                      "QUAL2" );
 
   assertEquals( "", object.get().getString( "Empty" ) );
 
@@ -81,6 +99,8 @@ void SessionSettingsTestCase::readFromIstream::onRun
   assertEquals( 2, object.get( session2 ).getLong( "Value" ) );
   assertEquals( 3, object.get( session3 ).getLong( "Value" ) );
   assertEquals( 4, object.get( session4 ).getLong( "Value" ) );
+  assertEquals( 5, object.get( session5 ).getLong( "Value" ) );
+  assertEquals( 6, object.get( session6 ).getLong( "Value" ) );
 
   // case insensitivity
   assertEquals( 4, object.get().getLong( "value" ) );
@@ -88,12 +108,107 @@ void SessionSettingsTestCase::readFromIstream::onRun
   assertEquals( 2, object.get( session2 ).getLong( "value" ) );
   assertEquals( 3, object.get( session3 ).getLong( "value" ) );
   assertEquals( 4, object.get( session4 ).getLong( "value" ) );
+  assertEquals( 5, object.get( session5 ).getLong( "value" ) );
+  assertEquals( 6, object.get( session6 ).getLong( "value" ) );
 
   assertEquals( 4, object.get().getLong( "VALUE" ) );
   assertEquals( 1, object.get( session1 ).getLong( "VALUE" ) );
   assertEquals( 2, object.get( session2 ).getLong( "VALUE" ) );
   assertEquals( 3, object.get( session3 ).getLong( "VALUE" ) );
   assertEquals( 4, object.get( session4 ).getLong( "VALUE" ) );
+  assertEquals( 5, object.get( session5 ).getLong( "VALUE" ) );
+  assertEquals( 6, object.get( session6 ).getLong( "VALUE" ) );
+}
+
+void SessionSettingsTestCase::readFromIstreamDefaultLast::onRun
+( SessionSettings& object )
+{
+  std::string configuration =
+    "[SESSION]\n"
+    "BeginString=FIX.4.2\n"
+    "SenderCompID=ISLD\n"
+    "TargetCompID=TW\n"
+    "Value=1\n"
+    "# this is a comment\n"
+    "[SESSION]\n"
+    "BeginString=FIX.4.1\n"
+    "SenderCompID=ISLD\n"
+    "TargetCompID=WT\n"
+    "Value=2\n"
+    "[SESSION]\n"
+    "SenderCompID=ARCA\n"
+    "TargetCompID=TW\n"
+    "Value=3\n"
+    "[SESSION]\n"
+    "SenderCompID=ARCA\n"
+    "TargetCompID=WT\n"
+    "[SESSION]\n"
+    "SenderCompID=NYSE\n"
+    "TargetCompID=TW\n"
+    "SessionQualifier=QUAL1\n"
+    "Value=5\n"
+    "[SESSION]\n"
+    "SenderCompID=NYSE\n"
+    "TargetCompID=TW\n"
+    "SessionQualifier=QUAL2\n"
+    "Value=6\n"
+    "[DEFAULT]\n"
+    "ConnectionType=initiator\n"
+    "BeginString=FIX.4.0\n"
+    "Value=4\n"
+    "Empty=\n";
+
+  std::istringstream input( configuration );
+
+  input >> object;
+
+  SessionID session1( BeginString( "FIX.4.2" ),
+                      SenderCompID( "ISLD" ),
+                      TargetCompID( "TW" ) );
+  SessionID session2( BeginString( "FIX.4.1" ),
+                      SenderCompID( "ISLD" ),
+                      TargetCompID( "WT" ) );
+  SessionID session3( BeginString( "FIX.4.0" ),
+                      SenderCompID( "ARCA" ),
+                      TargetCompID( "TW" ) );
+  SessionID session4( BeginString( "FIX.4.0" ),
+                      SenderCompID( "ARCA" ),
+                      TargetCompID( "WT" ) );
+  SessionID session5( BeginString( "FIX.4.0" ),
+                      SenderCompID( "NYSE" ),
+                      TargetCompID( "TW" ),
+                      "QUAL1" );
+  SessionID session6( BeginString( "FIX.4.0" ),
+                      SenderCompID( "NYSE" ),
+                      TargetCompID( "TW" ),
+                      "QUAL2" );
+
+  assertEquals( "", object.get().getString( "Empty" ) );
+
+  assertEquals( 4, object.get().getLong( "Value" ) );
+  assertEquals( 1, object.get( session1 ).getLong( "Value" ) );
+  assertEquals( 2, object.get( session2 ).getLong( "Value" ) );
+  assertEquals( 3, object.get( session3 ).getLong( "Value" ) );
+  assertEquals( 4, object.get( session4 ).getLong( "Value" ) );
+  assertEquals( 5, object.get( session5 ).getLong( "Value" ) );
+  assertEquals( 6, object.get( session6 ).getLong( "Value" ) );
+
+  // case insensitivity
+  assertEquals( 4, object.get().getLong( "value" ) );
+  assertEquals( 1, object.get( session1 ).getLong( "value" ) );
+  assertEquals( 2, object.get( session2 ).getLong( "value" ) );
+  assertEquals( 3, object.get( session3 ).getLong( "value" ) );
+  assertEquals( 4, object.get( session4 ).getLong( "value" ) );
+  assertEquals( 5, object.get( session5 ).getLong( "value" ) );
+  assertEquals( 6, object.get( session6 ).getLong( "value" ) );
+
+  assertEquals( 4, object.get().getLong( "VALUE" ) );
+  assertEquals( 1, object.get( session1 ).getLong( "VALUE" ) );
+  assertEquals( 2, object.get( session2 ).getLong( "VALUE" ) );
+  assertEquals( 3, object.get( session3 ).getLong( "VALUE" ) );
+  assertEquals( 4, object.get( session4 ).getLong( "VALUE" ) );
+  assertEquals( 5, object.get( session5 ).getLong( "VALUE" ) );
+  assertEquals( 6, object.get( session6 ).getLong( "VALUE" ) );
 }
 
 void SessionSettingsTestCase::readFromIstreamDuplicateSession::onRun

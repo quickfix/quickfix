@@ -189,7 +189,8 @@ void FieldConvertorsTestCase::booleanConvertFrom::onRun( void*& )
     BoolConvertor::convert( std::string( "D" ) );
     assert( false );
   }
-  catch ( FieldConvertError& ) {}}
+  catch ( FieldConvertError& ) {}
+}
 
 void FieldConvertorsTestCase::utcTimeStampConvertTo::onRun( void*& )
 {
@@ -269,5 +270,7 @@ void FieldConvertorsTestCase::checkSumConvertTo::onRun( void*& )
   try{ CheckSumConvertor::convert( -1 ); assert( false ); }
   catch ( FieldConvertError& ) {}
   try{ CheckSumConvertor::convert( 256 ); assert( false ); }
-  catch ( FieldConvertError& ) {}}
+  catch ( FieldConvertError& ) {}
+}
+
 }

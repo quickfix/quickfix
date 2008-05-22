@@ -1,0 +1,8 @@
+#!/bin/sh
+
+DIR=`pwd`
+
+gdb debug/ut -p $1 -f cfg/ut.cfg
+RESULT=$?
+cd $DIR
+exit $RESULT

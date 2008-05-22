@@ -31,6 +31,9 @@ all-local:
 	ln -s ../src/ut ../test/ut
 	ln -s ../src/pt ../test/pt
 	ln -s ../src/at ../test/at
+	rm -rf ../test/debug
+	mkdir ../test/debug
+	ln -s ../../src/.libs/ut ../test/debug/ut
 if HAVE_JAVA
 	bash ./build.sh
 endif

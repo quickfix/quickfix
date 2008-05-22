@@ -33,6 +33,7 @@ public:
   SessionSettingsTestCase()
   {
     add( &m_readFromIstream );
+    add( &m_readFromIstreamDefaultLast );
     add( &m_readFromIstreamDuplicateSession );
     add( &m_stripSpaces );
     add( &m_writeToOstream );
@@ -48,6 +49,13 @@ private:
     void onRun( SessionSettings& object );
   }
   m_readFromIstream;
+
+  class readFromIstreamDefaultLast : public Test
+  {
+  public:
+    void onRun( SessionSettings& object );
+  }
+  m_readFromIstreamDefaultLast;
 
   class readFromIstreamDuplicateSession : public Test
   {
