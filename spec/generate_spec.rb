@@ -35,16 +35,16 @@ class DataDictionary
 	end
 
 	def addEnumsToTag( tag )
-		enumHash = Hash.new
+		enumArray = Array.new
 
 		if( tag == 156 )
-			enumHash[ "M" ] = "MULTIPLY"
-			enumHash[ "D" ] = "DIVIDE"
+			enumArray.push( ["M","MULTIPLY"] )
+			enumArray.push( ["D","DIVIDE"] )
 		else
 			return
 		end
 
-		@tagToEnum[ tag ] = enumHash
+		@tagToEnum[ tag ] = enumArray
 	end
 
 	def toFieldName( fieldName )
@@ -99,7 +99,7 @@ class DataDictionary
 	end
 
 	def parseEnums
-		enumHash = Hash.new
+		enumArray = Array.new
 		lastTag = 0
 
 		@enumsDoc.elements["dataroot"].elements.each("Enums") { |enumsElement|
@@ -110,10 +110,10 @@ class DataDictionary
 			next if enum.upcase == "(NOT SPECIFIED)"
 			description = toDescription(enumsElement.elements["Description"].text)
 			description = "NOT_ASSIGNED" if description == nil
-			enumHash = Hash.new if lastTag != tag
+			enumArray = Array.new if lastTag != tag
 
-			enumHash[ enum ] = description
-			@tagToEnum[ tag ] = enumHash
+			enumArray.push( [enum,description] )
+			@tagToEnum[ tag ] = enumArray
 
 			lastTag = tag
 		}
@@ -150,6 +150,7 @@ class DataDictionary
 	def printFields
 		@fieldsElement = @fixElement.add_element( "fields" )
 		@tagToField.sort.each { |tag, fieldHash|
+			next if fieldHash == nil
 			type = fieldHash[ "type" ]
 			fieldName = fieldHash[ "fieldName" ]
 			fieldElement = @fieldsElement.add_element( "field", { "field" => tag.to_s, "name" => fieldName, "type" => type } )
@@ -160,10 +161,18 @@ class DataDictionary
 	def printEnums( fieldElement, tag )
 		return if !@tagToEnum.has_key?( tag )
 
-		enumHash = @tagToEnum[ tag ]
-		isBool = (enumHash.size == 2 && enumHash.has_key?("Y") && enumHash.has_key?("N"))
+		enumArray = @tagToEnum[ tag ]
 
- 		enumHash.sort.each { |enum, description|
+		isBool = false
+		if( enumArray.size == 2 )
+			isBool = enumArray[0][0] == "Y" || enumArray[0][0] == "N"
+			isBool = enumArray[1][0] == "Y" || enumArray[1][0] == "N"
+		end
+
+ 		enumArray.each_index { |index|
+			enum = enumArray[index][0]
+			description = enumArray[index][1]
+			next if description == nil
 			description = "YES" if isBool && enum == "Y"
 			description = "NO" if isBool && enum == "N"
 			fieldElement.add_element( "value", { "enum" => enum, "description" => description } )
@@ -173,6 +182,7 @@ class DataDictionary
 	def printMessages
 		messagesElement = @fixElement.add_element( "messages" )
 		@msgIdToMsgType.sort.each { |msgId, msgTypeHash|
+			next if msgTypeHash == nil
 			name = msgTypeHash[ "name" ]
 			msgtype = msgTypeHash[ "msgtype" ]
 			msgcat = msgTypeHash[ "msgcat" ]
@@ -182,10 +192,10 @@ class DataDictionary
 
 	def printDictionary
 		@fixElement = printVersion
-		printFields
 		printMessages
+		printFields
 		@specDoc.write( @f, 1, false, true )
 	end
 end
 
-DataDictionary.new( 4, 3 )
+DataDictionary.new( 4, 2 )
