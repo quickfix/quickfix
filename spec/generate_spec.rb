@@ -148,8 +148,8 @@ class DataDictionary
 			msgId = msgContentsElement.elements["MsgID"].text.to_i
 			indent = msgContentsElement.elements["Indent"].text.to_i
 			position = msgContentsElement.elements["Position"].text.to_i
-			name = @tagToField[ tag ]["name"]
-			required = msgContentsElement.elements["Reqd"].text.to_i
+			name = @tagToField[ tag ]["fieldName"]
+			required = msgContentsElement.elements["Reqd"].text.to_i == 1 ? "Y" : "N"
 			msgContentsArray = Array.new if lastMsgId != msgId
 
 			msgContentsArray.push( [tag,name,indent,required] )
@@ -220,7 +220,8 @@ class DataDictionary
 				indent = msgContentsArray[index][2]
 				required = msgContentsArray[index][3]
 
-				messageElement.add_element( "field", "name" => name, "required" => required )
+				fieldElement = messageElement.add_element( "field", "name" => name, "required" => required )
+				lastIndent = indent
 			}
 		}
 	end
