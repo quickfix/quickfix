@@ -18,6 +18,7 @@ class DataDictionary
 		@tagToField = Hash.new
 		@tagToEnum = Hash.new
 		@msgIdToMsgType = Hash.new
+		@msgIdToMsgContents = Hash.new
 
 		parseDictionary
 		printDictionary
@@ -137,10 +138,32 @@ class DataDictionary
 		}
 	end
 
+	def parseMsgContents
+		msgContentsArray = Array.new
+		lastMsgId = 0
+
+		@msgContentsDoc.elements["dataroot"].elements.each("MsgContents") { |msgContentsElement|
+			tag = msgContentsElement.elements["TagText"].text.to_i
+			next if tag == 0
+			msgId = msgContentsElement.elements["MsgID"].text.to_i
+			indent = msgContentsElement.elements["Indent"].text.to_i
+			position = msgContentsElement.elements["Position"].text.to_i
+			name = @tagToField[ tag ]["name"]
+			required = msgContentsElement.elements["Reqd"].text.to_i
+			msgContentsArray = Array.new if lastMsgId != msgId
+
+			msgContentsArray.push( [tag,name,indent,required] )
+			@msgIdToMsgContents[ msgId ] = msgContentsArray
+
+			lastMsgId = msgId
+		}
+	end
+
 	def parseDictionary
 		parseFields
 		parseEnums
 		parseMsgType
+		parseMsgContents
 	end
 
 	def printVersion
@@ -186,7 +209,19 @@ class DataDictionary
 			name = msgTypeHash[ "name" ]
 			msgtype = msgTypeHash[ "msgtype" ]
 			msgcat = msgTypeHash[ "msgcat" ]
-			messagesElement.add_element( "message", { "name" => name, "msgtype" => msgtype, "msgcat" => msgcat } )
+			messageElement = messagesElement.add_element( "message", { "name" => name, "msgtype" => msgtype, "msgcat" => msgcat } )
+
+			msgContentsArray = @msgIdToMsgContents[msgId]
+			next if msgContentsArray == nil
+
+			msgContentsArray.each_index { |index|
+				tag = msgContentsArray[index][0]
+				name = msgContentsArray[index][1]
+				indent = msgContentsArray[index][2]
+				required = msgContentsArray[index][3]
+
+				messageElement.add_element( "field", "name" => name, "required" => required )
+			}
 		}
 	end
 
