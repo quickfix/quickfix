@@ -209,16 +209,23 @@ class DataDictionary
 			name = msgTypeHash[ "name" ]
 			msgtype = msgTypeHash[ "msgtype" ]
 			msgcat = msgTypeHash[ "msgcat" ]
-			messageElement = messagesElement.add_element( "message", { "name" => name, "msgtype" => msgtype, "msgcat" => msgcat } )
 
 			msgContentsArray = @msgIdToMsgContents[msgId]
 			next if msgContentsArray == nil
+
+			messageElement = messagesElement.add_element( "message", { "name" => name, "msgtype" => msgtype, "msgcat" => msgcat } )
+
+			queue = Array.new
+			queue.push( messageElement )
 
 			msgContentsArray.each_index { |index|
 				tag = msgContentsArray[index][0]
 				name = msgContentsArray[index][1]
 				indent = msgContentsArray[index][2]
+				nextIndent = indent if nextIndent = nil
 				required = msgContentsArray[index][3]
+
+				nextIndent = msgContentsArray[index+1][2] if msgContentsArray[index+1] != nil
 
 				fieldElement = messageElement.add_element( "field", "name" => name, "required" => required )
 				lastIndent = indent
