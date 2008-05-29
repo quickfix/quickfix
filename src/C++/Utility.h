@@ -87,6 +87,7 @@ typedef int socklen_t;
 #endif
 
 #include <string>
+#include <cstring>
 #include <cctype>
 #include <ctime>
 #include <cstdio>
