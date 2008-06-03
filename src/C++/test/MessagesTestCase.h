@@ -57,6 +57,7 @@ public:
     add( &m_setStringWithGroup );
     add( &m_setStringWithHeaderGroup );
     add( &m_setStringWithHighBit );
+    add( &m_setStringWithLongMessage );
     add( &m_copy );
     add( &m_checkSum );
     add( &m_headerFieldsFirst );
@@ -115,6 +116,11 @@ public:
   {
     void onRun( Message& object );
   } m_setStringWithHighBit;
+
+  class setStringWithLongMessage : public SimpleTest
+  {
+    void onRun( Message& object );
+  } m_setStringWithLongMessage;
 
   class copy : public SimpleTest
   {

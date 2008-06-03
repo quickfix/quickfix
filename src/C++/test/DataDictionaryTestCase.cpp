@@ -24,7 +24,7 @@
 #include "config.h"
 #endif
 
-#include "DataDictionaryTestCase.h"
+#include <UnitTest++.h>
 #include "FieldNumbers.h"
 #include "Values.h"
 #include "fix40/TestRequest.h"
@@ -40,76 +40,83 @@ namespace FIX
 {
 USER_DEFINE_STRING( TooHigh, 501 );
 
-void DataDictionaryTestCase::addMsgType::onRun( DataDictionary& object )
+TEST(addMsgType)
 {
-  assert( !object.isMsgType( "A" ) );
+  DataDictionary object;
+  CHECK( !object.isMsgType( "A" ) );
   object.addMsgType( "A" );
-  assert( object.isMsgType( "A" ) );
+  CHECK( object.isMsgType( "A" ) );
 }
 
-void DataDictionaryTestCase::addMsgField::onRun( DataDictionary& object )
+TEST(addMsgField)
 {
-  assert( !object.isMsgField( "A", 10 ) );
-  assert( !object.isMsgField( "Z", 50 ) );
+  DataDictionary object;
+  CHECK( !object.isMsgField( "A", 10 ) );
+  CHECK( !object.isMsgField( "Z", 50 ) );
   object.addMsgField( "A", 10 );
   object.addMsgField( "Z", 50 );
-  assert( object.isMsgField( "A", 10 ) );
-  assert( object.isMsgField( "Z", 50 ) );
-  assert( !object.isMsgField( "A", 50 ) );
-  assert( !object.isMsgField( "Z", 10 ) );
+  CHECK( object.isMsgField( "A", 10 ) );
+  CHECK( object.isMsgField( "Z", 50 ) );
+  CHECK( !object.isMsgField( "A", 50 ) );
+  CHECK( !object.isMsgField( "Z", 10 ) );
 }
 
-void DataDictionaryTestCase::addHeaderField::onRun( DataDictionary& object )
+TEST(addHeaderField)
 {
-  assert( !object.isHeaderField( 56 ) );
-  assert( !object.isHeaderField( 49 ) );
+  DataDictionary object;
+  CHECK( !object.isHeaderField( 56 ) );
+  CHECK( !object.isHeaderField( 49 ) );
   object.addHeaderField( 56, true );
   object.addHeaderField( 49, true );
-  assert( object.isHeaderField( 56 ) );
-  assert( object.isHeaderField( 49 ) );
+  CHECK( object.isHeaderField( 56 ) );
+  CHECK( object.isHeaderField( 49 ) );
 }
 
-void DataDictionaryTestCase::addTrailerField::onRun( DataDictionary& object )
+TEST(addTrailerField)
 {
-  assert( !object.isTrailerField( 10 ) );
+  DataDictionary object;
+  CHECK( !object.isTrailerField( 10 ) );
   object.addTrailerField( 10, true );
-  assert( object.isTrailerField( 10 ) );
+  CHECK( object.isTrailerField( 10 ) );
 }
 
-void DataDictionaryTestCase::addFieldType::onRun( DataDictionary& object )
+TEST(addFieldType)
 {
+  DataDictionary object;
   TYPE::Type type;
-  assert( !object.getFieldType( 14, type ) );
-  assert( !object.getFieldType( 23, type ) );
+  CHECK( !object.getFieldType( 14, type ) );
+  CHECK( !object.getFieldType( 23, type ) );
 
   object.addFieldType( 14, TYPE::String );
   object.addFieldType( 23, TYPE::Char );
 
-  assert( object.getFieldType( 14, type ) );
-  assert( type == TYPE::String );
-  assert( object.getFieldType( 23, type ) );
-  assert( type == TYPE::Char );
+  CHECK( object.getFieldType( 14, type ) );
+  CHECK_EQUAL( TYPE::String, type );
+  CHECK( object.getFieldType( 23, type ) );
+  CHECK_EQUAL( TYPE::Char, type );
 }
 
-void DataDictionaryTestCase::addRequiredField::onRun( DataDictionary& object )
+TEST(addRequiredField)
 {
-  assert( !object.isRequiredField( "A", 10 ) );
-  assert( !object.isRequiredField( "Z", 50 ) );
+  DataDictionary object;
+  CHECK( !object.isRequiredField( "A", 10 ) );
+  CHECK( !object.isRequiredField( "Z", 50 ) );
   object.addRequiredField( "A", 10 );
   object.addRequiredField( "Z", 50 );
-  assert( object.isRequiredField( "A", 10 ) );
-  assert( object.isRequiredField( "Z", 50 ) );
-  assert( !object.isRequiredField( "A", 50 ) );
-  assert( !object.isRequiredField( "Z", 10 ) );
+  CHECK( object.isRequiredField( "A", 10 ) );
+  CHECK( object.isRequiredField( "Z", 50 ) );
+  CHECK( !object.isRequiredField( "A", 50 ) );
+  CHECK( !object.isRequiredField( "Z", 10 ) );
 }
 
-void DataDictionaryTestCase::addFieldValue::onRun( DataDictionary& object )
+TEST(addFieldValue)
 {
-  assert( !object.isFieldValue( 12, "f" ) );
-  assert( !object.isFieldValue( 12, "g" ) );
-  assert( !object.isFieldValue( 15, "1" ) );
-  assert( !object.isFieldValue( 18, "2" ) );
-  assert( !object.isFieldValue( 167, "FUT" ) );
+  DataDictionary object;
+  CHECK( !object.isFieldValue( 12, "f" ) );
+  CHECK( !object.isFieldValue( 12, "g" ) );
+  CHECK( !object.isFieldValue( 15, "1" ) );
+  CHECK( !object.isFieldValue( 18, "2" ) );
+  CHECK( !object.isFieldValue( 167, "FUT" ) );
 
   object.addFieldValue( 12, "f" );
   object.addFieldValue( 12, "g" );
@@ -117,15 +124,16 @@ void DataDictionaryTestCase::addFieldValue::onRun( DataDictionary& object )
   object.addFieldValue( 18, "2" );
   object.addFieldValue( 167, "FUT" );
 
-  assert( object.isFieldValue( 12, "f" ) );
-  assert( object.isFieldValue( 12, "g" ) );
-  assert( object.isFieldValue( 15, "1" ) );
-  assert( object.isFieldValue( 18, "2" ) );
-  assert( object.isFieldValue( 167, "FUT" ) );
+  CHECK( object.isFieldValue( 12, "f" ) );
+  CHECK( object.isFieldValue( 12, "g" ) );
+  CHECK( object.isFieldValue( 15, "1" ) );
+  CHECK( object.isFieldValue( 18, "2" ) );
+  CHECK( object.isFieldValue( 167, "FUT" ) );
 }
 
-void DataDictionaryTestCase::addGroup::onRun( DataDictionary& object )
+TEST(addGroup)
 {
+  DataDictionary object;
   object.setVersion( "FIX.4.2" );
 
   DataDictionary group1;
@@ -142,21 +150,22 @@ void DataDictionaryTestCase::addGroup::onRun( DataDictionary& object )
   int delim;
   const DataDictionary* pDD = 0;
 
-  assert( object.getGroup( "A", 100, delim, pDD ) );
-  assert( delim == 101 );
-  assert( pDD->isMsgType( "1" ) );
+  CHECK( object.getGroup( "A", 100, delim, pDD ) );
+  CHECK_EQUAL( 101, delim );
+  CHECK( pDD->isMsgType( "1" ) );
 
-  assert( object.getGroup( "A", 200, delim, pDD ) );
-  assert( delim == 201 );
-  assert( pDD->isMsgType( "2" ) );
+  CHECK( object.getGroup( "A", 200, delim, pDD ) );
+  CHECK_EQUAL( 201, delim );
+  CHECK( pDD->isMsgType( "2" ) );
 
-  assert( object.getGroup( "A", 300, delim, pDD ) );
-  assert( delim == 301 );
-  assert( pDD->isMsgType( "3" ) );
+  CHECK( object.getGroup( "A", 300, delim, pDD ) );
+  CHECK_EQUAL( 301, delim );
+  CHECK( pDD->isMsgType( "3" ) );
 }
 
-void DataDictionaryTestCase::addFieldName::onRun( DataDictionary& object )
+TEST(addFieldName)
 {
+  DataDictionary object;
   object.setVersion( "FIX.4.2" );
 
   object.addFieldName( 1, "Account" );
@@ -165,22 +174,23 @@ void DataDictionaryTestCase::addFieldName::onRun( DataDictionary& object )
 
   std::string name;
   int field;
-  assert( object.getFieldName( 1, name ) );
-  assert( name == "Account" );
-  assert( object.getFieldTag( name, field ) );
-  assert( field == 1 );
-  assert( object.getFieldName( 11, name ) );
-  assert( name == "ClOrdID" );
-  assert( object.getFieldTag( name, field ) );
-  assert( field == 11 );
-  assert( object.getFieldName( 8, name ) );
-  assert( name == "BeginString" );
-  assert( object.getFieldTag( name, field ) );
-  assert( field == 8 );
+  CHECK( object.getFieldName( 1, name ) );
+  CHECK_EQUAL( "Account", name );
+  CHECK( object.getFieldTag( name, field ) );
+  CHECK_EQUAL( 1, field );
+  CHECK( object.getFieldName( 11, name ) );
+  CHECK_EQUAL( "ClOrdID", name );
+  CHECK( object.getFieldTag( name, field ) );
+  CHECK_EQUAL( 11, field );
+  CHECK( object.getFieldName( 8, name ) );
+  CHECK_EQUAL( "BeginString", name );
+  CHECK( object.getFieldTag( name, field ) );
+  CHECK_EQUAL( 8, field );
 }
 
-void DataDictionaryTestCase::addValueName::onRun( DataDictionary& object )
+TEST(addValueName)
 {
+  DataDictionary object;
   object.setVersion( "FIX.4.2" );
 
   object.addValueName( 12, "0", "VALUE_12_0" );
@@ -188,280 +198,244 @@ void DataDictionaryTestCase::addValueName::onRun( DataDictionary& object )
   object.addValueName( 23, "BOO", "VALUE_23_BOO" );
 
   std::string name;
-  assert( object.getValueName( 12, "0", name ) );
-  assert( name == "VALUE_12_0" );
-  assert( object.getValueName( 12, "B", name ) );
-  assert( name == "VALUE_12_B" );
-  assert( object.getValueName( 23, "BOO", name ) );
-  assert( name == "VALUE_23_BOO" );
+  CHECK( object.getValueName( 12, "0", name ) );
+  CHECK_EQUAL( "VALUE_12_0", name );
+  CHECK( object.getValueName( 12, "B", name ) );
+  CHECK_EQUAL( "VALUE_12_B", name );
+  CHECK( object.getValueName( 23, "BOO", name ) );
+  CHECK_EQUAL( "VALUE_23_BOO", name );
 }
 
-bool DataDictionaryTestCase::checkValidTagNumber::onSetup
-( DataDictionary*& pObject )
+struct checkValidTagNumberFixture
 {
-  pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );
-  pObject->addField( FIELD::BeginString );
-  pObject->addField( FIELD::BodyLength );
-  pObject->addField( FIELD::MsgType );
-  pObject->addField( FIELD::CheckSum );
-  pObject->addField( FIELD::TestReqID );
-  pObject->addMsgType( MsgType_TestRequest );
-  pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
-  return true;
-}
+  checkValidTagNumberFixture()
+  {
+    object.setVersion( BeginString_FIX40 );
+    object.addField( FIELD::BeginString );
+    object.addField( FIELD::BodyLength );
+    object.addField( FIELD::MsgType );
+    object.addField( FIELD::CheckSum );
+    object.addField( FIELD::TestReqID );
+    object.addMsgType( MsgType_TestRequest );
+    object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
+  }
 
-void DataDictionaryTestCase::checkValidTagNumber::onRun
-( DataDictionary& object )
+  DataDictionary object;
+};
+
+TEST_FIXTURE(checkValidTagNumberFixture, checkValidTagNumber)
 {
   TestReqID testReqID( "1" );
   FIX40::TestRequest message( testReqID );
   message.setField( TooHigh( "value" ) );
-
-  try{ object.validate( message ); assert( false ); }
-  catch ( InvalidTagNumber& ) {}
+  CHECK_THROW( object.validate( message ), InvalidTagNumber );
 
   object.addField( 501 );
   object.addMsgField( MsgType_TestRequest, 501 );
-  try{ object.validate( message ); }
-  catch ( InvalidTagNumber& ) { assert( false ); }
+  CHECK_THROW( object.validate( message ), InvalidTagNumber );
 
   message.setField( FIELD::UserMin, "value" );
-  try{ object.validate( message ); assert( false ); }
-  catch ( InvalidTagNumber& ) {}
+  CHECK_THROW( object.validate( message ), InvalidTagNumber );
 
   object.checkUserDefinedFields( false );
-  try{ object.validate( message ); }
-  catch ( InvalidTagNumber& ) { assert( false ); }
-
+  CHECK_THROW( object.validate( message ), InvalidTagNumber );
 }
 
-bool DataDictionaryTestCase::checkHasValue::onSetup
-( DataDictionary*& pObject )
+TEST(checkHasValue)
 {
-  pObject = new DataDictionary;
-  return true;
-}
-
-void DataDictionaryTestCase::checkHasValue::onRun
-( DataDictionary& object )
-{
+  DataDictionary object;
   Message testReqID( "8=FIX.4.2\0019=12\00135=1\001112=\00110=007\001", false );
   FIX42::TestRequest message( testReqID );
 
-  try{ object.validate( message ); assert( false ); }
-  catch ( NoTagValue& ) {}
+  CHECK_THROW( object.validate( message ), NoTagValue );
 }
 
-bool DataDictionaryTestCase::checkIsInMessage::onSetup
-( DataDictionary*& pObject )
+struct checkIsInMessageFixture
 {
-  pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );
-  pObject->addField( FIELD::BeginString );
-  pObject->addField( FIELD::BodyLength );
-  pObject->addField( FIELD::MsgType );
-  pObject->addField( FIELD::CheckSum );
-  pObject->addField( FIELD::TestReqID );
-  pObject->addField( FIELD::Symbol );
-  pObject->addMsgType( MsgType_TestRequest );
-  pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
-  return true;
-}
+  checkIsInMessageFixture()
+  {
+    object.setVersion( BeginString_FIX40 );
+    object.addField( FIELD::BeginString );
+    object.addField( FIELD::BodyLength );
+    object.addField( FIELD::MsgType );
+    object.addField( FIELD::CheckSum );
+    object.addField( FIELD::TestReqID );
+    object.addField( FIELD::Symbol );
+    object.addMsgType( MsgType_TestRequest );
+    object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
+  }
 
-void DataDictionaryTestCase::checkIsInMessage::onRun
-( DataDictionary& object )
+  DataDictionary object;
+};
+
+TEST_FIXTURE(checkIsInMessageFixture, checkIsInMessage)
 {
   TestReqID testReqID( "1" );
 
   FIX40::TestRequest message( testReqID );
-  try{ object.validate( message ); }
-  catch ( TagNotDefinedForMessage& ) { assert( false ); }
+  CHECK_THROW( object.validate( message ), TagNotDefinedForMessage );
 
   message.setField( Symbol( "MSFT" ) );
-  try{ object.validate( message ); assert( false ); }
-  catch ( TagNotDefinedForMessage& ) {}
+  CHECK_THROW( object.validate( message ), TagNotDefinedForMessage );
 }
 
-bool DataDictionaryTestCase::checkHasRequired::onSetup
-( DataDictionary*& pObject )
+struct checkHasRequiredFixture
 {
-  pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );
-  pObject->addField( FIELD::BeginString );
-  pObject->addField( FIELD::BodyLength );
-  pObject->addField( FIELD::MsgType );
-  pObject->addField( FIELD::SenderCompID );
-  pObject->addField( FIELD::TargetCompID );
-  pObject->addHeaderField( FIELD::SenderCompID, true );
-  pObject->addHeaderField( FIELD::TargetCompID, false );
-  pObject->addField( FIELD::CheckSum );
-  pObject->addField( FIELD::TestReqID );
-  pObject->addMsgType( MsgType_TestRequest );
-  pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
-  pObject->addRequiredField( MsgType_TestRequest, FIELD::TestReqID );
-  return true;
-}
+  checkHasRequiredFixture()
+  {
+    object.setVersion( BeginString_FIX40 );
+    object.addField( FIELD::BeginString );
+    object.addField( FIELD::BodyLength );
+    object.addField( FIELD::MsgType );
+    object.addField( FIELD::SenderCompID );
+    object.addField( FIELD::TargetCompID );
+    object.addHeaderField( FIELD::SenderCompID, true );
+    object.addHeaderField( FIELD::TargetCompID, false );
+    object.addField( FIELD::CheckSum );
+    object.addField( FIELD::TestReqID );
+    object.addMsgType( MsgType_TestRequest );
+    object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
+    object.addRequiredField( MsgType_TestRequest, FIELD::TestReqID );
+  }
 
-void DataDictionaryTestCase::checkHasRequired::onRun
-( DataDictionary& object )
+  DataDictionary object;
+};
+
+TEST_FIXTURE(checkHasRequiredFixture, checkHasRequired)
 {
   FIX40::TestRequest message;
-  try{ object.validate( message ); assert( false ); }
-  catch ( RequiredTagMissing& ) {}
+  CHECK_THROW( object.validate( message ), RequiredTagMissing );
 
   message.getHeader().setField( SenderCompID( "SENDER" ) );
-  try{ object.validate( message ); assert( false ); }
-  catch ( RequiredTagMissing& ) {}
+  CHECK_THROW( object.validate( message ), RequiredTagMissing );
 
   message.setField( TestReqID( "1" ) );
-  try{ object.validate( message ); }
-  catch ( TagNotDefinedForMessage& ) { assert( false ); }
+  object.validate( message );
 
   message.getHeader().removeField( FIELD::SenderCompID );
   message.setField( SenderCompID( "SENDER" ) );
-  try{ object.validate( message ); assert( false ); }
-  catch ( RequiredTagMissing& ) {}
+  CHECK_THROW( object.validate( message ), RequiredTagMissing );
 }
 
-bool DataDictionaryTestCase::checkValidFormat::onSetup
-( DataDictionary*& pObject )
+struct checkValidFormatFixture
 {
-  pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );
-  pObject->addField( FIELD::BeginString );
-  pObject->addField( FIELD::BodyLength );
-  pObject->addField( FIELD::MsgType );
-  pObject->addField( FIELD::CheckSum );
-  pObject->addField( FIELD::TestReqID );
-  pObject->addMsgType( MsgType_TestRequest );
-  pObject->addMsgField( MsgType_TestRequest, FIELD::TestReqID );
-  pObject->addFieldType( FIELD::TestReqID, TYPE::Int );
-  return true;
-}
+  checkValidFormatFixture()
+  {
+    object.setVersion( BeginString_FIX40 );
+    object.addField( FIELD::BeginString );
+    object.addField( FIELD::BodyLength );
+    object.addField( FIELD::MsgType );
+    object.addField( FIELD::CheckSum );
+    object.addField( FIELD::TestReqID );
+    object.addMsgType( MsgType_TestRequest );
+    object.addMsgField( MsgType_TestRequest, FIELD::TestReqID );
+    object.addFieldType( FIELD::TestReqID, TYPE::Int );
+  }
 
-void DataDictionaryTestCase::checkValidFormat::onRun
-( DataDictionary& object )
+  DataDictionary object;
+};
+
+TEST_FIXTURE( checkValidFormatFixture, checkValidFormat )
 {
   FIX40::TestRequest message;
   message.setField( TestReqID( "+200" ) );
-  try{ object.validate( message ); assert( false ); }
-  catch ( IncorrectDataFormat& ) {}}
-
-bool DataDictionaryTestCase::checkValue::onSetup
-( DataDictionary*& pObject )
-{
-  pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );
-  pObject->addField( FIELD::BeginString );
-  pObject->addField( FIELD::BodyLength );
-  pObject->addField( FIELD::MsgType );
-  pObject->addField( FIELD::CheckSum );
-  pObject->addField( FIELD::OrdType );
-  pObject->addField( FIELD::OrderRestrictions );
-  pObject->addMsgType( MsgType_NewOrderSingle );
-  pObject->addMsgField( MsgType_NewOrderSingle, FIELD::OrdType );
-  pObject->addMsgField( MsgType_NewOrderSingle, FIELD::OrderRestrictions );
-  pObject->addFieldType( FIELD::OrdType, TYPE::Char );
-  pObject->addFieldValue( FIELD::OrdType, "1" );
-  pObject->addFieldType( FIELD::OrderRestrictions, TYPE::MultipleValueString );
-  pObject->addFieldValue( FIELD::OrderRestrictions, "1" );
-  pObject->addFieldValue( FIELD::OrderRestrictions, "2" );
-  pObject->addFieldValue( FIELD::OrderRestrictions, "3" );
-  return true;
+  CHECK_THROW( object.validate( message ), IncorrectDataFormat );
 }
 
-void DataDictionaryTestCase::checkValue::onRun
-( DataDictionary& object )
+struct checkValueFixture
 {
+  checkValueFixture()
+  {
+    object.setVersion( BeginString_FIX40 );
+    object.addField( FIELD::BeginString );
+    object.addField( FIELD::BodyLength );
+    object.addField( FIELD::MsgType );
+    object.addField( FIELD::CheckSum );
+    object.addField( FIELD::OrdType );
+    object.addField( FIELD::OrderRestrictions );
+    object.addMsgType( MsgType_NewOrderSingle );
+    object.addMsgField( MsgType_NewOrderSingle, FIELD::OrdType );
+    object.addMsgField( MsgType_NewOrderSingle, FIELD::OrderRestrictions );
+    object.addFieldType( FIELD::OrdType, TYPE::Char );
+    object.addFieldValue( FIELD::OrdType, "1" );
+    object.addFieldType( FIELD::OrderRestrictions, TYPE::MultipleValueString );
+    object.addFieldValue( FIELD::OrderRestrictions, "1" );
+    object.addFieldValue( FIELD::OrderRestrictions, "2" );
+    object.addFieldValue( FIELD::OrderRestrictions, "3" );
+  }
+
+  DataDictionary object;
+};
+
+TEST_FIXTURE( checkValueFixture, checkValue )
+{
+  DataDictionary object;
   FIX40::NewOrderSingle message;
   message.setField( OrdType( '1' ) );
-  try{ object.validate( message ); }
-  catch ( IncorrectTagValue& ) { assert( false ); }
+  object.validate( message );
 
   message.setField( OrdType( '2' ) );
-  try{ object.validate( message ); assert( false ); }
-  catch ( IncorrectTagValue& ) {}
+  CHECK_THROW( object.validate( message ), IncorrectTagValue );
 
   message.setField( OrdType( '1' ) );
   message.setField( OrderRestrictions("1 2 3") );
-  try{ object.validate( message ); }
-  catch ( IncorrectTagValue& ) { assert(false); }
+  object.validate( message );
 
   message.setField( OrderRestrictions("1 4 3") );
-  try{ object.validate( message ); assert(false); }
-  catch ( IncorrectTagValue& ) {}
+  CHECK_THROW( object.validate( message ), IncorrectTagValue );
 }
 
-bool DataDictionaryTestCase::checkRepeatedTag::onSetup
-( DataDictionary*& pObject )
+TEST( checkRepeatedTag )
 {
-  pObject = new DataDictionary;
-  return true;
-}
-
-void DataDictionaryTestCase::checkRepeatedTag::onRun
-( DataDictionary& object )
-{
+  DataDictionary object;
   FIX40::NewOrderSingle message;
   message.setField( OrdType('1') );
   message.setField( OrdType('1'), false );
-  try{ object.validate( message ); assert(false); }
-  catch ( RepeatedTag& ) {}
+  CHECK_THROW( object.validate(message), RepeatedTag );
 }
 
-bool DataDictionaryTestCase::checkGroupCount::onSetup
-( DataDictionary*& pObject )
+struct checkGroupCountFixture
 {
-  pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX42 );
-  pObject->addField( FIELD::BeginString );
-  pObject->addField( FIELD::BodyLength );
-  pObject->addField( FIELD::MsgType );
-  pObject->addField( FIELD::CheckSum );
-  pObject->addField( FIELD::NoAllocs );
-  DataDictionary groupDD;
-  groupDD.addField( FIELD::AllocAccount );
-  pObject->addGroup( "D", FIELD::NoAllocs, FIELD::AllocAccount, groupDD );
-  pObject->addMsgType( MsgType_NewOrderSingle );
-  pObject->addMsgField( MsgType_NewOrderSingle, FIELD::NoAllocs );
-  return true;
-}
+  checkGroupCountFixture()
+  {
+    object.setVersion( BeginString_FIX42 );
+    object.addField( FIELD::BeginString );
+    object.addField( FIELD::BodyLength );
+    object.addField( FIELD::MsgType );
+    object.addField( FIELD::CheckSum );
+    object.addField( FIELD::NoAllocs );
+    DataDictionary groupDD;
+    groupDD.addField( FIELD::AllocAccount );
+    object.addGroup( "D", FIELD::NoAllocs, FIELD::AllocAccount, groupDD );
+    object.addMsgType( MsgType_NewOrderSingle );
+    object.addMsgField( MsgType_NewOrderSingle, FIELD::NoAllocs );
+  }
 
-void DataDictionaryTestCase::checkGroupCount::onRun
-( DataDictionary& object )
+  DataDictionary object;
+};
+
+TEST_FIXTURE( checkGroupCountFixture, checkGroupCount )
 {
   FIX42::NewOrderSingle message;
   FIX42::NewOrderSingle::NoAllocs group;
   group.setField( AllocAccount("account") );
   message.addGroup( group );
   message.set( NoAllocs(2) );
-  try{ object.validate( message ); assert(false); }
-  catch ( RepeatingGroupCountMismatch& ) {}
+  CHECK_THROW( object.validate( message ), RepeatingGroupCountMismatch );
 }
 
-bool DataDictionaryTestCase::checkGroupRequiredFields::onSetup
-( DataDictionary*& pObject )
+TEST( checkGroupRequiredFields )
 {
-  pObject = new DataDictionary( "../spec/FIX44.xml" );
-  return true;
-}
-
-void DataDictionaryTestCase::checkGroupRequiredFields::onRun
-( DataDictionary& object )
-{
+  DataDictionary object( "../spec/FIX44.xml" );
   FIX44::NewOrderList newOrderList;
   newOrderList.setString("8=FIX.4.49=18635=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=111=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD10=119", false, &object);
-  try{ object.validate( newOrderList ); }
-  catch ( RequiredTagMissing& ) { assert(false); }
+  object.validate( newOrderList );
 
   newOrderList.setString("8=FIX.4.49=15835=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=163=021=381=060=20050225-16:54:3238=1000040=115=USD10=036", false, &object);
-  try{ object.validate( newOrderList ); assert(false); }
-  catch ( RequiredTagMissing& ) {}
+  CHECK_THROW( object.validate( newOrderList ), RequiredTagMissing );
 
   newOrderList.setString("8=FIX.4.49=26935=E49=FIXTEST56=TW128=SS134=252=20050225-16:54:3266=WMListOrID000000362394=368=173=211=SE102354=155=IBM67=163=021=381=060=20050225-16:54:3238=1000040=115=USD11=SE104555=MSFT67=163=021=381=060=20050225-16:54:3238=1000040=115=USD47=A10=109", false, &object);
-  try{ object.validate( newOrderList ); assert(false); }
-  catch ( RequiredTagMissing& ) {}
+  CHECK_THROW( object.validate( newOrderList ), RequiredTagMissing );
 
   FIX44::MarketDataRequest marketDataRequest(
     MDReqID("1"),
@@ -488,13 +462,11 @@ void DataDictionaryTestCase::checkGroupRequiredFields::onRun
   noMDEntryTypes.set( MDEntryType( MDEntryType_TRADE ) );
   marketDataRequest.addGroup( noMDEntryTypes );
 
-  try{ object.validate( marketDataRequest ); }
-  catch ( RequiredTagMissing& ) { assert(false); }
+  object.validate( marketDataRequest );
 
   noMDEntryTypes.removeField( FIELD::MDEntryType );
   marketDataRequest.addGroup( noMDEntryTypes );
-  try{ object.validate( marketDataRequest ); assert(false); }
-  catch ( RequiredTagMissing& ) {}
+  CHECK_THROW( object.validate( marketDataRequest ), RequiredTagMissing );
 
   FIX44::MarketDataSnapshotFullRefresh md;
   md.set( MDReqID("1") );
@@ -517,126 +489,113 @@ void DataDictionaryTestCase::checkGroupRequiredFields::onRun
   //object.validate( md );
 }
 
-bool DataDictionaryTestCase::readFromFile::onSetup
-( DataDictionary*& pObject )
+TEST( readFromFile )
 {
-  pObject = new DataDictionary( "../spec/FIX43.xml" );
-  return true;
-}
+  DataDictionary object( "../spec/FIX43.xml" );
+  CHECK( object.isHeaderField( 56 ) );
+  CHECK( !object.isHeaderField( 38 ) );
+  CHECK( !object.isHeaderField( 10 ) );
 
-void DataDictionaryTestCase::readFromFile::onRun
-( DataDictionary& object )
-{
-  assert( object.isHeaderField( 56 ) );
-  assert( !object.isHeaderField( 38 ) );
-  assert( !object.isHeaderField( 10 ) );
+  CHECK( object.isTrailerField( 10 ) );
+  CHECK( !object.isTrailerField( 38 ) );
+  CHECK( !object.isTrailerField( 56 ) );
 
-  assert( object.isTrailerField( 10 ) );
-  assert( !object.isTrailerField( 38 ) );
-  assert( !object.isTrailerField( 56 ) );
-
-  assert( object.isMsgType( "A" ) );
-  assert( object.isMsgField( "A", 383 ) );
+  CHECK( object.isMsgType( "A" ) );
+  CHECK( object.isMsgField( "A", 383 ) );
 
   TYPE::Type type = TYPE::Unknown;
-  assert( object.getFieldType( 383, type ) );
-  assert( type == TYPE::Length );
+  CHECK( object.getFieldType( 383, type ) );
+  CHECK_EQUAL( TYPE::Length, type );
 
-  assert( object.isRequiredField( "A", 108 ) );
-  assert( !object.isRequiredField( "A", 383 ) );
-  assert( object.isRequiredField( "D", 55 ) );
-  assert( !object.isRequiredField( "B", 55 ) );
+  CHECK( object.isRequiredField( "A", 108 ) );
+  CHECK( !object.isRequiredField( "A", 383 ) );
+  CHECK( object.isRequiredField( "D", 55 ) );
+  CHECK( !object.isRequiredField( "B", 55 ) );
 
-  assert( object.isFieldValue( 40, "A" ) );
-  assert( !object.isFieldValue( 40, "Z" ) );
+  CHECK( object.isFieldValue( 40, "A" ) );
+  CHECK( !object.isFieldValue( 40, "Z" ) );
 
   std::string name;
-  assert( object.getFieldName( 1, name ) );
-  assert( name == "Account" );
-  assert( object.getFieldName( 11, name ) );
-  assert( name == "ClOrdID" );
-  assert( object.getFieldName( 8, name ) );
-  assert( name == "BeginString" );
+  CHECK( object.getFieldName( 1, name ) );
+  CHECK_EQUAL( "Account", name );
+  CHECK( object.getFieldName( 11, name ) );
+  CHECK_EQUAL( "ClOrdID", name );
+  CHECK( object.getFieldName( 8, name ) );
+  CHECK_EQUAL( "BeginString", name );
 
-  assert( object.getValueName( 18, "1", name ) );
-  assert( name == "NOT_HELD" );
-  assert( object.getValueName( 18, "2", name ) );
-  assert( name == "WORK" );
-  assert( object.getValueName( 18, "W", name ) );
-  assert( name == "PEG_TO_VWAP" );
+  CHECK( object.getValueName( 18, "1", name ) );
+  CHECK_EQUAL( "NOT_HELD", name );
+  CHECK( object.getValueName( 18, "2", name ) );
+  CHECK_EQUAL( "WORK", name );
+  CHECK( object.getValueName( 18, "W", name ) );
+  CHECK_EQUAL( "PEG_TO_VWAP", name );
 
   const DataDictionary* pDD = 0;
   int delim = 0;
-  assert( object.getGroup( "b", 296, delim, pDD ) );
-  assert( delim == 302 );
-  assert( pDD->isField( 295 ) );
-  assert( pDD->isField( 310 ) );
-  assert( !pDD->isField( 55 ) );
-  assert( pDD->getGroup( "b", 295, delim, pDD ) );
-  assert( delim == 299 );
-  assert( pDD->isField( 55 ) );
-  assert( !pDD->isField( 310 ) );
-  assert( object.getGroup( "8", 453, delim, pDD ) );
-  assert( delim == 448 );
-  assert( object.getGroup( "y", 146, delim, pDD ) );
-  assert( delim == 55 );
+  CHECK( object.getGroup( "b", 296, delim, pDD ) );
+  CHECK_EQUAL( 302, delim );
+  CHECK( pDD->isField( 295 ) );
+  CHECK( pDD->isField( 310 ) );
+  CHECK( !pDD->isField( 55 ) );
+  CHECK( pDD->getGroup( "b", 295, delim, pDD ) );
+  CHECK_EQUAL( 299, delim );
+  CHECK( pDD->isField( 55 ) );
+  CHECK( !pDD->isField( 310 ) );
+  CHECK( object.getGroup( "8", 453, delim, pDD ) );
+  CHECK_EQUAL( 448, delim );
+  CHECK( object.getGroup( "y", 146, delim, pDD ) );
+  CHECK_EQUAL( 55, delim );
 }
 
-bool DataDictionaryTestCase::readFromStream::onSetup
-( DataDictionary*& pObject )
+TEST( readFromStream )
 {
   std::fstream stream( "../spec/FIX43.xml" );
-  pObject = new DataDictionary( stream );
-  return true;
+  DataDictionary object( stream );
 }
 
-void DataDictionaryTestCase::readFromStream::onRun
-( DataDictionary& object )
+struct copyFixture
 {
-  readFromFile::onRun( object );
-}
+  copyFixture()
+  {
+    object.setVersion( BeginString_FIX40 );
+    object.addMsgType( MsgType_NewOrderSingle );
+    object.addMsgField( MsgType_NewOrderSingle, FIELD::OrdType );
+    object.addFieldType( FIELD::OrdType, TYPE::Char );
+    object.addFieldValue( FIELD::OrdType, "1" );
 
-bool DataDictionaryTestCase::copy::onSetup
-( DataDictionary*& pObject )
-{
-  pObject = new DataDictionary;
-  pObject->setVersion( BeginString_FIX40 );
-  pObject->addMsgType( MsgType_NewOrderSingle );
-  pObject->addMsgField( MsgType_NewOrderSingle, FIELD::OrdType );
-  pObject->addFieldType( FIELD::OrdType, TYPE::Char );
-  pObject->addFieldValue( FIELD::OrdType, "1" );
+    DataDictionary dataDictionary1;
+    dataDictionary1.addFieldType( FIELD::HeartBtInt, TYPE::String );
+    DataDictionary dataDictionary2;
+    dataDictionary2.addFieldType( FIELD::MsgType, TYPE::Char );
+    dataDictionary1.addGroup( "A", 1, 2, dataDictionary2 );
+    object.addGroup( "A", 10, 20, dataDictionary1 );
+  }
 
-  DataDictionary dataDictionary1;
-  dataDictionary1.addFieldType( FIELD::HeartBtInt, TYPE::String );
-  DataDictionary dataDictionary2;
-  dataDictionary2.addFieldType( FIELD::MsgType, TYPE::Char );
-  dataDictionary1.addGroup( "A", 1, 2, dataDictionary2 );
-  pObject->addGroup( "A", 10, 20, dataDictionary1 );
-  return true;
-}
+  DataDictionary object;
+};
 
-void DataDictionaryTestCase::copy::onRun( DataDictionary& object )
+TEST_FIXTURE( copyFixture, copy )
 {
   DataDictionary dataDictionary = object;
   TYPE::Type type;
   int delim;
 
-  assert( dataDictionary.getVersion() == BeginString_FIX40 );
-  assert( dataDictionary.isMsgType( MsgType_NewOrderSingle ) );
-  assert( dataDictionary.isMsgField( MsgType_NewOrderSingle, FIELD::OrdType ) );
-  assert( dataDictionary.getFieldType( FIELD::OrdType, type ) );
-  assert( type == TYPE::Char );
-  assert( dataDictionary.isFieldValue( FIELD::OrdType, "1" ) );
+  CHECK_EQUAL( BeginString_FIX40, dataDictionary.getVersion() );
+  CHECK( dataDictionary.isMsgType( MsgType_NewOrderSingle ) );
+  CHECK( dataDictionary.isMsgField( MsgType_NewOrderSingle, FIELD::OrdType ) );
+  CHECK( dataDictionary.getFieldType( FIELD::OrdType, type ) );
+  CHECK_EQUAL( TYPE::Char, type );
+  CHECK( dataDictionary.isFieldValue( FIELD::OrdType, "1" ) );
 
   const DataDictionary* pDD = 0;
-  assert( dataDictionary.getGroup( "A", 10, delim, pDD ) );
-  assert( pDD->getFieldType( FIELD::HeartBtInt, type ) );
-  assert( type == TYPE::String );
-  assert( delim == 20 );
+  CHECK( dataDictionary.getGroup( "A", 10, delim, pDD ) );
+  CHECK( pDD->getFieldType( FIELD::HeartBtInt, type ) );
+  CHECK_EQUAL( TYPE::String, type );
+  CHECK_EQUAL( 20, delim );
 
-  assert( pDD->getGroup( "A", 1, delim, pDD ) );
-  assert( pDD->getFieldType( FIELD::MsgType, type ) );
-  assert( type == TYPE::Char );
-  assert( delim == 2 );
+  CHECK( pDD->getGroup( "A", 1, delim, pDD ) );
+  CHECK( pDD->getFieldType( FIELD::MsgType, type ) );
+  CHECK_EQUAL( TYPE::Char, type );
+  CHECK_EQUAL( 2, delim );
 }
 }

@@ -43,7 +43,6 @@
 #include "C++/test/SessionIDTestCase.h"
 #include "C++/test/TimeRangeTestCase.h"
 #include "C++/test/DictionaryTestCase.h"
-#include "C++/test/DataDictionaryTestCase.h"
 #include "C++/test/SocketConnectorTestCase.h"
 #include "C++/test/SocketServerTestCase.h"
 #include "C++/test/FieldBaseTestCase.h"
@@ -118,7 +117,6 @@ public:
 #endif
     add( &m_timeRange );
     add( &m_dictionary );
-    add( &m_dataDictionary );
     add( &m_socketConnector );
     add( &m_socketServer );
     add( &m_fieldBase );
@@ -178,7 +176,6 @@ private:
 #endif
   FIX::TimeRangeTestCase m_timeRange;
   FIX::DictionaryTestCase m_dictionary;
-  FIX::DataDictionaryTestCase m_dataDictionary;
   FIX::FieldBaseTestCase m_fieldBase;
   FIX::HttpParserTestCase m_httpParser;
   FIX::HttpMessageTestCase m_httpMessage;

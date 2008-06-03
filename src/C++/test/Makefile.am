@@ -67,4 +67,4 @@ libquickfixcpptest_la_SOURCES = \
 	HttpMessageTestCase.cpp \
 	HttpMessageTestCase.h
 
-INCLUDES = -I..
+INCLUDES = -I.. -I../../../UnitTest++/src

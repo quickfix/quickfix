@@ -29,6 +29,8 @@
 #include "C++/SessionSettings.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
+#include <UnitTest++.h>
+#include <TestReporterStdout.h>
 #include "getopt-repl.h"
 
 void print_usage( char** argv )
@@ -40,6 +42,8 @@ void print_usage( char** argv )
 
 int main( int argc, char** argv )
 {
+  return UnitTest::RunAllTests();
+
   CPPTest::TestDisplay * display;
 
   short port = 0;
