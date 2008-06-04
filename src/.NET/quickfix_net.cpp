@@ -45,7 +45,7 @@ char* createUnmanagedString( String* s )
 void destroyUnmanagedString( char* s )
 {
   Marshal::FreeHGlobal( static_cast < IntPtr > ( const_cast < void* > (
-                          static_cast < const void* > ( s ) ) ) );
+                        static_cast < const void* > ( s ) ) ) );
 }
 
 std::string convertString( String* s )

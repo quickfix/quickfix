@@ -49,8 +49,9 @@ class Application : public FIX::Application
 {
 public:
   Application( QuickFix::Application* application,
-	             QuickFix::MessageFactory* factory )
+	       QuickFix::MessageFactory* factory )
   : m_application( application ), m_factory( factory ) {}
+
   void onCreate( const FIX::SessionID& sessionID )
   {
     QuickFix::SessionID __pin * toSessionID = new QuickFix::SessionID( sessionID );

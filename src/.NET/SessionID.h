@@ -111,14 +111,14 @@ public:
 
   virtual bool Equals( Object* object )
   {
-	  if( Object::Equals( object ) )
-		  return true;
-	  if( object == 0 )
-		  return false;
-	  if( !object->GetType()->Equals(GetType()) )
-		  return false;
+    if( Object::Equals( object ) )
+      return true;
+    if( object == 0 )
+      return false;
+    if( !object->GetType()->Equals(GetType()) )
+      return false;
 
-	  return static_cast<SessionID*>(object)->ToString()->Equals( ToString() );
+    return static_cast<SessionID*>(object)->ToString()->Equals( ToString() );
   }
 
   String* ToString()
