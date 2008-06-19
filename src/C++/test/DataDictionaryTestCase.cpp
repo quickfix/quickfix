@@ -16,6 +16,7 @@
 ** not clear to you.
 **
 ****************************************************************************/
+#ifndef _MSC_VER
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )
@@ -599,3 +600,5 @@ TEST_FIXTURE( copyFixture, copy )
   CHECK_EQUAL( 2, delim );
 }
 }
+
+#endif

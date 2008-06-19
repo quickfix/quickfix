@@ -29,8 +29,10 @@
 #include "C++/SessionSettings.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
+#ifndef _MSC_VER
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>
+#endif
 #include "getopt-repl.h"
 
 void print_usage( char** argv )
@@ -42,7 +44,9 @@ void print_usage( char** argv )
 
 int main( int argc, char** argv )
 {
+#ifndef _MSC_VER
   return UnitTest::RunAllTests();
+#endif
 
   CPPTest::TestDisplay * display;
 

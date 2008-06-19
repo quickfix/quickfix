@@ -23,6 +23,7 @@
 
 using namespace System;
 using namespace System::IO;
+using namespace System::Runtime::InteropServices;
 
 #include "quickfix_net.h"
 
@@ -183,6 +184,19 @@ public:
   bool isGroup( String* msg, int field )
   { QF_STACK_TRY
     return unmanaged().isGroup( convertString(msg), field );
+    QF_STACK_CATCH
+  }
+
+  bool DataDictionary::getGroup( String* msg, int field, [Out]int delim,
+                                 [Out]DataDictionary** dataDictionary )
+  { QF_STACK_TRY
+  
+    const FIX::DataDictionary* pDataDictionary = 0;
+    bool result = unmanaged().getGroup( convertString(msg), field, delim, pDataDictionary );
+	if( result == false ) return false;
+	(*dataDictionary)->unmanaged() = *pDataDictionary;
+	return true;
+
     QF_STACK_CATCH
   }
 

@@ -409,6 +409,34 @@ public:
     int groupCount( int field );
     bool isSetField( int field );
 
+    void addGroup( Group* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getHeader().addGroup( group->unmanaged().field(), group->unmanaged() );
+      QF_STACK_CATCH
+    }
+
+    void replaceGroup( unsigned num, Group* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getHeader().replaceGroup( num, group->unmanaged().field(), group->unmanaged() );
+      QF_STACK_CATCH
+    }
+
+    Group* getGroup( unsigned num, Group* group )
+    { QF_STACK_TRY
+
+      try
+      {
+        m_message->m_pUnmanaged->getHeader().getGroup( num, group->unmanaged().field(), group->unmanaged() );
+        return group;
+      }
+      catch ( FIX::FieldNotFound & e )
+      {
+        throw new FieldNotFound( e.field );
+      }
+
+      QF_STACK_CATCH
+    }
+
     void Dispose()
     {
       if ( !disposed )
@@ -548,6 +576,34 @@ public:
 
     int groupCount( int field );
     bool isSetField( int field );
+
+    void addGroup( Group* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getTrailer().addGroup( group->unmanaged().field(), group->unmanaged() );
+      QF_STACK_CATCH
+    }
+
+    void replaceGroup( unsigned num, Group* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getTrailer().replaceGroup( num, group->unmanaged().field(), group->unmanaged() );
+      QF_STACK_CATCH
+    }
+
+    Group* getGroup( unsigned num, Group* group )
+    { QF_STACK_TRY
+
+      try
+      {
+        m_message->m_pUnmanaged->getTrailer().getGroup( num, group->unmanaged().field(), group->unmanaged() );
+        return group;
+      }
+      catch ( FIX::FieldNotFound & e )
+      {
+        throw new FieldNotFound( e.field );
+      }
+
+      QF_STACK_CATCH
+    }
 
     void Dispose()
     {
