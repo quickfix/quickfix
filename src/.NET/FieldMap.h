@@ -27,7 +27,8 @@ using namespace System::Collections;
 #include "quickfix_net.h"
 #include "Field.h"
 #include "Exceptions.h"
-#include "Group.h"
+
+#include "quickfix/FieldMap.h"
 
 namespace QuickFix
 {
@@ -71,16 +72,14 @@ public:
   virtual void removeField(int field) = 0;
   virtual bool hasGroup( int field ) = 0;
   virtual bool hasGroup( unsigned num, int field ) = 0;
-  virtual bool hasGroup( unsigned num, Group* group ) = 0;
-  virtual bool hasGroup( Group* group ) = 0;
   virtual void removeGroup( int field ) = 0;
   virtual void removeGroup( unsigned num, int field ) = 0;
-  virtual void removeGroup( unsigned num, Group* group ) = 0;
-  virtual void removeGroup( Group* group ) = 0;
   virtual int groupCount( int field ) = 0;
-  virtual void addGroup( Group* group ) = 0;
-  virtual void replaceGroup( unsigned num, Group* group ) = 0;
-  virtual Group* getGroup( unsigned num, Group* group ) = 0;
+  virtual void addGroup( int field, FieldMap* group ) = 0;
+  virtual void replaceGroup( unsigned num, int field, FieldMap* group ) = 0;
+  virtual FieldMap* getGroup( unsigned num, int field, FieldMap* group ) = 0;
   virtual IEnumerator* GetEnumerator() = 0;
+
+  virtual FIX::FieldMap* pUnmanaged() = 0;
 };
 }

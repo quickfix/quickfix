@@ -24,6 +24,7 @@
 using namespace System;
 
 #include "quickfix_net.h"
+#include "FieldMap.h"
 #include "Field.h"
 #include "Exceptions.h"
 
@@ -32,7 +33,7 @@ using namespace System;
 
 namespace QuickFix
 {
-public __gc class Group : public IDisposable
+public __gc class Group : public FieldMap, public IDisposable
 {
 public:
   Group( int field, int delim ) : disposed( false )
@@ -87,6 +88,9 @@ public:
       throw new System::ObjectDisposedException( this->ToString() );
   }
 
+  FIX::FieldMap* pUnmanaged()
+  { return m_pUnmanaged; }
+
   FIX::Group& unmanaged()
   { return * m_pUnmanaged; }
 
@@ -132,16 +136,41 @@ public:
   int groupCount( int field );
   bool isSetField( int field );
 
-  void addGroup( Group* group )
+  void addGroup( int field, FieldMap* group )
   { QF_STACK_TRY
-    checkDisposed(); m_pUnmanaged->addGroup( group->unmanaged() );
+    checkDisposed(); pUnmanaged()->addGroup( field, *group->pUnmanaged() );
     QF_STACK_CATCH
   }
 
+  void addGroup( Group* group )
+  { QF_STACK_TRY
+    checkDisposed(); unmanaged().addGroup( group->unmanaged() );
+    QF_STACK_CATCH
+  }
+
+  void replaceGroup( unsigned num, int field, FieldMap* group )
+  { QF_STACK_TRY
+    checkDisposed(); pUnmanaged()->replaceGroup( num, field, *group->pUnmanaged() );
+    QF_STACK_CATCH
+  }
+ 
   void replaceGroup( unsigned num, Group* group )
   { QF_STACK_TRY
-    checkDisposed(); m_pUnmanaged->replaceGroup( num, group->unmanaged() );
+    checkDisposed(); unmanaged().replaceGroup( num, group->unmanaged() );
     QF_STACK_CATCH
+  }
+
+  FieldMap* getGroup( unsigned num, int field, FieldMap* group )
+  {
+    try
+    {
+      checkDisposed(); pUnmanaged()->getGroup( num, field, *group->pUnmanaged() );
+      return group;
+    }
+    catch ( FIX::FieldNotFound & e )
+    {
+      throw new FieldNotFound( e.field );
+    }
   }
 
   Group* getGroup( unsigned num, Group* group )
@@ -149,7 +178,7 @@ public:
 
     try
     {
-      checkDisposed(); m_pUnmanaged->getGroup( num, group->unmanaged() );
+      checkDisposed(); unmanaged().getGroup( num, group->unmanaged() );
       return group;
     }
     catch ( FIX::FieldNotFound & e )

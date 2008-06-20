@@ -175,6 +175,9 @@ public:
       throw new System::ObjectDisposedException( this->ToString() );
   }
 
+  FIX::FieldMap* pUnmanaged()
+  { return m_pUnmanaged; }
+
   FIX::Message& unmanaged()
   { return * m_pUnmanaged; }
 
@@ -296,16 +299,41 @@ public:
   int groupCount( int field );
   bool isSetField( int field );
 
+  void addGroup( int field, FieldMap* group )
+  { QF_STACK_TRY
+    pUnmanaged()->addGroup( field, *group->pUnmanaged() );
+    QF_STACK_CATCH
+  }
+
   void addGroup( Group* group )
   { QF_STACK_TRY
-    m_pUnmanaged->addGroup( group->unmanaged() );
+    unmanaged().addGroup( group->unmanaged() );
+    QF_STACK_CATCH
+  }
+
+  void replaceGroup( unsigned num, int field, FieldMap* group )
+  { QF_STACK_TRY
+    pUnmanaged()->replaceGroup( num, field, *group->pUnmanaged() );
     QF_STACK_CATCH
   }
 
   void replaceGroup( unsigned num, Group* group )
   { QF_STACK_TRY
-    m_pUnmanaged->replaceGroup( num, group->unmanaged() );
+    unmanaged().replaceGroup( num, group->unmanaged() );
     QF_STACK_CATCH
+  }
+
+  FieldMap* getGroup( unsigned num, int field, FieldMap* group )
+  {
+    try
+    {
+      pUnmanaged()->getGroup( num, field, *group->pUnmanaged() );
+      return group;
+    }
+    catch ( FIX::FieldNotFound & e )
+    {
+      throw new FieldNotFound( e.field );
+    }
   }
 
   Group* getGroup( unsigned num, Group* group )
@@ -313,7 +341,7 @@ public:
 
     try
     {
-      m_pUnmanaged->getGroup( num, group->unmanaged() );
+      unmanaged().getGroup( num, group->unmanaged() );
       return group;
     }
     catch ( FIX::FieldNotFound & e )
@@ -409,9 +437,21 @@ public:
     int groupCount( int field );
     bool isSetField( int field );
 
+    void addGroup( int field, FieldMap* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getHeader().addGroup( field, *group->pUnmanaged() );
+      QF_STACK_CATCH
+    }
+
     void addGroup( Group* group )
     { QF_STACK_TRY
       m_message->m_pUnmanaged->getHeader().addGroup( group->unmanaged().field(), group->unmanaged() );
+      QF_STACK_CATCH
+    }
+
+    void replaceGroup( unsigned num, int field, FieldMap* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getHeader().replaceGroup( num, field, *group->pUnmanaged() );
       QF_STACK_CATCH
     }
 
@@ -419,6 +459,19 @@ public:
     { QF_STACK_TRY
       m_message->m_pUnmanaged->getHeader().replaceGroup( num, group->unmanaged().field(), group->unmanaged() );
       QF_STACK_CATCH
+    }
+
+	FieldMap* getGroup( unsigned num, int field, FieldMap* group )
+    {
+      try
+      {
+        m_message->m_pUnmanaged->getHeader().getGroup( num, field, *group->pUnmanaged() );
+        return group;
+      }
+      catch ( FIX::FieldNotFound & e )
+      {
+        throw new FieldNotFound( e.field );
+      }
     }
 
     Group* getGroup( unsigned num, Group* group )
@@ -452,6 +505,12 @@ public:
         throw new System::ObjectDisposedException( this->ToString() );
     }
 
+    FIX::FieldMap* pUnmanaged()
+    { return &m_message->m_pUnmanaged->getHeader(); }
+
+    FIX::Header& unmanaged()
+    { return m_message->m_pUnmanaged->getHeader(); }
+
     IEnumerator* GetEnumerator()
     {
       return new Enumerator( m_message );
@@ -473,7 +532,7 @@ public:
       {
         if( m_iterator == 0 )
           return 0;
-        if( *m_iterator == m_message->unmanaged().getHeader().end() )
+        if( *m_iterator == m_message->m_pUnmanaged->getHeader().end() )
           return 0;
         FIX::FieldBase field = (*m_iterator)->second;
         return new StringField( field.getField(), field.getString().c_str() );
@@ -484,14 +543,14 @@ public:
         if( m_iterator == 0 )
         {
           m_iterator = new FIX::Message::iterator();
-          *m_iterator = m_message->unmanaged().getHeader().begin();
+          *m_iterator = m_message->m_pUnmanaged->getHeader().begin();
         }
         else
         {
           (*m_iterator)++;
         }
 
-        return *m_iterator != m_message->unmanaged().getHeader().end();
+        return *m_iterator != m_message->m_pUnmanaged->getHeader().end();
       }
 
       void Reset()
@@ -577,9 +636,21 @@ public:
     int groupCount( int field );
     bool isSetField( int field );
 
+    void addGroup( int field, FieldMap* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getTrailer().addGroup( field, *group->pUnmanaged() );
+      QF_STACK_CATCH
+    }
+
     void addGroup( Group* group )
     { QF_STACK_TRY
       m_message->m_pUnmanaged->getTrailer().addGroup( group->unmanaged().field(), group->unmanaged() );
+      QF_STACK_CATCH
+    }
+
+    void replaceGroup( unsigned num, int field, FieldMap* group )
+    { QF_STACK_TRY
+      m_message->m_pUnmanaged->getTrailer().replaceGroup( num, field, *group->pUnmanaged() );
       QF_STACK_CATCH
     }
 
@@ -587,6 +658,19 @@ public:
     { QF_STACK_TRY
       m_message->m_pUnmanaged->getTrailer().replaceGroup( num, group->unmanaged().field(), group->unmanaged() );
       QF_STACK_CATCH
+    }
+
+    FieldMap* getGroup( unsigned num, int field, FieldMap* group )
+    {
+      try
+      {
+        m_message->m_pUnmanaged->getTrailer().getGroup( num, field, *group->pUnmanaged() );
+        return group;
+      }
+      catch ( FIX::FieldNotFound & e )
+      {
+        throw new FieldNotFound( e.field );
+      }
     }
 
     Group* getGroup( unsigned num, Group* group )
@@ -620,6 +704,12 @@ public:
         throw new System::ObjectDisposedException( this->ToString() );
     }
 
+    FIX::FieldMap* pUnmanaged()
+    { return &m_message->m_pUnmanaged->getTrailer(); }
+
+    FIX::Header& unmanaged()
+    { return m_message->m_pUnmanaged->getTrailer(); }
+
     IEnumerator* GetEnumerator()
     {
       return new Enumerator( m_message );
@@ -641,7 +731,7 @@ public:
       {
         if( m_iterator == 0 )
           return 0;
-        if( *m_iterator == m_message->unmanaged().getTrailer().end() )
+        if( *m_iterator == m_message->m_pUnmanaged->getTrailer().end() )
           return 0;
         FIX::FieldBase field = (*m_iterator)->second;
         return new StringField( field.getField(), field.getString().c_str() );
@@ -652,14 +742,14 @@ public:
         if( m_iterator == 0 )
         {
           m_iterator = new FIX::Message::iterator();
-          *m_iterator = m_message->unmanaged().getTrailer().begin();
+          *m_iterator = m_message->m_pUnmanaged->getTrailer().begin();
         }
         else
         {
           (*m_iterator)++;
         }
 
-        return *m_iterator != m_message->unmanaged().getTrailer().end();
+        return *m_iterator != m_message->m_pUnmanaged->getTrailer().end();
       }
 
       void Reset()
@@ -683,9 +773,9 @@ public:
   Trailer* getTrailer() { checkDisposed(); return m_trailer; }
 
   bool isAdmin()
-  { checkDisposed(); return unmanaged().isAdmin(); }
+  { checkDisposed(); return m_pUnmanaged->isAdmin(); }
   bool isApp()
-  { checkDisposed(); return unmanaged().isApp(); }
+  { checkDisposed(); return m_pUnmanaged->isApp(); }
 
   bool isEmpty()
   { checkDisposed(); return unmanaged().isEmpty(); }
