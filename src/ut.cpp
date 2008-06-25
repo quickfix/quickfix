@@ -29,6 +29,8 @@
 #include "C++/SessionSettings.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
+#include <DataDictionaryTestCase.cpp>
+#include <DictionaryTestCase.cpp>
 #ifndef _MSC_VER
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>
@@ -44,10 +46,6 @@ void print_usage( char** argv )
 
 int main( int argc, char** argv )
 {
-#ifndef _MSC_VER
-  return UnitTest::RunAllTests();
-#endif
-
   CPPTest::TestDisplay * display;
 
   short port = 0;
@@ -80,7 +78,9 @@ int main( int argc, char** argv )
   display = new CPPTest::TestXMLFileOutputDisplay();
 
   TestSuite suite( *display, port, *sessionSettingsPtr );
-  suite.run();
+  //suite.run();
+
+  return suite.RunAllTests();
 
   delete display;
   return suite.getExceptions().size() > 0;

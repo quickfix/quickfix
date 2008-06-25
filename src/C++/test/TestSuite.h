@@ -21,33 +21,32 @@
 
 #include <CPPTest/TestSuite.h>
 #include <CPPTest/TestDisplay.h>
-#include "C++/test/AcceptorTestCase.h"
-#include "C++/test/FieldConvertorsTestCase.h"
-//#include "C++/test/MessageSortersTestCase.h"
-#include "C++/test/MessagesTestCase.h"
-#include "C++/test/SessionTestCase.h"
-#include "C++/test/SessionSettingsTestCase.h"
-#include "C++/test/ParserTestCase.h"
-#include "C++/test/SettingsTestCase.h"
-#include "C++/test/MemoryStoreTestCase.h"
-#include "C++/test/FileLogTestCase.h"
-#include "C++/test/FileStoreTestCase.h"
-#include "C++/test/MySQLStoreTestCase.h"
-#include "C++/test/PostgreSQLStoreTestCase.h"
-#include "C++/test/OdbcStoreTestCase.h"
-#include "C++/test/FileStoreFactoryTestCase.h"
-#include "C++/test/UtcTimeStampTestCase.h"
-#include "C++/test/UtcTimeOnlyTestCase.h"
-#include "C++/test/FileUtilitiesTestCase.h"
-#include "C++/test/StringUtilitiesTestCase.h"
-#include "C++/test/SessionIDTestCase.h"
-#include "C++/test/TimeRangeTestCase.h"
-#include "C++/test/DictionaryTestCase.h"
-#include "C++/test/SocketConnectorTestCase.h"
-#include "C++/test/SocketServerTestCase.h"
-#include "C++/test/FieldBaseTestCase.h"
-#include "C++/test/HttpParserTestCase.h"
-#include "C++/test/HttpMessageTestCase.h"
+#include <AcceptorTestCase.h>
+#include <FieldConvertorsTestCase.h>
+//#include <MessageSortersTestCase.h>
+#include <MessagesTestCase.h>
+#include <SessionTestCase.h>
+#include <SessionSettingsTestCase.h>
+#include <ParserTestCase.h>
+#include <SettingsTestCase.h>
+#include <MemoryStoreTestCase.h>
+#include <FileLogTestCase.h>
+#include <FileStoreTestCase.h>
+#include <MySQLStoreTestCase.h>
+#include <PostgreSQLStoreTestCase.h>
+#include <OdbcStoreTestCase.h>
+#include <FileStoreFactoryTestCase.h>
+#include <UtcTimeStampTestCase.h>
+#include <UtcTimeOnlyTestCase.h>
+#include <FileUtilitiesTestCase.h>
+#include <StringUtilitiesTestCase.h>
+#include <SessionIDTestCase.h>
+#include <TimeRangeTestCase.h>
+#include <SocketConnectorTestCase.h>
+#include <SocketServerTestCase.h>
+#include <FieldBaseTestCase.h>
+#include <HttpParserTestCase.h>
+#include <HttpMessageTestCase.h>
 
 class TestSuite : public CPPTest::TestSuite
 {
@@ -116,7 +115,6 @@ public:
     add( &m_sessionID );
 #endif
     add( &m_timeRange );
-    add( &m_dictionary );
     add( &m_socketConnector );
     add( &m_socketServer );
     add( &m_fieldBase );
@@ -125,6 +123,8 @@ public:
   }
 
   ~TestSuite() { FIX::socket_term(); }
+
+  int RunAllTests();
 
 private:
 
@@ -175,7 +175,6 @@ private:
   FIX::SessionIDTestCase m_sessionID;
 #endif
   FIX::TimeRangeTestCase m_timeRange;
-  FIX::DictionaryTestCase m_dictionary;
   FIX::FieldBaseTestCase m_fieldBase;
   FIX::HttpParserTestCase m_httpParser;
   FIX::HttpMessageTestCase m_httpMessage;

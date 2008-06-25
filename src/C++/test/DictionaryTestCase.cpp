@@ -24,52 +24,53 @@
 #include "config.h"
 #endif
 
-#include "DictionaryTestCase.h"
+#include <UnitTest++.h>
+#include "Dictionary.h"
 
 namespace FIX
 {
-void DictionaryTestCase::setGetString::onRun( Dictionary& object )
+
+TEST(setGetString)
 {
+  Dictionary object;
   object.setString( "STRINGKEY1", "STRINGVALUE1" );
   object.setString( "STRINGKEY2", "stringvalue2" );
 
-  assert( object.getString( "STRINGKEY1" ) == "STRINGVALUE1" );
-  assert( object.getString( "STRINGKEY2" ) == "stringvalue2" );
-  assert( object.getString( "STRINGKEY2", true ) == "STRINGVALUE2" );
-  try{ object.getString( "STRINGKEY3" ); assert( false ); }
-  catch ( ConfigError& ) {}
+  CHECK_EQUAL( "STRINGVALUE1", object.getString( "STRINGKEY1" ) );
+  CHECK_EQUAL( "stringvalue2", object.getString( "STRINGKEY2" )  );
+  CHECK_EQUAL( "STRINGVALUE2", object.getString( "STRINGKEY2", true ) );
+  CHECK_THROW( object.getString( "STRINGKEY3" ), ConfigError );
 }
 
-void DictionaryTestCase::setGetLong::onRun( Dictionary& object )
+TEST(setGetLong)
 {
+  Dictionary object;
   object.setLong( "LONGKEY1", 12 );
   object.setLong( "LONGKEY2", 9827362 );
   object.setString( "BADLONGKEY", "AB12" );
 
-  assert( object.getLong( "LONGKEY1" ) == 12 );
-  assert( object.getLong( "LONGKEY2" ) == 9827362 );
-  try{ object.getLong( "LONGKEY3" ); assert( false ); }
-  catch ( ConfigError& ) {}
-  try{ object.getLong( "BADLONGKEY" ); assert( false ); }
-  catch ( ConfigError& ) {}
+  CHECK_EQUAL( 12, object.getLong( "LONGKEY1" ) );
+  CHECK_EQUAL( 9827362, object.getLong( "LONGKEY2" ) );
+  CHECK_THROW( object.getLong( "LONGKEY3" ), ConfigError );
+  CHECK_THROW( object.getLong( "BADLONGKEY" ), ConfigError );
 }
 
-void DictionaryTestCase::setGetDouble::onRun( Dictionary& object )
+TEST(setGetDouble)
 {
+  Dictionary object;
   object.setDouble( "DOUBLEKEY1", 12.3 );
   object.setDouble( "DOUBLEKEY2", 9827362.9827362 );
   object.setString( "BADDOUBLEKEY", "AB12.3" );
 
-  assert( object.getDouble( "DOUBLEKEY1" ) == 12.3 );
-  assert( object.getDouble( "DOUBLEKEY2" ) == 9827362.9827362 );
-  try{ object.getDouble( "DOUBLEKEY3" ); assert( false ); }
-  catch ( ConfigError& ) {}
-  try{ object.getDouble( "BADDOUBLEKEY" ); assert( false ); }
-  catch ( ConfigError& ) {}
+  CHECK_EQUAL( 12.3, object.getDouble( "DOUBLEKEY1" ) );
+  CHECK_EQUAL( 9827362.9827362, object.getDouble( "DOUBLEKEY2" ) );
+  CHECK_THROW( object.getDouble( "DOUBLEKEY3" ), ConfigError );
+  CHECK_THROW( object.getDouble( "BADDOUBLEKEY" ), ConfigError );
 }
 
-void DictionaryTestCase::setGetDay::onRun( Dictionary& object )
+TEST(setGetDay)
 {
+  Dictionary object;
   object.setString( "DAY1", "SU" );
   object.setString( "DAY2", "MO" );
   object.setString( "DAY3", "TU" );
@@ -78,13 +79,13 @@ void DictionaryTestCase::setGetDay::onRun( Dictionary& object )
   object.setString( "DAY6", "FR" );
   object.setString( "DAY7", "SA" );
 
-  assert( object.getDay( "DAY1" ) == 1 );
-  assert( object.getDay( "DAY2" ) == 2 );
-  assert( object.getDay( "DAY3" ) == 3 );
-  assert( object.getDay( "DAY4" ) == 4 );
-  assert( object.getDay( "DAY5" ) == 5 );
-  assert( object.getDay( "DAY6" ) == 6 );
-  assert( object.getDay( "DAY7" ) == 7 );
+  CHECK_EQUAL( 1, object.getDay( "DAY1" ) );
+  CHECK_EQUAL( 2, object.getDay( "DAY2" ) );
+  CHECK_EQUAL( 3, object.getDay( "DAY3" ) );
+  CHECK_EQUAL( 4, object.getDay( "DAY4" ) );
+  CHECK_EQUAL( 5, object.getDay( "DAY5" ) );
+  CHECK_EQUAL( 6, object.getDay( "DAY6" ) );
+  CHECK_EQUAL( 7, object.getDay( "DAY7" ) );
 
   object.setDay( "NEXTDAY1", 1 );
   object.setDay( "NEXTDAY2", 2 );
@@ -94,25 +95,26 @@ void DictionaryTestCase::setGetDay::onRun( Dictionary& object )
   object.setDay( "NEXTDAY6", 6 );
   object.setDay( "NEXTDAY7", 7 );
 
-  assert( object.getDay( "NEXTDAY1" ) == 1 );
-  assert( object.getDay( "NEXTDAY2" ) == 2 );
-  assert( object.getDay( "NEXTDAY3" ) == 3 );
-  assert( object.getDay( "NEXTDAY4" ) == 4 );
-  assert( object.getDay( "NEXTDAY5" ) == 5 );
-  assert( object.getDay( "NEXTDAY6" ) == 6 );
-  assert( object.getDay( "NEXTDAY7" ) == 7 );
+  CHECK_EQUAL( 1, object.getDay( "NEXTDAY1" ) );
+  CHECK_EQUAL( 2, object.getDay( "NEXTDAY2" ) );
+  CHECK_EQUAL( 3, object.getDay( "NEXTDAY3" ) );
+  CHECK_EQUAL( 4, object.getDay( "NEXTDAY4" ) );
+  CHECK_EQUAL( 5, object.getDay( "NEXTDAY5" ) );
+  CHECK_EQUAL( 6, object.getDay( "NEXTDAY6" ) );
+  CHECK_EQUAL( 7, object.getDay( "NEXTDAY7" ) );
 }
 
-void DictionaryTestCase::merge::onRun( Dictionary& object )
+TEST(merge)
 {
+  Dictionary object;
   object.setString( "FIRSTKEY", "FIRSTVALUE" );
   object.setString( "THIRDKEY", "FIRST" );
   Dictionary second;
   second.setString( "SECONDKEY", "SECONDVALUE" );
   second.setString( "THIRDKEY", "SECOND" );
   object.merge( second );
-  assert( object.getString( "FIRSTKEY" ) == "FIRSTVALUE" );
-  assert( object.getString( "SECONDKEY" ) == "SECONDVALUE" );
-  assert( object.getString( "THIRDKEY" ) == "FIRST" );
+  CHECK_EQUAL( "FIRSTVALUE", object.getString( "FIRSTKEY" ) );
+  CHECK_EQUAL( "SECONDVALUE", object.getString( "SECONDKEY" ) );
+  CHECK_EQUAL( "FIRST", object.getString( "THIRDKEY" ) );
 }
 }

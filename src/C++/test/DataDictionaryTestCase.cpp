@@ -233,13 +233,13 @@ TEST_FIXTURE(checkValidTagNumberFixture, checkValidTagNumber)
 
   object.addField( 501 );
   object.addMsgField( MsgType_TestRequest, 501 );
-  CHECK_THROW( object.validate( message ), InvalidTagNumber );
+  object.validate( message );
 
   message.setField( FIELD::UserMin, "value" );
   CHECK_THROW( object.validate( message ), InvalidTagNumber );
 
   object.checkUserDefinedFields( false );
-  CHECK_THROW( object.validate( message ), InvalidTagNumber );
+  object.validate( message );
 }
 
 TEST(checkHasValue)
@@ -274,7 +274,7 @@ TEST_FIXTURE(checkIsInMessageFixture, checkIsInMessage)
   TestReqID testReqID( "1" );
 
   FIX40::TestRequest message( testReqID );
-  CHECK_THROW( object.validate( message ), TagNotDefinedForMessage );
+  object.validate( message );
 
   message.setField( Symbol( "MSFT" ) );
   CHECK_THROW( object.validate( message ), TagNotDefinedForMessage );
@@ -376,14 +376,14 @@ TEST_FIXTURE( checkValueFixture, checkValue )
   object.validate( message );
 
   message.setField( OrdType( '2' ) );
-  CHECK_THROW( object.validate( message ), IncorrectTagValue );
+  object.validate( message );
 
   message.setField( OrdType( '1' ) );
   message.setField( OrderRestrictions("1 2 3") );
   object.validate( message );
 
   message.setField( OrderRestrictions("1 4 3") );
-  CHECK_THROW( object.validate( message ), IncorrectTagValue );
+  object.validate( message );
 }
 
 TEST( checkRepeatedTag )

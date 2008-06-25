@@ -4,6 +4,7 @@ CXXFLAGS += -O0 -g
 noinst_LTLIBRARIES = libquickfixcpptest.la
 
 libquickfixcpptest_la_SOURCES = \
+	TestSuite.h \
 	FieldBaseTestCase.cpp \
 	FieldBaseTestCase.h \
 	FieldConvertorsTestCase.cpp \
@@ -52,12 +53,8 @@ libquickfixcpptest_la_SOURCES = \
 	MySQLStoreTestCase.h \
 	PostgreSQLStoreTestCase.cpp \
 	PostgreSQLStoreTestCase.h \
-	DictionaryTestCase.cpp \
-	DictionaryTestCase.h \
 	SessionSettingsTestCase.cpp \
 	SessionSettingsTestCase.h \
-	DataDictionaryTestCase.cpp \
-	DataDictionaryTestCase.h \
 	NullStoreTestCase.cpp \
 	NullStoreTestCase.h \
 	MemoryStoreTestCase.cpp \
