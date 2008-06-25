@@ -7,8 +7,6 @@ libquickfixcpptest_la_SOURCES = \
 	TestSuite.h \
 	FieldBaseTestCase.cpp \
 	FieldBaseTestCase.h \
-	FieldConvertorsTestCase.cpp \
-	FieldConvertorsTestCase.h \
 	MessageSortersTestCase.cpp \
 	MessageSortersTestCase.h \
 	MessagesTestCase.cpp \

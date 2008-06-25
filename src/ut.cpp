@@ -29,6 +29,7 @@
 #include "C++/SessionSettings.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
+#include <FieldConvertorsTestCase.cpp>
 #include <DataDictionaryTestCase.cpp>
 #include <DictionaryTestCase.cpp>
 #ifndef _MSC_VER
@@ -80,7 +81,7 @@ int main( int argc, char** argv )
   TestSuite suite( *display, port, *sessionSettingsPtr );
   //suite.run();
 
-  return suite.RunAllTests();
+  return UnitTest::RunAllTests();
 
   delete display;
   return suite.getExceptions().size() > 0;

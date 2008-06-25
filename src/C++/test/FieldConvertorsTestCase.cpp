@@ -24,253 +24,195 @@
 #include "config.h"
 #endif
 
-#include "FieldConvertorsTestCase.h"
+#include <UnitTest++.h>
 #include "Field.h"
 
 namespace FIX
 {
-  USER_DEFINE_STRING( TestField1, 1 );
-  USER_DEFINE_CHAR( TestField2, 2 );
-  USER_DEFINE_PRICE( TestField3, 3 );
-  USER_DEFINE_INT( TestField4, 4 );
-  USER_DEFINE_AMT( TestField5, 5 );
-  USER_DEFINE_QTY( TestField6, 6 );
-  USER_DEFINE_CURRENCY( TestField7, 7 );
-  USER_DEFINE_MULTIPLEVALUESTRING( TestField8, 8 );
-  USER_DEFINE_EXCHANGE( TestField9, 9 );
-  USER_DEFINE_UTCTIMESTAMP( TestField10, 10 );
-  USER_DEFINE_BOOLEAN( TestField11, 11 );
-  USER_DEFINE_LOCALMKTDATE( TestField12, 12 );
-  USER_DEFINE_DATA( TestField13, 13 );
-  USER_DEFINE_FLOAT( TestField14, 14 );
-  USER_DEFINE_PRICEOFFSET( TestField15, 15 );
-  USER_DEFINE_MONTHYEAR( TestField16, 16 );
-  USER_DEFINE_DAYOFMONTH( TestField17, 17 );
-  USER_DEFINE_UTCDATE( TestField18, 18 );
-  USER_DEFINE_UTCTIMEONLY( TestField19, 19 );
+USER_DEFINE_STRING( TestField1, 1 );
+USER_DEFINE_CHAR( TestField2, 2 );
+USER_DEFINE_PRICE( TestField3, 3 );
+USER_DEFINE_INT( TestField4, 4 );
+USER_DEFINE_AMT( TestField5, 5 );
+USER_DEFINE_QTY( TestField6, 6 );
+USER_DEFINE_CURRENCY( TestField7, 7 );
+USER_DEFINE_MULTIPLEVALUESTRING( TestField8, 8 );
+USER_DEFINE_EXCHANGE( TestField9, 9 );
+USER_DEFINE_UTCTIMESTAMP( TestField10, 10 );
+USER_DEFINE_BOOLEAN( TestField11, 11 );
+USER_DEFINE_LOCALMKTDATE( TestField12, 12 );
+USER_DEFINE_DATA( TestField13, 13 );
+USER_DEFINE_FLOAT( TestField14, 14 );
+USER_DEFINE_PRICEOFFSET( TestField15, 15 );
+USER_DEFINE_MONTHYEAR( TestField16, 16 );
+USER_DEFINE_DAYOFMONTH( TestField17, 17 );
+USER_DEFINE_UTCDATE( TestField18, 18 );
+USER_DEFINE_UTCTIMEONLY( TestField19, 19 );
 
-void FieldConvertorsTestCase::emptyConvert::onRun( void*& )
+TEST(emptyConvert)
 {
-  assert( StringConvertor::convert( "hello" ) == "hello" );
+  CHECK_EQUAL( "hello", StringConvertor::convert( "hello" ) );
 }
 
-void FieldConvertorsTestCase::integerConvertTo::onRun( void*& )
+TEST(integerConvertTo)
 {
-  assert( IntConvertor::convert( 123 ) == "123" );
+  CHECK_EQUAL( "123", IntConvertor::convert( 123 ) );
 }
 
-void FieldConvertorsTestCase::integerConvertFrom::onRun( void*& )
+TEST(integerConvertFrom)
 {
-  assert( IntConvertor::convert( "123" ) == 123 );
-
-  try
-  {
-    IntConvertor::convert( "abc" );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}
-
-  try
-  {
-    IntConvertor::convert( "123.4" );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}
-
-  try
-  {
-    IntConvertor::convert( "+200" );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}}
-
-void FieldConvertorsTestCase::doubleConvertTo::onRun( void*& )
-{
-  assert( DoubleConvertor::convert( 45.32 ) == "45.32" );
-  assert( DoubleConvertor::convert( 45 ) == "45" );
-  assert( DoubleConvertor::convert( 0.0 ) == "0" );
-  assert( DoubleConvertor::convert( 0.00001 ) == "0.00001" );
-  assert( DoubleConvertor::convert( -12.000000000001 )
-          == "-12.000000000001" );
-  assert( DoubleConvertor::convert( -0.00001 ) == "-0.00001" );
-  assert( DoubleConvertor::convert( -1050.0 ) == "-1050" );
-
-  assert( DoubleConvertor::convert( 1.5, 3) == "1.500" );
-  assert( DoubleConvertor::convert( 45, 5) == "45.00000" );
-  assert( DoubleConvertor::convert( 5, 2) == "5.00" );
-  assert( DoubleConvertor::convert( -5, 2) == "-5.00" );
-  assert( DoubleConvertor::convert( -12.2345, 2) == "-12.2345" );
-  assert( DoubleConvertor::convert( -0.00001, 5) == "-0.00001" );
-  assert( DoubleConvertor::convert( 0.0, 1) == "0.0" );
+  CHECK_EQUAL( 123, IntConvertor::convert( "123" ) );
+  CHECK_THROW( IntConvertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( IntConvertor::convert( "123.4" ), FieldConvertError );
+  CHECK_THROW( IntConvertor::convert( "+200" ), FieldConvertError );
 }
 
-void FieldConvertorsTestCase::doubleConvertFrom::onRun( void*& )
+TEST(doubleConvertTo)
 {
-  assert( DoubleConvertor::convert( "45.32" ) == 45.32 );
-  assert( DoubleConvertor::convert( "45.3200" ) == 45.32 );
-  assert( DoubleConvertor::convert( "0.00340244000" ) == 0.00340244 );
-  assert( DoubleConvertor::convert( "12.000000000001" )
-          == 12.000000000001 );
-  assert( DoubleConvertor::convert( "-12.000000000001" )
-          == -12.000000000001 );
-  assert( DoubleConvertor::convert( "0.0" ) == 0.0 );
-  assert( DoubleConvertor::convert( "0045.32" ) == 45.32 );
-  assert( DoubleConvertor::convert( "0." ) == 0.0 );
-  assert( DoubleConvertor::convert( ".0" ) == 0.0 );
-  assert( DoubleConvertor::convert( "0" ) == 0.0 );
-  assert( DoubleConvertor::convert( "000.06" ) == 0.06 );
-  assert( DoubleConvertor::convert( "0.0600" ) == 0.06 );
-  assert( DoubleConvertor::convert( "0.00001" ) == 0.00001 );
-  assert( DoubleConvertor::convert( "-0.00001" ) == -0.00001 );
-  assert( DoubleConvertor::convert( "-1050" ) == -1050 );
+  CHECK_EQUAL( "45.32", DoubleConvertor::convert( 45.32 ) );
+  CHECK_EQUAL( "45", DoubleConvertor::convert( 45 ) );
+  CHECK_EQUAL( "0", DoubleConvertor::convert( 0.0 ) );
+  CHECK_EQUAL( "0.00001", DoubleConvertor::convert( 0.00001 ) );
+  CHECK_EQUAL( "-12.000000000001", DoubleConvertor::convert( -12.000000000001 ) );
+  CHECK_EQUAL( "-0.00001", DoubleConvertor::convert( -0.00001 ) );
+  CHECK_EQUAL( "-1050", DoubleConvertor::convert( -1050.0 ) );
 
-  try
-  {
-    DoubleConvertor::convert( "abc" );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}
-
-  try
-  {
-    DoubleConvertor::convert( "123.A" );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}
-
-  try
-  {
-    DoubleConvertor::convert( "123.45.67" );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}
-
-  try
-  {
-    DoubleConvertor::convert( "." );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}}
-
-void FieldConvertorsTestCase::charConvertTo::onRun( void*& )
-{
-  assert( CharConvertor::convert( 'a' ) == "a" );
-  assert( CharConvertor::convert( '1' ) == "1" );
-  assert( CharConvertor::convert( 'F' ) == "F" );
-  assert( CharConvertor::convert( 0 ) == "" );
+  CHECK_EQUAL( "1.500", DoubleConvertor::convert( 1.5, 3) );
+  CHECK_EQUAL( "45.00000", DoubleConvertor::convert( 45, 5) );
+  CHECK_EQUAL( "5.00", DoubleConvertor::convert( 5, 2) );
+  CHECK_EQUAL( "-5.00", DoubleConvertor::convert( -5, 2) );
+  CHECK_EQUAL( "-12.2345", DoubleConvertor::convert( -12.2345, 2) );
+  CHECK_EQUAL( "-0.00001", DoubleConvertor::convert( -0.00001, 5) );
+  CHECK_EQUAL( "0.0", DoubleConvertor::convert( 0.0, 1) );
 }
 
-void FieldConvertorsTestCase::charConvertFrom::onRun( void*& )
+TEST(doubleConvertFrom)
 {
-  assert( CharConvertor::convert( "a" ) == 'a' );
-  assert( CharConvertor::convert( "1" ) == '1' );
-  assert( CharConvertor::convert( "F" ) == 'F' );
+  CHECK_EQUAL( 45.32, DoubleConvertor::convert( "45.32" ) );
+  CHECK_EQUAL( 45.32, DoubleConvertor::convert( "45.3200" ) );
+  CHECK_EQUAL( 0.00340244, DoubleConvertor::convert( "0.00340244000" ) );
+  CHECK_EQUAL( 12.000000000001, DoubleConvertor::convert( "12.000000000001" ) );
+  CHECK_EQUAL( -12.000000000001, DoubleConvertor::convert( "-12.000000000001" ) );
+  CHECK_EQUAL( 0.0, DoubleConvertor::convert( "0.0" ) );
+  CHECK_EQUAL( 45.32, DoubleConvertor::convert( "0045.32" ) );
+  CHECK_EQUAL( 0.0, DoubleConvertor::convert( "0." ) );
+  CHECK_EQUAL( 0.0, DoubleConvertor::convert( ".0" ) );
+  CHECK_EQUAL( 0.0, DoubleConvertor::convert( "0" ) );
+  CHECK_EQUAL( 0.06, DoubleConvertor::convert( "000.06" ) );
+  CHECK_EQUAL( 0.06, DoubleConvertor::convert( "0.0600" ) );
+  CHECK_EQUAL( 0.00001, DoubleConvertor::convert( "0.00001" ) );
+  CHECK_EQUAL( -0.00001, DoubleConvertor::convert( "-0.00001" ) );
+  CHECK_EQUAL( -1050, DoubleConvertor::convert( "-1050" ) );
+
+  CHECK_THROW( DoubleConvertor::convert( "abc" ), FieldConvertError );
+  CHECK_THROW( DoubleConvertor::convert( "123.A" ), FieldConvertError );
+  CHECK_THROW( DoubleConvertor::convert( "123.45.67" ), FieldConvertError );
+  CHECK_THROW( DoubleConvertor::convert( "." ), FieldConvertError );
 }
 
-void FieldConvertorsTestCase::streamConvertTo::onRun( void*& )
-{}
-
-void FieldConvertorsTestCase::streamConvertFrom::onRun( void*& )
-{}
-
-void FieldConvertorsTestCase::booleanConvertTo::onRun( void*& )
+TEST(charConvertTo)
 {
-  assert( BoolConvertor::convert( true ) == "Y" );
-  assert( BoolConvertor::convert( false ) == "N" );
+  CHECK_EQUAL( "a", CharConvertor::convert( 'a' ) );
+  CHECK_EQUAL( "1", CharConvertor::convert( '1' ) );
+  CHECK_EQUAL( "F", CharConvertor::convert( 'F' ) );
+  CHECK_EQUAL( "", CharConvertor::convert( 0 ) );
 }
 
-void FieldConvertorsTestCase::booleanConvertFrom::onRun( void*& )
+TEST(charConvertFrom)
 {
-  assert( BoolConvertor::convert( std::string( "Y" ) ) == true );
-  assert( BoolConvertor::convert( std::string( "N" ) ) == false );
-
-  try
-  {
-    BoolConvertor::convert( std::string( "D" ) );
-    assert( false );
-  }
-  catch ( FieldConvertError& ) {}
+  CHECK_EQUAL( 'a', CharConvertor::convert( "a" ) );
+  CHECK_EQUAL( '1', CharConvertor::convert( "1" ) );
+  CHECK_EQUAL( 'F', CharConvertor::convert( "F" ) );
 }
 
-void FieldConvertorsTestCase::utcTimeStampConvertTo::onRun( void*& )
+TEST(booleanConvertTo)
+{
+  CHECK_EQUAL( "Y", BoolConvertor::convert( true ) );
+  CHECK_EQUAL( "N", BoolConvertor::convert( false ) );
+}
+
+TEST(booleanConvertFrom)
+{
+  CHECK_EQUAL( true, BoolConvertor::convert( std::string( "Y" ) ) );
+  CHECK_EQUAL( false, BoolConvertor::convert( std::string( "N" ) ) );
+  CHECK_THROW( BoolConvertor::convert( std::string( "D" ) ), FieldConvertError );
+}
+
+TEST(utcTimeStampConvertTo)
 {
   UtcTimeStamp input;
   input.setHMS( 12, 5, 6, 555 );
   input.setYMD( 2000, 4, 26 );
-  assert( UtcTimeStampConvertor::convert( input ) == "20000426-12:05:06" );
-  assert( UtcTimeStampConvertor::convert( input,true ) == "20000426-12:05:06.555" );
+  CHECK_EQUAL( "20000426-12:05:06", UtcTimeStampConvertor::convert( input ) );
+  CHECK_EQUAL( "20000426-12:05:06.555", UtcTimeStampConvertor::convert( input,true ) );
 }
 
-void FieldConvertorsTestCase::utcTimeStampConvertFrom::onRun( void*& )
+TEST(utcTimeStampConvertFrom)
 {
   UtcTimeStamp result = UtcTimeStampConvertor::convert
                         ( std::string( "20000426-12:05:06.555" ) );
-  assert( result.getHour() == 12 );
-  assert( result.getMinute() == 5 );
-  assert( result.getSecond() == 6 );
-  assert( result.getMillisecond() == 555 );
-  assert( result.getYear() == 2000 );
-  assert( result.getMonth() == 4 );
-  assert( result.getDate() == 26 );
+  CHECK_EQUAL( 12, result.getHour() );
+  CHECK_EQUAL( 5, result.getMinute() );
+  CHECK_EQUAL( 6, result.getSecond() );
+  CHECK_EQUAL( 555, result.getMillisecond() );
+  CHECK_EQUAL( 2000, result.getYear() );
+  CHECK_EQUAL( 4, result.getMonth() );
+  CHECK_EQUAL( 26, result.getDate() );
 
   UtcTimeStamp result2 = UtcTimeStampConvertor::convert
                          ( std::string( "20000426-12:05:06.555" ), true );
-  assert( result2.getHour() == 12 );
-  assert( result2.getMinute() == 5 );
-  assert( result2.getSecond() == 6 );
-  assert( result2.getMillisecond() == 555 );
-  assert( result2.getYear() == 2000 );
-  assert( result2.getMonth() == 4 );
-  assert( result2.getDate() == 26 );
-  // assert( result2.getYearDay() == 117 );
+  CHECK_EQUAL( 12, result2.getHour() );
+  CHECK_EQUAL( 5, result2.getMinute() );
+  CHECK_EQUAL( 6, result2.getSecond() );
+  CHECK_EQUAL( 555, result2.getMillisecond() );
+  CHECK_EQUAL( 2000, result2.getYear() );
+  CHECK_EQUAL( 4, result2.getMonth() );
+  CHECK_EQUAL( 26, result2.getDate() );
+  // CHECK_EQUAL( 117, result2.getYearDay() );
 }
 
-void FieldConvertorsTestCase::utcTimeOnlyConvertTo::onRun( void*& )
+TEST(utcTimeOnlyConvertTo)
 {
   UtcTimeOnly input;
   input.setHMS( 12, 5, 6, 555 );
-  assert( UtcTimeOnlyConvertor::convert( input ) == "12:05:06" );
-  assert( UtcTimeOnlyConvertor::convert( input,true ) == "12:05:06.555" );
+  CHECK_EQUAL( "12:05:06", UtcTimeOnlyConvertor::convert( input ) );
+  CHECK_EQUAL( "12:05:06.555", UtcTimeOnlyConvertor::convert( input,true ) );
 }
 
-void FieldConvertorsTestCase::utcTimeOnlyConvertFrom::onRun( void*& )
+TEST(utcTimeOnlyConvertFrom)
 {
   UtcTimeOnly result = UtcTimeOnlyConvertor::convert
                        ( std::string( "12:05:06.555" ) );
-  assert( result.getHour() == 12 );
-  assert( result.getMinute() == 5 );
-  assert( result.getSecond() == 6 );
-  assert( result.getMillisecond() == 555 );
+  CHECK_EQUAL( 12, result.getHour() );
+  CHECK_EQUAL( 5, result.getMinute() );
+  CHECK_EQUAL( 6, result.getSecond() );
+  CHECK_EQUAL( 555, result.getMillisecond() );
 }
 
-void FieldConvertorsTestCase::utcDateConvertTo::onRun( void*& )
+TEST(utcDateConvertTo)
 {
   UtcDate input;
   input.setYMD( 2000, 4, 26 );
-  assert( UtcDateConvertor::convert( input ) == "20000426" );
+  CHECK_EQUAL( "20000426", UtcDateConvertor::convert( input ) );
 }
 
-void FieldConvertorsTestCase::utcDateConvertFrom::onRun( void*& )
+TEST(utcDateConvertFrom)
 {
   UtcDate result = UtcDateConvertor::convert
                    ( std::string( "20000426" ) );
-  assert( result.getYear() == 2000 );
-  assert( result.getMonth() == 4 );
-  assert( result.getDate() == 26 );
-  //assert( result.getYearDay() == 117 );
+  CHECK_EQUAL( 2000, result.getYear() );
+  CHECK_EQUAL( 4, result.getMonth() );
+  CHECK_EQUAL( 6, result.getDate() );
+  //CHECK_EQUAL( 117, result.getYearDay() );
 }
 
-void FieldConvertorsTestCase::checkSumConvertTo::onRun( void*& )
+TEST(checkSumConvertTo)
 {
-  assert( CheckSumConvertor::convert( 0 ) == "000" );
-  assert( CheckSumConvertor::convert( 5 ) == "005" );
-  assert( CheckSumConvertor::convert( 12 ) == "012" );
-  assert( CheckSumConvertor::convert( 234 ) == "234" );
-
-  try{ CheckSumConvertor::convert( -1 ); assert( false ); }
-  catch ( FieldConvertError& ) {}
-  try{ CheckSumConvertor::convert( 256 ); assert( false ); }
-  catch ( FieldConvertError& ) {}
+  CHECK_EQUAL( "000", CheckSumConvertor::convert( 0 ) );
+  CHECK_EQUAL( "005", CheckSumConvertor::convert( 5 ) );
+  CHECK_EQUAL( "012", CheckSumConvertor::convert( 12 ) );
+  CHECK_EQUAL( "234", CheckSumConvertor::convert( 234 ) );
+  CHECK_THROW( CheckSumConvertor::convert( -1 ), FieldConvertError );
+  CHECK_THROW( CheckSumConvertor::convert( 256 ), FieldConvertError );
 }
-
 }

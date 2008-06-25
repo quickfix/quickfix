@@ -29,7 +29,6 @@
 
 namespace FIX
 {
-
 TEST(setGetString)
 {
   Dictionary object;
