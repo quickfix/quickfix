@@ -29,6 +29,7 @@
 
 namespace FIX
 {
+
 USER_DEFINE_STRING( TestField1, 1 );
 USER_DEFINE_CHAR( TestField2, 2 );
 USER_DEFINE_PRICE( TestField3, 3 );
@@ -202,7 +203,7 @@ TEST(utcDateConvertFrom)
                    ( std::string( "20000426" ) );
   CHECK_EQUAL( 2000, result.getYear() );
   CHECK_EQUAL( 4, result.getMonth() );
-  CHECK_EQUAL( 6, result.getDate() );
+  CHECK_EQUAL( 26, result.getDate() );
   //CHECK_EQUAL( 117, result.getYearDay() );
 }
 
@@ -215,4 +216,5 @@ TEST(checkSumConvertTo)
   CHECK_THROW( CheckSumConvertor::convert( -1 ), FieldConvertError );
   CHECK_THROW( CheckSumConvertor::convert( 256 ), FieldConvertError );
 }
+
 }

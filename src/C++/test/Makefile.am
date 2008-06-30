@@ -5,16 +5,10 @@ noinst_LTLIBRARIES = libquickfixcpptest.la
 
 libquickfixcpptest_la_SOURCES = \
 	TestSuite.h \
-	FieldBaseTestCase.cpp \
-	FieldBaseTestCase.h \
-	MessageSortersTestCase.cpp \
-	MessageSortersTestCase.h \
 	MessagesTestCase.cpp \
 	MessagesTestCase.h \
 	SessionTestCase.cpp \
 	SessionTestCase.h \
-	ParserTestCase.cpp \
-	ParserTestCase.h \
 	SettingsTestCase.cpp \
 	SettingsTestCase.h \
 	MessageStoreTestCase.cpp \

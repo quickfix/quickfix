@@ -29,9 +29,12 @@
 #include "C++/SessionSettings.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
 #include <CPPTest/TestXMLFileOutputDisplay.h>
-#include <FieldConvertorsTestCase.cpp>
 #include <DataDictionaryTestCase.cpp>
 #include <DictionaryTestCase.cpp>
+#include <FieldBaseTestCase.cpp>
+#include <FieldConvertorsTestCase.cpp>
+#include <MessageSortersTestCase.cpp>
+#include <ParserTestCase.cpp>
 #ifndef _MSC_VER
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>

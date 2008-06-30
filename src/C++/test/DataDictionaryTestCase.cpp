@@ -39,6 +39,7 @@
 
 namespace FIX
 {
+
 USER_DEFINE_STRING( TooHigh, 501 );
 
 TEST(addMsgType)
@@ -599,6 +600,7 @@ TEST_FIXTURE( copyFixture, copy )
   CHECK_EQUAL( TYPE::Char, type );
   CHECK_EQUAL( 2, delim );
 }
+
 }
 
 #endif

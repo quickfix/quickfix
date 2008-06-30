@@ -24,23 +24,27 @@
 #include "config.h"
 #endif
 
-#include "FieldBaseTestCase.h"
+#include <UnitTest++.h>
+#include "Field.h"
 
 namespace FIX
 {
-  void FieldBaseTestCase::set::onRun( FieldBase& object )
-  {
-    object.setString("VALUE");
-    assert(object.getValue() == "12=VALUE\001");
-    assert(object.getTotal() == 542);
-    assert(object.getLength() == 9);
-    object.setString("VALUF");
-    assert(object.getValue() == "12=VALUF\001");
-    assert(object.getTotal() == 543);
-    assert(object.getLength() == 9);
-    object.setField(13);
-    assert(object.getValue() == "13=VALUF\001");
-    assert(object.getTotal() == 544);
-    assert(object.getLength() == 9);
-  }
+
+TEST(set)
+{
+  FieldBase object( 12, "VALUE" );
+  object.setString( "VALUE" );
+  CHECK_EQUAL( "12=VALUE\001", object.getValue() );
+  CHECK_EQUAL( 542, object.getTotal() );
+  CHECK_EQUAL( 9, object.getLength() );
+  object.setString( "VALUF" );
+  CHECK_EQUAL( "12=VALUF\001", object.getValue() );
+  CHECK_EQUAL( 543, object.getTotal() );
+  CHECK_EQUAL( 9, object.getLength() );
+  object.setField( 13 );
+  CHECK_EQUAL( "13=VALUF\001", object.getValue() );
+  CHECK_EQUAL( 544, object.getTotal() );
+  CHECK_EQUAL( 9, object.getLength() );
+}
+
 }

@@ -29,6 +29,7 @@
 
 namespace FIX
 {
+
 TEST(setGetString)
 {
   Dictionary object;
@@ -116,4 +117,5 @@ TEST(merge)
   CHECK_EQUAL( "SECONDVALUE", object.getString( "SECONDKEY" ) );
   CHECK_EQUAL( "FIRST", object.getString( "THIRDKEY" ) );
 }
+
 }

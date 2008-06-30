@@ -22,7 +22,6 @@
 #include <CPPTest/TestSuite.h>
 #include <CPPTest/TestDisplay.h>
 #include <AcceptorTestCase.h>
-//#include <MessageSortersTestCase.h>
 #include <MessagesTestCase.h>
 #include <SessionTestCase.h>
 #include <SessionSettingsTestCase.h>
@@ -43,7 +42,6 @@
 #include <TimeRangeTestCase.h>
 #include <SocketConnectorTestCase.h>
 #include <SocketServerTestCase.h>
-#include <FieldBaseTestCase.h>
 #include <HttpParserTestCase.h>
 #include <HttpMessageTestCase.h>
 
@@ -115,7 +113,6 @@ public:
     add( &m_timeRange );
     add( &m_socketConnector );
     add( &m_socketServer );
-    add( &m_fieldBase );
     add( &m_httpParser );
     add( &m_httpMessage );
   }
@@ -125,7 +122,6 @@ public:
 private:
 
   FIX::AcceptorTestCase m_acceptor;
-//  FIX::MessageSortersTestCase m_messageSorters;
   FIX::MessageTestCase m_message;
   FIX::LogonParseTestCase m_logonParse;
   FIX::TestRequestParseTestCase m_testRequestParse;
@@ -170,7 +166,6 @@ private:
   FIX::SessionIDTestCase m_sessionID;
 #endif
   FIX::TimeRangeTestCase m_timeRange;
-  FIX::FieldBaseTestCase m_fieldBase;
   FIX::HttpParserTestCase m_httpParser;
   FIX::HttpMessageTestCase m_httpMessage;
 };

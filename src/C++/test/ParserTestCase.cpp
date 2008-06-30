@@ -24,106 +24,124 @@
 #include "config.h"
 #endif
 
-#include "ParserTestCase.h"
+#include <UnitTest++.h>
+#include "Parser.h"
+#include "Utility.h"
+#include "SocketServer.h"
+#include "SocketConnector.h"
 #include <string>
 #include <sstream>
 
 namespace FIX
 {
-bool ParserTestCase::extractLength::onSetup( Parser*& pObject )
-{
-  m_normalLength   = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
-  m_badLength      = "8=FIX.4.2\0019=A\00135=A\001108=30\00110=31\001";
-  m_negativeLength = "8=FIX.4.2\0019=-1\00135=A\001108=30\00110=31\001";
-  m_incomplete_1   = "8=FIX.4.2";
-  m_incomplete_2   = "8=FIX.4.2\0019=12";
-  return true;
-}
 
-void ParserTestCase::extractLength::onRun( Parser& object )
+struct extractLengthFixture
+{
+  extractLengthFixture()
+  {
+    normalLength   = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
+    badLength      = "8=FIX.4.2\0019=A\00135=A\001108=30\00110=31\001";
+    negativeLength = "8=FIX.4.2\0019=-1\00135=A\001108=30\00110=31\001";
+    incomplete_1   = "8=FIX.4.2";
+    incomplete_2   = "8=FIX.4.2\0019=12";
+  }
+
+  std::string normalLength;
+  std::string badLength;
+  std::string negativeLength;
+  std::string incomplete_1;
+  std::string incomplete_2;
+  Parser object;
+};
+
+TEST_FIXTURE(extractLengthFixture, extractLength)
 {
   int length = 0;
   std::string::size_type pos = 0;
 
-  assert( object.extractLength(length, pos, m_normalLength) );
-  assert( length == 12 );
-  assert( pos == 15 );
+  CHECK( object.extractLength(length, pos, normalLength) );
+  CHECK_EQUAL( 12, length );
+  CHECK_EQUAL( 15, (int)pos );
 
   pos = 0;
-  try { object.extractLength(length, pos, m_badLength);
-        assert(false); }
-  catch( MessageParseError& ) {}
+  CHECK_THROW( object.extractLength(length, pos, badLength), MessageParseError );
 
-  assert(pos == 0);
-  try { object.extractLength(length, pos, m_negativeLength);
-        assert(false); }
-  catch( MessageParseError& ) {}
+  CHECK_EQUAL( 0, (int)pos );
+  CHECK_THROW( object.extractLength(length, pos, negativeLength), MessageParseError );
 
-  assert(pos == 0);
-  try { assert( object.extractLength(length, pos, m_incomplete_1) == false);
-        assert(pos == 0); }
-  catch( MessageParseError& ) { assert(false) }
+  CHECK_EQUAL( 0, (int)pos );
+  CHECK_THROW( object.extractLength(length, pos, incomplete_1), MessageParseError );
 
-  try { assert( object.extractLength(length, pos, m_incomplete_2) == false);
-        assert(pos == 0); }
-  catch( MessageParseError& ) { assert(false) }
+  object.extractLength(length, pos, incomplete_2);
+  CHECK_EQUAL( 0, (int)pos );
 
-  assert( !object.extractLength(length, pos, "") );
+  CHECK( !object.extractLength(length, pos, "") );
 }
 
-bool ParserTestCase::readFixMessage::onSetup( Parser*& pObject )
+struct readFixMessageFixture
 {
-  m_fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
-  m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
-  m_fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
+  readFixMessageFixture()
+  {
+    fixMsg1 = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=31\001";
+    fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
+    fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
 
-  pObject = new Parser();
-  pObject->addToStream( m_fixMsg1 + m_fixMsg2 + m_fixMsg3 );
-  return true;
-}
+    object.addToStream( fixMsg1 + fixMsg2 + fixMsg3 );
+  }
 
-void ParserTestCase::readFixMessage::onRun( Parser& object )
-{
   std::string fixMsg1;
-
-  assert( object.readFixMessage( fixMsg1 ) );
-  assert( fixMsg1 == m_fixMsg1 );
-
   std::string fixMsg2;
-  assert( object.readFixMessage( fixMsg2 ) );
-  assert( fixMsg2 == m_fixMsg2 );
-
   std::string fixMsg3;
-  assert( object.readFixMessage( fixMsg3 ) );
-  assert( fixMsg3 == m_fixMsg3 );
+  Parser object;
+};
+
+TEST_FIXTURE(readFixMessageFixture, readFixMessage)
+{
+  std::string readFixMsg1;
+  CHECK( object.readFixMessage( readFixMsg1 ) );
+  CHECK_EQUAL( fixMsg1, readFixMsg1 );
+
+  std::string readFixMsg2;
+  CHECK( object.readFixMessage( readFixMsg2 ) );
+  CHECK_EQUAL( fixMsg2, readFixMsg2 );
+
+  std::string readFixMsg3;
+  CHECK( object.readFixMessage( readFixMsg3 ) );
+  CHECK_EQUAL( fixMsg3, readFixMsg3 );
 }
 
-bool ParserTestCase::readPartialFixMessage::onSetup( Parser*& pObject )
+struct readPartialFixMessageFixture
 {
-  m_partFixMsg1 = "8=FIX.4.2\0019=17\00135=4\00136=";
-  m_partFixMsg2 = "88\001123=Y\00110=34\001";
+  readPartialFixMessageFixture()
+  {
+    partFixMsg1 = "8=FIX.4.2\0019=17\00135=4\00136=";
+    partFixMsg2 = "88\001123=Y\00110=34\001";
 
-  pObject = new Parser();
-  pObject->addToStream( m_partFixMsg1 );
-  return true;
+    object.addToStream( partFixMsg1 );
+  }
+
+  std::string partFixMsg1;
+  std::string partFixMsg2;
+  Parser object;
+};
+
+TEST_FIXTURE(readPartialFixMessageFixture, readPartialFixMessage)
+{
+  std::string readPartFixMsg;
+  CHECK( !object.readFixMessage( readPartFixMsg ) );
+  object.addToStream( partFixMsg2 );
+  CHECK( object.readFixMessage( readPartFixMsg ) );
+  CHECK_EQUAL( partFixMsg1 + partFixMsg2, readPartFixMsg );
 }
 
-void ParserTestCase::readPartialFixMessage::onRun( Parser& object )
+TEST(readMessagesByteByByte)
 {
-  std::string partFixMsg;
-  assert( !object.readFixMessage( partFixMsg ) );
-  object.addToStream( m_partFixMsg2 );
-  assert( object.readFixMessage( partFixMsg ) );
-  assert( partFixMsg == ( m_partFixMsg1 + m_partFixMsg2 ) );
-}
-
-void ParserTestCase::readMessagesByteByByte::onRun( Parser& object )
-{
+  Parser object;
   std::string fixMsg;
   std::string fixMsg1 = "8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
                         "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001";
-  std::string m_fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
-  std::string m_fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
+  std::string fixMsg2 = "8=FIX.4.2\0019=17\00135=4\00136=88\001123=Y\00110=34\001";
+  std::string fixMsg3 = "8=FIX.4.2\0019=19\00135=A\001108=30\0019710=8\00110=31\001";
   
   for( unsigned int i = 0; i < fixMsg1.length(); ++i )
   {
@@ -131,34 +149,25 @@ void ParserTestCase::readMessagesByteByByte::onRun( Parser& object )
   }
 }
 
-bool ParserTestCase::readMessageWithBadLength::onSetup( Parser*& pObject )
+struct readMessageWithBadLengthFixture
 {
-  m_fixMsg = "8=TEST\0019=TEST\00135=TEST\00149=SS1\00156=RORE\00134=3\00152=20050222-16:45:53\00110=TEST\001";
+  readMessageWithBadLengthFixture()
+  {
+    fixMsg = "8=TEST\0019=TEST\00135=TEST\00149=SS1\00156=RORE\00134=3\00152=20050222-16:45:53\00110=TEST\001";
 
-  pObject = new Parser();
-  pObject->addToStream( m_fixMsg );
-  return true;
-}
+    object.addToStream( fixMsg );
+  }
 
-void ParserTestCase::readMessageWithBadLength::onRun( Parser& object )
-{
   std::string fixMsg;
+  Parser object;
+};
 
-  try
-  {
-    object.readFixMessage( fixMsg );
-    assert( false );
-  }
-  catch( MessageParseError& ) {}
+TEST_FIXTURE(readMessageWithBadLengthFixture, readMessageWithBadLength)
+{
+  std::string readFixMsg;
 
-  try
-  {
-    assert( !object.readFixMessage( fixMsg ) );
-  }
-  catch( MessageParseError& )
-  {
-    assert( false );
-  }
+  CHECK_THROW( object.readFixMessage( readFixMsg ), MessageParseError );
+  object.readFixMessage( readFixMsg );
 }
 
 }
