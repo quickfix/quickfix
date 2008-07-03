@@ -24,13 +24,19 @@
 #include "config.h"
 #endif
 
-#include "HttpMessageTestCase.h"
-#include "Utility.h"
+#include <UnitTest++.h>
+#include <HttpMessage.h>
+#include <Utility.h>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(HttpMessageTests)
 {
-void HttpMessageTestCase::setString::onRun( HttpMessage& object )
+
+TEST(setString)
 {
+  HttpMessage object;
+
   static const char* strGood1 =
     "GET / HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
   static const char* strGood2 =
@@ -46,56 +52,31 @@ void HttpMessageTestCase::setString::onRun( HttpMessage& object )
   static const char* strBad3 =
     "GEB /some/url HTTB/1.0\r\nContent Type: text/html\r\n\r\n";
 
-  try
-  {
-    object.setString( strGood1 );
-    assertEquals( "/", object.getRootString() );
-    assertEquals( 0, object.getParameters().size() );
-  } catch( InvalidMessage& ) { assert(false); }
+  object.setString( strGood1 );
+  CHECK_EQUAL( "/", object.getRootString() );
+  CHECK_EQUAL( 0, object.getParameters().size() );
 
-  try
-  {
-    object.setString( strGood2 );
-    assertEquals( "/another/url", object.getRootString() );
-    assertEquals( 0, object.getParameters().size() );
-  } catch( InvalidMessage& ) { assert(false); }
+  object.setString( strGood2 );
+  CHECK_EQUAL( "/another/url", object.getRootString() );
+  CHECK_EQUAL( 0, object.getParameters().size() );
 
-  try
-  {
-    object.setString( strGoodWithParameters );
-    assertEquals( "/some/url", object.getRootString() );
-    assertEquals( 3, object.getParameters().size() );
-    assertEquals( "one", object.getParameters().find("p1")->second );
-    assertEquals( "two", object.getParameters().find("p2")->second );
-    assertEquals( "three", object.getParameters().find("p3")->second );
-  } catch( InvalidMessage& ) { assert(false); }
+  object.setString( strGoodWithParameters );
+  CHECK_EQUAL( "/some/url", object.getRootString() );
+  CHECK_EQUAL( 3, object.getParameters().size() );
+  CHECK_EQUAL( "one", object.getParameters().find("p1")->second );
+  CHECK_EQUAL( "two", object.getParameters().find("p2")->second );
+  CHECK_EQUAL( "three", object.getParameters().find("p3")->second );
 
-  try
-  {
-    object.setString( strGoodWithEmptyParameters );
-    assertEquals( "/some/url", object.getRootString() );
-    assertEquals( 3, object.getParameters().size() );
-    assertEquals( "", object.getParameters().find("p1")->second );
-    assertEquals( "", object.getParameters().find("p2")->second );
-    assertEquals( "", object.getParameters().find("p3")->second );
-  } catch( InvalidMessage& ) { assert(false); }
+  object.setString( strGoodWithEmptyParameters );
+  CHECK_EQUAL( "/some/url", object.getRootString() );
+  CHECK_EQUAL( 3, object.getParameters().size() );
+  CHECK_EQUAL( "", object.getParameters().find("p1")->second );
+  CHECK_EQUAL( "", object.getParameters().find("p2")->second );
+  CHECK_EQUAL( "", object.getParameters().find("p3")->second );
 
-  try
-  {
-    object.setString( strBad1 );
-    assert( false );
-  } catch( InvalidMessage& ) {}
-
-  try
-  {
-    object.setString( strBad2 );
-    assert( false );
-  } catch( InvalidMessage& ) {}
-
-  try
-  {
-    object.setString( strBad3 );
-    assert( false );
-  } catch( InvalidMessage& ) {}
+  CHECK_THROW( object.setString( strBad1 ), InvalidMessage );
+  CHECK_THROW( object.setString( strBad2 ), InvalidMessage );
+  CHECK_THROW( object.setString( strBad3 ), InvalidMessage );
 }
+
 }

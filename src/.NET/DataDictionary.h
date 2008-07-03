@@ -108,7 +108,7 @@ public:
 
     std::string nameString;
     bool result = unmanaged().getFieldName( field, nameString );
-    return result ? nameString.c_str() : 0;
+    return result ? nameString.c_str() : (System::String*)0;
 
     QF_STACK_CATCH
   }
@@ -128,7 +128,7 @@ public:
 
     std::string nameString;
     bool result = unmanaged().getValueName( field, convertString(value), nameString );
-    return result ? nameString.c_str() : 0;
+    return result ? nameString.c_str() : (System::String*)0;
 
     QF_STACK_CATCH
   }

@@ -181,12 +181,12 @@ namespace QuickFix
     OpenClose(char data) : CharField(77, data) {}
   };
 
-  public __gc class AllocShares : public IntField
+  public __gc class AllocShares : public DoubleField
   {
   public:
   static const int FIELD = 80;
-  AllocShares() : IntField(80) {}
-    AllocShares(int data) : IntField(80, data) {}
+  AllocShares() : DoubleField(80) {}
+    AllocShares(double data) : DoubleField(80, data) {}
   };
 
   public __gc class DlvyInst : public CharField

@@ -40,7 +40,7 @@ namespace FIX
   DEFINE_INT(AvgPrxPrecision);
   DEFINE_STRING(ExecBroker);
   DEFINE_CHAR(OpenClose);
-  DEFINE_INT(AllocShares);
+  DEFINE_QTY(AllocShares);
   DEFINE_CHAR(DlvyInst);
   DEFINE_STRING(BrokerOfCredit);
   DEFINE_STRING(ClientID);

@@ -43,7 +43,7 @@ public class OrderTest extends TestCase {
     public void setUp() throws Exception {
         application = new ApplicationImpl();
         FileInputStream configuration =
-            new FileInputStream("cfg/at_client.cfg");
+            new FileInputStream("cfg\\at_client.cfg");
         SessionSettings settings = new SessionSettings(configuration);
         MessageStoreFactory messageStoreFactory =
             new MemoryStoreFactory();
@@ -54,7 +54,7 @@ public class OrderTest extends TestCase {
 
         quickFixThread = new QuickFixThread();
         server = Runtime.getRuntime().exec
-            ("../../bin/at -f cfg/at_server.cfg", null);
+            ("../../bin/at -f cfg/at.cfg", null);
         quickFixThread.start();
 
         for(int i = 0;i < 50;++i) {

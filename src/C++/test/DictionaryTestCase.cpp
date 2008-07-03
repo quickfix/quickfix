@@ -25,9 +25,11 @@
 #endif
 
 #include <UnitTest++.h>
-#include "Dictionary.h"
+#include <Dictionary.h>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(DictionaryTests)
 {
 
 TEST(setGetString)

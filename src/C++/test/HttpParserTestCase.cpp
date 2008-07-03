@@ -24,56 +24,69 @@
 #include "config.h"
 #endif
 
-#include "HttpParserTestCase.h"
+#include <UnitTest++.h>
+#include <HttpParser.h>
 #include <string>
 #include <sstream>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(HttpParserTests)
 {
 
-bool HttpParserTestCase::readHttpMessage::onSetup( HttpParser*& pObject )
+struct readHttpMessageFixture
 {
-  m_httpMsg1 = "GET / HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
-  m_httpMsg2 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
-  m_httpMsg3 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+  readHttpMessageFixture()
+  {
+    httpMsg1 = "GET / HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+    httpMsg2 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
+    httpMsg3 = "GET /a HTTP/1.0\r\nContent Type: text/html\r\n\r\n";
 
-  pObject = new HttpParser();
-  pObject->addToStream( m_httpMsg1 + m_httpMsg2 + m_httpMsg3 );
-  return true;
-}
+    object.addToStream( httpMsg1 + httpMsg2 + httpMsg3 );
+  }
 
-void HttpParserTestCase::readHttpMessage::onRun( HttpParser& object )
-{
   std::string httpMsg1;
-  assert( object.readHttpMessage( httpMsg1 ) );
-  assert( httpMsg1 == m_httpMsg1 );
-
   std::string httpMsg2;
-  assert( object.readHttpMessage( httpMsg2 ) );
-  assert( httpMsg2 == m_httpMsg2 );
-
   std::string httpMsg3;
-  assert( object.readHttpMessage( httpMsg3 ) );
-  assert( httpMsg3 == m_httpMsg3 );
+  HttpParser object;
+};
+
+TEST_FIXTURE(readHttpMessageFixture, readHttpMessage)
+{
+  std::string readHttpMsg1;
+  CHECK( object.readHttpMessage( readHttpMsg1 ) );
+  CHECK_EQUAL( httpMsg1, readHttpMsg1 );
+
+  std::string readHttpMsg2;
+  CHECK( object.readHttpMessage( readHttpMsg2 ) );
+  CHECK_EQUAL( httpMsg2, readHttpMsg2 );
+
+  std::string readHttpMsg3;
+  CHECK( object.readHttpMessage( readHttpMsg3 ) );
+  CHECK_EQUAL( httpMsg3, readHttpMsg3 );
 }
 
-bool HttpParserTestCase::readPartialHttpMessage::onSetup( HttpParser*& pObject )
+struct readPartialHttpMessageFixture
 {
-  m_partHttpMsg1 = "GET / HTTP/1.0\r\nContent ";
-  m_partHttpMsg2 = "Type: text/html\r\n\r\n";
+  readPartialHttpMessageFixture()
+  {
+    partHttpMsg1 = "GET / HTTP/1.0\r\nContent ";
+    partHttpMsg2 = "Type: text/html\r\n\r\n";
+    object.addToStream( partHttpMsg1 );
+  }
 
-  pObject = new HttpParser();
-  pObject->addToStream( m_partHttpMsg1 );
-  return true;
-}
+  std::string partHttpMsg1;
+  std::string partHttpMsg2;
+  HttpParser object;
+};
 
-void HttpParserTestCase::readPartialHttpMessage::onRun( HttpParser& object )
+TEST_FIXTURE(readPartialHttpMessageFixture, readPartialHttpMessage)
 {
-  std::string partHttpMsg;
-  assert( !object.readHttpMessage( partHttpMsg ) );
-  object.addToStream( m_partHttpMsg2 );
-  assert( object.readHttpMessage( partHttpMsg ) );
-  assert( partHttpMsg == ( m_partHttpMsg1 + m_partHttpMsg2 ) );
+  std::string readPartHttpMsg;
+  CHECK( !object.readHttpMessage( readPartHttpMsg ) );
+  object.addToStream( partHttpMsg2 );
+  CHECK( object.readHttpMessage( readPartHttpMsg ) );
+  CHECK_EQUAL( ( partHttpMsg1 + partHttpMsg2 ), readPartHttpMsg );
 }
 
 }

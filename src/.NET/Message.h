@@ -82,7 +82,7 @@ public:
       m_trailer = new Trailer( this );
     }
     catch ( FIX::InvalidMessage & e )
-    { throw new InvalidMessage(); }
+    { disposed = true; throw new InvalidMessage(); }
 
     addMemoryPressure();
 
@@ -102,7 +102,7 @@ public:
       m_trailer = new Trailer( this );
     }
     catch ( FIX::InvalidMessage & e )
-    { throw new InvalidMessage(); }
+    { disposed = true; throw new InvalidMessage(); }
 
     addMemoryPressure();
 
@@ -122,7 +122,7 @@ public:
       m_trailer = new Trailer( this );
     }
     catch ( FIX::InvalidMessage & e )
-    { throw new InvalidMessage(); }
+    { disposed = true; throw new InvalidMessage(); }
 
     addMemoryPressure();
 
@@ -352,7 +352,7 @@ public:
     QF_STACK_CATCH
   }
 
-  MsgType* identifyType( String* message )
+  static MsgType* identifyType( String* message )
   {
     try 
     {

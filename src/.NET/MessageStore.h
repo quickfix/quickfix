@@ -59,10 +59,108 @@ inline FIX::IOException convertException( IOException * e )
   return ex;
 }
 
+__gc class MessageStoreCallback
+{
+public:
+  MessageStoreCallback( QuickFix::MessageStore* store )
+  : m_store( store ) {}
+
+  bool set( int num, String* message )
+  {
+    return m_store->set( num, message );
+  }
+
+  void get( int begin, int end, ArrayList* messages )
+  {
+    m_store->get( begin, end, messages );
+  }
+
+  int getNextSenderMsgSeqNum()
+  {
+    return m_store->getNextSenderMsgSeqNum();
+  }
+
+  int getNextTargetMsgSeqNum()
+  {
+    return m_store->getNextTargetMsgSeqNum();
+  }
+
+  void setNextSenderMsgSeqNum( int num )
+  {
+    return m_store->setNextSenderMsgSeqNum( num );
+  }
+
+  void setNextTargetMsgSeqNum( int num )
+  {
+    return m_store->setNextTargetMsgSeqNum( num );
+  }
+
+  void incrNextSenderMsgSeqNum()
+  {
+    m_store->incrNextSenderMsgSeqNum();
+  }
+
+  void incrNextTargetMsgSeqNum()
+  {
+    m_store->incrNextTargetMsgSeqNum();
+  }
+
+  FIX::UtcTimeStamp* getCreationTime()
+  {
+    DateTime d = m_store->getCreationTime();
+    return new FIX::UtcTimeStamp( d.get_Hour(), d.get_Minute(), d.get_Second(),
+                                  d.get_Day(), d.get_Month(), d.get_Year() );
+  }
+
+  void reset()
+  {
+    m_store->reset();
+  }
+
+  void refresh()
+  {
+    m_store->refresh();
+  }
+
+private:
+  QuickFix::MessageStore* m_store;
+};
+
+__delegate bool SetDelegate( int, String* );
+__delegate void GetDelegate( int begin, int end, ArrayList* );
+__delegate int GetNextSenderMsgSeqNumDelegate();
+__delegate int GetNextTargetMsgSeqNumDelegate();
+__delegate void SetNextSenderMsgSeqNumDelegate( int num );
+__delegate void SetNextTargetMsgSeqNumDelegate( int num );
+__delegate void IncrNextSenderMsgSeqNumDelegate();
+__delegate void IncrNextTargetMsgSeqNumDelegate();
+__delegate FIX::UtcTimeStamp* GetCreationTimeDelegate();
+__delegate void ResetDelegate();
+__delegate void RefreshDelegate();
+
 class MessageStore : public FIX::MessageStore
 {
 public:
-  MessageStore( QuickFix::MessageStore* store ) : m_store( store ) {}
+  MessageStore( QuickFix::MessageStore* store ) 
+  : m_store( store )
+  {
+    MessageStoreCallback* callback = new MessageStoreCallback( m_store );
+
+    m_setDelegate = new SetDelegate(callback, &MessageStoreCallback::set);
+    m_getDelegate = new GetDelegate(callback, &MessageStoreCallback::get);
+    m_getNextSenderMsgSeqNumDelegate = new GetNextSenderMsgSeqNumDelegate(callback, &MessageStoreCallback::getNextSenderMsgSeqNum);
+    m_getNextTargetMsgSeqNumDelegate = new GetNextTargetMsgSeqNumDelegate(callback, &MessageStoreCallback::getNextTargetMsgSeqNum);
+    m_setNextSenderMsgSeqNumDelegate = new SetNextSenderMsgSeqNumDelegate(callback, &MessageStoreCallback::setNextSenderMsgSeqNum);
+    m_setNextTargetMsgSeqNumDelegate = new SetNextTargetMsgSeqNumDelegate(callback, &MessageStoreCallback::setNextTargetMsgSeqNum);
+    m_incrNextSenderMsgSeqNumDelegate = new IncrNextSenderMsgSeqNumDelegate(callback, &MessageStoreCallback::incrNextSenderMsgSeqNum);
+    m_incrNextTargetMsgSeqNumDelegate = new IncrNextTargetMsgSeqNumDelegate(callback, &MessageStoreCallback::incrNextTargetMsgSeqNum);
+    m_getCreationTimeDelegate = new GetCreationTimeDelegate(callback, &MessageStoreCallback::getCreationTime);
+    m_resetDelegate = new ResetDelegate(callback, &MessageStoreCallback::reset);
+    m_refreshDelegate = new RefreshDelegate(callback, &MessageStoreCallback::refresh);
+
+    NativeFramework::RegisterCallback( m_callback );
+  }
+
   ~MessageStore() 
   { 
     QuickFix::MessageStore* store = ((QuickFix::MessageStore*)m_store);
@@ -74,7 +172,7 @@ public:
   bool set( int num, const std::string& message ) throw ( FIX::IOException& )
   {
     try
-    { return m_store->set( num, message.c_str() ); }
+    {  return m_setDelegate->Invoke( num, message.c_str() ); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
@@ -85,7 +183,7 @@ public:
     try
     {
       ArrayList * list = new ArrayList();
-      m_store->get( begin, end, list );
+      m_getDelegate->Invoke( begin, end, list );  
       IEnumerator* e = list->GetEnumerator();
       while ( e->MoveNext() )
       {
@@ -102,12 +200,13 @@ public:
       QuickFix::destroyUnmanagedString( umessage );
       throw ex;
     }
+
   }
 
   int getNextSenderMsgSeqNum() const throw ( FIX::IOException& )
   {
     try
-    { return m_store->getNextSenderMsgSeqNum(); }
+    { return m_getNextSenderMsgSeqNumDelegate->Invoke(); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
@@ -115,7 +214,7 @@ public:
   int getNextTargetMsgSeqNum() const throw ( FIX::IOException& )
   {
     try
-    { return m_store->getNextTargetMsgSeqNum(); }
+    { return m_getNextTargetMsgSeqNumDelegate->Invoke(); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
@@ -123,15 +222,15 @@ public:
   void setNextSenderMsgSeqNum( int num ) throw ( FIX::IOException& )
   {
     try
-    { return m_store->setNextSenderMsgSeqNum( num ); }
-    catch( IOException * e )
+    { m_setNextSenderMsgSeqNumDelegate->Invoke( num ); }
+    catch ( IOException * e )
     { throw convertException( e ); }
   }
 
   void setNextTargetMsgSeqNum( int num ) throw ( FIX::IOException& )
   {
     try
-    { return m_store->setNextTargetMsgSeqNum( num ); }
+    { m_setNextTargetMsgSeqNumDelegate->Invoke( num ); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
@@ -139,7 +238,7 @@ public:
   void incrNextSenderMsgSeqNum() throw ( FIX::IOException& )
   {
     try
-    { m_store->incrNextSenderMsgSeqNum(); }
+    { m_incrNextSenderMsgSeqNumDelegate->Invoke(); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
@@ -147,7 +246,7 @@ public:
   void incrNextTargetMsgSeqNum() throw ( FIX::IOException& )
   {
     try
-    { m_store->incrNextTargetMsgSeqNum(); }
+    { m_incrNextTargetMsgSeqNumDelegate->Invoke(); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
@@ -156,9 +255,10 @@ public:
   {
     try
     {
-      DateTime d = m_store->getCreationTime();
-      return FIX::UtcTimeStamp( d.get_Hour(), d.get_Minute(), d.get_Second(),
-                                d.get_Day(), d.get_Month(), d.get_Year() );
+      FIX::UtcTimeStamp* delegateResult = (FIX::UtcTimeStamp*)m_getCreationTimeDelegate->Invoke();
+      FIX::UtcTimeStamp result = *delegateResult;
+      delete delegateResult;
+      return result;
     }
     catch ( IOException * e )
     { throw convertException( e ); }
@@ -167,7 +267,7 @@ public:
   void reset() throw ( FIX::IOException& )
   {
     try
-    { m_store->reset(); }
+    { m_resetDelegate->Invoke(); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
@@ -175,10 +275,22 @@ public:
   void refresh() throw ( FIX::IOException& )
   {
     try
-    { m_store->refresh(); }
+    { m_refreshDelegate->Invoke(); }
     catch ( IOException * e )
     { throw convertException( e ); }
   }
 
   gcroot < QuickFix::MessageStore* > m_store;
+
+  gcroot< SetDelegate* > m_setDelegate;
+  gcroot< GetDelegate* > m_getDelegate;
+  gcroot< GetNextSenderMsgSeqNumDelegate* > m_getNextSenderMsgSeqNumDelegate;
+  gcroot< GetNextTargetMsgSeqNumDelegate* > m_getNextTargetMsgSeqNumDelegate;
+  gcroot< SetNextSenderMsgSeqNumDelegate* > m_setNextSenderMsgSeqNumDelegate;
+  gcroot< SetNextTargetMsgSeqNumDelegate* > m_setNextTargetMsgSeqNumDelegate;
+  gcroot< IncrNextSenderMsgSeqNumDelegate* > m_incrNextSenderMsgSeqNumDelegate;
+  gcroot< IncrNextTargetMsgSeqNumDelegate* > m_incrNextTargetMsgSeqNumDelegate;
+  gcroot< GetCreationTimeDelegate* > m_getCreationTimeDelegate;  
+  gcroot< ResetDelegate* > m_resetDelegate;
+  gcroot< RefreshDelegate* > m_refreshDelegate;
 };

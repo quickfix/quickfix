@@ -24,95 +24,80 @@
 #include "config.h"
 #endif
 
-#include "MessagesTestCase.h"
-#include "Values.h"
-#include "Utility.h"
-#include "fix44/MarketDataRequest.h"
-#include "fix42/News.h"
+#include <UnitTest++.h>
+#include <MessagesTestCase.h>
+#include <Values.h>
+#include <Utility.h>
+#include <fix44/MarketDataRequest.h>
+#include <fix42/News.h>
 
-namespace FIX
-{
+using namespace FIX;
 using namespace FIX42;
 using namespace FIX44;
+
+SUITE(MessageTests)
+{
+
 static UtcTimeStamp create_tm()
 {
   UtcTimeStamp result = UtcTimeStamp (0, 0, 0, 1, 1, 1900);
   return result;
 }
 
-void MessageTestCase::identifyType::onRun( Message& )
+TEST(identifyType)
 {
-  try
-  {
-    assert
-    ( FIX::identifyType( "8=FIX.4.2\0019=12\00135=A\001108=30\001"
-                         "10=031\001" ) == "A" );
-  }
-  catch ( std::logic_error& ) { assert( false ); }
-
-  try
-  {
-    assert
-    ( FIX::identifyType( "8=FIX.4.2\0019=12\00135=AB\001108=30\001"
-                         "10=031\001" ) == "AB" );
-  }
-  catch ( std::logic_error& ) { assert( false ); }
-
-  try
-  {
-    assert
-    ( FIX::identifyType( "8=FIX.4.2\0019=12\001108=30\00110=031\001" )
-      == "A" );
-    assert( false );
-  }
-  catch ( std::logic_error& ) { assert( true ); }
+  CHECK_EQUAL( "A", FIX::identifyType( "8=FIX.4.2\0019=12\00135=A\001108=30\00110=031\001" ) );
+  CHECK_EQUAL( "AB", FIX::identifyType( "8=FIX.4.2\0019=12\00135=AB\001108=30\00110=031\001" ) );
+  CHECK_THROW( FIX::identifyType( "8=FIX.4.2\0019=12\001108=30\00110=031\001" ), std::logic_error );
 }
 
-void MessageTestCase::isAdminMsgType::onRun( Message& object )
+TEST(isAdminMsgType)
 {
-  assert( FIX::Message::isAdminMsgType( FIX::MsgType("A") ));
-  assert( !FIX::Message::isAdminMsgType( FIX::MsgType("D") ));
-  assert( !FIX::Message::isAdminMsgType( FIX::MsgType("AE") ));
-  assert( !FIX::Message::isAdminMsgType( FIX::MsgType() ));
+  CHECK( FIX::Message::isAdminMsgType( FIX::MsgType("A") ));
+  CHECK( !FIX::Message::isAdminMsgType( FIX::MsgType("D") ));
+  CHECK( !FIX::Message::isAdminMsgType( FIX::MsgType("AE") ));
+  CHECK( !FIX::Message::isAdminMsgType( FIX::MsgType() ));
 }
 
-void MessageTestCase::isAdmin::onRun( Message& object )
+TEST(isAdmin)
 {
-  assert( !object.isAdmin() );
+  FIX::Message object;
+  CHECK( !object.isAdmin() );
   object.getHeader().setField( FIX::MsgType("A") );
-  assert( object.isAdmin() );
+  CHECK( object.isAdmin() );
   object.getHeader().setField( FIX::MsgType("D") );
-  assert( !object.isAdmin() );
+  CHECK( !object.isAdmin() );
 }
 
-void MessageTestCase::isApp::onRun( Message& object )
+TEST(isApp)
 {
-  assert( !object.isApp() );
+  FIX::Message object;
+  CHECK( !object.isApp() );
   object.getHeader().setField( FIX::MsgType("A") );
-  assert( !object.isApp() );
+  CHECK( !object.isApp() );
   object.getHeader().setField( FIX::MsgType("D") );
-  assert( object.isApp() );
+  CHECK( object.isApp() );
 }
 
-void MessageTestCase::isEmpty::onRun( Message& object )
+TEST(isEmpty)
 {
-  Message message;
-  assert( message.isEmpty() );
+  FIX::Message message;
+  CHECK( message.isEmpty() );
   message.getHeader().setField( BeginString("FIX.4.2") );
-  assert( !message.isEmpty() );
+  CHECK( !message.isEmpty() );
   message.clear();
-  assert( message.isEmpty() );
+  CHECK( message.isEmpty() );
   message.setField( Symbol("MSFT") );
-  assert( !message.isEmpty() );
+  CHECK( !message.isEmpty() );
   message.clear();
-  assert( message.isEmpty() );
+  CHECK( message.isEmpty() );
   message.getTrailer().setField( CheckSum(10) );
-  assert( !message.isEmpty() );
+  CHECK( !message.isEmpty() );
   message.clear();
-  assert( message.isEmpty() );
+  CHECK( message.isEmpty() );
 }
 
-void MessageTestCase::setString::onRun( Message& object )
+TEST(setString)
 {
   static const char* strGood =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
@@ -152,33 +137,21 @@ void MessageTestCase::setString::onRun( Message& object )
   static const char* strEmpty =
     "";
 
-  try
-  {
-    object.setString( strGood );
-    object.setString( std::string(strNull, 68) );
-    object.setString( strNoLengthAndChk, false );
-  } catch( InvalidMessage& ) { assert(false); }
+  FIX::Message object;
+  object.setString( strGood );
+  object.setString( std::string(strNull, 68) );
+  object.setString( strNoLengthAndChk, false );
 
-  try{ object.setString( strTrailingCharacter ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strNoChk ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strBadChk ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strBad ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strBadHeaderOrder ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strNoLengthAndChk ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strBadLength ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strBadChecksum ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strJunk ); assert(false) }
-  catch( InvalidMessage& ) {}
-  try{ object.setString( strEmpty ); assert(false) }
-  catch( InvalidMessage& ) {}
+  CHECK_THROW( object.setString( strTrailingCharacter ), InvalidMessage );
+  CHECK_THROW( object.setString( strNoChk ), InvalidMessage );
+  CHECK_THROW( object.setString( strBadChk ), InvalidMessage );
+  CHECK_THROW( object.setString( strBad ), InvalidMessage );
+  CHECK_THROW( object.setString( strBadHeaderOrder ), InvalidMessage );
+  CHECK_THROW( object.setString( strNoLengthAndChk ), InvalidMessage );
+  CHECK_THROW( object.setString( strBadLength ), InvalidMessage );
+  CHECK_THROW( object.setString( strBadChecksum ), InvalidMessage );
+  CHECK_THROW( object.setString( strJunk ), InvalidMessage );
+  CHECK_THROW( object.setString( strEmpty ), InvalidMessage );
 
   DataDictionary dataDictionary;
   dataDictionary.addHeaderField( 11, false );
@@ -187,16 +160,16 @@ void MessageTestCase::setString::onRun( Message& object )
   ClOrdID clOrdID;
   TransactTime transactTime;
   Symbol symbol;
-  try{ object.setString( strBodyFields, true, &dataDictionary ); }
-  catch( InvalidMessage& ) { assert(false); }
+  object.setString( strBodyFields, true, &dataDictionary );
 
-  assert( object.getHeader().isSetField( clOrdID ) );
-  assert( object.getTrailer().isSetField( transactTime ) );
-  assert( object.isSetField( symbol ) );
+  CHECK( object.getHeader().isSetField( clOrdID ) );
+  CHECK( object.getTrailer().isSetField( transactTime ) );
+  CHECK( object.isSetField( symbol ) );
 }
 
-void MessageTestCase::setStringWithGroup::onRun( Message& object )
+TEST(setStringWithGroup)
 {
+  FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX43.xml" );
   static const char* str =
     "8=FIX.4.3\0019=199\00135=E\00134=126\00149=BUYSIDE\00150=00303\00152"
@@ -205,15 +178,13 @@ void MessageTestCase::setStringWithGroup::onRun( Message& object )
     "350460\00167=2\0011=00303\00155=fred\00154=1\00140=1\00159=3\001394=3\00110="
     "138\001";
 
-    try
-    {
-      object.setString( str, true, &dataDictionary );
-      assert( object.toString() == str );
-    } catch( InvalidMessage& ) { assert(false); }
+    object.setString( str, true, &dataDictionary );
+    CHECK_EQUAL( str, object.toString() );
 }
 
-void MessageTestCase::setStringWithHeaderGroup::onRun( Message& object )
+TEST(setStringWithHeaderGroup)
 {
+  FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX43.xml" );
   static const char* str =
     "8=FIX.4.3\0019=152\00135=A\00134=125\00149=BUYSIDE\001"
@@ -222,15 +193,13 @@ void MessageTestCase::setStringWithHeaderGroup::onRun( Message& object )
     "628=HOP2\001629=20040916-16:19:18.328\001630=ID2\001"
     "10=079\001";
 
-  try
-  {
-    object.setString( str, true, &dataDictionary );
-    assert( object.toString() == str );
-  } catch( InvalidMessage & ) { assert(false); }
+  object.setString( str, true, &dataDictionary );
+  CHECK_EQUAL( str, object.toString() );
 }
 
-void MessageTestCase::setStringWithHighBit::onRun( Message& object )
+TEST(setStringWithHighBit)
 {
+  FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
 
   FIX::Headline headline( "client" );
@@ -249,28 +218,24 @@ void MessageTestCase::setStringWithHighBit::onRun( Message& object )
   msg.set(data);
   std::string str = msg.toString();
 
-  try
-  {
-    object.setString( str, true, &dataDictionary );
-    assert( object.toString() == str );
-  } catch( InvalidMessage& ) { assert(false); }
+  object.setString( str, true, &dataDictionary );
+  CHECK_EQUAL( str, object.toString() );
 }
 
-void MessageTestCase::setStringWithLongMessage::onRun( Message& object )
+TEST(setStringWithLongMessage)
 {
+  FIX::Message object;
   DataDictionary dataDictionary( "../spec/FIX44.xml" );
 
   std::string str = "8=FIX.4.49=620835=i34=535449=TWR56=FISQ43=Y52=20080516-22:46:20122=20080516-19:44:11117=20080516-15:42:59-10439131=05162008123649770301=1537=1296=1302=3304=20295=20299=04108KHN108RopKsxzKU7kfCz3tn397G55=[N/A]48=04108KHN122=1235=WORST423=1134=0132=0632=0647=0135=50000133=104.814634=0.0247648=500060=20080516-19:21:2264=20080521453=1448=GxgAHCSRbup1MlzgoouMpeLXyczNvR1Q447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=0414298D605XTGFEFtyc6krQUUhqqkyG55=[N/A]48=0414298D622=1235=WORST423=1134=0132=0632=0647=0135=150000133=104.103634=0.021648=1000060=20080516-19:16:1364=20080521453=1448=GxgAHCSRbupZnFyEf3DpDkPq5A/2i308447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=25000233=PRIMARY234=S299=04266PAM7086x49SeSPD3pZTH4IsVhpG55=[N/A]48=04266PAM722=1235=WORST423=1134=0132=0632=0647=0135=70000133=102.018634=0.04218648=2500060=20080516-13:06:0564=20080521453=1448=GxgAHCSRburIAh8Y7Esjwu03eb92zqhD447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=047629AN002d7g9YWodk3HxTGtPPzlEG55=[N/A]48=047629AN022=1235=WORST423=1134=0132=0632=0647=0135=75000133=101.625634=0.04776648=2500060=20080516-19:18:2064=20080521453=1448=GxgAHCSRbupiLOEvHiB0J77LkSslpdJ5447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=04777LAD806OdCDJ3kmo0sn3eExebbvG55=[N/A]48=04777LAD822=1235=WORST423=1134=0132=0632=0647=0135=500000133=100.629634=0.059648=10000060=20080516-19:02:4064=20080521453=1448=GxgAHCSRbupYMU3NuJKa7wtJ6AbKfKrN447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=25000233=PRIMARY234=S299=04780MAX708rtnJvNQEa8d2AfIDlF1gG55=[N/A]48=04780MAX722=1235=WORST423=1134=0132=0632=0647=0135=75000133=105.438634=0.03648=500060=20080516-19:19:4564=20080521453=1448=GxgAHCSRbup9R57Z2sWlPyD57HldrI3p447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=047870AQ306OdCDJ3kmoA6DkNPEIDNdG55=[N/A]48=047870AQ322=1235=WORST423=1134=0132=0632=0647=0135=25000133=106.481634=0.0274648=2500060=20080516-19:02:3964=20080521453=1448=GxgAHCSRbupxrtw6ecbDDYx+7iFTaK7d447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=047870AT708rtnJvNQEaCyXj9VePvvjG55=[N/A]48=047870AT722=1235=WORST423=1134=0132=0632=0647=0135=10000133=108.543634=0.0375648=1000060=20080516-19:19:4364=20080521453=1448=GxgAHCSRbuotPIp7c9enJSZSJRmENxWY447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=048490AZ908x7z7XSJDQ5y9jZqWB4ZJG55=[N/A]48=048490AZ922=1235=WORST423=1134=0132=0632=0647=0135=25000133=113.545634=0.0372648=2500060=20080516-19:16:5664=20080521453=1448=GxgAHCSRbuq6Dbz04v7BGebxDnlLpV/3447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=048501GQ709tV7sEL2zR5G7LyTSvKABG55=[N/A]48=048501GQ722=1235=WORST423=1134=0132=0632=0647=0135=10000133=113.03634=0.038648=1000060=20080516-19:02:5364=20080521453=1448=GxgAHCSRbupEVwa83u7YO4ZJfUY2FboN447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=048503AU009tV7sEL2zQ0HG6kQ7V87GG55=[N/A]48=048503AU022=1235=WORST423=1134=0132=0632=0647=0135=20000133=100.19634=0.04512648=1000060=20080516-19:02:5064=20080521453=1448=GxgAHCSRburCFbqigfwCJT9hGMNh6COv447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=10000233=PRIMARY234=S299=051556EH7086x49SeSPDCFeBcAWNLk2G55=[N/A]48=051556EH722=1235=WORST423=1134=0132=0632=0647=0135=10000133=108.018634=0.03397648=1000060=20080516-19:06:3964=20080521453=1448=GxgAHCSRbuqrSUOZICrI+C7Zo8RaIBhc447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=052394D5909dqXUP6O3x2RjuQaIRfBBG55=[N/A]48=052394D5922=1235=WORST423=1134=0132=0632=0647=0135=50000133=101.026634=0.02253648=5000060=20080516-13:16:0964=20080521453=1448=GxgAHCSRburDG8Dwu9F3tUc7OIWITdPA447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=052396LB206OdCDJ3kmo7VC3yosIr8sG55=[N/A]48=052396LB222=1235=WORST423=1134=0132=0632=0647=0135=50000133=104.633634=0.0427648=5000060=20080516-19:02:3964=20080521453=1448=GxgAHCSRburtOW+unTIABs+0EGxqRIyc447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=052404GG905XTGFEFtyc733tMeswirjG55=[N/A]48=052404GG922=1235=WORST423=1134=0132=0632=0647=0135=15000133=104.304634=0.034648=1500060=20080516-19:16:1364=20080521453=1448=GxgAHCSRburkO4zli6T3gWYYjeZPaFgv447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=052409AQ205XTGFEFtycCIYXCGC6GbEG55=[N/A]48=052409AQ222=1235=WORST423=1134=0132=0632=0647=0135=850000133=108.052634=0.0278648=1000060=20080516-15:16:1964=20080521453=1448=GxgAHCSRburVUHrFSaj2DAPDSMjbJDHb447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=25000233=PRIMARY234=S299=052422DG4034Ce8avFXqCW9uvwpp9JYG55=[N/A]48=052422DG422=1235=WORST423=1134=0132=0632=0647=0135=25000133=108.211634=0.03348648=2500060=20080516-19:17:5764=20080521453=1448=GxgAHCSRbupzOa2FTQz5KIK6IT26gG0I447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S299=05407PAP704qjhrMbp94DHKiNG64om8G55=[N/A]48=05407PAP722=1235=WORST423=1134=0132=0632=0647=0135=500000133=108.751634=0.036648=1500060=20080516-15:05:1864=20080521453=1448=GxgAHCSRburpX5zPbXFKONMJ/einCNki447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=50000233=PRIMARY234=S299=054213KN2075MjaAgpdN33lZAcV871KG55=[N/A]48=054213KN222=1235=WORST423=1134=0132=0632=0647=0135=40000133=101.459634=0.0325648=4000060=20080516-19:19:5264=20080521453=1448=GxgAHCSRbupO7LdEqJ96TJgMwvfsThG0447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=25000233=PRIMARY234=S299=054319AY406OdCDJ3kmo3jKg9sv3B9eG55=[N/A]48=054319AY422=1235=WORST423=1134=0132=0632=0647=0135=40000133=101.945634=0.0197648=4000060=20080516-19:02:4264=20080521453=1448=GxgAHCSRbuoCRV7H0JMi+TuFT/4HfnPl447=D452=1232=4233=ORDRINCR234=5000233=LEAVESQTY234=0233=PRIMARY234=S10=055";
 
-  try
-  {
-    object.setString( str, true, &dataDictionary );
-    assert( object.toString() == str );
-  } catch( InvalidMessage& ) { assert(false); }
+  object.setString( str, true, &dataDictionary );
+  CHECK_EQUAL( str, object.toString() );
 }
 
-void MessageTestCase::copy::onRun( Message& object )
+TEST(copy)
 {
+  FIX::Message object;
   FIX::MDReqID mdReqID( "MARKETDATAID" );
   FIX::SubscriptionRequestType subType( FIX::SubscriptionRequestType_SNAPSHOT );
   FIX::MarketDepth marketDepth( 0 );
@@ -287,12 +252,16 @@ void MessageTestCase::copy::onRun( Message& object )
   message.addGroup( marketDataEntryGroup );
   message.addGroup( symbolGroup );
 
-  Message copy = object;
-  Message copy2 = copy;
+  FIX::Message copy = object;
+  FIX::Message copy2 = copy;
+
+  CHECK_EQUAL( object.toString(), copy.toString() );
+  CHECK_EQUAL( object.toString(), copy2.toString() );
 }
 
-void MessageTestCase::checkSum::onRun( Message& object )
+TEST(checkSum)
 {
+  FIX::Message object;
   const std::string str1 =
     "8=FIX.4.2\0019=46\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\001";
@@ -307,33 +276,35 @@ void MessageTestCase::checkSum::onRun( Message& object )
   chksum %= 256;
 
   object.setString( str2, false );
-  assert( object.checkSum() == chksum );
+  CHECK_EQUAL( chksum, object.checkSum() );
 }
 
-void MessageTestCase::headerFieldsFirst::onRun( Message& object )
+TEST(headerFieldsFirst)
 {
+  FIX::Message object;
   const std::string str =
     "8=FIX.4.2\0019=95\00135=D\00134=5\00149=ISLD\00155=INTC\001"
     "52=00000000-00:00:00\00156=TW\00111=ID\00121=3\001"
     "40=1\00154=1\00160=00000000-00:00:00\00110=000\001";
   object.setString( str, false );
   int field = 0;
-  assert( !object.hasValidStructure(field) );
-  assert( field == 52 );
+  CHECK( !object.hasValidStructure(field) );
+  CHECK_EQUAL( 52, field );
 }
 
-void MessageTestCase::noEndingDelim::onRun( Message& object )
+TEST(noEndingDelim)
 {
+  FIX::Message object;
   static const char * str =
     "8=FIX.4.2\0019=45\00135=0\00134=3\00149=TW\001"
     "52=20000426-12:05:06\00156=ISLD\00110=218";
 
-  try{ object.setString( str ); assert(false) }
-  catch( InvalidMessage& ) {}
+  CHECK_THROW( object.setString( str ), InvalidMessage );
 }
 
-void MessageTestCase::outOfOrder::onRun( Message& object )
+TEST(outOfOrder)
 {
+  FIX::Message object;
   static const char * str =
     "54=1\00120=0\00131=109.03125\00160=00000000-00:00:00\001"
     "8=FIX.4.2\0016=109.03125\0011=acct1\001151=0\001150=2\001"
@@ -347,19 +318,14 @@ void MessageTestCase::outOfOrder::onRun( Message& object )
     "31=109.03125\00137=1\00138=3000\00139=2\00148=123ABC789\001"
     "54=1\00155=ABCD\00160=00000000-00:00:00\001150=2\001151=0\00110=225\001";
 
-  try
-  {
-    object.setString( str, false );
-    assert( expected == object.toString() );
-  }
-  catch ( InvalidMessage& )
-  { assert( false ); }
+  object.setString( str, false );
+  CHECK_EQUAL( expected, object.toString() );
 }
 
-void MessageTestCase::getXML::onRun( Message& object )
+TEST(getXML)
 {
-  Message::InitializeXML("../spec/FIX42.xml");
-  Message message;
+  FIX::Message::InitializeXML("../spec/FIX42.xml");
+  FIX::Message message;
   message.getHeader().setField(BeginString("FIX.4.2"));
   message.getHeader().setField(SenderCompID("SENDER"));
   message.getHeader().setField(TargetCompID("TARGET"));
@@ -403,12 +369,13 @@ void MessageTestCase::getXML::onRun( Message& object )
 	  << "    <field name=\"CheckSum\" number=\"10\"><![CDATA[132]]></field>" << std::endl
 	  << "  </trailer>" << std::endl
 	  << "</message>";
-  assert( message.toXML() == stream.str() );
+
+  CHECK_EQUAL( stream.str(), message.toXML() );
 }
 
-void MessageTestCase::reverseRoute::onRun( Message& object )
+TEST(reverseRoute)
 {
-  Header header;
+  FIX::Header header;
   BeginString beginString( "FIX.4.2" );
   SenderCompID senderCompID( "SenderCompID" );
   TargetCompID targetCompID( "TargetCompID" );
@@ -419,8 +386,8 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   DeliverToSubID deliverToSubID( "DeliverToSubID" );
   DeliverToLocationID deliverToLocationID( "DeliverToLocationID" );
 
-  Message reversedMessage;
-  Header& reversedHeader = reversedMessage.getHeader();
+  FIX::Message reversedMessage;
+  FIX::Header& reversedHeader = reversedMessage.getHeader();
 
   header.setField( beginString );
   header.setField( senderCompID );
@@ -433,46 +400,47 @@ void MessageTestCase::reverseRoute::onRun( Message& object )
   header.setField( deliverToLocationID );
 
   reversedMessage.reverseRoute( header );
-  assert( reversedHeader.getField( beginString ).getString() == "FIX.4.2" );
-  assert( reversedHeader.getField( senderCompID ).getString() == "TargetCompID" );
-  assert( reversedHeader.getField( targetCompID ).getString() == "SenderCompID" );
-  assert( reversedHeader.getField( onBehalfOfCompID ).getString() == "DeliverToCompID" );
-  assert( reversedHeader.getField( onBehalfOfSubID ).getString() == "DeliverToSubID" );
-  assert( reversedHeader.getField( onBehalfOfLocationID ).getString() == "DeliverToLocationID" );
-  assert( reversedHeader.getField( deliverToCompID ).getString() == "OnBehalfOfCompID" );
-  assert( reversedHeader.getField( deliverToSubID ).getString() == "OnBehalfOfSubID" );
-  assert( reversedHeader.getField( deliverToLocationID ).getString() == "OnBehalfOfLocationID" );
+  CHECK_EQUAL( "FIX.4.2", reversedHeader.getField( beginString ).getString() );
+  CHECK_EQUAL( "TargetCompID", reversedHeader.getField( senderCompID ).getString() );
+  CHECK_EQUAL( "SenderCompID", reversedHeader.getField( targetCompID ).getString() );
+  CHECK_EQUAL( "DeliverToCompID", reversedHeader.getField( onBehalfOfCompID ).getString() );
+  CHECK_EQUAL( "DeliverToSubID", reversedHeader.getField( onBehalfOfSubID ).getString() );
+  CHECK_EQUAL( "DeliverToLocationID", reversedHeader.getField( onBehalfOfLocationID ).getString() );
+  CHECK_EQUAL( "OnBehalfOfCompID", reversedHeader.getField( deliverToCompID ).getString() );
+  CHECK_EQUAL( "OnBehalfOfSubID", reversedHeader.getField( deliverToSubID ).getString() );
+  CHECK_EQUAL( "OnBehalfOfLocationID", reversedHeader.getField( deliverToLocationID ).getString() );
 
   header.setField( BeginString("FIX.4.0" ) );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField( onBehalfOfLocationID ) );
-  assert( !reversedHeader.isSetField( deliverToLocationID ) );
+  CHECK( !reversedHeader.isSetField( onBehalfOfLocationID ) );
+  CHECK( !reversedHeader.isSetField( deliverToLocationID ) );
 
   header.setField( beginString );
   reversedMessage.reverseRoute( header );
 
   header.removeField( FIX::FIELD::OnBehalfOfCompID );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField(deliverToCompID) );
+  CHECK( !reversedHeader.isSetField(deliverToCompID) );
   header.removeField( FIX::FIELD::DeliverToCompID );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField(onBehalfOfCompID) );
+  CHECK( !reversedHeader.isSetField(onBehalfOfCompID) );
   header.removeField( FIX::FIELD::OnBehalfOfSubID );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField(deliverToSubID) );
+  CHECK( !reversedHeader.isSetField(deliverToSubID) );
   header.removeField( FIX::FIELD::DeliverToSubID );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField(onBehalfOfSubID) );
+  CHECK( !reversedHeader.isSetField(onBehalfOfSubID) );
   header.removeField( FIX::FIELD::OnBehalfOfLocationID );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField(deliverToLocationID) );
+  CHECK( !reversedHeader.isSetField(deliverToLocationID) );
   header.removeField( FIX::FIELD::DeliverToLocationID );
   reversedMessage.reverseRoute( header );
-  assert( !reversedHeader.isSetField(onBehalfOfLocationID) );
+  CHECK( !reversedHeader.isSetField(onBehalfOfLocationID) );
 }
 
-void MessageTestCase::addRemoveGroup::onRun( Message& object )
+TEST(addRemoveGroup)
 {
+  FIX::Message object;
   object.setField( ListID( "1" ) );
   object.setField( BidType( 0 ) );
   object.setField( TotNoOrders( 3 ) );
@@ -498,39 +466,40 @@ void MessageTestCase::addRemoveGroup::onRun( Message& object )
 
   NoOrders noOrders;
 
-  assert( object.hasGroup(1, group) );
-  assert( object.hasGroup(2, group) );
-  assert( object.hasGroup(3, group) );
-  assert( object.groupCount(FIX::FIELD::NoOrders) == 3 );
+  CHECK( object.hasGroup(1, group) );
+  CHECK( object.hasGroup(2, group) );
+  CHECK( object.hasGroup(3, group) );
+  CHECK_EQUAL( 3, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
-  assert( noOrders == 3 );
+  CHECK_EQUAL( 3, noOrders );
 
   object.removeGroup( 2, group );
-  assert( object.hasGroup(1, group) );
-  assert( object.hasGroup(2, group) );
-  assert( !object.hasGroup(3, group) );
-  assert( object.groupCount(FIX::FIELD::NoOrders) == 2 );
+  CHECK( object.hasGroup(1, group) );
+  CHECK( object.hasGroup(2, group) );
+  CHECK( !object.hasGroup(3, group) );
+  CHECK_EQUAL( 2, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
-  assert( noOrders == 2 );
+  CHECK_EQUAL( 2, noOrders );
 
   object.removeGroup( group );
-  assert( object.hasGroup(1, group) );
-  assert( !object.hasGroup(2, group) );
-  assert( !object.hasGroup(3, group) );
-  assert( object.groupCount(FIX::FIELD::NoOrders) == 1 );
+  CHECK( object.hasGroup(1, group) );
+  CHECK( !object.hasGroup(2, group) );
+  CHECK( !object.hasGroup(3, group) );
+  CHECK_EQUAL( 1, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
-  assert( noOrders == 1 );
+  CHECK_EQUAL( 1, noOrders );
 
   object.removeGroup( group );
-  assert( !object.hasGroup(1, group) );
-  assert( !object.hasGroup(2, group) );
-  assert( !object.hasGroup(3, group) );
-  assert( object.groupCount(FIX::FIELD::NoOrders) == 0 );
+  CHECK( !object.hasGroup(1, group) );
+  CHECK( !object.hasGroup(2, group) );
+  CHECK( !object.hasGroup(3, group) );
+  CHECK_EQUAL( 0, object.groupCount(FIX::FIELD::NoOrders) );
   !object.isSetField( noOrders );
 }
 
-void MessageTestCase::replaceGroup::onRun( Message& object )
+TEST(replaceGroup)
 {
+  FIX::Message object;
   object.setField( ListID( "1" ) );
   object.setField( BidType( 0 ) );
   object.setField( TotNoOrders( 3 ) );
@@ -562,22 +531,23 @@ void MessageTestCase::replaceGroup::onRun( Message& object )
 
   NoOrders noOrders;
 
-  assert( object.hasGroup(1, group) );
-  assert( object.hasGroup(2, group) );
-  assert( object.hasGroup(3, group) );
-  assert( object.groupCount(FIX::FIELD::NoOrders) == 3 );
+  CHECK( object.hasGroup(1, group) );
+  CHECK( object.hasGroup(2, group) );
+  CHECK( object.hasGroup(3, group) );
+  CHECK_EQUAL( 3, object.groupCount(FIX::FIELD::NoOrders) );
   object.getField( noOrders );
-  assert( noOrders == 3 );
+  CHECK_EQUAL( 3, noOrders );
 
   ClOrdID clOrdID;
   object.getGroup( 1, group );
-  assert( group.getField(clOrdID).getString() == "A" );
+  CHECK_EQUAL( "A", group.getField(clOrdID).getString() );
   object.getGroup( 2, group );
-  assert( group.getField(clOrdID).getString() == "D" );
+  CHECK_EQUAL( "D", group.getField(clOrdID).getString() );
   object.getGroup( 3, group );
-  assert( group.getField(clOrdID).getString() == "C" );
+  CHECK_EQUAL( "C", group.getField(clOrdID).getString() );
 }
 
+#if 0
 template<> void LogonParseTestCase::getString::onRun( Logon& object )
 {
   try
@@ -1182,4 +1152,6 @@ template<> void NewOrderCrossParseTestCase::setString::onRun
   noSides.get( orderQty );
   assert( orderQty == 100 );
 }
+#endif
+
 }

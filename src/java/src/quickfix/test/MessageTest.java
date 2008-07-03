@@ -69,15 +69,15 @@ public class MessageTest extends TestCase {
         numAllocs.set( new AllocShares(2020.20) );
         message.addGroup(numAllocs);
 
-	StringField field = null;
-	java.util.Iterator i = numAllocs.iterator();
-	assertTrue( i.hasNext() );
-	field = (StringField)i.next();
-	assertEquals( "AllocACC2", field.getValue() );
-	assertTrue( i.hasNext() );
-	field = (StringField)i.next();
-	assertEquals( "2020.2", field.getValue() );
-	assertTrue( !i.hasNext() );
+        StringField field = null;
+        java.util.Iterator i = numAllocs.iterator();
+        assertTrue( i.hasNext() );
+        field = (StringField)i.next();
+        assertEquals( "AllocACC2", field.getValue() );
+        assertTrue( i.hasNext() );
+        field = (StringField)i.next();
+        assertEquals( "2020.2", field.getValue() );
+        assertTrue( !i.hasNext() );
 
         try {
             message.getGroup( 1, numAllocs );
@@ -183,13 +183,13 @@ public class MessageTest extends TestCase {
         } catch(FieldNotFound e) { assertTrue("exception thrown", false); }
 
 
-	message.setDouble(9813, 5.0, 3);
-	message.setDouble(9814, -2.1004, 3);
+        message.setDouble(9813, 5.0, 3);
+        message.setDouble(9814, -2.1004, 3);
 
-	try {
-	   assertEquals("5.000", message.getString(9813));
-	   assertEquals("-2.1004", message.getString(9814));
-	} catch(FieldNotFound e) { assertTrue("exception thrown", false); }
+        try {
+            assertEquals("5.000", message.getString(9813));
+            assertEquals("-2.1004", message.getString(9814));
+        } catch(FieldNotFound e) { assertTrue("exception thrown", false); }
     }
 
     public void testMessageSetGetUtcTimeStamp() {

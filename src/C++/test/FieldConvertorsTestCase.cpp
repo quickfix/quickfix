@@ -25,9 +25,11 @@
 #endif
 
 #include <UnitTest++.h>
-#include "Field.h"
+#include <Field.h>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(FieldConvertorsTests)
 {
 
 USER_DEFINE_STRING( TestField1, 1 );

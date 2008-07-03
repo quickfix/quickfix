@@ -16,7 +16,6 @@
 ** not clear to you.
 **
 ****************************************************************************/
-#ifndef _MSC_VER
 
 #ifdef _MSC_VER
 #pragma warning( disable : 4503 4355 4786 )
@@ -26,18 +25,20 @@
 #endif
 
 #include <UnitTest++.h>
-#include "FieldNumbers.h"
-#include "Values.h"
-#include "fix40/TestRequest.h"
-#include "fix42/TestRequest.h"
-#include "fix42/NewOrderSingle.h"
-#include "fix40/NewOrderSingle.h"
-#include "fix44/NewOrderList.h"
-#include "fix44/MarketDataRequest.h"
-#include "fix44/MarketDataSnapshotFullRefresh.h"
+#include <FieldNumbers.h>
+#include <Values.h>
+#include <fix40/TestRequest.h>
+#include <fix42/TestRequest.h>
+#include <fix42/NewOrderSingle.h>
+#include <fix40/NewOrderSingle.h>
+#include <fix44/NewOrderList.h>
+#include <fix44/MarketDataRequest.h>
+#include <fix44/MarketDataSnapshotFullRefresh.h>
 #include <fstream>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(DataDictionaryTests)
 {
 
 USER_DEFINE_STRING( TooHigh, 501 );
@@ -603,4 +604,3 @@ TEST_FIXTURE( copyFixture, copy )
 
 }
 
-#endif

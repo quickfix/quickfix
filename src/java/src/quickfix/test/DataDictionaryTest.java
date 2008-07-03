@@ -31,14 +31,14 @@ public class DataDictionaryTest extends TestCase {
         assertNull( testObject.getFieldName(2000) );
     }
 
-	public void testGetFieldTag() 
-	{
+    public void testGetFieldTag() 
+    {
         assertEquals( 8, testObject.getFieldTag("BeginString") );
         assertEquals( 0, testObject.getFieldTag("Nonsense") );
-	}
+    }
 
     public void testGetValueName() 
-	{
+    {
         assertNull( testObject.getValueName( 40, "0" ) );
         assertEquals( "MARKET", testObject.getValueName( 40, "1" ) );
         assertEquals( "LIMIT", testObject.getValueName( 40, "2" ) );

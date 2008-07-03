@@ -28,35 +28,24 @@
 
 namespace FIX
 {
-bool MemoryStoreTestCase::setGet::onSetup( MessageStore*& pObject )
+
+struct memoryStoreFixture
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+  memoryStoreFixture()
+  {
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-  m_object = m_memoryStoreFactory.create( sessionID );
-  pObject = &( *m_object );
+    object = factory.create( sessionID );
+  }
 
-  return true;
-}
+  ~memoryStoreFixture()
+  {
+    factory.destroy( object );
+  }
 
-void MemoryStoreTestCase::setGet::onTeardown( MessageStore* pObject )
-{
-  m_memoryStoreFactory.destroy( pObject );
-}
+  MemoryStoreFactory factory;
+  MessageStore* object;
+};
 
-bool MemoryStoreTestCase::other::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_memoryStoreFactory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void MemoryStoreTestCase::other::onTeardown( MessageStore* pObject )
-{
-  m_memoryStoreFactory.destroy( pObject );
-}
 }

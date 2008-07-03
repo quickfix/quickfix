@@ -24,98 +24,94 @@
 #include "config.h"
 #endif
 
-#include "SessionIDTestCase.h"
+#include <UnitTest++.h>
+#include <SessionID.h>
 #include <string>
 #include <sstream>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(SessionIDTests)
 {
-SessionIDTestCase::lessThan::lessThan()
-    :
-    m_less1( BeginString( "A" ), SenderCompID( "A" ), TargetCompID( "A" ) ),
-    m_less2( BeginString( "A" ), SenderCompID( "A" ), TargetCompID( "B" ) ),
-    m_less3( BeginString( "A" ), SenderCompID( "B" ), TargetCompID( "A" ) ),
-    m_less4( BeginString( "B" ), SenderCompID( "A" ), TargetCompID( "A" ) ),
-    m_less5( BeginString( "B" ), SenderCompID( "B" ), TargetCompID( "B" ) ),
-    m_less6( BeginString( "C" ), SenderCompID( "A" ), TargetCompID( "C" ) )
-{}
 
-void SessionIDTestCase::lessThan::onRun( SessionID& object )
+struct lessThanFixture
 {
-  assert( !( m_less1 < m_less1 ) );
-  assert( m_less1 < m_less2 );
-  assert( m_less1 < m_less3 );
-  assert( m_less1 < m_less4 );
-  assert( m_less1 < m_less5 );
-  assert( m_less1 < m_less6 );
+  lessThanFixture()
+  : less1( BeginString( "A" ), SenderCompID( "A" ), TargetCompID( "A" ) ),
+    less2( BeginString( "A" ), SenderCompID( "A" ), TargetCompID( "B" ) ),
+    less3( BeginString( "A" ), SenderCompID( "B" ), TargetCompID( "A" ) ),
+    less4( BeginString( "B" ), SenderCompID( "A" ), TargetCompID( "A" ) ),
+    less5( BeginString( "B" ), SenderCompID( "B" ), TargetCompID( "B" ) ),
+    less6( BeginString( "C" ), SenderCompID( "A" ), TargetCompID( "C" ) )
+  {}
 
-  assert( !( m_less2 < m_less1 ) );
-  assert( !( m_less2 < m_less2 ) );
-  assert( m_less2 < m_less3 );
-  assert( m_less2 < m_less4 );
-  assert( m_less2 < m_less5 );
-  assert( m_less2 < m_less6 );
+  SessionID less1;
+  SessionID less2;
+  SessionID less3;
+  SessionID less4;
+  SessionID less5;
+  SessionID less6;
+};
 
-  assert( !( m_less3 < m_less1 ) );
-  assert( !( m_less3 < m_less2 ) );
-  assert( !( m_less3 < m_less3 ) );
-  assert( m_less3 < m_less4 );
-  assert( m_less3 < m_less5 );
-  assert( m_less3 < m_less6 );
+TEST_FIXTURE(lessThanFixture,lessThan)
+{
+  CHECK( !( less1 < less1 ) );
+  CHECK( less1 < less2 );
+  CHECK( less1 < less3 );
+  CHECK( less1 < less4 );
+  CHECK( less1 < less5 );
+  CHECK( less1 < less6 );
 
-  assert( !( m_less4 < m_less1 ) );
-  assert( !( m_less4 < m_less2 ) );
-  assert( !( m_less4 < m_less3 ) );
-  assert( !( m_less4 < m_less4 ) );
-  assert( m_less4 < m_less5 );
-  assert( m_less4 < m_less6 );
+  CHECK( !( less2 < less1 ) );
+  CHECK( !( less2 < less2 ) );
+  CHECK( less2 < less3 );
+  CHECK( less2 < less4 );
+  CHECK( less2 < less5 );
+  CHECK( less2 < less6 );
 
-  assert( !( m_less5 < m_less1 ) );
-  assert( !( m_less5 < m_less2 ) );
-  assert( !( m_less5 < m_less3 ) );
-  assert( !( m_less5 < m_less4 ) );
-  assert( !( m_less5 < m_less5 ) );
-  assert( m_less5 < m_less6 );
+  CHECK( !( less3 < less1 ) );
+  CHECK( !( less3 < less2 ) );
+  CHECK( !( less3 < less3 ) );
+  CHECK( less3 < less4 );
+  CHECK( less3 < less5 );
+  CHECK( less3 < less6 );
 
-  assert( !( m_less6 < m_less1 ) );
-  assert( !( m_less6 < m_less2 ) );
-  assert( !( m_less6 < m_less3 ) );
-  assert( !( m_less6 < m_less4 ) );
-  assert( !( m_less6 < m_less5 ) );
-  assert( !( m_less6 < m_less6 ) );
+  CHECK( !( less4 < less1 ) );
+  CHECK( !( less4 < less2 ) );
+  CHECK( !( less4 < less3 ) );
+  CHECK( !( less4 < less4 ) );
+  CHECK( less4 < less5 );
+  CHECK( less4 < less6 );
+
+  CHECK( !( less5 < less1 ) );
+  CHECK( !( less5 < less2 ) );
+  CHECK( !( less5 < less3 ) );
+  CHECK( !( less5 < less4 ) );
+  CHECK( !( less5 < less5 ) );
+  CHECK( less5 < less6 );
+
+  CHECK( !( less6 < less1 ) );
+  CHECK( !( less6 < less2 ) );
+  CHECK( !( less6 < less3 ) );
+  CHECK( !( less6 < less4 ) );
+  CHECK( !( less6 < less5 ) );
+  CHECK( !( less6 < less6 ) );
 }
 
-SessionIDTestCase::streamOut::streamOut()
-    : m_object( BeginString( "FIX.4.2" ),
-                SenderCompID( "SENDER" ),
-                TargetCompID( "TARGET" ) )
-{}
-
-bool SessionIDTestCase::streamOut::onSetup( SessionID*& pObject )
+TEST(streamOut)
 {
-  pObject = &m_object;
-  return true;
-}
+  SessionID object( BeginString( "FIX.4.2" ),
+                    SenderCompID( "SENDER" ),
+                    TargetCompID( "TARGET" ) );
 
-void SessionIDTestCase::streamOut::onRun( SessionID& object )
-{
   std::stringstream strstream;
   strstream << object;
   assert( strstream.str() == "FIX.4.2:SENDER->TARGET" );
 }
 
-SessionIDTestCase::streamIn::streamIn()
-    : m_object()
-{}
-
-bool SessionIDTestCase::streamIn::onSetup( SessionID*& pObject )
+TEST(streamIn)
 {
-  pObject = &m_object;
-  return true;
-}
-
-void SessionIDTestCase::streamIn::onRun( SessionID& object )
-{
+  SessionID object;
   std::stringstream strstream;
   strstream << "FIX.4.2:SENDER->TARGET";
   strstream >> object;

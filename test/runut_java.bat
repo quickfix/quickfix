@@ -5,7 +5,7 @@ goto start
 
 :start
 pushd %DIR%
-call test.bat quickfix.test.AllTests
+call test.bat quickfix.test.OrderTest
 popd
 goto quit
 

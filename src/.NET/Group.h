@@ -22,6 +22,7 @@
 #pragma once
 
 using namespace System;
+using namespace System::Collections;
 
 #include "quickfix_net.h"
 #include "FieldMap.h"
@@ -188,6 +189,60 @@ public:
 
     QF_STACK_CATCH
   }
+
+  IEnumerator* GetEnumerator()
+  {
+    checkDisposed(); return new Enumerator( this );
+  }
+
+  __gc class Enumerator : public IEnumerator
+  {
+  public:
+    Enumerator( Group* group )
+      : m_group( group ), m_iterator(0) {}
+
+    ~Enumerator()
+    {
+      if( m_iterator )
+        delete m_iterator;
+    }
+
+    __property Object* get_Current()
+    {
+      if( m_iterator == 0 )
+        return 0;
+      if( *m_iterator == m_group->unmanaged().end() )
+        return 0;
+      FIX::FieldBase field = (*m_iterator)->second;
+      return new StringField( field.getField(), field.getString().c_str() );
+    }
+
+    bool MoveNext()
+    {
+      if( m_iterator == 0 )
+      {
+        m_iterator = new FIX::Group::iterator();
+        *m_iterator = m_group->unmanaged().begin();
+      }
+      else
+      {
+        (*m_iterator)++;
+      }
+
+      return *m_iterator != m_group->unmanaged().end();
+    }
+
+    void Reset()
+    {
+      if( m_iterator )
+        delete m_iterator;
+      m_iterator = 0;
+    }
+
+    private:
+      Group* m_group;
+      FIX::Group::iterator* m_iterator;
+    };
 
 private:
   FIX::Group* m_pUnmanaged;

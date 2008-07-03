@@ -54,7 +54,9 @@ Message::Message( BeginString* beginString, MsgType* msgType )
 
 void Message::setString(int field, String* value)
 { QF_STACK_TRY
-  checkDisposed(); mapSetString( field, value, *m_pUnmanaged );
+  checkDisposed(); 
+  if( value == 0 ) throw new NullReferenceException(); 
+  mapSetString( field, value, *m_pUnmanaged );
   QF_STACK_CATCH
 }
 
