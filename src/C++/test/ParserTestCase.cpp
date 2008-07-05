@@ -25,14 +25,16 @@
 #endif
 
 #include <UnitTest++.h>
-#include "Parser.h"
-#include "Utility.h"
-#include "SocketServer.h"
-#include "SocketConnector.h"
+#include <Parser.h>
+#include <Utility.h>
+#include <SocketServer.h>
+#include <SocketConnector.h>
 #include <string>
 #include <sstream>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(ParserTests)
 {
 
 struct extractLengthFixture

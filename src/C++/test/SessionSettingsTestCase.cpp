@@ -24,14 +24,17 @@
 #include "config.h"
 #endif
 
-#include "SessionSettingsTestCase.h"
+#include <UnitTest++.h>
 #include <sstream>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(SessionSettingsTests)
 {
-void SessionSettingsTestCase::readFromIstream::onRun
-( SessionSettings& object )
+
+TEST(readFromIstream)
 {
+  SessionSettings object;
   std::string configuration =
     "[DEFAULT]\n"
     "ConnectionType=initiator\n"
@@ -92,37 +95,37 @@ void SessionSettingsTestCase::readFromIstream::onRun
                       TargetCompID( "TW" ),
                       "QUAL2" );
 
-  assertEquals( "", object.get().getString( "Empty" ) );
+  CHECK_EQUAL( "", object.get().getString( "Empty" ) );
 
-  assertEquals( 4, object.get().getLong( "Value" ) );
-  assertEquals( 1, object.get( session1 ).getLong( "Value" ) );
-  assertEquals( 2, object.get( session2 ).getLong( "Value" ) );
-  assertEquals( 3, object.get( session3 ).getLong( "Value" ) );
-  assertEquals( 4, object.get( session4 ).getLong( "Value" ) );
-  assertEquals( 5, object.get( session5 ).getLong( "Value" ) );
-  assertEquals( 6, object.get( session6 ).getLong( "Value" ) );
+  CHECK_EQUAL( 4, object.get().getLong( "Value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getLong( "Value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getLong( "Value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getLong( "Value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getLong( "Value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getLong( "Value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getLong( "Value" ) );
 
   // case insensitivity
-  assertEquals( 4, object.get().getLong( "value" ) );
-  assertEquals( 1, object.get( session1 ).getLong( "value" ) );
-  assertEquals( 2, object.get( session2 ).getLong( "value" ) );
-  assertEquals( 3, object.get( session3 ).getLong( "value" ) );
-  assertEquals( 4, object.get( session4 ).getLong( "value" ) );
-  assertEquals( 5, object.get( session5 ).getLong( "value" ) );
-  assertEquals( 6, object.get( session6 ).getLong( "value" ) );
+  CHECK_EQUAL( 4, object.get().getLong( "value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getLong( "value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getLong( "value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getLong( "value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getLong( "value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getLong( "value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getLong( "value" ) );
 
-  assertEquals( 4, object.get().getLong( "VALUE" ) );
-  assertEquals( 1, object.get( session1 ).getLong( "VALUE" ) );
-  assertEquals( 2, object.get( session2 ).getLong( "VALUE" ) );
-  assertEquals( 3, object.get( session3 ).getLong( "VALUE" ) );
-  assertEquals( 4, object.get( session4 ).getLong( "VALUE" ) );
-  assertEquals( 5, object.get( session5 ).getLong( "VALUE" ) );
-  assertEquals( 6, object.get( session6 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get().getLong( "VALUE" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getLong( "VALUE" ) );
 }
 
-void SessionSettingsTestCase::readFromIstreamDefaultLast::onRun
-( SessionSettings& object )
+TEST(readFromIstreamDefaultLast)
 {
+  SessionSettings object;
   std::string configuration =
     "[SESSION]\n"
     "BeginString=FIX.4.2\n"
@@ -183,37 +186,37 @@ void SessionSettingsTestCase::readFromIstreamDefaultLast::onRun
                       TargetCompID( "TW" ),
                       "QUAL2" );
 
-  assertEquals( "", object.get().getString( "Empty" ) );
+  CHECK_EQUAL( "", object.get().getString( "Empty" ) );
 
-  assertEquals( 4, object.get().getLong( "Value" ) );
-  assertEquals( 1, object.get( session1 ).getLong( "Value" ) );
-  assertEquals( 2, object.get( session2 ).getLong( "Value" ) );
-  assertEquals( 3, object.get( session3 ).getLong( "Value" ) );
-  assertEquals( 4, object.get( session4 ).getLong( "Value" ) );
-  assertEquals( 5, object.get( session5 ).getLong( "Value" ) );
-  assertEquals( 6, object.get( session6 ).getLong( "Value" ) );
+  CHECK_EQUAL( 4, object.get().getLong( "Value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getLong( "Value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getLong( "Value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getLong( "Value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getLong( "Value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getLong( "Value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getLong( "Value" ) );
 
   // case insensitivity
-  assertEquals( 4, object.get().getLong( "value" ) );
-  assertEquals( 1, object.get( session1 ).getLong( "value" ) );
-  assertEquals( 2, object.get( session2 ).getLong( "value" ) );
-  assertEquals( 3, object.get( session3 ).getLong( "value" ) );
-  assertEquals( 4, object.get( session4 ).getLong( "value" ) );
-  assertEquals( 5, object.get( session5 ).getLong( "value" ) );
-  assertEquals( 6, object.get( session6 ).getLong( "value" ) );
+  CHECK_EQUAL( 4, object.get().getLong( "value" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getLong( "value" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getLong( "value" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getLong( "value" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getLong( "value" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getLong( "value" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getLong( "value" ) );
 
-  assertEquals( 4, object.get().getLong( "VALUE" ) );
-  assertEquals( 1, object.get( session1 ).getLong( "VALUE" ) );
-  assertEquals( 2, object.get( session2 ).getLong( "VALUE" ) );
-  assertEquals( 3, object.get( session3 ).getLong( "VALUE" ) );
-  assertEquals( 4, object.get( session4 ).getLong( "VALUE" ) );
-  assertEquals( 5, object.get( session5 ).getLong( "VALUE" ) );
-  assertEquals( 6, object.get( session6 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get().getLong( "VALUE" ) );
+  CHECK_EQUAL( 1, object.get( session1 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 2, object.get( session2 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 3, object.get( session3 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 4, object.get( session4 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 5, object.get( session5 ).getLong( "VALUE" ) );
+  CHECK_EQUAL( 6, object.get( session6 ).getLong( "VALUE" ) );
 }
 
-void SessionSettingsTestCase::readFromIstreamDuplicateSession::onRun
-( SessionSettings& object )
+TEST(readFromIstreamDuplicateSession)
 {
+  SessionSettings object;
   std::string configuration =
     "[DEFAULT]\n"
     "ConnectionType=initiator\n"
@@ -229,17 +232,12 @@ void SessionSettingsTestCase::readFromIstreamDuplicateSession::onRun
 
   std::istringstream input( configuration );
 
-  try
-  {
-    input >> object;
-    assert( false );
-  }
-  catch( FIX::ConfigError& ) {}
+  CHECK_THROW( input >> object, ConfigError );
 }
 
-void SessionSettingsTestCase::stripSpaces::onRun
-( SessionSettings& object )
+TEST(stripSpaces)
 {
+  SessionSettings object;
   std::string configuration =
     " [ DEFAULT ] \n"
     "StringValue1=StringValue1\n"
@@ -274,31 +272,31 @@ void SessionSettingsTestCase::stripSpaces::onRun
                       SenderCompID( "ISLD" ),
                       TargetCompID( "TW" ) );
 
-  assertEquals( "StringValue1", object.get().getString( "StringValue1" ) );
-  assertEquals( "StringValue2", object.get().getString( "StringValue2" ) );
-  assertEquals( "StringValue3", object.get().getString( "StringValue3" ) );
-  assertEquals( "StringValue4", object.get().getString( "StringValue4" ) );
-  assertEquals( "StringValue5", object.get().getString( "StringValue5" ) );
-  assertEquals( "StringValue6", object.get().getString( "StringValue6" ) );
+  CHECK_EQUAL( "StringValue1", object.get().getString( "StringValue1" ) );
+  CHECK_EQUAL( "StringValue2", object.get().getString( "StringValue2" ) );
+  CHECK_EQUAL( "StringValue3", object.get().getString( "StringValue3" ) );
+  CHECK_EQUAL( "StringValue4", object.get().getString( "StringValue4" ) );
+  CHECK_EQUAL( "StringValue5", object.get().getString( "StringValue5" ) );
+  CHECK_EQUAL( "StringValue6", object.get().getString( "StringValue6" ) );
 
-  assertEquals( 1, object.get().getLong( "IntegerValue1" ) );
-  assertEquals( 2, object.get().getLong( "IntegerValue2" ) );
-  assertEquals( 3, object.get().getLong( "IntegerValue3" ) );
-  assertEquals( 4, object.get().getLong( "IntegerValue4" ) );
-  assertEquals( 5, object.get().getLong( "IntegerValue5" ) );
-  assertEquals( 6, object.get().getLong( "IntegerValue6" ) );
+  CHECK_EQUAL( 1, object.get().getLong( "IntegerValue1" ) );
+  CHECK_EQUAL( 2, object.get().getLong( "IntegerValue2" ) );
+  CHECK_EQUAL( 3, object.get().getLong( "IntegerValue3" ) );
+  CHECK_EQUAL( 4, object.get().getLong( "IntegerValue4" ) );
+  CHECK_EQUAL( 5, object.get().getLong( "IntegerValue5" ) );
+  CHECK_EQUAL( 6, object.get().getLong( "IntegerValue6" ) );
 
-  assertEquals( 1.1, object.get(session1).getDouble( "DoubleValue1" ) );
-  assertEquals( 2.2, object.get(session1).getDouble( "DoubleValue2" ) );
-  assertEquals( 3.3, object.get(session1).getDouble( "DoubleValue3" ) );
-  assertEquals( 4.4, object.get(session1).getDouble( "DoubleValue4" ) );
-  assertEquals( 5.5, object.get(session1).getDouble( "DoubleValue5" ) );
-  assertEquals( 6.6, object.get(session1).getDouble( "DoubleValue6" ) );
+  CHECK_EQUAL( 1.1, object.get(session1).getDouble( "DoubleValue1" ) );
+  CHECK_EQUAL( 2.2, object.get(session1).getDouble( "DoubleValue2" ) );
+  CHECK_EQUAL( 3.3, object.get(session1).getDouble( "DoubleValue3" ) );
+  CHECK_EQUAL( 4.4, object.get(session1).getDouble( "DoubleValue4" ) );
+  CHECK_EQUAL( 5.5, object.get(session1).getDouble( "DoubleValue5" ) );
+  CHECK_EQUAL( 6.6, object.get(session1).getDouble( "DoubleValue6" ) );
 }
 
-void SessionSettingsTestCase::writeToOstream::onRun
-( SessionSettings& object )
+TEST(writeToOstream)
 {
+  SessionSettings object;
   std::stringstream istream;
   istream 
     << "[DEFAULT]" << std::endl
@@ -323,52 +321,29 @@ void SessionSettingsTestCase::writeToOstream::onRun
   
   std::stringstream ostream;
   ostream << object;
-  assertEquals( istream.str(), ostream.str() );
+  CHECK_EQUAL( istream.str(), ostream.str() );
 }
 
-void SessionSettingsTestCase::validate::onRun( SessionSettings& object )
+TEST(validate)
 {
+  SessionSettings object;
   SessionID sessionID = SessionID( "FIX.4.2", "SenderCompID", "TargetCompID" );
 
   // ConnectionType not set
-  Dictionary dictionary;
-  try
-  {
-    object.set( sessionID, dictionary );
-    assert( false );
-  }
-  catch( ConfigError& ) {}
+  Dictionary dictionary;    
+  CHECK_THROW( object.set( sessionID, dictionary ), ConfigError );
 
   // ConnectionType set to invalid value
   dictionary.setString( CONNECTION_TYPE, "badvalue" );
-  try
-  {
-    object.set( sessionID, dictionary );
-    assert( false );
-  }
-  catch( ConfigError& ) {}
+  CHECK_THROW( object.set( sessionID, dictionary ), ConfigError );
 
-    // ConnectionType set to valid value
+  // ConnectionType set to valid value
   dictionary.setString( CONNECTION_TYPE, "initiator" );
-  try
-  {
-    object.set( sessionID, dictionary );
-  }
-  catch( ConfigError& )
-  {
-    assert( false );
-  }
+  object.set( sessionID, dictionary );
 
   // Invalid BeginString
   sessionID = SessionID( "FIX4.2", "SenderCompID", "TargetCompID" );
-  try
-  {
-    object.set( sessionID, dictionary );
-    assert( false );
-  }
-  catch( ConfigError& )
-  {
-  }
+  CHECK_THROW( object.set( sessionID, dictionary ), ConfigError );
 }
 
 }
