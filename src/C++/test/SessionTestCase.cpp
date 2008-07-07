@@ -590,14 +590,14 @@ TEST_FIXTURE(sessionFixture, registerSession)
                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) ), DataDictionary(),
                         TimeRange(UtcTimeOnly(), UtcTimeOnly()), 0, 0 );
 
-  CHECK_EQUAL( 0, Session::registerSession( SessionID( BeginString( "FIX.4.1" ),
-                                            SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
+  CHECK_EQUAL( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.1" ),
+                                                      SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
   CHECK_EQUAL( pSession, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
                                                    SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
   CHECK( Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
                                        SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( 0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
-                                            SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
+  CHECK_EQUAL( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
+                                                      SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
   Session::unregisterSession( SessionID( BeginString( "FIX.4.2" ),
                                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) );
   CHECK( !Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
@@ -607,8 +607,8 @@ TEST_FIXTURE(sessionFixture, registerSession)
   delete pSession;
   CHECK( !Session::isSessionRegistered( SessionID( BeginString( "FIX.4.2" ),
                                         SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
-  CHECK_EQUAL( 0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
-                                            SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
+  CHECK_EQUAL( (Session*)0, Session::registerSession( SessionID( BeginString( "FIX.4.2" ),
+                                                      SenderCompID( "TW" ), TargetCompID( "ISLD" ) ) ) );
 }
 
 TEST_FIXTURE(acceptorFixture, nextTestRequest)
@@ -954,169 +954,163 @@ TEST_FIXTURE(acceptorFixture, badBeginString)
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ) );
 
-  TestRequest testRequest = createTestRequest( "ISLD", "TW", 2, "HELLO" );
+  FIX42::TestRequest testRequest = createTestRequest( "ISLD", "TW", 2, "HELLO" );
   testRequest.getHeader().setField( BeginString( BeginString_FIX41 ) );
   object->next( testRequest );
-  assert( toLogout == 1 );
-  assert( disconnect == 0 );
+  CHECK_EQUAL( 1, toLogout );
+  CHECK_EQUAL( 0, disconnect );
 
-  Logout logout = createLogout( "ISLD", "TW", 3 );
+  FIX42::Logout logout = createLogout( "ISLD", "TW", 3 );
   logout.getHeader().setField( BeginString( BeginString_FIX41 ) );
   object->next( logout );
-  assert( toLogout == 1 );
-  assert( disconnect == 1 );
+  CHECK_EQUAL( 1, toLogout );
+  CHECK_EQUAL( 1, disconnect );
 }
 
-void SessionTestCase::unsupportedMsgType::onRun( Session& object )
+TEST_FIXTURE(acceptorFixture, unsupportedMsgType)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ) );
 
-  ExecutionReport message = createExecutionReport( "ISLD", "TW", 2 );
+  FIX42::ExecutionReport message = createExecutionReport( "ISLD", "TW", 2 );
   object->next( message );
-  assert( toBusinessMessageReject == 1 );
+  CHECK_EQUAL( 1, toBusinessMessageReject );
 }
 
-bool SessionTestCase::resetOnEndTime::onSetup( Session*& pObject )
+struct resetOnEndTimeFixture : public acceptorFixture
 {
-  startTime.setCurrent();
-  startTime.setMillisecond(0);
+  resetOnEndTimeFixture()
+  {
+    startTime.setCurrent();
+    startTime.setMillisecond(0);
 
-  endTime.setCurrent();
-  endTime.setMillisecond(0);
+    endTime.setCurrent();
+    endTime.setMillisecond(0);
 
-  endTime += 2;
-  return AcceptorTest::onSetup( pObject );
-}
+    endTime += 2;
+  }
+};
 
-void SessionTestCase::resetOnEndTime::onRun( Session& object )
+TEST_FIXTURE(resetOnEndTimeFixture, resetOnEndTime)
 {
   object->next( createLogon( "ISLD", "TW", 1 ) );
   object->next( createHeartbeat( "ISLD", "TW", 2 ) );
 
-  assert( toLogon == 1 );
-  assert( disconnect == 0 );
+  CHECK_EQUAL( 1, toLogon );
+  CHECK_EQUAL( 0, disconnect );
   process_sleep( 1 );
   object->next();
-  assert( disconnect == 0 );
+  CHECK_EQUAL( 0, disconnect );
   process_sleep( 2 );
   object->next();
-  assert( disconnect == 1 );
-  assert( toLogout == 1 );
-  assert( object->getExpectedSenderNum() == 1 );
-  assert( object->getExpectedTargetNum() == 1 );
+  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, toLogout );
+  CHECK_EQUAL( 1, object->getExpectedSenderNum() );
+  CHECK_EQUAL( 1, object->getExpectedTargetNum() );
 }
 
-bool SessionTestCase::disconnectBeforeStartTime::onSetup( Session*& pObject )
+struct disconnectBeforeStartTimeFixture : public acceptorFixture
 {
-  startTime.setCurrent();
-  startTime += 1;
-  endTime.setCurrent();
-  endTime += 4;
-  return AcceptorTest::onSetup( pObject );
-}
+  disconnectBeforeStartTimeFixture()
+  {
+    startTime.setCurrent();
+    startTime += 1;
+    endTime.setCurrent();
+    endTime += 4;
+  }
+};
 
-void SessionTestCase::disconnectBeforeStartTime::onRun( Session& object )
+TEST_FIXTURE(disconnectBeforeStartTimeFixture, disconnectBeforeStartTime)
 {
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  assert( disconnect == 1 );
+  CHECK_EQUAL( 1, disconnect );
 
   process_sleep( 2 );
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  assert( disconnect == 1 );
+  CHECK_EQUAL( 1, disconnect );
 }
 
-bool SessionTestCase::resetOnNewSession::onSetup( Session*& pObject )
+struct resetOnNewSessionFixture : public acceptorFixture
 {
-  startTime.setCurrent();
-  endTime = startTime;
-  endTime += 2;
-  startTime += -2;
-  return AcceptorTest::onSetup( pObject );
-}
+  resetOnNewSessionFixture()
+  {
+    startTime.setCurrent();
+    endTime = startTime;
+    endTime += 2;
+    startTime += -2;
+  }
+};
 
-void SessionTestCase::resetOnNewSession::onRun( Session& object )
+TEST_FIXTURE(acceptorFixture, resetOnNewSession)
 {
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  assert( disconnect == 0 );
+  CHECK_EQUAL( 0, disconnect );
 
   process_sleep( 3 );
   object->next();
-  assert( disconnect == 1 );
+  CHECK_EQUAL( 1, disconnect );
 }
 
-bool SessionTestCase::logonAtLogonStartTime::onSetup( Session*& pObject )
+struct logonAtLogonStartTimeFixture : public acceptorFixture
 {
-  startTime.setCurrent();
-  startTime.setMillisecond(0);
+  logonAtLogonStartTimeFixture()
+  {
+    startTime.setCurrent();
+    startTime.setMillisecond(0);
 
-  endTime.setCurrent();
-  endTime.setMillisecond(0);
+    endTime.setCurrent();
+    endTime.setMillisecond(0);
 
-  startTime += -10;
-  endTime += 10;
+    startTime += -10;
+    endTime += 10;
 
-  UtcTimeOnly logonStartTime;
-  UtcTimeOnly logonEndTime;
-  logonStartTime += 1;
-  logonEndTime += 2;
-  TimeRange logonTime( logonStartTime, logonEndTime );
+    UtcTimeOnly logonStartTime;
+    UtcTimeOnly logonEndTime;
+    logonStartTime += 1;
+    logonEndTime += 2;
+    TimeRange logonTime( logonStartTime, logonEndTime );
 
-  bool result = AcceptorTest::onSetup( pObject );
-  pObject->setLogonTime( logonTime );
-  return result;
-}
+    object->setLogonTime( logonTime );
+  }
+};
 
-void SessionTestCase::logonAtLogonStartTime::onRun( Session& object )
+TEST_FIXTURE(logonAtLogonStartTimeFixture, logonAtLogonStartTime)
 {
   object->next( createLogon( "ISLD", "TW", 1 ) );
   object->next( createHeartbeat( "ISLD", "TW", 2 ) );
 
-  assert( toLogon == 0 );
-  assert( toLogout == 0 );
+  CHECK_EQUAL( 0, toLogon );
+  CHECK_EQUAL( 0, toLogout );
   process_sleep( 1 );
 
   object->next( createLogon( "ISLD", "TW", 1 ) );
   object->next( createHeartbeat( "ISLD", "TW", 2 ) );
   object->next();
-  assert( toLogon == 1 );
-  assert( toLogout == 0 );
+  CHECK_EQUAL( 1, toLogon );
+  CHECK_EQUAL( 0, toLogout );
 
   process_sleep( 2 );
   object->next();
-  assert( toLogon == 1 );
-  assert( toLogout == 1 );
+  CHECK_EQUAL( 1, toLogon );
+  CHECK_EQUAL( 1, toLogout );
 }
 
-bool SessionTestCase::processQueuedMessages::onSetup( Session*& pObject )
-{
-  return AcceptorTest::onSetup( pObject );
-}
-
-void SessionTestCase::processQueuedMessages::onRun( Session& object )
+TEST_FIXTURE(acceptorFixture, processQueuedMessages)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  assert( disconnect == 0 );
+  CHECK_EQUAL( 0, disconnect );
 
   for( int i = 3; i <= 5003; ++i )
   {
     object->next( createNewOrderSingle( "ISLD", "TW", i ) );
   }
-  assert( 2 == object->getExpectedTargetNum() );
-  assert( 1 == toResendRequest );
+  CHECK_EQUAL( 2, object->getExpectedTargetNum() );
+  CHECK_EQUAL( 1, toResendRequest );
   object->next( createNewOrderSingle( "ISLD", "TW", 2 ) );
-  assert( 5004 == object->getExpectedTargetNum() );
+  CHECK_EQUAL( 5004, object->getExpectedTargetNum() );
   object->next( createNewOrderSingle( "ISLD", "TW", 5006 ) );
-  assert( 2 == toResendRequest );
+  CHECK_EQUAL( 2, toResendRequest );
 }
 
-Session* SessionTestCase::resetOnNewSession::createSession()
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
-  TimeRange sessionTime( startTime, endTime );
-  return new Session( *this, previousDayFactory, sessionID,
-                      DataDictionary(), sessionTime , 0, 0 );
-}
 }

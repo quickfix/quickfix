@@ -25,6 +25,7 @@
 #endif
 
 #include <UnitTest++.h>
+#include <SessionSettings.h>
 #include <sstream>
 
 using namespace FIX;

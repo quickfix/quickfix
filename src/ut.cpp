@@ -24,7 +24,6 @@
 #include "config.h"
 #endif
 
-#include "C++/test/TestSuite.h"
 #include "C++/Utility.h"
 #include "C++/SessionSettings.h"
 #include <CPPTest/TestStandardOutputDisplay.h>
