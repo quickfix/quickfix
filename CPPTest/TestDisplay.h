@@ -2,10 +2,12 @@
 #define I_CPPTEST_TESTDISPLAY_H
 
 #include <iostream>
+#include "Exception.h"
 
 namespace CPPTest
 {
   class TestBase;
+
   class TestDisplay
     {
     public:
