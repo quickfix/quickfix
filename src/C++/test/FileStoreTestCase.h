@@ -26,6 +26,7 @@
 #include "MessageStoreTestCase.h"
 #include "FileStore.h"
 #include "Utility.h"
+#include "TestHelper.h"
 
 #include <stdio.h>
 #ifndef _MSC_VER
@@ -108,14 +109,6 @@ private:
   }
   m_refresh;
 };
-
-inline void deleteSession( std::string sender, std::string target )
-{
-  file_unlink( ( "store/FIX.4.2-" + sender + "-" + target + ".messages" ).c_str() );
-  file_unlink( ( "store/FIX.4.2-" + sender + "-" + target + ".header" ).c_str() );
-  file_unlink( ( "store/FIX.4.2-" + sender + "-" + target + ".seqnums" ).c_str() );
-  file_unlink( ( "store/FIX.4.2-" + sender + "-" + target + ".session" ).c_str() );
-}
 }
 
 #endif //FIX_FILESTORETESTCASE_H

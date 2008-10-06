@@ -130,8 +130,14 @@ bool SocketMonitor::drop( int s )
 inline timeval* SocketMonitor::getTimeval( bool poll, double timeout )
 { QF_STACK_PUSH(SocketMonitor::getTimeval)
 
-  if ( !poll )
-    timeout = m_timeout;
+  if ( poll )
+  {
+    m_timeval.tv_sec = 0;
+    m_timeval.tv_usec = 0;
+    return &m_timeval;
+  }
+
+  timeout = m_timeout;
 
   if ( !timeout )
     return 0;

@@ -24,66 +24,71 @@
 #include "config.h"
 #endif
 
-#include "StringUtilitiesTestCase.h"
+#include <UnitTest++.h>
+#include <Utility.h>
 
-namespace FIX
+using namespace FIX;
+
+SUITE(StringUtilitiesTests)
 {
-  void StringUtilitiesTestCase::replace::onRun( std::string& object )
-  {
-    object = "replace the A in this string with a B";
-    string_replace( "A", "B", object );
-    assert( "replace the B in this string with a B" == object );
-    string_replace( "B", "A", object );
-    assert( "replace the A in this string with a A" == object );
-    string_replace( "A", "AB", object );
-    assert( "replace the AB in this string with a AB" == object );
-    string_replace( "AB", "ABCDE", object );
-    assert( "replace the ABCDE in this string with a ABCDE" == object );
-    string_replace( "ABCDE", "AB", object );
-    assert( "replace the AB in this string with a AB" == object );
-  }
 
-  void StringUtilitiesTestCase::toUpper::onRun( std::string& object )
-  {
-    object = "turn this to upper case";
-    assertEquals( "TURN THIS TO UPPER CASE", string_toUpper(object) );
-    object = "Turn This To Upper Case";
-    assertEquals( "TURN THIS TO UPPER CASE", string_toUpper(object) );
-    object = "TURN THIS TO UPPER CASE";
-    assertEquals( "TURN THIS TO UPPER CASE", string_toUpper(object) )
-    object = "!Turn1 This% To* Upper; Case5";
-    assertEquals( "!TURN1 THIS% TO* UPPER; CASE5", string_toUpper(object) )
-  }
+TEST(replace)
+{
+  std::string object = "replace the A in this string with a B";
+  string_replace( "A", "B", object );
+  CHECK_EQUAL( "replace the B in this string with a B", object );
+  string_replace( "B", "A", object );
+  CHECK_EQUAL( "replace the A in this string with a A", object );
+  string_replace( "A", "AB", object );
+  CHECK_EQUAL( "replace the AB in this string with a AB", object );
+  string_replace( "AB", "ABCDE", object );
+  CHECK_EQUAL( "replace the ABCDE in this string with a ABCDE", object );
+  string_replace( "ABCDE", "AB", object );
+  CHECK_EQUAL( "replace the AB in this string with a AB", object );
+}
 
-  void StringUtilitiesTestCase::toLower::onRun( std::string& object )
-  {
-    object = "TURN THIS TO LOWER CASE";
-    assertEquals( "turn this to lower case", string_toLower(object) );
-    object = "Turn This To Lower Case";
-    assertEquals( "turn this to lower case", string_toLower(object) );
-    object = "turn this to lower case";
-    assertEquals( "turn this to lower case", string_toLower(object) )
-    object = "!Turn1 This% To* Lower; Case5";
-    assertEquals( "!turn1 this% to* lower; case5", string_toLower(object) )
-  }
+TEST(toUpper)
+{
+  std::string object = "turn this to upper case";
+  CHECK_EQUAL( "TURN THIS TO UPPER CASE", string_toUpper(object) );
+  object = "Turn This To Upper Case";
+  CHECK_EQUAL( "TURN THIS TO UPPER CASE", string_toUpper(object) );
+  object = "TURN THIS TO UPPER CASE";
+  CHECK_EQUAL( "TURN THIS TO UPPER CASE", string_toUpper(object) );
+  object = "!Turn1 This% To* Upper; Case5";
+  CHECK_EQUAL( "!TURN1 THIS% TO* UPPER; CASE5", string_toUpper(object) );
+}
 
-  void StringUtilitiesTestCase::strip::onRun( std::string& object )
-  {
-    object = "strip this";
-    assertEquals( "strip this", string_strip(object) );
-    object = " strip this";
-    assertEquals( "strip this", string_strip(object) );
-    object = "  strip this";
-    assertEquals( "strip this", string_strip(object) );
-    object = "  \tstrip this\n\r";
-    assertEquals( "strip this", string_strip(object) );
-    object = "strip this ";
-    assertEquals( "strip this", string_strip(object) );
-    object = "strip this  ";
-    assertEquals( "strip this", string_strip(object) );
-    object = "  strip this  ";
-    assertEquals( "strip this", string_strip(object) );
-    object = "\t\n\r  strip this  \t\n\r";
-    assertEquals( "strip this", string_strip(object) );
-  }
+TEST(toLower)
+{
+  std::string object = "TURN THIS TO LOWER CASE";
+  CHECK_EQUAL( "turn this to lower case", string_toLower(object) );
+  object = "Turn This To Lower Case";
+  CHECK_EQUAL( "turn this to lower case", string_toLower(object) );
+  object = "turn this to lower case";
+  CHECK_EQUAL( "turn this to lower case", string_toLower(object) );
+  object = "!Turn1 This% To* Lower; Case5";
+  CHECK_EQUAL( "!turn1 this% to* lower; case5", string_toLower(object) );
+}
+
+TEST(strip)
+{
+  std::string object = "strip this";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+  object = " strip this";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+  object = "  strip this";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+  object = "  \tstrip this\n\r";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+  object = "strip this ";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+  object = "strip this  ";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+  object = "  strip this  ";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+  object = "\t\n\r  strip this  \t\n\r";
+  CHECK_EQUAL( "strip this", string_strip(object) );
+}
+
 }

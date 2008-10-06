@@ -24,46 +24,46 @@
 #include "config.h"
 #endif
 
-#include "UtcTimeOnlyTestCase.h"
+#include <UnitTest++.h>
+#include <FieldTypes.h>
 
-namespace FIX
-{
-bool UtcTimeOnlyTestCase::compare::onSetup( UtcTimeOnly*& pObject )
-{
-  m_object.setHour( 12 );
-  m_object.setMinute( 20 );
-  m_object.setSecond( 10 );
-  m_object.setMillisecond( 0 );
+using namespace FIX;
 
-  pObject = &m_object;
-  return true;
-}
-
-void UtcTimeOnlyTestCase::compare::onRun( UtcTimeOnly& object )
+SUITE(UtcTimeOnlyTests)
 {
+
+TEST(compare)
+{
+  UtcTimeOnly object;
+  object.setHour( 12 );
+  object.setMinute( 20 );
+  object.setSecond( 10 );
+  object.setMillisecond( 0 );
+
   UtcTimeOnly lesserObject;
   lesserObject.setHour( 12 );
   lesserObject.setMinute( 10 );
   lesserObject.setSecond( 5 );
   lesserObject.setMillisecond( 0 );
 
-  assert( lesserObject < object );
-  assert( lesserObject <= object );
-  assert( object > lesserObject );
-  assert( object >= lesserObject );
+  CHECK( lesserObject < object );
+  CHECK( lesserObject <= object );
+  CHECK( object > lesserObject );
+  CHECK( object >= lesserObject );
 
   UtcTimeOnly greaterObject;
   greaterObject.setHour( 13 );
   greaterObject.setMinute( 10 );
   greaterObject.setSecond( 5 );
   greaterObject.setMillisecond( 0 );
-  assert( greaterObject > object );
-  assert( greaterObject >= object );
-  assert( object < greaterObject );
-  assert( object <= greaterObject );
+  CHECK( greaterObject > object );
+  CHECK( greaterObject >= object );
+  CHECK( object < greaterObject );
+  CHECK( object <= greaterObject );
 
-  assert( object <= object );
-  assert( object >= object );
-  assert( object == object );
+  CHECK( object <= object );
+  CHECK( object >= object );
+  CHECK( object == object );
 }
+
 }

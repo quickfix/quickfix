@@ -24,16 +24,10 @@
 
 #include <CPPTest/TestCase.h>
 #include "Acceptor.h"
+#include "TestHelper.h"
 
 namespace FIX
 {
-class TestApplication : public NullApplication
-{
-public:
-  void fromApp( const Message&, const SessionID& )
-  throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType ) {}
-  void onRun() {}
-};
 
 class TestAcceptor : public Acceptor
 {

@@ -24,75 +24,76 @@
 #include "config.h"
 #endif
 
-#include "UtcTimeStampTestCase.h"
+#include <UnitTest++.h>
+#include <FieldTypes.h>
 
-namespace FIX
-{
-bool UtcTimeStampTestCase::compare::onSetup( UtcTimeStamp*& pObject )
-{
-  m_object.setHour( 12 );
-  m_object.setMinute( 20 );
-  m_object.setSecond( 10 );
-  m_object.setMillisecond( 10 );
-  pObject = &m_object;
-  return true;
-}
+using namespace FIX;
 
-void UtcTimeStampTestCase::compare::onRun( UtcTimeStamp& object )
+SUITE(UtcTimeStampTests)
 {
+
+TEST(compare)
+{
+  UtcTimeStamp object;
+  object.setHour( 12 );
+  object.setMinute( 20 );
+  object.setSecond( 10 );
+  object.setMillisecond( 10 );
+
   UtcTimeStamp lesserObject;
   lesserObject.setHour( 12 );
   lesserObject.setMinute( 10 );
   lesserObject.setSecond( 5 );
   lesserObject.setMillisecond( 0 );
-  assert( lesserObject < object );
-  assert( lesserObject <= object );
-  assert( object > lesserObject );
-  assert( object >= lesserObject );
+  CHECK( lesserObject < object );
+  CHECK( lesserObject <= object );
+  CHECK( object > lesserObject );
+  CHECK( object >= lesserObject );
 
   UtcTimeStamp greaterObject;
   greaterObject.setHour( 13 );
   greaterObject.setMinute( 10 );
   greaterObject.setSecond( 5 );
   greaterObject.setMillisecond( 0 );
-  assert( greaterObject > object );
-  assert( greaterObject >= object );
-  assert( object < greaterObject );
-  assert( object <= greaterObject );
+  CHECK( greaterObject > object );
+  CHECK( greaterObject >= object );
+  CHECK( object < greaterObject );
+  CHECK( object <= greaterObject );
 
-  assert( object <= object );
-  assert( object >= object );
-  assert( object == object );
+  CHECK( object <= object );
+  CHECK( object >= object );
+  CHECK( object == object );
 }
 
-void UtcTimeStampTestCase::subtract::onRun( UtcTimeStamp& object )
+TEST(subtract)
 {
   UtcTimeStamp sm( 10, 10, 10, 10, 10, 2000 );
   UtcTimeStamp lg( 10, 10, 20, 10, 10, 2000 );
   UtcTimeStamp mid( 10, 10, 15, 10, 10, 2000 );
 
-  assert( ( sm - sm ) == 0 );
-  assert( ( sm - lg ) == -10 );
-  assert( ( sm - mid ) == -5 );
+  CHECK_EQUAL( 0, ( sm - sm ) );
+  CHECK_EQUAL( -10, ( sm - lg ) );
+  CHECK_EQUAL( -5, ( sm - mid ) );
 
-  assert( ( mid - sm ) == 5 );
-  assert( ( mid - lg ) == -5 );
-  assert( ( mid - mid ) == 0 );
+  CHECK_EQUAL( 5, ( mid - sm ) );
+  CHECK_EQUAL( -5, ( mid - lg ) );
+  CHECK_EQUAL( 0, ( mid - mid ) );
 
-  assert( ( lg - sm ) == 10 );
-  assert( ( lg - lg ) == 0 );
-  assert( ( lg - mid ) == 5 );
+  CHECK_EQUAL( 10, ( lg - sm ) );
+  CHECK_EQUAL( 0, ( lg - lg ) );
+  CHECK_EQUAL( 5, ( lg - mid ) );
 }
 
-void UtcTimeStampTestCase::addSeconds::onRun( UtcTimeStamp& object )
+TEST(addSeconds)
 {
   UtcTimeStamp time( 10, 10, 10, 10, 10, 2000 );
   time += DateTime::SECONDS_PER_DAY;
-  assert( time.getHour() == 10 );
-  assert( time.getMinute() == 10 );
-  assert( time.getSecond() == 10 );
-  assert( time.getDate() == 11 );
-  assert( time.getMonth() == 10 );
-  assert( time.getYear() == 2000 );
+  CHECK_EQUAL( 10, time.getHour() );
+  CHECK_EQUAL( 10, time.getMinute() );
+  CHECK_EQUAL( 10, time.getSecond() );
+  CHECK_EQUAL( 11, time.getDate() );
+  CHECK_EQUAL( 10, time.getMonth() );
+  CHECK_EQUAL( 2000, time.getYear() );
 }
+
 }

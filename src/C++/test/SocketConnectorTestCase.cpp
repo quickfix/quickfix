@@ -24,29 +24,26 @@
 #include "config.h"
 #endif
 
-#include "SocketConnectorTestCase.h"
-#include "SocketServer.h"
+#include <UnitTest++.h>
+#include <SocketConnector.h>
+#include <SocketServer.h>
+#include "TestHelper.h"
 #ifdef _MSC_VER
 #include <stdlib.h>
 #endif
 
-namespace FIX
-{
-bool SocketConnectorTestCase::accept::onSetup( SocketConnector*& pObject )
-{
-  try
-  {
-    pObject = new SocketConnector();
-    return true;
-  }
-  catch ( std::exception& ) { return false; }
-}
+using namespace FIX;
 
-void SocketConnectorTestCase::accept::onRun( SocketConnector& object )
+SUITE(SocketConnectorTests)
 {
+
+TEST(accept)
+{
+  SocketConnector object;
   SocketServer server( 0 );
-  int socket = server.add( m_port, true, true );
-  assert( object.connect( "127.0.0.1", m_port, false ) );
+  int socket = server.add( TestSettings::port, true, true );
+  assert( object.connect( "127.0.0.1", TestSettings::port, false ) );
   assert( server.accept(socket) );
 }
+
 }

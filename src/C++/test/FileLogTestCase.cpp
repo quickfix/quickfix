@@ -24,68 +24,94 @@
 #include "config.h"
 #endif
 
-#include "FileLogTestCase.h"
+#include <UnitTest++.h>
+#include <FileLog.h>
+#include <Utility.h>
 #include <fstream>
 
-namespace FIX
-{
-bool FileLogTestCase::generateFileName::onSetup( FileLog*& pObject )
-{
-  deleteLogSession( "GENERATEFILENAME", "TEST" );
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "GENERATEFILENAME" ), TargetCompID( "TEST" ) );
+using namespace FIX;
 
-  m_object = (FileLog*)m_fileLogFactory.create( sessionID );
-  pObject = &( *m_object );
+SUITE(FileLogTests)
+{
 
-  return true;
+void deleteLogSession( std::string sender, std::string target )
+{
+  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".event.current.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.1.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.2.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.3.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.4.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".event.backup.5.log" ).c_str() );
+
+  file_unlink( ( "log/FIX.4.2-" + sender + "-" + target + ".messages.current.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.1.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.2.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.3.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.4.log" ).c_str() );
+  file_unlink( ( "log/backup/FIX.4.2-" + sender + "-" + target + ".messages.backup.5.log" ).c_str() );
 }
 
-void FileLogTestCase::generateFileName::onTeardown( FileLog* pObject )
+struct generateFileNameFixture
 {
-  m_fileLogFactory.destroy( pObject );
-  deleteLogSession( "GENERATEFILENAME", "TEST" );
-}
+  generateFileNameFixture()
+  : fileLogFactory( "log", "log" + file_separator() + "backup" ) 
+  {
+    deleteLogSession( "GENERATEFILENAME", "TEST" );
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "GENERATEFILENAME" ), TargetCompID( "TEST" ) );
 
-void FileLogTestCase::generateFileName::onRun( FileLog& object )
+    object = (FileLog*)fileLogFactory.create( sessionID );
+  }
+
+  ~generateFileNameFixture()
+  {
+    fileLogFactory.destroy( object );
+    deleteLogSession( "GENERATEFILENAME", "TEST" );
+  }
+
+  FileLogFactory fileLogFactory;
+  FileLog* object;
+};
+
+TEST_FIXTURE(generateFileNameFixture, generateFileName)
 {
-  object.onEvent( "EVENT1" );
-  object.onIncoming( "INCOMING1" );
-  object.onOutgoing( "OUTGOING1" );
+  object->onEvent( "EVENT1" );
+  object->onIncoming( "INCOMING1" );
+  object->onOutgoing( "OUTGOING1" );
 
-  assert( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.event.current.log") );
-  assert( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.messages.current.log") );
+  CHECK( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.event.current.log") );
+  CHECK( file_exists("log/FIX.4.2-GENERATEFILENAME-TEST.messages.current.log") );
 
-  object.backup();
-  object.onEvent( "EVENT2" );
-  object.onIncoming( "INCOMING2" );
-  object.onOutgoing( "OUTGOING2" );
+  object->backup();
+  object->onEvent( "EVENT2" );
+  object->onIncoming( "INCOMING2" );
+  object->onOutgoing( "OUTGOING2" );
 
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.1.log") );
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.1.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.1.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.1.log") );
 
-  object.backup();
-  object.onEvent( "EVENT3" );
-  object.onIncoming( "INCOMING3" );
-  object.onOutgoing( "OUTGOING3" );
+  object->backup();
+  object->onEvent( "EVENT3" );
+  object->onIncoming( "INCOMING3" );
+  object->onOutgoing( "OUTGOING3" );
 
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.2.log") );
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.2.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.2.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.2.log") );
 
-  object.backup();
-  object.onEvent( "EVENT4" );
-  object.onIncoming( "INCOMING4" );
-  object.onOutgoing( "OUTGOING4" );
+  object->backup();
+  object->onEvent( "EVENT4" );
+  object->onIncoming( "INCOMING4" );
+  object->onOutgoing( "OUTGOING4" );
 
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.3.log") );
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.3.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.3.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.3.log") );
 
-  object.backup();
-  object.onEvent( "EVENT5" );
-  object.onIncoming( "INCOMING5" );
-  object.onOutgoing( "OUTGOING5" );
+  object->backup();
+  object->onEvent( "EVENT5" );
+  object->onIncoming( "INCOMING5" );
+  object->onOutgoing( "OUTGOING5" );
 
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.4.log") );
-  assert( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.4.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.event.backup.4.log") );
+  CHECK( file_exists("log/backup/FIX.4.2-GENERATEFILENAME-TEST.messages.backup.4.log") );
 }
 }

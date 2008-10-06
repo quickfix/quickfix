@@ -211,10 +211,6 @@
 			Filter="cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 			>
 			<File
-				RelativePath=".\C++\test\AcceptorTestCase.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\C++\test\DataDictionaryTestCase.cpp"
 				>
 			</File>
@@ -323,6 +319,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\C++\test\TestHelper.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\C++\test\TimeRangeTestCase.cpp"
 				>
 			</File>
@@ -343,6 +343,10 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl"
 			>
+			<File
+				RelativePath=".\C++\test\TestHelper.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="Resource Files"

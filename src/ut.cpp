@@ -39,6 +39,7 @@
 #include <UnitTest++.h>
 #include <TestReporterStdout.h>
 #include "getopt-repl.h"
+#include "TestHelper.h"
 
 void print_usage( char** argv )
 {
@@ -66,7 +67,7 @@ int main( int argc, char** argv )
     switch( opt )
     {
     case 'p':
-      port = (short)atol( optarg );
+      FIX::TestSettings::port = (short)atol( optarg );
       break;
     case 'f':
       sessionSettingsPtr = std::auto_ptr<FIX::SessionSettings>
@@ -80,11 +81,8 @@ int main( int argc, char** argv )
 
   display = new CPPTest::TestXMLFileOutputDisplay();
 
-  TestSuite suite( *display, port, *sessionSettingsPtr );
-  //suite.run();
-
   return UnitTest::RunAllTests();
 
   delete display;
-  return suite.getExceptions().size() > 0;
+  return 0;
 }

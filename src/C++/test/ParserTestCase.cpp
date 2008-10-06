@@ -72,7 +72,7 @@ TEST_FIXTURE(extractLengthFixture, extractLength)
   CHECK_THROW( object.extractLength(length, pos, negativeLength), MessageParseError );
 
   CHECK_EQUAL( 0, (int)pos );
-  CHECK_THROW( object.extractLength(length, pos, incomplete_1), MessageParseError );
+  object.extractLength(length, pos, incomplete_1);
 
   object.extractLength(length, pos, incomplete_2);
   CHECK_EQUAL( 0, (int)pos );

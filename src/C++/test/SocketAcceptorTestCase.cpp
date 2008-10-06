@@ -24,45 +24,64 @@
 #include "config.h"
 #endif
 
-#include "SocketAcceptorTestCase.h"
-#include "fix42/Logon.h"
+#include <UnitTest++.h>
+#include <SocketAcceptorTestCase.h>
+#include <Utility.h>
+#include <fix42/Logon.h>
 #include <sstream>
+#include "TestHelper.h"
 
-namespace FIX
+using namespace FIX;
+
+SUITE(SocketAcceptorTests)
 {
-bool SocketAcceptorTestCase::receivePartialMessage::onSetup( SocketAcceptor*& pObject )
+
+struct receivePartialMessageFixture
 {
-  SessionSettings settings;
-  std::string input =
-    "[DEFAULT]\n"
-    "ConnectionType=acceptor\n"
-    "SocketAcceptPort=5000\n"
-    "SocketReuseAddress=Y\n"
-    "StartTime=00:00:00\n"
-    "EndTime=00:00:00\n"
-    "UseDataDictionary=N\n"
-    "CheckLatency=N\n"
-    "[SESSION]\n"
-    "BeginString=FIX.4.2\n"
-    "SenderCompID=ISLD\n"
-    "TargetCompID=TW\n"
-    "[SESSION]\n"
-    "BeginString=FIX.4.1\n"
-    "SenderCompID=ISLD\n"
-    "TargetCompID=WT\n";
-  std::stringstream stream( input );
-  stream >> settings;
+  receivePartialMessageFixture()
+  {
+    SessionSettings settings;
+    std::string input =
+      "[DEFAULT]\n"
+      "ConnectionType=acceptor\n"
+      "SocketAcceptPort=5000\n"
+      "SocketReuseAddress=Y\n"
+      "StartTime=00:00:00\n"
+      "EndTime=00:00:00\n"
+      "UseDataDictionary=N\n"
+      "CheckLatency=N\n"
+      "[SESSION]\n"
+      "BeginString=FIX.4.2\n"
+      "SenderCompID=ISLD\n"
+      "TargetCompID=TW\n"
+      "[SESSION]\n"
+      "BeginString=FIX.4.1\n"
+      "SenderCompID=ISLD\n"
+      "TargetCompID=WT\n";
+    std::stringstream stream( input );
+    stream >> settings;
 
-  m_pApplication = new TestApplication();
-  m_pFactory = new MemoryStoreFactory();
-  pObject = new SocketAcceptor( *m_pApplication, *m_pFactory, settings );
-  pObject->poll();
-  s = SocketUtilitiesTestCase::createSocket( 5000, "127.0.0.1" );
-  pObject->poll();
-  return true;
-}
+    object = new SocketAcceptor( application, factory, settings );
+    object->poll();
+    s = SocketUtilitiesTestCase::createSocket( 5000, "127.0.0.1" );
+    object->poll();
+  }
 
-void SocketAcceptorTestCase::receivePartialMessage::onRun( SocketAcceptor& object )
+  ~receivePartialMessageFixture()
+  {
+    object->stop( true );
+    delete object;
+    socket_close( s );
+    socket_invalidate( s );
+  }
+
+  TestApplication application;
+  MemoryStoreFactory factory;
+  SocketAcceptor* object;
+  int s;
+};
+
+TEST_FIXTURE(receivePartialMessageFixture, receivePartialMessage)
 {
   std::string firstPart = "8=FIX.4.29=28235=834=2369=31450"
                           "52=20041209-15:35:32.68749=TW50=G56=ISLD"
@@ -89,10 +108,10 @@ void SocketAcceptorTestCase::receivePartialMessage::onRun( SocketAcceptor& objec
   logon.set( HeartBtInt(30) );
 
   assert( socket_send( s, logon.toString().c_str(), strlen(logon.toString().c_str()) ) );
-  object.poll();
+  object->poll();
   assert( socket_send( s, firstPart.c_str(), strlen(firstPart.c_str()) ) );
-  object.poll();
+  object->poll();
   assert( socket_send( s, secondPart.c_str(), strlen(secondPart.c_str()) ) );
-  object.poll();
+  object->poll();
 }
 }

@@ -73,7 +73,7 @@ public:
     {}
 
   bool send( const std::string& ) { return true; }
-  void onRun( Session* pObject ) {}
+
   void toAdmin( Message& message, const SessionID& )
   {
     MsgType msgType;
@@ -81,12 +81,12 @@ public:
     switch ( msgType.getValue() [ 0 ] )
     {
       case 'A':
-      toLogon++; logon = message; break;
+      toLogon++; sentLogon = message; break;
       case '2':
       toResendRequest++;
-      resendRequest = message; break;
+      sentResendRequest = message; break;
       case '0':
-      toHeartbeat++; heartbeat = message; break;
+      toHeartbeat++; sentHeartbeat = message; break;
       case '5':
       toLogout++; break;
       case '3':
@@ -148,9 +148,9 @@ public:
 
   void disconnect() { disconnected++; }
 
-  Message logon;
-  Message resendRequest;
-  Message heartbeat;
+  Message sentLogon;
+  Message sentResendRequest;
+  Message sentHeartbeat;
   int toLogon;
   int toResendRequest;
   int toHeartbeat;
@@ -261,10 +261,28 @@ FIX42::ExecutionReport createExecutionReport( const char* sender, const char* ta
 
 struct sessionFixture : public TestCallback
 {
-  sessionFixture() {}
+  sessionFixture() 
+  {
+    object = 0;
+  }
 
   sessionFixture( int heartBtInt )
   {
+    object = 0;
+    createSession( heartBtInt );
+  }
+
+  ~sessionFixture()
+  {
+    if( object )
+      delete object;
+  }
+
+  virtual void createSession( int heartBtInt )
+  {
+    if( object )
+      delete object;
+
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "TW" ), TargetCompID( "ISLD" ) );
     TimeRange sessionTime( startTime, endTime );
@@ -272,29 +290,6 @@ struct sessionFixture : public TestCallback
     object = new Session( *this, factory, sessionID, DataDictionary("../spec/FIX42.xml"),
                            sessionTime, heartBtInt, 0 );
   }
-
-  ~sessionFixture()
-  {
-    delete object;
-  }
-
-  Message logon;
-  Message resendRequest;
-  Message heartbeat;
-  int toLogon;
-  int toResendRequest;
-  int toHeartbeat;
-  int toLogout;
-  int toReject;
-  int toSequenceReset;
-  int toBusinessMessageReject;
-  int fromHeartbeat;
-  int fromTestRequest;
-  int fromLogout;
-  int fromReject;
-  int fromSequenceReset;
-  int resent;
-  int disconnect;
 
   Session* object;
   MemoryStoreFactory factory;
@@ -321,21 +316,21 @@ TEST_FIXTURE(acceptorFixture, nextLogon)
   object->next( createLogon( "BLAH", "TW", 1 ) );
   CHECK( !object->receivedLogon() );
   CHECK_EQUAL( 0, toLogon );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 
   // send with an incorrect TargetCompID
   object->setResponder( this );
   object->next( createLogon( "ISLD", "BLAH", 1 ) );
   CHECK( !object->receivedLogon() );
   CHECK_EQUAL( 0, toLogon );
-  CHECK_EQUAL( 2, disconnect );
+  CHECK_EQUAL( 2, disconnected );
 
   // send a correct logon
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ) );
   CHECK( object->receivedLogon() );
   CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 2, disconnect );
+  CHECK_EQUAL( 2, disconnected );
 
   // check that we got a valid logon response
   SenderCompID senderCompID;
@@ -343,10 +338,10 @@ TEST_FIXTURE(acceptorFixture, nextLogon)
   HeartBtInt heartBtInt;
   EncryptMethod encryptMethod;
 
-  logon.getHeader().getField( senderCompID );
-  logon.getHeader().getField( targetCompID );
-  logon.getField( heartBtInt );
-  logon.getField( encryptMethod );
+  sentLogon.getHeader().getField( senderCompID );
+  sentLogon.getHeader().getField( targetCompID );
+  sentLogon.getField( heartBtInt );
+  sentLogon.getField( encryptMethod );
 
   CHECK_EQUAL( "TW", senderCompID );
   CHECK_EQUAL( "ISLD", targetCompID );
@@ -362,7 +357,7 @@ TEST_FIXTURE(acceptorFixture, nextLogonNoEncryptMethod)
   object->next( logon );
   CHECK( object->receivedLogon() );
   CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
 
   // check that we got a valid logon response
   SenderCompID senderCompID;
@@ -370,10 +365,10 @@ TEST_FIXTURE(acceptorFixture, nextLogonNoEncryptMethod)
   HeartBtInt heartBtInt;
   EncryptMethod encryptMethod;
  
-  logon.getHeader().getField( senderCompID );
-  logon.getHeader().getField( targetCompID );
-  logon.getField( heartBtInt );
-  logon.getField( encryptMethod );
+  sentLogon.getHeader().getField( senderCompID );
+  sentLogon.getHeader().getField( targetCompID );
+  sentLogon.getField( heartBtInt );
+  sentLogon.getField( encryptMethod );
 
   CHECK_EQUAL( "TW", senderCompID );
   CHECK_EQUAL( "ISLD", targetCompID );
@@ -388,7 +383,7 @@ TEST_FIXTURE(acceptorFixture, nextLogonResetSeqNumFlag)
 
   object->next( createLogout( "ISLD", "TW", 2 ) );
   CHECK( !object->receivedLogon() );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, fromLogout );
   CHECK_EQUAL( 3, object->getExpectedSenderNum() );
@@ -453,13 +448,13 @@ TEST_FIXTURE(acceptorFixture, callDisconnect)
   heartbeat.getHeader().setField( sendingTime );
   heartbeat.getHeader().setField( origSendingTime );
   object->next( heartbeat );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
   CHECK_EQUAL( 2, fromHeartbeat );
 
-  // message is not a possible dup, disconnect
+  // message is not a possible dup, disconnected
   heartbeat.getHeader().setField( PossDupFlag( false ) );
   object->next( heartbeat );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 2, fromHeartbeat );
 }
 
@@ -620,7 +615,7 @@ TEST_FIXTURE(acceptorFixture, nextTestRequest)
   CHECK_EQUAL( 1, toHeartbeat );
 
   TestReqID testReqID;
-  heartbeat.getField( testReqID );
+  sentHeartbeat.getField( testReqID );
   CHECK_EQUAL( "HELLO", testReqID );
 }
 
@@ -651,7 +646,7 @@ TEST_FIXTURE(acceptorFixture, nextLogout)
 
   object->next( createLogout( "ISLD", "TW", 2 ) );
   CHECK( !object->receivedLogon() );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, fromLogout );
 }
@@ -734,7 +729,7 @@ TEST_FIXTURE(acceptorFixture, badCompID)
 
   object->next( createLogout( "ISLD", "TW", 4 ) );
   CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 }
 
 TEST_FIXTURE(acceptorFixture, nextReject)
@@ -770,12 +765,12 @@ TEST_FIXTURE(acceptorFixture, badMsgType)
   object->next( msgWithBadType );
 
   CHECK_EQUAL( 1, toReject );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
   CHECK_EQUAL( 0, toLogout );
 
   object->next( createLogout( "ISLD", "TW", 3 ) );
   CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 }
 
 TEST_FIXTURE(acceptorFixture, nextSequenceReset)
@@ -840,7 +835,7 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
   CHECK_EQUAL( 1, fromSequenceReset );
   CHECK_EQUAL( 1, toResendRequest );
   CHECK_EQUAL( 20, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
 
   // NewSeqNo is less, PossDupFlag = N
   FIX42::SequenceReset sequenceReset4 = createSequenceReset( "ISLD", "TW", 19, 20 );
@@ -850,7 +845,7 @@ TEST_FIXTURE(acceptorFixture, nextGapFill)
   CHECK_EQUAL( 1, fromSequenceReset );
   CHECK_EQUAL( 1, toResendRequest );
   CHECK_EQUAL( 20, object->getExpectedTargetNum() );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 }
 
 TEST_FIXTURE(acceptorFixture, nextResendRequest)
@@ -958,13 +953,13 @@ TEST_FIXTURE(acceptorFixture, badBeginString)
   testRequest.getHeader().setField( BeginString( BeginString_FIX41 ) );
   object->next( testRequest );
   CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
 
   FIX42::Logout logout = createLogout( "ISLD", "TW", 3 );
   logout.getHeader().setField( BeginString( BeginString_FIX41 ) );
   object->next( logout );
   CHECK_EQUAL( 1, toLogout );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 }
 
 TEST_FIXTURE(acceptorFixture, unsupportedMsgType)
@@ -979,7 +974,7 @@ TEST_FIXTURE(acceptorFixture, unsupportedMsgType)
 
 struct resetOnEndTimeFixture : public acceptorFixture
 {
-  resetOnEndTimeFixture()
+  void createSession()
   {
     startTime.setCurrent();
     startTime.setMillisecond(0);
@@ -988,22 +983,25 @@ struct resetOnEndTimeFixture : public acceptorFixture
     endTime.setMillisecond(0);
 
     endTime += 2;
+
+    acceptorFixture::createSession( 0 );
   }
 };
 
 TEST_FIXTURE(resetOnEndTimeFixture, resetOnEndTime)
 {
+  createSession();
   object->next( createLogon( "ISLD", "TW", 1 ) );
   object->next( createHeartbeat( "ISLD", "TW", 2 ) );
 
   CHECK_EQUAL( 1, toLogon );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
   process_sleep( 1 );
   object->next();
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
   process_sleep( 2 );
   object->next();
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
   CHECK_EQUAL( 1, toLogout );
   CHECK_EQUAL( 1, object->getExpectedSenderNum() );
   CHECK_EQUAL( 1, object->getExpectedTargetNum() );
@@ -1014,20 +1012,22 @@ struct disconnectBeforeStartTimeFixture : public acceptorFixture
   disconnectBeforeStartTimeFixture()
   {
     startTime.setCurrent();
-    startTime += 1;
+    startTime += 100;
     endTime.setCurrent();
-    endTime += 4;
+    endTime += 400;
+
+    acceptorFixture::createSession( 0 );
   }
 };
 
-TEST_FIXTURE(disconnectBeforeStartTimeFixture, disconnectBeforeStartTime)
+TEST_FIXTURE(disconnectBeforeStartTimeFixture, disconnectedBeforeStartTime)
 {
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 
   process_sleep( 2 );
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 }
 
 struct resetOnNewSessionFixture : public acceptorFixture
@@ -1044,11 +1044,11 @@ struct resetOnNewSessionFixture : public acceptorFixture
 TEST_FIXTURE(acceptorFixture, resetOnNewSession)
 {
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
 
   process_sleep( 3 );
   object->next();
-  CHECK_EQUAL( 1, disconnect );
+  CHECK_EQUAL( 1, disconnected );
 }
 
 struct logonAtLogonStartTimeFixture : public acceptorFixture
@@ -1099,7 +1099,7 @@ TEST_FIXTURE(acceptorFixture, processQueuedMessages)
 {
   object->setResponder( this );
   object->next( createLogon( "ISLD", "TW", 1 ) );
-  CHECK_EQUAL( 0, disconnect );
+  CHECK_EQUAL( 0, disconnected );
 
   for( int i = 3; i <= 5003; ++i )
   {

@@ -24,18 +24,34 @@
 #include "config.h"
 #endif
 
-#include "FileStoreTestCase.h"
-#include "FileStoreFactoryTestCase.h"
-#include "Session.h"
-
+#include <UnitTest++.h>
+#include <FileStore.h>
+#include <Session.h>
 #include <fstream>
+#include "TestHelper.h"
 
-namespace FIX
-{
-void FileStoreFactoryTestCase::callCreate::onRun( FileStoreFactory& object )
-{
-  deleteSession( "FS", "FACT" );
+using namespace FIX;
 
+SUITE(FileStoreFactoryTests)
+{
+
+struct callCreateFixture
+{
+  callCreateFixture() : object( "store" )
+  {
+    deleteSession( "FS", "FACT" );
+  }
+
+  ~callCreateFixture()
+  {
+    deleteSession( "FS", "FACT" );
+  }
+
+  FileStoreFactory object;
+};
+
+TEST_FIXTURE(callCreateFixture, callCreate)
+{
   SessionID sessionID( BeginString( "FIX.4.2" ),
                        SenderCompID( "FS" ), TargetCompID( "FACT" ) );
 
@@ -55,11 +71,4 @@ void FileStoreFactoryTestCase::callCreate::onRun( FileStoreFactory& object )
   assert( !sessionFile.fail() );
   sessionFile.close();
 }
-
-void FileStoreFactoryTestCase::callCreate::onTeardown
-( FileStoreFactory* pObject )
-{
-  deleteSession( "FS", "FACT" );
-}
-
 } //namespace FIX
