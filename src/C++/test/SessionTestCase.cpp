@@ -289,6 +289,7 @@ struct sessionFixture : public TestCallback
 
     object = new Session( *this, factory, sessionID, DataDictionary("../spec/FIX42.xml"),
                            sessionTime, heartBtInt, 0 );
+    object->setResponder( this );
   }
 
   Session* object;
@@ -1038,6 +1039,8 @@ struct resetOnNewSessionFixture : public acceptorFixture
     endTime = startTime;
     endTime += 2;
     startTime += -2;
+
+    acceptorFixture::createSession( 0 );
   }
 };
 

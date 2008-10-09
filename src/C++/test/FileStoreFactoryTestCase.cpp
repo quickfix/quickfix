@@ -56,19 +56,19 @@ TEST_FIXTURE(callCreateFixture, callCreate)
                        SenderCompID( "FS" ), TargetCompID( "FACT" ) );
 
   MessageStore* m = object.create( sessionID );
-  assert( typeid( *m ) == typeid( FileStore ) );
+  CHECK( typeid( FileStore ) == typeid( *m ) );
   object.destroy( m );
 
   std::ifstream messageFile( "store/FIX.4.2-FS-FACT.body" );
-  assert( !messageFile.fail() );
+  CHECK( !messageFile.fail() );
   messageFile.close();
 
   std::ifstream seqnumsFile( "store/FIX.4.2-FS-FACT.seqnums" );
-  assert( !seqnumsFile.fail() );
+  CHECK( !seqnumsFile.fail() );
   seqnumsFile.close();
 
   std::ifstream sessionFile( "store/FIX.4.2-FS-FACT.session" );
-  assert( !sessionFile.fail() );
+  CHECK( !sessionFile.fail() );
   sessionFile.close();
 }
 } //namespace FIX

@@ -272,7 +272,7 @@ TEST(isInSameRangeWithDay)
   // Check that "missing" start and end days are handled as isSameSession without days
   startDay = -1;
   endDay = -1;
-  assert( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
+  CHECK( TimeRange::isInSameRange(startTime, endTime, startDay, endDay, time1, time2) );
 
   // Session days are the same
   startDay = 1;

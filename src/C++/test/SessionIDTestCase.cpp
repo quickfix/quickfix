@@ -106,7 +106,7 @@ TEST(streamOut)
 
   std::stringstream strstream;
   strstream << object;
-  assert( strstream.str() == "FIX.4.2:SENDER->TARGET" );
+  CHECK_EQUAL( "FIX.4.2:SENDER->TARGET", strstream.str() );
 }
 
 TEST(streamIn)
@@ -115,17 +115,17 @@ TEST(streamIn)
   std::stringstream strstream;
   strstream << "FIX.4.2:SENDER->TARGET";
   strstream >> object;
-  assert( object.toString() == "FIX.4.2:SENDER->TARGET" );
+  CHECK_EQUAL( "FIX.4.2:SENDER->TARGET", object.toString() );
 
   std::stringstream strstream2;
   strstream2 << "FIX.4.2:SENDER->TARGET:QUALIFIER";
   strstream2 >> object;
-  assert( object.toString() == "FIX.4.2:SENDER->TARGET:QUALIFIER" );
+  CHECK_EQUAL( "FIX.4.2:SENDER->TARGET:QUALIFIER", object.toString() );
 
   std::stringstream strstream3;
   strstream3 << "FIX.4.2:SENDER-ID->TARGET:QUALIFIER";
   strstream3 >> object;
-  assert( object.toString() == "FIX.4.2:SENDER-ID->TARGET:QUALIFIER" );
+  CHECK_EQUAL( "FIX.4.2:SENDER-ID->TARGET:QUALIFIER", object.toString() );
 }
 
 }
