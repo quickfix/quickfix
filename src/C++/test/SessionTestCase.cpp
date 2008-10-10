@@ -1044,7 +1044,7 @@ struct resetOnNewSessionFixture : public acceptorFixture
   }
 };
 
-TEST_FIXTURE(acceptorFixture, resetOnNewSession)
+TEST_FIXTURE(resetOnNewSessionFixture, resetOnNewSession)
 {
   object->next( createLogon( "ISLD", "TW", 1 ) );
   CHECK_EQUAL( 0, disconnected );
