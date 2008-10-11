@@ -24,111 +24,119 @@
 #include "config.h"
 #endif
 
-#include "SocketServerTestCase.h"
-#include "SocketUtilitiesTestCase.h"
+#include <UnitTest++.h>
+#include <TestHelper.h>
+#include <SocketUtilitiesTestCase.h>
 #ifdef _MSC_VER
 #include <stdlib.h>
 #endif
 
-namespace FIX
+using namespace FIX;
+
+class socketServerFixture : public SocketServer::Strategy
 {
-bool SocketServerTestCase::accept::onSetup( SocketServer*& pObject )
-{
-  try
+public:
+  socketServerFixture() 
+  : connect( 0 ), write( 0 ), data( 0 ), disconnect( 0 ),
+    connectSocket( 0 ), writeSocket( 0 ),
+    dataSocket( 0 ), disconnectSocket( 0 ),
+    bufLen( 0 ) {}
+
+  void onConnect( SocketServer&, int accept, int socket )
+  { connect++; connectSocket = socket; }
+  void onWrite( SocketServer&, int socket )
+  { write++; writeSocket = socket; }
+  bool onData( SocketServer& server, int socket )
   {
-    pObject = new SocketServer( 0 );
-    return true;
+    data++; dataSocket = socket;
+    bufLen = recv( socket, buf, 1, 0 );
+    return bufLen > 0;
   }
-  catch ( std::exception& ) { return false; }
-}
+  void onDisconnect( SocketServer&, int socket )
+  { disconnect++; disconnectSocket = socket; }
+  void onError( SocketServer& )
+  {}
 
-void SocketServerTestCase::accept::onRun( SocketServer& object )
+  int connect, write, data, disconnect;
+  int connectSocket, writeSocket;
+  int dataSocket, disconnectSocket;
+  char buf[ 1 ]; size_t bufLen;
+};
+
+SUITE(SocketServerTests)
 {
-  int serverS1 = object.add( m_port, true, true );
-  int clientS1 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
-  assert( clientS1 > 0 );
+
+TEST_FIXTURE(socketServerFixture, accept)
+{
+  SocketServer object( 0 );
+  int serverS1 = object.add( TestSettings::port, true, true );
+  int clientS1 = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  CHECK( clientS1 > 0 );
   int s1 = object.accept( serverS1 );
-  assert( s1 >= 0 );
+  CHECK( s1 >= 0 );
   object.block( *this );
-  assert( object.numConnections() == 1 );
+  CHECK( object.numConnections() == 1 );
 
-  int clientS2 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
-  assert( clientS2 > 0 );
+  int clientS2 = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  CHECK( clientS2 > 0 );
   int s2 = object.accept( serverS1 );
-  assert( s2 >= 0 );
+  CHECK( s2 >= 0 );
   object.block( *this );
-  assert( object.numConnections() == 2 );
+  CHECK( object.numConnections() == 2 );
 
-  int clientS3 = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
-  assert( clientS3 > 0 );
+  int clientS3 = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  CHECK( clientS3 > 0 );
   int s3 = object.accept( serverS1 );
-  assert( s3 >= 0 );
+  CHECK( s3 >= 0 );
   object.block( *this );
-  assert( object.numConnections() == 3 );
+  CHECK( object.numConnections() == 3 );
 
   SocketMonitor& monitor = object.getMonitor();
-  assert( !monitor.drop( -1 ) );
-  assert( object.numConnections() == 3 );
-  assert( monitor.drop( s1 ) );
-  assert( object.numConnections() == 2 );
-  assert( monitor.drop( s2 ) );
-  assert( object.numConnections() == 1 );
-  assert( monitor.drop( s3 ) );
-  assert( object.numConnections() == 0 );
+  CHECK( !monitor.drop( -1 ) );
+  CHECK( object.numConnections() == 3 );
+  CHECK( monitor.drop( s1 ) );
+  CHECK( object.numConnections() == 2 );
+  CHECK( monitor.drop( s2 ) );
+  CHECK( object.numConnections() == 1 );
+  CHECK( monitor.drop( s3 ) );
+  CHECK( object.numConnections() == 0 );
 
   SocketUtilitiesTestCase::destroySocket( clientS1 );
   SocketUtilitiesTestCase::destroySocket( clientS2 );
   SocketUtilitiesTestCase::destroySocket( clientS3 );
 }
 
-bool SocketServerTestCase::block::onSetup( SocketServer*& pObject )
+TEST_FIXTURE(socketServerFixture, block)
 {
-  try
-  {
-    pObject = new SocketServer( 0 );
-    return true;
-  }
-  catch ( std::exception& ) { return false; }
-}
-
-void SocketServerTestCase::block::onRun( SocketServer& object )
-{
-  object.add( m_port, true, true );
-  int clientS = SocketUtilitiesTestCase::createSocket( m_port, "127.0.0.1" );
-  assert( clientS >= 0 );
+  SocketServer object( 0 );
+  object.add( TestSettings::port, true, true );
+  int clientS = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  CHECK( clientS >= 0 );
 
   object.block( *this );
-  assert( m_connect == 1 );
-  assert( m_connectSocket > 0 );
+  CHECK_EQUAL( 1, connect );
+  CHECK( connectSocket > 0 );
 
   send( clientS, "1", 1, 0 );
   object.block( *this );
   object.block( *this );
-  assert( m_data == 1 );
-  assert( m_bufLen == 1 );
-  assert( *m_buf == '1' );
-  assert( m_dataSocket > 0 );
+  CHECK_EQUAL( 1, data );
+  CHECK_EQUAL( 1, bufLen );
+  CHECK_EQUAL( '1', *buf );
+  CHECK( dataSocket > 0 );
 
   SocketUtilitiesTestCase::destroySocket( clientS );
   object.block( *this );
-  assert( m_disconnect == 1 );
-  assert( m_disconnectSocket > 0 );
+  CHECK_EQUAL( 1, disconnect );
+  CHECK( disconnectSocket > 0 );
 }
 
-bool SocketServerTestCase::close::onSetup( SocketServer*& pObject )
+TEST_FIXTURE(socketServerFixture, close)
 {
-  try
-  {
-    pObject = new SocketServer( 0 );
-    return true;
-  }
-  catch ( std::exception& ) { return false; }
-}
-
-void SocketServerTestCase::close::onRun( SocketServer& object )
-{
-  object.add( m_port, true, true );
+  SocketServer object( 0 );
+  object.add( TestSettings::port, true, true );
   object.close();
   object.block( *this );
 }
+
 }

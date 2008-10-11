@@ -315,10 +315,6 @@
 				>
 			</File>
 			<File
-				RelativePath=".\C++\test\StringUtilitiesTestCase.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\C++\test\TestHelper.cpp"
 				>
 			</File>
