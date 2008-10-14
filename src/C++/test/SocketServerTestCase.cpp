@@ -70,21 +70,21 @@ TEST_FIXTURE(socketServerFixture, accept)
 {
   SocketServer object( 0 );
   int serverS1 = object.add( TestSettings::port, true, true );
-  int clientS1 = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  int clientS1 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS1 > 0 );
   int s1 = object.accept( serverS1 );
   CHECK( s1 >= 0 );
   object.block( *this );
   CHECK( object.numConnections() == 1 );
 
-  int clientS2 = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  int clientS2 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS2 > 0 );
   int s2 = object.accept( serverS1 );
   CHECK( s2 >= 0 );
   object.block( *this );
   CHECK( object.numConnections() == 2 );
 
-  int clientS3 = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  int clientS3 = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS3 > 0 );
   int s3 = object.accept( serverS1 );
   CHECK( s3 >= 0 );
@@ -101,16 +101,16 @@ TEST_FIXTURE(socketServerFixture, accept)
   CHECK( monitor.drop( s3 ) );
   CHECK( object.numConnections() == 0 );
 
-  SocketUtilitiesTestCase::destroySocket( clientS1 );
-  SocketUtilitiesTestCase::destroySocket( clientS2 );
-  SocketUtilitiesTestCase::destroySocket( clientS3 );
+  destroySocket( clientS1 );
+  destroySocket( clientS2 );
+  destroySocket( clientS3 );
 }
 
 TEST_FIXTURE(socketServerFixture, block)
 {
   SocketServer object( 0 );
   object.add( TestSettings::port, true, true );
-  int clientS = SocketUtilitiesTestCase::createSocket( TestSettings::port, "127.0.0.1" );
+  int clientS = createSocket( TestSettings::port, "127.0.0.1" );
   CHECK( clientS >= 0 );
 
   object.block( *this );
@@ -125,7 +125,7 @@ TEST_FIXTURE(socketServerFixture, block)
   CHECK_EQUAL( '1', *buf );
   CHECK( dataSocket > 0 );
 
-  SocketUtilitiesTestCase::destroySocket( clientS );
+  destroySocket( clientS );
   object.block( *this );
   CHECK_EQUAL( 1, disconnect );
   CHECK( disconnectSocket > 0 );

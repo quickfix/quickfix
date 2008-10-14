@@ -31,6 +31,7 @@
 #include <Values.h>
 #include <SessionID.h>
 #include <TimeRange.h>
+#include <Message.h>
 #include <fix42/Logon.h>
 #include <fix42/Logout.h>
 #include <fix42/Heartbeat.h>
@@ -51,7 +52,7 @@ class TestCallback : public Responder, public NullApplication
 protected:
   UtcTimeOnly startTime;
   UtcTimeOnly endTime;
-  Message lastResent;
+  FIX::Message lastResent;
 
 public:
   TestCallback()
@@ -74,7 +75,7 @@ public:
 
   bool send( const std::string& ) { return true; }
 
-  void toAdmin( Message& message, const SessionID& )
+  void toAdmin( FIX::Message& message, const SessionID& )
   {
     MsgType msgType;
     message.getHeader().getField( msgType );
@@ -96,7 +97,7 @@ public:
     }
   }
 
-  void fromAdmin( const Message& message, const SessionID& )
+  void fromAdmin( const FIX::Message& message, const SessionID& )
   throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon )
   {
     MsgType msgType;
@@ -116,7 +117,7 @@ public:
     }
   }
 
-  void fromApp( const Message& message, const SessionID& )
+  void fromApp( const FIX::Message& message, const SessionID& )
   throw( FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType )
   {
     MsgType msgType;
@@ -125,7 +126,7 @@ public:
       throw UnsupportedMessageType();
   }
 
-  void toApp( Message& message, const SessionID& )
+  void toApp( FIX::Message& message, const SessionID& )
   throw( DoNotSend )
   {
     PossDupFlag possDupFlag(false);
@@ -148,9 +149,9 @@ public:
 
   void disconnect() { disconnected++; }
 
-  Message sentLogon;
-  Message sentResendRequest;
-  Message sentHeartbeat;
+  FIX::Message sentLogon;
+  FIX::Message sentResendRequest;
+  FIX::Message sentHeartbeat;
   int toLogon;
   int toResendRequest;
   int toHeartbeat;
@@ -169,7 +170,7 @@ public:
   MemoryStoreFactory factory;
 };
 
-void fillHeader( Header& header, const char* sender, const char* target, int seq )
+ void fillHeader( FIX::Header& header, const char* sender, const char* target, int seq )
 {
   header.setField( SenderCompID( sender ) );
   header.setField( TargetCompID( target ) );
@@ -752,7 +753,7 @@ TEST_FIXTURE(acceptorFixture, nextReject)
 class MsgWithBadType : public FIX42::Message
 {
 public:
-  MsgWithBadType() : Message( MsgType( "*" ) ) {}
+  MsgWithBadType() : FIX42::Message( MsgType( "*" ) ) {}
 };
 
 TEST_FIXTURE(acceptorFixture, badMsgType)

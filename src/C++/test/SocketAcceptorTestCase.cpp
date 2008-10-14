@@ -63,7 +63,7 @@ struct receivePartialMessageFixture
 
     object = new SocketAcceptor( application, factory, settings );
     object->poll();
-    s = SocketUtilitiesTestCase::createSocket( 5000, "127.0.0.1" );
+    s = createSocket( 5000, "127.0.0.1" );
     object->poll();
   }
 
@@ -71,8 +71,7 @@ struct receivePartialMessageFixture
   {
     object->stop( true );
     delete object;
-    socket_close( s );
-    socket_invalidate( s );
+    destroySocket( s );
   }
 
   TestApplication application;

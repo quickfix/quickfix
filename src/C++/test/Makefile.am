@@ -4,54 +4,37 @@ CXXFLAGS += -O0 -g
 noinst_LTLIBRARIES = libquickfixcpptest.la
 
 libquickfixcpptest_la_SOURCES = \
-	TestSuite.h \
-	MessagesTestCase.cpp \
-	MessagesTestCase.h \
-	SessionTestCase.cpp \
-	SessionTestCase.h \
-	SettingsTestCase.cpp \
-	SettingsTestCase.h \
-	MessageStoreTestCase.cpp \
-	MessageStoreTestCase.h \
-	UtcTimeStampTestCase.cpp \
-	UtcTimeStampTestCase.h \
-	UtcTimeOnlyTestCase.cpp \
-	UtcTimeOnlyTestCase.h \
-	SocketAcceptorTestCase.cpp \
-	SocketAcceptorTestCase.h \
-	SocketUtilitiesTestCase.cpp \
-	SocketUtilitiesTestCase.h \
-	FileUtilitiesTestCase.cpp \
-	FileUtilitiesTestCase.h \
-	StringUtilitiesTestCase.cpp \
-	StringUtilitiesTestCase.h \
-	SocketServerTestCase.cpp \
-	SocketServerTestCase.h \
-	SocketConnectorTestCase.cpp \
-	SocketConnectorTestCase.h \
-	SessionIDTestCase.cpp \
-	SessionIDTestCase.h \
-	TimeRangeTestCase.cpp \
-	TimeRangeTestCase.h \
+	DictionaryTestCase.cpp \
+	FieldBaseTestCase.cpp \
+	FieldConvertorsTestCase.cpp \
 	FileLogTestCase.cpp \
-	FileLogTestCase.h \
-	FileStoreTestCase.cpp \
-	FileStoreTestCase.h \
 	FileStoreFactoryTestCase.cpp \
-	FileStoreFactoryTestCase.h \
-	MySQLStoreTestCase.cpp \
-	MySQLStoreTestCase.h \
-	PostgreSQLStoreTestCase.cpp \
-	PostgreSQLStoreTestCase.h \
-	SessionSettingsTestCase.cpp \
-	SessionSettingsTestCase.h \
-	NullStoreTestCase.cpp \
-	NullStoreTestCase.h \
+	FileUtilitiesTestCase.cpp \
+	HttpMessageTestCase.cpp \
+	HttpParserTestCase.cpp \
 	MemoryStoreTestCase.cpp \
 	MemoryStoreTestCase.h \
-	HttpParserTestCase.cpp \
-	HttpParserTestCase.h \
-	HttpMessageTestCase.cpp \
-	HttpMessageTestCase.h
+	MessageSortersTestCase.cpp \
+	MessagesTestCase.cpp \
+	MySQLStoreTestCase.cpp \
+	MySQLStoreTestCase.h \
+	NullStoreTestCase.cpp \
+	NullStoreTestCase.h \
+	OdbcStoreTestCase.cpp \
+	OdbcStoreTestCase.h \
+	ParserTestCase.cpp \
+	PostgreSQLStoreTestCase.cpp \
+	SessionIDTestCase.cpp \
+	SessionSettingsTestCase.cpp \
+	SessionTestCase.cpp \
+	SettingsTestCase.cpp \
+	SocketAcceptorTestCase.cpp \
+	SocketConnectorTestCase.cpp \
+	SocketServerTestCase.cpp \
+	StringUtilitiesTestCase.cpp \
+	TestHelper.cpp \
+	TimeRangeTestCase.cpp \
+	UtcTimeOnlyTestCase.cpp \
+	UtcTimeStampTestCase.cpp
 
 INCLUDES = -I.. -I../../../UnitTest++/src
