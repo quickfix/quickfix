@@ -26,8 +26,8 @@
 #define HAVE_ODBC
 #include "quickfix/FileStore.h"
 #include "quickfix/SocketAcceptor.h"
+#include "quickfix/FileLog.h"
 #include "quickfix/SessionSettings.h"
-#include "quickfix/OdbcLog.h"
 #include "Application.h"
 #include <string>
 #include <iostream>
@@ -58,7 +58,7 @@ int main( int argc, char** argv )
 
     Application application;
     FIX::FileStoreFactory storeFactory( settings );
-    FIX::OdbcLogFactory logFactory( settings );
+    FIX::FileLogFactory logFactory( settings );
     FIX::SocketAcceptor acceptor( application, storeFactory, settings, logFactory );
 
     acceptor.start();
