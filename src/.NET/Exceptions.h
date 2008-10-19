@@ -78,10 +78,15 @@ public:
   RuntimeError( String* what ) : Exception( what ) {}
 };
 
+public __gc class InvalidMessage : public Exception
+{
+public:
+  InvalidMessage( String* what ) : Exception( what ) {}
+};
+
 public __gc class SessionNotFound : public Exception {};
 public __gc class DoNotSend : public Exception {};
 public __gc class RejectLogon : public Exception {};
 public __gc class UnsupportedMessageType : public Exception {};
-public __gc class InvalidMessage : public Exception {};
 }
 

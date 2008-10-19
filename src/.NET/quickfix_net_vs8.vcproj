@@ -215,6 +215,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\FieldMap.cpp"
+				>
+			</File>
+			<File
 				RelativePath="Fields.cpp"
 				>
 			</File>
@@ -341,6 +345,10 @@
 			</File>
 			<File
 				RelativePath="Field.h"
+				>
+			</File>
+			<File
+				RelativePath=".\FieldMap.h"
 				>
 			</File>
 			<File

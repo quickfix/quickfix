@@ -82,7 +82,7 @@ public:
       m_trailer = new Trailer( this );
     }
     catch ( FIX::InvalidMessage & e )
-    { disposed = true; throw new InvalidMessage(); }
+    { disposed = true; throw new InvalidMessage( e.what() ); }
 
     addMemoryPressure();
 
@@ -102,7 +102,7 @@ public:
       m_trailer = new Trailer( this );
     }
     catch ( FIX::InvalidMessage & e )
-    { disposed = true; throw new InvalidMessage(); }
+    { disposed = true; throw new InvalidMessage( e.what() ); }
 
     addMemoryPressure();
 
@@ -122,7 +122,7 @@ public:
       m_trailer = new Trailer( this );
     }
     catch ( FIX::InvalidMessage & e )
-    { disposed = true; throw new InvalidMessage(); }
+    { disposed = true; throw new InvalidMessage( e.what() ); }
 
     addMemoryPressure();
 
@@ -231,7 +231,7 @@ public:
       m_pUnmanaged->setString( convertString(string) );
     }
     catch( FIX::InvalidMessage& e )
-    { throw new InvalidMessage(); }
+    { throw new InvalidMessage( e.what() ); }
 
     QF_STACK_CATCH
   }
@@ -244,7 +244,7 @@ public:
       m_pUnmanaged->setString( convertString(string), validate );
     }
     catch( FIX::InvalidMessage& e )
-    { throw new InvalidMessage(); }
+    { throw new InvalidMessage( e.what() ); }
 
     QF_STACK_CATCH
   }
@@ -257,7 +257,7 @@ public:
       m_pUnmanaged->setString( convertString(string), validate, &dataDictionary->unmanaged() );
     }
     catch( FIX::InvalidMessage& e )
-    { throw new InvalidMessage(); }
+    { throw new InvalidMessage( e.what() ); }
 
     QF_STACK_CATCH
   }
@@ -835,53 +835,6 @@ public:
     Message* m_message;
     FIX::Message::iterator* m_iterator;
   };
-
-private:
-  void mapSetString(int field, String* value, FIX::FieldMap& map);
-  void mapSetBoolean(int field, bool value, FIX::FieldMap& map);
-  void mapSetChar(int field, char value, FIX::FieldMap& map);
-  void mapSetInt(int field, int value, FIX::FieldMap& map);
-  void mapSetDouble(int field, double value, FIX::FieldMap& map);
-  void mapSetDouble(int field, double value, int padding, FIX::FieldMap& map);
-  void mapSetUtcTimeStamp(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map);
-  void mapSetUtcTimeOnly(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map);
-  void mapSetUtcDateOnly(int field, DateTime value, FIX::FieldMap& map);
-
-  String* mapGetString(int field, FIX::FieldMap& map);
-  bool mapGetBoolean(int field, FIX::FieldMap& map);
-  char mapGetChar(int field, FIX::FieldMap& map);
-  int mapGetInt(int field, FIX::FieldMap& map);
-  double mapGetDouble(int field, FIX::FieldMap& map);
-  DateTime mapGetUtcTimeStamp(int field, FIX::FieldMap& map);
-  DateTime mapGetUtcDateOnly(int field, FIX::FieldMap& map);
-  DateTime mapGetUtcTimeOnly(int field, FIX::FieldMap& map);
-
-  void mapSetField( StringField* field, FIX::FieldMap& map );
-  void mapSetField( BooleanField* field, FIX::FieldMap& map );
-  void mapSetField( CharField* field, FIX::FieldMap& map );
-  void mapSetField( IntField* field, FIX::FieldMap& map );
-  void mapSetField( DoubleField* field, FIX::FieldMap& map );
-  void mapSetField( UtcTimeStampField* field, FIX::FieldMap& map );
-  void mapSetField( UtcDateOnlyField* field, FIX::FieldMap& map );
-  void mapSetField( UtcTimeOnlyField* field, FIX::FieldMap& map );
-
-  StringField* mapGetField( StringField* field, FIX::FieldMap& map );
-  BooleanField* mapGetField( BooleanField* field, FIX::FieldMap& map );
-  CharField* mapGetField( CharField* field, FIX::FieldMap& map );
-  IntField* mapGetField( IntField* field, FIX::FieldMap& map );
-  DoubleField* mapGetField( DoubleField* field, FIX::FieldMap& map );
-  UtcTimeStampField* mapGetField( UtcTimeStampField* field, FIX::FieldMap& map );
-  UtcDateOnlyField* mapGetField( UtcDateOnlyField* field, FIX::FieldMap& map );
-  UtcTimeOnlyField* mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& map );
-
-  void mapSetField( int field, String*, FIX::FieldMap& map );
-  String* mapGetField( int field, FIX::FieldMap& map );
-  void mapRemoveField( int field, FIX::FieldMap& map );
-  bool mapHasGroup( unsigned num, int field, FIX::FieldMap& map );
-  bool mapHasGroup( int field, FIX::FieldMap& map );
-  void mapRemoveGroup( unsigned num, int field, FIX::FieldMap& map );
-  void mapRemoveGroup( int field, FIX::FieldMap& map );
-  int mapGroupCount( int field, FIX::FieldMap& map );
   
 protected:
   Header* m_header;

@@ -27,6 +27,19 @@ class Executor
   [ STAThread ]
   static void Main( string[] args )
   {
+try
+{
+	Message message = new Message("jh");
+message.Dispose();
+}
+catch( InvalidMessage e )
+{
+Console.WriteLine( e.Message );
+}
+
+GC.Collect();
+return;
+
     if ( args.Length != 1 )
     {
       Console.WriteLine( "usage: executor_csharp FILE." );

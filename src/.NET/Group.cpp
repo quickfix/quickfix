@@ -24,6 +24,122 @@
 
 namespace QuickFix
 {
+void Group::setString(int field, String* value)
+{ QF_STACK_TRY
+  checkDisposed(); 
+  if( value == 0 ) throw new NullReferenceException(); 
+  mapSetString( field, value, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setBoolean(int field, bool value)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetBoolean( field, value, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setChar(int field, wchar_t value)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetChar( field, value, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setInt(int field, int value)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetInt( field, value, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setDouble(int field, double value)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetDouble( field, value, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setDouble(int field, double value, int padding)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetDouble( field, value, padding, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setUtcTimeStamp(int field, DateTime value)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetUtcTimeStamp( field, value, false, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setUtcTimeStamp(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetUtcTimeStamp( field, value, showMilliseconds, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setUtcDateOnly(int field, DateTime value)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetUtcDateOnly( field, value, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setUtcTimeOnly(int field, DateTime value)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetUtcTimeOnly( field, value, false, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+void Group::setUtcTimeOnly(int field, DateTime value, bool showMilliseconds)
+{ QF_STACK_TRY
+  checkDisposed(); mapSetUtcTimeOnly( field, value, showMilliseconds, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+String* Group::getString(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetString( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+bool Group::getBoolean(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetBoolean( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+wchar_t Group::getChar(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetChar( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+int Group::getInt(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetInt( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+double Group::getDouble(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetDouble( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+DateTime Group::getUtcTimeStamp(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetUtcTimeStamp( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+DateTime Group::getUtcDateOnly(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetUtcDateOnly( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
+DateTime Group::getUtcTimeOnly(int field)
+{ QF_STACK_TRY
+  checkDisposed(); return mapGetUtcTimeOnly( field, *m_pUnmanaged );
+  QF_STACK_CATCH
+}
+
 void Group::setField( StringField* field )
 { QF_STACK_TRY
 

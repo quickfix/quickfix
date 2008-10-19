@@ -336,213 +336,213 @@ bool Message::isSetField( int field )
 
 void Message::Header::setString(int field, String* value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetString( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetString( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setBoolean(int field, bool value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetBoolean( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetBoolean( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setChar(int field, wchar_t value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetChar( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetChar( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setInt(int field, int value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetInt( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetInt( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setDouble(int field, double value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetDouble( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetDouble( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setDouble(int field, double value, int padding)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetDouble( field, value, padding, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetDouble( field, value, padding, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setUtcTimeStamp(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, false, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetUtcTimeStamp( field, value, false, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setUtcTimeStamp(int field, DateTime value, bool showMilliseconds)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, showMilliseconds, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetUtcTimeStamp( field, value, showMilliseconds, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setUtcDateOnly(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcDateOnly( field, value, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetUtcDateOnly( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setUtcTimeOnly(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, false, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetUtcTimeOnly( field, value, false, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setUtcTimeOnly(int field, DateTime value, bool showMilliseconds)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, showMilliseconds, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); mapSetUtcTimeOnly( field, value, showMilliseconds, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 String* Message::Header::getString(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetString( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetString( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 bool Message::Header::getBoolean(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetBoolean( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetBoolean( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 wchar_t Message::Header::getChar(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetChar( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetChar( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 int Message::Header::getInt(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetInt( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetInt( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 double Message::Header::getDouble(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetDouble( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetDouble( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 DateTime Message::Header::getUtcTimeStamp(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetUtcTimeStamp( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetUtcTimeStamp( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 DateTime Message::Header::getUtcDateOnly(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetUtcDateOnly( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetUtcDateOnly( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 DateTime Message::Header::getUtcTimeOnly(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetUtcTimeOnly( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapGetUtcTimeOnly( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setField( StringField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 void Message::Header::setField( BooleanField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 void Message::Header::setField( CharField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 void Message::Header::setField( IntField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 void Message::Header::setField( DoubleField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 void Message::Header::setField( UtcTimeStampField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 void Message::Header::setField( UtcDateOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 void Message::Header::setField( UtcTimeOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getHeader() );
+  mapSetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 StringField* Message::Header::getField( StringField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 BooleanField* Message::Header::getField( BooleanField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 CharField* Message::Header::getField( CharField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 IntField* Message::Header::getField( IntField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 DoubleField* Message::Header::getField( DoubleField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 UtcTimeStampField* Message::Header::getField( UtcTimeStampField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 UtcDateOnlyField* Message::Header::getField( UtcDateOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 UtcTimeOnlyField* Message::Header::getField( UtcTimeOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
@@ -555,69 +555,69 @@ bool Message::Header::isSetField( Field* field )
 String* Message::Header::getField( int field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGetField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::setField( int field, String* value )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapSetField( field, value, m_message->m_pUnmanaged->getHeader() );
+  return mapSetField( field, value, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::removeField( int field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapRemoveField( field, m_message->m_pUnmanaged->getHeader() );
+  return mapRemoveField( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 bool Message::Header::hasGroup( int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapHasGroup( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 bool Message::Header::hasGroup( unsigned num, int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( num, field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapHasGroup( num, field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 bool Message::Header::hasGroup( unsigned num, Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( num, group->field(), m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapHasGroup( num, group->field(), m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 bool Message::Header::hasGroup( Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( group->field(), m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapHasGroup( group->field(), m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
   
 void Message::Header::removeGroup( int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapRemoveGroup( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::removeGroup( unsigned num, int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( num, field, m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapRemoveGroup( num, field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::removeGroup( unsigned num, Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( num, group->field(), m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapRemoveGroup( num, group->field(), m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
 void Message::Header::removeGroup( Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( group->field(), m_message->m_pUnmanaged->getHeader() );
+  checkDisposed(); return mapRemoveGroup( group->field(), m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
@@ -636,7 +636,7 @@ void Message::Header::clear()
 int Message::Header::groupCount( int field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGroupCount( field, m_message->m_pUnmanaged->getHeader() );
+  return mapGroupCount( field, m_message->m_pUnmanaged->getHeader() );
   QF_STACK_CATCH
 }
 
@@ -648,213 +648,213 @@ bool Message::Header::isSetField( int field )
 
 void Message::Trailer::setString(int field, String* value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetString( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetString( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setBoolean(int field, bool value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetBoolean( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetBoolean( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setChar(int field, wchar_t value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetChar( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetChar( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setInt(int field, int value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetInt( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetInt( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setDouble(int field, double value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetDouble( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetDouble( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setDouble(int field, double value, int padding)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetDouble( field, value, padding, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetDouble( field, value, padding, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setUtcTimeStamp(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, false, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetUtcTimeStamp( field, value, false, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setUtcTimeStamp(int field, DateTime value, bool showMilliseconds)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeStamp( field, value, showMilliseconds, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetUtcTimeStamp( field, value, showMilliseconds, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setUtcDateOnly(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcDateOnly( field, value, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetUtcDateOnly( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setUtcTimeOnly(int field, DateTime value)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, false, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetUtcTimeOnly( field, value, false, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setUtcTimeOnly(int field, DateTime value, bool showMilliseconds)
 { QF_STACK_TRY
-  checkDisposed(); m_message->mapSetUtcTimeOnly( field, value, showMilliseconds, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); mapSetUtcTimeOnly( field, value, showMilliseconds, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 String* Message::Trailer::getString(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetString( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetString( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 bool Message::Trailer::getBoolean(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetBoolean( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetBoolean( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 wchar_t Message::Trailer::getChar(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetChar( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetChar( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 int Message::Trailer::getInt(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetInt( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetInt( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 double Message::Trailer::getDouble(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetDouble( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetDouble( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 DateTime Message::Trailer::getUtcTimeStamp(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetUtcTimeStamp( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetUtcTimeStamp( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 DateTime Message::Trailer::getUtcDateOnly(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetUtcDateOnly( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetUtcDateOnly( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 DateTime Message::Trailer::getUtcTimeOnly(int field)
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapGetUtcTimeOnly( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapGetUtcTimeOnly( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setField( StringField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 void Message::Trailer::setField( BooleanField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 void Message::Trailer::setField( CharField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 void Message::Trailer::setField( IntField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 void Message::Trailer::setField( DoubleField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 void Message::Trailer::setField( UtcTimeStampField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 void Message::Trailer::setField( UtcDateOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 void Message::Trailer::setField( UtcTimeOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  m_message->mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
+  mapSetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 StringField* Message::Trailer::getField( StringField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 BooleanField* Message::Trailer::getField( BooleanField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 CharField* Message::Trailer::getField( CharField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 IntField* Message::Trailer::getField( IntField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 DoubleField* Message::Trailer::getField( DoubleField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 UtcTimeStampField* Message::Trailer::getField( UtcTimeStampField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 UtcDateOnlyField* Message::Trailer::getField( UtcDateOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 UtcTimeOnlyField* Message::Trailer::getField( UtcTimeOnlyField* field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
@@ -867,69 +867,69 @@ bool Message::Trailer::isSetField( Field* field )
 String* Message::Trailer::getField( int field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGetField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::setField( int field, String* value )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapSetField( field, value, m_message->m_pUnmanaged->getTrailer() );
+  return mapSetField( field, value, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::removeField( int field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapRemoveField( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapRemoveField( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 bool Message::Trailer::hasGroup( int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapHasGroup( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 bool Message::Trailer::hasGroup( unsigned num, int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( num, field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapHasGroup( num, field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 bool Message::Trailer::hasGroup( unsigned num, Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( num, group->field(), m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapHasGroup( num, group->field(), m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 bool Message::Trailer::hasGroup( Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapHasGroup( group->field(), m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapHasGroup( group->field(), m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
   
 void Message::Trailer::removeGroup( int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapRemoveGroup( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::removeGroup( unsigned num, int field )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( num, field, m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapRemoveGroup( num, field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::removeGroup( unsigned num, Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( num, group->field(), m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapRemoveGroup( num, group->field(), m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
 void Message::Trailer::removeGroup( Group* group )
 { QF_STACK_TRY
-  checkDisposed(); return m_message->mapRemoveGroup( group->field(), m_message->m_pUnmanaged->getTrailer() );
+  checkDisposed(); return mapRemoveGroup( group->field(), m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
@@ -948,7 +948,7 @@ void Message::Trailer::clear()
 int Message::Trailer::groupCount( int field )
 { QF_STACK_TRY
   checkDisposed();
-  return m_message->mapGroupCount( field, m_message->m_pUnmanaged->getTrailer() );
+  return mapGroupCount( field, m_message->m_pUnmanaged->getTrailer() );
   QF_STACK_CATCH
 }
 
@@ -957,394 +957,4 @@ bool Message::Trailer::isSetField( int field )
   return m_message->m_pUnmanaged->getTrailer().isSetField( field );
   QF_STACK_CATCH
 }
-
-void Message::mapSetString(int field, String* value, FIX::FieldMap& map)
-{ QF_STACK_TRY
-  map.setField( FIX::StringField( field, convertString( value ) ) );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetBoolean(int field, bool value, FIX::FieldMap& map)
-{ QF_STACK_TRY
-  map.setField( FIX::BoolField( field, value ) );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetChar(int field, char value, FIX::FieldMap& map)
-{ QF_STACK_TRY
-  map.setField( FIX::CharField( field, value ) );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetInt(int field, int value, FIX::FieldMap& map)
-{ QF_STACK_TRY
-  map.setField( FIX::IntField( field, value ) );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetDouble(int field, double value, FIX::FieldMap& map)
-{ QF_STACK_TRY
-  map.setField( FIX::DoubleField(field, value) );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetDouble(int field, double value, int padding, FIX::FieldMap& map)
-{ QF_STACK_TRY
-  map.setField( FIX::DoubleField(field, value, padding) );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetUtcTimeStamp(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  map.setField( FIX::UtcTimeStampField(
-                  field,
-                  showMilliseconds ? FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second, value.Millisecond,
-                                     value.Day, value.Month, value.Year )
-                                   : FIX::UtcTimeStamp( value.Hour, value.Minute, value.Second,
-                                     value.Day, value.Month, value.Year ),
-                  showMilliseconds ) );
-
-  QF_STACK_CATCH
-}
-
-void Message::mapSetUtcTimeOnly(int field, DateTime value, bool showMilliseconds, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  map.setField( FIX::UtcTimeOnlyField(
-                  field,
-                  showMilliseconds ? FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second, value.Millisecond )
-                                   : FIX::UtcTimeOnly( value.Hour, value.Minute, value.Second ),
-                  showMilliseconds ) );
-
-  QF_STACK_CATCH
-}
-
-void Message::mapSetUtcDateOnly(int field, DateTime value, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  map.setField( FIX::UtcDateOnlyField(
-                  field,
-                  FIX::UtcDate( value.Day, value.Month, value.Year ) ) );
-
-  QF_STACK_CATCH
-}
-
-String* Message::mapGetString(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  StringField* stringField = new StringField(field);
-  return mapGetField( stringField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-bool Message::mapGetBoolean(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  BooleanField* booleanField = new BooleanField(field);
-  return mapGetField( booleanField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-char Message::mapGetChar(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  CharField* charField = new CharField(field);
-  return mapGetField( charField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-int Message::mapGetInt(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  IntField* intField = new IntField(field);
-  return mapGetField( intField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-double Message::mapGetDouble(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  DoubleField* doubleField = new DoubleField(field);
-  return mapGetField( doubleField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-DateTime Message::mapGetUtcTimeStamp(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  UtcTimeStampField* utcTimeStampField = new UtcTimeStampField(field);
-  return mapGetField( utcTimeStampField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-DateTime Message::mapGetUtcDateOnly(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  UtcDateOnlyField* utcDateOnlyField = new UtcDateOnlyField(field);
-  return mapGetField( utcDateOnlyField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-DateTime Message::mapGetUtcTimeOnly(int field, FIX::FieldMap& map)
-{ QF_STACK_TRY
-
-  UtcTimeOnlyField* utcTimeOnlyField = new UtcTimeOnlyField(field);
-  return mapGetField( utcTimeOnlyField, map )->getValue();
-
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( StringField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetString( field->getField(), field->getValue(), map );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( BooleanField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetBoolean( field->getField(), field->getValue(), map );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( CharField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetChar( field->getField(), field->getValue(), map );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( IntField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetInt( field->getField(), field->getValue(), map );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( DoubleField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetDouble( field->getField(), field->getValue(), field->getPadding(), map );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( UtcTimeStampField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetUtcTimeStamp( field->getField(), field->getValue(), field->showMilliseconds(), map );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( UtcDateOnlyField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetUtcDateOnly( field->getField(), field->getValue(), map );
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( UtcTimeOnlyField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  mapSetUtcTimeOnly( field->getField(), field->getValue(), field->showMilliseconds(), map );
-  QF_STACK_CATCH
-}
-
-StringField* Message::mapGetField( StringField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    field->setValue( map.getField( field->getField() ).c_str() );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-
-  QF_STACK_CATCH
-}
-
-BooleanField* Message::mapGetField( BooleanField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    field->setValue
-      ( FIX::BoolConvertor::convert( map.getField( field->getField() ) ) );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  catch ( FIX::FieldConvertError & e )
-  { throw new IncorrectDataFormat( field->getField() ); }
-
-  QF_STACK_CATCH
-}
-
-CharField* Message::mapGetField( CharField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    field->setValue
-      ( FIX::CharConvertor::convert( map.getField( field->getField() ) ) );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  catch ( FIX::FieldConvertError & e )
-  { throw new IncorrectDataFormat( field->getField() ); }
-
-  QF_STACK_CATCH
-}
-
-IntField* Message::mapGetField( IntField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    field->setValue
-      ( FIX::IntConvertor::convert( map.getField( field->getField() ) ) );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  catch ( FIX::FieldConvertError & e )
-  { throw new IncorrectDataFormat( field->getField() ); }
-
-  QF_STACK_CATCH
-}
-
-DoubleField* Message::mapGetField( DoubleField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    field->setValue
-      ( FIX::DoubleConvertor::convert( map.getField( field->getField() ) ) );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  catch ( FIX::FieldConvertError & e )
-  { throw new IncorrectDataFormat( field->getField() ); }
-
-  QF_STACK_CATCH
-}
-
-UtcTimeStampField* Message::mapGetField( UtcTimeStampField* field,
-				      FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    FIX::UtcTimeStamp fixd;
-    fixd = FIX::UtcTimeStampConvertor::convert
-      ( map.getField( field->getField() ) );
-    DateTime d( fixd.getYear(), fixd.getMonth(), fixd.getDate(),
-                fixd.getHour(), fixd.getMinute(), fixd.getSecond(), fixd.getMillisecond() );
-    field->setValue( d );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  catch ( FIX::FieldConvertError & e )
-  { throw new IncorrectDataFormat( field->getField() ); }
-
-  QF_STACK_CATCH
-}
-
-UtcDateOnlyField* Message::mapGetField( UtcDateOnlyField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    FIX::UtcDate fixd;
-    fixd = FIX::UtcDateConvertor::convert( map.getField( field->getField() ) );
-    DateTime d( fixd.getYear(), fixd.getMonth(), fixd.getDate(), 0, 0, 0 );
-    field->setValue( d );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  catch ( FIX::FieldConvertError & e )
-  { throw new IncorrectDataFormat( field->getField() ); }
-
-  QF_STACK_CATCH
-}
-
-UtcTimeOnlyField* Message::mapGetField( UtcTimeOnlyField* field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    FIX::UtcTimeOnly fixd;
-    fixd = FIX::UtcTimeOnlyConvertor::convert
-      ( map.getField( field->getField() ) );
-    DateTime d( 1, 1, 1, fixd.getHour(), fixd.getMinute(), fixd.getSecond(), fixd.getMillisecond() );
-    field->setValue( d );
-    return field;
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  catch ( FIX::FieldConvertError & e )
-  { throw new IncorrectDataFormat( field->getField() ); }
-
-  QF_STACK_CATCH
-}
-
-void Message::mapSetField( int field, String* value, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  map.setField( field, convertString(value) );
-  QF_STACK_CATCH
-}
-
-String* Message::mapGetField( int field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-
-  try
-  {
-    return map.getField( field ).c_str();
-  }
-  catch ( FIX::FieldNotFound & e )
-  { throw new FieldNotFound( e.field ); }
-  QF_STACK_CATCH
-}
-
-void Message::mapRemoveField( int field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  map.removeField( field );
-  QF_STACK_CATCH
-}
-
-bool Message::mapHasGroup( int field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  return map.hasGroup( field );
-  QF_STACK_CATCH
-}
-
-bool Message::mapHasGroup( unsigned num, int field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  return map.hasGroup( num, field );
-  QF_STACK_CATCH
-}
-
-void Message::mapRemoveGroup( int field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  map.removeGroup( field );
-  QF_STACK_CATCH
-}
-
-void Message::mapRemoveGroup( unsigned num, int field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  map.removeGroup( num, field );
-  QF_STACK_CATCH
-}
-
-int Message::mapGroupCount( int field, FIX::FieldMap& map )
-{ QF_STACK_TRY
-  return map.groupCount(field);
-  QF_STACK_CATCH
-}
-
 }

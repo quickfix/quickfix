@@ -157,8 +157,6 @@ public:
     m_getCreationTimeDelegate = new GetCreationTimeDelegate(callback, &MessageStoreCallback::getCreationTime);
     m_resetDelegate = new ResetDelegate(callback, &MessageStoreCallback::reset);
     m_refreshDelegate = new RefreshDelegate(callback, &MessageStoreCallback::refresh);
-
-    NativeFramework::RegisterCallback( m_callback );
   }
 
   ~MessageStore() 

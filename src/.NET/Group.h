@@ -101,6 +101,27 @@ public:
   int field() { checkDisposed(); return m_pUnmanaged->field(); }
   int delim() { checkDisposed(); return m_pUnmanaged->delim(); }
 
+  void setString(int field, String* value);
+  void setBoolean(int field, bool value);
+  void setChar(int field, wchar_t value);
+  void setInt(int field, int value);
+  void setDouble(int field, double value);
+  void setDouble(int field, double value, int padding);
+  void setUtcTimeStamp(int field, DateTime value);
+  void setUtcTimeStamp(int field, DateTime value, bool showMilliseconds);
+  void setUtcDateOnly(int field, DateTime value);
+  void setUtcTimeOnly(int field, DateTime value);
+  void setUtcTimeOnly(int field, DateTime value, bool showMilliseconds);
+
+  String* getString(int field);
+  bool getBoolean(int field);
+  wchar_t getChar(int field);
+  int getInt(int field);
+  double getDouble(int field);
+  DateTime getUtcTimeStamp(int field);
+  DateTime getUtcDateOnly(int field);
+  DateTime getUtcTimeOnly(int field);
+
   void setField( StringField* field );
   void setField( BooleanField* field );
   void setField( CharField* field );
