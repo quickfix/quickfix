@@ -30,6 +30,7 @@
 #include <Utility.h>
 #include <fix44/MarketDataRequest.h>
 #include <fix42/News.h>
+#include <fix42/NewOrderList.h>
 
 using namespace FIX;
 using namespace FIX42;
@@ -434,7 +435,7 @@ TEST(addRemoveGroup)
   object.setField( BidType( 0 ) );
   object.setField( TotNoOrders( 3 ) );
 
-  NewOrderList::NoOrders group;
+  FIX42::NewOrderList::NoOrders group;
   group.set( ClOrdID( "A" ) );
   group.set( ListSeqNo( 1 ) );
   group.set( Symbol( "DELL" ) );
@@ -493,7 +494,7 @@ TEST(replaceGroup)
   object.setField( BidType( 0 ) );
   object.setField( TotNoOrders( 3 ) );
 
-  NewOrderList::NoOrders group;
+  FIX42::NewOrderList::NoOrders group;
   group.set( ClOrdID( "A" ) );
   group.set( ListSeqNo( 1 ) );
   group.set( Symbol( "DELL" ) );
@@ -659,7 +660,7 @@ template<> void LogoutParseTestCase::setString::onRun( Logout& object )
   assert( object.get( text ) == "See Ya..." );
 }
 
-template<> void NewOrderSingleParseTestCase::getString::onRun( NewOrderSingle& object )
+template<> void NewOrderSingleParseTestCase::getString::onRun( FIX42::NewOrderSingle& object )
 {
   object.set( ClOrdID( "ORDERID" ) );
   object.set( HandlInst( '3' ) );
@@ -673,7 +674,7 @@ template<> void NewOrderSingleParseTestCase::getString::onRun( NewOrderSingle& o
           "54=1\00155=MSFT\00160=19000101-00:00:00\00110=226\001" );
 }
 
-template<> void NewOrderSingleParseTestCase::setString::onRun( NewOrderSingle& object )
+template<> void NewOrderSingleParseTestCase::setString::onRun( FIX42::NewOrderSingle& object )
 {
   object.setString
    ( "8=FIX.4.2\0019=48\00135=D\00111=ORDERID\00121=3\00140=2\001"
@@ -914,7 +915,7 @@ template<> void NewOrderListParseTestCase::getString::onRun
   object.set( BidType( 0 ) );
   object.set( TotNoOrders( 3 ) );
 
-  NewOrderList::NoOrders group;
+  FIX42::NewOrderList::NoOrders group;
   group.set( ClOrdID( "A" ) );
   group.set( ListSeqNo( 1 ) );
   group.set( Symbol( "DELL" ) );
@@ -970,7 +971,7 @@ template<> void NewOrderListParseTestCase::setString::onRun
   Symbol symbol;
   Side side;
 
-  NewOrderList::NoOrders group;
+  FIX42::NewOrderList::NoOrders group;
   object.getGroup( 1, group );
   group.get( clOrdID );
   group.get( listSeqNo );
@@ -1068,7 +1069,7 @@ template<> void MassQuoteParseTestCase::setString::onRun
 }
 
 template<> void NewOrderCrossParseTestCase::getString::onRun
-( NewOrderCross& object )
+( FIX44::NewOrderCross& object )
 {
   FIX44::NewOrderCross::NoSides noSides;
   noSides.set( FIX::Side(FIX::Side_BUY) );
@@ -1096,7 +1097,7 @@ template<> void NewOrderCrossParseTestCase::getString::onRun
 }
 
 template<> void NewOrderCrossParseTestCase::setString::onRun
-( NewOrderCross& object )
+( FIX44::NewOrderCross& object )
 {
   DataDictionary dataDictionary( "../spec/FIX44.xml" );
   try
