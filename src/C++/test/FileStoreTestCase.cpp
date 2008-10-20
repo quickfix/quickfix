@@ -24,95 +24,88 @@
 #include "config.h"
 #endif
 
-#include "FileStoreTestCase.h"
+#include <UnitTest++.h>
+#include <TestHelper.h>
+#include <FileStore.h>
+#include "MessageStoreTestCase.h"
 
-namespace FIX
+using namespace FIX;
+
+SUITE(FileStoreTests)
 {
-bool FileStoreTestCase::setGet::onSetup( MessageStore*& pObject )
+
+struct fileStoreFixture
 {
-  deleteSession( "SETGET", "TEST" );
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+  fileStoreFixture( bool resetBefore, bool resetAfter )
+  : fileStoreFactory( "store" )
+  {
+    if( resetBefore )
+      deleteSession( "SETGET", "TEST" );
 
-  m_object = m_fileStoreFactory.create( sessionID );
-  pObject = &( *m_object );
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-  return true;
+    object = fileStoreFactory.create( sessionID );
+
+    this->resetAfter = resetAfter;
+  }
+
+  ~fileStoreFixture()
+  {
+    fileStoreFactory.destroy( object );
+
+    if( resetAfter )
+      deleteSession( "SETGET", "TEST" );
+  }
+
+  FileStoreFactory fileStoreFactory;
+  MessageStore* object;
+  bool resetAfter;
+};
+
+struct resetBeforeFileStoreFixture : fileStoreFixture
+{
+  resetBeforeFileStoreFixture() : fileStoreFixture( true, false ) {}
+};
+
+struct resetAfterFileStoreFixture : fileStoreFixture
+{
+  resetAfterFileStoreFixture() : fileStoreFixture( false, true ) {}
+};
+
+struct resetBeforeAndAfterFileStoreFixture : fileStoreFixture
+{
+  resetBeforeAndAfterFileStoreFixture() : fileStoreFixture( true, true ) {}
+};
+
+struct noResetFileStoreFixture : fileStoreFixture
+{
+  noResetFileStoreFixture() : fileStoreFixture( false, false ) {}
+};
+
+TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, setGet)
+{
+  CHECK_MESSAGE_STORE_SET_GET;
 }
 
-void FileStoreTestCase::setGet::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(resetBeforeAndAfterFileStoreFixture, setGetWithQuote)
 {
-  m_fileStoreFactory.destroy( pObject );
-  deleteSession( "SETGET", "TEST" );
+  CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-bool FileStoreTestCase::setGetWithQuote::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(resetBeforeFileStoreFixture, other)
 {
-  deleteSession( "SETGET", "TEST" );
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_fileStoreFactory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
+  CHECK_MESSAGE_STORE_OTHER
 }
 
-void FileStoreTestCase::setGetWithQuote::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(noResetFileStoreFixture, reload)
 {
-  m_fileStoreFactory.destroy( pObject );
-  deleteSession( "SETGET", "TEST" );
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-bool FileStoreTestCase::other::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(resetAfterFileStoreFixture, refresh)
 {
-  deleteSession( "SETGET", "TEST" );
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_fileStoreFactory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-void FileStoreTestCase::other::onTeardown( MessageStore* pObject )
-{
-  m_fileStoreFactory.destroy( pObject );
-  // keep session around for next test
-}
-
-bool FileStoreTestCase::reload::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_fileStoreFactory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void FileStoreTestCase::reload::onTeardown( MessageStore* pObject )
-{
-  m_fileStoreFactory.destroy( pObject );
-  // keep session around for next test
-}
-
-bool FileStoreTestCase::refresh::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_fileStoreFactory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void FileStoreTestCase::refresh::onTeardown( MessageStore* pObject )
-{
-  m_fileStoreFactory.destroy( pObject );
-  deleteSession( "SETGET", "TEST" );
-}
 }

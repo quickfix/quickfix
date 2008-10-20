@@ -1,5 +1,3 @@
-/* -*- C++ -*- */
-
 /****************************************************************************
 ** Copyright (c) quickfixengine.org  All rights reserved.
 **
@@ -19,68 +17,84 @@
 **
 ****************************************************************************/
 
-#ifndef FIX_MESSAGESTORETESTCASE_H
-#define FIX_MESSAGESTORETESTCASE_H
+#include <fix42/Logon.h>
+#include <fix42/Heartbeat.h>
+#include <fix42/NewOrderSingle.h>
+#include <fix42/ExecutionReport.h>
 
-#include <CPPTest/TestCase.h>
-#include "MessageStore.h"
+#define CHECK_MESSAGE_STORE_SET_GET                         \
+  FIX42::Logon logon;                                       \
+  logon.getHeader().setField( MsgSeqNum( 1 ) );             \
+  object->set( 1, logon.toString() );                       \
+                                                            \
+  FIX42::Heartbeat heartbeat;                               \
+  heartbeat.getHeader().setField( MsgSeqNum( 2 ) );         \
+  object->set( 2, heartbeat.toString() );                   \
+                                                            \
+  FIX42::NewOrderSingle newOrderSingle;                     \
+  newOrderSingle.getHeader().setField( MsgSeqNum( 3 ) );    \
+  object->set( 3, newOrderSingle.toString() );              \
+                                                            \
+  std::vector < std::string > messages;                     \
+  object->get( 1, 3, messages );                            \
+  CHECK_EQUAL( 3, messages.size() );                        \
+  CHECK_EQUAL( logon.toString(), messages[ 0 ] );           \
+  CHECK_EQUAL( heartbeat.toString(), messages[ 1 ] );       \
+  CHECK_EQUAL( newOrderSingle.toString(), messages[ 2 ] );  \
+                                                            \
+  object->get( 4, 6, messages );                            \
+  CHECK_EQUAL( 0, messages.size() );                        \
+                                                            \
+  object->get( 2, 6, messages );                            \
+  CHECK_EQUAL( 2, messages.size() );                        \
+  CHECK_EQUAL( heartbeat.toString(), messages[ 0 ] );       \
+  CHECK_EQUAL( newOrderSingle.toString(), messages[ 1 ] );
 
-namespace FIX
-{
-class MessageStoreTestCase : public CPPTest::TestCase < MessageStore >
-{
-public:
-  MessageStoreTestCase()
-  {}
+#define CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE        \
+  FIX42::ExecutionReport singleQuote;                 \
+  singleQuote.setField( Text("Some Text") );          \
+  object->set( 1, singleQuote.toString() );           \
+                                                      \
+  FIX42::ExecutionReport doubleQuote;                 \
+  doubleQuote.setField( Text("\"Some Text\"") );      \
+  object->set( 2, doubleQuote.toString() );           \
+                                                      \
+  FIX42::ExecutionReport bothQuote;                   \
+  bothQuote.setField( Text("'\"Some Text\"'") );      \
+  object->set( 3, bothQuote.toString() );             \
+                                                      \
+  FIX42::ExecutionReport escape;                      \
+  escape.setField( Text("\\Some Text\\") );           \
+  object->set( 4, escape.toString() );                \
+                                                      \
+  std::vector < std::string > messages;               \
+  object->get( 1, 4, messages );                      \
+  CHECK_EQUAL( 4, messages.size() );                  \
+  CHECK_EQUAL( singleQuote.toString(), messages[0] ); \
+  CHECK_EQUAL( doubleQuote.toString(), messages[1] ); \
+  CHECK_EQUAL( bothQuote.toString(), messages[2] );   \
+  CHECK_EQUAL( escape.toString(), messages[3] );
 
-public:
-  typedef CPPTest::Test < MessageStore > Test;
+#define CHECK_MESSAGE_STORE_OTHER                       \
+  object->setNextSenderMsgSeqNum( 10 );                 \
+  CHECK_EQUAL( 10, object->getNextSenderMsgSeqNum() );  \
+  object->setNextTargetMsgSeqNum( 20 );                 \
+  CHECK_EQUAL( 20, object->getNextTargetMsgSeqNum() );  \
+  object->incrNextSenderMsgSeqNum();                    \
+  CHECK_EQUAL( 11, object->getNextSenderMsgSeqNum() );  \
+  object->incrNextTargetMsgSeqNum();                    \
+  CHECK_EQUAL( 21, object->getNextTargetMsgSeqNum() );  \
+                                                        \
+  object->setNextSenderMsgSeqNum( 5 );                  \
+  object->setNextTargetMsgSeqNum( 6 );
 
-  class setGet : public Test
-  {
-  public:
-    bool onSetup( MessageStore*& pObject )
-    { pObject = &( *m_object ); pObject->reset(); return true; }
-    void onRun( MessageStore& object );
-    MessageStore* m_object;
-  };
+// use same session from previous test
+#define CHECK_MESSAGE_STORE_RELOAD                      \
+  CHECK_EQUAL( 5, object->getNextSenderMsgSeqNum() );   \
+  CHECK_EQUAL( 6, object->getNextTargetMsgSeqNum() );
 
-  class setGetWithQuote : public Test
-  {
-  public:
-    bool onSetup( MessageStore*& pObject )
-    { pObject = &( *m_object ); pObject->reset(); return true; }
-    void onRun( MessageStore& object );
-    MessageStore* m_object;
-  };
-
-  class other : public Test
-  {
-  public:
-    bool onSetup( MessageStore*& pObject )
-    { pObject = &( *m_object ); pObject->reset(); return true; }
-    void onRun( MessageStore& object );
-    MessageStore* m_object;
-  };
-
-  class reload : public Test
-  {
-  public:
-    bool onSetup( MessageStore*& pObject )
-    { pObject = &( *m_object ); return true; }
-    void onRun( MessageStore& object );
-    MessageStore* m_object;
-  };
-
-  class refresh : public Test
-  {
-  public:
-    bool onSetup( MessageStore*& pObject )
-    { pObject = &( *m_object ); return true; }
-    void onRun( MessageStore& object );
-    MessageStore* m_object;
-  };
-};
-}
-
-#endif //FIX_MESSAGESTORETESTCASE_H
+// use same session from previous test
+#define CHECK_MESSAGE_STORE_REFRESH                   \
+  object->refresh();                                  \
+  CHECK_EQUAL( 5, object->getNextSenderMsgSeqNum() ); \
+  CHECK_EQUAL( 6, object->getNextTargetMsgSeqNum() );
