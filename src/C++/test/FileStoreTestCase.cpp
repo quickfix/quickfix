@@ -37,7 +37,7 @@ SUITE(FileStoreTests)
 struct fileStoreFixture
 {
   fileStoreFixture( bool resetBefore, bool resetAfter )
-  : fileStoreFactory( "store" )
+  : factory( "store" )
   {
     if( resetBefore )
       deleteSession( "SETGET", "TEST" );
@@ -45,20 +45,20 @@ struct fileStoreFixture
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-    object = fileStoreFactory.create( sessionID );
+    object = factory.create( sessionID );
 
     this->resetAfter = resetAfter;
   }
 
   ~fileStoreFixture()
   {
-    fileStoreFactory.destroy( object );
+    factory.destroy( object );
 
     if( resetAfter )
       deleteSession( "SETGET", "TEST" );
   }
 
-  FileStoreFactory fileStoreFactory;
+  FileStoreFactory factory;
   MessageStore* object;
   bool resetAfter;
 };

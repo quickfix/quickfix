@@ -21,6 +21,43 @@
 #include <fix42/Heartbeat.h>
 #include <fix42/NewOrderSingle.h>
 #include <fix42/ExecutionReport.h>
+#include <SessionID.h>
+
+struct messageStoreFixture
+{
+  messageStoreFixture( bool resetBefore, bool resetAfter )
+  {
+    sessionID = FIX::SessionID( FIX::BeginString( "FIX.4.2" ),
+                                FIX::SenderCompID( "SETGET" ), FIX::TargetCompID( "TEST" ) );
+    if( resetBefore )
+      deleteSession( sessionID );
+
+    messageStoreFactory = createFactory();
+
+    object = messageStoreFactory->create( sessionID );
+
+    this->resetAfter = resetAfter;
+  }
+
+  virtual ~messageStoreFixture()
+  {
+    messageStoreFactory->destroy( object );
+
+    if( resetAfter )
+      deleteSession( sessionID );
+
+    destroyFactory( messageStoreFactory );
+  }
+
+  virtual FIX::MessageStoreFactory* createFactory() = 0;
+  virtual void destroyFactory( FIX::MessageStoreFactory* ) = 0;
+  virtual void deleteSession( const FIX::SessionID& sessionID ) = 0;
+
+  FIX::SessionID sessionID;
+  FIX::MessageStoreFactory* messageStoreFactory;
+  FIX::MessageStore* object;
+  bool resetAfter;
+};
 
 #define CHECK_MESSAGE_STORE_SET_GET                         \
   FIX42::Logon logon;                                       \

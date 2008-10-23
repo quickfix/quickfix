@@ -26,92 +26,76 @@
 
 #ifdef HAVE_MYSQL
 
-#include "MySQLStoreTestCase.h"
+#include <UnitTest++.h>
+#include <TestHelper.h>
+#include <MySQLStore.h>
+#include "MessageStoreTestCase.h"
 
-namespace FIX
+using namespace FIX;
+
+SUITE(MySQLStoreTests)
 {
-bool MySQLStoreTestCase::setGet::onSetup( MessageStore*& pObject )
+
+struct mySQLStoreFixture
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+  mySQLStoreFixture( bool reset )
+  {
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
+    object = factory.create( sessionID );
 
-  return true;
+    if( reset )
+      object->reset();
+
+    this->resetAfter = resetAfter;
+  }
+
+  ~mySQLStoreFixture()
+  {
+    factory.destroy( object );
+  }
+
+  MySQLStoreFactory factory;
+  MessageStore* object;
+  bool resetAfter;
+};
+
+struct noResetMySQLStoreFixture : mySQLStoreFixture
+{
+  noResetMySQLStoreFixture() : mySQLStoreFixture( false ) {}
+};
+
+struct resetMySQLStoreFixture : mySQLStoreFixture
+{
+  resetMySQLStoreFixture() : mySQLStoreFixture( true ) {}
+};
+
+TEST_FIXTURE(resetMySQLStoreFixture, setGet)
+{
+  CHECK_MESSAGE_STORE_SET_GET;
 }
 
-void MySQLStoreTestCase::setGet::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(resetMySQLStoreFixture, setGetWithQuote)
 {
-  m_factory.destroy( pObject );
+  CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-bool MySQLStoreTestCase::other::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(resetMySQLStoreFixture, other)
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
-
-  return true;
+  CHECK_MESSAGE_STORE_OTHER
 }
 
-bool MySQLStoreTestCase::setGetWithQuote::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(noResetMySQLStoreFixture, reload)
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
-
-  return true;
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-void MySQLStoreTestCase::setGetWithQuote::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(noResetMySQLStoreFixture, refresh)
 {
-  m_factory.destroy( pObject );
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-void MySQLStoreTestCase::other::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
-}
-
-bool MySQLStoreTestCase::reload::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void MySQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
-}
-
-bool MySQLStoreTestCase::refresh::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void MySQLStoreTestCase::refresh::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
-}
 }
 
 #endif
