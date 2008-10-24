@@ -319,6 +319,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\C++\test\StringUtilitiesTestCase.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\C++\test\TestHelper.cpp"
 				>
 			</File>
@@ -343,6 +347,10 @@
 			Name="Header Files"
 			Filter="h;hpp;hxx;hm;inl"
 			>
+			<File
+				RelativePath=".\C++\test\MessagesTestCase.h"
+				>
+			</File>
 			<File
 				RelativePath=".\C++\test\TestHelper.h"
 				>
