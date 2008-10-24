@@ -26,92 +26,76 @@
 
 #ifdef HAVE_POSTGRESQL
 
-#include "PostgreSQLStoreTestCase.h"
+#include <UnitTest++.h>
+#include <TestHelper.h>
+#include <PostgreSQLStore.h>
+#include "MessageStoreTestCase.h"
 
-namespace FIX
+using namespace FIX;
+
+SUITE(PostgreSQLStoreTests)
 {
-bool PostgreSQLStoreTestCase::setGet::onSetup( MessageStore*& pObject )
+
+struct postgreSQLStoreFixture
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
+  postgreSQLStoreFixture( bool reset )
+  {
+    SessionID sessionID( BeginString( "FIX.4.2" ),
+                         SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
+    object = factory.create( sessionID );
 
-  return true;
+    if( reset )
+      object->reset();
+
+    this->resetAfter = resetAfter;
+  }
+
+  ~postgreSQLStoreFixture()
+  {
+    factory.destroy( object );
+  }
+
+  PostgreSQLStoreFactory factory;
+  MessageStore* object;
+  bool resetAfter;
+};
+
+struct noResetPostgreSQLStoreFixture : postgreSQLStoreFixture
+{
+  noResetPostgreSQLStoreFixture() : postgreSQLStoreFixture( false ) {}
+};
+
+struct resetPostgreSQLStoreFixture : postgreSQLStoreFixture
+{
+  resetPostgreSQLStoreFixture() : postgreSQLStoreFixture( true ) {}
+};
+
+TEST_FIXTURE(resetPostgreSQLStoreFixture, setGet)
+{
+  CHECK_MESSAGE_STORE_SET_GET;
 }
 
-void PostgreSQLStoreTestCase::setGet::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(resetPostgreSQLStoreFixture, setGetWithQuote)
 {
-  m_factory.destroy( pObject );
+  CHECK_MESSAGE_STORE_SET_GET_WITH_QUOTE;
 }
 
-bool PostgreSQLStoreTestCase::setGetWithQuote::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(resetPostgreSQLStoreFixture, other)
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
-
-  return true;
+  CHECK_MESSAGE_STORE_OTHER
 }
 
-void PostgreSQLStoreTestCase::setGetWithQuote::onTeardown( MessageStore* pObject )
+TEST_FIXTURE(noResetPostgreSQLStoreFixture, reload)
 {
-  m_factory.destroy( pObject );
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-bool PostgreSQLStoreTestCase::other::onSetup( MessageStore*& pObject )
+TEST_FIXTURE(noResetPostgreSQLStoreFixture, refresh)
 {
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-  pObject->reset();
-
-  return true;
+  CHECK_MESSAGE_STORE_RELOAD
 }
 
-void PostgreSQLStoreTestCase::other::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
 }
 
-bool PostgreSQLStoreTestCase::reload::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void PostgreSQLStoreTestCase::reload::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
-}
-
-bool PostgreSQLStoreTestCase::refresh::onSetup( MessageStore*& pObject )
-{
-  SessionID sessionID( BeginString( "FIX.4.2" ),
-                       SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
-
-  m_object = m_factory.create( sessionID );
-  pObject = &( *m_object );
-
-  return true;
-}
-
-void PostgreSQLStoreTestCase::refresh::onTeardown( MessageStore* pObject )
-{
-  m_factory.destroy( pObject );
-}
-} //namespace FIX
-
-#endif //HAVE_POSTGRESQL
+#endif
