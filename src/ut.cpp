@@ -36,16 +36,12 @@
 #include <FileLogTestCase.cpp>
 #include <FileStoreFactoryTestCase.cpp>
 #include <FileStoreTestCase.cpp>
-#include <FileStoreTestCase.h>
 #include <FileUtilitiesTestCase.cpp>
 #include <HttpMessageTestCase.cpp>
 #include <HttpParserTestCase.cpp>
 #include <MemoryStoreTestCase.cpp>
-#include <MemoryStoreTestCase.h>
 #include <MessageSortersTestCase.cpp>
 #include <MessagesTestCase.cpp>
-#include <MessageStoreTestCase.cpp>
-#include <MessageStoreTestCase.h>
 #include <MySQLStoreTestCase.cpp>
 #include <MySQLStoreTestCase.h>
 #include <NullStoreTestCase.cpp>

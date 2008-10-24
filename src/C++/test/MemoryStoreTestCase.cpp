@@ -24,7 +24,8 @@
 #include "config.h"
 #endif
 
-#include "MemoryStoreTestCase.h"
+#include <UnitTest++.h>
+#include <MessageStore.h>
 
 namespace FIX
 {

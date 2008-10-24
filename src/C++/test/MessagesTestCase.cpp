@@ -952,7 +952,7 @@ TEST(orderStatusRequestSetString)
 
 TEST(newOrderListGetString)
 {
-  NewOrderList object;
+  FIX42::NewOrderList object;
 
   object.set( ListID( "1" ) );
   object.set( BidType( 0 ) );
@@ -987,7 +987,7 @@ TEST(newOrderListGetString)
 
 TEST(newOrderListSetString)
 {
-  NewOrderList object;
+  FIX42::NewOrderList object;
 
   DataDictionary dataDictionary( "../spec/FIX42.xml" );
   try

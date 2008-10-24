@@ -9,6 +9,7 @@ libquickfixcpptest_la_SOURCES = \
 	FieldConvertorsTestCase.cpp \
 	FileLogTestCase.cpp \
 	FileStoreFactoryTestCase.cpp \
+	FileStoreTestCase.cpp \
 	FileUtilitiesTestCase.cpp \
 	HttpMessageTestCase.cpp \
 	HttpParserTestCase.cpp \
