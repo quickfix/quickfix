@@ -2,12 +2,14 @@
 #define FIX_TEST_HELPER_H
 
 #include <Application.h>
+#include <SessionSettings.h>
 
 namespace FIX
 {
 struct TestSettings
 {
   static short port;
+  static FIX::SessionSettings sessionSettings;
 };
 
 class TestApplication : public NullApplication

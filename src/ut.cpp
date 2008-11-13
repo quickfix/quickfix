@@ -43,11 +43,8 @@
 #include <MessageSortersTestCase.cpp>
 #include <MessagesTestCase.cpp>
 #include <MySQLStoreTestCase.cpp>
-#include <MySQLStoreTestCase.h>
 #include <NullStoreTestCase.cpp>
-#include <NullStoreTestCase.h>
 #include <OdbcStoreTestCase.cpp>
-#include <OdbcStoreTestCase.h>
 #include <ParserTestCase.cpp>
 #include <PostgreSQLStoreTestCase.cpp>
 #include <SessionIDTestCase.cpp>
@@ -78,9 +75,6 @@ int main( int argc, char** argv )
 {
   CPPTest::TestDisplay * display;
 
-  short port = 0;
-  std::auto_ptr<FIX::SessionSettings> sessionSettingsPtr;
-
   if( argc != 5 )
   {
     print_usage( argv );
@@ -96,8 +90,7 @@ int main( int argc, char** argv )
       FIX::TestSettings::port = (short)atol( optarg );
       break;
     case 'f':
-      sessionSettingsPtr = std::auto_ptr<FIX::SessionSettings>
-        ( new FIX::SessionSettings(optarg) );
+      FIX::TestSettings::sessionSettings = FIX::SessionSettings(optarg);
       break;
     default:
       print_usage( argv );

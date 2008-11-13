@@ -69,8 +69,8 @@ public:
   }
 
   MySQLStoreFactory( const std::string& database, const std::string& user,
-                          const std::string& password, const std::string& host,
-                          short port )
+                     const std::string& password, const std::string& host,
+                     short port )
 : m_database( database ), m_user( user ), m_password( password ), m_host( host ), m_port( port ),
   m_useSettings( false ), m_useDictionary( false ) 
   {

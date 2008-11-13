@@ -39,11 +39,20 @@ SUITE(PostgreSQLStoreTests)
 struct postgreSQLStoreFixture
 {
   postgreSQLStoreFixture( bool reset )
+  : factory( TestSettings::sessionSettings.get() )
   {
     SessionID sessionID( BeginString( "FIX.4.2" ),
                          SenderCompID( "SETGET" ), TargetCompID( "TEST" ) );
 
-    object = factory.create( sessionID );
+    try
+    {
+      object = factory.create( sessionID );
+    }
+    catch( std::exception& e )
+    {
+      std::cerr << e.what() << std::endl;
+      throw;
+    }
 
     if( reset )
       object->reset();
