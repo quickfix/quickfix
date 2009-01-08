@@ -52,6 +52,13 @@ class DataDictionary
 		fieldName.split(" (")[0].split("(")[0].strip
 	end
 
+	def toMessageName( messageName )
+		messageName = messageName.split("(")[0].delete("& -/’")
+		return "NewOrderSingle" if messageName == "OrderSingle"
+		return "NewOrderList" if messageName == "OrderList"
+		return messageName
+	end
+
 	def toDescription( description )
 		return "" if description == nil
 		old = description.clone
@@ -124,7 +131,7 @@ class DataDictionary
 		@msgTypeDoc.elements["dataroot"].elements.each("MsgType") { |msgTypeElement|
 			msgId = msgTypeElement.elements["MsgID"].text.to_i
 			msgType = msgTypeElement.elements["MsgType"].text
-			messageName = msgTypeElement.elements["MessageName"].text
+			messageName = toMessageName(msgTypeElement.elements["MessageName"].text)
 			componentType = msgTypeElement.elements["ComponentType"].text
 			category = msgTypeElement.elements["Category"].text
 
