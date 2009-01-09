@@ -135,6 +135,8 @@ class DataDictionary
 			componentType = msgTypeElement.elements["ComponentType"].text
 			category = msgTypeElement.elements["Category"].text
 
+#			next if messageName != "NewOrderList"
+
 			category = category == "Session" ? "admin" : "app"
 
 			msgTypeHash = Hash.new
@@ -224,17 +226,28 @@ class DataDictionary
 
 			queue = Array.new
 			queue.push( messageElement )
+			nextIndent = 0
+			lastIndent = 0
 
 			msgContentsArray.each_index { |index|
 				tag = msgContentsArray[index][0]
 				name = msgContentsArray[index][1]
 				indent = msgContentsArray[index][2]
-				nextIndent = indent if nextIndent = nil
 				required = msgContentsArray[index][3]
-
 				nextIndent = msgContentsArray[index+1][2] if msgContentsArray[index+1] != nil
 
-				fieldElement = messageElement.add_element( "field", "name" => name, "required" => required )
+				if( indent < lastIndent )
+					queue.pop
+				end
+
+				if( nextIndent > indent )
+					groupElement = queue.last.add_element( "group", "name" => name )
+					queue.push( groupElement )
+					lastIndent = indent
+					next
+				end
+
+				fieldElement = queue.last.add_element( "field", "name" => name, "required" => required )
 				lastIndent = indent
 			}
 		}
