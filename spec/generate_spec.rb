@@ -19,6 +19,7 @@ class DataDictionary
 		@tagToEnum = Hash.new
 		@msgIdToMsgType = Hash.new
 		@msgIdToMsgContents = Hash.new
+		@componentNameToMsgId = Hash.new
 
 		parseDictionary
 		printDictionary
@@ -168,11 +169,20 @@ class DataDictionary
 		}
 	end
 
+	def parseComponents
+		@componentsDoc.elements["dataroot"].elements.each("Components") { |componentsElement|
+			msgId = componentsElement.elements["MsgID"].text.to_i
+			name = componentsElement.elements["ComponentName"].text
+			@componentNameToMsgId[ name ] = msgId
+		}	
+	end
+
 	def parseDictionary
 		parseFields
 		parseEnums
 		parseMsgType
 		parseMsgContents
+		parseComponents
 	end
 
 	def printVersion
@@ -224,41 +234,59 @@ class DataDictionary
 
 			messageElement = messagesElement.add_element( "message", { "name" => name, "msgtype" => msgtype, "msgcat" => msgcat } )
 
-			queue = Array.new
-			queue.push( messageElement )
-			nextIndent = 0
-			lastIndent = 0
-
-			msgContentsArray.each_index { |index|
-				tag = msgContentsArray[index][0]
-				name = msgContentsArray[index][1]
-				indent = msgContentsArray[index][2]
-				required = msgContentsArray[index][3]
-				nextIndent = msgContentsArray[index+1][2] if msgContentsArray[index+1] != nil
-
-				if( indent < lastIndent )
-					queue.pop
-				end
-
-				if( nextIndent > indent )
-					groupElement = queue.last.add_element( "group", "name" => name )
-					queue.push( groupElement )
-					lastIndent = indent
-					next
-				end
-
-				fieldElement = queue.last.add_element( "field", "name" => name, "required" => required )
-				lastIndent = indent
-			}
+			printMsgContents( msgContentsArray, messageElement )	
 		}
+	end
+
+	def printMsgContents( msgContentsArray, messageElement )
+		queue = Array.new
+		queue.push( messageElement )
+		nextIndent = 0
+		lastIndent = 0
+
+		msgContentsArray.each_index { |index|
+			tag = msgContentsArray[index][0]
+			name = msgContentsArray[index][1]
+			indent = msgContentsArray[index][2]
+			required = msgContentsArray[index][3]
+			nextIndent = msgContentsArray[index+1][2] if msgContentsArray[index+1] != nil
+
+			if( indent < lastIndent )
+				queue.pop
+			end
+
+			if( nextIndent > indent )
+				groupElement = queue.last.add_element( "group", "name" => name )
+				queue.push( groupElement )
+				lastIndent = indent
+				next
+			end
+
+			fieldElement = queue.last.add_element( "field", "name" => name, "required" => required )
+			lastIndent = indent
+		}
+	end
+
+	def printHeader
+		headerElement = @fixElement.add_element( "header" )
+		msgContentsArray = @msgIdToMsgContents[@componentNameToMsgId["StandardHeader"]]
+		printMsgContents( msgContentsArray, headerElement ) 
+	end
+
+	def printTrailer
+		trailerElement = @fixElement.add_element( "trailer" )
+		msgContentsArray = @msgIdToMsgContents[@componentNameToMsgId["StandardTrailer"]]
+		printMsgContents( msgContentsArray, trailerElement ) 
 	end
 
 	def printDictionary
 		@fixElement = printVersion
+		printHeader
 		printMessages
+		printTrailer
 		printFields
 		@specDoc.write( @f, 1, false, true )
 	end
 end
 
-DataDictionary.new( 4, 2 )
+DataDictionary.new( 4, 0 )
