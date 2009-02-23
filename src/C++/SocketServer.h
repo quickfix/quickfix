@@ -38,13 +38,18 @@ namespace FIX
 struct SocketInfo
 {
   SocketInfo()
-  : m_socket( -1 ), m_port( 0 ), m_noDelay( false ) {}
-  SocketInfo( int socket, short port, bool noDelay )
-  : m_socket( socket ), m_port( port ), m_noDelay( noDelay ) {}
+  : m_socket( -1 ), m_port( 0 ), m_noDelay( false ),
+    m_sendBufSize( 0 ), m_rcvBufSize( 0 ) {}
+  
+  SocketInfo( int socket, short port, bool noDelay, int sendBufSize, int rcvBufSize )
+  : m_socket( socket ), m_port( port ), m_noDelay( noDelay ), 
+    m_sendBufSize( sendBufSize ), m_rcvBufSize( rcvBufSize ) {}
 
   int m_socket;
   short m_port;
   bool m_noDelay;
+  int m_sendBufSize;
+  int m_rcvBufSize;
 };
 
 /// Listens for and accepts incoming socket connections on a port.
@@ -55,8 +60,8 @@ public:
 
   SocketServer( int timeout = 0 );
 
-  int add( int port, bool reuse = false, bool noDelay = false )
-    throw( SocketException& );
+  int add( int port, bool reuse = false, bool noDelay = false, 
+           int sendBufSize = 0, int rcvBufSize = 0 ) throw( SocketException& );
   int accept( int socket );
   void close();
   bool block( Strategy& strategy, bool poll = 0, double timeout = 0.0 );

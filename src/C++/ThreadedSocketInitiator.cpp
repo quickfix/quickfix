@@ -35,8 +35,11 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   MessageStoreFactory& factory,
   const SessionSettings& settings ) throw( ConfigError )
 : Initiator( application, factory, settings ),
-  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false )
-{ socket_init(); }
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), 
+  m_sendBufSize( 0 ), m_rcvBufSize( 0 ) 
+{ 
+  socket_init(); 
+}
 
 ThreadedSocketInitiator::ThreadedSocketInitiator(
   Application& application,
@@ -44,7 +47,8 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
   const SessionSettings& settings,
   LogFactory& logFactory ) throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
-  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false )
+  m_lastConnect( 0 ), m_reconnectInterval( 30 ), m_noDelay( false ), 
+  m_sendBufSize( 0 ), m_rcvBufSize( 0 ) 
 { 
   socket_init(); 
 }
@@ -62,6 +66,10 @@ throw ( ConfigError )
   catch ( std::exception& ) {}
   if( s.get().has( SOCKET_NODELAY ) )
     m_noDelay = s.get().getBool( SOCKET_NODELAY );
+  if( s.get().has( SOCKET_SEND_BUFFER_SIZE ) )
+    m_sendBufSize = s.get().getLong( SOCKET_SEND_BUFFER_SIZE );
+  if( s.get().has( SOCKET_RECEIVE_BUFFER_SIZE ) )
+    m_rcvBufSize = s.get().getLong( SOCKET_RECEIVE_BUFFER_SIZE );
 
   QF_STACK_POP
 }
@@ -149,6 +157,13 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
     getHost( s, d, address, port );
 
     int socket = socket_createConnector();
+    if( m_noDelay )
+      socket_setsockopt( socket, TCP_NODELAY );
+    if( m_sendBufSize )
+      socket_setsockopt( socket, SO_SNDBUF, m_sendBufSize );
+    if( m_rcvBufSize )
+      socket_setsockopt( socket, SO_RCVBUF, m_rcvBufSize );
+
     setPending( s );
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
 

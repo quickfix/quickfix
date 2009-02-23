@@ -36,7 +36,10 @@ SocketInitiator::SocketInitiator( Application& application,
 throw( ConfigError )
 : Initiator( application, factory, settings ),
   m_connector( 1 ), m_lastConnect( 0 ),
-  m_reconnectInterval( 30 ), m_noDelay( false ) {}
+  m_reconnectInterval( 30 ), m_noDelay( false ), m_sendBufSize( 0 ),
+  m_rcvBufSize( 0 ) 
+{
+}
 
 SocketInitiator::SocketInitiator( Application& application,
                                   MessageStoreFactory& factory,
@@ -45,7 +48,8 @@ SocketInitiator::SocketInitiator( Application& application,
 throw( ConfigError )
 : Initiator( application, factory, settings, logFactory ),
   m_connector( 1 ), m_lastConnect( 0 ),
-  m_reconnectInterval( 30 ), m_noDelay( false ) 
+  m_reconnectInterval( 30 ), m_noDelay( false ), m_sendBufSize( 0 ),
+  m_rcvBufSize( 0 )
 {
 }
 
@@ -69,6 +73,10 @@ throw ( ConfigError )
   catch ( std::exception& ) {}
   if( s.get().has( SOCKET_NODELAY ) )
     m_noDelay = s.get().getBool( SOCKET_NODELAY );
+  if( s.get().has( SOCKET_SEND_BUFFER_SIZE ) )
+    m_sendBufSize = s.get().getLong( SOCKET_SEND_BUFFER_SIZE );
+  if( s.get().has( SOCKET_RECEIVE_BUFFER_SIZE ) )
+    m_rcvBufSize = s.get().getLong( SOCKET_RECEIVE_BUFFER_SIZE );
 
   QF_STACK_POP
 }
@@ -143,7 +151,7 @@ void SocketInitiator::doConnect( const SessionID& s, const Dictionary& d )
     getHost( s, d, address, port );
 
     log->onEvent( "Connecting to " + address + " on port " + IntConvertor::convert((unsigned short)port) );
-    int result = m_connector.connect( address, port, m_noDelay );
+    int result = m_connector.connect( address, port, m_noDelay, m_sendBufSize, m_rcvBufSize );
     setPending( s );
 
     m_pendingConnections[ result ] 

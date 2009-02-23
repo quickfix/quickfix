@@ -46,6 +46,8 @@ struct receivePartialMessageFixture
       "ConnectionType=acceptor\n"
       "SocketAcceptPort=5000\n"
       "SocketReuseAddress=Y\n"
+      "SendBufferSize=1024\n"
+      "ReceiveBufferSize=1024\n"
       "StartTime=00:00:00\n"
       "EndTime=00:00:00\n"
       "UseDataDictionary=N\n"

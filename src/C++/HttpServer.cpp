@@ -81,7 +81,7 @@ throw ( RuntimeError )
   try
   {
     m_pServer = new SocketServer( 1 );
-    m_pServer->add( m_port, true, false );
+    m_pServer->add( m_port, true, false, 0, 0 );
   }
   catch( std::exception& )
   {

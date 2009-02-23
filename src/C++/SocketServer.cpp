@@ -107,7 +107,8 @@ private:
 SocketServer::SocketServer( int timeout )
 : m_monitor( timeout ) {}
 
-int SocketServer::add( int port, bool reuse, bool noDelay )
+int SocketServer::add( int port, bool reuse, bool noDelay, 
+                       int sendBufSize, int rcvBufSize )
   throw( SocketException& )
 {
   if( m_portToInfo.find(port) != m_portToInfo.end() )
@@ -118,9 +119,13 @@ int SocketServer::add( int port, bool reuse, bool noDelay )
     throw SocketException();
   if( noDelay )
     socket_setsockopt( socket, TCP_NODELAY );
+  if( sendBufSize )
+    socket_setsockopt( socket, SO_SNDBUF, sendBufSize );
+  if( rcvBufSize )
+    socket_setsockopt( socket, SO_RCVBUF, rcvBufSize );
   m_monitor.addRead( socket );
 
-  SocketInfo info( socket, port, noDelay );
+  SocketInfo info( socket, port, noDelay, sendBufSize, rcvBufSize );
   m_socketToInfo[socket] = info;
   m_portToInfo[port] = info;
   return socket;
@@ -134,6 +139,10 @@ int SocketServer::accept( int socket )
   int result = socket_accept( socket );
   if( info.m_noDelay )
     socket_setsockopt( result, TCP_NODELAY );
+  if( info.m_sendBufSize )
+    socket_setsockopt( result, SO_SNDBUF, info.m_sendBufSize );
+  if( info.m_rcvBufSize )
+    socket_setsockopt( result, SO_RCVBUF, info.m_rcvBufSize );
   if ( result >= 0 )
     m_monitor.addConnect( result );
   return result;

@@ -97,7 +97,8 @@ private:
 SocketConnector::SocketConnector( int timeout )
 : m_monitor( timeout ) {}
 
-int SocketConnector::connect( const std::string& address, int port, bool noDelay )
+int SocketConnector::connect( const std::string& address, int port, bool noDelay,
+                              int sendBufSize, int rcvBufSize )
 { QF_STACK_PUSH(SocketConnector::connect)
 
   int socket = socket_createConnector();
@@ -106,6 +107,10 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
   {
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
+    if( sendBufSize )
+      socket_setsockopt( socket, SO_SNDBUF, sendBufSize );
+    if( rcvBufSize )
+      socket_setsockopt( socket, SO_RCVBUF, rcvBufSize );
     m_monitor.addConnect( socket );
     socket_connect( socket, address.c_str(), port );
   }
@@ -114,11 +119,11 @@ int SocketConnector::connect( const std::string& address, int port, bool noDelay
   QF_STACK_POP
 }
 
-int SocketConnector::connect( const std::string& address, int port, bool noDelay,
-                              Strategy& strategy )
+int SocketConnector::connect( const std::string& address, int port, bool noDelay, 
+                              int sendBufSize, int rcvBufSize, Strategy& strategy )
 { QF_STACK_PUSH(SocketConnector::connect)
 
-  int socket = connect( address, port, noDelay );
+  int socket = connect( address, port, noDelay, sendBufSize, rcvBufSize );
   return socket;
 
   QF_STACK_POP

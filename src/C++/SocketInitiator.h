@@ -72,6 +72,8 @@ private:
   time_t m_lastConnect;
   int m_reconnectInterval;
   bool m_noDelay;
+  int m_sendBufSize;
+  int m_rcvBufSize;
   bool m_stop;
 };
 /*! @} */

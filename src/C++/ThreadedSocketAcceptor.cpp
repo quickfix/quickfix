@@ -76,9 +76,6 @@ throw ( RuntimeError )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::onInitialize)
 
   short port = 0;
-  bool reuseAddress = true;
-  bool noDelay = false;
-
   std::set<int> ports;
 
   std::set<SessionID> sessions = s.getSessions();
@@ -94,10 +91,17 @@ throw ( RuntimeError )
       continue;
     ports.insert( port );
 
-    if( settings.has( SOCKET_REUSE_ADDRESS ) )
-      reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
-    if( settings.has( SOCKET_NODELAY ) )
-      noDelay = s.get().getBool( SOCKET_NODELAY );
+    const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
+      s.get().getBool( SOCKET_REUSE_ADDRESS ) : true;
+
+    const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
+      s.get().getBool( SOCKET_NODELAY ) : false;
+
+    const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
+      s.get().getLong( SOCKET_SEND_BUFFER_SIZE ) : 0;
+
+    const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
+      s.get().getLong( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
     int socket = socket_createAcceptor( port, reuseAddress );
     if( socket < 0 )
@@ -109,6 +113,10 @@ throw ( RuntimeError )
     }
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
+    if( sendBufSize )
+      socket_setsockopt( socket, SO_SNDBUF, sendBufSize );
+    if( rcvBufSize )
+      socket_setsockopt( socket, SO_RCVBUF, rcvBufSize );
 
     m_socketToPort[socket] = port;
     m_sockets.insert( socket );
@@ -209,13 +217,21 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
   delete info;
 
   int noDelay = 0;
+  int sendBufSize = 0;
+  int rcvBufSize = 0;
   socket_getsockopt( s, TCP_NODELAY, noDelay );
+  socket_getsockopt( s, SO_SNDBUF, sendBufSize );
+  socket_getsockopt( s, SO_RCVBUF, rcvBufSize );
 
   int socket = 0;
   while ( ( !pAcceptor->isStopped() && ( socket = socket_accept( s ) ) >= 0 ) )
   {
     if( noDelay )
       socket_setsockopt( socket, TCP_NODELAY );
+    if( sendBufSize )
+      socket_setsockopt( socket, SO_SNDBUF, sendBufSize );
+    if( rcvBufSize )
+      socket_setsockopt( socket, SO_RCVBUF, rcvBufSize );
 
     Sessions sessions = pAcceptor->m_portToSessions[port];
 

@@ -224,16 +224,27 @@ bool socket_disconnected( int s )
 int socket_setsockopt( int s, int opt )
 { QF_STACK_PUSH(socket_setsockopt)
 
+#ifdef _MSC_VER
+  BOOL optval = TRUE;
+#else
+  int optval = 1;
+#endif
+  return socket_setsockopt( s, opt, optval );
+
+  QF_STACK_POP
+}
+
+int socket_setsockopt( int s, int opt, int optval )
+{ QF_STACK_PUSH(socket_setsockopt)
+
   int level = SOL_SOCKET;
   if( opt == TCP_NODELAY )
     level = IPPROTO_TCP;
 
 #ifdef _MSC_VER
-  BOOL optval = TRUE;
   return ::setsockopt( s, level, opt,
                        ( char* ) & optval, sizeof( optval ) );
 #else
-  int optval = 1;
   return ::setsockopt( s, level, opt,
                        &optval, sizeof( optval ) );
 #endif

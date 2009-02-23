@@ -113,6 +113,7 @@ void socket_close( int s );
 bool socket_fionread( int s, int& bytes );
 bool socket_disconnected( int s );
 int socket_setsockopt( int s, int opt );
+int socket_setsockopt( int s, int opt, int optval );
 int socket_getsockopt( int s, int opt, int& optval );
 #ifndef _MSC_VER
 int socket_fcntl( int s, int opt, int arg );

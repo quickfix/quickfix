@@ -78,8 +78,6 @@ throw ( RuntimeError )
 { QF_STACK_PUSH(SocketAcceptor::onInitialize)
 
   short port = 0;
-  bool reuseAddress = true;
-  bool noDelay = false;
 
   try
   {
@@ -90,15 +88,22 @@ throw ( RuntimeError )
     for( ; i != sessions.end(); ++i )
     {
       Dictionary settings = s.get( *i );
-      port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
+      short port = (short)settings.getLong( SOCKET_ACCEPT_PORT );
 
-      if( settings.has( SOCKET_REUSE_ADDRESS ) )
-        reuseAddress = s.get().getBool( SOCKET_REUSE_ADDRESS );
-      if( settings.has( SOCKET_NODELAY ) )
-        noDelay = s.get().getBool( SOCKET_NODELAY );
+      const bool reuseAddress = settings.has( SOCKET_REUSE_ADDRESS ) ? 
+        s.get().getBool( SOCKET_REUSE_ADDRESS ) : true;
+
+      const bool noDelay = settings.has( SOCKET_NODELAY ) ? 
+        s.get().getBool( SOCKET_NODELAY ) : false;
+
+      const int sendBufSize = settings.has( SOCKET_SEND_BUFFER_SIZE ) ?
+        s.get().getLong( SOCKET_SEND_BUFFER_SIZE ) : 0;
+
+      const int rcvBufSize = settings.has( SOCKET_RECEIVE_BUFFER_SIZE ) ?
+        s.get().getLong( SOCKET_RECEIVE_BUFFER_SIZE ) : 0;
 
       m_portToSessions[port].insert( *i );
-      m_pServer->add( port, reuseAddress, noDelay );      
+      m_pServer->add( port, reuseAddress, noDelay, sendBufSize, rcvBufSize );      
     }    
   }
   catch( SocketException& e )

@@ -42,7 +42,7 @@ TEST(accept)
   SocketConnector object;
   SocketServer server( 0 );
   int socket = server.add( TestSettings::port, true, true );
-  CHECK( object.connect( "127.0.0.1", TestSettings::port, false ) );
+  CHECK( object.connect( "127.0.0.1", TestSettings::port, false, 1024, 1024 ) );
   CHECK( server.accept(socket) );
 }
 
