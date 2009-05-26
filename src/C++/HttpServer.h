@@ -64,7 +64,7 @@ private:
 
   SocketServer* m_pServer;
   SessionSettings m_settings;
-  unsigned m_threadid;
+  size_t m_threadid;
   int m_port;
   bool m_stop;
 

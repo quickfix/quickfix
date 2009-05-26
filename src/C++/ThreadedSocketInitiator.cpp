@@ -174,7 +174,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
 
     {
       Locker l( m_mutex );
-      unsigned thread;
+      size_t thread;
       if ( thread_spawn( &socketThread, pair, thread ) )
       {
         addThread( socket, thread );
@@ -193,7 +193,7 @@ void ThreadedSocketInitiator::doConnect( const SessionID& s, const Dictionary& d
   QF_STACK_POP
 }
 
-void ThreadedSocketInitiator::addThread( int s, int t )
+void ThreadedSocketInitiator::addThread( int s, size_t t )
 { QF_STACK_PUSH(ThreadedSocketInitiator::addThread)
 
   Locker l(m_mutex);

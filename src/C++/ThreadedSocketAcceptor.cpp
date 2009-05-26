@@ -134,7 +134,7 @@ void ThreadedSocketAcceptor::onStart()
     Locker l( m_mutex );
     int port = m_socketToPort[*i];
     AcceptorThreadInfo* info = new AcceptorThreadInfo( this, *i, port );
-    unsigned thread;
+    size_t thread;
     thread_spawn( &socketAcceptorThread, info, thread );
     addThread( *i, thread );
   }
@@ -181,7 +181,7 @@ void ThreadedSocketAcceptor::onStop()
   QF_STACK_POP
 }
 
-void ThreadedSocketAcceptor::addThread( int s, int t )
+void ThreadedSocketAcceptor::addThread( int s, size_t t )
 { QF_STACK_PUSH(ThreadedSocketAcceptor::addThread)
 
   Locker l(m_mutex);
@@ -250,7 +250,7 @@ THREAD_PROC ThreadedSocketAcceptor::socketAcceptorThread( void* p )
       if( pAcceptor->getLog() )
         pAcceptor->getLog()->onEvent( stream.str() );
 
-      unsigned thread;
+      size_t thread;
       if ( !thread_spawn( &socketConnectionThread, info, thread ) )
         delete info;
       pAcceptor->addThread( socket, thread );

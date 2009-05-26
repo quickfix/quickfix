@@ -105,7 +105,7 @@ private:
   typedef std::set < SessionID > SessionIDs;
   typedef std::map < SessionID, Session* > Sessions;
 
-  unsigned m_threadid;
+  size_t m_threadid;
   Sessions m_sessions;
   SessionIDs m_sessionIDs;
   Application& m_application;
