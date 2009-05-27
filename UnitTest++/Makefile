@@ -82,6 +82,9 @@ $(test): $(lib) $(test_objects)
 clean:
 	-@$(RM) $(objects) $(test_objects) $(dependencies) $(test_dependencies) $(test) $(lib) 2> /dev/null
 
+install:
+
+
 %.o : %.cpp
 	@echo $<
 	@$(call make-depend,$<,$@,$(subst .o,.d,$@))
